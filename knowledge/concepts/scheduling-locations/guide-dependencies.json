@@ -1,0 +1,4387 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For version, roadmap, and release-caveat awareness, Group Scheduler and Status Board should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "23404f33688b9ffa28e1187bc8818f1141260d809fe313bbd8af24027d80d52f",
+      "claim_id": "claim:01ff9ed6a6b877b9f731",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
+      "source_record_ids": [
+        "rock_rocku:7e09b4c6a92264f6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
+          "timestamp": "06:59",
+          "timestamp_seconds": 419.0,
+          "title": "Group Scheduler and Status Board",
+          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Scheduled Transactions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "5d0a3b772329d3225ec849db095ce9e9d9cf2c06fad974e8b920985e39a50622",
+      "claim_id": "claim:0772c6dac6606362f1fc",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "giving-finance",
+        "scheduling-locations",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "687066c2cb8db69e18cc87cda8d65aac56ec72cdc7416df4fd246d024ebf0fa5",
+      "source_record_ids": [
+        "rock_rocku:cc6fb3df674b28c2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Scheduled Transactions",
+          "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying reporting, analytics, and measurement ideas from Product Grooming & the Giving Landscape, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "7d2b2c0a599171716fadda39d5ab8804e88fcb3a607b88e8ec82cacb114732f0",
+      "claim_id": "claim:0c31d43da1ea06728ca9",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "data-views-reports",
+        "giving-finance",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
+      "source_record_ids": [
+        "rock_podcast_rss:6b2614dc656c60bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
+          "timestamp": "02:21",
+          "timestamp_seconds": 141.3,
+          "title": "Product Grooming & the Giving Landscape",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For ministry process design, Person Preferences and Auto Schedule should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
+      "claim_id": "claim:10270a60fc64380cd39d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "people-families",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
+      "source_record_ids": [
+        "rock_rocku:2a863471e239f0b9"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Person Preferences and Auto Schedule",
+          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Group Location is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "d9a8fb052a7393e5576a80b2a96f1ded2bc9585b3b6b48f0e5b9ba5e2e1624d1",
+      "claim_id": "claim:162b50b245449650877f",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4c4b92debc46c8e09f5b7d21746b443d9d746dc1115b637cccbf57976aea4aab",
+      "source_record_ids": [
+        "rock_rocku:d0d7d71631f3f890"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Group Location",
+          "url": "https://community.rockrms.com/rocku/groups/group-location"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Locations RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
+      "claim_id": "claim:20180d84d33561850701",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e4103e545af53591fe13681a3c5f0fabb3d280c1d544366a65c38c045c9b75c4",
+      "source_record_ids": [
+        "rock_rocku:90ed168a3283ccaa"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/locations",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Locations",
+          "url": "https://community.rockrms.com/rocku/check-in/locations"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Group Location RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "df406abf0766ea0e0999e2b9b6af62fccb6ec04a159f552f93846b8542163ac8",
+      "claim_id": "claim:203bc3811bcc6f7af24f",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4c4b92debc46c8e09f5b7d21746b443d9d746dc1115b637cccbf57976aea4aab",
+      "source_record_ids": [
+        "rock_rocku:d0d7d71631f3f890"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-location",
+          "timestamp": "00:45",
+          "timestamp_seconds": 45.0,
+          "title": "Group Location",
+          "url": "https://community.rockrms.com/rocku/groups/group-location"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Person Preferences and Auto Schedule RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
+      "claim_id": "claim:273569623174af9b2460",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "people-families",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
+      "source_record_ids": [
+        "rock_rocku:2a863471e239f0b9"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Person Preferences and Auto Schedule",
+          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Product Grooming & the Giving Landscape is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, ministry process design, reporting, analytics, and measurement. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
+      "claim_hash": "4a2331ee45c861660f82cf88b32108154cfbbd84c8ea81dc16c7e96425796e2a",
+      "claim_id": "claim:2d57166dfa20c91564d0",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "data-views-reports",
+        "giving-finance",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
+      "source_record_ids": [
+        "rock_podcast_rss:6b2614dc656c60bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Product Grooming & the Giving Landscape",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Schedules RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
+      "claim_id": "claim:478537db6c6c72a01a23",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
+      "source_record_ids": [
+        "rock_rocku:aa94e8b3d8886a7a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/schedules",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Schedules",
+          "url": "https://community.rockrms.com/rocku/check-in/schedules"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Person Preferences and Auto Schedule is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
+      "claim_id": "claim:57298eb943d1acbad3ee",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "people-families",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
+      "source_record_ids": [
+        "rock_rocku:2a863471e239f0b9"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Person Preferences and Auto Schedule",
+          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For risk, governance, permissions, and policy review, Scheduled Transactions should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "d8ab8e3b22ffd0fbe667177bdb88f8478c7332f6c9040e945e505b56bea163d6",
+      "claim_id": "claim:5b59d0c1ed8cffb794c6",
+      "claim_tier": "routing_context_only",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "giving-finance",
+        "scheduling-locations",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "687066c2cb8db69e18cc87cda8d65aac56ec72cdc7416df4fd246d024ebf0fa5",
+      "source_record_ids": [
+        "rock_rocku:cc6fb3df674b28c2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
+          "timestamp": "01:04",
+          "timestamp_seconds": 64.52,
+          "title": "Scheduled Transactions",
+          "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Campuses is approved as a public-safe RockU training distillation for staff training and operational readiness, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "74d46fc99cc84705bfcef728e1437eaab27a48c93f974e57fbe859de30b3e05c",
+      "claim_id": "claim:765e97c1095c16a9a4bd",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3dc426690312378a6b4dd978361f31701a6df4db4a0c2a48a72dbde1a7173779",
+      "source_record_ids": [
+        "rock_rocku:f4d1879d32a182fe"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Campuses",
+          "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For staff training and operational readiness, Group Scheduler and Status Board should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "d1a8b4362de69191a2d67330520b54d30e14c1ffa055dea56b83632f7a0d38c4",
+      "claim_id": "claim:96bf5b217e3ab42f1544",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
+      "source_record_ids": [
+        "rock_rocku:7e09b4c6a92264f6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
+          "timestamp": "02:24",
+          "timestamp_seconds": 144.0,
+          "title": "Group Scheduler and Status Board",
+          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Campuses RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "2f3396337748f9a5c12c535a40c4b90262ff30aca432f701fc664fb946a56733",
+      "claim_id": "claim:a252f6b9f779ae33781a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3dc426690312378a6b4dd978361f31701a6df4db4a0c2a48a72dbde1a7173779",
+      "source_record_ids": [
+        "rock_rocku:f4d1879d32a182fe"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/core-concepts/campuses",
+          "timestamp": "01:15",
+          "timestamp_seconds": 75.0,
+          "title": "Campuses",
+          "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For ministry process design, Schedules should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
+      "claim_id": "claim:ae356a9d7df599b21ea2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
+      "source_record_ids": [
+        "rock_rocku:aa94e8b3d8886a7a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/schedules",
+          "timestamp": "03:30",
+          "timestamp_seconds": 210.48000000000002,
+          "title": "Schedules",
+          "url": "https://community.rockrms.com/rocku/check-in/schedules"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying ministry process design ideas from Product Grooming & the Giving Landscape, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "6addb4c2840348f8a88775986ead1c2354f1c7704fb998e9f478edd09e10ffef",
+      "claim_id": "claim:b2f31282c94920ff55aa",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "data-views-reports",
+        "giving-finance",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
+      "source_record_ids": [
+        "rock_podcast_rss:6b2614dc656c60bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
+          "timestamp": "04:40",
+          "timestamp_seconds": 280.40000000000003,
+          "title": "Product Grooming & the Giving Landscape",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For Rock operations and administration, Campuses should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "efcbfa582e7becbd38564b9ec5787bcaaddeeaecad34e1fdb08616b73a33850f",
+      "claim_id": "claim:b37636e7ad6ebd09a089",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3dc426690312378a6b4dd978361f31701a6df4db4a0c2a48a72dbde1a7173779",
+      "source_record_ids": [
+        "rock_rocku:f4d1879d32a182fe"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/core-concepts/campuses",
+          "timestamp": "00:26",
+          "timestamp_seconds": 26.0,
+          "title": "Campuses",
+          "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Schedules is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
+      "claim_id": "claim:b626c6ef85b2988091af",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
+      "source_record_ids": [
+        "rock_rocku:aa94e8b3d8886a7a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Schedules",
+          "url": "https://community.rockrms.com/rocku/check-in/schedules"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Scheduled Transactions is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "b930c693d90d7d5582c9d0ad924e5ce1b44efa7b746325eeaeb76cae807da6b1",
+      "claim_id": "claim:d8d346e564827b9ead2b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "giving-finance",
+        "scheduling-locations",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "687066c2cb8db69e18cc87cda8d65aac56ec72cdc7416df4fd246d024ebf0fa5",
+      "source_record_ids": [
+        "rock_rocku:cc6fb3df674b28c2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Scheduled Transactions",
+          "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "the Product Grooming & the Giving Landscape episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
+      "claim_hash": "12ddd3457799437d9a815d8ef89237bc4853c017cefa75c6a54a644152b0b353",
+      "claim_id": "claim:e42b0edf071d6f51a5d2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "data-views-reports",
+        "giving-finance",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
+      "source_record_ids": [
+        "rock_podcast_rss:6b2614dc656c60bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
+          "timestamp": "01:31",
+          "timestamp_seconds": 91.06,
+          "title": "Product Grooming & the Giving Landscape",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Group Scheduler and Status Board RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "925e6b7b449e8ea703758dbe3605d988384fdbc4f9fcafa9d3537b0bd75e253f",
+      "claim_id": "claim:e76ced6026d1e165795e",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
+      "source_record_ids": [
+        "rock_rocku:7e09b4c6a92264f6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
+          "timestamp": "05:57",
+          "timestamp_seconds": 357.0,
+          "title": "Group Scheduler and Status Board",
+          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Locations is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
+      "claim_id": "claim:e8bfb77009f754c3faa1",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e4103e545af53591fe13681a3c5f0fabb3d280c1d544366a65c38c045c9b75c4",
+      "source_record_ids": [
+        "rock_rocku:90ed168a3283ccaa"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Locations",
+          "url": "https://community.rockrms.com/rocku/check-in/locations"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Group Scheduler and Status Board is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "392b914d667f2f191862e5bebc2d5f9867e5b153b9d5a110e89e87c4ea91ba70",
+      "claim_id": "claim:fc39b9c1c14db6752b48",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
+      "source_record_ids": [
+        "rock_rocku:7e09b4c6a92264f6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Group Scheduler and Status Board",
+          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:01ff9ed6a6b877b9f731": "23404f33688b9ffa28e1187bc8818f1141260d809fe313bbd8af24027d80d52f",
+    "claim:0772c6dac6606362f1fc": "5d0a3b772329d3225ec849db095ce9e9d9cf2c06fad974e8b920985e39a50622",
+    "claim:0c31d43da1ea06728ca9": "7d2b2c0a599171716fadda39d5ab8804e88fcb3a607b88e8ec82cacb114732f0",
+    "claim:10270a60fc64380cd39d": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
+    "claim:162b50b245449650877f": "d9a8fb052a7393e5576a80b2a96f1ded2bc9585b3b6b48f0e5b9ba5e2e1624d1",
+    "claim:20180d84d33561850701": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
+    "claim:203bc3811bcc6f7af24f": "df406abf0766ea0e0999e2b9b6af62fccb6ec04a159f552f93846b8542163ac8",
+    "claim:273569623174af9b2460": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
+    "claim:2d57166dfa20c91564d0": "4a2331ee45c861660f82cf88b32108154cfbbd84c8ea81dc16c7e96425796e2a",
+    "claim:478537db6c6c72a01a23": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
+    "claim:57298eb943d1acbad3ee": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
+    "claim:5b59d0c1ed8cffb794c6": "d8ab8e3b22ffd0fbe667177bdb88f8478c7332f6c9040e945e505b56bea163d6",
+    "claim:765e97c1095c16a9a4bd": "74d46fc99cc84705bfcef728e1437eaab27a48c93f974e57fbe859de30b3e05c",
+    "claim:96bf5b217e3ab42f1544": "d1a8b4362de69191a2d67330520b54d30e14c1ffa055dea56b83632f7a0d38c4",
+    "claim:a252f6b9f779ae33781a": "2f3396337748f9a5c12c535a40c4b90262ff30aca432f701fc664fb946a56733",
+    "claim:ae356a9d7df599b21ea2": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
+    "claim:b2f31282c94920ff55aa": "6addb4c2840348f8a88775986ead1c2354f1c7704fb998e9f478edd09e10ffef",
+    "claim:b37636e7ad6ebd09a089": "efcbfa582e7becbd38564b9ec5787bcaaddeeaecad34e1fdb08616b73a33850f",
+    "claim:b626c6ef85b2988091af": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
+    "claim:d8d346e564827b9ead2b": "b930c693d90d7d5582c9d0ad924e5ce1b44efa7b746325eeaeb76cae807da6b1",
+    "claim:e42b0edf071d6f51a5d2": "12ddd3457799437d9a815d8ef89237bc4853c017cefa75c6a54a644152b0b353",
+    "claim:e76ced6026d1e165795e": "925e6b7b449e8ea703758dbe3605d988384fdbc4f9fcafa9d3537b0bd75e253f",
+    "claim:e8bfb77009f754c3faa1": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
+    "claim:fc39b9c1c14db6752b48": "392b914d667f2f191862e5bebc2d5f9867e5b153b9d5a110e89e87c4ea91ba70"
+  },
+  "approved_claims_hash": "ae8f87290f6c533faf80b2dd179e8a3c3140317c273469c89b8b68dfff1cf94c",
+  "approved_claims_path": "knowledge/concepts/scheduling-locations/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "content_hash": "0c10674ee5b24dc9e02e62ad6c1732c797776890df4076ca38e6121a8ef36a47",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:61af1407e6153473",
+      "public_promotion_id": "media-public-promotion:0c10674ee5b24dc9",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:61af1407e6153473",
+      "source_title": "Locations Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/check-in/locations"
+    },
+    {
+      "approved_concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "content_hash": "bf1194b6a7e21f91b096ef26ba38bd5d703fa19839acf78363e220506b86277b",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:bcba31d4beb5a53b",
+      "public_promotion_id": "media-public-promotion:bf1194b6a7e21f91",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:bcba31d4beb5a53b",
+      "source_title": "Group Location Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/groups/group-location"
+    },
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "content_hash": "f81129510606d429a4ea1ef73b37b61f404edeb699fab0f4c962f90bf7bc7899",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:70fee5b08ce0f4f2",
+      "public_promotion_id": "media-public-promotion:f81129510606d429",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:70fee5b08ce0f4f2",
+      "source_title": "Schedules Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/check-in/schedules"
+    },
+    {
+      "approved_concept_ids": [
+        "groups",
+        "people-families",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "content_hash": "ab0503e5435211ad44c9408cddecc8e95149728de3da868f448b75747d5fd99c",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:97d2378d55d23ad1",
+      "public_promotion_id": "media-public-promotion:ab0503e5435211ad",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:97d2378d55d23ad1",
+      "source_title": "Person Preferences and Auto Schedule Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+    },
+    {
+      "approved_concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "workflows"
+      ],
+      "content_hash": "4d044a4c4fbef97b1620715bc718f91ec1dccce92a77e832e4985c4c34bb7352",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:f0ede8a57e3ed4ac",
+      "public_promotion_id": "media-public-promotion:4d044a4c4fbef97b",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:f0ede8a57e3ed4ac",
+      "source_title": "Group Scheduler and Status Board Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+    },
+    {
+      "approved_concept_ids": [
+        "giving-finance",
+        "scheduling-locations",
+        "security-permissions",
+        "workflows"
+      ],
+      "content_hash": "e95863480143e478a9f9a53d7e7248381c37f04efeade1ca696e5c2c2b87926b",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:c28fc8fb8212eae5",
+      "public_promotion_id": "media-public-promotion:e95863480143e478",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:c28fc8fb8212eae5",
+      "source_title": "Scheduled Transactions Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+    },
+    {
+      "approved_concept_ids": [
+        "scheduling-locations",
+        "workflows"
+      ],
+      "content_hash": "743d5e86ef84d29e0f50cd457be2a88b6b42906f97adba165c02e096a4fa7795",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:3412bc01ca2880c8",
+      "public_promotion_id": "media-public-promotion:743d5e86ef84d29e",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:3412bc01ca2880c8",
+      "source_title": "Campuses Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "giving-finance",
+        "scheduling-locations"
+      ],
+      "content_hash": "82b439381e7f78a97be8f3f7b68a2d34d156a17ac6a037029bbd381898127812",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:457020f0b7d8dd97",
+      "public_promotion_id": "media-public-promotion:82b439381e7f78a9",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:457020f0b7d8dd97",
+      "source_title": "Product Grooming & the Giving Landscape | Ep 205 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:3412bc01ca2880c8": "743d5e86ef84d29e0f50cd457be2a88b6b42906f97adba165c02e096a4fa7795",
+    "media-insight:457020f0b7d8dd97": "82b439381e7f78a97be8f3f7b68a2d34d156a17ac6a037029bbd381898127812",
+    "media-insight:61af1407e6153473": "0c10674ee5b24dc9e02e62ad6c1732c797776890df4076ca38e6121a8ef36a47",
+    "media-insight:70fee5b08ce0f4f2": "f81129510606d429a4ea1ef73b37b61f404edeb699fab0f4c962f90bf7bc7899",
+    "media-insight:97d2378d55d23ad1": "ab0503e5435211ad44c9408cddecc8e95149728de3da868f448b75747d5fd99c",
+    "media-insight:bcba31d4beb5a53b": "bf1194b6a7e21f91b096ef26ba38bd5d703fa19839acf78363e220506b86277b",
+    "media-insight:c28fc8fb8212eae5": "e95863480143e478a9f9a53d7e7248381c37f04efeade1ca696e5c2c2b87926b",
+    "media-insight:f0ede8a57e3ed4ac": "4d044a4c4fbef97b1620715bc718f91ec1dccce92a77e832e4985c4c34bb7352"
+  },
+  "approved_media_hash": "3b2b431c4f9cc02db500578c068efe5261b568eba0275fe44dd9b306b0eaa21b",
+  "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
+  "built_at": "2026-06-12T09:21:22+00:00",
+  "concept_id": "scheduling-locations",
+  "guide_hash": "1be9402f90dc6fb4185367a53d63b6ad4c94d912a67f3189e2acb81779095c00",
+  "guide_line_count": 1211,
+  "guide_path": "knowledge/concepts/scheduling-locations/guide.md",
+  "guide_word_count": 11458,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": "1339b7ab8fb1366371147bb057629a212c146f556fded76865fb05cd017fcfd2",
+      "excerpt_hash": "e47427867debec45d1728835be211225151e899bb5298238e2586e2c77d0a4d4",
+      "source_id": "rock_documentation",
+      "source_key": "ca9bd2a7c1a46e9c",
+      "source_record_id": "rock_documentation:ca9bd2a7c1a46e9c",
+      "url": "https://community.rockrms.com/documentation/bookcontent/42"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ee4ab82ecbf9cb7986fce214cf71ff93bc726c92afa29fd909c352a48b0df9cc",
+      "excerpt_hash": "b581b80fe7d2f7fc153563391737e09381f106c5c09d13aacb90cdc523adac30",
+      "source_id": "rock_documentation",
+      "source_key": "2e737fcc6a7c59c1",
+      "source_record_id": "rock_documentation:2e737fcc6a7c59c1",
+      "url": "https://community.rockrms.com/documentation/bookcontent/10/266"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "502d1d840eaf7c1dceb811d52d7518d0d5cbc36d6771360e89a119704f1638b6",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "source_id": "rock_developer",
+      "source_key": "47d5a6318fb5fef4",
+      "source_record_id": "rock_developer:47d5a6318fb5fef4",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "98dc0002d096079bf976268e15dd2edfc4a1fc5c2f749a7d5730a0bf31af9bbf",
+      "excerpt_hash": "57ba30bfa87abf4f459a50f99046afffa7e1123e06b69fa72a32ca5d0a8d2650",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f8521ff4123c52c4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/CheckIn/CheckInGroupLocationSchedule.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/CheckInGroupLocationSchedule.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "4fb507ce7577e5059d6b69fb225d935eeff553efd9e58416970d5b0b5d37aa88",
+      "excerpt_hash": "f9795e052a2bda7fe3eed41d279606e19e968e696f5d19cff2e43f6743e05b5b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "eaef6723bbed3067",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "e7f6c7c0608094f3fb67dbff38b8952924a406b322ead7a8dafca3d0f7f7d72f",
+      "excerpt_hash": "f75cd2c1089935285712d30c0c38870fa8abbd1c09b2245c48989810515ea4e9",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:c231bac171db66f2",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7e91e425650925824fc7398f96f5a0fdf6602ef28b6ed15043b306cf9b4888e4",
+      "excerpt_hash": "4ba1f5c7c085473519ed245cba341ef7e5146d3700ac779b00e0fead34915032",
+      "source_id": "rock_developer",
+      "source_key": "e4041265ea398ac0",
+      "source_record_id": "rock_developer:e4041265ea398ac0",
+      "url": "https://community.rockrms.com/lava/commands/calendar-events"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "4e977c3c2347e6d40fefe8516f02831ca355a38f3ad88996b6dd46348c2f483f",
+      "excerpt_hash": "96b6e1080af6eaa9453e6a1d2cafbe477d41f93d3f0fa56c57c6ecddc1aed65c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "62acf4fa5182958b",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Populate_LocationsAndGroupSchedules.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_LocationsAndGroupSchedules.sql"
+    },
+    {
+      "authority": "official",
+      "content_hash": "a091ec53f3c19188e3f7c0f8250d4a4e6133347eb731889f2699cce999e12a09",
+      "excerpt_hash": "fd283bb962ea6ae835265c0d7667eeb015bd97bd655c5c0de55e25121a26d30b",
+      "source_id": "rock_documentation",
+      "source_key": "324c7412fbbf81eb",
+      "source_record_id": "rock_documentation:324c7412fbbf81eb",
+      "url": "https://community.rockrms.com/documentation/bookcontent/7/296"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "2353fcf13429ba977e9067a7c8e577e8263fd2f67e4c693045620a86ed40c482",
+      "excerpt_hash": "803a100610552f94cbdb133fcf5f82284d0c60af4973368fe3d83fe77883493f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "6f0f21989434ef17",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/View_GroupLocationSchedules.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "5efafab45e4007eab71ef2c88220142411a038bfe42adcbfd64e6f01f559f56e",
+      "excerpt_hash": "de93217fdac79e8495954a7e31c4f22b480418252810d624aef75963014e3c85",
+      "source_id": "rock_recipes",
+      "source_key": "e388dcef91a5e571",
+      "source_record_id": "rock_recipes:e388dcef91a5e571",
+      "url": "https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "33994ad542bdc3d4fc44bb012ab604d93d2412ce6b7789bd9f4062c92fd4eeb9",
+      "excerpt_hash": "45ced8da854632f114aac5a83185e06e5f484129968f54a77fd3bd92df988f0a",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4bcd4d6f854645e8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "8d37806d26dffbb362088f621b2b1764d55bdb7abc0109ca3defeb5e5345a176",
+      "excerpt_hash": "27f686ce86e6a422343509abd3e9072faf9e7aec7a257ec49d02e564aab1e08a",
+      "source_id": "rock_recipes",
+      "source_key": "f084b1a654e85a5a",
+      "source_record_id": "rock_recipes:f084b1a654e85a5a",
+      "url": "https://community.rockrms.com/recipes/247"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "dddf3820676ba379a25c46adc1bb6a7f51136074c1962fa6900ff9af5344ac9b",
+      "excerpt_hash": "4fddf4f825205e10311cef7a53d5afa93f81ffd99bf11e1ed72273407398056c",
+      "source_id": "rock_recipes",
+      "source_key": "459b95df0ea8e5ee",
+      "source_record_id": "rock_recipes:459b95df0ea8e5ee",
+      "url": "https://community.rockrms.com/recipes/402"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
+      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "source_id": "rock_rocku",
+      "source_key": "d0d7d71631f3f890",
+      "source_record_id": "rock_rocku:d0d7d71631f3f890",
+      "url": "https://community.rockrms.com/rocku/groups/group-location"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "1f3286bf8f67bbc22a9b98a685329b35df88aa4a7e5468883cb193781abb3c2c",
+      "excerpt_hash": "32b1f7310074b14a0629d83c4417d68a94f216579e806e5a2c681f3714b33d5b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "133163653fa64d1c",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "cebd21ee41f2360a5e2063194e6b2db899389c133bb85c666c8e4c8a6986904d",
+      "excerpt_hash": "7214f2202b4540c511238cc27a19879201a785026e2c270c4354b26330e5944f",
+      "source_id": "rock_recipes",
+      "source_key": "31045fdc8f468a7e",
+      "source_record_id": "rock_recipes:31045fdc8f468a7e",
+      "url": "https://community.rockrms.com/recipes/112"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "2cfe297f043db4be6c5c3d39640105eb19ef5a13a7d25e4238cbf6305946be99",
+      "excerpt_hash": "595390d6cff8ca5dd907cae0d8a836817d0ec180560cfbb310ea9cd5a0b5d5e0",
+      "source_id": "rock_recipes",
+      "source_key": "eb219bea22e48f70",
+      "source_record_id": "rock_recipes:eb219bea22e48f70",
+      "url": "https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "06eacd882b4063c0ec20d7c23575b0c7bc7a8481d0f6f30b05ea3e317e5cbf72",
+      "excerpt_hash": "fb9de92b45ae560a004caed4987f2d640a359026cba7844044044450d26a55e6",
+      "source_id": "rock_recipes",
+      "source_key": "e8068f7bf9b9c14f",
+      "source_record_id": "rock_recipes:e8068f7bf9b9c14f",
+      "url": "https://community.rockrms.com/recipes/444"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5a59842b91644aeb48f663907a80681d66411c07e7b11eba001a4f3678f1fd64",
+      "excerpt_hash": "5caefc562c344e2fe50c320f1d12a16b5eb0234c149798a8f7517bac121f24d1",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b1336a6f5c82cca4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/LoadLocations.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "f04f22d37c94a9e12f8a9f9c67e216446831e60ddc46c25af4ef9b199f1d1b0b",
+      "excerpt_hash": "5852cfc0096ab40da63a940edf9b3f04e51e848a1593192b3a9f1e9c332e5322",
+      "source_id": "rock_recipes",
+      "source_key": "6acb630b48f2c665",
+      "source_record_id": "rock_recipes:6acb630b48f2c665",
+      "url": "https://community.rockrms.com/recipes/414"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "08193be459cdb204fb467f91b45efc7f23a93dcdb1fead7cc8a5f6d82f3eec30",
+      "excerpt_hash": "22ff5a2628d22a52a4eadc8ae2216ac931ef11c80088ec01d6d366182776932f",
+      "source_id": "rock_rocku",
+      "source_key": "1cfd7942fe8e3344",
+      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
+      "url": "https://community.rockrms.com/rocku/groups"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "201f8340eff52ccf51dcd923cfe08d1422fe755d5de983765f8cae194031d6ce",
+      "excerpt_hash": "801fcf7ca0682417e72fbbd9c45d5c1bf19fb22cc931d6cdb5a381ef1de1a93f",
+      "source_id": "rock_rocku",
+      "source_key": "e25a6cf1bfd0bcd6",
+      "source_record_id": "rock_rocku:e25a6cf1bfd0bcd6",
+      "url": "https://community.rockrms.com/rocku/event-registration/calendar-overview"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "2749233f8f6281dc27cb4ebe21d8ef09ec035f17007df9f0059ab1cb4f1e9fab",
+      "excerpt_hash": "340ded69f6be7899b7e46a7b3bde79823440c12608d7824a0085d8d7b24729af",
+      "source_id": "rock_recipes",
+      "source_key": "33223685db3751d9",
+      "source_record_id": "rock_recipes:33223685db3751d9",
+      "url": "https://community.rockrms.com/recipes/198"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "9e3f45b6e700405d73617ba9f1356bababb366100478125b787786bbade35f28",
+      "excerpt_hash": "108b87705d7e0653276ba829d1f9bfd0e417c555518d100b951bbe066c7a081b",
+      "source_id": "rock_recipes",
+      "source_key": "8ea41a943b81c1d2",
+      "source_record_id": "rock_recipes:8ea41a943b81c1d2",
+      "url": "https://community.rockrms.com/recipes/178"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "65e649997e3ddc599f40d3e1abe1e560f58e193e21be4feeff2e40594e71dea4",
+      "excerpt_hash": "44fdab43a89d5d4754ec410202ae0b6fe227c1573a96b138d667728f3f824c1f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "043ee0dda2027021",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "843218cc671b36daf5b3200246ebeb7543b6a5d06956335e04e5c50a607a8ff0",
+      "excerpt_hash": "1ca3e6ef74383e86b4f0e565a1a2d8ec2012addac01311492e712e91cd4ed89d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7de7c8a5de3827c3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "ca7a5ca753005b314552e92e32e9b7882317a8307e15f7522083c281fd3e2624",
+      "excerpt_hash": "0d446293db7e98f91f9d64f0c0aba2c2acd1954e98906a6802c8e5844954375b",
+      "source_id": "rock_recipes",
+      "source_key": "e1ba30aa8aee50d7",
+      "source_record_id": "rock_recipes:e1ba30aa8aee50d7",
+      "url": "https://community.rockrms.com/recipes/213"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b3ed345f6d96a525c39f6c698fb5416ca3081806326c34a58fbcea93670b6bd0",
+      "excerpt_hash": "6d57d142d31216b5f105fc92b54cf5ab866c54ae54a6ae1cb6d264769d1cf758",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9304defba1d01973",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/CheckIn/LocationSelectionStrategy.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/CheckIn/LocationSelectionStrategy.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8138e09d7684c0fa4fc94e093137a56cb9112a0f3e933c48c2fc70fce592cf2b",
+      "excerpt_hash": "25d6cce3648ab2ce998a402b315702fcebba9071927e2a15c89780a598105676",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "316bc299d3b76c92",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "31a94a3501b51c8a9d195ed69c87d216dad838ea268df7fb3b4b18656832e528",
+      "excerpt_hash": "7a69af41b229a559f95a9740b76e68d799063d9d5d444f23b0e5673b09b487f7",
+      "source_id": "rock_recipes",
+      "source_key": "3951d791b6a731a6",
+      "source_record_id": "rock_recipes:3951d791b6a731a6",
+      "url": "https://community.rockrms.com/recipes/83"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "e03e14c889b87404a3d9a44a4dc8a4f982230db8280a37d9d51b77091fac484a",
+      "excerpt_hash": "a101221394872dcb1b434d81815771e18f60cc30f2a20dd6c78fec89830b53a6",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "992c0520f63523db",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "d41cbff726dc927b86b95f60b6afa8efc34415a9657c39865a857dd8a446bde5",
+      "excerpt_hash": "4fe1ee28e72c6b5dfe04d1da1cbf8ab0bea1f2f3781b59669b4e4894c8600a3b",
+      "source_id": "rock_recipes",
+      "source_key": "5bc36db2182cdfa1",
+      "source_record_id": "rock_recipes:5bc36db2182cdfa1",
+      "url": "https://community.rockrms.com/recipes/280"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "ba1454eb410a660e598845e4d6de990769cfa9a5ee05f75c98b1acf4391e2d4a",
+      "excerpt_hash": "3c3f2cec1c39f61c7af614c89764fd10f36bd76477eab312cbb6893c35ef974d",
+      "source_id": "rock_recipes",
+      "source_key": "2e546ad927545965",
+      "source_record_id": "rock_recipes:2e546ad927545965",
+      "url": "https://community.rockrms.com/recipes/356"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "eed6f915efdf8f3618c8fe98a0187df5a1eb77ba877cf8b1032675400fad6228",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "4749333ecb64208a",
+      "source_record_id": "triumph_resources:4749333ecb64208a",
+      "url": "https://www.triumph.tech/resources/github-spotlight-262025"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "4c4d7424240311bb5a9e2124cda2ee80842dc4a371244fc33683124449a5475d",
+      "excerpt_hash": "2aec8b62b29df619c0e7725414e1a0d502c0676c3aaaa91379c9080ebdb12fbf",
+      "source_id": "rock_recipes",
+      "source_key": "99b6339f06b5bdc2",
+      "source_record_id": "rock_recipes:99b6339f06b5bdc2",
+      "url": "https://community.rockrms.com/recipes/418"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "94973baa835720cc525c255e31d61c20587f29757056116090759594348da52d",
+      "excerpt_hash": "6e5c1f74b7a5c805319f8c31ac617b79bd1a6c5fc37e054bd9e62819aba0165e",
+      "source_id": "rock_recipes",
+      "source_key": "7ff0ecd90a9b0c18",
+      "source_record_id": "rock_recipes:7ff0ecd90a9b0c18",
+      "url": "https://community.rockrms.com/recipes/231"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "dfaae1f862c90fd63ef537930d779328683d9f1908bd567e42b3e51f952c0eff",
+      "excerpt_hash": "f125d7b8874fff7c0a2089d73c76816d4fc7101a8022d53cbb8eba8978fdcfbb",
+      "source_id": "rock_recipes",
+      "source_key": "c84c8d9c6888251c",
+      "source_record_id": "rock_recipes:c84c8d9c6888251c",
+      "url": "https://community.rockrms.com/recipes/409"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "1347ab2fdb049362f55da2a173f668d6d63b3f70497400f00dceb05087d21ee8",
+      "excerpt_hash": "cc9e01eced5b5602f9704ce23f463fcd6c661023ceeb98f40bb9a180732b2474",
+      "source_id": "rock_recipes",
+      "source_key": "07e7de2629271fcc",
+      "source_record_id": "rock_recipes:07e7de2629271fcc",
+      "url": "https://community.rockrms.com/recipes/540"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "fd834c7f292d410ae527731b06360733681443a67ebbeb60c58d556baea47586",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "source_id": "rock_developer",
+      "source_key": "9f528a381335f4db",
+      "source_record_id": "rock_developer:9f528a381335f4db",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-view"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7bf67eb888f31387547a88aae5048f3a3ad3fe255cef32f189502e9f597ce095",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "source_id": "rock_developer",
+      "source_key": "6800ccf5533f9abd",
+      "source_record_id": "rock_developer:6800ccf5533f9abd",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava"
+    },
+    {
+      "authority": "community-answer",
+      "content_hash": "d759fa27244ddca17ab4d445c1c17e27232041a8a1f2380a660abe6ac7b14ce7",
+      "excerpt_hash": "a1a062ae477f381a152e8e3efdb39413a4e6ce48dacfcba12b6291b3fa1725a1",
+      "source_id": "rock_qa",
+      "source_key": "72a54fed295b6af5",
+      "source_record_id": "rock_qa:72a54fed295b6af5",
+      "url": "https://community.rockrms.com/ask/using/2820"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "b52f23ec14cd90b8998b8247345dbc0b4af050f585497bf6532506885a7a2670",
+      "excerpt_hash": "3f1cf098481861ea8b5590f6eeb6ef2169f74bef932904a5eb6ca9f551ec2239",
+      "source_id": "rock_recipes",
+      "source_key": "8e315d226b2c1474",
+      "source_record_id": "rock_recipes:8e315d226b2c1474",
+      "url": "https://community.rockrms.com/recipes/484"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "418ad50470cfbb2238c813ce54c3a8fd57ea9c3c9b660e7a86afde422ebed3c8",
+      "excerpt_hash": "62ef4369028392e2138a94a05e3a447bcdd97df8b92bf238b0baa9783f7438c3",
+      "source_id": "rock_recipes",
+      "source_key": "b561ee8f612a8bdd",
+      "source_record_id": "rock_recipes:b561ee8f612a8bdd",
+      "url": "https://community.rockrms.com/recipes/165"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "364fc6e7091e6c027b4450dadc72638cf89c9dbf76f832facc79680b342f84cb",
+      "excerpt_hash": "debba181dd110a4672a396375fb446af7cad7c58a7eb82decc89b826428c1ca8",
+      "source_id": "rock_recipes",
+      "source_key": "7a617924deb729b4",
+      "source_record_id": "rock_recipes:7a617924deb729b4",
+      "url": "https://community.rockrms.com/recipes/499"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "49a5efe73f867c8e576e9972c7815a5e595eaa6bbabcd9108c8434ab753eb558",
+      "excerpt_hash": "e7375d5c903930dfb06ca80a151fa74a031a4a8c43ad6d4df0d2de3823b0b907",
+      "source_id": "rock_recipes",
+      "source_key": "ea40bd76dd01f501",
+      "source_record_id": "rock_recipes:ea40bd76dd01f501",
+      "url": "https://community.rockrms.com/recipes/504"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "937e589b7d861cafb661f20f1dfff4a09e95589bba9f9179038a1a952e78190a",
+      "excerpt_hash": "3d0d157ab0f74b594d3376021a37a2a81fc482ad01e9d82ad5630dd8325935bb",
+      "source_id": "rock_recipes",
+      "source_key": "3a126f8b9dcc63d7",
+      "source_record_id": "rock_recipes:3a126f8b9dcc63d7",
+      "url": "https://community.rockrms.com/recipes/500"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "39f9724a54783b269e26f66cec0ada036cad4f5069436dc3c14135bdb8831a1f",
+      "excerpt_hash": "a192c7b8d3fcb32b20c87d00b110d626cb6c1e9c93eaa31b936d2646990c9479",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "45a416b1f827d430",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5c4f10ba215813221e732eaecefe8a26f839a6e27d84c79c9ce869c171a47050",
+      "excerpt_hash": "7ed91ce49df08236cf4b2c5840a5203c646982c32c969c61ab3395a8e9ad068f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "861baa4d96092f65",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c3dc2e93ea722314be72bb077427318561672786b5fb311bca9aa00fb7fe1a25",
+      "excerpt_hash": "dd3c631fb79c24d7492820d486a0df3c1dfb7b52ab016f281e50cc2e63fe797a",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "690dbfaebb385427",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d04f4a2b6953637b7026fb6bb8d87af87210d64544287b3fc9d12c21df4aa141",
+      "excerpt_hash": "3c363b1f3d8794d42c0a3aa7e7c2c4c071ace82cc56c9cd98279c17458708fe8",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e190f1d2a903c646",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "48d74ed28cf6be8bbb82a87f9780bf5d3563c857e140a7b7fe245fbd9764fccb",
+      "excerpt_hash": "d223ff9057236f694b76f4bb24a3ff3dbf18c7f93d52abe5f823b20469c2496e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "96f1328d8aafb3b3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "41030b7d3cc4da9065e6a55da50a99f34e723cd9637ea3a2aa8e4fd0a6c14019",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "source_id": "rock_developer",
+      "source_key": "f3f93f025a571807",
+      "source_record_id": "rock_developer:f3f93f025a571807",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-unavailability"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "770e5eb635ce3bc0d3bb680321c04e959ccf43e418f8964a379f632652e8e1b2",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "source_id": "rock_developer",
+      "source_key": "74531b276e6301ef",
+      "source_record_id": "rock_developer:74531b276e6301ef",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/commands/utility-commands"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "b70dfd99edd11adca1325d10037ef16356d5dd9fed798f3a92defaf169c3da37",
+      "excerpt_hash": "c637c947644231697213ff0bacff79ef463cfcd8cfce63a744975473c488514a",
+      "source_id": "rock_recipes",
+      "source_key": "3707a557d81c1137",
+      "source_record_id": "rock_recipes:3707a557d81c1137",
+      "url": "https://community.rockrms.com/recipes/201"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "99342df086dbed7f35853ebfdec7647bc195cf95ebdbab70fc07d32ec3bc4dec",
+      "excerpt_hash": "6ea00fdae893bf2b6832200ee3be32e1af45c82b2183f8075e7de24e5f30f77f",
+      "source_id": "rock_recipes",
+      "source_key": "f2e1024cee9511f5",
+      "source_record_id": "rock_recipes:f2e1024cee9511f5",
+      "url": "https://community.rockrms.com/recipes/174"
+    },
+    {
+      "authority": "community-answer",
+      "content_hash": "b00819128b6fe9e4f5a42a5feb7110ce637dea32d2227c64ae70bdbb06f77a17",
+      "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
+      "source_id": "rock_qa",
+      "source_key": "a2819513ef35f906",
+      "source_record_id": "rock_qa:a2819513ef35f906",
+      "url": "https://community.rockrms.com/ask/developing/2710"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "cc6fb3df674b28c2",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
+      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
+      "source_id": "rock_rocku",
+      "source_key": "2a863471e239f0b9",
+      "source_record_id": "rock_rocku:2a863471e239f0b9",
+      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
+      "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "url": "https://community.rockrms.com/rocku/check-in/locations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "7cbd0733c3fa2a587bcce7dcba3acdb9a2ec66380e4bde48a3fca83e9c7a2aeb",
+      "excerpt_hash": "198304fc3b8b16faa7339f31c24bf12587dc8c74f7ed061fe33f1605bcaea8ad",
+      "source_id": "rock_rocku",
+      "source_key": "aa94e8b3d8886a7a",
+      "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
+      "url": "https://community.rockrms.com/rocku/check-in/schedules"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "3d0824ff41704b39",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d3de2ca129564d683e14a5f0aff24daadf7a7bf01aee0343aa1b402a79edae4f",
+      "excerpt_hash": "36390c49cd47668f74ad573098420310df48a6f64bfa48adc2c73a0b96df3d54",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "52de29b9741dc96b",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "a11450da0a9a3a7789be3f10bb4e1ea5e3dab2613fc9521a90e8eaf6e9b9b340",
+      "excerpt_hash": "0a4aa54f6cdd99673734dd96581ada28577fbb78222bdb5d7732c43bb6457a7a",
+      "source_id": "rock_recipes",
+      "source_key": "520dfe184485a9d1",
+      "source_record_id": "rock_recipes:520dfe184485a9d1",
+      "url": "https://community.rockrms.com/recipes/111/room-reservation-to-calendar-tools"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "261ced8cad78ba54de9aff03bd652dfba0a18e980b574cdc6bde23ba953e7790",
+      "excerpt_hash": "e6f9948a6ca9bc197e167ef5c61ea64a91589660075ee2f7da6311e9916b876f",
+      "source_id": "rock_recipes",
+      "source_key": "45b728c37efb8bd1",
+      "source_record_id": "rock_recipes:45b728c37efb8bd1",
+      "url": "https://community.rockrms.com/recipes/481"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "69e19531101af809a4f16208bffa65dcdefc86d93c2a54578e10f0d0fdb7e73f",
+      "excerpt_hash": "812a0d06deaa98d6729c5a20c50bc0252d1dfba7ee54fd6d8a08acec24c06f81",
+      "source_id": "rock_recipes",
+      "source_key": "e0f6d11f9b208728",
+      "source_record_id": "rock_recipes:e0f6d11f9b208728",
+      "url": "https://community.rockrms.com/recipes/459"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 49,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "ca9bd2a7c1a46e9c"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 72,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "47d5a6318fb5fef4"
+      ],
+      "start_line": 50
+    },
+    {
+      "confidence": "normal",
+      "end_line": 108,
+      "heading": "3. Scheduling And Locations Mental Model",
+      "needs_live_verification": false,
+      "section_id": "3-scheduling-and-locations-mental-model",
+      "source_keys": [
+        "f8521ff4123c52c4",
+        "eaef6723bbed3067"
+      ],
+      "start_line": 73
+    },
+    {
+      "confidence": "high",
+      "end_line": 120,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "ca9bd2a7c1a46e9c",
+        "776256c424368312",
+        "e4041265ea398ac0"
+      ],
+      "start_line": 109
+    },
+    {
+      "confidence": "structural",
+      "end_line": 122,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "62acf4fa5182958b",
+        "324c7412fbbf81eb",
+        "776256c424368312",
+        "e4041265ea398ac0",
+        "6f0f21989434ef17",
+        "e388dcef91a5e571",
+        "4bcd4d6f854645e8"
+      ],
+      "start_line": 121
+    },
+    {
+      "confidence": "high",
+      "end_line": 151,
+      "heading": "Locations",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-locations",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "62acf4fa5182958b",
+        "324c7412fbbf81eb",
+        "776256c424368312"
+      ],
+      "start_line": 123
+    },
+    {
+      "confidence": "normal",
+      "end_line": 175,
+      "heading": "Schedules",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-schedules",
+      "source_keys": [
+        "324c7412fbbf81eb",
+        "e4041265ea398ac0"
+      ],
+      "start_line": 152
+    },
+    {
+      "confidence": "high",
+      "end_line": 191,
+      "heading": "Groups, Group Locations, And Schedules",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-groups-group-locations-and-schedules",
+      "source_keys": [
+        "6f0f21989434ef17",
+        "324c7412fbbf81eb",
+        "e388dcef91a5e571"
+      ],
+      "start_line": 176
+    },
+    {
+      "confidence": "normal",
+      "end_line": 206,
+      "heading": "Attendance And Assignments",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-attendance-and-assignments",
+      "source_keys": [
+        "4bcd4d6f854645e8"
+      ],
+      "start_line": 192
+    },
+    {
+      "confidence": "structural",
+      "end_line": 208,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "324c7412fbbf81eb",
+        "f084b1a654e85a5a",
+        "459b95df0ea8e5ee",
+        "d0d7d71631f3f890",
+        "133163653fa64d1c",
+        "ca9bd2a7c1a46e9c",
+        "e388dcef91a5e571",
+        "47d5a6318fb5fef4",
+        "e4041265ea398ac0",
+        "31045fdc8f468a7e",
+        "eb219bea22e48f70",
+        "e8068f7bf9b9c14f"
+      ],
+      "start_line": 207
+    },
+    {
+      "confidence": "normal",
+      "end_line": 221,
+      "heading": "Location Entity",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-location-entity",
+      "source_keys": [
+        "324c7412fbbf81eb"
+      ],
+      "start_line": 209
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 235,
+      "heading": "Schedule Entity",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-schedule-entity",
+      "source_keys": [
+        "f084b1a654e85a5a",
+        "459b95df0ea8e5ee"
+      ],
+      "start_line": 222
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 248,
+      "heading": "GroupLocation",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-grouplocation",
+      "source_keys": [
+        "d0d7d71631f3f890"
+      ],
+      "start_line": 236
+    },
+    {
+      "confidence": "high",
+      "end_line": 254,
+      "heading": "GroupLocationSchedule",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-grouplocationschedule",
+      "source_keys": [
+        "133163653fa64d1c",
+        "ca9bd2a7c1a46e9c"
+      ],
+      "start_line": 249
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 258,
+      "heading": "GroupLocationScheduleConfig",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-grouplocationscheduleconfig",
+      "source_keys": [
+        "e388dcef91a5e571"
+      ],
+      "start_line": 255
+    },
+    {
+      "confidence": "normal",
+      "end_line": 269,
+      "heading": "EventCalendar, EventItem, EventItemOccurrence",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-eventcalendar-eventitem-eventitemoccurrence",
+      "source_keys": [
+        "47d5a6318fb5fef4",
+        "e4041265ea398ac0"
+      ],
+      "start_line": 259
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 285,
+      "heading": "Reservation Entities",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-reservation-entities",
+      "source_keys": [
+        "31045fdc8f468a7e",
+        "eb219bea22e48f70",
+        "e8068f7bf9b9c14f"
+      ],
+      "start_line": 270
+    },
+    {
+      "confidence": "structural",
+      "end_line": 287,
+      "heading": "7. Common Scheduling And Locations Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-scheduling-and-locations-workflows",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "b1336a6f5c82cca4",
+        "ca9bd2a7c1a46e9c",
+        "776256c424368312",
+        "6acb630b48f2c665",
+        "324c7412fbbf81eb",
+        "1cfd7942fe8e3344",
+        "e25a6cf1bfd0bcd6",
+        "e4041265ea398ac0",
+        "31045fdc8f468a7e",
+        "33223685db3751d9",
+        "8ea41a943b81c1d2"
+      ],
+      "start_line": 286
+    },
+    {
+      "confidence": "high",
+      "end_line": 300,
+      "heading": "Add A New Check-In Room",
+      "needs_live_verification": true,
+      "section_id": "7-common-scheduling-and-locations-workflows-add-a-new-check-in-room",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "b1336a6f5c82cca4"
+      ],
+      "start_line": 288
+    },
+    {
+      "confidence": "high",
+      "end_line": 315,
+      "heading": "Clone A Check-In Schedule",
+      "needs_live_verification": true,
+      "section_id": "7-common-scheduling-and-locations-workflows-clone-a-check-in-schedule",
+      "source_keys": [
+        "ca9bd2a7c1a46e9c",
+        "776256c424368312"
+      ],
+      "start_line": 301
+    },
+    {
+      "confidence": "normal",
+      "end_line": 332,
+      "heading": "Configure Group Scheduling",
+      "needs_live_verification": false,
+      "section_id": "7-common-scheduling-and-locations-workflows-configure-group-scheduling",
+      "source_keys": [
+        "6acb630b48f2c665",
+        "324c7412fbbf81eb",
+        "1cfd7942fe8e3344"
+      ],
+      "start_line": 316
+    },
+    {
+      "confidence": "normal",
+      "end_line": 345,
+      "heading": "Create Event Calendar Occurrences",
+      "needs_live_verification": true,
+      "section_id": "7-common-scheduling-and-locations-workflows-create-event-calendar-occurrences",
+      "source_keys": [
+        "e25a6cf1bfd0bcd6",
+        "e4041265ea398ac0"
+      ],
+      "start_line": 333
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 360,
+      "heading": "Manage Room Reservations",
+      "needs_live_verification": true,
+      "section_id": "7-common-scheduling-and-locations-workflows-manage-room-reservations",
+      "source_keys": [
+        "31045fdc8f468a7e",
+        "33223685db3751d9",
+        "8ea41a943b81c1d2"
+      ],
+      "start_line": 346
+    },
+    {
+      "confidence": "structural",
+      "end_line": 362,
+      "heading": "8. Locations Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-locations-deep-dive",
+      "source_keys": [
+        "324c7412fbbf81eb",
+        "043ee0dda2027021",
+        "776256c424368312",
+        "7de7c8a5de3827c3",
+        "e1ba30aa8aee50d7",
+        "9304defba1d01973",
+        "2e737fcc6a7c59c1",
+        "316bc299d3b76c92",
+        "6f0f21989434ef17",
+        "3951d791b6a731a6"
+      ],
+      "start_line": 361
+    },
+    {
+      "confidence": "normal",
+      "end_line": 375,
+      "heading": "Hierarchy",
+      "needs_live_verification": false,
+      "section_id": "8-locations-deep-dive-hierarchy",
+      "source_keys": [
+        "324c7412fbbf81eb"
+      ],
+      "start_line": 363
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 387,
+      "heading": "Location Types",
+      "needs_live_verification": true,
+      "section_id": "8-locations-deep-dive-location-types",
+      "source_keys": [
+        "324c7412fbbf81eb"
+      ],
+      "start_line": 376
+    },
+    {
+      "confidence": "normal",
+      "end_line": 401,
+      "heading": "Active State And Open/Closed State",
+      "needs_live_verification": false,
+      "section_id": "8-locations-deep-dive-active-state-and-open-closed-state",
+      "source_keys": [
+        "043ee0dda2027021",
+        "776256c424368312"
+      ],
+      "start_line": 388
+    },
+    {
+      "confidence": "normal",
+      "end_line": 414,
+      "heading": "Thresholds And Capacity",
+      "needs_live_verification": true,
+      "section_id": "8-locations-deep-dive-thresholds-and-capacity",
+      "source_keys": [
+        "7de7c8a5de3827c3",
+        "e1ba30aa8aee50d7"
+      ],
+      "start_line": 402
+    },
+    {
+      "confidence": "high",
+      "end_line": 422,
+      "heading": "Location Selection Strategy",
+      "needs_live_verification": true,
+      "section_id": "8-locations-deep-dive-location-selection-strategy",
+      "source_keys": [
+        "9304defba1d01973",
+        "2e737fcc6a7c59c1",
+        "316bc299d3b76c92"
+      ],
+      "start_line": 415
+    },
+    {
+      "confidence": "high",
+      "end_line": 434,
+      "heading": "Device Location Scope",
+      "needs_live_verification": false,
+      "section_id": "8-locations-deep-dive-device-location-scope",
+      "source_keys": [
+        "6f0f21989434ef17",
+        "2e737fcc6a7c59c1"
+      ],
+      "start_line": 423
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 438,
+      "heading": "Location SEO And Public Pages",
+      "needs_live_verification": false,
+      "section_id": "8-locations-deep-dive-location-seo-and-public-pages",
+      "source_keys": [
+        "3951d791b6a731a6"
+      ],
+      "start_line": 435
+    },
+    {
+      "confidence": "structural",
+      "end_line": 440,
+      "heading": "9. Schedules Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-schedules-deep-dive",
+      "source_keys": [
+        "992c0520f63523db",
+        "776256c424368312",
+        "5bc36db2182cdfa1",
+        "2e546ad927545965",
+        "4749333ecb64208a"
+      ],
+      "start_line": 439
+    },
+    {
+      "confidence": "normal",
+      "end_line": 454,
+      "heading": "Schedule Categories",
+      "needs_live_verification": false,
+      "section_id": "9-schedules-deep-dive-schedule-categories",
+      "source_keys": [
+        "992c0520f63523db"
+      ],
+      "start_line": 441
+    },
+    {
+      "confidence": "normal",
+      "end_line": 464,
+      "heading": "Effective Dates And Recurrence",
+      "needs_live_verification": true,
+      "section_id": "9-schedules-deep-dive-effective-dates-and-recurrence",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312"
+      ],
+      "start_line": 455
+    },
+    {
+      "confidence": "normal",
+      "end_line": 470,
+      "heading": "Check-In Start Offsets",
+      "needs_live_verification": true,
+      "section_id": "9-schedules-deep-dive-check-in-start-offsets",
+      "source_keys": [
+        "992c0520f63523db",
+        "5bc36db2182cdfa1"
+      ],
+      "start_line": 465
+    },
+    {
+      "confidence": "normal",
+      "end_line": 480,
+      "heading": "Schedule Exclusions",
+      "needs_live_verification": true,
+      "section_id": "9-schedules-deep-dive-schedule-exclusions",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 471
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 493,
+      "heading": "Schedule Templates And Preferences",
+      "needs_live_verification": true,
+      "section_id": "9-schedules-deep-dive-schedule-templates-and-preferences",
+      "source_keys": [
+        "2e546ad927545965",
+        "4749333ecb64208a"
+      ],
+      "start_line": 481
+    },
+    {
+      "confidence": "normal",
+      "end_line": 497,
+      "heading": "Schedule Builder Field Type",
+      "needs_live_verification": true,
+      "section_id": "9-schedules-deep-dive-schedule-builder-field-type",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 494
+    },
+    {
+      "confidence": "structural",
+      "end_line": 501,
+      "heading": "10. Reservations Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-reservations-deep-dive",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 498
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 516,
+      "heading": "Reservation Lifecycle",
+      "needs_live_verification": false,
+      "section_id": "10-reservations-deep-dive-reservation-lifecycle",
+      "source_keys": [
+        "99b6339f06b5bdc2"
+      ],
+      "start_line": 502
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 530,
+      "heading": "Approvals",
+      "needs_live_verification": false,
+      "section_id": "10-reservations-deep-dive-approvals",
+      "source_keys": [
+        "8ea41a943b81c1d2"
+      ],
+      "start_line": 517
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 543,
+      "heading": "Reservation Calendar Views",
+      "needs_live_verification": true,
+      "section_id": "10-reservations-deep-dive-reservation-calendar-views",
+      "source_keys": [
+        "31045fdc8f468a7e"
+      ],
+      "start_line": 531
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 549,
+      "heading": "Reservation To Event Calendar Linkage",
+      "needs_live_verification": true,
+      "section_id": "10-reservations-deep-dive-reservation-to-event-calendar-linkage",
+      "source_keys": [
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70"
+      ],
+      "start_line": 544
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 562,
+      "heading": "Reservation iCal Feeds",
+      "needs_live_verification": true,
+      "section_id": "10-reservations-deep-dive-reservation-ical-feeds",
+      "source_keys": [
+        "7ff0ecd90a9b0c18",
+        "c84c8d9c6888251c",
+        "07e7de2629271fcc"
+      ],
+      "start_line": 550
+    },
+    {
+      "confidence": "structural",
+      "end_line": 564,
+      "heading": "11. Related Rock Areas: Check In, Groups, Events, Cms",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-check-in-groups-events-cms",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "ca9bd2a7c1a46e9c",
+        "776256c424368312",
+        "d0d7d71631f3f890",
+        "9f528a381335f4db",
+        "6800ccf5533f9abd",
+        "72a54fed295b6af5",
+        "e4041265ea398ac0",
+        "8e315d226b2c1474",
+        "b561ee8f612a8bdd",
+        "7a617924deb729b4",
+        "ea40bd76dd01f501"
+      ],
+      "start_line": 563
+    },
+    {
+      "confidence": "high",
+      "end_line": 583,
+      "heading": "Check-In",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-check-in-groups-events-cms-check-in",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "ca9bd2a7c1a46e9c",
+        "776256c424368312"
+      ],
+      "start_line": 565
+    },
+    {
+      "confidence": "normal",
+      "end_line": 604,
+      "heading": "Groups",
+      "needs_live_verification": true,
+      "section_id": "11-related-rock-areas-check-in-groups-events-cms-groups",
+      "source_keys": [
+        "d0d7d71631f3f890",
+        "776256c424368312"
+      ],
+      "start_line": 584
+    },
+    {
+      "confidence": "normal",
+      "end_line": 610,
+      "heading": "Events",
+      "needs_live_verification": true,
+      "section_id": "11-related-rock-areas-check-in-groups-events-cms-events",
+      "source_keys": [
+        "9f528a381335f4db",
+        "6800ccf5533f9abd",
+        "72a54fed295b6af5"
+      ],
+      "start_line": 605
+    },
+    {
+      "confidence": "normal",
+      "end_line": 621,
+      "heading": "CMS And Lava",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-check-in-groups-events-cms-cms-and-lava",
+      "source_keys": [
+        "e4041265ea398ac0",
+        "8e315d226b2c1474",
+        "b561ee8f612a8bdd",
+        "7a617924deb729b4",
+        "ea40bd76dd01f501"
+      ],
+      "start_line": 611
+    },
+    {
+      "confidence": "structural",
+      "end_line": 623,
+      "heading": "12. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails",
+      "source_keys": [
+        "2e546ad927545965",
+        "3a126f8b9dcc63d7",
+        "5bc36db2182cdfa1"
+      ],
+      "start_line": 622
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 635,
+      "heading": "Naming Conventions",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-naming-conventions",
+      "source_keys": [
+        "2e546ad927545965"
+      ],
+      "start_line": 624
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 661,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-security",
+      "source_keys": [
+        "3a126f8b9dcc63d7"
+      ],
+      "start_line": 636
+    },
+    {
+      "confidence": "structural",
+      "end_line": 674,
+      "heading": "Avoid Raw SQL Writes Unless Necessary",
+      "needs_live_verification": true,
+      "section_id": "12-administration-and-operational-guardrails-avoid-raw-sql-writes-unless-necessary",
+      "source_keys": [
+        "3a126f8b9dcc63d7"
+      ],
+      "start_line": 662
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 689,
+      "heading": "Cache And Time",
+      "needs_live_verification": true,
+      "section_id": "12-administration-and-operational-guardrails-cache-and-time",
+      "source_keys": [
+        "5bc36db2182cdfa1"
+      ],
+      "start_line": 675
+    },
+    {
+      "confidence": "structural",
+      "end_line": 702,
+      "heading": "Version Guardrails",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-version-guardrails",
+      "source_keys": [
+        "5bc36db2182cdfa1"
+      ],
+      "start_line": 690
+    },
+    {
+      "confidence": "structural",
+      "end_line": 704,
+      "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "f8521ff4123c52c4",
+        "45a416b1f827d430",
+        "b1336a6f5c82cca4",
+        "4bcd4d6f854645e8",
+        "861baa4d96092f65",
+        "690dbfaebb385427",
+        "7de7c8a5de3827c3",
+        "316bc299d3b76c92",
+        "9304defba1d01973",
+        "eaef6723bbed3067",
+        "133163653fa64d1c",
+        "e190f1d2a903c646",
+        "96f1328d8aafb3b3",
+        "e4041265ea398ac0",
+        "47d5a6318fb5fef4",
+        "9f528a381335f4db",
+        "6800ccf5533f9abd",
+        "f3f93f025a571807",
+        "74531b276e6301ef"
+      ],
+      "start_line": 703
+    },
+    {
+      "confidence": "normal",
+      "end_line": 718,
+      "heading": "Check-In Source Landmarks",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-check-in-source-landmarks",
+      "source_keys": [
+        "f8521ff4123c52c4",
+        "45a416b1f827d430",
+        "b1336a6f5c82cca4",
+        "4bcd4d6f854645e8",
+        "861baa4d96092f65",
+        "690dbfaebb385427",
+        "7de7c8a5de3827c3",
+        "316bc299d3b76c92",
+        "9304defba1d01973"
+      ],
+      "start_line": 705
+    },
+    {
+      "confidence": "normal",
+      "end_line": 722,
+      "heading": "Schedule Builder View Models",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-schedule-builder-view-models",
+      "source_keys": [
+        "eaef6723bbed3067",
+        "133163653fa64d1c"
+      ],
+      "start_line": 719
+    },
+    {
+      "confidence": "normal",
+      "end_line": 726,
+      "heading": "Group Scheduler View Models",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-group-scheduler-view-models",
+      "source_keys": [
+        "e190f1d2a903c646",
+        "96f1328d8aafb3b3"
+      ],
+      "start_line": 723
+    },
+    {
+      "confidence": "normal",
+      "end_line": 730,
+      "heading": "Lava Commands",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-commands",
+      "source_keys": [
+        "e4041265ea398ac0"
+      ],
+      "start_line": 727
+    },
+    {
+      "confidence": "normal",
+      "end_line": 740,
+      "heading": "Mobile Blocks And Commands",
+      "needs_live_verification": true,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-blocks-and-commands",
+      "source_keys": [
+        "47d5a6318fb5fef4",
+        "9f528a381335f4db",
+        "6800ccf5533f9abd",
+        "f3f93f025a571807",
+        "74531b276e6301ef"
+      ],
+      "start_line": 731
+    },
+    {
+      "confidence": "structural",
+      "end_line": 742,
+      "heading": "14. Reporting, Analytics, And Model Map",
+      "needs_live_verification": false,
+      "section_id": "14-reporting-analytics-and-model-map",
+      "source_keys": [
+        "6f0f21989434ef17",
+        "3707a557d81c1137",
+        "f2e1024cee9511f5",
+        "1cfd7942fe8e3344",
+        "776256c424368312",
+        "33223685db3751d9",
+        "8ea41a943b81c1d2"
+      ],
+      "start_line": 741
+    },
+    {
+      "confidence": "normal",
+      "end_line": 757,
+      "heading": "Basic Relationship Queries",
+      "needs_live_verification": true,
+      "section_id": "14-reporting-analytics-and-model-map-basic-relationship-queries",
+      "source_keys": [
+        "6f0f21989434ef17"
+      ],
+      "start_line": 743
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 761,
+      "heading": "Schedule Status Board",
+      "needs_live_verification": false,
+      "section_id": "14-reporting-analytics-and-model-map-schedule-status-board",
+      "source_keys": [
+        "3707a557d81c1137",
+        "f2e1024cee9511f5"
+      ],
+      "start_line": 758
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 777,
+      "heading": "Scheduling Analytics",
+      "needs_live_verification": true,
+      "section_id": "14-reporting-analytics-and-model-map-scheduling-analytics",
+      "source_keys": [
+        "1cfd7942fe8e3344"
+      ],
+      "start_line": 762
+    },
+    {
+      "confidence": "normal",
+      "end_line": 781,
+      "heading": "Data Views",
+      "needs_live_verification": false,
+      "section_id": "14-reporting-analytics-and-model-map-data-views",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 778
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 785,
+      "heading": "Facilities Reporting",
+      "needs_live_verification": true,
+      "section_id": "14-reporting-analytics-and-model-map-facilities-reporting",
+      "source_keys": [
+        "33223685db3751d9",
+        "8ea41a943b81c1d2"
+      ],
+      "start_line": 782
+    },
+    {
+      "confidence": "high",
+      "end_line": 804,
+      "heading": "15. Version And Release Caveats",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "ca9bd2a7c1a46e9c",
+        "776256c424368312",
+        "2e737fcc6a7c59c1"
+      ],
+      "start_line": 786
+    },
+    {
+      "confidence": "structural",
+      "end_line": 806,
+      "heading": "16. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "16-implementation-playbooks",
+      "source_keys": [
+        "ca9bd2a7c1a46e9c",
+        "b1336a6f5c82cca4",
+        "4bcd4d6f854645e8",
+        "324c7412fbbf81eb",
+        "6acb630b48f2c665",
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70",
+        "8e315d226b2c1474",
+        "7a617924deb729b4"
+      ],
+      "start_line": 805
+    },
+    {
+      "confidence": "high",
+      "end_line": 823,
+      "heading": "Playbook: New Service Time For Check-In",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-new-service-time-for-check-in",
+      "source_keys": [
+        "ca9bd2a7c1a46e9c",
+        "b1336a6f5c82cca4",
+        "4bcd4d6f854645e8"
+      ],
+      "start_line": 807
+    },
+    {
+      "confidence": "normal",
+      "end_line": 841,
+      "heading": "Playbook: New Serving Team Scheduling Setup",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-new-serving-team-scheduling-setup",
+      "source_keys": [
+        "324c7412fbbf81eb",
+        "6acb630b48f2c665"
+      ],
+      "start_line": 824
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 856,
+      "heading": "Playbook: Room Management Reservation Calendar Sync",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-room-management-reservation-calendar-sync",
+      "source_keys": [
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70"
+      ],
+      "start_line": 842
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 869,
+      "heading": "Playbook: Internal Staff Calendar",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-internal-staff-calendar",
+      "source_keys": [
+        "8e315d226b2c1474",
+        "7a617924deb729b4"
+      ],
+      "start_line": 857
+    },
+    {
+      "confidence": "structural",
+      "end_line": 871,
+      "heading": "17. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree",
+      "source_keys": [
+        "5bc36db2182cdfa1",
+        "776256c424368312",
+        "690dbfaebb385427",
+        "7de7c8a5de3827c3",
+        "861baa4d96092f65",
+        "316bc299d3b76c92",
+        "4bcd4d6f854645e8",
+        "e388dcef91a5e571",
+        "e4041265ea398ac0",
+        "47d5a6318fb5fef4",
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70"
+      ],
+      "start_line": 870
+    },
+    {
+      "confidence": "normal",
+      "end_line": 888,
+      "heading": "A Schedule Is Missing From Check-In",
+      "needs_live_verification": true,
+      "section_id": "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",
+      "source_keys": [
+        "5bc36db2182cdfa1",
+        "776256c424368312"
+      ],
+      "start_line": 872
+    },
+    {
+      "confidence": "normal",
+      "end_line": 904,
+      "heading": "A Room Is Missing From Check-In",
+      "needs_live_verification": true,
+      "section_id": "17-troubleshooting-decision-tree-a-room-is-missing-from-check-in",
+      "source_keys": [
+        "690dbfaebb385427",
+        "7de7c8a5de3827c3",
+        "861baa4d96092f65",
+        "316bc299d3b76c92"
+      ],
+      "start_line": 889
+    },
+    {
+      "confidence": "normal",
+      "end_line": 917,
+      "heading": "Volunteer Was Scheduled But Cannot Check In",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-volunteer-was-scheduled-but-cannot-check-in",
+      "source_keys": [
+        "4bcd4d6f854645e8"
+      ],
+      "start_line": 905
+    },
+    {
+      "confidence": "normal",
+      "end_line": 928,
+      "heading": "Group Scheduler Capacity Looks Wrong",
+      "needs_live_verification": true,
+      "section_id": "17-troubleshooting-decision-tree-group-scheduler-capacity-looks-wrong",
+      "source_keys": [
+        "e388dcef91a5e571",
+        "776256c424368312"
+      ],
+      "start_line": 918
+    },
+    {
+      "confidence": "normal",
+      "end_line": 943,
+      "heading": "Calendar Event Does Not Appear",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-calendar-event-does-not-appear",
+      "source_keys": [
+        "e4041265ea398ac0",
+        "47d5a6318fb5fef4"
+      ],
+      "start_line": 929
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 958,
+      "heading": "Reservation And Calendar Are Out Of Sync",
+      "needs_live_verification": true,
+      "section_id": "17-troubleshooting-decision-tree-reservation-and-calendar-are-out-of-sync",
+      "source_keys": [
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70"
+      ],
+      "start_line": 944
+    },
+    {
+      "confidence": "structural",
+      "end_line": 960,
+      "heading": "18. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "18-agent-task-recipes",
+      "source_keys": [
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70",
+        "6f0f21989434ef17",
+        "33223685db3751d9",
+        "c84c8d9c6888251c",
+        "7ff0ecd90a9b0c18",
+        "07e7de2629271fcc",
+        "a2819513ef35f906"
+      ],
+      "start_line": 959
+    },
+    {
+      "confidence": "structural",
+      "end_line": 983,
+      "heading": "Recipe: Prove Why A Check-In Room Is Not Available",
+      "needs_live_verification": false,
+      "section_id": "18-agent-task-recipes-recipe-prove-why-a-check-in-room-is-not-available",
+      "source_keys": [
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70"
+      ],
+      "start_line": 961
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1005,
+      "heading": "Recipe: Audit Group Location Schedules",
+      "needs_live_verification": false,
+      "section_id": "18-agent-task-recipes-recipe-audit-group-location-schedules",
+      "source_keys": [
+        "6f0f21989434ef17"
+      ],
+      "start_line": 984
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1019,
+      "heading": "Recipe: Verify A New Service Time",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-verify-a-new-service-time",
+      "source_keys": [
+        "6f0f21989434ef17"
+      ],
+      "start_line": 1006
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1032,
+      "heading": "Recipe: Build A Facilities Daily Report",
+      "needs_live_verification": false,
+      "section_id": "18-agent-task-recipes-recipe-build-a-facilities-daily-report",
+      "source_keys": [
+        "33223685db3751d9"
+      ],
+      "start_line": 1020
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1048,
+      "heading": "Recipe: Build A Calendar Feed",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-build-a-calendar-feed",
+      "source_keys": [
+        "c84c8d9c6888251c",
+        "7ff0ecd90a9b0c18",
+        "07e7de2629271fcc"
+      ],
+      "start_line": 1033
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1081,
+      "heading": "Recipe: Diagnose Schedule API Issues",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-diagnose-schedule-api-issues",
+      "source_keys": [
+        "a2819513ef35f906"
+      ],
+      "start_line": 1049
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1139,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "cc6fb3df674b28c2",
+        "2a863471e239f0b9",
+        "90ed168a3283ccaa",
+        "d0d7d71631f3f890",
+        "2a863471e239f0b9",
+        "aa94e8b3d8886a7a",
+        "1cfd7942fe8e3344",
+        "f4d1879d32a182fe",
+        "aa94e8b3d8886a7a",
+        "f4d1879d32a182fe",
+        "1cfd7942fe8e3344",
+        "1cfd7942fe8e3344"
+      ],
+      "start_line": 1082
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1177,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "f4d1879d32a182fe",
+        "d0d7d71631f3f890",
+        "1cfd7942fe8e3344",
+        "90ed168a3283ccaa",
+        "2a863471e239f0b9",
+        "3d0824ff41704b39",
+        "cc6fb3df674b28c2",
+        "aa94e8b3d8886a7a"
+      ],
+      "start_line": 1140
+    },
+    {
+      "confidence": "high",
+      "end_line": 1211,
+      "heading": "19. Source Map And Dependency Notes",
+      "needs_live_verification": true,
+      "section_id": "19-source-map-and-dependency-notes",
+      "source_keys": [
+        "2e737fcc6a7c59c1",
+        "ca9bd2a7c1a46e9c",
+        "90ed168a3283ccaa",
+        "324c7412fbbf81eb",
+        "d0d7d71631f3f890",
+        "e25a6cf1bfd0bcd6",
+        "776256c424368312",
+        "f8521ff4123c52c4",
+        "45a416b1f827d430",
+        "eaef6723bbed3067",
+        "133163653fa64d1c",
+        "b1336a6f5c82cca4",
+        "4bcd4d6f854645e8",
+        "861baa4d96092f65",
+        "7de7c8a5de3827c3",
+        "316bc299d3b76c92",
+        "6f0f21989434ef17",
+        "52de29b9741dc96b",
+        "e4041265ea398ac0",
+        "47d5a6318fb5fef4",
+        "9f528a381335f4db",
+        "6800ccf5533f9abd",
+        "f3f93f025a571807",
+        "e8068f7bf9b9c14f",
+        "eb219bea22e48f70",
+        "520dfe184485a9d1",
+        "31045fdc8f468a7e",
+        "7ff0ecd90a9b0c18",
+        "c84c8d9c6888251c",
+        "33223685db3751d9",
+        "3a126f8b9dcc63d7",
+        "2e546ad927545965",
+        "45b728c37efb8bd1",
+        "e0f6d11f9b208728",
+        "6acb630b48f2c665",
+        "5bc36db2182cdfa1",
+        "e1ba30aa8aee50d7",
+        "f084b1a654e85a5a",
+        "b561ee8f612a8bdd",
+        "07e7de2629271fcc",
+        "8e315d226b2c1474",
+        "7a617924deb729b4"
+      ],
+      "start_line": 1178
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-02T20:25:44+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1339b7ab8fb1366371147bb057629a212c146f556fded76865fb05cd017fcfd2",
+      "excerpt_hash": "e47427867debec45d1728835be211225151e899bb5298238e2586e2c77d0a4d4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ca9bd2a7c1a46e9c",
+      "source_record_id": "rock_documentation:ca9bd2a7c1a46e9c",
+      "title": "Checking-out Check-in - NextGen",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/42",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ee4ab82ecbf9cb7986fce214cf71ff93bc726c92afa29fd909c352a48b0df9cc",
+      "excerpt_hash": "b581b80fe7d2f7fc153563391737e09381f106c5c09d13aacb90cdc523adac30",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2e737fcc6a7c59c1",
+      "source_record_id": "rock_documentation:2e737fcc6a7c59c1",
+      "title": "Checking-out Check-in",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/10/266",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "502d1d840eaf7c1dceb811d52d7518d0d5cbc36d6771360e89a119704f1638b6",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "47d5a6318fb5fef4",
+      "source_record_id": "rock_developer:47d5a6318fb5fef4",
+      "title": "Calendar Event List",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "98dc0002d096079bf976268e15dd2edfc4a1fc5c2f749a7d5730a0bf31af9bbf",
+      "excerpt_hash": "57ba30bfa87abf4f459a50f99046afffa7e1123e06b69fa72a32ca5d0a8d2650",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/CheckIn/CheckInGroupLocationSchedule.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f8521ff4123c52c4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/CheckIn/CheckInGroupLocationSchedule.cs",
+      "title": "Rock/CheckIn/CheckInGroupLocationSchedule.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/CheckInGroupLocationSchedule.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4fb507ce7577e5059d6b69fb225d935eeff553efd9e58416970d5b0b5d37aa88",
+      "excerpt_hash": "f9795e052a2bda7fe3eed41d279606e19e968e696f5d19cff2e43f6743e05b5b",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "eaef6723bbed3067",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "title": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "e7f6c7c0608094f3fb67dbff38b8952924a406b322ead7a8dafca3d0f7f7d72f",
+      "excerpt_hash": "f75cd2c1089935285712d30c0c38870fa8abbd1c09b2245c48989810515ea4e9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "May 20, 2026",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:c231bac171db66f2",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.3"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7e91e425650925824fc7398f96f5a0fdf6602ef28b6ed15043b306cf9b4888e4",
+      "excerpt_hash": "4ba1f5c7c085473519ed245cba341ef7e5146d3700ac779b00e0fead34915032",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e4041265ea398ac0",
+      "source_record_id": "rock_developer:e4041265ea398ac0",
+      "title": "Calendar Events",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/calendar-events",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4e977c3c2347e6d40fefe8516f02831ca355a38f3ad88996b6dd46348c2f483f",
+      "excerpt_hash": "96b6e1080af6eaa9453e6a1d2cafbe477d41f93d3f0fa56c57c6ecddc1aed65c",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "schedule",
+        "schedules",
+        "location",
+        "locations",
+        "groups"
+      ],
+      "path": "Dev Tools/Sql/Populate_LocationsAndGroupSchedules.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "62acf4fa5182958b",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Populate_LocationsAndGroupSchedules.sql",
+      "title": "Dev Tools/Sql/Populate_LocationsAndGroupSchedules.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_LocationsAndGroupSchedules.sql"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a091ec53f3c19188e3f7c0f8250d4a4e6133347eb731889f2699cce999e12a09",
+      "excerpt_hash": "fd283bb962ea6ae835265c0d7667eeb015bd97bd655c5c0de55e25121a26d30b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "324c7412fbbf81eb",
+      "source_record_id": "rock_documentation:324c7412fbbf81eb",
+      "title": "Rock Your Groups",
+      "topics": [
+        "admin",
+        "check-in",
+        "lava",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/7/296",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "2353fcf13429ba977e9067a7c8e577e8263fd2f67e4c693045620a86ed40c482",
+      "excerpt_hash": "803a100610552f94cbdb133fcf5f82284d0c60af4973368fe3d83fe77883493f",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "schedule",
+        "schedules",
+        "location",
+        "locations"
+      ],
+      "path": "Dev Tools/Sql/View_GroupLocationSchedules.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "6f0f21989434ef17",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/View_GroupLocationSchedules.sql",
+      "title": "Dev Tools/Sql/View_GroupLocationSchedules.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "5efafab45e4007eab71ef2c88220142411a038bfe42adcbfd64e6f01f559f56e",
+      "excerpt_hash": "de93217fdac79e8495954a7e31c4f22b480418252810d624aef75963014e3c85",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e388dcef91a5e571",
+      "source_record_id": "rock_recipes:e388dcef91a5e571",
+      "title": "The five screenshots",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "33994ad542bdc3d4fc44bb012ab604d93d2412ce6b7789bd9f4062c92fd4eeb9",
+      "excerpt_hash": "45ced8da854632f114aac5a83185e06e5f484129968f54a77fd3bd92df988f0a",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "schedules",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4bcd4d6f854645e8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
+      "title": "Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "8d37806d26dffbb362088f621b2b1764d55bdb7abc0109ca3defeb5e5345a176",
+      "excerpt_hash": "27f686ce86e6a422343509abd3e9072faf9e7aec7a257ec49d02e564aab1e08a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "f084b1a654e85a5a",
+      "source_record_id": "rock_recipes:f084b1a654e85a5a",
+      "title": "Content Countdown Shortcode",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/247",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "dddf3820676ba379a25c46adc1bb6a7f51136074c1962fa6900ff9af5344ac9b",
+      "excerpt_hash": "4fddf4f825205e10311cef7a53d5afa93f81ffd99bf11e1ed72273407398056c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "459b95df0ea8e5ee",
+      "source_record_id": "rock_recipes:459b95df0ea8e5ee",
+      "title": "Mobile App Countdown to Page Refresh or Redirect",
+      "topics": [
+        "integrations",
+        "lava",
+        "mobile",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/402",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
+      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d0d7d71631f3f890",
+      "source_record_id": "rock_rocku:d0d7d71631f3f890",
+      "title": "Group Location",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/group-location",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "1f3286bf8f67bbc22a9b98a685329b35df88aa4a7e5468883cb193781abb3c2c",
+      "excerpt_hash": "32b1f7310074b14a0629d83c4417d68a94f216579e806e5a2c681f3714b33d5b",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "133163653fa64d1c",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs",
+      "title": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "cebd21ee41f2360a5e2063194e6b2db899389c133bb85c666c8e4c8a6986904d",
+      "excerpt_hash": "7214f2202b4540c511238cc27a19879201a785026e2c270c4354b26330e5944f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "31045fdc8f468a7e",
+      "source_record_id": "rock_recipes:31045fdc8f468a7e",
+      "title": "Room Management Calendar View",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/112",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "2cfe297f043db4be6c5c3d39640105eb19ef5a13a7d25e4238cbf6305946be99",
+      "excerpt_hash": "595390d6cff8ca5dd907cae0d8a836817d0ec180560cfbb310ea9cd5a0b5d5e0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "eb219bea22e48f70",
+      "source_record_id": "rock_recipes:eb219bea22e48f70",
+      "title": "Room Reservation to Calendar Tool 2.0",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "06eacd882b4063c0ec20d7c23575b0c7bc7a8481d0f6f30b05ea3e317e5cbf72",
+      "excerpt_hash": "fb9de92b45ae560a004caed4987f2d640a359026cba7844044044450d26a55e6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e8068f7bf9b9c14f",
+      "source_record_id": "rock_recipes:e8068f7bf9b9c14f",
+      "title": "Room Reservation to Calendar 2.0",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/444",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5a59842b91644aeb48f663907a80681d66411c07e7b11eba001a4f3678f1fd64",
+      "excerpt_hash": "5caefc562c344e2fe50c320f1d12a16b5eb0234c149798a8f7517bac121f24d1",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/Workflow/Action/CheckIn/LoadLocations.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b1336a6f5c82cca4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/LoadLocations.cs",
+      "title": "Rock/Workflow/Action/CheckIn/LoadLocations.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "f04f22d37c94a9e12f8a9f9c67e216446831e60ddc46c25af4ef9b199f1d1b0b",
+      "excerpt_hash": "5852cfc0096ab40da63a940edf9b3f04e51e848a1593192b3a9f1e9c332e5322",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "6acb630b48f2c665",
+      "source_record_id": "rock_recipes:6acb630b48f2c665",
+      "title": "Pastor of the Day Scheduling",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/414",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "08193be459cdb204fb467f91b45efc7f23a93dcdb1fead7cc8a5f6d82f3eec30",
+      "excerpt_hash": "22ff5a2628d22a52a4eadc8ae2216ac931ef11c80088ec01d6d366182776932f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "1cfd7942fe8e3344",
+      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
+      "title": "Groups",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "201f8340eff52ccf51dcd923cfe08d1422fe755d5de983765f8cae194031d6ce",
+      "excerpt_hash": "801fcf7ca0682417e72fbbd9c45d5c1bf19fb22cc931d6cdb5a381ef1de1a93f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e25a6cf1bfd0bcd6",
+      "source_record_id": "rock_rocku:e25a6cf1bfd0bcd6",
+      "title": "Calendar Overview",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/calendar-overview",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "2749233f8f6281dc27cb4ebe21d8ef09ec035f17007df9f0059ab1cb4f1e9fab",
+      "excerpt_hash": "340ded69f6be7899b7e46a7b3bde79823440c12608d7824a0085d8d7b24729af",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "33223685db3751d9",
+      "source_record_id": "rock_recipes:33223685db3751d9",
+      "title": "Room Management - Daily Email Reports for Facilities Team",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/198",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "9e3f45b6e700405d73617ba9f1356bababb366100478125b787786bbade35f28",
+      "excerpt_hash": "108b87705d7e0653276ba829d1f9bfd0e417c555518d100b951bbe066c7a081b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "8ea41a943b81c1d2",
+      "source_record_id": "rock_recipes:8ea41a943b81c1d2",
+      "title": "Add 'My Reservation Approvals' To Dashboard",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/178",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "65e649997e3ddc599f40d3e1abe1e560f58e193e21be4feeff2e40594e71dea4",
+      "excerpt_hash": "44fdab43a89d5d4754ec410202ae0b6fe227c1573a96b138d667728f3f824c1f",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "043ee0dda2027021",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs",
+      "title": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "843218cc671b36daf5b3200246ebeb7543b6a5d06956335e04e5c50a607a8ff0",
+      "excerpt_hash": "1ca3e6ef74383e86b4f0e565a1a2d8ec2012addac01311492e712e91cd4ed89d",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7de7c8a5de3827c3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
+      "title": "Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "ca7a5ca753005b314552e92e32e9b7882317a8307e15f7522083c281fd3e2624",
+      "excerpt_hash": "0d446293db7e98f91f9d64f0c0aba2c2acd1954e98906a6802c8e5844954375b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e1ba30aa8aee50d7",
+      "source_record_id": "rock_recipes:e1ba30aa8aee50d7",
+      "title": "More User-Friendly Room Thresholds",
+      "topics": [
+        "check-in",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/213",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b3ed345f6d96a525c39f6c698fb5416ca3081806326c34a58fbcea93670b6bd0",
+      "excerpt_hash": "6d57d142d31216b5f105fc92b54cf5ab866c54ae54a6ae1cb6d264769d1cf758",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.Enums/CheckIn/LocationSelectionStrategy.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9304defba1d01973",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/CheckIn/LocationSelectionStrategy.cs",
+      "title": "Rock.Enums/CheckIn/LocationSelectionStrategy.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/CheckIn/LocationSelectionStrategy.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "8138e09d7684c0fa4fc94e093137a56cb9112a0f3e933c48c2fc70fce592cf2b",
+      "excerpt_hash": "25d6cce3648ab2ce998a402b315702fcebba9071927e2a15c89780a598105676",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "316bc299d3b76c92",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+      "title": "Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "31a94a3501b51c8a9d195ed69c87d216dad838ea268df7fb3b4b18656832e528",
+      "excerpt_hash": "7a69af41b229a559f95a9740b76e68d799063d9d5d444f23b0e5673b09b487f7",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "3951d791b6a731a6",
+      "source_record_id": "rock_recipes:3951d791b6a731a6",
+      "title": "How Google Chooses the Local Pack",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/83",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "e03e14c889b87404a3d9a44a4dc8a4f982230db8280a37d9d51b77091fac484a",
+      "excerpt_hash": "a101221394872dcb1b434d81815771e18f60cc30f2a20dd6c78fec89830b53a6",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "992c0520f63523db",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "title": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "d41cbff726dc927b86b95f60b6afa8efc34415a9657c39865a857dd8a446bde5",
+      "excerpt_hash": "4fe1ee28e72c6b5dfe04d1da1cbf8ab0bea1f2f3781b59669b4e4894c8600a3b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "5bc36db2182cdfa1",
+      "source_record_id": "rock_recipes:5bc36db2182cdfa1",
+      "title": "Troubleshooting Check-in Schedule Problems",
+      "topics": [
+        "check-in",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/280",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "ba1454eb410a660e598845e4d6de990769cfa9a5ee05f75c98b1acf4391e2d4a",
+      "excerpt_hash": "3c3f2cec1c39f61c7af614c89764fd10f36bd76477eab312cbb6893c35ef974d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "2e546ad927545965",
+      "source_record_id": "rock_recipes:2e546ad927545965",
+      "title": "Group Member Schedule Templates - adding 5th week and using Auto Schedule",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/356",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "eed6f915efdf8f3618c8fe98a0187df5a1eb77ba877cf8b1032675400fad6228",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "4749333ecb64208a",
+      "source_record_id": "triumph_resources:4749333ecb64208a",
+      "title": "GitHub Spotlight: 2/6/2025",
+      "topics": [
+        "ai",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-262025",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "4c4d7424240311bb5a9e2124cda2ee80842dc4a371244fc33683124449a5475d",
+      "excerpt_hash": "2aec8b62b29df619c0e7725414e1a0d502c0676c3aaaa91379c9080ebdb12fbf",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "99b6339f06b5bdc2",
+      "source_record_id": "rock_recipes:99b6339f06b5bdc2",
+      "title": "Room Mangement Drafts",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/418",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "94973baa835720cc525c255e31d61c20587f29757056116090759594348da52d",
+      "excerpt_hash": "6e5c1f74b7a5c805319f8c31ac617b79bd1a6c5fc37e054bd9e62819aba0165e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "7ff0ecd90a9b0c18",
+      "source_record_id": "rock_recipes:7ff0ecd90a9b0c18",
+      "title": "Room Management iCal Subscriptions",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/231",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "dfaae1f862c90fd63ef537930d779328683d9f1908bd567e42b3e51f952c0eff",
+      "excerpt_hash": "f125d7b8874fff7c0a2089d73c76816d4fc7101a8022d53cbb8eba8978fdcfbb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "c84c8d9c6888251c",
+      "source_record_id": "rock_recipes:c84c8d9c6888251c",
+      "title": "Room Management iCal Feed by Campus",
+      "topics": [
+        "api",
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/409",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "1347ab2fdb049362f55da2a173f668d6d63b3f70497400f00dceb05087d21ee8",
+      "excerpt_hash": "cc9e01eced5b5602f9704ce23f463fcd6c661023ceeb98f40bb9a180732b2474",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "07e7de2629271fcc",
+      "source_record_id": "rock_recipes:07e7de2629271fcc",
+      "title": "Lava Webhook to Create an iCal (.ics) File",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/540",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "fd834c7f292d410ae527731b06360733681443a67ebbeb60c58d556baea47586",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9f528a381335f4db",
+      "source_record_id": "rock_developer:9f528a381335f4db",
+      "title": "Calendar View",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-view",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7bf67eb888f31387547a88aae5048f3a3ad3fe255cef32f189502e9f597ce095",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6800ccf5533f9abd",
+      "source_record_id": "rock_developer:6800ccf5533f9abd",
+      "title": "Event Item Occurrence List By Audience Lava",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava",
+      "version": null
+    },
+    {
+      "authority": "community-answer",
+      "authority_score": 50,
+      "change_type": null,
+      "content_hash": "d759fa27244ddca17ab4d445c1c17e27232041a8a1f2380a660abe6ac7b14ce7",
+      "excerpt_hash": "a1a062ae477f381a152e8e3efdb39413a4e6ce48dacfcba12b6291b3fa1725a1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_qa",
+      "source_key": "72a54fed295b6af5",
+      "source_record_id": "rock_qa:72a54fed295b6af5",
+      "title": "One Calendar Instance - Multiple Locations",
+      "topics": [
+        "development",
+        "troubleshooting",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/using/2820",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "b52f23ec14cd90b8998b8247345dbc0b4af050f585497bf6532506885a7a2670",
+      "excerpt_hash": "3f1cf098481861ea8b5590f6eeb6ef2169f74bef932904a5eb6ca9f551ec2239",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "8e315d226b2c1474",
+      "source_record_id": "rock_recipes:8e315d226b2c1474",
+      "title": "Staff Calendar enhancement",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/484",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "418ad50470cfbb2238c813ce54c3a8fd57ea9c3c9b660e7a86afde422ebed3c8",
+      "excerpt_hash": "62ef4369028392e2138a94a05e3a447bcdd97df8b92bf238b0baa9783f7438c3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "b561ee8f612a8bdd",
+      "source_record_id": "rock_recipes:b561ee8f612a8bdd",
+      "title": "The Code",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/165",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "364fc6e7091e6c027b4450dadc72638cf89c9dbf76f832facc79680b342f84cb",
+      "excerpt_hash": "debba181dd110a4672a396375fb446af7cad7c58a7eb82decc89b826428c1ca8",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "7a617924deb729b4",
+      "source_record_id": "rock_recipes:7a617924deb729b4",
+      "title": "US Holidays Web Request",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/499",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "49a5efe73f867c8e576e9972c7815a5e595eaa6bbabcd9108c8434ab753eb558",
+      "excerpt_hash": "e7375d5c903930dfb06ca80a151fa74a031a4a8c43ad6d4df0d2de3823b0b907",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "ea40bd76dd01f501",
+      "source_record_id": "rock_recipes:ea40bd76dd01f501",
+      "title": "Workflow Form to Event to Visual Calendar",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/504",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "937e589b7d861cafb661f20f1dfff4a09e95589bba9f9179038a1a952e78190a",
+      "excerpt_hash": "3d0d157ab0f74b594d3376021a37a2a81fc482ad01e9d82ad5630dd8325935bb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "3a126f8b9dcc63d7",
+      "source_record_id": "rock_recipes:3a126f8b9dcc63d7",
+      "title": "Why",
+      "topics": [
+        "check-in",
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/500",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "39f9724a54783b269e26f66cec0ada036cad4f5069436dc3c14135bdb8831a1f",
+      "excerpt_hash": "a192c7b8d3fcb32b20c87d00b110d626cb6c1e9c93eaa31b936d2646990c9479",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "45a416b1f827d430",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs",
+      "title": "Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5c4f10ba215813221e732eaecefe8a26f839a6e27d84c79c9ce869c171a47050",
+      "excerpt_hash": "7ed91ce49df08236cf4b2c5840a5203c646982c32c969c61ab3395a8e9ad068f",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "861baa4d96092f65",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs",
+      "title": "Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c3dc2e93ea722314be72bb077427318561672786b5fb311bca9aa00fb7fe1a25",
+      "excerpt_hash": "dd3c631fb79c24d7492820d486a0df3c1dfb7b52ab016f281e50cc2e63fe797a",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "location",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "690dbfaebb385427",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs",
+      "title": "Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d04f4a2b6953637b7026fb6bb8d87af87210d64544287b3fc9d12c21df4aa141",
+      "excerpt_hash": "3c363b1f3d8794d42c0a3aa7e7c2c4c071ace82cc56c9cd98279c17458708fe8",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "locations",
+        "groups"
+      ],
+      "path": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e190f1d2a903c646",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "48d74ed28cf6be8bbb82a87f9780bf5d3563c857e140a7b7fe245fbd9764fccb",
+      "excerpt_hash": "d223ff9057236f694b76f4bb24a3ff3dbf18c7f93d52abe5f823b20469c2496e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "location",
+        "locations",
+        "groups"
+      ],
+      "path": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "96f1328d8aafb3b3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "title": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "41030b7d3cc4da9065e6a55da50a99f34e723cd9637ea3a2aa8e4fd0a6c14019",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f3f93f025a571807",
+      "source_record_id": "rock_developer:f3f93f025a571807",
+      "title": "Schedule Unavailability",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-unavailability",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "770e5eb635ce3bc0d3bb680321c04e959ccf43e418f8964a379f632652e8e1b2",
+      "excerpt_hash": "ffd5f324b9b1f97d208aa8aecf2a82d10ab7e367b45322fed573912ca7d5bd47",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "74531b276e6301ef",
+      "source_record_id": "rock_developer:74531b276e6301ef",
+      "title": "Utility Commands",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/commands/utility-commands",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "b70dfd99edd11adca1325d10037ef16356d5dd9fed798f3a92defaf169c3da37",
+      "excerpt_hash": "c637c947644231697213ff0bacff79ef463cfcd8cfce63a744975473c488514a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "3707a557d81c1137",
+      "source_record_id": "rock_recipes:3707a557d81c1137",
+      "title": "Group Schedule Status Board Print Button",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/201",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "99342df086dbed7f35853ebfdec7647bc195cf95ebdbab70fc07d32ec3bc4dec",
+      "excerpt_hash": "6ea00fdae893bf2b6832200ee3be32e1af45c82b2183f8075e7de24e5f30f77f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "f2e1024cee9511f5",
+      "source_record_id": "rock_recipes:f2e1024cee9511f5",
+      "title": "Export Schedule Status Board to Excel",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/174",
+      "version": null
+    },
+    {
+      "authority": "community-answer",
+      "authority_score": 50,
+      "change_type": null,
+      "content_hash": "b00819128b6fe9e4f5a42a5feb7110ce637dea32d2227c64ae70bdbb06f77a17",
+      "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_qa",
+      "source_key": "a2819513ef35f906",
+      "source_record_id": "rock_qa:a2819513ef35f906",
+      "title": "REST API for Schedules",
+      "topics": [
+        "api",
+        "development",
+        "troubleshooting",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2710",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "cc6fb3df674b28c2",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
+      "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
+      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2a863471e239f0b9",
+      "source_record_id": "rock_rocku:2a863471e239f0b9",
+      "title": "Person Preferences and Auto Schedule",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
+      "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "title": "Locations",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/locations",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "7cbd0733c3fa2a587bcce7dcba3acdb9a2ec66380e4bde48a3fca83e9c7a2aeb",
+      "excerpt_hash": "198304fc3b8b16faa7339f31c24bf12587dc8c74f7ed061fe33f1605bcaea8ad",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "aa94e8b3d8886a7a",
+      "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
+      "title": "Schedules",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/schedules",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/core-concepts/campuses",
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "3d0824ff41704b39",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d3de2ca129564d683e14a5f0aff24daadf7a7bf01aee0343aa1b402a79edae4f",
+      "excerpt_hash": "36390c49cd47668f74ad573098420310df48a6f64bfa48adc2c73a0b96df3d54",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "schedule",
+        "schedules",
+        "location",
+        "locations"
+      ],
+      "path": "Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "52de29b9741dc96b",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "title": "Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "a11450da0a9a3a7789be3f10bb4e1ea5e3dab2613fc9521a90e8eaf6e9b9b340",
+      "excerpt_hash": "0a4aa54f6cdd99673734dd96581ada28577fbb78222bdb5d7732c43bb6457a7a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "520dfe184485a9d1",
+      "source_record_id": "rock_recipes:520dfe184485a9d1",
+      "title": "Recipe Screenshots",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/111/room-reservation-to-calendar-tools",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "261ced8cad78ba54de9aff03bd652dfba0a18e980b574cdc6bde23ba953e7790",
+      "excerpt_hash": "e6f9948a6ca9bc197e167ef5c61ea64a91589660075ee2f7da6311e9916b876f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "45b728c37efb8bd1",
+      "source_record_id": "rock_recipes:45b728c37efb8bd1",
+      "title": "Schedule Cancellation Workflow",
+      "topics": [
+        "check-in",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/481",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "69e19531101af809a4f16208bffa65dcdefc86d93c2a54578e10f0d0fdb7e73f",
+      "excerpt_hash": "812a0d06deaa98d6729c5a20c50bc0252d1dfba7ee54fd6d8a08acec24c06f81",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e0f6d11f9b208728",
+      "source_record_id": "rock_recipes:e0f6d11f9b208728",
+      "title": "Problem to Solve",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/459",
+      "version": null
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}

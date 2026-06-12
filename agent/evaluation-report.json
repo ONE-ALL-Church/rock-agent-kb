@@ -1,0 +1,88 @@
+{
+  "concepts": {
+    "ai-agents-automation": {
+      "pass": 4
+    },
+    "api-integrations": {
+      "pass": 4
+    },
+    "apple-tv": {
+      "pass": 4
+    },
+    "check-in": {
+      "pass": 4
+    },
+    "cms-websites": {
+      "pass": 4
+    },
+    "communications": {
+      "pass": 4
+    },
+    "connections": {
+      "pass": 4
+    },
+    "data-views-reports": {
+      "pass": 4
+    },
+    "developer-resources": {
+      "pass": 4
+    },
+    "event-registration": {
+      "pass": 4
+    },
+    "giving-finance": {
+      "pass": 4
+    },
+    "groups": {
+      "pass": 4
+    },
+    "helix": {
+      "pass": 4
+    },
+    "lava": {
+      "pass": 4
+    },
+    "learning-lms-engagement": {
+      "pass": 4
+    },
+    "mobile": {
+      "pass": 4
+    },
+    "people-families": {
+      "pass": 4
+    },
+    "platform-configuration": {
+      "pass": 4
+    },
+    "roku": {
+      "pass": 4
+    },
+    "scheduling-locations": {
+      "pass": 4
+    },
+    "security-permissions": {
+      "pass": 4
+    },
+    "serving-volunteer-ops": {
+      "pass": 4
+    },
+    "system-admin-ops": {
+      "pass": 4
+    },
+    "tv-apps": {
+      "pass": 4
+    },
+    "workflows": {
+      "pass": 4
+    }
+  },
+  "fail_count": 0,
+  "generated_at": "2026-06-12T09:25:55+00:00",
+  "near_misses": [],
+  "pass_count": 100,
+  "pass_rate": 1.0,
+  "question_count": 100,
+  "result_count": 100,
+  "schema": "rock-kb-evaluation-report-v1",
+  "term_miss_count": 0
+}

@@ -1,0 +1,2349 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows.",
+      "claim_hash": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
+      "claim_id": "claim:29f4e0bbc81c08861367",
+      "claim_tier": "live_verified",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "tv_apps",
+            "tables": [
+              "source:TV Apps/ONEALL TV"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only source inspection verified Rock TV app templates use rockCommand attributes for navigation, login/logout, and media playback commands with command-specific parameters.",
+          "This confirms the command surface exists in local TV app implementation examples; agents still need to verify the exact current TV app/page template being edited."
+        ],
+        "verification_method": "read_only_source_template_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fb2381e8a0c8d6a854b3e4d4e0948910c0a736cc631c6729f1b1ea2da7a848cc",
+      "source_record_ids": [
+        "rock_developer:80679876651d7dc7"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Apple TV JavaScript Commands",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Rock Apple TV app is created as a Rock-managed TV application record under CMS configuration, with Rock-side settings that are distinct from the App Store name.",
+      "claim_hash": "66c75fd11843ce29cb4dd2c99c095687532fd45f0b44d50af6aa9f6bd1f0a648",
+      "claim_id": "claim:30ff6291c1d3a92fea69",
+      "claim_tier": "live_verified",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "tv_apps",
+            "tables": [
+              "Site",
+              "Page",
+              "Block",
+              "BlockType",
+              "EntityType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified TV Application List, Apple TV Application Detail, Apple TV Page Detail, and TV Page List admin blocks, plus a TV Site record with SiteType 2, page-view tracking, default page, and login page.",
+          "Source evidence shows Apple TV application settings are edited and stored in Rock-side Site/additional-settings surfaces, including app JavaScript, styles, API key, authentication page, and interaction retention."
+        ],
+        "verification_method": "read_only_sql_and_source_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7e6aa7c83db8c8701823dd213a68d6c33502907d354b527e50e708c878ccdb11",
+      "source_record_ids": [
+        "rock_developer:66cd0caee02b1e4b"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating an Apple TV App",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default.",
+      "claim_hash": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+      "claim_id": "claim:410bf6750e90b7193262",
+      "claim_tier": "live_verified",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "apple-tv",
+        "lava",
+        "roku",
+        "security-permissions",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "security_auth",
+            "tables": [
+              "DefinedValue",
+              "Webhooks/Lava.ashx",
+              "Auth"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only source inspection verified the Lava webhook handler matches active defined values by URL/method, reads Template and EnabledLavaCommands, and renders Lava without an explicit permission check in the inspected handler path.",
+          "The Apple TV/Roku API example portion remains official-source-backed; this verification confirms the local handler security caveat and reinforces that agents must inspect configured webhooks before using Lava APIs operationally."
+        ],
+        "verification_method": "read_only_sql_and_source_security_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a0d408d23ccf9b097684d2479ac6cf14bc5d2e76d37db21b10d1c6c2edf630c6",
+      "source_record_ids": [
+        "rock_lava_docs:53ad1133e1cb2d0a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Creating APIs Using Lava",
+          "url": "https://community.rockrms.com/lava/lava-api"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater.",
+      "claim_hash": "88263d519605030fa592ae701ea569ae3ae1d7bfd6c498c213f5a7454d427285",
+      "claim_id": "claim:49b86c70fc03c6969d42",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6b7bb4c0b2ee6aa9b665230cafaf61ada34531d79df188c6ce4d3c7fe92f89cc",
+      "source_record_ids": [
+        "rock_developer:74ac83f99a50c012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Apple TV Docs",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs"
+        }
+      ]
+    },
+    {
+      "authority_tier": "release-note-confirmed",
+      "claim": "Triumph's GitHub Spotlight for the v17.0.29 pre-alpha notes that the Roku TV app feature was added for Rock v16.7, making Roku coverage version-sensitive.",
+      "claim_hash": "62ebc8c94b6a596f4a6a0d74da889d8f62bbc9d1bc51e0c47f8574bc9b99c174",
+      "claim_id": "claim:52b50da71870c1d611da",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "roku",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "125ffbfa19b202adfa2f0563f817e353bf4e0d38c93c5d2e2dd1a5559eb159ae",
+      "source_record_ids": [
+        "triumph_resources:9d0ccce785ef64bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "triumph_resources",
+          "title": "GitHub Spotlight: 10/4/2024",
+          "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML.",
+      "claim_hash": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
+      "claim_id": "claim:563e520ec15928e19628",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "lava",
+        "roku",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1b1ae6826ce4d38969877ecc638a53231450132279d919c16acd8c11490c9091",
+      "source_record_ids": [
+        "rock_developer:6449dcd93497b4cd"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Roku Pages",
+          "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage.",
+      "claim_hash": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
+      "claim_id": "claim:5bd2b6b4cac279be5e13",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv",
+        "lava",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7ab05312dace90846212edf514275a3af6c3b798841a05a35bcb6f2a590c7592",
+      "source_record_ids": [
+        "rock_developer:67f84804d07244b3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Apple TV Pages",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Roku documentation describes Roku support as a way to extend Rock-powered digital ministry to Roku TV through Rock-managed Roku integration.",
+      "claim_hash": "9f5317867058d6f644169a16abe60cae6e606597cadcd1ae68b4bd2cc6799555",
+      "claim_id": "claim:669456b72f0978dc418a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "roku",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "12a74febd6a6099c457b42bd0853d4dbac432a3b895f4e1bc2003a37190a185f",
+      "source_record_ids": [
+        "rock_developer:35d2e6eb8d06e01f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Roku Docs",
+          "url": "https://community.rockrms.com/developer/roku-docs"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns.",
+      "claim_hash": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
+      "claim_id": "claim:8ea35a7125998a66db92",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "mobile",
+        "tv-apps"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
+      "source_record_ids": [
+        "rock_podcast_rss:23b184cb77a708bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
+          "timestamp": "03:03",
+          "timestamp_seconds": 183.66,
+          "title": "Episode 143: Special Edition- Braden Cohen",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas.",
+      "claim_hash": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
+      "claim_id": "claim:9398f3fb18e8a79c0e4d",
+      "claim_tier": "live_verified",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "tv_apps",
+            "tables": [
+              "source:TV Apps/ONEALL TV"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only source inspection verified rockCommand usage with command-specific parameters such as video URL, media element GUID, title, artwork, related entity, watch map, and resume behavior.",
+          "The local templates verify the command pattern, but the comma-chaining behavior remains source-documentation-backed rather than independently exercised in a running Roku client."
+        ],
+        "verification_method": "read_only_source_template_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e53898e072789bf664b39fa2355b590fd831746f748c3ad035482b6e4af207bf",
+      "source_record_ids": [
+        "rock_developer:8f58264f88176697"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Roku Commands",
+          "url": "https://community.rockrms.com/developer/roku-docs/commands"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior.",
+      "claim_hash": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
+      "claim_id": "claim:98aeedbbadb50affa418",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "mobile",
+        "tv-apps"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
+      "source_record_ids": [
+        "rock_podcast_rss:23b184cb77a708bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
+          "timestamp": "03:33",
+          "timestamp_seconds": 213.54,
+          "title": "Episode 143: Special Edition- Braden Cohen",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava.",
+      "claim_hash": "df50c71c1c40bd70b999d5ede521df2e33eacad7d3e73c86c31357705d98eb7e",
+      "claim_id": "claim:a43c6281e5328e7cac68",
+      "claim_tier": "live_verified",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "roku",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "tv_apps",
+            "tables": [
+              "Site",
+              "InteractionChannel",
+              "BlockType",
+              "Block",
+              "EntityType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified Roku Application Detail, Roku Page Detail, TV Application List, and TV Page List admin blocks, plus the connected instance's TV Site row and page-view columns.",
+          "Cached upstream Rock source verifies Roku application settings include enable page views, page-view retention duration, API key, login/authentication page, and Roku components, so troubleshooting should begin with the application record before page Lava."
+        ],
+        "verification_method": "read_only_sql_and_source_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b08952928c1b67f52df55bafb7f274dd698de3323a0cd4b9b6de6d9d1a6d2cf6",
+      "source_record_ids": [
+        "rock_developer:9cff0c87fd8eab29"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Roku Applications",
+          "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform.",
+      "claim_hash": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
+      "claim_id": "claim:b83b4c10285c00974e57",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "mobile",
+        "tv-apps"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
+      "source_record_ids": [
+        "rock_podcast_rss:23b184cb77a708bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
+          "timestamp": "01:26",
+          "timestamp_seconds": 86.92,
+          "title": "Episode 143: Special Edition- Braden Cohen",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This RockCast episode adds public-safe context for the Rock Mobile transition from Xamarin Forms toward .NET MAUI. It describes MAUI as a close successor with compatibility support, newer styling and animation options, performance improvements, and a release path that lets existing apps test compatibility before fully moving new content blocks to MAUI-native behavior.",
+      "claim_hash": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad",
+      "claim_id": "claim:f52accde86e6d6617963",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "mobile",
+        "tv-apps"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
+      "source_record_ids": [
+        "rock_podcast_rss:23b184cb77a708bb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Episode 143: Special Edition- Braden Cohen",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:29f4e0bbc81c08861367": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
+    "claim:30ff6291c1d3a92fea69": "66c75fd11843ce29cb4dd2c99c095687532fd45f0b44d50af6aa9f6bd1f0a648",
+    "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+    "claim:49b86c70fc03c6969d42": "88263d519605030fa592ae701ea569ae3ae1d7bfd6c498c213f5a7454d427285",
+    "claim:52b50da71870c1d611da": "62ebc8c94b6a596f4a6a0d74da889d8f62bbc9d1bc51e0c47f8574bc9b99c174",
+    "claim:563e520ec15928e19628": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
+    "claim:5bd2b6b4cac279be5e13": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
+    "claim:669456b72f0978dc418a": "9f5317867058d6f644169a16abe60cae6e606597cadcd1ae68b4bd2cc6799555",
+    "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
+    "claim:9398f3fb18e8a79c0e4d": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
+    "claim:98aeedbbadb50affa418": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
+    "claim:a43c6281e5328e7cac68": "df50c71c1c40bd70b999d5ede521df2e33eacad7d3e73c86c31357705d98eb7e",
+    "claim:b83b4c10285c00974e57": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
+    "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad"
+  },
+  "approved_claims_hash": "79156c069f555175c1fc8e2ae09d5ec00897dd5750097cf8b721ae99b425049a",
+  "approved_claims_path": "knowledge/concepts/tv-apps/approved-claims.md",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "53ee2a24710ff95c67799de882e526601657f58de5d7d2c292036aff87771b22",
+  "approved_media_path": "knowledge/concepts/tv-apps/approved-media.md",
+  "built_at": "2026-06-12T09:21:18+00:00",
+  "concept_id": "tv-apps",
+  "guide_hash": "e2ecef3dee63cc0e10c27928a6dbc831d6d4097f5cfd86d4d7aefe4180e3e3ac",
+  "guide_line_count": 1169,
+  "guide_path": "knowledge/concepts/tv-apps/guide.md",
+  "guide_word_count": 11923,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "1c249a078ab062222d2d9d8d3670a3bf516b8a1244dbb8efdbd4e404e22b9c04",
+      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "source_id": "rock_developer",
+      "source_key": "74ac83f99a50c012",
+      "source_record_id": "rock_developer:74ac83f99a50c012",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "86faeee3c2670411d7b7323d5ebf6bf95705dcb4082b9fa1ae6696185447c276",
+      "excerpt_hash": "7862abd273a69fd6ca1f37bb66b5a98c58bee2a73380044ed2daa2994f33da9a",
+      "source_id": "rock_developer",
+      "source_key": "35d2e6eb8d06e01f",
+      "source_record_id": "rock_developer:35d2e6eb8d06e01f",
+      "url": "https://community.rockrms.com/developer/roku-docs"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "84dd58e278aad376e332902c0ce49d5f5659f0961cbb543522fa0624dd2c1d3b",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "9d0ccce785ef64bb",
+      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
+      "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d6c28d8ef52a912946fb5fc24f50b38d88d1e3c71bfb05345b164af44e8f8f40",
+      "excerpt_hash": "ba049b536c4b840d15e5f3d832f7785960cbb580dc1fda7fc9cfee59e645f5f9",
+      "source_id": "rock_lava_docs",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
+      "url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "a48eb7449efaf0b585b516f2933f6e62a67c21d925ce53ecbf21b5cf6f427be5",
+      "excerpt_hash": "5ff8172fbdb2685796de005f3195539387b41dcda984fd1359701a568b6e0a5d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a183a0fe156ec11e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "50c478af2daf476592ec7ce4fb43afe7fb075aa6799e30977232536c5a4d7308",
+      "excerpt_hash": "5505fd112500e880559dcac9683a3844f5b6f88bcf272d54c7becdac20b4125f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2aa8d37e7332b898",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "1f12273d89c3c022001328b9c6b5bc2aef16be665cccad111eab9c24739f8c85",
+      "excerpt_hash": "35e8b546f60536d95ed38aefab6293c1f8b9f82c4113f764e47fd79409533a7f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ec2bead07b6e067b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "0065ca9ca8318a4aac71143e5f9543faeab6172385870373b424ebcef0ae5b40",
+      "excerpt_hash": "544c67b77d1f47acb9368028c454d22b8a1c8585c2526837890ddd847c348ee8",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a76f73c64199a534",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "67d92279e1abb13998ad74bf166c85a3dba90d44574236daa63d0a1cdaf1713e",
+      "excerpt_hash": "aabc81f186e0edd282f0c3d01bc8387a2bc548d3ff9f48a614227fd33e566374",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "bd028713c00f4c0b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs"
+    },
+    {
+      "authority": "official-api",
+      "content_hash": "ce900efde727f677c1ea589c2f16ee726dd2aa4d119575ef60fa47e31fc8135e",
+      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "source_id": "rock_api_docs",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
+      "url": "https://community.rockrms.com/api-docs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "99ebb9f9ea282cdb30ccc6a78514eb4ce45bfd5753cb7ae86720dc45d0df8df7",
+      "excerpt_hash": "6e3d701b2f6bbe530496381df414c91827f8209fc7b4214801cdd2a0c0ab7fc7",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "29b70070a9b3ab9d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "7b084fb8d351562b4dfffd30ca33885e11c2d3c410bf94c5084669b728cbf13b",
+      "excerpt_hash": "c3e2b8b1f5ad4eb79b7357a7480453e2f8e440f6dc38d47542607baf1eb7568c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "489761c69361347a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d46491bb980b98bb04c578918e057b6fc96fdb273793afcfa334e177dd674995",
+      "excerpt_hash": "c45c34db310af90a159cca1b6861dd5b2ca36a92fa5a4ebbada759703625e33c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fbe6e72b8c6fd35b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "346df4fafded22690f16e20bfe056961fcfc9fd3b56c5626694dbca7c3708fc3",
+      "excerpt_hash": "217fe74b727d8e1205b6e06c40a22bfb571d7b406d62a4ed54f307c6e8cde6cf",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a3e67115b1e1fc4f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "28a26c0a13cc2eb376af88378569c1d1fbfb4744b11110d90eb402aea9a6bc21",
+      "excerpt_hash": "34e97ca97bed3fd1c81fcef9f20eedb3aebe138be58b28b2200b628ae6c5df3c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7a2228513497371a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Field/Types/RemoteAuthsFieldType.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "aa4c1cd1e3cc1fd8456f21c9a0d9f9e5d183b8af834004ac89600857cbfebc50",
+      "excerpt_hash": "d77279e48093767bcb4e355bd14b9cd3d183e84da26e8ab1260afafe55fda584",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3ae3d12b5b28eccc",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b5d0ad02c7d042e35de9a84591d3a674f3e293e8afc2b0967a3c8b64bc9dc571",
+      "excerpt_hash": "efa7c2aff78c3d1a28a173acbc42d7c6fdfa2c0797fd66b75b029e0b59b8860e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "c34c0213b0b77ca4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "7cf9c01c97ba95d5",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "community-answer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_qa",
+      "source_key": "b7e0389038fbb3ed",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/ask/developing"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 49,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 64,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "53ad1133e1cb2d0a",
+        "a183a0fe156ec11e",
+        "2aa8d37e7332b898",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 50
+    },
+    {
+      "confidence": "normal",
+      "end_line": 92,
+      "heading": "3. TV Apps Mental Model",
+      "needs_live_verification": true,
+      "section_id": "3-tv-apps-mental-model",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 65
+    },
+    {
+      "confidence": "normal",
+      "end_line": 116,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b",
+        "a76f73c64199a534",
+        "bd028713c00f4c0b",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "14e4b0253d1428ca",
+        "53ad1133e1cb2d0a",
+        "9d0ccce785ef64bb",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 93
+    },
+    {
+      "confidence": "structural",
+      "end_line": 118,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "a76f73c64199a534",
+        "35d2e6eb8d06e01f",
+        "bd028713c00f4c0b",
+        "a183a0fe156ec11e",
+        "29b70070a9b3ab9d",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898"
+      ],
+      "start_line": 117
+    },
+    {
+      "confidence": "normal",
+      "end_line": 132,
+      "heading": "Apple TV Application Configuration",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-apple-tv-application-configuration",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "a76f73c64199a534",
+        "74ac83f99a50c012",
+        "a76f73c64199a534"
+      ],
+      "start_line": 119
+    },
+    {
+      "confidence": "normal",
+      "end_line": 143,
+      "heading": "Roku Application Configuration",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-roku-application-configuration",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "bd028713c00f4c0b"
+      ],
+      "start_line": 133
+    },
+    {
+      "confidence": "normal",
+      "end_line": 159,
+      "heading": "TV Page Configuration",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-tv-page-configuration",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 144
+    },
+    {
+      "confidence": "normal",
+      "end_line": 172,
+      "heading": "Remote Authentication Data Model",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-remote-authentication-data-model",
+      "source_keys": [
+        "a183a0fe156ec11e",
+        "29b70070a9b3ab9d",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898"
+      ],
+      "start_line": 160
+    },
+    {
+      "confidence": "structural",
+      "end_line": 174,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "14e4b0253d1428ca",
+        "a183a0fe156ec11e",
+        "fbe6e72b8c6fd35b"
+      ],
+      "start_line": 173
+    },
+    {
+      "confidence": "normal",
+      "end_line": 180,
+      "heading": "Application To Page",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-application-to-page",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 175
+    },
+    {
+      "confidence": "normal",
+      "end_line": 193,
+      "heading": "Application To API Key",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-application-to-api-key",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 181
+    },
+    {
+      "confidence": "normal",
+      "end_line": 208,
+      "heading": "Application To Authentication Page",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-application-to-authentication-page",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 194
+    },
+    {
+      "confidence": "normal",
+      "end_line": 212,
+      "heading": "RemoteAuthenticationSession To Person And Site",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-remoteauthenticationsession-to-person-and-site",
+      "source_keys": [
+        "a183a0fe156ec11e",
+        "fbe6e72b8c6fd35b"
+      ],
+      "start_line": 209
+    },
+    {
+      "confidence": "normal",
+      "end_line": 218,
+      "heading": "Page To Interaction",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-page-to-interaction",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 213
+    },
+    {
+      "confidence": "structural",
+      "end_line": 220,
+      "heading": "7. Common TV Apps Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-tv-apps-workflows",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb"
+      ],
+      "start_line": 219
+    },
+    {
+      "confidence": "normal",
+      "end_line": 235,
+      "heading": "Create A New Apple TV App",
+      "needs_live_verification": true,
+      "section_id": "7-common-tv-apps-workflows-create-a-new-apple-tv-app",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 221
+    },
+    {
+      "confidence": "normal",
+      "end_line": 250,
+      "heading": "Create A New Roku App",
+      "needs_live_verification": true,
+      "section_id": "7-common-tv-apps-workflows-create-a-new-roku-app",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 236
+    },
+    {
+      "confidence": "normal",
+      "end_line": 262,
+      "heading": "Add A Menu Or Navigation Surface",
+      "needs_live_verification": false,
+      "section_id": "7-common-tv-apps-workflows-add-a-menu-or-navigation-surface",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 251
+    },
+    {
+      "confidence": "normal",
+      "end_line": 268,
+      "heading": "Add Media Playback",
+      "needs_live_verification": true,
+      "section_id": "7-common-tv-apps-workflows-add-media-playback",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 263
+    },
+    {
+      "confidence": "normal",
+      "end_line": 282,
+      "heading": "Add Remote Sign-In",
+      "needs_live_verification": false,
+      "section_id": "7-common-tv-apps-workflows-add-remote-sign-in",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 269
+    },
+    {
+      "confidence": "structural",
+      "end_line": 284,
+      "heading": "8. Apple TV Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-apple-tv-deep-dive",
+      "source_keys": [
+        "74ac83f99a50c012"
+      ],
+      "start_line": 283
+    },
+    {
+      "confidence": "normal",
+      "end_line": 294,
+      "heading": "Apple TV Platform Contract",
+      "needs_live_verification": true,
+      "section_id": "8-apple-tv-deep-dive-apple-tv-platform-contract",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 285
+    },
+    {
+      "confidence": "normal",
+      "end_line": 324,
+      "heading": "Apple TV Pages And Merge Fields",
+      "needs_live_verification": true,
+      "section_id": "8-apple-tv-deep-dive-apple-tv-pages-and-merge-fields",
+      "source_keys": [
+        "74ac83f99a50c012"
+      ],
+      "start_line": 295
+    },
+    {
+      "confidence": "normal",
+      "end_line": 340,
+      "heading": "Apple TV Templates",
+      "needs_live_verification": false,
+      "section_id": "8-apple-tv-deep-dive-apple-tv-templates",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 325
+    },
+    {
+      "confidence": "normal",
+      "end_line": 351,
+      "heading": "Apple TV Commands",
+      "needs_live_verification": false,
+      "section_id": "8-apple-tv-deep-dive-apple-tv-commands",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 341
+    },
+    {
+      "confidence": "normal",
+      "end_line": 364,
+      "heading": "Apple TV Testing And Demo Key",
+      "needs_live_verification": true,
+      "section_id": "8-apple-tv-deep-dive-apple-tv-testing-and-demo-key",
+      "source_keys": [
+        "74ac83f99a50c012"
+      ],
+      "start_line": 352
+    },
+    {
+      "confidence": "normal",
+      "end_line": 377,
+      "heading": "Apple TV Application Images",
+      "needs_live_verification": true,
+      "section_id": "8-apple-tv-deep-dive-apple-tv-application-images",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 365
+    },
+    {
+      "confidence": "structural",
+      "end_line": 379,
+      "heading": "9. Roku Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-roku-deep-dive",
+      "source_keys": [
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 378
+    },
+    {
+      "confidence": "normal",
+      "end_line": 385,
+      "heading": "Roku Platform Contract",
+      "needs_live_verification": false,
+      "section_id": "9-roku-deep-dive-roku-platform-contract",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 380
+    },
+    {
+      "confidence": "normal",
+      "end_line": 406,
+      "heading": "Roku Pages",
+      "needs_live_verification": true,
+      "section_id": "9-roku-deep-dive-roku-pages",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 386
+    },
+    {
+      "confidence": "normal",
+      "end_line": 419,
+      "heading": "Roku Commands",
+      "needs_live_verification": true,
+      "section_id": "9-roku-deep-dive-roku-commands",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 407
+    },
+    {
+      "confidence": "normal",
+      "end_line": 430,
+      "heading": "Roku Navigation Caching",
+      "needs_live_verification": false,
+      "section_id": "9-roku-deep-dive-roku-navigation-caching",
+      "source_keys": [
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 420
+    },
+    {
+      "confidence": "normal",
+      "end_line": 443,
+      "heading": "Roku Focus Management",
+      "needs_live_verification": false,
+      "section_id": "9-roku-deep-dive-roku-focus-management",
+      "source_keys": [
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 431
+    },
+    {
+      "confidence": "normal",
+      "end_line": 465,
+      "heading": "Roku RowList",
+      "needs_live_verification": false,
+      "section_id": "9-roku-deep-dive-roku-rowlist",
+      "source_keys": [
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 444
+    },
+    {
+      "confidence": "normal",
+      "end_line": 471,
+      "heading": "Roku Layout Guardrails",
+      "needs_live_verification": false,
+      "section_id": "9-roku-deep-dive-roku-layout-guardrails",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 466
+    },
+    {
+      "confidence": "structural",
+      "end_line": 473,
+      "heading": "10. Security And Authentication Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-security-and-authentication-deep-dive",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898",
+        "a3e67115b1e1fc4f",
+        "7a2228513497371a",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 472
+    },
+    {
+      "confidence": "normal",
+      "end_line": 486,
+      "heading": "API Key Security",
+      "needs_live_verification": true,
+      "section_id": "10-security-and-authentication-deep-dive-api-key-security",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 474
+    },
+    {
+      "confidence": "normal",
+      "end_line": 502,
+      "heading": "Remote Authentication Flow",
+      "needs_live_verification": true,
+      "section_id": "10-security-and-authentication-deep-dive-remote-authentication-flow",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "ec2bead07b6e067b",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898"
+      ],
+      "start_line": 487
+    },
+    {
+      "confidence": "normal",
+      "end_line": 511,
+      "heading": "Remote Auth Component Selection",
+      "needs_live_verification": true,
+      "section_id": "10-security-and-authentication-deep-dive-remote-auth-component-selection",
+      "source_keys": [
+        "a3e67115b1e1fc4f",
+        "7a2228513497371a"
+      ],
+      "start_line": 503
+    },
+    {
+      "confidence": "normal",
+      "end_line": 529,
+      "heading": "Page Security And Sensitive Data",
+      "needs_live_verification": false,
+      "section_id": "10-security-and-authentication-deep-dive-page-security-and-sensitive-data",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 512
+    },
+    {
+      "confidence": "structural",
+      "end_line": 531,
+      "heading": "11. Styling And Controls Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "11-styling-and-controls-deep-dive",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 530
+    },
+    {
+      "confidence": "normal",
+      "end_line": 544,
+      "heading": "Apple TV Styling",
+      "needs_live_verification": true,
+      "section_id": "11-styling-and-controls-deep-dive-apple-tv-styling",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 532
+    },
+    {
+      "confidence": "normal",
+      "end_line": 559,
+      "heading": "Apple TV Custom Controls",
+      "needs_live_verification": true,
+      "section_id": "11-styling-and-controls-deep-dive-apple-tv-custom-controls",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 545
+    },
+    {
+      "confidence": "normal",
+      "end_line": 577,
+      "heading": "Roku Controls",
+      "needs_live_verification": true,
+      "section_id": "11-styling-and-controls-deep-dive-roku-controls",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 560
+    },
+    {
+      "confidence": "structural",
+      "end_line": 579,
+      "heading": "12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Mobile",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "53ad1133e1cb2d0a",
+        "a183a0fe156ec11e",
+        "7a2228513497371a",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 578
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 583,
+      "heading": "API Integrations",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-api-integrations",
+      "source_keys": [
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 580
+    },
+    {
+      "confidence": "normal",
+      "end_line": 596,
+      "heading": "Lava",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-lava",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 584
+    },
+    {
+      "confidence": "structural",
+      "end_line": 600,
+      "heading": "CMS",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-cms",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 597
+    },
+    {
+      "confidence": "normal",
+      "end_line": 604,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-security",
+      "source_keys": [
+        "a183a0fe156ec11e",
+        "7a2228513497371a"
+      ],
+      "start_line": 601
+    },
+    {
+      "confidence": "normal",
+      "end_line": 608,
+      "heading": "Media",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-media",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 605
+    },
+    {
+      "confidence": "normal",
+      "end_line": 612,
+      "heading": "Mobile",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-mobile",
+      "source_keys": [
+        "74ac83f99a50c012"
+      ],
+      "start_line": 609
+    },
+    {
+      "confidence": "normal",
+      "end_line": 648,
+      "heading": "13. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 613
+    },
+    {
+      "confidence": "normal",
+      "end_line": 679,
+      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "a76f73c64199a534",
+        "bd028713c00f4c0b",
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898",
+        "a3e67115b1e1fc4f",
+        "7a2228513497371a",
+        "3ae3d12b5b28eccc",
+        "c34c0213b0b77ca4",
+        "29b70070a9b3ab9d",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "53ad1133e1cb2d0a",
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 649
+    },
+    {
+      "confidence": "normal",
+      "end_line": 702,
+      "heading": "15. Reporting, Analytics, And Model Map",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "a183a0fe156ec11e"
+      ],
+      "start_line": 680
+    },
+    {
+      "confidence": "normal",
+      "end_line": 722,
+      "heading": "16. Version And Release Caveats",
+      "needs_live_verification": true,
+      "section_id": "16-version-and-release-caveats",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb",
+        "29b70070a9b3ab9d",
+        "35d2e6eb8d06e01f",
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 703
+    },
+    {
+      "confidence": "structural",
+      "end_line": 724,
+      "heading": "17. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 723
+    },
+    {
+      "confidence": "normal",
+      "end_line": 747,
+      "heading": "Playbook: Anonymous Sermon Library",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks-playbook-anonymous-sermon-library",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 725
+    },
+    {
+      "confidence": "normal",
+      "end_line": 767,
+      "heading": "Playbook: Campus Selection",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-campus-selection",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 748
+    },
+    {
+      "confidence": "normal",
+      "end_line": 790,
+      "heading": "Playbook: Remote Login With Personalized Home",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks-playbook-remote-login-with-personalized-home",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 768
+    },
+    {
+      "confidence": "normal",
+      "end_line": 810,
+      "heading": "Playbook: Live Event Countdown",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks-playbook-live-event-countdown",
+      "source_keys": [
+        "74ac83f99a50c012"
+      ],
+      "start_line": 791
+    },
+    {
+      "confidence": "normal",
+      "end_line": 831,
+      "heading": "Playbook: Roku Media Shelves",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks-playbook-roku-media-shelves",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 811
+    },
+    {
+      "confidence": "structural",
+      "end_line": 833,
+      "heading": "18. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 832
+    },
+    {
+      "confidence": "normal",
+      "end_line": 843,
+      "heading": "App Does Not Launch Or Shows Wrong Content",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 834
+    },
+    {
+      "confidence": "normal",
+      "end_line": 853,
+      "heading": "Page Is Blank",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-page-is-blank",
+      "source_keys": [
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 844
+    },
+    {
+      "confidence": "normal",
+      "end_line": 864,
+      "heading": "Roku Focus Does Not Move",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-roku-focus-does-not-move",
+      "source_keys": [
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 854
+    },
+    {
+      "confidence": "normal",
+      "end_line": 876,
+      "heading": "Navigation Button Does Nothing",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-navigation-button-does-nothing",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 865
+    },
+    {
+      "confidence": "normal",
+      "end_line": 886,
+      "heading": "Media Does Not Play",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-media-does-not-play",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f"
+      ],
+      "start_line": 877
+    },
+    {
+      "confidence": "normal",
+      "end_line": 901,
+      "heading": "Remote Login Fails",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-remote-login-fails",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 887
+    },
+    {
+      "confidence": "normal",
+      "end_line": 913,
+      "heading": "Analytics Missing",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-analytics-missing",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 902
+    },
+    {
+      "confidence": "structural",
+      "end_line": 915,
+      "heading": "19. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 914
+    },
+    {
+      "confidence": "structural",
+      "end_line": 944,
+      "heading": "Recipe: Audit A TV App Configuration",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-audit-a-tv-app-configuration",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 916
+    },
+    {
+      "confidence": "structural",
+      "end_line": 957,
+      "heading": "Recipe: Trace A Page GUID",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-trace-a-page-guid",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 945
+    },
+    {
+      "confidence": "normal",
+      "end_line": 982,
+      "heading": "Recipe: Validate Remote Auth In Data",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-validate-remote-auth-in-data",
+      "source_keys": [
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 958
+    },
+    {
+      "confidence": "structural",
+      "end_line": 995,
+      "heading": "Recipe: Review A Roku Page For Focus",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-review-a-roku-page-for-focus",
+      "source_keys": [
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b"
+      ],
+      "start_line": 983
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1012,
+      "heading": "Recipe: Review Apple TV Markup",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-review-apple-tv-markup",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 996
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1048,
+      "heading": "Recipe: Decide Cache Policy",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-decide-cache-policy",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 1013
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1104,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "53ad1133e1cb2d0a",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb",
+        "7cf9c01c97ba95d5",
+        "7cf9c01c97ba95d5"
+      ],
+      "start_line": 1049
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1126,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "53ad1133e1cb2d0a",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb",
+        "7cf9c01c97ba95d5",
+        "7cf9c01c97ba95d5"
+      ],
+      "start_line": 1105
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1128,
+      "heading": "20. Source Map And Dependency Notes",
+      "needs_live_verification": false,
+      "section_id": "20-source-map-and-dependency-notes",
+      "source_keys": [
+        "776256c424368312",
+        "b7e0389038fbb3ed",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "14e4b0253d1428ca",
+        "53ad1133e1cb2d0a",
+        "9d0ccce785ef64bb",
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898",
+        "a76f73c64199a534",
+        "bd028713c00f4c0b"
+      ],
+      "start_line": 1127
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1169,
+      "heading": "Release Notes And Community Examples",
+      "needs_live_verification": true,
+      "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
+      "source_keys": [
+        "776256c424368312",
+        "b7e0389038fbb3ed",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "14e4b0253d1428ca",
+        "53ad1133e1cb2d0a",
+        "9d0ccce785ef64bb",
+        "a183a0fe156ec11e",
+        "ec2bead07b6e067b",
+        "489761c69361347a",
+        "2aa8d37e7332b898",
+        "a76f73c64199a534",
+        "bd028713c00f4c0b"
+      ],
+      "start_line": 1129
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-08T18:14:21+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1c249a078ab062222d2d9d8d3670a3bf516b8a1244dbb8efdbd4e404e22b9c04",
+      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "74ac83f99a50c012",
+      "source_record_id": "rock_developer:74ac83f99a50c012",
+      "title": "Apple TV Docs",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "86faeee3c2670411d7b7323d5ebf6bf95705dcb4082b9fa1ae6696185447c276",
+      "excerpt_hash": "7862abd273a69fd6ca1f37bb66b5a98c58bee2a73380044ed2daa2994f33da9a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "35d2e6eb8d06e01f",
+      "source_record_id": "rock_developer:35d2e6eb8d06e01f",
+      "title": "👋 Roku Docs",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/roku-docs",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "84dd58e278aad376e332902c0ce49d5f5659f0961cbb543522fa0624dd2c1d3b",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "9d0ccce785ef64bb",
+      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
+      "title": "GitHub Spotlight: 10/4/2024",
+      "topics": [
+        "ai",
+        "github",
+        "implementation",
+        "mobile",
+        "operations",
+        "releases",
+        "resources",
+        "security",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-1042024",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d6c28d8ef52a912946fb5fc24f50b38d88d1e3c71bfb05345b164af44e8f8f40",
+      "excerpt_hash": "ba049b536c4b840d15e5f3d832f7785960cbb580dc1fda7fc9cfee59e645f5f9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
+      "title": "Creating APIs Using Lava",
+      "topics": [
+        "api",
+        "cms",
+        "development",
+        "lava",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/lava-api",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a48eb7449efaf0b585b516f2933f6e62a67c21d925ce53ecbf21b5cf6f427be5",
+      "excerpt_hash": "5ff8172fbdb2685796de005f3195539387b41dcda984fd1359701a568b6e0a5d",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a183a0fe156ec11e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+      "title": "Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "50c478af2daf476592ec7ce4fb43afe7fb075aa6799e30977232536c5a4d7308",
+      "excerpt_hash": "5505fd112500e880559dcac9683a3844f5b6f88bcf272d54c7becdac20b4125f",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2aa8d37e7332b898",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+      "title": "RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "1f12273d89c3c022001328b9c6b5bc2aef16be665cccad111eab9c24739f8c85",
+      "excerpt_hash": "35e8b546f60536d95ed38aefab6293c1f8b9f82c4113f764e47fd79409533a7f",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "security",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ec2bead07b6e067b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "title": "Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "0065ca9ca8318a4aac71143e5f9543faeab6172385870373b424ebcef0ae5b40",
+      "excerpt_hash": "544c67b77d1f47acb9368028c454d22b8a1c8585c2526837890ddd847c348ee8",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "tv app",
+        "tvapp",
+        "apple tv",
+        "appletv",
+        "application"
+      ],
+      "path": "Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a76f73c64199a534",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+      "title": "Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "67d92279e1abb13998ad74bf166c85a3dba90d44574236daa63d0a1cdaf1713e",
+      "excerpt_hash": "aabc81f186e0edd282f0c3d01bc8387a2bc548d3ff9f48a614227fd33e566374",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "tv app",
+        "tvapp",
+        "roku",
+        "application"
+      ],
+      "path": "Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "bd028713c00f4c0b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+      "title": "Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs"
+    },
+    {
+      "authority": "official-api",
+      "authority_score": 88,
+      "change_type": null,
+      "content_hash": "ce900efde727f677c1ea589c2f16ee726dd2aa4d119575ef60fa47e31fc8135e",
+      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_api_docs",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
+      "title": "API Documentation",
+      "topics": [
+        "api",
+        "development",
+        "integrations",
+        "lava",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/api-docs",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "99ebb9f9ea282cdb30ccc6a78514eb4ce45bfd5753cb7ae86720dc45d0df8df7",
+      "excerpt_hash": "6e3d701b2f6bbe530496381df414c91827f8209fc7b4214801cdd2a0c0ab7fc7",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "29b70070a9b3ab9d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
+      "title": "Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "7b084fb8d351562b4dfffd30ca33885e11c2d3c410bf94c5084669b728cbf13b",
+      "excerpt_hash": "c3e2b8b1f5ad4eb79b7357a7480453e2f8e440f6dc38d47542607baf1eb7568c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "security",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "489761c69361347a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+      "title": "Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d46491bb980b98bb04c578918e057b6fc96fdb273793afcfa334e177dd674995",
+      "excerpt_hash": "c45c34db310af90a159cca1b6861dd5b2ca36a92fa5a4ebbada759703625e33c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fbe6e72b8c6fd35b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs",
+      "title": "Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "346df4fafded22690f16e20bfe056961fcfc9fd3b56c5626694dbca7c3708fc3",
+      "excerpt_hash": "217fe74b727d8e1205b6e06c40a22bfb571d7b406d62a4ed54f307c6e8cde6cf",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "controls",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a3e67115b1e1fc4f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs",
+      "title": "Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "28a26c0a13cc2eb376af88378569c1d1fbfb4744b11110d90eb402aea9a6bc21",
+      "excerpt_hash": "34e97ca97bed3fd1c81fcef9f20eedb3aebe138be58b28b2200b628ae6c5df3c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock/Field/Types/RemoteAuthsFieldType.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7a2228513497371a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Field/Types/RemoteAuthsFieldType.cs",
+      "title": "Rock/Field/Types/RemoteAuthsFieldType.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "aa4c1cd1e3cc1fd8456f21c9a0d9f9e5d183b8af834004ac89600857cbfebc50",
+      "excerpt_hash": "d77279e48093767bcb4e355bd14b9cd3d183e84da26e8ab1260afafe55fda584",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3ae3d12b5b28eccc",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b5d0ad02c7d042e35de9a84591d3a674f3e293e8afc2b0967a3c8b64bc9dc571",
+      "excerpt_hash": "efa7c2aff78c3d1a28a173acbc42d7c6fdfa2c0797fd66b75b029e0b59b8860e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote",
+        "remote auth",
+        "remoteauth"
+      ],
+      "path": "Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "c34c0213b0b77ca4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "title": "Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "7cf9c01c97ba95d5",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "kind": "citation_only",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "",
+      "title": "https://www.rockrms.com/releasenotes",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "community-answer",
+      "authority_score": 50,
+      "kind": "citation_only",
+      "source_id": "rock_qa",
+      "source_key": "b7e0389038fbb3ed",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/ask/developing",
+      "url": "https://community.rockrms.com/ask/developing"
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}

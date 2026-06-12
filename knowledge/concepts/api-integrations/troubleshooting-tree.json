@@ -1,0 +1,164 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-the-right-api-route",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/api-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Find The Right API Route",
+      "when": "Follow the guide section for Recipe: Find The Right API Route."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-rest-key",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands/web-request-commands",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A REST Key",
+      "when": "Follow the guide section for Recipe: Audit A REST Key."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-diagnose-external-website-api-failure",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/api-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
+        "https://community.rockrms.com/lava/commands/web-request-commands"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Diagnose External Website API Failure",
+      "when": "Follow the guide section for Recipe: Diagnose External Website API Failure."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-lava-webhook-before-launch",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/lava/commands/web-request-commands",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Lava Webhook Before Launch",
+      "when": "Follow the guide section for Recipe: Review A Lava Webhook Before Launch."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-safe-agent-tool",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands/web-request-commands",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Safe Agent Tool",
+      "when": "Follow the guide section for Recipe: Build A Safe Agent Tool."
+    }
+  ],
+  "concept_id": "api-integrations",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:14+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
+    "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
+    "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
+    "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
+    "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
+    "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
+    "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
+    "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-find-the-right-api-route",
+    "18-agent-task-recipes-recipe-audit-a-rest-key",
+    "18-agent-task-recipes-recipe-diagnose-external-website-api-failure",
+    "18-agent-task-recipes-recipe-review-a-lava-webhook-before-launch",
+    "18-agent-task-recipes-recipe-build-a-safe-agent-tool"
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-the-right-person",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Find The Right Person”",
+      "when": "Follow the guide section for Recipe: “Find The Right Person”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-summarize-this-person",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Summarize This Person”",
+      "when": "Follow the guide section for Recipe: “Summarize This Person”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-draft-a-communication",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/ModelMap",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Draft A Communication”",
+      "when": "Follow the guide section for Recipe: “Draft A Communication”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-create-a-connection-request",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/ModelMap",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Create A Connection Request”",
+      "when": "Follow the guide section for Recipe: “Create A Connection Request”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-a-workflow-queue",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/ModelMap",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Explain A Workflow Queue”",
+      "when": "Follow the guide section for Recipe: “Explain A Workflow Queue”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-agent-security",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper",
+        "https://community.rockrms.com/developer/ai-agents/skills/creating-skills"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Audit Agent Security”",
+      "when": "Follow the guide section for Recipe: “Audit Agent Security”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-safe-public-agent",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/ModelMap",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Build A Safe Public Agent”",
+      "when": "Follow the guide section for Recipe: “Build A Safe Public Agent”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-an-agent-answer",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/BookContent/9",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+        "https://community.rockrms.com/ask/developing/2708",
+        "https://community.rockrms.com/ModelMap",
+        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude",
+        "https://community.rockrms.com/developer/ai-agents/agents/context-anchors"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Review An Agent Answer”",
+      "when": "Follow the guide section for Recipe: “Review An Agent Answer”."
+    }
+  ],
+  "concept_id": "ai-agents-automation",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:05+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
+    "18-troubleshooting-decision-tree-tool-returns-no-records",
+    "18-troubleshooting-decision-tree-tool-returns-too-much-data",
+    "18-troubleshooting-decision-tree-write-tool-fails",
+    "18-troubleshooting-decision-tree-permissions-look-wrong",
+    "18-troubleshooting-decision-tree-api-endpoint-denies-access",
+    "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-find-the-right-person",
+    "19-agent-task-recipes-recipe-summarize-this-person",
+    "19-agent-task-recipes-recipe-draft-a-communication",
+    "19-agent-task-recipes-recipe-create-a-connection-request",
+    "19-agent-task-recipes-recipe-explain-a-workflow-queue",
+    "19-agent-task-recipes-recipe-audit-agent-security",
+    "19-agent-task-recipes-recipe-build-a-safe-public-agent",
+    "19-agent-task-recipes-recipe-review-an-agent-answer"
+  ]
+}

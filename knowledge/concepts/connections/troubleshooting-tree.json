@@ -1,0 +1,160 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-one-connection-type",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/446",
+        "https://community.rockrms.com/ask/developing/2645",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit One Connection Type",
+      "when": "Follow the guide section for Recipe: Audit One Connection Type."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-why-a-request-is-hidden",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/ask/developing/2645",
+        "https://community.rockrms.com/recipes/446",
+        "https://community.rockrms.com/rocku/engagement/overview",
+        "https://community.rockrms.com/rocku/engagement/connections-list-1"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain Why A Request Is Hidden",
+      "when": "Follow the guide section for Recipe: Explain Why A Request Is Hidden."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-validate-signup-flow",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request",
+        "https://www.triumph.tech/resources/github-spotlight-422025",
+        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+        "https://community.rockrms.com/recipes/446",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list",
+        "https://community.rockrms.com/ask/developing/2645"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Validate Signup Flow",
+      "when": "Follow the guide section for Recipe: Validate Signup Flow."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-opportunity-cards",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ask/developing/2645",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build Opportunity Cards",
+      "when": "Follow the guide section for Recipe: Build Opportunity Cards."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-investigate-connector-workload",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/recipes/446",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/defaultConnectorOptionsRequestBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs",
+        "https://community.rockrms.com/ask/developing/2645"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Investigate Connector Workload",
+      "when": "Follow the guide section for Recipe: Investigate Connector Workload."
+    }
+  ],
+  "concept_id": "connections",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:20:57+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-request-missing-from-board",
+    "18-troubleshooting-decision-tree-request-missing-from-mobile-request-list",
+    "18-troubleshooting-decision-tree-opportunity-missing-from-selector-or-report",
+    "18-troubleshooting-decision-tree-request-did-not-auto-assign",
+    "18-troubleshooting-decision-tree-status-change-did-something-unexpected",
+    "18-troubleshooting-decision-tree-signup-missing-attributes",
+    "18-troubleshooting-decision-tree-list-sorting-looks-wrong",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-audit-one-connection-type",
+    "19-agent-task-recipes-recipe-explain-why-a-request-is-hidden",
+    "19-agent-task-recipes-recipe-validate-signup-flow",
+    "19-agent-task-recipes-recipe-build-opportunity-cards",
+    "19-agent-task-recipes-recipe-investigate-connector-workload"
+  ]
+}

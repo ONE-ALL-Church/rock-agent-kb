@@ -1,0 +1,215 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-the-block-that-controls-this-text",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/recipes/261",
+        "https://community.rockrms.com/recipes/432",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
+        "https://community.rockrms.com/recipes/535",
+        "https://www.triumph.tech/resources/github-spotlight-1242025",
+        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Find The Block That Controls This Text”",
+      "when": "Follow the guide section for Recipe: “Find The Block That Controls This Text”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-why-is-this-content-item-not-public",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/rocku/cms",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/documentation/bookcontent/6",
+        "https://community.rockrms.com/recipes/261",
+        "https://community.rockrms.com/recipes/432",
+        "https://www.triumph.tech/resources/github-spotlight-1242025",
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Why Is This Content Item Not Public?”",
+      "when": "Follow the guide section for Recipe: “Why Is This Content Item Not Public?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-can-i-enable-sql-in-this-html-block",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/recipes/261",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/recipes/432",
+        "https://community.rockrms.com/documentation/bookcontent/6",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
+        "https://www.triumph.tech/resources/github-spotlight-1242025"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Can I Enable SQL In This HTML Block?”",
+      "when": "Follow the guide section for Recipe: “Can I Enable SQL In This HTML Block?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-add-a-detail-page-for-channel-items",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/recipes/261",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/recipes/432",
+        "https://community.rockrms.com/documentation/bookcontent/6",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
+        "https://www.triumph.tech/resources/github-spotlight-1242025"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Add A Detail Page For Channel Items”",
+      "when": "Follow the guide section for Recipe: “Add A Detail Page For Channel Items”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-community-recipe-before-installing",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/recipes/261",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/recipes/432",
+        "https://community.rockrms.com/documentation/bookcontent/6",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
+        "https://www.triumph.tech/resources/github-spotlight-1242025"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Review A Community Recipe Before Installing”",
+      "when": "Follow the guide section for Recipe: “Review A Community Recipe Before Installing”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-page-view-report",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/recipes/261",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/recipes/432",
+        "https://community.rockrms.com/documentation/bookcontent/6",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
+        "https://community.rockrms.com/recipes/535",
+        "https://www.triumph.tech/resources/github-spotlight-1242025"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Build A Page View Report”",
+      "when": "Follow the guide section for Recipe: “Build A Page View Report”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-troubleshoot-required-watching",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/rocku/cms/rock-media-required-watching",
+        "https://community.rockrms.com/recipes/432",
+        "https://community.rockrms.com/recipes/261"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: “Troubleshoot Required Watching”",
+      "when": "Follow the guide section for Recipe: “Troubleshoot Required Watching”."
+    }
+  ],
+  "concept_id": "cms-websites",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:08+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-the-page-returns-not-found",
+    "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
+    "17-troubleshooting-decision-tree-the-wrong-content-shows",
+    "17-troubleshooting-decision-tree-authors-cannot-edit-content",
+    "17-troubleshooting-decision-tree-lava-works-for-staff-but-not-public",
+    "17-troubleshooting-decision-tree-analytics-are-empty",
+    "17-troubleshooting-decision-tree-files-or-documents-are-accessible-to-the-wrong-users",
+    "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-find-the-block-that-controls-this-text",
+    "18-agent-task-recipes-recipe-why-is-this-content-item-not-public",
+    "18-agent-task-recipes-recipe-can-i-enable-sql-in-this-html-block",
+    "18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items",
+    "18-agent-task-recipes-recipe-review-a-community-recipe-before-installing",
+    "18-agent-task-recipes-recipe-build-a-page-view-report",
+    "18-agent-task-recipes-recipe-troubleshoot-required-watching"
+  ]
+}

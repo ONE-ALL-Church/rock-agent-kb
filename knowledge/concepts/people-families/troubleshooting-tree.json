@@ -1,0 +1,309 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-identify-a-person-safely",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Identify A Person Safely",
+      "when": "Follow the guide section for Recipe: Identify A Person Safely."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-why-personalias-matters",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/lava/workflows",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs",
+        "https://community.rockrms.com/recipes/341",
+        "https://community.rockrms.com/recipes/474/unmerge-accidentally-merged-person-with-alias-detection",
+        "https://community.rockrms.com/recipes/184/recovering-a-merged-person"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain Why `PersonAlias` Matters",
+      "when": "Follow the guide section for Recipe: Explain Why `PersonAlias` Matters."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-inspect-a-person-attribute",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Inspect A Person Attribute",
+      "when": "Follow the guide section for Recipe: Inspect A Person Attribute."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-determine-if-a-value-is-person-id-or-alias-guid",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Determine If A Value Is Person Id Or Alias Guid",
+      "when": "Follow the guide section for Recipe: Determine If A Value Is Person Id Or Alias Guid."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-family-for-check-in",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A Family For Check-In",
+      "when": "Follow the guide section for Recipe: Audit A Family For Check-In."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-person-profile-customization",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Person Profile Customization",
+      "when": "Follow the guide section for Recipe: Review A Person Profile Customization."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-triage-an-accidental-merge",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock/blended-families"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Triage An Accidental Merge",
+      "when": "Follow the guide section for Recipe: Triage An Accidental Merge."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-track-new-record-source",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/recipes/184/recovering-a-merged-person",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/rocku/individuals-in-rock"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Track New Record Source",
+      "when": "Follow the guide section for Recipe: Track New Record Source."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-staff-directory-from-person-attributes",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Staff Directory From Person Attributes",
+      "when": "Follow the guide section for Recipe: Build A Staff Directory From Person Attributes."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-add-a-bookmarked-groups-like-profile-panel",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/person-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/lava/commands/entity-commands",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Add A Bookmarked Groups-Like Profile Panel",
+      "when": "Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel."
+    }
+  ],
+  "concept_id": "people-families",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:21+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-person-does-not-appear-in-search",
+    "17-troubleshooting-decision-tree-family-members-are-wrong",
+    "17-troubleshooting-decision-tree-person-attribute-does-not-display",
+    "17-troubleshooting-decision-tree-workflow-person-attribute-resolves-wrong-person",
+    "17-troubleshooting-decision-tree-child-cannot-check-in-with-adult",
+    "17-troubleshooting-decision-tree-registration-shows-wrong-family-member",
+    "17-troubleshooting-decision-tree-giving-history-looks-wrong",
+    "17-troubleshooting-decision-tree-profile-custom-tab-exposes-too-much",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-identify-a-person-safely",
+    "18-agent-task-recipes-recipe-explain-why-personalias-matters",
+    "18-agent-task-recipes-recipe-inspect-a-person-attribute",
+    "18-agent-task-recipes-recipe-determine-if-a-value-is-person-id-or-alias-guid",
+    "18-agent-task-recipes-recipe-audit-a-family-for-check-in",
+    "18-agent-task-recipes-recipe-review-a-person-profile-customization",
+    "18-agent-task-recipes-recipe-triage-an-accidental-merge",
+    "18-agent-task-recipes-recipe-track-new-record-source",
+    "18-agent-task-recipes-recipe-build-a-staff-directory-from-person-attributes",
+    "18-agent-task-recipes-recipe-add-a-bookmarked-groups-like-profile-panel"
+  ]
+}

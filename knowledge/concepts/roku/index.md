@@ -1,0 +1,177 @@
+---
+id: concept-roku
+title: Roku Apps
+generated: true
+last_built: 2026-06-12T09:20:36+00:00
+guide_status: generated_needs_review
+rebuild_policy: source_hash_changed_or_weekly
+source_count: 80
+depends_on_topics:
+  - api-integrations
+  - lava
+  - cms
+  - security
+  - media
+  - tv-apps
+---
+
+# Roku Apps
+
+Roku developer documentation for Rock-powered SceneGraph applications, pages, commands, controls, focus handling, media playback, layout nodes, resources, and operational guardrails.
+
+> Generated guide. Treat this as a synthesis and source map, not as a substitute for official Rock documentation or local verification.
+
+## Agent Starting Points
+
+- Start with this concept's official or highest-weight records before using community answers.
+- Check release records when the task could be version-sensitive.
+- Follow citations for operational steps, screenshots, or code before making a change.
+- Verify permissions and security inheritance before changing access, APIs, workflows, pages, or groups.
+
+## How To Think About This Area
+
+- `Roku Apps` spans api-integrations, lava, cms, security, media, tv-apps. Agents should expect cross-cutting dependencies rather than a single page or table.
+- The strongest source families in this build are: rock_developer, rock_community_site, rock_lava_docs, triumph_resources, rock_api_docs, sparkdevnetwork_rock.
+- Related tags found in source records: development, api, lava, obsidian, community, documentation, usage, security.
+- Source detail types include: developer_doc, rock_developer, rock_lava_docs, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+| official | configuration | A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| official | implementation_pattern | Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas. | [source](https://community.rockrms.com/developer/roku-docs/commands) |
+| official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
+| official | source_summary | Rock Roku documentation describes Roku support as a way to extend Rock-powered digital ministry to Roku TV through Rock-managed Roku integration. | [source](https://community.rockrms.com/developer/roku-docs) |
+| release-note-confirmed | release_caveat | Triumph's GitHub Spotlight for the v17.0.29 pre-alpha notes that the Roku TV app feature was added for Rock v16.7, making Roku coverage version-sensitive. | [source](https://www.triumph.tech/resources/github-spotlight-1042024) |
+
+## Source Coverage
+
+- `rock_api_docs`: 1
+- `rock_community_site`: 20
+- `rock_developer`: 56
+- `rock_lava_docs`: 1
+- `rock_model_map`: 12
+- `sparkdevnetwork_rock`: 1
+- `triumph_resources`: 1
+
+## Highest Signal Sources
+
+| Title | Source | Why It Matters | Citation |
+| --- | --- | --- | --- |
+| 👋 Roku Docs | rock_developer | 👋Welcome Extend your digital ministry to Roku TV. When we introduced support for Apple TV applications in 2022, one question kept coming up: "What about Roku?" With Roku’s vast user base, we knew we had to meet this need. Staying true to our mission of empowering organizations to deliver content seamlessly across platforms, we’ve developed comprehensive Roku integration for Rock. Designed to expand the reach of your... | [source](https://community.rockrms.com/developer/roku-docs) |
+| 📚 Resources | rock_developer | 👋 Roku Docs 💻 Getting Started 💻 Getting Started Applications Pages ⚡ Commands ⚡ Commands Navigation Media Utility Personal 📚 Resources 📚 Resources Controls Controls Button Content Node Focus Group Page Layout Nodes Layout Nodes RowList Roku Resources Tips and Tricks Useful Links 👋 Roku Docs › 📚 Resources Controls Layout Nodes Roku Resources Tips and Tricks Useful Links Personal Controls Improve | [source](https://community.rockrms.com/developer/roku-docs/resources) |
+| Controls | rock_developer | Roku applications are built with an XML language named SceneGraph . Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
+| Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. Extends LayoutGroup Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: Display views vertically/horizontally. Handle up and down focus management for vertical orientation. Handle left and right focus management for... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
+| Roku Resources | rock_developer | SceneGraph Reference - Roku documentation for all the built-in SceneGraph components. Roku Samples - A repository of Roku sample applications/SceneGraph. | [source](https://community.rockrms.com/developer/roku-docs/resources/roku-resources) |
+| 💻 Getting Started | rock_developer | Get your first application up and running. Developing a Roku application in Rock is similar to building a website. You create an application (site) with multiple pages, each featuring dynamic content powered by Lava. These pages can be linked together to create a seamless, interconnected experience. The main difference is that, unlike websites where you write in HTML, Roku uses a more technical XML-based language... | [source](https://community.rockrms.com/developer/roku-docs/getting-started) |
+| Applications | rock_developer | Learn how to create a Roku application in Rock to manage your TV content. Application Settings When creating or editing a Roku application, you have access to the following configuration options. Enable Page Views Whether (or not) page interactions should be written to track the usage of your application. Page View Retention Duration The duration (in days) to retain the page interactions that are written. API Key... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| Pages | rock_developer | Display custom, Lava-driven content as a subset of your application. Page Settings When creating or editing a Roku page, you have access to the following configuration options. Page configuration options Show in Menu Whether or not this page should be used in navigation menus. Note, this is not actually utilized anywhere in the Roku shell, but instead empowers you to create navigation menus in Lava. Scenegraph... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+| Layout Nodes | rock_developer | Although Roku has many different layouts, very few have default item templates. Be cautious when picking your SceneGraph elements as we try to avoid custom BrightScript components. | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes) |
+| RowList | rock_developer | The RowList Node component within SceneGraph is used to create a horizontal list of items. This component is ideal for displaying a series of elements that can be scrolled horizontally. This layout accepts an unlimited amount of vertical and horizontal scrollability. Parameter Type Description itemSize vector2d The size of the RowList element. numRows int Specifies the number of visible rows in the list. rowHeights... | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist) |
+
+## Data Model Landmarks
+
+| Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 18.2.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 18.2.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 18.2.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 18.2.4 | 55 | 23 | 40 | 17 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 18.2.4 | 47 | 18 | 27 | 12 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 18.2.4 | 67 | 29 | 47 | 18 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 18.2.4 | 71 | 31 | 52 | 21 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 18.2.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 18.2.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 18.2.4 | 45 | 17 | 30 | 13 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection](../../model-map/models/content-collection.md) | CMS | 18.2.4 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection Source](../../model-map/models/content-collection-source.md) | CMS | 18.2.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+
+Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
+
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+
+## Repository Landmarks
+
+| Repository | Language | Inclusion Reason | Citation |
+| --- | --- | --- | --- |
+| SparkDevNetwork/Rock | C# | registered source repository | [source](https://github.com/SparkDevNetwork/Rock) |
+
+## Subguides
+
+### Roku Getting Started
+
+Keywords: `getting started, applications, pages, scenegraph, lava`
+
+| Title | Source | Summary | Citation |
+| --- | --- | --- | --- |
+| 💻 Getting Started | rock_developer | Get your first application up and running. Developing a Roku application in Rock is similar to building a website. You create an application (site) with multiple pages, each featuring dynamic content powered by Lava. These pages can be linked together to create a seamless, interconnected experience. The main difference is that, unlike websites where you write in HTML, Roku uses a more technical XML-based language... | [source](https://community.rockrms.com/developer/roku-docs/getting-started) |
+| Applications | rock_developer | Learn how to create a Roku application in Rock to manage your TV content. Application Settings When creating or editing a Roku application, you have access to the following configuration options. Enable Page Views Whether (or not) page interactions should be written to track the usage of your application. Page View Retention Duration The duration (in days) to retain the page interactions that are written. API Key... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| Pages | rock_developer | Display custom, Lava-driven content as a subset of your application. Page Settings When creating or editing a Roku page, you have access to the following configuration options. Page configuration options Show in Menu Whether or not this page should be used in navigation menus. Note, this is not actually utilized anywhere in the Roku shell, but instead empowers you to create navigation menus in Lava. Scenegraph... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+
+### Roku Commands
+
+Keywords: `commands, navigation, media, utility, personal`
+
+| Title | Source | Summary | Citation |
+| --- | --- | --- | --- |
+| Media | rock_developer | The commands below are related to the playback of media within the app. Note You cannot play YouTube content in a Roku TV application. Notes Both of the media commands below share some common functionality as it relates to working with MediaElements . Here are some things you should know. To set the resume location from an existing interaction provide the map from the interaction using the rockWatchMap property. To... | [source](https://community.rockrms.com/developer/roku-docs/commands/media) |
+| ⚡ Commands | rock_developer | Overview Executing commands in your Roku TV application. You can execute commands by specifying a rockCommand and the necessary parameters to an applicable control (such as the Rock ContentNode and Button ). Multiple Commands Typically, commands will be fired one at a time. There may be cases where you'll want to fire two commands once. This can be done by separating the commands with a comma. For instance, you may... | [source](https://community.rockrms.com/developer/roku-docs/commands) |
+| Personal | rock_developer | Commands that relate to the Current Person. Login Allows for an individual to login to the TV Application. Important Be sure that your application has defined a Login page before using this command. That setting is used to configure the QR code. <Rock:Button rockCommand="login" rockLoginPageGuid="0C64D387-0A87-ECAA-48A5-B38A62CC704C" rockLoginTimeoutPageGuid="E6F3553B-6270-04AD-4882-F6A99FB3875D"... | [source](https://community.rockrms.com/developer/roku-docs/commands/personal) |
+| Navigation | rock_developer | Used to navigate between different sections of content. Push Page Pushes a page on to the navigation stack. <Rock:ContentNode title = "Push Page" rockCommand="pushPage" rockPageGuid="4c294b37-fcc1-4432-87ff-3ce73f14a482" /> Parameter Type Description rockPageGuid String The GUID of the page to load with optional query string parameters. rockPageCacheControl String This determines how you'd like the contents of the... | [source](https://community.rockrms.com/developer/roku-docs/commands/navigation) |
+| Utility | rock_developer | Useful commands to use around the application. Set Context Sets a context for the lifetime of the application (until closed). <Rock:ContentNode title = "Set Context" rockCommand="setContext" rockContextKey="Campus" rockContextValue="4c294b37-fcc1-4432-87ff-3ce73f14a482" /> Clear Context Clears the specified context provided by the key. <Rock:ContentNode title = "Clear Context" rockCommand="clearContext"... | [source](https://community.rockrms.com/developer/roku-docs/commands/utility) |
+
+### Roku Controls
+
+Keywords: `controls, button, content node, focus group, page, focus`
+
+| Title | Source | Summary | Citation |
+| --- | --- | --- | --- |
+| Controls | rock_developer | Roku applications are built with an XML language named SceneGraph . Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
+| Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. Extends LayoutGroup Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: Display views vertically/horizontally. Handle up and down focus management for vertical orientation. Handle left and right focus management for... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
+| Button | rock_developer | Extends Button Description In order to properly handle commands, we extended the Roku Button with an additional rockCommand field. It also has fields for all of the different command parameters (such as rockVideoUrl ). Examples <Rock:Button rockCommand="pushPage" rockPageGuid="4443b83e-86c9-4e35-9637-13b8991856ed" /> | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/button) |
+| Content Node | rock_developer | Extends Content Node Description In order to properly handle commands, we extended the Roku Content Node with an additional rockCommand field. It also has fields for all of the different command parameters (such as rockVideoUrl ). Examples <Rock:ContentNode rockCommand="pushPage" rockPageGuid="4443b83e-86c9-4e35-9637-13b8991856ed" /> | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
+| Page | rock_developer | The standard control that is used for your page content. Extends Group Description This is a group of views that represents an entire page of content. Field Field Type Description initialFocus string The ID of the item you want to be focused when the page comes into view. Examples <Rock:Page initialFocus="myBtn"> <Poster uri="headerPhoto.png" width="1280" height="300" /> <Label Text="Rock <3 Roku!" /> <Rock:Button... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/page) |
+
+### Roku Layouts And Resources
+
+Keywords: `layout nodes, rowlist, roku resources, tips and tricks, useful links`
+
+| Title | Source | Summary | Citation |
+| --- | --- | --- | --- |
+| 📚 Resources | rock_developer | 👋 Roku Docs 💻 Getting Started 💻 Getting Started Applications Pages ⚡ Commands ⚡ Commands Navigation Media Utility Personal 📚 Resources 📚 Resources Controls Controls Button Content Node Focus Group Page Layout Nodes Layout Nodes RowList Roku Resources Tips and Tricks Useful Links 👋 Roku Docs › 📚 Resources Controls Layout Nodes Roku Resources Tips and Tricks Useful Links Personal Controls Improve | [source](https://community.rockrms.com/developer/roku-docs/resources) |
+| Controls | rock_developer | Roku applications are built with an XML language named SceneGraph . Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
+| Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. Extends LayoutGroup Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: Display views vertically/horizontally. Handle up and down focus management for vertical orientation. Handle left and right focus management for... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
+| Roku Resources | rock_developer | SceneGraph Reference - Roku documentation for all the built-in SceneGraph components. Roku Samples - A repository of Roku sample applications/SceneGraph. | [source](https://community.rockrms.com/developer/roku-docs/resources/roku-resources) |
+| Layout Nodes | rock_developer | Although Roku has many different layouts, very few have default item templates. Be cautious when picking your SceneGraph elements as we try to avoid custom BrightScript components. | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes) |
+| RowList | rock_developer | The RowList Node component within SceneGraph is used to create a horizontal list of items. This component is ideal for displaying a series of elements that can be scrolled horizontally. This layout accepts an unlimited amount of vertical and horizontal scrollability. Parameter Type Description itemSize vector2d The size of the RowList element. numRows int Specifies the number of visible rows in the list. rowHeights... | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist) |
+| Useful Links | rock_developer | A page containing some useful information and links. Feature Requests Have an idea to improve the Roku application development in Rock? Submit your feature requests on our Ideas Page. We value your feedback and are always looking for ways to make the experience better! GitHub Issues If you run into any bugs or want to track the status of current issues, visit our GitHub Issues Board. Feel free to open new issues,... | [source](https://community.rockrms.com/developer/roku-docs/resources/useful-links) |
+
+
+## Lava Capability References
+
+This concept depends on the generated Lava capability layer. Agents should use the stable guidance first, then verify syntax and behavior against the official source and the live Rock instance.
+
+- Reference index: [../lava/lava-reference-index.md](../lava/lava-reference-index.md)
+- Safety matrix: [../lava/lava-safety-matrix.md](../lava/lava-safety-matrix.md)
+- Agent usage examples: [../lava/lava-agent-usage-examples.md](../lava/lava-agent-usage-examples.md)
+- Machine-readable rows: [agent/lava-capabilities.jsonl](../../../agent/lava-capabilities.jsonl)
+
+## Rebuild Dependencies
+
+- Source records: `144`
+- Lava capability source records: `53`
+- Approved claims: `6`
+- Dependency file: `agent/concept-dependencies.jsonl`
+
+When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

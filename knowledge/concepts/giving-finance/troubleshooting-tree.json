@@ -1,0 +1,152 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-read-only-finance-record-inspection",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/finance",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/15",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
+        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
+        "https://community.rockrms.com/recipes/122",
+        "https://community.rockrms.com/recipes/254",
+        "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Read-Only Finance Record Inspection",
+      "when": "Follow the guide section for Recipe: Read-Only Finance Record Inspection."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-statement-eligibility-explanation",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
+        "https://community.rockrms.com/rocku/finance/contribution-statements",
+        "https://community.rockrms.com/recipes/122",
+        "https://community.rockrms.com/recipes/90"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Statement Eligibility Explanation",
+      "when": "Follow the guide section for Recipe: Statement Eligibility Explanation."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-safe-account-cleanup-assessment",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
+        "https://community.rockrms.com/documentation/bookcontent/15",
+        "https://community.rockrms.com/recipes/254",
+        "https://www.triumph.tech/resources/giving-unit-analytics",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs",
+        "https://community.rockrms.com/rocku/finance/accounts",
+        "https://community.rockrms.com/recipes/122"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Safe Account Cleanup Assessment",
+      "when": "Follow the guide section for Recipe: Safe Account Cleanup Assessment."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-giving-automation-review",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/15",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/rocku/finance",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
+        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
+        "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms",
+        "https://www.triumph.tech/resources/giving-unit-analytics",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
+        "https://community.rockrms.com/recipes/122",
+        "https://community.rockrms.com/recipes/254",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Giving Automation Review",
+      "when": "Follow the guide section for Recipe: Giving Automation Review."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-pledge-progress-analysis",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/90",
+        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
+        "https://community.rockrms.com/rocku/finance/pledges",
+        "https://community.rockrms.com/recipes/122"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Pledge Progress Analysis",
+      "when": "Follow the guide section for Recipe: Pledge Progress Analysis."
+    }
+  ],
+  "concept_id": "giving-finance",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:00+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",
+    "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-statement",
+    "17-troubleshooting-decision-tree-batch-total-does-not-match",
+    "17-troubleshooting-decision-tree-recurring-gift-did-not-run",
+    "17-troubleshooting-decision-tree-receipt-language-is-wrong",
+    "17-troubleshooting-decision-tree-external-import-created-duplicates",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-read-only-finance-record-inspection",
+    "18-agent-task-recipes-recipe-statement-eligibility-explanation",
+    "18-agent-task-recipes-recipe-safe-account-cleanup-assessment",
+    "18-agent-task-recipes-recipe-giving-automation-review",
+    "18-agent-task-recipes-recipe-pledge-progress-analysis"
+  ]
+}

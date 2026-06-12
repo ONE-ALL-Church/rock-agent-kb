@@ -1,0 +1,192 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-is-the-system-healthy",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/32",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/rocku/core-concepts",
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/cms/cache-tags",
+        "https://community.rockrms.com/ask/developing/2578"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Is The System Healthy?”",
+      "when": "Follow the guide section for Recipe: Answer “Is The System Healthy?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-why-is-this-data-wrong",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/32",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/rocku/core-concepts",
+        "https://community.rockrms.com/recipes/522",
+        "https://community.rockrms.com/rocku/cms/cache-tags",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Why Is This Data Wrong?”",
+      "when": "Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-can-i-clear-cache",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/32",
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/rocku/core-concepts",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards",
+        "https://community.rockrms.com/rocku/cms/cache-tags",
+        "https://community.rockrms.com/recipes/522",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools",
+        "https://community.rockrms.com/recipes/503"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Can I Clear Cache?”",
+      "when": "Follow the guide section for Recipe: Answer “Can I Clear Cache?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-why-did-this-workflow-not-start",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/32",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards",
+        "https://community.rockrms.com/recipes/522",
+        "https://community.rockrms.com/rocku/cms/cache-tags",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/recipes/503",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Why Did This Workflow Not Start?”",
+      "when": "Follow the guide section for Recipe: Answer “Why Did This Workflow Not Start?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-why-is-this-data-view-slow",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/32",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/rocku/core-concepts",
+        "https://community.rockrms.com/recipes/522",
+        "https://community.rockrms.com/rocku/cms/cache-tags",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/core-concepts/automations",
+        "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Why Is This Data View Slow?”",
+      "when": "Follow the guide section for Recipe: Answer “Why Is This Data View Slow?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-what-changed-in-this-version-that-matters-operationally",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/32",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/rocku/core-concepts",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/522",
+        "https://community.rockrms.com/rocku/cms/cache-tags",
+        "https://community.rockrms.com/recipes/503",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “What Changed In This Version That Matters Operationally?”",
+      "when": "Follow the guide section for Recipe: Answer “What Changed In This Version That Matters Operationally?”."
+    }
+  ],
+  "concept_id": "system-admin-ops",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:01+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-a-job-did-not-run",
+    "18-troubleshooting-decision-tree-a-job-failed",
+    "18-troubleshooting-decision-tree-search-is-missing-results",
+    "18-troubleshooting-decision-tree-search-shows-sensitive-results",
+    "18-troubleshooting-decision-tree-report-results-are-stale",
+    "18-troubleshooting-decision-tree-clear-cache-throws-an-error",
+    "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
+    "18-troubleshooting-decision-tree-a-lava-endpoint-exposes-too-much",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-answer-is-the-system-healthy",
+    "19-agent-task-recipes-recipe-answer-why-is-this-data-wrong",
+    "19-agent-task-recipes-recipe-answer-can-i-clear-cache",
+    "19-agent-task-recipes-recipe-answer-why-did-this-workflow-not-start",
+    "19-agent-task-recipes-recipe-answer-why-is-this-data-view-slow",
+    "19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally"
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>ROCK Cast</title>
+    <item>
+      <title>AI Voice Models | Ep 214</title>
+      <pubDate>Fri, 22 May 2026 19:54:11 GMT</pubDate>
+      <itunes:duration>46:45</itunes:duration>
+      <itunes:episode>214</itunes:episode>
+      <guid>episode-214</guid>
+      <link>https://shows.acast.com/rock-cast/episodes/episode-214</link>
+      <enclosure url="https://example.com/audio/episode-214.mp3" length="12345" type="audio/mpeg" />
+      <description><![CDATA[<p>Rock v19 training and AI updates.</p>]]></description>
+    </item>
+  </channel>
+</rss>

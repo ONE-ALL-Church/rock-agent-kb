@@ -1,0 +1,225 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-the-real-object-behind-a-serving-issue",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
+        "https://community.rockrms.com/recipes/238",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Find The Real Object Behind A Serving Issue",
+      "when": "Follow the guide section for Recipe: Find The Real Object Behind A Serving Issue."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-confirm-a-volunteer-is-eligible-to-serve",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
+        "https://community.rockrms.com/recipes/238",
+        "https://community.rockrms.com/recipes/356",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Confirm A Volunteer Is Eligible To Serve",
+      "when": "Follow the guide section for Recipe: Confirm A Volunteer Is Eligible To Serve."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-why-a-volunteer-was-not-scheduled",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
+        "https://community.rockrms.com/recipes/238",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain Why A Volunteer Was Not Scheduled",
+      "when": "Follow the guide section for Recipe: Explain Why A Volunteer Was Not Scheduled."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-verify-schedule-confirmation-send-health",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/recipes/356",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/238",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-meeting-details",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Verify Schedule Confirmation Send Health",
+      "when": "Follow the guide section for Recipe: Verify Schedule Confirmation Send Health."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-safely-customize-a-volunteer-facing-page",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications",
+        "https://community.rockrms.com/recipes/238"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Safely Customize A Volunteer-Facing Page",
+      "when": "Follow the guide section for Recipe: Safely Customize A Volunteer-Facing Page."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-investigate-family-serving-response-request",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/rocku/groups/group-history",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/ask/using/2808",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/rocku/groups/group-viewer",
+        "https://community.rockrms.com/rocku/groups/group-details",
+        "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Investigate Family Serving Response Request",
+      "when": "Follow the guide section for Recipe: Investigate Family Serving Response Request."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-serving-health-dashboard",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications",
+        "https://community.rockrms.com/recipes/238"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Serving Health Dashboard",
+      "when": "Follow the guide section for Recipe: Build A Serving Health Dashboard."
+    }
+  ],
+  "concept_id": "serving-volunteer-ops",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:03+00:00",
+  "guide_sections": [
+    "10-volunteer-requirements-deep-dive-requirement-failure-troubleshooting",
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-volunteer-cannot-see-schedule",
+    "18-troubleshooting-decision-tree-volunteer-cannot-accept-or-decline",
+    "18-troubleshooting-decision-tree-confirmation-recorded-without-volunteer-action",
+    "18-troubleshooting-decision-tree-scheduler-shows-no-eligible-recipients",
+    "18-troubleshooting-decision-tree-schedule-missing-from-group",
+    "18-troubleshooting-decision-tree-check-in-does-not-show-serving-group",
+    "18-troubleshooting-decision-tree-attendance-reminder-not-sent",
+    "18-troubleshooting-decision-tree-attendance-looks-too-high",
+    "18-troubleshooting-decision-tree-volunteers-missing-from-preference-report",
+    "18-troubleshooting-decision-tree-external-schedule-page-shows-wrong-groups",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-find-the-real-object-behind-a-serving-issue",
+    "19-agent-task-recipes-recipe-confirm-a-volunteer-is-eligible-to-serve",
+    "19-agent-task-recipes-recipe-explain-why-a-volunteer-was-not-scheduled",
+    "19-agent-task-recipes-recipe-verify-schedule-confirmation-send-health",
+    "19-agent-task-recipes-recipe-safely-customize-a-volunteer-facing-page",
+    "19-agent-task-recipes-recipe-investigate-family-serving-response-request",
+    "19-agent-task-recipes-recipe-build-a-serving-health-dashboard"
+  ]
+}

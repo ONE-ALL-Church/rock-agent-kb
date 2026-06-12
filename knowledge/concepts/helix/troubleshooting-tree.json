@@ -1,0 +1,164 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-the-endpoint-behind-a-button",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/helix/lava-applications",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/helix/strategies",
+        "https://community.rockrms.com/developer/helix/htmx",
+        "https://community.rockrms.com/lava/commands"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Find The Endpoint Behind A Button",
+      "when": "Follow the guide section for Recipe: Find The Endpoint Behind A Button."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-determine-whether-a-helix-app-is-public-safe",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/helix/lava-applications",
+        "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/helix/strategies",
+        "https://community.rockrms.com/developer/helix/htmx",
+        "https://community.rockrms.com/lava/commands"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Determine Whether A Helix App Is Public-Safe",
+      "when": "Follow the guide section for Recipe: Determine Whether A Helix App Is Public-Safe."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-upgrade-a-plugin-era-helix-app",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/helix/lava-applications",
+        "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/helix/htmx",
+        "https://community.rockrms.com/developer/helix/strategies",
+        "https://community.rockrms.com/lava/commands"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Upgrade A Plugin-Era Helix App",
+      "when": "Follow the guide section for Recipe: Upgrade A Plugin-Era Helix App."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-community-recipe-before-use",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/helix/lava-applications",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/helix/htmx",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/helix/strategies"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Community Recipe Before Use",
+      "when": "Follow the guide section for Recipe: Review A Community Recipe Before Use."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-add-observability-to-a-complex-endpoint",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/helix/lava-applications",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/helix/strategies",
+        "https://community.rockrms.com/developer/helix/htmx",
+        "https://community.rockrms.com/lava/commands"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Add Observability To A Complex Endpoint",
+      "when": "Follow the guide section for Recipe: Add Observability To A Complex Endpoint."
+    }
+  ],
+  "concept_id": "helix",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:15+00:00",
+  "guide_sections": [
+    "21-troubleshooting-decision-tree",
+    "21-troubleshooting-decision-tree-the-button-does-nothing",
+    "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
+    "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
+    "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
+    "21-troubleshooting-decision-tree-validation-does-not-run",
+    "21-troubleshooting-decision-tree-spinner-does-not-show",
+    "21-troubleshooting-decision-tree-endpoint-is-slow",
+    "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
+    "22-agent-task-recipes",
+    "22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button",
+    "22-agent-task-recipes-recipe-determine-whether-a-helix-app-is-public-safe",
+    "22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app",
+    "22-agent-task-recipes-recipe-review-a-community-recipe-before-use",
+    "22-agent-task-recipes-recipe-add-observability-to-a-complex-endpoint"
+  ]
+}

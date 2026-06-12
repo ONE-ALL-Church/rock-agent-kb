@@ -1,0 +1,235 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not assume a course definition proves a specific learner completed the work.",
+        "Do not treat a training program as a serving eligibility gate without the requirement record."
+      ],
+      "entities": [
+        "LearningProgram",
+        "LearningCourse",
+        "LearningClass",
+        "LearningClassActivity",
+        "LearningClassActivityCompletion",
+        "Person"
+      ],
+      "id": "recipe-audit-one-lms-program",
+      "inspect": [
+        "Learning Program",
+        "Learning Course",
+        "Learning Class",
+        "Learning Class Activity",
+        "Learning Class Activity Completion",
+        "System Communication"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/43/354",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.triumph.tech/resources/github-spotlight-11142025",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/engagement",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/lms",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
+        "https://community.rockrms.com/rocku/lms/lms-academic-calendar",
+        "https://community.rockrms.com/rocku/lms/lms-create-a-program",
+        "https://community.rockrms.com/rocku/lms/lms-overview"
+      ],
+      "start_with": [
+        "Identify the program, course, class, semester, and activity records involved.",
+        "Confirm whether the program is scheduled, self-paced, or hybrid before interpreting completion."
+      ],
+      "title": "Recipe: Audit One LMS Program",
+      "when": "Trace a program from source content through courses, classes, activities, completion, communications, and reporting."
+    },
+    {
+      "do_not_assume": [
+        "Do not infer completion from attendance, registration, or group membership alone.",
+        "Do not mark a person complete until the required activity and rollup records agree."
+      ],
+      "entities": [
+        "Person",
+        "LearningClass",
+        "LearningClassActivity",
+        "LearningClassActivityCompletion",
+        "LearningProgramCompletion",
+        "LearningCourseRequirement",
+        "Workflow"
+      ],
+      "id": "recipe-find-why-a-person-is-not-complete",
+      "inspect": [
+        "Person",
+        "Learning Class",
+        "Learning Class Activity",
+        "Learning Class Activity Completion",
+        "Learning Program Completion",
+        "Learning Course Requirement",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://www.triumph.tech/resources/github-spotlight-11142025",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/recipes/482"
+      ],
+      "start_with": [
+        "Confirm the person is the intended learner and is attached to the expected class or program.",
+        "Inspect required activities and their completion records before checking program rollups."
+      ],
+      "title": "Recipe: Find Why A Person Is Not Complete",
+      "when": "Determine whether the missing completion is caused by enrollment, activity completion, program rollup, workflow timing, or reporting filters."
+    },
+    {
+      "do_not_assume": [
+        "Do not launch from content review alone; verify the data model and learner path.",
+        "Do not ignore version-specific LMS release caveats."
+      ],
+      "entities": [
+        "LearningProgram",
+        "LearningCourse",
+        "LearningClass",
+        "LearningSemester",
+        "LearningClassActivity",
+        "LearningParticipant"
+      ],
+      "id": "recipe-prepare-a-course-for-launch",
+      "inspect": [
+        "Learning Program",
+        "Learning Course",
+        "Learning Class",
+        "Learning Semester",
+        "Learning Class Activity",
+        "Learning Participant",
+        "System Communication"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/43/354",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/ModelMap",
+        "https://www.triumph.tech/resources/github-spotlight-11142025",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LearningCourseRequirementsController.CodeGenerated.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LearningCourseRequirementService.CodeGenerated.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/LearningCourseRequirementsController.CodeGenerated.cs"
+      ],
+      "start_with": [
+        "Confirm the course belongs to the intended program and has the expected class structure.",
+        "Review activities, lesson order, due dates, prerequisites, and learner-facing content."
+      ],
+      "title": "Recipe: Prepare A Course For Launch",
+      "when": "Prepare a course or class for learners by checking structure, activities, schedules, access, communications, and reporting."
+    },
+    {
+      "do_not_assume": [
+        "Do not assume a completed training automatically creates a Step.",
+        "Do not troubleshoot badge display until the Step row and Step Type are verified."
+      ],
+      "entities": [
+        "LearningClassActivityCompletion",
+        "LearningProgramCompletion",
+        "StepProgram",
+        "StepType",
+        "Step",
+        "DataView",
+        "Workflow"
+      ],
+      "id": "recipe-build-a-step-journey-from-training",
+      "inspect": [
+        "Learning Class Activity Completion",
+        "Learning Program Completion",
+        "Step Program",
+        "Step Type",
+        "Step",
+        "Data View",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/rocku/engagement",
+        "https://www.triumph.tech/resources/github-spotlight-11142025",
+        "https://community.rockrms.com/documentation/bookcontent/43/354",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/rocku/lms",
+        "https://community.rockrms.com/recipes/482",
+        "https://community.rockrms.com/documentation/bookcontent/39/362",
+        "https://community.rockrms.com/rocku/engagement/steps-badges",
+        "https://community.rockrms.com/rocku/engagement/steps-overview"
+      ],
+      "start_with": [
+        "Define which completion event should create or update the engagement step.",
+        "Inspect the Step Program and Step Type before configuring workflow or data view logic."
+      ],
+      "title": "Recipe: Build A Step Journey From Training",
+      "when": "Connect training completion to an engagement journey only through explicit workflows, data views, or step-writing logic."
+    },
+    {
+      "do_not_assume": [
+        "Do not rely on old task-card behavior after an LMS or Step-related release.",
+        "Do not merge upgrade guidance until release-note and live-record checks agree."
+      ],
+      "entities": [
+        "LearningCourse",
+        "LearningClassActivityCompletion",
+        "StepProgram",
+        "GroupMemberRequirement",
+        "Workflow"
+      ],
+      "id": "recipe-review-upgrade-risk",
+      "inspect": [
+        "Rock Version",
+        "Learning Course",
+        "Learning Class Activity Completion",
+        "Step Program",
+        "Group Member Requirement",
+        "Workflow",
+        "System Communication"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/43/354",
+        "https://www.rockrms.com/releasenotes",
+        "https://www.triumph.tech/resources/github-spotlight-11142025",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/rocku/engagement",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/lms",
+        "https://community.rockrms.com/rocku/workflows/text-to-workflow",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
+        "https://community.rockrms.com/rocku/communication/communication-preferences-legacy",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs"
+      ],
+      "start_with": [
+        "Identify the current and target Rock versions.",
+        "Review release notes for LMS, Step, requirement, workflow, and communication changes."
+      ],
+      "title": "Recipe: Review Upgrade Risk",
+      "when": "Review LMS, engagement, requirement, workflow, and communication behavior against current release notes and source-code caveats."
+    }
+  ],
+  "concept_id": "learning-lms-engagement",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:06+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-learner-cannot-see-a-course",
+    "18-troubleshooting-decision-tree-learner-completed-activity-but-course-did-not-complete",
+    "18-troubleshooting-decision-tree-course-does-not-appear-in-reporting",
+    "18-troubleshooting-decision-tree-completion-workflow-did-not-run",
+    "18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion",
+    "18-troubleshooting-decision-tree-step-badge-not-showing",
+    "18-troubleshooting-decision-tree-announcement-or-activity-notification-not-sent",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-audit-one-lms-program",
+    "19-agent-task-recipes-recipe-find-why-a-person-is-not-complete",
+    "19-agent-task-recipes-recipe-prepare-a-course-for-launch",
+    "19-agent-task-recipes-recipe-build-a-step-journey-from-training",
+    "19-agent-task-recipes-recipe-review-upgrade-risk"
+  ]
+}

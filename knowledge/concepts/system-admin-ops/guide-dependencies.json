@@ -1,0 +1,2734 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds.",
+      "claim_hash": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
+      "claim_id": "claim:297b44312bdcc4c81dfd",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
+      "source_record_ids": [
+        "rock_community_hubs:2a835fe90be9f475"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+          "timestamp": "25:51",
+          "timestamp_seconds": 1551.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment.",
+      "claim_hash": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
+      "claim_id": "claim:2fedca54c255f13d1e3d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
+      "source_record_ids": [
+        "rock_community_hubs:2a835fe90be9f475"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+          "timestamp": "28:48",
+          "timestamp_seconds": 1728.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Email logo branding should be treated as sender-trust work that makes messages easier to recognize, not as a guaranteed fix for spam-folder placement.",
+      "claim_hash": "eddb26ce52cd198f0ca6b2eb85e2c038546736539d3e01b47090b338f5bb1a14",
+      "claim_id": "claim:44dc45407531eeac6d7c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "communications",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
+      "source_record_ids": [
+        "rock_community_hubs:65a454a45e1b631f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
+          "timestamp": "01:04",
+          "timestamp_seconds": 64.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session gives a practical overview of email logo branding for churches, including BIMI-style logo display, DMARC/SPF/DKIM prerequisites, certificate options, Apple and Gmail behavior, and the distinction between sender trust and actual deliverability. It is useful public guidance for Rock communication administrators evaluating domain authentication and brand-trust work around email sent from Rock or related tools.",
+      "claim_hash": "499f650a66e1a5f41b8e43df6ad6115fea07c8ff5623c360ca7422b7cb4a43ad",
+      "claim_id": "claim:5340d05bb8499aac1578",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "communications",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
+      "source_record_ids": [
+        "rock_community_hubs:65a454a45e1b631f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "A practical cleanup program should separate low-effort automations from medium-effort reports and high-effort duplicate decisions, so staff and volunteers spend human review time on records that require judgment.",
+      "claim_hash": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
+      "claim_id": "claim:5c7aec32d916e2cb2902",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
+      "source_record_ids": [
+        "rock_community_hubs:2a835fe90be9f475"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+          "timestamp": "20:00",
+          "timestamp_seconds": 1200.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Before pursuing BIMI or logo display, teams should verify SPF, DKIM, DMARC, domain alignment, and the logo-hosting requirements for the target mail clients.",
+      "claim_hash": "ccd775db46faf5acc7be4bd27d037c83672b6360cb14d05a1eafbaf7a92c4ea1",
+      "claim_id": "claim:71931331e432f75046d0",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "communications",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
+      "source_record_ids": [
+        "rock_community_hubs:65a454a45e1b631f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
+          "timestamp": "13:18",
+          "timestamp_seconds": 798.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Data Analytics Hub presentation gives public-safe operational guidance for Rock data quality programs: use built-in automation where possible, prioritize a small number of high-value data defects, move actionable cleanup reports into Rock, train a bounded volunteer team, and connect data quality work to ministry outcomes such as check-in, communication, and leadership reporting.",
+      "claim_hash": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
+      "claim_id": "claim:b9e56d68768b84160b2d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
+      "source_record_ids": [
+        "rock_community_hubs:2a835fe90be9f475"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Self-asserted, CMC, and VMC-style verification paths differ in cost, trademark requirements, and inbox support, so churches should pick the level that matches their domain risk and communication volume.",
+      "claim_hash": "190d68a7d02c33fe6bfb878f91e168987686bd907bc858ec60515a8f8f8002f5",
+      "claim_id": "claim:c7fad68a55feb48db24c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "communications",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
+      "source_record_ids": [
+        "rock_community_hubs:65a454a45e1b631f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
+          "timestamp": "12:07",
+          "timestamp_seconds": 727.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Logo display and domain authentication should be documented separately from Mailgun, IP reputation, list quality, and message-content factors that influence deliverability.",
+      "claim_hash": "6145ef390b8a7871c5ea2ef398452a02914cd9d906fc97db38964b3765e8ba5c",
+      "claim_id": "claim:d96de3973633573143e4",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "communications",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
+      "source_record_ids": [
+        "rock_community_hubs:65a454a45e1b631f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
+          "timestamp": "30:53",
+          "timestamp_seconds": 1853.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock data quality work should be prioritized because dirty people, family, address, and duplicate data affects check-in, communication, reporting credibility, and leadership decisions.",
+      "claim_hash": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
+      "claim_id": "claim:f3f4f67796a8e9204d0b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
+      "source_record_ids": [
+        "rock_community_hubs:2a835fe90be9f475"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+          "timestamp": "11:37",
+          "timestamp_seconds": 697.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Track recurring data defects in a shared backlog, choose a small set of fields or defect types to address first, set measurable cleanup goals, and share wins so ministry teams understand the operational value of clean Rock data.",
+      "claim_hash": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
+      "claim_id": "claim:f52a2e57057018037f30",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
+      "source_record_ids": [
+        "rock_community_hubs:2a835fe90be9f475"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+          "timestamp": "30:53",
+          "timestamp_seconds": 1853.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:297b44312bdcc4c81dfd": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
+    "claim:2fedca54c255f13d1e3d": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
+    "claim:44dc45407531eeac6d7c": "eddb26ce52cd198f0ca6b2eb85e2c038546736539d3e01b47090b338f5bb1a14",
+    "claim:5340d05bb8499aac1578": "499f650a66e1a5f41b8e43df6ad6115fea07c8ff5623c360ca7422b7cb4a43ad",
+    "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
+    "claim:71931331e432f75046d0": "ccd775db46faf5acc7be4bd27d037c83672b6360cb14d05a1eafbaf7a92c4ea1",
+    "claim:b9e56d68768b84160b2d": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
+    "claim:c7fad68a55feb48db24c": "190d68a7d02c33fe6bfb878f91e168987686bd907bc858ec60515a8f8f8002f5",
+    "claim:d96de3973633573143e4": "6145ef390b8a7871c5ea2ef398452a02914cd9d906fc97db38964b3765e8ba5c",
+    "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
+    "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae"
+  },
+  "approved_claims_hash": "a750cb9062ade62db864c1095d6c58f98840d4e4f4803ca98a1bc2aa5de16b9b",
+  "approved_claims_path": "knowledge/concepts/system-admin-ops/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "data-views-reports",
+        "people-families",
+        "platform-configuration",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "content_hash": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc",
+      "key_insight_count": 5,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:574371376cd3e666",
+      "public_promotion_id": "media-public-promotion:2abc8a178fef2170",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:574371376cd3e666",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+    },
+    {
+      "approved_concept_ids": [
+        "communications",
+        "security-permissions",
+        "system-admin-ops"
+      ],
+      "content_hash": "2ea0ceba3a8e7f553d6ae803a8961057c3c46f2d0edc4e919550a7f3c47d58e2",
+      "key_insight_count": 4,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:e57ad3db15510f24",
+      "public_promotion_id": "media-public-promotion:2ea0ceba3a8e7f55",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:e57ad3db15510f24",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "people-families"
+      ],
+      "content_hash": "5009dc673af608a2e0a04db220eba393a41476c3ec69e1cffb041c6d710ad2f9",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:71943d00f00d6d5c",
+      "public_promotion_id": "media-public-promotion:5009dc673af608a2",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:71943d00f00d6d5c",
+      "source_title": "Data Integrity Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "people-families"
+      ],
+      "content_hash": "fcecd229ca1d1fba5f663e15d2faa5edb7d2071efe00016451132df7e32ff212",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:8a7a44d45ee79557",
+      "public_promotion_id": "media-public-promotion:fcecd229ca1d1fba",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:8a7a44d45ee79557",
+      "source_title": "Data Integrity Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:574371376cd3e666": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc",
+    "media-insight:71943d00f00d6d5c": "5009dc673af608a2e0a04db220eba393a41476c3ec69e1cffb041c6d710ad2f9",
+    "media-insight:8a7a44d45ee79557": "fcecd229ca1d1fba5f663e15d2faa5edb7d2071efe00016451132df7e32ff212",
+    "media-insight:e57ad3db15510f24": "2ea0ceba3a8e7f553d6ae803a8961057c3c46f2d0edc4e919550a7f3c47d58e2"
+  },
+  "approved_media_hash": "5fd933eab172803898a1a75a73c19cc38b9d98089a117a358ec5912c3af06486",
+  "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
+  "built_at": "2026-06-12T09:21:01+00:00",
+  "concept_id": "system-admin-ops",
+  "guide_hash": "00ecf590f71bad10ca797bd61c98f83313df1721556cab1d70b76660482bb38d",
+  "guide_line_count": 1741,
+  "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
+  "guide_word_count": 12482,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "e20dede781921db48fae9bda6e3512c71ff288c410fbb8500fb63bafe3384775",
+      "excerpt_hash": "e677ea5fb486f47a78d53273e82fdef3208de8e044a626c2d91ef6c8c3e91e5c",
+      "source_id": "rock_rocku",
+      "source_key": "6612b451bd0ae178",
+      "source_record_id": "rock_rocku:6612b451bd0ae178",
+      "url": "https://community.rockrms.com/rocku/core-concepts/automations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "7e9a080961f8420a066f75519a2b6075add111fc1876acc495e5a36a339236b3",
+      "excerpt_hash": "f05ecd09340ecda5a9351f23924eef3f753081c3c575d869c779d49d9935497a",
+      "source_id": "rock_rocku",
+      "source_key": "19a30b51edaa7382",
+      "source_record_id": "rock_rocku:19a30b51edaa7382",
+      "url": "https://community.rockrms.com/rocku/core-concepts"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ce04eae0eaccfe950600bec56f5592b8ade957422aa063c576f4f74dc3ce55f4",
+      "excerpt_hash": "9ee57d0434302e8c8fe9ebdc88f8d0c2cd8476a5e436bee2516fed2cfcde9547",
+      "source_id": "rock_developer",
+      "source_key": "62524909bcc2f18b",
+      "source_record_id": "rock_developer:62524909bcc2f18b",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "official-model-map",
+      "content_hash": "9ec847eb327248de81994169bc559ec56ec7fb63bb3d5669aa01f9805fb16948",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:7f8ee1d1e09ee2c0",
+      "url": "https://community.rockrms.com/ModelMap"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "33cf316131190fccd2e87fd2795137ab7b61061469fbc0b8185ee1aa72dd10b5",
+      "excerpt_hash": "31b67fe02fe8608158aa17f8ce96d1584843da80af117f3e8463d087d2db546d",
+      "source_id": "rock_developer",
+      "source_key": "78b1a0a9975427ba",
+      "source_record_id": "rock_developer:78b1a0a9975427ba",
+      "url": "https://community.rockrms.com/lava/commands/cache-commands"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "1dcd74f1f8250e28477cd4eac403255f5e4e123c7f9f0226a0ec3f4fb57598a5",
+      "excerpt_hash": "8d4e1bd9282322eceb599d396d63d6b76b1c59411396918f011a1894524efc5d",
+      "source_id": "rock_rocku",
+      "source_key": "96f179b05ec9a0dc",
+      "source_record_id": "rock_rocku:96f179b05ec9a0dc",
+      "url": "https://community.rockrms.com/rocku/cms/cache-tags"
+    },
+    {
+      "authority": "official",
+      "content_hash": "73b137dce12da2de8ac71ffdadb0f9bb3c557f430a93ec860e498b1f5795ff01",
+      "excerpt_hash": "bae8a42187e51000d3c58cd091b098bbd0c2accfa02d53df8756e42b6ad07026",
+      "source_id": "rock_documentation",
+      "source_key": "befb5c4701d20849",
+      "source_record_id": "rock_documentation:befb5c4701d20849",
+      "url": "https://community.rockrms.com/documentation/bookcontent/32"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "5b99b8e29707fd6ba61808ee908b6e44862a0da5b439f9e8054a9703273544fe",
+      "excerpt_hash": "9b39ba68a5a8ed452535232bab57eb5f7f2cd70d8797d3354e4155faf5cb3823",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:aeb3364d697105ff",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ee3cf3cb9fe1754f323285bf87ef21a7bf8d1816d0f5d304cfc09f779c633c79",
+      "excerpt_hash": "b5cb141ca3783880fd33069a0288a4096b3e101cda3d2e7131471c77825b46c5",
+      "source_id": "rock_developer",
+      "source_key": "d522a2bab06881e5",
+      "source_record_id": "rock_developer:d522a2bab06881e5",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "aa2ee73f522d55fff882b13a24e9b37886577a8992881bcd3080021c6a9c6394",
+      "excerpt_hash": "100f55327d83be49ce801079ef96bd00ce110e70bcc50d9b73cc65bb4efbd3e3",
+      "source_id": "rock_recipes",
+      "source_key": "e8988031b9975c3b",
+      "source_record_id": "rock_recipes:e8988031b9975c3b",
+      "url": "https://community.rockrms.com/recipes/522"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "1bd8c896d1ee8b275759aab45985509b0f01368fb0206484f61cf632d9c5b6f5",
+      "excerpt_hash": "5268d9fa982b98b124e8d31eec172cfef60b61213eb8832feb640e3e41b907ed",
+      "source_id": "rock_developer",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "883c3570c452471e53d6aa1f4f115ab3435a041ffaf62c4a15823019ee7e29c5",
+      "excerpt_hash": "8641ff01fb07b4f48cfe64120298940dc36a21e497449c2a14e80712d5644bf9",
+      "source_id": "rock_recipes",
+      "source_key": "f0b9a2a5b041884c",
+      "source_record_id": "rock_recipes:f0b9a2a5b041884c",
+      "url": "https://community.rockrms.com/recipes/503"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "8d8c28f726e09218",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "c680a16482a4af12",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2ce3b7793edde24f9490a4f9373776a058329b400b2b4766060f2e8449f19ea8",
+      "excerpt_hash": "e952bd3182a4cb02fe8209aba112523f3cc94a46fe8b8c9a7c7d59ca32ee72af",
+      "source_id": "rock_developer",
+      "source_key": "802567c280193bd0",
+      "source_record_id": "rock_developer:802567c280193bd0",
+      "url": "https://community.rockrms.com/developer/helix/overview"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "4004a8a0da22acf00bf27496073c15e9c1382d04109acea5d95b041c859e09f7",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "770c36f4ad87e97d",
+      "source_record_id": "triumph_resources:770c36f4ad87e97d",
+      "url": "https://www.triumph.tech/resources/github-spotlight-9202024-2"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "b339c9be51606ea0bd959e036c364f35b52d184f77863a42da0e702fff983993",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "42ae97c8913020ff",
+      "source_record_id": "triumph_resources:42ae97c8913020ff",
+      "url": "https://www.triumph.tech/resources/github-spotlight-12202024"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "2a835fe90be9f475",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "65a454a45e1b631f",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 52,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "6612b451bd0ae178"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "high",
+      "end_line": 105,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "19a30b51edaa7382",
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "19a30b51edaa7382",
+        "d275b5b94a9da833",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "befb5c4701d20849",
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 53
+    },
+    {
+      "confidence": "structural",
+      "end_line": 109,
+      "heading": "3. System Administration And Operations Mental Model",
+      "needs_live_verification": false,
+      "section_id": "3-system-administration-and-operations-mental-model",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "d275b5b94a9da833",
+        "bce31f25cb8a199e",
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "befb5c4701d20849",
+        "776256c424368312",
+        "d522a2bab06881e5"
+      ],
+      "start_line": 106
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 115,
+      "heading": "Layer 1: Configuration",
+      "needs_live_verification": true,
+      "section_id": "3-system-administration-and-operations-mental-model-layer-1-configuration",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "19a30b51edaa7382",
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "19a30b51edaa7382",
+        "d275b5b94a9da833",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "befb5c4701d20849",
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 110
+    },
+    {
+      "confidence": "normal",
+      "end_line": 121,
+      "heading": "Layer 2: Runtime Execution",
+      "needs_live_verification": false,
+      "section_id": "3-system-administration-and-operations-mental-model-layer-2-runtime-execution",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 116
+    },
+    {
+      "confidence": "high",
+      "end_line": 127,
+      "heading": "Layer 3: Derived State",
+      "needs_live_verification": false,
+      "section_id": "3-system-administration-and-operations-mental-model-layer-3-derived-state",
+      "source_keys": [
+        "befb5c4701d20849",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 122
+    },
+    {
+      "confidence": "normal",
+      "end_line": 133,
+      "heading": "Layer 4: Security And Authorization",
+      "needs_live_verification": true,
+      "section_id": "3-system-administration-and-operations-mental-model-layer-4-security-and-authorization",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d522a2bab06881e5"
+      ],
+      "start_line": 128
+    },
+    {
+      "confidence": "normal",
+      "end_line": 137,
+      "heading": "Layer 5: Version Behavior",
+      "needs_live_verification": false,
+      "section_id": "3-system-administration-and-operations-mental-model-layer-5-version-behavior",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312"
+      ],
+      "start_line": 134
+    },
+    {
+      "confidence": "normal",
+      "end_line": 166,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "e8988031b9975c3b",
+        "776256c424368312",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "6612b451bd0ae178"
+      ],
+      "start_line": 138
+    },
+    {
+      "confidence": "structural",
+      "end_line": 170,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "6612b451bd0ae178",
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "53ad1133e1cb2d0a",
+        "befb5c4701d20849",
+        "d275b5b94a9da833",
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "e8988031b9975c3b"
+      ],
+      "start_line": 167
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 187,
+      "heading": "Entities, Properties, And Attributes",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-entities-properties-and-attributes",
+      "source_keys": [
+        "6612b451bd0ae178",
+        "19a30b51edaa7382",
+        "19a30b51edaa7382"
+      ],
+      "start_line": 171
+    },
+    {
+      "confidence": "normal",
+      "end_line": 202,
+      "heading": "Defined Types And Defined Values",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-defined-types-and-defined-values",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 188
+    },
+    {
+      "confidence": "high",
+      "end_line": 223,
+      "heading": "Service Jobs",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-service-jobs",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "befb5c4701d20849",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 203
+    },
+    {
+      "confidence": "normal",
+      "end_line": 241,
+      "heading": "Job History",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-job-history",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 224
+    },
+    {
+      "confidence": "normal",
+      "end_line": 249,
+      "heading": "Data Views",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-data-views",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 242
+    },
+    {
+      "confidence": "normal",
+      "end_line": 265,
+      "heading": "Universal Search Components",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-universal-search-components",
+      "source_keys": [
+        "befb5c4701d20849",
+        "befb5c4701d20849"
+      ],
+      "start_line": 250
+    },
+    {
+      "confidence": "normal",
+      "end_line": 274,
+      "heading": "Cache",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-cache",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 266
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 280,
+      "heading": "Security Rules",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-security-rules",
+      "source_keys": [
+        "e8988031b9975c3b"
+      ],
+      "start_line": 275
+    },
+    {
+      "confidence": "structural",
+      "end_line": 282,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "776256c424368312",
+        "e8988031b9975c3b"
+      ],
+      "start_line": 281
+    },
+    {
+      "confidence": "normal",
+      "end_line": 309,
+      "heading": "ServiceJob And ServiceJobHistory",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-servicejob-and-servicejobhistory",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 283
+    },
+    {
+      "confidence": "normal",
+      "end_line": 339,
+      "heading": "ServiceJobHistory Fields To Inspect",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-servicejobhistory-fields-to-inspect",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 310
+    },
+    {
+      "confidence": "normal",
+      "end_line": 358,
+      "heading": "DataView And Persisted Data View State",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-dataview-and-persisted-data-view-state",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 340
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 377,
+      "heading": "ExceptionLog",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-exceptionlog",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 359
+    },
+    {
+      "confidence": "normal",
+      "end_line": 395,
+      "heading": "Attribute And AttributeValue",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "62524909bcc2f18b",
+        "776256c424368312"
+      ],
+      "start_line": 378
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 411,
+      "heading": "Page, Block, And Security Relationships",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-page-block-and-security-relationships",
+      "source_keys": [
+        "e8988031b9975c3b",
+        "e8988031b9975c3b"
+      ],
+      "start_line": 396
+    },
+    {
+      "confidence": "structural",
+      "end_line": 413,
+      "heading": "7. Common System Administration And Operations Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-system-administration-and-operations-workflows",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "776256c424368312",
+        "befb5c4701d20849",
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 412
+    },
+    {
+      "confidence": "normal",
+      "end_line": 430,
+      "heading": "Workflow: Investigate A Failed Service Job",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-failed-service-job",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 414
+    },
+    {
+      "confidence": "normal",
+      "end_line": 453,
+      "heading": "Workflow: Confirm Whether A Job Actually Ran",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-confirm-whether-a-job-actually-ran",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 431
+    },
+    {
+      "confidence": "normal",
+      "end_line": 469,
+      "heading": "Workflow: Investigate A Warning Job",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-warning-job",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 454
+    },
+    {
+      "confidence": "normal",
+      "end_line": 484,
+      "heading": "Workflow: Investigate Stale Search Results",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-stale-search-results",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 470
+    },
+    {
+      "confidence": "normal",
+      "end_line": 499,
+      "heading": "Workflow: Investigate Stale Persisted Data View Results",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-stale-persisted-data-view-results",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 485
+    },
+    {
+      "confidence": "normal",
+      "end_line": 513,
+      "heading": "Workflow: Investigate A Cache Suspect",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-cache-suspect",
+      "source_keys": [
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 500
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 530,
+      "heading": "Workflow: Investigate An Exception Spike",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike",
+      "source_keys": [
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 514
+    },
+    {
+      "confidence": "normal",
+      "end_line": 545,
+      "heading": "Workflow: Review Operational Health After Upgrade",
+      "needs_live_verification": true,
+      "section_id": "7-common-system-administration-and-operations-workflows-workflow-review-operational-health-after-upgrade",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 531
+    },
+    {
+      "confidence": "structural",
+      "end_line": 547,
+      "heading": "8. Jobs And Scheduling Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-jobs-and-scheduling-deep-dive",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "befb5c4701d20849",
+        "d275b5b94a9da833",
+        "f0b9a2a5b041884c"
+      ],
+      "start_line": 546
+    },
+    {
+      "confidence": "normal",
+      "end_line": 553,
+      "heading": "What Jobs Are For",
+      "needs_live_verification": false,
+      "section_id": "8-jobs-and-scheduling-deep-dive-what-jobs-are-for",
+      "source_keys": [
+        "19a30b51edaa7382",
+        "befb5c4701d20849"
+      ],
+      "start_line": 548
+    },
+    {
+      "confidence": "normal",
+      "end_line": 574,
+      "heading": "Job Configuration Fields To Inspect",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-job-configuration-fields-to-inspect",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 554
+    },
+    {
+      "confidence": "normal",
+      "end_line": 589,
+      "heading": "Job History Interpretation",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-job-history-interpretation",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 575
+    },
+    {
+      "confidence": "normal",
+      "end_line": 603,
+      "heading": "Job History UI Behavior",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-job-history-ui-behavior",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 590
+    },
+    {
+      "confidence": "normal",
+      "end_line": 609,
+      "heading": "Job History Security",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-job-history-security",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 604
+    },
+    {
+      "confidence": "normal",
+      "end_line": 622,
+      "heading": "Job Retention",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-job-retention",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 610
+    },
+    {
+      "confidence": "normal",
+      "end_line": 644,
+      "heading": "Update Persisted DataViews Job",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-update-persisted-dataviews-job",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 623
+    },
+    {
+      "confidence": "normal",
+      "end_line": 659,
+      "heading": "Universal Search Re-Index Job",
+      "needs_live_verification": false,
+      "section_id": "8-jobs-and-scheduling-deep-dive-universal-search-re-index-job",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 645
+    },
+    {
+      "confidence": "normal",
+      "end_line": 673,
+      "heading": "Index Rock Site Job",
+      "needs_live_verification": false,
+      "section_id": "8-jobs-and-scheduling-deep-dive-index-rock-site-job",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 660
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 689,
+      "heading": "Launch Workflow Job",
+      "needs_live_verification": true,
+      "section_id": "8-jobs-and-scheduling-deep-dive-launch-workflow-job",
+      "source_keys": [
+        "f0b9a2a5b041884c"
+      ],
+      "start_line": 674
+    },
+    {
+      "confidence": "structural",
+      "end_line": 691,
+      "heading": "9. Diagnostics And Exceptions Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-diagnostics-and-exceptions-deep-dive",
+      "source_keys": [
+        "f0b9a2a5b041884c",
+        "776256c424368312"
+      ],
+      "start_line": 690
+    },
+    {
+      "confidence": "structural",
+      "end_line": 707,
+      "heading": "Diagnostic Mindset",
+      "needs_live_verification": true,
+      "section_id": "9-diagnostics-and-exceptions-deep-dive-diagnostic-mindset",
+      "source_keys": [
+        "f0b9a2a5b041884c"
+      ],
+      "start_line": 692
+    },
+    {
+      "confidence": "structural",
+      "end_line": 709,
+      "heading": "Exception Investigation Branches",
+      "needs_live_verification": false,
+      "section_id": "9-diagnostics-and-exceptions-deep-dive-exception-investigation-branches",
+      "source_keys": [
+        "53ad1133e1cb2d0a",
+        "d275b5b94a9da833",
+        "befb5c4701d20849",
+        "776256c424368312"
+      ],
+      "start_line": 708
+    },
+    {
+      "confidence": "normal",
+      "end_line": 726,
+      "heading": "Request-Time Exception",
+      "needs_live_verification": true,
+      "section_id": "exception-investigation-branches-request-time-exception",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 710
+    },
+    {
+      "confidence": "normal",
+      "end_line": 741,
+      "heading": "Job-Time Exception",
+      "needs_live_verification": true,
+      "section_id": "exception-investigation-branches-job-time-exception",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 727
+    },
+    {
+      "confidence": "normal",
+      "end_line": 756,
+      "heading": "DataView Exception",
+      "needs_live_verification": true,
+      "section_id": "exception-investigation-branches-dataview-exception",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 742
+    },
+    {
+      "confidence": "normal",
+      "end_line": 771,
+      "heading": "Search Exception",
+      "needs_live_verification": true,
+      "section_id": "exception-investigation-branches-search-exception",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 757
+    },
+    {
+      "confidence": "normal",
+      "end_line": 784,
+      "heading": "Cache Exception",
+      "needs_live_verification": true,
+      "section_id": "exception-investigation-branches-cache-exception",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 772
+    },
+    {
+      "confidence": "structural",
+      "end_line": 801,
+      "heading": "Diagnostic Evidence To Capture",
+      "needs_live_verification": false,
+      "section_id": "9-diagnostics-and-exceptions-deep-dive-diagnostic-evidence-to-capture",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 785
+    },
+    {
+      "confidence": "structural",
+      "end_line": 803,
+      "heading": "10. Cache And Indexing Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-cache-and-indexing-deep-dive",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "776256c424368312",
+        "befb5c4701d20849"
+      ],
+      "start_line": 802
+    },
+    {
+      "confidence": "normal",
+      "end_line": 834,
+      "heading": "Lava Cache Command",
+      "needs_live_verification": false,
+      "section_id": "10-cache-and-indexing-deep-dive-lava-cache-command",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 804
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 852,
+      "heading": "Cache Keys",
+      "needs_live_verification": true,
+      "section_id": "10-cache-and-indexing-deep-dive-cache-keys",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 835
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 856,
+      "heading": "Cache Tags",
+      "needs_live_verification": true,
+      "section_id": "10-cache-and-indexing-deep-dive-cache-tags",
+      "source_keys": [
+        "96f179b05ec9a0dc"
+      ],
+      "start_line": 853
+    },
+    {
+      "confidence": "normal",
+      "end_line": 870,
+      "heading": "Cache Clearing",
+      "needs_live_verification": true,
+      "section_id": "10-cache-and-indexing-deep-dive-cache-clearing",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 857
+    },
+    {
+      "confidence": "normal",
+      "end_line": 884,
+      "heading": "Universal Search Provider Setup",
+      "needs_live_verification": false,
+      "section_id": "10-cache-and-indexing-deep-dive-universal-search-provider-setup",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 871
+    },
+    {
+      "confidence": "normal",
+      "end_line": 896,
+      "heading": "Entity Indexing",
+      "needs_live_verification": true,
+      "section_id": "10-cache-and-indexing-deep-dive-entity-indexing",
+      "source_keys": [
+        "befb5c4701d20849",
+        "befb5c4701d20849"
+      ],
+      "start_line": 885
+    },
+    {
+      "confidence": "normal",
+      "end_line": 910,
+      "heading": "Site Indexing",
+      "needs_live_verification": false,
+      "section_id": "10-cache-and-indexing-deep-dive-site-indexing",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 897
+    },
+    {
+      "confidence": "structural",
+      "end_line": 912,
+      "heading": "11. Cleanup And Data Integrity Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive",
+      "source_keys": [
+        "8d8c28f726e09218",
+        "c680a16482a4af12",
+        "d275b5b94a9da833",
+        "776256c424368312",
+        "e8988031b9975c3b",
+        "f0b9a2a5b041884c"
+      ],
+      "start_line": 911
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 929,
+      "heading": "Cleanup As Operational Risk Management",
+      "needs_live_verification": true,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-cleanup-as-operational-risk-management",
+      "source_keys": [
+        "8d8c28f726e09218",
+        "c680a16482a4af12"
+      ],
+      "start_line": 913
+    },
+    {
+      "confidence": "normal",
+      "end_line": 940,
+      "heading": "Service Job History Cleanup",
+      "needs_live_verification": true,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-service-job-history-cleanup",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 930
+    },
+    {
+      "confidence": "normal",
+      "end_line": 952,
+      "heading": "Rock Cleanup And Cache Folder Caveat",
+      "needs_live_verification": true,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-rock-cleanup-and-cache-folder-caveat",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 941
+    },
+    {
+      "confidence": "normal",
+      "end_line": 971,
+      "heading": "Attribute Data Integrity",
+      "needs_live_verification": true,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-attribute-data-integrity",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 953
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 986,
+      "heading": "Security Data Integrity",
+      "needs_live_verification": false,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-security-data-integrity",
+      "source_keys": [
+        "e8988031b9975c3b"
+      ],
+      "start_line": 972
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1006,
+      "heading": "Data View Integrity",
+      "needs_live_verification": true,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-data-view-integrity",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 987
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1023,
+      "heading": "Integration And Recipe Integrity",
+      "needs_live_verification": false,
+      "section_id": "11-cleanup-and-data-integrity-deep-dive-integration-and-recipe-integrity",
+      "source_keys": [
+        "f0b9a2a5b041884c"
+      ],
+      "start_line": 1007
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1025,
+      "heading": "12. Related Rock Areas: Security, Workflows, Data Views, Reports, Cache, Jobs, Release Notes",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "befb5c4701d20849",
+        "776256c424368312",
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc"
+      ],
+      "start_line": 1024
+    },
+    {
+      "confidence": "high",
+      "end_line": 1039,
+      "heading": "Security",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-security",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "befb5c4701d20849"
+      ],
+      "start_line": 1026
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1056,
+      "heading": "Workflows",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-workflows",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1040
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1060,
+      "heading": "Data Views",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-data-views",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1057
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1073,
+      "heading": "Reports",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-reports",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1061
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1077,
+      "heading": "Cache",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-cache",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc"
+      ],
+      "start_line": 1074
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1081,
+      "heading": "Jobs",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-jobs",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1078
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1085,
+      "heading": "Release Notes",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-release-notes",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1082
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1087,
+      "heading": "13. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails",
+      "source_keys": [
+        "776256c424368312",
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc",
+        "befb5c4701d20849",
+        "53ad1133e1cb2d0a",
+        "e8988031b9975c3b"
+      ],
+      "start_line": 1086
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1098,
+      "heading": "Read Before Write",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-read-before-write",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1088
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1108,
+      "heading": "Do Not Treat Derived State As Source Of Truth",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-do-not-treat-derived-state-as-source-of-truth",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1099
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1112,
+      "heading": "Avoid Broad Cache Clears During Incidents",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-avoid-broad-cache-clears-during-incidents",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "96f179b05ec9a0dc"
+      ],
+      "start_line": 1109
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1116,
+      "heading": "Do Not Index Sensitive Attributes Casually",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-do-not-index-sensitive-attributes-casually",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 1113
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1120,
+      "heading": "Treat Lava APIs As High Risk",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-treat-lava-apis-as-high-risk",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1117
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1131,
+      "heading": "Validate Community Recipes",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-validate-community-recipes",
+      "source_keys": [
+        "e8988031b9975c3b"
+      ],
+      "start_line": 1121
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1135,
+      "heading": "Keep Version Context Visible",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-keep-version-context-visible",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1132
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1147,
+      "heading": "Prefer Entity IDs And GUIDs Over Names",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-prefer-entity-ids-and-guids-over-names",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1136
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1149,
+      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "62524909bcc2f18b",
+        "d275b5b94a9da833",
+        "78b1a0a9975427ba",
+        "53ad1133e1cb2d0a",
+        "802567c280193bd0",
+        "d522a2bab06881e5"
+      ],
+      "start_line": 1148
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1161,
+      "heading": "Developer Codex",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-codex",
+      "source_keys": [
+        "62524909bcc2f18b",
+        "62524909bcc2f18b"
+      ],
+      "start_line": 1150
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1171,
+      "heading": "ServiceJobHistory Source",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-servicejobhistory-source",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1162
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1181,
+      "heading": "Data View Source",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-data-view-source",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1172
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1199,
+      "heading": "Lava Cache And Lava APIs",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-cache-and-lava-apis",
+      "source_keys": [
+        "78b1a0a9975427ba",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1182
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1213,
+      "heading": "Helix",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-helix",
+      "source_keys": [
+        "802567c280193bd0"
+      ],
+      "start_line": 1200
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1223,
+      "heading": "Agent Lookup Tools",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-agent-lookup-tools",
+      "source_keys": [
+        "d522a2bab06881e5"
+      ],
+      "start_line": 1214
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1225,
+      "heading": "15. Reporting, Analytics, And Model Map",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 1224
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1229,
+      "heading": "Model Map",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-model-map",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 1226
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1247,
+      "heading": "Reports And Operational Dashboards",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map-reports-and-operational-dashboards",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 1230
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1251,
+      "heading": "Analytics Boundaries",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map-analytics-boundaries",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 1248
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1253,
+      "heading": "16. Version And Release Caveats",
+      "needs_live_verification": false,
+      "section_id": "16-version-and-release-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "befb5c4701d20849",
+        "770c36f4ad87e97d",
+        "42ae97c8913020ff"
+      ],
+      "start_line": 1252
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1264,
+      "heading": "Rock v19.1 Cache/Cleanup Caveat",
+      "needs_live_verification": false,
+      "section_id": "16-version-and-release-caveats-rock-v19-1-cache-cleanup-caveat",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1254
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1274,
+      "heading": "Rock v19.1 Attribute Category Caveat",
+      "needs_live_verification": true,
+      "section_id": "16-version-and-release-caveats-rock-v19-1-attribute-category-caveat",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1265
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1284,
+      "heading": "Rock v19.1 Workflow Caveats",
+      "needs_live_verification": false,
+      "section_id": "16-version-and-release-caveats-rock-v19-1-workflow-caveats",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1275
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1288,
+      "heading": "Universal Search Version Notes",
+      "needs_live_verification": false,
+      "section_id": "16-version-and-release-caveats-universal-search-version-notes",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 1285
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1292,
+      "heading": "Third-Party GitHub Spotlight Records",
+      "needs_live_verification": false,
+      "section_id": "16-version-and-release-caveats-third-party-github-spotlight-records",
+      "source_keys": [
+        "770c36f4ad87e97d",
+        "42ae97c8913020ff"
+      ],
+      "start_line": 1289
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1294,
+      "heading": "17. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "befb5c4701d20849",
+        "78b1a0a9975427ba",
+        "53ad1133e1cb2d0a",
+        "e8988031b9975c3b"
+      ],
+      "start_line": 1293
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1313,
+      "heading": "Playbook: Build A Job Health Review",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks-playbook-build-a-job-health-review",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1295
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1332,
+      "heading": "Playbook: Validate Universal Search",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-validate-universal-search",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 1314
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1351,
+      "heading": "Playbook: Validate Persisted Data Views",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-validate-persisted-data-views",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1333
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1368,
+      "heading": "Playbook: Review Lava Cache Safety",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-review-lava-cache-safety",
+      "source_keys": [
+        "78b1a0a9975427ba"
+      ],
+      "start_line": 1352
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1387,
+      "heading": "Playbook: Review Lava Webhooks",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-review-lava-webhooks",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1369
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1406,
+      "heading": "Playbook: Review Security Integrity",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-review-security-integrity",
+      "source_keys": [
+        "e8988031b9975c3b"
+      ],
+      "start_line": 1388
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1408,
+      "heading": "18. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree",
+      "source_keys": [
+        "e8988031b9975c3b",
+        "befb5c4701d20849",
+        "776256c424368312",
+        "d275b5b94a9da833",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1407
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1425,
+      "heading": "A Job Did Not Run",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-a-job-did-not-run",
+      "source_keys": [
+        "e8988031b9975c3b"
+      ],
+      "start_line": 1409
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1440,
+      "heading": "A Job Failed",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-a-job-failed",
+      "source_keys": [
+        "e8988031b9975c3b"
+      ],
+      "start_line": 1426
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1457,
+      "heading": "Search Is Missing Results",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-search-is-missing-results",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 1441
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1471,
+      "heading": "Search Shows Sensitive Results",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-search-shows-sensitive-results",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 1458
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1486,
+      "heading": "Report Results Are Stale",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-report-results-are-stale",
+      "source_keys": [
+        "befb5c4701d20849"
+      ],
+      "start_line": 1472
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1500,
+      "heading": "Clear Cache Throws An Error",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-clear-cache-throws-an-error",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1487
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1515,
+      "heading": "A Data View API Call Fails",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1501
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1530,
+      "heading": "A Lava Endpoint Exposes Too Much",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-a-lava-endpoint-exposes-too-much",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1516
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1532,
+      "heading": "19. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes",
+      "source_keys": [
+        "53ad1133e1cb2d0a",
+        "776256c424368312"
+      ],
+      "start_line": 1531
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1548,
+      "heading": "Recipe: Answer “Is The System Healthy?”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-answer-is-the-system-healthy",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1533
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1559,
+      "heading": "Recipe: Answer “Why Is This Data Wrong?”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-answer-why-is-this-data-wrong",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1549
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1570,
+      "heading": "Recipe: Answer “Can I Clear Cache?”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-answer-can-i-clear-cache",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1560
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1581,
+      "heading": "Recipe: Answer “Why Did This Workflow Not Start?”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-answer-why-did-this-workflow-not-start",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1571
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1592,
+      "heading": "Recipe: Answer “Why Is This Data View Slow?”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-answer-why-is-this-data-view-slow",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 1582
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1622,
+      "heading": "Recipe: Answer “What Changed In This Version That Matters Operationally?”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1593
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1678,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "2a835fe90be9f475",
+        "2a835fe90be9f475",
+        "65a454a45e1b631f",
+        "2a835fe90be9f475",
+        "65a454a45e1b631f",
+        "65a454a45e1b631f",
+        "65a454a45e1b631f",
+        "2a835fe90be9f475",
+        "2a835fe90be9f475",
+        "65a454a45e1b631f",
+        "2a835fe90be9f475"
+      ],
+      "start_line": 1623
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1712,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "8d8c28f726e09218",
+        "8d8c28f726e09218",
+        "2a835fe90be9f475",
+        "65a454a45e1b631f"
+      ],
+      "start_line": 1679
+    },
+    {
+      "confidence": "high",
+      "end_line": 1741,
+      "heading": "20. Source Map And Dependency Notes",
+      "needs_live_verification": true,
+      "section_id": "20-source-map-and-dependency-notes",
+      "source_keys": [
+        "6612b451bd0ae178",
+        "19a30b51edaa7382",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "befb5c4701d20849",
+        "78b1a0a9975427ba",
+        "53ad1133e1cb2d0a",
+        "62524909bcc2f18b",
+        "62524909bcc2f18b",
+        "62524909bcc2f18b",
+        "d522a2bab06881e5",
+        "802567c280193bd0",
+        "776256c424368312",
+        "e8988031b9975c3b",
+        "f0b9a2a5b041884c"
+      ],
+      "start_line": 1713
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "e20dede781921db48fae9bda6e3512c71ff288c410fbb8500fb63bafe3384775",
+      "excerpt_hash": "e677ea5fb486f47a78d53273e82fdef3208de8e044a626c2d91ef6c8c3e91e5c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "6612b451bd0ae178",
+      "source_record_id": "rock_rocku:6612b451bd0ae178",
+      "title": "Automations",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/automations",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "7e9a080961f8420a066f75519a2b6075add111fc1876acc495e5a36a339236b3",
+      "excerpt_hash": "f05ecd09340ecda5a9351f23924eef3f753081c3c575d869c779d49d9935497a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "19a30b51edaa7382",
+      "source_record_id": "rock_rocku:19a30b51edaa7382",
+      "title": "Core Concepts",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ce04eae0eaccfe950600bec56f5592b8ade957422aa063c576f4f74dc3ce55f4",
+      "excerpt_hash": "9ee57d0434302e8c8fe9ebdc88f8d0c2cd8476a5e436bee2516fed2cfcde9547",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "62524909bcc2f18b",
+      "source_record_id": "rock_developer:62524909bcc2f18b",
+      "title": "Coding Standards",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "change_type": null,
+      "content_hash": "9ec847eb327248de81994169bc559ec56ec7fb63bb3d5669aa01f9805fb16948",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:7f8ee1d1e09ee2c0",
+      "title": "Service Job History",
+      "topics": [
+        "api",
+        "core",
+        "data",
+        "lava",
+        "model-map"
+      ],
+      "url": "https://community.rockrms.com/ModelMap",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "33cf316131190fccd2e87fd2795137ab7b61061469fbc0b8185ee1aa72dd10b5",
+      "excerpt_hash": "31b67fe02fe8608158aa17f8ce96d1584843da80af117f3e8463d087d2db546d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "78b1a0a9975427ba",
+      "source_record_id": "rock_developer:78b1a0a9975427ba",
+      "title": "Cache",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/cache-commands",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "1dcd74f1f8250e28477cd4eac403255f5e4e123c7f9f0226a0ec3f4fb57598a5",
+      "excerpt_hash": "8d4e1bd9282322eceb599d396d63d6b76b1c59411396918f011a1894524efc5d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "96f179b05ec9a0dc",
+      "source_record_id": "rock_rocku:96f179b05ec9a0dc",
+      "title": "Cache Tags",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/cache-tags",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "73b137dce12da2de8ac71ffdadb0f9bb3c557f430a93ec860e498b1f5795ff01",
+      "excerpt_hash": "bae8a42187e51000d3c58cd091b098bbd0c2accfa02d53df8756e42b6ad07026",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "befb5c4701d20849",
+      "source_record_id": "rock_documentation:befb5c4701d20849",
+      "title": "Universal Search",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/32",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "5b99b8e29707fd6ba61808ee908b6e44862a0da5b439f9e8054a9703273544fe",
+      "excerpt_hash": "9b39ba68a5a8ed452535232bab57eb5f7f2cd70d8797d3354e4155faf5cb3823",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "May 20, 2026",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:aeb3364d697105ff",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "19.1"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ee3cf3cb9fe1754f323285bf87ef21a7bf8d1816d0f5d304cfc09f779c633c79",
+      "excerpt_hash": "b5cb141ca3783880fd33069a0288a4096b3e101cda3d2e7131471c77825b46c5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d522a2bab06881e5",
+      "source_record_id": "rock_developer:d522a2bab06881e5",
+      "title": "Lookup Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "aa2ee73f522d55fff882b13a24e9b37886577a8992881bcd3080021c6a9c6394",
+      "excerpt_hash": "100f55327d83be49ce801079ef96bd00ce110e70bcc50d9b73cc65bb4efbd3e3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e8988031b9975c3b",
+      "source_record_id": "rock_recipes:e8988031b9975c3b",
+      "title": "Security Management - Data Integrity and QoL",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/522",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1bd8c896d1ee8b275759aab45985509b0f01368fb0206484f61cf632d9c5b6f5",
+      "excerpt_hash": "5268d9fa982b98b124e8d31eec172cfef60b61213eb8832feb640e3e41b907ed",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "title": "Creating APIs Using Lava",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/lava-api",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "883c3570c452471e53d6aa1f4f115ab3435a041ffaf62c4a15823019ee7e29c5",
+      "excerpt_hash": "8641ff01fb07b4f48cfe64120298940dc36a21e497449c2a14e80712d5644bf9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "f0b9a2a5b041884c",
+      "source_record_id": "rock_recipes:f0b9a2a5b041884c",
+      "title": "Setup",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/503",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "8d8c28f726e09218",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "c680a16482a4af12",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2ce3b7793edde24f9490a4f9373776a058329b400b2b4766060f2e8449f19ea8",
+      "excerpt_hash": "e952bd3182a4cb02fe8209aba112523f3cc94a46fe8b8c9a7c7d59ca32ee72af",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "802567c280193bd0",
+      "source_record_id": "rock_developer:802567c280193bd0",
+      "title": "Overview",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "4004a8a0da22acf00bf27496073c15e9c1382d04109acea5d95b041c859e09f7",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "770c36f4ad87e97d",
+      "source_record_id": "triumph_resources:770c36f4ad87e97d",
+      "title": "GitHub Spotlight: 9/20/2024",
+      "topics": [
+        "ai",
+        "finance",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "security",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-9202024-2",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "b339c9be51606ea0bd959e036c364f35b52d184f77863a42da0e702fff983993",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "42ae97c8913020ff",
+      "source_record_id": "triumph_resources:42ae97c8913020ff",
+      "title": "GitHub Spotlight: 12/20/2024",
+      "topics": [
+        "ai",
+        "finance",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "sql",
+        "triumph",
+        "workflow"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-12202024",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "2a835fe90be9f475",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "65a454a45e1b631f",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}

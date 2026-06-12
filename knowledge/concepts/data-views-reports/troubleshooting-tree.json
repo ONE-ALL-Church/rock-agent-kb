@@ -1,0 +1,249 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-what-does-this-report-actually-show",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://community.rockrms.com/recipes/397",
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/349",
+        "https://community.rockrms.com/recipes/240",
+        "https://community.rockrms.com/recipes/262",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer \"What Does This Report Actually Show?\"",
+      "when": "Follow the guide section for Recipe: Answer \"What Does This Report Actually Show?\"."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-can-i-change-this-data-view",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://community.rockrms.com/recipes/397",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/349",
+        "https://community.rockrms.com/ModelMap",
+        "https://www.triumph.tech/resources/what-is-maxdop",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer \"Can I Change This Data View?\"",
+      "when": "Follow the guide section for Recipe: Answer \"Can I Change This Data View?\"."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-people-who-attended-x-but-not-y",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/397",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://www.triumph.tech/resources/what-is-maxdop",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
+        "https://community.rockrms.com/recipes/349"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build \"People Who Attended X But Not Y\"",
+      "when": "Follow the guide section for Recipe: Build \"People Who Attended X But Not Y\"."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-lapsed-givers",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/397",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/recipes/349",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
+        "https://community.rockrms.com/recipes/109",
+        "https://community.rockrms.com/recipes/262",
+        "https://community.rockrms.com/recipes/391"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build \"Lapsed Givers\"",
+      "when": "Follow the guide section for Recipe: Build \"Lapsed Givers\"."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-where-are-our-reporting-tools",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/397",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
+        "https://www.triumph.tech/resources/grouping-sets",
+        "https://www.triumph.tech/resources/giving-unit-analytics",
+        "https://www.triumph.tech/resources/sql-window-functions",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/349",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build \"Where Are Our Reporting Tools?\"",
+      "when": "Follow the guide section for Recipe: Build \"Where Are Our Reporting Tools?\"."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-validate-a-bi-finance-dashboard",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
+        "https://community.rockrms.com/recipes/397",
+        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/349",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilterOverrides.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Validate A BI Finance Dashboard",
+      "when": "Follow the guide section for Recipe: Validate A BI Finance Dashboard."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-reporting-security",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/recipes/397",
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/349",
+        "https://community.rockrms.com/recipes/262",
+        "https://community.rockrms.com/recipes/526/sql-model-map-qol-reference",
+        "https://community.rockrms.com/recipes/391",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit Reporting Security",
+      "when": "Follow the guide section for Recipe: Audit Reporting Security."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-diagnose-slow-reporting",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/recipes/264",
+        "https://community.rockrms.com/recipes/397",
+        "https://community.rockrms.com/documentation/bookcontent/6/331",
+        "https://community.rockrms.com/lava/commands/sql-commands",
+        "https://community.rockrms.com/rocku/reporting",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/349",
+        "https://community.rockrms.com/recipes/526/sql-model-map-qol-reference",
+        "https://community.rockrms.com/recipes/391",
+        "https://www.triumph.tech/resources/what-is-maxdop",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Diagnose Slow Reporting",
+      "when": "Follow the guide section for Recipe: Diagnose Slow Reporting."
+    }
+  ],
+  "concept_id": "data-views-reports",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:12+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
+    "17-troubleshooting-decision-tree-symptom-report-shows-too-many-rows",
+    "17-troubleshooting-decision-tree-symptom-report-is-slow",
+    "17-troubleshooting-decision-tree-symptom-dynamic-report-differs-from-data-view-editor",
+    "17-troubleshooting-decision-tree-symptom-bi-dashboard-is-wrong",
+    "17-troubleshooting-decision-tree-symptom-lava-sql-report-is-unsafe",
+    "17-troubleshooting-decision-tree-symptom-data-view-fails-after-upgrade",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-answer-what-does-this-report-actually-show",
+    "18-agent-task-recipes-recipe-answer-can-i-change-this-data-view",
+    "18-agent-task-recipes-recipe-build-people-who-attended-x-but-not-y",
+    "18-agent-task-recipes-recipe-build-lapsed-givers",
+    "18-agent-task-recipes-recipe-build-where-are-our-reporting-tools",
+    "18-agent-task-recipes-recipe-validate-a-bi-finance-dashboard",
+    "18-agent-task-recipes-recipe-audit-reporting-security",
+    "18-agent-task-recipes-recipe-diagnose-slow-reporting"
+  ]
+}

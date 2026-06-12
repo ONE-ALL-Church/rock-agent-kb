@@ -1,0 +1,4900 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying staff training and operational readiness ideas from Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "4f0928145f1018bcc6005a36da91329f373e35854289bd0dcc35e07d057fb34d",
+      "claim_id": "claim:02cb507f2da570ec901a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6c1bb9ba9594e2d8a78cda8345861c0c16411834d47d8cb27a85aea2817e9723",
+      "source_record_ids": [
+        "rock_podcast_rss:b46a35ef9c0d90d8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://community.rockrms.com/connect/rock-cast-episode-197",
+          "timestamp": "03:35",
+          "timestamp_seconds": 215.5,
+          "title": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team",
+          "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying reporting, analytics, and measurement ideas from Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "655f4b817d3d236ba08dbd2b11558903aaee0bfe6e93bfa10655cec5e1b0b2a5",
+      "claim_id": "claim:0be71853c9e637fbf48e",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6c1bb9ba9594e2d8a78cda8345861c0c16411834d47d8cb27a85aea2817e9723",
+      "source_record_ids": [
+        "rock_podcast_rss:b46a35ef9c0d90d8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://community.rockrms.com/connect/rock-cast-episode-197",
+          "timestamp": "03:43",
+          "timestamp_seconds": 223.16,
+          "title": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team",
+          "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team is approved as a public-safe Rock Cast episode distillation for ministry process design, staff training and operational readiness, reporting, analytics, and measurement. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
+      "claim_hash": "438ad18b6cb68aac6e734758703c2b625c7d00b877ece8ee9a2f80cfb982c27b",
+      "claim_id": "claim:0cb2f6a528ebdae994e2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6c1bb9ba9594e2d8a78cda8345861c0c16411834d47d8cb27a85aea2817e9723",
+      "source_record_ids": [
+        "rock_podcast_rss:b46a35ef9c0d90d8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team",
+          "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session adds public-safe technical context for email-status and webhook workflows. It discusses Mailgun calling back into Rock through a webhook, using delivery or engagement data to update Rock-side communication context, and treating external provider callbacks as integration points that need authentication, logging, and operational reporting.",
+      "claim_hash": "b386b19beb71dc27dd6e05f8e0edf2e7ba2ca7a429eb2a5b52f959fc4ae20e8b",
+      "claim_id": "claim:1bfcc37e9004c2bf5e70",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35949a5160d64b7beb494880bad9db8011c3427033cbb7258007d83413355dd5",
+      "source_record_ids": [
+        "rock_community_hubs:2cf11aac4d7e5e09"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying Rock operations and administration ideas from Escaping the Complexity Trap, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "eb7ef8f01271676a23028dad2c565ba2116362714cdf840b52de655780ceb095",
+      "claim_id": "claim:2327759c232854091458",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a7ffb552d74c883e89cde1850717877013fac96b1aa319aed86ee989f41edbbc",
+      "source_record_ids": [
+        "rock_podcast_rss:624fe13cb18735ac"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap",
+          "title": "Escaping the Complexity Trap",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying risk, governance, permissions, and policy review ideas from Escaping the Complexity Trap, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "bf49858dcb9e13211899221feae68aaae29fb451228c2a28b4f7023db5c58cc9",
+      "claim_id": "claim:2fb4567b271d2165a9d8",
+      "claim_tier": "routing_context_only",
+      "claim_type": "risk",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a7ffb552d74c883e89cde1850717877013fac96b1aa319aed86ee989f41edbbc",
+      "source_record_ids": [
+        "rock_podcast_rss:624fe13cb18735ac"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap",
+          "title": "Escaping the Complexity Trap",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "the v19 Updates and Shaping Ministry Culture in 2026 episode gives public operational perspective on staff training and operational readiness; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
+      "claim_hash": "029ac7b7665e05e8d2ec07ac9422752b8a3d8a327cad732841f900e27dbc6b8d",
+      "claim_id": "claim:2fbcf285fa7d556d3410",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c1d88fee7c0745b689a26181cfa8458efe243d21e3059fa9715bb6da7ca63d49",
+      "source_record_ids": [
+        "rock_podcast_rss:9953802866e71d48"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026",
+          "timestamp": "05:51",
+          "timestamp_seconds": 351.76,
+          "title": "v19 Updates and Shaping Ministry Culture in 2026",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "v19 Updates and Shaping Ministry Culture in 2026 is approved as a public-safe Rock Cast episode distillation for staff training and operational readiness, Rock operations and administration, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
+      "claim_hash": "b064f5a43147c6db8645f961ff68714c48675d7bc87394b7c6b61348cf05e6f6",
+      "claim_id": "claim:35c076edbcb25d79946e",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c1d88fee7c0745b689a26181cfa8458efe243d21e3059fa9715bb6da7ca63d49",
+      "source_record_ids": [
+        "rock_podcast_rss:9953802866e71d48"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "v19 Updates and Shaping Ministry Culture in 2026",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default.",
+      "claim_hash": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+      "claim_id": "claim:410bf6750e90b7193262",
+      "claim_tier": "live_verified",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "apple-tv",
+        "lava",
+        "roku",
+        "security-permissions",
+        "tv-apps"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "security_auth",
+            "tables": [
+              "DefinedValue",
+              "Webhooks/Lava.ashx",
+              "Auth"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only source inspection verified the Lava webhook handler matches active defined values by URL/method, reads Template and EnabledLavaCommands, and renders Lava without an explicit permission check in the inspected handler path.",
+          "The Apple TV/Roku API example portion remains official-source-backed; this verification confirms the local handler security caveat and reinforces that agents must inspect configured webhooks before using Lava APIs operationally."
+        ],
+        "verification_method": "read_only_sql_and_source_security_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a0d408d23ccf9b097684d2479ac6cf14bc5d2e76d37db21b10d1c6c2edf630c6",
+      "source_record_ids": [
+        "rock_lava_docs:53ad1133e1cb2d0a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Creating APIs Using Lava",
+          "url": "https://community.rockrms.com/lava/lava-api"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying ministry process design ideas from Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "dd9f4371260c7636482e9b47b432083a5c471338025b1a3275ccef8686dc7f60",
+      "claim_id": "claim:4bc48e3f174b8dfe593d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c12a5db76bb1b22aa5c9126369dec828862bcbfc5730c74694d83afc1a9dabea",
+      "source_record_ids": [
+        "rock_podcast_rss:0df44dbe9f204702"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi",
+          "timestamp": "02:25",
+          "timestamp_seconds": 145.01999999999998,
+          "title": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "the Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team episode gives public operational perspective on ministry process design; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
+      "claim_hash": "215f26bd577cac63938fe37573615c9cc9e03b31c75211cd7f7a0a07f977dd92",
+      "claim_id": "claim:5cb461ed93a21137da32",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6c1bb9ba9594e2d8a78cda8345861c0c16411834d47d8cb27a85aea2817e9723",
+      "source_record_ids": [
+        "rock_podcast_rss:b46a35ef9c0d90d8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://community.rockrms.com/connect/rock-cast-episode-197",
+          "timestamp": "00:21",
+          "timestamp_seconds": 21.54,
+          "title": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team",
+          "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Escaping the Complexity Trap is approved as a public-safe Rock Cast episode distillation for ministry process design, Rock operations and administration, risk, governance, permissions, and policy review. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
+      "claim_hash": "af3e05ba1cf83a032a1f32a7fd166eedb0e37796350d179e8eb856ba56b5748a",
+      "claim_id": "claim:6a4b4cabfc24d573fd86",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a7ffb552d74c883e89cde1850717877013fac96b1aa319aed86ee989f41edbbc",
+      "source_record_ids": [
+        "rock_podcast_rss:624fe13cb18735ac"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Escaping the Complexity Trap",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Staff may need a web-facing companion experience even when the primary community surface is mobile, especially for moderation, support, and repeated communication work.",
+      "claim_hash": "829b3a7c2684367937e6f91799a03fdef54381488d45f5d883471c8edc43acdb",
+      "claim_id": "claim:6bf761df7cecd90ce621",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "groups",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
+      "source_record_ids": [
+        "rock_community_hubs:61505a876029525c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
+          "timestamp": "02:27",
+          "timestamp_seconds": 147.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI's Role in Digital Ministry adds public-safe guidance for AI use around Rock: treat AI as assistive, define data and approval boundaries, train staff, and verify outputs against real systems before acting.",
+      "claim_hash": "344784dd5733d7ec813b02fbb7a441d4c81cef7aa526a653207d62b06eb6385f",
+      "claim_id": "claim:70e2d29e7a2dd7137818",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1ea413955764095a68799477d6e49a05e281d6929920461e2d4ec02372099434",
+      "source_record_ids": [
+        "triumph_resources:7b2dd6a6b528a9f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "triumph_resources",
+          "title": "Video: AI's Role in Digital Ministry with Jon Edmiston",
+          "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI should be treated as an assistive ministry operations layer: useful for drafting, summarizing, classifying, and routing work, but still requiring human judgment and local policy before action.",
+      "claim_hash": "ea0cd317da53a9917fb566e53bd94b0e39e804be3231d5a91cf2a7266af251dd",
+      "claim_id": "claim:902cf967093bf25638d8",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1ea413955764095a68799477d6e49a05e281d6929920461e2d4ec02372099434",
+      "source_record_ids": [
+        "triumph_resources:7b2dd6a6b528a9f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "triumph_resources",
+          "source_timestamp_url": "https://www.triumph.tech/resources/ai-in-digital-ministry",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Video: AI's Role in Digital Ministry with Jon Edmiston",
+          "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying AI, automation, and responsible tool use ideas from Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "e45ca07fb703f56497b2b6949b8819fe9b578a495e1630dca117bdf5c5bbbe1c",
+      "claim_id": "claim:a51f4d67c8794281d960",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c12a5db76bb1b22aa5c9126369dec828862bcbfc5730c74694d83afc1a9dabea",
+      "source_record_ids": [
+        "rock_podcast_rss:0df44dbe9f204702"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi",
+          "timestamp": "04:24",
+          "timestamp_seconds": 264.65999999999997,
+          "title": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "the Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
+      "claim_hash": "f6f5e01a554059aa9dbac264be202f641ad81d0cf15151425888213257477cbe",
+      "claim_id": "claim:a6dc04ee9bf9871187d6",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c12a5db76bb1b22aa5c9126369dec828862bcbfc5730c74694d83afc1a9dabea",
+      "source_record_ids": [
+        "rock_podcast_rss:0df44dbe9f204702"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying ministry process design ideas from v19 Updates and Shaping Ministry Culture in 2026, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "8dac4d011abcc85d2713af8c060f50602095e58a0a0634813bcf4c702be52a6e",
+      "claim_id": "claim:a9b62d7cbc1f63a8cbca",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c1d88fee7c0745b689a26181cfa8458efe243d21e3059fa9715bb6da7ca63d49",
+      "source_record_ids": [
+        "rock_podcast_rss:9953802866e71d48"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026",
+          "timestamp": "03:33",
+          "timestamp_seconds": 213.42000000000002,
+          "title": "v19 Updates and Shaping Ministry Culture in 2026",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When applying Rock operations and administration ideas from v19 Updates and Shaping Ministry Culture in 2026, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
+      "claim_hash": "11b851e71899c81bf77574e2e0b498ef4d54605923ff07ccbe1eebe03a5c65ae",
+      "claim_id": "claim:aaac0edd0971cdc0cfc3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c1d88fee7c0745b689a26181cfa8458efe243d21e3059fa9715bb6da7ca63d49",
+      "source_record_ids": [
+        "rock_podcast_rss:9953802866e71d48"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026",
+          "timestamp": "00:05",
+          "timestamp_seconds": 5.38,
+          "title": "v19 Updates and Shaping Ministry Culture in 2026",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "A church mobile chat experience should define expected features such as threaded messages, reactions, notifications, moderation, and staff access before implementation.",
+      "claim_hash": "29c57627f6d82fe4d3c21609c5711fc206f215bcc6d41b29dd70bdb1dcec202a",
+      "claim_id": "claim:aaf7c661e43acba39fe9",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "groups",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
+      "source_record_ids": [
+        "rock_community_hubs:61505a876029525c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
+          "timestamp": "03:04",
+          "timestamp_seconds": 184.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "For Rock-adjacent automation, agents should verify source data and system state rather than treating generated AI output as an authoritative record.",
+      "claim_hash": "5a60b568fd49e1afbfb0c3be25377955fdf39ef0b7d693bd040c1846cff3c5c3",
+      "claim_id": "claim:b1695925513a30f8b35d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1ea413955764095a68799477d6e49a05e281d6929920461e2d4ec02372099434",
+      "source_record_ids": [
+        "triumph_resources:7b2dd6a6b528a9f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "triumph_resources",
+          "source_timestamp_url": "https://www.triumph.tech/resources/ai-in-digital-ministry",
+          "timestamp": "03:36",
+          "timestamp_seconds": 216.76,
+          "title": "Video: AI's Role in Digital Ministry with Jon Edmiston",
+          "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session discusses a mobile-centered chat/community experience that connects staff and congregational communication patterns. It is useful as public-safe context for Rock Mobile planning because it surfaces expected chat features, push-notification behavior, group synchronization, and the need to keep staff web use and mobile user experience aligned.",
+      "claim_hash": "1db2d8ea9861d7f9e029b60a2368695265030eceb6f42a4cae86d3478a87114d",
+      "claim_id": "claim:bfd413a4fae23e864553",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "groups",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
+      "source_record_ids": [
+        "rock_community_hubs:61505a876029525c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, AI, automation, and responsible tool use, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
+      "claim_hash": "058e02b9ecf6715ab5aa5cd9c2a53bc07e15dd95dfcc3368f0aaf9dab24a5cb4",
+      "claim_id": "claim:c923415dabd8ee837073",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c12a5db76bb1b22aa5c9126369dec828862bcbfc5730c74694d83afc1a9dabea",
+      "source_record_ids": [
+        "rock_podcast_rss:0df44dbe9f204702"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Provider event data should be summarized into operational reports that help staff understand delivery health without exposing unnecessary raw event detail.",
+      "claim_hash": "a5cc4b27b1115aa0faf626e69a47f90d8188b80c0274e41423eb6703f1e38911",
+      "claim_id": "claim:cd52138ec6ca3848cae9",
+      "claim_tier": "live_verified",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "feature_surfaces",
+            "tables": [
+              "Communication",
+              "CommunicationRecipient",
+              "Report",
+              "DataView"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified communication, recipient status/delivery/open/spam fields, and reporting surfaces that can summarize provider event health without exposing raw details."
+        ],
+        "verification_method": "read_only_sql_feature_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T04:12:27Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35949a5160d64b7beb494880bad9db8011c3427033cbb7258007d83413355dd5",
+      "source_record_ids": [
+        "rock_community_hubs:2cf11aac4d7e5e09"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
+          "timestamp": "01:43",
+          "timestamp_seconds": 103.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Mailgun or similar provider webhooks can update Rock communication status, but the endpoint should be treated as an external integration with authentication and logging requirements.",
+      "claim_hash": "9e12a380db95a5f71043ec093752d1ebdaad4c53f0d2537f592ad313cf6e14e7",
+      "claim_id": "claim:ce80cbf6ec4b0bb1151e",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35949a5160d64b7beb494880bad9db8011c3427033cbb7258007d83413355dd5",
+      "source_record_ids": [
+        "rock_community_hubs:2cf11aac4d7e5e09"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
+          "timestamp": "02:49",
+          "timestamp_seconds": 169.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow.",
+      "claim_hash": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
+      "claim_id": "claim:d35ed98aadeaabd2cf1e",
+      "claim_tier": "live_verified",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "helix"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "cms_lava",
+            "tables": [
+              "LavaEndpoint",
+              "LavaApplication",
+              "BlockType",
+              "Block",
+              "EntityType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified LavaEndpoint and LavaApplication tables, endpoint/list/detail/content block types, live endpoint rows, and endpoint metadata columns for name, description, slug, HTTP method, security mode, enabled Lava commands, cache/rate-limit settings, active state, and additional settings.",
+          "This verifies where agents should inspect endpoint work units before changing a Helix application flow; it does not prove a specific endpoint is correctly configured."
+        ],
+        "verification_method": "read_only_sql_and_source_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bb0bbed1aa822e9191bc8ca5ef1961056f85c2880091f1e7160cf69cd95913d0",
+      "source_record_ids": [
+        "rock_developer:6a9eebe7a077d89a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Helix Lava Application Endpoints",
+          "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Public guidance should frame AI adoption around responsible enablement, including data boundaries, staff training, review expectations, and clear ownership of final decisions.",
+      "claim_hash": "da590f126ef34719fe7c1e6da6db6489714a958006c04cba0c47b61be5a1e591",
+      "claim_id": "claim:ddf89bbc5cbb24b10e17",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1ea413955764095a68799477d6e49a05e281d6929920461e2d4ec02372099434",
+      "source_record_ids": [
+        "triumph_resources:7b2dd6a6b528a9f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "triumph_resources",
+          "source_timestamp_url": "https://www.triumph.tech/resources/ai-in-digital-ministry",
+          "timestamp": "03:12",
+          "timestamp_seconds": 192.32,
+          "title": "Video: AI's Role in Digital Ministry with Jon Edmiston",
+          "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "If chat membership is based on Rock groups or teams, synchronization rules and permission boundaries need to be explicit so conversations match the ministry structure.",
+      "claim_hash": "ec16270e6dba4d5b6d685a3d2aa711fba360a7a00b5c45387993a1f77d0054ca",
+      "claim_id": "claim:ef0c80dba866bcba20a8",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "groups",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
+      "source_record_ids": [
+        "rock_community_hubs:61505a876029525c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
+          "timestamp": "03:11",
+          "timestamp_seconds": 191.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "the Escaping the Complexity Trap episode gives public operational perspective on ministry process design; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
+      "claim_hash": "9b644563b0d5caae76d0c52c4a4d568067de609e7fa47c220c17f94ebd2c62ae",
+      "claim_id": "claim:f30e720833843ce60777",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a7ffb552d74c883e89cde1850717877013fac96b1aa319aed86ee989f41edbbc",
+      "source_record_ids": [
+        "rock_podcast_rss:624fe13cb18735ac"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap",
+          "title": "Escaping the Complexity Trap",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Email delivery and engagement events are more useful when they are tied back to the Rock communication record or person context that generated the message.",
+      "claim_hash": "468643df34d10c2da2dbbbe27bec321fc5327979e65dcbc9c768c8ce69591eae",
+      "claim_id": "claim:fb85d514f4ed765acad4",
+      "claim_tier": "live_verified",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "api-integrations",
+        "communications",
+        "data-views-reports",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "feature_surfaces",
+            "tables": [
+              "Communication",
+              "CommunicationRecipient",
+              "PersonAlias"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified communication recipient delivery/open/spam/unsubscribe fields and person-alias linkage for tying provider engagement events back to Rock communication context."
+        ],
+        "verification_method": "read_only_sql_feature_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T04:12:27Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35949a5160d64b7beb494880bad9db8011c3427033cbb7258007d83413355dd5",
+      "source_record_ids": [
+        "rock_community_hubs:2cf11aac4d7e5e09"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
+          "timestamp": "02:57",
+          "timestamp_seconds": 177.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:02cb507f2da570ec901a": "4f0928145f1018bcc6005a36da91329f373e35854289bd0dcc35e07d057fb34d",
+    "claim:0be71853c9e637fbf48e": "655f4b817d3d236ba08dbd2b11558903aaee0bfe6e93bfa10655cec5e1b0b2a5",
+    "claim:0cb2f6a528ebdae994e2": "438ad18b6cb68aac6e734758703c2b625c7d00b877ece8ee9a2f80cfb982c27b",
+    "claim:1bfcc37e9004c2bf5e70": "b386b19beb71dc27dd6e05f8e0edf2e7ba2ca7a429eb2a5b52f959fc4ae20e8b",
+    "claim:2327759c232854091458": "eb7ef8f01271676a23028dad2c565ba2116362714cdf840b52de655780ceb095",
+    "claim:2fb4567b271d2165a9d8": "bf49858dcb9e13211899221feae68aaae29fb451228c2a28b4f7023db5c58cc9",
+    "claim:2fbcf285fa7d556d3410": "029ac7b7665e05e8d2ec07ac9422752b8a3d8a327cad732841f900e27dbc6b8d",
+    "claim:35c076edbcb25d79946e": "b064f5a43147c6db8645f961ff68714c48675d7bc87394b7c6b61348cf05e6f6",
+    "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+    "claim:4bc48e3f174b8dfe593d": "dd9f4371260c7636482e9b47b432083a5c471338025b1a3275ccef8686dc7f60",
+    "claim:5cb461ed93a21137da32": "215f26bd577cac63938fe37573615c9cc9e03b31c75211cd7f7a0a07f977dd92",
+    "claim:6a4b4cabfc24d573fd86": "af3e05ba1cf83a032a1f32a7fd166eedb0e37796350d179e8eb856ba56b5748a",
+    "claim:6bf761df7cecd90ce621": "829b3a7c2684367937e6f91799a03fdef54381488d45f5d883471c8edc43acdb",
+    "claim:70e2d29e7a2dd7137818": "344784dd5733d7ec813b02fbb7a441d4c81cef7aa526a653207d62b06eb6385f",
+    "claim:902cf967093bf25638d8": "ea0cd317da53a9917fb566e53bd94b0e39e804be3231d5a91cf2a7266af251dd",
+    "claim:a51f4d67c8794281d960": "e45ca07fb703f56497b2b6949b8819fe9b578a495e1630dca117bdf5c5bbbe1c",
+    "claim:a6dc04ee9bf9871187d6": "f6f5e01a554059aa9dbac264be202f641ad81d0cf15151425888213257477cbe",
+    "claim:a9b62d7cbc1f63a8cbca": "8dac4d011abcc85d2713af8c060f50602095e58a0a0634813bcf4c702be52a6e",
+    "claim:aaac0edd0971cdc0cfc3": "11b851e71899c81bf77574e2e0b498ef4d54605923ff07ccbe1eebe03a5c65ae",
+    "claim:aaf7c661e43acba39fe9": "29c57627f6d82fe4d3c21609c5711fc206f215bcc6d41b29dd70bdb1dcec202a",
+    "claim:b1695925513a30f8b35d": "5a60b568fd49e1afbfb0c3be25377955fdf39ef0b7d693bd040c1846cff3c5c3",
+    "claim:bfd413a4fae23e864553": "1db2d8ea9861d7f9e029b60a2368695265030eceb6f42a4cae86d3478a87114d",
+    "claim:c923415dabd8ee837073": "058e02b9ecf6715ab5aa5cd9c2a53bc07e15dd95dfcc3368f0aaf9dab24a5cb4",
+    "claim:cd52138ec6ca3848cae9": "a5cc4b27b1115aa0faf626e69a47f90d8188b80c0274e41423eb6703f1e38911",
+    "claim:ce80cbf6ec4b0bb1151e": "9e12a380db95a5f71043ec093752d1ebdaad4c53f0d2537f592ad313cf6e14e7",
+    "claim:d35ed98aadeaabd2cf1e": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
+    "claim:ddf89bbc5cbb24b10e17": "da590f126ef34719fe7c1e6da6db6489714a958006c04cba0c47b61be5a1e591",
+    "claim:ef0c80dba866bcba20a8": "ec16270e6dba4d5b6d685a3d2aa711fba360a7a00b5c45387993a1f77d0054ca",
+    "claim:f30e720833843ce60777": "9b644563b0d5caae76d0c52c4a4d568067de609e7fa47c220c17f94ebd2c62ae",
+    "claim:fb85d514f4ed765acad4": "468643df34d10c2da2dbbbe27bec321fc5327979e65dcbc9c768c8ce69591eae"
+  },
+  "approved_claims_hash": "9488bfde65505b1c68529528687bb76002e4348167597d870cc5385a08493773",
+  "approved_claims_path": "knowledge/concepts/api-integrations/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "api-integrations",
+        "communications",
+        "data-views-reports",
+        "workflows"
+      ],
+      "content_hash": "0f278f57f811cb696f86dc6a7b35ed3f63a2a44f59aefba31c7f25c60ac28875",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:efa1de0c74bcd9f0",
+      "public_promotion_id": "media-public-promotion:0f278f57f811cb69",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:efa1de0c74bcd9f0",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+    },
+    {
+      "approved_concept_ids": [
+        "api-integrations",
+        "data-views-reports",
+        "workflows"
+      ],
+      "content_hash": "9545935e58682499691fe430d8b9de7128574215b0e96c54335747a90e026351",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:8a313536a2a7f5bf",
+      "public_promotion_id": "media-public-promotion:9545935e58682499",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "triumph_resources",
+      "source_record_id": "media-insight:8a313536a2a7f5bf",
+      "source_title": "Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight",
+      "source_url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+    },
+    {
+      "approved_concept_ids": [
+        "api-integrations",
+        "security-permissions"
+      ],
+      "content_hash": "1b09a5cc830ef6f1bcf8e891ded44c7f58ee125dff531bb6088fd90420746a0e",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:5696d2af5b6df33b",
+      "public_promotion_id": "media-public-promotion:1b09a5cc830ef6f1",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:5696d2af5b6df33b",
+      "source_title": "Escaping the Complexity Trap | Ep 209 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+    },
+    {
+      "approved_concept_ids": [
+        "api-integrations"
+      ],
+      "content_hash": "931738e307e5462b97c4ff02bd85959d60bbc3d9e13f407dd51fe7fb6c538dfd",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:6671826b3cf1f7de",
+      "public_promotion_id": "media-public-promotion:931738e307e5462b",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:6671826b3cf1f7de",
+      "source_title": "v19 Updates and Shaping Ministry Culture in 2026 | Ep 206 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+    },
+    {
+      "approved_concept_ids": [
+        "api-integrations",
+        "communications",
+        "groups",
+        "mobile"
+      ],
+      "content_hash": "cea4c3918bc64be96b57c5c21484741fd6bea4d3c5e493c7216a644e83ab6c0a",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:72c3c82fab79c57b",
+      "public_promotion_id": "media-public-promotion:cea4c3918bc64be9",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:72c3c82fab79c57b",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+    },
+    {
+      "approved_concept_ids": [
+        "api-integrations",
+        "workflows"
+      ],
+      "content_hash": "a3bbb94a342a3e4371ca92de5fa3d9a90cd1f5cd30a3df2325c52cbb810f4f5e",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:73ec0ec8f79d120c",
+      "public_promotion_id": "media-public-promotion:a3bbb94a342a3e43",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:73ec0ec8f79d120c",
+      "source_title": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+    },
+    {
+      "approved_concept_ids": [
+        "api-integrations",
+        "data-views-reports"
+      ],
+      "content_hash": "24c28d4de280f167ac1de13b6ef124b1406e0e029658d33d57e87748400e5964",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:3c8731057b505d28",
+      "public_promotion_id": "media-public-promotion:24c28d4de280f167",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:3c8731057b505d28",
+      "source_title": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team Transcript Insight",
+      "source_url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:3c8731057b505d28": "24c28d4de280f167ac1de13b6ef124b1406e0e029658d33d57e87748400e5964",
+    "media-insight:5696d2af5b6df33b": "1b09a5cc830ef6f1bcf8e891ded44c7f58ee125dff531bb6088fd90420746a0e",
+    "media-insight:6671826b3cf1f7de": "931738e307e5462b97c4ff02bd85959d60bbc3d9e13f407dd51fe7fb6c538dfd",
+    "media-insight:72c3c82fab79c57b": "cea4c3918bc64be96b57c5c21484741fd6bea4d3c5e493c7216a644e83ab6c0a",
+    "media-insight:73ec0ec8f79d120c": "a3bbb94a342a3e4371ca92de5fa3d9a90cd1f5cd30a3df2325c52cbb810f4f5e",
+    "media-insight:8a313536a2a7f5bf": "9545935e58682499691fe430d8b9de7128574215b0e96c54335747a90e026351",
+    "media-insight:efa1de0c74bcd9f0": "0f278f57f811cb696f86dc6a7b35ed3f63a2a44f59aefba31c7f25c60ac28875"
+  },
+  "approved_media_hash": "f4a7714da2d5a9c2b70df6928b92d0fa85a0ccbd4388f1c14400331218b450df",
+  "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
+  "built_at": "2026-06-12T09:21:14+00:00",
+  "concept_id": "api-integrations",
+  "guide_hash": "71e7227e385501242650d9f9701bbc63c73ac4dfe65cefc08365ebf2e2173420",
+  "guide_line_count": 1625,
+  "guide_path": "knowledge/concepts/api-integrations/guide.md",
+  "guide_word_count": 14146,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-api",
+      "content_hash": "993d77d2ef93e760606bdc2a4d739b8900fdba409d733d97b3760c57b00b37ba",
+      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "source_id": "rock_api_docs",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
+      "url": "https://community.rockrms.com/api-docs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "5a39f0f55d72dfb4b1074c232fe501c82135bef6c919e0cf76b6d1da1cf38a6c",
+      "excerpt_hash": "b933253a4127e0ecdcdd37966091ad79defe5bf606f8a0bb3dfdc388eb6d2107",
+      "source_id": "rock_developer",
+      "source_key": "547b1337a6e19cf7",
+      "source_record_id": "rock_developer:547b1337a6e19cf7",
+      "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "00c7ea0ff8c8b5385d54bb19c3557591e8a89a55af04ad5c1a26c2ece15d50fc",
+      "excerpt_hash": "47f1d826263f3473311f6cdbd7690e02f7a3e2340262e93b0f3ee46fd1179848",
+      "source_id": "rock_developer",
+      "source_key": "acd6d42ca9f08d83",
+      "source_record_id": "rock_developer:acd6d42ca9f08d83",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": "9e020930a9acddbb76bc3910d2f16b8b1523d3d3e71c6d3f645fdaeab564b887",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "rock_demo_api_docs_v2",
+      "source_key": "22092085266102c5",
+      "source_record_id": "rock_demo_api_docs_v2:22092085266102c5",
+      "url": "https://rock.rocksolidchurchdemo.com/api/v2/docs/index"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "90cd99fb1f8c7c1bd25245c7b3d9c3b5938d54a3bc5c1bc2af46c6ad96bb8774",
+      "excerpt_hash": "7eb796ce7f62b79f6a9b4618084fbc24af0cd62e1dc3b8b5654f7cb7049d540e",
+      "source_id": "rock_developer",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "540d77572af92657f22b15d23503556530c7ac0802e4da826fb9d4e3021c2890",
+      "excerpt_hash": "a0beccfc57de3124645dc318e80b8b29181ac6413f78c56c7e497b5642362944",
+      "source_id": "rock_developer",
+      "source_key": "1a7cdd8d2a7f15eb",
+      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
+      "url": "https://community.rockrms.com/lava/remote-lava"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
+      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "source_id": "rock_developer",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8f3782c916e4cd2d88afbb33ab4ac8ba0bda6b6943421c2bda84b413252129e2",
+      "excerpt_hash": "247430dd6919feacef68a5f1cc62715fef5732e0630662e4b621e357447c8d82",
+      "source_id": "rock_developer",
+      "source_key": "8f9847f0880303e0",
+      "source_record_id": "rock_developer:8f9847f0880303e0",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "da5d63925f50c5042df3903d3906fd2d9ad14ef7c5016da3fe1f9956eb257403",
+      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
+      "source_id": "rock_developer",
+      "source_key": "379b8b3e079b94e5",
+      "source_record_id": "rock_developer:379b8b3e079b94e5",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "26504a7b52c9372992226218e21e4ad1e85116a9923ea7d9cd9b64601d83206a",
+      "excerpt_hash": "0d134204c4f06b612557c4fe7f7c858c8f3c06f62711f2d4b6710b9aac2ea4af",
+      "source_id": "rock_recipes",
+      "source_key": "4f209a87e662fefd",
+      "source_record_id": "rock_recipes:4f209a87e662fefd",
+      "url": "https://community.rockrms.com/recipes/453"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "a6b9a5fd3d6aa2192ec16fd89ed9631464c96e731eb6ef1645d31413bcf06e30",
+      "excerpt_hash": "f867febfcef408e18042fd79795047eac73aa3dc369ed49176662aa738deb86e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "46476aa8453a8245",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "371bc6e69c549c90e0ad91a69ca80073beba5ceabe15f688ad80b0281aaaaa2b",
+      "excerpt_hash": "ebe05b6535c5bd7f0aa1f17a976883e95e4fe6c58189d898ba9616ba4f57b91b",
+      "source_id": "rock_developer",
+      "source_key": "fe094e82abfc4adf",
+      "source_record_id": "rock_developer:fe094e82abfc4adf",
+      "url": "https://community.rockrms.com/lava/commands/web-request-commands"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": "3902ba8860672aa4ce706227fdfc6dcc8e13bc14d95ba7d31eab3cb7d9ef0997",
+      "excerpt_hash": "70c877b1d3bdecd992767a2e280ee6d55317a3e9a47e4b6a9d5c43bfa8729e70",
+      "source_id": "rock_demo_api_docs_v1",
+      "source_key": "371700349ffde4af",
+      "source_record_id": "rock_demo_api_docs_v1:371700349ffde4af",
+      "url": "https://rock.rocksolidchurchdemo.com/api/docs/index"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "88884d5d52093af73a98791edc12b3b7f5375950eb30c069c157600b6cd01669",
+      "excerpt_hash": "5ee2f9a9892f1dda2075a1ff9abc3c8459045cab92a69451b364f8971bcb3e70",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "983ad6bce37e8e15",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "community-reference",
+      "content_hash": "1071c109ab3ed8fd8667c2bdc835360dd13264061e657efce120712ad423d741",
+      "excerpt_hash": "6bf5cafd7229d2c9b9bf6986498fa69f5fe8377b643388860f617f7cbdf76659",
+      "source_id": "rock_community_site",
+      "source_key": "027cede393b38974",
+      "source_record_id": "rock_community_site:027cede393b38974",
+      "url": "https://community.rockrms.com/ask/developing/2842"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d4e65effbc380add08ffec06e8e78cc97c1562f02973cd06ef06aaa8c15eee62",
+      "excerpt_hash": "721c4c57b8d6f5f3218c9c2ac8ea27660153d959119f77455e834e2167a2356f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f146552f6ffaa13a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts"
+    },
+    {
+      "authority": "official-model-map",
+      "content_hash": "35839e5824da69c96c630e3cc31ccd21bb7cd69d8e5ed8512e2899b7d87ac9e6",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:59cce742b33668f1",
+      "url": "https://community.rockrms.com/ModelMap"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d7262bff307341b60bf25920da6ecf97201a8476420433a049261038c13d8c7e",
+      "excerpt_hash": "c6b93681c2a1327800fe437192b683f6fbaa0334dc0c11aa269db273976df292",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b480ac589da5149f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Example/ModelMap.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "0031f51aab9a88fc2bd7f5c76010177dab8752dedf3db3b989dff6765335f0d8",
+      "excerpt_hash": "353fbea4200ddf83573dac5ba4c9a5672fae484bd7cb85c4775ac8a323640725",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e395e8db6cce68d7",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Data/IncludeForModelMapAttribute.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d1862dde11f9a186a16d4b4febb4b0fb8bb8fb85a21000d903dede331dc30816",
+      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
+      "source_id": "rock_developer",
+      "source_key": "62524909bcc2f18b",
+      "source_record_id": "rock_developer:62524909bcc2f18b",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2c993d5d55bc1ad32758afc360bd53c6a7794ffb55d726a2ed3631036f182508",
+      "excerpt_hash": "a9f9c1d96e023a2e5f5fff12e21ca3842a826b184d9a88f2f1f475fdd3d7de0b",
+      "source_id": "rock_developer",
+      "source_key": "9cff0c87fd8eab29",
+      "source_record_id": "rock_developer:9cff0c87fd8eab29",
+      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e8a247fc5c0278a22155d8e4966f3d9bd0cca85944567d2b4311fdae4ab3dd77",
+      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
+      "source_id": "rock_developer",
+      "source_key": "66cd0caee02b1e4b",
+      "source_record_id": "rock_developer:66cd0caee02b1e4b",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "daca5d9df3f4f3294bcca964b7fa45c9a305f159d452e4986ca9dc166dc262af",
+      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
+      "source_id": "rock_developer",
+      "source_key": "4f0249164a4754aa",
+      "source_record_id": "rock_developer:4f0249164a4754aa",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "afc1c56245533b9407aa216909882a123f43d25f84c3c0e751a325f7440d5874",
+      "excerpt_hash": "ab2033068920acb93b3e831243d369f977f20ce8af0c6c20f0bc67f0f9e76e07",
+      "source_id": "rock_developer",
+      "source_key": "9d82300fec33a358",
+      "source_record_id": "rock_developer:9d82300fec33a358",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools"
+    },
+    {
+      "authority": "community-reference",
+      "content_hash": "89cdcc6f8a3c47c6ff74904efb239955daf26a3420ebff9d8a66597cf65b632d",
+      "excerpt_hash": "f163330b3532d0ae2ce1c5bd9eda86cbf15791ec557f7a3870b3acefcf7976e3",
+      "source_id": "rock_community_site",
+      "source_key": "470797c964770153",
+      "source_record_id": "rock_community_site:470797c964770153",
+      "url": "https://community.rockrms.com/ask/developing/2641"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8f372d704d06fba3403e1134531a96075d08649bdbaa3d2a08c3bdaf8379252e",
+      "excerpt_hash": "102a163f3fe95ac332df9f72b8a3f90da37127388b448d198cdd3f9ad24731da",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "427e5301d593e4bc",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "70a5a5611da63d0cd3ba2ca6ec4eef7850893e5a56ee7da92ead09d4e03949fc",
+      "excerpt_hash": "604a4a56c8783d8d2f61c712083f41c55c51e6fe1235ac75dd6dadea5ced63b6",
+      "source_id": "rock_developer",
+      "source_key": "eb2b5509786a6895",
+      "source_record_id": "rock_developer:eb2b5509786a6895",
+      "url": "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "be201c05fa39459c2d6e4b2528841d65947f906c6dbd9869a7a48426166304ed",
+      "excerpt_hash": "ab45714ffdb1c91f43cb74fd55754215292e1ef135c5d3b6d30f67c71d1cc558",
+      "source_id": "rock_developer",
+      "source_key": "f807acb8c3c3d207",
+      "source_record_id": "rock_developer:f807acb8c3c3d207",
+      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security"
+    },
+    {
+      "authority": "community-reference",
+      "content_hash": "7a41590012845df7334e597c6fc794cb5ae82fcd5814dd4f9a966455e82f979f",
+      "excerpt_hash": "ebbbec530bff83346e8c601ead090819f8cd2f0b818e280cd0825373d31e870c",
+      "source_id": "rock_community_site",
+      "source_key": "06156bb3a5401956",
+      "source_record_id": "rock_community_site:06156bb3a5401956",
+      "url": "https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "d328de67ae33a86a769e4d9a8b86ffc8b0a0504041d40f290adfddd9150d2f1a",
+      "excerpt_hash": "1f603c59fe5c504916fd0b8a90eccc7802c20f92f314d852191b58076bf4bf96",
+      "source_id": "rock_recipes",
+      "source_key": "8cdec880af451ef9",
+      "source_record_id": "rock_recipes:8cdec880af451ef9",
+      "url": "https://community.rockrms.com/recipes/232"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "9b9d867ec1272b4a4fc34194ded9a98bdc96d8f15a70cc76fc2bb2321088cd9f",
+      "excerpt_hash": "249b00b6f70ad399749c7839333c2809bed4fc319d5141c356fa088d85ae44a5",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:d805d26264361539",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "aa78b8622aa19eeb659955b9c7782c35c18376eb7112e271641522298f1b3779",
+      "excerpt_hash": "b1dbcbcc7cb3eb275a83e667f554d647f26263818f5b2ba6eda1c7d5154a94ad",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f76e5d37a4b67cbe",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "98fb42b069c7590ec08456fe5028b2ded2c83786d2b7801e970d3f128699da30",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "d81b99f44bb58799",
+      "source_record_id": "rock_developer:d81b99f44bb58799",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2a4a48ec3272f11d3ee8104cf7023583a3bd8a0d5f91687f1770400f747f949a",
+      "excerpt_hash": "11ba470c796669eebe2b90acc0e4dccaeb59911e849e58de71d32866327037dd",
+      "source_id": "rock_developer",
+      "source_key": "2e094e868018787d",
+      "source_record_id": "rock_developer:2e094e868018787d",
+      "url": "https://community.rockrms.com/developer/303---blast-off/extending-communication-transports"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8e8f36e91b2187320871f4127812404e659fcb48ae1e51ec4a0bdbf127a2793a",
+      "excerpt_hash": "7a41697094823341968c124a09a4f29780e7f7b976fe53a9b8ccee0ba3c6b392",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1910ec97cc1c1067",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/OidcClientTests.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "259d9637b2c7367cd1031ae43f80b2b82a6afd3de305f4dead316d31522c0a10",
+      "excerpt_hash": "f5425797a001ff584c0eb9335916a5475b169e031f91280b9eaa49861b94b9f5",
+      "source_id": "rock_developer",
+      "source_key": "3c3c83e2437f3933",
+      "source_record_id": "rock_developer:3c3c83e2437f3933",
+      "url": "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "fa8be2c53cfa8c8ee1e95d0e30e5162448ad67d5a795111fc42dd807a536fd40",
+      "excerpt_hash": "b9190ba13ed3f0eeeb61c584f799cf31073193af181574592cff2774511ebe58",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ed1e9ea215aa359f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "02b92f152cf9f1683247c90fa05ef11d20bf82d33e5a0b1cb7de5b6a68d96791",
+      "excerpt_hash": "84adbe4b7abac5ab606fb9c79bdc2982934bc7af41750e098a0f1159af947eca",
+      "source_id": "rock_developer",
+      "source_key": "0a1df6eb6e308fc2",
+      "source_record_id": "rock_developer:0a1df6eb6e308fc2",
+      "url": "https://community.rockrms.com/developer/303---blast-off/attributes"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2e27f23b4a31bf0c6cb40840a36bfb5e692b2b3c6b7140f23d7bf5c369b18190",
+      "excerpt_hash": "aa1d611a7986d293fb9e69853b55d93ac905652357729f965fa12121399ea04c",
+      "source_id": "rock_developer",
+      "source_key": "643c380d40ffe79d",
+      "source_record_id": "rock_developer:643c380d40ffe79d",
+      "url": "https://community.rockrms.com/lava/commands/interaction-write"
+    },
+    {
+      "authority": "community-reference",
+      "content_hash": "19a5c2426b33968cdd555705fa518449b7dfd3bd01436ba75f5419f8ab5ef1c6",
+      "excerpt_hash": "cd2ca1d6768b4aba786e6cfe5ada5b6a361504e1c4cf91dc4a23604c994fe71b",
+      "source_id": "rock_community_site",
+      "source_key": "7c71a22de1006d62",
+      "source_record_id": "rock_community_site:7c71a22de1006d62",
+      "url": "https://community.rockrms.com/ask/developing/2708"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "983e0046eba1dd80c4e1c158c59fcbc5de9d5a76826197c4135ffe237eff45af",
+      "excerpt_hash": "e916cc51333d6d8b1f9ae343d9239b945dc2f056cd0e73e842a7ab39318f2172",
+      "source_id": "rock_developer",
+      "source_key": "802567c280193bd0",
+      "source_record_id": "rock_developer:802567c280193bd0",
+      "url": "https://community.rockrms.com/developer/helix/overview"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f07dac2f93cc8f74866d5aded6d27235717022c1250695d0d9f6b38600804095",
+      "excerpt_hash": "cc5e8a4cfba2a9c7470b79936c5c7512f510c0fddb19bd69541d972e133ca60f",
+      "source_id": "rock_developer",
+      "source_key": "554e0dda0bc287c2",
+      "source_record_id": "rock_developer:554e0dda0bc287c2",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "db63124f61053ecc9005ae2c73cd6363cb305785fd9af8604de77bf77e17a6fd",
+      "excerpt_hash": "6a87075f32ad3f3861f9784817b44079bbbb6f3d303bb8aa8d20b7767677151a",
+      "source_id": "rock_developer",
+      "source_key": "242a3ac9b87c1e0c",
+      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "0baeb5cf3c4508bf7e83f879a369c653a769c361f484960fffa190484fcebcad",
+      "excerpt_hash": "c4891d05c793d1eff9fd0052b1c496bbe72360bfba5ae5d99355c39b03321243",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "c6379a1fcb4a7101",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Utility/ApiModelMapper.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs"
+    },
+    {
+      "authority": "community-reference",
+      "content_hash": "bd36208e8e5636ab5ea0e94538e506e4b7f60220dbbd772e8799e98cc287082b",
+      "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
+      "source_id": "rock_community_site",
+      "source_key": "a2819513ef35f906",
+      "source_record_id": "rock_community_site:a2819513ef35f906",
+      "url": "https://community.rockrms.com/ask/developing/2710"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5a096bb3db831eb04ef158b2ce91f995d98b76438e2845f4f895b3c321b28891",
+      "excerpt_hash": "defda34fb48de0e01ad95c4f5cb70a50dfa6c59b40640261ea0c1bac7df9e48b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "0dccb7f3384b930a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Security/ApiKeyPurpose.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "3241668b7a0eca443a7c6c95fc75346540d8ce29afe50b9ed8ab75f9f6f8b0d2",
+      "excerpt_hash": "2914be9e52a6478b9091e23ab54820db977820a268c65d1750058cd4ae491990",
+      "source_id": "rock_developer",
+      "source_key": "789454b4b23d582c",
+      "source_record_id": "rock_developer:789454b4b23d582c",
+      "url": "https://community.rockrms.com/developer/helix/lava-commands"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c82be181cfd83dd5bf5393a47ba516dd69d877b8f0c945e05f53c66e46ec3bff",
+      "excerpt_hash": "2e481b90e5e58e7a9abfe3f47b04eb518a930c9170e8202820f01bd49026c888",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e1caa5870d162bcc",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
+      "excerpt_hash": "bd30ea44d82b179f2f5f436652edfdcdbf141a8a9d3178bb1b6405d84659f143",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "543ea1d48ed32f6d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "a38d4511364f5054cc55534a12a2859259192ad662b948388ab742c2e593dc64",
+      "excerpt_hash": "5f464739cfcc7ff065b4ed3ed4ca652500f74cae19b3a21e33504f42c06fe270",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "72e58feaf1e9531d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "24406e3df3ec5b98d3bd4b46a6222fe8faf89298d914f9b69e6e445ca9fa81f2",
+      "excerpt_hash": "782ccf35e49174802886697c64cdbf523603e17c716c0287497d69f3522467f4",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5799a73de84c4338",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "217e87ba442c3d3c9efda65ffe31a0d48ef453ca26aca96dc4b86131902e2a7e",
+      "excerpt_hash": "030f218b151125d466d716526170386d9c8767a31cd44ff5d139e2a3e0395586",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9c04de615556ea9a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c0d0ac854c5464a0904758ee73d056d1d79b8e11087979a778fc9ae1fff6b444",
+      "excerpt_hash": "cbba24441aaabe746bb2ac1162b1bf9860bcc91cbe1579dedda1b3d390120012",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "8f3a78dde9c3ddb6",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d3aa8a6f35159dd016b1de8e634a211471a4497589d3f661b41e9410511a6674",
+      "excerpt_hash": "1c7eed227819338457349d3d569aae305c6223e126c0254f8aefd292b58926d4",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b62f52dbefd1a36d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "838728096dadf5160625fd9d941c4a3d246761047c2663b4cb0cb3a915696e15",
+      "excerpt_hash": "158e42079b4aaa53d73014a73d3a7bd7e63a168262e37793848d5d6fbe087799",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9f93dec345f23bd8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/SecurityRoleTests.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/SecurityRoleTests.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8d096a59833b2015dfc07815cb930e04b7e7d148e27ed2697dcba37e929415d8",
+      "excerpt_hash": "122438a8b7f4460919860acdf37c05e6975fe935d0f2deeca41a6712d815236a",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "c440f7dfeb33e10e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "ec90d3aa31441ab005b722de2b7b04edf7a2b61889a2766dc8a75a5062dcbe98",
+      "excerpt_hash": "aef32ef3a316b34caa3a5269f8249232a6776699a0942f21cf42ed11da5cb4cc",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ed2eb5a93323c1b0",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8db2647f38b43389c9dfc5146cc557009ec1bf4c028eb04048b4c84e6d35d0f4",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "f99ba5bb3222f37e",
+      "source_record_id": "rock_developer:f99ba5bb3222f37e",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-audio"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "810fe4702355573efe443282959b49faf14a05d9d312c06a05f0305e7150c5aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "275f4eda54018f53",
+      "source_record_id": "rock_developer:275f4eda54018f53",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-reader"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "df256387243940d40dc0bd99621657d02433b693a8751a18dd59f73e9fdb286d",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "6920f6e860c4b936",
+      "source_record_id": "rock_developer:6920f6e860c4b936",
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "2cf11aac4d7e5e09",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "f0a736080e3ea89c",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "cea805e5b904fc2d",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "e49179e5511d18c4",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "2ef33162dc02363b",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "61505a876029525c",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "triumph_resources",
+      "source_key": "7b2dd6a6b528a9f3",
+      "source_record_id": "",
+      "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 61,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "547b1337a6e19cf7",
+        "acd6d42ca9f08d83",
+        "22092085266102c5",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "6a9eebe7a077d89a",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "4f209a87e662fefd",
+        "46476aa8453a8245",
+        "fe094e82abfc4adf"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 67,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "547b1337a6e19cf7",
+        "acd6d42ca9f08d83",
+        "22092085266102c5",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "6a9eebe7a077d89a",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "4f209a87e662fefd",
+        "46476aa8453a8245",
+        "fe094e82abfc4adf"
+      ],
+      "start_line": 62
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 79,
+      "heading": "API",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology-api",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "547b1337a6e19cf7",
+        "acd6d42ca9f08d83",
+        "22092085266102c5",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "6a9eebe7a077d89a",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "4f209a87e662fefd",
+        "46476aa8453a8245",
+        "fe094e82abfc4adf"
+      ],
+      "start_line": 68
+    },
+    {
+      "confidence": "normal",
+      "end_line": 85,
+      "heading": "REST API v1",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology-rest-api-v1",
+      "source_keys": [
+        "371700349ffde4af",
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 80
+    },
+    {
+      "confidence": "normal",
+      "end_line": 91,
+      "heading": "REST API v2",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology-rest-api-v2",
+      "source_keys": [
+        "acd6d42ca9f08d83",
+        "983ad6bce37e8e15",
+        "46476aa8453a8245"
+      ],
+      "start_line": 86
+    },
+    {
+      "confidence": "normal",
+      "end_line": 95,
+      "heading": "OData",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology-odata",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 92
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 101,
+      "heading": "Swagger / API Docs",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology-swagger-api-docs",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "027cede393b38974"
+      ],
+      "start_line": 96
+    },
+    {
+      "confidence": "normal",
+      "end_line": 107,
+      "heading": "REST Key / Authorization Token",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology-rest-key-authorization-token",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 102
+    },
+    {
+      "confidence": "normal",
+      "end_line": 113,
+      "heading": "CORS",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology-cors",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 108
+    },
+    {
+      "confidence": "normal",
+      "end_line": 117,
+      "heading": "Lava Webhook",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology-lava-webhook",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 114
+    },
+    {
+      "confidence": "normal",
+      "end_line": 121,
+      "heading": "Lava Application / Lava Endpoint",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology-lava-application-lava-endpoint",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "f146552f6ffaa13a"
+      ],
+      "start_line": 118
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 127,
+      "heading": "Webhook To Workflow",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology-webhook-to-workflow",
+      "source_keys": [
+        "4f209a87e662fefd"
+      ],
+      "start_line": 122
+    },
+    {
+      "confidence": "normal",
+      "end_line": 131,
+      "heading": "Model Map",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology-model-map",
+      "source_keys": [
+        "bce31f25cb8a199e",
+        "b480ac589da5149f",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 128
+    },
+    {
+      "confidence": "structural",
+      "end_line": 141,
+      "heading": "3. API And Integrations Mental Model",
+      "needs_live_verification": false,
+      "section_id": "3-api-and-integrations-mental-model",
+      "source_keys": [
+        "bce31f25cb8a199e",
+        "b480ac589da5149f",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 132
+    },
+    {
+      "confidence": "normal",
+      "end_line": 155,
+      "heading": "Caller Types",
+      "needs_live_verification": false,
+      "section_id": "3-api-and-integrations-mental-model-caller-types",
+      "source_keys": [
+        "1a7cdd8d2a7f15eb",
+        "547b1337a6e19cf7",
+        "62524909bcc2f18b",
+        "fe094e82abfc4adf",
+        "9cff0c87fd8eab29",
+        "66cd0caee02b1e4b",
+        "4f0249164a4754aa",
+        "9d82300fec33a358",
+        "9d82300fec33a358",
+        "9d82300fec33a358",
+        "9d82300fec33a358"
+      ],
+      "start_line": 142
+    },
+    {
+      "confidence": "normal",
+      "end_line": 175,
+      "heading": "Endpoint Surface Types",
+      "needs_live_verification": false,
+      "section_id": "3-api-and-integrations-mental-model-endpoint-surface-types",
+      "source_keys": [
+        "983ad6bce37e8e15",
+        "53ad1133e1cb2d0a",
+        "6a9eebe7a077d89a",
+        "4f209a87e662fefd",
+        "46476aa8453a8245"
+      ],
+      "start_line": 156
+    },
+    {
+      "confidence": "normal",
+      "end_line": 194,
+      "heading": "Identity And Permission Chain",
+      "needs_live_verification": true,
+      "section_id": "3-api-and-integrations-mental-model-identity-and-permission-chain",
+      "source_keys": [
+        "470797c964770153",
+        "acd6d42ca9f08d83",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "427e5301d593e4bc",
+        "eb2b5509786a6895",
+        "f807acb8c3c3d207",
+        "62524909bcc2f18b",
+        "9d82300fec33a358"
+      ],
+      "start_line": 176
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 223,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "06156bb3a5401956",
+        "4f209a87e662fefd",
+        "8cdec880af451ef9"
+      ],
+      "start_line": 195
+    },
+    {
+      "confidence": "structural",
+      "end_line": 225,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "bce31f25cb8a199e",
+        "983ad6bce37e8e15",
+        "46476aa8453a8245",
+        "027cede393b38974",
+        "53ad1133e1cb2d0a",
+        "06156bb3a5401956",
+        "4f209a87e662fefd",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "f146552f6ffaa13a",
+        "427e5301d593e4bc",
+        "776256c424368312",
+        "f76e5d37a4b67cbe",
+        "d81b99f44bb58799",
+        "9cff0c87fd8eab29",
+        "66cd0caee02b1e4b",
+        "4f0249164a4754aa",
+        "2e094e868018787d"
+      ],
+      "start_line": 224
+    },
+    {
+      "confidence": "normal",
+      "end_line": 240,
+      "heading": "REST Keys",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-rest-keys",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 226
+    },
+    {
+      "confidence": "normal",
+      "end_line": 256,
+      "heading": "REST Controllers And REST Actions",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-rest-controllers-and-rest-actions",
+      "source_keys": [
+        "bce31f25cb8a199e",
+        "983ad6bce37e8e15",
+        "46476aa8453a8245"
+      ],
+      "start_line": 241
+    },
+    {
+      "confidence": "normal",
+      "end_line": 274,
+      "heading": "REST CORS Domains",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-rest-cors-domains",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "027cede393b38974"
+      ],
+      "start_line": 257
+    },
+    {
+      "confidence": "normal",
+      "end_line": 304,
+      "heading": "Lava Webhook Defined Type",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-lava-webhook-defined-type",
+      "source_keys": [
+        "53ad1133e1cb2d0a",
+        "06156bb3a5401956"
+      ],
+      "start_line": 275
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 327,
+      "heading": "Workflow Webhook Defined Type",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-workflow-webhook-defined-type",
+      "source_keys": [
+        "4f209a87e662fefd"
+      ],
+      "start_line": 305
+    },
+    {
+      "confidence": "normal",
+      "end_line": 345,
+      "heading": "Lava Applications",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-lava-applications",
+      "source_keys": [
+        "8f9847f0880303e0",
+        "8f9847f0880303e0"
+      ],
+      "start_line": 328
+    },
+    {
+      "confidence": "normal",
+      "end_line": 389,
+      "heading": "Lava Endpoints",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-lava-endpoints",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "f146552f6ffaa13a",
+        "427e5301d593e4bc"
+      ],
+      "start_line": 346
+    },
+    {
+      "confidence": "normal",
+      "end_line": 401,
+      "heading": "External Integration Attributes And Block Settings",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-external-integration-attributes-and-block-settings",
+      "source_keys": [
+        "776256c424368312",
+        "f76e5d37a4b67cbe",
+        "d81b99f44bb58799",
+        "d81b99f44bb58799",
+        "9cff0c87fd8eab29",
+        "66cd0caee02b1e4b",
+        "4f0249164a4754aa",
+        "2e094e868018787d"
+      ],
+      "start_line": 390
+    },
+    {
+      "confidence": "structural",
+      "end_line": 403,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "bce31f25cb8a199e",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "f146552f6ffaa13a",
+        "8cdec880af451ef9",
+        "1910ec97cc1c1067",
+        "f807acb8c3c3d207",
+        "3c3c83e2437f3933",
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f",
+        "0a1df6eb6e308fc2",
+        "776256c424368312",
+        "643c380d40ffe79d",
+        "9cff0c87fd8eab29"
+      ],
+      "start_line": 402
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 416,
+      "heading": "RestController And RestAction",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-restcontroller-and-restaction",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 404
+    },
+    {
+      "confidence": "normal",
+      "end_line": 428,
+      "heading": "LavaApplication And LavaEndpoint",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-lavaapplication-and-lavaendpoint",
+      "source_keys": [
+        "bce31f25cb8a199e",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "f146552f6ffaa13a"
+      ],
+      "start_line": 417
+    },
+    {
+      "confidence": "normal",
+      "end_line": 440,
+      "heading": "Person, UserLogin, REST Key, And Person Token",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-person-userlogin-rest-key-and-person-token",
+      "source_keys": [
+        "8cdec880af451ef9",
+        "1910ec97cc1c1067",
+        "bce31f25cb8a199e",
+        "f807acb8c3c3d207"
+      ],
+      "start_line": 429
+    },
+    {
+      "confidence": "normal",
+      "end_line": 453,
+      "heading": "WorkflowType, Workflow, Workflow Attributes",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-workflowtype-workflow-workflow-attributes",
+      "source_keys": [
+        "3c3c83e2437f3933",
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f",
+        "ed1e9ea215aa359f"
+      ],
+      "start_line": 441
+    },
+    {
+      "confidence": "normal",
+      "end_line": 465,
+      "heading": "Attribute And AttributeValue",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
+      "source_keys": [
+        "0a1df6eb6e308fc2"
+      ],
+      "start_line": 454
+    },
+    {
+      "confidence": "normal",
+      "end_line": 471,
+      "heading": "BinaryFile, Document Type, And File Security",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-binaryfile-document-type-and-file-security",
+      "source_keys": [
+        "3c3c83e2437f3933",
+        "776256c424368312"
+      ],
+      "start_line": 466
+    },
+    {
+      "confidence": "normal",
+      "end_line": 481,
+      "heading": "Interaction, Analytics, And Observability Entities",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-interaction-analytics-and-observability-entities",
+      "source_keys": [
+        "643c380d40ffe79d",
+        "9cff0c87fd8eab29",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 472
+    },
+    {
+      "confidence": "structural",
+      "end_line": 483,
+      "heading": "7. Common API And Integrations Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-api-and-integrations-workflows",
+      "source_keys": [
+        "470797c964770153",
+        "4f209a87e662fefd",
+        "fe094e82abfc4adf",
+        "7c71a22de1006d62",
+        "53ad1133e1cb2d0a",
+        "802567c280193bd0",
+        "554e0dda0bc287c2",
+        "242a3ac9b87c1e0c",
+        "379b8b3e079b94e5",
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f",
+        "776256c424368312"
+      ],
+      "start_line": 482
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 497,
+      "heading": "External Site Reads Public Calendar Data",
+      "needs_live_verification": true,
+      "section_id": "7-common-api-and-integrations-workflows-external-site-reads-public-calendar-data",
+      "source_keys": [
+        "470797c964770153"
+      ],
+      "start_line": 484
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 519,
+      "heading": "External System Sends A Webhook To Rock",
+      "needs_live_verification": false,
+      "section_id": "7-common-api-and-integrations-workflows-external-system-sends-a-webhook-to-rock",
+      "source_keys": [
+        "4f209a87e662fefd"
+      ],
+      "start_line": 498
+    },
+    {
+      "confidence": "normal",
+      "end_line": 548,
+      "heading": "Rock Calls An External API From Lava",
+      "needs_live_verification": true,
+      "section_id": "7-common-api-and-integrations-workflows-rock-calls-an-external-api-from-lava",
+      "source_keys": [
+        "fe094e82abfc4adf",
+        "7c71a22de1006d62"
+      ],
+      "start_line": 520
+    },
+    {
+      "confidence": "normal",
+      "end_line": 568,
+      "heading": "Create A Custom API With Lava Webhook",
+      "needs_live_verification": false,
+      "section_id": "7-common-api-and-integrations-workflows-create-a-custom-api-with-lava-webhook",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 549
+    },
+    {
+      "confidence": "normal",
+      "end_line": 585,
+      "heading": "Build A Helix HTMX Application",
+      "needs_live_verification": false,
+      "section_id": "7-common-api-and-integrations-workflows-build-a-helix-htmx-application",
+      "source_keys": [
+        "802567c280193bd0",
+        "554e0dda0bc287c2",
+        "242a3ac9b87c1e0c",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 569
+    },
+    {
+      "confidence": "normal",
+      "end_line": 610,
+      "heading": "Launch A Workflow Through REST v2",
+      "needs_live_verification": true,
+      "section_id": "7-common-api-and-integrations-workflows-launch-a-workflow-through-rest-v2",
+      "source_keys": [
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f",
+        "776256c424368312"
+      ],
+      "start_line": 586
+    },
+    {
+      "confidence": "structural",
+      "end_line": 612,
+      "heading": "8. REST API Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-rest-api-deep-dive",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "371700349ffde4af",
+        "22092085266102c5",
+        "c6379a1fcb4a7101",
+        "acd6d42ca9f08d83",
+        "983ad6bce37e8e15",
+        "547b1337a6e19cf7",
+        "a2819513ef35f906"
+      ],
+      "start_line": 611
+    },
+    {
+      "confidence": "normal",
+      "end_line": 626,
+      "heading": "Route Discovery",
+      "needs_live_verification": true,
+      "section_id": "8-rest-api-deep-dive-route-discovery",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "371700349ffde4af",
+        "22092085266102c5",
+        "c6379a1fcb4a7101"
+      ],
+      "start_line": 613
+    },
+    {
+      "confidence": "normal",
+      "end_line": 641,
+      "heading": "CRUDS Pattern",
+      "needs_live_verification": true,
+      "section_id": "8-rest-api-deep-dive-cruds-pattern",
+      "source_keys": [
+        "acd6d42ca9f08d83"
+      ],
+      "start_line": 627
+    },
+    {
+      "confidence": "normal",
+      "end_line": 652,
+      "heading": "Identifier Handling",
+      "needs_live_verification": true,
+      "section_id": "8-rest-api-deep-dive-identifier-handling",
+      "source_keys": [
+        "983ad6bce37e8e15"
+      ],
+      "start_line": 642
+    },
+    {
+      "confidence": "normal",
+      "end_line": 668,
+      "heading": "OData Querying",
+      "needs_live_verification": true,
+      "section_id": "8-rest-api-deep-dive-odata-querying",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "a2819513ef35f906"
+      ],
+      "start_line": 653
+    },
+    {
+      "confidence": "normal",
+      "end_line": 680,
+      "heading": "API v2 Security Actions",
+      "needs_live_verification": false,
+      "section_id": "8-rest-api-deep-dive-api-v2-security-actions",
+      "source_keys": [
+        "acd6d42ca9f08d83"
+      ],
+      "start_line": 669
+    },
+    {
+      "confidence": "normal",
+      "end_line": 695,
+      "heading": "API v2 Generated Controller Example",
+      "needs_live_verification": false,
+      "section_id": "8-rest-api-deep-dive-api-v2-generated-controller-example",
+      "source_keys": [
+        "983ad6bce37e8e15"
+      ],
+      "start_line": 681
+    },
+    {
+      "confidence": "structural",
+      "end_line": 697,
+      "heading": "9. API Authentication Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-api-authentication-deep-dive",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "0dccb7f3384b930a",
+        "1a7cdd8d2a7f15eb",
+        "8cdec880af451ef9",
+        "1910ec97cc1c1067",
+        "4f0249164a4754aa",
+        "9cff0c87fd8eab29"
+      ],
+      "start_line": 696
+    },
+    {
+      "confidence": "normal",
+      "end_line": 715,
+      "heading": "Cookie Authentication",
+      "needs_live_verification": false,
+      "section_id": "9-api-authentication-deep-dive-cookie-authentication",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 698
+    },
+    {
+      "confidence": "normal",
+      "end_line": 731,
+      "heading": "REST Authorization Token",
+      "needs_live_verification": false,
+      "section_id": "9-api-authentication-deep-dive-rest-authorization-token",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 716
+    },
+    {
+      "confidence": "normal",
+      "end_line": 735,
+      "heading": "API Key Purpose",
+      "needs_live_verification": true,
+      "section_id": "9-api-authentication-deep-dive-api-key-purpose",
+      "source_keys": [
+        "0dccb7f3384b930a"
+      ],
+      "start_line": 732
+    },
+    {
+      "confidence": "normal",
+      "end_line": 747,
+      "heading": "Browser JavaScript And Token Exposure",
+      "needs_live_verification": false,
+      "section_id": "9-api-authentication-deep-dive-browser-javascript-and-token-exposure",
+      "source_keys": [
+        "1a7cdd8d2a7f15eb"
+      ],
+      "start_line": 736
+    },
+    {
+      "confidence": "normal",
+      "end_line": 762,
+      "heading": "External Identity Providers",
+      "needs_live_verification": true,
+      "section_id": "9-api-authentication-deep-dive-external-identity-providers",
+      "source_keys": [
+        "8cdec880af451ef9",
+        "1910ec97cc1c1067"
+      ],
+      "start_line": 748
+    },
+    {
+      "confidence": "normal",
+      "end_line": 775,
+      "heading": "Remote Authentication For TV Apps",
+      "needs_live_verification": false,
+      "section_id": "9-api-authentication-deep-dive-remote-authentication-for-tv-apps",
+      "source_keys": [
+        "4f0249164a4754aa",
+        "9cff0c87fd8eab29"
+      ],
+      "start_line": 763
+    },
+    {
+      "confidence": "structural",
+      "end_line": 777,
+      "heading": "10. Webhooks Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-webhooks-deep-dive",
+      "source_keys": [
+        "4f0249164a4754aa",
+        "9cff0c87fd8eab29",
+        "53ad1133e1cb2d0a",
+        "06156bb3a5401956",
+        "4f209a87e662fefd",
+        "776256c424368312",
+        "f76e5d37a4b67cbe",
+        "2e094e868018787d"
+      ],
+      "start_line": 776
+    },
+    {
+      "confidence": "structural",
+      "end_line": 789,
+      "heading": "Webhook Design Principles",
+      "needs_live_verification": false,
+      "section_id": "10-webhooks-deep-dive-webhook-design-principles",
+      "source_keys": [
+        "4f0249164a4754aa",
+        "9cff0c87fd8eab29"
+      ],
+      "start_line": 778
+    },
+    {
+      "confidence": "normal",
+      "end_line": 807,
+      "heading": "Lava Webhook Matching",
+      "needs_live_verification": true,
+      "section_id": "10-webhooks-deep-dive-lava-webhook-matching",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 790
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 828,
+      "heading": "Response Content Types",
+      "needs_live_verification": false,
+      "section_id": "10-webhooks-deep-dive-response-content-types",
+      "source_keys": [
+        "06156bb3a5401956"
+      ],
+      "start_line": 808
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 842,
+      "heading": "Workflow Webhook Response",
+      "needs_live_verification": true,
+      "section_id": "10-webhooks-deep-dive-workflow-webhook-response",
+      "source_keys": [
+        "4f209a87e662fefd"
+      ],
+      "start_line": 829
+    },
+    {
+      "confidence": "normal",
+      "end_line": 857,
+      "heading": "Mailgun Webhooks",
+      "needs_live_verification": false,
+      "section_id": "10-webhooks-deep-dive-mailgun-webhooks",
+      "source_keys": [
+        "776256c424368312",
+        "f76e5d37a4b67cbe"
+      ],
+      "start_line": 843
+    },
+    {
+      "confidence": "normal",
+      "end_line": 870,
+      "heading": "SMS Pipeline Webhooks",
+      "needs_live_verification": false,
+      "section_id": "10-webhooks-deep-dive-sms-pipeline-webhooks",
+      "source_keys": [
+        "2e094e868018787d"
+      ],
+      "start_line": 858
+    },
+    {
+      "confidence": "structural",
+      "end_line": 872,
+      "heading": "11. Related Rock Areas: Security, Workflows, Lava, Model Map",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-security-workflows-lava-model-map",
+      "source_keys": [
+        "eb2b5509786a6895",
+        "f807acb8c3c3d207",
+        "62524909bcc2f18b",
+        "802567c280193bd0",
+        "3c3c83e2437f3933",
+        "46476aa8453a8245",
+        "4f209a87e662fefd",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "fe094e82abfc4adf",
+        "789454b4b23d582c",
+        "b480ac589da5149f",
+        "e1caa5870d162bcc",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 871
+    },
+    {
+      "confidence": "normal",
+      "end_line": 886,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-security",
+      "source_keys": [
+        "eb2b5509786a6895",
+        "f807acb8c3c3d207",
+        "62524909bcc2f18b",
+        "802567c280193bd0"
+      ],
+      "start_line": 873
+    },
+    {
+      "confidence": "normal",
+      "end_line": 909,
+      "heading": "Workflows",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-workflows",
+      "source_keys": [
+        "3c3c83e2437f3933",
+        "46476aa8453a8245",
+        "4f209a87e662fefd"
+      ],
+      "start_line": 887
+    },
+    {
+      "confidence": "normal",
+      "end_line": 932,
+      "heading": "Lava",
+      "needs_live_verification": false,
+      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-lava",
+      "source_keys": [
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "fe094e82abfc4adf",
+        "789454b4b23d582c",
+        "802567c280193bd0"
+      ],
+      "start_line": 910
+    },
+    {
+      "confidence": "normal",
+      "end_line": 945,
+      "heading": "Model Map",
+      "needs_live_verification": true,
+      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-model-map",
+      "source_keys": [
+        "b480ac589da5149f",
+        "e1caa5870d162bcc",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 933
+    },
+    {
+      "confidence": "structural",
+      "end_line": 947,
+      "heading": "12. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails",
+      "source_keys": [
+        "b480ac589da5149f",
+        "e1caa5870d162bcc",
+        "e395e8db6cce68d7",
+        "554e0dda0bc287c2",
+        "802567c280193bd0",
+        "f146552f6ffaa13a",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 946
+    },
+    {
+      "confidence": "structural",
+      "end_line": 959,
+      "heading": "Least Privilege",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-least-privilege",
+      "source_keys": [
+        "b480ac589da5149f",
+        "e1caa5870d162bcc",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 948
+    },
+    {
+      "confidence": "structural",
+      "end_line": 984,
+      "heading": "Secret Handling",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-secret-handling",
+      "source_keys": [
+        "b480ac589da5149f",
+        "e1caa5870d162bcc",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 960
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1003,
+      "heading": "Input Validation",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-input-validation",
+      "source_keys": [
+        "554e0dda0bc287c2"
+      ],
+      "start_line": 985
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1015,
+      "heading": "Method Semantics",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-method-semantics",
+      "source_keys": [
+        "802567c280193bd0"
+      ],
+      "start_line": 1004
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1025,
+      "heading": "Caching",
+      "needs_live_verification": false,
+      "section_id": "12-administration-and-operational-guardrails-caching",
+      "source_keys": [
+        "802567c280193bd0"
+      ],
+      "start_line": 1016
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1039,
+      "heading": "Rate Limiting And Load",
+      "needs_live_verification": true,
+      "section_id": "12-administration-and-operational-guardrails-rate-limiting-and-load",
+      "source_keys": [
+        "f146552f6ffaa13a"
+      ],
+      "start_line": 1026
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1054,
+      "heading": "Observability",
+      "needs_live_verification": true,
+      "section_id": "12-administration-and-operational-guardrails-observability",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 1040
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1056,
+      "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "c6379a1fcb4a7101",
+        "983ad6bce37e8e15",
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f",
+        "427e5301d593e4bc",
+        "543ea1d48ed32f6d",
+        "f146552f6ffaa13a",
+        "72e58feaf1e9531d",
+        "b480ac589da5149f",
+        "5799a73de84c4338",
+        "9c04de615556ea9a",
+        "e1caa5870d162bcc",
+        "8f3a78dde9c3ddb6",
+        "e395e8db6cce68d7",
+        "b62f52dbefd1a36d",
+        "9f93dec345f23bd8",
+        "1910ec97cc1c1067",
+        "c440f7dfeb33e10e",
+        "f76e5d37a4b67cbe"
+      ],
+      "start_line": 1055
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1067,
+      "heading": "REST And API Source",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-rest-and-api-source",
+      "source_keys": [
+        "c6379a1fcb4a7101",
+        "983ad6bce37e8e15",
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f"
+      ],
+      "start_line": 1057
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1078,
+      "heading": "Lava Application Source",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-application-source",
+      "source_keys": [
+        "427e5301d593e4bc",
+        "543ea1d48ed32f6d",
+        "f146552f6ffaa13a",
+        "72e58feaf1e9531d"
+      ],
+      "start_line": 1068
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1091,
+      "heading": "Model Map Source",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-model-map-source",
+      "source_keys": [
+        "b480ac589da5149f",
+        "5799a73de84c4338",
+        "9c04de615556ea9a",
+        "e1caa5870d162bcc",
+        "8f3a78dde9c3ddb6",
+        "e395e8db6cce68d7"
+      ],
+      "start_line": 1079
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1102,
+      "heading": "Security And Workflow Source",
+      "needs_live_verification": true,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-security-and-workflow-source",
+      "source_keys": [
+        "b62f52dbefd1a36d",
+        "9f93dec345f23bd8",
+        "1910ec97cc1c1067",
+        "c440f7dfeb33e10e"
+      ],
+      "start_line": 1092
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1110,
+      "heading": "Integration-Specific Source",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-integration-specific-source",
+      "source_keys": [
+        "f76e5d37a4b67cbe"
+      ],
+      "start_line": 1103
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1112,
+      "heading": "14. Reporting, Analytics, And Model Map",
+      "needs_live_verification": false,
+      "section_id": "14-reporting-analytics-and-model-map",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "9cff0c87fd8eab29",
+        "643c380d40ffe79d",
+        "e1caa5870d162bcc",
+        "8f3a78dde9c3ddb6",
+        "ed2eb5a93323c1b0"
+      ],
+      "start_line": 1111
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1123,
+      "heading": "API Usage Reporting",
+      "needs_live_verification": true,
+      "section_id": "14-reporting-analytics-and-model-map-api-usage-reporting",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "9cff0c87fd8eab29",
+        "643c380d40ffe79d"
+      ],
+      "start_line": 1113
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1147,
+      "heading": "Model Map Use Cases",
+      "needs_live_verification": false,
+      "section_id": "14-reporting-analytics-and-model-map-model-map-use-cases",
+      "source_keys": [
+        "e1caa5870d162bcc",
+        "8f3a78dde9c3ddb6",
+        "ed2eb5a93323c1b0"
+      ],
+      "start_line": 1124
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1149,
+      "heading": "15. Version And Release Caveats",
+      "needs_live_verification": false,
+      "section_id": "15-version-and-release-caveats",
+      "source_keys": [
+        "acd6d42ca9f08d83",
+        "776256c424368312",
+        "f76e5d37a4b67cbe",
+        "802567c280193bd0",
+        "6a9eebe7a077d89a",
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936"
+      ],
+      "start_line": 1148
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1155,
+      "heading": "API v2 Starts In v17 Pattern",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats-api-v2-starts-in-v17-pattern",
+      "source_keys": [
+        "acd6d42ca9f08d83"
+      ],
+      "start_line": 1150
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1161,
+      "heading": "Workflow Action Launch API Fix In v18.2",
+      "needs_live_verification": false,
+      "section_id": "15-version-and-release-caveats-workflow-action-launch-api-fix-in-v18-2",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1156
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1167,
+      "heading": "DataView Endpoint Permission Fix In v17.5",
+      "needs_live_verification": false,
+      "section_id": "15-version-and-release-caveats-dataview-endpoint-permission-fix-in-v17-5",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1162
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1173,
+      "heading": "Mailgun API Key And Webhook Signing Key",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats-mailgun-api-key-and-webhook-signing-key",
+      "source_keys": [
+        "776256c424368312",
+        "f76e5d37a4b67cbe"
+      ],
+      "start_line": 1168
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1179,
+      "heading": "Helix And Lava Applications",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats-helix-and-lava-applications",
+      "source_keys": [
+        "802567c280193bd0",
+        "6a9eebe7a077d89a",
+        "6a9eebe7a077d89a"
+      ],
+      "start_line": 1174
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1185,
+      "heading": "Mobile And Shell Caveats",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats-mobile-and-shell-caveats",
+      "source_keys": [
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936"
+      ],
+      "start_line": 1180
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1187,
+      "heading": "16. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "16-implementation-playbooks",
+      "source_keys": [
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936",
+        "62524909bcc2f18b",
+        "9d82300fec33a358"
+      ],
+      "start_line": 1186
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 1203,
+      "heading": "Playbook A: Server-To-Server REST Read Integration",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration",
+      "source_keys": [
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936"
+      ],
+      "start_line": 1188
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 1217,
+      "heading": "Playbook B: Browser Public Data Feed",
+      "needs_live_verification": false,
+      "section_id": "16-implementation-playbooks-playbook-b-browser-public-data-feed",
+      "source_keys": [
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936"
+      ],
+      "start_line": 1204
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 1232,
+      "heading": "Playbook C: Webhook To Workflow Intake",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-c-webhook-to-workflow-intake",
+      "source_keys": [
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936"
+      ],
+      "start_line": 1218
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1247,
+      "heading": "Playbook D: Lava Application Endpoint",
+      "needs_live_verification": false,
+      "section_id": "16-implementation-playbooks-playbook-d-lava-application-endpoint",
+      "source_keys": [
+        "f99ba5bb3222f37e",
+        "275f4eda54018f53",
+        "d81b99f44bb58799",
+        "6920f6e860c4b936"
+      ],
+      "start_line": 1233
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1263,
+      "heading": "Playbook E: Custom REST v2 Endpoint",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-e-custom-rest-v2-endpoint",
+      "source_keys": [
+        "62524909bcc2f18b"
+      ],
+      "start_line": 1248
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1278,
+      "heading": "Playbook F: Agent Tool For Rock Data",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-f-agent-tool-for-rock-data",
+      "source_keys": [
+        "9d82300fec33a358",
+        "9d82300fec33a358",
+        "9d82300fec33a358"
+      ],
+      "start_line": 1264
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1280,
+      "heading": "17. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree",
+      "source_keys": [
+        "46476aa8453a8245",
+        "776256c424368312",
+        "547b1337a6e19cf7",
+        "027cede393b38974",
+        "fe094e82abfc4adf",
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1279
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1293,
+      "heading": "API Call Returns 401/Unauthorized",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
+      "source_keys": [
+        "46476aa8453a8245",
+        "776256c424368312"
+      ],
+      "start_line": 1281
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1309,
+      "heading": "Browser Shows CORS / Failed To Fetch",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "027cede393b38974"
+      ],
+      "start_line": 1294
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1323,
+      "heading": "Works In Postman But Not Browser",
+      "needs_live_verification": true,
+      "section_id": "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "027cede393b38974"
+      ],
+      "start_line": 1310
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1336,
+      "heading": "Lava Webhook Returns Wrong Template Or 404",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "027cede393b38974"
+      ],
+      "start_line": 1324
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1354,
+      "heading": "Lava Web Request Fails Silently Or Returns Empty Result",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
+      "source_keys": [
+        "fe094e82abfc4adf",
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1337
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1370,
+      "heading": "Workflow Webhook Does Not Start Workflow",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
+      "source_keys": [
+        "fe094e82abfc4adf",
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1355
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1387,
+      "heading": "REST v2 Workflow Launch Fails",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
+      "source_keys": [
+        "46476aa8453a8245"
+      ],
+      "start_line": 1371
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1403,
+      "heading": "Mailgun Webhook Tracking Fails",
+      "needs_live_verification": false,
+      "section_id": "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1388
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1405,
+      "heading": "18. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "18-agent-task-recipes",
+      "source_keys": [
+        "776256c424368312",
+        "9d82300fec33a358"
+      ],
+      "start_line": 1404
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1415,
+      "heading": "Recipe: Find The Right API Route",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-find-the-right-api-route",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1406
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1425,
+      "heading": "Recipe: Audit A REST Key",
+      "needs_live_verification": false,
+      "section_id": "18-agent-task-recipes-recipe-audit-a-rest-key",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1416
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1436,
+      "heading": "Recipe: Diagnose External Website API Failure",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-diagnose-external-website-api-failure",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1426
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1449,
+      "heading": "Recipe: Review A Lava Webhook Before Launch",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-review-a-lava-webhook-before-launch",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1437
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1483,
+      "heading": "Recipe: Build A Safe Agent Tool",
+      "needs_live_verification": true,
+      "section_id": "18-agent-task-recipes-recipe-build-a-safe-agent-tool",
+      "source_keys": [
+        "9d82300fec33a358",
+        "9d82300fec33a358",
+        "9d82300fec33a358"
+      ],
+      "start_line": 1450
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1541,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "53ad1133e1cb2d0a",
+        "2cf11aac4d7e5e09",
+        "2cf11aac4d7e5e09",
+        "f0a736080e3ea89c",
+        "f0a736080e3ea89c",
+        "cea805e5b904fc2d",
+        "e49179e5511d18c4",
+        "2ef33162dc02363b",
+        "f0a736080e3ea89c",
+        "61505a876029525c",
+        "7b2dd6a6b528a9f3"
+      ],
+      "start_line": 1484
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1578,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "2ef33162dc02363b",
+        "f0a736080e3ea89c",
+        "cea805e5b904fc2d",
+        "61505a876029525c",
+        "2cf11aac4d7e5e09",
+        "7b2dd6a6b528a9f3",
+        "e49179e5511d18c4"
+      ],
+      "start_line": 1542
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1625,
+      "heading": "19. Source Map And Dependency Notes",
+      "needs_live_verification": false,
+      "section_id": "19-source-map-and-dependency-notes",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "547b1337a6e19cf7",
+        "acd6d42ca9f08d83",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "fe094e82abfc4adf",
+        "6a9eebe7a077d89a",
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "802567c280193bd0",
+        "eb2b5509786a6895",
+        "f807acb8c3c3d207",
+        "62524909bcc2f18b",
+        "3c3c83e2437f3933",
+        "0a1df6eb6e308fc2",
+        "bce31f25cb8a199e",
+        "776256c424368312",
+        "c6379a1fcb4a7101",
+        "983ad6bce37e8e15",
+        "46476aa8453a8245",
+        "ed1e9ea215aa359f",
+        "427e5301d593e4bc",
+        "f146552f6ffaa13a",
+        "b480ac589da5149f",
+        "e395e8db6cce68d7",
+        "f76e5d37a4b67cbe",
+        "b62f52dbefd1a36d",
+        "06156bb3a5401956",
+        "4f209a87e662fefd",
+        "8cdec880af451ef9",
+        "470797c964770153",
+        "a2819513ef35f906",
+        "7c71a22de1006d62",
+        "027cede393b38974"
+      ],
+      "start_line": 1579
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-02T19:01:30+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-api",
+      "authority_score": 88,
+      "change_type": null,
+      "content_hash": "993d77d2ef93e760606bdc2a4d739b8900fdba409d733d97b3760c57b00b37ba",
+      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_api_docs",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
+      "title": "API Documentation",
+      "topics": [
+        "api",
+        "development",
+        "integrations",
+        "lava",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/api-docs",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "5a39f0f55d72dfb4b1074c232fe501c82135bef6c919e0cf76b6d1da1cf38a6c",
+      "excerpt_hash": "b933253a4127e0ecdcdd37966091ad79defe5bf606f8a0bb3dfdc388eb6d2107",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "547b1337a6e19cf7",
+      "source_record_id": "rock_developer:547b1337a6e19cf7",
+      "title": "The Rock Rest API",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "00c7ea0ff8c8b5385d54bb19c3557591e8a89a55af04ad5c1a26c2ece15d50fc",
+      "excerpt_hash": "47f1d826263f3473311f6cdbd7690e02f7a3e2340262e93b0f3ee46fd1179848",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "acd6d42ca9f08d83",
+      "source_record_id": "rock_developer:acd6d42ca9f08d83",
+      "title": "API Patterns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "change_type": null,
+      "content_hash": "9e020930a9acddbb76bc3910d2f16b8b1523d3d3e71c6d3f645fdaeab564b887",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_demo_api_docs_v2",
+      "source_key": "22092085266102c5",
+      "source_record_id": "rock_demo_api_docs_v2:22092085266102c5",
+      "title": "Rock Rest API v2",
+      "topics": [
+        "api",
+        "development",
+        "integrations"
+      ],
+      "url": "https://rock.rocksolidchurchdemo.com/api/v2/docs/index",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "90cd99fb1f8c7c1bd25245c7b3d9c3b5938d54a3bc5c1bc2af46c6ad96bb8774",
+      "excerpt_hash": "7eb796ce7f62b79f6a9b4618084fbc24af0cd62e1dc3b8b5654f7cb7049d540e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "title": "Creating APIs Using Lava",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/lava-api",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "540d77572af92657f22b15d23503556530c7ac0802e4da826fb9d4e3021c2890",
+      "excerpt_hash": "a0beccfc57de3124645dc318e80b8b29181ac6413f78c56c7e497b5642362944",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "1a7cdd8d2a7f15eb",
+      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
+      "title": "Using Lava Remotely",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/remote-lava",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
+      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "title": "Endpoints",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8f3782c916e4cd2d88afbb33ab4ac8ba0bda6b6943421c2bda84b413252129e2",
+      "excerpt_hash": "247430dd6919feacef68a5f1cc62715fef5732e0630662e4b621e357447c8d82",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8f9847f0880303e0",
+      "source_record_id": "rock_developer:8f9847f0880303e0",
+      "title": "Applications",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "da5d63925f50c5042df3903d3906fd2d9ad14ef7c5016da3fe1f9956eb257403",
+      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "379b8b3e079b94e5",
+      "source_record_id": "rock_developer:379b8b3e079b94e5",
+      "title": "Observability",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "26504a7b52c9372992226218e21e4ad1e85116a9923ea7d9cd9b64601d83206a",
+      "excerpt_hash": "0d134204c4f06b612557c4fe7f7c858c8f3c06f62711f2d4b6710b9aac2ea4af",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "4f209a87e662fefd",
+      "source_record_id": "rock_recipes:4f209a87e662fefd",
+      "title": "Webhook to Workflow - an Example from Monday.com",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/453",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a6b9a5fd3d6aa2192ec16fd89ed9631464c96e731eb6ef1645d31413bcf06e30",
+      "excerpt_hash": "f867febfcef408e18042fd79795047eac73aa3dc369ed49176662aa738deb86e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "rest",
+        "workflows"
+      ],
+      "path": "Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "46476aa8453a8245",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+      "title": "Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "371bc6e69c549c90e0ad91a69ca80073beba5ceabe15f688ad80b0281aaaaa2b",
+      "excerpt_hash": "ebe05b6535c5bd7f0aa1f17a976883e95e4fe6c58189d898ba9616ba4f57b91b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "fe094e82abfc4adf",
+      "source_record_id": "rock_developer:fe094e82abfc4adf",
+      "title": "Web Request",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/web-request-commands",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "change_type": null,
+      "content_hash": "3902ba8860672aa4ce706227fdfc6dcc8e13bc14d95ba7d31eab3cb7d9ef0997",
+      "excerpt_hash": "70c877b1d3bdecd992767a2e280ee6d55317a3e9a47e4b6a9d5c43bfa8729e70",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_demo_api_docs_v1",
+      "source_key": "371700349ffde4af",
+      "source_record_id": "rock_demo_api_docs_v1:371700349ffde4af",
+      "title": "Rock REST API Documentation",
+      "topics": [
+        "api",
+        "development",
+        "integrations"
+      ],
+      "url": "https://rock.rocksolidchurchdemo.com/api/docs/index",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "88884d5d52093af73a98791edc12b3b7f5375950eb30c069c157600b6cd01669",
+      "excerpt_hash": "5ee2f9a9892f1dda2075a1ff9abc3c8459045cab92a69451b364f8971bcb3e70",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "rest",
+        "endpoint",
+        "lava"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "983ad6bce37e8e15",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "community-reference",
+      "authority_score": 45,
+      "change_type": null,
+      "content_hash": "1071c109ab3ed8fd8667c2bdc835360dd13264061e657efce120712ad423d741",
+      "excerpt_hash": "6bf5cafd7229d2c9b9bf6986498fa69f5fe8377b643388860f617f7cbdf76659",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_community_site",
+      "source_key": "027cede393b38974",
+      "source_record_id": "rock_community_site:027cede393b38974",
+      "title": "Problem with API Calls",
+      "topics": [
+        "api",
+        "community",
+        "development",
+        "documentation",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2842",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d4e65effbc380add08ffec06e8e78cc97c1562f02973cd06ef06aaa8c15eee62",
+      "excerpt_hash": "721c4c57b8d6f5f3218c9c2ac8ea27660153d959119f77455e834e2167a2356f",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "endpoint",
+        "lava"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f146552f6ffaa13a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts"
+    },
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "change_type": null,
+      "content_hash": "35839e5824da69c96c630e3cc31ccd21bb7cd69d8e5ed8512e2899b7d87ac9e6",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:59cce742b33668f1",
+      "title": "Lava Endpoint",
+      "topics": [
+        "api",
+        "cms",
+        "data",
+        "lava",
+        "model-map"
+      ],
+      "url": "https://community.rockrms.com/ModelMap",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d7262bff307341b60bf25920da6ecf97201a8476420433a049261038c13d8c7e",
+      "excerpt_hash": "c6b93681c2a1327800fe437192b683f6fbaa0334dc0c11aa269db273976df292",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.Blocks/Example/ModelMap.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b480ac589da5149f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Example/ModelMap.cs",
+      "title": "Rock.Blocks/Example/ModelMap.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "0031f51aab9a88fc2bd7f5c76010177dab8752dedf3db3b989dff6765335f0d8",
+      "excerpt_hash": "353fbea4200ddf83573dac5ba4c9a5672fae484bd7cb85c4775ac8a323640725",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock/Data/IncludeForModelMapAttribute.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e395e8db6cce68d7",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Data/IncludeForModelMapAttribute.cs",
+      "title": "Rock/Data/IncludeForModelMapAttribute.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d1862dde11f9a186a16d4b4febb4b0fb8bb8fb85a21000d903dede331dc30816",
+      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "62524909bcc2f18b",
+      "source_record_id": "rock_developer:62524909bcc2f18b",
+      "title": "Coding Standards",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2c993d5d55bc1ad32758afc360bd53c6a7794ffb55d726a2ed3631036f182508",
+      "excerpt_hash": "a9f9c1d96e023a2e5f5fff12e21ca3842a826b184d9a88f2f1f475fdd3d7de0b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9cff0c87fd8eab29",
+      "source_record_id": "rock_developer:9cff0c87fd8eab29",
+      "title": "Applications",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e8a247fc5c0278a22155d8e4966f3d9bd0cca85944567d2b4311fdae4ab3dd77",
+      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "66cd0caee02b1e4b",
+      "source_record_id": "rock_developer:66cd0caee02b1e4b",
+      "title": "Creating An App",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "daca5d9df3f4f3294bcca964b7fa45c9a305f159d452e4986ca9dc166dc262af",
+      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "4f0249164a4754aa",
+      "source_record_id": "rock_developer:4f0249164a4754aa",
+      "title": "Creating a Sign-in Page",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "afc1c56245533b9407aa216909882a123f43d25f84c3c0e751a325f7440d5874",
+      "excerpt_hash": "ab2033068920acb93b3e831243d369f977f20ce8af0c6c20f0bc67f0f9e76e07",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9d82300fec33a358",
+      "source_record_id": "rock_developer:9d82300fec33a358",
+      "title": "Native Tools",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+      "version": null
+    },
+    {
+      "authority": "community-reference",
+      "authority_score": 45,
+      "change_type": null,
+      "content_hash": "89cdcc6f8a3c47c6ff74904efb239955daf26a3420ebff9d8a66597cf65b632d",
+      "excerpt_hash": "f163330b3532d0ae2ce1c5bd9eda86cbf15791ec557f7a3870b3acefcf7976e3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_community_site",
+      "source_key": "470797c964770153",
+      "source_record_id": "rock_community_site:470797c964770153",
+      "title": "API from external site",
+      "topics": [
+        "api",
+        "community",
+        "development",
+        "documentation",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2641",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "8f372d704d06fba3403e1134531a96075d08649bdbaa3d2a08c3bdaf8379252e",
+      "excerpt_hash": "102a163f3fe95ac332df9f72b8a3f90da37127388b448d198cdd3f9ad24731da",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "endpoint",
+        "security",
+        "lava"
+      ],
+      "path": "Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "427e5301d593e4bc",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
+      "title": "Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "70a5a5611da63d0cd3ba2ca6ec4eef7850893e5a56ee7da92ead09d4e03949fc",
+      "excerpt_hash": "604a4a56c8783d8d2f61c712083f41c55c51e6fe1235ac75dd6dadea5ced63b6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "eb2b5509786a6895",
+      "source_record_id": "rock_developer:eb2b5509786a6895",
+      "title": "Securing Access to Your Blocks",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "be201c05fa39459c2d6e4b2528841d65947f906c6dbd9869a7a48426166304ed",
+      "excerpt_hash": "ab45714ffdb1c91f43cb74fd55754215292e1ef135c5d3b6d30f67c71d1cc558",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f807acb8c3c3d207",
+      "source_record_id": "rock_developer:f807acb8c3c3d207",
+      "title": "Rock Security",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security",
+      "version": null
+    },
+    {
+      "authority": "community-reference",
+      "authority_score": 45,
+      "change_type": null,
+      "content_hash": "7a41590012845df7334e597c6fc794cb5ae82fcd5814dd4f9a966455e82f979f",
+      "excerpt_hash": "ebbbec530bff83346e8c601ead090819f8cd2f0b818e280cd0825373d31e870c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_community_site",
+      "source_key": "06156bb3a5401956",
+      "source_record_id": "rock_community_site:06156bb3a5401956",
+      "title": "Lava Webhook to Create an iCal (.ics) File",
+      "topics": [
+        "api",
+        "community",
+        "development",
+        "documentation",
+        "lava",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "d328de67ae33a86a769e4d9a8b86ffc8b0a0504041d40f290adfddd9150d2f1a",
+      "excerpt_hash": "1f603c59fe5c504916fd0b8a90eccc7802c20f92f314d852191b58076bf4bf96",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "8cdec880af451ef9",
+      "source_record_id": "rock_recipes:8cdec880af451ef9",
+      "title": "Auth0 Integration to associate users",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/232",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "new_feature",
+      "content_hash": "9b9d867ec1272b4a4fc34194ded9a98bdc96d8f15a70cc76fc2bb2321088cd9f",
+      "excerpt_hash": "249b00b6f70ad399749c7839333c2809bed4fc319d5141c356fa088d85ae44a5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "December 8, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:d805d26264361539",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.1"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "aa78b8622aa19eeb659955b9c7782c35c18376eb7112e271641522298f1b3779",
+      "excerpt_hash": "b1dbcbcc7cb3eb275a83e667f554d647f26263818f5b2ba6eda1c7d5154a94ad",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "api",
+        "webhook",
+        "api key",
+        "apikey"
+      ],
+      "path": "Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f76e5d37a4b67cbe",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
+      "title": "Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "98fb42b069c7590ec08456fe5028b2ded2c83786d2b7801e970d3f128699da30",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d81b99f44bb58799",
+      "source_record_id": "rock_developer:d81b99f44bb58799",
+      "title": "Check Scanning",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2a4a48ec3272f11d3ee8104cf7023583a3bd8a0d5f91687f1770400f747f949a",
+      "excerpt_hash": "11ba470c796669eebe2b90acc0e4dccaeb59911e849e58de71d32866327037dd",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "2e094e868018787d",
+      "source_record_id": "rock_developer:2e094e868018787d",
+      "title": "Extending Communication Transports",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/303---blast-off/extending-communication-transports",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "8e8f36e91b2187320871f4127812404e659fcb48ae1e51ec4a0bdbf127a2793a",
+      "excerpt_hash": "7a41697094823341968c124a09a4f29780e7f7b976fe53a9b8ccee0ba3c6b392",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "integration",
+        "security"
+      ],
+      "path": "Rock.Tests.Integration/Security/OidcClientTests.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1910ec97cc1c1067",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/OidcClientTests.cs",
+      "title": "Rock.Tests.Integration/Security/OidcClientTests.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "259d9637b2c7367cd1031ae43f80b2b82a6afd3de305f4dead316d31522c0a10",
+      "excerpt_hash": "f5425797a001ff584c0eb9335916a5475b169e031f91280b9eaa49861b94b9f5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "3c3c83e2437f3933",
+      "source_record_id": "rock_developer:3c3c83e2437f3933",
+      "title": "Advanced Entity Guide",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "fa8be2c53cfa8c8ee1e95d0e30e5162448ad67d5a795111fc42dd807a536fd40",
+      "excerpt_hash": "b9190ba13ed3f0eeeb61c584f799cf31073193af181574592cff2774511ebe58",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "rest",
+        "workflows"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ed1e9ea215aa359f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "02b92f152cf9f1683247c90fa05ef11d20bf82d33e5a0b1cb7de5b6a68d96791",
+      "excerpt_hash": "84adbe4b7abac5ab606fb9c79bdc2982934bc7af41750e098a0f1159af947eca",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "0a1df6eb6e308fc2",
+      "source_record_id": "rock_developer:0a1df6eb6e308fc2",
+      "title": "Attributes",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/303---blast-off/attributes",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2e27f23b4a31bf0c6cb40840a36bfb5e692b2b3c6b7140f23d7bf5c369b18190",
+      "excerpt_hash": "aa1d611a7986d293fb9e69853b55d93ac905652357729f965fa12121399ea04c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "643c380d40ffe79d",
+      "source_record_id": "rock_developer:643c380d40ffe79d",
+      "title": "Interaction Write",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/interaction-write",
+      "version": null
+    },
+    {
+      "authority": "community-reference",
+      "authority_score": 45,
+      "change_type": null,
+      "content_hash": "19a5c2426b33968cdd555705fa518449b7dfd3bd01436ba75f5419f8ab5ef1c6",
+      "excerpt_hash": "cd2ca1d6768b4aba786e6cfe5ada5b6a361504e1c4cf91dc4a23604c994fe71b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_community_site",
+      "source_key": "7c71a22de1006d62",
+      "source_record_id": "rock_community_site:7c71a22de1006d62",
+      "title": "webrequest not running??",
+      "topics": [
+        "api",
+        "community",
+        "development",
+        "documentation",
+        "lava",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2708",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "983e0046eba1dd80c4e1c158c59fcbc5de9d5a76826197c4135ffe237eff45af",
+      "excerpt_hash": "e916cc51333d6d8b1f9ae343d9239b945dc2f056cd0e73e842a7ab39318f2172",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "802567c280193bd0",
+      "source_record_id": "rock_developer:802567c280193bd0",
+      "title": "Overview",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f07dac2f93cc8f74866d5aded6d27235717022c1250695d0d9f6b38600804095",
+      "excerpt_hash": "cc5e8a4cfba2a9c7470b79936c5c7512f510c0fddb19bd69541d972e133ca60f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "554e0dda0bc287c2",
+      "source_record_id": "rock_developer:554e0dda0bc287c2",
+      "title": "Form Validation",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "db63124f61053ecc9005ae2c73cd6363cb305785fd9af8604de77bf77e17a6fd",
+      "excerpt_hash": "6a87075f32ad3f3861f9784817b44079bbbb6f3d303bb8aa8d20b7767677151a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "242a3ac9b87c1e0c",
+      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
+      "title": "Loading Indicator",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "0baeb5cf3c4508bf7e83f879a369c653a769c361f484960fffa190484fcebcad",
+      "excerpt_hash": "c4891d05c793d1eff9fd0052b1c496bbe72360bfba5ae5d99355c39b03321243",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "api",
+        "rest",
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.Rest/Utility/ApiModelMapper.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "c6379a1fcb4a7101",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Utility/ApiModelMapper.cs",
+      "title": "Rock.Rest/Utility/ApiModelMapper.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs"
+    },
+    {
+      "authority": "community-reference",
+      "authority_score": 45,
+      "change_type": null,
+      "content_hash": "bd36208e8e5636ab5ea0e94538e506e4b7f60220dbbd772e8799e98cc287082b",
+      "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_community_site",
+      "source_key": "a2819513ef35f906",
+      "source_record_id": "rock_community_site:a2819513ef35f906",
+      "title": "REST API for Schedules",
+      "topics": [
+        "api",
+        "community",
+        "development",
+        "documentation",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2710",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5a096bb3db831eb04ef158b2ce91f995d98b76438e2845f4f895b3c321b28891",
+      "excerpt_hash": "defda34fb48de0e01ad95c4f5cb70a50dfa6c59b40640261ea0c1bac7df9e48b",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "api",
+        "security",
+        "api key",
+        "apikey"
+      ],
+      "path": "Rock.Enums/Security/ApiKeyPurpose.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "0dccb7f3384b930a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Security/ApiKeyPurpose.cs",
+      "title": "Rock.Enums/Security/ApiKeyPurpose.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "3241668b7a0eca443a7c6c95fc75346540d8ce29afe50b9ed8ab75f9f6f8b0d2",
+      "excerpt_hash": "2914be9e52a6478b9091e23ab54820db977820a268c65d1750058cd4ae491990",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "789454b4b23d582c",
+      "source_record_id": "rock_developer:789454b4b23d582c",
+      "title": "Lava Commands",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-commands",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c82be181cfd83dd5bf5393a47ba516dd69d877b8f0c945e05f53c66e46ec3bff",
+      "excerpt_hash": "2e481b90e5e58e7a9abfe3f47b04eb518a930c9170e8202820f01bd49026c888",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e1caa5870d162bcc",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
+      "excerpt_hash": "bd30ea44d82b179f2f5f436652edfdcdbf141a8a9d3178bb1b6405d84659f143",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "endpoint",
+        "security",
+        "lava"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "543ea1d48ed32f6d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a38d4511364f5054cc55534a12a2859259192ad662b948388ab742c2e593dc64",
+      "excerpt_hash": "5f464739cfcc7ff065b4ed3ed4ca652500f74cae19b3a21e33504f42c06fe270",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "endpoint",
+        "lava"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "72e58feaf1e9531d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "24406e3df3ec5b98d3bd4b46a6222fe8faf89298d914f9b69e6e445ca9fa81f2",
+      "excerpt_hash": "782ccf35e49174802886697c64cdbf523603e17c716c0287497d69f3522467f4",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "api",
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5799a73de84c4338",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
+      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "217e87ba442c3d3c9efda65ffe31a0d48ef453ca26aca96dc4b86131902e2a7e",
+      "excerpt_hash": "030f218b151125d466d716526170386d9c8767a31cd44ff5d139e2a3e0395586",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9c04de615556ea9a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
+      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c0d0ac854c5464a0904758ee73d056d1d79b8e11087979a778fc9ae1fff6b444",
+      "excerpt_hash": "cbba24441aaabe746bb2ac1162b1bf9860bcc91cbe1579dedda1b3d390120012",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "8f3a78dde9c3ddb6",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
+      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d3aa8a6f35159dd016b1de8e634a211471a4497589d3f661b41e9410511a6674",
+      "excerpt_hash": "1c7eed227819338457349d3d569aae305c6223e126c0254f8aefd292b58926d4",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "security",
+        "workflows"
+      ],
+      "path": "Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b62f52dbefd1a36d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
+      "title": "Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "838728096dadf5160625fd9d941c4a3d246761047c2663b4cb0cb3a915696e15",
+      "excerpt_hash": "158e42079b4aaa53d73014a73d3a7bd7e63a168262e37793848d5d6fbe087799",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "integration",
+        "security"
+      ],
+      "path": "Rock.Tests.Integration/Security/SecurityRoleTests.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9f93dec345f23bd8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/SecurityRoleTests.cs",
+      "title": "Rock.Tests.Integration/Security/SecurityRoleTests.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/SecurityRoleTests.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "8d096a59833b2015dfc07815cb930e04b7e7d148e27ed2697dcba37e929415d8",
+      "excerpt_hash": "122438a8b7f4460919860acdf37c05e6975fe935d0f2deeca41a6712d815236a",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "rest",
+        "integration",
+        "auth"
+      ],
+      "path": "Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "c440f7dfeb33e10e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
+      "title": "Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "ec90d3aa31441ab005b722de2b7b04edf7a2b61889a2766dc8a75a5062dcbe98",
+      "excerpt_hash": "aef32ef3a316b34caa3a5269f8249232a6776699a0942f21cf42ed11da5cb4cc",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "model-map",
+        "model map",
+        "modelmap"
+      ],
+      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ed2eb5a93323c1b0",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
+      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8db2647f38b43389c9dfc5146cc557009ec1bf4c028eb04048b4c84e6d35d0f4",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f99ba5bb3222f37e",
+      "source_record_id": "rock_developer:f99ba5bb3222f37e",
+      "title": "Bible Audio",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-audio",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "810fe4702355573efe443282959b49faf14a05d9d312c06a05f0305e7150c5aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "275f4eda54018f53",
+      "source_record_id": "rock_developer:275f4eda54018f53",
+      "title": "Bible Reader",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-reader",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "df256387243940d40dc0bd99621657d02433b693a8751a18dd59f73e9fdb286d",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6920f6e860c4b936",
+      "source_record_id": "rock_developer:6920f6e860c4b936",
+      "title": "Shell Update Requirements",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "2cf11aac4d7e5e09",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "f0a736080e3ea89c",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/connect/rock-cast-episode-197",
+      "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "cea805e5b904fc2d",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "e49179e5511d18c4",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "2ef33162dc02363b",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "61505a876029525c",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "kind": "citation_only",
+      "source_id": "triumph_resources",
+      "source_key": "7b2dd6a6b528a9f3",
+      "source_record_id": "",
+      "title": "https://www.triumph.tech/resources/ai-in-digital-ministry",
+      "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}
