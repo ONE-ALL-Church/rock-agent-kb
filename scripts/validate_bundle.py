@@ -117,6 +117,7 @@ def validate_file(path: Path) -> list[str]:
     errors: list[str] = []
     if not path.exists():
         return [f"{path} does not exist"]
+    expected_org_id = expected_org_id_from_path(path)
     for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
         if not line.strip():
             continue
@@ -129,8 +130,20 @@ def validate_file(path: Path) -> list[str]:
         if not isinstance(row, dict):
             errors.append(f"{label} row must be an object")
             continue
+        if expected_org_id and row.get("org_id") != expected_org_id:
+            errors.append(f"{label} org_id does not match directory {expected_org_id}")
         errors.extend(validate_row(row, label))
     return errors
+
+
+def expected_org_id_from_path(path: Path) -> str:
+    parts = path.as_posix().split("/")
+    for root in ("community-contributions", "contributions"):
+        if root in parts:
+            index = parts.index(root)
+            if len(parts) > index + 2:
+                return parts[index + 1]
+    return ""
 
 
 def validate_row(row: dict, label: str) -> list[str]:

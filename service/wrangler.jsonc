@@ -1,0 +1,56 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "rock-agent-kb",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-12",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "PUBLIC_BASE_URL": "https://rock-agent-kb.oneandall.church",
+    "GITHUB_OWNER": "ONE-ALL-Church",
+    "GITHUB_REPO": "rock-agent-kb",
+    "AUTO_MERGE_INTAKE": "false"
+  },
+  "d1_databases": [
+    {
+      "binding": "KB_DB",
+      "database_name": "rock-agent-kb",
+      "database_id": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "KB_ARTIFACTS",
+      "bucket_name": "rock-agent-kb-artifacts"
+    }
+  ],
+  "env": {
+    "production": {
+      "name": "rock-agent-kb",
+      "vars": {
+        "PUBLIC_BASE_URL": "https://rock-agent-kb.oneandall.church",
+        "GITHUB_OWNER": "ONE-ALL-Church",
+        "GITHUB_REPO": "rock-agent-kb",
+        "AUTO_MERGE_INTAKE": "false"
+      },
+      "d1_databases": [
+        {
+          "binding": "KB_DB",
+          "database_name": "rock-agent-kb",
+          "database_id": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "KB_ARTIFACTS",
+          "bucket_name": "rock-agent-kb-artifacts"
+        }
+      ]
+    }
+  }
+}

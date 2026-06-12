@@ -9,13 +9,18 @@ from .paths import REPO_ROOT, REVIEW_DIR
 
 PUBLIC_CONTRIBUTION_REVIEW_STATUSES = {"redaction_reviewed", "approved_for_public_distillation"}
 EXAMPLE_BUNDLE_SUFFIX = ".example.jsonl"
+COMMUNITY_CONTRIBUTION_ROOT = REPO_ROOT / "community-contributions"
+PROMOTED_CONTRIBUTION_ROOT = REPO_ROOT / "contributions"
 
 
 def contribution_bundle_paths(root: Optional[Path] = None) -> list[Path]:
-    base = root or REPO_ROOT / "contributions"
-    if not base.exists():
-        return []
-    return sorted(path for path in base.rglob("*.jsonl") if not path.name.endswith(EXAMPLE_BUNDLE_SUFFIX))
+    bases = [root] if root else [PROMOTED_CONTRIBUTION_ROOT, COMMUNITY_CONTRIBUTION_ROOT]
+    paths: set[Path] = set()
+    for base in bases:
+        if not base or not base.exists():
+            continue
+        paths.update(path for path in base.rglob("*.jsonl") if not path.name.endswith(EXAMPLE_BUNDLE_SUFFIX))
+    return sorted(paths)
 
 
 def public_contribution_records(concept_id: Optional[str] = None, root: Optional[Path] = None) -> list[dict[str, Any]]:
@@ -55,6 +60,8 @@ def public_contribution_record(row: dict[str, Any], path: Path) -> dict[str, Any
         "summary": row.get("distilled_summary"),
         "excerpt": row.get("distilled_summary"),
         "topics": row.get("concept_ids") or [],
+        "authority_tier": authority_tier_for_contribution_path(path),
+        "claim_tier": "routing_context_only",
         "content_hash": content_hash,
         "license_status": "contributor_attested",
         "allowed_extraction_mode": "reviewed_summaries_only",
@@ -126,3 +133,10 @@ def relative_path(path: Path) -> str:
         return path.relative_to(REPO_ROOT).as_posix()
     except ValueError:
         return str(path)
+
+
+def authority_tier_for_contribution_path(path: Path) -> str:
+    relative = relative_path(path)
+    if relative.startswith("community-contributions/"):
+        return "community-unreviewed"
+    return "community-reviewed"

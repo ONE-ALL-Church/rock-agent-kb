@@ -54,7 +54,10 @@ def transcribe_media(
         existing = [row for row in read_jsonl(transcript_index_path(source.id)) if row.get("transcript_status") != "dry_run"]
         existing_by_id = {row.get("id"): row for row in existing}
     for row in rows:
-        if dry_run or not selected_tool:
+        existing_row = existing_by_id.get(f"{row.get('id')}:transcript")
+        if existing_row and existing_row.get("transcript_status") == "transcribed":
+            result = {**existing_row, "transcription_reused": True, "reuse_reason": "existing_transcript_index_row"}
+        elif dry_run or not selected_tool:
             result = transcript_queue_row(row, selected_tool, dry_run=dry_run)
         else:
             try:

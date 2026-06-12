@@ -1,0 +1,15 @@
+schema: rock-kb-org-v1
+org_id: oneall
+display_name: ONE&ALL Church
+status: reviewed
+contacts:
+  - role: knowledge-maintainer
+    github: bscottdavis
+github_accounts:
+  - bscottdavis
+standing_attestations:
+  redaction: true
+  license: true
+intake:
+  auto_merge_allowed: false
+  max_rows_per_bundle: 200

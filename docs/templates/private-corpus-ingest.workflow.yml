@@ -1,0 +1,68 @@
+name: Private Corpus Ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      media_source:
+        description: Private media source id to process.
+        required: false
+        default: rock_podcast_rss
+      media_limit:
+        description: Maximum media items to process.
+        required: false
+        default: "3"
+      transcribe_tool:
+        description: Transcription backend.
+        required: false
+        default: openai
+      transcribe_model:
+        description: Transcription model.
+        required: false
+        default: auto
+  schedule:
+    - cron: "17 9 * * 1"
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out public KB
+        uses: actions/checkout@v4
+        with:
+          repository: ONE-ALL-Church/rock-agent-kb
+          path: rock-agent-kb
+      - name: Check out private corpus
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.PRIVATE_CORPUS_REPO }}
+          token: ${{ secrets.PRIVATE_CORPUS_TOKEN }}
+          path: private-corpus
+      - name: Configure private corpus git identity
+        working-directory: private-corpus
+        run: |
+          git config user.name "rock-kb-private-corpus-bot"
+          git config user.email "rock-kb-private-corpus-bot@users.noreply.github.com"
+      - uses: astral-sh/setup-uv@v5
+      - name: Restore private corpus text artifacts
+        working-directory: rock-agent-kb
+        run: uv run kb corpus restore --path ../private-corpus
+      - name: Run selected private media batch
+        working-directory: rock-agent-kb
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ROCK_KB_MEDIA_SOURCE: ${{ inputs.media_source || 'rock_podcast_rss' }}
+          ROCK_KB_MEDIA_LIMIT: ${{ inputs.media_limit || '3' }}
+          ROCK_KB_TRANSCRIBE_TOOL: ${{ inputs.transcribe_tool || 'openai' }}
+          ROCK_KB_TRANSCRIBE_MODEL: ${{ inputs.transcribe_model || 'auto' }}
+        run: |
+          uv run --extra media kb media batch \
+            --source "${ROCK_KB_MEDIA_SOURCE:-rock_podcast_rss}" \
+            --limit "${ROCK_KB_MEDIA_LIMIT:-3}" \
+            --tool "${ROCK_KB_TRANSCRIBE_TOOL:-openai}" \
+            --model "${ROCK_KB_TRANSCRIBE_MODEL:-auto}"
+      - name: Sync private corpus artifacts
+        working-directory: rock-agent-kb
+        run: uv run kb corpus autosync --path ../private-corpus --commit
+      - name: Push private corpus
+        working-directory: private-corpus
+        run: git push

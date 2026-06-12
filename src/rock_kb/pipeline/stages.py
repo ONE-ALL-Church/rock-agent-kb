@@ -81,6 +81,7 @@ STAGES: list[Stage] = [
             "agent/source-citations.jsonl",
             "data/normalized/*.jsonl",
             "contributions/**/*.jsonl",
+            "community-contributions/**/*.jsonl",
             "knowledge/model-map/**/*.jsonl",
             "agent/model-map*.json*",
         ],

@@ -7,4 +7,7 @@ __pycache__/
 *.pyc
 docs/log/
 data/
+service/dist/
+service/.wrangler/
+service/node_modules/
 agent/*.generated.tmp

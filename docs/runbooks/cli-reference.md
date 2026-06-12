@@ -8,6 +8,7 @@ The `kb` CLI is the stable interface for imports, review queues, generated artif
 uv run kb --help
 uv run kb status
 uv run kb build --dry-run
+uv run kb deploy-service
 uv run kb audit all
 uv run --extra dev pytest
 ```
@@ -87,6 +88,8 @@ uv run kb corpus init --path /path/to/private-rock-kb-corpus
 uv run kb corpus validate --path /path/to/private-rock-kb-corpus
 uv run kb corpus report
 uv run kb corpus sync --path /path/to/private-rock-kb-corpus --dry-run
+uv run kb corpus autosync --path /path/to/private-rock-kb-corpus --commit
+uv run kb corpus restore --path /path/to/private-rock-kb-corpus --dry-run
 uv run kb corpus media-manifest --path /path/to/private-rock-kb-corpus
 uv run kb corpus audit --path /path/to/private-rock-kb-corpus
 uv run kb corpus verify-rebuild --path /path/to/private-rock-kb-corpus --public-export-destination data/tmp/private-corpus-public-export-check
@@ -111,6 +114,10 @@ uv run kb audit source-policy
 uv run kb audit public-export
 uv run kb audit readiness
 uv run kb audit all
+uv run kb deploy-service
+uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
+uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
+python3 scripts/bootstrap_service_infra.py
 uv run kb publish export
 uv run kb report refresh
 uv run kb report dashboard
@@ -124,11 +131,12 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 | Group | Purpose |
 |---|---|
 | `kb status` / `kb build` | Pipeline freshness, dry-run planning, and deterministic rebuild execution. |
+| `kb deploy-service` / `kb eval-service` / `kb network-readiness` | Hosted Worker projection, Cloudflare deploy, deployed-service regression checks, and live Agent Knowledge Network milestone gates. |
 | `kb sources ...` | Source registry, discovery, fetch, normalize, summarize, refresh, endpoint probing, and source scans. |
 | `kb extract ...` | Targeted Markdown extraction and extractor diagnostics. |
 | `kb media ...` | Private media discovery, transcription, sidecars, review candidates, promotion, and Gemma enrichment. |
 | `kb claims ...` | Claim graph validation and live-verification planning. |
-| `kb corpus ...` | Private corpus portability, sync, audit, and rebuild verification. |
+| `kb corpus ...` | Private corpus portability, sync, restore, autosync, audit, and rebuild verification. |
 | `kb private ...` | Private-source scanning, distillation, review reporting, staleness, and impact checks. |
 | `kb contributions ...` | Contribution bundle creation, validation, promotion, and import. |
 | `kb concepts ...` | Concept listing, authored synthesis, and hydration. |

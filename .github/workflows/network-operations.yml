@@ -1,0 +1,36 @@
+name: Network Operations
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Hosted Rock KB base URL to probe.
+        required: false
+        default: https://rock-agent-kb.oneandall.church
+  schedule:
+    - cron: "37 13 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  hosted-read-service:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ROCK_KB_BASE_URL: ${{ inputs.base_url || vars.ROCK_KB_BASE_URL || 'https://rock-agent-kb.oneandall.church' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Python dependencies
+        run: uv sync
+      - name: Smoke-test hosted public endpoints
+        run: |
+          curl --fail --silent "${ROCK_KB_BASE_URL}/health" | tee /tmp/rock-kb-health.json
+          curl --fail --silent "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/rock-kb-manifest.json
+          curl --fail --silent "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/rock-kb-operations-dashboard.json
+      - name: Run network operations smoke test
+        run: uv run python scripts/network_operations_smoke.py --base-url "${ROCK_KB_BASE_URL}" --limit 5

@@ -99,8 +99,10 @@ from ..pipeline.status import build_status_report
 from ..private_dependencies import report_private_impact
 from ..private_corpus import (
     audit_private_corpus_leaks,
+    autosync_private_corpus,
     ignored_private_artifact_report,
     initialize_private_corpus,
+    restore_private_text_artifacts,
     sync_private_text_artifacts,
     validate_private_corpus,
     verify_private_corpus_rebuild,
@@ -1032,6 +1034,30 @@ def private_corpus_sync(
 ) -> None:
     """Copy ignored private text/JSON artifacts into a mounted private corpus checkout."""
     result = sync_private_text_artifacts(path, dry_run=dry_run)
+    console.print_json(json.dumps(result))
+    if result["status"] != "ok":
+        raise typer.Exit(code=1)
+
+
+def private_corpus_autosync(
+    path: Path = typer.Option(..., "--path", file_okay=False, dir_okay=True),
+    dry_run: bool = typer.Option(False, "--dry-run"),
+    commit: bool = typer.Option(False, "--commit", help="Commit synced private corpus text artifacts in the corpus repo."),
+) -> None:
+    """Sync text artifacts, refresh media restore pointers, and optionally commit in the private corpus repo."""
+    result = autosync_private_corpus(path, dry_run=dry_run, commit=commit)
+    console.print_json(json.dumps(result))
+    if result["status"] != "ok":
+        raise typer.Exit(code=1)
+
+
+def private_corpus_restore(
+    path: Path = typer.Option(..., "--path", file_okay=False, dir_okay=True),
+    dry_run: bool = typer.Option(False, "--dry-run"),
+    overwrite: bool = typer.Option(False, "--overwrite", help="Overwrite existing local ignored artifacts."),
+) -> None:
+    """Restore private text/JSON artifacts from a mounted private corpus checkout into this workspace."""
+    result = restore_private_text_artifacts(path, dry_run=dry_run, overwrite=overwrite)
     console.print_json(json.dumps(result))
     if result["status"] != "ok":
         raise typer.Exit(code=1)

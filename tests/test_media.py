@@ -116,6 +116,46 @@ def test_transcript_queue_row_is_private():
     assert queued["public_publish_mode"] == "private_only"
 
 
+def test_transcribe_media_reuses_existing_transcript_index_row(monkeypatch, tmp_path):
+    source = SimpleNamespace(id="rock_podcast_rss")
+    media_dir = tmp_path / "media"
+    media_dir.mkdir()
+    monkeypatch.setattr(media_module, "MEDIA_DIR", media_dir)
+    manifest_path = media_dir / "rock_podcast_rss.media.jsonl"
+    transcript_path = media_dir / "rock_podcast_rss.transcripts.jsonl"
+    write_jsonl(
+        manifest_path,
+        [
+            {
+                "id": "media:abc",
+                "source_id": "rock_podcast_rss",
+                "source_record_id": "record:abc",
+                "source_url": "https://example.org/episode",
+                "source_title": "Episode",
+                "media_url": "https://example.org/episode.mp3",
+                "transcript_status": "pending",
+            }
+        ],
+    )
+    write_jsonl(
+        transcript_path,
+        [
+            {
+                "id": "media:abc:transcript",
+                "media_id": "media:abc",
+                "transcript_status": "transcribed",
+                "transcript": "Already transcribed.",
+            }
+        ],
+    )
+    monkeypatch.setattr(media_module, "transcribe_one", lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("should not re-transcribe")))
+
+    rows = transcribe_media(source, limit=1, tool="auto")
+
+    assert rows[0]["transcription_reused"] is True
+    assert rows[0]["transcript"] == "Already transcribed."
+
+
 def test_openai_transcription_command_uses_bundled_skill(monkeypatch, tmp_path):
     script = tmp_path / "transcribe_diarize.py"
     script.write_text("#!/usr/bin/env python3\n", encoding="utf-8")
