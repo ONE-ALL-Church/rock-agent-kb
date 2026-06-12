@@ -1,0 +1,232 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not assume the label template is broken before confirming printer routing.",
+        "Do not assume mobile check-in prints to the phone."
+      ],
+      "entities": [
+        "Device",
+        "Location",
+        "Attendance",
+        "AttendanceOccurrence"
+      ],
+      "id": "diagnose-labels-not-printing",
+      "inspect": [
+        "Device",
+        "Location",
+        "Check-in Configuration",
+        "Label",
+        "Attendance"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/LabelAttendanceDetail.cs",
+        "https://community.rockrms.com/ask/using/2804",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs",
+        "https://community.rockrms.com/rocku/check-in",
+        "https://community.rockrms.com/recipes/125",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/ILabelDataHasAttendance.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
+        "https://community.rockrms.com/recipes/116",
+        "https://community.rockrms.com/recipes/424"
+      ],
+      "start_with": [
+        "Identify whether the flow is legacy, Next-Gen, mobile, or Windows Check-In Application.",
+        "Inspect whether labels route to the device printer, location printer, or cloud/mobile print route."
+      ],
+      "title": "Diagnose Labels Not Printing",
+      "when": "Find whether the failure is configuration, device routing, printer hardware, label definition, mobile/cloud print, or version-specific behavior."
+    },
+    {
+      "do_not_assume": [
+        "Do not assume a missing room means the group is missing.",
+        "Do not ignore schedule windows and kiosk/device location filters."
+      ],
+      "entities": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Location",
+        "Schedule",
+        "AttendanceOccurrence"
+      ],
+      "id": "diagnose-person-not-eligible",
+      "inspect": [
+        "Person",
+        "Family Group",
+        "GroupType",
+        "Group",
+        "Location",
+        "Schedule",
+        "Campus"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/check-in",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
+        "https://community.rockrms.com/recipes/116",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
+        "https://community.rockrms.com/ask/using/2804",
+        "https://community.rockrms.com/recipes/483",
+        "https://community.rockrms.com/rocku/check-in/attendance-analytics",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Mobile/CheckIn/CheckIn.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql"
+      ],
+      "start_with": [
+        "Confirm the person is searchable in the current check-in configuration and family context.",
+        "Inspect age, grade, status, campus, family relationship, and can-check-in relationship assumptions."
+      ],
+      "title": "Diagnose Person Found But No Eligible Rooms",
+      "when": "Trace eligibility from person/family search through configuration, group type, group, location, schedule, campus, capacity, and version caveats."
+    },
+    {
+      "do_not_assume": [
+        "Do not add a room only in the UI; verify the data written after a test check-in."
+      ],
+      "entities": [
+        "Group",
+        "Location",
+        "Schedule",
+        "AttendanceOccurrence"
+      ],
+      "id": "add-new-room",
+      "inspect": [
+        "Group",
+        "Location",
+        "Schedule",
+        "Device",
+        "Label"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+        "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/ask/using/2804",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
+        "https://community.rockrms.com/rocku/check-in",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql",
+        "https://community.rockrms.com/rocku/check-in/locations",
+        "https://community.rockrms.com/rocku/check-in/schedules",
+        "https://community.rockrms.com/recipes/116",
+        "https://community.rockrms.com/recipes/424"
+      ],
+      "start_with": [
+        "Create or verify the named location and campus.",
+        "Create or update the group under the correct group type and area."
+      ],
+      "title": "Add A New Check-In Room",
+      "when": "Add a room without breaking eligibility, labels, printer routing, capacity, or reporting."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat mobile check-in as anonymous QR attendance.",
+        "Do not assume mobile uses different attendance tables."
+      ],
+      "entities": [
+        "Attendance",
+        "AttendanceOccurrence",
+        "Device"
+      ],
+      "id": "audit-mobile-check-in",
+      "inspect": [
+        "Mobile Page",
+        "Mobile Block",
+        "Check-in Configuration",
+        "Device/Kiosk",
+        "Printer"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/check-in",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/advanced-topics/proximity-attendance",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Mobile/CheckIn/CheckIn.cs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview",
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
+        "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
+        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
+        "https://community.rockrms.com/recipes/483",
+        "https://community.rockrms.com/recipes/116"
+      ],
+      "start_with": [
+        "Verify Rock server version and Rock Mobile version.",
+        "Inspect mobile block settings for configuration template, kiosk, primary areas, and secondary areas."
+      ],
+      "title": "Audit Mobile Check-In",
+      "when": "Confirm mobile check-in uses the intended configuration template, kiosk, areas, authentication, and print route."
+    },
+    {
+      "do_not_assume": [
+        "Do not report from group membership alone.",
+        "Do not ignore duplicate attendance across schedules or services."
+      ],
+      "entities": [
+        "Attendance",
+        "AttendanceOccurrence",
+        "PersonAlias",
+        "Group",
+        "Schedule",
+        "Location",
+        "Campus"
+      ],
+      "id": "build-attendance-report",
+      "inspect": [
+        "Attendance",
+        "AttendanceOccurrence",
+        "Group",
+        "Schedule",
+        "Location",
+        "Campus"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/104_MigrationRollupsFor10_3_0_spCheckin_AttendanceAnalyticsQuery_AttendeeLastAttendance.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.4/202204271322510_UpdateAttendanceAnalyticsQuerySP_spCheckin_AttendanceAnalyticsQuery_Attendees.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/104_MigrationRollupsFor10_3_0_spCheckin_AttendanceAnalyticsQuery_NonAttendees.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.4/202204271322510_UpdateAttendanceAnalyticsQuerySP_spCheckin_AttendanceAnalyticsQuery_NonAttendees.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/059_MigrationRollupsForV8_5_2_spCheckin_AttendanceAnalyticsQuery_NonAttendees.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeFirstDates.sql"
+      ],
+      "start_with": [
+        "Join Attendance through AttendanceOccurrence before interpreting group, schedule, location, or date.",
+        "Filter on DidAttend when the report should count actual attendance."
+      ],
+      "title": "Build Or Debug Attendance Reporting",
+      "when": "Use the attendance data model correctly so reports match check-in behavior."
+    }
+  ],
+  "concept_id": "check-in",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:20:54+00:00",
+  "guide_sections": [
+    "8-labels-deep-dive-label-troubleshooting-branches",
+    "11-troubleshooting-deep-dive",
+    "11-troubleshooting-deep-dive-symptom-no-check-in-locations-are-active",
+    "11-troubleshooting-deep-dive-symptom-family-search-finds-nothing",
+    "11-troubleshooting-deep-dive-symptom-family-found-child-missing",
+    "11-troubleshooting-deep-dive-symptom-child-present-no-rooms-available",
+    "11-troubleshooting-deep-dive-symptom-wrong-room-selected",
+    "11-troubleshooting-deep-dive-symptom-attendance-saved-but-label-did-not-print",
+    "11-troubleshooting-deep-dive-symptom-label-printed-but-data-wrong",
+    "11-troubleshooting-deep-dive-symptom-check-in-manager-cannot-delete-or-checkout",
+    "11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape",
+    "11-troubleshooting-deep-dive-symptom-analytics-do-not-match-headcount",
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved",
+    "18-troubleshooting-decision-tree-b-was-attendance-saved",
+    "18-troubleshooting-decision-tree-c-is-the-problem-labels",
+    "18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager",
+    "18-troubleshooting-decision-tree-e-is-the-problem-analytics",
+    "18-troubleshooting-decision-tree-f-is-the-problem-mobile",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in",
+    "19-agent-task-recipes-recipe-prove-which-printer-should-print-a-label",
+    "19-agent-task-recipes-recipe-reconcile-attendance-analytics-to-raw-rows",
+    "19-agent-task-recipes-recipe-decide-between-check-in-group-attendance-rapid-attendance-qr-and-sms",
+    "19-agent-task-recipes-recipe-validate-mobile-check-in-readiness"
+  ]
+}

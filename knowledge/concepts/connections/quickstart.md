@@ -1,0 +1,63 @@
+---
+concept_id: connections
+title: Connections Quickstart
+generated: true
+---
+
+# Connections Quickstart
+
+Connection types, opportunities, requests, statuses, boards, lists, assignments, follow-up, and pipeline reporting.
+
+## Agent Entry Points
+
+- Start with a task card when the user has an operational symptom or implementation request.
+- Use the entity index when the task mentions a table, model, block, source file, or report.
+- Use release caveats before deciding whether behavior is configuration, customization, or version-specific.
+- Use the long guide only when planning broadly or when the task card points to a section.
+
+## Primary Tasks
+
+- [Recipe: Audit One Connection Type](tasks/recipe-audit-one-connection-type.md): Follow the guide section for Recipe: Audit One Connection Type.
+- [Recipe: Explain Why A Request Is Hidden](tasks/recipe-explain-why-a-request-is-hidden.md): Follow the guide section for Recipe: Explain Why A Request Is Hidden.
+- [Recipe: Validate Signup Flow](tasks/recipe-validate-signup-flow.md): Follow the guide section for Recipe: Validate Signup Flow.
+- [Recipe: Build Opportunity Cards](tasks/recipe-build-opportunity-cards.md): Follow the guide section for Recipe: Build Opportunity Cards.
+- [Recipe: Investigate Connector Workload](tasks/recipe-investigate-connector-workload.md): Follow the guide section for Recipe: Investigate Connector Workload.
+
+## High-Signal Sections
+
+- `1-executive-summary-for-agents` lines 27-52: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 53-91: 2. Scope And Terminology (high)
+- `3-connections-mental-model` lines 92-117: 3. Connections Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 118-142: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-configuration-surfaces` lines 145-161: Configuration Surfaces (normal)
+- `5-core-configuration-and-data-model-connection-type-configuration` lines 162-186: Connection Type Configuration (high)
+
+## Core Entities
+
+- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
+- `Attribute`: Rock concept/entity referenced by the connections guide.
+- `Block`: Rock concept/entity referenced by the connections guide.
+- `Campus`: Rock concept/entity referenced by the connections guide.
+- `Family`: Rock concept/entity referenced by the connections guide.
+- `Group`: Concrete attendance destination, room, service, team, class, or group.
+- `Label`: Rock concept/entity referenced by the connections guide.
+- `Page`: Rock concept/entity referenced by the connections guide.
+- `Person`: Rock concept/entity referenced by the connections guide.
+- `PersonAlias`: Rock concept/entity referenced by the connections guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
+
+## Version Caveats
+
+- `18.1`: Improved the Connection Request Board with updates to campus filtering, connector preferences, and workflow configuration. Added new block settings to define default Connection State and Status filters. Workflows on the 
+- `17.2`: Fixed an issue where the Connection Opportunity Signup block only displayed request attributes defined on the opportunity itself, now correctly including attributes inherited from the Connection Type. Fixes: #6356
+
+## Files For Agents
+
+- `guide.md`: long-form guide.
+- `task-cards.jsonl` and `tasks/*.md`: operational entrypoints.
+- `entities.jsonl`: concept-specific entity/model/table map.
+- `section-source-map.jsonl`: section citations and source authority.
+- `section-status.jsonl`: section review/staleness hints.
+- `release-caveats.jsonl`: version-specific source rows.
+- `troubleshooting-tree.json`: machine-readable branch selector.

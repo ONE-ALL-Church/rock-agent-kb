@@ -1,0 +1,215 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-available-attributes-for-an-add-or-update-operation",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Find Available Attributes For An Add Or Update Operation",
+      "when": "Follow the guide section for Recipe: Find Available Attributes For An Add Or Update Operation."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-a-platform-configuration-object-to-a-user",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain A Platform Configuration Object To A User",
+      "when": "Follow the guide section for Recipe: Explain A Platform Configuration Object To A User."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-safely-answer-can-we-delete-this",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Safely Answer “Can We Delete This?”",
+      "when": "Follow the guide section for Recipe: Safely Answer “Can We Delete This?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-source-backed-explanation",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Source-Backed Explanation",
+      "when": "Follow the guide section for Recipe: Build A Source-Backed Explanation."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-triage-attribute-security",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
+        "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Triage Attribute Security",
+      "when": "Follow the guide section for Recipe: Triage Attribute Security."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-convert-a-free-text-attribute-to-a-defined-value",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Convert A Free-Text Attribute To A Defined Value",
+      "when": "Follow the guide section for Recipe: Convert A Free-Text Attribute To A Defined Value."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-diagnose-attribute-field-type-mismatch",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
+        "https://community.rockrms.com/lava/workflows",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Diagnose Attribute Field Type Mismatch",
+      "when": "Follow the guide section for Recipe: Diagnose Attribute Field Type Mismatch."
+    }
+  ],
+  "concept_id": "platform-configuration",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:02+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-attribute-does-not-appear",
+    "18-troubleshooting-decision-tree-attribute-appears-with-wrong-category",
+    "18-troubleshooting-decision-tree-lava-attribute-returns-blank",
+    "18-troubleshooting-decision-tree-defined-value-picker-is-hard-to-use",
+    "18-troubleshooting-decision-tree-defined-value-cannot-be-deleted",
+    "18-troubleshooting-decision-tree-entity-type-cannot-be-deleted-or-edited-safely",
+    "18-troubleshooting-decision-tree-campus-filter-shows-wrong-data",
+    "18-troubleshooting-decision-tree-mobile-attribute-editing-fails",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-find-available-attributes-for-an-add-or-update-operation",
+    "19-agent-task-recipes-recipe-explain-a-platform-configuration-object-to-a-user",
+    "19-agent-task-recipes-recipe-safely-answer-can-we-delete-this",
+    "19-agent-task-recipes-recipe-build-a-source-backed-explanation",
+    "19-agent-task-recipes-recipe-triage-attribute-security",
+    "19-agent-task-recipes-recipe-convert-a-free-text-attribute-to-a-defined-value",
+    "19-agent-task-recipes-recipe-diagnose-attribute-field-type-mismatch"
+  ]
+}

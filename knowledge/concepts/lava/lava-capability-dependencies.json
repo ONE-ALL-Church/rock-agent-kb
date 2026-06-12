@@ -1,0 +1,507 @@
+{
+  "capability_count": 276,
+  "dependent_concepts": [
+    "api-integrations",
+    "apple-tv",
+    "cms-websites",
+    "communications",
+    "data-views-reports",
+    "helix",
+    "lava",
+    "mobile",
+    "roku",
+    "security-permissions",
+    "tv-apps",
+    "workflows"
+  ],
+  "generated_at": "2026-06-12T09:25:54+00:00",
+  "resource_paths": {
+    "agent_capabilities": "agent/lava-capabilities.jsonl",
+    "agent_summary": "agent/lava-capability-summary.json",
+    "agent_usage_examples": "knowledge/concepts/lava/lava-agent-usage-examples.md",
+    "capabilities": "knowledge/concepts/lava/lava-capabilities.jsonl",
+    "reference_index": "knowledge/concepts/lava/lava-reference-index.md",
+    "safety_matrix": "knowledge/concepts/lava/lava-safety-matrix.md"
+  },
+  "schema": "rock-kb-lava-capability-dependencies-v1",
+  "source_dependencies": [
+    {
+      "content_hash": "ca26f9ed8d2672c9b56cf929c7b5815f309e3359d598ba1771f44a11e973b7be",
+      "lava_doc_category": "overview",
+      "lava_element_count": 0,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:044170dca04e8bbb",
+      "source_title": "Lava",
+      "source_url": "https://community.rockrms.com/lava"
+    },
+    {
+      "content_hash": "d72e88f3fbfbcff087c42e0852ee9f07ff7ce28dcab1e60ec0727c5b6c611e59",
+      "lava_doc_category": "command_overview",
+      "lava_element_count": 0,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:30be60a23d3d0317",
+      "source_title": "Getting Started",
+      "source_url": "https://community.rockrms.com/lava/commands"
+    },
+    {
+      "content_hash": "35ff266e2d82dd792f89603aaa5246e453b3f99b9c5ed4f6339892e9f240877f",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:a20a2cf1b118835e",
+      "source_title": "Adaptive Message",
+      "source_url": "https://community.rockrms.com/lava/commands/adaptivemessage-commands"
+    },
+    {
+      "content_hash": "9733f8a229a0b2b3a4183f92da66673691bd42d6e778c8c97c9b86e8b5a21b1b",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:78b1a0a9975427ba",
+      "source_title": "Cache",
+      "source_url": "https://community.rockrms.com/lava/commands/cache-commands"
+    },
+    {
+      "content_hash": "54cac4c66c66d441016f42287f9c65b66c764ce24af95ad0006127592f6f741f",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:e4041265ea398ac0",
+      "source_title": "Calendar Events",
+      "source_url": "https://community.rockrms.com/lava/commands/calendar-events"
+    },
+    {
+      "content_hash": "a8506dc8c11e5a49df0dbf6f9baab5e06b616416490ca78ae1694228171b289e",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:3d7f0942c946fafb",
+      "source_title": "Entity",
+      "source_url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "content_hash": "910bbcfd06bad3f191e412ece2120827a3b0f7169f2cf7a494884f6cc679fcf4",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:939d4b862980eb5f",
+      "source_title": "Event Scheduled Instance",
+      "source_url": "https://community.rockrms.com/lava/commands/event-scheduled-instance"
+    },
+    {
+      "content_hash": "c8b8d4338e61fbda6de6af6e1832a6cf52b449790a5df6f9a4e89374d08b2542",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:6ad836de36757aea",
+      "source_title": "Interaction Content Channel Item Write",
+      "source_url": "https://community.rockrms.com/lava/commands/interaction-content-channel-item-write"
+    },
+    {
+      "content_hash": "b37ed09acd540b73abd05fd199bfc45013f9679997275c919b36903991cecb09",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:c21b05c41322edb1",
+      "source_title": "Interaction Intent Write",
+      "source_url": "https://community.rockrms.com/lava/commands/interaction-intent-write"
+    },
+    {
+      "content_hash": "da8ba113927e6ab88cb831cab5e6d4102b284e446b223389bbf8a15920bcf3f5",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:643c380d40ffe79d",
+      "source_title": "Interaction Write",
+      "source_url": "https://community.rockrms.com/lava/commands/interaction-write"
+    },
+    {
+      "content_hash": "84b4f470152731aae2907e929b75f5571e0c406f5245546e6ab4c3d20e382218",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:aa3a13fcb5173770",
+      "source_title": "JavaScript",
+      "source_url": "https://community.rockrms.com/lava/commands/javascript-commands"
+    },
+    {
+      "content_hash": "5b584d049b7dda8175116177f284be31775cbacf691fd3865af7b86af6559a57",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:663210b198d98d94",
+      "source_title": "Personalize",
+      "source_url": "https://community.rockrms.com/lava/commands/personalize-commands"
+    },
+    {
+      "content_hash": "8971c2c2defdca44f39abf86f0f28d4416f1739f4dbf2abb9ae41e45c45ee67a",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:092cca0be1ff5961",
+      "source_title": "Print ZPL",
+      "source_url": "https://community.rockrms.com/lava/commands/print-zpl"
+    },
+    {
+      "content_hash": "e03dbe31a65f2e223df4f4ef70a769ddc289215253a59f353dcd082279e52fbf",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:ecbd9b8b11b1ecab",
+      "source_title": "Search",
+      "source_url": "https://community.rockrms.com/lava/commands/search-commands"
+    },
+    {
+      "content_hash": "69106f77e91ee0a2b409a4f203c9e3201dade46d7e1914ac4d3d839f622f443d",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:74ebb0215dc00eda",
+      "source_title": "Set Culture",
+      "source_url": "https://community.rockrms.com/lava/commands/setculture-commands"
+    },
+    {
+      "content_hash": "ea1a2a04c22b52ef166a5a1066fa5f2fb4e66fd31ccbeb71d93afe3065e203c7",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:b76e00f4cafbfba8",
+      "source_title": "SQL",
+      "source_url": "https://community.rockrms.com/lava/commands/sql-commands"
+    },
+    {
+      "content_hash": "8d05388942a4f51fe408eb9df5151243f6864df5047e30b0d2a14386c15609d8",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:63c820835a951f01",
+      "source_title": "Stylesheet",
+      "source_url": "https://community.rockrms.com/lava/commands/stylesheet-commands"
+    },
+    {
+      "content_hash": "3d85fc965eec08833754af75c1c871258f165c4e081683dbb7b6310b97cc7318",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:8cdbc423958bc54d",
+      "source_title": "Tag List",
+      "source_url": "https://community.rockrms.com/lava/commands/taglist-commands"
+    },
+    {
+      "content_hash": "4e743aa24ed3ec327251c593dd4bcc231002922e394d2c6fbb60bc81dfbce638",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:fe094e82abfc4adf",
+      "source_title": "Web Request",
+      "source_url": "https://community.rockrms.com/lava/commands/web-request-commands"
+    },
+    {
+      "content_hash": "a23897c8de871afd6cffdd8705ecbed986cd3ad346e224256146ddee25614652",
+      "lava_doc_category": "command",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:944d44ff4810c8f9",
+      "source_title": "Workflow Activate",
+      "source_url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
+    },
+    {
+      "content_hash": "1ba2064484165f1f1c48349dd9586dd9f1a84fd3de73bafa0de5b3c722e12375",
+      "lava_doc_category": "filter_overview",
+      "lava_element_count": 0,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:c3bf8b68c674539e",
+      "source_title": "Intro To Filters",
+      "source_url": "https://community.rockrms.com/lava/filters"
+    },
+    {
+      "content_hash": "ea1f3efb639e4897030fc4b4003f5b20ffd8da84f25137f75a292c90f8152a4e",
+      "lava_doc_category": "filter",
+      "lava_element_count": 30,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:655ed379a713ded8",
+      "source_title": "Arrays",
+      "source_url": "https://community.rockrms.com/lava/filters/array-filters"
+    },
+    {
+      "content_hash": "b24e0560492c92547cb6fd7c9b7d41c441cea47e222e469fb4d07ac2bca749d2",
+      "lava_doc_category": "filter",
+      "lava_element_count": 0,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:6f19b884e4da0469",
+      "source_title": "Attributes",
+      "source_url": "https://community.rockrms.com/lava/filters/attribute-filters"
+    },
+    {
+      "content_hash": "52246e90a72cf7fdd92daa5f03a39781baaad9a22ef059bdd44b7983e89b0654",
+      "lava_doc_category": "filter",
+      "lava_element_count": 11,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:56e4a335fd78c442",
+      "source_title": "Color Filters",
+      "source_url": "https://community.rockrms.com/lava/filters/color-filters"
+    },
+    {
+      "content_hash": "645f37edbbbb1691d172c44e446773780ac50b6e284ee1c335b08ceb5d0ed095",
+      "lava_doc_category": "filter",
+      "lava_element_count": 17,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:030d6d918f3ce140",
+      "source_title": "Date Filters",
+      "source_url": "https://community.rockrms.com/lava/filters/date-filters"
+    },
+    {
+      "content_hash": "ec4952d7f6286d57021802939b32bed53f86eea2c2d38edaf90873e7d9436466",
+      "lava_doc_category": "filter",
+      "lava_element_count": 21,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:f0e5d9f51f966be9",
+      "source_title": "Numeric Filters",
+      "source_url": "https://community.rockrms.com/lava/filters/numeric-filters"
+    },
+    {
+      "content_hash": "bc5da6f379308050417e0fd81b2a75238ccfbb3cd0d8806e29f2faba00dc09ed",
+      "lava_doc_category": "filter",
+      "lava_element_count": 67,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:f7086ab6ff215e14",
+      "source_title": "Other",
+      "source_url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
+      "content_hash": "68c593654125d3fcc1d7cb491c63deb6fda96776549c642fe1073c919b56f3fc",
+      "lava_doc_category": "filter",
+      "lava_element_count": 37,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:70e6cbd4131c9d85",
+      "source_title": "Person",
+      "source_url": "https://community.rockrms.com/lava/filters/person-filters"
+    },
+    {
+      "content_hash": "147d69fcd45a87af612f41c52827adf248a7939005694e97d9575561e695eb9e",
+      "lava_doc_category": "filter",
+      "lava_element_count": 49,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:c45f9008aed8453c",
+      "source_title": "Text Filters",
+      "source_url": "https://community.rockrms.com/lava/filters/text-filters"
+    },
+    {
+      "content_hash": "1ca9fdabd01f38120b3e49383597214fdbfda039a99baa039eb9e95cb53c036b",
+      "lava_doc_category": "fluid_overview",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:be18a55d805e40d5",
+      "source_title": "About Lava Fluid",
+      "source_url": "https://community.rockrms.com/lava/fluid"
+    },
+    {
+      "content_hash": "c4453583e357ba8cfd299d063f0e1bc2b48c457ab24446932ebaecb898ca9e5b",
+      "lava_doc_category": "fluid_migration",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:408b3cfc2191b9b4",
+      "source_title": "Fluid Differences",
+      "source_url": "https://community.rockrms.com/lava/fluid/differences"
+    },
+    {
+      "content_hash": "847443ea00b3744541939a49457d8f4e0e8195bfefaee0201df0629e53c8a0c6",
+      "lava_doc_category": "lava_api",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
+      "source_title": "Creating APIs Using Lava",
+      "source_url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "content_hash": "f5f30d5c827f03e4aedf0ecd3f84aa51873d1399443869e57ad32cbe47e678f4",
+      "lava_doc_category": "obsidian",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:16b69950a994d9e5",
+      "source_title": "Lava With Obsidian",
+      "source_url": "https://community.rockrms.com/lava/obsidian"
+    },
+    {
+      "content_hash": "7ef98dd5437191401a94ff244974321b5d56e325e9a57da11afa068395339c90",
+      "lava_doc_category": "remote_lava",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:1a7cdd8d2a7f15eb",
+      "source_title": "Using Lava Remotely",
+      "source_url": "https://community.rockrms.com/lava/remote-lava"
+    },
+    {
+      "content_hash": "5bdc0dfb1ec8f4a76007b4c9dfcb633abb1b35dcad25f44a5f8f67d0cf528ce6",
+      "lava_doc_category": "shortcode",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:62578d1f5bcde8a6",
+      "source_title": "Authoring Shortcodes",
+      "source_url": "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes"
+    },
+    {
+      "content_hash": "df9bbf86ff82126f7986e7b9afa5fbaf9561a5c99bc0daaf0c5d2d073f3b477d",
+      "lava_doc_category": "shortcode",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:8f718544a9943764",
+      "source_title": "Intro to Shortcodes",
+      "source_url": "https://community.rockrms.com/lava/shortcodes/intro-to-shortcodes"
+    },
+    {
+      "content_hash": "3eb723710150a847d3d424709f71f83d96899fbec0cd9ef1eaa25610bed0a210",
+      "lava_doc_category": "shortcode",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:8b7d6faa0cc7c13b",
+      "source_title": "Passing in Objects",
+      "source_url": "https://community.rockrms.com/lava/shortcodes/passing-in-objects"
+    },
+    {
+      "content_hash": "9f307fbf358e7485c4c226f1962602486bd70fb871685fdd8302893ae8448c29",
+      "lava_doc_category": "shortcode",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:6b4a76835126a773",
+      "source_title": "The Power of Shortcode Blocks",
+      "source_url": "https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks"
+    },
+    {
+      "content_hash": "28b94e44e7777da3c73be2ab2ba24990a0420d55fdd66198ee48f3222fd92edf",
+      "lava_doc_category": "shortcode",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:9e91dd9520bee269",
+      "source_title": "Types of Shortcodes",
+      "source_url": "https://community.rockrms.com/lava/shortcodes/types-of-shortcodes"
+    },
+    {
+      "content_hash": "c5e3d4811b218de8ad5aa9767a94aa83e515b90b31bd75237355009171564219",
+      "lava_doc_category": "reference",
+      "lava_element_count": 0,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:285ebff7bba3ca25",
+      "source_title": "Lava Style Guide",
+      "source_url": "https://community.rockrms.com/lava/style"
+    },
+    {
+      "content_hash": "b3ffca94ccfd6da43ee242b91e15a5080e57a1fa4d879e50bb1b920cdd9d5a64",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:dfe8b7ba39c989f5",
+      "source_title": "Case",
+      "source_url": "https://community.rockrms.com/lava/tags/case-tags"
+    },
+    {
+      "content_hash": "a3caae79b4f0bcfd98383bdfc8b64ab159dbd900b192e7c577a649a7ae8e12ac",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:1a9c44e8b77232f6",
+      "source_title": "Comment",
+      "source_url": "https://community.rockrms.com/lava/tags/comment-tags"
+    },
+    {
+      "content_hash": "d9e00c05a7ce13fb07fdb2ded831126ebb2a6405e3ebf4cceb414e3326d2cd26",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:dbe82ddf7370189f",
+      "source_title": "Cycle",
+      "source_url": "https://community.rockrms.com/lava/tags/cycle-tags"
+    },
+    {
+      "content_hash": "a43a91e6e75640b028e15276db9e0dec3b583c9ff71023f3012a9045eadaaa33",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:f1ffb9b8dcb6d9b6",
+      "source_title": "For",
+      "source_url": "https://community.rockrms.com/lava/tags/for-tags"
+    },
+    {
+      "content_hash": "00843bc869fc06945ec142d7374d1e6980319a25c4c939dedaa15b8d8e799ad9",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:3a8d276e78d69d84",
+      "source_title": "If / Else",
+      "source_url": "https://community.rockrms.com/lava/tags/if-else-tags"
+    },
+    {
+      "content_hash": "d6ddc5264c47f1e34309c644cb4cb34673369a2d32355ae489394de09c8fa090",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:30d213ba6c64bc28",
+      "source_title": "Include",
+      "source_url": "https://community.rockrms.com/lava/tags/include-tags"
+    },
+    {
+      "content_hash": "f54457d6998fa7e679db9a6a3a2ff344cceef2ee0ae8927769b52878db49e3fd",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:0b05d0e384bf5b1a",
+      "source_title": "Lava",
+      "source_url": "https://community.rockrms.com/lava/tags/lava-tags"
+    },
+    {
+      "content_hash": "08ff3cbf4f9ee61a5da6e0c9e5a8cc95b5b546f97628bfec3ce32523f27683e3",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:8a5899b11a6ccbbe",
+      "source_title": "Observe",
+      "source_url": "https://community.rockrms.com/lava/tags/observe"
+    },
+    {
+      "content_hash": "8cb2e3030fa20776d793a1826c7f352c138bd0e204e775d22bc09d595fba5d86",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:8cdf4ad862513dff",
+      "source_title": "Raw",
+      "source_url": "https://community.rockrms.com/lava/tags/raw-tags"
+    },
+    {
+      "content_hash": "f9fca8d4f2c9686c0d68d5e591aa94d77a31164b6110ec4aefc3bd0bb00550ef",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:cd6b8c521f06183c",
+      "source_title": "Return",
+      "source_url": "https://community.rockrms.com/lava/tags/return-tags"
+    },
+    {
+      "content_hash": "7a9938a784dcd67cc08d7c4d49e7a3a4645ab4f0f13148ee229925291309d79f",
+      "lava_doc_category": "tag",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:960e1cc10ebe2b2d",
+      "source_title": "Unless",
+      "source_url": "https://community.rockrms.com/lava/tags/unless-tags"
+    },
+    {
+      "content_hash": "a56f508760a68f59bea32e8c049fc7a27f63544ea88da51d6c6aba844ad2210e",
+      "lava_doc_category": "tag",
+      "lava_element_count": 2,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:4ea30e5ef550bf91",
+      "source_title": "Assign / Capture",
+      "source_url": "https://community.rockrms.com/lava/tags/variable-tags"
+    },
+    {
+      "content_hash": "5c98b89dff8ac79ba84764030ed510fff855f47e2af5c7c60b6119ed9ffd82b6",
+      "lava_doc_category": "workflow",
+      "lava_element_count": 1,
+      "source_id": "rock_lava_docs",
+      "source_record_id": "rock_lava_docs:a467324213982116",
+      "source_title": "Workflows and Lava",
+      "source_url": "https://community.rockrms.com/lava/workflows"
+    }
+  ],
+  "source_id": "rock_lava_docs"
+}

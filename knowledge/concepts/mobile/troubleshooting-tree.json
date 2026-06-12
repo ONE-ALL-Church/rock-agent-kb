@@ -1,0 +1,166 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-inventory-a-mobile-app",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs",
+        "https://www.rockrms.com/mobilereleasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Inventory A Mobile App",
+      "when": "Follow the guide section for Recipe: Inventory A Mobile App."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-determine-whether-a-feature-can-be-used",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs",
+        "https://www.rockrms.com/mobilereleasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Determine Whether A Feature Can Be Used",
+      "when": "Follow the guide section for Recipe: Determine Whether A Feature Can Be Used."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-add-analytics-to-a-tap",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs",
+        "https://www.rockrms.com/mobilereleasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Add Analytics To A Tap",
+      "when": "Follow the guide section for Recipe: Add Analytics To A Tap."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-modernize-legacy-platform-xaml",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/mobilereleasenotes",
+        "https://community.rockrms.com/developer/mobile-docs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
+        "https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components",
+        "https://community.rockrms.com/developer/mobile-docs/styling/legacy/borders",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Modernize Legacy Platform XAML",
+      "when": "Follow the guide section for Recipe: Modernize Legacy Platform XAML."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-app-store-readiness",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs",
+        "https://www.rockrms.com/mobilereleasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
+        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources",
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review App Store Readiness",
+      "when": "Follow the guide section for Recipe: Review App Store Readiness."
+    }
+  ],
+  "concept_id": "mobile",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:13+00:00",
+  "guide_sections": [
+    "8-commands-deep-dive-operational-command-troubleshooting",
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-app-does-not-launch",
+    "17-troubleshooting-decision-tree-app-launches-but-shows-old-content",
+    "17-troubleshooting-decision-tree-page-is-blank",
+    "17-troubleshooting-decision-tree-button-or-action-does-nothing",
+    "17-troubleshooting-decision-tree-push-notification-not-received",
+    "17-troubleshooting-decision-tree-push-opens-wrong-page",
+    "17-troubleshooting-decision-tree-webview-looks-wrong",
+    "17-troubleshooting-decision-tree-check-in-fails",
+    "17-troubleshooting-decision-tree-maui-upgrade-regression",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-inventory-a-mobile-app",
+    "18-agent-task-recipes-recipe-determine-whether-a-feature-can-be-used",
+    "18-agent-task-recipes-recipe-add-analytics-to-a-tap",
+    "18-agent-task-recipes-recipe-modernize-legacy-platform-xaml",
+    "18-agent-task-recipes-recipe-review-app-store-readiness"
+  ]
+}

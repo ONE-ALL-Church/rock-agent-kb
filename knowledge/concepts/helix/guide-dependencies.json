@@ -1,0 +1,1917 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior.",
+      "claim_hash": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
+      "claim_id": "claim:2a7f5e6781a2d2fa30a4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "helix"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "45d66f70e5d53094b362fb5564cac67e115637d15bc8ecbd76fc898ac0adfc21",
+      "source_record_ids": [
+        "rock_developer:c877aeede8d53f3d"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Understanding Helix Forms",
+          "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development.",
+      "claim_hash": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
+      "claim_id": "claim:940f299b268510da61d8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "helix",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d95944d125c6f3535b7b847ce368de6ecbd40157c9f3c12f60a65ce92a7f930a",
+      "source_record_ids": [
+        "rock_developer:802567c280193bd0"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Helix Overview",
+          "url": "https://community.rockrms.com/developer/helix/overview"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow.",
+      "claim_hash": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
+      "claim_id": "claim:d35ed98aadeaabd2cf1e",
+      "claim_tier": "live_verified",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "helix"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "cms_lava",
+            "tables": [
+              "LavaEndpoint",
+              "LavaApplication",
+              "BlockType",
+              "Block",
+              "EntityType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified LavaEndpoint and LavaApplication tables, endpoint/list/detail/content block types, live endpoint rows, and endpoint metadata columns for name, description, slug, HTTP method, security mode, enabled Lava commands, cache/rate-limit settings, active state, and additional settings.",
+          "This verifies where agents should inspect endpoint work units before changing a Helix application flow; it does not prove a specific endpoint is correctly configured."
+        ],
+        "verification_method": "read_only_sql_and_source_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bb0bbed1aa822e9191bc8ca5ef1961056f85c2880091f1e7160cf69cd95913d0",
+      "source_record_ids": [
+        "rock_developer:6a9eebe7a077d89a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Helix Lava Application Endpoints",
+          "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Helix applications require explicit security and data-integrity review because endpoint-backed application surfaces can expose data or perform work beyond static content rendering.",
+      "claim_hash": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
+      "claim_id": "claim:da56681f6277c12df324",
+      "claim_tier": "live_verified",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "helix",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "security_auth",
+            "tables": [
+              "LavaApplication",
+              "LavaEndpoint",
+              "Auth",
+              "EntityType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified LavaApplication and LavaEndpoint are secured entity types and that the connected instance has Auth rows for both application and endpoint entities.",
+          "Source/view-model evidence confirms endpoint surfaces include security mode, enabled Lava commands, CSRF, and rate-limit settings, supporting explicit security and data-integrity review before endpoint-backed work is changed."
+        ],
+        "verification_method": "read_only_sql_and_source_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T05:28:15Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "28e170d268c93802af48503f7c2a1c14dee3fe2bf628931e65106de661cf7e46",
+      "source_record_ids": [
+        "rock_developer:dfd0cdc56d97fa7f"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Helix Security",
+          "url": "https://community.rockrms.com/developer/helix/overview/security"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:2a7f5e6781a2d2fa30a4": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
+    "claim:940f299b268510da61d8": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
+    "claim:d35ed98aadeaabd2cf1e": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
+    "claim:da56681f6277c12df324": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d"
+  },
+  "approved_claims_hash": "3f71276889c0ef6e4231606a8be28ea096a3f747c8064700bffa153f430a0711",
+  "approved_claims_path": "knowledge/concepts/helix/approved-claims.md",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "36f85f09122e6e7082f04e4c92a4be0e8bc778ff9dc072fac876e7e0fcdd4bb9",
+  "approved_media_path": "knowledge/concepts/helix/approved-media.md",
+  "built_at": "2026-06-12T09:21:15+00:00",
+  "concept_id": "helix",
+  "guide_hash": "62ca788b9bcf3285c48fb9572978648aa108a891e2f5fa235d0259071dbe9526",
+  "guide_line_count": 1169,
+  "guide_path": "knowledge/concepts/helix/guide.md",
+  "guide_word_count": 9277,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "130344e5790ff6bf4971247bccbcfa8fa52cd7233c365dcae2d2782ace424a6a",
+      "excerpt_hash": "8e44d1660b148862891af38d27a2674b27d01e6acf75ad0cb116730f42d91ed4",
+      "source_id": "rock_developer",
+      "source_key": "802567c280193bd0",
+      "source_record_id": "rock_developer:802567c280193bd0",
+      "url": "https://community.rockrms.com/developer/helix/overview"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d6a15daaa9c0a0d84fbdacaae734cf84dd95d4f8ffc84abd9c2e65ba0b9c0f10",
+      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
+      "source_id": "rock_developer",
+      "source_key": "366c62c0274cf5af",
+      "source_record_id": "rock_developer:366c62c0274cf5af",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e434ffdd2442b3d8cfdd99a1a6398b870599d9ddfdd6eb2e5884cbb8118afaf5",
+      "excerpt_hash": "dd0a586b874afaee1532bb0b5cd52ba09884fbfd9e256415513cf5fbee12bec1",
+      "source_id": "rock_developer",
+      "source_key": "b8af2a0e80b2efe7",
+      "source_record_id": "rock_developer:b8af2a0e80b2efe7",
+      "url": "https://community.rockrms.com/developer/helix/htmx"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "8a4103466267de24017ec90ce002eb06b74e69068d3588f4f029f2e4f0ca7886",
+      "excerpt_hash": "8decef628b497f8c56544931a8a08905e5dc3a477703e3bf7412b6f12499c75d",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:bbded414ac6e328f",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "official-model-map",
+      "content_hash": "510c429d32c1474a942ee6f9f344cffe08b40ba8c0e33b3be3f6f487d1b783af",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:43088bf9e69d67e4",
+      "url": "https://community.rockrms.com/ModelMap"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "598a20b5c4a335bf5f245eb3a66a62cc3b26b9677001097a66fb340ad0ac3270",
+      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "03fa2300ec6c8e2a7af7f08b363d9221b218e1c06edcaaa4efc65101fbb1975a",
+      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
+      "source_id": "rock_developer",
+      "source_key": "379b8b3e079b94e5",
+      "source_record_id": "rock_developer:379b8b3e079b94e5",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "9b9a34805b5355c424c939dc196e84f8ea152b818a5beed8c07c4042c2d82ed5",
+      "excerpt_hash": "e0bcb01379c3453142e906d3ba97a3a76f34f5cc698c84149ddead86eff0802f",
+      "source_id": "rock_developer",
+      "source_key": "c597e729f3063cb4",
+      "source_record_id": "rock_developer:c597e729f3063cb4",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "744c606fb791074e5ba9a96e06fd12ca1ba8c85713fd3d0dfa67c9ed2e99bd9b",
+      "excerpt_hash": "95fe8d4a783290a8cf8b6d131b8bc472e8f220c0ddfd94b5b2124fd10b9bc908",
+      "source_id": "rock_recipes",
+      "source_key": "e0db41b4ca576c2c",
+      "source_record_id": "rock_recipes:e0db41b4ca576c2c",
+      "url": "https://community.rockrms.com/recipes/497"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "6efe882a6c3846b4aadf742c0c17fdf0af6af2cd15ec61040cbaa5ca57e78bba",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "73dd22236e939189",
+      "source_record_id": "triumph_resources:73dd22236e939189",
+      "url": "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d43820871e19d46e23c80be6bc357e90b51ba69105cdcca08daa09c2f02a5afb",
+      "excerpt_hash": "b53319271a5af2d3c7348acb91594b959bf8e5fffa810cea0103ff68976eda1a",
+      "source_id": "rock_developer",
+      "source_key": "8331df94a7814389",
+      "source_record_id": "rock_developer:8331df94a7814389",
+      "url": "https://community.rockrms.com/developer/helix/strategies"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "370a2f9197135e15acecb89908493e8672c9e43ffb76604f729b5945f650b42d",
+      "excerpt_hash": "95b910111bab4aa6b282f89617f296cf3e40bb32b420e7d1fcfbae195c3aefd0",
+      "source_id": "rock_developer",
+      "source_key": "30be60a23d3d0317",
+      "source_record_id": "rock_developer:30be60a23d3d0317",
+      "url": "https://community.rockrms.com/lava/commands"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "fda2ffec7e543e25c32a73d7126815bda96fa46d2927b29bfd541a01e3652430",
+      "excerpt_hash": "5946c49dc4baa1743dbe6ef91a81626619265333fc5e41212feb9838e75bcb4d",
+      "source_id": "rock_developer",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:48cabcef2f22cabd",
+      "url": "https://community.rockrms.com/developer/helix"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "0df0b120fbad167d0e17ddd48d11024c4fcdda97a4c728d0cc8d791382a38255",
+      "excerpt_hash": "2bdab7c10b9a4d2e5a6d833e1d9dc2fa01c674f5867ff473566353377c7fcef0",
+      "source_id": "rock_developer",
+      "source_key": "62578d1f5bcde8a6",
+      "source_record_id": "rock_developer:62578d1f5bcde8a6",
+      "url": "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c6d7c64223dfdd4805a166d79034e3c59939b3c0db8109e6f97b8d16adf0af99",
+      "excerpt_hash": "6107af50e2ba6c5dbe62b25251113d5fae4411ca39bf3a017f74f23327d003ea",
+      "source_id": "rock_developer",
+      "source_key": "242a3ac9b87c1e0c",
+      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f5f0aa9c33588f3a14894c2804095c8df0cd1eb19fee47245c965c2a7c6a9249",
+      "excerpt_hash": "2a01e9241fbc78a723ae60fe427aaef46c6bed3d5f36a449d60b6e7470550d64",
+      "source_id": "rock_developer",
+      "source_key": "6f19b884e4da0469",
+      "source_record_id": "rock_developer:6f19b884e4da0469",
+      "url": "https://community.rockrms.com/lava/filters/attribute-filters"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "93a6d296e901a5022e5684dcb1f19d72b58696092721510903a2701f514d5499",
+      "excerpt_hash": "e9bd3e14f652f98b1b678dd43ea5e7a29f92f74bec2b3eedd40a8a072cb85cc4",
+      "source_id": "rock_developer",
+      "source_key": "8a5899b11a6ccbbe",
+      "source_record_id": "rock_developer:8a5899b11a6ccbbe",
+      "url": "https://community.rockrms.com/lava/tags/observe"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "4b60623e40e9379f02cccef7177663d8cf6099e90c629e1ab26114d16e54082b",
+      "excerpt_hash": "bedecf35e6f73b292fe510bc07dff6af3677f14ef1f77c13d6e087374fc013e0",
+      "source_id": "rock_developer",
+      "source_key": "6246c13b7e3be896",
+      "source_record_id": "rock_developer:6246c13b7e3be896",
+      "url": "https://community.rockrms.com/developer/helix/strategies/related-entities"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a64e7bdc24c13e0ef2c5ad5d38668c0d26311e4750e9b07d7d019a7d62d0a6f3",
+      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "source_id": "rock_developer",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_developer:14e4b0253d1428ca",
+      "url": "https://community.rockrms.com/api-docs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f7606d6e68bdb1df6fdfdff8f88760a0a713451aab0a3f3df5734b7f9bc2e912",
+      "excerpt_hash": "b02bdff4928e338f020de148219635dbf5e547487706cbd166aca515640b7205",
+      "source_id": "rock_developer",
+      "source_key": "9d3715414e399928",
+      "source_record_id": "rock_developer:9d3715414e399928",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "775b78943d43ff40",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/page/3761"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "395916b12e93abb98b156e4a85231d5271eeeb7ef107ad74a1d3bd8dafc3ea59",
+      "excerpt_hash": "7a91811f0a3768084a7d083f6a774d84fd6dcc45c557933fdd169b37ddece610",
+      "source_id": "rock_developer",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "57b692eee77e345f005976550e5120627ad7fb1e2074793a87311dc9ee7933e2",
+      "excerpt_hash": "c16df98b1697de13d6e53ef37e2f93790f077575ee9fbd991336827e13d7511a",
+      "source_id": "rock_developer",
+      "source_key": "1a7cdd8d2a7f15eb",
+      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
+      "url": "https://community.rockrms.com/lava/remote-lava"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 43,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "802567c280193bd0",
+        "366c62c0274cf5af",
+        "366c62c0274cf5af",
+        "b8af2a0e80b2efe7",
+        "802567c280193bd0",
+        "776256c424368312",
+        "802567c280193bd0"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 79,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "b8af2a0e80b2efe7",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "366c62c0274cf5af",
+        "379b8b3e079b94e5",
+        "366c62c0274cf5af",
+        "366c62c0274cf5af",
+        "c597e729f3063cb4",
+        "c597e729f3063cb4",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 44
+    },
+    {
+      "confidence": "normal",
+      "end_line": 110,
+      "heading": "3. Helix Mental Model",
+      "needs_live_verification": true,
+      "section_id": "3-helix-mental-model",
+      "source_keys": [
+        "802567c280193bd0",
+        "802567c280193bd0"
+      ],
+      "start_line": 80
+    },
+    {
+      "confidence": "normal",
+      "end_line": 125,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "802567c280193bd0",
+        "776256c424368312",
+        "802567c280193bd0",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 111
+    },
+    {
+      "confidence": "structural",
+      "end_line": 127,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 126
+    },
+    {
+      "confidence": "normal",
+      "end_line": 151,
+      "heading": "Lava Application Configuration",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-lava-application-configuration",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 128
+    },
+    {
+      "confidence": "normal",
+      "end_line": 170,
+      "heading": "Lava Endpoint Configuration",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-lava-endpoint-configuration",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 152
+    },
+    {
+      "confidence": "normal",
+      "end_line": 193,
+      "heading": "Content Block Configuration",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model-content-block-configuration",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "366c62c0274cf5af"
+      ],
+      "start_line": 171
+    },
+    {
+      "confidence": "normal",
+      "end_line": 224,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "379b8b3e079b94e5",
+        "366c62c0274cf5af",
+        "d275b5b94a9da833",
+        "366c62c0274cf5af"
+      ],
+      "start_line": 194
+    },
+    {
+      "confidence": "structural",
+      "end_line": 226,
+      "heading": "7. Common Helix Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-helix-workflows",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "379b8b3e079b94e5",
+        "366c62c0274cf5af",
+        "802567c280193bd0",
+        "c597e729f3063cb4",
+        "e0db41b4ca576c2c",
+        "73dd22236e939189"
+      ],
+      "start_line": 225
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 247,
+      "heading": "Read-Only Partial Refresh",
+      "needs_live_verification": true,
+      "section_id": "7-common-helix-workflows-read-only-partial-refresh",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "379b8b3e079b94e5",
+        "366c62c0274cf5af",
+        "d275b5b94a9da833",
+        "366c62c0274cf5af"
+      ],
+      "start_line": 227
+    },
+    {
+      "confidence": "normal",
+      "end_line": 263,
+      "heading": "State-Changing Action",
+      "needs_live_verification": false,
+      "section_id": "7-common-helix-workflows-state-changing-action",
+      "source_keys": [
+        "802567c280193bd0",
+        "c597e729f3063cb4"
+      ],
+      "start_line": 248
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 276,
+      "heading": "Admin Utility",
+      "needs_live_verification": true,
+      "section_id": "7-common-helix-workflows-admin-utility",
+      "source_keys": [
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 264
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 289,
+      "heading": "Guided Search Or Finder",
+      "needs_live_verification": true,
+      "section_id": "7-common-helix-workflows-guided-search-or-finder",
+      "source_keys": [
+        "73dd22236e939189"
+      ],
+      "start_line": 277
+    },
+    {
+      "confidence": "normal",
+      "end_line": 304,
+      "heading": "8. Overview And Roadmap Deep Dive",
+      "needs_live_verification": true,
+      "section_id": "8-overview-and-roadmap-deep-dive",
+      "source_keys": [
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "b8af2a0e80b2efe7",
+        "776256c424368312",
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "776256c424368312"
+      ],
+      "start_line": 290
+    },
+    {
+      "confidence": "normal",
+      "end_line": 348,
+      "heading": "9. HTMX Deep Dive",
+      "needs_live_verification": true,
+      "section_id": "9-htmx-deep-dive",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "b8af2a0e80b2efe7",
+        "8331df94a7814389"
+      ],
+      "start_line": 305
+    },
+    {
+      "confidence": "normal",
+      "end_line": 372,
+      "heading": "10. Lava Applications Deep Dive",
+      "needs_live_verification": true,
+      "section_id": "10-lava-applications-deep-dive",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "802567c280193bd0"
+      ],
+      "start_line": 349
+    },
+    {
+      "confidence": "normal",
+      "end_line": 406,
+      "heading": "Configuration Rigging Strategy",
+      "needs_live_verification": true,
+      "section_id": "10-lava-applications-deep-dive-configuration-rigging-strategy",
+      "source_keys": [
+        "366c62c0274cf5af"
+      ],
+      "start_line": 373
+    },
+    {
+      "confidence": "normal",
+      "end_line": 420,
+      "heading": "Application Security",
+      "needs_live_verification": false,
+      "section_id": "10-lava-applications-deep-dive-application-security",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 407
+    },
+    {
+      "confidence": "normal",
+      "end_line": 424,
+      "heading": "11. Lava Endpoints Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "11-lava-endpoints-deep-dive",
+      "source_keys": [
+        "366c62c0274cf5af"
+      ],
+      "start_line": 421
+    },
+    {
+      "confidence": "normal",
+      "end_line": 445,
+      "heading": "Routing",
+      "needs_live_verification": true,
+      "section_id": "11-lava-endpoints-deep-dive-routing",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 425
+    },
+    {
+      "confidence": "normal",
+      "end_line": 460,
+      "heading": "HTTP Methods",
+      "needs_live_verification": false,
+      "section_id": "11-lava-endpoints-deep-dive-http-methods",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "802567c280193bd0"
+      ],
+      "start_line": 446
+    },
+    {
+      "confidence": "normal",
+      "end_line": 475,
+      "heading": "Security Modes",
+      "needs_live_verification": false,
+      "section_id": "11-lava-endpoints-deep-dive-security-modes",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 461
+    },
+    {
+      "confidence": "normal",
+      "end_line": 494,
+      "heading": "Enabled Lava Commands",
+      "needs_live_verification": false,
+      "section_id": "11-lava-endpoints-deep-dive-enabled-lava-commands",
+      "source_keys": [
+        "30be60a23d3d0317",
+        "48cabcef2f22cabd"
+      ],
+      "start_line": 476
+    },
+    {
+      "confidence": "normal",
+      "end_line": 500,
+      "heading": "Merge Fields And Request Body",
+      "needs_live_verification": true,
+      "section_id": "11-lava-endpoints-deep-dive-merge-fields-and-request-body",
+      "source_keys": [
+        "776256c424368312",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 495
+    },
+    {
+      "confidence": "normal",
+      "end_line": 504,
+      "heading": "12. Forms And Controls Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "12-forms-and-controls-deep-dive",
+      "source_keys": [
+        "c597e729f3063cb4"
+      ],
+      "start_line": 501
+    },
+    {
+      "confidence": "normal",
+      "end_line": 528,
+      "heading": "Lava Form Pattern",
+      "needs_live_verification": true,
+      "section_id": "12-forms-and-controls-deep-dive-lava-form-pattern",
+      "source_keys": [
+        "c597e729f3063cb4"
+      ],
+      "start_line": 505
+    },
+    {
+      "confidence": "normal",
+      "end_line": 543,
+      "heading": "Control Shortcodes",
+      "needs_live_verification": false,
+      "section_id": "12-forms-and-controls-deep-dive-control-shortcodes",
+      "source_keys": [
+        "c597e729f3063cb4",
+        "c597e729f3063cb4",
+        "c597e729f3063cb4",
+        "62578d1f5bcde8a6"
+      ],
+      "start_line": 529
+    },
+    {
+      "confidence": "normal",
+      "end_line": 556,
+      "heading": "Validation",
+      "needs_live_verification": false,
+      "section_id": "12-forms-and-controls-deep-dive-validation",
+      "source_keys": [
+        "c597e729f3063cb4",
+        "c597e729f3063cb4"
+      ],
+      "start_line": 544
+    },
+    {
+      "confidence": "normal",
+      "end_line": 568,
+      "heading": "Loading Indicators",
+      "needs_live_verification": true,
+      "section_id": "12-forms-and-controls-deep-dive-loading-indicators",
+      "source_keys": [
+        "242a3ac9b87c1e0c"
+      ],
+      "start_line": 557
+    },
+    {
+      "confidence": "structural",
+      "end_line": 570,
+      "heading": "13. Security And Observability Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "13-security-and-observability-deep-dive",
+      "source_keys": [
+        "802567c280193bd0",
+        "6f19b884e4da0469",
+        "379b8b3e079b94e5",
+        "8a5899b11a6ccbbe"
+      ],
+      "start_line": 569
+    },
+    {
+      "confidence": "normal",
+      "end_line": 590,
+      "heading": "Security Principles",
+      "needs_live_verification": true,
+      "section_id": "13-security-and-observability-deep-dive-security-principles",
+      "source_keys": [
+        "802567c280193bd0",
+        "6f19b884e4da0469"
+      ],
+      "start_line": 571
+    },
+    {
+      "confidence": "normal",
+      "end_line": 618,
+      "heading": "Observability",
+      "needs_live_verification": true,
+      "section_id": "13-security-and-observability-deep-dive-observability",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "8a5899b11a6ccbbe",
+        "8a5899b11a6ccbbe"
+      ],
+      "start_line": 591
+    },
+    {
+      "confidence": "normal",
+      "end_line": 636,
+      "heading": "14. Strategies And Limitations Deep Dive",
+      "needs_live_verification": true,
+      "section_id": "14-strategies-and-limitations-deep-dive",
+      "source_keys": [
+        "6246c13b7e3be896",
+        "8331df94a7814389",
+        "8331df94a7814389"
+      ],
+      "start_line": 619
+    },
+    {
+      "confidence": "structural",
+      "end_line": 638,
+      "heading": "15. Related Rock Areas: Lava, Api Integrations, Security, Cms, Workflows, Forms, Htmx, Observability",
+      "needs_live_verification": false,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "14e4b0253d1428ca",
+        "bce31f25cb8a199e",
+        "c597e729f3063cb4",
+        "b8af2a0e80b2efe7",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 637
+    },
+    {
+      "confidence": "normal",
+      "end_line": 642,
+      "heading": "Lava",
+      "needs_live_verification": true,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-lava",
+      "source_keys": [
+        "8a5899b11a6ccbbe"
+      ],
+      "start_line": 639
+    },
+    {
+      "confidence": "normal",
+      "end_line": 646,
+      "heading": "API Integrations",
+      "needs_live_verification": false,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-api-integrations",
+      "source_keys": [
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 643
+    },
+    {
+      "confidence": "structural",
+      "end_line": 650,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-security",
+      "source_keys": [
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 647
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 654,
+      "heading": "CMS",
+      "needs_live_verification": false,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-cms",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 651
+    },
+    {
+      "confidence": "structural",
+      "end_line": 658,
+      "heading": "Workflows",
+      "needs_live_verification": true,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-workflows",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 655
+    },
+    {
+      "confidence": "normal",
+      "end_line": 662,
+      "heading": "Forms",
+      "needs_live_verification": false,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-forms",
+      "source_keys": [
+        "c597e729f3063cb4"
+      ],
+      "start_line": 659
+    },
+    {
+      "confidence": "normal",
+      "end_line": 666,
+      "heading": "HTMX",
+      "needs_live_verification": true,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-htmx",
+      "source_keys": [
+        "b8af2a0e80b2efe7"
+      ],
+      "start_line": 663
+    },
+    {
+      "confidence": "normal",
+      "end_line": 670,
+      "heading": "Observability",
+      "needs_live_verification": false,
+      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-observability",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "8a5899b11a6ccbbe"
+      ],
+      "start_line": 667
+    },
+    {
+      "confidence": "normal",
+      "end_line": 699,
+      "heading": "16. Administration And Operational Guardrails",
+      "needs_live_verification": true,
+      "section_id": "16-administration-and-operational-guardrails",
+      "source_keys": [
+        "9d3715414e399928"
+      ],
+      "start_line": 671
+    },
+    {
+      "confidence": "normal",
+      "end_line": 721,
+      "heading": "17. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": true,
+      "section_id": "17-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "30be60a23d3d0317",
+        "775b78943d43ff40",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 700
+    },
+    {
+      "confidence": "normal",
+      "end_line": 758,
+      "heading": "18. Reporting, Analytics, And Model Map",
+      "needs_live_verification": true,
+      "section_id": "18-reporting-analytics-and-model-map",
+      "source_keys": [
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 722
+    },
+    {
+      "confidence": "normal",
+      "end_line": 780,
+      "heading": "19. Version And Release Caveats",
+      "needs_live_verification": true,
+      "section_id": "19-version-and-release-caveats",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "776256c424368312",
+        "242a3ac9b87c1e0c",
+        "242a3ac9b87c1e0c",
+        "776256c424368312",
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 759
+    },
+    {
+      "confidence": "structural",
+      "end_line": 782,
+      "heading": "20. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "20-implementation-playbooks",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "776256c424368312",
+        "242a3ac9b87c1e0c",
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 781
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 797,
+      "heading": "Playbook A: Build A Read-Only Results Panel",
+      "needs_live_verification": true,
+      "section_id": "20-implementation-playbooks-playbook-a-build-a-read-only-results-panel",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "776256c424368312",
+        "242a3ac9b87c1e0c",
+        "242a3ac9b87c1e0c",
+        "776256c424368312",
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 783
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 812,
+      "heading": "Playbook B: Build A Safe Update Form",
+      "needs_live_verification": true,
+      "section_id": "20-implementation-playbooks-playbook-b-build-a-safe-update-form",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "776256c424368312",
+        "242a3ac9b87c1e0c",
+        "242a3ac9b87c1e0c",
+        "776256c424368312",
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 798
+    },
+    {
+      "confidence": "structural",
+      "end_line": 825,
+      "heading": "Playbook C: Convert A Static Lava Page To Helix",
+      "needs_live_verification": true,
+      "section_id": "20-implementation-playbooks-playbook-c-convert-a-static-lava-page-to-helix",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "776256c424368312",
+        "242a3ac9b87c1e0c",
+        "242a3ac9b87c1e0c",
+        "776256c424368312",
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 813
+    },
+    {
+      "confidence": "structural",
+      "end_line": 839,
+      "heading": "Playbook D: Audit An Existing Helix App",
+      "needs_live_verification": true,
+      "section_id": "20-implementation-playbooks-playbook-d-audit-an-existing-helix-app",
+      "source_keys": [
+        "8a5899b11a6ccbbe",
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "776256c424368312",
+        "242a3ac9b87c1e0c",
+        "242a3ac9b87c1e0c",
+        "776256c424368312",
+        "e0db41b4ca576c2c"
+      ],
+      "start_line": 826
+    },
+    {
+      "confidence": "structural",
+      "end_line": 841,
+      "heading": "21. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "21-troubleshooting-decision-tree",
+      "source_keys": [
+        "8331df94a7814389",
+        "c597e729f3063cb4",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 840
+    },
+    {
+      "confidence": "normal",
+      "end_line": 854,
+      "heading": "The button does nothing",
+      "needs_live_verification": true,
+      "section_id": "21-troubleshooting-decision-tree-the-button-does-nothing",
+      "source_keys": [
+        "8331df94a7814389"
+      ],
+      "start_line": 842
+    },
+    {
+      "confidence": "structural",
+      "end_line": 867,
+      "heading": "The request is sent but endpoint is not found",
+      "needs_live_verification": false,
+      "section_id": "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
+      "source_keys": [
+        "8331df94a7814389"
+      ],
+      "start_line": 855
+    },
+    {
+      "confidence": "structural",
+      "end_line": 879,
+      "heading": "The endpoint returns login markup or unauthorized",
+      "needs_live_verification": false,
+      "section_id": "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
+      "source_keys": [
+        "8331df94a7814389"
+      ],
+      "start_line": 868
+    },
+    {
+      "confidence": "structural",
+      "end_line": 892,
+      "heading": "The endpoint works in UI but fails when called directly",
+      "needs_live_verification": false,
+      "section_id": "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
+      "source_keys": [
+        "8331df94a7814389"
+      ],
+      "start_line": 880
+    },
+    {
+      "confidence": "normal",
+      "end_line": 903,
+      "heading": "Validation does not run",
+      "needs_live_verification": false,
+      "section_id": "21-troubleshooting-decision-tree-validation-does-not-run",
+      "source_keys": [
+        "c597e729f3063cb4"
+      ],
+      "start_line": 893
+    },
+    {
+      "confidence": "structural",
+      "end_line": 913,
+      "heading": "Spinner does not show",
+      "needs_live_verification": false,
+      "section_id": "21-troubleshooting-decision-tree-spinner-does-not-show",
+      "source_keys": [
+        "c597e729f3063cb4"
+      ],
+      "start_line": 904
+    },
+    {
+      "confidence": "normal",
+      "end_line": 930,
+      "heading": "Endpoint is slow",
+      "needs_live_verification": true,
+      "section_id": "21-troubleshooting-decision-tree-endpoint-is-slow",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 914
+    },
+    {
+      "confidence": "structural",
+      "end_line": 946,
+      "heading": "Endpoint modifies wrong data",
+      "needs_live_verification": true,
+      "section_id": "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 931
+    },
+    {
+      "confidence": "structural",
+      "end_line": 948,
+      "heading": "22. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "22-agent-task-recipes",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 947
+    },
+    {
+      "confidence": "structural",
+      "end_line": 960,
+      "heading": "Recipe: Find The Endpoint Behind A Button",
+      "needs_live_verification": true,
+      "section_id": "22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 949
+    },
+    {
+      "confidence": "structural",
+      "end_line": 973,
+      "heading": "Recipe: Determine Whether A Helix App Is Public-Safe",
+      "needs_live_verification": false,
+      "section_id": "22-agent-task-recipes-recipe-determine-whether-a-helix-app-is-public-safe",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 961
+    },
+    {
+      "confidence": "structural",
+      "end_line": 986,
+      "heading": "Recipe: Upgrade A Plugin-Era Helix App",
+      "needs_live_verification": true,
+      "section_id": "22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 974
+    },
+    {
+      "confidence": "structural",
+      "end_line": 999,
+      "heading": "Recipe: Review A Community Recipe Before Use",
+      "needs_live_verification": true,
+      "section_id": "22-agent-task-recipes-recipe-review-a-community-recipe-before-use",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 987
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1025,
+      "heading": "Recipe: Add Observability To A Complex Endpoint",
+      "needs_live_verification": false,
+      "section_id": "22-agent-task-recipes-recipe-add-observability-to-a-complex-endpoint",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 1000
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1072,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "c597e729f3063cb4",
+        "366c62c0274cf5af",
+        "802567c280193bd0",
+        "802567c280193bd0"
+      ],
+      "start_line": 1026
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1094,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "c597e729f3063cb4",
+        "366c62c0274cf5af",
+        "802567c280193bd0",
+        "802567c280193bd0"
+      ],
+      "start_line": 1073
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1169,
+      "heading": "23. Source Map And Dependency Notes",
+      "needs_live_verification": true,
+      "section_id": "23-source-map-and-dependency-notes",
+      "source_keys": [
+        "b8af2a0e80b2efe7",
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "802567c280193bd0",
+        "b8af2a0e80b2efe7",
+        "b8af2a0e80b2efe7",
+        "b8af2a0e80b2efe7",
+        "379b8b3e079b94e5",
+        "366c62c0274cf5af",
+        "366c62c0274cf5af",
+        "366c62c0274cf5af",
+        "9d3715414e399928",
+        "379b8b3e079b94e5",
+        "242a3ac9b87c1e0c",
+        "c597e729f3063cb4",
+        "c597e729f3063cb4",
+        "c597e729f3063cb4",
+        "c597e729f3063cb4",
+        "242a3ac9b87c1e0c",
+        "6246c13b7e3be896",
+        "8331df94a7814389",
+        "6246c13b7e3be896",
+        "8331df94a7814389",
+        "8a5899b11a6ccbbe",
+        "30be60a23d3d0317",
+        "48cabcef2f22cabd",
+        "8a5899b11a6ccbbe",
+        "6f19b884e4da0469",
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "14e4b0253d1428ca",
+        "776256c424368312",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "e0db41b4ca576c2c",
+        "73dd22236e939189"
+      ],
+      "start_line": 1095
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-08T17:55:43+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "130344e5790ff6bf4971247bccbcfa8fa52cd7233c365dcae2d2782ace424a6a",
+      "excerpt_hash": "8e44d1660b148862891af38d27a2674b27d01e6acf75ad0cb116730f42d91ed4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "802567c280193bd0",
+      "source_record_id": "rock_developer:802567c280193bd0",
+      "title": "Overview",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d6a15daaa9c0a0d84fbdacaae734cf84dd95d4f8ffc84abd9c2e65ba0b9c0f10",
+      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "366c62c0274cf5af",
+      "source_record_id": "rock_developer:366c62c0274cf5af",
+      "title": "Lava Applications",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e434ffdd2442b3d8cfdd99a1a6398b870599d9ddfdd6eb2e5884cbb8118afaf5",
+      "excerpt_hash": "dd0a586b874afaee1532bb0b5cd52ba09884fbfd9e256415513cf5fbee12bec1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b8af2a0e80b2efe7",
+      "source_record_id": "rock_developer:b8af2a0e80b2efe7",
+      "title": "HTMX",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/htmx",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "new_feature",
+      "content_hash": "8a4103466267de24017ec90ce002eb06b74e69068d3588f4f029f2e4f0ca7886",
+      "excerpt_hash": "8decef628b497f8c56544931a8a08905e5dc3a477703e3bf7412b6f12499c75d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "December 8, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:bbded414ac6e328f",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.1"
+    },
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "change_type": null,
+      "content_hash": "510c429d32c1474a942ee6f9f344cffe08b40ba8c0e33b3be3f6f487d1b783af",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:43088bf9e69d67e4",
+      "title": "Lava Application",
+      "topics": [
+        "api",
+        "cms",
+        "data",
+        "lava",
+        "model-map"
+      ],
+      "url": "https://community.rockrms.com/ModelMap",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "598a20b5c4a335bf5f245eb3a66a62cc3b26b9677001097a66fb340ad0ac3270",
+      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "03fa2300ec6c8e2a7af7f08b363d9221b218e1c06edcaaa4efc65101fbb1975a",
+      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "379b8b3e079b94e5",
+      "source_record_id": "rock_developer:379b8b3e079b94e5",
+      "title": "Observability",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9b9a34805b5355c424c939dc196e84f8ea152b818a5beed8c07c4042c2d82ed5",
+      "excerpt_hash": "e0bcb01379c3453142e906d3ba97a3a76f34f5cc698c84149ddead86eff0802f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c597e729f3063cb4",
+      "source_record_id": "rock_developer:c597e729f3063cb4",
+      "title": "Forms & Controls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "744c606fb791074e5ba9a96e06fd12ca1ba8c85713fd3d0dfa67c9ed2e99bd9b",
+      "excerpt_hash": "95fe8d4a783290a8cf8b6d131b8bc472e8f220c0ddfd94b5b2124fd10b9bc908",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e0db41b4ca576c2c",
+      "source_record_id": "rock_recipes:e0db41b4ca576c2c",
+      "title": "Manage Following records with Helix (a.k.a. Lava Applications)",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/497",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "6efe882a6c3846b4aadf742c0c17fdf0af6af2cd15ec61040cbaa5ca57e78bba",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "73dd22236e939189",
+      "source_record_id": "triumph_resources:73dd22236e939189",
+      "title": "Enhancing Community Connection: Triumph’s Guided Group Finder, Powered by Helix",
+      "topics": [
+        "ai",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d43820871e19d46e23c80be6bc357e90b51ba69105cdcca08daa09c2f02a5afb",
+      "excerpt_hash": "b53319271a5af2d3c7348acb91594b959bf8e5fffa810cea0103ff68976eda1a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8331df94a7814389",
+      "source_record_id": "rock_developer:8331df94a7814389",
+      "title": "Strategies",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/strategies",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "370a2f9197135e15acecb89908493e8672c9e43ffb76604f729b5945f650b42d",
+      "excerpt_hash": "95b910111bab4aa6b282f89617f296cf3e40bb32b420e7d1fcfbae195c3aefd0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "30be60a23d3d0317",
+      "source_record_id": "rock_developer:30be60a23d3d0317",
+      "title": "Getting Started",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "fda2ffec7e543e25c32a73d7126815bda96fa46d2927b29bfd541a01e3652430",
+      "excerpt_hash": "5946c49dc4baa1743dbe6ef91a81626619265333fc5e41212feb9838e75bcb4d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:48cabcef2f22cabd",
+      "title": "🧬 Helix",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/helix",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "0df0b120fbad167d0e17ddd48d11024c4fcdda97a4c728d0cc8d791382a38255",
+      "excerpt_hash": "2bdab7c10b9a4d2e5a6d833e1d9dc2fa01c674f5867ff473566353377c7fcef0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "62578d1f5bcde8a6",
+      "source_record_id": "rock_developer:62578d1f5bcde8a6",
+      "title": "Authoring Shortcodes",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c6d7c64223dfdd4805a166d79034e3c59939b3c0db8109e6f97b8d16adf0af99",
+      "excerpt_hash": "6107af50e2ba6c5dbe62b25251113d5fae4411ca39bf3a017f74f23327d003ea",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "242a3ac9b87c1e0c",
+      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
+      "title": "Loading Indicator",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f5f0aa9c33588f3a14894c2804095c8df0cd1eb19fee47245c965c2a7c6a9249",
+      "excerpt_hash": "2a01e9241fbc78a723ae60fe427aaef46c6bed3d5f36a449d60b6e7470550d64",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6f19b884e4da0469",
+      "source_record_id": "rock_developer:6f19b884e4da0469",
+      "title": "Attributes",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/filters/attribute-filters",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "93a6d296e901a5022e5684dcb1f19d72b58696092721510903a2701f514d5499",
+      "excerpt_hash": "e9bd3e14f652f98b1b678dd43ea5e7a29f92f74bec2b3eedd40a8a072cb85cc4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8a5899b11a6ccbbe",
+      "source_record_id": "rock_developer:8a5899b11a6ccbbe",
+      "title": "Observe",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/lava/tags/observe",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "4b60623e40e9379f02cccef7177663d8cf6099e90c629e1ab26114d16e54082b",
+      "excerpt_hash": "bedecf35e6f73b292fe510bc07dff6af3677f14ef1f77c13d6e087374fc013e0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6246c13b7e3be896",
+      "source_record_id": "rock_developer:6246c13b7e3be896",
+      "title": "Related Entities",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/strategies/related-entities",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a64e7bdc24c13e0ef2c5ad5d38668c0d26311e4750e9b07d7d019a7d62d0a6f3",
+      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_developer:14e4b0253d1428ca",
+      "title": "API Documentation",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/api-docs",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f7606d6e68bdb1df6fdfdff8f88760a0a713451aab0a3f3df5734b7f9bc2e912",
+      "excerpt_hash": "b02bdff4928e338f020de148219635dbf5e547487706cbd166aca515640b7205",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9d3715414e399928",
+      "source_record_id": "rock_developer:9d3715414e399928",
+      "title": "Magnus",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "775b78943d43ff40",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/page/3761",
+      "url": "https://community.rockrms.com/page/3761"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "395916b12e93abb98b156e4a85231d5271eeeb7ef107ad74a1d3bd8dafc3ea59",
+      "excerpt_hash": "7a91811f0a3768084a7d083f6a774d84fd6dcc45c557933fdd169b37ddece610",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "title": "Creating APIs Using Lava",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/lava-api",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "57b692eee77e345f005976550e5120627ad7fb1e2074793a87311dc9ee7933e2",
+      "excerpt_hash": "c16df98b1697de13d6e53ef37e2f93790f077575ee9fbd991336827e13d7511a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "1a7cdd8d2a7f15eb",
+      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
+      "title": "Using Lava Remotely",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/remote-lava",
+      "version": null
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}

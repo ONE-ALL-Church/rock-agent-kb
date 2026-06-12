@@ -1,0 +1,93 @@
+# Group Schedule Exclusion Model Detail
+
+- Track: `stable`
+- Rock version: `18.2.4`
+- Category: `Group`
+- Model title: `GroupScheduleExclusion`
+- EntityType GUID: `047d57ee-1b06-455f-86ea-d96b8325c77d`
+- Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
+
+## Summary
+
+| Metric | Count |
+| --- | ---: |
+| Properties | 40 |
+| Database-marked properties | 12 |
+| Lava-marked properties | 25 |
+| Lava-marked non-database properties | 13 |
+| Related model links | 2 |
+| Pre-alpha changes touching this model | 0 |
+
+## Properties
+
+| Property | DB | Lava | NotMapped | Required | Obsolete | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| AdditionalLavaFields |  |  | yes |  |  |  |
+| AttributeValueDefaults |  |  | yes |  |  |  |
+| AttributeValues |  | yes | yes |  |  |  |
+| Attributes |  | yes | yes |  |  |  |
+| AvailableKeys |  |  | yes |  |  |  |
+| ContextKey |  |  | yes |  |  |  |
+| CreatedByPersonAlias |  |  | yes |  |  |  |
+| CreatedByPersonAliasId | yes | yes |  |  |  |  |
+| CreatedByPersonId |  | yes | yes |  |  |  |
+| CreatedByPersonName |  | yes | yes |  |  |  |
+| CreatedDateTime | yes | yes |  |  |  |  |
+| CustomSortValue |  |  | yes |  |  |  |
+| EncryptedKey |  |  | yes |  |  |  |
+| EndDate | yes | yes |  |  |  | Gets the end date. |
+| EntityStringValue |  | yes | yes |  |  |  |
+| ForeignGuid | yes | yes |  |  |  |  |
+| ForeignId | yes | yes |  |  |  |  |
+| ForeignKey | yes | yes |  |  |  |  |
+| GroupScheduleExclusionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
+| GroupType |  | yes | yes |  |  | Gets or sets the GroupType that this Group is a member of. |
+| GroupTypeId | yes | yes |  |  |  | Gets or sets the GroupType identifier. |
+| Guid | yes | yes |  |  |  |  |
+| Id | yes | yes |  |  |  |  |
+| IdKey |  | yes | yes |  |  |  |
+| IsValid |  |  | yes |  |  |  |
+| Item |  |  | yes |  |  |  |
+| ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
+| ModifiedByPersonAlias |  |  | yes |  |  |  |
+| ModifiedByPersonAliasId | yes | yes |  |  |  |  |
+| ModifiedByPersonId |  | yes | yes |  |  |  |
+| ModifiedByPersonName |  | yes | yes |  |  |  |
+| ModifiedDateTime | yes | yes |  |  |  |  |
+| ParentAuthority |  |  | yes |  |  |  |
+| ParentAuthorityPre |  |  | yes |  |  |  |
+| StartDate | yes | yes |  |  |  | Gets the start date. |
+| SupportedActions |  |  | yes |  |  |  |
+| TypeId |  | yes | yes |  |  |  |
+| TypeName |  | yes | yes |  |  |  |
+| UrlEncodedKey |  | yes | yes |  |  |  |
+| ValidationResults |  |  | yes |  |  |  |
+
+## Lava-Marked Non-Database Properties
+
+| Property | Description |
+| --- | --- |
+| AttributeValues |  |
+| Attributes |  |
+| CreatedByPersonId |  |
+| CreatedByPersonName |  |
+| EntityStringValue |  |
+| GroupType | Gets or sets the GroupType that this Group is a member of. |
+| IdKey |  |
+| ModifiedAuditValuesAlreadyUpdated |  |
+| ModifiedByPersonId |  |
+| ModifiedByPersonName |  |
+| TypeId |  |
+| TypeName |  |
+| UrlEncodedKey |  |
+
+## Related Model Map Links
+
+| Property | Related Model | EntityType GUID |
+| --- | --- | --- |
+| GroupType | [GroupType](group-type.md) |  |
+| GroupTypeId | [GroupType](group-type.md) |  |
+
+## Stable To Pre-Alpha Changes
+
+No stable-to-pre-alpha changes were detected for this model.

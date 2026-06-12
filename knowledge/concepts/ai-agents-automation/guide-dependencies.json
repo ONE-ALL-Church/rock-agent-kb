@@ -1,0 +1,3109 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session is useful as public-safe context for community practice around emerging technology, mobile launches, and finance/workflow requests. It does not provide a single product tutorial, but it reinforces that Rock teams should bring concrete use cases to peer review, document what was tried, and separate experimentation from production changes.",
+      "claim_hash": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
+      "claim_id": "claim:019724f21243d61181e2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "giving-finance",
+        "mobile",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
+      "source_record_ids": [
+        "rock_community_hubs:6ca31915e98eb031"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Short-form video should be treated as ministry content with a clear next step, not only as entertainment or social promotion.",
+      "claim_hash": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
+      "claim_id": "claim:07423eadba1a22784cc4",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
+      "source_record_ids": [
+        "rock_community_hubs:d2890df9787aa1ae"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
+          "timestamp": "04:46",
+          "timestamp_seconds": 286.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session adds public-safe guidance for evaluating AI search and advanced digital experiences in Rock-backed websites and apps. It highlights the value of intent-based search, mobile and web integration, and careful plugin review before exposing AI-generated responses or search behavior to users.",
+      "claim_hash": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
+      "claim_id": "claim:080d393b5f32031d1eaa",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
+      "source_record_ids": [
+        "rock_community_hubs:1fae67b5dc09e2b0"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Emerging technology pilots should stay clearly labeled as experiments until output quality, data boundaries, and ministry usefulness are verified.",
+      "claim_hash": "5db9a518f171204421a6842e55ea1766cda5c6183a798623cbe1ad9fc792f753",
+      "claim_id": "claim:1d2211c90cee65515cac",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
+      "source_record_ids": [
+        "rock_community_hubs:f325315718b03eb6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
+          "timestamp": "02:27",
+          "timestamp_seconds": 147.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Manual curation still matters for sermon and video libraries because view counts alone do not capture pastoral impact, ministry priority, or whether a message should be highlighted again.",
+      "claim_hash": "48028ed47be731d2accf055182ef3715fd70938d89d950520c7751d06a3f17b0",
+      "claim_id": "claim:1ead6da71f9e978d17a2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
+      "source_record_ids": [
+        "rock_community_hubs:87de570d7b164f63"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
+          "timestamp": "03:12",
+          "timestamp_seconds": 192.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Mobile launch and finance work should be tracked as real operational projects with explicit owners, requirements, and verification steps.",
+      "claim_hash": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
+      "claim_id": "claim:269534d094015b5c51b4",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "giving-finance",
+        "mobile",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
+      "source_record_ids": [
+        "rock_community_hubs:6ca31915e98eb031"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
+          "timestamp": "06:10",
+          "timestamp_seconds": 370.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI coaching should be framed as an assisted resource-routing layer with reviewable prompts, ministry-approved categories, and clear human oversight.",
+      "claim_hash": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
+      "claim_id": "claim:32a99dc42dcf7a1796f3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "learning-lms-engagement",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
+      "source_record_ids": [
+        "rock_community_hubs:8540c4be8f5de2d1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
+          "timestamp": "07:13",
+          "timestamp_seconds": 433.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Digital content libraries work best when they connect messages, topics, and practical next steps instead of leaving users to browse isolated videos.",
+      "claim_hash": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
+      "claim_id": "claim:346913bd1856267cc39d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
+      "source_record_ids": [
+        "rock_community_hubs:d2890df9787aa1ae"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
+          "timestamp": "09:27",
+          "timestamp_seconds": 567.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "When AI summaries are generated from person-profile data, the review should include data minimization, avoidance of direct identifiers, privacy-policy alignment, and vendor assurances about model training.",
+      "claim_hash": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
+      "claim_id": "claim:5775a4b44b920db2b74a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "connections",
+        "data-views-reports",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
+      "source_record_ids": [
+        "rock_community_hubs:94226d7c1f62174e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
+          "timestamp": "52:13",
+          "timestamp_seconds": 3133.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Online next-step pathways can combine dashboards, content, and LMS when the church defines the discipleship path being supported.",
+      "claim_hash": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
+      "claim_id": "claim:5b83b8bc3538dc3e23d8",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "learning-lms-engagement",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
+      "source_record_ids": [
+        "rock_community_hubs:8540c4be8f5de2d1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
+          "timestamp": "02:17",
+          "timestamp_seconds": 137.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session frames AI-assisted coaching and online learning as tools that still need ministry ownership. It connects LMS, dashboards, content, and mobile engagement to a discipleship path, while warning that AI should support reviewed coaching and resource routing rather than make ungoverned ministry decisions.",
+      "claim_hash": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
+      "claim_id": "claim:679a11bb5e644db4bfaa",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "learning-lms-engagement",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
+      "source_record_ids": [
+        "rock_community_hubs:8540c4be8f5de2d1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Peer learning works best when Rock teams bring action-oriented examples, not only abstract tool discussions.",
+      "claim_hash": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
+      "claim_id": "claim:6a9cad93b4b24bb5caa7",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "giving-finance",
+        "mobile",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
+      "source_record_ids": [
+        "rock_community_hubs:6ca31915e98eb031"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
+          "timestamp": "02:56",
+          "timestamp_seconds": 176.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session adds public-safe guidance for turning sermon and ministry video libraries into searchable, reusable digital content. It discusses selecting messages by pastoral value and audience response, using platform analytics without over-trusting them, and using AI as a planning aid for titles, categories, and follow-up content rather than as an unreviewed publisher.",
+      "claim_hash": "e3441e23783f0cf75670d837ecaac346bbe7c525430d6838699ca61334046121",
+      "claim_id": "claim:6b5701fd90c4e3e812d6",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
+      "source_record_ids": [
+        "rock_community_hubs:87de570d7b164f63"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Before adopting AI or search plugins, teams should verify data sources, answer boundaries, security behavior, and whether generated results can be reviewed or tuned.",
+      "claim_hash": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
+      "claim_id": "claim:6cc8c3bca74b02773140",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
+      "source_record_ids": [
+        "rock_community_hubs:1fae67b5dc09e2b0"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
+          "timestamp": "02:35",
+          "timestamp_seconds": 155.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub presentation provides public-safe guidance for churches evaluating AI. It frames AI as a fast-moving tool category that can assist ministry work, but requires clear use cases, privacy boundaries, staff training, review expectations, and model/vendor awareness before it is connected to Rock data or public-facing experiences.",
+      "claim_hash": "2f03112bf7b15655bbc4d5c3302e7035664ce5410e58de7c269454c8d70af883",
+      "claim_id": "claim:6e7bf075edacd7a79fa4",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
+      "source_record_ids": [
+        "rock_community_hubs:d593e234279cb690"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI should be introduced around concrete ministry workflows and reviewable outputs, not as a broad replacement for staff judgment.",
+      "claim_hash": "4360a374d7feb7464711d9c31fe2839b4e66a6d586e3d492b3078c4c76a8bd26",
+      "claim_id": "claim:6e906a393a56e78661aa",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
+      "source_record_ids": [
+        "rock_community_hubs:d593e234279cb690"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
+          "timestamp": "01:30",
+          "timestamp_seconds": 90.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Episode 202 adds public-safe operational context for Rock release awareness, community-shaped priorities, AI-assisted group matching, and documentation currency; concrete implementation guidance remains tied to official docs, release notes, source code, or live-instance verification.",
+      "claim_hash": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
+      "claim_id": "claim:72fde031881e443f8976",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "connections",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
+      "source_record_ids": [
+        "rock_podcast_rss:1cb0de155ffacb15"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Rock's Future Anchored in Vision | Ep 202",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Urgent or culturally timely topics can become good candidates for curated content paths when they are connected to trusted ministry resources and follow-up actions.",
+      "claim_hash": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
+      "claim_id": "claim:777a543a16ec2b02c0c3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
+      "source_record_ids": [
+        "rock_community_hubs:d2890df9787aa1ae"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
+          "timestamp": "08:07",
+          "timestamp_seconds": 487.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI plugin ideas should be evaluated against real church tasks, content sources, and security expectations rather than adopted because the model capability is new.",
+      "claim_hash": "a763b0729fe7a6772c2d071394bf90a8d0f05100aa9c3d13395239cca2fa0e52",
+      "claim_id": "claim:78c58644cb6bf965fb20",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
+      "source_record_ids": [
+        "rock_community_hubs:f325315718b03eb6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
+          "timestamp": "02:30",
+          "timestamp_seconds": 150.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Engagement goals should be tied to the path the church wants people to take, not simply to whether a digital tool was launched.",
+      "claim_hash": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
+      "claim_id": "claim:79a3f931150e2af8fdf7",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "learning-lms-engagement",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
+      "source_record_ids": [
+        "rock_community_hubs:8540c4be8f5de2d1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
+          "timestamp": "03:39",
+          "timestamp_seconds": 219.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Data analytics meetups can help churches compare dashboards, process designs, and BI-tool choices against real ministry use cases instead of treating reporting as an isolated technical task.",
+      "claim_hash": "9de369fdec1e9ab700e6b28f0bd4d715a52d4fd848a4413e710dce5d92235259",
+      "claim_id": "claim:7fc20f1b607270dd550b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "connections",
+        "data-views-reports",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
+      "source_record_ids": [
+        "rock_community_hubs:94226d7c1f62174e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
+          "timestamp": "00:30",
+          "timestamp_seconds": 27.06,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session focuses on short-form and on-demand video as part of a broader church digital strategy. It frames video as a way to extend message content, answer timely questions, route people into deeper next steps, and support mobile or web experiences that help people continue engaging after the weekend.",
+      "claim_hash": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
+      "claim_id": "claim:8313b7143d1f2de7f9e0",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "mobile"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
+      "source_record_ids": [
+        "rock_community_hubs:d2890df9787aa1ae"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Video analytics are useful for prioritization, but teams should compare them with qualitative feedback and ministry goals before changing content strategy.",
+      "claim_hash": "d14ceaf63698b983e45dd7198bccfe046ad158ed0d7fa113f64476d6dcd781a4",
+      "claim_id": "claim:88a7d1c389832a0630dc",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
+      "source_record_ids": [
+        "rock_community_hubs:87de570d7b164f63"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
+          "timestamp": "04:39",
+          "timestamp_seconds": 279.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "For AI-assisted group finding, implementation work needs church-specific matching rules: which group types are findable, which attributes describe affinity, and what boundaries keep the assistant away from inappropriate targets such as security roles.",
+      "claim_hash": "ad014b77526a4f6d2d87caed6a51cf00bf7d406478455a65ba581479dae44d7a",
+      "claim_id": "claim:8a5b060de0516dbe344a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "connections",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
+      "source_record_ids": [
+        "rock_podcast_rss:1cb0de155ffacb15"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
+          "timestamp": "13:31",
+          "timestamp_seconds": 811.0,
+          "title": "Rock's Future Anchored in Vision | Ep 202",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "New website and app experiences should be evaluated together because users may move between public pages, logged-in mobile surfaces, search, profile, and next-step actions.",
+      "claim_hash": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
+      "claim_id": "claim:8f8ca172069290ee944d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
+      "source_record_ids": [
+        "rock_community_hubs:1fae67b5dc09e2b0"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
+          "timestamp": "01:01",
+          "timestamp_seconds": 61.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI can help draft sermon titles, category ideas, and reuse plans, but churches should keep human review over doctrinal wording, audience fit, and final publication.",
+      "claim_hash": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
+      "claim_id": "claim:a3f69cd82ee97a4febbf",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
+      "source_record_ids": [
+        "rock_community_hubs:87de570d7b164f63"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
+          "timestamp": "08:07",
+          "timestamp_seconds": 487.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Emerging technology and AI experiments should be bounded, documented, and reviewed before they affect Rock data or public ministry workflows.",
+      "claim_hash": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
+      "claim_id": "claim:b98a76d45b1860593427",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "giving-finance",
+        "mobile",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
+      "source_record_ids": [
+        "rock_community_hubs:6ca31915e98eb031"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
+          "timestamp": "04:26",
+          "timestamp_seconds": 266.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Use the episode as release-awareness context: podcast release discussion can flag security updates, alpha/beta status, and future model-changing work, but upgrade guidance must still be verified against official release notes and the local Rock version.",
+      "claim_hash": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
+      "claim_id": "claim:bf4911c43f46def1cef1",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "connections",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
+      "source_record_ids": [
+        "rock_podcast_rss:1cb0de155ffacb15"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
+          "timestamp": "00:48",
+          "timestamp_seconds": 48.4,
+          "title": "Rock's Future Anchored in Vision | Ep 202",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Attendance-flow analysis can move beyond aggregate weekend counts by classifying engagement patterns, prioritizing follow-up lists, and creating Rock connection requests for campus teams.",
+      "claim_hash": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
+      "claim_id": "claim:c0587c98a544740f9673",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "connections",
+        "data-views-reports",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
+      "source_record_ids": [
+        "rock_community_hubs:94226d7c1f62174e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
+          "timestamp": "36:49",
+          "timestamp_seconds": 2209.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "The Data Analytics Hub launch frames community analytics as a shared practice space where churches compare dashboards, ministry processes, BI tooling, and Rock-based reporting patterns. The session also includes a Life.Church attendance-flow case study that uses Rock attendance and connection data to prioritize pastoral follow-up while treating AI profile summaries and privacy controls as governance concerns.",
+      "claim_hash": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
+      "claim_id": "claim:c20015286a10a3cc8202",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "connections",
+        "data-views-reports",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
+      "source_record_ids": [
+        "rock_community_hubs:94226d7c1f62174e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Documentation changes should be planned as part of UI and release work; major UI changes can create downstream screenshot and article-refresh work that must be tracked before public guidance is treated as current.",
+      "claim_hash": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
+      "claim_id": "claim:c37961bab650b138a2d2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "connections",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
+      "source_record_ids": [
+        "rock_podcast_rss:1cb0de155ffacb15"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
+          "timestamp": "15:00",
+          "timestamp_seconds": 900.1,
+          "title": "Rock's Future Anchored in Vision | Ep 202",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI governance should include staff training, data-minimization rules, and a review path before AI-generated content or data summaries influence public communication or pastoral action.",
+      "claim_hash": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
+      "claim_id": "claim:c983667edefd47bee832",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
+      "source_record_ids": [
+        "rock_community_hubs:d593e234279cb690"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
+          "timestamp": "02:13",
+          "timestamp_seconds": 133.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Because AI model capabilities and vendor terms change quickly, churches should document which tools are approved and what data classes may be used with each one.",
+      "claim_hash": "441937dd202b20cd45e8ec20ec335947df6cc1dbfde57d98b5bfcd3878fd87c0",
+      "claim_id": "claim:cd85431e0e3f1bb82125",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
+      "source_record_ids": [
+        "rock_community_hubs:d593e234279cb690"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
+          "timestamp": "02:43",
+          "timestamp_seconds": 163.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Community feedback channels such as Rocket Chat, calls, church visits, and conferences can explain why areas like Connections rise in priority, but agents should treat that as roadmap context rather than proof that a feature is present in a given instance.",
+      "claim_hash": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
+      "claim_id": "claim:d24890227d54fd22a155",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "connections",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
+      "source_record_ids": [
+        "rock_podcast_rss:1cb0de155ffacb15"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
+          "timestamp": "01:54",
+          "timestamp_seconds": 114.3,
+          "title": "Rock's Future Anchored in Vision | Ep 202",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session adds public-safe context for evaluating AI plugin ideas and workflow-backed digital strategy experiments. It reinforces that new AI capabilities should be tested against concrete church scenarios, documented in a backlog, and routed through review before being promoted into public tools or automated workflows.",
+      "claim_hash": "181d1fcdc674b83dd949f86aee45428d61ae6210fbe66620ec01a05c2a464afe",
+      "claim_id": "claim:e4edc56bcd9681f01c98",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
+      "source_record_ids": [
+        "rock_community_hubs:f325315718b03eb6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Intent-based AI search can improve discovery when it is grounded in approved church content and clearly tested against real user questions.",
+      "claim_hash": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
+      "claim_id": "claim:e54943b3e738c396727f",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
+      "source_record_ids": [
+        "rock_community_hubs:1fae67b5dc09e2b0"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
+          "timestamp": "02:47",
+          "timestamp_seconds": 167.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Community-hub follow-up emails and discussion prompts can serve as a backlog for future Rock workflows, content experiments, and review priorities.",
+      "claim_hash": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c",
+      "claim_id": "claim:f7b5a801b7e2d0fa6b39",
+      "claim_tier": "routing_context_only",
+      "claim_type": "implementation_pattern",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
+      "source_record_ids": [
+        "rock_community_hubs:f325315718b03eb6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
+          "timestamp": "00:42",
+          "timestamp_seconds": 42.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:019724f21243d61181e2": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
+    "claim:07423eadba1a22784cc4": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
+    "claim:080d393b5f32031d1eaa": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
+    "claim:1d2211c90cee65515cac": "5db9a518f171204421a6842e55ea1766cda5c6183a798623cbe1ad9fc792f753",
+    "claim:1ead6da71f9e978d17a2": "48028ed47be731d2accf055182ef3715fd70938d89d950520c7751d06a3f17b0",
+    "claim:269534d094015b5c51b4": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
+    "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
+    "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
+    "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
+    "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
+    "claim:679a11bb5e644db4bfaa": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
+    "claim:6a9cad93b4b24bb5caa7": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
+    "claim:6b5701fd90c4e3e812d6": "e3441e23783f0cf75670d837ecaac346bbe7c525430d6838699ca61334046121",
+    "claim:6cc8c3bca74b02773140": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
+    "claim:6e7bf075edacd7a79fa4": "2f03112bf7b15655bbc4d5c3302e7035664ce5410e58de7c269454c8d70af883",
+    "claim:6e906a393a56e78661aa": "4360a374d7feb7464711d9c31fe2839b4e66a6d586e3d492b3078c4c76a8bd26",
+    "claim:72fde031881e443f8976": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
+    "claim:777a543a16ec2b02c0c3": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
+    "claim:78c58644cb6bf965fb20": "a763b0729fe7a6772c2d071394bf90a8d0f05100aa9c3d13395239cca2fa0e52",
+    "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
+    "claim:7fc20f1b607270dd550b": "9de369fdec1e9ab700e6b28f0bd4d715a52d4fd848a4413e710dce5d92235259",
+    "claim:8313b7143d1f2de7f9e0": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
+    "claim:88a7d1c389832a0630dc": "d14ceaf63698b983e45dd7198bccfe046ad158ed0d7fa113f64476d6dcd781a4",
+    "claim:8a5b060de0516dbe344a": "ad014b77526a4f6d2d87caed6a51cf00bf7d406478455a65ba581479dae44d7a",
+    "claim:8f8ca172069290ee944d": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
+    "claim:a3f69cd82ee97a4febbf": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
+    "claim:b98a76d45b1860593427": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
+    "claim:bf4911c43f46def1cef1": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
+    "claim:c0587c98a544740f9673": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
+    "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
+    "claim:c37961bab650b138a2d2": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
+    "claim:c983667edefd47bee832": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
+    "claim:cd85431e0e3f1bb82125": "441937dd202b20cd45e8ec20ec335947df6cc1dbfde57d98b5bfcd3878fd87c0",
+    "claim:d24890227d54fd22a155": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
+    "claim:e4edc56bcd9681f01c98": "181d1fcdc674b83dd949f86aee45428d61ae6210fbe66620ec01a05c2a464afe",
+    "claim:e54943b3e738c396727f": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
+    "claim:f7b5a801b7e2d0fa6b39": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c"
+  },
+  "approved_claims_hash": "c07d454dc0cb91eab835eb6b436bc780f2deee670b842a4672fc566f0a4642f6",
+  "approved_claims_path": "knowledge/concepts/ai-agents-automation/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "connections",
+        "groups",
+        "platform-configuration"
+      ],
+      "content_hash": "86e368cf6c9ef4e0c60b6d49c6040c7b34d78279ad15836ada768cee0f8ac345",
+      "key_insight_count": 4,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:00a8a57d7db012dc",
+      "public_promotion_id": "media-public-promotion:86e368cf6c9ef4e0",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:00a8a57d7db012dc",
+      "source_title": "Rock's Future Anchored in Vision | Ep 202 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "connections",
+        "data-views-reports",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "content_hash": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:e81a9f6b5e5e2f8a",
+      "public_promotion_id": "media-public-promotion:7d9a0b46eea49c26",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:e81a9f6b5e5e2f8a",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "data-views-reports"
+      ],
+      "content_hash": "f195092064e7188bdd93a51c563b621e366e5bee5eebe113e1c7c022e734333f",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:71525fead483ddca",
+      "public_promotion_id": "media-public-promotion:f195092064e7188b",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:71525fead483ddca",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "giving-finance",
+        "mobile",
+        "workflows"
+      ],
+      "content_hash": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:b4cdf69722ad5d13",
+      "public_promotion_id": "media-public-promotion:8bb0a57aef832a72",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:b4cdf69722ad5d13",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "learning-lms-engagement",
+        "mobile"
+      ],
+      "content_hash": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:927b060aba73b666",
+      "public_promotion_id": "media-public-promotion:3eb05b8c47127f5c",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:927b060aba73b666",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "content_hash": "db6ac242a0713a98c8e469ab0ccc9d3b46f7565e95de388432a00d49436e1c3a",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:5dd64e1dc98b7742",
+      "public_promotion_id": "media-public-promotion:db6ac242a0713a98",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:5dd64e1dc98b7742",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "mobile",
+        "security-permissions"
+      ],
+      "content_hash": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:5c9737a6d00c5149",
+      "public_promotion_id": "media-public-promotion:8f19651535ebc29a",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:5c9737a6d00c5149",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "communications",
+        "mobile"
+      ],
+      "content_hash": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:1b335b58b0acc8b1",
+      "public_promotion_id": "media-public-promotion:e676b9383d553546",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:1b335b58b0acc8b1",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "cms-websites",
+        "workflows"
+      ],
+      "content_hash": "1ec1705a0b22a429010514b8c87070b149237b86d7e9fb31a779f8ddb17c4759",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:56972ff0f97e563a",
+      "public_promotion_id": "media-public-promotion:1ec1705a0b22a429",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:56972ff0f97e563a",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:00a8a57d7db012dc": "86e368cf6c9ef4e0c60b6d49c6040c7b34d78279ad15836ada768cee0f8ac345",
+    "media-insight:1b335b58b0acc8b1": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
+    "media-insight:56972ff0f97e563a": "1ec1705a0b22a429010514b8c87070b149237b86d7e9fb31a779f8ddb17c4759",
+    "media-insight:5c9737a6d00c5149": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
+    "media-insight:5dd64e1dc98b7742": "db6ac242a0713a98c8e469ab0ccc9d3b46f7565e95de388432a00d49436e1c3a",
+    "media-insight:71525fead483ddca": "f195092064e7188bdd93a51c563b621e366e5bee5eebe113e1c7c022e734333f",
+    "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
+    "media-insight:b4cdf69722ad5d13": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
+    "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717"
+  },
+  "approved_media_hash": "99e73fee9968d51e8279d9392fb3185a698c7c919086e92fde74e3050d77984d",
+  "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
+  "built_at": "2026-06-12T09:21:05+00:00",
+  "concept_id": "ai-agents-automation",
+  "guide_hash": "02197ebb91668d60c175fa003fcb27738b40dc3ea80000471752880cb5e92ce3",
+  "guide_line_count": 1335,
+  "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
+  "guide_word_count": 11301,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2d3ed6cc33f23d7fdf362fea462789e558be11e2ab68e6e9bc474ba77b0d7433",
+      "excerpt_hash": "13982be29f51735b5ace9a251c433052e8c55c8b85070fb4b490c13e0ddfaf2a",
+      "source_id": "rock_developer",
+      "source_key": "790df48a4843d338",
+      "source_record_id": "rock_developer:790df48a4843d338",
+      "url": "https://community.rockrms.com/developer/ai-agents"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f65e43e50f4880430b86c9898e60f78438d65ebe30ec0d938ec834735cc30538",
+      "excerpt_hash": "2f1c1e36577d64d423372609e17dc12853f962519fe2cd22269aab0d2e92533d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "official",
+      "content_hash": "0889f2dae7e2fb64b408f18b57173a9e332c4b6e49f65c5ad8ecd255c59b7768",
+      "excerpt_hash": "a44b659dd4e9f9f13cca6cce1aa8ef1e806e1a2cbd99ece3de8225aa2b62c3fa",
+      "source_id": "rock_documentation",
+      "source_key": "1007e337f89a52b2",
+      "source_record_id": "rock_documentation:1007e337f89a52b2",
+      "url": "https://community.rockrms.com/documentation/BookContent/9"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "d8f8471dbf7bef8540fbcee4c0d54ff0e0ff3b3963b1813a9dc2e794b47b72f4",
+      "excerpt_hash": "29863be45a5ed82f00403ae17604d65b39b0fdea1335ccaa39f4a18ba3b53dc3",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:84adfa608cc210bc",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "6612b451bd0ae178",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/core-concepts/automations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "bc1ab3f2dff77e89",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "dd0d53998f998249",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+    },
+    {
+      "authority": "official-model-map",
+      "content_hash": "ca40f768e24b565e4e07e274f7b83f0a82cc62410d9c9b8b5606cb6b062c0f45",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:494d83c698793652",
+      "url": "https://community.rockrms.com/ModelMap"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e0cec2c1fb4dcdf1e3d57a5f36ec5ed819ee32cccb48119d45ea3ccb5d1364cb",
+      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "source_id": "rock_developer",
+      "source_key": "3206cee519301613",
+      "source_record_id": "rock_developer:3206cee519301613",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": "bc6c8d3d22d98d71c591205d014f2d386972da3e9239e9ba54b44fe38d2da5f3",
+      "excerpt_hash": "ea58653a970a4e2704680c3a9e92c60043a352d2eb535cc13858af1b94779ab0",
+      "source_id": "rock_podcast_rss",
+      "source_key": "44c37d376b652418",
+      "source_record_id": "rock_podcast_rss:1cb0de155ffacb15",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": "aedc395e0b7aacc5e5f165eb4a311f24c8adb790497026eb96c1ea89eb75027e",
+      "excerpt_hash": "9afc250019b4bbfa03adffceabbe5d26d93277ecc38164b1851286e622300042",
+      "source_id": "rock_podcast_rss",
+      "source_key": "512ed4dbdfde5317",
+      "source_record_id": "rock_podcast_rss:b1a7021dcd84650d",
+      "url": "https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212"
+    },
+    {
+      "authority": "community-answer",
+      "content_hash": "a541210891ef1443446e62ec2a122a1ad0df26507619c7d8d8a956b4379c8164",
+      "excerpt_hash": "cb8a8a29382d8cb0e9f715ef421ce21cdfbe6f8f2a94f88a3f1f91ce6abc4283",
+      "source_id": "rock_qa",
+      "source_key": "7c71a22de1006d62",
+      "source_record_id": "rock_qa:7c71a22de1006d62",
+      "url": "https://community.rockrms.com/ask/developing/2708"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "f325315718b03eb6",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "d2890df9787aa1ae",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "87de570d7b164f63",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "6ca31915e98eb031",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "8540c4be8f5de2d1",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "94226d7c1f62174e",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "1fae67b5dc09e2b0",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "d593e234279cb690",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "high",
+      "end_line": 54,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "d275b5b94a9da833",
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "790df48a4843d338"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "high",
+      "end_line": 107,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "1007e337f89a52b2",
+        "776256c424368312"
+      ],
+      "start_line": 55
+    },
+    {
+      "confidence": "normal",
+      "end_line": 135,
+      "heading": "3. AI Agents And Automation Mental Model",
+      "needs_live_verification": true,
+      "section_id": "3-ai-agents-and-automation-mental-model",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338"
+      ],
+      "start_line": 108
+    },
+    {
+      "confidence": "high",
+      "end_line": 163,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "776256c424368312",
+        "1007e337f89a52b2"
+      ],
+      "start_line": 136
+    },
+    {
+      "confidence": "normal",
+      "end_line": 215,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "790df48a4843d338",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 164
+    },
+    {
+      "confidence": "normal",
+      "end_line": 244,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 216
+    },
+    {
+      "confidence": "structural",
+      "end_line": 246,
+      "heading": "7. Common AI Agents And Automation Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-ai-agents-and-automation-workflows",
+      "source_keys": [
+        "790df48a4843d338",
+        "776256c424368312",
+        "3206cee519301613"
+      ],
+      "start_line": 245
+    },
+    {
+      "confidence": "normal",
+      "end_line": 262,
+      "heading": "Staff Person Research",
+      "needs_live_verification": false,
+      "section_id": "7-common-ai-agents-and-automation-workflows-staff-person-research",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 247
+    },
+    {
+      "confidence": "normal",
+      "end_line": 276,
+      "heading": "Group Lookup And Membership Insight",
+      "needs_live_verification": false,
+      "section_id": "7-common-ai-agents-and-automation-workflows-group-lookup-and-membership-insight",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 263
+    },
+    {
+      "confidence": "normal",
+      "end_line": 292,
+      "heading": "Event Registration Support",
+      "needs_live_verification": true,
+      "section_id": "7-common-ai-agents-and-automation-workflows-event-registration-support",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338"
+      ],
+      "start_line": 277
+    },
+    {
+      "confidence": "normal",
+      "end_line": 307,
+      "heading": "Connection Request Creation",
+      "needs_live_verification": false,
+      "section_id": "7-common-ai-agents-and-automation-workflows-connection-request-creation",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 293
+    },
+    {
+      "confidence": "normal",
+      "end_line": 319,
+      "heading": "Chat Message Automation",
+      "needs_live_verification": true,
+      "section_id": "7-common-ai-agents-and-automation-workflows-chat-message-automation",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 308
+    },
+    {
+      "confidence": "normal",
+      "end_line": 336,
+      "heading": "Mobile Voice Agent",
+      "needs_live_verification": true,
+      "section_id": "7-common-ai-agents-and-automation-workflows-mobile-voice-agent",
+      "source_keys": [
+        "3206cee519301613"
+      ],
+      "start_line": 320
+    },
+    {
+      "confidence": "normal",
+      "end_line": 340,
+      "heading": "8. Agent Tools And Lookup Surfaces Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 337
+    },
+    {
+      "confidence": "normal",
+      "end_line": 363,
+      "heading": "Lookup Tools",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-lookup-tools",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338"
+      ],
+      "start_line": 341
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 369,
+      "heading": "List Tools",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-list-tools",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 364
+    },
+    {
+      "confidence": "structural",
+      "end_line": 373,
+      "heading": "Get Tools",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-get-tools",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 370
+    },
+    {
+      "confidence": "structural",
+      "end_line": 379,
+      "heading": "Summary Tools",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-summary-tools",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 374
+    },
+    {
+      "confidence": "normal",
+      "end_line": 390,
+      "heading": "Insight Tools",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-insight-tools",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 380
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 404,
+      "heading": "AvailableAttributes Tools",
+      "needs_live_verification": true,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 391
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 423,
+      "heading": "AddOrUpdate Tools",
+      "needs_live_verification": false,
+      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-addorupdate-tools",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 405
+    },
+    {
+      "confidence": "normal",
+      "end_line": 445,
+      "heading": "9. Permissions And Data Boundaries Deep Dive",
+      "needs_live_verification": true,
+      "section_id": "9-permissions-and-data-boundaries-deep-dive",
+      "source_keys": [
+        "790df48a4843d338",
+        "1007e337f89a52b2"
+      ],
+      "start_line": 424
+    },
+    {
+      "confidence": "normal",
+      "end_line": 468,
+      "heading": "Public vs Internal Agents",
+      "needs_live_verification": false,
+      "section_id": "9-permissions-and-data-boundaries-deep-dive-public-vs-internal-agents",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 446
+    },
+    {
+      "confidence": "normal",
+      "end_line": 481,
+      "heading": "Raw ID Boundary",
+      "needs_live_verification": false,
+      "section_id": "9-permissions-and-data-boundaries-deep-dive-raw-id-boundary",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 469
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 508,
+      "heading": "Sensitive Data Classes",
+      "needs_live_verification": false,
+      "section_id": "9-permissions-and-data-boundaries-deep-dive-sensitive-data-classes",
+      "source_keys": [
+        "790df48a4843d338",
+        "1007e337f89a52b2"
+      ],
+      "start_line": 482
+    },
+    {
+      "confidence": "normal",
+      "end_line": 520,
+      "heading": "Generated v2 Endpoint Boundary",
+      "needs_live_verification": true,
+      "section_id": "9-permissions-and-data-boundaries-deep-dive-generated-v2-endpoint-boundary",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 509
+    },
+    {
+      "confidence": "high",
+      "end_line": 549,
+      "heading": "10. Automation Design And Workflows Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-automation-design-and-workflows-deep-dive",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 521
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 570,
+      "heading": "Trigger Design",
+      "needs_live_verification": false,
+      "section_id": "10-automation-design-and-workflows-deep-dive-trigger-design",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 550
+    },
+    {
+      "confidence": "structural",
+      "end_line": 583,
+      "heading": "Action Design",
+      "needs_live_verification": false,
+      "section_id": "10-automation-design-and-workflows-deep-dive-action-design",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 571
+    },
+    {
+      "confidence": "structural",
+      "end_line": 597,
+      "heading": "Agent-In-The-Loop Automation",
+      "needs_live_verification": false,
+      "section_id": "10-automation-design-and-workflows-deep-dive-agent-in-the-loop-automation",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 584
+    },
+    {
+      "confidence": "structural",
+      "end_line": 610,
+      "heading": "Agent-As-Reviewer Automation",
+      "needs_live_verification": true,
+      "section_id": "10-automation-design-and-workflows-deep-dive-agent-as-reviewer-automation",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 598
+    },
+    {
+      "confidence": "structural",
+      "end_line": 614,
+      "heading": "11. Verification And Review Gates Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "11-verification-and-review-gates-deep-dive",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249",
+        "790df48a4843d338"
+      ],
+      "start_line": 611
+    },
+    {
+      "confidence": "structural",
+      "end_line": 624,
+      "heading": "Read-Only Low-Risk Gate",
+      "needs_live_verification": true,
+      "section_id": "11-verification-and-review-gates-deep-dive-read-only-low-risk-gate",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 615
+    },
+    {
+      "confidence": "structural",
+      "end_line": 638,
+      "heading": "Sensitive Read Gate",
+      "needs_live_verification": true,
+      "section_id": "11-verification-and-review-gates-deep-dive-sensitive-read-gate",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 625
+    },
+    {
+      "confidence": "structural",
+      "end_line": 652,
+      "heading": "Write Preview Gate",
+      "needs_live_verification": false,
+      "section_id": "11-verification-and-review-gates-deep-dive-write-preview-gate",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 639
+    },
+    {
+      "confidence": "structural",
+      "end_line": 662,
+      "heading": "Post-Write Verification Gate",
+      "needs_live_verification": false,
+      "section_id": "11-verification-and-review-gates-deep-dive-post-write-verification-gate",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 653
+    },
+    {
+      "confidence": "normal",
+      "end_line": 680,
+      "heading": "Security Review Gate",
+      "needs_live_verification": true,
+      "section_id": "11-verification-and-review-gates-deep-dive-security-review-gate",
+      "source_keys": [
+        "1007e337f89a52b2"
+      ],
+      "start_line": 663
+    },
+    {
+      "confidence": "normal",
+      "end_line": 684,
+      "heading": "Debugging Gate",
+      "needs_live_verification": true,
+      "section_id": "11-verification-and-review-gates-deep-dive-debugging-gate",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 681
+    },
+    {
+      "confidence": "structural",
+      "end_line": 686,
+      "heading": "12. Related Rock Areas: Security, Api Integrations, Workflows, Platform Configuration, Data Views, Reports, Operations, Lava",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava",
+      "source_keys": [
+        "1007e337f89a52b2",
+        "d275b5b94a9da833",
+        "776256c424368312",
+        "790df48a4843d338"
+      ],
+      "start_line": 685
+    },
+    {
+      "confidence": "normal",
+      "end_line": 690,
+      "heading": "Security",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-security",
+      "source_keys": [
+        "1007e337f89a52b2"
+      ],
+      "start_line": 687
+    },
+    {
+      "confidence": "normal",
+      "end_line": 694,
+      "heading": "API Integrations",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-api-integrations",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 691
+    },
+    {
+      "confidence": "structural",
+      "end_line": 698,
+      "heading": "Workflows",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-workflows",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 695
+    },
+    {
+      "confidence": "structural",
+      "end_line": 702,
+      "heading": "Platform Configuration",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-platform-configuration",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 699
+    },
+    {
+      "confidence": "normal",
+      "end_line": 706,
+      "heading": "Data Views",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-data-views",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 703
+    },
+    {
+      "confidence": "structural",
+      "end_line": 720,
+      "heading": "Reports",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-reports",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 707
+    },
+    {
+      "confidence": "normal",
+      "end_line": 724,
+      "heading": "Operations",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-operations",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 721
+    },
+    {
+      "confidence": "normal",
+      "end_line": 728,
+      "heading": "Lava",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-lava",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 725
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 767,
+      "heading": "13. Administration And Operational Guardrails",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 729
+    },
+    {
+      "confidence": "structural",
+      "end_line": 769,
+      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "790df48a4843d338",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 768
+    },
+    {
+      "confidence": "normal",
+      "end_line": 788,
+      "heading": "Developer Docs",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-docs",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338"
+      ],
+      "start_line": 770
+    },
+    {
+      "confidence": "normal",
+      "end_line": 809,
+      "heading": "Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 789
+    },
+    {
+      "confidence": "normal",
+      "end_line": 817,
+      "heading": "Native Tool Development",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-native-tool-development",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338"
+      ],
+      "start_line": 810
+    },
+    {
+      "confidence": "normal",
+      "end_line": 840,
+      "heading": "Lava Tool Development",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-tool-development",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 818
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 878,
+      "heading": "15. Reporting, Analytics, And Model Map",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 841
+    },
+    {
+      "confidence": "high",
+      "end_line": 903,
+      "heading": "16. Version And Release Caveats",
+      "needs_live_verification": true,
+      "section_id": "16-version-and-release-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "776256c424368312",
+        "3206cee519301613",
+        "44c37d376b652418",
+        "512ed4dbdfde5317"
+      ],
+      "start_line": 879
+    },
+    {
+      "confidence": "structural",
+      "end_line": 905,
+      "heading": "17. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks",
+      "source_keys": [
+        "776256c424368312",
+        "1007e337f89a52b2",
+        "3206cee519301613",
+        "44c37d376b652418",
+        "512ed4dbdfde5317",
+        "790df48a4843d338",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 904
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 920,
+      "heading": "Playbook: Build A Read-Only Staff Agent",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-read-only-staff-agent",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "776256c424368312",
+        "3206cee519301613",
+        "44c37d376b652418",
+        "512ed4dbdfde5317"
+      ],
+      "start_line": 906
+    },
+    {
+      "confidence": "normal",
+      "end_line": 933,
+      "heading": "Playbook: Build A Custom Lookup Tool",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-custom-lookup-tool",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 921
+    },
+    {
+      "confidence": "normal",
+      "end_line": 948,
+      "heading": "Playbook: Build A Lava Insight Tool",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-lava-insight-tool",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 934
+    },
+    {
+      "confidence": "normal",
+      "end_line": 963,
+      "heading": "Playbook: Build A Native AddOrUpdate Tool",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-native-addorupdate-tool",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 949
+    },
+    {
+      "confidence": "normal",
+      "end_line": 976,
+      "heading": "Playbook: Add A Skill To An Agent",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-add-a-skill-to-an-agent",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 964
+    },
+    {
+      "confidence": "structural",
+      "end_line": 988,
+      "heading": "Playbook: Configure Chat Message Automation",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-configure-chat-message-automation",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 977
+    },
+    {
+      "confidence": "structural",
+      "end_line": 990,
+      "heading": "18. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree",
+      "source_keys": [
+        "790df48a4843d338",
+        "1007e337f89a52b2",
+        "d275b5b94a9da833",
+        "776256c424368312",
+        "7c71a22de1006d62"
+      ],
+      "start_line": 989
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1005,
+      "heading": "Agent Does Not Call The Expected Tool",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 991
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1020,
+      "heading": "Tool Returns No Records",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-tool-returns-no-records",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 1006
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1033,
+      "heading": "Tool Returns Too Much Data",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-tool-returns-too-much-data",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 1021
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1048,
+      "heading": "Write Tool Fails",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-write-tool-fails",
+      "source_keys": [
+        "790df48a4843d338"
+      ],
+      "start_line": 1034
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1063,
+      "heading": "Permissions Look Wrong",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-permissions-look-wrong",
+      "source_keys": [
+        "1007e337f89a52b2"
+      ],
+      "start_line": 1049
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1076,
+      "heading": "API Endpoint Denies Access",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-api-endpoint-denies-access",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 1064
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1089,
+      "heading": "Lava WebRequest Or External Call Behaves Unexpectedly",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1077
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1091,
+      "heading": "19. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1090
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1103,
+      "heading": "Recipe: “Find The Right Person”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-find-the-right-person",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1092
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1111,
+      "heading": "Recipe: “Summarize This Person”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-summarize-this-person",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1104
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1122,
+      "heading": "Recipe: “Draft A Communication”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-draft-a-communication",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1112
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1131,
+      "heading": "Recipe: “Create A Connection Request”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-create-a-connection-request",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1123
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1140,
+      "heading": "Recipe: “Explain A Workflow Queue”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-explain-a-workflow-queue",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1132
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1151,
+      "heading": "Recipe: “Audit Agent Security”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-audit-agent-security",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1141
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1163,
+      "heading": "Recipe: “Build A Safe Public Agent”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-build-a-safe-public-agent",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1152
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1191,
+      "heading": "Recipe: “Review An Agent Answer”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-review-an-agent-answer",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1164
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1249,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "f325315718b03eb6",
+        "d2890df9787aa1ae",
+        "f325315718b03eb6",
+        "87de570d7b164f63",
+        "6ca31915e98eb031",
+        "8540c4be8f5de2d1",
+        "d2890df9787aa1ae",
+        "94226d7c1f62174e",
+        "8540c4be8f5de2d1",
+        "6ca31915e98eb031",
+        "1fae67b5dc09e2b0",
+        "d593e234279cb690"
+      ],
+      "start_line": 1192
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1288,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "d2890df9787aa1ae",
+        "f325315718b03eb6",
+        "1fae67b5dc09e2b0",
+        "d593e234279cb690",
+        "87de570d7b164f63",
+        "8540c4be8f5de2d1",
+        "6ca31915e98eb031",
+        "94226d7c1f62174e"
+      ],
+      "start_line": 1250
+    },
+    {
+      "confidence": "high",
+      "end_line": 1335,
+      "heading": "20. Source Map And Dependency Notes",
+      "needs_live_verification": true,
+      "section_id": "20-source-map-and-dependency-notes",
+      "source_keys": [
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "790df48a4843d338",
+        "3206cee519301613",
+        "1007e337f89a52b2",
+        "776256c424368312",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "6612b451bd0ae178",
+        "bc1ab3f2dff77e89",
+        "dd0d53998f998249"
+      ],
+      "start_line": 1289
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-03T19:01:02+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2d3ed6cc33f23d7fdf362fea462789e558be11e2ab68e6e9bc474ba77b0d7433",
+      "excerpt_hash": "13982be29f51735b5ace9a251c433052e8c55c8b85070fb4b490c13e0ddfaf2a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "790df48a4843d338",
+      "source_record_id": "rock_developer:790df48a4843d338",
+      "title": "AI Agents",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "f65e43e50f4880430b86c9898e60f78438d65ebe30ec0d938ec834735cc30538",
+      "excerpt_hash": "2f1c1e36577d64d423372609e17dc12853f962519fe2cd22269aab0d2e92533d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "0889f2dae7e2fb64b408f18b57173a9e332c4b6e49f65c5ad8ecd255c59b7768",
+      "excerpt_hash": "a44b659dd4e9f9f13cca6cce1aa8ef1e806e1a2cbd99ece3de8225aa2b62c3fa",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1007e337f89a52b2",
+      "source_record_id": "rock_documentation:1007e337f89a52b2",
+      "title": "Rock Admin Hero Guide",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/BookContent/9",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "new_feature",
+      "content_hash": "d8f8471dbf7bef8540fbcee4c0d54ff0e0ff3b3963b1813a9dc2e794b47b72f4",
+      "excerpt_hash": "29863be45a5ed82f00403ae17604d65b39b0fdea1335ccaa39f4a18ba3b53dc3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "December 8, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:84adfa608cc210bc",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.1"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "6612b451bd0ae178",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/core-concepts/automations",
+      "url": "https://community.rockrms.com/rocku/core-concepts/automations"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "bc1ab3f2dff77e89",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "dd0d53998f998249",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
+      "url": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+    },
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "change_type": null,
+      "content_hash": "ca40f768e24b565e4e07e274f7b83f0a82cc62410d9c9b8b5606cb6b062c0f45",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:494d83c698793652",
+      "title": "AI Agent",
+      "topics": [
+        "ai",
+        "api",
+        "data",
+        "lava",
+        "model-map"
+      ],
+      "url": "https://community.rockrms.com/ModelMap",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e0cec2c1fb4dcdf1e3d57a5f36ec5ed819ee32cccb48119d45ea3ccb5d1364cb",
+      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "3206cee519301613",
+      "source_record_id": "rock_developer:3206cee519301613",
+      "title": "Voice Agent",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "change_type": null,
+      "content_hash": "bc6c8d3d22d98d71c591205d014f2d386972da3e9239e9ba54b44fe38d2da5f3",
+      "excerpt_hash": "ea58653a970a4e2704680c3a9e92c60043a352d2eb535cc13858af1b94779ab0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_podcast_rss",
+      "source_key": "44c37d376b652418",
+      "source_record_id": "rock_podcast_rss:1cb0de155ffacb15",
+      "title": "Rock's Future Anchored in Vision | Ep 202",
+      "topics": [
+        "podcast",
+        "releases",
+        "ai",
+        "operations"
+      ],
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "change_type": null,
+      "content_hash": "aedc395e0b7aacc5e5f165eb4a311f24c8adb790497026eb96c1ea89eb75027e",
+      "excerpt_hash": "9afc250019b4bbfa03adffceabbe5d26d93277ecc38164b1851286e622300042",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_podcast_rss",
+      "source_key": "512ed4dbdfde5317",
+      "source_record_id": "rock_podcast_rss:b1a7021dcd84650d",
+      "title": "What's Possible When AI Does the Heavy Lifting | Ep 212",
+      "topics": [
+        "podcast",
+        "releases",
+        "ai",
+        "operations"
+      ],
+      "url": "https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212",
+      "version": null
+    },
+    {
+      "authority": "community-answer",
+      "authority_score": 50,
+      "change_type": null,
+      "content_hash": "a541210891ef1443446e62ec2a122a1ad0df26507619c7d8d8a956b4379c8164",
+      "excerpt_hash": "cb8a8a29382d8cb0e9f715ef421ce21cdfbe6f8f2a94f88a3f1f91ce6abc4283",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_qa",
+      "source_key": "7c71a22de1006d62",
+      "source_record_id": "rock_qa:7c71a22de1006d62",
+      "title": "webrequest not running??",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "security",
+        "troubleshooting",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2708",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "f325315718b03eb6",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "d2890df9787aa1ae",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "87de570d7b164f63",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "6ca31915e98eb031",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "8540c4be8f5de2d1",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "94226d7c1f62174e",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "1fae67b5dc09e2b0",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "d593e234279cb690",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}

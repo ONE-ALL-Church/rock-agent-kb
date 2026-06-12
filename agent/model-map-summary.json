@@ -1,0 +1,91 @@
+{
+  "category_counts": {
+    "AI": 8,
+    "CMS": 37,
+    "CRM": 15,
+    "Check -in": 1,
+    "Communication": 23,
+    "Core": 76,
+    "Engagement": 27,
+    "Event": 30,
+    "Finance": 21,
+    "Group": 19,
+    "LMS": 14,
+    "Meta": 3,
+    "Prayer": 1,
+    "Reporting": 30,
+    "Security": 1,
+    "Web Farm": 3,
+    "Workflow": 12
+  },
+  "concept_slice_count": 17,
+  "contains_row_data": false,
+  "generated_at": "2026-06-12T09:25:54+00:00",
+  "generation_method": [
+    "Stable and pre-alpha model/property data come from authenticated scrapes of generic Rock demo Model Map pages.",
+    "Stable model/property data is the preferred reference layer for concept guide landmarks, agent entity rows, and model detail pages.",
+    "The public KB no longer publishes the prior read-only SQL instance schema crosswalk.",
+    "The public KB no longer publishes source-parsed reflection properties as the model-map authority.",
+    "Use the version diff to see changes between the stable and upcoming generic Rock versions."
+  ],
+  "latest": {
+    "model_count": 325,
+    "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
+    "property_count": 16093,
+    "rock_version": "20.0.3",
+    "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
+    "source_url": "https://rockrmslatest.com/admin/power-tools/model-map"
+  },
+  "latest_model_count": 325,
+  "latest_property_count": 16093,
+  "model_detail_count": 321,
+  "paths": {
+    "agent_entities": "agent/model-map-entities.jsonl",
+    "agent_properties": "agent/model-map-properties.jsonl",
+    "agent_summary": "agent/model-map-summary.json",
+    "agent_version_diff": "agent/model-map-version-diff.jsonl",
+    "concept_slices": "knowledge/model-map/concept-slices/*.md",
+    "index": "knowledge/model-map/index.md",
+    "latest_models": "knowledge/model-map/latest-models.jsonl",
+    "latest_properties": "knowledge/model-map/latest-properties.jsonl",
+    "model_details": "knowledge/model-map/models/*.md",
+    "stable_models": "knowledge/model-map/stable-models.jsonl",
+    "stable_properties": "knowledge/model-map/stable-properties.jsonl",
+    "version_diff": "knowledge/model-map/version-diff.json",
+    "version_diff_rows": "knowledge/model-map/version-diff.jsonl"
+  },
+  "pre_alpha": {
+    "model_count": 325,
+    "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
+    "property_count": 16093,
+    "rock_version": "20.0.3",
+    "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
+    "source_url": "https://rockrmslatest.com/admin/power-tools/model-map"
+  },
+  "pre_alpha_model_count": 325,
+  "pre_alpha_property_count": 16093,
+  "schema": "rock-kb-model-map-summary-v2",
+  "source": "scraped_generic_rock_model_maps",
+  "stable": {
+    "model_count": 321,
+    "path": "data/review/model-map-scrape/demo-model-map-full-scrape.json",
+    "property_count": 16813,
+    "rock_version": "18.2.4",
+    "rock_version_source_url": "https://rocksolidchurchdemo.com/api/Utility/GetRockSemanticVersionNumber",
+    "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+  },
+  "stable_database_property_count": 6645,
+  "stable_lava_property_count": 11199,
+  "stable_model_count": 321,
+  "stable_non_database_lava_property_count": 4622,
+  "stable_not_mapped_property_count": 9250,
+  "stable_property_count": 15895,
+  "version_diff": {
+    "change_count": 299,
+    "model_added_count": 5,
+    "model_removed_count": 1,
+    "property_added_count": 71,
+    "property_changed_count": 190,
+    "property_removed_count": 32
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "capability_count": 276,
+  "categories": {
+    "command": 18,
+    "filter": 233,
+    "fluid_migration": 1,
+    "fluid_overview": 1,
+    "lava_api": 1,
+    "obsidian": 1,
+    "reference": 1,
+    "remote_lava": 1,
+    "shortcode": 5,
+    "tag": 13,
+    "workflow": 1
+  },
+  "command_enablement_required_count": 17,
+  "generated_at": "2026-06-12T09:25:54+00:00",
+  "high_risk_count": 36,
+  "live_verification_required_count": 36,
+  "paths": {
+    "agent_usage_examples": "knowledge/concepts/lava/lava-agent-usage-examples.md",
+    "capabilities": "knowledge/concepts/lava/lava-capabilities.jsonl",
+    "dependencies": "knowledge/concepts/lava/lava-capability-dependencies.json",
+    "reference_index": "knowledge/concepts/lava/lava-reference-index.md",
+    "safety_matrix": "knowledge/concepts/lava/lava-safety-matrix.md"
+  },
+  "risk_tiers": {
+    "high": 36,
+    "low": 159,
+    "medium": 81
+  },
+  "schema": "rock-kb-lava-capability-summary-v1",
+  "source_id": "rock_lava_docs",
+  "source_record_count": 53
+}

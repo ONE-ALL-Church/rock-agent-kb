@@ -1,0 +1,20 @@
+name: Public Surface
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  public-surface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Audit tracked public surface
+        run: python3 scripts/audit_tracked_tree.py
+      - name: Validate contribution bundles
+        run: python3 scripts/validate_bundle.py

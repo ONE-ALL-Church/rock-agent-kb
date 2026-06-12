@@ -1,0 +1,184 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-tv-app-configuration",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/api-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A TV App Configuration",
+      "when": "Follow the guide section for Recipe: Audit A TV App Configuration."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-trace-a-page-guid",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/api-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Trace A Page GUID",
+      "when": "Follow the guide section for Recipe: Trace A Page GUID."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-validate-remote-auth-in-data",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+        "https://community.rockrms.com/api-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Validate Remote Auth In Data",
+      "when": "Follow the guide section for Recipe: Validate Remote Auth In Data."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-roku-page-for-focus",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/api-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Roku Page For Focus",
+      "when": "Follow the guide section for Recipe: Review A Roku Page For Focus."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-apple-tv-markup",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/licensing",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/one-up-template",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review Apple TV Markup",
+      "when": "Follow the guide section for Recipe: Review Apple TV Markup."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-decide-cache-policy",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Decide Cache Policy",
+      "when": "Follow the guide section for Recipe: Decide Cache Policy."
+    }
+  ],
+  "concept_id": "tv-apps",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:18+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",
+    "18-troubleshooting-decision-tree-page-is-blank",
+    "18-troubleshooting-decision-tree-roku-focus-does-not-move",
+    "18-troubleshooting-decision-tree-navigation-button-does-nothing",
+    "18-troubleshooting-decision-tree-media-does-not-play",
+    "18-troubleshooting-decision-tree-remote-login-fails",
+    "18-troubleshooting-decision-tree-analytics-missing",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-audit-a-tv-app-configuration",
+    "19-agent-task-recipes-recipe-trace-a-page-guid",
+    "19-agent-task-recipes-recipe-validate-remote-auth-in-data",
+    "19-agent-task-recipes-recipe-review-a-roku-page-for-focus",
+    "19-agent-task-recipes-recipe-review-apple-tv-markup",
+    "19-agent-task-recipes-recipe-decide-cache-policy"
+  ]
+}

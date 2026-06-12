@@ -1,0 +1,863 @@
+version: 1
+defaults:
+  rebuild_policy: source_hash_changed_or_weekly
+  guide_status: generated_needs_review
+  max_records: 80
+concepts:
+  - id: check-in
+    title: Check-In
+    description: Attendance, kiosks, labels, families, schedules, locations, mobile check-in, and troubleshooting.
+    keywords: [check-in, check in, attendance, label, kiosk, family check-in, mobile check-in, rapid attendance]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 2
+      rock_core_release_notes: 2
+      rock_mobile_docs: 2
+      rock_developer: 1
+      triumph_resources: 5
+    depends_on_topics: [attendance, groups, locations, schedules, labels, mobile, security]
+    subguides:
+      - id: labels
+        title: Labels
+        keywords: [label, zpl, printer, next-gen labels]
+      - id: mobile-check-in
+        title: Mobile Check-In
+        keywords: [mobile check-in, mobile, kiosk, family]
+      - id: attendance
+        title: Attendance
+        keywords: [attendance, rapid attendance, analytics]
+      - id: troubleshooting
+        title: Troubleshooting
+        keywords: [troubleshooting, error, printer, issue, failed]
+
+  - id: groups
+    title: Groups
+    description: Group types, group members, attendance, group finder, small groups, serving teams, and security.
+    keywords: [group, groups, group type, group member, group finder, small group, serving team]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 2
+      rock_model_map: 3
+      rock_developer: 2
+      triumph_resources: 5
+    depends_on_topics: [people, attendance, security, locations, schedules]
+    subguides:
+      - id: group-types
+        title: Group Types
+        keywords: [group type, inherited, role]
+      - id: group-finder
+        title: Group Finder
+        keywords: [group finder, location, map]
+      - id: attendance
+        title: Group Attendance
+        keywords: [attendance, meeting, schedule]
+
+  - id: workflows
+    title: Workflows
+    description: Workflow types, actions, triggers, forms, automation, jobs, and operational process design.
+    keywords: [workflow, workflows, action, trigger, form, activate, automation, job]
+    source_weights:
+      rock_documentation: 3
+      rock_rocku: 4
+      rock_recipes: 4
+      rock_lava_docs: 2
+      rock_developer: 2
+      rock_core_release_notes: 2
+      triumph_resources: 5
+    depends_on_topics: [lava, jobs, communications, security, attributes]
+    subguides:
+      - id: triggers
+        title: Triggers And Activation
+        keywords: [trigger, activate, workflow activate]
+      - id: forms
+        title: Workflow Forms
+        keywords: [form, entry, person entry]
+      - id: integrations
+        title: Workflow Integrations
+        keywords: [zapier, webhook, api, integration]
+
+  - id: connections
+    title: Connections
+    description: Connection types, opportunities, requests, statuses, boards, lists, assignments, follow-up, and pipeline reporting.
+    keywords: [connection, connections, connection type, connection opportunity, connection request, connection status, connections board, connections list, placement, opportunity]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 5
+      rock_recipes: 3
+      rock_qa: 3
+      rock_model_map: 3
+      rock_developer: 2
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 1
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [people, workflows, groups, communications, security, reporting]
+    subguides:
+      - id: opportunities
+        title: Opportunities
+        keywords: [connection opportunity, opportunity, opportunities]
+      - id: requests
+        title: Requests And Statuses
+        keywords: [connection request, request, status, state, placement]
+      - id: boards-lists
+        title: Boards And Lists
+        keywords: [connections board, connections list, board, list]
+      - id: follow-up
+        title: Assignment And Follow-Up
+        keywords: [assignment, assigned, follow-up, follow up, connector]
+
+  - id: lava
+    title: Lava
+    description: Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational use.
+    keywords: [lava, filter, command, shortcode, fluid, dotliquid, remote lava]
+    source_weights:
+      rock_lava_docs: 5
+      rock_developer: 3
+      rock_recipes: 3
+      rock_documentation: 2
+      rock_qa: 2
+      triumph_resources: 5
+    depends_on_topics: [cms, workflows, sql, security]
+    subguides:
+      - id: commands
+        title: Commands
+        keywords: [command, sql command, web request, entity command]
+      - id: filters
+        title: Filters
+        keywords: [filter, text filter, date filter, person filter]
+      - id: shortcodes
+        title: Shortcodes
+        keywords: [shortcode, shortcode block]
+
+  - id: giving-finance
+    title: Giving And Finance
+    description: Giving, transactions, batches, statements, pledges, gateways, and finance administration.
+    keywords: [giving, finance, financial, transaction, batch, pledge, statement, payment, gateway]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 2
+      rock_model_map: 2
+      rock_developer: 2
+      rock_core_release_notes: 4
+      rock_mobile_release_notes: 1
+      sparkdevnetwork_rock: 3
+      public_rock_repos: 1
+      triumph_resources: 6
+    depends_on_topics: [people, groups, workflows, security, reporting]
+    subguides:
+      - id: transactions
+        title: Transactions
+        keywords: [transaction, payment, gateway]
+      - id: statements
+        title: Statements
+        keywords: [statement, receipt, contribution]
+      - id: batches
+        title: Batches
+        keywords: [batch, deposit, reconciliation]
+
+  - id: system-admin-ops
+    title: System Administration And Operations
+    description: Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings, diagnostics, and operational health.
+    keywords: [service job, job history, exception log, exceptionlog, cache, cleanup, data integrity, indexing, index, global attribute, defined type, defined value, system setting, diagnostics, health]
+    source_weights:
+      rock_documentation: 4
+      rock_developer: 4
+      rock_rocku: 3
+      rock_recipes: 3
+      rock_qa: 3
+      rock_model_map: 3
+      rock_core_release_notes: 5
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [security, workflows, data-views, reports, cache, jobs, release-notes]
+    subguides:
+      - id: jobs
+        title: Jobs And Scheduling
+        keywords: [service job, job history, scheduled job, jobs]
+      - id: diagnostics
+        title: Diagnostics And Exceptions
+        keywords: [exception log, exceptionlog, diagnostics, error, health]
+      - id: cache-indexing
+        title: Cache And Indexing
+        keywords: [cache, indexing, index, search]
+      - id: cleanup-integrity
+        title: Cleanup And Data Integrity
+        keywords: [cleanup, data integrity, integrity, stale, orphaned]
+
+  - id: platform-configuration
+    title: Platform Configuration
+    description: Attributes, defined types, categories, entity types, campuses, global attributes, system settings, and cross-domain configuration patterns.
+    keywords: [attribute, attributes, attribute value, defined type, defined value, category, categories, entity type, campus, campuses, global attribute, system setting, configuration, inherited configuration]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 5
+      rock_recipes: 2
+      rock_qa: 2
+      rock_model_map: 4
+      rock_developer: 4
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 1
+      sparkdevnetwork_rock: 3
+      public_rock_repos: 1
+      triumph_resources: 4
+    depends_on_topics: [people, groups, workflows, cms, security, data-views, reports, operations]
+    subguides:
+      - id: attributes
+        title: Attributes And Attribute Values
+        keywords: [attribute, attributes, attribute value, custom attribute]
+      - id: defined-types
+        title: Defined Types And Values
+        keywords: [defined type, defined value, defined types, defined values]
+      - id: categories-entity-types
+        title: Categories And Entity Types
+        keywords: [category, categories, entity type, entity types]
+      - id: campuses-settings
+        title: Campuses And Global Settings
+        keywords: [campus, campuses, global attribute, system setting, configuration]
+
+  - id: serving-volunteer-ops
+    title: Serving And Volunteer Operations
+    description: Serving teams, volunteer schedules, requirements, confirmations, attendance, volunteer communications, and follow-up.
+    keywords: [serving, volunteer, volunteers, serving team, serve team, schedule, scheduling, serving schedule, serving group, team member, confirmation, decline, RSVP, requirement, attendance, follow-up]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 3
+      rock_model_map: 3
+      rock_developer: 2
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 2
+      sparkdevnetwork_rock: 3
+      public_rock_repos: 1
+      triumph_resources: 5
+    depends_on_topics: [groups, scheduling, locations, check-in, communications, workflows, people, security]
+    subguides:
+      - id: teams-roles
+        title: Serving Teams And Roles
+        keywords: [serving team, serve team, group type, group role, team member, volunteer]
+      - id: schedules-confirmations
+        title: Schedules And Confirmations
+        keywords: [schedule, scheduling, confirmation, decline, RSVP, reminder, serving schedule]
+      - id: requirements
+        title: Volunteer Requirements
+        keywords: [requirement, requirements, background check, training, eligibility]
+      - id: attendance-follow-up
+        title: Attendance And Follow-Up
+        keywords: [attendance, check-in, follow-up, no show, serving attendance]
+
+  - id: ai-agents-automation
+    title: AI Agents And Automation
+    description: Rock AI agents, custom tools, automation patterns, tool security, least privilege, prompt/tool boundaries, review gates, and live verification.
+    keywords: [ai agent, ai agents, agent, agents, automation, automations, custom tool, lookup tool, native tool, prompt, tool security, least privilege, permission, review gate, verification, hallucination, workflow automation]
+    source_weights:
+      rock_developer: 5
+      rock_documentation: 3
+      rock_rocku: 2
+      rock_recipes: 2
+      rock_qa: 3
+      rock_model_map: 3
+      rock_core_release_notes: 4
+      sparkdevnetwork_rock: 4
+      public_rock_repos: 2
+      triumph_resources: 4
+    depends_on_topics: [security, api-integrations, workflows, platform-configuration, data-views, reports, operations, lava]
+    subguides:
+      - id: agent-tools
+        title: Agent Tools And Lookup Surfaces
+        keywords: [custom tool, lookup tool, native tool, available attributes, agent tool]
+      - id: permissions-boundaries
+        title: Permissions And Data Boundaries
+        keywords: [tool security, least privilege, permission, authorization, data boundary, sensitive data]
+      - id: automation-design
+        title: Automation Design And Workflows
+        keywords: [automation, automations, workflow automation, scheduled job, trigger, action]
+      - id: verification-review
+        title: Verification And Review Gates
+        keywords: [verification, review gate, approval, evidence, hallucination, live verification]
+
+  - id: learning-lms-engagement
+    title: Learning, LMS, And Engagement
+    description: Learning programs, LMS courses, lessons, requirements, completion tracking, engagement journeys, and learning-related reporting.
+    max_records: 38
+    keywords: [learning, lms, course, courses, lesson, lessons, class, classes, training, completion, requirement, requirements, engagement, engagement journey, journey, steps, streak, achievement]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 5
+      rock_recipes: 3
+      rock_qa: 3
+      rock_model_map: 3
+      rock_developer: 2
+      rock_core_release_notes: 4
+      rock_mobile_release_notes: 2
+      sparkdevnetwork_rock: 3
+      public_rock_repos: 1
+      triumph_resources: 4
+    depends_on_topics: [people, groups, communications, workflows, event-registration, data-views, reports, security, platform-configuration]
+    subguides:
+      - id: courses-lessons
+        title: Courses And Lessons
+        keywords: [course, courses, lesson, lessons, class, classes, learning]
+      - id: requirements-completion
+        title: Requirements And Completion
+        keywords: [requirement, requirements, completion, completed, training]
+      - id: engagement-journeys
+        title: Engagement Journeys
+        keywords: [engagement, journey, journeys, step, steps, streak, achievement]
+      - id: reporting-admin
+        title: Reporting And Administration
+        keywords: [report, reporting, dashboard, administration, configuration, lms]
+
+  - id: event-registration
+    title: Event Registration
+    description: Registration instances, templates, payments, forms, event occurrences, and registration operations.
+    keywords: [registration, event registration, registration instance, registrant, event item, occurrence]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 2
+      rock_model_map: 2
+      rock_developer: 2
+      rock_core_release_notes: 4
+      rock_mobile_release_notes: 1
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [events, finance, workflows, communications, groups]
+    subguides:
+      - id: registration-instances
+        title: Registration Instances
+        keywords: [registration instance, template, registrant]
+      - id: payments
+        title: Payments
+        keywords: [payment, cost, fee, gateway]
+
+  - id: cms-websites
+    title: CMS And Websites
+    description: Pages, blocks, themes, content channels, personalization, media, and website operations.
+    keywords: [cms, website, page, block, theme, content channel, personalization, media, html block]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_developer: 4
+      rock_lava_docs: 3
+      rock_recipes: 3
+      rock_qa: 2
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 1
+      sparkdevnetwork_rock: 3
+      triumph_resources: 6
+    depends_on_topics: [lava, security, media, content, personalization]
+    subguides:
+      - id: pages-blocks
+        title: Pages And Blocks
+        keywords: [page, block, html block, advanced html]
+      - id: themes
+        title: Themes
+        keywords: [theme, css, styling]
+      - id: content-channels
+        title: Content Channels
+        keywords: [content channel, media]
+
+  - id: communications
+    title: Communications
+    description: Email, SMS, communication templates, transports, segments, and deliverability.
+    keywords: [communication, email, sms, texting, transport, template, recipient, deliverability]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 2
+      rock_developer: 2
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 1
+      rock_model_map: 2
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [people, workflows, lava, security]
+    subguides:
+      - id: email
+        title: Email
+        keywords: [email, deliverability, template]
+      - id: sms
+        title: SMS
+        keywords: [sms, text, texting]
+
+  - id: security-permissions
+    title: Security And Permissions
+    description: Authorization, roles, security inheritance, API auth, block/page security, and operational guardrails.
+    keywords: [security, permission, permissions, authorization, auth, role, access, api key]
+    source_weights:
+      rock_documentation: 4
+      rock_developer: 4
+      rock_rocku: 3
+      rock_recipes: 2
+      rock_qa: 2
+      rock_core_release_notes: 3
+      triumph_resources: 5
+    depends_on_topics: [people, groups, api, cms, workflows]
+    subguides:
+      - id: authorization
+        title: Authorization
+        keywords: [authorization, permission, access]
+      - id: api-auth
+        title: API Auth
+        keywords: [api key, bearer, rest, token]
+
+  - id: data-views-reports
+    title: Data Views And Reports
+    description: Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
+    keywords: [data view, report, reports, sql, metric, analytics, bi, model map, query]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_model_map: 4
+      oneall_rock_sql_library: 3
+      rock_recipes: 3
+      rock_lava_docs: 2
+      triumph_resources: 6
+    depends_on_topics: [sql, model-map, lava, finance, attendance]
+    subguides:
+      - id: data-views
+        title: Data Views
+        keywords: [data view, filter]
+      - id: reports
+        title: Reports
+        keywords: [report, reporting]
+      - id: bi
+        title: Business Intelligence
+        keywords: [bi, analytics, power bi]
+
+  - id: mobile
+    title: Rock Mobile
+    description: Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile release caveats.
+    keywords: [mobile, xaml, maui, command, control, shell, ios, android, app]
+    source_weights:
+      rock_mobile_docs: 8
+      rock_mobile_release_notes: 12
+      rock_developer: 3
+      rock_rocku: 2
+      rock_recipes: 2
+      sparkdevnetwork_rock: 3
+      triumph_resources: 6
+    depends_on_topics: [api, check-in, cms, security]
+    subguides:
+      - id: commands
+        title: Commands
+        keywords: [command, xaml]
+      - id: controls
+        title: Controls
+        keywords: [control, button, picker, view]
+      - id: releases
+        title: Mobile Releases
+        keywords: [release, ios, android, minimum]
+
+  - id: api-integrations
+    title: API And Integrations
+    description: REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-code landmarks.
+    keywords: [api, rest, odata, webhook, integration, endpoint, bearer, token]
+    source_weights:
+      rock_api_docs: 5
+      rock_demo_api_docs_v1: 4
+      rock_demo_api_docs_v2: 4
+      rock_developer: 4
+      sparkdevnetwork_rock: 3
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 1
+      rock_lava_docs: 2
+      public_rock_repos: 2
+      triumph_resources: 6
+    depends_on_topics: [security, workflows, lava, model-map]
+    subguides:
+      - id: rest
+        title: REST API
+        keywords: [rest, api v1, api v2]
+      - id: auth
+        title: API Authentication
+        keywords: [auth, token, bearer, api key]
+      - id: webhooks
+        title: Webhooks
+        keywords: [webhook, integration]
+
+  - id: helix
+    title: Helix
+    description: Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks, forms and controls, endpoint security, observability, and production-readiness caveats.
+    max_records: 80
+    keywords: [helix, htmx, lava application, lava applications, lava endpoint, lava endpoints, lava app, endpoint security, control shortcode, form validation, loading indicator, magnus, observability, related entities]
+    source_url_prefixes:
+      - https://community.rockrms.com/developer/helix
+    developer_doc_prefixes: [helix]
+    source_weights:
+      rock_developer: 8
+      rock_community_site: 4
+      rock_lava_docs: 3
+      rock_core_release_notes: 3
+      sparkdevnetwork_rock: 3
+      rock_model_map: 2
+      triumph_resources: 3
+    depends_on_topics: [lava, api-integrations, security, cms, workflows, forms, htmx, observability]
+    subguides:
+      - id: overview
+        title: Overview And Roadmap
+        keywords: [helix, overview, roadmap, customizing rock, plugin installation, faq]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/overview
+        developer_doc_prefixes: [helix/overview]
+      - id: htmx
+        title: HTMX
+        keywords: [htmx, syntax, style guide, hx-get, hx-post, hx-target]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/htmx
+        developer_doc_prefixes: [helix/htmx]
+      - id: lava-applications
+        title: Lava Applications
+        keywords: [lava application, lava applications, application slug, configuration, lava application content block]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/lava-applications
+        developer_doc_prefixes: [helix/lava-applications]
+      - id: lava-endpoints
+        title: Lava Endpoints
+        keywords: [lava endpoint, lava endpoints, endpoint slug, http method, security mode, rate limit, cache]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/lava-applications/endpoints
+        developer_doc_prefixes: [helix/lava-applications/endpoints]
+      - id: forms-controls
+        title: Forms And Controls
+        keywords: [form, forms, control, controls, form validation, loading indicator, using form controls, creating new controls]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/forms-controls
+        developer_doc_prefixes: [helix/forms-controls]
+      - id: security-observability
+        title: Security And Observability
+        keywords: [security, endpoint security, validate input, idkey, guid, observability, traces, database calls]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/overview/security
+          - https://community.rockrms.com/developer/helix/lava-applications/observability
+        developer_doc_prefixes:
+          - helix/overview/security
+          - helix/lava-applications/observability
+      - id: strategies
+        title: Strategies And Limitations
+        keywords: [strategy, strategies, tips, related entities, limitations, rockpage]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix/strategies
+        developer_doc_prefixes: [helix/strategies]
+
+  - id: developer-resources
+    title: Rock Developer Resources
+    description: Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix, mobile and TV shells, packaging, Slingshot migration, design-system, dynamic LINQ, release/changelog notes, and developer utilities.
+    max_records: 120
+    keywords: [developer, developer resources, developer codex, launchpad, ignition, blast off, obsidian, helix, mobile docs, apple tv, roku, packaging, plugin, theme, quickstart, slingshot, design system, dynamic linq, realtime visualizer, rock branches, sql style guide]
+    source_url_prefixes:
+      - https://community.rockrms.com/developer
+    source_weights:
+      rock_developer: 10
+      rock_mobile_docs: 5
+      rock_api_docs: 4
+      rock_lava_docs: 4
+      rock_model_map: 3
+      sparkdevnetwork_rock: 3
+      public_rock_repos: 2
+      rock_core_release_notes: 3
+      rock_mobile_release_notes: 2
+      triumph_resources: 3
+    depends_on_topics: [api-integrations, lava, helix, obsidian, mobile, apple-tv, roku, plugins, themes, migration, security, cms, tv-apps]
+    subguides:
+      - id: developer-codex
+        title: Developer Codex
+        keywords: [developer codex, coding standards, api patterns, code generator, security, architecture, testing, peer review]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/developer-codex
+        developer_doc_prefixes: [developer-codex]
+      - id: launchpad-101
+        title: Developer 101 Launchpad
+        keywords: [101, launchpad, basic block, loading entities, saving entities, validation, breadcrumbs, gridfilter]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/101---launchpad
+        developer_doc_prefixes: [101---launchpad]
+      - id: ignition-202
+        title: Developer 202 Ignition
+        keywords: [202, ignition, advanced entity guide, common entities, data migration, custom data]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/202---ignition
+        developer_doc_prefixes: [202---ignition]
+      - id: blast-off-303
+        title: Developer 303 Blast-Off
+        keywords: [303, blast off, rest api, blocks, attributes, context aware blocks, custom jobs, workflow actions]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/303---blast-off
+        developer_doc_prefixes: [303---blast-off]
+      - id: obsidian
+        title: Obsidian
+        keywords: [obsidian, creating blocks, detail blocks, list blocks, browser bus, custom actions, typescript]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/obsidian
+        developer_doc_prefixes: [obsidian]
+      - id: helix
+        title: Helix
+        keywords: [helix, htmx, lava application, lava endpoint, forms controls, magnus, observability]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/helix
+        developer_doc_prefixes: [helix]
+      - id: ai-agents
+        title: AI Agents
+        keywords: [ai agents, agent instructions, context anchors, skills, custom tools, native tools, lava tools]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/ai-agents
+        developer_doc_prefixes: [ai-agents]
+      - id: mobile-docs
+        title: Mobile Docs
+        keywords: [mobile docs, mobile shell, xaml, maui, app factory, mobile blocks, mobile controls]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/mobile-docs
+        developer_doc_prefixes: [mobile-docs]
+      - id: tv-docs
+        title: TV App Docs
+        keywords: [apple tv docs, roku docs, tv app, tv pages, tvml, brightscript, roku applications]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs
+          - https://community.rockrms.com/developer/roku-docs
+        developer_doc_prefixes:
+          - apple-tv-docs
+          - roku-docs
+      - id: packaging-plugins-themes
+        title: Packaging Plugins And Themes
+        keywords: [packaging plugins themes, package, plugin, theme, rock shop, database migrations, uninstalling]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/packaging-plugins-themes
+        developer_doc_prefixes: [packaging-plugins-themes]
+      - id: quickstart-tutorials
+        title: Quickstart Tutorials
+        keywords: [quickstart tutorials, configurable blocks, connecting blocks, customizing and securing blocks, setup]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/quickstart-tutorials
+        developer_doc_prefixes: [quickstart-tutorials]
+      - id: slingshot
+        title: Slingshot Migration
+        keywords: [slingshot, migration, best practices, specifics of migration, looking ahead]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/slingshot
+        developer_doc_prefixes: [slingshot]
+      - id: utility-pages
+        title: Utility And Reference Pages
+        keywords: [design system, dynamic linq, pulled pre-alpha, realtime visualizer, rock branches, sql style guide, changelog]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/changelog
+          - https://community.rockrms.com/developer/design-system
+          - https://community.rockrms.com/developer/dynamic-linq-syntax
+          - https://community.rockrms.com/developer/pulled-prealpha
+          - https://community.rockrms.com/developer/realtime-visualizer
+          - https://community.rockrms.com/developer/rock-branches
+          - https://community.rockrms.com/developer/sql-style-guide
+        developer_doc_prefixes:
+          - changelog
+          - design-system
+          - dynamic-linq-syntax
+          - pulled-prealpha
+          - realtime-visualizer
+          - rock-branches
+          - sql-style-guide
+
+  - id: tv-apps
+    title: TV Apps
+    description: Apple TV and Roku developer documentation for Rock-powered TV applications, pages, commands, controls, styling, media, authentication, and app operations.
+    max_records: 80
+    keywords: [tv app, tv apps, apple tv, apple tv docs, roku, roku docs, tvml, brightscript, scenegraph, lava, media, focus, remote, themes]
+    source_url_prefixes:
+      - https://community.rockrms.com/developer/apple-tv-docs
+      - https://community.rockrms.com/developer/roku-docs
+    developer_doc_prefixes:
+      - apple-tv-docs
+      - roku-docs
+    source_weights:
+      rock_developer: 10
+      rock_mobile_docs: 2
+      rock_api_docs: 3
+      rock_lava_docs: 3
+      rock_core_release_notes: 2
+      sparkdevnetwork_rock: 2
+      triumph_resources: 3
+    depends_on_topics: [api-integrations, lava, cms, security, media, mobile]
+    subguides:
+      - id: apple-tv
+        title: Apple TV
+        keywords: [apple tv, tvml, tv-template, theme, media queries, commands, controls, sign in page]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs
+        developer_doc_prefixes: [apple-tv-docs]
+      - id: roku
+        title: Roku
+        keywords: [roku, brightscript, scenegraph, rowlist, focus group, roku applications, roku pages]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/roku-docs
+        developer_doc_prefixes: [roku-docs]
+      - id: tv-security-auth
+        title: Security And Authentication
+        keywords: [security, sign in, remote auth, api key, application, page security]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+          - https://community.rockrms.com/developer/roku-docs/getting-started/applications
+        developer_doc_prefixes:
+          - apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+          - roku-docs/getting-started/applications
+      - id: tv-styling-controls
+        title: Styling And Controls
+        keywords: [styling, theme, media queries, controls, focus group, button, layout nodes, rowlist]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs/styling
+          - https://community.rockrms.com/developer/roku-docs/resources/controls
+          - https://community.rockrms.com/developer/roku-docs/resources/layout-nodes
+        developer_doc_prefixes:
+          - apple-tv-docs/styling
+          - roku-docs/resources/controls
+          - roku-docs/resources/layout-nodes
+
+  - id: apple-tv
+    title: Apple TV Apps
+    description: Apple TV developer documentation for Rock-powered TVML applications, pages, content, sign-in, media commands, styling, themes, images, templates, testing, and operational guardrails.
+    max_records: 80
+    keywords: [apple tv, apple tv docs, tvml, tv-template, tv app, tv pages, sign in page, media commands, tv text style, themes, parallax images, app icons]
+    source_url_prefixes:
+      - https://community.rockrms.com/developer/apple-tv-docs
+    developer_doc_prefixes:
+      - apple-tv-docs
+    source_weights:
+      rock_developer: 10
+      rock_api_docs: 3
+      rock_lava_docs: 3
+      rock_core_release_notes: 2
+      sparkdevnetwork_rock: 3
+      triumph_resources: 3
+    depends_on_topics: [api-integrations, lava, cms, security, media, tv-apps]
+    subguides:
+      - id: first-app
+        title: Building Your First Apple TV App
+        keywords: [creating an app, adding content, tv pages, testing your app, app images, templates]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app
+        developer_doc_prefixes: [apple-tv-docs/building-your-first-app]
+      - id: apple-tv-sign-in
+        title: Apple TV Sign-In And Authentication
+        keywords: [sign in, remote authentication, personal commands, api key, authentication]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+          - https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
+        developer_doc_prefixes:
+          - apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+          - apple-tv-docs/javascript/commands/personal-commands
+      - id: apple-tv-javascript-commands
+        title: Apple TV JavaScript Commands
+        keywords: [javascript, media commands, personal commands, demo commands, commands]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs/javascript
+        developer_doc_prefixes: [apple-tv-docs/javascript]
+      - id: apple-tv-styling
+        title: Apple TV Styling
+        keywords: [styling, themes, media queries, tv text style, built in images, parallax images]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/apple-tv-docs/styling
+        developer_doc_prefixes: [apple-tv-docs/styling]
+
+  - id: roku
+    title: Roku Apps
+    description: Roku developer documentation for Rock-powered SceneGraph applications, pages, commands, controls, focus handling, media playback, layout nodes, resources, and operational guardrails.
+    max_records: 80
+    keywords: [roku, roku docs, roku app, roku applications, roku pages, brightscript, scenegraph, focus group, rowlist, layout nodes, media commands]
+    source_url_prefixes:
+      - https://community.rockrms.com/developer/roku-docs
+    developer_doc_prefixes:
+      - roku-docs
+    source_weights:
+      rock_developer: 10
+      rock_api_docs: 3
+      rock_lava_docs: 3
+      rock_core_release_notes: 2
+      sparkdevnetwork_rock: 3
+      triumph_resources: 3
+    depends_on_topics: [api-integrations, lava, cms, security, media, tv-apps]
+    subguides:
+      - id: roku-getting-started
+        title: Roku Getting Started
+        keywords: [getting started, applications, pages, scenegraph, lava]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/roku-docs/getting-started
+        developer_doc_prefixes: [roku-docs/getting-started]
+      - id: roku-commands
+        title: Roku Commands
+        keywords: [commands, navigation, media, utility, personal]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/roku-docs/commands
+        developer_doc_prefixes: [roku-docs/commands]
+      - id: roku-controls
+        title: Roku Controls
+        keywords: [controls, button, content node, focus group, page, focus]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/roku-docs/resources/controls
+        developer_doc_prefixes: [roku-docs/resources/controls]
+      - id: roku-layout-resources
+        title: Roku Layouts And Resources
+        keywords: [layout nodes, rowlist, roku resources, tips and tricks, useful links]
+        source_url_prefixes:
+          - https://community.rockrms.com/developer/roku-docs/resources/layout-nodes
+          - https://community.rockrms.com/developer/roku-docs/resources
+        developer_doc_prefixes:
+          - roku-docs/resources/layout-nodes
+          - roku-docs/resources
+
+  - id: people-families
+    title: People And Families
+    description: Person records, families, aliases, attributes, relationships, and data hygiene.
+    keywords: [person, people, family, families, alias, attribute, relationship, individual]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 4
+      rock_model_map: 3
+      rock_recipes: 2
+      rock_developer: 2
+      rock_qa: 2
+      rock_core_release_notes: 3
+      sparkdevnetwork_rock: 3
+      triumph_resources: 4
+    depends_on_topics: [groups, security, communications, check-in]
+    subguides:
+      - id: person-model
+        title: Person Model
+        keywords: [person, alias, individual]
+      - id: families
+        title: Families
+        keywords: [family, families, relationship]
+      - id: attributes
+        title: Attributes
+        keywords: [attribute, person attribute]
+
+  - id: scheduling-locations
+    title: Scheduling And Locations
+    description: Locations, schedules, rooms, resources, reservations, calendars, and operational planning.
+    keywords: [schedule, schedules, location, locations, room, reservation, calendar, resource]
+    source_weights:
+      rock_documentation: 4
+      rock_rocku: 3
+      rock_recipes: 3
+      rock_qa: 2
+      rock_model_map: 2
+      rock_developer: 1
+      rock_core_release_notes: 3
+      sparkdevnetwork_rock: 2
+      triumph_resources: 4
+    depends_on_topics: [check-in, groups, events, cms]
+    subguides:
+      - id: locations
+        title: Locations
+        keywords: [location, room, campus]
+      - id: schedules
+        title: Schedules
+        keywords: [schedule, calendar]
+      - id: reservations
+        title: Reservations
+        keywords: [reservation, resource]

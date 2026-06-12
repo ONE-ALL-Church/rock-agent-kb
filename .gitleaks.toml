@@ -1,0 +1,9 @@
+title = "Rock KB gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated source routing metadata, not credentials."
+regexTarget = "line"
+regexes = ['''"source_key"\s*:\s*"[^"]+"''']

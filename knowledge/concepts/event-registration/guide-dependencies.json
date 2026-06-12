@@ -1,0 +1,4661 @@
+{
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Wait Lists RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "15b085f9849b056c02b4777e2e509e054e7ce110d2dbc3f8d10e568b475f563b",
+      "claim_id": "claim:002c7538327801bcb076",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "02e0f5c1daaf7858f51f5a02fe947e9fc2f6e248c2422a3effec37bddab4c762",
+      "source_record_ids": [
+        "rock_rocku:0f3c66f707230237"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/wait-lists",
+          "timestamp": "00:09",
+          "timestamp_seconds": 9.0,
+          "title": "Wait Lists",
+          "url": "https://community.rockrms.com/rocku/event-registration/wait-lists"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Electronic Signatures is approved as a public-safe RockU training distillation for Rock operations and administration, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "5bc4d5169781cc58b3ceb68e948109bfd8ab5acb7c11584c24a1b25d0dd94c75",
+      "claim_id": "claim:00bd739c2cf274342f4b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4b34d3ea3d1203ce663d3b607c589512b5e0362fd93c7e885c9ca9ce31228165",
+      "source_record_ids": [
+        "rock_rocku:99161b788cad1f6e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Electronic Signatures",
+          "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Calendars and Events RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "7c9ad0902eb2b2135424ebd69119b86f88810fc8e392884865fbac985f5b9819",
+      "claim_id": "claim:064b33c2b9f4187a7412",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "53cbb3416833a6b861a2a337bf94c96a0ea8b6d9680db41a947da45e5a1ff64c",
+      "source_record_ids": [
+        "rock_rocku:96f24c4dfff821c8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/calendars-and-events",
+          "title": "Calendars and Events",
+          "url": "https://community.rockrms.com/rocku/event-registration/calendars-and-events"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Migration plans should identify which system is the trusted source of truth for person, contribution, check-in, and event data before expanding to optional ministry workflows.",
+      "claim_hash": "26f0626281b40e5c077708a18ca7504bed0e680849bfc1891a1e423e564e5900",
+      "claim_id": "claim:08896ebe0d1b90fc0c31",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "event-registration",
+        "giving-finance",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
+      "source_record_ids": [
+        "rock_podcast_rss:73636340b56a6a03"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
+          "timestamp": "03:49",
+          "timestamp_seconds": 229.0,
+          "title": "Episode 111: Special Edition with Tim Dear",
+          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Additional Registration Fees RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "457efd952cc9c4df78969d7c8a10cf14a4968f12c12b69dee2ffe7af7005a2c6",
+      "claim_id": "claim:0cd3f78e0630bcb17e8b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "50e7ec33957ede428abf9a0c39a215318c2b1c67e464e1632aeab3b678ef5440",
+      "source_record_ids": [
+        "rock_rocku:cdbd7089fd2af521"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+          "title": "Additional Registration Fees",
+          "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "A phased Rock launch can prioritize write-back or money-moving surfaces first, then add ministry areas after staff have a stable foundation.",
+      "claim_hash": "09d6b05cb7c63733addb3cbb7dccdc879563af372363f7d9431e8534b7c0d3ce",
+      "claim_id": "claim:0da68b1d61b229269520",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "event-registration",
+        "giving-finance",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
+      "source_record_ids": [
+        "rock_podcast_rss:73636340b56a6a03"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
+          "timestamp": "05:49",
+          "timestamp_seconds": 349.06,
+          "title": "Episode 111: Special Edition with Tim Dear",
+          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For version, roadmap, and release-caveat awareness, Electronic Signatures should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "9720196ae48745874d15b309eae5305b4825e4e81aba51d8ffad8fb00de3627e",
+      "claim_id": "claim:10cbe1512ae987e239f7",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4b34d3ea3d1203ce663d3b607c589512b5e0362fd93c7e885c9ca9ce31228165",
+      "source_record_ids": [
+        "rock_rocku:99161b788cad1f6e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+          "timestamp": "00:44",
+          "timestamp_seconds": 44.0,
+          "title": "Electronic Signatures",
+          "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Group Placements [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
+      "claim_hash": "22cd15001272c0297d0b2d65d7c9630e0f7f216655a3eb5e9469ea82159fc8cd",
+      "claim_id": "claim:12d15d3fc2d5d5d4a42f",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "12df569f558a20e2a9dffa5b35190a1189084bb243a3d04921b0a4e9b1ff5219",
+      "source_record_ids": [
+        "rock_rocku:da09520593737d6c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration",
+          "timestamp": "08:28",
+          "timestamp_seconds": 508.0,
+          "title": "Group Placements [Legacy]",
+          "url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This RockCast implementation story adds public-safe migration guidance. Pine Lake described moving quickly but deliberately by making Rock the source of truth first for database-updating surfaces such as contributions, check-in, and paid/basic events, then phasing additional ministry areas after the foundation was live.",
+      "claim_hash": "f1f44060570d0184c047d84cd632908aed541a982518d2d46e6ec2deac262200",
+      "claim_id": "claim:158c76d4f5305a8d7c9a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "event-registration",
+        "giving-finance",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
+      "source_record_ids": [
+        "rock_podcast_rss:73636340b56a6a03"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Episode 111: Special Edition with Tim Dear",
+          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For Rock operations and administration, Registration Discounts should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "b3580ed84feefe7b6cf8cb87d18616d652dd291dd6102d3ea530189c86e335e2",
+      "claim_id": "claim:18d97b8bf3a112cc29c2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "78782486aa0d67cbee8ae027ebbfb93388c297b7a2e7f66c40b9d0b423f010c0",
+      "source_record_ids": [
+        "rock_rocku:9f3bc83f6e5fb51b"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-discounts",
+          "timestamp": "05:21",
+          "timestamp_seconds": 321.0,
+          "title": "Registration Discounts",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-discounts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Caching and cache clearing are developer-support surfaces because content changes may not appear immediately unless the right cache path is refreshed.",
+      "claim_hash": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
+      "claim_id": "claim:1ed694954b3d4cbe0315",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "event-registration",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
+      "source_record_ids": [
+        "rock_podcast_rss:26bef0ec9535af36"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
+          "timestamp": "04:44",
+          "timestamp_seconds": 284.14,
+          "title": "Episode 37: Special Edition Garrett Johnson",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For reporting, analytics, and measurement, Registration Instances should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "37f0b5303accecd4ce0364168b5c7d563aa90deae3050dcab4822f42cc6f85e6",
+      "claim_id": "claim:1fcc991853d27e54f773",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f7ae0528f71ba447840246b3be55afdd222a4568a0d148ac5ca7d12afd5d53c1",
+      "source_record_ids": [
+        "rock_rocku:e702311bcbacf6ba"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-instances",
+          "timestamp": "01:40",
+          "timestamp_seconds": 100.54,
+          "title": "Registration Instances",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-instances"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Wait Lists is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "120e3da5b731364838b263062a5d80320b8c93ccca9895951b8010b6b08af8c4",
+      "claim_id": "claim:23536eadfcabcd4037ca",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "02e0f5c1daaf7858f51f5a02fe947e9fc2f6e248c2422a3effec37bddab4c762",
+      "source_record_ids": [
+        "rock_rocku:0f3c66f707230237"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Wait Lists",
+          "url": "https://community.rockrms.com/rocku/event-registration/wait-lists"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Calendars and Events is approved as a public-safe RockU training distillation for source context. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "bdfd9861c647a63bd60fe0bc0f729bef57b3fa5ea2bbe69a61bb23e6180dd79a",
+      "claim_id": "claim:2474696b65705f4d4461",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "53cbb3416833a6b861a2a337bf94c96a0ea8b6d9680db41a947da45e5a1ff64c",
+      "source_record_ids": [
+        "rock_rocku:96f24c4dfff821c8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Calendars and Events",
+          "url": "https://community.rockrms.com/rocku/event-registration/calendars-and-events"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For version, roadmap, and release-caveat awareness, Family Pre-Registration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "709dee955d7915c1f57eb3c2b87c2947e99c2e50fe842903d86bb04768d1c8c8",
+      "claim_id": "claim:2a687dbd43ece0d98a0b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
+      "source_record_ids": [
+        "rock_rocku:f100a7c66d47ef32"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
+          "timestamp": "02:29",
+          "timestamp_seconds": 149.0,
+          "title": "Family Pre-Registration",
+          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For ministry process design, Family Pre-Registration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
+      "claim_id": "claim:2fed0aac2c5693503a5d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
+      "source_record_ids": [
+        "rock_rocku:f100a7c66d47ef32"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
+          "timestamp": "02:54",
+          "timestamp_seconds": 174.0,
+          "title": "Family Pre-Registration",
+          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For staff training and operational readiness, iCalendar Feed should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "3930733a0014985937bbd4c05da780b4af0d1e902f361d151938eedbed31ec34",
+      "claim_id": "claim:319f8eb62da0f9d4a0e8",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "90583989c1723c0e87cda6983723fe83dfb7f67a640c2a546c523be43d8d9745",
+      "source_record_ids": [
+        "rock_rocku:2acc307b814c2cfc"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "iCalendar Feed",
+          "url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Registration Structure is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "2c0889470e8ebdc2bdd3e802d0182166ae199a90f2cfdc117c40413c600b1c1a",
+      "claim_id": "claim:31c4c1938b5372bf7152",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "44cda1857737ace533807940be953bb60b8cbd0982c6b6e005f6e1135d8c1a5c",
+      "source_record_ids": [
+        "rock_rocku:3ac2b7b2e39e37f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Registration Structure",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For ministry process design, Registration Structure should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "a1b14bab6f5135c0822373a506d5a68d79127596800ced96314154f317db1863",
+      "claim_id": "claim:3a63a5a8b217e1164e63",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "44cda1857737ace533807940be953bb60b8cbd0982c6b6e005f6e1135d8c1a5c",
+      "source_record_ids": [
+        "rock_rocku:3ac2b7b2e39e37f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-structure",
+          "timestamp": "00:44",
+          "timestamp_seconds": 44.0,
+          "title": "Registration Structure",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Registration Structure RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "ab057ea24aa6ddbc3872fc1c1377e19ecc396c598c8f0ccc387b0bb44205d256",
+      "claim_id": "claim:3a93cc8a72b4dae1e666",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "44cda1857737ace533807940be953bb60b8cbd0982c6b6e005f6e1135d8c1a5c",
+      "source_record_ids": [
+        "rock_rocku:3ac2b7b2e39e37f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-structure",
+          "timestamp": "00:44",
+          "timestamp_seconds": 44.0,
+          "title": "Registration Structure",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Registration Walk-through RockU lesson provides training context for ministry process design; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "ed582a5950bf5c39dfe63a3bb309f8a64f92f9ab692b0fe1151beaf3d351246c",
+      "claim_id": "claim:3a9f7cd348eb104d1921",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a963c51906aea7c77cc509989c4aa2984d326ec4dfda46bd3f8e588a298eebaa",
+      "source_record_ids": [
+        "rock_rocku:e4f10f35a86cedbd"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through",
+          "timestamp": "00:53",
+          "timestamp_seconds": 53.0,
+          "title": "Registration Walk-through",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Registration Fees RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "0677d0e0db06a9a1b9b553dc41bf0ce7c8cbf111488497cc7e93baac3750b1a8",
+      "claim_id": "claim:419f6e545495eb3839a9",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "810dd82677c7f7e7594c4b3a2b3706f378bc215b43b475db0b0b2d4f9cd97594",
+      "source_record_ids": [
+        "rock_rocku:5ecfe350fe307663"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-fees",
+          "title": "Registration Fees",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-fees"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Registration Discounts RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "0d4ecda91cba36876ec9a119dff756ade40dd1138a22e2aaa8c288a49d815878",
+      "claim_id": "claim:427196787e90e7e1960d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "78782486aa0d67cbee8ae027ebbfb93388c297b7a2e7f66c40b9d0b423f010c0",
+      "source_record_ids": [
+        "rock_rocku:9f3bc83f6e5fb51b"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-discounts",
+          "timestamp": "00:45",
+          "timestamp_seconds": 45.0,
+          "title": "Registration Discounts",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-discounts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Family Pre-Registration is approved as a public-safe RockU training distillation for Rock operations and administration, version, roadmap, and release-caveat awareness, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "798e0876b54a915284ccc8063e7cd2d3cf50c3b0de2e3fbe12316946f6dd087b",
+      "claim_id": "claim:42a75a1b8fa81b064517",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
+      "source_record_ids": [
+        "rock_rocku:f100a7c66d47ef32"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Family Pre-Registration",
+          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Event Registration Attributes RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "402a36fd0afa065fa199296f437014d815e1cc60f403f904f4ee84c7e4779800",
+      "claim_id": "claim:4f192029e62145144497",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b1947f2813a2b51950eb5bc4fbd6b38ff3e59390abd88120b31cbfedd65b672f",
+      "source_record_ids": [
+        "rock_rocku:ce8eb086e4ef0cc6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Event Registration Attributes",
+          "url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Before launching preregistration broadly, teams should test the full path from public form through family record creation, check-in eligibility, and staff follow-up.",
+      "claim_hash": "81843a903c52c01e4acf93c0923d40d5c7672e97a6091cc086fb8bf45cfa3179",
+      "claim_id": "claim:57b56ebf5bb293682e3d",
+      "claim_tier": "live_verified",
+      "claim_type": "implementation_pattern",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "feature_surfaces",
+            "tables": [
+              "Registration",
+              "RegistrationTemplate",
+              "RegistrationTemplateFormField",
+              "Person",
+              "Group",
+              "WorkflowType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified registration, registration template/form fields, person/group, workflow, and check-in surfaces used to trace preregistration through family record creation, eligibility, and follow-up.",
+          "This does not prove a specific preregistration flow is correctly configured."
+        ],
+        "verification_method": "read_only_sql_feature_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T04:12:27Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
+      "source_record_ids": [
+        "rock_community_hubs:7cd07bd6d4ff5479"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz",
+          "timestamp": "02:10",
+          "timestamp_seconds": 130.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Entity Framework is an important developer-track topic for understanding how Rock code works with data models and should be routed with developer resources.",
+      "claim_hash": "9f641a7bcbbd7862c6ebc3a08b26645c60af5a1b3c3efd9a06774830fb537106",
+      "claim_id": "claim:696b196b4db5d683d857",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "event-registration",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
+      "source_record_ids": [
+        "rock_podcast_rss:26bef0ec9535af36"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
+          "timestamp": "06:37",
+          "timestamp_seconds": 397.06,
+          "title": "Episode 37: Special Edition Garrett Johnson",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For Rock operations and administration, Registration Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "95dfb3548f12eaa84df48aca4672b88461dd45e2424aa80fc4f1c0f7a50eea4b",
+      "claim_id": "claim:6a8231cbe1fe6883db37",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
+      "source_record_ids": [
+        "rock_rocku:7b16cf34fbbaa021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
+          "timestamp": "02:34",
+          "timestamp_seconds": 154.04,
+          "title": "Registration Templates",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Family Pre-Registration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "97b398628db5a0a8e777f470e933ba1ee2cd4a478c0c2ed77e001f618fe3dbd7",
+      "claim_id": "claim:7294ceea1bdeccdf7ea0",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
+      "source_record_ids": [
+        "rock_rocku:f100a7c66d47ef32"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Family Pre-Registration",
+          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Group Placements [Legacy] is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. Because this training is labeled legacy, confirm whether a newer Rock surface has replaced it before recommending implementation steps.",
+      "claim_hash": "5d3998ef6a158090cd186efaae3abd47d5cd9990be329c95d15fc25e77074527",
+      "claim_id": "claim:73bf775090693b5fbb81",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "12df569f558a20e2a9dffa5b35190a1189084bb243a3d04921b0a4e9b1ff5219",
+      "source_record_ids": [
+        "rock_rocku:da09520593737d6c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Group Placements [Legacy]",
+          "url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This RockCast profile adds public-safe context for several developer-facing Rock surfaces: core UI/UX work, cache clearing, Wi-Fi presence, registration changes, and Entity Framework education. It is useful as routing evidence for developer troubleshooting and for treating registration, caching, and presence features as implementation areas with deeper internals.",
+      "claim_hash": "7175c7eca6b977af73fce9368fce44eaa0b3feed33a9f51c05182a72d1f2a97e",
+      "claim_id": "claim:7a5ee6fc55082950d06a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "event-registration",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
+      "source_record_ids": [
+        "rock_podcast_rss:26bef0ec9535af36"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Episode 37: Special Edition Garrett Johnson",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For version, roadmap, and release-caveat awareness, Registration Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "a64534afdad83b7344e0555ad5b700b60856c617cc75652d12b9c47aec0a59e6",
+      "claim_id": "claim:7b89678f588fe3f79a50",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
+      "source_record_ids": [
+        "rock_rocku:7b16cf34fbbaa021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
+          "timestamp": "05:51",
+          "timestamp_seconds": 351.54,
+          "title": "Registration Templates",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Partial Payments is approved as a public-safe RockU training distillation for staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "47acfcca41209e82c8dd8400403a4c0b5cc090ceda32916837b14ec3fea25a0c",
+      "claim_id": "claim:7bbac680dbd0b7ce765d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "giving-finance",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "192d52611bb9eb4b96417e66a3bee210a9bcd56a57617686242e08983ec535a4",
+      "source_record_ids": [
+        "rock_rocku:d70d4595457b2c2a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Partial Payments",
+          "url": "https://community.rockrms.com/rocku/event-registration/partial-payments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "iCalendar Feed is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "fe80a7bc769ffbb01fc6a3e16d1cbdcb7901e66f0b9d05078a58957644a41278",
+      "claim_id": "claim:7cf6260518427df2c80c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "90583989c1723c0e87cda6983723fe83dfb7f67a640c2a546c523be43d8d9745",
+      "source_record_ids": [
+        "rock_rocku:2acc307b814c2cfc"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "iCalendar Feed",
+          "url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Linkages RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "1cc9a39e19feb19cce67e302f07140df8a783a4c14f76754f4b5fb44d342355e",
+      "claim_id": "claim:7df66fddf9d003aafb2c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fed5eaf42517d9553b1f3c73baba1e55490413bcb0a63326b478b47d1d0b8314",
+      "source_record_ids": [
+        "rock_rocku:b74fadad450adc57"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/linkages",
+          "timestamp": "01:01",
+          "timestamp_seconds": 61.14,
+          "title": "Linkages",
+          "url": "https://community.rockrms.com/rocku/event-registration/linkages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Payment Plans RockU lesson provides training context for risk, governance, permissions, and policy review; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "fbe287088138662ea219f9fb8e1d010326dfa645ef78f38fb8d81bb148e42c69",
+      "claim_id": "claim:80c80f9f2c704535dddf",
+      "claim_tier": "routing_context_only",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "giving-finance",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b25cf2b940e3a58af58493bd6207da73ffe2174fddbc03b5e178fc33ffaac0d0",
+      "source_record_ids": [
+        "rock_rocku:a76cd4b8d8e0caae"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/payment-plans",
+          "timestamp": "03:57",
+          "timestamp_seconds": 237.0,
+          "title": "Payment Plans",
+          "url": "https://community.rockrms.com/rocku/event-registration/payment-plans"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For reporting, analytics, and measurement, Group Placement should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
+      "claim_hash": "45765c5af112878d145379dc967a09dcdcc93547782b042500b75d14436c9769",
+      "claim_id": "claim:822e87a143f064347983",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "088ec1c2a9721c5a94a7d4f59b549cfb4ffa881f2b8903f5c2b8f11beb379042",
+      "source_record_ids": [
+        "rock_rocku:e1a1b4c6f42afcba"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/group-placement",
+          "timestamp": "07:43",
+          "timestamp_seconds": 463.26,
+          "title": "Group Placement",
+          "url": "https://community.rockrms.com/rocku/event-registration/group-placement"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Group Placement is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "4105e0c54d6ed54a1c0216aa20d3903d6963e5aa9873e19434ab4584d12b9a63",
+      "claim_id": "claim:85dc3850ad247529c6e2",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "088ec1c2a9721c5a94a7d4f59b549cfb4ffa881f2b8903f5c2b8f11beb379042",
+      "source_record_ids": [
+        "rock_rocku:e1a1b4c6f42afcba"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Group Placement",
+          "url": "https://community.rockrms.com/rocku/event-registration/group-placement"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Electronic Signatures RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "ec9e1a6803c9eb8b91de4219e8a72139556626f22a54ec4a4355ed8dc7ab5fb8",
+      "claim_id": "claim:8eedca03d41077240c67",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4b34d3ea3d1203ce663d3b607c589512b5e0362fd93c7e885c9ca9ce31228165",
+      "source_record_ids": [
+        "rock_rocku:99161b788cad1f6e"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Electronic Signatures",
+          "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Group Placement RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "3b8b23c945e4a3cce8fac585c367428066fc764ef0c77697d9f78e8b95bc7fdc",
+      "claim_id": "claim:8fcfe431e1f9aca49a3f",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "088ec1c2a9721c5a94a7d4f59b549cfb4ffa881f2b8903f5c2b8f11beb379042",
+      "source_record_ids": [
+        "rock_rocku:e1a1b4c6f42afcba"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/group-placement",
+          "timestamp": "00:16",
+          "timestamp_seconds": 16.5,
+          "title": "Group Placement",
+          "url": "https://community.rockrms.com/rocku/event-registration/group-placement"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "New-family preregistration should be connected to a clear follow-up workflow or connection process so the data captured before arrival leads to ministry action.",
+      "claim_hash": "9aacafbf9298767df4c1fbb9229866610014c803f52fb35774b84a6fa225ba49",
+      "claim_id": "claim:90fecb6ea51cf994ff92",
+      "claim_tier": "live_verified",
+      "claim_type": "implementation_pattern",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "feature_surfaces",
+            "tables": [
+              "Registration",
+              "Person",
+              "Group",
+              "ConnectionRequest",
+              "WorkflowType"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified registration/person/group plus connection/workflow surfaces used to connect new-family preregistration to follow-up process."
+        ],
+        "verification_method": "read_only_sql_feature_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T04:12:27Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
+      "source_record_ids": [
+        "rock_community_hubs:7cd07bd6d4ff5479"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz",
+          "timestamp": "00:37",
+          "timestamp_seconds": 37.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Partial Payments RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "f3486111a0ad0a9eda9fef997dfcfc9da1d05b886ef9f9069e1f333f7cb127df",
+      "claim_id": "claim:931745707c497c56a805",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "giving-finance",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "192d52611bb9eb4b96417e66a3bee210a9bcd56a57617686242e08983ec535a4",
+      "source_record_ids": [
+        "rock_rocku:d70d4595457b2c2a"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/partial-payments",
+          "timestamp": "00:24",
+          "timestamp_seconds": 24.48,
+          "title": "Partial Payments",
+          "url": "https://community.rockrms.com/rocku/event-registration/partial-payments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Event Attributes RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "180a12c941a892a5bb6c76592e9afae42994de03fe5482ecbbc3df2f360b3211",
+      "claim_id": "claim:944aaa2d92a04423f489",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "50adb776e86d40a7de7dd27f7bea9e2ca2bd57ac6fe9fe19a2821d0c68d64156",
+      "source_record_ids": [
+        "rock_rocku:7d14205db336c16b"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/event-attributes",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Event Attributes",
+          "url": "https://community.rockrms.com/rocku/event-registration/event-attributes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "For ministry process design, Group Placements [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
+      "claim_hash": "a13b2af7c2104b10cd5dfa056255084697c3e0d19f4a1fde51140993613eec52",
+      "claim_id": "claim:966786c06de832ce1f00",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "12df569f558a20e2a9dffa5b35190a1189084bb243a3d04921b0a4e9b1ff5219",
+      "source_record_ids": [
+        "rock_rocku:da09520593737d6c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration",
+          "timestamp": "00:17",
+          "timestamp_seconds": 17.0,
+          "title": "Group Placements [Legacy]",
+          "url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Calendar Overview RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "81bc82f6320d5df0b3caa907376f03426a6547d6680e1f8557dfe62cb4c93c49",
+      "claim_id": "claim:98efdc34e29ba178e110",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b3ca921c8cc0e95ec9054f619d69f52bac8968feeb9d1400eca5fbcf50c3cabc",
+      "source_record_ids": [
+        "rock_rocku:e25a6cf1bfd0bcd6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/calendar-overview",
+          "timestamp": "02:14",
+          "timestamp_seconds": 134.0,
+          "title": "Calendar Overview",
+          "url": "https://community.rockrms.com/rocku/event-registration/calendar-overview"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The iCalendar Feed RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "d8e71567a63723d207320d7726e5f3add28511790233c7123eefc9c7e4bb1747",
+      "claim_id": "claim:9ca439e5dc235e737421",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "90583989c1723c0e87cda6983723fe83dfb7f67a640c2a546c523be43d8d9745",
+      "source_record_ids": [
+        "rock_rocku:2acc307b814c2cfc"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "iCalendar Feed",
+          "url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Registration Walk-through is approved as a public-safe RockU training distillation for ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "72ec716a23021d0f2d47b9cd4b088b10772a61e8eb26f7832151e0bf3bd28966",
+      "claim_id": "claim:a3b66eb15889594a9e73",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a963c51906aea7c77cc509989c4aa2984d326ec4dfda46bd3f8e588a298eebaa",
+      "source_record_ids": [
+        "rock_rocku:e4f10f35a86cedbd"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Registration Walk-through",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "After go-live, teams should shift from launch pressure to quality requirements, sprint planning, and intentionally redesigned ministry processes.",
+      "claim_hash": "54a675c68a2240c6cfe04d84b0748f28bf54838072aba39ce8f7354fec156731",
+      "claim_id": "claim:a6fe41ec449004caa398",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "event-registration",
+        "giving-finance",
+        "groups",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
+      "source_record_ids": [
+        "rock_podcast_rss:73636340b56a6a03"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
+          "timestamp": "09:18",
+          "timestamp_seconds": 558.6,
+          "title": "Episode 111: Special Edition with Tim Dear",
+          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Family preregistration is useful when it reduces first-visit friction and improves the quality of people, family, and child data before check-in.",
+      "claim_hash": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
+      "claim_id": "claim:b6025804c011523e291d",
+      "claim_tier": "live_verified",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "feature_surfaces",
+            "tables": [
+              "Registration",
+              "RegistrationRegistrant",
+              "Person",
+              "PersonAlias",
+              "Group",
+              "GroupMember"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified registration, registrant, person/family-adjacent alias, group, and group-member surfaces used by family preregistration and check-in data quality review."
+        ],
+        "verification_method": "read_only_sql_feature_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T04:12:27Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
+      "source_record_ids": [
+        "rock_community_hubs:7cd07bd6d4ff5479"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz",
+          "timestamp": "01:16",
+          "timestamp_seconds": 76.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This Digital Strategy Hub session is a strong public-safe source for family preregistration and check-in readiness. It describes using Rock preregistration to capture family information before arrival, prepare for check-in, and design follow-up around new families, while making clear that preregistration should be tested as part of the real family and check-in data flow.",
+      "claim_hash": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
+      "claim_id": "claim:ba15698ecadd55ce215a",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
+      "source_record_ids": [
+        "rock_community_hubs:7cd07bd6d4ff5479"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "A public preregistration page should explain the value to families and avoid creating duplicate or partial records that staff later need to clean manually.",
+      "claim_hash": "47d7f95c476ab23a4a4f11db1c6d8c86621b6b058142355845e372c7907445c3",
+      "claim_id": "claim:bd2faf9d63fc7ecc41c1",
+      "claim_tier": "live_verified",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {
+        "evidence_refs": [
+          {
+            "probe_type": "feature_surfaces",
+            "tables": [
+              "Registration",
+              "RegistrationSession",
+              "RegistrationRegistrant",
+              "Person",
+              "PersonAlias"
+            ]
+          }
+        ],
+        "notes": [
+          "Read-only SQL verified public-registration session, registration, registrant, person, and alias surfaces used to avoid duplicate or partial record cleanup."
+        ],
+        "verification_method": "read_only_sql_feature_surface_probe",
+        "verification_scope": "connected_read_only_rock_instance",
+        "verified_at": "2026-06-09T04:12:27Z",
+        "verified_by": "read_only_verification"
+      },
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
+      "source_record_ids": [
+        "rock_community_hubs:7cd07bd6d4ff5479"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_community_hubs",
+          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz",
+          "timestamp": "03:50",
+          "timestamp_seconds": 230.0,
+          "title": "Media Watch",
+          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Linkages is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "ea6aee9e788ee0737438f40539c3ee5ba9be590d8256d8cdb4a1961786c99aed",
+      "claim_id": "claim:caa9b159abd72fb472d3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fed5eaf42517d9553b1f3c73baba1e55490413bcb0a63326b478b47d1d0b8314",
+      "source_record_ids": [
+        "rock_rocku:b74fadad450adc57"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Linkages",
+          "url": "https://community.rockrms.com/rocku/event-registration/linkages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Payment Plans is approved as a public-safe RockU training distillation for risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "4f9376e42dbaf181d433693994bf5fd3f58a731f4f48be0f612940dbef57f0c1",
+      "claim_id": "claim:ce28099ddd4274efea69",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "giving-finance",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b25cf2b940e3a58af58493bd6207da73ffe2174fddbc03b5e178fc33ffaac0d0",
+      "source_record_ids": [
+        "rock_rocku:a76cd4b8d8e0caae"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Payment Plans",
+          "url": "https://community.rockrms.com/rocku/event-registration/payment-plans"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Additional Registration Fees is approved as a public-safe RockU training distillation for source context. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "19f470da283079a75987654809006618f01077d55cac5ef7442477bf5986e962",
+      "claim_id": "claim:d22596bed0e2087b15d8",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "50e7ec33957ede428abf9a0c39a215318c2b1c67e464e1632aeab3b678ef5440",
+      "source_record_ids": [
+        "rock_rocku:cdbd7089fd2af521"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Additional Registration Fees",
+          "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Registration Instances RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "a36771437a18a05fc3d912dd77d356fbb3ec5f6605fcaf6ce7eed5dac62c8351",
+      "claim_id": "claim:d30d1d8c314ec618dcc0",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f7ae0528f71ba447840246b3be55afdd222a4568a0d148ac5ca7d12afd5d53c1",
+      "source_record_ids": [
+        "rock_rocku:e702311bcbacf6ba"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-instances",
+          "timestamp": "01:53",
+          "timestamp_seconds": 113.41999999999999,
+          "title": "Registration Instances",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-instances"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Registration Templates is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "6e0e76830eaf8fb7803304ab5fd88a1045841de9ba93724127918207342aa375",
+      "claim_id": "claim:d95dffaa18cdea08240b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
+      "source_record_ids": [
+        "rock_rocku:7b16cf34fbbaa021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Registration Templates",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Registration Discounts is approved as a public-safe RockU training distillation for staff training and operational readiness, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "21c199efad7e75f75167feb41b19876c6f290f09e7e6d9d0d904c456f9744518",
+      "claim_id": "claim:d9de2d6d8dab52afdaaf",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "78782486aa0d67cbee8ae027ebbfb93388c297b7a2e7f66c40b9d0b423f010c0",
+      "source_record_ids": [
+        "rock_rocku:9f3bc83f6e5fb51b"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Registration Discounts",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-discounts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Event Registration Attributes is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "706fa459e2e411fdbca5d711c88682d71cb7e5aaa1d6c042c6c7d4afafbcebea",
+      "claim_id": "claim:dd4a799b038b1cf7f6e1",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b1947f2813a2b51950eb5bc4fbd6b38ff3e59390abd88120b31cbfedd65b672f",
+      "source_record_ids": [
+        "rock_rocku:ce8eb086e4ef0cc6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Event Registration Attributes",
+          "url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Event Attributes is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "731a56075ff610ac855c97de4d5f8b5df59d54481a4cd04fba4b0460c072c69e",
+      "claim_id": "claim:e912a369248cfe799ecd",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "50adb776e86d40a7de7dd27f7bea9e2ca2bd57ac6fe9fe19a2821d0c68d64156",
+      "source_record_ids": [
+        "rock_rocku:7d14205db336c16b"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Event Attributes",
+          "url": "https://community.rockrms.com/rocku/event-registration/event-attributes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "The Registration Templates RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
+      "claim_hash": "ac1d2ab7708ed6fae65e1caf458d24ed0ed6737364ff45d9f460c25896e38a0d",
+      "claim_id": "claim:ee1d87ec234641f9b461",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
+      "source_record_ids": [
+        "rock_rocku:7b16cf34fbbaa021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
+          "timestamp": "05:51",
+          "timestamp_seconds": 351.54,
+          "title": "Registration Templates",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Registration Fees is approved as a public-safe RockU training distillation for source context. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "d249d584a1240a481d7b3cfc956ce61f88a6b6c13df2e2a7ff486d28380c8832",
+      "claim_id": "claim:f0df5f5635330151d240",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "810dd82677c7f7e7594c4b3a2b3706f378bc215b43b475db0b0b2d4f9cd97594",
+      "source_record_ids": [
+        "rock_rocku:5ecfe350fe307663"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Registration Fees",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-fees"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Core Rock UI and UX work affects the components staff use daily, so developer guidance should consider usability and feedback loops, not just backend behavior.",
+      "claim_hash": "829d4694205cdf7d834b0e718d026cbfb3d6c3d9963d894a8e7df3f8a289f48f",
+      "claim_id": "claim:f30e067d617b5791888d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "event-registration",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
+      "source_record_ids": [
+        "rock_podcast_rss:26bef0ec9535af36"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
+          "timestamp": "00:40",
+          "timestamp_seconds": 40.9,
+          "title": "Episode 37: Special Edition Garrett Johnson",
+          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Registration Instances is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "a94026fcac828a168235e1e8083c7e6cbe5756fd0127915af7f17fc70966de2a",
+      "claim_id": "claim:f46815f798db808e36ff",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f7ae0528f71ba447840246b3be55afdd222a4568a0d148ac5ca7d12afd5d53c1",
+      "source_record_ids": [
+        "rock_rocku:e702311bcbacf6ba"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Registration Instances",
+          "url": "https://community.rockrms.com/rocku/event-registration/registration-instances"
+        }
+      ]
+    },
+    {
+      "authority_tier": "rocku-confirmed",
+      "claim": "Calendar Overview is approved as a public-safe RockU training distillation for staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
+      "claim_hash": "502d6d1ee557605166eaf0e49a2c42c1087590ea7bc403293e52010cf8ce4908",
+      "claim_id": "claim:f9726f1e8453e453b3ba",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b3ca921c8cc0e95ec9054f619d69f52bac8968feeb9d1400eca5fbcf50c3cabc",
+      "source_record_ids": [
+        "rock_rocku:e25a6cf1bfd0bcd6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_rocku",
+          "title": "Calendar Overview",
+          "url": "https://community.rockrms.com/rocku/event-registration/calendar-overview"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:002c7538327801bcb076": "15b085f9849b056c02b4777e2e509e054e7ce110d2dbc3f8d10e568b475f563b",
+    "claim:00bd739c2cf274342f4b": "5bc4d5169781cc58b3ceb68e948109bfd8ab5acb7c11584c24a1b25d0dd94c75",
+    "claim:064b33c2b9f4187a7412": "7c9ad0902eb2b2135424ebd69119b86f88810fc8e392884865fbac985f5b9819",
+    "claim:08896ebe0d1b90fc0c31": "26f0626281b40e5c077708a18ca7504bed0e680849bfc1891a1e423e564e5900",
+    "claim:0cd3f78e0630bcb17e8b": "457efd952cc9c4df78969d7c8a10cf14a4968f12c12b69dee2ffe7af7005a2c6",
+    "claim:0da68b1d61b229269520": "09d6b05cb7c63733addb3cbb7dccdc879563af372363f7d9431e8534b7c0d3ce",
+    "claim:10cbe1512ae987e239f7": "9720196ae48745874d15b309eae5305b4825e4e81aba51d8ffad8fb00de3627e",
+    "claim:12d15d3fc2d5d5d4a42f": "22cd15001272c0297d0b2d65d7c9630e0f7f216655a3eb5e9469ea82159fc8cd",
+    "claim:158c76d4f5305a8d7c9a": "f1f44060570d0184c047d84cd632908aed541a982518d2d46e6ec2deac262200",
+    "claim:18d97b8bf3a112cc29c2": "b3580ed84feefe7b6cf8cb87d18616d652dd291dd6102d3ea530189c86e335e2",
+    "claim:1ed694954b3d4cbe0315": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
+    "claim:1fcc991853d27e54f773": "37f0b5303accecd4ce0364168b5c7d563aa90deae3050dcab4822f42cc6f85e6",
+    "claim:23536eadfcabcd4037ca": "120e3da5b731364838b263062a5d80320b8c93ccca9895951b8010b6b08af8c4",
+    "claim:2474696b65705f4d4461": "bdfd9861c647a63bd60fe0bc0f729bef57b3fa5ea2bbe69a61bb23e6180dd79a",
+    "claim:2a687dbd43ece0d98a0b": "709dee955d7915c1f57eb3c2b87c2947e99c2e50fe842903d86bb04768d1c8c8",
+    "claim:2fed0aac2c5693503a5d": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
+    "claim:319f8eb62da0f9d4a0e8": "3930733a0014985937bbd4c05da780b4af0d1e902f361d151938eedbed31ec34",
+    "claim:31c4c1938b5372bf7152": "2c0889470e8ebdc2bdd3e802d0182166ae199a90f2cfdc117c40413c600b1c1a",
+    "claim:3a63a5a8b217e1164e63": "a1b14bab6f5135c0822373a506d5a68d79127596800ced96314154f317db1863",
+    "claim:3a93cc8a72b4dae1e666": "ab057ea24aa6ddbc3872fc1c1377e19ecc396c598c8f0ccc387b0bb44205d256",
+    "claim:3a9f7cd348eb104d1921": "ed582a5950bf5c39dfe63a3bb309f8a64f92f9ab692b0fe1151beaf3d351246c",
+    "claim:419f6e545495eb3839a9": "0677d0e0db06a9a1b9b553dc41bf0ce7c8cbf111488497cc7e93baac3750b1a8",
+    "claim:427196787e90e7e1960d": "0d4ecda91cba36876ec9a119dff756ade40dd1138a22e2aaa8c288a49d815878",
+    "claim:42a75a1b8fa81b064517": "798e0876b54a915284ccc8063e7cd2d3cf50c3b0de2e3fbe12316946f6dd087b",
+    "claim:4f192029e62145144497": "402a36fd0afa065fa199296f437014d815e1cc60f403f904f4ee84c7e4779800",
+    "claim:57b56ebf5bb293682e3d": "81843a903c52c01e4acf93c0923d40d5c7672e97a6091cc086fb8bf45cfa3179",
+    "claim:696b196b4db5d683d857": "9f641a7bcbbd7862c6ebc3a08b26645c60af5a1b3c3efd9a06774830fb537106",
+    "claim:6a8231cbe1fe6883db37": "95dfb3548f12eaa84df48aca4672b88461dd45e2424aa80fc4f1c0f7a50eea4b",
+    "claim:7294ceea1bdeccdf7ea0": "97b398628db5a0a8e777f470e933ba1ee2cd4a478c0c2ed77e001f618fe3dbd7",
+    "claim:73bf775090693b5fbb81": "5d3998ef6a158090cd186efaae3abd47d5cd9990be329c95d15fc25e77074527",
+    "claim:7a5ee6fc55082950d06a": "7175c7eca6b977af73fce9368fce44eaa0b3feed33a9f51c05182a72d1f2a97e",
+    "claim:7b89678f588fe3f79a50": "a64534afdad83b7344e0555ad5b700b60856c617cc75652d12b9c47aec0a59e6",
+    "claim:7bbac680dbd0b7ce765d": "47acfcca41209e82c8dd8400403a4c0b5cc090ceda32916837b14ec3fea25a0c",
+    "claim:7cf6260518427df2c80c": "fe80a7bc769ffbb01fc6a3e16d1cbdcb7901e66f0b9d05078a58957644a41278",
+    "claim:7df66fddf9d003aafb2c": "1cc9a39e19feb19cce67e302f07140df8a783a4c14f76754f4b5fb44d342355e",
+    "claim:80c80f9f2c704535dddf": "fbe287088138662ea219f9fb8e1d010326dfa645ef78f38fb8d81bb148e42c69",
+    "claim:822e87a143f064347983": "45765c5af112878d145379dc967a09dcdcc93547782b042500b75d14436c9769",
+    "claim:85dc3850ad247529c6e2": "4105e0c54d6ed54a1c0216aa20d3903d6963e5aa9873e19434ab4584d12b9a63",
+    "claim:8eedca03d41077240c67": "ec9e1a6803c9eb8b91de4219e8a72139556626f22a54ec4a4355ed8dc7ab5fb8",
+    "claim:8fcfe431e1f9aca49a3f": "3b8b23c945e4a3cce8fac585c367428066fc764ef0c77697d9f78e8b95bc7fdc",
+    "claim:90fecb6ea51cf994ff92": "9aacafbf9298767df4c1fbb9229866610014c803f52fb35774b84a6fa225ba49",
+    "claim:931745707c497c56a805": "f3486111a0ad0a9eda9fef997dfcfc9da1d05b886ef9f9069e1f333f7cb127df",
+    "claim:944aaa2d92a04423f489": "180a12c941a892a5bb6c76592e9afae42994de03fe5482ecbbc3df2f360b3211",
+    "claim:966786c06de832ce1f00": "a13b2af7c2104b10cd5dfa056255084697c3e0d19f4a1fde51140993613eec52",
+    "claim:98efdc34e29ba178e110": "81bc82f6320d5df0b3caa907376f03426a6547d6680e1f8557dfe62cb4c93c49",
+    "claim:9ca439e5dc235e737421": "d8e71567a63723d207320d7726e5f3add28511790233c7123eefc9c7e4bb1747",
+    "claim:a3b66eb15889594a9e73": "72ec716a23021d0f2d47b9cd4b088b10772a61e8eb26f7832151e0bf3bd28966",
+    "claim:a6fe41ec449004caa398": "54a675c68a2240c6cfe04d84b0748f28bf54838072aba39ce8f7354fec156731",
+    "claim:b6025804c011523e291d": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
+    "claim:ba15698ecadd55ce215a": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
+    "claim:bd2faf9d63fc7ecc41c1": "47d7f95c476ab23a4a4f11db1c6d8c86621b6b058142355845e372c7907445c3",
+    "claim:caa9b159abd72fb472d3": "ea6aee9e788ee0737438f40539c3ee5ba9be590d8256d8cdb4a1961786c99aed",
+    "claim:ce28099ddd4274efea69": "4f9376e42dbaf181d433693994bf5fd3f58a731f4f48be0f612940dbef57f0c1",
+    "claim:d22596bed0e2087b15d8": "19f470da283079a75987654809006618f01077d55cac5ef7442477bf5986e962",
+    "claim:d30d1d8c314ec618dcc0": "a36771437a18a05fc3d912dd77d356fbb3ec5f6605fcaf6ce7eed5dac62c8351",
+    "claim:d95dffaa18cdea08240b": "6e0e76830eaf8fb7803304ab5fd88a1045841de9ba93724127918207342aa375",
+    "claim:d9de2d6d8dab52afdaaf": "21c199efad7e75f75167feb41b19876c6f290f09e7e6d9d0d904c456f9744518",
+    "claim:dd4a799b038b1cf7f6e1": "706fa459e2e411fdbca5d711c88682d71cb7e5aaa1d6c042c6c7d4afafbcebea",
+    "claim:e912a369248cfe799ecd": "731a56075ff610ac855c97de4d5f8b5df59d54481a4cd04fba4b0460c072c69e",
+    "claim:ee1d87ec234641f9b461": "ac1d2ab7708ed6fae65e1caf458d24ed0ed6737364ff45d9f460c25896e38a0d",
+    "claim:f0df5f5635330151d240": "d249d584a1240a481d7b3cfc956ce61f88a6b6c13df2e2a7ff486d28380c8832",
+    "claim:f30e067d617b5791888d": "829d4694205cdf7d834b0e718d026cbfb3d6c3d9963d894a8e7df3f8a289f48f",
+    "claim:f46815f798db808e36ff": "a94026fcac828a168235e1e8083c7e6cbe5756fd0127915af7f17fc70966de2a",
+    "claim:f9726f1e8453e453b3ba": "502d6d1ee557605166eaf0e49a2c42c1087590ea7bc403293e52010cf8ce4908"
+  },
+  "approved_claims_hash": "d014e1acfd29a86fb95a87cd42a42481ed39d1d314364be3f194a3cd3896460f",
+  "approved_claims_path": "knowledge/concepts/event-registration/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "15686438aaf274c2ce94d3c390c19acd7612daa3b2fd0d251c3299901e92795f",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:c88e531ccf336d58",
+      "public_promotion_id": "media-public-promotion:15686438aaf274c2",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:c88e531ccf336d58",
+      "source_title": "Registration Instances Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/registration-instances"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "149c44f3c96d1acff33eba85f9d963c53a4fdddb3079096c2d23d5a1340e6a4c",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:0936a5104d35e615",
+      "public_promotion_id": "media-public-promotion:149c44f3c96d1acf",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:0936a5104d35e615",
+      "source_title": "Event Registration Attributes Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "6b4df9f61c5fe70517cc0878b2af8623b57cb1d5328d5a91e01cd0111e898565",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:43b635abacb3cddd",
+      "public_promotion_id": "media-public-promotion:6b4df9f61c5fe705",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:43b635abacb3cddd",
+      "source_title": "Registration Fees Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/registration-fees"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "a6c91f91032f283acd977081378f878f6b54cc973c915297ff673403d4b90e17",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:305b8ae37a052a18",
+      "public_promotion_id": "media-public-promotion:a6c91f91032f283a",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:305b8ae37a052a18",
+      "source_title": "Registration Structure Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "d51c6e37da29b0707bc2216fd206f42646bba2c7345a67a44807f94ad163d7db",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:242cf3627e99b3d2",
+      "public_promotion_id": "media-public-promotion:d51c6e37da29b070",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:242cf3627e99b3d2",
+      "source_title": "Registration Walk-through Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "329eca645a495fe56de369ecf5d9dd3bb2e240e819f9737f0032a24fe68a45b7",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:cf8d0bcf5d54ee15",
+      "public_promotion_id": "media-public-promotion:329eca645a495fe5",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:cf8d0bcf5d54ee15",
+      "source_title": "Registration Discounts Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/registration-discounts"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "e6e2b763be291fcc16b148219ad745eec2aa171438ca179f7282543bee84bce4",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:6600e5869dac2651",
+      "public_promotion_id": "media-public-promotion:e6e2b763be291fcc",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:6600e5869dac2651",
+      "source_title": "Additional Registration Fees Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "lava",
+        "workflows"
+      ],
+      "content_hash": "7f043c7a4c552b31e80bcdec97394c63a61966861ec0269abf8a50976946dd95",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:3c4a90c64925cbc6",
+      "public_promotion_id": "media-public-promotion:7f043c7a4c552b31",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:3c4a90c64925cbc6",
+      "source_title": "Registration Templates Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+    },
+    {
+      "approved_concept_ids": [
+        "cms-websites",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "content_hash": "a028e6020d307e42a63309c51c060e06eb32b4933bcf1c676448e582a9b99e57",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:63a0de0f493db890",
+      "public_promotion_id": "media-public-promotion:a028e6020d307e42",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:63a0de0f493db890",
+      "source_title": "Family Pre-Registration Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "content_hash": "6b2f01d42c808127abc2fe7779bd256861c3b95e3ffb398c3f32375b899e873c",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:af7e06d3347594fd",
+      "public_promotion_id": "media-public-promotion:6b2f01d42c808127",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:af7e06d3347594fd",
+      "source_title": "Group Placements [Legacy] Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "4459d7e487da93b4b0adb7c91da843c6dfe603aecebcb3328191d7c5dc4291c7",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:f60de9690714f59e",
+      "public_promotion_id": "media-public-promotion:4459d7e487da93b4",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:f60de9690714f59e",
+      "source_title": "iCalendar Feed Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "giving-finance",
+        "workflows"
+      ],
+      "content_hash": "170b67fca271062ac06e95e82ebb7f3a37fb66a172028f52a9bd411f9b055075",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:ff1251ed1108755f",
+      "public_promotion_id": "media-public-promotion:170b67fca271062a",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:ff1251ed1108755f",
+      "source_title": "Partial Payments Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/partial-payments"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "d6aec14da2d69b6d5f562a2c0a6345e0ee5f5775b9f3ad6cb373e378a28a1b1f",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:b7cb6e0f0354451c",
+      "public_promotion_id": "media-public-promotion:d6aec14da2d69b6d",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:b7cb6e0f0354451c",
+      "source_title": "Calendar Overview Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/calendar-overview"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "05dd912c89475d02244635f2d2cac0336e325d9ff35dce4a871768a6b51b7ff1",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:ec5ff30f8c9865fb",
+      "public_promotion_id": "media-public-promotion:05dd912c89475d02",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:ec5ff30f8c9865fb",
+      "source_title": "Wait Lists Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/wait-lists"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "a29b1240300091a8dd17b564e19ebedf02651c3de7da1983852038bad5a827f3",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:9799f4791807924b",
+      "public_promotion_id": "media-public-promotion:a29b1240300091a8",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:9799f4791807924b",
+      "source_title": "Event Attributes Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/event-attributes"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "giving-finance",
+        "security-permissions",
+        "workflows"
+      ],
+      "content_hash": "be327d3f504a99edf75cb3918fc42992ce7f8af80551ab9dcc246e1f83f3aeb2",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:c65e32288301b2cf",
+      "public_promotion_id": "media-public-promotion:be327d3f504a99ed",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:c65e32288301b2cf",
+      "source_title": "Payment Plans Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/payment-plans"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "635df9370c00dd55f41637f6afb040ca80914fba9c7adb3c699db06decc658d4",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:b4eb269bac0720d9",
+      "public_promotion_id": "media-public-promotion:635df9370c00dd55",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:b4eb269bac0720d9",
+      "source_title": "Linkages Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/linkages"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "8927f9b3ed0a173410b07b8c3059b3b799806dde179a8b905b8eb9fc55420e9b",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:7ededa8a19f050ad",
+      "public_promotion_id": "media-public-promotion:8927f9b3ed0a1734",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:7ededa8a19f050ad",
+      "source_title": "Electronic Signatures Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+    },
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "54667a444b44c51d39f54359aeb214d4a4bb0a9b01a542c6cb41ac80e48d1a91",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:45d14ff6240ffaca",
+      "public_promotion_id": "media-public-promotion:54667a444b44c51d",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:45d14ff6240ffaca",
+      "source_title": "Calendars and Events Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/calendars-and-events"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "groups",
+        "workflows"
+      ],
+      "content_hash": "7c111307fc01e8faf511d435e5e0dbf9855c65d0bf8858aab05cac55c2e6cae9",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:3f2b75f2f91c717a",
+      "public_promotion_id": "media-public-promotion:7c111307fc01e8fa",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:3f2b75f2f91c717a",
+      "source_title": "Group Placement Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/group-placement"
+    },
+    {
+      "approved_concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "event-registration",
+        "platform-configuration"
+      ],
+      "content_hash": "3261d99ef95297865c9aae3bfedfaceb6feb26ffdcf46e6f53a51f7ed56989de",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:97a12ee26ba9575f",
+      "public_promotion_id": "media-public-promotion:3261d99ef9529786",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:97a12ee26ba9575f",
+      "source_title": "Episode 37: Special Edition Garrett Johnson Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "connections",
+        "event-registration",
+        "people-families",
+        "workflows"
+      ],
+      "content_hash": "e969adc9e714990b931e76f08dcdb5a2769193db4768f4481e598b9369b767d4",
+      "key_insight_count": 4,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:1f90493258b0b21b",
+      "public_promotion_id": "media-public-promotion:e969adc9e714990b",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_community_hubs",
+      "source_record_id": "media-insight:1f90493258b0b21b",
+      "source_title": "Media Watch Transcript Insight",
+      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+    },
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "event-registration",
+        "giving-finance",
+        "groups",
+        "platform-configuration"
+      ],
+      "content_hash": "d52e3f808b96f82aa71bd59fb00aead03852b56ce771a2fed2551cc675125e40",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:05f4fce834300a65",
+      "public_promotion_id": "media-public-promotion:d52e3f808b96f82a",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:05f4fce834300a65",
+      "source_title": "Episode 111: Special Edition with Tim Dear Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:05f4fce834300a65": "d52e3f808b96f82aa71bd59fb00aead03852b56ce771a2fed2551cc675125e40",
+    "media-insight:0936a5104d35e615": "149c44f3c96d1acff33eba85f9d963c53a4fdddb3079096c2d23d5a1340e6a4c",
+    "media-insight:1f90493258b0b21b": "e969adc9e714990b931e76f08dcdb5a2769193db4768f4481e598b9369b767d4",
+    "media-insight:242cf3627e99b3d2": "d51c6e37da29b0707bc2216fd206f42646bba2c7345a67a44807f94ad163d7db",
+    "media-insight:305b8ae37a052a18": "a6c91f91032f283acd977081378f878f6b54cc973c915297ff673403d4b90e17",
+    "media-insight:3c4a90c64925cbc6": "7f043c7a4c552b31e80bcdec97394c63a61966861ec0269abf8a50976946dd95",
+    "media-insight:3f2b75f2f91c717a": "7c111307fc01e8faf511d435e5e0dbf9855c65d0bf8858aab05cac55c2e6cae9",
+    "media-insight:43b635abacb3cddd": "6b4df9f61c5fe70517cc0878b2af8623b57cb1d5328d5a91e01cd0111e898565",
+    "media-insight:45d14ff6240ffaca": "54667a444b44c51d39f54359aeb214d4a4bb0a9b01a542c6cb41ac80e48d1a91",
+    "media-insight:63a0de0f493db890": "a028e6020d307e42a63309c51c060e06eb32b4933bcf1c676448e582a9b99e57",
+    "media-insight:6600e5869dac2651": "e6e2b763be291fcc16b148219ad745eec2aa171438ca179f7282543bee84bce4",
+    "media-insight:7ededa8a19f050ad": "8927f9b3ed0a173410b07b8c3059b3b799806dde179a8b905b8eb9fc55420e9b",
+    "media-insight:9799f4791807924b": "a29b1240300091a8dd17b564e19ebedf02651c3de7da1983852038bad5a827f3",
+    "media-insight:97a12ee26ba9575f": "3261d99ef95297865c9aae3bfedfaceb6feb26ffdcf46e6f53a51f7ed56989de",
+    "media-insight:af7e06d3347594fd": "6b2f01d42c808127abc2fe7779bd256861c3b95e3ffb398c3f32375b899e873c",
+    "media-insight:b4eb269bac0720d9": "635df9370c00dd55f41637f6afb040ca80914fba9c7adb3c699db06decc658d4",
+    "media-insight:b7cb6e0f0354451c": "d6aec14da2d69b6d5f562a2c0a6345e0ee5f5775b9f3ad6cb373e378a28a1b1f",
+    "media-insight:c65e32288301b2cf": "be327d3f504a99edf75cb3918fc42992ce7f8af80551ab9dcc246e1f83f3aeb2",
+    "media-insight:c88e531ccf336d58": "15686438aaf274c2ce94d3c390c19acd7612daa3b2fd0d251c3299901e92795f",
+    "media-insight:cf8d0bcf5d54ee15": "329eca645a495fe56de369ecf5d9dd3bb2e240e819f9737f0032a24fe68a45b7",
+    "media-insight:ec5ff30f8c9865fb": "05dd912c89475d02244635f2d2cac0336e325d9ff35dce4a871768a6b51b7ff1",
+    "media-insight:f60de9690714f59e": "4459d7e487da93b4b0adb7c91da843c6dfe603aecebcb3328191d7c5dc4291c7",
+    "media-insight:ff1251ed1108755f": "170b67fca271062ac06e95e82ebb7f3a37fb66a172028f52a9bd411f9b055075"
+  },
+  "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
+  "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
+  "built_at": "2026-06-12T09:21:07+00:00",
+  "concept_id": "event-registration",
+  "guide_hash": "8025a0e19a669fb659e845b799ca6d14e968e6e898207ed86ff43e7ee299e90d",
+  "guide_line_count": 1450,
+  "guide_path": "knowledge/concepts/event-registration/guide.md",
+  "guide_word_count": 11160,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": "8f13750d15addd42d73ee7547d49043f63653db05cee8e48ae1e342d2ffd48b3",
+      "excerpt_hash": "bd8208ea3a87b877bb97a6e5a4ad3cc121ca092ad7771790cdc6f091443d21ec",
+      "source_id": "rock_documentation",
+      "source_key": "1b6019ed673610cf",
+      "source_record_id": "rock_documentation:1b6019ed673610cf",
+      "url": "https://community.rockrms.com/documentation/bookcontent/29"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "e7e3f6d4d8e7c2513fab0f082b7fd55174e5a44b9320d3074724a5382af115be",
+      "excerpt_hash": "3fed9cb07b7b406dc7ec0f53ef26ec5ddbe2c6ccde262fab97585cd6426126d0",
+      "source_id": "rock_rocku",
+      "source_key": "cdbd7089fd2af521",
+      "source_record_id": "rock_rocku:cdbd7089fd2af521",
+      "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "1687ae32cecaa9d3770ddadc30dab166dc3bbc499de2bc1efc61e0540fdca2c7",
+      "excerpt_hash": "9b166ddd0c6396d8412aa4a6140911b045a33d31e7dfda686b12d3d2bc19bca7",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:fad2df48e1250711",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "41ad38e04bd4614e15cf08b0ac6d5fb47078af3a40ab671728c35b57778c2bb9",
+      "excerpt_hash": "99cb31f328d98510383b15a1b115a2d5055836a2c53c367d3bca42f5f34b79c9",
+      "source_id": "rock_rocku",
+      "source_key": "5ecfe350fe307663",
+      "source_record_id": "rock_rocku:5ecfe350fe307663",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-fees"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "0c6bcad45a903aef519015c6349bc897a9ad6e14c5a4d91388f0f6360dbe1b76",
+      "excerpt_hash": "538136c3fffebbb418e32c37d7a013bc361132b46f461529f7191adc6ad227de",
+      "source_id": "rock_rocku",
+      "source_key": "9f3bc83f6e5fb51b",
+      "source_record_id": "rock_rocku:9f3bc83f6e5fb51b",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-discounts"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "545621b00972d12a09bfe6792d2f04efdc971b4d6555df7172731d66e484fac3",
+      "excerpt_hash": "c209e065a5dd4a105e083f7b505841c847d60e3000b6d977bb8c0104a864c3fc",
+      "source_id": "rock_rocku",
+      "source_key": "f88b0748151b17a6",
+      "source_record_id": "rock_rocku:f88b0748151b17a6",
+      "url": "https://community.rockrms.com/rocku/event-registration"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "80ab5145f18a2bdc3ccabb320dfe975e194747103ad74a98589e4352735d03b6",
+      "excerpt_hash": "00001d6c095e6541dd6c52a4b4cb2dd47a3c862e6aa41b1f6ae8a1277930cd3b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "community-answer",
+      "content_hash": "2093780f5efd4edb3a228f84edf8e3bd3f6af114f116907e7b79e32220936e4f",
+      "excerpt_hash": "5aebf9d38c02c355883474cfeac76f84e7fc90294c1f87f014c1e7c9d3922163",
+      "source_id": "rock_qa",
+      "source_key": "8b1609730224eb1b",
+      "source_record_id": "rock_qa:8b1609730224eb1b",
+      "url": "https://community.rockrms.com/ask/developing/2547"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "473a62ef71c6e99a64057ffdce56f4cad9e480f4831e2305802a9169cf4b7fa0",
+      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "source_id": "rock_developer",
+      "source_key": "e9dcfbe00e9392de",
+      "source_record_id": "rock_developer:e9dcfbe00e9392de",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "02903d90d90a88095aeddb2bd8d1a153f2ecbc556a5aaae483230665a6df1e56",
+      "excerpt_hash": "3a0da8329b2eaa581af6fe8ad1743a99fd18864679bf8da648191dfbc9e22a29",
+      "source_id": "rock_recipes",
+      "source_key": "1f10c6dc510ad680",
+      "source_record_id": "rock_recipes:1f10c6dc510ad680",
+      "url": "https://community.rockrms.com/recipes/348"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "14eabd90c9564ed4f2263a6c1cd78753da6010021f96b4c40aba4ed0aa2fb8e8",
+      "excerpt_hash": "35ff4c1f36ccc373f3aecdb1e57ab64d9f29647dc788393e76f6ca1758966000",
+      "source_id": "rock_recipes",
+      "source_key": "ba714c760814915d",
+      "source_record_id": "rock_recipes:ba714c760814915d",
+      "url": "https://community.rockrms.com/recipes/400"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "11ae993bf9ceeaaf067505c359c0750aa9f22d74cdaee172081f72a9a0a5e51a",
+      "excerpt_hash": "0b379eb363c47fd9e898de52e6154347bdee4326d05e1851de10387deef4b43a",
+      "source_id": "rock_recipes",
+      "source_key": "84c5de76cca78a1a",
+      "source_record_id": "rock_recipes:84c5de76cca78a1a",
+      "url": "https://community.rockrms.com/recipes/472"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "daf361774a80e1b369ed3b7c7ede3bb2c76e1874f906ed4db9c0c096ae359c3f",
+      "excerpt_hash": "8d3aaaf79531e3f9a1869b36298ff0d7b54f2557c853c1bf28f2928e152ced02",
+      "source_id": "rock_recipes",
+      "source_key": "4df598747f60249c",
+      "source_record_id": "rock_recipes:4df598747f60249c",
+      "url": "https://community.rockrms.com/recipes/245"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "b356d09e41badd9e1425767eb33a4fffbd31e5a9c9105d6745b415cebdbeb968",
+      "excerpt_hash": "ee4df77d700e3872a75dc5c2a6af2a7876963a1e490ce30cc464b950a22909a7",
+      "source_id": "rock_recipes",
+      "source_key": "60357b5b8ff0c238",
+      "source_record_id": "rock_recipes:60357b5b8ff0c238",
+      "url": "https://community.rockrms.com/recipes/313"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "178753b444cfaca0c70d460d054ec21c248b81e2deb7ccad4bfbbd54878be690",
+      "excerpt_hash": "6d9bf0c3c97463450edefd993f4840c60227635f6af8b84177d99a3574a05728",
+      "source_id": "rock_rocku",
+      "source_key": "ce8eb086e4ef0cc6",
+      "source_record_id": "rock_rocku:ce8eb086e4ef0cc6",
+      "url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "8b59c2e55547e714bed6a1dfebc6b7d43df4bebbdb271e1de882e5812d75db99",
+      "excerpt_hash": "fea29eeed66cd94104d2c9343d380a240a9e8ba3b8cabd4b6345165d8e32b5a6",
+      "source_id": "rock_recipes",
+      "source_key": "f9ada88191ace9fa",
+      "source_record_id": "rock_recipes:f9ada88191ace9fa",
+      "url": "https://community.rockrms.com/recipes/361"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "15a4576eeb6d5b22cbf7668420848fb224d4eb031a93fad7a95804bb6f19a2d4",
+      "excerpt_hash": "823c4ccaf814b63629e98968eedc1ac93f880df96c1aedf9835814f70b6bdedf",
+      "source_id": "rock_recipes",
+      "source_key": "f3cc81b84e9a9aa9",
+      "source_record_id": "rock_recipes:f3cc81b84e9a9aa9",
+      "url": "https://community.rockrms.com/recipes/518/registration-change-tool"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "f3e6bbe01d334f185a96b413cf6918e6c9295d1153496da3f1591a58f693e7ec",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "c0cf9e3bbb1f6f9b",
+      "source_record_id": "triumph_resources:c0cf9e3bbb1f6f9b",
+      "url": "https://www.triumph.tech/resources/github-spotlight-182025"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ef4a4f9b29559b9e69513460791d45f3648092ad1fcc3ae0b04b7c52b763d4de",
+      "excerpt_hash": "bd6526f291ebf5dc1bac586b04f7ef1ccdb6ffa27d36cc0a3b44828867db79e0",
+      "source_id": "rock_developer",
+      "source_key": "2a94aef5f83aa079",
+      "source_record_id": "rock_developer:2a94aef5f83aa079",
+      "url": "https://community.rockrms.com/developer/ai-agents/skills"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "bc7c556ed114b2a2817aa0ae5f6f15b48c55cb2d0902ef0aab39af9cfb4102c6",
+      "excerpt_hash": "0f1aac0a94ca1dd88fb0cd38e4b038f98cce9cdfbff27dbc7330ba387ab7a306",
+      "source_id": "rock_rocku",
+      "source_key": "e702311bcbacf6ba",
+      "source_record_id": "rock_rocku:e702311bcbacf6ba",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-instances"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "f100a7c66d47ef32",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "2dbf1dbb055d8d31c63fea996900835132a18d037409befb1e2d996f9a595279",
+      "excerpt_hash": "712b42be87cdeb0def9ba34bb9ff541aa7264f72c09f7cc7e6a468497820caa4",
+      "source_id": "rock_rocku",
+      "source_key": "3ac2b7b2e39e37f3",
+      "source_record_id": "rock_rocku:3ac2b7b2e39e37f3",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
+      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
+      "source_id": "rock_rocku",
+      "source_key": "e4f10f35a86cedbd",
+      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "094c98456e80eca2",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "53507aa08e9095dd",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "43e9fe4d40e267db2ee91ec66099a8edf2a2b70f1a9c3f797c2a7648f78db9ab",
+      "excerpt_hash": "6bd6d37ee0fa47e095a7781a7799718831c2708aff62ed03742fcc185aaef62c",
+      "source_id": "rock_rocku",
+      "source_key": "7b16cf34fbbaa021",
+      "source_record_id": "rock_rocku:7b16cf34fbbaa021",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "high",
+      "end_line": 43,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "cdbd7089fd2af521",
+        "776256c424368312"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "high",
+      "end_line": 87,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": true,
+      "section_id": "2-scope-and-terminology",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "1b6019ed673610cf",
+        "5ecfe350fe307663",
+        "cdbd7089fd2af521",
+        "9f3bc83f6e5fb51b",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "776256c424368312",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "f88b0748151b17a6",
+        "8b1609730224eb1b"
+      ],
+      "start_line": 44
+    },
+    {
+      "confidence": "normal",
+      "end_line": 115,
+      "heading": "3. Event Registration Mental Model",
+      "needs_live_verification": true,
+      "section_id": "3-event-registration-mental-model",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 88
+    },
+    {
+      "confidence": "high",
+      "end_line": 139,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "776256c424368312",
+        "cdbd7089fd2af521",
+        "e9dcfbe00e9392de",
+        "1f10c6dc510ad680",
+        "ba714c760814915d",
+        "84c5de76cca78a1a",
+        "4df598747f60249c"
+      ],
+      "start_line": 116
+    },
+    {
+      "confidence": "structural",
+      "end_line": 141,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": false,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f88b0748151b17a6",
+        "d275b5b94a9da833",
+        "60357b5b8ff0c238"
+      ],
+      "start_line": 140
+    },
+    {
+      "confidence": "high",
+      "end_line": 194,
+      "heading": "Configuration Surfaces",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-configuration-surfaces",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 142
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 214,
+      "heading": "Data Model Orientation",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model-data-model-orientation",
+      "source_keys": [
+        "60357b5b8ff0c238"
+      ],
+      "start_line": 195
+    },
+    {
+      "confidence": "structural",
+      "end_line": 216,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "84c5de76cca78a1a",
+        "1b6019ed673610cf",
+        "d275b5b94a9da833",
+        "e9dcfbe00e9392de",
+        "ce8eb086e4ef0cc6",
+        "f88b0748151b17a6",
+        "776256c424368312"
+      ],
+      "start_line": 215
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 232,
+      "heading": "Registration Template",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-registration-template",
+      "source_keys": [
+        "84c5de76cca78a1a"
+      ],
+      "start_line": 217
+    },
+    {
+      "confidence": "normal",
+      "end_line": 255,
+      "heading": "Registration Instance",
+      "needs_live_verification": false,
+      "section_id": "6-primary-entities-and-relationships-registration-instance",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 233
+    },
+    {
+      "confidence": "normal",
+      "end_line": 269,
+      "heading": "Registration",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-registration",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 256
+    },
+    {
+      "confidence": "normal",
+      "end_line": 286,
+      "heading": "RegistrationRegistrant",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-registrationregistrant",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 270
+    },
+    {
+      "confidence": "normal",
+      "end_line": 303,
+      "heading": "Event Item Occurrence And Linkage",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-event-item-occurrence-and-linkage",
+      "source_keys": [
+        "e9dcfbe00e9392de"
+      ],
+      "start_line": 287
+    },
+    {
+      "confidence": "normal",
+      "end_line": 324,
+      "heading": "Attributes And Form Fields",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships-attributes-and-form-fields",
+      "source_keys": [
+        "ce8eb086e4ef0cc6",
+        "f88b0748151b17a6",
+        "776256c424368312"
+      ],
+      "start_line": 304
+    },
+    {
+      "confidence": "structural",
+      "end_line": 326,
+      "heading": "7. Common Event Registration Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-event-registration-workflows",
+      "source_keys": [
+        "ce8eb086e4ef0cc6",
+        "f88b0748151b17a6",
+        "776256c424368312",
+        "5ecfe350fe307663",
+        "cdbd7089fd2af521",
+        "9f3bc83f6e5fb51b",
+        "d275b5b94a9da833",
+        "e9dcfbe00e9392de",
+        "1b6019ed673610cf"
+      ],
+      "start_line": 325
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 345,
+      "heading": "Basic Public Registration",
+      "needs_live_verification": false,
+      "section_id": "7-common-event-registration-workflows-basic-public-registration",
+      "source_keys": [
+        "ce8eb086e4ef0cc6",
+        "f88b0748151b17a6",
+        "776256c424368312"
+      ],
+      "start_line": 327
+    },
+    {
+      "confidence": "normal",
+      "end_line": 358,
+      "heading": "Family And Guest Registration",
+      "needs_live_verification": false,
+      "section_id": "7-common-event-registration-workflows-family-and-guest-registration",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 346
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 378,
+      "heading": "Paid Registration",
+      "needs_live_verification": true,
+      "section_id": "7-common-event-registration-workflows-paid-registration",
+      "source_keys": [
+        "5ecfe350fe307663",
+        "cdbd7089fd2af521",
+        "9f3bc83f6e5fb51b",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6"
+      ],
+      "start_line": 359
+    },
+    {
+      "confidence": "normal",
+      "end_line": 393,
+      "heading": "Wait List Registration",
+      "needs_live_verification": true,
+      "section_id": "7-common-event-registration-workflows-wait-list-registration",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "e9dcfbe00e9392de",
+        "776256c424368312"
+      ],
+      "start_line": 379
+    },
+    {
+      "confidence": "normal",
+      "end_line": 411,
+      "heading": "Group Placement",
+      "needs_live_verification": true,
+      "section_id": "7-common-event-registration-workflows-group-placement",
+      "source_keys": [
+        "f88b0748151b17a6",
+        "1b6019ed673610cf"
+      ],
+      "start_line": 394
+    },
+    {
+      "confidence": "normal",
+      "end_line": 424,
+      "heading": "Payment Reminder Workflow",
+      "needs_live_verification": false,
+      "section_id": "7-common-event-registration-workflows-payment-reminder-workflow",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 412
+    },
+    {
+      "confidence": "structural",
+      "end_line": 426,
+      "heading": "8. Registration Instances Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-registration-instances-deep-dive",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f9ada88191ace9fa",
+        "f3cc81b84e9a9aa9",
+        "8b1609730224eb1b",
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 425
+    },
+    {
+      "confidence": "normal",
+      "end_line": 432,
+      "heading": "Instance Identity",
+      "needs_live_verification": true,
+      "section_id": "8-registration-instances-deep-dive-instance-identity",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f9ada88191ace9fa"
+      ],
+      "start_line": 427
+    },
+    {
+      "confidence": "structural",
+      "end_line": 445,
+      "heading": "Active And Date Windows",
+      "needs_live_verification": true,
+      "section_id": "8-registration-instances-deep-dive-active-and-date-windows",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f9ada88191ace9fa"
+      ],
+      "start_line": 433
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 460,
+      "heading": "Capacity And Spots",
+      "needs_live_verification": false,
+      "section_id": "8-registration-instances-deep-dive-capacity-and-spots",
+      "source_keys": [
+        "f3cc81b84e9a9aa9"
+      ],
+      "start_line": 446
+    },
+    {
+      "confidence": "normal",
+      "end_line": 475,
+      "heading": "URL Slug And Public Linkage",
+      "needs_live_verification": true,
+      "section_id": "8-registration-instances-deep-dive-url-slug-and-public-linkage",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "8b1609730224eb1b"
+      ],
+      "start_line": 461
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 487,
+      "heading": "Attributes",
+      "needs_live_verification": true,
+      "section_id": "8-registration-instances-deep-dive-attributes",
+      "source_keys": [
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 476
+    },
+    {
+      "confidence": "structural",
+      "end_line": 489,
+      "heading": "9. Payments Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-payments-deep-dive",
+      "source_keys": [
+        "cdbd7089fd2af521",
+        "84c5de76cca78a1a",
+        "776256c424368312",
+        "1b6019ed673610cf",
+        "d275b5b94a9da833",
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 488
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 519,
+      "heading": "Cost Model",
+      "needs_live_verification": false,
+      "section_id": "9-payments-deep-dive-cost-model",
+      "source_keys": [
+        "cdbd7089fd2af521"
+      ],
+      "start_line": 490
+    },
+    {
+      "confidence": "high",
+      "end_line": 533,
+      "heading": "Discounts",
+      "needs_live_verification": false,
+      "section_id": "9-payments-deep-dive-discounts",
+      "source_keys": [
+        "84c5de76cca78a1a",
+        "776256c424368312",
+        "1b6019ed673610cf"
+      ],
+      "start_line": 520
+    },
+    {
+      "confidence": "normal",
+      "end_line": 550,
+      "heading": "Partial Payments",
+      "needs_live_verification": true,
+      "section_id": "9-payments-deep-dive-partial-payments",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 534
+    },
+    {
+      "confidence": "normal",
+      "end_line": 563,
+      "heading": "Payment Plans",
+      "needs_live_verification": true,
+      "section_id": "9-payments-deep-dive-payment-plans",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 551
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 577,
+      "heading": "Payment Gateways And Saved Accounts",
+      "needs_live_verification": true,
+      "section_id": "9-payments-deep-dive-payment-gateways-and-saved-accounts",
+      "source_keys": [
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 564
+    },
+    {
+      "confidence": "normal",
+      "end_line": 592,
+      "heading": "Batches And Matching",
+      "needs_live_verification": false,
+      "section_id": "9-payments-deep-dive-batches-and-matching",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 578
+    },
+    {
+      "confidence": "structural",
+      "end_line": 594,
+      "heading": "10. Related Rock Areas: Events, Finance, Workflows, Communications, Groups",
+      "needs_live_verification": false,
+      "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups",
+      "source_keys": [
+        "cdbd7089fd2af521",
+        "1f10c6dc510ad680",
+        "ba714c760814915d",
+        "f3cc81b84e9a9aa9",
+        "d275b5b94a9da833",
+        "1b6019ed673610cf",
+        "f88b0748151b17a6"
+      ],
+      "start_line": 593
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 608,
+      "heading": "Events And Calendars",
+      "needs_live_verification": false,
+      "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-events-and-calendars",
+      "source_keys": [
+        "cdbd7089fd2af521"
+      ],
+      "start_line": 595
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 627,
+      "heading": "Finance",
+      "needs_live_verification": false,
+      "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-finance",
+      "source_keys": [
+        "1f10c6dc510ad680",
+        "ba714c760814915d"
+      ],
+      "start_line": 609
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 645,
+      "heading": "Workflows",
+      "needs_live_verification": false,
+      "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-workflows",
+      "source_keys": [
+        "f3cc81b84e9a9aa9"
+      ],
+      "start_line": 628
+    },
+    {
+      "confidence": "normal",
+      "end_line": 671,
+      "heading": "Communications",
+      "needs_live_verification": false,
+      "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-communications",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 646
+    },
+    {
+      "confidence": "normal",
+      "end_line": 686,
+      "heading": "Groups",
+      "needs_live_verification": false,
+      "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-groups",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f88b0748151b17a6"
+      ],
+      "start_line": 672
+    },
+    {
+      "confidence": "structural",
+      "end_line": 688,
+      "heading": "11. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "11-administration-and-operational-guardrails",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f88b0748151b17a6",
+        "f9ada88191ace9fa",
+        "4df598747f60249c"
+      ],
+      "start_line": 687
+    },
+    {
+      "confidence": "structural",
+      "end_line": 703,
+      "heading": "Permissions",
+      "needs_live_verification": false,
+      "section_id": "11-administration-and-operational-guardrails-permissions",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "f88b0748151b17a6"
+      ],
+      "start_line": 689
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 707,
+      "heading": "Naming",
+      "needs_live_verification": true,
+      "section_id": "11-administration-and-operational-guardrails-naming",
+      "source_keys": [
+        "f9ada88191ace9fa"
+      ],
+      "start_line": 704
+    },
+    {
+      "confidence": "structural",
+      "end_line": 736,
+      "heading": "Change Management",
+      "needs_live_verification": true,
+      "section_id": "11-administration-and-operational-guardrails-change-management",
+      "source_keys": [
+        "f9ada88191ace9fa"
+      ],
+      "start_line": 708
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 740,
+      "heading": "Notes And Auditability",
+      "needs_live_verification": false,
+      "section_id": "11-administration-and-operational-guardrails-notes-and-auditability",
+      "source_keys": [
+        "4df598747f60249c"
+      ],
+      "start_line": 737
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 755,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "11-administration-and-operational-guardrails-security",
+      "source_keys": [
+        "4df598747f60249c"
+      ],
+      "start_line": 741
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 773,
+      "heading": "Operational Health Checks",
+      "needs_live_verification": true,
+      "section_id": "11-administration-and-operational-guardrails-operational-health-checks",
+      "source_keys": [
+        "4df598747f60249c"
+      ],
+      "start_line": 756
+    },
+    {
+      "confidence": "structural",
+      "end_line": 775,
+      "heading": "12. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "e9dcfbe00e9392de",
+        "8b1609730224eb1b",
+        "d275b5b94a9da833",
+        "2a94aef5f83aa079"
+      ],
+      "start_line": 774
+    },
+    {
+      "confidence": "normal",
+      "end_line": 788,
+      "heading": "Public/Mobile Event Occurrence Rendering",
+      "needs_live_verification": true,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering",
+      "source_keys": [
+        "e9dcfbe00e9392de"
+      ],
+      "start_line": 776
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 802,
+      "heading": "API Linkage Caveat",
+      "needs_live_verification": true,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat",
+      "source_keys": [
+        "8b1609730224eb1b"
+      ],
+      "start_line": 789
+    },
+    {
+      "confidence": "normal",
+      "end_line": 814,
+      "heading": "Internal Registrant List",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-internal-registrant-list",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 803
+    },
+    {
+      "confidence": "normal",
+      "end_line": 818,
+      "heading": "Registration List Wait-List Indicator",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-registration-list-wait-list-indicator",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 815
+    },
+    {
+      "confidence": "normal",
+      "end_line": 822,
+      "heading": "Fee And Payment List Blocks",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-fee-and-payment-list-blocks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 819
+    },
+    {
+      "confidence": "normal",
+      "end_line": 844,
+      "heading": "Payment Reminder Block",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-payment-reminder-block",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 823
+    },
+    {
+      "confidence": "normal",
+      "end_line": 848,
+      "heading": "Agent Skills",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-agent-skills",
+      "source_keys": [
+        "2a94aef5f83aa079"
+      ],
+      "start_line": 845
+    },
+    {
+      "confidence": "structural",
+      "end_line": 850,
+      "heading": "13. Reporting, Analytics, And Model Map",
+      "needs_live_verification": false,
+      "section_id": "13-reporting-analytics-and-model-map",
+      "source_keys": [
+        "2a94aef5f83aa079",
+        "1f10c6dc510ad680",
+        "ba714c760814915d",
+        "60357b5b8ff0c238",
+        "84c5de76cca78a1a",
+        "4df598747f60249c"
+      ],
+      "start_line": 849
+    },
+    {
+      "confidence": "structural",
+      "end_line": 872,
+      "heading": "Core Metrics",
+      "needs_live_verification": false,
+      "section_id": "13-reporting-analytics-and-model-map-core-metrics",
+      "source_keys": [
+        "2a94aef5f83aa079"
+      ],
+      "start_line": 851
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 886,
+      "heading": "Reporting Entity Choice",
+      "needs_live_verification": false,
+      "section_id": "13-reporting-analytics-and-model-map-reporting-entity-choice",
+      "source_keys": [
+        "1f10c6dc510ad680",
+        "ba714c760814915d",
+        "60357b5b8ff0c238",
+        "84c5de76cca78a1a",
+        "4df598747f60249c"
+      ],
+      "start_line": 873
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 904,
+      "heading": "Model Map Verification",
+      "needs_live_verification": true,
+      "section_id": "13-reporting-analytics-and-model-map-model-map-verification",
+      "source_keys": [
+        "60357b5b8ff0c238"
+      ],
+      "start_line": 887
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 917,
+      "heading": "Analytics Checks",
+      "needs_live_verification": false,
+      "section_id": "13-reporting-analytics-and-model-map-analytics-checks",
+      "source_keys": [
+        "60357b5b8ff0c238"
+      ],
+      "start_line": 905
+    },
+    {
+      "confidence": "structural",
+      "end_line": 919,
+      "heading": "14. Version And Release Caveats",
+      "needs_live_verification": false,
+      "section_id": "14-version-and-release-caveats",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "776256c424368312",
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 918
+    },
+    {
+      "confidence": "normal",
+      "end_line": 923,
+      "heading": "Rock 18.1",
+      "needs_live_verification": false,
+      "section_id": "14-version-and-release-caveats-rock-18-1",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 920
+    },
+    {
+      "confidence": "normal",
+      "end_line": 929,
+      "heading": "Rock 18.3",
+      "needs_live_verification": true,
+      "section_id": "14-version-and-release-caveats-rock-18-3",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 924
+    },
+    {
+      "confidence": "normal",
+      "end_line": 942,
+      "heading": "Rock 19.1",
+      "needs_live_verification": false,
+      "section_id": "14-version-and-release-caveats-rock-19-1",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 930
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 946,
+      "heading": "v16.10 / v17.0 Spotlight",
+      "needs_live_verification": true,
+      "section_id": "14-version-and-release-caveats-v16-10-v17-0-spotlight",
+      "source_keys": [
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 943
+    },
+    {
+      "confidence": "structural",
+      "end_line": 948,
+      "heading": "15. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "15-implementation-playbooks",
+      "source_keys": [
+        "c0cf9e3bbb1f6f9b",
+        "776256c424368312"
+      ],
+      "start_line": 947
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 973,
+      "heading": "Playbook A: Create A Standard Paid Event Registration",
+      "needs_live_verification": true,
+      "section_id": "15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration",
+      "source_keys": [
+        "c0cf9e3bbb1f6f9b"
+      ],
+      "start_line": 949
+    },
+    {
+      "confidence": "normal",
+      "end_line": 985,
+      "heading": "Playbook B: Add Eligibility Rules In v19.1+",
+      "needs_live_verification": true,
+      "section_id": "15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 974
+    },
+    {
+      "confidence": "structural",
+      "end_line": 995,
+      "heading": "Playbook C: Prevent Duplicate Registrants In v19.1+",
+      "needs_live_verification": true,
+      "section_id": "15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 986
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 1008,
+      "heading": "Playbook D: Configure Payment Reminders",
+      "needs_live_verification": true,
+      "section_id": "15-implementation-playbooks-playbook-d-configure-payment-reminders",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 996
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1022,
+      "heading": "Playbook E: Diagnose A Missing Public Registration Button",
+      "needs_live_verification": true,
+      "section_id": "15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1009
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1033,
+      "heading": "Playbook F: Build A Read-Only Registration Dashboard",
+      "needs_live_verification": false,
+      "section_id": "15-implementation-playbooks-playbook-f-build-a-read-only-registration-dashboard",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1023
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1035,
+      "heading": "16. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree",
+      "source_keys": [
+        "776256c424368312",
+        "1b6019ed673610cf",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1034
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1052,
+      "heading": "Public page says registration is closed",
+      "needs_live_verification": true,
+      "section_id": "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1036
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1065,
+      "heading": "User cannot select the intended family member",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1053
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1075,
+      "heading": "Duplicate registration is blocked",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1066
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1089,
+      "heading": "Discount code does not work",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-discount-code-does-not-work",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1076
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1105,
+      "heading": "Balance due is wrong",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-balance-due-is-wrong",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1090
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1117,
+      "heading": "Payment plan amount is wrong",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 1106
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1129,
+      "heading": "Signature document shown for wrong registrant",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 1118
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1143,
+      "heading": "Registrant missing from group placement",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
+      "source_keys": [
+        "1b6019ed673610cf"
+      ],
+      "start_line": 1130
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1157,
+      "heading": "Payment reminder did not send",
+      "needs_live_verification": false,
+      "section_id": "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1144
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1159,
+      "heading": "17. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "17-agent-task-recipes",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "60357b5b8ff0c238",
+        "4df598747f60249c",
+        "8b1609730224eb1b"
+      ],
+      "start_line": 1158
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1177,
+      "heading": "Recipe: Summarize A Registration Instance",
+      "needs_live_verification": false,
+      "section_id": "17-agent-task-recipes-recipe-summarize-a-registration-instance",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1160
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1193,
+      "heading": "Recipe: Verify A Public Registration URL",
+      "needs_live_verification": true,
+      "section_id": "17-agent-task-recipes-recipe-verify-a-public-registration-url",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1178
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1209,
+      "heading": "Recipe: Audit Payment Risk",
+      "needs_live_verification": true,
+      "section_id": "17-agent-task-recipes-recipe-audit-payment-risk",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1194
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1223,
+      "heading": "Recipe: Audit Discount Codes",
+      "needs_live_verification": true,
+      "section_id": "17-agent-task-recipes-recipe-audit-discount-codes",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1210
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1238,
+      "heading": "Recipe: Audit Wait List",
+      "needs_live_verification": true,
+      "section_id": "17-agent-task-recipes-recipe-audit-wait-list",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1224
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1251,
+      "heading": "Recipe: Build A Registrant Packet Export",
+      "needs_live_verification": false,
+      "section_id": "17-agent-task-recipes-recipe-build-a-registrant-packet-export",
+      "source_keys": [
+        "60357b5b8ff0c238"
+      ],
+      "start_line": 1239
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1262,
+      "heading": "Recipe: Add Staff Notes To Registration Detail",
+      "needs_live_verification": true,
+      "section_id": "17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail",
+      "source_keys": [
+        "4df598747f60249c"
+      ],
+      "start_line": 1252
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 1297,
+      "heading": "Recipe: Investigate API Registration URL Issues",
+      "needs_live_verification": true,
+      "section_id": "17-agent-task-recipes-recipe-investigate-api-registration-url-issues",
+      "source_keys": [
+        "8b1609730224eb1b"
+      ],
+      "start_line": 1263
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1355,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
+        "9f3bc83f6e5fb51b",
+        "e702311bcbacf6ba",
+        "f100a7c66d47ef32",
+        "f88b0748151b17a6",
+        "3ac2b7b2e39e37f3",
+        "3ac2b7b2e39e37f3",
+        "e4f10f35a86cedbd",
+        "5ecfe350fe307663"
+      ],
+      "start_line": 1298
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1394,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "094c98456e80eca2",
+        "53507aa08e9095dd",
+        "f88b0748151b17a6",
+        "ce8eb086e4ef0cc6"
+      ],
+      "start_line": 1356
+    },
+    {
+      "confidence": "high",
+      "end_line": 1450,
+      "heading": "18. Source Map And Dependency Notes",
+      "needs_live_verification": true,
+      "section_id": "18-source-map-and-dependency-notes",
+      "source_keys": [
+        "1b6019ed673610cf",
+        "776256c424368312",
+        "cdbd7089fd2af521",
+        "e4f10f35a86cedbd",
+        "3ac2b7b2e39e37f3",
+        "7b16cf34fbbaa021",
+        "e702311bcbacf6ba",
+        "ce8eb086e4ef0cc6",
+        "5ecfe350fe307663",
+        "cdbd7089fd2af521",
+        "9f3bc83f6e5fb51b",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "f88b0748151b17a6",
+        "e9dcfbe00e9392de",
+        "2a94aef5f83aa079",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "1f10c6dc510ad680",
+        "ba714c760814915d",
+        "60357b5b8ff0c238",
+        "84c5de76cca78a1a",
+        "4df598747f60249c",
+        "f3cc81b84e9a9aa9",
+        "f9ada88191ace9fa",
+        "8b1609730224eb1b"
+      ],
+      "start_line": 1395
+    }
+  ],
+  "source_pack_hydrated_at": "2026-06-03T06:46:40+00:00",
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "8f13750d15addd42d73ee7547d49043f63653db05cee8e48ae1e342d2ffd48b3",
+      "excerpt_hash": "bd8208ea3a87b877bb97a6e5a4ad3cc121ca092ad7771790cdc6f091443d21ec",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1b6019ed673610cf",
+      "source_record_id": "rock_documentation:1b6019ed673610cf",
+      "title": "Event & Calendar Guide",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/29",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "e7e3f6d4d8e7c2513fab0f082b7fd55174e5a44b9320d3074724a5382af115be",
+      "excerpt_hash": "3fed9cb07b7b406dc7ec0f53ef26ec5ddbe2c6ccde262fab97585cd6426126d0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "cdbd7089fd2af521",
+      "source_record_id": "rock_rocku:cdbd7089fd2af521",
+      "title": "Additional Registration Fees",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "1687ae32cecaa9d3770ddadc30dab166dc3bbc499de2bc1efc61e0540fdca2c7",
+      "excerpt_hash": "9b166ddd0c6396d8412aa4a6140911b045a33d31e7dfda686b12d3d2bc19bca7",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "May 20, 2026",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:fad2df48e1250711",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.3"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "41ad38e04bd4614e15cf08b0ac6d5fb47078af3a40ab671728c35b57778c2bb9",
+      "excerpt_hash": "99cb31f328d98510383b15a1b115a2d5055836a2c53c367d3bca42f5f34b79c9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "5ecfe350fe307663",
+      "source_record_id": "rock_rocku:5ecfe350fe307663",
+      "title": "Registration Fees",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-fees",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "0c6bcad45a903aef519015c6349bc897a9ad6e14c5a4d91388f0f6360dbe1b76",
+      "excerpt_hash": "538136c3fffebbb418e32c37d7a013bc361132b46f461529f7191adc6ad227de",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "9f3bc83f6e5fb51b",
+      "source_record_id": "rock_rocku:9f3bc83f6e5fb51b",
+      "title": "Registration Discounts",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-discounts",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "545621b00972d12a09bfe6792d2f04efdc971b4d6555df7172731d66e484fac3",
+      "excerpt_hash": "c209e065a5dd4a105e083f7b505841c847d60e3000b6d977bb8c0104a864c3fc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "f88b0748151b17a6",
+      "source_record_id": "rock_rocku:f88b0748151b17a6",
+      "title": "Event Registration",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "80ab5145f18a2bdc3ccabb320dfe975e194747103ad74a98589e4352735d03b6",
+      "excerpt_hash": "00001d6c095e6541dd6c52a4b4cb2dd47a3c862e6aa41b1f6ae8a1277930cd3b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "community-answer",
+      "authority_score": 50,
+      "change_type": null,
+      "content_hash": "2093780f5efd4edb3a228f84edf8e3bd3f6af114f116907e7b79e32220936e4f",
+      "excerpt_hash": "5aebf9d38c02c355883474cfeac76f84e7fc90294c1f87f014c1e7c9d3922163",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_qa",
+      "source_key": "8b1609730224eb1b",
+      "source_record_id": "rock_qa:8b1609730224eb1b",
+      "title": "API - Where to access registration URL for a registration instance linked to an Event?",
+      "topics": [
+        "api",
+        "development",
+        "troubleshooting",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/ask/developing/2547",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "473a62ef71c6e99a64057ffdce56f4cad9e480f4831e2305802a9169cf4b7fa0",
+      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e9dcfbe00e9392de",
+      "source_record_id": "rock_developer:e9dcfbe00e9392de",
+      "title": "Calendar Event Item Occurrence View",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "02903d90d90a88095aeddb2bd8d1a153f2ecbc556a5aaae483230665a6df1e56",
+      "excerpt_hash": "3a0da8329b2eaa581af6fe8ad1743a99fd18864679bf8da648191dfbc9e22a29",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "1f10c6dc510ad680",
+      "source_record_id": "rock_recipes:1f10c6dc510ad680",
+      "title": "Registration Instance Totals Report",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/348",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "14eabd90c9564ed4f2263a6c1cd78753da6010021f96b4c40aba4ed0aa2fb8e8",
+      "excerpt_hash": "35ff4c1f36ccc373f3aecdb1e57ab64d9f29647dc788393e76f6ca1758966000",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "ba714c760814915d",
+      "source_record_id": "rock_recipes:ba714c760814915d",
+      "title": "Registration Instance Fees Report",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/400",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "11ae993bf9ceeaaf067505c359c0750aa9f22d74cdaee172081f72a9a0a5e51a",
+      "excerpt_hash": "0b379eb363c47fd9e898de52e6154347bdee4326d05e1851de10387deef4b43a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "84c5de76cca78a1a",
+      "source_record_id": "rock_recipes:84c5de76cca78a1a",
+      "title": "Show Active Registration Discount Codes",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/472",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "daf361774a80e1b369ed3b7c7ede3bb2c76e1874f906ed4db9c0c096ae359c3f",
+      "excerpt_hash": "8d3aaaf79531e3f9a1869b36298ff0d7b54f2557c853c1bf28f2928e152ced02",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "4df598747f60249c",
+      "source_record_id": "rock_recipes:4df598747f60249c",
+      "title": "Registration Notes",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/245",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "b356d09e41badd9e1425767eb33a4fffbd31e5a9c9105d6745b415cebdbeb968",
+      "excerpt_hash": "ee4df77d700e3872a75dc5c2a6af2a7876963a1e490ce30cc464b950a22909a7",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "60357b5b8ff0c238",
+      "source_record_id": "rock_recipes:60357b5b8ff0c238",
+      "title": "{{registrationInstance.Name}}",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/313",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "178753b444cfaca0c70d460d054ec21c248b81e2deb7ccad4bfbbd54878be690",
+      "excerpt_hash": "6d9bf0c3c97463450edefd993f4840c60227635f6af8b84177d99a3574a05728",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "ce8eb086e4ef0cc6",
+      "source_record_id": "rock_rocku:ce8eb086e4ef0cc6",
+      "title": "Event Registration Attributes",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "8b59c2e55547e714bed6a1dfebc6b7d43df4bebbdb271e1de882e5812d75db99",
+      "excerpt_hash": "fea29eeed66cd94104d2c9343d380a240a9e8ba3b8cabd4b6345165d8e32b5a6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "f9ada88191ace9fa",
+      "source_record_id": "rock_recipes:f9ada88191ace9fa",
+      "title": "Control the Title on The Event Registration Page",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/361",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "15a4576eeb6d5b22cbf7668420848fb224d4eb031a93fad7a95804bb6f19a2d4",
+      "excerpt_hash": "823c4ccaf814b63629e98968eedc1ac93f880df96c1aedf9835814f70b6bdedf",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "f3cc81b84e9a9aa9",
+      "source_record_id": "rock_recipes:f3cc81b84e9a9aa9",
+      "title": "Overview",
+      "topics": [
+        "finance",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/518/registration-change-tool",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "f3e6bbe01d334f185a96b413cf6918e6c9295d1153496da3f1591a58f693e7ec",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "c0cf9e3bbb1f6f9b",
+      "source_record_id": "triumph_resources:c0cf9e3bbb1f6f9b",
+      "title": "GitHub Spotlight: 1/8/2025",
+      "topics": [
+        "ai",
+        "check-in",
+        "github",
+        "implementation",
+        "lava",
+        "operations",
+        "releases",
+        "resources",
+        "security",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-182025",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ef4a4f9b29559b9e69513460791d45f3648092ad1fcc3ae0b04b7c52b763d4de",
+      "excerpt_hash": "bd6526f291ebf5dc1bac586b04f7ef1ccdb6ffa27d36cc0a3b44828867db79e0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "2a94aef5f83aa079",
+      "source_record_id": "rock_developer:2a94aef5f83aa079",
+      "title": "Skills",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/skills",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "bc7c556ed114b2a2817aa0ae5f6f15b48c55cb2d0902ef0aab39af9cfb4102c6",
+      "excerpt_hash": "0f1aac0a94ca1dd88fb0cd38e4b038f98cce9cdfbff27dbc7330ba387ab7a306",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e702311bcbacf6ba",
+      "source_record_id": "rock_rocku:e702311bcbacf6ba",
+      "title": "Registration Instances",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-instances",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "f100a7c66d47ef32",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/cms/family-pre-registration",
+      "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "2dbf1dbb055d8d31c63fea996900835132a18d037409befb1e2d996f9a595279",
+      "excerpt_hash": "712b42be87cdeb0def9ba34bb9ff541aa7264f72c09f7cc7e6a468497820caa4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "3ac2b7b2e39e37f3",
+      "source_record_id": "rock_rocku:3ac2b7b2e39e37f3",
+      "title": "Registration Structure",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-structure",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
+      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e4f10f35a86cedbd",
+      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
+      "title": "Registration Walk-through",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "094c98456e80eca2",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
+      "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "53507aa08e9095dd",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "43e9fe4d40e267db2ee91ec66099a8edf2a2b70f1a9c3f797c2a7648f78db9ab",
+      "excerpt_hash": "6bd6d37ee0fa47e095a7781a7799718831c2708aff62ed03742fcc185aaef62c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "7b16cf34fbbaa021",
+      "source_record_id": "rock_rocku:7b16cf34fbbaa021",
+      "title": "Registration Templates",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
+      "version": null
+    }
+  ],
+  "synthesis_profile": "comprehensive"
+}

@@ -1,0 +1,56 @@
+{
+  "authority_tiers": {
+    "community-reviewed": 1027,
+    "official": 16,
+    "release-note-confirmed": 1,
+    "rocku-confirmed": 759
+  },
+  "claim_count": 1803,
+  "claim_tiers": {
+    "answer_pack_approved": 20,
+    "live_verified": 104,
+    "routing_context_only": 1679
+  },
+  "claim_types": {
+    "behavior": 3,
+    "configuration": 7,
+    "implementation_pattern": 29,
+    "operational_guidance": 1090,
+    "release_caveat": 107,
+    "risk": 63,
+    "source_summary": 504
+  },
+  "concept_ids": {
+    "ai-agents-automation": 37,
+    "api-integrations": 30,
+    "apple-tv": 9,
+    "check-in": 109,
+    "cms-websites": 164,
+    "communications": 146,
+    "connections": 37,
+    "data-views-reports": 556,
+    "developer-resources": 26,
+    "event-registration": 64,
+    "giving-finance": 108,
+    "groups": 173,
+    "helix": 4,
+    "lava": 81,
+    "learning-lms-engagement": 23,
+    "mobile": 94,
+    "people-families": 82,
+    "platform-configuration": 78,
+    "roku": 6,
+    "scheduling-locations": 24,
+    "security-permissions": 272,
+    "serving-volunteer-ops": 41,
+    "system-admin-ops": 11,
+    "tv-apps": 14,
+    "workflows": 1340
+  },
+  "generated_at": "2026-06-12T09:20:09+00:00",
+  "output": "claims/approved-claims.jsonl",
+  "review_statuses": {
+    "approved_for_public_distillation": 1803
+  },
+  "schema": "rock-kb-claim-export-report-v1"
+}

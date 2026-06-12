@@ -1,0 +1,156 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-inspect-an-existing-apple-tv-app",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/api-docs",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/apple-tv-docs/developer",
+        "https://community.rockrms.com/ask/developing"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Inspect An Existing Apple TV App",
+      "when": "Follow the guide section for Recipe: Inspect An Existing Apple TV App."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-diagnose-a-broken-button",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/api-docs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/apple-tv-docs/developer",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Diagnose A Broken Button",
+      "when": "Follow the guide section for Recipe: Diagnose A Broken Button."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-add-a-new-page-safely",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/api-docs",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/apple-tv-docs/developer",
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Add A New Page Safely",
+      "when": "Follow the guide section for Recipe: Add A New Page Safely."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-for-security",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript",
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/api-docs",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/Login/externalAuthenticationButtonBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/UserLoginList/authenticationComponentBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review For Security",
+      "when": "Follow the guide section for Recipe: Review For Security."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-for-performance",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript",
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
+        "https://github.com/SparkDevNetwork/Rock"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review For Performance",
+      "when": "Follow the guide section for Recipe: Review For Performance."
+    }
+  ],
+  "concept_id": "apple-tv",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:19+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-app-does-not-launch",
+    "18-troubleshooting-decision-tree-page-is-blank",
+    "18-troubleshooting-decision-tree-navigation-does-not-work",
+    "18-troubleshooting-decision-tree-sign-in-fails",
+    "18-troubleshooting-decision-tree-media-will-not-play",
+    "18-troubleshooting-decision-tree-resume-does-not-work",
+    "18-troubleshooting-decision-tree-styles-do-not-apply",
+    "18-troubleshooting-decision-tree-images-do-not-render",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-inspect-an-existing-apple-tv-app",
+    "19-agent-task-recipes-recipe-diagnose-a-broken-button",
+    "19-agent-task-recipes-recipe-add-a-new-page-safely",
+    "19-agent-task-recipes-recipe-review-for-security",
+    "19-agent-task-recipes-recipe-review-for-performance"
+  ]
+}

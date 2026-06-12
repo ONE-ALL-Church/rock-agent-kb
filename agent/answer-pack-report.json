@@ -1,0 +1,31 @@
+{
+  "answer_count": 75,
+  "checklist_count": 25,
+  "conflict_count": 34,
+  "counts": {
+    "answer_pack": 75,
+    "claim_review_queue": 1803,
+    "distilled_claims": 32,
+    "evaluation_results": 100,
+    "evaluation_set": 100,
+    "live_inspection_checklists": 25,
+    "live_probe_recipes": 120,
+    "source_authority_rules": 25,
+    "source_conflicts": 34
+  },
+  "distilled_claim_count": 32,
+  "evaluation_fail_count": 0,
+  "evaluation_pass_count": 100,
+  "generated_at": "2026-06-12T09:25:55+00:00",
+  "notes": [
+    "Answers are generated from approved public claims and route to live checklists.",
+    "High-value concept first-check answers may use reviewer-authored override text while retaining generated claim IDs and citations.",
+    "Distilled claim rows are generated clusters for reviewer approval before promotion to public prose.",
+    "Evaluation rows are deterministic quality gates for answer body, citations, live-check steps, probes, and caveats.",
+    "Conflict rows are authority-alignment review prompts, not proof that sources contradict each other.",
+    "Review queue rows are prioritized maintenance prompts for approved public claims."
+  ],
+  "review_queue_count": 1803,
+  "reviewer_override_count": 6,
+  "schema": "rock-kb-answer-pack-report-v1"
+}

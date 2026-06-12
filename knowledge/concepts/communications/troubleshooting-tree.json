@@ -1,0 +1,221 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-single-sent-communication",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/documentation/bookcontent/8",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/rocku/communication/sms-pipeline",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
+        "https://community.rockrms.com/recipes/138",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit a single sent communication",
+      "when": "Follow the guide section for Recipe: Audit a single sent communication."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-why-a-person-did-not-get-an-email",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/documentation/bookcontent/8",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/rocku/communication/sms-pipeline",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
+        "https://community.rockrms.com/recipes/138",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain why a person did not get an email",
+      "when": "Follow the guide section for Recipe: Explain why a person did not get an email."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-why-a-person-did-not-get-sms",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/documentation/bookcontent/8",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/rocku/communication/sms-pipeline",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list",
+        "https://community.rockrms.com/recipes/138"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain why a person did not get SMS",
+      "when": "Follow the guide section for Recipe: Explain why a person did not get SMS."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-communication-list-freshness",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/documentation/bookcontent/8",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit communication list freshness",
+      "when": "Follow the guide section for Recipe: Audit communication list freshness."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-communication-template",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/documentation/bookcontent/8",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/rocku/communication/sms-pipeline",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
+        "https://community.rockrms.com/recipes/138",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review a communication template",
+      "when": "Follow the guide section for Recipe: Review a communication template."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-investigate-sms-conversation-access",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
+        "https://community.rockrms.com/rocku/communication/sms-pipeline",
+        "https://community.rockrms.com/recipes/438",
+        "https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardRecipientBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/recipes/507"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Investigate SMS conversation access",
+      "when": "Follow the guide section for Recipe: Investigate SMS conversation access."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-determine-whether-a-workflow-email-supports-analytics",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/communication",
+        "https://community.rockrms.com/documentation/bookcontent/8",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+        "https://community.rockrms.com/rocku/communication/sms-pipeline",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
+        "https://community.rockrms.com/recipes/138",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Determine whether a workflow email supports analytics",
+      "when": "Follow the guide section for Recipe: Determine whether a workflow email supports analytics."
+    }
+  ],
+  "concept_id": "communications",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:10+00:00",
+  "guide_sections": [
+    "16-troubleshooting-decision-tree",
+    "16-troubleshooting-decision-tree-a-communication-did-not-send",
+    "16-troubleshooting-decision-tree-some-recipients-are-missing",
+    "16-troubleshooting-decision-tree-email-delivered-but-analytics-are-missing",
+    "16-troubleshooting-decision-tree-sms-reply-is-not-visible",
+    "16-troubleshooting-decision-tree-sms-recipient-did-not-receive-message",
+    "16-troubleshooting-decision-tree-template-is-missing-from-wizard",
+    "16-troubleshooting-decision-tree-user-cannot-view-communication-detail",
+    "17-agent-task-recipes",
+    "17-agent-task-recipes-recipe-audit-a-single-sent-communication",
+    "17-agent-task-recipes-recipe-explain-why-a-person-did-not-get-an-email",
+    "17-agent-task-recipes-recipe-explain-why-a-person-did-not-get-sms",
+    "17-agent-task-recipes-recipe-audit-communication-list-freshness",
+    "17-agent-task-recipes-recipe-review-a-communication-template",
+    "17-agent-task-recipes-recipe-investigate-sms-conversation-access",
+    "17-agent-task-recipes-recipe-determine-whether-a-workflow-email-supports-analytics"
+  ]
+}

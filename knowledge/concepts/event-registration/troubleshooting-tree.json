@@ -1,0 +1,248 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-summarize-a-registration-instance",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/rocku/event-registration",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://community.rockrms.com/recipes/245",
+        "https://community.rockrms.com/recipes/313",
+        "https://community.rockrms.com/developer/ai-agents/skills",
+        "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+        "https://community.rockrms.com/recipes/472"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Summarize A Registration Instance",
+      "when": "Follow the guide section for Recipe: Summarize A Registration Instance."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-verify-a-public-registration-url",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/rocku/event-registration",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://community.rockrms.com/recipes/245",
+        "https://community.rockrms.com/recipes/313",
+        "https://community.rockrms.com/developer/ai-agents/skills",
+        "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+        "https://community.rockrms.com/recipes/472"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Verify A Public Registration URL",
+      "when": "Follow the guide section for Recipe: Verify A Public Registration URL."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-payment-risk",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://www.rockrms.com/releasenotes",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://community.rockrms.com/recipes/245",
+        "https://community.rockrms.com/recipes/472",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/registrationInstanceSendPaymentReminderInitializationBox.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewResponseBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit Payment Risk",
+      "when": "Follow the guide section for Recipe: Audit Payment Risk."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-discount-codes",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/472",
+        "https://community.rockrms.com/recipes/245",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/rocku/event-registration/registration-discounts",
+        "https://community.rockrms.com/recipes/313",
+        "https://community.rockrms.com/ask/developing/2547"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit Discount Codes",
+      "when": "Follow the guide section for Recipe: Audit Discount Codes."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-wait-list",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/recipes/245",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceFeeList/registrationInstanceFeeListOptionsBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstancePaymentList/registrationInstancePaymentListOptionsBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit Wait List",
+      "when": "Follow the guide section for Recipe: Audit Wait List."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-registrant-packet-export",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/rocku/event-registration",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://community.rockrms.com/recipes/245",
+        "https://community.rockrms.com/recipes/313",
+        "https://community.rockrms.com/developer/ai-agents/skills",
+        "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+        "https://community.rockrms.com/recipes/472"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Registrant Packet Export",
+      "when": "Follow the guide section for Recipe: Build A Registrant Packet Export."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-add-staff-notes-to-registration-detail",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/rocku/event-registration",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/rocku/event-registration/registration-fees",
+        "https://community.rockrms.com/rocku/event-registration/registration-discounts",
+        "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+        "https://community.rockrms.com/recipes/245",
+        "https://community.rockrms.com/recipes/361"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Add Staff Notes To Registration Detail",
+      "when": "Follow the guide section for Recipe: Add Staff Notes To Registration Detail."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-investigate-api-registration-url-issues",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/event-registration",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/ask/developing/2547",
+        "https://community.rockrms.com/rocku/event-registration/registration-fees",
+        "https://community.rockrms.com/rocku/event-registration/registration-discounts",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
+        "https://community.rockrms.com/recipes/361"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Investigate API Registration URL Issues",
+      "when": "Follow the guide section for Recipe: Investigate API Registration URL Issues."
+    }
+  ],
+  "concept_id": "event-registration",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:07+00:00",
+  "guide_sections": [
+    "16-troubleshooting-decision-tree",
+    "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
+    "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
+    "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
+    "16-troubleshooting-decision-tree-discount-code-does-not-work",
+    "16-troubleshooting-decision-tree-balance-due-is-wrong",
+    "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
+    "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
+    "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
+    "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
+    "17-agent-task-recipes",
+    "17-agent-task-recipes-recipe-summarize-a-registration-instance",
+    "17-agent-task-recipes-recipe-verify-a-public-registration-url",
+    "17-agent-task-recipes-recipe-audit-payment-risk",
+    "17-agent-task-recipes-recipe-audit-discount-codes",
+    "17-agent-task-recipes-recipe-audit-wait-list",
+    "17-agent-task-recipes-recipe-build-a-registrant-packet-export",
+    "17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail",
+    "17-agent-task-recipes-recipe-investigate-api-registration-url-issues"
+  ]
+}

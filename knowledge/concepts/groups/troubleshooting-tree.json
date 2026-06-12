@@ -1,0 +1,193 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-identify-why-a-group-is-not-visible",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/7",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
+        "https://community.rockrms.com/rocku/groups/group-administrator"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Identify Why A Group Is Not Visible",
+      "when": "Follow the guide section for Recipe: Identify Why A Group Is Not Visible."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-group-type-before-launch",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/7",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
+        "https://community.rockrms.com/rocku/groups/group-administrator"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A Group Type Before Launch",
+      "when": "Follow the guide section for Recipe: Audit A Group Type Before Launch."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-debug-group-attendance-reminder-failures",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/7",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
+        "https://community.rockrms.com/ask/developing/2801",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/220",
+        "https://community.rockrms.com/recipes/519",
+        "https://community.rockrms.com/recipes/329",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Debug Group Attendance Reminder Failures",
+      "when": "Follow the guide section for Recipe: Debug Group Attendance Reminder Failures."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-group-finder-qa-checklist",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/7",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
+        "https://community.rockrms.com/rocku/groups/group-administrator"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Group Finder QA Checklist",
+      "when": "Follow the guide section for Recipe: Build A Group Finder QA Checklist."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-move-members-between-groups-safely",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ask/developing/2801",
+        "https://community.rockrms.com/documentation/bookcontent/7",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://community.rockrms.com/recipes/519",
+        "https://community.rockrms.com/recipes/124",
+        "https://community.rockrms.com/recipes/143",
+        "https://community.rockrms.com/recipes/136",
+        "https://community.rockrms.com/recipes/185",
+        "https://community.rockrms.com/recipes/144",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/documentation/bookcontent/7/361"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Move Members Between Groups Safely",
+      "when": "Follow the guide section for Recipe: Move Members Between Groups Safely."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-create-a-custom-scheduled-volunteer-communication-page",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/bookcontent/7",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
+        "https://community.rockrms.com/rocku/groups/group-administrator",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Create A Custom Scheduled Volunteer Communication Page",
+      "when": "Follow the guide section for Recipe: Create A Custom Scheduled Volunteer Communication Page."
+    }
+  ],
+  "concept_id": "groups",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:20:55+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-a-group-does-not-appear-in-group-viewer",
+    "17-troubleshooting-decision-tree-a-child-group-type-cannot-be-added",
+    "17-troubleshooting-decision-tree-a-person-is-in-the-group-but-not-on-the-roster",
+    "17-troubleshooting-decision-tree-attendance-cannot-be-entered",
+    "17-troubleshooting-decision-tree-group-finder-missing-expected-groups",
+    "17-troubleshooting-decision-tree-attendance-counts-are-wrong",
+    "17-troubleshooting-decision-tree-group-scheduler-looks-wrong",
+    "17-troubleshooting-decision-tree-group-requirement-cannot-be-resent",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-identify-why-a-group-is-not-visible",
+    "18-agent-task-recipes-recipe-audit-a-group-type-before-launch",
+    "18-agent-task-recipes-recipe-debug-group-attendance-reminder-failures",
+    "18-agent-task-recipes-recipe-build-a-group-finder-qa-checklist",
+    "18-agent-task-recipes-recipe-move-members-between-groups-safely",
+    "18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page"
+  ]
+}

@@ -1,0 +1,172 @@
+name: Refresh Knowledge Base
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: uv sync --extra dev
+      - name: Capture pre-refresh source snapshot
+        run: uv run kb sources scan --output-dir data/review/source-scan-pre --snapshot-output data/review/source-scan-pre/source-snapshot.json
+      - name: Refresh normalized sources without rebuilding public artifacts
+        id: refresh_sources
+        continue-on-error: true
+        run: |
+          set +e
+          uv run kb sources refresh --skip-indexes
+          status=$?
+          mkdir -p data/review/source-scan
+          if [ "$status" -eq 0 ]; then
+            printf '{"failed":[],"skipped":[],"exit_code":0}\n' > data/review/source-scan/source-refresh-status.json
+          else
+            printf '{"failed":["refresh_pipeline"],"skipped":[],"exit_code":%s}\n' "$status" > data/review/source-scan/source-refresh-status.json
+          fi
+          exit "$status"
+      - name: Scan source changes
+        if: always()
+        run: uv run kb sources scan --baseline-snapshot data/review/source-scan-pre/source-snapshot.json --source-status data/review/source-scan/source-refresh-status.json --output-dir data/review/source-scan
+      - name: Build status and dry-run plan
+        if: always()
+        run: |
+          mkdir -p data/review/rebuild-plan
+          uv run kb status > data/review/rebuild-plan/status.txt
+          ROCK_KB_GENERATED_AT=2026-06-11T00:00:00Z uv run kb build --dry-run > data/review/rebuild-plan/build-dry-run.json
+          uv run python - <<'PY'
+          import json
+          from pathlib import Path
+
+          scan_path = Path("data/review/source-scan/source-scan-report.json")
+          dry_run_path = Path("data/review/rebuild-plan/build-dry-run.json")
+          summary = json.loads(scan_path.read_text()).get("summary") if scan_path.exists() else {}
+          dry_run = json.loads(dry_run_path.read_text()) if dry_run_path.exists() else {}
+          actions = dry_run.get("actions") or []
+          lines = [
+              "## Source Refresh",
+              "",
+              f"- Changed source records: `{summary.get('changed_source_records', 0)}`",
+              f"- New source records: `{summary.get('new_source_records', 0)}`",
+              f"- Removed source records: `{summary.get('removed_source_records', 0)}`",
+              f"- Affected concepts: `{summary.get('affected_concepts', 0)}`",
+              "",
+              "## Pipeline Dry Run",
+              "",
+          ]
+          for action in actions:
+              lines.append(f"- `{action.get('stage')}`: {action.get('action')} ({action.get('status')})")
+          lines.extend(["", "See `data/review/rebuild-plan/status.txt` and `data/review/rebuild-plan/build-dry-run.json` for details.", ""])
+          Path("data/review/rebuild-plan/pull-request-body.md").write_text("\\n".join(lines), encoding="utf-8")
+          PY
+      - name: Build refresh dashboard
+        if: always()
+        run: |
+          if [ -f agent/evaluation-report.json ] && [ -f data/review/rebuild-plan/rebuild-plan-report.json ]; then
+            uv run kb report dashboard \
+              --scan-report data/review/source-scan/source-scan-report.json \
+              --rebuild-plan data/review/rebuild-plan/rebuild-plan-report.json \
+              --evaluation-report agent/evaluation-report.json \
+              --output-dir data/review/refresh-dashboard
+          else
+            echo "Skipping refresh dashboard because rebuild-plan report is no longer produced by the grouped workflow."
+          fi
+      - name: Classify refresh scope
+        id: refresh_scope
+        if: always()
+        run: |
+          uv run python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(Path("data/review/source-scan/source-scan-report.json").read_text())
+          summary = report.get("summary") or {}
+          source_change_keys = [
+              "changed_source_records",
+              "new_source_records",
+              "removed_source_records",
+              "new_urls",
+              "removed_urls",
+              "changed_release_notes",
+              "changed_model_map_rows",
+              "new_media_items",
+              "claims_added",
+              "claims_changed",
+              "claims_removed",
+          ]
+          source_change_count = sum(int(summary.get(key) or 0) for key in source_change_keys)
+          media_index = Path("data/media/index/media-index.jsonl")
+          has_private_media = media_index.exists() and media_index.stat().st_size > 0
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"source_change_count={source_change_count}\n")
+              output.write(f"has_source_changes={str(source_change_count > 0).lower()}\n")
+              output.write(f"has_private_media={str(has_private_media).lower()}\n")
+          print(f"source_change_count={source_change_count}")
+          print(f"has_private_media={str(has_private_media).lower()}")
+          PY
+      - name: Run deterministic rebuild path
+        if: steps.refresh_sources.outcome == 'success' && (github.ref_name != github.event.repository.default_branch || steps.refresh_scope.outputs.has_private_media == 'true')
+        run: |
+          uv run kb build --stage concepts
+          uv run kb build --stage refresh-claims
+          uv run kb build --stage agent-pack
+          uv run kb publish export
+      - name: Skip deterministic rebuild without private media
+        if: steps.refresh_sources.outcome == 'success' && github.ref_name == github.event.repository.default_branch && steps.refresh_scope.outputs.has_private_media != 'true'
+        run: echo "Skipping private-dependent artifact rebuild on default-branch CI because data/media/index is not available."
+      - name: Audit and test
+        if: steps.refresh_sources.outcome == 'success'
+        run: |
+          uv run kb audit public-export
+          uv run kb audit readiness --public-only
+          uv run --extra dev pytest
+      - name: Append audit results to PR body
+        if: steps.refresh_sources.outcome == 'success'
+        run: |
+          cat >> data/review/rebuild-plan/pull-request-body.md <<'EOF'
+
+          ## CI Scope
+
+          - Source change count: `${{ steps.refresh_scope.outputs.source_change_count }}`
+          - Private media corpus available to runner: `${{ steps.refresh_scope.outputs.has_private_media }}`
+          - Default-branch automated PR creation requires source changes; private-dependent artifact rebuilds require `data/media/index`.
+
+          ## Audit/Test Results
+
+          - `uv run kb audit public-export`: passed
+          - `uv run kb audit readiness --public-only`: passed
+          - `uv run --extra dev pytest`: passed
+          EOF
+      - name: Create refresh pull request
+        if: steps.refresh_sources.outcome == 'success' && github.ref_name == github.event.repository.default_branch && steps.refresh_scope.outputs.has_source_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: automation/source-refresh
+          title: "Refresh Rock KB source artifacts"
+          body-path: data/review/rebuild-plan/pull-request-body.md
+          commit-message: "Refresh Rock KB source artifacts"
+          labels: automated-refresh
+      - name: Skip refresh pull request without source changes
+        if: steps.refresh_sources.outcome == 'success' && github.ref_name == github.event.repository.default_branch && steps.refresh_scope.outputs.has_source_changes != 'true'
+        run: echo "Skipping automated refresh pull request creation because the source scan found no source deltas."
+      - name: Skip refresh pull request for validation branch
+        if: steps.refresh_sources.outcome == 'success' && github.ref_name != github.event.repository.default_branch
+        run: echo "Skipping automated refresh pull request creation for non-default branch '${{ github.ref_name }}'."
+      - name: Fail if source refresh failed
+        if: steps.refresh_sources.outcome != 'success'
+        run: exit 1

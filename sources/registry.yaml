@@ -1,0 +1,454 @@
+version: 1
+defaults:
+  refresh_cadence: weekly
+  allowed_extraction_mode: cite_and_summarize
+  license_status: public_rights_reserved
+  private_storage: true
+  public_publish_mode: public_cite_and_summarize_only
+  allowed_excerpt_chars: 600
+  requires_human_review: false
+  extraction_tier: 1
+  preferred_tooling:
+    - static_http
+    - custom_parser
+sources:
+  - id: rock_documentation
+    name: Rock Manuals
+    kind: rock_documentation
+    root_url: https://community.rockrms.com/documentation
+    description: Official Rock RMS manuals and book content.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    topics: [admin, operations, usage]
+
+  - id: rock_recipes
+    name: Rock Community Recipes
+    kind: rock_recipes
+    root_url: https://community.rockrms.com/recipes
+    description: Community-contributed implementation recipes.
+    owner: Spark Development Network and community contributors
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    topics: [recipes, lava, sql, workflow, integrations]
+
+  - id: rock_qa
+    name: Rock Community Q&A
+    kind: rock_qa
+    root_url: https://community.rockrms.com/ask
+    description: Public Rock Community questions and answers.
+    owner: Spark Development Network and community contributors
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    topics: [troubleshooting, development, usage]
+
+  - id: rock_rocku
+    name: RockU
+    kind: rocku
+    root_url: https://community.rockrms.com/rocku
+    description: Rock training video index and lesson metadata.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai, media_discovery, local_transcription]
+    topics: [training, usage, workflow]
+
+  - id: rock_developer
+    name: Rock Developer Resources
+    kind: rock_developer
+    root_url: https://community.rockrms.com/developer
+    description: Developer docs, API, Lava, Obsidian, and platform resources.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai, rockumentation_skill_builder]
+    topics: [development, api, lava, obsidian]
+
+  - id: rock_api_docs
+    name: Rock API Documentation Landing Page
+    kind: rock_api_docs
+    root_url: https://community.rockrms.com/api-docs
+    description: Public API documentation landing page, demo API documentation links, and API learning resources.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, endpoint_probe]
+    path_prefixes: [/api-docs]
+    topics: [development, api, integrations]
+
+  - id: rock_lava_docs
+    name: Rock Lava Reference
+    kind: rock_lava_docs
+    root_url: https://community.rockrms.com/lava
+    description: Lava reference pages, filters, commands, shortcodes, and Rock-specific Lava usage.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    path_prefixes: [/lava]
+    topics: [lava, development, cms, workflow]
+
+  - id: rock_mobile_docs
+    name: Rock Mobile Docs
+    kind: rock_mobile_docs
+    root_url: https://community.rockrms.com/developer//mobile-docs
+    description: Rock Mobile documentation tree and child pages.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai, rockumentation_skill_builder]
+    discover_children: true
+    child_url_allowlist:
+      - https://community.rockrms.com/developer/mobile-docs
+      - https://community.rockrms.com/developer//mobile-docs
+    topics: [mobile, maui, xaml, commands, controls, blocks]
+
+  - id: rock_model_map
+    name: Rock Model Map
+    kind: rock_model_map
+    root_url: https://community.rockrms.com/ModelMap
+    description: Public entity and model metadata for Rock.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: structured_metadata
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, embedded_config_parser]
+    topics: [model-map, data, api, lava]
+
+  - id: rock_core_release_notes
+    name: Rock Core Release Notes
+    kind: rock_release_notes
+    root_url: https://www.rockrms.com/releasenotes
+    description: Core Rock release notes, versions, module changes, issue links, and bulletins.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [static_http, release_parser]
+    topics: [releases, development, operations]
+
+  - id: rock_mobile_release_notes
+    name: Rock Mobile Release Notes
+    kind: rock_mobile_release_notes
+    root_url: https://www.rockrms.com/mobilereleasenotes
+    description: Rock Mobile shell release notes, platform minimums, and module changes.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [static_http, release_parser]
+    topics: [mobile, releases, maui]
+
+  - id: rock_podcast_rss
+    name: ROCK Cast RSS
+    kind: podcast_rss
+    root_url: https://feeds.acast.com/public/shows/5ae332859da29d4b23f0c47e
+    description: ROCK Cast episode metadata and show-note links.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [static_http, rss_parser, media_discovery, local_transcription]
+    topics: [podcast, releases, ai, operations]
+
+  - id: rock_community_hubs
+    name: Rock Community Hubs
+    kind: rock_community_hubs
+    root_url: https://community.rockrms.com/community-hubs
+    description: Public hub index and child pages.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: monthly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, media_discovery, local_transcription]
+    discover_children: true
+    topics: [community, hubs]
+
+  - id: rock_community_site
+    name: Rock Community Sitewide Public Pages
+    kind: rock_community_site
+    root_url: https://community.rockrms.com
+    description: Bounded sitewide discovery for public Rock Community pages not covered by a narrower source family.
+    owner: Spark Development Network and community contributors
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 2
+    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    path_prefixes:
+      - /api-docs
+      - /ask
+      - /community-hubs
+      - /developer
+      - /documentation
+      - /lava
+      - /learn
+      - /podcast
+      - /recipes
+      - /rocku
+      - /styling
+      - /subscriptions
+    topics: [community, documentation, usage, development]
+
+  - id: rock_shop_plugins
+    name: Rock Shop Plugin Metadata
+    kind: rock_shop_plugins
+    root_url: https://www.rockrms.com/rockshop
+    description: Public Rock Shop plugin listings and plugin metadata pages.
+    owner: Spark Development Network and plugin publishers
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser]
+    path_prefixes:
+      - /rockshop
+      - /rockshop/plugin
+    topics: [plugins, integrations, community]
+
+  - id: triumph_resources
+    name: Triumph Tech Resources
+    kind: triumph_resources
+    root_url: https://www.triumph.tech/resources
+    description: High-authority Triumph Tech resource articles, GitHub Spotlight posts, AI resources, and Rock community implementation guidance.
+    owner: Triumph Tech
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [static_http, rss_parser, custom_parser, cloudflare_markdown, crawl4ai, media_discovery, local_transcription]
+    feed_url: https://www.triumph.tech/GetChannelFeed.ashx?ChannelId=16
+    path_prefixes:
+      - /resources
+    topics: [triumph, resources, ai, releases, github, operations, implementation]
+
+  - id: rock_demo_api_docs_v1
+    name: Rock Demo API v1 Docs
+    kind: external_page
+    root_url: https://rock.rocksolidchurchdemo.com/api/docs/index
+    description: Public Rock demo API v1 documentation shell referenced by Rock Community API docs.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: monthly
+    extraction_tier: 1
+    preferred_tooling: [static_http, endpoint_probe]
+    topics: [api, development, integrations]
+
+  - id: rock_demo_api_docs_v2
+    name: Rock Demo API v2 Docs
+    kind: external_page
+    root_url: https://rock.rocksolidchurchdemo.com/api/v2/docs/index
+    description: Public Rock demo API v2 documentation shell referenced by Rock Community API docs.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: monthly
+    extraction_tier: 1
+    preferred_tooling: [static_http, endpoint_probe]
+    topics: [api, development, integrations]
+
+  - id: sparkdevnetwork_rock
+    name: SparkDevNetwork/Rock
+    kind: github_repo
+    root_url: https://github.com/SparkDevNetwork/Rock
+    repo: SparkDevNetwork/Rock
+    description: Core Rock RMS source repository.
+    owner: Spark Development Network
+    license_status: rock_community_license
+    allowed_extraction_mode: source_allowed_by_license
+    public_publish_mode: public_excerpt_only
+    allowed_excerpt_chars: 1200
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [github_api, git_clone, repomix]
+    topics: [development, source, api, model-map]
+
+  - id: sparkdevnetwork_slingshot
+    name: SparkDevNetwork/Slingshot
+    kind: github_repo
+    root_url: https://github.com/SparkDevNetwork/Slingshot
+    repo: SparkDevNetwork/Slingshot
+    description: Migration tooling for moving data into Rock RMS.
+    owner: Spark Development Network
+    license_status: CC-BY-SA-4.0
+    allowed_extraction_mode: source_allowed_by_license
+    public_publish_mode: public_excerpt_only
+    allowed_excerpt_chars: 1200
+    refresh_cadence: monthly
+    extraction_tier: 1
+    preferred_tooling: [github_api, git_clone, repomix]
+    topics: [migration, integrations]
+
+  - id: oneall_rock_sql_library
+    name: ONE&ALL Rock SQL Library
+    kind: github_repo
+    root_url: https://github.com/ONE-ALL-Church/Rock-SQL-Library
+    repo: ONE-ALL-Church/Rock-SQL-Library
+    description: ONE&ALL public Rock SQL examples and library.
+    owner: ONE&ALL Church
+    license_status: no_license_detected
+    allowed_extraction_mode: cite_and_summarize
+    requires_human_review: true
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [github_api, git_clone, files_to_prompt]
+    topics: [sql, reporting, oneall]
+
+  - id: public_rock_repos
+    name: Public Rock-Related GitHub Repos
+    kind: github_search
+    root_url: https://api.github.com/search/repositories?q=topic:rock-rms
+    description: Public repos discovered via GitHub search, topics, and curated allowlists.
+    owner: multiple
+    license_status: mixed
+    allowed_extraction_mode: metadata_then_license_gate
+    public_publish_mode: manual_review_required
+    allowed_excerpt_chars: 0
+    requires_human_review: true
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [github_api, gitingest, repomix]
+    topics: [development, plugins, tools, community]
+
+  - id: private_rock_repo_candidates
+    name: Private Rock Repo Candidates
+    kind: private_repo_review
+    root_url: local://private-rock-repos
+    description: Sanitized review queue for private Rock-related repositories.
+    owner: local
+    license_status: private_restricted
+    public_publish_mode: private_only
+    allowed_excerpt_chars: 0
+    requires_human_review: true
+    allowed_extraction_mode: reviewed_summaries_only
+    refresh_cadence: manual
+    extraction_tier: 4
+    preferred_tooling: [private_scan, allowlist]
+    topics: [private-review]
+
+  - id: rockproduction_docs_private_candidates
+    name: Private Organization Docs Candidates
+    kind: private_docs_review
+    root_url: private-corpus://organization-docs
+    description: Private review queue for organization-owned Rock docs that may contain a mix of instance-specific details and generalizable Rock operating knowledge.
+    owner: local
+    license_status: private_restricted
+    public_publish_mode: private_only
+    allowed_excerpt_chars: 0
+    requires_human_review: true
+    allowed_extraction_mode: reviewed_summaries_only
+    refresh_cadence: manual
+    extraction_tier: 4
+    preferred_tooling: [private_scan, allowlist, distill_private, redaction_review]
+    topics: [private-review, oneall, operations, docs]
+
+  - id: outside_org_contribution_candidates
+    name: Outside Org Contribution Candidates
+    kind: org_contribution_review
+    root_url: local://org-contribution-bundles
+    description: Sanitized review queue for other churches and organizations that want to contribute generalized Rock knowledge without publishing raw private data.
+    owner: multiple
+    license_status: contributor_attested
+    public_publish_mode: manual_review_required
+    allowed_excerpt_chars: 0
+    requires_human_review: true
+    allowed_extraction_mode: reviewed_summaries_only
+    refresh_cadence: manual
+    extraction_tier: 4
+    preferred_tooling: [private_scan, contribution_bundle, redaction_review, public_export_audit]
+    topics: [community, contribution, private-review, operations]
+
+tools:
+  crawl4ai:
+    repo: https://github.com/unclecode/crawl4ai
+    license_status: Apache-2.0
+    role: primary local advanced crawler
+  firecrawl:
+    repo: https://github.com/firecrawl/firecrawl
+    license_status: AGPL-3.0
+    role: optional hosted or self-hosted hard-page fallback and change monitor
+  crawlee:
+    repo: https://github.com/apify/crawlee
+    license_status: Apache-2.0
+    role: optional queue/browser crawler
+  scrapy:
+    repo: https://github.com/scrapy/scrapy
+    license_status: BSD-3-Clause
+    role: static high-volume crawler fallback
+  docling:
+    repo: https://github.com/docling-project/docling
+    license_status: MIT
+    role: preferred document conversion
+  markitdown:
+    repo: https://github.com/microsoft/markitdown
+    license_status: MIT
+    role: lightweight document conversion fallback
+  repomix:
+    repo: https://github.com/yamadashy/repomix
+    license_status: MIT
+    role: repository AI pack generation
+  gitingest:
+    repo: https://github.com/coderamp-labs/gitingest
+    license_status: MIT
+    role: fast remote repository digest
+  files_to_prompt:
+    repo: https://github.com/simonw/files-to-prompt
+    license_status: Apache-2.0
+    role: small allowlisted local bundles
+  llm:
+    repo: https://github.com/simonw/llm
+    license_status: Apache-2.0
+    role: summarization and embedding CLI wrapper
+  whisper:
+    repo: https://github.com/openai/whisper
+    license_status: MIT
+    role: optional local media transcription for private podcast and RockU analysis
+  mlx_whisper:
+    repo: https://github.com/ml-explore/mlx-examples/tree/main/whisper
+    license_status: MIT
+    role: recommended local Apple Silicon transcription path using MLX Whisper Large v3 Turbo
+  parakeet_cli:
+    repo: https://github.com/lucataco/parakeet-cli
+    license_status: Apache-2.0
+    role: experimental local high-throughput transcription CLI for NVIDIA Parakeet models
+  nvidia_parakeet_tdt:
+    repo: https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
+    license_status: CC-BY-4.0
+    role: experimental high-throughput local ASR model candidate
+  nvidia_nemo:
+    repo: https://github.com/NVIDIA-NeMo/NeMo
+    license_status: Apache-2.0
+    role: optional heavier ASR framework for Parakeet and Canary experiments
+  yt_dlp:
+    repo: https://github.com/yt-dlp/yt-dlp
+    license_status: Unlicense
+    role: optional media downloader/extractor for private video and streaming transcription workflows
+  lancedb:
+    repo: https://github.com/lancedb/lancedb
+    license_status: Apache-2.0
+    role: future local vector search

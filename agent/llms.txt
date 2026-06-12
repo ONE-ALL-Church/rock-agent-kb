@@ -1,0 +1,40 @@
+# Rock RMS General Knowledge Base
+
+This file is generated for AI agents. It points to source registries, curated knowledge, and machine-readable indexes.
+
+## Core Files
+
+- [Source registry](../sources/registry.yaml)
+- [Project goal](../docs/decisions/project-goal.md)
+- [Data organization decision](../docs/decisions/data-organization-decision.md)
+- [Pipeline overview](../docs/runbooks/pipeline-overview.md)
+- [Concept registry](../concepts/registry.yaml)
+- [Concept dependency map](concept-dependencies.jsonl)
+- [Concept index](concept-index.jsonl)
+- [Public source summaries](source-summaries.jsonl)
+- [Source summary coverage report](source-summary-report.json)
+
+## Sources
+
+- [Rock Manuals](https://community.rockrms.com/documentation) - Official Rock RMS manuals and book content.
+- [Rock Community Recipes](https://community.rockrms.com/recipes) - Community-contributed implementation recipes.
+- [Rock Community Q&A](https://community.rockrms.com/ask) - Public Rock Community questions and answers.
+- [RockU](https://community.rockrms.com/rocku) - Rock training video index and lesson metadata.
+- [Rock Developer Resources](https://community.rockrms.com/developer) - Developer docs, API, Lava, Obsidian, and platform resources.
+- [Rock API Documentation Landing Page](https://community.rockrms.com/api-docs) - Public API documentation landing page, demo API documentation links, and API learning resources.
+- [Rock Lava Reference](https://community.rockrms.com/lava) - Lava reference pages, filters, commands, shortcodes, and Rock-specific Lava usage.
+- [Rock Mobile Docs](https://community.rockrms.com/developer//mobile-docs) - Rock Mobile documentation tree and child pages.
+- [Rock Model Map](https://community.rockrms.com/ModelMap) - Public entity and model metadata for Rock.
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes) - Core Rock release notes, versions, module changes, issue links, and bulletins.
+- [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes) - Rock Mobile shell release notes, platform minimums, and module changes.
+- [ROCK Cast RSS](https://feeds.acast.com/public/shows/5ae332859da29d4b23f0c47e) - ROCK Cast episode metadata and show-note links.
+- [Rock Community Hubs](https://community.rockrms.com/community-hubs) - Public hub index and child pages.
+- [Rock Community Sitewide Public Pages](https://community.rockrms.com) - Bounded sitewide discovery for public Rock Community pages not covered by a narrower source family.
+- [Rock Shop Plugin Metadata](https://www.rockrms.com/rockshop) - Public Rock Shop plugin listings and plugin metadata pages.
+- [Triumph Tech Resources](https://www.triumph.tech/resources) - High-authority Triumph Tech resource articles, GitHub Spotlight posts, AI resources, and Rock community implementation guidance.
+- [Rock Demo API v1 Docs](https://rock.rocksolidchurchdemo.com/api/docs/index) - Public Rock demo API v1 documentation shell referenced by Rock Community API docs.
+- [Rock Demo API v2 Docs](https://rock.rocksolidchurchdemo.com/api/v2/docs/index) - Public Rock demo API v2 documentation shell referenced by Rock Community API docs.
+- [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock) - Core Rock RMS source repository.
+- [SparkDevNetwork/Slingshot](https://github.com/SparkDevNetwork/Slingshot) - Migration tooling for moving data into Rock RMS.
+- [ONE&ALL Rock SQL Library](https://github.com/ONE-ALL-Church/Rock-SQL-Library) - ONE&ALL public Rock SQL examples and library.
+- [Public Rock-Related GitHub Repos](https://api.github.com/search/repositories?q=topic:rock-rms) - Public repos discovered via GitHub search, topics, and curated allowlists.

@@ -1,0 +1,223 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-who-has-access-to-this",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://community.rockrms.com/recipes/243",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/helix/overview/security",
+        "https://community.rockrms.com/recipes/441",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Who Has Access To This?”",
+      "when": "Follow the guide section for Recipe: Answer “Who Has Access To This?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-answer-why-was-i-denied",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/recipes/441",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Answer “Why Was I Denied?”",
+      "when": "Follow the guide section for Recipe: Answer “Why Was I Denied?”."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-permission-change-request",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/recipes/441"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Permission Change Request",
+      "when": "Follow the guide section for Recipe: Review A Permission Change Request."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-custom-agent-tool",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/recipes/441"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Custom Agent Tool",
+      "when": "Follow the guide section for Recipe: Review A Custom Agent Tool."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-public-route",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/recipes/441"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Public Route",
+      "when": "Follow the guide section for Recipe: Review A Public Route."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-security-role",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
+        "https://community.rockrms.com/developer/helix/overview/security"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Security Role",
+      "when": "Follow the guide section for Recipe: Review A Security Role."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-after-upgrade",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/303---blast-off/rock-security",
+        "https://community.rockrms.com/recipes/243",
+        "https://www.rockrms.com/releasenotes",
+        "https://www.triumph.tech/resources/github-spotlight-962024-2",
+        "https://www.triumph.tech/resources/ai-in-digital-ministry",
+        "https://www.triumph.tech/resources/github-spotlight-5212026",
+        "https://community.rockrms.com/lava/remote-lava",
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+        "https://community.rockrms.com/developer/helix/overview/security",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review After Upgrade",
+      "when": "Follow the guide section for Recipe: Review After Upgrade."
+    }
+  ],
+  "concept_id": "security-permissions",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-12T09:21:11+00:00",
+  "guide_sections": [
+    "9-api-auth-deep-dive-api-auth-troubleshooting",
+    "16-troubleshooting-decision-tree",
+    "16-troubleshooting-decision-tree-user-cannot-see-a-page",
+    "16-troubleshooting-decision-tree-user-can-see-page-but-not-button",
+    "16-troubleshooting-decision-tree-user-can-see-too-much-data",
+    "16-troubleshooting-decision-tree-api-key-gets-permission-denied",
+    "16-troubleshooting-decision-tree-api-key-works-but-should-not",
+    "16-troubleshooting-decision-tree-workflow-visible-to-wrong-users",
+    "16-troubleshooting-decision-tree-document-or-file-visible-to-wrong-users",
+    "16-troubleshooting-decision-tree-group-finder-shows-private-groups",
+    "16-troubleshooting-decision-tree-permission-change-did-not-apply",
+    "17-agent-task-recipes",
+    "17-agent-task-recipes-recipe-answer-who-has-access-to-this",
+    "17-agent-task-recipes-recipe-answer-why-was-i-denied",
+    "17-agent-task-recipes-recipe-review-a-permission-change-request",
+    "17-agent-task-recipes-recipe-review-a-custom-agent-tool",
+    "17-agent-task-recipes-recipe-review-a-public-route",
+    "17-agent-task-recipes-recipe-review-a-security-role",
+    "17-agent-task-recipes-recipe-review-after-upgrade"
+  ]
+}
