@@ -16,3 +16,5 @@ jobs:
           python-version: "3.x"
       - name: Validate contribution bundles
         run: python scripts/validate_bundle.py
+
+# protection proof: workflow changes require review
