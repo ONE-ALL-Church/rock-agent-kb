@@ -63,6 +63,7 @@ def repo_side_implementation_check() -> dict[str, Any]:
         ".github/workflows/deploy-service.yml",
         ".github/workflows/network-operations.yml",
         "scripts/network_operations_smoke.py",
+        "scripts/bootstrap_private_corpus_infra.py",
     ]
     missing = [path for path in required if not (REPO_ROOT / path).exists()]
     feature_errors = repo_side_feature_errors()
@@ -116,6 +117,9 @@ def repo_side_feature_errors() -> list[str]:
         errors.append("private corpus ingest template does not configure a git identity before commit")
     if "PRIVATE_CORPUS_REPO" not in private_ingest_template or "PRIVATE_CORPUS_TOKEN" not in private_ingest_template:
         errors.append("private corpus ingest template does not parameterize the private repo and write token")
+    private_bootstrap = read_repo_text("scripts/bootstrap_private_corpus_infra.py")
+    if "CLOUDFLARE_API_TOKEN" not in private_bootstrap or "gh secret set" not in private_bootstrap or "wrangler r2 bucket" not in private_bootstrap:
+        errors.append("private corpus bootstrap script does not configure Cloudflare/R2 GitHub automation prerequisites")
     if "contribution_search_rows" not in service_projection or "community_contribution" not in service_projection:
         errors.append("service projection does not emit community contribution rows")
     if "kind IN ('claim', 'community_contribution')" not in worker:

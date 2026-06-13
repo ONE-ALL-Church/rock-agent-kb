@@ -67,3 +67,46 @@ Cloudflare Workers AI Whisper is the preferred hosted transcription path for sch
 - Optional `OPENAI_API_KEY` only when selecting the OpenAI transcription backend.
 
 Never put these secrets in the public repo, public Actions, public Worker vars, or org registry files.
+
+## Bootstrap Private Cloud Settings
+
+Use the checked-in bootstrap script from a trusted machine after creating a
+durable Cloudflare API token with Workers AI and R2 permissions. It is dry-run
+by default and does not print the token.
+
+```bash
+export PRIVATE_CORPUS_REPO=<owner/private-corpus-repo>
+export PRIVATE_R2_BUCKET=<private-r2-bucket>
+export CLOUDFLARE_ACCOUNT_ID=<cloudflare-account-id>
+export CLOUDFLARE_API_TOKEN=<durable-cloudflare-token>
+
+python3 scripts/bootstrap_private_corpus_infra.py \
+  --repo "$PRIVATE_CORPUS_REPO" \
+  --bucket "$PRIVATE_R2_BUCKET" \
+  --account-id "$CLOUDFLARE_ACCOUNT_ID"
+```
+
+Apply the settings and dispatch a restore-only verification run:
+
+```bash
+python3 scripts/bootstrap_private_corpus_infra.py \
+  --repo "$PRIVATE_CORPUS_REPO" \
+  --bucket "$PRIVATE_R2_BUCKET" \
+  --account-id "$CLOUDFLARE_ACCOUNT_ID" \
+  --dispatch \
+  --apply
+```
+
+After that run succeeds, prove hosted transcription with a one-item media
+smoke:
+
+```bash
+python3 scripts/bootstrap_private_corpus_infra.py \
+  --repo "$PRIVATE_CORPUS_REPO" \
+  --bucket "$PRIVATE_R2_BUCKET" \
+  --account-id "$CLOUDFLARE_ACCOUNT_ID" \
+  --dispatch \
+  --run-media-batch \
+  --media-limit 1 \
+  --apply
+```
