@@ -8,6 +8,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
+from threading import Lock
 from typing import Any, Iterable
 
 import yaml
@@ -378,7 +379,7 @@ def deploy_service_projection(
     if not apply:
         result["next_commands"] = [
             f"cd service && find dist/artifacts -type f -print | sed 's#dist/artifacts/##' | xargs -I {{}} npx wrangler r2 object put {bucket or '<bucket-name>'}/versions/{projection.version}/{{}} --remote --file dist/artifacts/{{}}",
-            f"cd service && npx wrangler d1 execute {database or '<database-name>'} --remote --file dist/d1-seed.sql",
+            f"cd service && npx wrangler d1 execute {database or '<database-name>'} --remote --file dist/d1-seed.sql --yes",
             "cd service && npx wrangler deploy" + (f" --env {env}" if env else ""),
         ]
         return result
@@ -398,15 +399,28 @@ def apply_projection_to_cloudflare(
     bucket_name = bucket or "rock-agent-kb-artifacts"
     upload_artifacts_to_r2(projection=projection, bucket_name=bucket_name, env_args=env_args)
     d1_target = database or "rock-agent-kb"
-    run(["npx", "wrangler", "d1", "execute", d1_target, "--remote", "--file", str(projection.sql_path), *env_args], cwd=SERVICE_DIR)
+    run(["npx", "wrangler", "d1", "execute", d1_target, "--remote", "--file", str(projection.sql_path), "--yes", *env_args], cwd=SERVICE_DIR)
     run(["npx", "wrangler", "deploy", *env_args], cwd=SERVICE_DIR)
 
 
 def upload_artifacts_to_r2(*, projection: ServiceProjection, bucket_name: str, env_args: list[str]) -> None:
     paths = sorted(path for path in SERVICE_ARTIFACTS_DIR.rglob("*") if path.is_file())
-    workers = max(1, int(os.getenv("ROCK_KB_R2_UPLOAD_WORKERS", "2")))
+    total = len(paths)
+    workers = max(1, int(os.getenv("ROCK_KB_R2_UPLOAD_WORKERS", "8")))
+    print(f"Uploading {total} R2 artifacts with {workers} workers.", flush=True)
+    completed = 0
+    progress_lock = Lock()
+
+    def upload_with_progress(path: Path) -> None:
+        nonlocal completed
+        upload_artifact_to_r2(projection, bucket_name, env_args, path)
+        with progress_lock:
+            completed += 1
+            if completed == total or completed % 50 == 0:
+                print(f"Uploaded {completed}/{total} R2 artifacts.", flush=True)
+
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = [executor.submit(upload_artifact_to_r2, projection, bucket_name, env_args, path) for path in paths]
+        futures = [executor.submit(upload_with_progress, path) for path in paths]
         for future in as_completed(futures):
             future.result()
 
