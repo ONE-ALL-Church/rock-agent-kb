@@ -88,6 +88,14 @@ printf '%s' '<cloudflare-api-token>' \
 Do not use Wrangler's local OAuth token as the production CI secret; it is an
 interactive login credential, not the durable API token expected by Actions.
 
+Private corpus automation uses a separate repository secret and variables. From
+a trusted shell with `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`,
+`PRIVATE_CORPUS_REPO`, and `PRIVATE_R2_BUCKET` exported, run
+`python3 scripts/bootstrap_private_corpus_infra.py --dispatch --apply` to write
+the private repo settings, verify or create the private R2 bucket, and dispatch a
+restore-only ingest check. Add `--run-media-batch --media-limit 1` only when you
+are ready to prove hosted transcription.
+
 To issue or rotate one organization's hosted submit token, start from the
 current `ORG_TOKEN_SHA256_JSON` value and add the new digest without printing the
 raw token:
