@@ -23,11 +23,13 @@ from .publish import public_export_manifest, public_export_text_for_public_path
 SERVICE_DIR = REPO_ROOT / "service"
 SERVICE_DIST_DIR = SERVICE_DIR / "dist"
 SERVICE_ARTIFACTS_DIR = SERVICE_DIST_DIR / "artifacts"
+SERVICE_ARTIFACT_SHARDS_DIR = SERVICE_DIST_DIR / "artifact-shards"
 SERVICE_SQL_PATH = SERVICE_DIST_DIR / "d1-seed.sql"
 SERVICE_PROJECTION_PATH = SERVICE_DIST_DIR / "projection.json"
 SERVICE_SEARCH_ROWS_PATH = SERVICE_DIST_DIR / "search-rows.jsonl"
 ORG_REGISTRY_PATH = SERVICE_DIST_DIR / "org-registry.json"
 D1_SEARCH_BODY_CHAR_LIMIT = 75_000
+ARTIFACT_SHARD_PREFIX_LENGTH = 2
 
 
 CLAIM_TIER_RANK = {
@@ -79,6 +81,7 @@ def build_service_projection(destination: Path | None = None) -> ServiceProjecti
         target = artifacts_dir / public_path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(public_export_text_for_public_path(public_path), encoding="utf-8")
+    write_artifact_shards(artifacts_dir=artifacts_dir, shards_dir=dist / "artifact-shards")
 
     search_rows = build_search_rows()
     write_jsonl_text(dist / "search-rows.jsonl", search_rows)
@@ -378,7 +381,7 @@ def deploy_service_projection(
     result["applied"] = False
     if not apply:
         result["next_commands"] = [
-            f"cd service && find dist/artifacts -type f -print | sed 's#dist/artifacts/##' | xargs -I {{}} npx wrangler r2 object put {bucket or '<bucket-name>'}/versions/{projection.version}/{{}} --remote --file dist/artifacts/{{}}",
+            f"cd service && find dist/artifact-shards -type f -print | sed 's#dist/artifact-shards/##' | xargs -I {{}} npx wrangler r2 object put {bucket or '<bucket-name>'}/versions/{projection.version}/artifact-shards/{{}} --remote --file dist/artifact-shards/{{}}",
             f"cd service && npx wrangler d1 execute {database or '<database-name>'} --remote --file dist/d1-seed.sql --yes",
             "cd service && npx wrangler deploy" + (f" --env {env}" if env else ""),
         ]
@@ -403,21 +406,47 @@ def apply_projection_to_cloudflare(
     run(["npx", "wrangler", "deploy", *env_args], cwd=SERVICE_DIR)
 
 
+def write_artifact_shards(*, artifacts_dir: Path, shards_dir: Path) -> None:
+    if shards_dir.exists():
+        shutil.rmtree(shards_dir)
+    grouped: dict[str, dict[str, str]] = {}
+    for path in sorted(item for item in artifacts_dir.rglob("*") if item.is_file()):
+        rel = path.relative_to(artifacts_dir).as_posix()
+        shard = artifact_shard_for_path(rel)
+        grouped.setdefault(shard, {})[rel] = path.read_text(encoding="utf-8")
+    shards_dir.mkdir(parents=True, exist_ok=True)
+    for shard, artifacts in sorted(grouped.items()):
+        payload = {
+            "schema": "rock-kb-artifact-shard-v1",
+            "shard": shard,
+            "artifacts": artifacts,
+        }
+        (shards_dir / f"{shard}.json").write_text(
+            json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+
+
+def artifact_shard_for_path(path: str) -> str:
+    return sha256_text(path)[:ARTIFACT_SHARD_PREFIX_LENGTH]
+
+
 def upload_artifacts_to_r2(*, projection: ServiceProjection, bucket_name: str, env_args: list[str]) -> None:
-    paths = sorted(path for path in SERVICE_ARTIFACTS_DIR.rglob("*") if path.is_file())
+    shard_dir = projection.dist / "artifact-shards"
+    paths = sorted(path for path in shard_dir.rglob("*") if path.is_file())
     total = len(paths)
     workers = max(1, int(os.getenv("ROCK_KB_R2_UPLOAD_WORKERS", "8")))
-    print(f"Uploading {total} R2 artifacts with {workers} workers.", flush=True)
+    print(f"Uploading {total} R2 artifact shards with {workers} workers.", flush=True)
     completed = 0
     progress_lock = Lock()
 
     def upload_with_progress(path: Path) -> None:
         nonlocal completed
-        upload_artifact_to_r2(projection, bucket_name, env_args, path)
+        upload_artifact_shard_to_r2(projection, bucket_name, env_args, path)
         with progress_lock:
             completed += 1
             if completed == total or completed % 50 == 0:
-                print(f"Uploaded {completed}/{total} R2 artifacts.", flush=True)
+                print(f"Uploaded {completed}/{total} R2 artifact shards.", flush=True)
 
     with ThreadPoolExecutor(max_workers=workers) as executor:
         futures = [executor.submit(upload_with_progress, path) for path in paths]
@@ -425,8 +454,8 @@ def upload_artifacts_to_r2(*, projection: ServiceProjection, bucket_name: str, e
             future.result()
 
 
-def upload_artifact_to_r2(projection: ServiceProjection, bucket_name: str, env_args: list[str], path: Path) -> None:
-    rel = path.relative_to(SERVICE_ARTIFACTS_DIR).as_posix()
+def upload_artifact_shard_to_r2(projection: ServiceProjection, bucket_name: str, env_args: list[str], path: Path) -> None:
+    rel = path.relative_to(projection.dist / "artifact-shards").as_posix()
     run_with_retries(
         [
             "npx",
@@ -434,7 +463,7 @@ def upload_artifact_to_r2(projection: ServiceProjection, bucket_name: str, env_a
             "r2",
             "object",
             "put",
-            f"{bucket_name}/versions/{projection.version}/{rel}",
+            f"{bucket_name}/versions/{projection.version}/artifact-shards/{rel}",
             "--remote",
             "--file",
             str(path),
@@ -449,8 +478,12 @@ def run(command: list[str], cwd: Path) -> None:
 
 
 def run_with_retries(command: list[str], cwd: Path, attempts: int = 3) -> None:
+    timeout_seconds = int(os.getenv("ROCK_KB_WRANGLER_COMMAND_TIMEOUT_SECONDS", "300"))
     for attempt in range(1, attempts + 1):
-        result = subprocess.run(command, cwd=cwd, check=False)
+        try:
+            result = subprocess.run(command, cwd=cwd, check=False, timeout=timeout_seconds)
+        except subprocess.TimeoutExpired:
+            result = subprocess.CompletedProcess(command, returncode=124)
         if result.returncode == 0:
             return
         if attempt == attempts:

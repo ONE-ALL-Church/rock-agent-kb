@@ -585,16 +585,22 @@ async function currentVersion(env: ServiceEnv): Promise<string> {
   return result?.value || "unknown";
 }
 
-async function artifactKey(env: ServiceEnv, path: string): Promise<string> {
-  return `versions/${await currentVersion(env)}/${path}`;
+async function artifactShardKey(env: ServiceEnv, path: string): Promise<string> {
+  const shard = (await sha256Hex(path)).slice(0, 2);
+  return `versions/${await currentVersion(env)}/artifact-shards/${shard}.json`;
 }
 
 async function artifactTextValue(env: ServiceEnv, path: string): Promise<string> {
-  const object = await env.KB_ARTIFACTS.get(await artifactKey(env, path));
+  const object = await env.KB_ARTIFACTS.get(await artifactShardKey(env, path));
   if (!object) {
+    throw new Error(`Artifact shard not found: ${path}`);
+  }
+  const shard = JSON.parse(await object.text()) as { artifacts?: Record<string, string> };
+  const artifact = shard.artifacts?.[path];
+  if (artifact === undefined) {
     throw new Error(`Artifact not found: ${path}`);
   }
-  return object.text();
+  return artifact;
 }
 
 async function artifactJsonValue(env: ServiceEnv, path: string): Promise<JsonRecord> {
