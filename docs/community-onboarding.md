@@ -55,6 +55,9 @@ Use `orgs/example-org.yaml` as the template. Do not include private URLs, databa
 
 Maintainers review registration once. After approval, your agent can submit contribution bundles with an org token issued outside git.
 
+If you prefer a guided path, open a "Register a contributing organization" issue
+and then submit the matching `orgs/<org-id>.yaml` PR after maintainer feedback.
+
 A real registration is considered ready for hosted intake only after:
 
 - the organization has a public-safe `orgs/<org-id>.yaml` file with `status: reviewed`;
@@ -99,3 +102,6 @@ Use community-unreviewed rows only as leads and label them as unreviewed.
 When you discover a reusable public-safe Rock RMS insight, write a distilled contribution row with source URLs and submit it through rock-kb submit or the kb_submit MCP tool.
 Never submit private person data, internal URLs, raw transcripts, screenshots with private state, SQL exports, tokens, or copied proprietary source text.
 ```
+
+For a reusable file version, use
+`docs/templates/agent-contributor-instructions.md`.

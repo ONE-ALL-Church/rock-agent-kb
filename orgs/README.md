@@ -20,6 +20,9 @@ Registration files use:
 orgs/<org-id>.yaml
 ```
 
+New organizations can start with the "Register a contributing organization"
+GitHub issue template, then open a PR that adds the matching registry file.
+
 Use a stable lowercase `org-id` with letters, numbers, dashes, or underscores. The same id should be used for:
 
 ```text

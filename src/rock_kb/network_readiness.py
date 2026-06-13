@@ -62,8 +62,10 @@ def repo_side_implementation_check() -> dict[str, Any]:
         "docs/templates/private-corpus-ingest.workflow.yml",
         ".github/workflows/deploy-service.yml",
         ".github/workflows/network-operations.yml",
+        ".github/ISSUE_TEMPLATE/org-registration.yml",
         "scripts/network_operations_smoke.py",
         "scripts/bootstrap_private_corpus_infra.py",
+        "docs/templates/agent-contributor-instructions.md",
     ]
     missing = [path for path in required if not (REPO_ROOT / path).exists()]
     feature_errors = repo_side_feature_errors()
@@ -87,6 +89,7 @@ def repo_side_feature_errors() -> list[str]:
     worker = read_repo_text("service/src/index.ts")
     client = read_repo_text("clients/python/src/rock_kb_client/cli.py")
     private_ingest_template = read_repo_text("docs/templates/private-corpus-ingest.workflow.yml")
+    agent_contributor_template = read_repo_text("docs/templates/agent-contributor-instructions.md")
     for path in ["community-contributions/**", "source-suggestions/**", "orgs/**"]:
         if path not in deploy_workflow:
             errors.append(f"deploy-service workflow does not trigger on {path}")
@@ -138,6 +141,8 @@ def repo_side_feature_errors() -> list[str]:
         errors.append("Worker auto-merge path does not enforce org approval and exact per-org intake path eligibility")
     if "/operations/dashboard" not in client or 'subparsers.add_parser("dashboard")' not in client:
         errors.append("Python client does not expose the hosted operations dashboard")
+    if "rock-kb submit" not in agent_contributor_template or "Never Submit" not in agent_contributor_template:
+        errors.append("agent contributor instructions do not cover submit flow and privacy exclusions")
     return errors
 
 

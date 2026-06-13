@@ -1,0 +1,58 @@
+name: Register a contributing organization
+description: Request reviewed organization status for Rock KB contribution intake.
+title: "Register org: <org-id>"
+labels:
+  - org-registration
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to register a church, consultant, vendor, or agent team that wants to submit public-safe Rock KB contribution bundles.
+
+        Do not include private URLs, database names, staff contact details, live IDs, raw transcripts, screenshots with private data, tokens, or internal runbook text.
+  - type: input
+    id: org_id
+    attributes:
+      label: Organization id
+      description: Lowercase slug using letters, numbers, dashes, or underscores. This must match `orgs/<org-id>.yaml` and `community-contributions/<org-id>/`.
+      placeholder: example-church
+    validations:
+      required: true
+  - type: input
+    id: display_name
+    attributes:
+      label: Public display name
+      placeholder: Example Church
+    validations:
+      required: true
+  - type: textarea
+    id: github_accounts
+    attributes:
+      label: GitHub submitter accounts or app identities
+      description: List the public GitHub users or app identities that will submit bundles.
+      placeholder: |
+        - example-agent
+        - example-maintainer
+    validations:
+      required: true
+  - type: textarea
+    id: first_contribution
+    attributes:
+      label: First contribution plan
+      description: Briefly describe the first public-safe source suggestion or contribution bundle this org expects to submit.
+      placeholder: "We plan to submit a public-safe troubleshooting pattern for Rock check-in label printer diagnostics, backed by public Rock docs and our newly written summary."
+    validations:
+      required: true
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: Standing attestations
+      options:
+        - label: We will submit only newly written public-safe summaries, not copied private docs, raw transcripts, SQL exports, screenshots with private data, staff notes, internal URLs, tokens, or secrets.
+          required: true
+        - label: We will include source URLs or source record IDs for each contribution row.
+          required: true
+        - label: We accept that community submissions are served as tier-labeled leads until human review promotes authority.
+          required: true
+        - label: We understand that submit tokens are delivered outside git and only SHA-256 digests are stored by maintainers.
+          required: true
