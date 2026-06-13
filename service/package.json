@@ -6,11 +6,13 @@
     "check": "tsc --noEmit",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
+    "test:intake": "npm run wrangler:check && node --test tests/intake.test.mjs",
     "types": "wrangler types src/worker-configuration.d.ts",
     "wrangler:check": "wrangler deploy --dry-run --outdir dist/dry-run --env production"
   },
   "devDependencies": {
     "@types/node": "^25.9.3",
+    "miniflare": "^4.20260611.0",
     "typescript": "^5.8.3",
     "wrangler": "^4.20.0"
   },

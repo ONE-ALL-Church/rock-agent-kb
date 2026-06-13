@@ -17,7 +17,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: service/package-lock.json
       - name: Audit tracked public surface
         run: python3 scripts/audit_tracked_tree.py
       - name: Validate contribution bundles
         run: python3 scripts/validate_bundle.py
+      - name: Install service dependencies
+        working-directory: service
+        run: npm ci
+      - name: Check service types
+        working-directory: service
+        run: npm run check
+      - name: Test service intake gates
+        working-directory: service
+        run: npm run test:intake
