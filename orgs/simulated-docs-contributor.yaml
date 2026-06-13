@@ -1,0 +1,15 @@
+schema: rock-kb-org-v1
+org_id: simulated-docs-contributor
+display_name: Simulated Docs Contributor
+status: reviewed
+contacts:
+  - role: simulated-contributor
+    github: bscottdavis
+github_accounts:
+  - bscottdavis
+standing_attestations:
+  redaction: true
+  license: true
+intake:
+  auto_merge_allowed: false
+  max_rows_per_bundle: 50
