@@ -10,6 +10,7 @@ from rock_kb.network_readiness import (
     hosted_service_check,
     network_readiness_report,
     org_registry_depth_check,
+    private_corpus_autonomous_ingest_check,
     private_corpus_cloud_check,
     repo_side_implementation_check,
 )
@@ -72,6 +73,26 @@ def test_repo_side_implementation_requires_private_ingest_template():
 
     assert check["status"] == "pass"
     assert "docs/templates/private-corpus-ingest.workflow.yml" in check["evidence"]["required"]
+
+
+def test_private_autonomous_ingest_requires_cloudflare_for_r2():
+    def run(command: list[str]) -> subprocess.CompletedProcess[str]:
+        if command[:3] == ["gh", "secret", "list"]:
+            return completed("OPENAI_API_KEY\t2026-06-13\n")
+        if command[:3] == ["gh", "variable", "list"]:
+            return completed("PRIVATE_R2_BUCKET\tset\n")
+        raise AssertionError(command)
+
+    check = private_corpus_autonomous_ingest_check(
+        {"ROCK_KB_PRIVATE_CORPUS_REPO": "example/private-corpus"},
+        run,
+        check_github=True,
+    )
+
+    assert check["status"] == "fail"
+    assert check["evidence"]["openai_fallback_ready"] is True
+    assert check["evidence"]["cloudflare_transcription_ready"] is False
+    assert check["evidence"]["missing"] == ["CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"]
 
 
 def test_org_registry_depth_requires_reviewed_orgs_with_public_contributions(tmp_path, monkeypatch):

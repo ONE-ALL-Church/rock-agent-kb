@@ -266,11 +266,13 @@ def private_corpus_autonomous_ingest_check(env: dict[str, str], run_command: Run
         )
     secrets = set(list_names(["gh", "secret", "list", "--repo", repo], run_command))
     variables = set(list_names(["gh", "variable", "list", "--repo", repo], run_command))
-    has_transcription_secret = bool({"OPENAI_API_KEY", "CLOUDFLARE_API_TOKEN"} & secrets)
-    r2_ready = "PRIVATE_R2_BUCKET" in variables and "CLOUDFLARE_ACCOUNT_ID" in variables and "CLOUDFLARE_API_TOKEN" in secrets
+    cloudflare_transcription_ready = "CLOUDFLARE_API_TOKEN" in secrets and "CLOUDFLARE_ACCOUNT_ID" in variables
+    openai_fallback_ready = "OPENAI_API_KEY" in secrets
+    r2_ready = "PRIVATE_R2_BUCKET" in variables and cloudflare_transcription_ready
     missing = []
-    if not has_transcription_secret:
-        missing.append("OPENAI_API_KEY or CLOUDFLARE_API_TOKEN")
+    if not cloudflare_transcription_ready:
+        missing.extend(sorted({"CLOUDFLARE_ACCOUNT_ID"} - variables))
+        missing.extend(sorted({"CLOUDFLARE_API_TOKEN"} - secrets))
     if not r2_ready:
         missing.extend(sorted({"PRIVATE_R2_BUCKET", "CLOUDFLARE_ACCOUNT_ID"} - variables))
         missing.extend(sorted({"CLOUDFLARE_API_TOKEN"} - secrets))
@@ -282,7 +284,8 @@ def private_corpus_autonomous_ingest_check(env: dict[str, str], run_command: Run
         else "Private corpus autonomous transcription or R2 prerequisites are missing.",
         {
             "private_repo": "<redacted-private-corpus-repo>",
-            "has_transcription_secret": has_transcription_secret,
+            "cloudflare_transcription_ready": cloudflare_transcription_ready,
+            "openai_fallback_ready": openai_fallback_ready,
             "r2_ready": r2_ready,
             "missing": sorted(set(missing)),
         },
