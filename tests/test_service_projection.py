@@ -171,6 +171,7 @@ def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, t
     assert "--remote" in commands[0]
     assert commands[1][:5] == ["npx", "wrangler", "d1", "execute", "database"]
     assert "--remote" in commands[1]
+    assert "--yes" in commands[1]
     assert commands[2] == ["npx", "wrangler", "deploy", "--env", "production"]
 
 
