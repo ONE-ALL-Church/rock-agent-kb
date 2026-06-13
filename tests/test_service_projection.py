@@ -96,6 +96,11 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert projection.search_row_count > 100
     assert "CREATE VIRTUAL TABLE search_rows_fts" in sql
     assert (projection.dist / "artifacts" / "agent" / "rock-kb-manifest.json").exists()
+    shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
+    assert shard_files
+    shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))
+    assert shard_payload["schema"] == "rock-kb-artifact-shard-v1"
+    assert isinstance(shard_payload["artifacts"], dict)
     assert (projection.dist / "org-registry.json").exists()
     payload = json.loads((projection.dist / "projection.json").read_text(encoding="utf-8"))
     assert payload["version"] == projection.version
@@ -146,10 +151,10 @@ def test_build_d1_seed_sql_bounds_large_search_bodies():
 
 def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, tmp_path):
     dist = tmp_path / "dist"
-    artifacts = dist / "artifacts"
-    artifact = artifacts / "agent" / "rock-kb-manifest.json"
-    artifact.parent.mkdir(parents=True)
-    artifact.write_text("{}", encoding="utf-8")
+    shards = dist / "artifact-shards"
+    shard = shards / "ab.json"
+    shard.parent.mkdir(parents=True)
+    shard.write_text('{"schema":"rock-kb-artifact-shard-v1","shard":"ab","artifacts":{}}\n', encoding="utf-8")
     projection = service_projection.ServiceProjection(
         version="abc123",
         generated_at="2026-06-12T00:00:00Z",
@@ -161,13 +166,13 @@ def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, t
     )
     projection.sql_path.write_text("SELECT 1;\n", encoding="utf-8")
     commands: list[list[str]] = []
-    monkeypatch.setattr(service_projection, "SERVICE_ARTIFACTS_DIR", artifacts)
     monkeypatch.setattr(service_projection, "run", lambda command, cwd: commands.append(command))
     monkeypatch.setattr(service_projection, "run_with_retries", lambda command, cwd: commands.append(command))
 
     service_projection.apply_projection_to_cloudflare(projection, env="production", bucket="bucket", database="database")
 
     assert commands[0][:5] == ["npx", "wrangler", "r2", "object", "put"]
+    assert commands[0][5] == "bucket/versions/abc123/artifact-shards/ab.json"
     assert "--remote" in commands[0]
     assert commands[1][:5] == ["npx", "wrangler", "d1", "execute", "database"]
     assert "--remote" in commands[1]
