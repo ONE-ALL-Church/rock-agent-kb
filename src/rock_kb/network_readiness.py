@@ -267,13 +267,13 @@ def private_corpus_autonomous_ingest_check(env: dict[str, str], run_command: Run
     secrets = set(list_names(["gh", "secret", "list", "--repo", repo], run_command))
     variables = set(list_names(["gh", "variable", "list", "--repo", repo], run_command))
     has_transcription_secret = bool({"OPENAI_API_KEY", "CLOUDFLARE_API_TOKEN"} & secrets)
-    r2_ready = "PRIVATE_R2_BUCKET" in variables and "CLOUDFLARE_API_TOKEN" in secrets and "CLOUDFLARE_ACCOUNT_ID" in secrets
+    r2_ready = "PRIVATE_R2_BUCKET" in variables and "CLOUDFLARE_ACCOUNT_ID" in variables and "CLOUDFLARE_API_TOKEN" in secrets
     missing = []
     if not has_transcription_secret:
         missing.append("OPENAI_API_KEY or CLOUDFLARE_API_TOKEN")
     if not r2_ready:
-        missing.extend(sorted({"PRIVATE_R2_BUCKET"} - variables))
-        missing.extend(sorted({"CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"} - secrets))
+        missing.extend(sorted({"PRIVATE_R2_BUCKET", "CLOUDFLARE_ACCOUNT_ID"} - variables))
+        missing.extend(sorted({"CLOUDFLARE_API_TOKEN"} - secrets))
     return check(
         "private_corpus_autonomous_ingest",
         "pass" if not missing else "fail",
