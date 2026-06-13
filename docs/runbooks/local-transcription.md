@@ -16,6 +16,7 @@ uv run --extra media kb media doctor
 uv run --extra media kb media transcribe --source rock_podcast_rss --tool mlx_whisper --model auto
 uv run --extra media kb media batch --source rock_podcast_rss --limit 3 --tool mlx_whisper --model auto --dry-run
 uv run --extra media kb media batch --source rock_podcast_rss --limit 3 --tool mlx_whisper --model auto
+uv run kb media transcribe --source rock_podcast_rss --tool cloudflare --model auto
 uv run --extra media kb media transcribe --source rock_podcast_rss --tool parakeet --model auto
 uv run kb media normalize --source rock_podcast_rss
 uv run kb media sidecars --source rock_podcast_rss
@@ -65,6 +66,7 @@ Local validation on 2026-06-02:
 | `mlx-whisper` + Whisper Large v3 Turbo | Default for this Apple Silicon Mac | Local, simple, good quality, no API key. |
 | `parakeet` CLI + NVIDIA Parakeet TDT 0.6B v3 | Experimental high-throughput local path | Newer open model family with strong leaderboard speed; may require WAV conversion and extra install steps. |
 | `whisper.cpp` + Metal | Alternative local Mac runtime | Strong fallback if Python/MLX gets awkward. |
+| Cloudflare Workers AI Whisper Large v3 Turbo | Hosted scheduled-ingest default | Uses `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`; aligns with private R2 automation. |
 | NVIDIA Canary / Canary-Qwen | Accuracy experiments | Strong leaderboard quality, but operationally heavier for this repo workflow. |
 | Cohere Transcribe 03-2026 | Accuracy experiment | Apache-2.0 model family to watch; not yet wired into the repo CLI. |
 | fal.ai Wizper | Low-ops hosted fallback | Useful for batch bursts, but hosted and pricing should be checked live before bulk use. |

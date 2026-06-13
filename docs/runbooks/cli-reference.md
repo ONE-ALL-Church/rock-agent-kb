@@ -47,6 +47,7 @@ uv run --extra media kb media transcribe --source rock_podcast_rss --tool mlx_wh
 uv run --extra media kb media batch --source rock_podcast_rss --limit 3 --tool mlx_whisper --model auto --dry-run
 uv run --extra media kb media batch --source rock_podcast_rss --limit 3 --tool mlx_whisper --model auto
 uv run --extra media kb media transcribe --source rock_podcast_rss --tool parakeet --model auto
+uv run kb media transcribe --source rock_podcast_rss --tool cloudflare --model auto
 uv run kb media transcribe --source rock_podcast_rss --tool openai --model gpt-4o-mini-transcribe
 uv run kb media transcribe --source rock_podcast_rss --tool whisper --model base
 uv run kb media normalize --source rock_podcast_rss

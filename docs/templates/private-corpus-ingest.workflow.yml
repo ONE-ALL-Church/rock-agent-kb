@@ -14,17 +14,34 @@ on:
       transcribe_tool:
         description: Transcription backend.
         required: false
-        default: openai
+        default: cloudflare
       transcribe_model:
         description: Transcription model.
         required: false
         default: auto
+      run_media_batch:
+        description: Run media discovery/transcription batch.
+        required: false
+        default: "false"
   schedule:
     - cron: "17 9 * * 1"
+
+permissions:
+  contents: write
 
 jobs:
   ingest:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ROCK_KB_MEDIA_SOURCE: ${{ inputs.media_source || 'rock_podcast_rss' }}
+      ROCK_KB_MEDIA_LIMIT: ${{ inputs.media_limit || '3' }}
+      ROCK_KB_TRANSCRIBE_TOOL: ${{ inputs.transcribe_tool || 'cloudflare' }}
+      ROCK_KB_TRANSCRIBE_MODEL: ${{ inputs.transcribe_model || 'auto' }}
+      ROCK_KB_RUN_MEDIA_BATCH: ${{ github.event_name == 'schedule' && 'true' || inputs.run_media_batch || 'false' }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      PRIVATE_R2_BUCKET: ${{ vars.PRIVATE_R2_BUCKET }}
     steps:
       - name: Check out public KB
         uses: actions/checkout@v4
@@ -46,23 +63,47 @@ jobs:
       - name: Restore private corpus text artifacts
         working-directory: rock-agent-kb
         run: uv run kb corpus restore --path ../private-corpus
+      - name: Verify restored corpus can rebuild public export
+        working-directory: rock-agent-kb
+        run: >
+          uv run kb corpus verify-rebuild
+          --path ../private-corpus
+          --public-export-destination /tmp/rock-kb-public-export-check
       - name: Run selected private media batch
         working-directory: rock-agent-kb
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ROCK_KB_MEDIA_SOURCE: ${{ inputs.media_source || 'rock_podcast_rss' }}
-          ROCK_KB_MEDIA_LIMIT: ${{ inputs.media_limit || '3' }}
-          ROCK_KB_TRANSCRIBE_TOOL: ${{ inputs.transcribe_tool || 'openai' }}
-          ROCK_KB_TRANSCRIBE_MODEL: ${{ inputs.transcribe_model || 'auto' }}
         run: |
+          if [ "${ROCK_KB_RUN_MEDIA_BATCH}" != "true" ]; then
+            echo "::notice::Media batch skipped. Set run_media_batch=true for manual runs."
+            exit 0
+          fi
+          if [ "${ROCK_KB_TRANSCRIBE_TOOL}" = "openai" ] && [ -z "${OPENAI_API_KEY}" ]; then
+            echo "::notice::Media batch skipped because OPENAI_API_KEY is not configured."
+            exit 0
+          fi
+          if [ "${ROCK_KB_TRANSCRIBE_TOOL}" = "cloudflare" ] && { [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID}" ]; }; then
+            echo "::notice::Media batch skipped because Cloudflare credentials are not configured."
+            exit 0
+          fi
           uv run --extra media kb media batch \
-            --source "${ROCK_KB_MEDIA_SOURCE:-rock_podcast_rss}" \
-            --limit "${ROCK_KB_MEDIA_LIMIT:-3}" \
-            --tool "${ROCK_KB_TRANSCRIBE_TOOL:-openai}" \
-            --model "${ROCK_KB_TRANSCRIBE_MODEL:-auto}"
+            --source "${ROCK_KB_MEDIA_SOURCE}" \
+            --limit "${ROCK_KB_MEDIA_LIMIT}" \
+            --tool "${ROCK_KB_TRANSCRIBE_TOOL}" \
+            --model "${ROCK_KB_TRANSCRIBE_MODEL}"
+      - name: Verify private R2 bucket access
+        working-directory: rock-agent-kb/service
+        run: |
+          if [ -z "${PRIVATE_R2_BUCKET}" ]; then
+            echo "::notice::Private R2 bucket check skipped because PRIVATE_R2_BUCKET is not configured."
+            exit 0
+          fi
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID}" ]; then
+            echo "::notice::Private R2 bucket check skipped because Cloudflare credentials are not configured."
+            exit 0
+          fi
+          npx wrangler r2 bucket list | grep -F "${PRIVATE_R2_BUCKET}"
       - name: Sync private corpus artifacts
         working-directory: rock-agent-kb
         run: uv run kb corpus autosync --path ../private-corpus --commit
-      - name: Push private corpus
+      - name: Push private corpus changes
         working-directory: private-corpus
         run: git push
