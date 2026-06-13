@@ -34,6 +34,7 @@ MEDIA_HOST_HINTS = {
 }
 URL_RE = re.compile(r"https?://[^'\"\s<>\\)]+")
 OPENAI_TRANSCRIBE_MODEL = "gpt-4o-mini-transcribe"
+CLOUDFLARE_TRANSCRIBE_MODEL = "@cf/openai/whisper-large-v3-turbo"
 MLX_WHISPER_MODEL = "mlx-community/whisper-large-v3-turbo"
 MLX_WHISPER_SMOKE_MODEL = "mlx-community/whisper-tiny"
 PARAKEET_MODEL = "nvidia/parakeet-tdt-0.6b-v3"

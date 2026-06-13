@@ -45,6 +45,7 @@ from rock_kb.media import (
     priority_term_matches,
     read_transcription_output,
     read_transcription_output_detail,
+    read_cloudflare_transcription_output,
     run_media_batch,
     summarize_transcript_insight,
     should_use_ytdlp,
@@ -231,6 +232,7 @@ def test_normalize_mlx_model_aliases():
     assert normalize_mlx_model("tiny") == "mlx-community/whisper-tiny"
     assert effective_transcription_model("mlx_whisper", "auto") == "mlx-community/whisper-large-v3-turbo"
     assert effective_transcription_model("parakeet", "auto") == "nvidia/parakeet-tdt-0.6b-v3"
+    assert effective_transcription_model("cloudflare-workers-ai", "auto") == "@cf/openai/whisper-large-v3-turbo"
 
 
 def test_choose_openai_transcription_tool_when_requested(monkeypatch, tmp_path):
@@ -238,6 +240,13 @@ def test_choose_openai_transcription_tool_when_requested(monkeypatch, tmp_path):
     script.write_text("#!/usr/bin/env python3\n", encoding="utf-8")
     monkeypatch.setattr("rock_kb.media.transcribe_skill_script", lambda: script)
     assert choose_transcription_tool("openai") == "openai-transcribe"
+
+
+def test_choose_cloudflare_transcription_tool_when_requested(monkeypatch):
+    monkeypatch.setenv("CLOUDFLARE_API_TOKEN", "test-token")
+    monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "test-account")
+    assert choose_transcription_tool("cloudflare") == "cloudflare-workers-ai"
+    assert choose_transcription_tool("cloudflare-workers-ai") == "cloudflare-workers-ai"
 
 
 def test_ytdlp_can_fall_back_to_uvx(monkeypatch):
@@ -254,6 +263,30 @@ def test_media_tool_status_reports_openai_readiness(monkeypatch, tmp_path):
     status = media_tool_status()
     assert status["openai_transcription_ready"] is True
     assert status["download_ready"] is True
+
+
+def test_media_tool_status_reports_cloudflare_readiness(monkeypatch, tmp_path):
+    monkeypatch.setenv("CODEX_HOME", str(tmp_path / ".codex"))
+    monkeypatch.setenv("CLOUDFLARE_API_TOKEN", "test-token")
+    monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "test-account")
+    status = media_tool_status()
+    assert status["cloudflare_transcription_ready"] is True
+    assert status["recommended_hosted_tool"] == "cloudflare-workers-ai"
+
+
+def test_read_cloudflare_transcription_output_parses_nested_result(tmp_path):
+    payload = {
+        "success": True,
+        "result": {
+            "text": "Cloudflare Workers AI transcribed Rock media.",
+            "segments": [{"start": 1.2, "end": 3.4, "text": "Cloudflare Workers AI"}],
+        },
+    }
+    output = read_cloudflare_transcription_output(tmp_path / "audio.mp3", tmp_path, payload)
+
+    assert output["text"] == "Cloudflare Workers AI transcribed Rock media."
+    assert output["payload_path"] == tmp_path / "audio.cloudflare.transcript.json"
+    assert output["segments"][0]["timestamp"] == "00:01"
 
 
 def test_media_status_report_counts_private_rows(monkeypatch, tmp_path):

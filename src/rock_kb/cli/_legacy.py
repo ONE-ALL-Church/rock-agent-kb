@@ -649,7 +649,7 @@ def media_discover(
 def media_transcribe(
     source: str = typer.Option(..., "--source", "-s"),
     limit: Optional[int] = typer.Option(None, "--limit"),
-    tool: str = typer.Option("auto", "--tool", help="auto, openai, mlx_whisper, parakeet, whisper-cli, or whisper."),
+    tool: str = typer.Option("auto", "--tool", help="auto, cloudflare, openai, mlx_whisper, parakeet, whisper-cli, or whisper."),
     model: str = typer.Option("auto", "--model"),
     dry_run: bool = typer.Option(False, "--dry-run"),
 ) -> None:
@@ -669,7 +669,7 @@ def media_transcribe(
 def media_batch(
     source: str = typer.Option(..., "--source", "-s"),
     limit: int = typer.Option(1, "--limit", min=1, help="Number of pending media rows to process."),
-    tool: str = typer.Option("auto", "--tool", help="auto, openai, mlx_whisper, parakeet, whisper-cli, or whisper."),
+    tool: str = typer.Option("auto", "--tool", help="auto, cloudflare, openai, mlx_whisper, parakeet, whisper-cli, or whisper."),
     model: str = typer.Option("auto", "--model"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Preview the next pending rows without writing transcripts or indexes."),
     skip_normalize: bool = typer.Option(False, "--skip-normalize", help="Do not rebuild transcript-derived private insight records after transcription."),

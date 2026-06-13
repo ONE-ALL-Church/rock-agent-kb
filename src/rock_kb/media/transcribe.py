@@ -8,6 +8,8 @@ def transcribe_skill_script() -> Path:
 def media_tool_status() -> dict[str, Any]:
     script = transcribe_skill_script()
     has_openai_key = bool(os.environ.get("OPENAI_API_KEY"))
+    has_cloudflare_token = bool(os.environ.get("CLOUDFLARE_API_TOKEN"))
+    has_cloudflare_account = bool(os.environ.get("CLOUDFLARE_ACCOUNT_ID"))
     understanding_status = media_understanding_tool_status()
     return {
         "ffmpeg": bool(optional_command("ffmpeg")),
@@ -20,17 +22,23 @@ def media_tool_status() -> dict[str, Any]:
         "parakeet": bool(optional_command("parakeet")),
         "openai_transcribe_script": script.exists(),
         "openai_api_key": has_openai_key,
+        "cloudflare_api_token": has_cloudflare_token,
+        "cloudflare_account_id": has_cloudflare_account,
         "download_ready": bool(optional_command("yt-dlp") or optional_command("uvx")),
         "local_transcription_ready": any(optional_command(name) for name in ["mlx_whisper", "parakeet", "whisper", "whisper-cli"]),
         "openai_transcription_ready": script.exists() and has_openai_key,
+        "cloudflare_transcription_ready": has_cloudflare_token and has_cloudflare_account,
         "recommended_local_tool": "mlx_whisper",
         "recommended_local_model": MLX_WHISPER_MODEL,
+        "recommended_hosted_tool": "cloudflare-workers-ai",
+        "recommended_hosted_model": CLOUDFLARE_TRANSCRIBE_MODEL,
         "experimental_high_throughput_tool": "parakeet",
         "experimental_high_throughput_model": PARAKEET_MODEL,
         "experimental_media_understanding": understanding_status,
         "smoke_test_model": MLX_WHISPER_SMOKE_MODEL,
         "notes": [
             "OpenAI transcription uses OPENAI_API_KEY and the bundled transcribe skill script.",
+            "Cloudflare transcription uses CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID with Workers AI Whisper Large v3 Turbo.",
             "On Apple Silicon, mlx-whisper with Whisper Large v3 Turbo is the recommended local default.",
             "Parakeet CLI is tracked as the newer high-throughput local candidate; it may require ffmpeg conversion to WAV.",
             "Gemma 4 12B is tracked only as an experimental second-pass audio/video understanding candidate.",
@@ -123,18 +131,27 @@ def choose_transcription_tool(tool: str) -> Optional[str]:
     normalized = tool.strip().lower()
     if normalized in {"openai", "openai-transcribe", "gpt-4o-mini-transcribe", "gpt-4o-transcribe"}:
         return "openai-transcribe" if transcribe_skill_script().exists() else None
+    if normalized in {"cloudflare", "cloudflare-workers-ai", "workers-ai", "whisper-large-v3-turbo"}:
+        return "cloudflare-workers-ai" if cloudflare_transcription_ready() else None
     candidates = [normalized] if normalized != "auto" else auto_transcription_candidates()
     for candidate in candidates:
         if candidate == "openai-transcribe" and transcribe_skill_script().exists():
+            return candidate
+        if candidate == "cloudflare-workers-ai" and cloudflare_transcription_ready():
             return candidate
         if optional_command(candidate):
             return candidate
     return None
 
 def auto_transcription_candidates() -> list[str]:
+    if cloudflare_transcription_ready():
+        return ["cloudflare-workers-ai", "openai-transcribe", "mlx_whisper", "parakeet", "whisper-cli", "whisper"]
     if os.environ.get("OPENAI_API_KEY") and transcribe_skill_script().exists():
         return ["openai-transcribe", "mlx_whisper", "parakeet", "whisper-cli", "whisper"]
     return ["mlx_whisper", "parakeet", "whisper-cli", "whisper"]
+
+def cloudflare_transcription_ready() -> bool:
+    return bool(os.environ.get("CLOUDFLARE_API_TOKEN") and os.environ.get("CLOUDFLARE_ACCOUNT_ID"))
 
 def transcript_queue_row(media_row: dict[str, Any], selected_tool: Optional[str], dry_run: bool) -> dict[str, Any]:
     status = "dry_run" if dry_run else "queued_missing_tool"
@@ -185,10 +202,15 @@ def transcribe_one(media_row: dict[str, Any], tool: str, model: str) -> dict[str
     transcription_input_path = prepare_media_for_transcription(media_path, tool)
     transcript_dir = MEDIA_DIR / "transcripts" / media_row["source_id"]
     transcript_dir.mkdir(parents=True, exist_ok=True)
-    command = transcription_command(tool, transcription_input_path, transcript_dir, model)
     effective_model = effective_transcription_model(tool, model)
-    result = subprocess.run(command, check=False, text=True, capture_output=True, timeout=3600)
-    output = read_transcription_output_detail(transcription_input_path, transcript_dir, result.stdout)
+    if tool == "cloudflare-workers-ai":
+        raw_output = transcribe_with_cloudflare_workers_ai(transcription_input_path, effective_model)
+        result = subprocess.CompletedProcess(args=["cloudflare-workers-ai", effective_model], returncode=0, stdout=json.dumps(raw_output), stderr="")
+        output = read_cloudflare_transcription_output(transcription_input_path, transcript_dir, raw_output)
+    else:
+        command = transcription_command(tool, transcription_input_path, transcript_dir, model)
+        result = subprocess.run(command, check=False, text=True, capture_output=True, timeout=3600)
+        output = read_transcription_output_detail(transcription_input_path, transcript_dir, result.stdout)
     transcript_text = str(output.get("text") or "")
     raw_transcript_payload_path = output.get("payload_path")
     if output.get("raw_payload") is not None and raw_transcript_payload_path and not Path(raw_transcript_payload_path).exists():
@@ -276,6 +298,8 @@ def download_with_ytdlp(url: str, media_id: str) -> Path:
     return candidates[0]
 
 def prepare_media_for_transcription(media_path: Path, tool: str) -> Path:
+    if tool == "cloudflare-workers-ai":
+        return media_path
     if tool != "parakeet":
         return media_path
     if media_path.suffix.lower() == ".wav":
@@ -347,7 +371,43 @@ def effective_transcription_model(tool: str, model: str) -> str:
         return "base" if model == "auto" else model
     if tool == "parakeet":
         return PARAKEET_MODEL if model == "auto" else model
+    if tool == "cloudflare-workers-ai":
+        return CLOUDFLARE_TRANSCRIBE_MODEL if model in {"auto", "base", "large-v3-turbo", "turbo"} else model
     return model
+
+def transcribe_with_cloudflare_workers_ai(media_path: Path, model: str) -> dict[str, Any]:
+    account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+    token = os.environ.get("CLOUDFLARE_API_TOKEN")
+    if not account_id or not token:
+        raise RuntimeError("CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN are required for cloudflare-workers-ai transcription")
+    audio_base64 = base64.b64encode(media_path.read_bytes()).decode("utf-8")
+    payload: dict[str, Any] = {
+        "audio": audio_base64,
+        "task": "transcribe",
+    }
+    language = os.environ.get("ROCK_KB_TRANSCRIBE_LANGUAGE")
+    if language:
+        payload["language"] = language
+    url = f"https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model}"
+    response = httpx.post(url, headers={"Authorization": f"Bearer {token}"}, json=payload, timeout=3600)
+    response.raise_for_status()
+    data = response.json()
+    if isinstance(data, dict) and data.get("success") is False:
+        raise RuntimeError(f"Cloudflare Workers AI transcription failed: {data.get('errors') or data}")
+    return data if isinstance(data, dict) else {"result": data}
+
+def read_cloudflare_transcription_output(media_path: Path, transcript_dir: Path, payload: dict[str, Any]) -> dict[str, Any]:
+    result_payload = cloudflare_result_payload(payload)
+    return {
+        "text": transcript_text_from_payload(result_payload),
+        "payload_path": transcript_dir / f"{media_path.stem}.cloudflare.transcript.json",
+        "raw_payload": payload,
+        "segments": extract_transcript_segments(result_payload),
+    }
+
+def cloudflare_result_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    result = payload.get("result")
+    return result if isinstance(result, dict) else payload
 
 def read_transcription_output(media_path: Path, transcript_dir: Path, stdout: str) -> tuple[str, Optional[Path]]:
     output = read_transcription_output_detail(media_path, transcript_dir, stdout)
@@ -383,6 +443,8 @@ def read_transcription_output_detail(media_path: Path, transcript_dir: Path, std
     return {"text": stdout, "payload_path": transcript_dir / f"{media_path.stem}.transcript.json", "raw_payload": None, "segments": []}
 
 def transcript_text_from_payload(payload: dict[str, Any]) -> str:
+    if isinstance(payload.get("result"), dict):
+        return transcript_text_from_payload(payload["result"])
     text = payload.get("text") or payload.get("transcript") or payload.get("transcription")
     if isinstance(text, str):
         return text

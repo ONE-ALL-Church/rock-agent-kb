@@ -56,13 +56,14 @@ Run scheduled ingest in the private corpus repo or another private automation co
 5. Run `kb corpus autosync --commit`.
 6. Upload large media files listed in `large-media-restore-manifest.json` to private R2.
 
-Workers AI Whisper can be used by a private Worker/cron if desired, but local `mlx_whisper`, OpenAI transcription, and Gemma enrichment remain optional private processors. Public artifacts should receive only reviewer-authored distilled claims and source links.
+Cloudflare Workers AI Whisper is the preferred hosted transcription path for scheduled private ingest because the same durable Cloudflare token can cover transcription and private R2 readiness. Local `mlx_whisper`, OpenAI transcription, and Gemma enrichment remain optional private processors. Public artifacts should receive only reviewer-authored distilled claims and source links.
 
 ## Required Secrets For Private Automation
 
 - Private corpus repo write token.
-- Private R2 bucket credentials.
-- Optional ASR provider key if using hosted transcription.
-- Optional `OPENAI_API_KEY` for the existing OpenAI transcription path.
+- `CLOUDFLARE_API_TOKEN` with Workers AI and R2 permissions.
+- `CLOUDFLARE_ACCOUNT_ID` as a private repo variable.
+- `PRIVATE_R2_BUCKET` as a private repo variable.
+- Optional `OPENAI_API_KEY` only when selecting the OpenAI transcription backend.
 
 Never put these secrets in the public repo, public Actions, public Worker vars, or org registry files.
