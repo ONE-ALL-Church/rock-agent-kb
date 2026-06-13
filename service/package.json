@@ -1,0 +1,20 @@
+{
+  "name": "rock-agent-kb-service",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "types": "wrangler types src/worker-configuration.d.ts",
+    "wrangler:check": "wrangler deploy --dry-run --outdir dist/dry-run --env production"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.20.0"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  }
+}

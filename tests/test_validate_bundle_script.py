@@ -65,3 +65,17 @@ def test_validate_bundle_script_rejects_private_path_like_leak_checker(tmp_path)
     assert result.returncode == 1
     assert "private path reference" in result.stderr
     assert model_plus_leaks_accepts(bundle) is False
+
+
+def test_validate_bundle_script_rejects_org_directory_mismatch(tmp_path):
+    row = json.loads(VALID_FIXTURE.read_text(encoding="utf-8"))
+    row["org_id"] = "other-org"
+    row["contribution_id"] = "other-org:workflow-troubleshooting"
+    bundle = tmp_path / "community-contributions" / "test-org" / "bundle.jsonl"
+    bundle.parent.mkdir(parents=True)
+    bundle.write_text(json.dumps(row) + "\n", encoding="utf-8")
+
+    result = run_validator(bundle)
+
+    assert result.returncode == 1
+    assert "org_id does not match directory test-org" in result.stderr

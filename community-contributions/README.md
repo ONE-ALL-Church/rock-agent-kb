@@ -15,6 +15,7 @@ Use this folder for proposed knowledge that should flow back into the canonical 
 Accepted rows must:
 
 - Use schema `rock-kb-org-contribution-v1`.
+- Match `org_id` to the folder name. The validator rejects bundles whose rows claim a different organization than the `community-contributions/<org-id>/` path.
 - Be newly written public-safe summaries, not copied private docs or transcripts.
 - Include `source_urls` or `source_record_ids`.
 - Set `redaction_attestation` and `license_attestation` to `true`.
@@ -27,6 +28,6 @@ Validate locally before opening a PR:
 python scripts/validate_bundle.py community-contributions/<org-id>/bundle.jsonl
 ```
 
-The PR workflow runs the same validator for contribution and source-suggestion changes. Accepted rows remain community-tier evidence until promoted by the review workflow.
+The PR workflow runs the same validator for contribution and source-suggestion changes, including the `org_id` path-boundary check. Accepted rows remain community-tier evidence until promoted by the review workflow.
 
 Maintainers use `uv run kb contributions validate`, `uv run kb contributions promote`, and the normal `uv run kb build` stages when reviewing or promoting accepted contribution rows.

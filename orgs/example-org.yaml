@@ -1,0 +1,15 @@
+schema: rock-kb-org-v1
+org_id: example-org
+display_name: Example Church
+status: pending
+contacts:
+  - role: knowledge-maintainer
+    github: example-maintainer
+github_accounts:
+  - example-agent
+standing_attestations:
+  redaction: true
+  license: true
+intake:
+  auto_merge_allowed: false
+  max_rows_per_bundle: 200

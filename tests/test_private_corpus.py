@@ -2,8 +2,10 @@ import json
 
 import rock_kb.private_corpus as private_corpus
 from rock_kb.private_corpus import (
+    autosync_private_corpus,
     ignored_private_artifact_report,
     initialize_private_corpus,
+    restore_private_text_artifacts,
     sync_private_text_artifacts,
     verify_private_corpus_rebuild,
     write_large_media_restore_manifest,
@@ -81,3 +83,38 @@ def test_verify_private_corpus_rebuild_fails_without_required_inputs(monkeypatch
     assert result["status"] == "fail"
     assert "private corpus has no raw_manifest_files" in result["errors"]
     assert "large-media-restore-manifest.json is missing; run kb corpus media-manifest" in result["errors"]
+
+
+def test_restore_private_text_artifacts_copies_from_corpus(monkeypatch, tmp_path):
+    repo = tmp_path / "public-repo"
+    repo.mkdir()
+    corpus = tmp_path / "private-corpus"
+    monkeypatch.setattr(private_corpus, "REPO_ROOT", repo)
+
+    initialize_private_corpus(corpus)
+    source = corpus / "data" / "review" / "candidate.jsonl"
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_text('{"review":"private"}\n', encoding="utf-8")
+
+    result = restore_private_text_artifacts(corpus)
+
+    assert result["status"] == "ok"
+    assert result["restored"] == 1
+    assert (repo / "data" / "review" / "candidate.jsonl").exists()
+
+
+def test_autosync_refreshes_media_manifest(monkeypatch, tmp_path):
+    repo = tmp_path / "public-repo"
+    media = repo / "data" / "media"
+    media.mkdir(parents=True)
+    (media / "clip.mp3").write_bytes(b"audio")
+    corpus = tmp_path / "private-corpus"
+    monkeypatch.setattr(private_corpus, "REPO_ROOT", repo)
+    monkeypatch.setattr(private_corpus, "SYNCABLE_PRIVATE_ROOTS", [media])
+    monkeypatch.setattr(private_corpus, "is_git_ignored", lambda path: True)
+
+    initialize_private_corpus(corpus)
+    result = autosync_private_corpus(corpus)
+
+    assert result["status"] == "ok"
+    assert result["media_manifest"]["media_object_count"] == 1

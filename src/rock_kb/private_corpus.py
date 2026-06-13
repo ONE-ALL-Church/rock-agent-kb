@@ -120,6 +120,79 @@ def sync_private_text_artifacts(corpus_path: Path, dry_run: bool = False) -> dic
     }
 
 
+def restore_private_text_artifacts(corpus_path: Path, dry_run: bool = False, overwrite: bool = False) -> dict[str, Any]:
+    validation = validate_private_corpus(corpus_path)
+    if validation["status"] != "ok":
+        return {"schema": "rock-kb-private-corpus-restore-v1", "status": "fail", "errors": validation["errors"], "restored": 0}
+    restored = 0
+    skipped = 0
+    candidates: list[dict[str, Any]] = []
+    for root_rel in ["data/raw-manifests", "data/normalized", "data/review", "data/media", "data/index"]:
+        root = corpus_path / root_rel
+        if not root.exists():
+            continue
+        for source in sorted(root.rglob("*")):
+            if not source.is_file() or source.suffix.lower() not in TEXT_ARTIFACT_SUFFIXES:
+                continue
+            rel = source.relative_to(corpus_path).as_posix()
+            target = REPO_ROOT / rel
+            candidates.append({"source": str(source), "destination": rel})
+            if target.exists() and not overwrite:
+                skipped += 1
+                continue
+            if dry_run:
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+            restored += 1
+    return {
+        "schema": "rock-kb-private-corpus-restore-v1",
+        "status": "ok",
+        "dry_run": dry_run,
+        "overwrite": overwrite,
+        "corpus_path": str(corpus_path),
+        "candidate_count": len(candidates),
+        "restored": restored,
+        "skipped_existing": skipped,
+        "sample": candidates[:25],
+    }
+
+
+def autosync_private_corpus(corpus_path: Path, dry_run: bool = False, commit: bool = False) -> dict[str, Any]:
+    sync_result = sync_private_text_artifacts(corpus_path, dry_run=dry_run)
+    if sync_result["status"] != "ok":
+        return {"schema": "rock-kb-private-corpus-autosync-v1", "status": "fail", "sync": sync_result}
+    media_result = write_large_media_restore_manifest(corpus_path) if not dry_run else {"status": "dry_run"}
+    commit_result: dict[str, Any] | None = None
+    if commit and not dry_run:
+        commit_result = commit_private_corpus_changes(corpus_path)
+    return {
+        "schema": "rock-kb-private-corpus-autosync-v1",
+        "status": "ok" if media_result.get("status") in {"ok", "dry_run"} else "fail",
+        "dry_run": dry_run,
+        "sync": sync_result,
+        "media_manifest": media_result,
+        "commit": commit_result,
+    }
+
+
+def commit_private_corpus_changes(corpus_path: Path) -> dict[str, Any]:
+    if not (corpus_path / ".git").exists():
+        return {"status": "skipped", "reason": "private corpus path is not a git repository"}
+    subprocess.run(["git", "add", "data", PRIVATE_CORPUS_RESTORE_MANIFEST, PRIVATE_CORPUS_MANIFEST], cwd=corpus_path, check=False)
+    diff = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=corpus_path, check=False)
+    if diff.returncode == 0:
+        return {"status": "skipped", "reason": "no private corpus changes"}
+    message = "Sync Rock KB private corpus artifacts"
+    result = subprocess.run(["git", "commit", "-m", message], cwd=corpus_path, check=False, text=True, capture_output=True)
+    return {
+        "status": "ok" if result.returncode == 0 else "fail",
+        "message": message,
+        "stdout": result.stdout[-2000:],
+        "stderr": result.stderr[-2000:],
+    }
+
+
 def write_large_media_restore_manifest(corpus_path: Path) -> dict[str, Any]:
     validation = validate_private_corpus(corpus_path)
     if validation["status"] != "ok":

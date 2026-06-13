@@ -4,12 +4,15 @@
 
 - [CLI Reference](runbooks/cli-reference.md) - grouped `kb` command reference and old-command disposition table.
 - [Pipeline Overview](runbooks/pipeline-overview.md) - rebuild, media, claim, corpus, answer-pack, source-summary, and readiness workflow overview.
+- [Agent Serving Runbook](runbooks/agent-serving.md) - local MCP server, hosted Worker service, terminal client, and deployed evaluation gate.
 - [Model Map Rebuild Runbook](runbooks/model-map-rebuild-runbook.md) - stable/latest generic Rock Model Map scrape, rebuild, validation, and review workflow.
 - [Contributor Reviewer Workflow](runbooks/contributor-reviewer-workflow.md) - community contribution, media review, claim promotion, and rebuild workflow.
+- [Community Onboarding](community-onboarding.md) - how another church and its agents consume and contribute to the public KB.
 - [Public Surface Runbook](runbooks/public-publish-runbook.md) - public surface, scratch export, and contribution workflow.
 - [Local Public Surface Audit](runbooks/local-public-surface-audit.md) - local pre-commit checks for public/private boundary and contribution bundles.
 - [Source Rebuild Orchestration Runbook](runbooks/source-rebuild-orchestration-runbook.md) - source scan, refresh, dry-run, rebuild, and PR automation workflow.
 - [Local Transcription](runbooks/local-transcription.md) - local and hosted transcription model decision and media promotion process.
+- [Private Corpus Cloud Runbook](runbooks/private-corpus-cloud-runbook.md) - restore/sync/autonomous ingest plan for private transcripts and review artifacts.
 - [Public Repo README Template](public-repo-readme.md) - public export README template intentionally kept at the root of `docs/` because `src/rock_kb/publish.py` reads this exact path.
 
 ## Decisions

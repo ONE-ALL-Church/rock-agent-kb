@@ -1,6 +1,6 @@
 # Agent Knowledge Network Goal
 
-> **For agentic workers (Codex):** This is the north-star goal for the whole project. It supersedes the framing of earlier goal docs but does not discard them: `docs/decisions/incremental-architecture-refactor-goal.md` is Milestone 0 of this goal and remains the detailed execution plan for the foundation work. Execute milestone by milestone. Within Milestone 0, follow that document; Milestones 1–3 are specified here.
+> **For agentic workers (Codex):** This is the north-star goal for the whole project. It supersedes the framing of earlier goal docs but does not discard them: `docs/decisions/incremental-architecture-refactor-goal.md` is Milestone 0 of this goal and remains the detailed execution plan for the foundation work. Execute milestone by milestone. Within Milestone 0, follow that document; Milestones 1–4 are specified here.
 
 ## North Star
 
@@ -131,6 +131,12 @@ Any agent can query the knowledge base over the network with one line of MCP con
 
 **Done when:** from a machine with no checkout, an agent added via one MCP config block answers a Rock question with tier-labeled, source-cited results; killing and redeploying the Worker from CI loses nothing.
 
+**Current implementation status (2026-06-12):**
+
+- Repo-side implementation is complete: `service/` contains the Cloudflare Worker, `kb deploy-service` builds D1/R2 deployment payloads from the audited public artifacts, the Worker exposes MCP-style tools plus plain HTTPS endpoints, and `.github/workflows/deploy-service.yml` runs the service build/audit/deploy path.
+- Local validation passed: `kb deploy-service` produced 1,454 deployable artifacts and 4,018 search rows; TypeScript checking passed; Wrangler deploy dry-run passed.
+- Live completion still requires external configuration: real Cloudflare account secrets, D1 database id, R2 bucket, production deploy approval, and a successful post-deploy `kb eval-service` run against the live URL.
+
 ### Milestone 2 — Autonomous Contribution Intake
 
 A registered org's agent can submit knowledge and see it served within the hour, no human touch on the happy path.
@@ -147,6 +153,12 @@ A registered org's agent can submit knowledge and see it served within the hour,
 
 **Done when:** an end-to-end test (scripted as an agent) registers a test org, submits a valid bundle through `kb_submit`, sees it auto-merged, and retrieves its own claim — both via `kb_search` and via `uvx rock-kb search` — with tier `community-unreviewed` after the automated rebuild, with no human action; and a bundle containing a planted secret or another org's path is rejected at every gate.
 
+**Current implementation status (2026-06-12):**
+
+- Repo-side implementation is complete for reviewed intake and agent submission: `orgs/` has a reviewed-org schema/example, `scripts/validate_orgs.py` is wired into CI, the Worker validates registered-org submissions and can open GitHub PRs, and the Python `rock-kb` client can search, fetch, validate, submit, and print MCP config.
+- Auto-merge is intentionally disabled (`AUTO_MERGE_INTAKE=false`) until a GitHub App or equivalent server-side path gate can enforce per-org intake boundaries while satisfying branch protection. Public GitHub push rulesets cannot enforce file-path restrictions for this repo type.
+- Live completion still requires issuing real org tokens, configuring the Worker with `GITHUB_TOKEN` and org-token hashes, and proving the end-to-end registered-org submit/rebuild/serve loop.
+
 ### Milestone 3 — Network Operations
 
 The system stays trustworthy as it grows.
@@ -160,6 +172,12 @@ The system stays trustworthy as it grows.
 5. **Usage telemetry (privacy-light):** Worker-side counts of tool calls, top queries with zero results (the gap-finding signal for what to ingest next), per-org submission stats. No query content retention beyond aggregates.
 
 **Done when:** a second real church has registered, consumed, and contributed without maintainer hand-holding beyond the registration review.
+
+**Current implementation status (2026-06-12):**
+
+- Operational foundations are implemented: hosted-service evaluation (`kb eval-service`) runs against `agent/evaluation-set.jsonl`, service telemetry records aggregate counts without raw query retention, conflict/review artifacts are part of the deployed public surface, and `docs/community-onboarding.md` describes the consumer and contributor path for other churches.
+- CI can run the service audit/deploy/eval path, but production eval is skipped until `ROCK_KB_BASE_URL` is configured.
+- Live completion still requires a real second church to register, consume, submit, and have that contribution served successfully.
 
 ### Milestone 4 — Laptop-Free Private Plane
 
@@ -175,6 +193,12 @@ Independent of Milestones 1–3; may run any time after Milestone 0. The private
 **Cost note:** R2 ≈ $0.015/GB-month (100 GB of media ≈ $1.50/month, zero egress); Workers AI Whisper ≈ 47 neurons per audio-minute ≈ $0.03/hour of audio beyond the 10k-neurons/day free allowance; private GitHub repo free.
 
 **Done when:** the maintainer's laptop can be wiped without losing any artifact or requiring any re-transcription, and an episode published while that laptop is off still gets transcribed and queued for review automatically.
+
+**Current implementation status (2026-06-12):**
+
+- Repo-side implementation is complete for the reusable path: `kb corpus autosync` and `kb corpus restore` are first-class commands, `docs/runbooks/private-corpus-cloud-runbook.md` defines the cloud-canonical private corpus flow, and `docs/templates/private-corpus-ingest.workflow.yml` provides the private-repo scheduled ingest template.
+- Media transcription now reuses an existing transcript index row marked `transcribed` instead of retranscribing a completed source.
+- Live completion still requires creating/configuring the private corpus repo automation, private R2 media bucket, credentials, and a documented restore drill from a fresh machine.
 
 ## Success Criteria (whole goal)
 

@@ -1,0 +1,27 @@
+name: Release Client
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "rock-kb-v*"
+
+jobs:
+  release-client:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+    defaults:
+      run:
+        working-directory: clients/python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Build package
+        run: uv build
+      - name: Publish package
+        if: ${{ env.PYPI_TOKEN != '' }}
+        env:
+          UV_PUBLISH_TOKEN: ${{ env.PYPI_TOKEN }}
+        run: uv publish

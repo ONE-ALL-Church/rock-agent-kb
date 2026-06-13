@@ -123,6 +123,8 @@ def test_public_contribution_records_convert_reviewed_bundles(tmp_path):
     assert len(records) == 1
     assert records[0]["source_id"] == "org_contribution"
     assert records[0]["contribution_id"] == "org:workflow-pattern"
+    assert records[0]["authority_tier"] == "community-reviewed"
+    assert records[0]["claim_tier"] == "routing_context_only"
     assert records[0]["source_urls"] == ["https://community.rockrms.com/documentation"]
 
 

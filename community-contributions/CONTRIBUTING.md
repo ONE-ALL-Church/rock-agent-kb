@@ -28,7 +28,7 @@ Each line in `bundle.jsonl` is one JSON object with:
 
 - `schema`: must be `rock-kb-org-contribution-v1`
 - `contribution_id`: stable id such as `example-org:workflow-timeout-pattern`
-- `org_id`: must match the folder name
+- `org_id`: must match the folder name; `community-contributions/test-org/bundle.jsonl` may contain only rows with `org_id: test-org`
 - `org_display_name`: public display name or `Anonymous Organization`
 - `contribution_type`: one of `task_card`, `troubleshooting_pattern`, `release_caveat`, `entity_note`, `guide_section`, `source_link`, `open_question`
 - `concept_ids`: one or more KB concept ids

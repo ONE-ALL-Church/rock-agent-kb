@@ -1,0 +1,104 @@
+name: Deploy Service
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "agent/**"
+      - "claims/**"
+      - "knowledge/**"
+      - "sources/**"
+      - "concepts/**"
+      - "community-contributions/**"
+      - "source-suggestions/**"
+      - "orgs/**"
+      - "service/**"
+      - "scripts/validate_bundle.py"
+      - "scripts/validate_orgs.py"
+      - "src/rock_kb/contribution_sources.py"
+      - "src/rock_kb/service_projection.py"
+      - "src/rock_kb/service_eval.py"
+      - ".github/workflows/deploy-service.yml"
+
+jobs:
+  deploy-service:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ROCK_KB_BASE_URL: ${{ vars.ROCK_KB_BASE_URL }}
+      ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
+      ROCK_KB_D1_DATABASE_ID: ${{ vars.ROCK_KB_D1_DATABASE_ID }}
+      ROCK_KB_R2_BUCKET: ${{ vars.ROCK_KB_R2_BUCKET }}
+      ROCK_KB_WORKER_GITHUB_TOKEN: ${{ secrets.ROCK_KB_WORKER_GITHUB_TOKEN }}
+      ORG_TOKEN_SHA256_JSON: ${{ secrets.ORG_TOKEN_SHA256_JSON }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: service/package-lock.json
+      - name: Install service dependencies
+        working-directory: service
+        run: npm ci
+      - name: Configure production Cloudflare bindings
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
+        run: >
+          python3 scripts/configure_service_bindings.py --env production
+          --d1-database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --d1-database-id "${ROCK_KB_D1_DATABASE_ID}"
+          --r2-bucket "${ROCK_KB_R2_BUCKET:-rock-agent-kb-artifacts}"
+      - name: Generate Worker types
+        working-directory: service
+        run: npm run types
+      - name: Check Wrangler config
+        working-directory: service
+        run: npm run wrangler:check
+      - name: Type-check Worker
+        working-directory: service
+        run: npm run check
+      - name: Validate contribution intake
+        run: |
+          uv run python scripts/validate_orgs.py
+          uv run python scripts/validate_bundle.py
+      - name: Audit public knowledge surface
+        run: uv run kb audit all --public-only
+      - name: Build service projection
+        run: uv run kb deploy-service
+      - name: Sync Worker runtime secrets
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
+        working-directory: service
+        run: |
+          if [ -n "${ROCK_KB_WORKER_GITHUB_TOKEN}" ]; then
+            printf '%s' "${ROCK_KB_WORKER_GITHUB_TOKEN}" | npx wrangler secret put GITHUB_TOKEN --env production
+          else
+            echo "::notice::ROCK_KB_WORKER_GITHUB_TOKEN is not configured; hosted kb_submit can validate but cannot open PRs."
+          fi
+          if [ -n "${ORG_TOKEN_SHA256_JSON}" ]; then
+            printf '%s' "${ORG_TOKEN_SHA256_JSON}" | npx wrangler secret put ORG_TOKEN_SHA256_JSON --env production
+          else
+            echo "::notice::ORG_TOKEN_SHA256_JSON is not configured; hosted kb_submit will reject org tokens."
+          fi
+      - name: Deploy to Cloudflare
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
+        run: >
+          uv run kb deploy-service --apply --env production
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --bucket "${ROCK_KB_R2_BUCKET:-rock-agent-kb-artifacts}"
+      - name: Report skipped Cloudflare deploy
+        if: ${{ env.CLOUDFLARE_API_TOKEN == '' || env.CLOUDFLARE_ACCOUNT_ID == '' || env.ROCK_KB_D1_DATABASE_ID == '' }}
+        run: >
+          echo "::notice::Cloudflare deploy skipped because CLOUDFLARE_API_TOKEN,
+          CLOUDFLARE_ACCOUNT_ID, or ROCK_KB_D1_DATABASE_ID is not configured."
+      - name: Smoke-test hosted service
+        if: ${{ env.ROCK_KB_BASE_URL != '' }}
+        run: |
+          curl --fail "${ROCK_KB_BASE_URL}/health"
+          curl --fail "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
+          curl --fail "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json
+          uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5
