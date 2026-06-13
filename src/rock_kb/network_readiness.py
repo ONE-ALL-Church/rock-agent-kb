@@ -29,7 +29,8 @@ def network_readiness_report(
     checks = [
         repo_side_implementation_check(),
         org_registry_depth_check(),
-        private_corpus_cloud_check(private_corpus_path or env_private_corpus_path(env_values)),
+        private_corpus_cloud_check(private_corpus_path or env_private_corpus_path(env_values), env_values, runner, check_github=check_github),
+        private_corpus_autonomous_ingest_check(env_values, runner, check_github=check_github),
         hosted_service_check(env_values, repo, runner, check_github=check_github),
     ]
     if check_github:
@@ -210,7 +211,9 @@ def read_jsonl_safely(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
-def private_corpus_cloud_check(path: Path | None) -> dict[str, Any]:
+def private_corpus_cloud_check(path: Path | None, env: dict[str, str] | None = None, run_command: RunCommand | None = None, *, check_github: bool = False) -> dict[str, Any]:
+    env_values = env or {}
+    runner = run_command or default_run_command
     if path is None:
         return check(
             "private_corpus_cloud_restore",
@@ -227,18 +230,119 @@ def private_corpus_cloud_check(path: Path | None) -> dict[str, Any]:
         "data/raw-manifests",
     ]
     missing = [item for item in required if not (path / item).exists()]
+    workflow_evidence = private_corpus_workflow_evidence(env_values, runner, check_github=check_github)
+    failures = []
+    if missing:
+        failures.append("private corpus restore artifacts are missing")
+    if workflow_evidence["status"] != "pass":
+        failures.append(workflow_evidence["message"])
     return check(
         "private_corpus_cloud_restore",
-        "fail" if missing else "pass",
-        "Private corpus restore artifacts exist." if not missing else "Private corpus restore artifacts are missing.",
+        "fail" if failures else "pass",
+        "Private corpus restore artifacts and cloud restore workflow are verified."
+        if not failures
+        else "Private corpus cloud restore is incomplete.",
         {
             "mount_path": "<redacted-private-corpus-path>",
             "path_provided": True,
             "path_exists": path.exists(),
             "missing": missing,
             "required": required,
+            "workflow": workflow_evidence,
         },
     )
+
+
+def private_corpus_autonomous_ingest_check(env: dict[str, str], run_command: RunCommand, *, check_github: bool) -> dict[str, Any]:
+    if not check_github:
+        return check("private_corpus_autonomous_ingest", "warn", "GitHub live-state checks were skipped.", {})
+    repo = private_corpus_repo(env)
+    if not repo:
+        return check(
+            "private_corpus_autonomous_ingest",
+            "fail",
+            "No private corpus repo was provided, so autonomous ingest configuration cannot be verified.",
+            {"expected_env": "ROCK_KB_PRIVATE_CORPUS_REPO"},
+        )
+    secrets = set(list_names(["gh", "secret", "list", "--repo", repo], run_command))
+    variables = set(list_names(["gh", "variable", "list", "--repo", repo], run_command))
+    has_transcription_secret = bool({"OPENAI_API_KEY", "CLOUDFLARE_API_TOKEN"} & secrets)
+    r2_ready = "PRIVATE_R2_BUCKET" in variables and "CLOUDFLARE_API_TOKEN" in secrets and "CLOUDFLARE_ACCOUNT_ID" in secrets
+    missing = []
+    if not has_transcription_secret:
+        missing.append("OPENAI_API_KEY or CLOUDFLARE_API_TOKEN")
+    if not r2_ready:
+        missing.extend(sorted({"PRIVATE_R2_BUCKET"} - variables))
+        missing.extend(sorted({"CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"} - secrets))
+    return check(
+        "private_corpus_autonomous_ingest",
+        "pass" if not missing else "fail",
+        "Private corpus autonomous transcription and R2 prerequisites are configured."
+        if not missing
+        else "Private corpus autonomous transcription or R2 prerequisites are missing.",
+        {
+            "private_repo": "<redacted-private-corpus-repo>",
+            "has_transcription_secret": has_transcription_secret,
+            "r2_ready": r2_ready,
+            "missing": sorted(set(missing)),
+        },
+    )
+
+
+def private_corpus_workflow_evidence(env: dict[str, str], run_command: RunCommand, *, check_github: bool) -> dict[str, Any]:
+    if not check_github:
+        return {"status": "warn", "message": "GitHub live-state checks were skipped.", "private_repo": "<redacted-private-corpus-repo>"}
+    repo = private_corpus_repo(env)
+    if not repo:
+        return {"status": "fail", "message": "ROCK_KB_PRIVATE_CORPUS_REPO is not configured.", "private_repo": "<redacted-private-corpus-repo>"}
+    workflows = run_json(["gh", "api", f"repos/{repo}/actions/workflows"], run_command)
+    if workflows["status"] != "ok":
+        return {"status": "fail", "message": "Private corpus workflow lookup failed.", "private_repo": "<redacted-private-corpus-repo>"}
+    workflow_rows = workflows["data"].get("workflows") or []
+    workflow = next((row for row in workflow_rows if row.get("path") == ".github/workflows/private-corpus-ingest.yml"), None)
+    if not workflow or workflow.get("state") != "active":
+        return {"status": "fail", "message": "Private Corpus Ingest workflow is not active.", "private_repo": "<redacted-private-corpus-repo>"}
+    runs = run_json(
+        [
+            "gh",
+            "run",
+            "list",
+            "--repo",
+            repo,
+            "--workflow",
+            "Private Corpus Ingest",
+            "--limit",
+            "5",
+            "--json",
+            "databaseId,status,conclusion,event,createdAt,headSha",
+        ],
+        run_command,
+    )
+    if runs["status"] != "ok":
+        return {"status": "fail", "message": "Private corpus workflow run lookup failed.", "private_repo": "<redacted-private-corpus-repo>"}
+    run_rows = runs["data"] if isinstance(runs["data"], list) else []
+    successful = [row for row in run_rows if row.get("status") == "completed" and row.get("conclusion") == "success"]
+    if not successful:
+        return {
+            "status": "fail",
+            "message": "Private Corpus Ingest workflow has no recent successful run.",
+            "private_repo": "<redacted-private-corpus-repo>",
+            "workflow_state": workflow.get("state"),
+            "recent_run_count": len(run_rows),
+        }
+    latest = successful[0]
+    return {
+        "status": "pass",
+        "message": "Private Corpus Ingest workflow is active and has a recent successful run.",
+        "private_repo": "<redacted-private-corpus-repo>",
+        "workflow_state": workflow.get("state"),
+        "latest_success": {
+            "databaseId": latest.get("databaseId"),
+            "event": latest.get("event"),
+            "createdAt": latest.get("createdAt"),
+            "headSha": latest.get("headSha"),
+        },
+    }
 
 
 def hosted_service_check(env: dict[str, str], repo: str, run_command: RunCommand, *, check_github: bool) -> dict[str, Any]:
@@ -429,6 +533,10 @@ def default_run_command(command: list[str]) -> subprocess.CompletedProcess[str]:
 def env_private_corpus_path(env: dict[str, str]) -> Path | None:
     value = env.get("ROCK_KB_PRIVATE_CORPUS_PATH") or env.get("PRIVATE_CORPUS_PATH")
     return Path(value).expanduser() if value else None
+
+
+def private_corpus_repo(env: dict[str, str]) -> str:
+    return env.get("ROCK_KB_PRIVATE_CORPUS_REPO") or env.get("PRIVATE_CORPUS_REPO") or ""
 
 
 def readiness_status(checks: list[dict[str, Any]]) -> str:

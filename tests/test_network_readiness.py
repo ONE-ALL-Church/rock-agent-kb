@@ -19,7 +19,7 @@ def completed(stdout: object = "", returncode: int = 0) -> subprocess.CompletedP
     return subprocess.CompletedProcess(
         args=[],
         returncode=returncode,
-        stdout=json.dumps(stdout) if isinstance(stdout, dict) else str(stdout),
+        stdout=json.dumps(stdout) if isinstance(stdout, (dict, list)) else str(stdout),
         stderr="",
     )
 
@@ -164,7 +164,7 @@ def test_private_corpus_cloud_check_redacts_local_path(tmp_path):
 
     check = private_corpus_cloud_check(corpus)
 
-    assert check["status"] == "pass"
+    assert check["status"] == "fail"
     assert check["evidence"]["mount_path"] == "<redacted-private-corpus-path>"
     assert check["evidence"]["path_provided"] is True
     assert check["evidence"]["path_exists"] is True
@@ -225,11 +225,16 @@ def test_network_readiness_can_pass_when_live_gates_are_satisfied(tmp_path, monk
             return completed(
                 "CLOUDFLARE_API_TOKEN\t2026-06-12\n"
                 "CLOUDFLARE_ACCOUNT_ID\t2026-06-12\n"
+                "OPENAI_API_KEY\t2026-06-12\n"
                 "ROCK_KB_WORKER_GITHUB_TOKEN\t2026-06-12\n"
                 "ORG_TOKEN_SHA256_JSON\t2026-06-12\n"
             )
         if command[:3] == ["gh", "variable", "list"]:
-            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\n")
+            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\nPRIVATE_R2_BUCKET\tset\n")
+        if command[:2] == ["gh", "api"] and command[-1].endswith("/actions/workflows"):
+            return completed({"workflows": [{"path": ".github/workflows/private-corpus-ingest.yml", "state": "active"}]})
+        if command[:3] == ["gh", "run", "list"]:
+            return completed([{"status": "completed", "conclusion": "success", "databaseId": 1, "event": "workflow_dispatch", "createdAt": "2026-06-12T20:00:00Z"}])
         if command[:2] == ["gh", "api"]:
             return completed({"allow_auto_merge": True})
         if command[:3] == ["curl", "--fail", "--silent"]:
@@ -238,7 +243,13 @@ def test_network_readiness_can_pass_when_live_gates_are_satisfied(tmp_path, monk
             return completed({"status": "ok", "pass_count": 100, "fail_count": 0})
         raise AssertionError(command)
 
-    report = network_readiness_report(repo="ONE-ALL-Church/rock-agent-kb", pr=2, private_corpus_path=corpus, run_command=run)
+    report = network_readiness_report(
+        repo="ONE-ALL-Church/rock-agent-kb",
+        pr=2,
+        private_corpus_path=corpus,
+        env={"ROCK_KB_BASE_URL": "https://example.test", "ROCK_KB_PRIVATE_CORPUS_REPO": "example/private-corpus"},
+        run_command=run,
+    )
 
     assert report["status"] == "pass"
 
@@ -276,11 +287,16 @@ def test_network_readiness_pr_gate_passes_after_merge(tmp_path, monkeypatch):
             return completed(
                 "CLOUDFLARE_API_TOKEN\t2026-06-12\n"
                 "CLOUDFLARE_ACCOUNT_ID\t2026-06-12\n"
+                "OPENAI_API_KEY\t2026-06-12\n"
                 "ROCK_KB_WORKER_GITHUB_TOKEN\t2026-06-12\n"
                 "ORG_TOKEN_SHA256_JSON\t2026-06-12\n"
             )
         if command[:3] == ["gh", "variable", "list"]:
-            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\n")
+            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\nPRIVATE_R2_BUCKET\tset\n")
+        if command[:2] == ["gh", "api"] and command[-1].endswith("/actions/workflows"):
+            return completed({"workflows": [{"path": ".github/workflows/private-corpus-ingest.yml", "state": "active"}]})
+        if command[:3] == ["gh", "run", "list"]:
+            return completed([{"status": "completed", "conclusion": "success", "databaseId": 1, "event": "workflow_dispatch", "createdAt": "2026-06-12T20:00:00Z"}])
         if command[:2] == ["gh", "api"]:
             return completed({"allow_auto_merge": True})
         if command[:3] == ["curl", "--fail", "--silent"]:
@@ -289,7 +305,13 @@ def test_network_readiness_pr_gate_passes_after_merge(tmp_path, monkeypatch):
             return completed({"status": "ok", "pass_count": 100, "fail_count": 0})
         raise AssertionError(command)
 
-    report = network_readiness_report(repo="ONE-ALL-Church/rock-agent-kb", pr=2, private_corpus_path=corpus, run_command=run)
+    report = network_readiness_report(
+        repo="ONE-ALL-Church/rock-agent-kb",
+        pr=2,
+        private_corpus_path=corpus,
+        env={"ROCK_KB_BASE_URL": "https://example.test", "ROCK_KB_PRIVATE_CORPUS_REPO": "example/private-corpus"},
+        run_command=run,
+    )
 
     assert report["status"] == "pass"
     checks = {row["id"]: row for row in report["checks"]}
