@@ -230,7 +230,7 @@ def test_network_readiness_can_pass_when_live_gates_are_satisfied(tmp_path, monk
                 "ORG_TOKEN_SHA256_JSON\t2026-06-12\n"
             )
         if command[:3] == ["gh", "variable", "list"]:
-            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\nPRIVATE_R2_BUCKET\tset\n")
+            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\nPRIVATE_R2_BUCKET\tset\nCLOUDFLARE_ACCOUNT_ID\tset\n")
         if command[:2] == ["gh", "api"] and command[-1].endswith("/actions/workflows"):
             return completed({"workflows": [{"path": ".github/workflows/private-corpus-ingest.yml", "state": "active"}]})
         if command[:3] == ["gh", "run", "list"]:
@@ -292,7 +292,7 @@ def test_network_readiness_pr_gate_passes_after_merge(tmp_path, monkeypatch):
                 "ORG_TOKEN_SHA256_JSON\t2026-06-12\n"
             )
         if command[:3] == ["gh", "variable", "list"]:
-            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\nPRIVATE_R2_BUCKET\tset\n")
+            return completed("ROCK_KB_D1_DATABASE_ID\tset\nROCK_KB_BASE_URL\tset\nPRIVATE_R2_BUCKET\tset\nCLOUDFLARE_ACCOUNT_ID\tset\n")
         if command[:2] == ["gh", "api"] and command[-1].endswith("/actions/workflows"):
             return completed({"workflows": [{"path": ".github/workflows/private-corpus-ingest.yml", "state": "active"}]})
         if command[:3] == ["gh", "run", "list"]:
