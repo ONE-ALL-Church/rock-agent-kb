@@ -174,10 +174,10 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "36f85f09122e6e7082f04e4c92a4be0e8bc778ff9dc072fac876e7e0fcdd4bb9",
   "approved_media_path": "knowledge/concepts/helix/approved-media.md",
-  "built_at": "2026-06-12T09:21:15+00:00",
+  "built_at": "2026-06-17T21:47:57+00:00",
   "concept_id": "helix",
-  "guide_hash": "62ca788b9bcf3285c48fb9572978648aa108a891e2f5fa235d0259071dbe9526",
-  "guide_line_count": 1169,
+  "guide_hash": "e9da9b0bbcdd8e23c517db9410322a4cf69785413318f35e78e366ec05732f3a",
+  "guide_line_count": 1185,
   "guide_path": "knowledge/concepts/helix/guide.md",
   "guide_word_count": 9277,
   "rebuild_triggers": [
@@ -1273,7 +1273,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1025,
+      "end_line": 1029,
       "heading": "Recipe: Add Observability To A Complex Endpoint",
       "needs_live_verification": false,
       "section_id": "22-agent-task-recipes-recipe-add-observability-to-a-complex-endpoint",
@@ -1284,7 +1284,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1072,
+      "end_line": 1084,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1294,11 +1294,11 @@
         "802567c280193bd0",
         "802567c280193bd0"
       ],
-      "start_line": 1026
+      "start_line": 1030
     },
     {
       "confidence": "structural",
-      "end_line": 1094,
+      "end_line": 1110,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1308,11 +1308,11 @@
         "802567c280193bd0",
         "802567c280193bd0"
       ],
-      "start_line": 1073
+      "start_line": 1085
     },
     {
       "confidence": "normal",
-      "end_line": 1169,
+      "end_line": 1185,
       "heading": "23. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "23-source-map-and-dependency-notes",
@@ -1361,7 +1361,7 @@
         "e0db41b4ca576c2c",
         "73dd22236e939189"
       ],
-      "start_line": 1095
+      "start_line": 1111
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T17:55:43+00:00",

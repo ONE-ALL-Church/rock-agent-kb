@@ -5,7 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable, Optional
 
-from .extract import now_iso, sha256_text
+from .extract import generated_at_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import KNOWLEDGE_DIR, NORMALIZED_DIR
 
@@ -94,7 +94,7 @@ def build_selector_dependency_metadata(inventory_rows: list[dict[str, Any]]) -> 
     inventory_hash = sha256_text(json.dumps(inventory_rows, sort_keys=True))
     return {
         "schema": "rock-kb-mobile-selector-audit-dependencies-v1",
-        "built_at": now_iso(),
+        "built_at": generated_at_iso(),
         "concept_id": "mobile",
         "resource_paths": {
             "css_xray_resource": str(CSS_XRAY_RESOURCE_PATH.relative_to(MOBILE_CONCEPT_DIR.parent.parent.parent)),

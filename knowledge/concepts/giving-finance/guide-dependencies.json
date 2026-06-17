@@ -4241,10 +4241,10 @@
   },
   "approved_media_hash": "25c5f17af4a55ef866c088b7927418927a214e584cafa11f399e1b919cf98e38",
   "approved_media_path": "knowledge/concepts/giving-finance/approved-media.md",
-  "built_at": "2026-06-12T09:21:00+00:00",
+  "built_at": "2026-06-17T21:47:57+00:00",
   "concept_id": "giving-finance",
-  "guide_hash": "a7ff5aab752dcbb753fda4ba56db6b4befcb20762d3639de22ab72e126b13252",
-  "guide_line_count": 1534,
+  "guide_hash": "080b434746dbe8ae4357f0720841f38984b9c165ac7fde063fe826c6674435bb",
+  "guide_line_count": 1550,
   "guide_path": "knowledge/concepts/giving-finance/guide.md",
   "guide_word_count": 13090,
   "rebuild_triggers": [
@@ -5522,7 +5522,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1365,
+      "end_line": 1369,
       "heading": "Recipe: Pledge Progress Analysis",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-pledge-progress-analysis",
@@ -5533,7 +5533,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1423,
+      "end_line": 1435,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -5551,11 +5551,11 @@
         "5feb321c12dae9ff",
         "5feb321c12dae9ff"
       ],
-      "start_line": 1366
+      "start_line": 1370
     },
     {
       "confidence": "citation-only",
-      "end_line": 1462,
+      "end_line": 1478,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -5569,11 +5569,11 @@
         "5feb321c12dae9ff",
         "4c0fe1130f878c66"
       ],
-      "start_line": 1424
+      "start_line": 1436
     },
     {
       "confidence": "high",
-      "end_line": 1534,
+      "end_line": 1550,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5616,7 +5616,7 @@
         "ec1feb0cddfde711",
         "c9eb9fb42916f1a8"
       ],
-      "start_line": 1463
+      "start_line": 1479
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:50+00:00",

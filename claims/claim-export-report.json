@@ -47,7 +47,7 @@
     "tv-apps": 14,
     "workflows": 1340
   },
-  "generated_at": "2026-06-12T09:20:09+00:00",
+  "generated_at": "2026-06-17T21:47:57+00:00",
   "output": "claims/approved-claims.jsonl",
   "review_statuses": {
     "approved_for_public_distillation": 1803

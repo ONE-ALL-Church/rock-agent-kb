@@ -1389,6 +1389,10 @@ Use App Store Product Page, Rock Logins, Developer Accounts, and Android Keystor
 
 
 
+
+
+
+
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1447,6 +1451,14 @@ This generated summary links the long-form guide to the approved public claim gr
 
 
 
+
+
+
+
+
+
+
+
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1468,6 +1480,10 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 17 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ import json
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 import httpx
 import typer
@@ -212,7 +212,7 @@ def status_command() -> None:
     queue_table.add_row("guide index rebuilds", str(len(guide.get("needs_generated_index_rebuild") or [])))
     queue_table.add_row("long-form guide refreshes", str(len(guide.get("needs_long_form_guide_refresh") or [])))
     queue_table.add_row("stale concepts", str(len(concepts.get("stale") or [])))
-    queue_table.add_row("mobile selector audit", str(mobile.get("status", "unknown")))
+    queue_table.add_row("mobile selector audit", mobile_selector_audit_label(mobile))
     console.print(queue_table)
 
     command_table = Table(title="Suggested Next Commands")
@@ -222,6 +222,19 @@ def status_command() -> None:
     for command in report["suggested_commands"]:
         command_table.add_row(command["stage"], command["reason"], command["command"])
     console.print(command_table)
+
+
+def mobile_selector_audit_label(mobile: dict[str, Any]) -> str:
+    missing = len(mobile.get("missing_paths") or [])
+    stale = int(mobile.get("stale_dependency_count") or 0)
+    errors = int(mobile.get("inventory_error_count") or 0)
+    if missing or stale or errors:
+        return f"needs review ({missing} missing, {stale} stale, {errors} errors)"
+    dependency = mobile.get("dependency") or {}
+    selector_count = dependency.get("selector_row_count")
+    if selector_count is not None:
+        return f"current ({selector_count} selectors)"
+    return "current"
 
 
 def build_command(

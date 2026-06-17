@@ -157,8 +157,9 @@ STAGES: list[Stage] = [
             "data/normalized/*.jsonl",
         ],
         outputs=[
-            "knowledge/concepts/mobile/mobile-selector-audit.json",
-            "knowledge/concepts/mobile/mobile-selector-audit.md",
+            "knowledge/concepts/mobile/mobile-block-selector-xray.jsonl",
+            "knowledge/concepts/mobile/mobile-block-selector-xray-dependencies.json",
+            "knowledge/concepts/mobile/resources/block-selector-image-audit.md",
         ],
         run=build_mobile_selector_audit,
         private=True,
