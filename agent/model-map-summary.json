@@ -20,7 +20,7 @@
   },
   "concept_slice_count": 17,
   "contains_row_data": false,
-  "generated_at": "2026-06-12T09:25:54+00:00",
+  "generated_at": "2026-06-17T21:47:57+00:00",
   "generation_method": [
     "Stable and pre-alpha model/property data come from authenticated scrapes of generic Rock demo Model Map pages.",
     "Stable model/property data is the preferred reference layer for concept guide landmarks, agent entity rows, and model detail pages.",

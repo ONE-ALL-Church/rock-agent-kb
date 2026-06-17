@@ -1733,10 +1733,10 @@
   },
   "approved_media_hash": "f547bef7543f1760bc5741c48b4fab589c22f51b1d5f382674716da049640c68",
   "approved_media_path": "knowledge/concepts/serving-volunteer-ops/approved-media.md",
-  "built_at": "2026-06-12T09:21:03+00:00",
+  "built_at": "2026-06-17T21:47:57+00:00",
   "concept_id": "serving-volunteer-ops",
-  "guide_hash": "3176aeb5024dd34ddba6984a9571d79882fbb537d4328708c818d4e53090fde9",
-  "guide_line_count": 2204,
+  "guide_hash": "275f48a263a66410ec30b3b2f0734bea5d432ffb367e44bf3abd911aea15f8c8",
+  "guide_line_count": 2220,
   "guide_path": "knowledge/concepts/serving-volunteer-ops/guide.md",
   "guide_word_count": 14152,
   "rebuild_triggers": [
@@ -3703,7 +3703,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 2053,
+      "end_line": 2057,
       "heading": "Recipe: Build A Serving Health Dashboard",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-build-a-serving-health-dashboard",
@@ -3715,7 +3715,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 2111,
+      "end_line": 2123,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -3733,11 +3733,11 @@
         "b68311e84ce45057",
         "e070b113cf226721"
       ],
-      "start_line": 2054
+      "start_line": 2058
     },
     {
       "confidence": "citation-only",
-      "end_line": 2150,
+      "end_line": 2166,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3751,11 +3751,11 @@
         "0d1cb192f0243a5e",
         "892f43823742ae10"
       ],
-      "start_line": 2112
+      "start_line": 2124
     },
     {
       "confidence": "structural",
-      "end_line": 2152,
+      "end_line": 2168,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -3780,11 +3780,11 @@
         "eaf47d2e51a1810d",
         "5e81d46a81f50c4c"
       ],
-      "start_line": 2151
+      "start_line": 2167
     },
     {
       "confidence": "high",
-      "end_line": 2160,
+      "end_line": 2176,
       "heading": "Highest-Authority Source Links In This Pack",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-highest-authority-source-links-in-this-pack",
@@ -3805,11 +3805,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 2153
+      "start_line": 2169
     },
     {
       "confidence": "community-supported",
-      "end_line": 2173,
+      "end_line": 2189,
       "heading": "Community Example Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-community-example-sources",
@@ -3823,11 +3823,11 @@
         "eaf47d2e51a1810d",
         "5e81d46a81f50c4c"
       ],
-      "start_line": 2161
+      "start_line": 2177
     },
     {
       "confidence": "needs-citation",
-      "end_line": 2187,
+      "end_line": 2203,
       "heading": "Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-dependency-notes",
@@ -3841,11 +3841,11 @@
         "eaf47d2e51a1810d",
         "5e81d46a81f50c4c"
       ],
-      "start_line": 2174
+      "start_line": 2190
     },
     {
       "confidence": "needs-citation",
-      "end_line": 2204,
+      "end_line": 2220,
       "heading": "Live Verification Required",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-live-verification-required",
@@ -3859,7 +3859,7 @@
         "eaf47d2e51a1810d",
         "5e81d46a81f50c4c"
       ],
-      "start_line": 2188
+      "start_line": 2204
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:41:06+00:00",

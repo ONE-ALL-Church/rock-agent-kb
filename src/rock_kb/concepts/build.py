@@ -74,7 +74,7 @@ def build_concept_guide(
         if row.get("claim_id")
     }
     stale_reason = stale_reason_for(previous, source_hashes)
-    built_at = now_iso()
+    built_at = generated_at_iso()
     guide_path = relative_concept_path(concept)
     dependency = {
         "concept_id": concept.id,

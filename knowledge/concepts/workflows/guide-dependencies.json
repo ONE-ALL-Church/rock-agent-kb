@@ -44884,10 +44884,10 @@
   },
   "approved_media_hash": "34facef638c10e2ea5f5cded427018fbaaa76e63569ce6cbcf5c327a1431bc02",
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
-  "built_at": "2026-06-12T09:20:56+00:00",
+  "built_at": "2026-06-17T21:47:57+00:00",
   "concept_id": "workflows",
-  "guide_hash": "3ddae630aae8dda4eba27f92ae9649e1b1b52acb255e33713c82c4b2e0ad7db0",
-  "guide_line_count": 1726,
+  "guide_hash": "5b1a3eec31b5e2b8054dbb4b1970ec4123a8c9e841c9cac29b5259c779d9a946",
+  "guide_line_count": 1742,
   "guide_path": "knowledge/concepts/workflows/guide.md",
   "guide_word_count": 14214,
   "rebuild_triggers": [
@@ -46753,7 +46753,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1581,
+      "end_line": 1585,
       "heading": "Recipe: Audit `workflowactivate` Lava",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-audit-workflowactivate-lava",
@@ -46765,7 +46765,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1641,
+      "end_line": 1653,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -46783,11 +46783,11 @@
         "9ac0699e8486beee",
         "a520db9e9adc1368"
       ],
-      "start_line": 1582
+      "start_line": 1586
     },
     {
       "confidence": "citation-only",
-      "end_line": 1681,
+      "end_line": 1697,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -46801,11 +46801,11 @@
         "d61d88d50d1aa308",
         "e25a6cf1bfd0bcd6"
       ],
-      "start_line": 1642
+      "start_line": 1654
     },
     {
       "confidence": "high",
-      "end_line": 1726,
+      "end_line": 1742,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -46840,7 +46840,7 @@
         "a2c4a7e46fb87fd9",
         "09981138d163eb3d"
       ],
-      "start_line": 1682
+      "start_line": 1698
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:49+00:00",

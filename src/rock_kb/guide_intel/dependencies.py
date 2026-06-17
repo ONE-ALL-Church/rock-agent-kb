@@ -120,7 +120,7 @@ def guide_dependency_record(
         "guide_hash": sha256_text(guide_text),
         "guide_word_count": count_words(guide_text),
         "guide_line_count": len(guide_text.splitlines()),
-        "built_at": now_iso(),
+        "built_at": generated_at_iso(),
         "source_pack_hydrated_at": pack.get("hydrated_at"),
         "synthesis_profile": pack.get("synthesis_profile"),
         "sections": [
@@ -216,7 +216,7 @@ def build_task_cards(
                 "do_not_assume": template.get("do_not_assume") or [],
                 "source_keys": source_keys,
                 "source_urls": compact_unique(source_index[key].get("url") for key in source_keys if key in source_index),
-                "created_at": now_iso(),
+                "created_at": generated_at_iso(),
             }
         )
     return cards
