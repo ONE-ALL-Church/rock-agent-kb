@@ -1,7 +1,7 @@
 # Metric Value Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `MetricValue`
 - EntityType GUID: `dd0e6f39-3e07-44d0-be7b-b1ab75afed2d`

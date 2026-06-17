@@ -1,7 +1,7 @@
 # Site Domain Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `SiteDomain`
 - EntityType GUID: `4c4cd7dd-427c-45ec-9651-f8250d3cab5f`
@@ -86,8 +86,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Site | [Site](site.md) |  |
-| SiteId | [Site](site.md) |  |
+| Site | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| SiteId | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
 
 ## Stable To Pre-Alpha Changes
 

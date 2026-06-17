@@ -1,7 +1,7 @@
 # Email Section Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `EmailSection`
 - EntityType GUID: `86b2ce94-9dc3-463c-b2b1-deecab70474e`
@@ -60,7 +60,7 @@
 | SourceMarkup | yes | yes |  | yes |  | Gets or sets the source markup. |
 | SupportedActions |  |  | yes |  |  |  |
 | ThumbnailBinaryFile |  | yes | yes |  |  | Gets or sets the thumbnail Binary File. |
-| ThumbnailBinaryFileId | yes |  |  |  |  | Gets or sets the thumbnail BinaryFile. |
+| ThumbnailBinaryFileId | yes |  |  |  |  | Gets or sets the thumbnail Binary File. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -90,10 +90,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| ThumbnailBinaryFile | [Binary File](binary-file.md) |  |
-| ThumbnailBinaryFileId | [BinaryFile](binary-file.md) |  |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| ThumbnailBinaryFile | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| ThumbnailBinaryFileId | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 
 ## Stable To Pre-Alpha Changes
 

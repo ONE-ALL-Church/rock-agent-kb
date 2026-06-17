@@ -1564,10 +1564,10 @@
   },
   "approved_media_hash": "ac472fa1742b0227708da49a32b68f9c5c4a846385a7219c7a4ec0504e020dfc",
   "approved_media_path": "knowledge/concepts/connections/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "connections",
-  "guide_hash": "30b4e729f1b96f9f191924fcc5ad5920c78aceac527d583b1447478af8ec3401",
-  "guide_line_count": 1429,
+  "guide_hash": "f82ed91da6dc719839c950211974205dcb0ca2565ac7b38e8f958e581ab478a1",
+  "guide_line_count": 1433,
   "guide_path": "knowledge/concepts/connections/guide.md",
   "guide_word_count": 10799,
   "rebuild_triggers": [
@@ -2993,7 +2993,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1258,
+      "end_line": 1259,
       "heading": "Recipe: Investigate Connector Workload",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-investigate-connector-workload",
@@ -3004,7 +3004,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1324,
+      "end_line": 1327,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -3022,11 +3022,11 @@
         "e80bc4203561cbcb",
         "94226d7c1f62174e"
       ],
-      "start_line": 1259
+      "start_line": 1260
     },
     {
       "confidence": "citation-only",
-      "end_line": 1366,
+      "end_line": 1370,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3040,11 +3040,11 @@
         "94226d7c1f62174e",
         "44c37d376b652418"
       ],
-      "start_line": 1325
+      "start_line": 1328
     },
     {
       "confidence": "structural",
-      "end_line": 1368,
+      "end_line": 1372,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -3066,11 +3066,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1367
+      "start_line": 1371
     },
     {
       "confidence": "high",
-      "end_line": 1373,
+      "end_line": 1377,
       "heading": "Official Documentation",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-official-documentation",
@@ -3078,11 +3078,11 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 1369
+      "start_line": 1373
     },
     {
       "confidence": "citation-only",
-      "end_line": 1385,
+      "end_line": 1389,
       "heading": "RockU Training",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-rocku-training",
@@ -3095,11 +3095,11 @@
         "a520db9e9adc1368",
         "1bda1c7afae305e7"
       ],
-      "start_line": 1374
+      "start_line": 1378
     },
     {
       "confidence": "normal",
-      "end_line": 1394,
+      "end_line": 1398,
       "heading": "Developer And Mobile Docs",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-developer-and-mobile-docs",
@@ -3109,11 +3109,11 @@
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
       ],
-      "start_line": 1386
+      "start_line": 1390
     },
     {
       "confidence": "normal",
-      "end_line": 1408,
+      "end_line": 1412,
       "heading": "Model Map And Source Code",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-model-map-and-source-code",
@@ -3130,11 +3130,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1395
+      "start_line": 1399
     },
     {
       "confidence": "community-supported",
-      "end_line": 1413,
+      "end_line": 1417,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-community-examples",
@@ -3142,11 +3142,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1409
+      "start_line": 1413
     },
     {
       "confidence": "structural",
-      "end_line": 1429,
+      "end_line": 1433,
       "heading": "Live Verification Required",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-live-verification-required",
@@ -3154,7 +3154,7 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1414
+      "start_line": 1418
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",

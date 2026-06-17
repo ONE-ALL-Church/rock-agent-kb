@@ -1,7 +1,7 @@
 # Assessment Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `AssessmentType`
 - EntityType GUID: `d17a28ac-f529-4ab0-a790-c21f9e74ac89`
@@ -23,10 +23,10 @@
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| AssessmentPath | yes | yes |  | yes |  | Gets or sets the AssessmentPath of the AssessmentType |
-| AssessmentResultsPath | yes | yes |  |  |  | Gets or sets the AssessmentResultsPath of the Assessment or the AssessmentType if no requestor required. |
+| AssessmentPath | yes | yes |  | yes |  | Gets or sets the AssessmentPath of the Assessment Type |
+| AssessmentResultsPath | yes | yes |  |  |  | Gets or sets the AssessmentResultsPath of the Assessment or the Assessment Type if no requestor required. |
 | AssessmentTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| Assessments |  | yes | yes |  |  | Gets or sets the Collection of Assessments for each AssessmentType. |
+| Assessments |  | yes | yes |  |  | Gets or sets the Collection of Assessments for each Assessment Type. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -40,7 +40,7 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| Description | yes | yes |  |  |  | Gets or sets the Description of the AssessmentType |
+| Description | yes | yes |  |  |  | Gets or sets the Description of the Assessment Type |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -50,11 +50,11 @@
 | IconCssClass | yes | yes |  |  |  | Gets or sets the icon CSS class. |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IsActive | yes | yes |  | yes |  | Gets or sets the IsActive flag for the AssessmentType. |
-| IsSystem | yes | yes |  | yes |  | Gets or sets a flag indicating if this AssessmentType is a part of the Rock core system/framework. This property is required. |
+| IsActive | yes | yes |  | yes |  | Gets or sets the IsActive flag for the Assessment Type. |
+| IsSystem | yes | yes |  | yes |  | Gets or sets a flag indicating if this Assessment Type is a part of the Rock core system/framework. This property is required. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
-| MinimumDaysToRetake | yes | yes |  |  |  | Gets or sets the number of days given for the AssessmentType. to be retaken. |
+| MinimumDaysToRetake | yes | yes |  |  |  | Gets or sets the number of days given for the Assessment Type. to be retaken. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
 | ModifiedByPersonAliasId | yes | yes |  |  |  |  |
@@ -63,20 +63,20 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| RequiresRequest | yes | yes |  | yes |  | Gets or sets the RequiresRequest flag for the AssessmentType. |
+| RequiresRequest | yes | yes |  | yes |  | Gets or sets the RequiresRequest flag for the Assessment Type. |
 | SupportedActions |  |  | yes |  |  |  |
-| Title | yes | yes |  | yes |  | Gets or sets the Title of the AssessmentType |
+| Title | yes | yes |  | yes |  | Gets or sets the Title of the Assessment Type |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
-| ValidDuration | yes | yes |  |  |  | Gets or sets the number of days the assessment is valid for AssessmentType. How long (in days) is this assessment valid before it must be taken again. |
+| ValidDuration | yes | yes |  |  |  | Gets or sets the number of days the assessment is valid for Assessment Type. How long (in days) is this assessment valid before it must be taken again. |
 | ValidationResults |  |  | yes |  |  |  |
 
 ## Lava-Marked Non-Database Properties
 
 | Property | Description |
 | --- | --- |
-| Assessments | Gets or sets the Collection of Assessments for each AssessmentType. |
+| Assessments | Gets or sets the Collection of Assessments for each Assessment Type. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -94,17 +94,17 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AssessmentPath | [AssessmentType](assessment-type.md) |  |
-| AssessmentResultsPath | [Assessment](assessment.md) |  |
-| AssessmentResultsPath | [AssessmentType](assessment-type.md) |  |
-| Assessments | [AssessmentType](assessment-type.md) |  |
-| Description | [AssessmentType](assessment-type.md) |  |
-| IsActive | [AssessmentType](assessment-type.md) |  |
-| IsSystem | [AssessmentType](assessment-type.md) |  |
-| MinimumDaysToRetake | [AssessmentType](assessment-type.md) |  |
-| RequiresRequest | [AssessmentType](assessment-type.md) |  |
-| Title | [AssessmentType](assessment-type.md) |  |
-| ValidDuration | [AssessmentType](assessment-type.md) |  |
+| AssessmentPath | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| AssessmentResultsPath | [Assessment](assessment.md) | 6dcd8ff0-4bfd-4af7-8f4f-e387934775a3 |
+| AssessmentResultsPath | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| Assessments | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| Description | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| IsActive | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| IsSystem | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| MinimumDaysToRetake | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| RequiresRequest | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| Title | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| ValidDuration | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
 
 ## Stable To Pre-Alpha Changes
 

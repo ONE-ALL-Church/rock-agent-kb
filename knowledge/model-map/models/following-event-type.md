@@ -1,7 +1,7 @@
 # Following Event Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `FollowingEventType`
 - EntityType GUID: `8a0d208b-762d-403a-a972-3a0f079866d4`

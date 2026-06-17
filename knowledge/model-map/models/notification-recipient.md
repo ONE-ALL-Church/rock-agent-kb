@@ -1,7 +1,7 @@
 # Notification Recipient Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `NotificationRecipient`
 - EntityType GUID: `2ece2776-0fe2-429d-b655-ab56a2d6ee0b`
@@ -57,7 +57,7 @@
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PersonAlias |  | yes | yes |  |  | Gets or sets the Person who is receiving the Communication. |
 | PersonAliasId | yes | yes |  |  |  | Gets or sets the person alias identifier. |
-| Read | yes | yes |  |  |  | Gets or sets a value indicating whether this NotificationRecipient is read. |
+| Read | yes | yes |  |  |  | Gets or sets a value indicating whether this Notification Recipient is read. |
 | ReadDateTime | yes | yes |  |  |  | Gets or sets the read date time. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -88,10 +88,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Notification | [Notification](notification.md) |  |
-| PersonAlias | [Communication](communication.md) |  |
-| PersonAlias | [Person](person.md) |  |
-| Read | [NotificationRecipient](notification-recipient.md) |  |
+| Notification | [Notification](notification.md) | 6db6d280-9740-41fd-b8bd-0aa29e12f4b6 |
+| PersonAlias | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| PersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Read | [Notification Recipient](notification-recipient.md) | 2ece2776-0fe2-429d-b655-ab56a2d6ee0b |
 
 ## Stable To Pre-Alpha Changes
 

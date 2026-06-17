@@ -1,7 +1,7 @@
 # Connection Opportunity Group Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionOpportunityGroup`
 - EntityType GUID: `cd3f425c-9b36-4433-9c38-d58de42c9f65`
@@ -27,9 +27,9 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the Connection Opportunity. |
 | ConnectionOpportunityGroupAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the ConnectionOpportunity identifier. |
+| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the Connection Opportunity identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -69,7 +69,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ConnectionOpportunity | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity | Gets or sets the Connection Opportunity. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ConnectionOpportunity | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectionOpportunityId | [ConnectionOpportunity](connection-opportunity.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
+| ConnectionOpportunity | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectionOpportunityId | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
 
 ## Stable To Pre-Alpha Changes
 

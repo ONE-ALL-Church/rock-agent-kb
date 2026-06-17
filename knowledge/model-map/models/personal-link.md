@@ -1,7 +1,7 @@
 # Personal Link Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `PersonalLink`
 - EntityType GUID: `f858cf72-eccc-4dc6-ad72-7b82467b3466`

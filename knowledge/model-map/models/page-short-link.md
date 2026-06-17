@@ -1,7 +1,7 @@
 # Page Short Link Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `PageShortLink`
 - EntityType GUID: `83d8c6df-1d53-438b-93b2-75a2038bbee6`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 47 |
-| Database-marked properties | 16 |
-| Lava-marked properties | 31 |
+| Properties | 48 |
+| Database-marked properties | 17 |
+| Lava-marked properties | 32 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -39,6 +39,7 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
+| ExpireDate | yes | yes |  |  |  | Gets or sets the expiration date of the short link. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -46,7 +47,7 @@
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | IsPinned | yes | yes |  |  |  | Gets or sets a value indicating whether the short link is pinned. |
-| IsScheduled | yes | yes |  |  |  | Gets a flag that determines if this short link has schedules enabled. When true , the schedule details will be contained in the additional settings. |
+| IsScheduled | yes | yes |  |  |  | Gets a flag that determines if this short link has schedules enabled. When true, the schedule details will be contained in the additional settings. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -94,11 +95,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Site | [Site](site.md) |  |
-| SiteId | [Site](site.md) |  |
+| Site | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| SiteId | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | ExpireDate |  |
+No stable-to-pre-alpha changes were detected for this model.

@@ -1,7 +1,7 @@
 # Analytics Dim Family Current Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimFamilyCurrent`
 - EntityType GUID: `b78878c9-4eb7-4ee4-bb85-d00cca83bcea`

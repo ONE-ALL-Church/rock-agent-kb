@@ -6674,10 +6674,10 @@
   },
   "approved_media_hash": "dfde6c74630fa2f1b16822af134a0b23723606580f478425c4b157fc7e7ba49b",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "51bd90d52b55962a6afa0abd67eef18a08c17617e03d484235140dc4e5c55cb2",
-  "guide_line_count": 1651,
+  "guide_hash": "5a660d256d9733131c6b1c500f2dafc01e1dd0a945f1801d0342218c90ea893f",
+  "guide_line_count": 1655,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
   "guide_word_count": 13452,
   "rebuild_triggers": [
@@ -8220,7 +8220,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1477,
+      "end_line": 1478,
       "heading": "Recipe: “Troubleshoot Required Watching”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-troubleshoot-required-watching",
@@ -8231,7 +8231,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1543,
+      "end_line": 1546,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -8249,11 +8249,11 @@
         "35633587d4819f55",
         "b51b24ed7912d814"
       ],
-      "start_line": 1478
+      "start_line": 1479
     },
     {
       "confidence": "citation-only",
-      "end_line": 1586,
+      "end_line": 1590,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -8267,11 +8267,11 @@
         "2875911abf284e79",
         "b51b24ed7912d814"
       ],
-      "start_line": 1544
+      "start_line": 1547
     },
     {
       "confidence": "structural",
-      "end_line": 1588,
+      "end_line": 1592,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -8286,11 +8286,11 @@
         "950d01229b6a2dfc",
         "ed3acb4204b5cddd"
       ],
-      "start_line": 1587
+      "start_line": 1591
     },
     {
       "confidence": "normal",
-      "end_line": 1598,
+      "end_line": 1602,
       "heading": "Primary Official / Core Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-core-sources",
@@ -8305,11 +8305,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1589
+      "start_line": 1593
     },
     {
       "confidence": "normal",
-      "end_line": 1608,
+      "end_line": 1612,
       "heading": "Source-Code Landmarks Used",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks-used",
@@ -8328,11 +8328,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1599
+      "start_line": 1603
     },
     {
       "confidence": "community-supported",
-      "end_line": 1615,
+      "end_line": 1619,
       "heading": "Secondary And Community Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-secondary-and-community-sources",
@@ -8342,11 +8342,11 @@
         "950d01229b6a2dfc",
         "ed3acb4204b5cddd"
       ],
-      "start_line": 1609
+      "start_line": 1613
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1651,
+      "end_line": 1655,
       "heading": "Dependencies To Other Guides",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependencies-to-other-guides",
@@ -8356,7 +8356,7 @@
         "950d01229b6a2dfc",
         "ed3acb4204b5cddd"
       ],
-      "start_line": 1616
+      "start_line": 1620
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:51+00:00",

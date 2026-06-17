@@ -1,7 +1,7 @@
 # Note Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `NoteType`
 - EntityType GUID: `337eed57-d4ab-4eed-bbdb-0cb3a467dbcc`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 47 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 5 |
-| Pre-alpha changes touching this model | 5 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -27,16 +27,16 @@
 | AllowsAttachments | yes | yes |  |  |  | Gets or sets a value indicating whether attachments are allowed for this note type. |
 | AllowsReplies | yes | yes |  |  |  | Gets or sets a value indicating whether [allows replies]. |
 | AllowsWatching | yes | yes |  |  |  | Gets or sets a value indicating whether [allows watching]. |
-| ApprovalUrlTemplate | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. A optional Lava Template that can be used to general a URL where Notes of this type can be approved If this is left blank, the Approval URL will be a URL to the page (including a hash anchor to the note) where the note was originally created |
+| ApprovalUrlTemplate | yes | yes |  |  | yes | A optional Lava Template that can be used to general a URL where Notes of this type can be approved If this is left blank, the Approval URL will be a URL to the page (including a hash anchor to the note) where the note was originally created |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AutoWatchAuthors | yes | yes |  |  |  | Gets or sets a value indicating whether [automatic watch authors]. |
 | AvailableKeys |  |  | yes |  |  |  |
-| BackgroundColor | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets or sets the background color of each note |
-| BinaryFileType |  | yes | yes |  |  | Gets or sets the BinaryFileType that will be used for attachments. |
+| BackgroundColor | yes | yes |  |  | yes | Gets or sets the background color of each note |
+| BinaryFileType |  | yes | yes |  |  | Gets or sets the Binary File Type that will be used for attachments. |
 | BinaryFileTypeId | yes | yes |  |  |  | Gets or sets the binary file type identifier used when saving attachments. |
-| BorderColor | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets or sets the border color of each note |
+| BorderColor | yes | yes |  |  | yes | Gets or sets the border color of each note |
 | Color | yes | yes |  |  |  | Gets or sets the base color to use when calculating the color pair for notes of this type. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -47,11 +47,11 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the entities that Notes of this NoteType |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the EntityType that this NoteType is used for. A NoteType can only be associated with a single EntityType and will only contain notes for entities of this type. This property is required. |
-| EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the name of the qualifier column/property on the EntityType that this NoteType applies to. If this is not provided, the note type can be used on all entities of the provided EntityType. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the entities that Notes of this NoteType |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Entity Type that this NoteType is used for. A NoteType can only be associated with a single Entity Type and will only contain notes for entities of this type. This property is required. |
+| EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the name of the qualifier column/property on the Entity Type that this NoteType applies to. If this is not provided, the note type can be used on all entities of the provided Entity Type. |
 | EntityTypeQualifierValue | yes | yes |  |  |  | Gets or sets the qualifier value in the qualifier column that this note type applies to. For instance this note type and related notes will only be applicable to entity if the value in the EntityTypeQualiferColumn matches this value. This property should not be populated without also populating the EntityTypeQualifierColumn property. |
-| FontColor | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets or sets the font color of the note text |
+| FontColor | yes | yes |  |  | yes | Gets or sets the font color of the note text |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -77,7 +77,7 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | RequiresApprovals | yes | yes |  |  |  | Gets or sets a value indicating whether [requires approvals]. |
-| SendApprovalNotifications | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets or sets a value indicating whether [send approval notifications]. |
+| SendApprovalNotifications | yes | yes |  |  | yes | Gets or sets a value indicating whether [send approval notifications]. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -91,11 +91,11 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BinaryFileType | Gets or sets the BinaryFileType that will be used for attachments. |
+| BinaryFileType | Gets or sets the Binary File Type that will be used for attachments. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the entities that Notes of this NoteType |
+| EntityType | Gets or sets the Entity Type of the entities that Notes of this NoteType |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -108,18 +108,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFileType | [BinaryFileType](binary-file-type.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityType | Notes |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| EntityTypeQualifierColumn | [EntityType](entity-type.md) |  |
+| BinaryFileType | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityType | Notes | 53dc1e78-14a5-44de-903f-6a2cb02164e7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeQualifierColumn | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | ApprovalUrlTemplate | description, is_obsolete |
-| property_changed | BackgroundColor | description, is_obsolete |
-| property_changed | BorderColor | description, is_obsolete |
-| property_changed | FontColor | description, is_obsolete |
-| property_changed | SendApprovalNotifications | description, is_obsolete |
+No stable-to-pre-alpha changes were detected for this model.

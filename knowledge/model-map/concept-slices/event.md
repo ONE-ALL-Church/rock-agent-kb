@@ -4,10 +4,10 @@ Generated stable-track slice for Rock models in the `Event` category.
 
 | Model | Title | Properties | DB | Lava | NotMapped | Obsolete |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| [Attendance](../models/attendance.md) | Attendance | 96 | 39 | 65 | 43 | 0 |
+| [Attendance](../models/attendance.md) | Attendance | 82 | 39 | 65 | 43 | 0 |
 | [Attendance Check In Session](../models/attendance-check-in-session.md) | AttendanceCheckInSession | 21 | 7 | 14 | 14 | 0 |
 | [Attendance Code](../models/attendance-code.md) | AttendanceCode | 20 | 7 | 12 | 13 | 0 |
-| [Attendance Occurrence](../models/attendance-occurrence.md) | AttendanceOccurrence | 66 | 27 | 47 | 37 | 0 |
+| [Attendance Occurrence](../models/attendance-occurrence.md) | AttendanceOccurrence | 64 | 27 | 47 | 37 | 0 |
 | [Event Calendar](../models/event-calendar.md) | EventCalendar | 43 | 14 | 26 | 29 | 0 |
 | [Event Calendar Content Channel](../models/event-calendar-content-channel.md) | EventCalendarContentChannel | 40 | 11 | 25 | 29 | 0 |
 | [Event Calendar Item](../models/event-calendar-item.md) | EventCalendarItem | 40 | 11 | 25 | 29 | 0 |
@@ -23,13 +23,13 @@ Generated stable-track slice for Rock models in the `Event` category.
 | [Interactive Experience Schedule](../models/interactive-experience-schedule.md) | InteractiveExperienceSchedule | 47 | 14 | 32 | 33 | 0 |
 | [Interactive Experience Schedule Campus](../models/interactive-experience-schedule-campus.md) | InteractiveExperienceScheduleCampus | 40 | 11 | 25 | 29 | 0 |
 | [Registration](../models/registration.md) | Registration | 66 | 24 | 50 | 42 | 0 |
-| [Registration Instance](../models/registration-instance.md) | RegistrationInstance | 85 | 37 | 54 | 34 | 0 |
+| [Registration Instance](../models/registration-instance.md) | RegistrationInstance | 71 | 37 | 54 | 34 | 0 |
 | [Registration Registrant](../models/registration-registrant.md) | RegistrationRegistrant | 56 | 17 | 39 | 39 | 0 |
 | [Registration Registrant Fee](../models/registration-registrant-fee.md) | RegistrationRegistrantFee | 46 | 15 | 31 | 31 | 0 |
 | [Registration Session](../models/registration-session.md) | RegistrationSession | 47 | 18 | 32 | 29 | 0 |
-| [Registration Template](../models/registration-template.md) | RegistrationTemplate | 125 | 70 | 95 | 41 | 0 |
+| [Registration Template](../models/registration-template.md) | RegistrationTemplate | 113 | 72 | 97 | 41 | 1 |
 | [Registration Template Discount](../models/registration-template-discount.md) | RegistrationTemplateDiscount | 50 | 20 | 35 | 30 | 0 |
-| [Registration Template Fee](../models/registration-template-fee.md) | RegistrationTemplateFee | 48 | 19 | 33 | 29 | 0 |
+| [Registration Template Fee](../models/registration-template-fee.md) | RegistrationTemplateFee | 48 | 19 | 33 | 29 | 1 |
 | [Registration Template Fee Item](../models/registration-template-fee-item.md) | RegistrationTemplateFeeItem | 43 | 15 | 28 | 28 | 0 |
 | [Registration Template Form](../models/registration-template-form.md) | RegistrationTemplateForm | 41 | 12 | 26 | 29 | 0 |
 | [Registration Template Form Field](../models/registration-template-form-field.md) | RegistrationTemplateFormField | 54 | 24 | 38 | 30 | 0 |

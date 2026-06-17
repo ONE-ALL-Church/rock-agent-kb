@@ -1,7 +1,7 @@
 # Content Channel Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentChannelItem`
 - EntityType GUID: `bf12ae64-21fb-433b-a8a4-e40e8c426dda`
@@ -15,8 +15,8 @@
 | Database-marked properties | 31 |
 | Lava-marked properties | 52 |
 | Lava-marked non-database properties | 21 |
-| Related model links | 5 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 3 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -124,15 +124,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ApprovedByPersonAliasId | [Person](person.md) |  |
-| ChildItems | child items |  |
-| EventItemOccurrences | event item occurrence channel items |  |
-| Status | ContentChannelItemStatus |  |
-| SupportedActions | Dictionary`2 |  |
+| ApprovedByPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| ChildItems | child items | 7c86eed3-c3f9-4b25-887b-f732fe3c35f0 |
+| EventItemOccurrences | event item occurrence channel items | 378a9559-bd86-45a8-b218-2c5d4cf3d770 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | Status | related_entity_links |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

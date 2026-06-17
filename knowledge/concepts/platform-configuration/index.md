@@ -2,7 +2,7 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -170,29 +170,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Attribute Value](../../model-map/models/attribute-value.md) | Core | 18.2.4 | 55 | 23 | 41 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Value Historical](../../model-map/models/attribute-value-historical.md) | Core | 18.2.4 | 47 | 19 | 32 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Category](../../model-map/models/adaptive-message-category.md) | Reporting | 18.2.4 | 26 | 8 | 15 | 7 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 18.2.4 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 18.2.4 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute](../../model-map/models/attribute.md) | Core | 18.2.4 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 18.2.4 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 18.2.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 18.2.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Qualifier](../../model-map/models/attribute-qualifier.md) | Core | 18.2.4 | 22 | 9 | 15 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus](../../model-map/models/campus.md) | Core | 18.2.4 | 70 | 29 | 48 | 19 | 3 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 18.2.4 | 44 | 13 | 28 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Value](../../model-map/models/attribute-value.md) | Core | 19.1.8 | 55 | 23 | 41 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Value Historical](../../model-map/models/attribute-value-historical.md) | Core | 19.1.8 | 47 | 19 | 32 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Category](../../model-map/models/adaptive-message-category.md) | Reporting | 19.1.8 | 26 | 8 | 15 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.1.8 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.1.8 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute](../../model-map/models/attribute.md) | Core | 19.1.8 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 19.1.8 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.1.8 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Qualifier](../../model-map/models/attribute-qualifier.md) | Core | 19.1.8 | 22 | 9 | 15 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus](../../model-map/models/campus.md) | Core | 19.1.8 | 65 | 29 | 48 | 19 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.1.8 | 43 | 13 | 28 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.Categories` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.EntityType` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.Categories` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.EntityType` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

@@ -1,7 +1,7 @@
 # Page Route Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `PageRoute`
 - EntityType GUID: `42c14361-67b2-472c-95be-ea8a9c511837`
@@ -57,7 +57,7 @@
 | PageRouteAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| Route | yes | yes |  | yes |  | Gets or sets the format of the route path. Route examples include: Page NewAccount or Checkin/Welcome . A specific group Group/{GroupId} (i.e. Group/16) . A person's history Person/{PersonId}/History (i.e. Person/12/History) . This property is required. |
+| Route | yes | yes |  | yes |  | Gets or sets the format of the route path. Route examples include: Page NewAccount or Checkin/Welcome. A specific group Group/{GroupId} (i.e. Group/16). A person's history Person/{PersonId}/History (i.e. Person/12/History). This property is required. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -86,8 +86,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Page | [Page](page.md) |  |
-| PageId | [Page](page.md) |  |
+| Page | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| PageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
 
 ## Stable To Pre-Alpha Changes
 

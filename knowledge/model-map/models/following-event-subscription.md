@@ -1,7 +1,7 @@
 # Following Event Subscription Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `FollowingEventSubscription`
 - EntityType GUID: `2eea3df1-1fbe-472c-85af-6d952dfc4684`

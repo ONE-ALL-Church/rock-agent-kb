@@ -359,10 +359,10 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "e1b7f70ff2a33221abcd352d9fdde6ff23373e4e723f652463355c0e54899b5a",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "8fe23a359b40f8c63b80d8ce0321d5973f2d81003174d0296b4d0288ad8dc9e9",
-  "guide_line_count": 1444,
+  "guide_hash": "04acefb5b914cc3465b46d8b50e93b7c17160365807dcbb8aa8bb19514b98ae0",
+  "guide_line_count": 1448,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
   "guide_word_count": 13404,
   "rebuild_triggers": [
@@ -1668,7 +1668,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1261,
+      "end_line": 1262,
       "heading": "Recipe: Review For Performance",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-for-performance",
@@ -1679,7 +1679,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1321,
+      "end_line": 1324,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1694,11 +1694,11 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1262
+      "start_line": 1263
     },
     {
       "confidence": "structural",
-      "end_line": 1347,
+      "end_line": 1351,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1713,11 +1713,11 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1322
+      "start_line": 1325
     },
     {
       "confidence": "structural",
-      "end_line": 1349,
+      "end_line": 1353,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1734,11 +1734,11 @@
         "d275b5b94a9da833",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1348
+      "start_line": 1352
     },
     {
       "confidence": "normal",
-      "end_line": 1444,
+      "end_line": 1448,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1806,7 +1806,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1350
+      "start_line": 1354
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",

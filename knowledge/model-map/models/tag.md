@@ -1,7 +1,7 @@
 # Tag Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Tag`
 - EntityType GUID: `d34258d0-d366-4efb-aa76-84b059fb5434`
@@ -15,8 +15,8 @@
 | Database-marked properties | 21 |
 | Lava-marked properties | 38 |
 | Lava-marked non-database properties | 17 |
-| Related model links | 5 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 4 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -41,9 +41,9 @@
 | Description | yes | yes |  |  |  | Gets or sets the description. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the Entities that this Tag can be applied to. |
-| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the EntityType containing the entities that can use this Tag. This property is required. |
-| EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the name of the column/property that contains the value that can narrow the scope of entities that can receive this Tag. Entities where this column contains the EntityTypeQualifierValue will be eligible to have this Tag. This property must be used in conjunction with the EntityTypeQualifierValue property. If all entities of the specified EntityType are eligible to use this Tag, this property will be null. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the Entities that this Tag can be applied to. |
+| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the Entity Type containing the entities that can use this Tag. This property is required. |
+| EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the name of the column/property that contains the value that can narrow the scope of entities that can receive this Tag. Entities where this column contains the EntityTypeQualifierValue will be eligible to have this Tag. This property must be used in conjunction with the EntityTypeQualifierValue property. If all entities of the specified Entity Type are eligible to use this Tag, this property will be null. |
 | EntityTypeQualifierValue | yes | yes |  |  |  | Gets or sets the value in the EntityTypeQualifierColumn that narrows the scope of entities that can receive this Tag. Entities that contain this value in the EntityTypeQualifierColumn are eligible to use this Tag. This property must be used in conjunction with the EntityTypeQualifierColumn property. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -87,7 +87,7 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the Entities that this Tag can be applied to. |
+| EntityType | Gets or sets the Entity Type of the Entities that this Tag can be applied to. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -102,14 +102,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| EntityTypeQualifierColumn | [EntityType](entity-type.md) |  |
-| SupportedActions | Dictionary`2 |  |
-| TaggedItems | TaggedItems |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeQualifierColumn | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| TaggedItems | TaggedItems | ab97403a-206e-4e0c-ac42-856a010fa6dd |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

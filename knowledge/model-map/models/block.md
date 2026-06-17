@@ -1,7 +1,7 @@
 # Block Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `Block`
 - EntityType GUID: `d89555ca-9ae4-4d62-8af1-e5e463c1ef65`
@@ -15,8 +15,8 @@
 | Database-marked properties | 23 |
 | Lava-marked properties | 40 |
 | Lava-marked non-database properties | 17 |
-| Related model links | 17 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 16 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -30,8 +30,8 @@
 | AvailableKeys |  |  | yes |  |  |  |
 | BlockAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | BlockLocation |  | yes | yes |  |  | Gets the location where this Block is being implemented on (Page, Layout, or Site) This is a hard coded list of values defined in the code as an enumeration. |
-| BlockType |  | yes | yes |  |  | Gets or sets the BlockType entity that this Block is implementing. |
-| BlockTypeId | yes | yes |  | yes |  | Gets or sets the Id of the BlockType that this Block is implementing. This property is required. |
+| BlockType |  | yes | yes |  |  | Gets or sets the Block Type entity that this Block is implementing. |
+| BlockTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Block Type that this Block is implementing. This property is required. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -85,7 +85,7 @@
 | AttributeValues |  |
 | Attributes |  |
 | BlockLocation | Gets the location where this Block is being implemented on (Page, Layout, or Site) This is a hard coded list of values defined in the code as an enumeration. |
-| BlockType | Gets or sets the BlockType entity that this Block is implementing. |
+| BlockType | Gets or sets the Block Type entity that this Block is implementing. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -104,26 +104,23 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BlockType | [BlockType](block-type.md) |  |
-| BlockTypeId | [BlockType](block-type.md) |  |
-| Layout | [Layout](layout.md) |  |
-| Layout | [Page](page.md) |  |
-| Layout | [Site](site.md) |  |
-| LayoutId | [Layout](layout.md) |  |
-| Order | [Page](page.md) |  |
-| Order | [Site](site.md) |  |
-| Page | [Layout](layout.md) |  |
-| Page | [Page](page.md) |  |
-| Page | [Site](site.md) |  |
-| PageId | [Page](page.md) |  |
-| Site | [Layout](layout.md) |  |
-| Site | [Page](page.md) |  |
-| Site | [Site](site.md) |  |
-| SiteId | [Site](site.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| BlockType | [Block Type](block-type.md) | 04768edf-c0cd-4950-b629-4d2370b57c99 |
+| BlockTypeId | [Block Type](block-type.md) | 04768edf-c0cd-4950-b629-4d2370b57c99 |
+| Layout | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| Layout | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Layout | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| LayoutId | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| Order | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Order | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| Page | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| Page | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Page | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| PageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Site | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| Site | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Site | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| SiteId | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

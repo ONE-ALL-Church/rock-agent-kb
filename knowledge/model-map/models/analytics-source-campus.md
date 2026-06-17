@@ -1,7 +1,7 @@
 # Analytics Source Campus Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceCampus`
 - EntityType GUID: `9de61413-6d38-4f14-ae1b-db927e07ce56`

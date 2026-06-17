@@ -1,7 +1,7 @@
 # Remote Authentication Session Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `RemoteAuthenticationSession`
 - EntityType GUID: `2fdee857-08be-47f3-8e86-b2027f545ee8`

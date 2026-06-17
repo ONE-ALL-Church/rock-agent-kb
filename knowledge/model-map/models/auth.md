@@ -1,7 +1,7 @@
 # Auth Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Auth`
 - EntityType GUID: `84855f4e-9865-4f1b-b420-939318272004`
@@ -40,8 +40,8 @@
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityId | yes | yes |  |  |  | Gets or sets the EntityId of the entity that this Auth entity applies to. |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the entity that is being secured. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the EntityType for the entity that this Auth object applies to. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the entity that is being secured. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the Entity Type for the entity that this Auth object applies to. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -61,8 +61,8 @@
 | Order | yes | yes |  | yes |  | Gets or sets the order or priority of the Auth entity. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias that this Auth entity allows or denies access to. This is used for Person based authorization. |
-| PersonAliasId | yes | yes |  |  |  | Gets or sets the Id of the PersonAlias that this Auth entity allows or denies access to. This is used for user based authorization |
+| PersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias that this Auth entity allows or denies access to. This is used for Person based authorization. |
+| PersonAliasId | yes | yes |  |  |  | Gets or sets the Id of the Person Alias that this Auth entity allows or denies access to. This is used for user based authorization |
 | SpecialRole | yes | yes |  | yes |  | Gets or sets the special role that this Auth entity applies to. This is a hard coded list of values defined in the code as an enumeration. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -79,13 +79,13 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the entity that is being secured. |
+| EntityType | Gets or sets the Entity Type of the entity that is being secured. |
 | Group | Gets or sets the Security Role Group that this Auth entity allows or denies access to. This is used for Group based authorization. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PersonAlias | Gets or sets the PersonAlias that this Auth entity allows or denies access to. This is used for Person based authorization. |
+| PersonAlias | Gets or sets the Person Alias that this Auth entity allows or denies access to. This is used for Person based authorization. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -94,12 +94,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
-| PersonAliasId | [PersonAlias](person-alias.md) |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| PersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

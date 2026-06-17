@@ -1,7 +1,7 @@
 # Interaction Device Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `InteractionDeviceType`
 - EntityType GUID: `c1a24534-c77f-41a8-bca9-73aba57348e3`

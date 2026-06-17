@@ -1,7 +1,7 @@
 # Auth Claim Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AuthClaim`
 - EntityType GUID: `a6924ee0-509b-461e-8127-dbf5c4fe30da`

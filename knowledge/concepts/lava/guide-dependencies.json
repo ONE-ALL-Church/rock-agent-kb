@@ -3319,10 +3319,10 @@
   },
   "approved_media_hash": "1d7a891c12ef59462440f6f8733a46b4f7c65066ee1de3b59dbe1aedf3816a18",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "lava",
-  "guide_hash": "4be1ff84334b49d2416a1cba2e595c7f4e153bfcddeab59acb92f12013bd8cf2",
-  "guide_line_count": 2103,
+  "guide_hash": "8080bfb74f6f4a7ff911d2b1b3051019aa9d744703cb790cc234f6b6d54bcfd9",
+  "guide_line_count": 2107,
   "guide_path": "knowledge/concepts/lava/guide.md",
   "guide_word_count": 14824,
   "rebuild_triggers": [
@@ -5443,7 +5443,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1914,
+      "end_line": 1915,
       "heading": "Recipe: Build An Agent Lava Tool",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-an-agent-lava-tool",
@@ -5454,7 +5454,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1980,
+      "end_line": 1983,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -5472,11 +5472,11 @@
         "ef20cb439da472d1",
         "d7c5d81821110702"
       ],
-      "start_line": 1915
+      "start_line": 1916
     },
     {
       "confidence": "community-supported",
-      "end_line": 2023,
+      "end_line": 2027,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -5489,11 +5489,11 @@
         "6116d88a4926ec12",
         "fff246618402f859"
       ],
-      "start_line": 1981
+      "start_line": 1984
     },
     {
       "confidence": "structural",
-      "end_line": 2025,
+      "end_line": 2029,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5527,11 +5527,11 @@
         "90540cd784c71558",
         "06156bb3a5401956"
       ],
-      "start_line": 2024
+      "start_line": 2028
     },
     {
       "confidence": "normal",
-      "end_line": 2032,
+      "end_line": 2036,
       "heading": "Core Lava",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-core-lava",
@@ -5541,11 +5541,11 @@
         "408b3cfc2191b9b4",
         "408b3cfc2191b9b4"
       ],
-      "start_line": 2026
+      "start_line": 2030
     },
     {
       "confidence": "normal",
-      "end_line": 2049,
+      "end_line": 2053,
       "heading": "Commands",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-commands",
@@ -5567,11 +5567,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 2033
+      "start_line": 2037
     },
     {
       "confidence": "normal",
-      "end_line": 2056,
+      "end_line": 2060,
       "heading": "Filters And Tags",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-filters-and-tags",
@@ -5581,11 +5581,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 2050
+      "start_line": 2054
     },
     {
       "confidence": "normal",
-      "end_line": 2064,
+      "end_line": 2068,
       "heading": "Shortcodes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-shortcodes",
@@ -5596,11 +5596,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 2057
+      "start_line": 2061
     },
     {
       "confidence": "normal",
-      "end_line": 2073,
+      "end_line": 2077,
       "heading": "API, Remote, Mobile, Helix, Agents",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-api-remote-mobile-helix-agents",
@@ -5612,11 +5612,11 @@
         "789454b4b23d582c",
         "c5a1de077b0ba284"
       ],
-      "start_line": 2065
+      "start_line": 2069
     },
     {
       "confidence": "normal",
-      "end_line": 2088,
+      "end_line": 2092,
       "heading": "Release Notes And Source Code",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-release-notes-and-source-code",
@@ -5634,11 +5634,11 @@
         "5435261c47164ba6",
         "427e5301d593e4bc"
       ],
-      "start_line": 2074
+      "start_line": 2078
     },
     {
       "confidence": "community-supported",
-      "end_line": 2103,
+      "end_line": 2107,
       "heading": "Community Pattern Sources",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-community-pattern-sources",
@@ -5653,7 +5653,7 @@
         "90540cd784c71558",
         "06156bb3a5401956"
       ],
-      "start_line": 2089
+      "start_line": 2093
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T17:12:16+00:00",

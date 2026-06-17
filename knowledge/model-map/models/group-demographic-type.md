@@ -1,7 +1,7 @@
 # Group Demographic Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupDemographicType`
 - EntityType GUID: `9ae7a87b-e274-4ff5-befd-55ccf603ce13`
@@ -44,7 +44,7 @@
 | ForeignKey | yes | yes |  |  |  |  |
 | GroupDemographicTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | GroupType |  | yes | yes |  |  | Gets or sets the type of the group. |
-| GroupTypeId | yes | yes |  | yes |  | The GroupType identifier of the group this Group Demographic Type is associated with. |
+| GroupTypeId | yes | yes |  | yes |  | The Group Type identifier of the group this Group Demographic Type is associated with. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -92,9 +92,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| GroupType | type |  |
-| GroupTypeId | [GroupType](group-type.md) |  |
-| RoleFilter | GroupTypeRoles |  |
+| GroupType | type | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| GroupTypeId | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| RoleFilter | GroupTypeRoles | d155c373-9e47-4c6a-badd-792f31af5fba |
 
 ## Stable To Pre-Alpha Changes
 

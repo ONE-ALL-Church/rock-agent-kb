@@ -1,7 +1,7 @@
 # Attribute Value Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AttributeValue`
 - EntityType GUID: `d2bdccf0-d3f4-4f29-b286-da5b7bfa41c6`
@@ -41,7 +41,7 @@
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
-| EntityId | yes | yes |  |  |  | Gets or sets the Id of the entity instance that uses this AttributeValue. An Attribute is a configuration setting, so each instance of the Entity that uses the same Attribute can have a different value. For instance a BlockType has a declared attribute, and that attribute can be configured with a different value on each Block that implements the BlockType. This value will either be 0 or null for global attributes or attributes that have a constant across all instances of an EntityType. |
+| EntityId | yes | yes |  |  |  | Gets or sets the Id of the entity instance that uses this AttributeValue. An Attribute is a configuration setting, so each instance of the Entity that uses the same Attribute can have a different value. For instance a Block Type has a declared attribute, and that attribute can be configured with a different value on each Block that implements the Block Type. This value will either be 0 or null for global attributes or attributes that have a constant across all instances of an EntityType. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -105,11 +105,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Attribute | [Attribute](attribute.md) |  |
-| AttributeId | [Attribute](attribute.md) |  |
-| EntityId | [Attribute](attribute.md) |  |
-| EntityId | [Block](block.md) |  |
-| EntityId | [BlockType](block-type.md) |  |
+| Attribute | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| AttributeId | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| EntityId | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| EntityId | [Block](block.md) | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
+| EntityId | [Block Type](block-type.md) | 04768edf-c0cd-4950-b629-4d2370b57c99 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Benevolence Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `BenevolenceType`
 - EntityType GUID: `9db5d35a-f2df-4aff-ab9f-06c2eb587c0d`
@@ -15,8 +15,8 @@
 | Database-marked properties | 15 |
 | Lava-marked properties | 29 |
 | Lava-marked non-database properties | 14 |
-| Related model links | 6 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 8 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -28,9 +28,9 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| BenevolenceRequests |  | yes | yes |  |  | Gets or sets a collection containing the Benevolence Request. |
+| BenevolenceRequests |  | yes | yes |  |  | Gets or sets a collection containing the Benevolence Request that is associated with a Benevolence Type. |
 | BenevolenceTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| BenevolenceWorkflows |  | yes | yes |  |  | Gets or sets a collection containing the Benevolence Workflow. |
+| BenevolenceWorkflows |  | yes | yes |  |  | Gets or sets a collection containing the Benevolence Workflow that is associated with a Benevolence Type. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -38,7 +38,7 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| Description | yes | yes |  |  |  | Gets or sets the Description value on the BenevolenceType. This property is required. |
+| Description | yes | yes |  |  |  | Gets or sets the Description value on the Benevolence Type. This property is required. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -47,7 +47,7 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IsActive | yes | yes |  | yes |  | Gets or sets the IsActive value on the BenevolenceType. This property is required. |
+| IsActive | yes | yes |  | yes |  | Gets or sets the IsActive value on the Benevolence Type. This property is required. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -56,10 +56,10 @@
 | ModifiedByPersonId |  | yes | yes |  |  |  |
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
-| Name | yes | yes |  | yes |  | Gets or sets the Name value on the BenevolenceType. This property is required. |
+| Name | yes | yes |  | yes |  | Gets or sets the Name value on the Benevolence Type. This property is required. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| RequestLavaTemplate | yes | yes |  |  |  | Gets or sets the RequestLavaTemplate value on the BenevolenceType. This property is required. |
+| RequestLavaTemplate | yes | yes |  |  |  | Gets or sets the RequestLavaTemplate value on the Benevolence Type. This property is required. |
 | ShowFinancialResults | yes | yes |  |  |  | Gets or sets a value indicating whether [show financial results]. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -73,8 +73,8 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BenevolenceRequests | Gets or sets a collection containing the Benevolence Request. |
-| BenevolenceWorkflows | Gets or sets a collection containing the Benevolence Workflow. |
+| BenevolenceRequests | Gets or sets a collection containing the Benevolence Request that is associated with a Benevolence Type. |
+| BenevolenceWorkflows | Gets or sets a collection containing the Benevolence Workflow that is associated with a Benevolence Type. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -90,16 +90,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BenevolenceRequests | [Benevolence Request](benevolence-request.md) |  |
-| BenevolenceWorkflows | [Benevolence Workflow](benevolence-workflow.md) |  |
-| Description | [BenevolenceType](benevolence-type.md) |  |
-| IsActive | [BenevolenceType](benevolence-type.md) |  |
-| Name | [BenevolenceType](benevolence-type.md) |  |
-| RequestLavaTemplate | [BenevolenceType](benevolence-type.md) |  |
+| BenevolenceRequests | [Benevolence Request](benevolence-request.md) | cf0ce5c1-9286-4310-9b50-10d040f8ebd2 |
+| BenevolenceRequests | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
+| BenevolenceWorkflows | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
+| BenevolenceWorkflows | [Benevolence Workflow](benevolence-workflow.md) | 1f27a8e2-c40a-4c8d-9f22-55bc24b98d80 |
+| Description | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
+| IsActive | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
+| Name | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
+| RequestLavaTemplate | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | BenevolenceRequests | description, related_entity_links |
-| property_changed | BenevolenceWorkflows | description, related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

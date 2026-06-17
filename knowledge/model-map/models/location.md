@@ -1,7 +1,7 @@
 # Location Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Location`
 - EntityType GUID: `0d6410ad-c83c-47ac-af3d-616d09edf63b`
@@ -74,7 +74,7 @@
 | Latitude |  | yes | yes |  |  | Gets the latitude ( use GeoPoint to set a latitude/longitude values ). |
 | LocationAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | LocationTypeValue |  | yes | yes |  |  | Gets or sets the location type value. |
-| LocationTypeValueId | yes | yes |  |  |  | Gets or sets the Id of the LocationType DefinedValue that is used to identify the type of Location that this is. Examples: Campus, Building, Room, etc These are found in the "Location Type" Defined Type. |
+| LocationTypeValueId | yes | yes |  |  |  | Gets or sets the Id of the LocationType Defined Value that is used to identify the type of Location that this is. Examples: Campus, Building, Room, etc These are found in the Location Type Defined Type. |
 | Longitude |  | yes | yes |  |  | Gets the longitude ( use GeoPoint to set a latitude/longitude values ). |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -140,12 +140,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BeaconId | [Location](location.md) |  |
-| GroupLocations | GroupLocations |  |
-| LocationTypeValueId | [DefinedValue](defined-value.md) |  |
-| LocationTypeValueId | [Location](location.md) |  |
-| PrinterDevice | [Device](device.md) |  |
-| PrinterDeviceId | [Device](device.md) |  |
+| BeaconId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| GroupLocations | GroupLocations | 26248ee7-09f3-4578-a1d6-47e01d91d6ef |
+| LocationTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| LocationTypeValueId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| PrinterDevice | [Device](device.md) | c06ee1fe-af12-410a-a364-7a366cd72414 |
+| PrinterDeviceId | [Device](device.md) | c06ee1fe-af12-410a-a364-7a366cd72414 |
 
 ## Stable To Pre-Alpha Changes
 

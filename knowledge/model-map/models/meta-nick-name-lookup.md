@@ -1,7 +1,7 @@
 # Meta Nick Name Lookup Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Meta`
 - Model title: `MetaNickNameLookup`
 - EntityType GUID: `5fcbe899-3756-4f64-8540-ce37ea9eed45`

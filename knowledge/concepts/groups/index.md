@@ -2,7 +2,7 @@
 id: concept-groups
 title: Groups
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -226,29 +226,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Group Member](../../model-map/models/group-member.md) | Group | 18.2.4 | 64 | 30 | 49 | 19 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Assignment](../../model-map/models/group-member-assignment.md) | Group | 18.2.4 | 46 | 15 | 28 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Historical](../../model-map/models/group-member-historical.md) | Group | 18.2.4 | 53 | 22 | 38 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Requirement](../../model-map/models/group-member-requirement.md) | Group | 18.2.4 | 57 | 24 | 40 | 16 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 18.2.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Workflow Trigger](../../model-map/models/group-member-workflow-trigger.md) | Group | 18.2.4 | 29 | 14 | 22 | 8 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Type](../../model-map/models/group-type.md) | Group | 18.2.4 | 155 | 88 | 116 | 28 | 14 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Type Role](../../model-map/models/group-type-role.md) | Group | 18.2.4 | 54 | 26 | 39 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group](../../model-map/models/group.md) | Group | 18.2.4 | 129 | 61 | 93 | 32 | 14 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Demographic Type](../../model-map/models/group-demographic-type.md) | Group | 18.2.4 | 46 | 17 | 31 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Demographic Value](../../model-map/models/group-demographic-value.md) | Group | 18.2.4 | 48 | 18 | 33 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Historical](../../model-map/models/group-historical.md) | Group | 18.2.4 | 61 | 28 | 46 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member](../../model-map/models/group-member.md) | Group | 19.1.8 | 64 | 30 | 49 | 19 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Assignment](../../model-map/models/group-member-assignment.md) | Group | 19.1.8 | 46 | 15 | 28 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Historical](../../model-map/models/group-member-historical.md) | Group | 19.1.8 | 53 | 22 | 38 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Requirement](../../model-map/models/group-member-requirement.md) | Group | 19.1.8 | 58 | 25 | 41 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Workflow Trigger](../../model-map/models/group-member-workflow-trigger.md) | Group | 19.1.8 | 29 | 14 | 22 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Type](../../model-map/models/group-type.md) | Group | 19.1.8 | 135 | 86 | 113 | 27 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Type Role](../../model-map/models/group-type-role.md) | Group | 19.1.8 | 54 | 26 | 39 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group](../../model-map/models/group.md) | Group | 19.1.8 | 115 | 61 | 93 | 32 | 5 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Demographic Type](../../model-map/models/group-demographic-type.md) | Group | 19.1.8 | 46 | 17 | 31 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Demographic Value](../../model-map/models/group-demographic-value.md) | Group | 19.1.8 | 48 | 18 | 33 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Historical](../../model-map/models/group-historical.md) | Group | 19.1.8 | 61 | 28 | 46 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Group.ArchivedByPersonAlias` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.ChatChannelAvatarBinaryFile` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.ArchivedByPersonAlias` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.ChatChannelAvatarBinaryFile` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Subguides
 

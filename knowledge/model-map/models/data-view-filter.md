@@ -1,7 +1,7 @@
 # Data View Filter Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `DataViewFilter`
 - EntityType GUID: `507e646b-9943-4dd6-8fb7-8ba9f95e6bd0`
@@ -15,8 +15,8 @@
 | Database-marked properties | 15 |
 | Lava-marked properties | 31 |
 | Lava-marked non-database properties | 16 |
-| Related model links | 3 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -42,7 +42,7 @@
 | EntityStringValue |  | yes | yes |  |  |  |
 | EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the DataFilterComponent that this filter is using. |
 | EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the DataFilterComponent that this filter is using. |
-| Expanded |  | yes | yes |  |  | Gets or sets a value indicating whether this DataViewFilter is currently expanded. This property is only used by the DataView ui to track which filters are currently expanded |
+| Expanded |  | yes | yes |  |  | Gets or sets a value indicating whether this Data View Filter is currently expanded. This property is only used by the DataView ui to track which filters are currently expanded |
 | ExpressionType | yes | yes |  |  |  | Gets or sets the expression type of this DataViewFilter. This is a hard coded list of values defined in the code as an enumeration. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -82,7 +82,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | EntityType | Gets or sets the EntityType of the DataFilterComponent that this filter is using. |
-| Expanded | Gets or sets a value indicating whether this DataViewFilter is currently expanded. This property is only used by the DataView ui to track which filters are currently expanded |
+| Expanded | Gets or sets a value indicating whether this Data View Filter is currently expanded. This property is only used by the DataView ui to track which filters are currently expanded |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -96,13 +96,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | DataFilterComponent |  |
-| EntityTypeId | DataFilterComponent |  |
-| Expanded | [DataViewFilter](data-view-filter.md) |  |
+| Expanded | [Data View Filter](data-view-filter.md) | 507e646b-9943-4dd6-8fb7-8ba9f95e6bd0 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | EntityType | related_entity_links |
-| property_changed | EntityTypeId | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

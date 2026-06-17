@@ -1,7 +1,7 @@
 # Streak Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StreakType`
 - EntityType GUID: `66203975-2a7a-4000-870e-76457df3c920`
@@ -15,8 +15,8 @@
 | Database-marked properties | 21 |
 | Lava-marked properties | 35 |
 | Lava-marked non-database properties | 14 |
-| Related model links | 5 |
-| Pre-alpha changes touching this model | 4 |
+| Related model links | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -38,7 +38,7 @@
 | EnableAttendance | yes | yes |  |  |  | This determines whether the streak type will write attendance records when marking someone as present or if it will just update the enrolled individual’s map. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| FirstDayOfWeek | yes | yes |  |  |  | Gets or sets the first day of the week for streak type calculations. Leave this null to assume the system setting, which is accessed via Rock.RockDateTime.FirstDayOfWeek. This is a hard coded list of values defined in the code as an enumeration. |
+| FirstDayOfWeek | yes | yes |  |  |  | Gets or sets the first day of the week for StreakOccurrenceFrequency.Weekly streak type calculations. Leave this null to assume the system setting, which is accessed via Rock.RockDateTime.FirstDayOfWeek. This is a hard coded list of values defined in the code as an enumeration. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -97,17 +97,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| OccurrenceFrequency | StreakOccurrenceFrequency |  |
-| StartDate | DateTime |  |
-| StreakTypeExclusions | StreakTypeExclusions |  |
-| Streaks | Streaks |  |
-| StructureType | StreakStructureType |  |
+| StreakTypeExclusions | StreakTypeExclusions | 1f00c782-f8a2-4cfa-b7df-e5b3b6d36069 |
+| Streaks | Streaks | d953b0a5-0065-4624-8844-10010de01e5c |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | FirstDayOfWeek | description |
-| property_changed | OccurrenceFrequency | related_entity_links |
-| property_changed | StartDate | related_entity_links |
-| property_changed | StructureType | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

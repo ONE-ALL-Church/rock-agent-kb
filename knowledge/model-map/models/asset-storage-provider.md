@@ -1,7 +1,7 @@
 # Asset Storage Provider Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AssetStorageProvider`
 - EntityType GUID: `e0b4be77-b29f-4bd4-ae45-cf833ac3a482`

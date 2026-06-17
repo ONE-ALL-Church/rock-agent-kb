@@ -1,7 +1,7 @@
 # Media Element Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `MediaElement`
 - EntityType GUID: `f4506b5d-f22c-4d3f-8205-fe48a9b7584b`
@@ -15,8 +15,8 @@
 | Database-marked properties | 24 |
 | Lava-marked properties | 37 |
 | Lava-marked non-database properties | 13 |
-| Related model links | 3 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -53,7 +53,7 @@
 | Item |  |  | yes |  |  |  |
 | MediaElementAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | MediaFolder |  | yes | yes |  |  | Gets or sets the Media Folder that this Element belongs to. |
-| MediaFolderId | yes | yes |  | yes |  | Gets or sets the MediaFolderId of the MediaFolder that this MediaElement belongs to. This property is required. |
+| MediaFolderId | yes | yes |  | yes |  | Gets or sets the MediaFolderId of the Media Folder that this MediaElement belongs to. This property is required. |
 | MetricData | yes | yes |  |  |  | Gets or sets the custom provider metric data for this instance. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -99,13 +99,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| MediaFolderId | [MediaFolder](media-folder.md) |  |
-| SourceCreatedDateTime | DateTime |  |
-| SourceModifiedDateTime | DateTime |  |
+| MediaFolderId | [Media Folder](media-folder.md) | b28fc79f-9fee-4be4-801d-96b9246e6043 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SourceCreatedDateTime | related_entity_links |
-| property_changed | SourceModifiedDateTime | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

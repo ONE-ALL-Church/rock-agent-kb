@@ -1,7 +1,7 @@
 # Person Signal Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `PersonSignal`
 - EntityType GUID: `0fff77a1-e92d-4a05-8b36-1d2b6d46660f`
@@ -59,8 +59,8 @@
 | Person |  | yes | yes |  |  | Gets or sets the Person representing the person who has the signal applied to them. |
 | PersonId | yes | yes |  | yes |  | Gets or sets the Id of the Person that is represented by the PersonSignal. This property is required. |
 | PersonSignalAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| SignalType |  | yes | yes |  |  | Gets or sets the SignalType representing the signal that has been applied. |
-| SignalTypeId | yes | yes |  | yes |  | Gets or sets the Id of the SignalType that is represented by the PersonSignal. This property is required. |
+| SignalType |  | yes | yes |  |  | Gets or sets the Signal Type representing the signal that has been applied. |
+| SignalTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Signal Type that is represented by the PersonSignal. This property is required. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -82,7 +82,7 @@
 | ModifiedByPersonName |  |
 | OwnerPersonAlias | Gets or sets the person alias of the individual that reported this signal. |
 | Person | Gets or sets the Person representing the person who has the signal applied to them. |
-| SignalType | Gets or sets the SignalType representing the signal that has been applied. |
+| SignalType | Gets or sets the Signal Type representing the signal that has been applied. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -91,10 +91,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Person | [Person](person.md) |  |
-| PersonId | [Person](person.md) |  |
-| SignalType | [SignalType](signal-type.md) |  |
-| SignalTypeId | [SignalType](signal-type.md) |  |
+| Person | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| SignalType | [Signal Type](signal-type.md) | 0ba03b9b-e974-4526-9b21-5037424b6d16 |
+| SignalTypeId | [Signal Type](signal-type.md) | 0ba03b9b-e974-4526-9b21-5037424b6d16 |
 
 ## Stable To Pre-Alpha Changes
 

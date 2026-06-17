@@ -1,7 +1,7 @@
 # Registration Template Fee Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationTemplateFeeItem`
 - EntityType GUID: `cc1db3ff-a145-49ce-adc0-b8960ebf37d4`
@@ -57,8 +57,8 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| RegistrationTemplateFee |  | yes | yes |  |  | Gets or sets the RegistrationTemplateFee. |
-| RegistrationTemplateFeeId | yes | yes |  |  |  | Gets or sets the RegistrationTemplateFee identifier. |
+| RegistrationTemplateFee |  | yes | yes |  |  | Gets or sets the Registration Template Fee. |
+| RegistrationTemplateFeeId | yes | yes |  |  |  | Gets or sets the Registration Template Fee identifier. |
 | RegistrationTemplateFeeItemAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -79,7 +79,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| RegistrationTemplateFee | Gets or sets the RegistrationTemplateFee. |
+| RegistrationTemplateFee | Gets or sets the Registration Template Fee. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -88,8 +88,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| RegistrationTemplateFee | [RegistrationTemplateFee](registration-template-fee.md) |  |
-| RegistrationTemplateFeeId | [RegistrationTemplateFee](registration-template-fee.md) |  |
+| RegistrationTemplateFee | [Registration Template Fee](registration-template-fee.md) | 2db3a441-6ca1-49d1-bb25-c744e2ffa457 |
+| RegistrationTemplateFeeId | [Registration Template Fee](registration-template-fee.md) | 2db3a441-6ca1-49d1-bb25-c744e2ffa457 |
 
 ## Stable To Pre-Alpha Changes
 

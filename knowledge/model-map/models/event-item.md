@@ -1,7 +1,7 @@
 # Event Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventItem`
 - EntityType GUID: `6a58ad11-3491-84ae-4896-8f39906ea65e`
@@ -24,7 +24,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AllowsInteractiveBulkIndexing | yes |  |  |  |  | Gets a value indicating whether [allows interactive bulk indexing]. |
-| ApprovedByPersonAlias |  | yes | yes |  |  | Gets or sets the approved by PersonAlias. |
+| ApprovedByPersonAlias |  | yes | yes |  |  | Gets or sets the approved by Person Alias. |
 | ApprovedByPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonId of the Person who approved this event. |
 | ApprovedOnDateTime | yes | yes |  |  |  | Gets or sets the date this event was approved. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -66,8 +66,8 @@
 | NextStartDateTime |  |  | yes |  |  | Gets the next start date time. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| Photo |  | yes | yes |  |  | Gets or sets the BinaryFile that contains the EventItem's photo. |
-| PhotoId | yes | yes |  |  |  | Gets or sets the Id of the BinaryFile that contains the photo of the EventItem. |
+| Photo |  | yes | yes |  |  | Gets or sets the Binary File that contains the EventItem's photo. |
+| PhotoId | yes | yes |  |  |  | Gets or sets the Id of the Binary File that contains the photo of the EventItem. |
 | Summary | yes | yes |  |  |  | Gets or sets the Summary of the EventItem. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -79,7 +79,7 @@
 
 | Property | Description |
 | --- | --- |
-| ApprovedByPersonAlias | Gets or sets the approved by PersonAlias. |
+| ApprovedByPersonAlias | Gets or sets the approved by Person Alias. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -92,7 +92,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| Photo | Gets or sets the BinaryFile that contains the EventItem's photo. |
+| Photo | Gets or sets the Binary File that contains the EventItem's photo. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -101,13 +101,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ApprovedByPersonAlias | [PersonAlias](person-alias.md) |  |
-| ApprovedByPersonAliasId | [Person](person.md) |  |
-| EventCalendarItems | EventCalendarItems |  |
-| EventItemAudiences | EventItemAudiences |  |
-| EventItemOccurrences | [EventItemOccurrence](event-item-occurrence.md) |  |
-| Photo | [BinaryFile](binary-file.md) |  |
-| PhotoId | [BinaryFile](binary-file.md) |  |
+| ApprovedByPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| ApprovedByPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| EventCalendarItems | EventCalendarItems | e37fb26f-03f6-48da-8e96-f412616f5ee4 |
+| EventItemAudiences | EventItemAudiences | 22394315-e21b-40af-afda-75d9f5dad721 |
+| EventItemOccurrences | [EventItemOccurrence](event-item-occurrence.md) | 71632e1a-1e7f-42b9-a630-ec99f375303a |
+| Photo | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| PhotoId | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 
 ## Stable To Pre-Alpha Changes
 

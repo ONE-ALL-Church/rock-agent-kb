@@ -1,7 +1,7 @@
 # Service Job Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `ServiceJob`
 - EntityType GUID: `52766196-a72f-4f60-997a-78e19508843d`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 41 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 0 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -35,7 +35,7 @@
 | CreatedByPersonId |  | yes | yes |  |  |  |
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
-| CronDescription |  | yes | yes |  |  | Gets the cron description. |
+| CronDescription |  | yes | yes |  | yes | Gets the cron description. |
 | CronExpression | yes | yes |  | yes |  | Gets or sets the Cron Expression that is used to schedule the Job. This property is required. |
 | CustomSortValue |  |  | yes |  |  |  |
 | Description | yes | yes |  |  |  | Gets or sets a user defined description of the Job. |
@@ -105,6 +105,4 @@ No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | CronDescription | is_obsolete |
+No stable-to-pre-alpha changes were detected for this model.

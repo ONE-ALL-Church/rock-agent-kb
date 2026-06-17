@@ -1,7 +1,7 @@
 # Analytics Dim Financial Account Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimFinancialAccount`
 - EntityType GUID: `893f38f8-fbf8-4157-b718-6009298abc91`

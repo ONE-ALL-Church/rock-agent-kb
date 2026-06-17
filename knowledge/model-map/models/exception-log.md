@@ -1,7 +1,7 @@
 # Exception Log Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `ExceptionLog`
 - EntityType GUID: `f61a9f8a-6da5-49c6-bc8e-5545c5eeda21`
@@ -98,10 +98,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Page | [Page](page.md) |  |
-| PageId | [Page](page.md) |  |
-| Site | [Site](site.md) |  |
-| SiteId | [Site](site.md) |  |
+| Page | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| PageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Site | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| SiteId | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
 
 ## Stable To Pre-Alpha Changes
 

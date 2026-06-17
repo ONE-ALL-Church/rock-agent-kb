@@ -1,7 +1,7 @@
 # Registration Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `Registration`
 - EntityType GUID: `d2f294c6-e161-4a56-85c7-cd74d535f61a`
@@ -69,11 +69,11 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  | A parent authority. If a user is not specifically allowed or denied access to this object, Rock will check the default authorization on the current type, and then the authorization on the Rock.Security.GlobalDefault entity |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PaymentPlanFinancialScheduledTransaction |  | yes | yes |  |  | Gets or sets the payment plan FinancialScheduledTransaction. |
-| PaymentPlanFinancialScheduledTransactionId | yes | yes |  |  |  | Gets or sets the payment plan FinancialScheduledTransaction identifier. |
+| PaymentPlanFinancialScheduledTransaction |  | yes | yes |  |  | Gets or sets the payment plan Financial Scheduled Transaction. |
+| PaymentPlanFinancialScheduledTransactionId | yes | yes |  |  |  | Gets or sets the payment plan Financial Scheduled Transaction identifier. |
 | Payments |  | yes | yes |  |  | Gets the payments. |
-| PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias. |
-| PersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAlias identifier. |
+| PersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias. |
+| PersonAliasId | yes | yes |  |  |  | Gets or sets the Person Alias identifier. |
 | PersonId |  |  | yes |  |  | Gets the person identifier. |
 | Registrants |  | yes | yes |  |  | Gets or sets the registrants. |
 | RegistrationAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
@@ -108,9 +108,9 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PaymentPlanFinancialScheduledTransaction | Gets or sets the payment plan FinancialScheduledTransaction. |
+| PaymentPlanFinancialScheduledTransaction | Gets or sets the payment plan Financial Scheduled Transaction. |
 | Payments | Gets the payments. |
-| PersonAlias | Gets or sets the PersonAlias. |
+| PersonAlias | Gets or sets the Person Alias. |
 | Registrants | Gets or sets the registrants. |
 | RegistrationInstance | Gets or sets the registration instance. |
 | RegistrationTemplate | Gets or sets the registration template. |
@@ -124,15 +124,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| PaymentPlanFinancialScheduledTransaction | [FinancialScheduledTransaction](financial-scheduled-transaction.md) |  |
-| PaymentPlanFinancialScheduledTransactionId | [FinancialScheduledTransaction](financial-scheduled-transaction.md) |  |
-| Payments | payments |  |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
-| PersonAliasId | [PersonAlias](person-alias.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| PaymentPlanFinancialScheduledTransaction | [Financial Scheduled Transaction](financial-scheduled-transaction.md) | 76824e8a-ccc4-4085-84d9-8af8c0807e20 |
+| PaymentPlanFinancialScheduledTransactionId | [Financial Scheduled Transaction](financial-scheduled-transaction.md) | 76824e8a-ccc4-4085-84d9-8af8c0807e20 |
+| Payments | payments | ac4ac28b-8e7e-4d7e-85db-dffb4f3adcce |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| PersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Workflow Log Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowLog`
 - EntityType GUID: `332cff36-d637-414d-b732-370b330b8d73`
@@ -38,8 +38,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Workflow | [Workflow](workflow.md) |  |
-| WorkflowId | [Workflow](workflow.md) |  |
+| Workflow | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
+| WorkflowId | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
 
 ## Stable To Pre-Alpha Changes
 

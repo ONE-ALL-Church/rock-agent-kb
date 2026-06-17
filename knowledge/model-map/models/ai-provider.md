@@ -1,7 +1,7 @@
 # AI Provider Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIProvider`
 - EntityType GUID: `945a994f-f15e-43ac-b503-a54bde70f77f`

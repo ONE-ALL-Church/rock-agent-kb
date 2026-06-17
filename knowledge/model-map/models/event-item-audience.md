@@ -1,7 +1,7 @@
 # Event Item Audience Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventItemAudience`
 - EntityType GUID: `22394315-e21b-40af-afda-75d9f5dad721`
@@ -34,13 +34,13 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DefinedValue |  | yes | yes |  |  | Gets or sets the DefinedValue that this EventItemAudience is associated with. |
-| DefinedValueId | yes | yes |  | yes |  | Gets or sets the Id of the DefinedValue that this EventItemAudience is associated with. This property is required. |
+| DefinedValue |  | yes | yes |  |  | Gets or sets the Defined Value that this EventItemAudience is associated with. |
+| DefinedValueId | yes | yes |  | yes |  | Gets or sets the Id of the Defined Value that this EventItemAudience is associated with. This property is required. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EventItem |  | yes | yes |  |  | Gets or sets the EventItem that this EventItemAudience is associated with. |
+| EventItem |  | yes | yes |  |  | Gets or sets the Event Item that this EventItemAudience is associated with. |
 | EventItemAudienceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| EventItemId | yes | yes |  | yes |  | Gets or sets the Id of the EventItem that this EventItemAudience is associated with. This property is required. |
+| EventItemId | yes | yes |  | yes |  | Gets or sets the Id of the Event Item that this EventItemAudience is associated with. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -71,9 +71,9 @@
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DefinedValue | Gets or sets the DefinedValue that this EventItemAudience is associated with. |
+| DefinedValue | Gets or sets the Defined Value that this EventItemAudience is associated with. |
 | EntityStringValue |  |
-| EventItem | Gets or sets the EventItem that this EventItemAudience is associated with. |
+| EventItem | Gets or sets the Event Item that this EventItemAudience is associated with. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| DefinedValue | [DefinedValue](defined-value.md) |  |
-| DefinedValueId | [DefinedValue](defined-value.md) |  |
-| EventItem | [EventItem](event-item.md) |  |
-| EventItemId | [EventItem](event-item.md) |  |
+| DefinedValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| DefinedValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| EventItem | [Event Item](event-item.md) | 6a58ad11-3491-84ae-4896-8f39906ea65e |
+| EventItemId | [Event Item](event-item.md) | 6a58ad11-3491-84ae-4896-8f39906ea65e |
 
 ## Stable To Pre-Alpha Changes
 

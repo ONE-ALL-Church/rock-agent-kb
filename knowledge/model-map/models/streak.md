@@ -1,7 +1,7 @@
 # Streak Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `Streak`
 - EntityType GUID: `d953b0a5-0065-4624-8844-10010de01e5c`
@@ -15,8 +15,8 @@
 | Database-marked properties | 22 |
 | Lava-marked properties | 38 |
 | Lava-marked non-database properties | 16 |
-| Related model links | 8 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 6 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -65,11 +65,11 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias. |
-| PersonAliasId | yes | yes |  | yes |  | Gets or sets the PersonAlias identifier. |
+| PersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias. |
+| PersonAliasId | yes | yes |  | yes |  | Gets or sets the Person Alias identifier. |
 | StreakAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| StreakType |  | yes | yes |  |  | Gets or sets the StreakType. |
-| StreakTypeId | yes | yes |  | yes |  | Gets or sets the Id of the StreakType to which this Streak belongs. This property is required. |
+| StreakType |  | yes | yes |  |  | Gets or sets the Streak Type. |
+| StreakTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Streak Type to which this Streak belongs. This property is required. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -91,8 +91,8 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PersonAlias | Gets or sets the PersonAlias. |
-| StreakType | Gets or sets the StreakType. |
+| PersonAlias | Gets or sets the Person Alias. |
+| StreakType | Gets or sets the Streak Type. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -101,18 +101,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EnrollmentDate | DateTime |  |
-| InactiveDateTime | DateTime |  |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
-| PersonAliasId | [PersonAlias](person-alias.md) |  |
-| StreakType | [StreakType](streak-type.md) |  |
-| StreakTypeId | [StreakType](streak-type.md) |  |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| PersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| StreakType | [Streak Type](streak-type.md) | 66203975-2a7a-4000-870e-76457df3c920 |
+| StreakTypeId | [Streak Type](streak-type.md) | 66203975-2a7a-4000-870e-76457df3c920 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | EnrollmentDate | related_entity_links |
-| property_changed | InactiveDateTime | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

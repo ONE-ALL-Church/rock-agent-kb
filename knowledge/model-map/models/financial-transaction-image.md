@@ -1,7 +1,7 @@
 # Financial Transaction Image Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialTransactionImage`
 - EntityType GUID: `78dca7ee-c5fe-49ae-9995-0e254cc8e2a2`
@@ -27,8 +27,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| BinaryFile |  | yes | yes |  |  | Gets or sets the BinaryFile of the image. |
-| BinaryFileId | yes | yes |  |  |  | Gets or sets the BinaryFileId of the image's BinaryFile |
+| BinaryFile |  | yes | yes |  |  | Gets or sets the Binary File of the image. |
+| BinaryFileId | yes | yes |  |  |  | Gets or sets the BinaryFileId of the image's Binary File |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -58,8 +58,8 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | SupportedActions |  |  | yes |  |  |  |
-| Transaction |  | yes | yes |  |  | Gets or sets the FinancialTransaction that this image belongs to. |
-| TransactionId | yes | yes |  |  |  | Gets or sets the TransactionId of the FinancialTransaction that this image belongs to |
+| Transaction |  | yes | yes |  |  | Gets or sets the Financial Transaction that this image belongs to. |
+| TransactionId | yes | yes |  |  |  | Gets or sets the TransactionId of the Financial Transaction that this image belongs to |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -71,7 +71,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BinaryFile | Gets or sets the BinaryFile of the image. |
+| BinaryFile | Gets or sets the Binary File of the image. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -79,7 +79,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| Transaction | Gets or sets the FinancialTransaction that this image belongs to. |
+| Transaction | Gets or sets the Financial Transaction that this image belongs to. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -88,10 +88,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFile | [BinaryFile](binary-file.md) |  |
-| BinaryFileId | [BinaryFile](binary-file.md) |  |
-| Transaction | [FinancialTransaction](financial-transaction.md) |  |
-| TransactionId | [FinancialTransaction](financial-transaction.md) |  |
+| BinaryFile | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| BinaryFileId | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| Transaction | [Financial Transaction](financial-transaction.md) | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| TransactionId | [Financial Transaction](financial-transaction.md) | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
 
 ## Stable To Pre-Alpha Changes
 

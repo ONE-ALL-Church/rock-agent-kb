@@ -1,7 +1,7 @@
 # Prayer Request Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Prayer`
 - Model title: `PrayerRequest`
 - EntityType GUID: `f13c8fd2-7702-4c79-a6a9-86440dd5de13`
@@ -66,8 +66,8 @@
 | IsUrgent | yes | yes |  |  |  | Gets or sets a flag indicating if this is an urgent prayer request. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
-| LanguageValue |  | yes | yes |  |  | Gets or sets the Language DefinedValue for this prayer request. |
-| LanguageValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the DefinedValue that represents the Language for this prayer request. |
+| LanguageValue |  | yes | yes |  |  | Gets or sets the Language Defined Value for this prayer request. |
+| LanguageValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the Defined Value that represents the Language for this prayer request. |
 | LastName | yes | yes |  |  |  | Gets or sets the Last Name of the person that this prayer request is about. This property is required. |
 | ModerationFlags | yes | yes |  |  |  | Gets or sets the bitmask of moderation flags for the PrayerRequest. This is a hard coded list of values defined in the code as an enumeration. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -106,7 +106,7 @@
 | EntityStringValue |  |
 | Group | TODO: GET CONFIRMATION AND DOCUMENT -CSF Gets or sets the group. |
 | IdKey |  |
-| LanguageValue | Gets or sets the Language DefinedValue for this prayer request. |
+| LanguageValue | Gets or sets the Language Defined Value for this prayer request. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -119,12 +119,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ApprovedByPersonAliasId | [Person](person.md) |  |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| LanguageValue | [DefinedValue](defined-value.md) |  |
-| LanguageValueId | [DefinedValue](defined-value.md) |  |
-| RequestedByPersonAliasId | [Person](person.md) |  |
+| ApprovedByPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| LanguageValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| LanguageValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RequestedByPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

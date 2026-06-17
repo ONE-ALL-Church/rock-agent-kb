@@ -1,7 +1,7 @@
 # Analytics Dim Financial Batch Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimFinancialBatch`
 - EntityType GUID: `f970ff85-f3ed-41bd-90d9-5511baced928`
@@ -63,9 +63,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BatchEndDateTime | FinancialTransactions |  |
-| BatchStartDateTime | FinancialTransactions |  |
-| ControlAmount | FinancialTransactions |  |
+| BatchEndDateTime | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| BatchStartDateTime | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| ControlAmount | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
 
 ## Stable To Pre-Alpha Changes
 

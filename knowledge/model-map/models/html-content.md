@@ -1,7 +1,7 @@
 # Html Content Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `HtmlContent`
 - EntityType GUID: `fb30ec4c-7dcc-41a4-94ab-e728a8ce537b`
@@ -16,14 +16,14 @@
 | Lava-marked properties | 32 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 4 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| ApprovedByPersonAlias |  | yes | yes |  |  | Gets or sets the approved by PersonAlias. |
+| ApprovedByPersonAlias |  | yes | yes |  |  | Gets or sets the approved by Person Alias. |
 | ApprovedByPersonAliasId | yes | yes |  |  |  | Gets or sets the Id of the Person who approved the HTMLContent. |
 | ApprovedDateTime | yes | yes |  |  |  | Gets or sets the date and time that the HTMLContent was approved. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -31,7 +31,7 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | Block |  | yes | yes |  |  | Gets or sets the Block that this HTMLContent appears on. |
-| BlockId | yes | yes |  | yes |  | Gets or sets the Id of the Block that the HTML content should appear on. This property is required. |
+| BlockId | yes | yes |  |  |  | Gets or sets the Id of the Block that the HTML content should appear on. This property is recommended but no longer required as of Rock v19.0. |
 | Content | yes | yes |  |  |  | Gets or sets the HTML content that will display on the block when conditions (if any) are met. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -74,7 +74,7 @@
 
 | Property | Description |
 | --- | --- |
-| ApprovedByPersonAlias | Gets or sets the approved by PersonAlias. |
+| ApprovedByPersonAlias | Gets or sets the approved by Person Alias. |
 | AttributeValues |  |
 | Attributes |  |
 | Block | Gets or sets the Block that this HTMLContent appears on. |
@@ -93,13 +93,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ApprovedByPersonAlias | [PersonAlias](person-alias.md) |  |
-| ApprovedByPersonAliasId | [Person](person.md) |  |
-| Block | [Block](block.md) |  |
-| BlockId | [Block](block.md) |  |
+| ApprovedByPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| ApprovedByPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Block | [Block](block.md) | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
+| BlockId | [Block](block.md) | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | BlockId | description, is_required |
+No stable-to-pre-alpha changes were detected for this model.

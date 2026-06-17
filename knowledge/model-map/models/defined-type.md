@@ -1,7 +1,7 @@
 # Defined Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `DefinedType`
 - EntityType GUID: `6028d502-79f4-4a74-9323-525e90f900c7`
@@ -43,8 +43,8 @@
 | EnableSecurityOnValues | yes | yes |  |  |  | Gets or sets a value indicating whether the DefinedValues for this DefinedType should allow security settings. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| FieldType |  | yes | yes |  |  | Gets or sets the FieldType that is used to set/select, and at times display the DefinedValues that are associated with this DefinedType. |
-| FieldTypeId | yes | yes |  |  |  | Gets or sets the FieldTypeId of the FieldType that is used to set/select, and at times display the DefinedValues that are associated with NOTE: Currently, Text is the only supported fieldType for DefinedTypes. this DefinedType. |
+| FieldType |  | yes | yes |  |  | Gets or sets the Field Type that is used to set/select, and at times display the DefinedValues that are associated with this DefinedType. |
+| FieldTypeId | yes | yes |  |  |  | Gets or sets the FieldTypeId of the Field Type that is used to set/select, and at times display the DefinedValues that are associated with NOTE: Currently, Text is the only supported fieldType for DefinedTypes. this DefinedType. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -83,7 +83,7 @@
 | CreatedByPersonName |  |
 | DefinedValues | Gets or sets a collection containing the DefinedValues that belong to this DefinedType. |
 | EntityStringValue |  |
-| FieldType | Gets or sets the FieldType that is used to set/select, and at times display the DefinedValues that are associated with this DefinedType. |
+| FieldType | Gets or sets the Field Type that is used to set/select, and at times display the DefinedValues that are associated with this DefinedType. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -96,11 +96,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| DefinedValues | DefinedValues |  |
-| FieldType | DefinedValues |  |
-| FieldType | [FieldType](field-type.md) |  |
-| FieldTypeId | DefinedValues |  |
-| FieldTypeId | [FieldType](field-type.md) |  |
+| DefinedValues | DefinedValues | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| FieldType | DefinedValues | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| FieldType | [Field Type](field-type.md) | 54018eb6-868c-477d-8b6a-455a6115b30b |
+| FieldTypeId | DefinedValues | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| FieldTypeId | [Field Type](field-type.md) | 54018eb6-868c-477d-8b6a-455a6115b30b |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Note Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Note`
 - EntityType GUID: `53dc1e78-14a5-44de-903f-6a2cb02164e7`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 51 |
 | Lava-marked non-database properties | 25 |
 | Related model links | 2 |
-| Pre-alpha changes touching this model | 3 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -24,9 +24,9 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | ApprovalStatus | yes | yes |  |  |  | Gets or sets the approval status. This is a hard coded list of values defined in the code as an enumeration. |
-| ApprovalUrl |  | yes | yes |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets the approval URL. |
-| ApprovalsSent | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets or sets a value indicating whether [approvals sent]. |
-| ApprovedByPersonAliasId | yes | yes |  |  |  | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets or sets the PersonAliasId of the Person who either approved or declined the Note. If no approval action has been performed on this Note, this value will be null. |
+| ApprovalUrl |  | yes | yes |  | yes | Gets the approval URL. |
+| ApprovalsSent | yes | yes |  |  | yes | Gets or sets a value indicating whether [approvals sent]. |
+| ApprovedByPersonAliasId | yes | yes |  |  | yes | Gets or sets the PersonAliasId of the Person who either approved or declined the Note. If no approval action has been performed on this Note, this value will be null. |
 | ApprovedDateTime | yes | yes |  |  |  | Gets or sets the approved date. |
 | Attachments |  | yes | yes |  |  | Gets or sets the note attachments. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -73,7 +73,7 @@
 | NoteAnchorId |  | yes | yes |  |  | Gets the id to use in the note's anchor tag |
 | NoteAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | NoteType |  | yes | yes |  |  | Gets or sets the Note Type |
-| NoteTypeId | yes | yes |  | yes |  | Gets or sets the Id of the NoteType. This property is required. |
+| NoteTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Note Type. This property is required. |
 | NoteUrl | yes | yes |  |  |  | Gets or sets the URL where the Note was created. Use NoteUrl with a hash anchor of the Note.NoteAnchorId so that Notifications and Approvals can know where to view the note |
 | NotificationsSent | yes | yes |  |  |  | Gets or sets a value indicating whether [notifications sent]. |
 | ParentAuthority |  |  | yes |  |  | Gets the parent security authority of this Note. Where security is inherited from. |
@@ -93,7 +93,7 @@
 
 | Property | Description |
 | --- | --- |
-| ApprovalUrl | [Obsoleted in v16] This property is no longer used and will be removed in the future. Gets the approval URL. |
+| ApprovalUrl | Gets the approval URL. |
 | Attachments | Gets or sets the note attachments. |
 | AttributeValues |  |
 | Attributes |  |
@@ -123,13 +123,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ApprovedByPersonAliasId | [Person](person.md) |  |
-| NoteTypeId | [NoteType](note-type.md) |  |
+| ApprovedByPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| NoteTypeId | [Note Type](note-type.md) | 337eed57-d4ab-4eed-bbdb-0cb3a467dbcc |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | ApprovalsSent | description, is_obsolete |
-| property_changed | ApprovalUrl | description, is_obsolete |
-| property_changed | ApprovedByPersonAliasId | description, is_obsolete |
+No stable-to-pre-alpha changes were detected for this model.

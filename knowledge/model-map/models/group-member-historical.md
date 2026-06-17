@@ -1,7 +1,7 @@
 # Group Member Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupMemberHistorical`
 - EntityType GUID: `233ea15d-8fee-40fe-9772-d369d34e3a8d`
@@ -23,7 +23,7 @@
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| ArchivedByPersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias that archived (soft deleted) this group member at this point in history |
+| ArchivedByPersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias that archived (soft deleted) this group member at this point in history |
 | ArchivedByPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId that archived (soft deleted) this group member at this point in history |
 | ArchivedDateTime | yes | yes |  |  |  | Gets or sets the archived date time value of this group member at this point in history |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -47,11 +47,11 @@
 | ForeignKey | yes | yes |  |  |  |  |
 | Group |  | yes | yes |  |  | Gets or sets the Group for this group member record at this point in history |
 | GroupId | yes | yes |  |  |  | Gets or sets GroupId for this group member record at this point in history |
-| GroupMember |  | yes | yes |  |  | Gets or sets the GroupMember for this group member historical record |
+| GroupMember |  | yes | yes |  |  | Gets or sets the Group Member for this group member historical record |
 | GroupMemberHistoricalAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | GroupMemberId | yes | yes |  |  |  | Gets or sets the group member id of the group member for this group member historical record |
 | GroupMemberStatus | yes | yes |  |  |  | Gets or sets the group member status of this group member at this point in history This is a hard coded list of values defined in the code as an enumeration. |
-| GroupRole |  | yes | yes |  |  | Gets or sets the GroupTypeRole for this group member at this point in history |
+| GroupRole |  | yes | yes |  |  | Gets or sets the Group Type Role for this group member at this point in history |
 | GroupRoleId | yes | yes |  |  |  | Gets or sets the group role id for this group member at this point in history |
 | GroupRoleName | yes | yes |  |  |  | Gets or sets the group role name at this point in history |
 | Guid | yes | yes |  |  |  |  |
@@ -80,15 +80,15 @@
 
 | Property | Description |
 | --- | --- |
-| ArchivedByPersonAlias | Gets or sets the PersonAlias that archived (soft deleted) this group member at this point in history |
+| ArchivedByPersonAlias | Gets or sets the Person Alias that archived (soft deleted) this group member at this point in history |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | Group | Gets or sets the Group for this group member record at this point in history |
-| GroupMember | Gets or sets the GroupMember for this group member historical record |
-| GroupRole | Gets or sets the GroupTypeRole for this group member at this point in history |
+| GroupMember | Gets or sets the Group Member for this group member historical record |
+| GroupRole | Gets or sets the Group Type Role for this group member at this point in history |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -101,11 +101,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ArchivedByPersonAlias | [PersonAlias](person-alias.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [GroupId](group.md) |  |
-| GroupMember | [GroupMember](group-member.md) |  |
-| GroupRole | [GroupTypeRole](group-type-role.md) |  |
+| ArchivedByPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [GroupId](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupMember | [Group Member](group-member.md) | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
+| GroupRole | [Group Type Role](group-type-role.md) | d155c373-9e47-4c6a-badd-792f31af5fba |
 
 ## Stable To Pre-Alpha Changes
 

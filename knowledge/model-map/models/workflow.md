@@ -1,7 +1,7 @@
 # Workflow Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `Workflow`
 - EntityType GUID: `3540e9a7-fe30-43a9-8b0a-a372b63dfc93`
@@ -79,9 +79,9 @@
 | WorkflowAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | WorkflowId |  | yes | yes |  |  | This value is a string of the WorkflowType's WorkflowIdPrefix combined with the WorkflowIdNumber. |
 | WorkflowIdNumber | yes | yes |  |  |  | A type specific number to uniquely identify a workflow. |
-| WorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType that is being executed in this persisted Workflow instance. |
+| WorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type that is being executed in this persisted Workflow instance. |
 | WorkflowTypeCache |  | yes | yes |  |  | Gets the workflow type cache. |
-| WorkflowTypeId | yes | yes |  |  |  | Gets or sets the WorkflowTypeId of the WorkflowType that this Workflow instance is executing. |
+| WorkflowTypeId | yes | yes |  |  |  | Gets or sets the WorkflowTypeId of the Workflow Type that this Workflow instance is executing. |
 
 ## Lava-Marked Non-Database Properties
 
@@ -105,17 +105,17 @@
 | TypeName |  |
 | UrlEncodedKey |  |
 | WorkflowId | This value is a string of the WorkflowType's WorkflowIdPrefix combined with the WorkflowIdNumber. |
-| WorkflowType | Gets or sets the WorkflowType that is being executed in this persisted Workflow instance. |
+| WorkflowType | Gets or sets the Workflow Type that is being executed in this persisted Workflow instance. |
 | WorkflowTypeCache | Gets the workflow type cache. |
 
 ## Related Model Map Links
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActiveActivities | WorkflowActivities |  |
-| Activities | WorkflowActivities |  |
-| WorkflowType | [WorkflowType](workflow-type.md) |  |
-| WorkflowTypeId | [WorkflowType](workflow-type.md) |  |
+| ActiveActivities | WorkflowActivities | 2cb52ed0-cb06-4d62-9e2c-73b60afa4c9f |
+| Activities | WorkflowActivities | 2cb52ed0-cb06-4d62-9e2c-73b60afa4c9f |
+| WorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| WorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
 
 ## Stable To Pre-Alpha Changes
 

@@ -2,7 +2,7 @@
 id: concept-connections
 title: Connections
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -134,29 +134,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Connection Opportunity](../../model-map/models/connection-opportunity.md) | Engagement | 18.2.4 | 58 | 22 | 38 | 16 | 3 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Campus](../../model-map/models/connection-opportunity-campus.md) | Engagement | 18.2.4 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Connector Group](../../model-map/models/connection-opportunity-connector-group.md) | Engagement | 18.2.4 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Group](../../model-map/models/connection-opportunity-group.md) | Engagement | 18.2.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Group Config](../../model-map/models/connection-opportunity-group-config.md) | Engagement | 18.2.4 | 44 | 14 | 29 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request](../../model-map/models/connection-request.md) | Engagement | 18.2.4 | 60 | 24 | 44 | 20 | 12 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request Activity](../../model-map/models/connection-request-activity.md) | Engagement | 18.2.4 | 45 | 14 | 30 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| Connection Request Status History | Engagement |  |  |  |  |  | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request Workflow](../../model-map/models/connection-request-workflow.md) | Engagement | 18.2.4 | 44 | 14 | 29 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Status](../../model-map/models/connection-status.md) | Engagement | 18.2.4 | 47 | 18 | 32 | 14 | 4 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Status Automation](../../model-map/models/connection-status-automation.md) | Engagement | 18.2.4 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Type](../../model-map/models/connection-type.md) | Engagement | 18.2.4 | 59 | 25 | 43 | 19 | 10 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity](../../model-map/models/connection-opportunity.md) | Engagement | 19.1.8 | 60 | 24 | 40 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Campus](../../model-map/models/connection-opportunity-campus.md) | Engagement | 19.1.8 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Connector Group](../../model-map/models/connection-opportunity-connector-group.md) | Engagement | 19.1.8 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Group](../../model-map/models/connection-opportunity-group.md) | Engagement | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Group Config](../../model-map/models/connection-opportunity-group-config.md) | Engagement | 19.1.8 | 44 | 14 | 29 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request](../../model-map/models/connection-request.md) | Engagement | 19.1.8 | 72 | 29 | 55 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request Activity](../../model-map/models/connection-request-activity.md) | Engagement | 19.1.8 | 45 | 14 | 30 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request Status History](../../model-map/models/connection-request-status-history.md) | Engagement | 19.1.8 | 48 | 17 | 33 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request Workflow](../../model-map/models/connection-request-workflow.md) | Engagement | 19.1.8 | 44 | 14 | 29 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Status](../../model-map/models/connection-status.md) | Engagement | 19.1.8 | 51 | 22 | 36 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Status Automation](../../model-map/models/connection-status-automation.md) | Engagement | 19.1.8 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Type](../../model-map/models/connection-type.md) | Engagement | 19.1.8 | 69 | 33 | 53 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Connection Opportunity.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.ConnectionOpportunityCampuses` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.ConnectionType` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.ConnectionOpportunityCampuses` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.ConnectionType` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

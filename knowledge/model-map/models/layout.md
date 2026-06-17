@@ -1,7 +1,7 @@
 # Layout Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `Layout`
 - EntityType GUID: `9dacc861-fed4-47fc-946d-d6a120ff6d56`
@@ -93,10 +93,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Blocks | Blocks |  |
-| Pages | Pages |  |
-| Site | [Site](site.md) |  |
-| SiteId | [Site](site.md) |  |
+| Blocks | Blocks | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
+| Pages | Pages | e104dcdf-247c-4ced-a119-8cc51632761f |
+| Site | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| SiteId | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
 
 ## Stable To Pre-Alpha Changes
 

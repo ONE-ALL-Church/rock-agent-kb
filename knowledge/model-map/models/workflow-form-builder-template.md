@@ -1,7 +1,7 @@
 # Workflow Form Builder Template Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowFormBuilderTemplate`
 - EntityType GUID: `65fa3078-9d42-4857-b78a-f32a05f7a4c1`

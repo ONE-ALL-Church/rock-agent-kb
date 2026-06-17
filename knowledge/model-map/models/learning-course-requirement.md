@@ -1,7 +1,7 @@
 # Learning Course Requirement Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningCourseRequirement`
 - EntityType GUID: `576f54e1-ce70-43ed-a7d8-5169529c70e9`
@@ -45,7 +45,7 @@
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | LearningCourse |  | yes | yes |  |  | Gets or sets the LearningCourse which has the requirement. |
-| LearningCourseId | yes | yes |  |  |  | Gets or sets the id of the LearningCourse which this requirement applies to. |
+| LearningCourseId | yes | yes |  |  |  | Gets or sets the id of the Learning Course which this requirement applies to. |
 | LearningCourseRequirementAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -56,8 +56,8 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | RequiredLearningCourse |  | yes | yes |  |  | Gets or sets the LearningCourse which is the requirement. |
-| RequiredLearningCourseId | yes | yes |  |  |  | Gets or sets the id of the required LearningCourse. |
-| RequirementType | yes | yes |  |  |  | Gets or sets the requirement type of the required LearningCourse. This is a hard coded list of values defined in the code as an enumeration. |
+| RequiredLearningCourseId | yes | yes |  |  |  | Gets or sets the id of the required Learning Course. |
+| RequirementType | yes | yes |  |  |  | Gets or sets the requirement type of the required Learning Course. This is a hard coded list of values defined in the code as an enumeration. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -87,9 +87,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LearningCourseId | [LearningCourse](learning-course.md) |  |
-| RequiredLearningCourseId | [LearningCourse](learning-course.md) |  |
-| RequirementType | [LearningCourse](learning-course.md) |  |
+| LearningCourseId | [Learning Course](learning-course.md) | 21870376-4a6e-4402-ace3-42aa4441fc2e |
+| RequiredLearningCourseId | [Learning Course](learning-course.md) | 21870376-4a6e-4402-ace3-42aa4441fc2e |
+| RequirementType | [Learning Course](learning-course.md) | 21870376-4a6e-4402-ace3-42aa4441fc2e |
 
 ## Stable To Pre-Alpha Changes
 

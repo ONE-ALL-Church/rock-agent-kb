@@ -1,7 +1,7 @@
 # Person Preference Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `PersonPreference`
 - EntityType GUID: `fdcf766c-f36b-403b-89f3-7030da65507e`
@@ -15,8 +15,8 @@
 | Database-marked properties | 12 |
 | Lava-marked properties | 18 |
 | Lava-marked non-database properties | 7 |
-| Related model links | 1 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 0 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -39,7 +39,7 @@
 | IsEnduring | yes |  |  |  |  | Gets or sets a value indicating whether this preference is should have an extended life. Enduring preferences have a life of 18 months since last accessed. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
-| Key | yes | yes |  | yes |  | Gets or sets the unique key that identifies this preference. This is unique to each related PersonAliasId. The key should always follow the pattern of {entity-type-slug}-{entity-id}-{user-key} . For example, a block preference might look like block-283-show-inactive . In the case of a preference not attached to any entity it should follow the pattern of global-0-{user-key} . For example, a global person preference might look like global-0-default-grid-page-size . |
+| Key | yes | yes |  | yes |  | Gets or sets the unique key that identifies this preference. This is unique to each related PersonAliasId. The key should always follow the pattern of {entity-type-slug}-{entity-id}-{user-key}. For example, a block preference might look like block-283-show-inactive. In the case of a preference not attached to any entity it should follow the pattern of global-0-{user-key}. For example, a global person preference might look like global-0-default-grid-page-size. |
 | LastAccessedDateTime | yes | yes |  |  |  | Gets or sets the date this preference was last accessed by the owner. This should only be updated once per day. |
 | PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias that owns this preference. |
 | PersonAliasId | yes | yes |  | yes |  | Gets or sets the Id of the PersonAlias that owns this preference. |
@@ -63,12 +63,8 @@
 
 ## Related Model Map Links
 
-| Property | Related Model | EntityType GUID |
-| --- | --- | --- |
-| EntityId | IEntity |  |
+No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | EntityId | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

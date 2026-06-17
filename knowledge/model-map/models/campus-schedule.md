@@ -1,7 +1,7 @@
 # Campus Schedule Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `CampusSchedule`
 - EntityType GUID: `134b8879-cd7c-4872-8065-882aa3721c2d`
@@ -58,8 +58,8 @@
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | Schedule |  | yes | yes |  |  | Gets or sets the Schedule that is associated with this CampusSchedule. |
 | ScheduleId | yes | yes |  |  |  | Gets or sets the Id of the Schedule that is associated with this CampusSchedule. This property is required. |
-| ScheduleTypeValue |  | yes | yes |  |  | Gets or sets the Schedule Type DefinedValue of this CampusSchedule. |
-| ScheduleTypeValueId | yes | yes |  |  |  | The Id of the ScheduleType DefinedValue that is used to identify the type of CampusSchedule that this is. This property is required. These are found in the "Schedule Type" Defined Type. |
+| ScheduleTypeValue |  | yes | yes |  |  | Gets or sets the Schedule Type Defined Value of this CampusSchedule. |
+| ScheduleTypeValueId | yes | yes |  |  |  | The Id of the ScheduleType Defined Value that is used to identify the type of Campus Schedule that this is. This property is required. These are found in the Schedule Type Defined Type. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -81,7 +81,7 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | Schedule | Gets or sets the Schedule that is associated with this CampusSchedule. |
-| ScheduleTypeValue | Gets or sets the Schedule Type DefinedValue of this CampusSchedule. |
+| ScheduleTypeValue | Gets or sets the Schedule Type Defined Value of this CampusSchedule. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -90,13 +90,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| Schedule | [Schedule](schedule.md) |  |
-| ScheduleId | [Schedule](schedule.md) |  |
-| ScheduleTypeValue | [DefinedValue](defined-value.md) |  |
-| ScheduleTypeValueId | [CampusSchedule](campus-schedule.md) |  |
-| ScheduleTypeValueId | [DefinedValue](defined-value.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| Schedule | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
+| ScheduleId | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
+| ScheduleTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| ScheduleTypeValueId | [Campus Schedule](campus-schedule.md) | 134b8879-cd7c-4872-8065-882aa3721c2d |
+| ScheduleTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 

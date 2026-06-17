@@ -1,7 +1,7 @@
 # Lava Application Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `LavaApplication`
 - EntityType GUID: `fffe0de1-b410-435e-9aa8-3a0b18aaf0f7`
@@ -15,8 +15,8 @@
 | Database-marked properties | 16 |
 | Lava-marked properties | 29 |
 | Lava-marked non-database properties | 13 |
-| Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -89,11 +89,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LavaEndpoints | LavaEndpoints |  |
-| SupportedActions | Dictionary`2 |  |
+| LavaEndpoints | LavaEndpoints | f1bbf7d4-cafd-450d-a89a-b3312c9738a2 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

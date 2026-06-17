@@ -1,7 +1,7 @@
 # Connection Opportunity Connector Group Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionOpportunityConnectorGroup`
 - EntityType GUID: `2adbe499-c9ec-479b-b33b-6e92bde09fd1`
@@ -29,9 +29,9 @@
 | AvailableKeys |  |  | yes |  |  |  |
 | Campus |  | yes | yes |  |  | Gets or sets the Campus. |
 | CampusId | yes | yes |  |  |  | Gets or sets the Campus identifier. |
-| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the Connection Opportunity. |
 | ConnectionOpportunityConnectorGroupAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the ConnectionOpportunity identifier. |
+| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the Connection Opportunity identifier. |
 | ConnectorGroup |  | yes | yes |  |  | Gets or sets the connector Group. |
 | ConnectorGroupId | yes | yes |  | yes |  | Gets or sets the connector Group identifier. |
 | ContextKey |  |  | yes |  |  |  |
@@ -72,7 +72,7 @@
 | AttributeValues |  |
 | Attributes |  |
 | Campus | Gets or sets the Campus. |
-| ConnectionOpportunity | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity | Gets or sets the Connection Opportunity. |
 | ConnectorGroup | Gets or sets the connector Group. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
@@ -89,12 +89,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| ConnectionOpportunity | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectionOpportunityId | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectorGroup | [Group](group.md) |  |
-| ConnectorGroupId | [Group](group.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| ConnectionOpportunity | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectionOpportunityId | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectorGroup | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| ConnectorGroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
 
 ## Stable To Pre-Alpha Changes
 

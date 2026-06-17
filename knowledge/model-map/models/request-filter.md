@@ -1,7 +1,7 @@
 # Request Filter Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `RequestFilter`
 - EntityType GUID: `97fac672-37a4-4185-b1d4-c68426c625b1`

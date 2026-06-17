@@ -1,7 +1,7 @@
 # Attribute Qualifier Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AttributeQualifier`
 - EntityType GUID: `ec7eb9ac-8b52-4a3d-8587-4a08050780cc`
@@ -60,8 +60,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Attribute | [Attribute](attribute.md) |  |
-| AttributeId | [Attribute](attribute.md) |  |
+| Attribute | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| AttributeId | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
 
 ## Stable To Pre-Alpha Changes
 

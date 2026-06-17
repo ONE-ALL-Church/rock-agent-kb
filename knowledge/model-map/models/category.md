@@ -1,7 +1,7 @@
 # Category Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Category`
 - EntityType GUID: `1d68154e-ec76-44c8-9813-7736b27aecf9`
@@ -15,8 +15,8 @@
 | Database-marked properties | 19 |
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 15 |
-| Related model links | 3 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -39,8 +39,8 @@
 | Description | yes | yes |  |  |  | Gets or sets the description. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType that can use this Category. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the EntityType that this Category belongs to. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type that can use this Category. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the Entity Type that this Category belongs to. |
 | EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the entity type qualifier column that contains the value (see EntityTypeQualifierValue) that is used to narrow the scope of the Category. |
 | EntityTypeQualifierValue | yes | yes |  |  |  | Gets or sets the entity type qualifier value that is used to narrow the scope of the Category to a subset or specific instance of an EntityType. |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -82,7 +82,7 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType that can use this Category. |
+| EntityType | Gets or sets the Entity Type that can use this Category. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -96,12 +96,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

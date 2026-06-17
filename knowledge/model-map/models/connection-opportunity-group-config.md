@@ -1,7 +1,7 @@
 # Connection Opportunity Group Config Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionOpportunityGroupConfig`
 - EntityType GUID: `59756122-b779-4a4e-9ce7-6a4468aa9524`
@@ -15,8 +15,8 @@
 | Database-marked properties | 14 |
 | Lava-marked properties | 29 |
 | Lava-marked non-database properties | 15 |
-| Related model links | 7 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 6 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -27,9 +27,9 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the Connection Opportunity. |
 | ConnectionOpportunityGroupConfigAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the ConnectionOpportunity identifier. |
+| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the Connection Opportunity identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -46,7 +46,7 @@
 | GroupMemberRoleId | yes | yes |  |  |  | Gets or sets the group member role identifier. |
 | GroupMemberStatus | yes | yes |  |  |  | Gets or sets the GroupMemberStatus. This is a hard coded list of values defined in the code as an enumeration. |
 | GroupType |  | yes | yes |  |  | Gets or sets the type of the group. |
-| GroupTypeId | yes | yes |  | yes |  | Gets or sets the GroupType identifier. |
+| GroupTypeId | yes | yes |  | yes |  | Gets or sets the Group Type identifier. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -73,7 +73,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ConnectionOpportunity | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity | Gets or sets the Connection Opportunity. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -91,16 +91,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ConnectionOpportunity | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectionOpportunityId | [ConnectionOpportunity](connection-opportunity.md) |  |
-| GroupMemberRole | group member role |  |
-| GroupMemberRoleId | group member role |  |
-| GroupMemberStatus | GroupMemberStatus |  |
-| GroupType | type |  |
-| GroupTypeId | [GroupType](group-type.md) |  |
+| ConnectionOpportunity | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectionOpportunityId | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| GroupMemberRole | group member role | d155c373-9e47-4c6a-badd-792f31af5fba |
+| GroupMemberRoleId | group member role | d155c373-9e47-4c6a-badd-792f31af5fba |
+| GroupType | type | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| GroupTypeId | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | GroupMemberStatus | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

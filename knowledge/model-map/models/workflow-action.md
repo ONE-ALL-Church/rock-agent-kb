@@ -1,7 +1,7 @@
 # Workflow Action Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowAction`
 - EntityType GUID: `9cbf4bec-5653-47f9-8e87-0d31c6ca5947`
@@ -22,11 +22,11 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| ActionType |  | yes | yes |  |  | Gets or sets the WorkflowActionType that is being executed by this WorkflowAction. |
+| ActionType |  | yes | yes |  |  | Gets or sets the Workflow Action Type that is being executed by this WorkflowAction. |
 | ActionTypeCache |  | yes | yes |  |  | Gets the action type cache. |
-| ActionTypeId | yes | yes |  |  |  | Gets or sets the ActionTypeId of the WorkflowAction that is being executed by this instance. |
-| Activity |  | yes | yes |  |  | Gets or sets the WorkflowActivity that contains the WorkflowAction. |
-| ActivityId | yes | yes |  |  |  | Gets or sets the WorkflowActivityId of the WorkflowActivity that this WorkflowAction is a part of. |
+| ActionTypeId | yes | yes |  |  |  | Gets or sets the ActionTypeId of the Workflow Action that is being executed by this instance. |
+| Activity |  | yes | yes |  |  | Gets or sets the Workflow Activity that contains the WorkflowAction. |
+| ActivityId | yes | yes |  |  |  | Gets or sets the WorkflowActivityId of the Workflow Activity that this WorkflowAction is a part of. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
@@ -74,9 +74,9 @@
 
 | Property | Description |
 | --- | --- |
-| ActionType | Gets or sets the WorkflowActionType that is being executed by this WorkflowAction. |
+| ActionType | Gets or sets the Workflow Action Type that is being executed by this WorkflowAction. |
 | ActionTypeCache | Gets the action type cache. |
-| Activity | Gets or sets the WorkflowActivity that contains the WorkflowAction. |
+| Activity | Gets or sets the Workflow Activity that contains the WorkflowAction. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -96,10 +96,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActionType | [WorkflowActionType](workflow-action-type.md) |  |
-| ActionTypeId | [WorkflowAction](workflow-action.md) |  |
-| Activity | [WorkflowActivity](workflow-activity.md) |  |
-| ActivityId | [WorkflowActivity](workflow-activity.md) |  |
+| ActionType | [Workflow Action Type](workflow-action-type.md) | 23e3273a-b137-48a3-9aff-c8dc832ddca6 |
+| ActionTypeId | [Workflow Action](workflow-action.md) | 9cbf4bec-5653-47f9-8e87-0d31c6ca5947 |
+| Activity | [Workflow Activity](workflow-activity.md) | 2cb52ed0-cb06-4d62-9e2c-73b60afa4c9f |
+| ActivityId | [Workflow Activity](workflow-activity.md) | 2cb52ed0-cb06-4d62-9e2c-73b60afa4c9f |
 
 ## Stable To Pre-Alpha Changes
 

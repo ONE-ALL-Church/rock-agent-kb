@@ -1,7 +1,7 @@
 # Adaptive Message Adaptation Segment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `AdaptiveMessageAdaptationSegment`
 - EntityType GUID: `40edf82b-eff5-4253-a129-965f7bc90033`

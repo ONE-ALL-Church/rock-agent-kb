@@ -2610,10 +2610,10 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "event-registration",
-  "guide_hash": "3d1743020c001eb4cd2c9ccbccd661fb831ceb84308428baeb15d809fe543ae3",
-  "guide_line_count": 1466,
+  "guide_hash": "0396ded578ac28baa9393b7e428a987c37a46fe93831e73684d1c9e266a34f23",
+  "guide_line_count": 1470,
   "guide_path": "knowledge/concepts/event-registration/guide.md",
   "guide_word_count": 11160,
   "rebuild_triggers": [
@@ -3981,7 +3981,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1301,
+      "end_line": 1302,
       "heading": "Recipe: Investigate API Registration URL Issues",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-investigate-api-registration-url-issues",
@@ -3992,7 +3992,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1367,
+      "end_line": 1370,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -4010,11 +4010,11 @@
         "e4f10f35a86cedbd",
         "5ecfe350fe307663"
       ],
-      "start_line": 1302
+      "start_line": 1303
     },
     {
       "confidence": "citation-only",
-      "end_line": 1410,
+      "end_line": 1414,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4028,11 +4028,11 @@
         "f88b0748151b17a6",
         "ce8eb086e4ef0cc6"
       ],
-      "start_line": 1368
+      "start_line": 1371
     },
     {
       "confidence": "high",
-      "end_line": 1466,
+      "end_line": 1470,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes",
@@ -4072,7 +4072,7 @@
         "f9ada88191ace9fa",
         "8b1609730224eb1b"
       ],
-      "start_line": 1411
+      "start_line": 1415
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T06:46:40+00:00",

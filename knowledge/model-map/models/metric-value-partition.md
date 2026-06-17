@@ -1,7 +1,7 @@
 # Metric Value Partition Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `MetricValuePartition`
 - EntityType GUID: `fec12664-c5f2-44e1-9805-1137068ac755`

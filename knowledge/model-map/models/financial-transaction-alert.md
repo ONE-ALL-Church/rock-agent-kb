@@ -1,7 +1,7 @@
 # Financial Transaction Alert Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialTransactionAlert`
 - EntityType GUID: `0e60f95e-70b5-4a06-9bee-80ed9f12f25a`
@@ -101,8 +101,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PersonAlias | [Person](person.md) |  |
-| PersonAliasId | [Person](person.md) |  |
+| PersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

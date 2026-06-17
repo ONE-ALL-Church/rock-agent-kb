@@ -1,7 +1,7 @@
 # Person Schedule Exclusion Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `PersonScheduleExclusion`
 - EntityType GUID: `07204f06-c09c-4b37-921a-c31c042938b9`
@@ -56,7 +56,7 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| ParentPersonScheduleExclusion |  | yes | yes |  |  | Gets or sets the parent PersonScheduleExclusion. |
+| ParentPersonScheduleExclusion |  | yes | yes |  |  | Gets or sets the parent Person Schedule Exclusion. |
 | ParentPersonScheduleExclusionId | yes | yes |  |  |  | Gets or sets the parent person schedule exclusion identifier. Use this to associate this exclusion with another PersonScheduleExclusion. This can be used support family based blackout dates (A person can indicate a blackout date and also include other members of their family). |
 | PersonAlias |  | yes | yes |  |  | Gets or sets the person alias of the Person that this exclusion is for |
 | PersonAliasId | yes | yes |  |  |  | Gets or sets the person alias identifier of the Person that this exclusion is for |
@@ -84,7 +84,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| ParentPersonScheduleExclusion | Gets or sets the parent PersonScheduleExclusion. |
+| ParentPersonScheduleExclusion | Gets or sets the parent Person Schedule Exclusion. |
 | PersonAlias | Gets or sets the person alias of the Person that this exclusion is for |
 | TypeId |  |
 | TypeName |  |
@@ -94,9 +94,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Group | [Group](group.md) |  |
-| GroupId | [GroupId](group.md) |  |
-| ParentPersonScheduleExclusion | [PersonScheduleExclusion](person-schedule-exclusion.md) |  |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [GroupId](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| ParentPersonScheduleExclusion | [Person Schedule Exclusion](person-schedule-exclusion.md) | 07204f06-c09c-4b37-921a-c31c042938b9 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Workflow Action Form Attribute Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActionFormAttribute`
 - EntityType GUID: `e147611f-d1ab-4c34-a1f8-84a118bafde3`

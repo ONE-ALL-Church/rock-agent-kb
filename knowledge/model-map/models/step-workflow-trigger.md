@@ -1,7 +1,7 @@
 # Step Workflow Trigger Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StepWorkflowTrigger`
 - EntityType GUID: `55c1d610-d42f-4e08-9cd9-1ec9801bc4e3`
@@ -53,10 +53,10 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| StepProgram |  | yes | yes |  |  | Gets or sets the StepProgram. |
-| StepProgramId | yes | yes |  |  |  | Gets or sets the Id of the StepProgram by which this Workflow is triggered. |
-| StepType |  | yes | yes |  |  | Gets or sets the StepType. |
-| StepTypeId | yes | yes |  |  |  | Gets or sets the Id of the StepType by which this Workflow is triggered. |
+| StepProgram |  | yes | yes |  |  | Gets or sets the Step Program. |
+| StepProgramId | yes | yes |  |  |  | Gets or sets the Id of the Step Program by which this Workflow is triggered. |
+| StepType |  | yes | yes |  |  | Gets or sets the Step Type. |
+| StepTypeId | yes | yes |  |  |  | Gets or sets the Id of the Step Type by which this Workflow is triggered. |
 | StepWorkflowTriggerAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | StepWorkflows |  | yes | yes |  |  | Gets or sets a collection containing the StepWorkflows that are of this trigger. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -67,8 +67,8 @@
 | UrlEncodedKey |  | yes | yes |  |  |  |
 | ValidationResults |  |  | yes |  |  |  |
 | WorkflowName | yes | yes |  |  |  | Gets or sets the name of the workflow trigger. |
-| WorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType. |
-| WorkflowTypeId | yes | yes |  | yes |  | Gets or sets the Id of the WorkflowType that is triggered. This property is required. |
+| WorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type. |
+| WorkflowTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Workflow Type that is triggered. This property is required. |
 
 ## Lava-Marked Non-Database Properties
 
@@ -83,25 +83,25 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| StepProgram | Gets or sets the StepProgram. |
-| StepType | Gets or sets the StepType. |
+| StepProgram | Gets or sets the Step Program. |
+| StepType | Gets or sets the Step Type. |
 | StepWorkflows | Gets or sets a collection containing the StepWorkflows that are of this trigger. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
-| WorkflowType | Gets or sets the WorkflowType. |
+| WorkflowType | Gets or sets the Workflow Type. |
 
 ## Related Model Map Links
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| StepProgram | [StepProgram](step-program.md) |  |
-| StepProgramId | [StepProgram](step-program.md) |  |
-| StepType | [StepType](step-type.md) |  |
-| StepTypeId | [StepType](step-type.md) |  |
-| StepWorkflows | StepWorkflows |  |
-| WorkflowType | [WorkflowType](workflow-type.md) |  |
-| WorkflowTypeId | [WorkflowType](workflow-type.md) |  |
+| StepProgram | [Step Program](step-program.md) | e89f9528-a74e-41b7-8b65-b56b4ce7a122 |
+| StepProgramId | [Step Program](step-program.md) | e89f9528-a74e-41b7-8b65-b56b4ce7a122 |
+| StepType | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| StepTypeId | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| StepWorkflows | StepWorkflows | 9e164dcb-2b3c-49db-a3da-e25e24bb23b9 |
+| WorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| WorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
 
 ## Stable To Pre-Alpha Changes
 

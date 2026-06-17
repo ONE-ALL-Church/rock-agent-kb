@@ -1,7 +1,7 @@
 # Analytics Dim Family Head Of Household Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimFamilyHeadOfHousehold`
 - EntityType GUID: `89730008-fd3f-49be-9084-6cc5ea4dc4b3`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 87 |
 | Lava-marked non-database properties | 6 |
 | Related model links | 0 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -35,7 +35,7 @@
 | CampusName | yes | yes |  |  |  |  |
 | CampusShortCode | yes | yes |  |  |  |  |
 | ConnectionStatus | yes | yes |  |  |  |  |
-| ConnectionStatusValueId | yes | yes |  |  |  | These are found in the "Connection Status" Defined Type. |
+| ConnectionStatusValueId | yes | yes |  |  |  | These are found in the Connection Status Defined Type. |
 | ContextKey |  |  | yes |  |  |  |
 | Count | yes | yes |  |  |  |  |
 | CurrentRowIndicator | yes | yes |  |  |  |  |
@@ -89,7 +89,7 @@
 | MappedAddressStreet1 | yes | yes |  |  |  |  |
 | MappedAddressStreet2 | yes | yes |  |  |  |  |
 | MaritalStatus | yes | yes |  |  |  |  |
-| MaritalStatusValueId | yes | yes |  |  |  | These are found in the "Marital Status" Defined Type. |
+| MaritalStatusValueId | yes | yes |  |  |  | These are found in the Marital Status Defined Type. |
 | MiddleName | yes | yes |  |  |  |  |
 | NickName | yes | yes |  |  |  |  |
 | PersonId | yes | yes |  |  |  |  |
@@ -99,18 +99,18 @@
 | RecordStatus | yes | yes |  |  |  |  |
 | RecordStatusLastModifiedDateTime | yes | yes |  |  |  |  |
 | RecordStatusReason | yes | yes |  |  |  |  |
-| RecordStatusReasonValueId | yes | yes |  |  |  | These are found in the "Inactive Record Reason" Defined Type. |
-| RecordStatusValueId | yes | yes |  |  |  | These are found in the "Record Status" Defined Type. |
+| RecordStatusReasonValueId | yes | yes |  |  |  | These are found in the Inactive Record Reason Defined Type. |
+| RecordStatusValueId | yes | yes |  |  |  | These are found in the Record Status Defined Type. |
 | RecordType | yes | yes |  |  |  |  |
-| RecordTypeValueId | yes | yes |  |  |  | These are found in the "Record Type" Defined Type. |
+| RecordTypeValueId | yes | yes |  |  |  | These are found in the Record Type Defined Type. |
 | ReviewReason | yes | yes |  |  |  |  |
 | ReviewReasonNote | yes | yes |  |  |  |  |
-| ReviewReasonValueId | yes | yes |  |  |  | These are found in the "Review Reason" Defined Type. |
+| ReviewReasonValueId | yes | yes |  |  |  | These are found in the Review Reason Defined Type. |
 | Suffix | yes | yes |  |  |  |  |
-| SuffixValueId | yes | yes |  |  |  | These are found in the "Suffix" Defined Type. |
+| SuffixValueId | yes | yes |  |  |  | These are found in the Suffix Defined Type. |
 | SystemNote | yes | yes |  |  |  |  |
 | Title | yes | yes |  |  |  |  |
-| TitleValueId | yes | yes |  |  |  | These are found in the "Title" Defined Type. |
+| TitleValueId | yes | yes |  |  |  | These are found in the Title Defined Type. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -136,4 +136,6 @@ No related entity links were present in the scraped Model Map for this model.
 
 | Change | Property | Fields |
 | --- | --- | --- |
+| property_changed | MaritalStatusValueId | enum_values |
+| property_changed | RecordStatusReasonValueId | enum_values |
 | property_changed | RecordTypeValueId | enum_values |

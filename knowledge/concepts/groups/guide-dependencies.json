@@ -6920,10 +6920,10 @@
   },
   "approved_media_hash": "08b27e17dc0baa4060b045fb123823b399a314388b61fb6a1980d9c68d286ad3",
   "approved_media_path": "knowledge/concepts/groups/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "groups",
-  "guide_hash": "df31e4aee55b9e93c6f5be6420ab43931280f164364aad212b5210d039ca1963",
-  "guide_line_count": 1350,
+  "guide_hash": "b7aacb2e063ee31a81bc6c9f02cacfb0e5a36f41f299d1e6a484182b5f60c969",
+  "guide_line_count": 1354,
   "guide_path": "knowledge/concepts/groups/guide.md",
   "guide_word_count": 11912,
   "rebuild_triggers": [
@@ -8753,7 +8753,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1191,
+      "end_line": 1192,
       "heading": "Recipe: Create A Custom Scheduled Volunteer Communication Page",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page",
@@ -8764,7 +8764,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1257,
+      "end_line": 1260,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -8782,11 +8782,11 @@
         "08815cfa0fab37fd",
         "301dbb16c5d47932"
       ],
-      "start_line": 1192
+      "start_line": 1193
     },
     {
       "confidence": "citation-only",
-      "end_line": 1300,
+      "end_line": 1304,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -8800,11 +8800,11 @@
         "7054a521db6d0806",
         "c4a0a588db9ed5b7"
       ],
-      "start_line": 1258
+      "start_line": 1261
     },
     {
       "confidence": "structural",
-      "end_line": 1302,
+      "end_line": 1306,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -8839,11 +8839,11 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1301
+      "start_line": 1305
     },
     {
       "confidence": "high",
-      "end_line": 1309,
+      "end_line": 1313,
       "heading": "Primary Official Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-sources",
@@ -8853,11 +8853,11 @@
         "08815cfa0fab37fd",
         "776256c424368312"
       ],
-      "start_line": 1303
+      "start_line": 1307
     },
     {
       "confidence": "normal",
-      "end_line": 1319,
+      "end_line": 1323,
       "heading": "Developer Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-developer-sources",
@@ -8870,11 +8870,11 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 1310
+      "start_line": 1314
     },
     {
       "confidence": "normal",
-      "end_line": 1330,
+      "end_line": 1334,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -8888,11 +8888,11 @@
         "96f1328d8aafb3b3",
         "c72ee88036189ee1"
       ],
-      "start_line": 1320
+      "start_line": 1324
     },
     {
       "confidence": "community-supported",
-      "end_line": 1345,
+      "end_line": 1349,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-examples",
@@ -8909,11 +8909,11 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1331
+      "start_line": 1335
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1350,
+      "end_line": 1354,
       "heading": "Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependency-notes",
@@ -8930,7 +8930,7 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1346
+      "start_line": 1350
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T16:23:37+00:00",

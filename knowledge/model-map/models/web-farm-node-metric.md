@@ -1,8 +1,8 @@
 # Web Farm Node Metric Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
-- Category: `Web Farm`
+- Rock version: `19.1.8`
+- Category: `WebFarm`
 - Model title: `WebFarmNodeMetric`
 - EntityType GUID: `3194a5e3-f352-4cd0-a585-f1dd37008b9c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
@@ -62,8 +62,8 @@
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
 | ValidationResults |  |  | yes |  |  |  |
-| WebFarmNode |  | yes | yes |  |  | Gets or sets the WebFarmNode. |
-| WebFarmNodeId | yes | yes |  | yes |  | Gets or sets the WebFarmNode identifier. |
+| WebFarmNode |  | yes | yes |  |  | Gets or sets the Web Farm Node. |
+| WebFarmNodeId | yes | yes |  | yes |  | Gets or sets the Web Farm Node identifier. |
 | WebFarmNodeMetricAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 
 ## Lava-Marked Non-Database Properties
@@ -82,14 +82,14 @@
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
-| WebFarmNode | Gets or sets the WebFarmNode. |
+| WebFarmNode | Gets or sets the Web Farm Node. |
 
 ## Related Model Map Links
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| WebFarmNode | [WebFarmNode](web-farm-node.md) |  |
-| WebFarmNodeId | [WebFarmNode](web-farm-node.md) |  |
+| WebFarmNode | [Web Farm Node](web-farm-node.md) | 2338d5c3-e808-408f-b000-e8a7d8a4858c |
+| WebFarmNodeId | [Web Farm Node](web-farm-node.md) | 2338d5c3-e808-408f-b000-e8a7d8a4858c |
 
 ## Stable To Pre-Alpha Changes
 

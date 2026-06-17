@@ -1,7 +1,7 @@
 # Event Calendar Content Channel Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventCalendarContentChannel`
 - EntityType GUID: `b8631058-dac3-4164-9a50-9e732b0c3882`
@@ -27,8 +27,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ContentChannel |  | yes | yes |  |  | Gets or sets the ContentChannel that this EventCalendarContentChannel is a member of. |
-| ContentChannelId | yes | yes |  | yes |  | Gets or sets the Id of the ContentChannel. This property is required. |
+| ContentChannel |  | yes | yes |  |  | Gets or sets the Content Channel that this EventCalendarContentChannel is a member of. |
+| ContentChannelId | yes | yes |  | yes |  | Gets or sets the Id of the Content Channel. This property is required. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -38,9 +38,9 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EventCalendar |  | yes | yes |  |  | Gets or sets the EventCalendar that this EventCalendarContentChannel is a member of. |
+| EventCalendar |  | yes | yes |  |  | Gets or sets the Event Calendar that this EventCalendarContentChannel is a member of. |
 | EventCalendarContentChannelAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| EventCalendarId | yes | yes |  | yes |  | Gets or sets the Id of the EventCalendar that this EventCalendarContentChannel belongs to. This property is required. |
+| EventCalendarId | yes | yes |  | yes |  | Gets or sets the Id of the Event Calendar that this EventCalendarContentChannel belongs to. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -69,11 +69,11 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ContentChannel | Gets or sets the ContentChannel that this EventCalendarContentChannel is a member of. |
+| ContentChannel | Gets or sets the Content Channel that this EventCalendarContentChannel is a member of. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EventCalendar | Gets or sets the EventCalendar that this EventCalendarContentChannel is a member of. |
+| EventCalendar | Gets or sets the Event Calendar that this EventCalendarContentChannel is a member of. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ContentChannel | [ContentChannel](content-channel.md) |  |
-| ContentChannelId | [ContentChannel](content-channel.md) |  |
-| EventCalendar | [EventCalendar](event-calendar.md) |  |
-| EventCalendarId | [EventCalendar](event-calendar.md) |  |
+| ContentChannel | [Content Channel](content-channel.md) | 44484685-477e-4668-89a6-84f29739eb68 |
+| ContentChannelId | [Content Channel](content-channel.md) | 44484685-477e-4668-89a6-84f29739eb68 |
+| EventCalendar | [Event Calendar](event-calendar.md) | e67d8d6d-4fe6-48d5-a940-a39213047314 |
+| EventCalendarId | [Event Calendar](event-calendar.md) | e67d8d6d-4fe6-48d5-a940-a39213047314 |
 
 ## Stable To Pre-Alpha Changes
 

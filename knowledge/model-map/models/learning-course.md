@@ -1,7 +1,7 @@
 # Learning Course Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningCourse`
 - EntityType GUID: `21870376-4a6e-4402-ace3-42aa4441fc2e`
@@ -15,8 +15,8 @@
 | Database-marked properties | 25 |
 | Lava-marked properties | 40 |
 | Lava-marked non-database properties | 16 |
-| Related model links | 8 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 7 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -30,8 +30,8 @@
 | AvailableKeys |  |  | yes |  |  |  |
 | Category |  | yes | yes |  |  | Gets or sets the Category for the LearningCourse. |
 | CategoryId | yes | yes |  |  |  | Gets or sets the Category id. |
-| CompletionWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType of the LearningCourse. |
-| CompletionWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the WorkflowType that's triggered when the course is completed by a student. |
+| CompletionWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type of the LearningCourse. |
+| CompletionWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the Workflow Type that's triggered when the course is completed by a student. |
 | ContextKey |  |  | yes |  |  |  |
 | CourseCode | yes | yes |  |  |  | Gets or sets the code for the course. |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -61,7 +61,7 @@
 | LearningCourseAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | LearningCourseRequirements |  |  | yes |  |  | Gets or sets a collection of LearningCourseRequirements for the course. |
 | LearningProgram |  | yes | yes |  |  | Gets or sets the LearningProgram of the course. |
-| LearningProgramId | yes | yes |  |  |  | Gets or sets the id of the LearningProgram for the course. |
+| LearningProgramId | yes | yes |  |  |  | Gets or sets the id of the Learning Program for the course. |
 | MaxStudents | yes | yes |  |  |  | Gets or sets the number of students at which to stop accepting enrollments. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -88,7 +88,7 @@
 | AttributeValues |  |
 | Attributes |  |
 | Category | Gets or sets the Category for the LearningCourse. |
-| CompletionWorkflowType | Gets or sets the WorkflowType of the LearningCourse. |
+| CompletionWorkflowType | Gets or sets the Workflow Type of the LearningCourse. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -106,17 +106,14 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| CategoryId | [Category](category.md) |  |
-| CompletionWorkflowType | [WorkflowType](workflow-type.md) |  |
-| CompletionWorkflowTypeId | [WorkflowType](workflow-type.md) |  |
-| ImageBinaryFile | ImageBinaryFile |  |
-| LearningClasses | LearningClasses |  |
-| LearningCourseRequirements | LearningCourseRequirements |  |
-| LearningProgramId | [LearningProgram](learning-program.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CompletionWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| CompletionWorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| ImageBinaryFile | ImageBinaryFile | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| LearningClasses | LearningClasses | eb41e4e1-64b1-4aa1-8f66-f0dfd81557d9 |
+| LearningCourseRequirements | LearningCourseRequirements | 576f54e1-ce70-43ed-a7d8-5169529c70e9 |
+| LearningProgramId | [Learning Program](learning-program.md) | afd89885-6923-4fa1-b6fe-a1df8d821bbc |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

@@ -1,7 +1,7 @@
 # Field Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `FieldType`
 - EntityType GUID: `54018eb6-868c-477d-8b6a-455a6115b30b`

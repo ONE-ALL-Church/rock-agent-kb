@@ -1,7 +1,7 @@
 # Connection Request Activity Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionRequestActivity`
 - EntityType GUID: `3248f40d-7661-42cc-ad9b-ef63322937b7`
@@ -28,14 +28,14 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | ConnectionActivityType |  | yes | yes |  |  | Gets or sets the type of the connection activity. |
-| ConnectionActivityTypeId | yes | yes |  | yes |  | Gets or sets the ConnectionActivityType identifier. |
-| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the ConnectionOpportunity. |
-| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the ConnectionOpportunity identifier. |
-| ConnectionRequest |  | yes | yes |  |  | Gets or sets the ConnectionRequest. |
+| ConnectionActivityTypeId | yes | yes |  | yes |  | Gets or sets the Connection Activity Type identifier. |
+| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the Connection Opportunity. |
+| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the Connection Opportunity identifier. |
+| ConnectionRequest |  | yes | yes |  |  | Gets or sets the Connection Request. |
 | ConnectionRequestActivityAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ConnectionRequestId | yes | yes |  | yes |  | Gets or sets the ConnectionRequest identifier. |
-| ConnectorPersonAlias |  | yes | yes |  |  | Gets or sets the connector PersonAlias. |
-| ConnectorPersonAliasId | yes | yes |  |  |  | Gets or sets the connector PersonAlias identifier. |
+| ConnectionRequestId | yes | yes |  | yes |  | Gets or sets the Connection Request identifier. |
+| ConnectorPersonAlias |  | yes | yes |  |  | Gets or sets the connector Person Alias. |
+| ConnectorPersonAliasId | yes | yes |  |  |  | Gets or sets the connector Person Alias identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -75,9 +75,9 @@
 | AttributeValues |  |
 | Attributes |  |
 | ConnectionActivityType | Gets or sets the type of the connection activity. |
-| ConnectionOpportunity | Gets or sets the ConnectionOpportunity. |
-| ConnectionRequest | Gets or sets the ConnectionRequest. |
-| ConnectorPersonAlias | Gets or sets the connector PersonAlias. |
+| ConnectionOpportunity | Gets or sets the Connection Opportunity. |
+| ConnectionRequest | Gets or sets the Connection Request. |
+| ConnectorPersonAlias | Gets or sets the connector Person Alias. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -93,14 +93,14 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ConnectionActivityType | type |  |
-| ConnectionActivityTypeId | [ConnectionActivityType](connection-activity-type.md) |  |
-| ConnectionOpportunity | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectionOpportunityId | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectionRequest | [ConnectionRequest](connection-request.md) |  |
-| ConnectionRequestId | [ConnectionRequest](connection-request.md) |  |
-| ConnectorPersonAlias | [PersonAlias](person-alias.md) |  |
-| ConnectorPersonAliasId | [PersonAlias](person-alias.md) |  |
+| ConnectionActivityType | type | 97b143f0-cb9d-4652-8ff1-ff2fa1ea4945 |
+| ConnectionActivityTypeId | [Connection Activity Type](connection-activity-type.md) | 97b143f0-cb9d-4652-8ff1-ff2fa1ea4945 |
+| ConnectionOpportunity | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectionOpportunityId | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectionRequest | [Connection Request](connection-request.md) | 36b0d0c7-8125-48fa-9da2-729aaa65f718 |
+| ConnectionRequestId | [Connection Request](connection-request.md) | 36b0d0c7-8125-48fa-9da2-729aaa65f718 |
+| ConnectorPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| ConnectorPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

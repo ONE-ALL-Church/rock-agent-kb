@@ -1,7 +1,7 @@
 # Personal Device Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PersonalDevice`
 - EntityType GUID: `e9cd3369-e087-4809-9952-f2dcd6b8816b`
@@ -11,10 +11,10 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 58 |
+| Properties | 59 |
 | Database-marked properties | 28 |
-| Lava-marked properties | 41 |
-| Lava-marked non-database properties | 15 |
+| Lava-marked properties | 42 |
+| Lava-marked non-database properties | 16 |
 | Related model links | 1 |
 | Pre-alpha changes touching this model | 2 |
 
@@ -71,8 +71,9 @@
 | PersonAliasId | yes | yes |  |  |  | Gets or sets the person alias identifier. |
 | PersonalDeviceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | PersonalDeviceType |  | yes | yes |  |  | Gets or sets the personal device type. |
-| PersonalDeviceTypeValueId | yes | yes |  |  |  | Gets or sets the Id of the Device Type DefinedValue representing what type of device this is. These are found in the "Personal Device Type" Defined Type. |
-| PlatformValueId | yes | yes |  |  |  | Gets or sets the platform value identifier (i.e. iOS, Android, etc) These are found in the "Mobile Device Platform" Defined Type. |
+| PersonalDeviceTypeValueId | yes | yes |  |  |  | Gets or sets the Id of the Device Type Defined Value representing what type of device this is. These are found in the Personal Device Type Defined Type. |
+| Platform |  | yes | yes |  |  | Gets or sets the platform defined value (i.e., iOS, Android, etc). |
+| PlatformValueId | yes | yes |  |  |  | Gets or sets the platform value identifier (i.e. iOS, Android, etc) These are found in the Mobile Device Platform Defined Type. |
 | Site |  | yes | yes |  |  | Gets or sets the site. |
 | SiteId | yes | yes |  |  |  | Gets or sets the site identifier. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -96,6 +97,7 @@
 | ModifiedByPersonName |  |
 | PersonAlias | Gets or sets the person alias. |
 | PersonalDeviceType | Gets or sets the personal device type. |
+| Platform | Gets or sets the platform defined value (i.e., iOS, Android, etc). |
 | Site | Gets or sets the site. |
 | TypeId |  |
 | TypeName |  |
@@ -105,11 +107,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PersonalDeviceTypeValueId | [DefinedValue](defined-value.md) |  |
+| PersonalDeviceTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 
 | Change | Property | Fields |
 | --- | --- | --- |
-| property_added | Platform |  |
 | property_changed | PersonalDeviceTypeValueId | enum_values |
+| property_changed | PlatformValueId | enum_values |

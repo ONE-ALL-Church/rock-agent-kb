@@ -1,6 +1,6 @@
-# Web Farm Model Map
+# WebFarm Model Map
 
-Generated stable-track slice for Rock models in the `Web Farm` category.
+Generated stable-track slice for Rock models in the `WebFarm` category.
 
 | Model | Title | Properties | DB | Lava | NotMapped | Obsolete |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |

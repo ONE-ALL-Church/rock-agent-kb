@@ -1,7 +1,7 @@
 # Person Previous Name Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PersonPreviousName`
 - EntityType GUID: `80ac80e1-f769-4e34-9937-e2feef2b60ee`

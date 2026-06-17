@@ -1,7 +1,7 @@
 # Merge Template Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `MergeTemplate`
 - EntityType GUID: `cd1db988-6891-4b0f-8d1b-b0a311a3bc3e`

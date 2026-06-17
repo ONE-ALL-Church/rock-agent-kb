@@ -1,7 +1,7 @@
 # Meta First Name Gender Lookup Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Meta`
 - Model title: `MetaFirstNameGenderLookup`
 - EntityType GUID: `fa96e086-811e-4fe0-beca-f7a593f9fb05`

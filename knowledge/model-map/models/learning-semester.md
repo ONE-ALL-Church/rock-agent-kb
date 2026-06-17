@@ -1,7 +1,7 @@
 # Learning Semester Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningSemester`
 - EntityType GUID: `f9a40931-0ace-4b50-a507-0d1d75f92bc4`
@@ -48,7 +48,7 @@
 | Item |  |  | yes |  |  |  |
 | LearningClasses |  |  | yes |  |  | Gets or sets a collection of LearningClasses for this semester. |
 | LearningProgram |  | yes | yes |  |  | Gets or sets the LearningProgram of the semester. |
-| LearningProgramId | yes | yes |  |  |  | Gets or sets the Id of the related LearningProgram. |
+| LearningProgramId | yes | yes |  |  |  | Gets or sets the Id of the related Learning Program. |
 | LearningSemesterAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -88,8 +88,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LearningClasses | LearningClasses |  |
-| LearningProgramId | [LearningProgram](learning-program.md) |  |
+| LearningClasses | LearningClasses | eb41e4e1-64b1-4aa1-8f66-f0dfd81557d9 |
+| LearningProgramId | [Learning Program](learning-program.md) | afd89885-6923-4fa1-b6fe-a1df8d821bbc |
 
 ## Stable To Pre-Alpha Changes
 

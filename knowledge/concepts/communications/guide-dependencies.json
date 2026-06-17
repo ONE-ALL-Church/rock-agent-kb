@@ -5776,10 +5776,10 @@
   },
   "approved_media_hash": "837728495591af88c85f6d94796d6897a80f35b4f4510b6b734a81606591b343",
   "approved_media_path": "knowledge/concepts/communications/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "communications",
-  "guide_hash": "2c4dea5ca07c532a4eefbfc40d5d2ae502cb1f0387324a461247c841abf8e5ae",
-  "guide_line_count": 1303,
+  "guide_hash": "520c6aa2a172c8d5cd7a1b75214be95a41407ffb914084c09d65a87a656cd493",
+  "guide_line_count": 1307,
   "guide_path": "knowledge/concepts/communications/guide.md",
   "guide_word_count": 12233,
   "rebuild_triggers": [
@@ -7561,7 +7561,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1126,
+      "end_line": 1127,
       "heading": "Recipe: Determine whether a workflow email supports analytics",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-determine-whether-a-workflow-email-supports-analytics",
@@ -7572,7 +7572,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1192,
+      "end_line": 1195,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -7590,11 +7590,11 @@
         "0de3abf0560c66c2",
         "5be0469caeb64aba"
       ],
-      "start_line": 1127
+      "start_line": 1128
     },
     {
       "confidence": "citation-only",
-      "end_line": 1235,
+      "end_line": 1239,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -7606,11 +7606,11 @@
         "5be0469caeb64aba",
         "5be0469caeb64aba"
       ],
-      "start_line": 1193
+      "start_line": 1196
     },
     {
       "confidence": "high",
-      "end_line": 1303,
+      "end_line": 1307,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes",
@@ -7659,7 +7659,7 @@
         "9a37f70b2e2f8ef1",
         "4fd5159f5e8e1a4f"
       ],
-      "start_line": 1236
+      "start_line": 1240
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:23:39+00:00",

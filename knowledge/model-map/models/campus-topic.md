@@ -1,7 +1,7 @@
 # Campus Topic Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `CampusTopic`
 - EntityType GUID: `0ffdcb0b-b435-4e66-9085-2750534e706a`
@@ -58,8 +58,8 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | SupportedActions |  |  | yes |  |  |  |
-| TopicTypeValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the topic type. |
-| TopicTypeValueId | yes | yes |  |  |  | Gets or sets the campus type value identifier. These are found in the "Topic Type" Defined Type. |
+| TopicTypeValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the topic type. |
+| TopicTypeValueId | yes | yes |  |  |  | Gets or sets the campus type value identifier. These are found in the Topic Type Defined Type. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -79,7 +79,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| TopicTypeValue | Gets or sets the DefinedValue representing the topic type. |
+| TopicTypeValue | Gets or sets the Defined Value representing the topic type. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -88,9 +88,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| TopicTypeValue | [DefinedValue](defined-value.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| TopicTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 

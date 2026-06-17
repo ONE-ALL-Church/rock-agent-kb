@@ -1,7 +1,7 @@
 # AI Agent Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIAgent`
 - EntityType GUID: `ee3fe609-5c7c-492e-b0e9-5461045fc825`
@@ -16,14 +16,14 @@
 | Lava-marked properties | 30 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 1 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AIAgentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| AIAgentSkills |  | yes | yes |  |  | A collection containing the AIAgentSkill entities that represent the skills attached to this agent. |
+| AIAgentSkills |  | yes | yes |  |  | A collection containing the AI Agent Skill entities that represent the skills attached to this agent. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AdditionalSettingsJson | yes | yes |  |  |  |  |
 | AgentType | yes | yes |  |  |  | The type of agent represented by this instance. This is a hard coded list of values defined in the code as an enumeration. |
@@ -50,7 +50,7 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| Instructions | yes | yes |  |  |  | When AgentType is , this contains the instructions for the agent, which is a string that describes how the agent should behavor or respond. This can include tone, style, and special instructions it should follow when interacting with people. When AgentType is , this contains the instructions that should be sent when a client connects to the MCP server. |
+| Instructions | yes | yes |  |  |  | When AgentType is Rock.Enums.AI.Agent.AgentType.Chat, this contains the instructions for the agent, which is a string that describes how the agent should behavor or respond. This can include tone, style, and special instructions it should follow when interacting with people. When AgentType is Rock.Enums.AI.Agent.AgentType.Mcp, this contains the instructions that should be sent when a client connects to the MCP server. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -72,7 +72,7 @@
 
 | Property | Description |
 | --- | --- |
-| AIAgentSkills | A collection containing the AIAgentSkill entities that represent the skills attached to this agent. |
+| AIAgentSkills | A collection containing the AI Agent Skill entities that represent the skills attached to this agent. |
 | AttributeValues |  |
 | Attributes |  |
 | AvatarBinaryFile | The binary file that contains the image to use as the avatar to represent the agent. This will be used in the administrative UI and the chat UI to represent the agent visually. |
@@ -91,10 +91,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AIAgentSkills | [AIAgentSkill](ai-agent-skill.md) |  |
+| AIAgentSkills | [AI Agent Skill](ai-agent-skill.md) | 36deda2f-75bd-4bee-ac36-46d20dcd1331 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | Instructions | description |
+No stable-to-pre-alpha changes were detected for this model.

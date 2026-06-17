@@ -1,7 +1,7 @@
 # Streak Type Exclusion Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StreakTypeExclusion`
 - EntityType GUID: `1f00c782-f8a2-4cfa-b7df-e5b3b6d36069`
@@ -55,9 +55,9 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| StreakType |  | yes | yes |  |  | Gets or sets the Sequence StreakType . |
+| StreakType |  | yes | yes |  |  | Gets or sets the Sequence Streak Type . |
 | StreakTypeExclusionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| StreakTypeId | yes | yes |  | yes |  | Gets or sets the Id of the StreakType to which this exclusion map belongs. This property is required. |
+| StreakTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Streak Type to which this exclusion map belongs. This property is required. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -78,7 +78,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| StreakType | Gets or sets the Sequence StreakType . |
+| StreakType | Gets or sets the Sequence Streak Type . |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -87,10 +87,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
-| StreakType | [StreakType](streak-type.md) |  |
-| StreakTypeId | [StreakType](streak-type.md) |  |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| StreakType | [Streak Type](streak-type.md) | 66203975-2a7a-4000-870e-76457df3c920 |
+| StreakTypeId | [Streak Type](streak-type.md) | 66203975-2a7a-4000-870e-76457df3c920 |
 
 ## Stable To Pre-Alpha Changes
 

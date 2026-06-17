@@ -1,7 +1,7 @@
 # Group Demographic Value Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupDemographicValue`
 - EntityType GUID: `c9ced7b0-88bf-40d1-83d1-a58b3c57a2e1`

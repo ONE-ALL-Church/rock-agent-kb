@@ -1,7 +1,7 @@
 # Page Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `Page`
 - EntityType GUID: `e104dcdf-247c-4ced-a119-8cc51632761f`
@@ -15,15 +15,15 @@
 | Database-marked properties | 45 |
 | Lava-marked properties | 66 |
 | Lava-marked non-database properties | 21 |
-| Related model links | 9 |
-| Pre-alpha changes touching this model | 4 |
+| Related model links | 8 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| AdditionalSettings | yes | yes |  |  |  | [Obsoleted in v16] Use AdditionalSettingsJson instead. Gets or sets the additional settings. |
+| AdditionalSettings | yes | yes |  |  | yes | Gets or sets the additional settings. |
 | AdditionalSettingsJson | yes | yes |  |  |  |  |
 | AllowIndexing | yes | yes |  |  |  | Gets or sets a value indicating whether [allow indexing]. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -55,7 +55,7 @@
 | ForeignKey | yes | yes |  |  |  |  |
 | Guid | yes | yes |  |  |  |  |
 | HeaderContent | yes | yes |  |  |  | Gets or sets HTML content to add to the page header area of the page when rendered. |
-| IconBinaryFile |  | yes | yes |  |  | Gets or sets the icon BinaryFile. |
+| IconBinaryFile |  | yes | yes |  |  | Gets or sets the icon Binary File. |
 | IconBinaryFileId | yes | yes |  |  |  | Gets or sets the icon binary file identifier. |
 | IconCssClass | yes | yes |  |  |  | Gets or sets the icon CSS class name for a font vector based icon. |
 | Id | yes | yes |  |  |  |  |
@@ -80,9 +80,9 @@
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | Order | yes | yes |  | yes |  | Gets or sets a number indicating the order of the page in the menu and in the site map. This will also affect the page order in the menu. This property is required. |
-| OutputCacheDuration | yes | yes |  |  |  | [Obsoleted in v12] You should use the new cache control header property. Gets or sets a value indicating the length of time (in seconds) in that rendered output is cached. This property is required. |
+| OutputCacheDuration | yes | yes |  |  | yes | Gets or sets a value indicating the length of time (in seconds) in that rendered output is cached. This property is required. |
 | PageAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| PageContexts |  | yes | yes |  |  | Gets or sets a collection of PageContext entities that are used on this page. |
+| PageContexts |  | yes | yes |  |  | Gets or sets a collection of Page Context entities that are used on this page. |
 | PageDisplayBreadCrumb | yes | yes |  |  |  | Gets or sets a flag indicating whether breadcrumbs are displayed on Page |
 | PageDisplayDescription | yes | yes |  |  |  | Gets or sets a value indicating whether the Page description should be displayed on the page. |
 | PageDisplayIcon | yes | yes |  |  |  | Gets or sets a value indicating whether the Page icon should be displayed on the Page. |
@@ -94,7 +94,7 @@
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | ParentPage |  | yes | yes |  |  | Gets or sets the Page entity for the parent page. |
 | ParentPageId | yes | yes |  |  |  | Gets or sets the Id of the parent Page. |
-| RateLimitPeriod |  |  | yes |  |  | [Obsoleted in v16.7] Use RateLimitPeriodDurationSeconds instead. Gets or sets the rate limit period (in seconds). |
+| RateLimitPeriod |  |  | yes |  | yes | Gets or sets the rate limit period (in seconds). |
 | RateLimitPeriodDurationSeconds | yes | yes |  |  |  | Gets or sets the rate limit period (in seconds). |
 | RateLimitRequestPerPeriod | yes | yes |  |  |  | Gets or sets the rate limit request per period. |
 | RequiresEncryption | yes | yes |  |  |  | Gets or sets a flag that indicates if the Page requires SSL encryption. |
@@ -116,14 +116,14 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| IconBinaryFile | Gets or sets the icon BinaryFile. |
+| IconBinaryFile | Gets or sets the icon Binary File. |
 | IdKey |  |
 | IsRateLimited | Gets a value indicating whether this instance is rate limited. |
 | Layout | Gets or sets the Layout that the pages uses. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PageContexts | Gets or sets a collection of PageContext entities that are used on this page. |
+| PageContexts | Gets or sets a collection of Page Context entities that are used on this page. |
 | PageRoutes | Gets or sets the PageRoutes that reference this page. |
 | Pages | Gets or sets the collection of the current page's child pages. |
 | ParentPage | Gets or sets the Page entity for the parent page. |
@@ -136,21 +136,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Blocks | Blocks |  |
-| IconBinaryFile | [BinaryFile](binary-file.md) |  |
-| Layout | [Layout](layout.md) |  |
-| LayoutId | [Layout](layout.md) |  |
-| PageContexts | [PageContext](page-context.md) |  |
-| PageDisplayTitle | [Layout](layout.md) |  |
-| PageRoutes | PageRoutes |  |
-| Site | [Site](site.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| Blocks | Blocks | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
+| IconBinaryFile | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| Layout | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| LayoutId | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| PageContexts | [Page Context](page-context.md) | 5c56b915-8a8b-4747-9d84-ebaf0bacc9a1 |
+| PageDisplayTitle | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| PageRoutes | PageRoutes | 42c14361-67b2-472c-95be-ea8a9c511837 |
+| Site | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | AdditionalSettings | description, is_obsolete |
-| property_changed | OutputCacheDuration | description, is_obsolete |
-| property_changed | RateLimitPeriod | description, is_obsolete |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

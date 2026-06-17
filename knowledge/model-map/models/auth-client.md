@@ -1,7 +1,7 @@
 # Auth Client Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AuthClient`
 - EntityType GUID: `cbd66c3a-959a-4a0b-926c-c3ade43066b1`

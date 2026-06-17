@@ -1,7 +1,7 @@
 # Interactive Experience Answer Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `InteractiveExperienceAnswer`
 - EntityType GUID: `d11da9d4-8887-4ec2-b396-78556926de89`
@@ -46,12 +46,12 @@
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | InteractionSession |  | yes | yes |  |  | Gets or sets the InteractionSession that this answer is associated with. |
-| InteractionSessionId | yes | yes |  |  |  | Gets or sets the Id of the InteractionSession Session. |
-| InteractiveExperienceAction |  | yes | yes |  |  | Gets or sets the InteractiveExperienceAction that the Interactive Experience Answer belongs to. |
-| InteractiveExperienceActionId | yes | yes |  | yes |  | Gets or sets the Id of the InteractiveExperienceAction that this Interactive Experience Answer is associated with. This property is required. |
+| InteractionSessionId | yes | yes |  |  |  | Gets or sets the Id of the Interaction Session Session. |
+| InteractiveExperienceAction |  | yes | yes |  |  | Gets or sets the Interactive Experience Action that the Interactive Experience Answer belongs to. |
+| InteractiveExperienceActionId | yes | yes |  | yes |  | Gets or sets the Id of the Interactive Experience Action that this Interactive Experience Answer is associated with. This property is required. |
 | InteractiveExperienceAnswerAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| InteractiveExperienceOccurrence |  | yes | yes |  |  | Gets or sets the InteractiveExperienceOccurrence that the Interactive Experience Answer belongs to. |
-| InteractiveExperienceOccurrenceId | yes | yes |  | yes |  | Gets or sets the Id of the InteractiveExperienceOccurrence that this Interactive Experience Answer is associated with. This property is required. |
+| InteractiveExperienceOccurrence |  | yes | yes |  |  | Gets or sets the Interactive Experience Occurrence that the Interactive Experience Answer belongs to. |
+| InteractiveExperienceOccurrenceId | yes | yes |  | yes |  | Gets or sets the Id of the Interactive Experience Occurrence that this Interactive Experience Answer is associated with. This property is required. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -85,8 +85,8 @@
 | EntityStringValue |  |
 | IdKey |  |
 | InteractionSession | Gets or sets the InteractionSession that this answer is associated with. |
-| InteractiveExperienceAction | Gets or sets the InteractiveExperienceAction that the Interactive Experience Answer belongs to. |
-| InteractiveExperienceOccurrence | Gets or sets the InteractiveExperienceOccurrence that the Interactive Experience Answer belongs to. |
+| InteractiveExperienceAction | Gets or sets the Interactive Experience Action that the Interactive Experience Answer belongs to. |
+| InteractiveExperienceOccurrence | Gets or sets the Interactive Experience Occurrence that the Interactive Experience Answer belongs to. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -99,11 +99,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| InteractionSessionId | [InteractionSession](interaction-session.md) |  |
-| InteractiveExperienceAction | [InteractiveExperienceAction](interactive-experience-action.md) |  |
-| InteractiveExperienceActionId | [InteractiveExperienceAction](interactive-experience-action.md) |  |
-| InteractiveExperienceOccurrence | [InteractiveExperienceOccurrence](interactive-experience-occurrence.md) |  |
-| InteractiveExperienceOccurrenceId | [InteractiveExperienceOccurrence](interactive-experience-occurrence.md) |  |
+| InteractionSessionId | [Interaction Session](interaction-session.md) | 338025de-c16f-47bb-ba31-6de0c59e59aa |
+| InteractiveExperienceAction | [Interactive Experience Action](interactive-experience-action.md) | 8635e7e7-3576-47ff-92de-30a69eb5d011 |
+| InteractiveExperienceActionId | [Interactive Experience Action](interactive-experience-action.md) | 8635e7e7-3576-47ff-92de-30a69eb5d011 |
+| InteractiveExperienceOccurrence | [Interactive Experience Occurrence](interactive-experience-occurrence.md) | 2d1263a1-a3e7-4568-aa4b-c1234824188d |
+| InteractiveExperienceOccurrenceId | [Interactive Experience Occurrence](interactive-experience-occurrence.md) | 2d1263a1-a3e7-4568-aa4b-c1234824188d |
 
 ## Stable To Pre-Alpha Changes
 

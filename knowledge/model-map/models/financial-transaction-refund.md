@@ -1,7 +1,7 @@
 # Financial Transaction Refund Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialTransactionRefund`
 - EntityType GUID: `7616e2af-cef2-44a5-b27f-3e70ec8b70fa`
@@ -36,7 +36,7 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| FinancialTransaction |  | yes | yes |  |  | Gets or sets the FinancialTransaction. |
+| FinancialTransaction |  | yes | yes |  |  | Gets or sets the Financial Transaction. |
 | FinancialTransactionRefundAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -57,8 +57,8 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | RefundReasonSummary | yes | yes |  |  |  | Gets or sets a detailed summary of the circumstances surrounding why a refund was issued. |
-| RefundReasonValue |  | yes | yes |  |  | Gets or sets the refund reason DefinedValue indicating the reason for the refund. |
-| RefundReasonValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the return reason DefinedValue indicating the reason why a refund was issued for the original transaction. These are found in the "Refund Reason" Defined Type. |
+| RefundReasonValue |  | yes | yes |  |  | Gets or sets the refund reason Defined Value indicating the reason for the refund. |
+| RefundReasonValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the return reason Defined Value indicating the reason why a refund was issued for the original transaction. These are found in the Refund Reason Defined Type. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -74,13 +74,13 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| FinancialTransaction | Gets or sets the FinancialTransaction. |
+| FinancialTransaction | Gets or sets the Financial Transaction. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | OriginalTransaction | Gets or sets the original transaction. |
-| RefundReasonValue | Gets or sets the refund reason DefinedValue indicating the reason for the refund. |
+| RefundReasonValue | Gets or sets the refund reason Defined Value indicating the reason for the refund. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -89,10 +89,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| FinancialTransaction | [FinancialTransaction](financial-transaction.md) |  |
-| OriginalTransaction | transaction |  |
-| RefundReasonValue | [DefinedValue](defined-value.md) |  |
-| RefundReasonValueId | [DefinedValue](defined-value.md) |  |
+| FinancialTransaction | [Financial Transaction](financial-transaction.md) | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| OriginalTransaction | transaction | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| RefundReasonValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RefundReasonValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 

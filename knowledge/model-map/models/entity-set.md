@@ -1,7 +1,7 @@
 # Entity Set Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `EntitySet`
 - EntityType GUID: `50e3f9c8-4010-41af-8f61-08308dc44640`
@@ -11,18 +11,19 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 48 |
-| Database-marked properties | 16 |
-| Lava-marked properties | 33 |
+| Properties | 49 |
+| Database-marked properties | 17 |
+| Lava-marked properties | 34 |
 | Lava-marked non-database properties | 17 |
 | Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
+| AdditionalSettingsJson | yes | yes |  |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -37,8 +38,8 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntitySetAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| EntitySetPurposeValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the EntitySet's purpose |
-| EntitySetPurposeValueId | yes | yes |  |  |  | Gets or sets Id of the EntitySet purpose DefinedValue representing the EntitySet's purpose. These are found in the "Entity Set Purpose" Defined Type. |
+| EntitySetPurposeValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the EntitySet's purpose |
+| EntitySetPurposeValueId | yes | yes |  |  |  | Gets or sets Id of the EntitySet purpose Defined Value representing the EntitySet's purpose. These are found in the Entity Set Purpose Defined Type. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | EntityType |  | yes | yes |  |  | Gets or sets the type of the entity. |
 | EntityTypeId | yes | yes |  |  |  | Gets or sets the entity type identifier. |
@@ -80,7 +81,7 @@
 | ChildEntitySets | Gets or sets the child entity sets. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| EntitySetPurposeValue | Gets or sets the DefinedValue representing the EntitySet's purpose |
+| EntitySetPurposeValue | Gets or sets the Defined Value representing the EntitySet's purpose |
 | EntityStringValue |  |
 | EntityType | Gets or sets the type of the entity. |
 | IdKey |  |
@@ -97,11 +98,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntitySetPurposeValue | [DefinedValue](defined-value.md) |  |
-| EntitySetPurposeValueId | [DefinedValue](defined-value.md) |  |
+| EntitySetPurposeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| EntitySetPurposeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | AdditionalSettingsJson |  |
+No stable-to-pre-alpha changes were detected for this model.

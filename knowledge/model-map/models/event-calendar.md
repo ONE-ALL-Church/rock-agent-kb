@@ -1,7 +1,7 @@
 # Event Calendar Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventCalendar`
 - EntityType GUID: `e67d8d6d-4fe6-48d5-a940-a39213047314`
@@ -15,8 +15,8 @@
 | Database-marked properties | 14 |
 | Lava-marked properties | 26 |
 | Lava-marked non-database properties | 12 |
-| Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -87,11 +87,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EventCalendarItems | event calendar items |  |
-| SupportedActions | Dictionary`2 |  |
+| EventCalendarItems | event calendar items | e37fb26f-03f6-48da-8e96-f412616f5ee4 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

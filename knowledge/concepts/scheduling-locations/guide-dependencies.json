@@ -951,10 +951,10 @@
   },
   "approved_media_hash": "3b2b431c4f9cc02db500578c068efe5261b568eba0275fe44dd9b306b0eaa21b",
   "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "scheduling-locations",
-  "guide_hash": "751e2965742f495dbd4548587fb8c8e4e2ec8cff212830388769f7cb0a5fda0d",
-  "guide_line_count": 1227,
+  "guide_hash": "9f7a3b1d02f0c8702f2489db9923ddc530bba321f261d05db00c988818d9b30d",
+  "guide_line_count": 1231,
   "guide_path": "knowledge/concepts/scheduling-locations/guide.md",
   "guide_word_count": 11458,
   "rebuild_triggers": [
@@ -2723,7 +2723,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1085,
+      "end_line": 1086,
       "heading": "Recipe: Diagnose Schedule API Issues",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-schedule-api-issues",
@@ -2734,7 +2734,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1151,
+      "end_line": 1154,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2752,11 +2752,11 @@
         "1cfd7942fe8e3344",
         "1cfd7942fe8e3344"
       ],
-      "start_line": 1086
+      "start_line": 1087
     },
     {
       "confidence": "citation-only",
-      "end_line": 1193,
+      "end_line": 1197,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2770,11 +2770,11 @@
         "cc6fb3df674b28c2",
         "aa94e8b3d8886a7a"
       ],
-      "start_line": 1152
+      "start_line": 1155
     },
     {
       "confidence": "high",
-      "end_line": 1227,
+      "end_line": 1231,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -2822,7 +2822,7 @@
         "8e315d226b2c1474",
         "7a617924deb729b4"
       ],
-      "start_line": 1194
+      "start_line": 1198
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T20:25:44+00:00",

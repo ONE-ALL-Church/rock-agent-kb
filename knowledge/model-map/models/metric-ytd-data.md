@@ -1,9 +1,9 @@
 # Metric YTD Data Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
-- Model title: `MetricYTDData [Metric]`
+- Model title: `MetricYTDData`
 - EntityType GUID: `7c878afd-df74-4cdf-8491-31671559bd30`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 

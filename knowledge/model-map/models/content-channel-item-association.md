@@ -1,7 +1,7 @@
 # Content Channel Item Association Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentChannelItemAssociation`
 - EntityType GUID: `7c86eed3-c3f9-4b25-887b-f732fe3c35f0`
@@ -27,11 +27,11 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ChildContentChannelItem |  | yes | yes |  |  | Gets or sets the child ContentChannelItem. |
-| ChildContentChannelItemId | yes | yes |  |  |  | Gets or sets the child ContentChannelItem identifier. |
-| ContentChannelItem |  | yes | yes |  |  | Gets or sets the ContentChannelItem. |
+| ChildContentChannelItem |  | yes | yes |  |  | Gets or sets the child Content Channel Item. |
+| ChildContentChannelItemId | yes | yes |  |  |  | Gets or sets the child Content Channel Item identifier. |
+| ContentChannelItem |  | yes | yes |  |  | Gets or sets the Content Channel Item. |
 | ContentChannelItemAssociationAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ContentChannelItemId | yes | yes |  |  |  | Gets or sets the ContentChannelItem identifier. |
+| ContentChannelItemId | yes | yes |  |  |  | Gets or sets the Content Channel Item identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -70,8 +70,8 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ChildContentChannelItem | Gets or sets the child ContentChannelItem. |
-| ContentChannelItem | Gets or sets the ContentChannelItem. |
+| ChildContentChannelItem | Gets or sets the child Content Channel Item. |
+| ContentChannelItem | Gets or sets the Content Channel Item. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -87,10 +87,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ChildContentChannelItem | [ContentChannelItem](content-channel-item.md) |  |
-| ChildContentChannelItemId | [ContentChannelItem](content-channel-item.md) |  |
-| ContentChannelItem | [ContentChannelItem](content-channel-item.md) |  |
-| ContentChannelItemId | [ContentChannelItem](content-channel-item.md) |  |
+| ChildContentChannelItem | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| ChildContentChannelItemId | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| ContentChannelItem | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| ContentChannelItemId | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
 
 ## Stable To Pre-Alpha Changes
 

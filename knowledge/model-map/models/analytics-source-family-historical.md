@@ -1,7 +1,7 @@
 # Analytics Source Family Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceFamilyHistorical`
 - EntityType GUID: `c9941e89-ec9d-41ff-a892-5016730f22c1`

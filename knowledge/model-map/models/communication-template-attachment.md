@@ -1,7 +1,7 @@
 # Communication Template Attachment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationTemplateAttachment`
 - EntityType GUID: `0dea0bc5-2af2-4e06-92cf-dccd4d3ff011`
@@ -31,7 +31,7 @@
 | BinaryFileId | yes | yes |  |  |  | Gets or sets the PersonId of the Person who is being sent the Communication. |
 | CommunicationTemplate |  | yes | yes |  |  | Gets or sets the Communication. |
 | CommunicationTemplateAttachmentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| CommunicationTemplateId | yes | yes |  |  |  | Gets or sets the CommunicationTemplateId of the CommunicationTemplate. |
+| CommunicationTemplateId | yes | yes |  |  |  | Gets or sets the CommunicationTemplateId of the Communication Template. |
 | CommunicationType | yes | yes |  |  |  | Indicates if the attachment is for SMS recipients or Email recipients This is a hard coded list of values defined in the code as an enumeration. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -87,12 +87,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFile | [Communication](communication.md) |  |
-| BinaryFile | [Person](person.md) |  |
-| BinaryFileId | [Communication](communication.md) |  |
-| BinaryFileId | [Person](person.md) |  |
-| CommunicationTemplate | [Communication](communication.md) |  |
-| CommunicationTemplateId | [CommunicationTemplate](communication-template.md) |  |
+| BinaryFile | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| BinaryFile | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| BinaryFileId | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| BinaryFileId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| CommunicationTemplate | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| CommunicationTemplateId | [Communication Template](communication-template.md) | a9493afe-4316-4651-800d-5028e4c7444d |
 
 ## Stable To Pre-Alpha Changes
 

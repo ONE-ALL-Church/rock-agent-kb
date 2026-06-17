@@ -1,7 +1,7 @@
 # Attendance Check In Session Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `AttendanceCheckInSession`
 - EntityType GUID: `d60a20a7-98a2-45b5-bf7e-a327e4090940`
@@ -60,9 +60,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Attendances | Attendances |  |
-| Device | [Device](device.md) |  |
-| DeviceId | [Device](device.md) |  |
+| Attendances | Attendances | 4ccb856f-51e0-4e48-b94a-1705efba6c9e |
+| Device | [Device](device.md) | c06ee1fe-af12-410a-a364-7a366cd72414 |
+| DeviceId | [Device](device.md) | c06ee1fe-af12-410a-a364-7a366cd72414 |
 
 ## Stable To Pre-Alpha Changes
 

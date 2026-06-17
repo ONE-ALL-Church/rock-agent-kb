@@ -1,7 +1,7 @@
 # Automation Trigger Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AutomationTrigger`
 - EntityType GUID: `89abfa37-68e5-41b7-b43c-a0cf823dea61`
@@ -15,8 +15,8 @@
 | Database-marked properties | 15 |
 | Lava-marked properties | 29 |
 | Lava-marked non-database properties | 14 |
-| Related model links | 6 |
-| Pre-alpha changes touching this model | 3 |
+| Related model links | 3 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -27,12 +27,12 @@
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
-| AutomationEvents |  | yes | yes |  |  | A collection containing the AutomationEvent items that will be executed when this trigger fires. |
+| AutomationEvents |  | yes | yes |  |  | A collection containing the Automation Event items that will be executed when this trigger fires. |
 | AutomationTriggerAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | AvailableKeys |  |  | yes |  |  |  |
 | ComponentConfigurationJson | yes | yes |  |  |  | The configuration data for the AutomationTriggerComponent. This is stored as a dictionary of string key/value pairs. |
-| ComponentEntityType |  | yes | yes |  |  | The EntityType that represents the AutomationTriggerComponent that will handle the logic for this trigger. |
-| ComponentEntityTypeId | yes | yes |  |  |  | The EntityType identifier of the AutomationTriggerComponent that will handle the logic for this trigger. |
+| ComponentEntityType |  | yes | yes |  |  | The Entity Type that represents the AutomationTriggerComponent that will handle the logic for this trigger. |
+| ComponentEntityTypeId | yes | yes |  |  |  | The Entity Type identifier of the AutomationTriggerComponent that will handle the logic for this trigger. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -73,8 +73,8 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| AutomationEvents | A collection containing the AutomationEvent items that will be executed when this trigger fires. |
-| ComponentEntityType | The EntityType that represents the AutomationTriggerComponent that will handle the logic for this trigger. |
+| AutomationEvents | A collection containing the Automation Event items that will be executed when this trigger fires. |
+| ComponentEntityType | The Entity Type that represents the AutomationTriggerComponent that will handle the logic for this trigger. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -90,17 +90,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AutomationEvents | [AutomationEvent](automation-event.md) |  |
-| ComponentConfigurationJson | AutomationTriggerComponent |  |
-| ComponentEntityType | AutomationTriggerComponent |  |
-| ComponentEntityType | [EntityType](entity-type.md) |  |
-| ComponentEntityTypeId | AutomationTriggerComponent |  |
-| ComponentEntityTypeId | [EntityType](entity-type.md) |  |
+| AutomationEvents | [Automation Event](automation-event.md) | 905de2d9-1ea8-4e59-b0cf-e2bac8383927 |
+| ComponentEntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| ComponentEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | ComponentConfigurationJson | related_entity_links |
-| property_changed | ComponentEntityType | related_entity_links |
-| property_changed | ComponentEntityTypeId | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

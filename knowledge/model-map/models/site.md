@@ -1,7 +1,7 @@
 # Site Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `Site`
 - EntityType GUID: `7244c10b-5d87-467b-a7f5-12dc29910ca8`
@@ -15,8 +15,8 @@
 | Database-marked properties | 54 |
 | Lava-marked properties | 88 |
 | Lava-marked non-database properties | 34 |
-| Related model links | 16 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 15 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -57,13 +57,13 @@
 | DefaultDomainUri |  | yes | yes |  |  | Gets the default domain URI. |
 | DefaultPage |  | yes | yes |  |  | Gets or sets the default Page page for the site. |
 | DefaultPageId | yes | yes |  |  |  | Gets or sets the Id of the Site's default Page. |
-| DefaultPageRoute |  | yes | yes |  |  | Gets or sets the default PageRoute page route for this site. If this value is null, the DefaultPage will be used |
+| DefaultPageRoute |  | yes | yes |  |  | Gets or sets the default Page Route page route for this site. If this value is null, the DefaultPage will be used |
 | DefaultPageRouteId | yes | yes |  |  |  | Gets or sets the default page route unique identifier. If this has a value (and the PageRoute can be found) use this instead of the DefaultPageId |
 | Description | yes | yes |  |  |  | Gets or sets a user defined description/summary of the Site. |
 | DisablePredictableIds | yes | yes |  |  |  | Gets or sets whether predictable Ids are disabled. |
 | EnableExclusiveRoutes | yes | yes |  |  |  | Enabling this feature will prevent other sites from using this sites routes and prevent routes from other sites from working on this site. |
 | EnableMobileRedirect | yes | yes |  |  |  | Gets or sets a value indicating whether [enable mobile redirect]. |
-| EnablePageViewGeoTracking | yes | yes |  |  |  | [Obsoleted in v0] Geolocation lookups are now performed on all interactions, regardless of this setting. Gets or sets a value indicating whether geo-location lookups should be performed on interactions. |
+| EnablePageViewGeoTracking | yes | yes |  |  | yes | Gets or sets a value indicating whether geo-location lookups should be performed on interactions. |
 | EnablePageViews | yes | yes |  |  |  | Gets or sets a value indicating whether to log Page Views into the Interaction tables for pages in this site |
 | EnablePersonalization | yes | yes |  |  |  | Gets or sets a value indicating whether [enable personalization]. |
 | EnableVisitorTracking | yes | yes |  |  |  | Gets or sets a value indicating whether /[enable visitor tracking]. |
@@ -91,7 +91,7 @@
 | Layouts |  | yes | yes |  |  | Gets or sets a collection of Layout entities that are a part of the Site. |
 | LoginPage |  | yes | yes |  |  | Gets or sets the login Page page for the site. |
 | LoginPageId | yes | yes |  |  |  | Gets or sets the Id of the Site's log in Page |
-| LoginPageRoute |  | yes | yes |  |  | Gets or sets the login PageRoute page route for this site. If this value is null, the LoginPage will be used |
+| LoginPageRoute |  | yes | yes |  |  | Gets or sets the login Page Route page route for this site. If this value is null, the LoginPage will be used |
 | LoginPageRouteId | yes | yes |  |  |  | Gets or sets the login page route unique identifier. If this has a value (and the PageRoute can be found) use this instead of the LoginPageId |
 | MobilePage |  | yes | yes |  |  | Gets or sets the mobile page. |
 | MobilePageId | yes | yes |  |  |  | Gets or sets the mobile page identifier. |
@@ -105,18 +105,18 @@
 | PageHeaderContent | yes | yes |  |  |  | Gets or sets the content of the page header. |
 | PageNotFoundPage |  | yes | yes |  |  | Gets or sets the 404 Page page for the site. |
 | PageNotFoundPageId | yes | yes |  |  |  | Gets or sets the Id of the 404 Page |
-| PageNotFoundPageRoute |  | yes | yes |  |  | Gets or sets the 404 PageRoute page route for this site. |
+| PageNotFoundPageRoute |  | yes | yes |  |  | Gets or sets the 404 Page Route page route for this site. |
 | PageNotFoundPageRouteId | yes | yes |  |  |  | Gets or sets the 404 page route unique identifier. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | RedirectTablets | yes | yes |  |  |  | Gets or sets a value indicating whether [redirect tablets]. |
 | RegistrationPage |  | yes | yes |  |  | Gets or sets the registration Page page for the site. |
 | RegistrationPageId | yes | yes |  |  |  | Gets or sets the Id of the Site's registration Page |
-| RegistrationPageRoute |  | yes | yes |  |  | Gets or sets the registration PageRoute page route for this site. If this value is null, the RegistrationPage will be used |
+| RegistrationPageRoute |  | yes | yes |  |  | Gets or sets the registration Page Route page route for this site. If this value is null, the RegistrationPage will be used |
 | RegistrationPageRouteId | yes | yes |  |  |  | Gets or sets the registration page route unique identifier. If this has a value (and the PageRoute can be found) use this instead of the RegistrationPageId |
 | RequiresEncryption | yes | yes |  |  |  | Gets or sets a value indicating whether [requires encryption]. |
 | SiteAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| SiteDomains |  | yes | yes |  |  | Gets or sets the collection of SiteDomain entities that reference the Site. |
+| SiteDomains |  | yes | yes |  |  | Gets or sets the collection of Site Domain entities that reference the Site. |
 | SiteLogoBinaryFile |  | yes | yes |  |  | Gets or sets the site logo binary file. |
 | SiteLogoBinaryFileId | yes | yes |  |  |  | Gets or sets the site logo binary file identifier. |
 | SiteType | yes | yes |  |  |  | Gets or sets the type of the site. This is a hard coded list of values defined in the code as an enumeration. |
@@ -147,22 +147,22 @@
 | CreatedByPersonName |  |
 | DefaultDomainUri | Gets the default domain URI. |
 | DefaultPage | Gets or sets the default Page page for the site. |
-| DefaultPageRoute | Gets or sets the default PageRoute page route for this site. If this value is null, the DefaultPage will be used |
+| DefaultPageRoute | Gets or sets the default Page Route page route for this site. If this value is null, the DefaultPage will be used |
 | EntityStringValue |  |
 | FavIconBinaryFile | Gets or sets the favicon binary file. |
 | IdKey |  |
 | Layouts | Gets or sets a collection of Layout entities that are a part of the Site. |
 | LoginPage | Gets or sets the login Page page for the site. |
-| LoginPageRoute | Gets or sets the login PageRoute page route for this site. If this value is null, the LoginPage will be used |
+| LoginPageRoute | Gets or sets the login Page Route page route for this site. If this value is null, the LoginPage will be used |
 | MobilePage | Gets or sets the mobile page. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | PageNotFoundPage | Gets or sets the 404 Page page for the site. |
-| PageNotFoundPageRoute | Gets or sets the 404 PageRoute page route for this site. |
+| PageNotFoundPageRoute | Gets or sets the 404 Page Route page route for this site. |
 | RegistrationPage | Gets or sets the registration Page page for the site. |
-| RegistrationPageRoute | Gets or sets the registration PageRoute page route for this site. If this value is null, the RegistrationPage will be used |
-| SiteDomains | Gets or sets the collection of SiteDomain entities that reference the Site. |
+| RegistrationPageRoute | Gets or sets the registration Page Route page route for this site. If this value is null, the RegistrationPage will be used |
+| SiteDomains | Gets or sets the collection of Site Domain entities that reference the Site. |
 | SiteLogoBinaryFile | Gets or sets the site logo binary file. |
 | ThumbnailBinaryFile | Gets or sets the thumbnail binary file. |
 | TypeId |  |
@@ -173,26 +173,22 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Blocks | Blocks |  |
-| DefaultPage | [Page](page.md) |  |
-| DefaultPageId | [Page](page.md) |  |
-| DefaultPageRoute | [PageRoute](page-route.md) |  |
-| Layouts | [Layout](layout.md) |  |
-| LoginPage | [Page](page.md) |  |
-| LoginPageId | [Page](page.md) |  |
-| LoginPageRoute | [PageRoute](page-route.md) |  |
-| PageNotFoundPage | [Page](page.md) |  |
-| PageNotFoundPageId | [Page](page.md) |  |
-| PageNotFoundPageRoute | [PageRoute](page-route.md) |  |
-| RegistrationPage | [Page](page.md) |  |
-| RegistrationPageId | [Page](page.md) |  |
-| RegistrationPageRoute | [PageRoute](page-route.md) |  |
-| SiteDomains | [SiteDomain](site-domain.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| Blocks | Blocks | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
+| DefaultPage | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| DefaultPageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| DefaultPageRoute | [Page Route](page-route.md) | 42c14361-67b2-472c-95be-ea8a9c511837 |
+| Layouts | [Layout](layout.md) | 9dacc861-fed4-47fc-946d-d6a120ff6d56 |
+| LoginPage | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| LoginPageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| LoginPageRoute | [Page Route](page-route.md) | 42c14361-67b2-472c-95be-ea8a9c511837 |
+| PageNotFoundPage | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| PageNotFoundPageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| PageNotFoundPageRoute | [Page Route](page-route.md) | 42c14361-67b2-472c-95be-ea8a9c511837 |
+| RegistrationPage | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| RegistrationPageId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| RegistrationPageRoute | [Page Route](page-route.md) | 42c14361-67b2-472c-95be-ea8a9c511837 |
+| SiteDomains | [Site Domain](site-domain.md) | 4c4cd7dd-427c-45ec-9651-f8250d3cab5f |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | EnablePageViewGeoTracking | description, is_obsolete |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

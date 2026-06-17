@@ -1,7 +1,7 @@
 # Identity Verification Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `IdentityVerification`
 - EntityType GUID: `c76071b0-0c2f-4a3f-88bf-08b2e006c614`

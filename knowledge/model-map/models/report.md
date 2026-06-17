@@ -1,7 +1,7 @@
 # Report Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `Report`
 - EntityType GUID: `f1f22d3e-fefa-4c84-9ffa-9e8ace60fce7`
@@ -36,13 +36,13 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DataView |  | yes | yes |  |  | Gets or sets the base/root DataView that this Report is based on. |
-| DataViewId | yes | yes |  |  |  | Gets or the DataViewId of the root DataView that this Report is based on. |
+| DataView |  | yes | yes |  |  | Gets or sets the base/root Data View that this Report is based on. |
+| DataViewId | yes | yes |  |  |  | Gets or the DataViewId of the root Data View that this Report is based on. |
 | Description | yes | yes |  |  |  | Gets or sets the Report's Description. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType that is being reported on. |
-| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the EntityType that is being reported on. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type that is being reported on. |
+| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the Entity Type that is being reported on. |
 | FetchTop | yes | yes |  |  |  | Gets or sets the number of records to fetch in the report. Null means all records. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -83,9 +83,9 @@
 | Category | Gets or sets the Category that this Report belongs to. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DataView | Gets or sets the base/root DataView that this Report is based on. |
+| DataView | Gets or sets the base/root Data View that this Report is based on. |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType that is being reported on. |
+| EntityType | Gets or sets the Entity Type that is being reported on. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -99,12 +99,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| DataView | [DataView](data-view.md) |  |
-| DataViewId | [DataView](data-view.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| DataView | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| DataViewId | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

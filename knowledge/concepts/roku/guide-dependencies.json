@@ -252,10 +252,10 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "29bbf374ac237afccd3d64a4006273a41847495b01cbd3b0d2ccb82961117499",
   "approved_media_path": "knowledge/concepts/roku/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "roku",
-  "guide_hash": "95fb4b9e6999cc54ee66c7052a0e33c147047e91e7b287921d886f7938296614",
-  "guide_line_count": 1311,
+  "guide_hash": "d873d5f0790728e12cbe2615fed9509c23a10782e6cebe7caed85262194e8d18",
+  "guide_line_count": 1315,
   "guide_path": "knowledge/concepts/roku/guide.md",
   "guide_word_count": 12245,
   "rebuild_triggers": [
@@ -1484,7 +1484,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1166,
+      "end_line": 1167,
       "heading": "Recipe: Validate Post-Upgrade Roku Behavior",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-validate-post-upgrade-roku-behavior",
@@ -1497,7 +1497,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1223,
+      "end_line": 1226,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -1509,11 +1509,11 @@
         "35d2e6eb8d06e01f",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1167
+      "start_line": 1168
     },
     {
       "confidence": "structural",
-      "end_line": 1249,
+      "end_line": 1253,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1525,11 +1525,11 @@
         "35d2e6eb8d06e01f",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1224
+      "start_line": 1227
     },
     {
       "confidence": "structural",
-      "end_line": 1251,
+      "end_line": 1255,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1545,11 +1545,11 @@
         "044170dca04e8bbb",
         "d275b5b94a9da833"
       ],
-      "start_line": 1250
+      "start_line": 1254
     },
     {
       "confidence": "normal",
-      "end_line": 1311,
+      "end_line": 1315,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1595,7 +1595,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1252
+      "start_line": 1256
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:39:25+00:00",

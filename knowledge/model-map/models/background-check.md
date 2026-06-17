@@ -1,7 +1,7 @@
 # Background Check Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `BackgroundCheck`
 - EntityType GUID: `6d3a2293-ba7e-44d9-b5b3-5b85da0eecac`

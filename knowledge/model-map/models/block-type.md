@@ -1,7 +1,7 @@
 # Block Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `BlockType`
 - EntityType GUID: `04768edf-c0cd-4950-b629-4d2370b57c99`
@@ -15,8 +15,8 @@
 | Database-marked properties | 18 |
 | Lava-marked properties | 27 |
 | Lava-marked non-database properties | 12 |
-| Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -91,11 +91,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Blocks | Blocks |  |
-| SiteTypeFlags | SiteType |  |
+| Blocks | Blocks | d89555ca-9ae4-4d62-8af1-e5e463c1ef65 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SiteTypeFlags | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

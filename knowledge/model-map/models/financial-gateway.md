@@ -1,7 +1,7 @@
 # Financial Gateway Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialGateway`
 - EntityType GUID: `122efe60-84a6-4c7a-a852-30e4bd89a662`

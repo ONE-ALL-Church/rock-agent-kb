@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -301,29 +301,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 18.2.4 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 18.2.4 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 18.2.4 | 132 | 81 | 87 | 6 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 18.2.4 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Financial Account](../../model-map/models/analytics-dim-financial-account.md) | Reporting | 18.2.4 | 37 | 25 | 30 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Financial Batch](../../model-map/models/analytics-dim-financial-batch.md) | Reporting | 18.2.4 | 26 | 14 | 18 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 18.2.4 | 132 | 81 | 87 | 6 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 18.2.4 | 132 | 81 | 87 | 6 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 18.2.4 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Fact Financial Transaction](../../model-map/models/analytics-fact-financial-transaction.md) | Reporting | 18.2.4 | 86 | 48 | 56 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 18.2.4 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 18.2.4 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.1.8 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.1.8 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.1.8 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.1.8 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Financial Account](../../model-map/models/analytics-dim-financial-account.md) | Reporting | 19.1.8 | 37 | 25 | 30 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Financial Batch](../../model-map/models/analytics-dim-financial-batch.md) | Reporting | 19.1.8 | 26 | 14 | 18 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.1.8 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.1.8 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.1.8 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Fact Financial Transaction](../../model-map/models/analytics-fact-financial-transaction.md) | Reporting | 19.1.8 | 63 | 48 | 56 | 8 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.1.8 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.1.8 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Analytics Dim Campus.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.TypeId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.TypeName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.UrlEncodedKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Family Current.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Family Current.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Family Current.TypeId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.TypeId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.TypeName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.UrlEncodedKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Family Current.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Family Current.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Family Current.TypeId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Repository Landmarks
 

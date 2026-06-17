@@ -1,7 +1,7 @@
 # Content Collection Source Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentCollectionSource`
 - EntityType GUID: `46bd0e73-14b3-499d-b8be-c0ef6bdcd733`
@@ -28,8 +28,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ContentCollection |  | yes | yes |  |  | Gets or sets the ContentCollection. |
-| ContentCollectionId | yes | yes |  | yes |  | Gets or sets the Id of the ContentCollection. This property is required. |
+| ContentCollection |  | yes | yes |  |  | Gets or sets the Content Collection. |
+| ContentCollectionId | yes | yes |  | yes |  | Gets or sets the Id of the Content Collection. This property is required. |
 | ContentCollectionSourceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -41,7 +41,7 @@
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityId | yes | yes |  | yes |  | Gets or sets the entity id. This property is required. |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the entity. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the entity. |
 | EntityTypeId | yes | yes |  | yes |  | Gets or sets the entity. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -73,11 +73,11 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ContentCollection | Gets or sets the ContentCollection. |
+| ContentCollection | Gets or sets the Content Collection. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the entity. |
+| EntityType | Gets or sets the Entity Type of the entity. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -90,9 +90,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ContentCollection | [ContentCollection](content-collection.md) |  |
-| ContentCollectionId | [ContentCollection](content-collection.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
+| ContentCollection | [Content Collection](content-collection.md) | ad7b9219-1b47-4164-9dd1-90f0af588cb8 |
+| ContentCollectionId | [Content Collection](content-collection.md) | ad7b9219-1b47-4164-9dd1-90f0af588cb8 |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

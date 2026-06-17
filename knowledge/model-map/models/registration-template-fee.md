@@ -1,7 +1,7 @@
 # Registration Template Fee Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationTemplateFee`
 - EntityType GUID: `2db3a441-6ca1-49d1-bb25-c744e2ffa457`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 33 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -29,7 +29,7 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | ContextKey |  |  | yes |  |  |  |
-| CostValue | yes | yes |  |  |  | [Obsoleted in v9] Use FeeItems instead Gets or sets the cost(s) of the fee. Value is stored like: single = 20, multiple = L\|20,XL\|20,XXL\|25 or Small^10\|Medium^20\|Large^30\|XXL^40 |
+| CostValue | yes | yes |  |  | yes | Gets or sets the cost(s) of the fee. Value is stored like: single = 20, multiple = L\|20,XL\|20,XXL\|25 or Small^10\|Medium^20\|Large^30\|XXL^40 |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
 | CreatedByPersonId |  | yes | yes |  |  |  |
@@ -62,9 +62,9 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| RegistrationTemplate |  | yes | yes |  |  | Gets or sets the RegistrationTemplate. |
+| RegistrationTemplate |  | yes | yes |  |  | Gets or sets the Registration Template. |
 | RegistrationTemplateFeeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| RegistrationTemplateId | yes | yes |  |  |  | Gets or sets the RegistrationTemplate identifier. |
+| RegistrationTemplateId | yes | yes |  |  |  | Gets or sets the Registration Template identifier. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -85,7 +85,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| RegistrationTemplate | Gets or sets the RegistrationTemplate. |
+| RegistrationTemplate | Gets or sets the Registration Template. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -94,11 +94,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| RegistrationTemplate | [RegistrationTemplate](registration-template.md) |  |
-| RegistrationTemplateId | [RegistrationTemplate](registration-template.md) |  |
+| RegistrationTemplate | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
+| RegistrationTemplateId | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | CostValue | description, is_obsolete |
+No stable-to-pre-alpha changes were detected for this model.

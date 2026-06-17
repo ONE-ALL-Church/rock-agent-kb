@@ -1,7 +1,7 @@
 # Workflow Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowType`
 - EntityType GUID: `c9f3c4a5-1526-474d-803f-d6c7a45cbbae`
@@ -15,8 +15,8 @@
 | Database-marked properties | 35 |
 | Lava-marked properties | 49 |
 | Lava-marked non-database properties | 15 |
-| Related model links | 7 |
-| Pre-alpha changes touching this model | 3 |
+| Related model links | 5 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -73,7 +73,7 @@
 | Name | yes | yes |  | yes |  | Gets or sets the friendly Name of the WorkflowType. This property is required. |
 | NoActionMessage | yes | yes |  |  |  | Gets or sets the text to be displayed when a workflow of this type workflow is active, but does not have an active form. This field supports Lava. |
 | Order | yes | yes |  | yes |  | Gets or sets the display order of the WorkFlowType, the lower the number the higher up that the WorkflowType will display in the workflow list. This property is required. |
-| ParentAuthority |  |  | yes |  |  |  |
+| ParentAuthority |  |  | yes |  |  | Gets the parent security authority for the DataView which is its Category |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | ProcessingIntervalSeconds | yes | yes |  |  |  | Gets or sets the minimum length of time, in seconds, before a persisted Workflow instance that implements this WorkflowType can be re-executed. |
 | Slug | yes | yes |  |  |  | Gets or sets the slug. |
@@ -112,18 +112,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActivityTypes | ActivityTypes |  |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| IsPersisted | [Workflow](workflow.md) |  |
-| LoggingLevel | WorkflowLoggingLevel |  |
-| ProcessingIntervalSeconds | [Workflow](workflow.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| ActivityTypes | ActivityTypes | e5fbdba2-9539-4679-b948-2e06c1bb1e3f |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| IsPersisted | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
+| ProcessingIntervalSeconds | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | LoggingLevel | related_entity_links |
-| property_changed | ParentAuthority | description |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

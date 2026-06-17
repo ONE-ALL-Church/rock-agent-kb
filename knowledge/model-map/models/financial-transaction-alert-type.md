@@ -1,7 +1,7 @@
 # Financial Transaction Alert Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialTransactionAlertType`
 - EntityType GUID: `2e237b04-5b2a-40f1-8cd3-52673c104305`
@@ -11,24 +11,24 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 68 |
-| Database-marked properties | 32 |
+| Properties | 69 |
+| Database-marked properties | 33 |
 | Lava-marked properties | 52 |
 | Lava-marked non-database properties | 21 |
 | Related model links | 7 |
-| Pre-alpha changes touching this model | 4 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| AccountParticipantSystemCommunication |  | yes | yes |  |  | Gets or sets the SystemCommunication that will be sent to any Account Participants. Account Participants are stored as RelatedEntity with RelatedEntity.PurposeKey of . |
-| AccountParticipantSystemCommunicationId | yes |  |  |  |  | Gets or sets the SystemCommunication that will be sent to any Account Participants. Account Participants are stored as RelatedEntity with RelatedEntity.PurposeKey of . |
+| AccountParticipantSystemCommunication |  | yes | yes |  |  | Gets or sets the System Communication that will be sent to any Account Participants. Account Participants are stored as Related Entity with RelatedEntity.PurposeKey of RelatedEntityPurposeKey.FinancialAccountGivingAlert. |
+| AccountParticipantSystemCommunicationId | yes |  |  |  |  | Gets or sets the System Communication that will be sent to any Account Participants. Account Participants are stored as Related Entity with RelatedEntity.PurposeKey of RelatedEntityPurposeKey.FinancialAccountGivingAlert. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AlertSummaryNotificationGroup |  | yes | yes |  |  | Gets or sets the alert summary notification group. |
 | AlertSummaryNotificationGroupId | yes | yes |  |  |  | Gets or sets the alert summary notification group identifier. |
 | AlertType | yes | yes |  |  |  | Gets or sets the alert type. This is a hard coded list of values defined in the code as an enumeration. |
-| AmountSensitivityScale | yes | yes |  |  |  | Gets or sets the amount sensitivity scale. This determines the point where a transaction amount is considered significantly larger or smaller than usual. See notes on Alert Type to see how this value is used for Gratitude vs Follow-Up alert types. |
+| AmountSensitivityScale | yes | yes |  |  |  | Gets or sets the amount sensitivity scale. This determines the point where a transaction amount is considered significantly larger or smaller than usual. See notes on AlertType to see how this value is used for Gratitude vs Follow-Up alert types. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -45,7 +45,7 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DataView |  | yes | yes |  |  | Gets or sets the DataView that this financial transaction alert type is based on. |
+| DataView |  | yes | yes |  |  | Gets or sets the Data View that this financial transaction alert type is based on. |
 | DataViewId | yes | yes |  |  |  | Gets or sets the data view identifier. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
@@ -56,7 +56,7 @@
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
-| FrequencySensitivityScale | yes | yes |  |  |  | Gets or sets the frequency sensitivity scale. This determines the point where a transaction is considered significantly later or earlier than usual. See notes on Alert Type to see how this value is used for Gratitude vs Follow-Up alert types. |
+| FrequencySensitivityScale | yes | yes |  |  |  | Gets or sets the frequency sensitivity scale. This determines the point where a transaction is considered significantly later or earlier than usual. See notes on AlertType to see how this value is used for Gratitude vs Follow-Up alert types. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -79,11 +79,12 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | RepeatPreventionDuration | yes | yes |  |  |  | Gets or sets the repeat prevention duration (days). |
-| RunDays | yes | yes |  |  |  | Gets or sets the run days for this alert type. Null means all days of the week are run days. This is a hard coded list of values defined in the code as an enumeration. |
+| RunDays | yes | yes |  |  | yes | Gets or sets the run days for this alert type. Null means all days of the week are run days. This is a hard coded list of values defined in the code as an enumeration. |
+| RunDaysOfWeek | yes |  |  |  |  | Gets or sets the run days for this alert type. Null means all days of the week are run days. This is a hard coded list of values defined in the code as an enumeration. |
 | SendBusEvent | yes | yes |  |  |  | Gets or sets a value indicating whether [send bus event]. |
 | SupportedActions |  |  | yes |  |  |  |
-| SystemCommunication |  | yes | yes |  |  | Gets or sets the SystemCommunication that will be sent to the Donor (FinancialTransaction.AuthorizedPersonAlias). |
-| SystemCommunicationId | yes | yes |  |  |  | Gets or sets the SystemCommunication that will be sent to the Donor (FinancialTransaction.AuthorizedPersonAlias). |
+| SystemCommunication |  | yes | yes |  |  | Gets or sets the System Communication that will be sent to the Donor (FinancialTransaction.AuthorizedPersonAlias). |
+| SystemCommunicationId | yes | yes |  |  |  | Gets or sets the System Communication that will be sent to the Donor (FinancialTransaction.AuthorizedPersonAlias). |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -95,7 +96,7 @@
 
 | Property | Description |
 | --- | --- |
-| AccountParticipantSystemCommunication | Gets or sets the SystemCommunication that will be sent to any Account Participants. Account Participants are stored as RelatedEntity with RelatedEntity.PurposeKey of . |
+| AccountParticipantSystemCommunication | Gets or sets the System Communication that will be sent to any Account Participants. Account Participants are stored as Related Entity with RelatedEntity.PurposeKey of RelatedEntityPurposeKey.FinancialAccountGivingAlert. |
 | AlertSummaryNotificationGroup | Gets or sets the alert summary notification group. |
 | AttributeValues |  |
 | Attributes |  |
@@ -103,7 +104,7 @@
 | ConnectionOpportunity | Gets or sets the connection opportunity. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DataView | Gets or sets the DataView that this financial transaction alert type is based on. |
+| DataView | Gets or sets the Data View that this financial transaction alert type is based on. |
 | EntityStringValue |  |
 | FinancialAccount | Gets or sets the financial account. |
 | FinancialTransactionAlerts | Gets or sets the financial transaction alerts. |
@@ -111,7 +112,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| SystemCommunication | Gets or sets the SystemCommunication that will be sent to the Donor (FinancialTransaction.AuthorizedPersonAlias). |
+| SystemCommunication | Gets or sets the System Communication that will be sent to the Donor (FinancialTransaction.AuthorizedPersonAlias). |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -121,19 +122,14 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AccountParticipantSystemCommunication | [RelatedEntity](related-entity.md) |  |
-| AccountParticipantSystemCommunication | [SystemCommunication](system-communication.md) |  |
-| AccountParticipantSystemCommunicationId | [RelatedEntity](related-entity.md) |  |
-| AccountParticipantSystemCommunicationId | [SystemCommunication](system-communication.md) |  |
-| DataView | [DataView](data-view.md) |  |
-| SystemCommunication | [SystemCommunication](system-communication.md) |  |
-| SystemCommunicationId | [SystemCommunication](system-communication.md) |  |
+| AccountParticipantSystemCommunication | [Related Entity](related-entity.md) | bd29e403-ba47-4688-be29-45a38ce8bd03 |
+| AccountParticipantSystemCommunication | [System Communication](system-communication.md) | d0cad7c0-10fe-41ef-b89d-e6f0d22456c4 |
+| AccountParticipantSystemCommunicationId | [Related Entity](related-entity.md) | bd29e403-ba47-4688-be29-45a38ce8bd03 |
+| AccountParticipantSystemCommunicationId | [System Communication](system-communication.md) | d0cad7c0-10fe-41ef-b89d-e6f0d22456c4 |
+| DataView | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| SystemCommunication | [System Communication](system-communication.md) | d0cad7c0-10fe-41ef-b89d-e6f0d22456c4 |
+| SystemCommunicationId | [System Communication](system-communication.md) | d0cad7c0-10fe-41ef-b89d-e6f0d22456c4 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | RunDaysOfWeek |  |
-| property_changed | AccountParticipantSystemCommunication | description |
-| property_changed | AccountParticipantSystemCommunicationId | description |
-| property_changed | RunDays | is_obsolete |
+No stable-to-pre-alpha changes were detected for this model.

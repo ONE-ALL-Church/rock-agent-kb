@@ -1,10 +1,10 @@
 # Analytics Source Date Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceDate`
-- EntityType GUID: `abe6dc7a-42af-479e-81d3-7bafcc416a9d`
+- EntityType GUID: `1a31a638-7740-48c9-b4cd-dee98562bdf8`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
 ## Summary
@@ -26,7 +26,7 @@
 | AgeBracket | yes | yes |  |  |  | Gets or sets the age bracket. This is a hard coded list of values defined in the code as an enumeration. |
 | CalendarMonth | yes | yes |  |  |  | Gets or sets the calendar month number. Numeric Month (Jan = 1) |
 | CalendarMonthName | yes | yes |  |  |  | Gets or sets the name of the calendar in month. Format: "MMMM" |
-| CalendarMonthNameAbbrevated | yes |  |  |  |  | [Obsoleted in v13] Use CalendarMonthNameAbbreviated instead Gets or sets the calendar in month name abbreviated. Format: "MMM" |
+| CalendarMonthNameAbbrevated | yes |  |  |  | yes | Gets or sets the calendar in month name abbreviated. Format: "MMM" |
 | CalendarMonthNameAbbreviated | yes | yes |  |  |  | Gets or sets the calendar in month name abbreviated. Format: "MMM" |
 | CalendarQuarter | yes | yes |  |  |  | Gets or sets the calendar quarter. Format: "Q{#}", for example "Q2" |
 | CalendarWeek | yes | yes |  |  |  | Gets or sets the calendar week number. |
@@ -50,7 +50,7 @@
 | EasterWeekIndicator | yes | yes |  |  |  | Gets or sets a value indicating whether [easter week indicator]. |
 | FiscalHalfYear | yes | yes |  |  |  | Gets or sets the fiscal half year. |
 | FiscalMonth | yes | yes |  |  |  | Gets or sets the fiscal month. |
-| FiscalMonthAbbrevated | yes |  |  |  |  | [Obsoleted in v13] Use FiscalMonthAbbreviated instead Gets or sets the fiscal month abbreviated. |
+| FiscalMonthAbbrevated | yes |  |  |  | yes | Gets or sets the fiscal month abbreviated. |
 | FiscalMonthAbbreviated | yes | yes |  |  |  | Gets or sets the fiscal month abbreviated. |
 | FiscalMonthNumberInYear | yes | yes |  |  |  | Gets or sets the fiscal month number in year. |
 | FiscalMonthYear | yes | yes |  |  |  | Gets or sets the name of the fiscal month year |

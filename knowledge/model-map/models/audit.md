@@ -1,7 +1,7 @@
 # Audit Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Audit`
 - EntityType GUID: `5de389e2-4e25-4bb0-8292-67a94ecb379b`
@@ -31,8 +31,8 @@
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityId | yes | yes |  | yes |  | Gets or sets the Id of the specific entity that was modified. This property is required. |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the entity that was modified. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the EntityType of entity that was modified. This property is required. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the entity that was modified. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the Entity Type of entity that was modified. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -55,7 +55,7 @@
 | --- | --- |
 | Details | Gets or sets the details. |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the entity that was modified. |
+| EntityType | Gets or sets the Entity Type of the entity that was modified. |
 | IdKey |  |
 | PersonAlias | Gets or sets the person alias. |
 | TypeId |  |
@@ -66,8 +66,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

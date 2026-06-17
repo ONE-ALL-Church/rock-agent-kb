@@ -1,7 +1,7 @@
 # AI Agent Session Anchor Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIAgentSessionAnchor`
 - EntityType GUID: `3ed1476a-b7fc-40e2-bbab-af084c82d7f1`

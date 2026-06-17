@@ -1,7 +1,7 @@
 # Attribute Matrix Template Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AttributeMatrixTemplate`
 - EntityType GUID: `20b90f35-70c1-4adc-a908-a4254c15373d`

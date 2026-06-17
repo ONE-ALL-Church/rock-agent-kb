@@ -1,7 +1,7 @@
 # Entity Search Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `EntitySearch`
 - EntityType GUID: `080374b4-c765-4f90-8b85-bc2635164275`
@@ -39,7 +39,7 @@
 | EntitySearchAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | EntityType |  | yes | yes |  |  | Gets or sets the Entity Type that will be queried by this search. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the EntityType that will be targeted by this search. This property is required. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Entity Type that will be targeted by this search. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -47,7 +47,7 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IncludePaths | yes | yes |  |  |  | Gets or sets the property paths to be included by Entity Framework. This is only valid when IsEntitySecurityEnabled is true . Example: GroupType,Members.Person |
+| IncludePaths | yes | yes |  |  |  | Gets or sets the property paths to be included by Entity Framework. This is only valid when IsEntitySecurityEnabled is true. Example: GroupType,Members.Person |
 | IsActive | yes | yes |  | yes |  | Gets or sets a value indicating whether this search is active. |
 | IsEntitySecurityEnabled | yes | yes |  |  |  | Gets or sets a value indicating whether this search will enforce entity security. Entity security has a pretty heafty performance hit and should only be used when it is actually needed. |
 | IsRefinementAllowed | yes | yes |  |  |  | Gets or sets a value indicating whether search query will allow custom refinement options in the form of an additional user query. |
@@ -96,7 +96,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityTypeId | [EntityType](entity-type.md) |  |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

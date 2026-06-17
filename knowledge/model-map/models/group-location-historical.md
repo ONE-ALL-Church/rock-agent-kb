@@ -1,7 +1,7 @@
 # Group Location Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupLocationHistorical`
 - EntityType GUID: `03128778-5e7d-4fe4-9c7a-929936e06f90`
@@ -44,11 +44,11 @@
 | ForeignKey | yes | yes |  |  |  |  |
 | Group |  | yes | yes |  |  | Gets or sets the Group for this group's location at this point in history |
 | GroupId | yes | yes |  |  |  | Gets or sets the Group id for this group's location at this point in history |
-| GroupLocation |  | yes | yes |  |  | Gets or sets the GroupLocation that this is a historical snapshot for |
+| GroupLocation |  | yes | yes |  |  | Gets or sets the Group Location that this is a historical snapshot for |
 | GroupLocationHistoricalAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | GroupLocationId | yes | yes |  |  |  | Gets or sets the group location identifier that this is a Historical snapshot for |
 | GroupLocationTypeName | yes | yes |  |  |  | Gets or sets the group's location type name at this point in history (Group.GroupLocation.GroupLocationTypeValue.Value) |
-| GroupLocationTypeValueId | yes | yes |  |  |  | Gets or sets the group location type value identifier for this group location at this point in history These are found in the "Location Type" Defined Type. |
+| GroupLocationTypeValueId | yes | yes |  |  |  | Gets or sets the group location type value identifier for this group location at this point in history These are found in the Location Type Defined Type. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -82,7 +82,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | Group | Gets or sets the Group for this group's location at this point in history |
-| GroupLocation | Gets or sets the GroupLocation that this is a historical snapshot for |
+| GroupLocation | Gets or sets the Group Location that this is a historical snapshot for |
 | IdKey |  |
 | Location | Gets or sets the Location of this group's location at this point in history |
 | ModifiedAuditValuesAlreadyUpdated |  |
@@ -96,12 +96,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| GroupLocation | [GroupLocation](group-location.md) |  |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
-| LocationName | [Location](location.md) |  |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupLocation | [Group Location](group-location.md) | 26248ee7-09f3-4578-a1d6-47e01d91d6ef |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationName | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
 
 ## Stable To Pre-Alpha Changes
 

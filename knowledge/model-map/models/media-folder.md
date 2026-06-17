@@ -1,7 +1,7 @@
 # Media Folder Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `MediaFolder`
 - EntityType GUID: `b28fc79f-9fee-4be4-801d-96b9246e6043`
@@ -15,8 +15,8 @@
 | Database-marked properties | 21 |
 | Lava-marked properties | 38 |
 | Lava-marked non-database properties | 17 |
-| Related model links | 5 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 4 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -53,7 +53,7 @@
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | MediaAccount |  | yes | yes |  |  | Gets or sets the Media Account that this MediaFolder belongs to. |
-| MediaAccountId | yes | yes |  | yes |  | Gets or sets the MediaAccountId of the MediaAccount that this MediaFolder belongs to. This property is required. |
+| MediaAccountId | yes | yes |  | yes |  | Gets or sets the MediaAccountId of the Media Account that this MediaFolder belongs to. This property is required. |
 | MediaElements |  | yes | yes |  |  | Gets or sets a collection containing the Elements that belong to this Folder. |
 | MediaFolderAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | MetricData | yes | yes |  |  |  | Gets or sets the custom provider metric data for this instance. |
@@ -73,8 +73,8 @@
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
 | ValidationResults |  |  | yes |  |  |  |
-| WorkflowType |  | yes | yes |  |  | Gets or sets the type of the workflow that will be launched when a new MediaElement is added. |
-| WorkflowTypeId | yes | yes |  |  |  | Gets or sets the workflow type identifier. This workflow is launched whenever a new MediaElement is added to the system. The MediaElement is passed as the Entity object to the workflow. |
+| WorkflowType |  | yes | yes |  |  | Gets or sets the type of the workflow that will be launched when a new Media Element is added. |
+| WorkflowTypeId | yes | yes |  |  |  | Gets or sets the workflow type identifier. This workflow is launched whenever a new Media Element is added to the system. The Media Element is passed as the Entity object to the workflow. |
 
 ## Lava-Marked Non-Database Properties
 
@@ -96,20 +96,17 @@
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
-| WorkflowType | Gets or sets the type of the workflow that will be launched when a new MediaElement is added. |
+| WorkflowType | Gets or sets the type of the workflow that will be launched when a new Media Element is added. |
 
 ## Related Model Map Links
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ContentChannelItemStatus | ContentChannelItemStatus |  |
-| MediaAccountId | [MediaAccount](media-account.md) |  |
-| MediaElements | Elements |  |
-| WorkflowType | [MediaElement](media-element.md) |  |
-| WorkflowTypeId | [MediaElement](media-element.md) |  |
+| MediaAccountId | [Media Account](media-account.md) | cd35f034-ac18-40d5-b703-6bf16d79c51c |
+| MediaElements | Elements | f4506b5d-f22c-4d3f-8205-fe48a9b7584b |
+| WorkflowType | [Media Element](media-element.md) | f4506b5d-f22c-4d3f-8205-fe48a9b7584b |
+| WorkflowTypeId | [Media Element](media-element.md) | f4506b5d-f22c-4d3f-8205-fe48a9b7584b |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | ContentChannelItemStatus | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

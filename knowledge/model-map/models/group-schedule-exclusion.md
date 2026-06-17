@@ -1,7 +1,7 @@
 # Group Schedule Exclusion Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupScheduleExclusion`
 - EntityType GUID: `047d57ee-1b06-455f-86ea-d96b8325c77d`
@@ -41,8 +41,8 @@
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
 | GroupScheduleExclusionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| GroupType |  | yes | yes |  |  | Gets or sets the GroupType that this Group is a member of. |
-| GroupTypeId | yes | yes |  |  |  | Gets or sets the GroupType identifier. |
+| GroupType |  | yes | yes |  |  | Gets or sets the Group Type that this Group is a member of. |
+| GroupTypeId | yes | yes |  |  |  | Gets or sets the Group Type identifier. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -72,7 +72,7 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| GroupType | Gets or sets the GroupType that this Group is a member of. |
+| GroupType | Gets or sets the Group Type that this Group is a member of. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -85,8 +85,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| GroupType | [GroupType](group-type.md) |  |
-| GroupTypeId | [GroupType](group-type.md) |  |
+| GroupType | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| GroupTypeId | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
 
 ## Stable To Pre-Alpha Changes
 

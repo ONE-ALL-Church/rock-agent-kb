@@ -10,12 +10,12 @@ Generated stable-track slice for Rock models in the `CRM` category.
 | [Badge](../models/badge.md) | Badge | 46 | 17 | 31 | 29 | 0 |
 | [Identity Verification](../models/identity-verification.md) | IdentityVerification | 42 | 14 | 26 | 28 | 0 |
 | [Identity Verification Code](../models/identity-verification-code.md) | IdentityVerificationCode | 38 | 11 | 23 | 27 | 0 |
-| [Person](../models/person.md) | Person | 203 | 72 | 123 | 71 | 0 |
+| [Person](../models/person.md) | Person | 148 | 77 | 125 | 71 | 2 |
 | [Person Alias](../models/person-alias.md) | PersonAlias | 26 | 12 | 16 | 14 | 0 |
 | [Person Duplicate](../models/person-duplicate.md) | PersonDuplicate | 47 | 18 | 32 | 29 | 0 |
 | [Person Previous Name](../models/person-previous-name.md) | PersonPreviousName | 39 | 11 | 24 | 28 | 0 |
-| [Person Search Key](../models/person-search-key.md) | PersonSearchKey | 44 | 13 | 27 | 29 | 0 |
+| [Person Search Key](../models/person-search-key.md) | PersonSearchKey | 42 | 13 | 27 | 29 | 0 |
 | [Person Viewed](../models/person-viewed.md) | PersonViewed | 24 | 10 | 17 | 14 | 0 |
-| [Personal Device](../models/personal-device.md) | PersonalDevice | 66 | 28 | 41 | 30 | 0 |
+| [Personal Device](../models/personal-device.md) | PersonalDevice | 59 | 28 | 42 | 31 | 0 |
 | [Phone Number](../models/phone-number.md) | PhoneNumber | 53 | 23 | 37 | 30 | 0 |
-| [User Login](../models/user-login.md) | UserLogin | 59 | 25 | 42 | 34 | 0 |
+| [User Login](../models/user-login.md) | UserLogin | 61 | 27 | 44 | 34 | 0 |

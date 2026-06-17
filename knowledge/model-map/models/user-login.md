@@ -1,7 +1,7 @@
 # User Login Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `UserLogin`
 - EntityType GUID: `0fa592f1-728c-4885-be38-60ed6c0d834f`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 59 |
-| Database-marked properties | 25 |
-| Lava-marked properties | 42 |
+| Properties | 61 |
+| Database-marked properties | 27 |
+| Lava-marked properties | 44 |
 | Lava-marked non-database properties | 18 |
 | Related model links | 4 |
-| Pre-alpha changes touching this model | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -24,6 +24,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | ApiKey | yes | yes |  |  |  | Gets or sets the API key associated with the UserLogin |
+| ApiKeyPurpose | yes | yes |  |  |  | Gets or sets the purpose for which the API key is intended. This is a hard coded list of values defined in the code as an enumeration. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -37,10 +38,11 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
+| Description | yes | yes |  |  |  | Gets or sets the description associated with the UserLogin. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType for the authentication service that this UserLogin user. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the EntityType for the authentication service that this UserLogin user will use. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type for the authentication service that this UserLogin user. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the Entity Type for the authentication service that this UserLogin user will use. |
 | FailedPasswordAttemptCount | yes | yes |  |  |  | Gets or sets the number of failed password attempts within the failed password attempt window. |
 | FailedPasswordAttemptWindowStartDateTime | yes | yes |  |  |  | Gets or sets the failed password attempt window start date time. |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -93,7 +95,7 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType for the authentication service that this UserLogin user. |
+| EntityType | Gets or sets the Entity Type for the authentication service that this UserLogin user. |
 | IdKey |  |
 | IsAuthenticated | Gets a flag indicating if the User authenticated with their last interaction with Rock (versus using an impersonation link). |
 | IsPasswordless | Returns a boolean indicating if this is a passwordless user. |
@@ -109,14 +111,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| Person | [Person](person.md) |  |
-| PersonId | [Person](person.md) |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| Person | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | ApiKeyPurpose |  |
-| property_added | Description |  |
+No stable-to-pre-alpha changes were detected for this model.

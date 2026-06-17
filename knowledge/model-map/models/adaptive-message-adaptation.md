@@ -1,7 +1,7 @@
 # Adaptive Message Adaptation Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `AdaptiveMessageAdaptation`
 - EntityType GUID: `39753cce-184a-4f14-ae80-08241de8fc2e`
@@ -40,7 +40,7 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | Description | yes | yes |  |  |  | Gets or sets the description. |
 | EncryptedKey |  |  | yes |  |  |  |
-| EndDate | yes | yes |  |  |  | Gets or sets the end date of the AdaptiveMessageAdaptation. |
+| EndDate | yes | yes |  |  |  | Gets or sets the end date of the Adaptive Message Adaptation. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -61,7 +61,7 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| StartDate | yes | yes |  |  |  | Gets or sets the optional start date of the AdaptiveMessageAdaptation. |
+| StartDate | yes | yes |  |  |  | Gets or sets the optional start date of the Adaptive Message Adaptation. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -93,8 +93,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EndDate | [AdaptiveMessageAdaptation](adaptive-message-adaptation.md) |  |
-| StartDate | [AdaptiveMessageAdaptation](adaptive-message-adaptation.md) |  |
+| EndDate | [Adaptive Message Adaptation](adaptive-message-adaptation.md) | 39753cce-184a-4f14-ae80-08241de8fc2e |
+| StartDate | [Adaptive Message Adaptation](adaptive-message-adaptation.md) | 39753cce-184a-4f14-ae80-08241de8fc2e |
 
 ## Stable To Pre-Alpha Changes
 

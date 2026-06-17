@@ -1,7 +1,7 @@
 # Schedule Category Exclusion Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `ScheduleCategoryExclusion`
 - EntityType GUID: `e04681eb-7a85-441b-b794-82b025ffb5d4`

@@ -1,7 +1,7 @@
 # Binary File Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `BinaryFile`
 - EntityType GUID: `9bb1a349-5998-47c1-97d5-d6cc00275662`
@@ -29,8 +29,8 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | BinaryFileAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| BinaryFileType |  | yes | yes |  |  | Gets or sets the BinaryFileType of the file. |
-| BinaryFileTypeId | yes | yes |  |  |  | Gets or sets the id of the BinaryFileType that this file belongs to. |
+| BinaryFileType |  | yes | yes |  |  | Gets or sets the Binary File Type of the file. |
+| BinaryFileTypeId | yes | yes |  |  |  | Gets or sets the id of the Binary File Type that this file belongs to. |
 | ContentLastModified | yes | yes |  |  |  | Gets or sets the content last modified. |
 | ContentStream |  |  | yes |  |  | Gets or sets the content stream. |
 | ContextKey |  |  | yes |  |  |  |
@@ -40,7 +40,7 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DatabaseData |  | yes | yes |  |  | Gets or sets a BinaryFileData that contains the content of the file. This object can be used for temporary storage or be persisted to the database. |
+| DatabaseData |  | yes | yes |  |  | Gets or sets a Binary File Data that contains the content of the file. This object can be used for temporary storage or be persisted to the database. |
 | Description | yes | yes |  |  |  | Gets or sets a user defined description of the file. |
 | Document |  | yes | yes |  |  | Gets or sets the document. |
 | EncryptedKey |  |  | yes |  |  |  |
@@ -71,7 +71,7 @@
 | ParentEntityTypeId | yes | yes |  |  |  | Gets or sets the Parent EntityType ID to determine security access. |
 | Path | yes | yes |  |  |  | Gets or sets a path to the file that is understandable by the storage provider. |
 | StorageEntitySettings | yes |  |  |  |  | Gets or sets the storage entity settings. |
-| StorageEntityTypeId | yes | yes |  |  |  | Gets the Id of the Storage Service EntityType that is used to store this file. |
+| StorageEntityTypeId | yes | yes |  |  |  | Gets the Id of the Storage Service Entity Type that is used to store this file. |
 | StorageProvider |  | yes | yes |  |  | Gets the storage provider. |
 | StorageSettings |  |  | yes |  |  | Gets the storage settings. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -88,10 +88,10 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BinaryFileType | Gets or sets the BinaryFileType of the file. |
+| BinaryFileType | Gets or sets the Binary File Type of the file. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DatabaseData | Gets or sets a BinaryFileData that contains the content of the file. This object can be used for temporary storage or be persisted to the database. |
+| DatabaseData | Gets or sets a Binary File Data that contains the content of the file. This object can be used for temporary storage or be persisted to the database. |
 | Document | Gets or sets the document. |
 | EntityStringValue |  |
 | IdKey |  |
@@ -108,10 +108,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFileType | [BinaryFileType](binary-file-type.md) |  |
-| BinaryFileTypeId | [BinaryFileType](binary-file-type.md) |  |
-| DatabaseData | [BinaryFileData](binary-file-data.md) |  |
-| StorageEntityTypeId | [EntityType](entity-type.md) |  |
+| BinaryFileType | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| BinaryFileTypeId | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| DatabaseData | [Binary File Data](binary-file-data.md) | ea647542-1e0f-4dae-9537-65e3ffee8792 |
+| StorageEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Binary File Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `BinaryFileType`
 - EntityType GUID: `62af597f-f193-412b-94ea-291cf713327d`
@@ -31,7 +31,7 @@
 | BinaryFileTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | CacheControlHeader |  |  | yes |  |  | Gets the cache control header. |
 | CacheControlHeaderSettings | yes | yes |  |  |  | Gets or sets the cache control header settings. |
-| CacheToServerFileSystem | yes | yes |  |  |  | Gets or sets a flag indicating whether the file on any BinaryFile child entities should be cached to the server. |
+| CacheToServerFileSystem | yes | yes |  |  |  | Gets or sets a flag indicating whether the file on any Binary File child entities should be cached to the server. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -42,8 +42,8 @@
 | Description | yes | yes |  |  |  | Gets or sets a description of the BinaryFileType. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| FileCount |  |  | yes |  |  | Gets the count of BinaryFile entities that are children of this BinaryFileType. |
-| FileQuery |  |  | yes |  |  | Gets a queryable collection of BinaryFile entities that are children of this BinaryFileType. |
+| FileCount |  |  | yes |  |  | Gets the count of Binary File entities that are children of this Binary File Type. |
+| FileQuery |  |  | yes |  |  | Gets a queryable collection of Binary File entities that are children of this Binary File Type. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -71,8 +71,8 @@
 | PreferredRequired | yes | yes |  |  |  | Gets or sets a value indicating whether the preferred attributes of the file type are required |
 | PreferredResolution | yes | yes |  |  |  | Gets or sets the preferred resolution of the file type. This is a hard coded list of values defined in the code as an enumeration. |
 | RequiresViewSecurity | yes | yes |  |  |  | Gets or sets a value indicating whether security should be checked when displaying files of this type |
-| StorageEntityType |  | yes | yes |  |  | Gets or sets the storage mode EntityType. |
-| StorageEntityTypeId | yes | yes |  |  |  | Gets or sets the Id of the storage service EntityType that is used to store files of this type. |
+| StorageEntityType |  | yes | yes |  |  | Gets or sets the storage mode Entity Type. |
+| StorageEntityTypeId | yes | yes |  |  |  | Gets or sets the Id of the storage service Entity Type that is used to store files of this type. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -92,7 +92,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| StorageEntityType | Gets or sets the storage mode EntityType. |
+| StorageEntityType | Gets or sets the storage mode Entity Type. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -101,13 +101,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| CacheToServerFileSystem | [BinaryFile](binary-file.md) |  |
-| FileCount | [BinaryFile](binary-file.md) |  |
-| FileCount | [BinaryFileType](binary-file-type.md) |  |
-| FileQuery | [BinaryFile](binary-file.md) |  |
-| FileQuery | [BinaryFileType](binary-file-type.md) |  |
-| StorageEntityType | [EntityType](entity-type.md) |  |
-| StorageEntityTypeId | [EntityType](entity-type.md) |  |
+| CacheToServerFileSystem | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| FileCount | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| FileCount | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| FileQuery | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| FileQuery | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| StorageEntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| StorageEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

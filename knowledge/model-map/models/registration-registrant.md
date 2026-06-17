@@ -1,7 +1,7 @@
 # Registration Registrant Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationRegistrant`
 - EntityType GUID: `8a25e5ce-1b4f-4825-bcea-216167836305`
@@ -44,8 +44,8 @@
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
-| GroupMember |  | yes | yes |  |  | Gets or sets the GroupMember. |
-| GroupMemberId | yes | yes |  |  |  | Gets or sets the GroupMember identifier. |
+| GroupMember |  | yes | yes |  |  | Gets or sets the Group Member. |
+| GroupMemberId | yes | yes |  |  |  | Gets or sets the Group Member identifier. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -63,15 +63,15 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | Person |  | yes | yes |  |  | Gets the Person. |
-| PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias. |
-| PersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAlias identifier. |
+| PersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias. |
+| PersonAliasId | yes | yes |  |  |  | Gets or sets the Person Alias identifier. |
 | PersonId |  |  | yes |  |  | Gets the Person identifier. |
 | Registration |  | yes | yes |  |  | Gets or sets the Registration. |
 | RegistrationId | yes | yes |  |  |  | Gets or sets the Registration identifier. |
 | RegistrationRegistrantAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| RegistrationTemplateId | yes | yes |  | yes |  | Gets or sets the RegistrationTemplate identifier. |
-| SignatureDocument |  |  | yes |  |  | Gets or sets the optional SignatureDocument that may be associated with the Registrant. |
-| SignatureDocumentId | yes | yes |  |  |  | Gets or sets the id of the optional SignatureDocument that may be associated with the Registrant. |
+| RegistrationTemplateId | yes | yes |  | yes |  | Gets or sets the Registration Template identifier. |
+| SignatureDocument |  |  | yes |  |  | Gets or sets the optional Signature Document that may be associated with the Registrant. |
+| SignatureDocumentId | yes | yes |  |  |  | Gets or sets the id of the optional Signature Document that may be associated with the Registrant. |
 | SupportedActions |  |  | yes |  |  |  |
 | TotalCost |  | yes | yes |  |  | Gets the cost with fees. |
 | TypeId |  | yes | yes |  |  |  |
@@ -91,7 +91,7 @@
 | EntityStringValue |  |
 | Fees | Gets or sets the fees. |
 | FirstName | Gets the first name. |
-| GroupMember | Gets or sets the GroupMember. |
+| GroupMember | Gets or sets the Group Member. |
 | IdKey |  |
 | LastName | Gets the last name. |
 | ModifiedAuditValuesAlreadyUpdated |  |
@@ -99,7 +99,7 @@
 | ModifiedByPersonName |  |
 | NickName | Gets the name of the nick. |
 | Person | Gets the Person. |
-| PersonAlias | Gets or sets the PersonAlias. |
+| PersonAlias | Gets or sets the Person Alias. |
 | Registration | Gets or sets the Registration. |
 | TotalCost | Gets the cost with fees. |
 | TypeId |  |
@@ -110,17 +110,17 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| GroupMember | [GroupMember](group-member.md) |  |
-| GroupMemberId | [GroupMember](group-member.md) |  |
-| Person | [Person](person.md) |  |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
-| PersonAliasId | [PersonAlias](person-alias.md) |  |
-| PersonId | [Person](person.md) |  |
-| Registration | [Registration](registration.md) |  |
-| RegistrationId | [Registration](registration.md) |  |
-| RegistrationTemplateId | [RegistrationTemplate](registration-template.md) |  |
-| SignatureDocument | [SignatureDocument](signature-document.md) |  |
-| SignatureDocumentId | [SignatureDocument](signature-document.md) |  |
+| GroupMember | [Group Member](group-member.md) | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
+| GroupMemberId | [Group Member](group-member.md) | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
+| Person | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| PersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Registration | [Registration](registration.md) | d2f294c6-e161-4a56-85c7-cd74d535f61a |
+| RegistrationId | [Registration](registration.md) | d2f294c6-e161-4a56-85c7-cd74d535f61a |
+| RegistrationTemplateId | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
+| SignatureDocument | [Signature Document](signature-document.md) | c1724719-1c03-4d0c-8a66-e3545138f57f |
+| SignatureDocumentId | [Signature Document](signature-document.md) | c1724719-1c03-4d0c-8a66-e3545138f57f |
 
 ## Stable To Pre-Alpha Changes
 

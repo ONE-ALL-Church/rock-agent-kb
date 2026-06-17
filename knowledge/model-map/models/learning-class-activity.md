@@ -1,7 +1,7 @@
 # Learning Class Activity Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningClassActivity`
 - EntityType GUID: `e82f540c-f483-4d4a-898a-3ae7ff76f75a`
@@ -29,12 +29,12 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailabilityCriteria | yes | yes |  |  |  | The method used for determining the AvailableDate of the activity. This is a hard coded list of values defined in the code as an enumeration. |
 | AvailableDateCalculated | yes |  |  |  |  | The result of the calculated available date. |
-| AvailableDateDefault | yes | yes |  |  |  | Gets or sets the default date the activity is available for the LearningParticipant to complete. |
+| AvailableDateDefault | yes | yes |  |  |  | Gets or sets the default date the activity is available for the Learning Participant to complete. |
 | AvailableDateDescription | yes |  |  |  |  | Attempts to calculate the available date or provides a textual description if unable to calculate. |
 | AvailableDateOffset | yes | yes |  |  |  | The optional offset to use for calculating the AvailableDate. |
 | AvailableKeys |  |  | yes |  |  |  |
-| CompletionWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType for the activity. |
-| CompletionWorkflowTypeId | yes | yes |  |  |  | Gets or sets the id of the WorkflowType that's triggered when the activity is completed. |
+| CompletionWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type for the activity. |
+| CompletionWorkflowTypeId | yes | yes |  |  |  | Gets or sets the id of the Workflow Type that's triggered when the activity is completed. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -56,16 +56,16 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IsPastDue | yes |  |  |  |  | true if the calculated due date is in the past; otherwise false . |
+| IsPastDue | yes |  |  |  |  | true if the calculated due date is in the past; otherwise false. |
 | IsStudentCommentingEnabled | yes | yes |  |  |  | Indicates whether or not this activity allows students to comment. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | LearningActivity |  | yes | yes |  |  | Gets or sets the LearningActivity for the class activity. |
-| LearningActivityId | yes | yes |  |  |  | Gets or sets the id of the LearningActivity this activity gets its configuration from. |
+| LearningActivityId | yes | yes |  |  |  | Gets or sets the id of the Learning Activity this activity gets its configuration from. |
 | LearningClass |  | yes | yes |  |  | Gets or sets the LearningClass for the activity. |
 | LearningClassActivityAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| LearningClassActivityCompletions |  |  | yes |  |  | Gets or sets a collection of LearningClassActivityCompletion records for this activity. |
-| LearningClassId | yes | yes |  |  |  | Gets or sets the id of the LearningClass this activity belongs to. |
+| LearningClassActivityCompletions |  |  | yes |  |  | Gets or sets a collection of Learning Class Activity Completion records for this activity. |
+| LearningClassId | yes | yes |  |  |  | Gets or sets the id of the Learning Class this activity belongs to. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
 | ModifiedByPersonAliasId | yes | yes |  |  |  |  |
@@ -91,7 +91,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| CompletionWorkflowType | Gets or sets the WorkflowType for the activity. |
+| CompletionWorkflowType | Gets or sets the Workflow Type for the activity. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -109,15 +109,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AvailableDateDefault | activity |  |
-| AvailableDateDefault | [LearningParticipant](learning-participant.md) |  |
-| CompletionWorkflowType | [WorkflowType](workflow-type.md) |  |
-| CompletionWorkflowTypeId | [WorkflowType](workflow-type.md) |  |
-| DueDateDefault | activity |  |
-| LearningActivityId | [LearningActivity](learning-activity.md) |  |
-| LearningClassActivityCompletions | [LearningClassActivityCompletion](learning-class-activity-completion.md) |  |
-| LearningClassId | [LearningClass](learning-class.md) |  |
-| TaskBinaryFileId | TaskBinaryFile |  |
+| AvailableDateDefault | activity | e82f540c-f483-4d4a-898a-3ae7ff76f75a |
+| AvailableDateDefault | [Learning Participant](learning-participant.md) | 03195758-1770-4794-9487-7a4aa02930a7 |
+| CompletionWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| CompletionWorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| DueDateDefault | activity | e82f540c-f483-4d4a-898a-3ae7ff76f75a |
+| LearningActivityId | [Learning Activity](learning-activity.md) | 98b98fa8-a92d-4e10-aa3e-b3082e61976f |
+| LearningClassActivityCompletions | [Learning Class Activity Completion](learning-class-activity-completion.md) | 14d1295a-ce9e-4fcb-a63c-6df04db5e9b1 |
+| LearningClassId | [Learning Class](learning-class.md) | eb41e4e1-64b1-4aa1-8f66-f0dfd81557d9 |
+| TaskBinaryFileId | TaskBinaryFile | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 
 ## Stable To Pre-Alpha Changes
 

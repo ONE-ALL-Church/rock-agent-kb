@@ -1,7 +1,7 @@
 # Financial Pledge Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialPledge`
 - EntityType GUID: `ce8060e6-21e7-49f5-bfbe-f632c816c232`
@@ -16,14 +16,14 @@
 | Lava-marked properties | 36 |
 | Lava-marked non-database properties | 18 |
 | Related model links | 7 |
-| Pre-alpha changes touching this model | 0 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| Account |  | yes | yes |  |  | Gets or sets the FinancialAccount or account that the pledge is being directed toward. |
-| AccountId | yes | yes |  |  |  | Gets or sets the AccountId of the FinancialAccount that the pledge is directed toward. |
+| Account |  | yes | yes |  |  | Gets or sets the Financial Account or account that the pledge is being directed toward. |
+| AccountId | yes | yes |  |  |  | Gets or sets the AccountId of the Financial Account that the pledge is directed toward. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
@@ -60,10 +60,10 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias. |
+| PersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias. |
 | PersonAliasId | yes | yes |  |  |  | Gets or sets the person alias identifier. |
-| PledgeFrequencyValue |  | yes | yes |  |  | Gets or sets the pledge frequency DefinedValue. This is how often the Person who is making the pledge promises to give the TotalAmount |
-| PledgeFrequencyValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the pledge frequency DefinedValue representing how often the pledgor is promising to give a portion of the pledge amount. These are found in the "Recurring Transaction Frequency" Defined Type. |
+| PledgeFrequencyValue |  | yes | yes |  |  | Gets or sets the pledge frequency Defined Value. This is how often the Person who is making the pledge promises to give the TotalAmount |
+| PledgeFrequencyValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the pledge frequency Defined Value representing how often the pledgor is promising to give a portion of the pledge amount. These are found in the Recurring Transaction Frequency Defined Type. |
 | StartDate | yes | yes |  |  |  | Gets or sets the start date of the pledge period. |
 | StartDateKey | yes | yes |  |  |  | Gets the start date key. |
 | StartSourceDate |  | yes | yes |  |  | Gets or sets the start source date. |
@@ -78,7 +78,7 @@
 
 | Property | Description |
 | --- | --- |
-| Account | Gets or sets the FinancialAccount or account that the pledge is being directed toward. |
+| Account | Gets or sets the Financial Account or account that the pledge is being directed toward. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -90,8 +90,8 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PersonAlias | Gets or sets the PersonAlias. |
-| PledgeFrequencyValue | Gets or sets the pledge frequency DefinedValue. This is how often the Person who is making the pledge promises to give the TotalAmount |
+| PersonAlias | Gets or sets the Person Alias. |
+| PledgeFrequencyValue | Gets or sets the pledge frequency Defined Value. This is how often the Person who is making the pledge promises to give the TotalAmount |
 | StartSourceDate | Gets or sets the start source date. |
 | TypeId |  |
 | TypeName |  |
@@ -101,14 +101,16 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Account | [FinancialAccount](financial-account.md) |  |
-| AccountId | [FinancialAccount](financial-account.md) |  |
-| Group | [Group](group.md) |  |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
-| PledgeFrequencyValue | [DefinedValue](defined-value.md) |  |
-| PledgeFrequencyValue | [Person](person.md) |  |
-| PledgeFrequencyValueId | [DefinedValue](defined-value.md) |  |
+| Account | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| AccountId | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| PledgeFrequencyValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| PledgeFrequencyValue | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PledgeFrequencyValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 
-No stable-to-pre-alpha changes were detected for this model.
+| Change | Property | Fields |
+| --- | --- | --- |
+| property_changed | PledgeFrequencyValueId | enum_values |

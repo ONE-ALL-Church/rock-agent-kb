@@ -1,7 +1,7 @@
 # Learning Program Completion Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningProgramCompletion`
 - EntityType GUID: `b82813a7-e70e-4f04-8568-0d84efb484b2`
@@ -38,7 +38,7 @@
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
-| EndDate | yes | yes |  |  |  | Gets or sets the date the student completed the LearningProgram. |
+| EndDate | yes | yes |  |  |  | Gets or sets the date the student completed the Learning Program. |
 | EndDateKey | yes | yes |  |  |  | Gets the end date key used for indexing. Only the date portion of EndDate is used when calculating this. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -51,7 +51,7 @@
 | Item |  |  | yes |  |  |  |
 | LearningProgram |  | yes | yes |  |  | Gets or sets the LearningProgram of the student program instance. |
 | LearningProgramCompletionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| LearningProgramId | yes | yes |  |  |  | Gets or sets the Id of the related LearningProgram |
+| LearningProgramId | yes | yes |  |  |  | Gets or sets the Id of the related Learning Program |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
 | ModifiedByPersonAliasId | yes | yes |  |  |  |  |
@@ -61,8 +61,8 @@
 | ParentAuthority |  |  | yes |  |  | Gets the parent authority. |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias that's completing the program. |
-| PersonAliasId | yes | yes |  | yes |  | Gets or sets the Id of the PersonAlias who this completion is for. |
-| StartDate | yes | yes |  |  |  | Gets or sets the date the student started the LearningProgram. |
+| PersonAliasId | yes | yes |  | yes |  | Gets or sets the Id of the Person Alias who this completion is for. |
+| StartDate | yes | yes |  |  |  | Gets or sets the date the student started the Learning Program. |
 | StartDateKey | yes | yes |  |  |  | Gets the start date key used for indexing. Only the date portion of StartDate is used when calculating this. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -94,11 +94,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| CampusId | [Campus](campus.md) |  |
-| EndDate | [LearningProgram](learning-program.md) |  |
-| LearningProgramId | [LearningProgram](learning-program.md) |  |
-| PersonAliasId | [PersonAlias](person-alias.md) |  |
-| StartDate | [LearningProgram](learning-program.md) |  |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| EndDate | [Learning Program](learning-program.md) | afd89885-6923-4fa1-b6fe-a1df8d821bbc |
+| LearningProgramId | [Learning Program](learning-program.md) | afd89885-6923-4fa1-b6fe-a1df8d821bbc |
+| PersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| StartDate | [Learning Program](learning-program.md) | afd89885-6923-4fa1-b6fe-a1df8d821bbc |
 
 ## Stable To Pre-Alpha Changes
 

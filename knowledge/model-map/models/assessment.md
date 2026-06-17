@@ -1,7 +1,7 @@
 # Assessment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `Assessment`
 - EntityType GUID: `6dcd8ff0-4bfd-4af7-8f4f-e387934775a3`
@@ -25,8 +25,8 @@
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AssessmentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | AssessmentResultData | yes | yes |  |  |  | Gets or sets the result data for the Assessment taken. |
-| AssessmentType |  | yes | yes |  |  | Gets or sets the AssessmentType that represents the type of the assessment. |
-| AssessmentTypeId | yes | yes |  | yes |  | Gets or sets the Id of the AssessmentType |
+| AssessmentType |  | yes | yes |  |  | Gets or sets the Assessment Type that represents the type of the assessment. |
+| AssessmentTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Assessment Type |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -75,7 +75,7 @@
 
 | Property | Description |
 | --- | --- |
-| AssessmentType | Gets or sets the AssessmentType that represents the type of the assessment. |
+| AssessmentType | Gets or sets the Assessment Type that represents the type of the assessment. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -95,12 +95,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AssessmentType | [AssessmentType](assessment-type.md) |  |
-| AssessmentTypeId | [AssessmentType](assessment-type.md) |  |
-| PersonAlias | [Person](person.md) |  |
-| PersonAliasId | [Person](person.md) |  |
-| RequesterPersonAlias | [Person](person.md) |  |
-| RequesterPersonAliasId | [Person](person.md) |  |
+| AssessmentType | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| AssessmentTypeId | [Assessment Type](assessment-type.md) | d17a28ac-f529-4ab0-a790-c21f9e74ac89 |
+| PersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| RequesterPersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| RequesterPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Connection Request Workflow Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionRequestWorkflow`
 - EntityType GUID: `c69d1c9f-5521-4c83-8fe9-5044ecc2ce65`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 29 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 6 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -27,11 +27,11 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ConnectionRequest |  | yes | yes |  |  | Gets or sets the ConnectionRequest. |
-| ConnectionRequestId | yes | yes |  | yes |  | Gets or sets the ConnectionRequest identifier. |
+| ConnectionRequest |  | yes | yes |  |  | Gets or sets the Connection Request. |
+| ConnectionRequestId | yes | yes |  | yes |  | Gets or sets the Connection Request identifier. |
 | ConnectionRequestWorkflowAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ConnectionWorkflow |  | yes | yes |  |  | Gets or sets the ConnectionWorkflow. |
-| ConnectionWorkflowId | yes | yes |  | yes |  | Gets or sets the ConnectionWorkflow identifier. |
+| ConnectionWorkflow |  | yes | yes |  |  | Gets or sets the Connection Workflow. |
+| ConnectionWorkflowId | yes | yes |  | yes |  | Gets or sets the Connection Workflow identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -73,8 +73,8 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ConnectionRequest | Gets or sets the ConnectionRequest. |
-| ConnectionWorkflow | Gets or sets the ConnectionWorkflow. |
+| ConnectionRequest | Gets or sets the Connection Request. |
+| ConnectionWorkflow | Gets or sets the Connection Workflow. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -91,15 +91,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ConnectionRequest | [ConnectionRequest](connection-request.md) |  |
-| ConnectionRequestId | [ConnectionRequest](connection-request.md) |  |
-| ConnectionWorkflow | [ConnectionWorkflow](connection-workflow.md) |  |
-| ConnectionWorkflowId | [ConnectionWorkflow](connection-workflow.md) |  |
-| Workflow | [Workflow](workflow.md) |  |
-| WorkflowId | [Workflow](workflow.md) |  |
+| ConnectionRequest | [Connection Request](connection-request.md) | 36b0d0c7-8125-48fa-9da2-729aaa65f718 |
+| ConnectionRequestId | [Connection Request](connection-request.md) | 36b0d0c7-8125-48fa-9da2-729aaa65f718 |
+| ConnectionWorkflow | [Connection Workflow](connection-workflow.md) | 4eb8711f-7301-4699-a223-0505a7ceb20a |
+| ConnectionWorkflowId | [Connection Workflow](connection-workflow.md) | 4eb8711f-7301-4699-a223-0505a7ceb20a |
+| Workflow | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
+| WorkflowId | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | TriggerType | enum_values |
+No stable-to-pre-alpha changes were detected for this model.

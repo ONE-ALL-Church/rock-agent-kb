@@ -1,7 +1,7 @@
 # Following Event Notification Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `FollowingEventNotification`
 - EntityType GUID: `21ba6002-1fb0-45c7-bca6-d6629ec8ab52`

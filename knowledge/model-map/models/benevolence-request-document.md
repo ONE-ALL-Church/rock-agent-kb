@@ -1,7 +1,7 @@
 # Benevolence Request Document Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `BenevolenceRequestDocument`
 - EntityType GUID: `3d627f51-e262-454b-95a0-2ef97103bce1`
@@ -27,10 +27,10 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| BenevolenceRequest |  | yes | yes |  |  | Gets or sets the BenevolenceRequest. |
+| BenevolenceRequest |  | yes | yes |  |  | Gets or sets the Benevolence Request. |
 | BenevolenceRequestDocumentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | BenevolenceRequestId | yes | yes |  | yes |  | Gets or sets the benevolence request identifier. |
-| BinaryFile |  | yes | yes |  |  | Gets or sets the BinaryFile. |
+| BinaryFile |  | yes | yes |  |  | Gets or sets the Binary File. |
 | BinaryFileId | yes | yes |  | yes |  | Gets or sets the binary file id. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -70,8 +70,8 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BenevolenceRequest | Gets or sets the BenevolenceRequest. |
-| BinaryFile | Gets or sets the BinaryFile. |
+| BenevolenceRequest | Gets or sets the Benevolence Request. |
+| BinaryFile | Gets or sets the Binary File. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -87,8 +87,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BenevolenceRequest | [BenevolenceRequest](benevolence-request.md) |  |
-| BinaryFile | [BinaryFile](binary-file.md) |  |
+| BenevolenceRequest | [Benevolence Request](benevolence-request.md) | cf0ce5c1-9286-4310-9b50-10d040f8ebd2 |
+| BinaryFile | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 
 ## Stable To Pre-Alpha Changes
 

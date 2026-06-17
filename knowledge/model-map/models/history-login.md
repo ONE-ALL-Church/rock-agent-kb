@@ -1,7 +1,7 @@
 # History Login Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Security`
 - Model title: `HistoryLogin`
 - EntityType GUID: `b0c039e1-d2b0-460a-a787-83565bcb665c`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 12 |
 | Related model links | 4 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -60,16 +60,16 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PersonAlias |  |  | yes |  |  | Gets or sets the PersonAlias that is associated with this login history. |
+| PersonAlias |  |  | yes |  |  | Gets or sets the Person Alias that is associated with this login history. |
 | PersonAliasId | yes | yes |  |  |  | Gets or sets the Id of the PersonAlias that is associated with this login history. |
-| RelatedDataJson | yes | yes |  |  |  | Gets or sets any related data. DO NOT read from or write to this property directly. Instead, use the and methods to ensure data is properly serialized and deserialized to and from this property. |
+| RelatedDataJson | yes | yes |  |  |  | Gets or sets any related data. DO NOT read from or write to this property directly. Instead, use the GetRelatedDataOrNull() and SetRelatedDataJson(Rock.Security.HistoryLoginRelatedData)() methods to ensure data is properly serialized and deserialized to and from this property. |
 | SourceSite |  |  | yes |  |  | Gets or sets the Site that is associated with this login history. |
 | SourceSiteId | yes | yes |  |  |  | Gets or sets the Id of the source Site that is associated with this login history. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
-| UserLogin |  |  | yes |  |  | Gets or sets the UserLogin that is associated with this login history. |
+| UserLogin |  |  | yes |  |  | Gets or sets the User Login that is associated with this login history. |
 | UserLoginId | yes | yes |  |  |  | Gets or sets the Id of the UserLogin that is associated with this login history. |
 | UserName | yes | yes |  |  |  | Gets or sets the UserName. |
 | ValidationResults |  |  | yes |  |  |  |
@@ -96,13 +96,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
-| SourceSite | [Site](site.md) |  |
-| SourceSiteId | [Site](site.md) |  |
-| UserLogin | [UserLogin](user-login.md) |  |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| SourceSite | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| SourceSiteId | [Site](site.md) | 7244c10b-5d87-467b-a7f5-12dc29910ca8 |
+| UserLogin | [User Login](user-login.md) | 0fa592f1-728c-4885-be38-60ed6c0d834f |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | RelatedDataJson | description |
+No stable-to-pre-alpha changes were detected for this model.

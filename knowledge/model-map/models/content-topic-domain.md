@@ -1,7 +1,7 @@
 # Content Topic Domain Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentTopicDomain`
 - EntityType GUID: `8c26a4d9-9c0b-4433-af31-6c7094befb51`

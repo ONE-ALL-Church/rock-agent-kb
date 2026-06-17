@@ -1,7 +1,7 @@
 # Communication Response Attachment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationResponseAttachment`
 - EntityType GUID: `2f34e79e-f158-4693-85c4-87ff75d3afe4`
