@@ -1,7 +1,7 @@
 # Analytics Source Attendance Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceAttendance`
 - EntityType GUID: `bce52831-6fef-4521-9e4a-ae5c29f20e2f`

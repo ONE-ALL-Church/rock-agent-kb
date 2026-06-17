@@ -1,7 +1,7 @@
 # Interactive Experience Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `InteractiveExperience`
 - EntityType GUID: `3d90e693-476e-4dfc-b958-a28d1dd370bf`
@@ -51,7 +51,7 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| Description | yes | yes |  |  |  | Gets or sets the Description of the InteractiveExperience |
+| Description | yes | yes |  |  |  | Gets or sets the Description of the Interactive Experience |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ExperienceSettingsJson | yes | yes |  |  |  | Gets or sets the JSON representing the additional settings. |
@@ -64,7 +64,7 @@
 | InteractiveExperienceActions |  | yes | yes |  |  | Gets or sets the InteractiveExperienceActions for this Interactive Experience. |
 | InteractiveExperienceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | InteractiveExperienceSchedules |  | yes | yes |  |  | Gets or sets the InteractiveExperienceSchedules for this Interactive Experience. |
-| IsActive | yes | yes |  | yes |  | Gets or sets the IsActive flag for the InteractiveExperience. |
+| IsActive | yes | yes |  | yes |  | Gets or sets the IsActive flag for the Interactive Experience. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -124,10 +124,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Description | [InteractiveExperience](interactive-experience.md) |  |
-| InteractiveExperienceActions | InteractiveExperienceActions |  |
-| InteractiveExperienceSchedules | InteractiveExperienceSchedules |  |
-| IsActive | [InteractiveExperience](interactive-experience.md) |  |
+| Description | [Interactive Experience](interactive-experience.md) | 3d90e693-476e-4dfc-b958-a28d1dd370bf |
+| InteractiveExperienceActions | InteractiveExperienceActions | 8635e7e7-3576-47ff-92de-30a69eb5d011 |
+| InteractiveExperienceSchedules | InteractiveExperienceSchedules | d23b4dcf-545a-490f-aead-ba78a8fb4028 |
+| IsActive | [Interactive Experience](interactive-experience.md) | 3d90e693-476e-4dfc-b958-a28d1dd370bf |
 
 ## Stable To Pre-Alpha Changes
 

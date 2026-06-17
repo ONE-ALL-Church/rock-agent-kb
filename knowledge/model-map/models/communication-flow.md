@@ -1,7 +1,7 @@
 # Communication Flow Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationFlow`
 - EntityType GUID: `c7a67172-9a41-4421-94b0-f59dfeacf705`

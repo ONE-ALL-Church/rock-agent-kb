@@ -1,7 +1,7 @@
 # Meta Last Name Lookup Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Meta`
 - Model title: `MetaLastNameLookup`
 - EntityType GUID: `0fb0f456-6999-426d-9c86-973d54749565`

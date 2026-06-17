@@ -1,7 +1,7 @@
 # Connection Opportunity Campus Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionOpportunityCampus`
 - EntityType GUID: `e656e8b3-12ab-476e-aa63-5f9b76f64a08`
@@ -29,9 +29,9 @@
 | AvailableKeys |  |  | yes |  |  |  |
 | Campus |  | yes | yes |  |  | Gets or sets the Campus. |
 | CampusId | yes | yes |  | yes |  | Gets or sets the Campus identifier. |
-| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity |  | yes | yes |  |  | Gets or sets the Connection Opportunity. |
 | ConnectionOpportunityCampusAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the ConnectionOpportunity identifier. |
+| ConnectionOpportunityId | yes | yes |  | yes |  | Gets or sets the Connection Opportunity identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -39,8 +39,8 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DefaultConnectorPersonAlias |  | yes | yes |  |  | Gets or sets the default connector PersonAlias. |
-| DefaultConnectorPersonAliasId | yes | yes |  |  |  | Gets or sets the default connector PersonAlias identifier. |
+| DefaultConnectorPersonAlias |  | yes | yes |  |  | Gets or sets the default connector Person Alias. |
+| DefaultConnectorPersonAliasId | yes | yes |  |  |  | Gets or sets the default connector Person Alias identifier. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -72,10 +72,10 @@
 | AttributeValues |  |
 | Attributes |  |
 | Campus | Gets or sets the Campus. |
-| ConnectionOpportunity | Gets or sets the ConnectionOpportunity. |
+| ConnectionOpportunity | Gets or sets the Connection Opportunity. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DefaultConnectorPersonAlias | Gets or sets the default connector PersonAlias. |
+| DefaultConnectorPersonAlias | Gets or sets the default connector Person Alias. |
 | EntityStringValue |  |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
@@ -89,12 +89,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| ConnectionOpportunity | [ConnectionOpportunity](connection-opportunity.md) |  |
-| ConnectionOpportunityId | [ConnectionOpportunity](connection-opportunity.md) |  |
-| DefaultConnectorPersonAlias | [PersonAlias](person-alias.md) |  |
-| DefaultConnectorPersonAliasId | [PersonAlias](person-alias.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| ConnectionOpportunity | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| ConnectionOpportunityId | [Connection Opportunity](connection-opportunity.md) | 79f64363-bc90-4109-9d31-a5eeb397cb2f |
+| DefaultConnectorPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| DefaultConnectorPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

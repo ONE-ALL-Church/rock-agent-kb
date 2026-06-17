@@ -1,7 +1,7 @@
 # Registration Template Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationTemplate`
 - EntityType GUID: `a01e3e99-a8ad-4c6c-baac-98795738ba70`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 111 |
-| Database-marked properties | 70 |
-| Lava-marked properties | 95 |
+| Properties | 113 |
+| Database-marked properties | 72 |
+| Lava-marked properties | 97 |
 | Lava-marked non-database properties | 25 |
-| Related model links | 18 |
-| Pre-alpha changes touching this model | 7 |
+| Related model links | 17 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -24,9 +24,11 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | AddPersonNote | yes | yes |  |  |  | Gets or sets a value indicating whether a person note should be added when a person registers for this type of registration. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
+| AdditionalSettingsJson | yes | yes |  |  |  |  |
 | AllowExternalRegistrationUpdates | yes | yes |  |  |  | Gets or sets a value indicating whether to allow external registration updates (should a person be able to update their registration on-line after submitting it). |
-| AllowGroupPlacement | yes | yes |  |  |  | [Obsoleted in v10] No longer used. Replaced by Group Placement feature (RegistrationTemplatePlacement, etc) Gets or sets a value indicating whether [allow group placement]. |
+| AllowGroupPlacement | yes | yes |  |  | yes | Gets or sets a value indicating whether [allow group placement]. |
 | AllowMultipleRegistrants | yes | yes |  |  |  | Gets or sets a value indicating whether a registrar can register multiple registrants per registration. |
+| AreDuplicateRegistrantsPrevented | yes | yes |  |  |  | Gets or sets a value indicating whether duplicate registrants are prevented. When true, a Person may only be associated once with a given Registration Instance. When false, duplicate registrants are allowed. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -38,7 +40,7 @@
 | ConfirmationFromEmail | yes | yes |  |  |  | Gets or sets the confirmation from email. |
 | ConfirmationFromName | yes | yes |  |  |  | Gets or sets the name of the confirmation from. |
 | ConfirmationSubject | yes | yes |  |  |  | Gets or sets the confirmation subject. |
-| ConnectionStatusValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the connection status. |
+| ConnectionStatusValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the connection status. |
 | ConnectionStatusValueId | yes | yes |  |  |  | Gets or sets the connection status value identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | Cost | yes | yes |  |  |  | Gets or sets the cost (if SetCostOnInstance == false). |
@@ -56,7 +58,7 @@
 | EntityStringValue |  | yes | yes |  |  |  |
 | FeeTerm | yes | yes |  |  |  | Gets or sets the term to use for fee |
 | Fees |  | yes | yes |  |  | Gets or sets the fees. |
-| FinancialGateway |  | yes | yes |  |  | Gets or sets the FinancialGateway. |
+| FinancialGateway |  | yes | yes |  |  | Gets or sets the Financial Gateway. |
 | FinancialGatewayId | yes | yes |  |  |  | Gets or sets the financial gateway identifier. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -96,10 +98,10 @@
 | PaymentReminderSubject | yes | yes |  |  |  | Gets or sets the payment reminder subject. |
 | PaymentReminderTimeSpan | yes | yes |  |  |  | Gets or sets the payment reminder time span in days. |
 | Placements |  | yes | yes |  |  | Gets or sets the placements. |
-| RegistrantRecordSourceValue |  | yes | yes |  |  | Gets or sets the default Record Source Type DefinedValue, representing the source of RegistrationRegistrants added to RegistrationInstances that are linked to this template. This can be overridden by RegistrationInstance.RegistrantRecordSourceValue. |
-| RegistrantRecordSourceValueId | yes | yes |  |  |  | Gets or sets the default Id of the Record Source Type DefinedValue, representing the source of RegistrationRegistrants added to RegistrationInstances that are linked to this template. This can be overridden by RegistrationInstance.RegistrantRecordSourceValueId. These are found in the "Record Source" Defined Type. |
+| RegistrantRecordSourceValue |  | yes | yes |  |  | Gets or sets the default Record Source Type Defined Value, representing the source of Registration Registrants added to Registration Instances that are linked to this template. This can be overridden by RegistrationInstance.RegistrantRecordSourceValue. |
+| RegistrantRecordSourceValueId | yes | yes |  |  |  | Gets or sets the default Id of the Record Source Type Defined Value, representing the source of Registration Registrants added to Registration Instances that are linked to this template. This can be overridden by RegistrationInstance.RegistrantRecordSourceValueId. These are found in the Record Source Defined Type. |
 | RegistrantTerm | yes | yes |  |  |  | Gets or sets the term to use for registrant |
-| RegistrantWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType to launch for the registrant |
+| RegistrantWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type to launch for the registrant |
 | RegistrantWorkflowTypeId | yes | yes |  |  |  | Optional workflow type to launch for registrant |
 | RegistrantsSameFamily | yes | yes |  |  |  | Gets or sets flag indicating if registrants registered for this template are typically in same family. values are ( yes, no, ask ). This is a hard coded list of values defined in the code as an enumeration. |
 | RegistrarOption | yes | yes |  |  |  | Gets or sets the registrar option. This is a hard coded list of values defined in the code as an enumeration. |
@@ -108,7 +110,7 @@
 | RegistrationInstructions | yes | yes |  |  |  | Gets or sets the registration instructions. |
 | RegistrationTemplateAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | RegistrationTerm | yes | yes |  |  |  | Gets or sets the term to use for registration |
-| RegistrationWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType to launch at end of registration. |
+| RegistrationWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type to launch at end of registration. |
 | RegistrationWorkflowTypeId | yes | yes |  |  |  | Optional workflow type to launch at end of registration |
 | ReminderEmailTemplate | yes | yes |  |  |  | Gets or sets the reminder email template. |
 | ReminderFromEmail | yes | yes |  |  |  | Gets or sets the reminder from email. |
@@ -141,13 +143,13 @@
 | AttributeValues |  |
 | Attributes |  |
 | Category | Gets or sets the Category. |
-| ConnectionStatusValue | Gets or sets the DefinedValue representing the connection status. |
+| ConnectionStatusValue | Gets or sets the Defined Value representing the connection status. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | Discounts | Gets or sets the discounts. |
 | EntityStringValue |  |
 | Fees | Gets or sets the fees. |
-| FinancialGateway | Gets or sets the FinancialGateway. |
+| FinancialGateway | Gets or sets the Financial Gateway. |
 | Forms | Gets or sets the forms. |
 | GroupType | Gets or sets the type of the group. |
 | IdKey |  |
@@ -156,9 +158,9 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | Placements | Gets or sets the placements. |
-| RegistrantRecordSourceValue | Gets or sets the default Record Source Type DefinedValue, representing the source of RegistrationRegistrants added to RegistrationInstances that are linked to this template. This can be overridden by RegistrationInstance.RegistrantRecordSourceValue. |
-| RegistrantWorkflowType | Gets or sets the WorkflowType to launch for the registrant |
-| RegistrationWorkflowType | Gets or sets the WorkflowType to launch at end of registration. |
+| RegistrantRecordSourceValue | Gets or sets the default Record Source Type Defined Value, representing the source of Registration Registrants added to Registration Instances that are linked to this template. This can be overridden by RegistrationInstance.RegistrantRecordSourceValue. |
+| RegistrantWorkflowType | Gets or sets the Workflow Type to launch for the registrant |
+| RegistrationWorkflowType | Gets or sets the Workflow Type to launch at end of registration. |
 | RequiredSignatureDocumentTemplate | Gets or sets the type of the required signature document. |
 | TypeId |  |
 | TypeName |  |
@@ -168,33 +170,28 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Category | [Category](category.md) |  |
-| ConnectionStatusValue | [DefinedValue](defined-value.md) |  |
-| Discounts | discounts |  |
-| Fees | fees |  |
-| FinancialGateway | [FinancialGateway](financial-gateway.md) |  |
-| GroupType | type |  |
-| Instances | instances |  |
-| Placements | placements |  |
-| RegistrantRecordSourceValue | [DefinedValue](defined-value.md) |  |
-| RegistrantRecordSourceValue | [RegistrationInstance](registration-instance.md) |  |
-| RegistrantRecordSourceValue | [RegistrationRegistrant](registration-registrant.md) |  |
-| RegistrantRecordSourceValueId | [DefinedValue](defined-value.md) |  |
-| RegistrantRecordSourceValueId | [RegistrationInstance](registration-instance.md) |  |
-| RegistrantRecordSourceValueId | [RegistrationRegistrant](registration-registrant.md) |  |
-| RegistrantWorkflowType | [WorkflowType](workflow-type.md) |  |
-| RegistrationWorkflowType | [WorkflowType](workflow-type.md) |  |
-| RequiredSignatureDocumentTemplate | [signature document](signature-document.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| ConnectionStatusValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| Discounts | discounts | 88d94ecb-fcee-4a00-acb9-ff90bdba7a17 |
+| Fees | fees | 2db3a441-6ca1-49d1-bb25-c744e2ffa457 |
+| FinancialGateway | [Financial Gateway](financial-gateway.md) | 122efe60-84a6-4c7a-a852-30e4bd89a662 |
+| GroupType | type | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| Instances | instances | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
+| Placements | placements | cce05820-5854-47a4-ace3-05df48479939 |
+| RegistrantRecordSourceValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RegistrantRecordSourceValue | [Registration Instance](registration-instance.md) | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
+| RegistrantRecordSourceValue | [Registration Registrant](registration-registrant.md) | 8a25e5ce-1b4f-4825-bcea-216167836305 |
+| RegistrantRecordSourceValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RegistrantRecordSourceValueId | [Registration Instance](registration-instance.md) | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
+| RegistrantRecordSourceValueId | [Registration Registrant](registration-registrant.md) | 8a25e5ce-1b4f-4825-bcea-216167836305 |
+| RegistrantWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| RegistrationWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| RequiredSignatureDocumentTemplate | [signature document](signature-document.md) | 3f9828cc-8224-4ab0-98a5-6d60001ebe32 |
 
 ## Stable To Pre-Alpha Changes
 
 | Change | Property | Fields |
 | --- | --- | --- |
-| property_added | AdditionalSettingsJson |  |
-| property_added | AreDuplicateRegistrantsPrevented |  |
 | property_added | FullPaymentOrPaymentPlanRequiredMessage |  |
 | property_added | IsFullPaymentOrPaymentPlanRequired |  |
-| property_changed | AllowGroupPlacement | description, is_obsolete |
 | property_changed | RegistrantRecordSourceValueId | enum_values |
-| property_changed | SupportedActions | related_entity_links |

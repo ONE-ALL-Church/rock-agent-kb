@@ -1,7 +1,7 @@
 # Group Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupHistorical`
 - EntityType GUID: `422a2ef2-9d74-4308-8cdb-d5fa4b6a01ff`
@@ -23,7 +23,7 @@
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| ArchivedByPersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias that archived (soft deleted) this group at this point in history |
+| ArchivedByPersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias that archived (soft deleted) this group at this point in history |
 | ArchivedByPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId that archived (soft deleted) this group at this point in history |
 | ArchivedDateTime | yes | yes |  |  |  | Gets or sets the archived date time value of this group at this point in history |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -52,9 +52,9 @@
 | GroupHistoricalAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | GroupId | yes | yes |  |  |  | Gets or sets the group id of the group for this group historical record |
 | GroupName | yes | yes |  |  |  | Gets or sets the name of the group at this point in history |
-| GroupType |  | yes | yes |  |  | Gets or sets the GroupType of this group at this point in history |
+| GroupType |  | yes | yes |  |  | Gets or sets the Group Type of this group at this point in history |
 | GroupTypeId | yes | yes |  |  |  | Gets or sets the group type identifier. Normally, a GroupTypeId can't be changed, but just in case, this will be the group type at this point in history |
-| GroupTypeName | yes | yes |  |  |  | Gets or sets the name of the GroupType at this point in history |
+| GroupTypeName | yes | yes |  |  |  | Gets or sets the name of the Group Type at this point in history |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -88,7 +88,7 @@
 
 | Property | Description |
 | --- | --- |
-| ArchivedByPersonAlias | Gets or sets the PersonAlias that archived (soft deleted) this group at this point in history |
+| ArchivedByPersonAlias | Gets or sets the Person Alias that archived (soft deleted) this group at this point in history |
 | AttributeValues |  |
 | Attributes |  |
 | Campus | Gets or sets the Campus of this group at this point in history |
@@ -96,7 +96,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | Group | Gets or sets the Group for this group historical record |
-| GroupType | Gets or sets the GroupType of this group at this point in history |
+| GroupType | Gets or sets the Group Type of this group at this point in history |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -111,14 +111,14 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ArchivedByPersonAlias | [PersonAlias](person-alias.md) |  |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| Group | [Group](group.md) |  |
-| GroupType | [GroupType](group-type.md) |  |
-| GroupTypeName | [GroupType](group-type.md) |  |
-| ParentGroup | [Group](group.md) |  |
-| ParentGroupId | [Group](group.md) |  |
+| ArchivedByPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupType | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| GroupTypeName | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| ParentGroup | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| ParentGroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
 
 ## Stable To Pre-Alpha Changes
 

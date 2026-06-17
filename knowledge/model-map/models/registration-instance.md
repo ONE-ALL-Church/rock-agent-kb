@@ -1,7 +1,7 @@
 # Registration Instance Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationInstance`
 - EntityType GUID: `5cd9c0c8-c047-61a0-4e36-0fdb8496f066`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 54 |
 | Lava-marked non-database properties | 17 |
 | Related model links | 13 |
-| Pre-alpha changes touching this model | 2 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
@@ -32,7 +32,7 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | ContactEmail | yes | yes |  |  |  | Gets or sets the contact email. |
-| ContactPersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias representing the PersonAlias who is the contact person. |
+| ContactPersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias representing the PersonAlias who is the contact person. |
 | ContactPersonAliasId | yes | yes |  |  |  | Gets or sets the name of the contact. |
 | ContactPhone | yes | yes |  |  |  | Gets or sets the contact phone. |
 | ContextKey |  |  | yes |  |  |  |
@@ -72,14 +72,14 @@
 | ParentAuthority |  |  | yes |  |  | A parent authority. If a user is not specifically allowed or denied access to this object, Rock will check the default authorization on the current type, and then the authorization on the Rock.Security.GlobalDefault entity |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PaymentDeadlineDate | yes | yes |  |  |  | Gets or sets the payment deadline date. |
-| RegistrantRecordSourceValue |  | yes | yes |  |  | Gets or sets the default Record Source Type DefinedValue, representing the source of RegistrationRegistrants added to this RegistrationInstance. If set to , then the value of RegistrationTemplate.RegistrantRecordSourceValue will be used. This should only be used when editing the registration instance. Call the method instead to get the value, as that method wll also check the RegistrationTemplate.RegistrantRecordSourceValue property. |
-| RegistrantRecordSourceValueId | yes | yes |  |  |  | Gets or sets the default Id of the Record Source Type DefinedValue, representing the source of RegistrationRegistrants added to this RegistrationInstance. If set to , then the value of RegistrationTemplate.RegistrantRecordSourceValueId will be used. This should only be used when editing the registration instance. Call the method instead to get the value, as that method wll also check the RegistrationTemplate.RegistrantRecordSourceValueId property. These are found in the "Record Source" Defined Type. |
+| RegistrantRecordSourceValue |  | yes | yes |  |  | Gets or sets the default Record Source Type Defined Value, representing the source of Registration Registrants added to this Registration Instance. If set to null, then the value of RegistrationTemplate.RegistrantRecordSourceValue will be used. This should only be used when editing the registration instance. Call the GetRegistrantRecordSourceValue() method instead to get the value, as that method wll also check the RegistrationTemplate.RegistrantRecordSourceValue property. |
+| RegistrantRecordSourceValueId | yes | yes |  |  |  | Gets or sets the default Id of the Record Source Type Defined Value, representing the source of Registration Registrants added to this Registration Instance. If set to null, then the value of RegistrationTemplate.RegistrantRecordSourceValueId will be used. This should only be used when editing the registration instance. Call the GetRegistrantRecordSourceValueId() method instead to get the value, as that method wll also check the RegistrationTemplate.RegistrantRecordSourceValueId property. These are found in the Record Source Defined Type. |
 | RegistrationInstanceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | RegistrationInstructions | yes | yes |  |  |  | Gets or sets the registration instructions. |
 | RegistrationMeteringThreshold | yes | yes |  |  |  | Gets or sets the registration metering threshold. |
-| RegistrationTemplate |  | yes | yes |  |  | Gets or sets the RegistrationTemplate. |
-| RegistrationTemplateId | yes | yes |  | yes |  | Gets or sets the RegistrationTemplate identifier. |
-| RegistrationWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType to launch at end of registration. |
+| RegistrationTemplate |  | yes | yes |  |  | Gets or sets the Registration Template. |
+| RegistrationTemplateId | yes | yes |  | yes |  | Gets or sets the Registration Template identifier. |
+| RegistrationWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type to launch at end of registration. |
 | RegistrationWorkflowTypeId | yes | yes |  |  |  | Optional workflow type to launch at end of registration |
 | Registrations |  |  | yes |  |  | Gets or sets the registrations. |
 | ReminderSent | yes | yes |  |  |  | Gets or sets a value indicating whether [reminder sent]. |
@@ -101,7 +101,7 @@
 | Account | Gets or sets the account. |
 | AttributeValues |  |
 | Attributes |  |
-| ContactPersonAlias | Gets or sets the PersonAlias representing the PersonAlias who is the contact person. |
+| ContactPersonAlias | Gets or sets the Person Alias representing the PersonAlias who is the contact person. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -109,9 +109,9 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| RegistrantRecordSourceValue | Gets or sets the default Record Source Type DefinedValue, representing the source of RegistrationRegistrants added to this RegistrationInstance. If set to , then the value of RegistrationTemplate.RegistrantRecordSourceValue will be used. This should only be used when editing the registration instance. Call the method instead to get the value, as that method wll also check the RegistrationTemplate.RegistrantRecordSourceValue property. |
-| RegistrationTemplate | Gets or sets the RegistrationTemplate. |
-| RegistrationWorkflowType | Gets or sets the WorkflowType to launch at end of registration. |
+| RegistrantRecordSourceValue | Gets or sets the default Record Source Type Defined Value, representing the source of Registration Registrants added to this Registration Instance. If set to null, then the value of RegistrationTemplate.RegistrantRecordSourceValue will be used. This should only be used when editing the registration instance. Call the GetRegistrantRecordSourceValue() method instead to get the value, as that method wll also check the RegistrationTemplate.RegistrantRecordSourceValue property. |
+| RegistrationTemplate | Gets or sets the Registration Template. |
+| RegistrationWorkflowType | Gets or sets the Workflow Type to launch at end of registration. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -120,23 +120,22 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Account | account |  |
-| ContactPersonAlias | [PersonAlias](person-alias.md) |  |
-| Linkages | linkages |  |
-| RegistrantRecordSourceValue | [DefinedValue](defined-value.md) |  |
-| RegistrantRecordSourceValue | [RegistrationInstance](registration-instance.md) |  |
-| RegistrantRecordSourceValue | [RegistrationRegistrant](registration-registrant.md) |  |
-| RegistrantRecordSourceValueId | [DefinedValue](defined-value.md) |  |
-| RegistrantRecordSourceValueId | [RegistrationInstance](registration-instance.md) |  |
-| RegistrantRecordSourceValueId | [RegistrationRegistrant](registration-registrant.md) |  |
-| RegistrationTemplate | [RegistrationTemplate](registration-template.md) |  |
-| RegistrationTemplateId | [RegistrationTemplate](registration-template.md) |  |
-| RegistrationWorkflowType | [WorkflowType](workflow-type.md) |  |
-| Registrations | registrations |  |
+| Account | account | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| ContactPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| Linkages | linkages | 1479d2b7-65c0-4e98-9e70-0848422fa00c |
+| RegistrantRecordSourceValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RegistrantRecordSourceValue | [Registration Instance](registration-instance.md) | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
+| RegistrantRecordSourceValue | [Registration Registrant](registration-registrant.md) | 8a25e5ce-1b4f-4825-bcea-216167836305 |
+| RegistrantRecordSourceValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RegistrantRecordSourceValueId | [Registration Instance](registration-instance.md) | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
+| RegistrantRecordSourceValueId | [Registration Registrant](registration-registrant.md) | 8a25e5ce-1b4f-4825-bcea-216167836305 |
+| RegistrationTemplate | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
+| RegistrationTemplateId | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
+| RegistrationWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| Registrations | registrations | d2f294c6-e161-4a56-85c7-cd74d535f61a |
 
 ## Stable To Pre-Alpha Changes
 
 | Change | Property | Fields |
 | --- | --- | --- |
-| property_changed | RegistrantRecordSourceValue | description |
-| property_changed | RegistrantRecordSourceValueId | description, enum_values |
+| property_changed | RegistrantRecordSourceValueId | enum_values |

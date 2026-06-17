@@ -1,7 +1,7 @@
 # Attribute Value Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AttributeValueHistorical`
 - EntityType GUID: `d940aa57-d977-4b75-b4be-7c2eb40b26a4`
@@ -23,10 +23,10 @@
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| AttributeValue |  | yes | yes |  |  | Gets or sets the AttributeValue AttributeValue that this AttributeValueHistorical provides a historical value for. |
+| AttributeValue |  | yes | yes |  |  | Gets or sets the AttributeValue Attribute Value that this AttributeValueHistorical provides a historical value for. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValueHistoricalAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| AttributeValueId | yes | yes |  | yes |  | Gets or sets the AttributeValueId of the AttributeValue that this AttributeValueHistorical provides a historical value for. |
+| AttributeValueId | yes | yes |  | yes |  | Gets or sets the AttributeValueId of the Attribute Value that this AttributeValueHistorical provides a historical value for. |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
@@ -74,7 +74,7 @@
 
 | Property | Description |
 | --- | --- |
-| AttributeValue | Gets or sets the AttributeValue AttributeValue that this AttributeValueHistorical provides a historical value for. |
+| AttributeValue | Gets or sets the AttributeValue Attribute Value that this AttributeValueHistorical provides a historical value for. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -92,8 +92,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AttributeValue | [AttributeValue](attribute-value.md) |  |
-| AttributeValueId | [AttributeValue](attribute-value.md) |  |
+| AttributeValue | [Attribute Value](attribute-value.md) | d2bdccf0-d3f4-4f29-b286-da5b7bfa41c6 |
+| AttributeValueId | [Attribute Value](attribute-value.md) | d2bdccf0-d3f4-4f29-b286-da5b7bfa41c6 |
 
 ## Stable To Pre-Alpha Changes
 

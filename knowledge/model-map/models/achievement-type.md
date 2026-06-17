@@ -1,7 +1,7 @@
 # Achievement Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `AchievementType`
 - EntityType GUID: `0e99356c-0dea-4f24-944e-21cd5fa83b9e`
@@ -22,20 +22,20 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| AchievementEntityType |  | yes | yes |  |  | Gets or sets the EntityType of the achievement. |
-| AchievementFailureWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType to be launched when the achievement is failed (closed and not successful). |
-| AchievementFailureWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the WorkflowType to be triggered when an achievement is failed (closed and not successful) |
+| AchievementEntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the achievement. |
+| AchievementFailureWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type to be launched when the achievement is failed (closed and not successful). |
+| AchievementFailureWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the Workflow Type to be triggered when an achievement is failed (closed and not successful) |
 | AchievementIconCssClass | yes | yes |  |  |  | Gets or sets the icon CSS class. |
-| AchievementStartWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType to be launched when the achievement starts. |
-| AchievementStartWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the WorkflowType to be triggered when an achievement is started |
-| AchievementStepStatus |  | yes | yes |  |  | Gets or sets the StepStatus to be used for the StepType created when the achievement is completed. |
-| AchievementStepStatusId | yes | yes |  |  |  | Gets or sets the Id of the StepStatus of which a Step will be created when an achievement is completed |
-| AchievementStepType |  | yes | yes |  |  | Gets or sets the StepType to be created when the achievement is completed. |
-| AchievementStepTypeId | yes | yes |  |  |  | Gets or sets the Id of the StepType of which a Step will be created when an achievement is completed |
-| AchievementSuccessWorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType to be launched when the achievement is successful. |
-| AchievementSuccessWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the WorkflowType to be triggered when an achievement is successful |
+| AchievementStartWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type to be launched when the achievement starts. |
+| AchievementStartWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the Workflow Type to be triggered when an achievement is started |
+| AchievementStepStatus |  | yes | yes |  |  | Gets or sets the Step Status to be used for the Step Type created when the achievement is completed. |
+| AchievementStepStatusId | yes | yes |  |  |  | Gets or sets the Id of the Step Status of which a Step will be created when an achievement is completed |
+| AchievementStepType |  | yes | yes |  |  | Gets or sets the Step Type to be created when the achievement is completed. |
+| AchievementStepTypeId | yes | yes |  |  |  | Gets or sets the Id of the Step Type of which a Step will be created when an achievement is completed |
+| AchievementSuccessWorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type to be launched when the achievement is successful. |
+| AchievementSuccessWorkflowTypeId | yes | yes |  |  |  | Gets or sets the Id of the Workflow Type to be triggered when an achievement is successful |
 | AchievementTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| AchieverEntityTypeId | yes | yes |  | yes |  | Gets or sets the achiever entity type. The achiever is the object that earns the achievement. The original achiever was a PersonAlias via Streak.PersonAliasId. |
+| AchieverEntityTypeId | yes | yes |  | yes |  | Gets or sets the achiever entity type. The achiever is the object that earns the achievement. The original achiever was a Person Alias via Streak.PersonAliasId. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AllowOverAchievement | yes | yes |  |  |  | Gets or sets whether over achievement is allowed. This cannot be true if MaxAccomplishmentsAllowed is greater than 1. |
 | AlternateImageBinaryFile |  | yes | yes |  |  | Gets or sets the alternate image binary file. |
@@ -49,7 +49,7 @@
 | Category |  | yes | yes |  |  | Gets or sets the Category. |
 | CategoryId | yes | yes |  |  |  | Gets or sets the Category identifier. |
 | ComponentConfigJson | yes | yes |  |  |  | Gets or sets the configuration from the ComponentEntityTypeId. |
-| ComponentEntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the achievement component EntityType |
+| ComponentEntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the achievement component Entity Type |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -99,12 +99,12 @@
 
 | Property | Description |
 | --- | --- |
-| AchievementEntityType | Gets or sets the EntityType of the achievement. |
-| AchievementFailureWorkflowType | Gets or sets the WorkflowType to be launched when the achievement is failed (closed and not successful). |
-| AchievementStartWorkflowType | Gets or sets the WorkflowType to be launched when the achievement starts. |
-| AchievementStepStatus | Gets or sets the StepStatus to be used for the StepType created when the achievement is completed. |
-| AchievementStepType | Gets or sets the StepType to be created when the achievement is completed. |
-| AchievementSuccessWorkflowType | Gets or sets the WorkflowType to be launched when the achievement is successful. |
+| AchievementEntityType | Gets or sets the Entity Type of the achievement. |
+| AchievementFailureWorkflowType | Gets or sets the Workflow Type to be launched when the achievement is failed (closed and not successful). |
+| AchievementStartWorkflowType | Gets or sets the Workflow Type to be launched when the achievement starts. |
+| AchievementStepStatus | Gets or sets the Step Status to be used for the Step Type created when the achievement is completed. |
+| AchievementStepType | Gets or sets the Step Type to be created when the achievement is completed. |
+| AchievementSuccessWorkflowType | Gets or sets the Workflow Type to be launched when the achievement is successful. |
 | AlternateImageBinaryFile | Gets or sets the alternate image binary file. |
 | Attempts | Gets or sets the attempts. |
 | AttributeValues |  |
@@ -128,25 +128,25 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AchievementEntityType | [EntityType](entity-type.md) |  |
-| AchievementFailureWorkflowType | [WorkflowType](workflow-type.md) |  |
-| AchievementFailureWorkflowTypeId | [WorkflowType](workflow-type.md) |  |
-| AchievementStartWorkflowType | [WorkflowType](workflow-type.md) |  |
-| AchievementStartWorkflowTypeId | [WorkflowType](workflow-type.md) |  |
-| AchievementStepStatus | [StepStatus](step-status.md) |  |
-| AchievementStepStatus | [StepType](step-type.md) |  |
-| AchievementStepStatusId | [Step](step.md) |  |
-| AchievementStepStatusId | [StepStatus](step-status.md) |  |
-| AchievementStepType | [StepType](step-type.md) |  |
-| AchievementStepTypeId | [Step](step.md) |  |
-| AchievementStepTypeId | [StepType](step-type.md) |  |
-| AchievementSuccessWorkflowType | [WorkflowType](workflow-type.md) |  |
-| AchievementSuccessWorkflowTypeId | [WorkflowType](workflow-type.md) |  |
-| AchieverEntityTypeId | [PersonAlias](person-alias.md) |  |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| ComponentEntityTypeId | [EntityType](entity-type.md) |  |
-| SourceEntityTypeId | Streaks |  |
+| AchievementEntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| AchievementFailureWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| AchievementFailureWorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| AchievementStartWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| AchievementStartWorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| AchievementStepStatus | [Step Status](step-status.md) | 6c270d6a-f126-445b-93f0-5079a968bf4e |
+| AchievementStepStatus | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| AchievementStepStatusId | [Step](step.md) | 8eadb0dc-17f4-4541-a46e-53f89e21a622 |
+| AchievementStepStatusId | [Step Status](step-status.md) | 6c270d6a-f126-445b-93f0-5079a968bf4e |
+| AchievementStepType | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| AchievementStepTypeId | [Step](step.md) | 8eadb0dc-17f4-4541-a46e-53f89e21a622 |
+| AchievementStepTypeId | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| AchievementSuccessWorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| AchievementSuccessWorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| AchieverEntityTypeId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| ComponentEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| SourceEntityTypeId | Streaks | d953b0a5-0065-4624-8844-10010de01e5c |
 
 ## Stable To Pre-Alpha Changes
 

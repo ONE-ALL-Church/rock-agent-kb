@@ -3131,10 +3131,10 @@
   },
   "approved_media_hash": "2b895e0d3ba51200c237e5e951ed38b446530f148fc119dbfd04344bf44878b0",
   "approved_media_path": "knowledge/concepts/platform-configuration/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "platform-configuration",
-  "guide_hash": "fb6788eae73ece3d4d820b63af840bd67791f829cc8f16a94345d4e72dab4e0e",
-  "guide_line_count": 1652,
+  "guide_hash": "1d57b8b3825a7b4f37819f3730deb9731259ae1376fadeb5fd8a34fcbe9e9ede",
+  "guide_line_count": 1656,
   "guide_path": "knowledge/concepts/platform-configuration/guide.md",
   "guide_word_count": 13911,
   "rebuild_triggers": [
@@ -4899,7 +4899,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1496,
+      "end_line": 1497,
       "heading": "Recipe: Diagnose Attribute Field Type Mismatch",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-diagnose-attribute-field-type-mismatch",
@@ -4910,7 +4910,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1562,
+      "end_line": 1565,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -4928,11 +4928,11 @@
         "abe67980f434af23",
         "346df253ccafa818"
       ],
-      "start_line": 1497
+      "start_line": 1498
     },
     {
       "confidence": "citation-only",
-      "end_line": 1605,
+      "end_line": 1609,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4946,11 +4946,11 @@
         "abe67980f434af23",
         "fb5f22127915c464"
       ],
-      "start_line": 1563
+      "start_line": 1566
     },
     {
       "confidence": "high",
-      "end_line": 1652,
+      "end_line": 1656,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -4987,7 +4987,7 @@
         "4a743aeb950e2e7d",
         "42ae97c8913020ff"
       ],
-      "start_line": 1606
+      "start_line": 1610
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:20:02+00:00",

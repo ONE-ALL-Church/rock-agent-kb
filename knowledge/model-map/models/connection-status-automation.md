@@ -1,7 +1,7 @@
 # Connection Status Automation Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionStatusAutomation`
 - EntityType GUID: `acf794c7-f12d-42df-85c5-089a28993ee6`
@@ -36,10 +36,10 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DataView |  | yes | yes |  |  | Gets or sets the DataView. |
-| DataViewId | yes | yes |  |  |  | Gets or sets the DataView identifier. |
-| DestinationStatus |  | yes | yes |  |  | Gets or sets the destination ConnectionStatus. |
-| DestinationStatusId | yes | yes |  | yes |  | Gets or sets the destination ConnectionStatus identifier. |
+| DataView |  | yes | yes |  |  | Gets or sets the Data View. |
+| DataViewId | yes | yes |  |  |  | Gets or sets the Data View identifier. |
+| DestinationStatus |  | yes | yes |  |  | Gets or sets the destination Connection Status. |
+| DestinationStatusId | yes | yes |  | yes |  | Gets or sets the destination Connection Status identifier. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -60,8 +60,8 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| SourceStatus |  | yes | yes |  |  | Gets or sets the ConnectionStatus. |
-| SourceStatusId | yes | yes |  | yes |  | Gets or sets the source ConnectionStatus identifier. |
+| SourceStatus |  | yes | yes |  |  | Gets or sets the Connection Status. |
+| SourceStatusId | yes | yes |  | yes |  | Gets or sets the source Connection Status identifier. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -76,14 +76,14 @@
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DataView | Gets or sets the DataView. |
-| DestinationStatus | Gets or sets the destination ConnectionStatus. |
+| DataView | Gets or sets the Data View. |
+| DestinationStatus | Gets or sets the destination Connection Status. |
 | EntityStringValue |  |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| SourceStatus | Gets or sets the ConnectionStatus. |
+| SourceStatus | Gets or sets the Connection Status. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -92,12 +92,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| DataView | [DataView](data-view.md) |  |
-| DataViewId | [DataView](data-view.md) |  |
-| DestinationStatus | [ConnectionStatus](connection-status.md) |  |
-| DestinationStatusId | [ConnectionStatus](connection-status.md) |  |
-| SourceStatus | [ConnectionStatus](connection-status.md) |  |
-| SourceStatusId | [ConnectionStatus](connection-status.md) |  |
+| DataView | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| DataViewId | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| DestinationStatus | [Connection Status](connection-status.md) | f3840c8b-63bf-4f98-ac4a-9336896e589b |
+| DestinationStatusId | [Connection Status](connection-status.md) | f3840c8b-63bf-4f98-ac4a-9336896e589b |
+| SourceStatus | [Connection Status](connection-status.md) | f3840c8b-63bf-4f98-ac4a-9336896e589b |
+| SourceStatusId | [Connection Status](connection-status.md) | f3840c8b-63bf-4f98-ac4a-9336896e589b |
 
 ## Stable To Pre-Alpha Changes
 

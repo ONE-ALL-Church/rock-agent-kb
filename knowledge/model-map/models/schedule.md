@@ -1,7 +1,7 @@
 # Schedule Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Schedule`
 - EntityType GUID: `0b2c38a7-d79c-4f85-9757-f1b045d32c8a`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 63 |
+| Properties | 64 |
 | Database-marked properties | 25 |
-| Lava-marked properties | 46 |
-| Lava-marked non-database properties | 21 |
+| Lava-marked properties | 47 |
+| Lava-marked non-database properties | 22 |
 | Related model links | 2 |
-| Pre-alpha changes touching this model | 5 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -56,10 +56,10 @@
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | IsActive | yes | yes |  | yes |  | Gets or sets a flag indicating if this is an active schedule. This value is required. |
-| IsCheckInActive |  | yes | yes |  |  | Gets a value indicating whether check-in is currently active for this schedule. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and to get this based on the Campus's current datetime. |
+| IsCheckInActive |  | yes | yes |  |  | Gets a value indicating whether check-in is currently active for this schedule. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and WasCheckInActive(System.DateTime)() to get this based on the Campus's current datetime. |
 | IsCheckInEnabled |  |  | yes |  |  | Gets a value indicating whether Check-in is enabled for this Schedule. |
 | IsPublic | yes | yes |  |  |  | Gets or sets a value indicating if this Schedule is public. |
-| IsScheduleActive |  | yes | yes |  |  | Gets a value indicating whether this schedule is currently active. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and to get this based on the Campus's current datetime. |
+| IsScheduleActive |  | yes | yes |  |  | Gets a value indicating whether this schedule is currently active. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and WasScheduleActive(System.DateTime)() to get this based on the Campus's current datetime. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -69,11 +69,12 @@
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | Name | yes | yes |  |  |  | Gets or sets the Name of the Schedule. This property is required. |
-| NextStartDateTime |  | yes | yes |  |  | Gets the next start time based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and to get this based on the Campus's current datetime. |
-| Order | yes | yes |  |  |  | Gets or sets the order. Use to get the schedules in the desired order. |
+| NextStartDateTime |  | yes | yes |  |  | Gets the next start time based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and GetNextStartDateTime(System.DateTime)() to get this based on the Campus's current datetime. |
+| Order | yes | yes |  |  |  | Gets or sets the order. Use Rock.ExtensionMethods.OrderByOrderAndNextScheduledDateTime(System.Collections.Generic.List{Schedule})() to get the schedules in the desired order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | ScheduleAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
+| ScheduleDates |  | yes | yes |  |  | The set of specific dates that this schedule has. This list only includes a few years in the past and in the future. |
 | ScheduleType |  |  | yes |  |  | Gets the type of the schedule. This is a hard coded list of values defined in the code as an enumeration. |
 | StartTimeOfDay |  | yes | yes |  |  | Gets the start time of day. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -101,12 +102,13 @@
 | FirstStartDateTimeThisWeek | Gets the first start date time this week. |
 | FriendlyScheduleText | Gets the friendly schedule text. |
 | IdKey |  |
-| IsCheckInActive | Gets a value indicating whether check-in is currently active for this schedule. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and to get this based on the Campus's current datetime. |
-| IsScheduleActive | Gets a value indicating whether this schedule is currently active. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and to get this based on the Campus's current datetime. |
+| IsCheckInActive | Gets a value indicating whether check-in is currently active for this schedule. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and WasCheckInActive(System.DateTime)() to get this based on the Campus's current datetime. |
+| IsScheduleActive | Gets a value indicating whether this schedule is currently active. This is based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and WasScheduleActive(System.DateTime)() to get this based on the Campus's current datetime. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| NextStartDateTime | Gets the next start time based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and to get this based on the Campus's current datetime. |
+| NextStartDateTime | Gets the next start time based on Rock.RockDateTime.Now. Use Campus.CurrentDateTime and GetNextStartDateTime(System.DateTime)() to get this based on the Campus's current datetime. |
+| ScheduleDates | The set of specific dates that this schedule has. This list only includes a few years in the past and in the future. |
 | StartTimeOfDay | Gets the start time of day. |
 | TypeId |  |
 | TypeName |  |
@@ -116,15 +118,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | ScheduleDates |  |
-| property_changed | IsCheckInActive | description |
-| property_changed | IsScheduleActive | description |
-| property_changed | NextStartDateTime | description |
-| property_changed | Order | description |
+No stable-to-pre-alpha changes were detected for this model.

@@ -1,6 +1,6 @@
-# Check -in Model Map
+# Check-in Model Map
 
-Generated stable-track slice for Rock models in the `Check -in` category.
+Generated stable-track slice for Rock models in the `Check-in` category.
 
 | Model | Title | Properties | DB | Lava | NotMapped | Obsolete |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |

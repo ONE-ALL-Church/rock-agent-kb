@@ -1,7 +1,7 @@
 # Learning Grading System Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningGradingSystem`
 - EntityType GUID: `0b693caf-3718-4913-b7ac-61d31b4df099`
@@ -85,8 +85,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LearningClasses | classes |  |
-| LearningGradingSystemScales | scales |  |
+| LearningClasses | classes | eb41e4e1-64b1-4aa1-8f66-f0dfd81557d9 |
+| LearningGradingSystemScales | scales | 14ba9b5b-6b4a-4462-acdf-898dcec9ec0d |
 
 ## Stable To Pre-Alpha Changes
 

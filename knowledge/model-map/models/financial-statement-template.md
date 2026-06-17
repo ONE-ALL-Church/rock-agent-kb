@@ -1,7 +1,7 @@
 # Financial Statement Template Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialStatementTemplate`
 - EntityType GUID: `85442202-13bc-46c5-b1e9-43018dea20f1`

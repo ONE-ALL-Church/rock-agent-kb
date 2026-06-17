@@ -1,7 +1,7 @@
 # Achievement Attempt Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `AchievementAttempt`
 - EntityType GUID: `5c144b51-3d2e-4bc2-b6c7-7e4cb890e15f`
@@ -25,8 +25,8 @@
 | AchievementAttemptAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | AchievementAttemptEndDateTime | yes | yes |  |  |  | Gets or sets the achievement attempt end date time. |
 | AchievementAttemptStartDateTime | yes | yes |  | yes |  | Gets or sets the achievement attempt start date time. |
-| AchievementType |  | yes | yes |  |  | Gets or sets the AchievementType of this attempt. |
-| AchievementTypeId | yes | yes |  | yes |  | Gets or sets the Id of the AchievementType to which this attempt belongs. This property is required. |
+| AchievementType |  | yes | yes |  |  | Gets or sets the Achievement Type of this attempt. |
+| AchievementTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Achievement Type to which this attempt belongs. This property is required. |
 | AchieverEntityId | yes | yes |  | yes |  | Gets or sets the achiever entity identifier. The type of AchieverEntity is determined by AchievementType.AchieverEntityTypeId. NOTE: In the case of a Person achievement, this could either by PersonAliasId or PersonId (but probably PersonAliasId) depending on AchievementType.AchievementEntityType |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -71,7 +71,7 @@
 
 | Property | Description |
 | --- | --- |
-| AchievementType | Gets or sets the AchievementType of this attempt. |
+| AchievementType | Gets or sets the Achievement Type of this attempt. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -89,8 +89,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AchievementType | [AchievementType](achievement-type.md) |  |
-| AchievementTypeId | [AchievementType](achievement-type.md) |  |
+| AchievementType | [Achievement Type](achievement-type.md) | 0e99356c-0dea-4f24-944e-21cd5fa83b9e |
+| AchievementTypeId | [Achievement Type](achievement-type.md) | 0e99356c-0dea-4f24-944e-21cd5fa83b9e |
 
 ## Stable To Pre-Alpha Changes
 

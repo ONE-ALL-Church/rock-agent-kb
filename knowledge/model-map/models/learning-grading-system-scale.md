@@ -1,7 +1,7 @@
 # Learning Grading System Scale Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningGradingSystemScale`
 - EntityType GUID: `14ba9b5b-6b4a-4462-acdf-898dcec9ec0d`
@@ -47,8 +47,8 @@
 | IsPassing | yes | yes |  |  |  | Gets a value indicating whether this grading system scale is considered passing. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
-| LearningGradingSystem |  | yes | yes |  |  | Gets or sets the LearningGradingSystem this scale belongs to. |
-| LearningGradingSystemId | yes | yes |  |  |  | Gets or sets the id of the LearningGradingSystem this scale belongs to. |
+| LearningGradingSystem |  | yes | yes |  |  | Gets or sets the Learning Grading System this scale belongs to. |
+| LearningGradingSystemId | yes | yes |  |  |  | Gets or sets the id of the Learning Grading System this scale belongs to. |
 | LearningGradingSystemScaleAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -77,7 +77,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | IdKey |  |
-| LearningGradingSystem | Gets or sets the LearningGradingSystem this scale belongs to. |
+| LearningGradingSystem | Gets or sets the Learning Grading System this scale belongs to. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -89,8 +89,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LearningGradingSystem | [LearningGradingSystem](learning-grading-system.md) |  |
-| LearningGradingSystemId | [LearningGradingSystem](learning-grading-system.md) |  |
+| LearningGradingSystem | [Learning Grading System](learning-grading-system.md) | 0b693caf-3718-4913-b7ac-61d31b4df099 |
+| LearningGradingSystemId | [Learning Grading System](learning-grading-system.md) | 0b693caf-3718-4913-b7ac-61d31b4df099 |
 
 ## Stable To Pre-Alpha Changes
 

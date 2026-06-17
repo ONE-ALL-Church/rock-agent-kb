@@ -1,7 +1,7 @@
 # Person Alias Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PersonAlias`
 - EntityType GUID: `90f5e87b-f0d5-4617-8ae9-eb57e673f36f`
@@ -64,8 +64,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AliasEncryptedKey | [Person](person.md) |  |
-| PersonId | [Person](person.md) |  |
+| AliasEncryptedKey | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

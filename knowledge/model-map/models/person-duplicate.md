@@ -1,7 +1,7 @@
 # Person Duplicate Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PersonDuplicate`
 - EntityType GUID: `20b2b2b6-38c3-4302-9200-63dd4c78687b`

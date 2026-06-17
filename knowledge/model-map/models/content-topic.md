@@ -1,7 +1,7 @@
 # Content Topic Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentTopic`
 - EntityType GUID: `cd4be244-147e-4a90-9137-b35fc35b5a52`
@@ -29,7 +29,7 @@
 | AvailableKeys |  |  | yes |  |  |  |
 | ContentTopicAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ContentTopicDomain |  | yes | yes |  |  | Gets or sets the content topic domain. |
-| ContentTopicDomainId | yes | yes |  | yes |  | Gets or sets the ContentTopicDomainId of the ContentTopicDomain that this ContentTopic belongs to. This property is required. |
+| ContentTopicDomainId | yes | yes |  | yes |  | Gets or sets the ContentTopicDomainId of the Content Topic Domain that this ContentTopic belongs to. This property is required. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -88,7 +88,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ContentTopicDomainId | [ContentTopicDomain](content-topic-domain.md) |  |
+| ContentTopicDomainId | [Content Topic Domain](content-topic-domain.md) | 8c26a4d9-9c0b-4433-af31-6c7094befb51 |
 
 ## Stable To Pre-Alpha Changes
 

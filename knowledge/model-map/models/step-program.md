@@ -1,7 +1,7 @@
 # Step Program Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StepProgram`
 - EntityType GUID: `e89f9528-a74e-41b7-8b65-b56b4ce7a122`
@@ -15,8 +15,8 @@
 | Database-marked properties | 19 |
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 16 |
-| Related model links | 6 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 5 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -98,15 +98,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| StepStatuses | StepStatuses |  |
-| StepTypes | Step Types |  |
-| StepWorkflowTriggers | StepWorkflowTriggers |  |
-| SupportedActions | Dictionary`2 |  |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| StepStatuses | StepStatuses | 6c270d6a-f126-445b-93f0-5079a968bf4e |
+| StepTypes | Step Types | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| StepWorkflowTriggers | StepWorkflowTriggers | 55c1d610-d42f-4e08-9cd9-1ec9801bc4e3 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

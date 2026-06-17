@@ -1,7 +1,7 @@
 # AI Skill Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AISkill`
 - EntityType GUID: `d953ab34-4ab6-47c6-857b-53044a99ed75`
@@ -22,9 +22,9 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| AIAgentSkills |  | yes | yes |  |  | A collection containing the AIAgentSkill entities that represent the agents this skill is attached to. |
+| AIAgentSkills |  | yes | yes |  |  | A collection containing the AI Agent Skill entities that represent the agents this skill is attached to. |
 | AISkillAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| AISkillTools |  | yes | yes |  |  | A collection containing the AISkillTool entities that represent the tools this skill has. |
+| AISkillTools |  | yes | yes |  |  | A collection containing the AI Skill Tool entities that represent the tools this skill has. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AdditionalSettingsJson | yes | yes |  |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -70,8 +70,8 @@
 
 | Property | Description |
 | --- | --- |
-| AIAgentSkills | A collection containing the AIAgentSkill entities that represent the agents this skill is attached to. |
-| AISkillTools | A collection containing the AISkillTool entities that represent the tools this skill has. |
+| AIAgentSkills | A collection containing the AI Agent Skill entities that represent the agents this skill is attached to. |
+| AISkillTools | A collection containing the AI Skill Tool entities that represent the tools this skill has. |
 | AttributeValues |  |
 | Attributes |  |
 | CodeEntityType | The entity type that represents the C# class that implements the tools for this skill. If this is not null then the skill and related tools should not allow editing beyond enabling or disabling them. |
@@ -90,8 +90,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AIAgentSkills | [AIAgentSkill](ai-agent-skill.md) |  |
-| AISkillTools | [AISkillTool](ai-skill-tool.md) |  |
+| AIAgentSkills | [AI Agent Skill](ai-agent-skill.md) | 36deda2f-75bd-4bee-ac36-46d20dcd1331 |
+| AISkillTools | [AI Skill Tool](ai-skill-tool.md) | 357d2625-fdca-41f8-ab8d-1cf2ce0abeed |
 
 ## Stable To Pre-Alpha Changes
 

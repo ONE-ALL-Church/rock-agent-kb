@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -179,29 +179,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Financial Batch](../../model-map/models/financial-batch.md) | Finance | 18.2.4 | 51 | 22 | 34 | 14 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Gateway](../../model-map/models/financial-gateway.md) | Finance | 18.2.4 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Payment Detail](../../model-map/models/financial-payment-detail.md) | Finance | 18.2.4 | 71 | 22 | 39 | 17 | 4 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Pledge](../../model-map/models/financial-pledge.md) | Finance | 18.2.4 | 60 | 18 | 36 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Scheduled Transaction](../../model-map/models/financial-scheduled-transaction.md) | Finance | 18.2.4 | 223 | 32 | 53 | 21 | 3 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Scheduled Transaction Detail](../../model-map/models/financial-scheduled-transaction-detail.md) | Finance | 18.2.4 | 47 | 16 | 31 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Statement Template](../../model-map/models/financial-statement-template.md) | Finance | 18.2.4 | 46 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction](../../model-map/models/financial-transaction.md) | Finance | 18.2.4 | 232 | 38 | 66 | 30 | 5 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Alert](../../model-map/models/financial-transaction-alert.md) | Finance | 18.2.4 | 54 | 24 | 39 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Alert Type](../../model-map/models/financial-transaction-alert-type.md) | Finance | 18.2.4 | 68 | 32 | 52 | 21 | 4 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Detail](../../model-map/models/financial-transaction-detail.md) | Finance | 18.2.4 | 49 | 18 | 33 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Image](../../model-map/models/financial-transaction-image.md) | Finance | 18.2.4 | 42 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Batch](../../model-map/models/financial-batch.md) | Finance | 19.1.8 | 51 | 22 | 34 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Gateway](../../model-map/models/financial-gateway.md) | Finance | 19.1.8 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Payment Detail](../../model-map/models/financial-payment-detail.md) | Finance | 19.1.8 | 56 | 22 | 39 | 17 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Pledge](../../model-map/models/financial-pledge.md) | Finance | 19.1.8 | 51 | 18 | 36 | 18 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Scheduled Transaction](../../model-map/models/financial-scheduled-transaction.md) | Finance | 19.1.8 | 71 | 32 | 53 | 21 | 4 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Scheduled Transaction Detail](../../model-map/models/financial-scheduled-transaction-detail.md) | Finance | 19.1.8 | 47 | 16 | 31 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Statement Template](../../model-map/models/financial-statement-template.md) | Finance | 19.1.8 | 46 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction](../../model-map/models/financial-transaction.md) | Finance | 19.1.8 | 85 | 38 | 66 | 30 | 5 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Alert](../../model-map/models/financial-transaction-alert.md) | Finance | 19.1.8 | 54 | 24 | 39 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Alert Type](../../model-map/models/financial-transaction-alert-type.md) | Finance | 19.1.8 | 69 | 33 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Detail](../../model-map/models/financial-transaction-detail.md) | Finance | 19.1.8 | 49 | 18 | 33 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Image](../../model-map/models/financial-transaction-image.md) | Finance | 19.1.8 | 42 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Financial Batch.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

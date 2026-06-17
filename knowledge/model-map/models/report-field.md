@@ -1,7 +1,7 @@
 # Report Field Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `ReportField`
 - EntityType GUID: `6b541baa-44b7-48ba-937a-543866905689`
@@ -15,8 +15,8 @@
 | Database-marked properties | 20 |
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 14 |
-| Related model links | 2 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 0 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -93,14 +93,8 @@
 
 ## Related Model Map Links
 
-| Property | Related Model | EntityType GUID |
-| --- | --- | --- |
-| DataSelectComponentEntityType | DataSelectComponent |  |
-| DataSelectComponentEntityTypeId | DataSelectComponent |  |
+No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | DataSelectComponentEntityType | related_entity_links |
-| property_changed | DataSelectComponentEntityTypeId | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

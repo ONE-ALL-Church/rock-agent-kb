@@ -1,7 +1,7 @@
 # Registration Template Form Field Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationTemplateFormField`
 - EntityType GUID: `a773caa2-2211-416b-bdd7-d907085b4441`
@@ -66,9 +66,9 @@
 | PersonFieldType | yes | yes |  |  |  | Gets or sets the type of the person field. This is a hard coded list of values defined in the code as an enumeration. |
 | PostText | yes | yes |  |  |  | Gets or sets the Post-HTML. |
 | PreText | yes | yes |  |  |  | Gets or sets the Pre-HTML. |
-| RegistrationTemplateForm |  | yes | yes |  |  | Gets or sets the RegistrationTemplateForm. |
+| RegistrationTemplateForm |  | yes | yes |  |  | Gets or sets the Registration Template Form. |
 | RegistrationTemplateFormFieldAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| RegistrationTemplateFormId | yes | yes |  |  |  | Gets or sets the RegistrationTemplateForm identifier. |
+| RegistrationTemplateFormId | yes | yes |  |  |  | Gets or sets the Registration Template Form identifier. |
 | ShowCurrentValue | yes | yes |  |  |  | Gets or sets a value indicating whether [show current value]. |
 | ShowOnWaitlist | yes | yes |  |  |  | Gets or sets a value indicating whether the field should be shown on a waitlist. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -91,7 +91,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| RegistrationTemplateForm | Gets or sets the RegistrationTemplateForm. |
+| RegistrationTemplateForm | Gets or sets the Registration Template Form. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -100,10 +100,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Attribute | [Attribute](attribute.md) |  |
-| AttributeId | [Attribute](attribute.md) |  |
-| RegistrationTemplateForm | [RegistrationTemplateForm](registration-template-form.md) |  |
-| RegistrationTemplateFormId | [RegistrationTemplateForm](registration-template-form.md) |  |
+| Attribute | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| AttributeId | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| RegistrationTemplateForm | [Registration Template Form](registration-template-form.md) | 2f0b3a6a-4e47-45a8-a331-7234ce711356 |
+| RegistrationTemplateFormId | [Registration Template Form](registration-template-form.md) | 2f0b3a6a-4e47-45a8-a331-7234ce711356 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Step Workflow Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StepWorkflow`
 - EntityType GUID: `9e164dcb-2b3c-49db-a3da-e25e24bb23b9`
@@ -55,8 +55,8 @@
 | Step |  | yes | yes |  |  | Gets or sets the Step. |
 | StepId | yes | yes |  | yes |  | Gets or sets the Id of the Step that triggered the workflow. This property is required. |
 | StepWorkflowAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| StepWorkflowTrigger |  | yes | yes |  |  | Gets or sets the StepWorkflowTrigger. |
-| StepWorkflowTriggerId | yes | yes |  | yes |  | Gets or sets the Id of the StepWorkflowTrigger by which this Workflow was triggered. This property is required. |
+| StepWorkflowTrigger |  | yes | yes |  |  | Gets or sets the Step Workflow Trigger. |
+| StepWorkflowTriggerId | yes | yes |  | yes |  | Gets or sets the Id of the Step Workflow Trigger by which this Workflow was triggered. This property is required. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -79,7 +79,7 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | Step | Gets or sets the Step. |
-| StepWorkflowTrigger | Gets or sets the StepWorkflowTrigger. |
+| StepWorkflowTrigger | Gets or sets the Step Workflow Trigger. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -89,12 +89,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Step | [Step](step.md) |  |
-| StepId | [Step](step.md) |  |
-| StepWorkflowTrigger | [StepWorkflowTrigger](step-workflow-trigger.md) |  |
-| StepWorkflowTriggerId | [StepWorkflowTrigger](step-workflow-trigger.md) |  |
-| Workflow | [Workflow](workflow.md) |  |
-| WorkflowId | [Workflow](workflow.md) |  |
+| Step | [Step](step.md) | 8eadb0dc-17f4-4541-a46e-53f89e21a622 |
+| StepId | [Step](step.md) | 8eadb0dc-17f4-4541-a46e-53f89e21a622 |
+| StepWorkflowTrigger | [Step Workflow Trigger](step-workflow-trigger.md) | 55c1d610-d42f-4e08-9cd9-1ec9801bc4e3 |
+| StepWorkflowTriggerId | [Step Workflow Trigger](step-workflow-trigger.md) | 55c1d610-d42f-4e08-9cd9-1ec9801bc4e3 |
+| Workflow | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
+| WorkflowId | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
 
 ## Stable To Pre-Alpha Changes
 

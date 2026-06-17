@@ -5,7 +5,7 @@ Generated stable-track slice for Rock models in the `AI` category.
 | Model | Title | Properties | DB | Lava | NotMapped | Obsolete |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | [AI Agent](../models/ai-agent.md) | AIAgent | 45 | 16 | 30 | 29 | 0 |
-| [AI Agent Session](../models/ai-agent-session.md) | AIAgentSession | 30 | 13 | 20 | 17 | 0 |
+| [AI Agent Session](../models/ai-agent-session.md) | AIAgentSession | 28 | 12 | 19 | 16 | 0 |
 | [AI Agent Session Anchor](../models/ai-agent-session-anchor.md) | AIAgentSessionAnchor | 29 | 15 | 20 | 14 | 0 |
 | [AI Agent Session History](../models/ai-agent-session-history.md) | AIAgentSessionHistory | 27 | 14 | 19 | 13 | 0 |
 | [AI Agent Skill](../models/ai-agent-skill.md) | AIAgentSkill | 22 | 8 | 13 | 14 | 0 |

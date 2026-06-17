@@ -1,7 +1,7 @@
 # Event Calendar Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventCalendarItem`
 - EntityType GUID: `e37fb26f-03f6-48da-8e96-f412616f5ee4`
@@ -36,11 +36,11 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EventCalendar |  | yes | yes |  |  | Gets or sets the EventCalendar that this EventCalendarItem is a member of. |
-| EventCalendarId | yes | yes |  | yes |  | Gets or sets the Id of the EventCalendar that this EventCalendarItem belongs to. This property is required. |
+| EventCalendar |  | yes | yes |  |  | Gets or sets the Event Calendar that this EventCalendarItem is a member of. |
+| EventCalendarId | yes | yes |  | yes |  | Gets or sets the Id of the Event Calendar that this EventCalendarItem belongs to. This property is required. |
 | EventCalendarItemAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| EventItem |  | yes | yes |  |  | Gets or sets the EventItem that this EventCalendarItem is a member of. |
-| EventItemId | yes | yes |  | yes |  | Gets or sets the Id of the EventItem that this EventCalendarItem belongs to. This property is required. |
+| EventItem |  | yes | yes |  |  | Gets or sets the Event Item that this EventCalendarItem is a member of. |
+| EventItemId | yes | yes |  | yes |  | Gets or sets the Id of the Event Item that this EventCalendarItem belongs to. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -72,8 +72,8 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EventCalendar | Gets or sets the EventCalendar that this EventCalendarItem is a member of. |
-| EventItem | Gets or sets the EventItem that this EventCalendarItem is a member of. |
+| EventCalendar | Gets or sets the Event Calendar that this EventCalendarItem is a member of. |
+| EventItem | Gets or sets the Event Item that this EventCalendarItem is a member of. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EventCalendar | [EventCalendar](event-calendar.md) |  |
-| EventCalendarId | [EventCalendar](event-calendar.md) |  |
-| EventItem | [EventItem](event-item.md) |  |
-| EventItemId | [EventItem](event-item.md) |  |
+| EventCalendar | [Event Calendar](event-calendar.md) | e67d8d6d-4fe6-48d5-a940-a39213047314 |
+| EventCalendarId | [Event Calendar](event-calendar.md) | e67d8d6d-4fe6-48d5-a940-a39213047314 |
+| EventItem | [Event Item](event-item.md) | 6a58ad11-3491-84ae-4896-8f39906ea65e |
+| EventItemId | [Event Item](event-item.md) | 6a58ad11-3491-84ae-4896-8f39906ea65e |
 
 ## Stable To Pre-Alpha Changes
 

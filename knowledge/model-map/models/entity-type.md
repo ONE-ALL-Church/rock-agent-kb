@@ -1,7 +1,7 @@
 # Entity Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `EntityType`
 - EntityType GUID: `a2277fba-d09f-4d07-b0ab-1c650c25a7a7`
@@ -15,8 +15,8 @@
 | Database-marked properties | 24 |
 | Lava-marked properties | 25 |
 | Lava-marked non-database properties | 6 |
-| Related model links | 1 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 0 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -75,12 +75,8 @@
 
 ## Related Model Map Links
 
-| Property | Related Model | EntityType GUID |
-| --- | --- | --- |
-| IsRelatedToInteractionTrackedOnCreate | InteractionEntity |  |
+No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | IsRelatedToInteractionTrackedOnCreate | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

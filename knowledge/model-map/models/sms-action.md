@@ -1,7 +1,7 @@
 # Sms Action Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `SmsAction`
 - EntityType GUID: `1f5e26be-0ed4-4250-8ffc-1ded5e9eacf0`
@@ -37,7 +37,7 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| ExpireDate | yes | yes |  |  |  | Gets or sets when to expire the SmsAction |
+| ExpireDate | yes | yes |  |  |  | Gets or sets when to expire the Sms Action |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -60,7 +60,7 @@
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | SmsActionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | SmsActionComponentEntityTypeId | yes | yes |  |  |  | Gets or sets the identifier for the entity type that handles this action's logic. |
-| SmsPipeline |  | yes | yes |  |  | Gets or sets the SmsPipeline representing the SmsPipeline. |
+| SmsPipeline |  | yes | yes |  |  | Gets or sets the Sms Pipeline representing the SmsPipeline. |
 | SmsPipelineId | yes | yes |  | yes |  | Gets or sets the SMS pipeline identifier. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -81,7 +81,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| SmsPipeline | Gets or sets the SmsPipeline representing the SmsPipeline. |
+| SmsPipeline | Gets or sets the Sms Pipeline representing the SmsPipeline. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -90,8 +90,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ExpireDate | [SmsAction](sms-action.md) |  |
-| SmsPipeline | [SmsPipeline](sms-pipeline.md) |  |
+| ExpireDate | [Sms Action](sms-action.md) | 1f5e26be-0ed4-4250-8ffc-1ded5e9eacf0 |
+| SmsPipeline | [Sms Pipeline](sms-pipeline.md) | 64da3a06-fd39-4e5b-8126-38404fb0092a |
 
 ## Stable To Pre-Alpha Changes
 

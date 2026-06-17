@@ -1,7 +1,7 @@
 # Analytics Fact Financial Transaction Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsFactFinancialTransaction`
 - EntityType GUID: `6447497f-c40f-41b9-ab5b-a1f14f80dd18`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 56 |
 | Lava-marked non-database properties | 8 |
 | Related model links | 0 |
-| Pre-alpha changes touching this model | 0 |
+| Pre-alpha changes touching this model | 2 |
 
 ## Properties
 
@@ -38,9 +38,9 @@
 | ContextKey |  |  | yes |  |  |  |
 | Count | yes | yes |  |  |  |  |
 | CreditCardType | yes | yes |  |  |  | Gets or sets the type of the credit card. |
-| CreditCardTypeValueId | yes | yes |  |  |  | These are found in the "Credit Card Type" Defined Type. |
+| CreditCardTypeValueId | yes | yes |  |  |  | These are found in the Credit Card Type Defined Type. |
 | CurrencyType | yes | yes |  |  |  | Gets or sets the type of the currency. |
-| CurrencyTypeValueId | yes | yes |  |  |  | These are found in the "Currency Type" Defined Type. |
+| CurrencyTypeValueId | yes | yes |  |  |  | These are found in the Currency Type Defined Type. |
 | DaysSinceLastTransactionOfType | yes | yes |  |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityId | yes | yes |  |  |  |  |
@@ -68,7 +68,7 @@
 | ProcessedByPersonKey | yes | yes |  |  |  | Gets or sets the processed by person key. |
 | ProcessedDateTime | yes | yes |  |  |  |  |
 | ScheduleType | yes | yes |  |  |  | Gets or sets the type of the schedule. (Scheduled or Non-Scheduled) |
-| SourceTypeValueId | yes | yes |  |  |  | These are found in the "Transaction Source" Defined Type. |
+| SourceTypeValueId | yes | yes |  |  |  | These are found in the Transaction Source Defined Type. |
 | Summary | yes | yes |  |  |  |  |
 | TransactionCode | yes | yes |  |  |  |  |
 | TransactionDate |  | yes | yes |  |  |  |
@@ -80,7 +80,7 @@
 | TransactionKey | yes | yes |  |  |  |  |
 | TransactionSource | yes | yes |  |  |  | Gets or sets the transaction source. |
 | TransactionType | yes | yes |  |  |  | Gets or sets the type of the transaction. |
-| TransactionTypeValueId | yes | yes |  |  |  | These are found in the "Transaction Type" Defined Type. |
+| TransactionTypeValueId | yes | yes |  |  |  | These are found in the Transaction Type Defined Type. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -105,4 +105,7 @@ No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-No stable-to-pre-alpha changes were detected for this model.
+| Change | Property | Fields |
+| --- | --- | --- |
+| property_changed | CurrencyTypeValueId | enum_values |
+| property_changed | SourceTypeValueId | enum_values |

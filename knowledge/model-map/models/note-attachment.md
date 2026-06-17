@@ -1,7 +1,7 @@
 # Note Attachment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `NoteAttachment`
 - EntityType GUID: `d090c50e-2fe1-4284-9631-19d06f4ad8b0`
@@ -27,8 +27,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| BinaryFile |  | yes | yes |  |  | Gets or sets the BinaryFile of the attachment. |
-| BinaryFileId | yes | yes |  |  |  | Gets or sets the BinaryFileId of the image's BinaryFile |
+| BinaryFile |  | yes | yes |  |  | Gets or sets the Binary File of the attachment. |
+| BinaryFileId | yes | yes |  |  |  | Gets or sets the BinaryFileId of the image's Binary File |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -69,7 +69,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BinaryFile | Gets or sets the BinaryFile of the attachment. |
+| BinaryFile | Gets or sets the Binary File of the attachment. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFile | [BinaryFile](binary-file.md) |  |
-| BinaryFileId | [BinaryFile](binary-file.md) |  |
-| Note | [Note](note.md) |  |
-| NoteId | [Note](note.md) |  |
+| BinaryFile | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| BinaryFileId | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| Note | [Note](note.md) | 53dc1e78-14a5-44de-903f-6a2cb02164e7 |
+| NoteId | [Note](note.md) | 53dc1e78-14a5-44de-903f-6a2cb02164e7 |
 
 ## Stable To Pre-Alpha Changes
 

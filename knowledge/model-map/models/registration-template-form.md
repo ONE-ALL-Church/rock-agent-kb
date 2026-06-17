@@ -1,7 +1,7 @@
 # Registration Template Form Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationTemplateForm`
 - EntityType GUID: `2f0b3a6a-4e47-45a8-a331-7234ce711356`
@@ -55,9 +55,9 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| RegistrationTemplate |  | yes | yes |  |  | Gets or sets the RegistrationTemplate. |
+| RegistrationTemplate |  | yes | yes |  |  | Gets or sets the Registration Template. |
 | RegistrationTemplateFormAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| RegistrationTemplateId | yes | yes |  |  |  | Gets or sets the RegistrationTemplate identifier. |
+| RegistrationTemplateId | yes | yes |  |  |  | Gets or sets the Registration Template identifier. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -78,7 +78,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| RegistrationTemplate | Gets or sets the RegistrationTemplate. |
+| RegistrationTemplate | Gets or sets the Registration Template. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -87,8 +87,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| RegistrationTemplate | [RegistrationTemplate](registration-template.md) |  |
-| RegistrationTemplateId | [RegistrationTemplate](registration-template.md) |  |
+| RegistrationTemplate | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
+| RegistrationTemplateId | [Registration Template](registration-template.md) | a01e3e99-a8ad-4c6c-baac-98795738ba70 |
 
 ## Stable To Pre-Alpha Changes
 

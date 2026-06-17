@@ -1,7 +1,7 @@
 # System Communication Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `SystemCommunication`
 - EntityType GUID: `d0cad7c0-10fe-41ef-b89d-e6f0d22456c4`
@@ -72,8 +72,8 @@
 | PushOpenMessageJson | yes | yes |  |  |  | Gets or sets the push open message structured content JSON. |
 | PushSound | yes | yes |  |  |  | Gets or sets the name of the sound alert to use for the notification. |
 | PushTitle | yes | yes |  |  |  | Gets or sets the title of the notification. |
-| SMSFromDefinedValue |  | yes | yes |  |  | [Obsoleted in v15] Use SmsFromSystemPhoneNumber instead. Gets or sets the SMS from defined value. |
-| SMSFromDefinedValueId | yes | yes |  |  |  | [Obsoleted in v15] Use SmsFromSystemPhoneNumberId instead. Gets or sets the SMS from number. |
+| SMSFromDefinedValue |  | yes | yes |  | yes | Gets or sets the SMS from defined value. |
+| SMSFromDefinedValueId | yes | yes |  |  | yes | Gets or sets the SMS from number. |
 | SMSMessage | yes | yes |  |  |  | Gets or sets the SMS message content. |
 | SmsFromSystemPhoneNumber |  | yes | yes |  |  | Gets or sets the system phone number used for SMS sending. |
 | SmsFromSystemPhoneNumberId | yes | yes |  |  |  | Gets or sets the system phone number identifier used for SMS sending. |
@@ -102,7 +102,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| SMSFromDefinedValue | [Obsoleted in v15] Use SmsFromSystemPhoneNumber instead. Gets or sets the SMS from defined value. |
+| SMSFromDefinedValue | Gets or sets the SMS from defined value. |
 | SmsFromSystemPhoneNumber | Gets or sets the system phone number used for SMS sending. |
 | TypeId |  |
 | TypeName |  |

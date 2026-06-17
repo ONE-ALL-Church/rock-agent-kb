@@ -1,7 +1,7 @@
 # Lava Shortcode Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `LavaShortcode`
 - EntityType GUID: `7574a473-3326-4973-8df6-c7bf5f64eb36`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 47 |
-| Database-marked properties | 19 |
-| Lava-marked properties | 30 |
+| Properties | 48 |
+| Database-marked properties | 20 |
+| Lava-marked properties | 31 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 2 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -27,7 +27,7 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| Categories |  | yes | yes |  |  | Gets or sets the collection of Categories that this LavaShortcode is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
+| Categories |  | yes | yes |  |  | Gets or sets the collection of Categories that this Lava Shortcode is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -62,6 +62,7 @@
 | Parameters | yes |  |  |  |  | Gets or sets the parameters. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
+| ShortcodeScopeBehavior | yes | yes |  | yes |  | Gets or sets how variables defined within this shortcode are scoped. This is a hard coded list of values defined in the code as an enumeration. |
 | SupportedActions |  |  | yes |  |  |  |
 | TagName | yes | yes |  | yes |  | Gets or sets the name of the tag. |
 | TagType | yes | yes |  | yes |  | Gets or sets the type of the tag (inline or block). A tag type of block requires an end tag. This is a hard coded list of values defined in the code as an enumeration. |
@@ -76,7 +77,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| Categories | Gets or sets the collection of Categories that this LavaShortcode is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
+| Categories | Gets or sets the collection of Categories that this Lava Shortcode is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -92,11 +93,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Categories | Categories |  |
-| Categories | [LavaShortcode](lava-shortcode.md) |  |
+| Categories | Categories | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| Categories | [Lava Shortcode](lava-shortcode.md) | 7574a473-3326-4973-8df6-c7bf5f64eb36 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | ShortcodeScopeBehavior |  |
+No stable-to-pre-alpha changes were detected for this model.

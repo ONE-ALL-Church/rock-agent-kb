@@ -1,7 +1,7 @@
 # AI Agent Session History Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIAgentSessionHistory`
 - EntityType GUID: `6ad212be-f8d0-4c58-ab0e-d723ed5e2155`

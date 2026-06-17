@@ -1,7 +1,7 @@
 # Connection Status Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionStatus`
 - EntityType GUID: `f3840c8b-63bf-4f98-ac4a-9336896e589b`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 47 |
-| Database-marked properties | 18 |
-| Lava-marked properties | 32 |
+| Properties | 51 |
+| Database-marked properties | 22 |
+| Lava-marked properties | 36 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 3 |
-| Pre-alpha changes touching this model | 4 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -26,12 +26,13 @@
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
+| AutoFutureFollowUpPauseInDays | yes | yes |  |  |  | When set, automatically moves the request to Future Follow-Up for the specified number of days. Leave blank to disable this behavior. |
 | AutoInactivateState | yes | yes |  |  |  | Gets or sets a value indicating whether choosing this Status will set the Request's State to Inactive. |
 | AvailableKeys |  |  | yes |  |  |  |
 | ConnectionStatusAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ConnectionStatusAutomations |  | yes | yes |  |  | Gets or sets a collection containing the ConnectionStatusAutomations who are associated with the Connection Status. |
 | ConnectionType |  | yes | yes |  |  | Gets or sets the type of the connection. |
-| ConnectionTypeId | yes | yes |  |  |  | Gets or sets the ConnectionType identifier. |
+| ConnectionTypeId | yes | yes |  |  |  | Gets or sets the Connection Type identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -52,6 +53,7 @@
 | IsActive | yes | yes |  |  |  | Gets or sets a value indicating whether this instance is active. |
 | IsCritical | yes | yes |  |  |  | Gets or sets a value indicating whether this instance is critical. |
 | IsDefault | yes | yes |  |  |  | Gets or sets a value indicating whether this instance is default. |
+| IsNoteRequiredOnCompletion | yes | yes |  |  |  | Indicates whether completing a request requires entering a note. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -64,6 +66,8 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
+| RequestStatusDueDateOffsetInDays | yes | yes |  |  |  | Number of days added to the calculated due date for a request status. |
+| RequestStatusDueSoonOffsetInDays | yes | yes |  |  |  | Number of days before the due date when a request status is considered "due soon." |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -93,15 +97,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ConnectionStatusAutomations | ConnectionStatusAutomations |  |
-| ConnectionType | type |  |
-| ConnectionTypeId | [ConnectionType](connection-type.md) |  |
+| ConnectionStatusAutomations | ConnectionStatusAutomations | acf794c7-f12d-42df-85c5-089a28993ee6 |
+| ConnectionType | type | b1e52ead-65bd-4c4d-bccd-73368067621d |
+| ConnectionTypeId | [Connection Type](connection-type.md) | b1e52ead-65bd-4c4d-bccd-73368067621d |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | AutoFutureFollowUpPauseInDays |  |
-| property_added | IsNoteRequiredOnCompletion |  |
-| property_added | RequestStatusDueDateOffsetInDays |  |
-| property_added | RequestStatusDueSoonOffsetInDays |  |
+No stable-to-pre-alpha changes were detected for this model.

@@ -1,7 +1,7 @@
 # Reminder Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Reminder`
 - EntityType GUID: `46cc0d74-be46-4d5d-a6f1-0811645721ac`

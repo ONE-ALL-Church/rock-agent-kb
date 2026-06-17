@@ -1,7 +1,7 @@
 # Group Location Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupLocation`
 - EntityType GUID: `26248ee7-09f3-4578-a1d6-47e01d91d6ef`
@@ -43,10 +43,10 @@
 | GroupId | yes | yes |  |  |  | Gets or sets the Id of the Group that is associated with this GroupLocation. This property is required. |
 | GroupLocationAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | GroupLocationScheduleConfigs |  | yes | yes |  |  | Gets or sets properties that are specific to Group+Location+Schedule |
-| GroupLocationTypeValue |  | yes | yes |  |  | Gets or sets the Location Type DefinedValue of this GroupLocation. |
-| GroupLocationTypeValueId | yes | yes |  |  |  | The Id of the GroupLocationType DefinedValue that is used to identify the type of GroupLocation that this is. Examples: Home Address, Work Address, Primary Address. These are found in the "Location Type" Defined Type. |
-| GroupMemberPersonAlias |  | yes | yes |  |  | Gets or sets the group member PersonAlias. A GroupLocation can optionally be created by selecting one of the group member's locations. If the GroupLocation is created this way, the member is saved with the group location |
-| GroupMemberPersonAliasId | yes | yes |  |  |  | Gets or sets the group member PersonAlias identifier. A GroupLocation can optionally be created by selecting one of the group member's locations. If the GroupLocation is created this way, the member's person alias id is saved with the group location |
+| GroupLocationTypeValue |  | yes | yes |  |  | Gets or sets the Location Type Defined Value of this GroupLocation. |
+| GroupLocationTypeValueId | yes | yes |  |  |  | The Id of the GroupLocationType Defined Value that is used to identify the type of Group Location that this is. Examples: Home Address, Work Address, Primary Address. These are found in the Location Type Defined Type. |
+| GroupMemberPersonAlias |  | yes | yes |  |  | Gets or sets the group member Person Alias. A GroupLocation can optionally be created by selecting one of the group member's locations. If the GroupLocation is created this way, the member is saved with the group location |
+| GroupMemberPersonAliasId | yes | yes |  |  |  | Gets or sets the group member Person Alias identifier. A GroupLocation can optionally be created by selecting one of the group member's locations. If the GroupLocation is created this way, the member's person alias id is saved with the group location |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -84,8 +84,8 @@
 | EntityStringValue |  |
 | Group | Gets or sets the Group that is associated with this GroupLocation |
 | GroupLocationScheduleConfigs | Gets or sets properties that are specific to Group+Location+Schedule |
-| GroupLocationTypeValue | Gets or sets the Location Type DefinedValue of this GroupLocation. |
-| GroupMemberPersonAlias | Gets or sets the group member PersonAlias. A GroupLocation can optionally be created by selecting one of the group member's locations. If the GroupLocation is created this way, the member is saved with the group location |
+| GroupLocationTypeValue | Gets or sets the Location Type Defined Value of this GroupLocation. |
+| GroupMemberPersonAlias | Gets or sets the group member Person Alias. A GroupLocation can optionally be created by selecting one of the group member's locations. If the GroupLocation is created this way, the member is saved with the group location |
 | IdKey |  |
 | Location | Gets or sets the Location that is associated with this GroupLocation. |
 | ModifiedAuditValuesAlreadyUpdated |  |
@@ -100,19 +100,19 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| GroupLocationTypeValue | [DefinedValue](defined-value.md) |  |
-| GroupLocationTypeValueId | [DefinedValue](defined-value.md) |  |
-| GroupLocationTypeValueId | [GroupLocation](group-location.md) |  |
-| GroupMemberPersonAlias | [PersonAlias](person-alias.md) |  |
-| GroupMemberPersonAliasId | [PersonAlias](person-alias.md) |  |
-| IsMailingLocation | [Group](group.md) |  |
-| IsMailingLocation | [Location](location.md) |  |
-| IsOverflowLocation | [Location](location.md) |  |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
-| Schedules | Schedules |  |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupLocationTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| GroupLocationTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| GroupLocationTypeValueId | [Group Location](group-location.md) | 26248ee7-09f3-4578-a1d6-47e01d91d6ef |
+| GroupMemberPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| GroupMemberPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| IsMailingLocation | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| IsMailingLocation | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| IsOverflowLocation | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| Schedules | Schedules | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
 
 ## Stable To Pre-Alpha Changes
 

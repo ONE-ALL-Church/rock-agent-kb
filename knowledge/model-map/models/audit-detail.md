@@ -1,7 +1,7 @@
 # Audit Detail Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AuditDetail`
 - EntityType GUID: `00a4323f-4a05-4e6a-8480-35d8b7bb6615`
@@ -24,7 +24,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | Audit |  | yes | yes |  |  | Gets or sets the Audit parent entity. |
-| AuditId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the EntityType of entity that was modified. This property is required. |
+| AuditId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the Entity Type of entity that was modified. This property is required. |
 | AvailableKeys |  |  | yes |  |  |  |
 | ContextKey |  |  | yes |  |  |  |
 | CurrentValue | yes | yes |  |  |  | Gets or sets the Current Value. |
@@ -60,8 +60,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Audit | [Audit](audit.md) |  |
-| AuditId | [EntityType](entity-type.md) |  |
+| Audit | [Audit](audit.md) | 5de389e2-4e25-4bb0-8292-67a94ecb379b |
+| AuditId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

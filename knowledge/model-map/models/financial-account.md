@@ -1,7 +1,7 @@
 # Financial Account Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialAccount`
 - EntityType GUID: `798bce48-6aa7-4983-9214-f9bcefb4521d`
@@ -16,14 +16,14 @@
 | Lava-marked properties | 44 |
 | Lava-marked non-database properties | 17 |
 | Related model links | 5 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| AccountTypeValue |  | yes | yes |  |  | Gets or sets the Account Type DefinedValue for this FinancialAccount. |
-| AccountTypeValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the DefinedValue that represents the FinancialAccountType for this FinancialAccount. These are found in the "Account Type" Defined Type. |
+| AccountTypeValue |  | yes | yes |  |  | Gets or sets the Account Type Defined Value for this FinancialAccount. |
+| AccountTypeValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the Defined Value that represents the FinancialAccountType for this FinancialAccount. These are found in the Account Type Defined Type. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
@@ -68,7 +68,7 @@
 | Order | yes | yes |  |  |  | Gets or sets the sort and display order of the FinancialAccount. This is an ascending order, so the lower the value the higher the sort priority. |
 | ParentAccount |  | yes | yes |  |  | Gets or sets the parent FinancialAccount. |
 | ParentAccountId | yes | yes |  |  |  | Gets or sets the FinancialAccountId of the parent FinancialAccount to this FinancialAccount. If this FinancialAccount does not have a parent, this property will be null. |
-| ParentAccountIds | yes | yes |  |  |  | Returns an enumerable collection of the FinancialAccount Ids that are ancestors of a specified accountId sorted starting with the most immediate parent |
+| ParentAccountIds | yes | yes |  |  |  | Returns an enumerable collection of the Financial Account Ids that are ancestors of a specified accountId sorted starting with the most immediate parent |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PublicDescription | yes | yes |  |  |  | Gets or sets the user defined public description of the FinancialAccount. |
@@ -79,14 +79,14 @@
 | TypeName |  | yes | yes |  |  |  |
 | Url | yes | yes |  |  |  | Gets or sets the URL which could be used to generate a link to a 'More Info' page |
 | UrlEncodedKey |  | yes | yes |  |  |  |
-| UsesCampusChildAccounts | yes | yes |  |  |  | Determines if this account will use child account matching logic using a campus. When true , a supported block will be able to automatically determine the child account to use based on the campus. When possible, use the method to perform the matching logic. If no campus is specified or available, then this (the parent) account will be used.If an active direct child account has a campus that matches the specified campus, then the first matching child account will be used.If no active direct child account matches the specified campus, then this (the parent) account will be used. If this value is true then it implies that the CampusId on this account is not supported and should be ignored. The UI will ensure that both can't be set at the same time. |
+| UsesCampusChildAccounts | yes | yes |  |  |  | Determines if this account will use child account matching logic using a campus. When true, a supported block will be able to automatically determine the child account to use based on the campus. When possible, use the Rock.Web.Cache.FinancialAccountCache.GetMappedAccountForCampus(Rock.Web.Cache.CampusCache)() method to perform the matching logic. If no campus is specified or available, then this (the parent) account will be used.If an active direct child account has a campus that matches the specified campus, then the first matching child account will be used.If no active direct child account matches the specified campus, then this (the parent) account will be used. If this value is true then it implies that the CampusId on this account is not supported and should be ignored. The UI will ensure that both can't be set at the same time. |
 | ValidationResults |  |  | yes |  |  |  |
 
 ## Lava-Marked Non-Database Properties
 
 | Property | Description |
 | --- | --- |
-| AccountTypeValue | Gets or sets the Account Type DefinedValue for this FinancialAccount. |
+| AccountTypeValue | Gets or sets the Account Type Defined Value for this FinancialAccount. |
 | AttributeValues |  |
 | Attributes |  |
 | Campus | Gets or sets the Campus that this FinancialAccount is associated with. |
@@ -108,14 +108,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AccountTypeValue | [DefinedValue](defined-value.md) |  |
-| AccountTypeValueId | [DefinedValue](defined-value.md) |  |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| ParentAccountIds | [FinancialAccount](financial-account.md) |  |
+| AccountTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| AccountTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| ParentAccountIds | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | UsesCampusChildAccounts | description |
+No stable-to-pre-alpha changes were detected for this model.

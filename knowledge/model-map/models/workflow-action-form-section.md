@@ -1,7 +1,7 @@
 # Workflow Action Form Section Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActionFormSection`
 - EntityType GUID: `90af7254-87a2-42cb-b2f6-d4d53d7e30a0`
@@ -54,8 +54,8 @@
 | Order | yes | yes |  | yes |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| SectionType |  | yes | yes |  |  | Gets or sets the Section Type DefinedValue for this Action Form Section. |
-| SectionTypeValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the DefinedValue that represents the SectionType for this Workflow Action Form Section. These are found in the "Section Type" Defined Type. |
+| SectionType |  | yes | yes |  |  | Gets or sets the Section Type Defined Value for this Action Form Section. |
+| SectionTypeValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the Defined Value that represents the SectionType for this Workflow Action Form Section. These are found in the Section Type Defined Type. |
 | SectionVisibilityRules |  |  | yes |  |  | Gets or sets the section visibility rules. |
 | SectionVisibilityRulesJSON | yes | yes |  |  |  | Gets or sets the section visibility rules json. |
 | ShowHeadingSeparator | yes | yes |  |  |  | Gets or sets a value indicating whether to show heading separator after the Title/Description |
@@ -82,7 +82,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| SectionType | Gets or sets the Section Type DefinedValue for this Action Form Section. |
+| SectionType | Gets or sets the Section Type Defined Value for this Action Form Section. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -92,8 +92,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| SectionType | [DefinedValue](defined-value.md) |  |
-| SectionTypeValueId | [DefinedValue](defined-value.md) |  |
+| SectionType | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| SectionTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 

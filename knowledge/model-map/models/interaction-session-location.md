@@ -1,7 +1,7 @@
 # Interaction Session Location Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `InteractionSessionLocation`
 - EntityType GUID: `790ec7ac-7443-466c-a07e-f702d86b9e1b`
@@ -30,7 +30,7 @@
 | ContextKey |  |  | yes |  |  |  |
 | CountryCode | yes | yes |  |  |  | Gets or sets the country code. |
 | CountryValue |  | yes | yes |  |  | Gets or sets the country value. |
-| CountryValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the DefinedValue that represents the country. |
+| CountryValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the Defined Value that represents the country. |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
 | CreatedByPersonId |  | yes | yes |  |  |  |
@@ -65,7 +65,7 @@
 | PostalCode | yes | yes |  |  |  | Gets or sets the postal code. |
 | RegionCode | yes | yes |  |  |  | Gets or sets the region code. |
 | RegionValue |  | yes | yes |  |  | Gets or sets the region value. |
-| RegionValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the DefinedValue that represents the region. |
+| RegionValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the Defined Value that represents the region. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -96,9 +96,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| CountryValueId | [DefinedValue](defined-value.md) |  |
-| InteractionSessions | Interactions |  |
-| RegionValueId | [DefinedValue](defined-value.md) |  |
+| CountryValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| InteractionSessions | Interactions | 3bb4b095-2de4-4009-8fa2-705bf284f7b7 |
+| RegionValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 

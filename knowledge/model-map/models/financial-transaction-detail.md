@@ -1,7 +1,7 @@
 # Financial Transaction Detail Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialTransactionDetail`
 - EntityType GUID: `ac4ac28b-8e7e-4d7e-85db-dffb4f3adcce`
@@ -22,8 +22,8 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| Account |  | yes | yes |  |  | Gets or sets the FinancialAccount that is affected by this detail line item. |
-| AccountId | yes | yes |  |  |  | Gets or sets the AccountId of the FinancialAccount/account that the Amount of this detail line item should be credited towards. |
+| Account |  | yes | yes |  |  | Gets or sets the Financial Account that is affected by this detail line item. |
+| AccountId | yes | yes |  |  |  | Gets or sets the AccountId of the Financial Account/account that the Amount of this detail line item should be credited towards. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | Amount | yes | yes |  |  |  | Gets or sets the total amount of the transaction detail. This total amount includes any associated fees. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -50,7 +50,7 @@
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
 | Guid | yes | yes |  |  |  |  |
-| HistoryChangeList |  |  | yes |  |  | [Obsoleted in v14] Does nothing. No longer needed. We replaced this with a private property under the SaveHook class for this entity. Gets or sets the history change list. |
+| HistoryChangeList |  |  | yes |  | yes | Gets or sets the history change list. |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | IsValid |  |  | yes |  |  |  |
@@ -65,8 +65,8 @@
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | Summary | yes | yes |  |  |  | Gets or sets the summary of the transaction detail. |
 | SupportedActions |  |  | yes |  |  |  |
-| Transaction |  | yes | yes |  |  | Gets or sets the FinancialTransaction that this detail item belongs to. |
-| TransactionId | yes | yes |  |  |  | Gets or sets the TransactionId of the FinancialTransaction that this detail item is a part of. |
+| Transaction |  | yes | yes |  |  | Gets or sets the Financial Transaction that this detail item belongs to. |
+| TransactionId | yes | yes |  |  |  | Gets or sets the TransactionId of the Financial Transaction that this detail item is a part of. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -76,7 +76,7 @@
 
 | Property | Description |
 | --- | --- |
-| Account | Gets or sets the FinancialAccount that is affected by this detail line item. |
+| Account | Gets or sets the Financial Account that is affected by this detail line item. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -87,7 +87,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| Transaction | Gets or sets the FinancialTransaction that this detail item belongs to. |
+| Transaction | Gets or sets the Financial Transaction that this detail item belongs to. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -96,10 +96,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Account | [FinancialAccount](financial-account.md) |  |
-| AccountId | [FinancialAccount](financial-account.md) |  |
-| Transaction | [FinancialTransaction](financial-transaction.md) |  |
-| TransactionId | [FinancialTransaction](financial-transaction.md) |  |
+| Account | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| AccountId | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| Transaction | [Financial Transaction](financial-transaction.md) | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| TransactionId | [Financial Transaction](financial-transaction.md) | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
 
 ## Stable To Pre-Alpha Changes
 

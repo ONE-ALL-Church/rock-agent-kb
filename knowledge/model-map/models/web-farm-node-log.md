@@ -1,8 +1,8 @@
 # Web Farm Node Log Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
-- Category: `Web Farm`
+- Rock version: `19.1.8`
+- Category: `WebFarm`
 - Model title: `WebFarmNodeLog`
 - EntityType GUID: `e00b4559-8e53-4b21-8b29-db2e6dd74c50`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
@@ -61,10 +61,10 @@
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
 | ValidationResults |  |  | yes |  |  |  |
-| WebFarmNode |  | yes | yes |  |  | Gets or sets the WebFarmNode. |
+| WebFarmNode |  | yes | yes |  |  | Gets or sets the Web Farm Node. |
 | WebFarmNodeId | yes | yes |  | yes |  | Gets or sets the web farm node identifier. |
 | WebFarmNodeLogAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| WriterWebFarmNode |  | yes | yes |  |  | Gets or sets the writer WebFarmNode. |
+| WriterWebFarmNode |  | yes | yes |  |  | Gets or sets the writer Web Farm Node. |
 | WriterWebFarmNodeId | yes | yes |  | yes |  | Gets or sets the writer web farm node identifier. |
 
 ## Lava-Marked Non-Database Properties
@@ -83,15 +83,15 @@
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
-| WebFarmNode | Gets or sets the WebFarmNode. |
-| WriterWebFarmNode | Gets or sets the writer WebFarmNode. |
+| WebFarmNode | Gets or sets the Web Farm Node. |
+| WriterWebFarmNode | Gets or sets the writer Web Farm Node. |
 
 ## Related Model Map Links
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| WebFarmNode | [WebFarmNode](web-farm-node.md) |  |
-| WriterWebFarmNode | [WebFarmNode](web-farm-node.md) |  |
+| WebFarmNode | [Web Farm Node](web-farm-node.md) | 2338d5c3-e808-408f-b000-e8a7d8a4858c |
+| WriterWebFarmNode | [Web Farm Node](web-farm-node.md) | 2338d5c3-e808-408f-b000-e8a7d8a4858c |
 
 ## Stable To Pre-Alpha Changes
 

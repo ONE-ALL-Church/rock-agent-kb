@@ -1,7 +1,7 @@
 # Metric Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `Metric`
 - EntityType GUID: `1c5489c6-82f9-4967-8425-52545ce8af90`

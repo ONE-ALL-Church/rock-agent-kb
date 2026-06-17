@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -143,29 +143,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Event Item Occurrence](../../model-map/models/event-item-occurrence.md) | Event | 18.2.4 | 51 | 18 | 36 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Item Occurrence Channel Item](../../model-map/models/event-item-occurrence-channel-item.md) | Event | 18.2.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Item Occurrence Group Map](../../model-map/models/event-item-occurrence-group-map.md) | Event | 18.2.4 | 46 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Registration Instance](../../model-map/models/registration-instance.md) | Event | 18.2.4 | 85 | 37 | 54 | 17 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Registration Registrant](../../model-map/models/registration-registrant.md) | Event | 18.2.4 | 56 | 17 | 39 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Registration Registrant Fee](../../model-map/models/registration-registrant-fee.md) | Event | 18.2.4 | 46 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 18.2.4 | 66 | 27 | 47 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Item](../../model-map/models/event-item.md) | Event | 18.2.4 | 52 | 19 | 35 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Item Audience](../../model-map/models/event-item-audience.md) | Event | 18.2.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Interactive Experience Occurrence](../../model-map/models/interactive-experience-occurrence.md) | Event | 18.2.4 | 46 | 16 | 30 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Registration](../../model-map/models/registration.md) | Event | 18.2.4 | 66 | 24 | 50 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Registration Session](../../model-map/models/registration-session.md) | Event | 18.2.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Item Occurrence](../../model-map/models/event-item-occurrence.md) | Event | 19.1.8 | 51 | 18 | 36 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Item Occurrence Channel Item](../../model-map/models/event-item-occurrence-channel-item.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Item Occurrence Group Map](../../model-map/models/event-item-occurrence-group-map.md) | Event | 19.1.8 | 46 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Registration Instance](../../model-map/models/registration-instance.md) | Event | 19.1.8 | 71 | 37 | 54 | 17 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Registration Registrant](../../model-map/models/registration-registrant.md) | Event | 19.1.8 | 56 | 17 | 39 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Registration Registrant Fee](../../model-map/models/registration-registrant-fee.md) | Event | 19.1.8 | 46 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.1.8 | 64 | 27 | 47 | 20 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Item](../../model-map/models/event-item.md) | Event | 19.1.8 | 52 | 19 | 35 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Item Audience](../../model-map/models/event-item-audience.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Interactive Experience Occurrence](../../model-map/models/interactive-experience-occurrence.md) | Event | 19.1.8 | 46 | 16 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Registration](../../model-map/models/registration.md) | Event | 19.1.8 | 66 | 24 | 50 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Registration Session](../../model-map/models/registration-session.md) | Event | 19.1.8 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Attendance Occurrence.AttendanceEntered` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.Attendees` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attendance Occurrence.Group` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.AttendanceEntered` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.Attendees` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attendance Occurrence.Group` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

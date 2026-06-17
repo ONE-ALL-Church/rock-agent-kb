@@ -1,7 +1,7 @@
 # Workflow Activity Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActivity`
 - EntityType GUID: `2cb52ed0-cb06-4d62-9e2c-73b60afa4c9f`
@@ -27,9 +27,9 @@
 | ActivatedByActivityId | yes | yes |  |  |  | Gets or sets the activated by activity identifier. |
 | ActivatedDateTime | yes | yes |  |  |  | Gets or sets the date and time that this WorkflowActivity was activated. |
 | ActiveActions |  | yes | yes |  |  | Gets an enumerable collection containing the active WorkflowActions for this WorkflowActivity, ordered by their order property. |
-| ActivityType |  | yes | yes |  |  | Gets or sets the WorkflowActivityType that is being performed by this WorkflowActivity instance. |
+| ActivityType |  | yes | yes |  |  | Gets or sets the Workflow Activity Type that is being performed by this WorkflowActivity instance. |
 | ActivityTypeCache |  | yes | yes |  |  | Gets the activity type cache. |
-| ActivityTypeId | yes | yes |  |  |  | Gets or sets the ActivityTypeId of the WorkflowActivityType that is being executed. |
+| ActivityTypeId | yes | yes |  |  |  | Gets or sets the ActivityTypeId of the Workflow Activity Type that is being executed. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AssignedGroup |  | yes | yes |  |  | Gets or sets the assigned group. |
 | AssignedGroupId | yes | yes |  |  |  | Gets or sets the assigned group identifier. |
@@ -83,7 +83,7 @@
 | Actions | Gets or sets a collection containing the WorkflowActions that are run by this WorkflowActivity. |
 | ActivatedByActivity | Gets or sets the activated by activity. |
 | ActiveActions | Gets an enumerable collection containing the active WorkflowActions for this WorkflowActivity, ordered by their order property. |
-| ActivityType | Gets or sets the WorkflowActivityType that is being performed by this WorkflowActivity instance. |
+| ActivityType | Gets or sets the Workflow Activity Type that is being performed by this WorkflowActivity instance. |
 | ActivityTypeCache | Gets the activity type cache. |
 | AssignedGroup | Gets or sets the assigned group. |
 | AssignedPersonAlias | Gets or sets the assigned person alias. |
@@ -106,12 +106,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Actions | WorkflowActions |  |
-| ActiveActions | WorkflowActions |  |
-| ActivityType | [WorkflowActivityType](workflow-activity-type.md) |  |
-| ActivityTypeId | [WorkflowActivityType](workflow-activity-type.md) |  |
-| Workflow | [Workflow](workflow.md) |  |
-| WorkflowId | [Workflow](workflow.md) |  |
+| Actions | WorkflowActions | 9cbf4bec-5653-47f9-8e87-0d31c6ca5947 |
+| ActiveActions | WorkflowActions | 9cbf4bec-5653-47f9-8e87-0d31c6ca5947 |
+| ActivityType | [Workflow Activity Type](workflow-activity-type.md) | e5fbdba2-9539-4679-b948-2e06c1bb1e3f |
+| ActivityTypeId | [Workflow Activity Type](workflow-activity-type.md) | e5fbdba2-9539-4679-b948-2e06c1bb1e3f |
+| Workflow | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
+| WorkflowId | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
 
 ## Stable To Pre-Alpha Changes
 

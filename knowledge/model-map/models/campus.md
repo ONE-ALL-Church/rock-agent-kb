@@ -1,7 +1,7 @@
 # Campus Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Campus`
 - EntityType GUID: `00096bed-9587-415e-8ad4-4e076ae8fbf0`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 48 |
 | Lava-marked non-database properties | 19 |
 | Related model links | 9 |
-| Pre-alpha changes touching this model | 3 |
+| Pre-alpha changes touching this model | 2 |
 
 ## Properties
 
@@ -31,11 +31,11 @@
 | BeaconId | yes | yes |  |  |  | The identifier of the beacon that is associated with this campus. This is typically used with Bluetooth proximity beacons and allows the Campus to be determined from a beacon. |
 | CampusAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | CampusSchedules |  | yes | yes |  |  | Gets or sets a collection containing the Schedules that are associated with this Campus. |
-| CampusStatusValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the campus status. |
-| CampusStatusValueId | yes | yes |  |  |  | Gets or sets the campus status value identifier. These are found in the "Campus Status" Defined Type. |
+| CampusStatusValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the campus status. |
+| CampusStatusValueId | yes | yes |  |  |  | Gets or sets the campus status value identifier. These are found in the Campus Status Defined Type. |
 | CampusTopics |  | yes | yes |  |  | Gets or sets a collection containing the Topics that are associated with this Campus. |
-| CampusTypeValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the campus type. |
-| CampusTypeValueId | yes | yes |  |  |  | Gets or sets the campus type value identifier. These are found in the "Campus Type" Defined Type. |
+| CampusTypeValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the campus type. |
+| CampusTypeValueId | yes | yes |  |  |  | Gets or sets the campus type value identifier. These are found in the Campus Type Defined Type. |
 | ClosedDate | yes | yes |  |  |  | Gets or sets the closed date. |
 | CondensedName |  |  | yes |  |  | Gets the condensed name of the campus. This will be the short code if set, otherwise the name of the campus by stripping off any trailing " Campus" text. |
 | ContextKey |  |  | yes |  |  |  |
@@ -75,7 +75,7 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PhoneNumber | yes | yes |  |  |  | Gets or sets the phone number of the campus. |
-| ServiceTimes | yes | yes |  |  |  | Gets or sets the service times (Stored as a delimited list) |
+| ServiceTimes | yes | yes |  |  | yes | Gets or sets the service times (Stored as a delimited list) |
 | ShortCode | yes | yes |  |  |  | Gets or sets an optional short code identifier for the campus. |
 | SupportedActions |  |  | yes |  |  |  |
 | TeamGroup |  | yes | yes |  |  | Gets or sets the team group. |
@@ -95,9 +95,9 @@
 | AttributeValues |  |
 | Attributes |  |
 | CampusSchedules | Gets or sets a collection containing the Schedules that are associated with this Campus. |
-| CampusStatusValue | Gets or sets the DefinedValue representing the campus status. |
+| CampusStatusValue | Gets or sets the Defined Value representing the campus status. |
 | CampusTopics | Gets or sets a collection containing the Topics that are associated with this Campus. |
-| CampusTypeValue | Gets or sets the DefinedValue representing the campus type. |
+| CampusTypeValue | Gets or sets the Defined Value representing the campus type. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -116,15 +116,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BeaconId | [Campus](campus.md) |  |
-| CampusSchedules | Schedules |  |
-| CampusStatusValue | [DefinedValue](defined-value.md) |  |
-| CampusTopics | Topics |  |
-| CampusTypeValue | [DefinedValue](defined-value.md) |  |
-| LeaderPersonAlias | [Person](person.md) |  |
-| LeaderPersonAliasId | [Person](person.md) |  |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
+| BeaconId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusSchedules | Schedules | 134b8879-cd7c-4872-8065-882aa3721c2d |
+| CampusStatusValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| CampusTopics | Topics | 0ffdcb0b-b435-4e66-9085-2750534e706a |
+| CampusTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| LeaderPersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| LeaderPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
 
 ## Stable To Pre-Alpha Changes
 
@@ -132,4 +132,3 @@
 | --- | --- | --- |
 | property_changed | CampusStatusValueId | enum_values |
 | property_changed | CampusTypeValueId | enum_values |
-| property_changed | ServiceTimes | is_obsolete |

@@ -1,7 +1,7 @@
 # Communication Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `Communication`
 - EntityType GUID: `c4ccbd91-1264-48bf-bc33-92751c8948b5`
@@ -33,8 +33,8 @@
 | BCCEmails | yes | yes |  |  |  | Gets or sets a comma separated list of BCC'ed email addresses. |
 | CCEmails | yes | yes |  |  |  | Gets or sets a comma separated list of CC'ed email addresses. |
 | CommunicationAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| CommunicationTemplate |  | yes | yes |  |  | Gets or sets the CommunicationTemplate that was used to compose this communication |
-| CommunicationTemplateId | yes |  |  |  |  | Gets or sets the CommunicationTemplate that was used to compose this communication |
+| CommunicationTemplate |  | yes | yes |  |  | Gets or sets the Communication Template that was used to compose this communication |
+| CommunicationTemplateId | yes |  |  |  |  | Gets or sets the Communication Template that was used to compose this communication |
 | CommunicationTopicValue |  | yes | yes |  |  | Gets or sets the communication topic defined value. |
 | CommunicationTopicValueId | yes | yes |  |  |  | Gets or sets the communication topic defined value. |
 | CommunicationType | yes | yes |  | yes |  | Gets or sets the communication type value identifier. This is a hard coded list of values defined in the code as an enumeration. |
@@ -90,19 +90,19 @@
 | ReplyToEmail | yes | yes |  |  |  | Gets or sets the reply to email address. |
 | ReviewedDateTime | yes | yes |  |  |  | Gets or sets the date and time stamp of when the Communication was reviewed. |
 | ReviewerNote | yes | yes |  |  |  | Gets or sets the note that was entered by the reviewer. |
-| ReviewerPersonAlias |  | yes | yes |  |  | Gets or sets the reviewer PersonAlias. |
+| ReviewerPersonAlias |  | yes | yes |  |  | Gets or sets the reviewer Person Alias. |
 | ReviewerPersonAliasId | yes | yes |  |  |  | Gets or sets the reviewer person alias identifier. |
 | SMSAttachmentBinaryFileIds |  |  | yes |  |  | Gets or sets a list of sms binary file ids |
-| SMSFromDefinedValue |  | yes | yes |  |  | [Obsoleted in v15] Use SmsFromSystemPhoneNumber instead. Gets or sets the SMS from defined value. |
-| SMSFromDefinedValueId | yes | yes |  |  |  | [Obsoleted in v15] Use SmsFromSystemPhoneNumberId instead. Gets or sets the SMS from number. |
+| SMSFromDefinedValue |  | yes | yes |  | yes | Gets or sets the SMS from defined value. |
+| SMSFromDefinedValueId | yes | yes |  |  | yes | Gets or sets the SMS from number. |
 | SMSMessage | yes | yes |  |  |  | Gets or sets the message. |
 | SegmentCriteria | yes | yes |  |  |  | Gets or sets if communication is targeted to people in all selected segments or any selected segments. This is a hard coded list of values defined in the code as an enumeration. |
 | Segments | yes | yes |  |  |  | Gets or sets the segments that list is being filtered to (comma-delimited list of dataview guids). |
 | SendDateKey | yes | yes |  |  |  | Gets the send date key. |
 | SendDateTime | yes | yes |  |  |  | Gets or sets the datetime that communication was sent. This also indicates that communication shouldn't attempt to send again. |
 | SendSourceDate |  | yes | yes |  |  | Gets or sets the send source date. |
-| SenderPersonAlias |  | yes | yes |  |  | Gets or sets the sender PersonAlias. |
-| SenderPersonAliasId | yes | yes |  |  |  | Gets or sets the sender PersonAlias identifier. |
+| SenderPersonAlias |  | yes | yes |  |  | Gets or sets the sender Person Alias. |
+| SenderPersonAliasId | yes | yes |  |  |  | Gets or sets the sender Person Alias identifier. |
 | SmsFromSystemPhoneNumber |  | yes | yes |  |  | Gets or sets the system phone number used for SMS sending. |
 | SmsFromSystemPhoneNumberId | yes | yes |  |  |  | Gets or sets the system phone number identifier used for SMS sending. |
 | Status | yes | yes |  |  |  | Gets or sets the status of the Communication. This is a hard coded list of values defined in the code as an enumeration. |
@@ -125,7 +125,7 @@
 | Attachments | Gets or sets the attachments. NOTE: In most cases, you should use GetAttachments( CommunicationType ) instead. |
 | AttributeValues |  |
 | Attributes |  |
-| CommunicationTemplate | Gets or sets the CommunicationTemplate that was used to compose this communication |
+| CommunicationTemplate | Gets or sets the Communication Template that was used to compose this communication |
 | CommunicationTopicValue | Gets or sets the communication topic defined value. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
@@ -136,10 +136,10 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | Recipients | Gets or sets a collection containing the CommunicationRecipients for the Communication. |
-| ReviewerPersonAlias | Gets or sets the reviewer PersonAlias. |
-| SMSFromDefinedValue | [Obsoleted in v15] Use SmsFromSystemPhoneNumber instead. Gets or sets the SMS from defined value. |
+| ReviewerPersonAlias | Gets or sets the reviewer Person Alias. |
+| SMSFromDefinedValue | Gets or sets the SMS from defined value. |
 | SendSourceDate | Gets or sets the send source date. |
-| SenderPersonAlias | Gets or sets the sender PersonAlias. |
+| SenderPersonAlias | Gets or sets the sender Person Alias. |
 | SmsFromSystemPhoneNumber | Gets or sets the system phone number used for SMS sending. |
 | SystemCommunication | Gets or sets the SystemCommunication that this communication is associated with. |
 | TypeId |  |
@@ -150,17 +150,17 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Attachments | attachments |  |
-| CommunicationTemplate | [CommunicationTemplate](communication-template.md) |  |
-| CommunicationTemplateId | [CommunicationTemplate](communication-template.md) |  |
-| ListGroup | [Group](group.md) |  |
-| ListGroupId | list |  |
-| PushImageBinaryFileId | image file |  |
-| Recipients | CommunicationRecipients |  |
-| ReviewerPersonAlias | [PersonAlias](person-alias.md) |  |
-| SendSourceDate | send source date |  |
-| SenderPersonAlias | [PersonAlias](person-alias.md) |  |
-| SenderPersonAliasId | [PersonAlias](person-alias.md) |  |
+| Attachments | attachments | 4271bfb1-af05-4b6c-8931-032eb02dd760 |
+| CommunicationTemplate | [Communication Template](communication-template.md) | a9493afe-4316-4651-800d-5028e4c7444d |
+| CommunicationTemplateId | [Communication Template](communication-template.md) | a9493afe-4316-4651-800d-5028e4c7444d |
+| ListGroup | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| ListGroupId | list | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| PushImageBinaryFileId | image file | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| Recipients | CommunicationRecipients | 3ec89b90-6692-451e-a48f-0d2adeba05bc |
+| ReviewerPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| SendSourceDate | send source date | 1a31a638-7740-48c9-b4cd-dee98562bdf8 |
+| SenderPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| SenderPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

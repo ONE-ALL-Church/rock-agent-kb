@@ -1,7 +1,7 @@
 # Event Item Occurrence Group Map Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventItemOccurrenceGroupMap`
 - EntityType GUID: `1479d2b7-65c0-4e98-9e70-0848422fa00c`
@@ -38,9 +38,9 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EventItemOccurrence |  | yes | yes |  |  | Gets or sets the EventItemOccurrence. |
+| EventItemOccurrence |  | yes | yes |  |  | Gets or sets the Event Item Occurrence. |
 | EventItemOccurrenceGroupMapAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| EventItemOccurrenceId | yes | yes |  |  |  | Gets or sets the EventItemOccurrence identifier. |
+| EventItemOccurrenceId | yes | yes |  |  |  | Gets or sets the Event Item Occurrence identifier. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -60,8 +60,8 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PublicName | yes | yes |  |  |  | Gets or sets the name of the public. |
-| RegistrationInstance |  | yes | yes |  |  | Gets or sets the RegistrationInstance. |
-| RegistrationInstanceId | yes | yes |  |  |  | Gets or sets the RegistrationInstance identifier. |
+| RegistrationInstance |  | yes | yes |  |  | Gets or sets the Registration Instance. |
+| RegistrationInstanceId | yes | yes |  |  |  | Gets or sets the Registration Instance identifier. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -79,13 +79,13 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EventItemOccurrence | Gets or sets the EventItemOccurrence. |
+| EventItemOccurrence | Gets or sets the Event Item Occurrence. |
 | Group | Gets or sets the Group. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| RegistrationInstance | Gets or sets the RegistrationInstance. |
+| RegistrationInstance | Gets or sets the Registration Instance. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -94,14 +94,14 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| EventItemOccurrence | [EventItemOccurrence](event-item-occurrence.md) |  |
-| EventItemOccurrenceId | [EventItemOccurrence](event-item-occurrence.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| RegistrationInstance | [RegistrationInstance](registration-instance.md) |  |
-| RegistrationInstanceId | [RegistrationInstance](registration-instance.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| EventItemOccurrence | [Event Item Occurrence](event-item-occurrence.md) | 71632e1a-1e7f-42b9-a630-ec99f375303a |
+| EventItemOccurrenceId | [Event Item Occurrence](event-item-occurrence.md) | 71632e1a-1e7f-42b9-a630-ec99f375303a |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| RegistrationInstance | [Registration Instance](registration-instance.md) | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
+| RegistrationInstanceId | [Registration Instance](registration-instance.md) | 5cd9c0c8-c047-61a0-4e36-0fdb8496f066 |
 
 ## Stable To Pre-Alpha Changes
 

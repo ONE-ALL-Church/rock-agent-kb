@@ -1,7 +1,7 @@
 # Communication Recipient Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationRecipient`
 - EntityType GUID: `3ec89b90-6692-451e-a48f-0d2adeba05bc`
@@ -110,12 +110,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Communication | [Communication](communication.md) |  |
-| CommunicationId | [Communication](communication.md) |  |
-| PersonAlias | [Communication](communication.md) |  |
-| PersonAlias | [Person](person.md) |  |
-| PersonAliasId | [Communication](communication.md) |  |
-| PersonAliasId | [Person](person.md) |  |
+| Communication | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| CommunicationId | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| PersonAlias | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| PersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonAliasId | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| PersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

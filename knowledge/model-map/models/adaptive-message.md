@@ -1,7 +1,7 @@
 # Adaptive Message Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `AdaptiveMessage`
 - EntityType GUID: `63d98f58-da81-46ae-ae0c-662a7bfaa7d0`
@@ -24,7 +24,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | AdaptiveMessageAdaptations |  | yes | yes |  |  | Gets or sets the collection of AdaptiveMessageAdaptations. |
 | AdaptiveMessageAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| AdaptiveMessageCategories |  | yes | yes |  |  | Gets or sets the collection of Categories that this AdaptiveMessage is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
+| AdaptiveMessageCategories |  | yes | yes |  |  | Gets or sets the collection of Categories that this Adaptive Message is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
@@ -39,7 +39,7 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | Description | yes | yes |  |  |  | Gets or sets the description. |
 | EncryptedKey |  |  | yes |  |  |  |
-| EndDate | yes | yes |  |  |  | Gets or sets the end date of the AdaptiveMessage. |
+| EndDate | yes | yes |  |  |  | Gets or sets the end date of the Adaptive Message. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -60,7 +60,7 @@
 | Name | yes | yes |  | yes |  | Gets or sets the name. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| StartDate | yes | yes |  |  |  | Gets or sets the optional start date of the AdaptiveMessage. |
+| StartDate | yes | yes |  |  |  | Gets or sets the optional start date of the Adaptive Message. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -72,7 +72,7 @@
 | Property | Description |
 | --- | --- |
 | AdaptiveMessageAdaptations | Gets or sets the collection of AdaptiveMessageAdaptations. |
-| AdaptiveMessageCategories | Gets or sets the collection of Categories that this AdaptiveMessage is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
+| AdaptiveMessageCategories | Gets or sets the collection of Categories that this Adaptive Message is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -90,10 +90,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AdaptiveMessageCategories | [AdaptiveMessage](adaptive-message.md) |  |
-| AdaptiveMessageCategories | Categories |  |
-| EndDate | [AdaptiveMessage](adaptive-message.md) |  |
-| StartDate | [AdaptiveMessage](adaptive-message.md) |  |
+| AdaptiveMessageCategories | [Adaptive Message](adaptive-message.md) | 63d98f58-da81-46ae-ae0c-662a7bfaa7d0 |
+| AdaptiveMessageCategories | Categories | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| EndDate | [Adaptive Message](adaptive-message.md) | 63d98f58-da81-46ae-ae0c-662a7bfaa7d0 |
+| StartDate | [Adaptive Message](adaptive-message.md) | 63d98f58-da81-46ae-ae0c-662a7bfaa7d0 |
 
 ## Stable To Pre-Alpha Changes
 

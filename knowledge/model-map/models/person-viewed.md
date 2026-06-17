@@ -1,7 +1,7 @@
 # Person Viewed Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PersonViewed`
 - EntityType GUID: `af13df44-4ee7-4492-aee4-6bd2a62f9c76`
@@ -63,10 +63,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| TargetPersonAlias | [Person](person.md) |  |
-| TargetPersonAliasId | [Person](person.md) |  |
-| ViewerPersonAlias | [Person](person.md) |  |
-| ViewerPersonAliasId | [Person](person.md) |  |
+| TargetPersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| TargetPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| ViewerPersonAlias | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| ViewerPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

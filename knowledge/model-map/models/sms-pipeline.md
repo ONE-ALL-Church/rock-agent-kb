@@ -1,7 +1,7 @@
 # Sms Pipeline Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `SmsPipeline`
 - EntityType GUID: `64da3a06-fd39-4e5b-8126-38404fb0092a`
@@ -85,7 +85,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| SmsActions | SmsActions |  |
+| SmsActions | SmsActions | 1f5e26be-0ed4-4250-8ffc-1ded5e9eacf0 |
 
 ## Stable To Pre-Alpha Changes
 

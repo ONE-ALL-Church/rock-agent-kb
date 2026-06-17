@@ -1,7 +1,7 @@
 # Analytics Dim Campus Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimCampus`
 - EntityType GUID: `dceb0575-1351-4cff-ba4f-410ba2d638cb`

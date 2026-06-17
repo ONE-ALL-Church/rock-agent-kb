@@ -1,7 +1,7 @@
 # Badge Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `Badge`
 - EntityType GUID: `99300129-6f4c-45b2-b486-71123f046289`
@@ -28,7 +28,7 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | BadgeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| BadgeComponentEntityType |  | yes | yes |  |  | Gets or sets the badge component EntityType. |
+| BadgeComponentEntityType |  | yes | yes |  |  | Gets or sets the badge component Entity Type. |
 | BadgeComponentEntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the badge component entity type |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -40,8 +40,8 @@
 | Description | yes | yes |  |  |  | Gets or sets a description of the badge. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the subject entity EntityType. |
-| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the EntityType that this Badge describes. |
+| EntityType |  | yes | yes |  |  | Gets or sets the subject entity Entity Type. |
+| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the Entity Type that this Badge describes. |
 | EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the entity type qualifier column that contains the value (see EntityTypeQualifierValue) that is used narrow the scope of the Badge to a subset or specific instance of an EntityType. |
 | EntityTypeQualifierValue | yes | yes |  |  |  | Gets or sets the entity type qualifier value that is used to narrow the scope of the Badge to a subset or specific instance of an EntityType. |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -75,11 +75,11 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BadgeComponentEntityType | Gets or sets the badge component EntityType. |
+| BadgeComponentEntityType | Gets or sets the badge component Entity Type. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the subject entity EntityType. |
+| EntityType | Gets or sets the subject entity Entity Type. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -92,9 +92,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BadgeComponentEntityType | [EntityType](entity-type.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
+| BadgeComponentEntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

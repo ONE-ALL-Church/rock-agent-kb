@@ -1,7 +1,7 @@
 # Related Entity Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `RelatedEntity`
 - EntityType GUID: `bd29e403-ba47-4688-be29-45a38ce8bd03`
@@ -15,8 +15,8 @@
 | Database-marked properties | 20 |
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 14 |
-| Related model links | 12 |
-| Pre-alpha changes touching this model | 8 |
+| Related model links | 4 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -60,13 +60,13 @@
 | QualifierValue | yes | yes |  |  |  | Gets or sets the qualifier value. See more details on RelatedEntityPurposeKey. |
 | Quantity | yes | yes |  |  |  | Gets or sets the quantity. |
 | RelatedEntityAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| SourceEntityId | yes | yes |  | yes |  | Gets or sets the EntityId of the EntityType of the source. See notes on RelatedEntityPurposeKey for details. |
+| SourceEntityId | yes | yes |  | yes |  | Gets or sets the EntityId of the Entity Type of the source. See notes on RelatedEntityPurposeKey for details. |
 | SourceEntityType |  | yes | yes |  |  | Gets or sets the type of the source entity. See notes on RelatedEntityPurposeKey for details. |
-| SourceEntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the EntityType of source entity. See notes on RelatedEntityPurposeKey for details. |
+| SourceEntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the Entity Type of source entity. See notes on RelatedEntityPurposeKey for details. |
 | SupportedActions |  |  | yes |  |  |  |
-| TargetEntityId | yes | yes |  | yes |  | Gets or sets the EntityId of the EntityType of the target. See notes on RelatedEntityPurposeKey for details. |
+| TargetEntityId | yes | yes |  | yes |  | Gets or sets the EntityId of the Entity Type of the target. See notes on RelatedEntityPurposeKey for details. |
 | TargetEntityType |  | yes | yes |  |  | Gets or sets the type of the target entity. See notes on RelatedEntityPurposeKey for details. |
-| TargetEntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the EntityType of target entity. See notes on RelatedEntityPurposeKey for details. |
+| TargetEntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the Entity Type of target entity. See notes on RelatedEntityPurposeKey for details. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -95,28 +95,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PurposeKey | RelatedEntityPurposeKey |  |
-| QualifierValue | RelatedEntityPurposeKey |  |
-| SourceEntityId | [EntityType](entity-type.md) |  |
-| SourceEntityId | RelatedEntityPurposeKey |  |
-| SourceEntityType | RelatedEntityPurposeKey |  |
-| SourceEntityTypeId | [EntityType](entity-type.md) |  |
-| SourceEntityTypeId | RelatedEntityPurposeKey |  |
-| TargetEntityId | [EntityType](entity-type.md) |  |
-| TargetEntityId | RelatedEntityPurposeKey |  |
-| TargetEntityType | RelatedEntityPurposeKey |  |
-| TargetEntityTypeId | [EntityType](entity-type.md) |  |
-| TargetEntityTypeId | RelatedEntityPurposeKey |  |
+| SourceEntityId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| SourceEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| TargetEntityId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| TargetEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | PurposeKey | related_entity_links |
-| property_changed | QualifierValue | related_entity_links |
-| property_changed | SourceEntityId | related_entity_links |
-| property_changed | SourceEntityType | related_entity_links |
-| property_changed | SourceEntityTypeId | related_entity_links |
-| property_changed | TargetEntityId | related_entity_links |
-| property_changed | TargetEntityType | related_entity_links |
-| property_changed | TargetEntityTypeId | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

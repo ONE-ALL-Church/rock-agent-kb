@@ -1,7 +1,7 @@
 # Theme Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `Theme`
 - EntityType GUID: `d02b63b9-e945-45bc-9d41-2c3e72b85f46`
@@ -57,8 +57,8 @@
 | Name | yes | yes |  | yes |  | Gets or sets the name. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PurposeValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the purpose of this theme. |
-| PurposeValueId | yes | yes |  |  |  | Gets or sets the Id of the Record Status DefinedValue representing the purpose of this theme. These are found in the "Theme Purpose" Defined Type. |
+| PurposeValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the purpose of this theme. |
+| PurposeValueId | yes | yes |  |  |  | Gets or sets the Id of the Record Status Defined Value representing the purpose of this theme. These are found in the Theme Purpose Defined Type. |
 | RootPath | yes | yes |  |  |  | Gets or sets the root path. |
 | SupportedActions |  |  | yes |  |  |  |
 | ThemeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
@@ -80,7 +80,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PurposeValue | Gets or sets the DefinedValue representing the purpose of this theme. |
+| PurposeValue | Gets or sets the Defined Value representing the purpose of this theme. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -89,9 +89,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| IsSystem | [Theme](theme.md) |  |
-| PurposeValue | [DefinedValue](defined-value.md) |  |
-| PurposeValueId | [DefinedValue](defined-value.md) |  |
+| IsSystem | [Theme](theme.md) | d02b63b9-e945-45bc-9d41-2c3e72b85f46 |
+| PurposeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| PurposeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 

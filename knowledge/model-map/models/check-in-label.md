@@ -1,8 +1,8 @@
 # Check In Label Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
-- Category: `Check -in`
+- Rock version: `19.1.8`
+- Category: `Check-in`
 - Model title: `CheckInLabel`
 - EntityType GUID: `8b651eb1-492f-46d0-821b-ca7355c6e6e7`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
@@ -46,8 +46,8 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IsActive | yes | yes |  |  |  | A flag indicating if this CheckInLabel is active. An in-active label will still be shown in the list of existing labels to be printed, but will not be available when adding a new label to be printed to a group. In-active labels will not be printed. |
-| IsSystem | yes | yes |  | yes |  | A flag indicating if this CheckInLabel is part of the Rock core system/framework. System labels cannot be edited or deleted. |
+| IsActive | yes | yes |  |  |  | A flag indicating if this Check In Label is active. An in-active label will still be shown in the list of existing labels to be printed, but will not be available when adding a new label to be printed to a group. In-active labels will not be printed. |
+| IsSystem | yes | yes |  | yes |  | A flag indicating if this Check In Label is part of the Rock core system/framework. System labels cannot be edited or deleted. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | LabelFormat | yes | yes |  |  |  | The format that the Content is stored in. This determines what UI is displayed for editing the label as well as how the label is printed. This is a hard coded list of values defined in the code as an enumeration. |
@@ -89,8 +89,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| IsActive | [CheckInLabel](check-in-label.md) |  |
-| IsSystem | [CheckInLabel](check-in-label.md) |  |
+| IsActive | [Check In Label](check-in-label.md) | 8b651eb1-492f-46d0-821b-ca7355c6e6e7 |
+| IsSystem | [Check In Label](check-in-label.md) | 8b651eb1-492f-46d0-821b-ca7355c6e6e7 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Group Requirement Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupRequirement`
 - EntityType GUID: `cfc7de86-222e-4669-83c2-a3f5b04cb5d6`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 37 |
 | Lava-marked non-database properties | 18 |
 | Related model links | 9 |
-| Pre-alpha changes touching this model | 3 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -25,8 +25,8 @@
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AllowLeadersToOverride | yes | yes |  |  |  | Gets or sets whether leaders are allowed to mark requirements as met manually. |
 | AppliesToAgeClassification | yes | yes |  |  |  | Gets or sets the "Applies To" Age Classification. This is a hard coded list of values defined in the code as an enumeration. |
-| AppliesToDataView |  | yes | yes |  |  | Gets or sets the "Applies To" DataView. |
-| AppliesToDataViewId | yes | yes |  |  |  | Gets or sets the "Applies To" DataView identifier. |
+| AppliesToDataView |  | yes | yes |  |  | Gets or sets the "Applies To" Data View. |
+| AppliesToDataViewId | yes | yes |  |  |  | Gets or sets the "Applies To" Data View identifier. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
@@ -38,9 +38,9 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DueDateAttribute |  | yes | yes |  |  | Gets or sets the Attribute for . |
-| DueDateAttributeId | yes | yes |  |  |  | Gets or sets the "Due Date" attribute identifier for when the GroupRequirementType.DueDateType is . |
-| DueDateStaticDate | yes | yes |  |  |  | Gets or sets the configured date for when the GroupRequirementType.DueDateType is . |
+| DueDateAttribute |  | yes | yes |  |  | Gets or sets the Attribute for DueDateType.GroupAttribute. |
+| DueDateAttributeId | yes | yes |  |  |  | Gets or sets the "Due Date" attribute identifier for when the GroupRequirementType.DueDateType is DueDateType.GroupAttribute. |
+| DueDateStaticDate | yes | yes |  |  |  | Gets or sets the configured date for when the GroupRequirementType.DueDateType is DueDateType.ConfiguredDate. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -54,7 +54,7 @@
 | GroupRole |  | yes | yes |  |  | The specific Group Role that this requirement is for. NULL means this requirement applies to all roles. |
 | GroupRoleId | yes | yes |  |  |  | The specific GroupRoleId that this requirement is for. NULL means this requirement applies to all roles. |
 | GroupType |  | yes | yes |  |  | Gets or sets the type of the group. |
-| GroupTypeId | yes | yes |  |  |  | Gets or sets the GroupType identifier. |
+| GroupTypeId | yes | yes |  |  |  | Gets or sets the Group Type identifier. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -79,12 +79,12 @@
 
 | Property | Description |
 | --- | --- |
-| AppliesToDataView | Gets or sets the "Applies To" DataView. |
+| AppliesToDataView | Gets or sets the "Applies To" Data View. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DueDateAttribute | Gets or sets the Attribute for . |
+| DueDateAttribute | Gets or sets the Attribute for DueDateType.GroupAttribute. |
 | EntityStringValue |  |
 | Group | Gets or sets the Group. |
 | GroupRequirementType | Gets or sets the type of the group requirement. |
@@ -102,20 +102,16 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AppliesToDataView | [DataView](data-view.md) |  |
-| AppliesToDataViewId | [DataView](data-view.md) |  |
-| DueDateAttribute | [Attribute](attribute.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| GroupRequirementType | type |  |
-| GroupRole | Group Role |  |
-| GroupType | type |  |
-| GroupTypeId | [GroupType](group-type.md) |  |
+| AppliesToDataView | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| AppliesToDataViewId | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| DueDateAttribute | [Attribute](attribute.md) | 5997c8d3-8840-4591-99a5-552919f90cbd |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupRequirementType | type | 8e67e852-d1bf-485c-9898-09f19998cc40 |
+| GroupRole | Group Role | d155c373-9e47-4c6a-badd-792f31af5fba |
+| GroupType | type | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| GroupTypeId | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | DueDateAttribute | description |
-| property_changed | DueDateAttributeId | description |
-| property_changed | DueDateStaticDate | description |
+No stable-to-pre-alpha changes were detected for this model.

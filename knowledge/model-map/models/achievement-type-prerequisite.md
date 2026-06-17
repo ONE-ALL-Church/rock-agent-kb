@@ -1,7 +1,7 @@
 # Achievement Type Prerequisite Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `AchievementTypePrerequisite`
 - EntityType GUID: `5362db19-b8e1-4378-a66a-fb097ce3ab90`
@@ -22,8 +22,8 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| AchievementType |  | yes | yes |  |  | Gets or sets the AchievementType. |
-| AchievementTypeId | yes | yes |  | yes |  | Gets or sets the Id of the AchievementType to which this prerequisite belongs. This property is required. |
+| AchievementType |  | yes | yes |  |  | Gets or sets the Achievement Type. |
+| AchievementTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Achievement Type to which this prerequisite belongs. This property is required. |
 | AchievementTypePrerequisiteAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -55,8 +55,8 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PrerequisiteAchievementType |  | yes | yes |  |  | Gets or sets the Prerequisite AchievementType. |
-| PrerequisiteAchievementTypeId | yes | yes |  | yes |  | Gets or sets the Id of the AchievementType that is the prerequisite. This property is required. |
+| PrerequisiteAchievementType |  | yes | yes |  |  | Gets or sets the Prerequisite Achievement Type. |
+| PrerequisiteAchievementTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Achievement Type that is the prerequisite. This property is required. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -67,7 +67,7 @@
 
 | Property | Description |
 | --- | --- |
-| AchievementType | Gets or sets the AchievementType. |
+| AchievementType | Gets or sets the Achievement Type. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -77,7 +77,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PrerequisiteAchievementType | Gets or sets the Prerequisite AchievementType. |
+| PrerequisiteAchievementType | Gets or sets the Prerequisite Achievement Type. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AchievementType | [AchievementType](achievement-type.md) |  |
-| AchievementTypeId | [AchievementType](achievement-type.md) |  |
-| PrerequisiteAchievementType | [AchievementType](achievement-type.md) |  |
-| PrerequisiteAchievementTypeId | [AchievementType](achievement-type.md) |  |
+| AchievementType | [Achievement Type](achievement-type.md) | 0e99356c-0dea-4f24-944e-21cd5fa83b9e |
+| AchievementTypeId | [Achievement Type](achievement-type.md) | 0e99356c-0dea-4f24-944e-21cd5fa83b9e |
+| PrerequisiteAchievementType | [Achievement Type](achievement-type.md) | 0e99356c-0dea-4f24-944e-21cd5fa83b9e |
+| PrerequisiteAchievementTypeId | [Achievement Type](achievement-type.md) | 0e99356c-0dea-4f24-944e-21cd5fa83b9e |
 
 ## Stable To Pre-Alpha Changes
 

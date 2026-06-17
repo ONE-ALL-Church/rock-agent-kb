@@ -1,7 +1,7 @@
 # Person Token Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `PersonToken`
 - EntityType GUID: `846b2bce-7101-46b9-b89c-cd68073712ce`

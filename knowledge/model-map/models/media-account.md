@@ -1,7 +1,7 @@
 # Media Account Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `MediaAccount`
 - EntityType GUID: `cd35f034-ac18-40d5-b703-6bf16d79c51c`
@@ -28,7 +28,7 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | ComponentEntityType |  | yes | yes |  |  | Gets or sets the type of the component entity. |
-| ComponentEntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the achievement component EntityType |
+| ComponentEntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the achievement component Entity Type |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -90,8 +90,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ComponentEntityTypeId | [EntityType](entity-type.md) |  |
-| MediaFolders | Media Folders |  |
+| ComponentEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| MediaFolders | Media Folders | b28fc79f-9fee-4be4-801d-96b9246e6043 |
 
 ## Stable To Pre-Alpha Changes
 

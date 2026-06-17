@@ -1,7 +1,7 @@
 # Analytics Source Giving Unit Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceGivingUnit`
 - EntityType GUID: `05103bcb-b164-4591-9129-f949a58c04b1`
@@ -15,8 +15,8 @@
 | Database-marked properties | 21 |
 | Lava-marked properties | 26 |
 | Lava-marked non-database properties | 5 |
-| Related model links | 2 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 0 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -68,14 +68,8 @@
 
 ## Related Model Map Links
 
-| Property | Related Model | EntityType GUID |
-| --- | --- | --- |
-| Frequency | FinancialGivingAnalyticsFrequencyLabel |  |
-| GivingBin | GivingAutomation |  |
+No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | Frequency | related_entity_links |
-| property_changed | GivingBin | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

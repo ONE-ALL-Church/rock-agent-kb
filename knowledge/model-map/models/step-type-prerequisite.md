@@ -1,7 +1,7 @@
 # Step Type Prerequisite Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StepTypePrerequisite`
 - EntityType GUID: `f2181fcd-1423-4937-9137-099154e1c3ec`
@@ -53,10 +53,10 @@
 | Order | yes | yes |  |  |  | Gets or sets the order. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PrerequisiteStepType |  | yes | yes |  |  | Gets or sets the Prerequisite StepType. |
-| PrerequisiteStepTypeId | yes | yes |  | yes |  | Gets or sets the Id of the StepType that is a prerequisite. This property is required. |
-| StepType |  | yes | yes |  |  | Gets or sets the StepType. |
-| StepTypeId | yes | yes |  | yes |  | Gets or sets the Id of the StepType to which this prerequisite. This property is required. |
+| PrerequisiteStepType |  | yes | yes |  |  | Gets or sets the Prerequisite Step Type. |
+| PrerequisiteStepTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Step Type that is a prerequisite. This property is required. |
+| StepType |  | yes | yes |  |  | Gets or sets the Step Type. |
+| StepTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Step Type to which this prerequisite. This property is required. |
 | StepTypePrerequisiteAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -77,8 +77,8 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PrerequisiteStepType | Gets or sets the Prerequisite StepType. |
-| StepType | Gets or sets the StepType. |
+| PrerequisiteStepType | Gets or sets the Prerequisite Step Type. |
+| StepType | Gets or sets the Step Type. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -87,10 +87,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PrerequisiteStepType | [StepType](step-type.md) |  |
-| PrerequisiteStepTypeId | [StepType](step-type.md) |  |
-| StepType | [StepType](step-type.md) |  |
-| StepTypeId | [StepType](step-type.md) |  |
+| PrerequisiteStepType | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| PrerequisiteStepTypeId | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| StepType | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
+| StepTypeId | [Step Type](step-type.md) | 5e795620-9f16-49d2-9030-947c0e348a8e |
 
 ## Stable To Pre-Alpha Changes
 

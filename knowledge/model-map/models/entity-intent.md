@@ -1,7 +1,7 @@
 # Entity Intent Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `EntityIntent`
 - EntityType GUID: `15ce39a3-193f-44e5-80c7-de47da3eaf97`

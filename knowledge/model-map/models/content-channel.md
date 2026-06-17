@@ -1,7 +1,7 @@
 # Content Channel Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentChannel`
 - EntityType GUID: `44484685-477e-4668-89a6-84f29739eb68`
@@ -15,8 +15,8 @@
 | Database-marked properties | 29 |
 | Lava-marked properties | 47 |
 | Lava-marked non-database properties | 18 |
-| Related model links | 7 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 6 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
@@ -33,7 +33,7 @@
 | ChildItemsManuallyOrdered | yes | yes |  |  |  | Gets or sets a value indicating whether child items are manually ordered or not |
 | ContentChannelAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ContentChannelType |  | yes | yes |  |  | Gets or sets the type of the content channel. |
-| ContentChannelTypeId | yes | yes |  |  |  | Gets or sets the ContentChannelType identifier. |
+| ContentChannelTypeId | yes | yes |  |  |  | Gets or sets the Content Channel Type identifier. |
 | ContentControlType | yes | yes |  |  |  | Gets or sets the type of the control to render when editing content for items of this type. This is a hard coded list of values defined in the code as an enumeration. |
 | ContentLibraryConfiguration |  |  | yes |  |  | Gets or sets the content library configuration. |
 | ContentLibraryConfigurationJson | yes | yes |  |  |  | Gets or sets the Content Library configuration JSON. |
@@ -79,8 +79,8 @@
 | ParentContentChannels |  |  | yes |  |  | Gets or sets a collection containing the ContentChannels that allow this ContentChannel as a child. |
 | RequiresApproval | yes | yes |  |  |  | Gets or sets a value indicating whether [requires approval]. |
 | RootImageDirectory | yes | yes |  |  |  | Gets or sets the root image directory to use when the HTML control type is used |
-| StructuredContentToolValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the content channel's structure content tool. |
-| StructuredContentToolValueId | yes | yes |  |  |  | Gets or sets the Structure Content Tool Id. These are found in the "Structured Content Editor Tools" Defined Type. |
+| StructuredContentToolValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the content channel's structure content tool. |
+| StructuredContentToolValueId | yes | yes |  |  |  | Gets or sets the Structure Content Tool Id. These are found in the Structured Content Editor Tools Defined Type. |
 | SupportedActions |  |  | yes |  |  | Provides a Dictionary`2 of actions that this model supports, and the description of each. |
 | TimeToLive | yes | yes |  |  |  | Gets or sets the number of minutes a feed can stay cached before refreshing it from the source. |
 | TypeId |  | yes | yes |  |  |  |
@@ -106,7 +106,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| StructuredContentToolValue | Gets or sets the DefinedValue representing the content channel's structure content tool. |
+| StructuredContentToolValue | Gets or sets the Defined Value representing the content channel's structure content tool. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -115,17 +115,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Categories | Categories |  |
-| ContentChannelType | type |  |
-| ContentChannelTypeId | [ContentChannelType](content-channel-type.md) |  |
-| ItemTagCategory | [Category](category.md) |  |
-| Items | items |  |
-| StructuredContentToolValue | [DefinedValue](defined-value.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| Categories | Categories | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| ContentChannelType | type | d5992f79-7fb8-49ff-82ab-e8cb2cec1e74 |
+| ContentChannelTypeId | [Content Channel Type](content-channel-type.md) | d5992f79-7fb8-49ff-82ab-e8cb2cec1e74 |
+| ItemTagCategory | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| Items | items | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| StructuredContentToolValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 
 | Change | Property | Fields |
 | --- | --- | --- |
 | property_changed | StructuredContentToolValueId | enum_values |
-| property_changed | SupportedActions | related_entity_links |

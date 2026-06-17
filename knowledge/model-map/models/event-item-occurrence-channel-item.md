@@ -1,7 +1,7 @@
 # Event Item Occurrence Channel Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventItemOccurrenceChannelItem`
 - EntityType GUID: `378a9559-bd86-45a8-b218-2c5d4cf3d770`
@@ -27,8 +27,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ContentChannelItem |  | yes | yes |  |  | Gets or sets the ContentChannelItem. |
-| ContentChannelItemId | yes | yes |  |  |  | Gets or sets the ContentChannelItem. |
+| ContentChannelItem |  | yes | yes |  |  | Gets or sets the Content Channel Item. |
+| ContentChannelItemId | yes | yes |  |  |  | Gets or sets the Content Channel Item. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -38,9 +38,9 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EventItemOccurrence |  | yes | yes |  |  | Gets or sets the EventItemOccurrence. |
+| EventItemOccurrence |  | yes | yes |  |  | Gets or sets the Event Item Occurrence. |
 | EventItemOccurrenceChannelItemAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| EventItemOccurrenceId | yes | yes |  |  |  | Gets or sets the EventItemOccurrence identifier. |
+| EventItemOccurrenceId | yes | yes |  |  |  | Gets or sets the Event Item Occurrence identifier. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -69,11 +69,11 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ContentChannelItem | Gets or sets the ContentChannelItem. |
+| ContentChannelItem | Gets or sets the Content Channel Item. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EventItemOccurrence | Gets or sets the EventItemOccurrence. |
+| EventItemOccurrence | Gets or sets the Event Item Occurrence. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ContentChannelItem | [ContentChannelItem](content-channel-item.md) |  |
-| ContentChannelItemId | [ContentChannelItem](content-channel-item.md) |  |
-| EventItemOccurrence | [EventItemOccurrence](event-item-occurrence.md) |  |
-| EventItemOccurrenceId | [EventItemOccurrence](event-item-occurrence.md) |  |
+| ContentChannelItem | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| ContentChannelItemId | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| EventItemOccurrence | [Event Item Occurrence](event-item-occurrence.md) | 71632e1a-1e7f-42b9-a630-ec99f375303a |
+| EventItemOccurrenceId | [Event Item Occurrence](event-item-occurrence.md) | 71632e1a-1e7f-42b9-a630-ec99f375303a |
 
 ## Stable To Pre-Alpha Changes
 

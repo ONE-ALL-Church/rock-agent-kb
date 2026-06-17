@@ -1,7 +1,7 @@
 # Group Member Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupMember`
 - EntityType GUID: `49668b95-fedc-43dd-8085-d2b0d6343c48`
@@ -15,15 +15,15 @@
 | Database-marked properties | 30 |
 | Lava-marked properties | 49 |
 | Lava-marked non-database properties | 19 |
-| Related model links | 16 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 15 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | AdditionalLavaFields |  |  | yes |  |  |  |
-| ArchivedByPersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias that archived (soft deleted) this group member |
+| ArchivedByPersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias that archived (soft deleted) this group member |
 | ArchivedByPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId that archived (soft deleted) this group member |
 | ArchivedDateTime | yes | yes |  |  |  | Gets or sets the date time that this group member was archived (soft deleted) |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -51,9 +51,9 @@
 | GroupMemberRequirements |  | yes | yes |  |  | Gets or sets the group member requirements. |
 | GroupMemberStatus | yes | yes |  | yes |  | Gets or sets the GroupMember's status (GroupMemberStatus) in the Group. This value is required. This is a hard coded list of values defined in the code as an enumeration. |
 | GroupOrder | yes | yes |  |  |  | Gets or sets the order of Groups of the Group's GroupType for the Person. For example, if this is a FamilyGroupType, GroupOrder can be used to specify which family should be listed as 1st (primary), 2nd, 3rd, etc for the Person. If GroupOrder is null, the group will be listed in no particular order after the ones that do have a GroupOrder. NOTE: Use int.MaxValue in OrderBy statements for null GroupOrder values |
-| GroupRole |  | yes | yes |  |  | Gets or sets the GroupMember's role (GroupTypeRole) in the Group. |
+| GroupRole |  | yes | yes |  |  | Gets or sets the GroupMember's role (Group Type Role) in the Group. |
 | GroupRoleId | yes | yes |  | yes |  | Gets or sets the Id of the GroupMember's GroupRole in the Group. This property is required. |
-| GroupTypeId | yes | yes |  | yes |  | Gets or sets the Id of the GroupType that this Group member belongs to. This property is required. |
+| GroupTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Group Type that this Group member belongs to. This property is required. |
 | GuestCount | yes | yes |  |  |  | Gets or sets the number of additional guests that member will be bring to group. Only applies when group has the 'AllowGuests' flag set to true. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
@@ -78,9 +78,9 @@
 | Person |  | yes | yes |  |  | Gets or sets the Person representing the GroupMember. |
 | PersonId | yes | yes |  | yes |  | Gets or sets the Id of the Person that is represented by the GroupMember. This property is required. |
 | ScheduleReminderEmailOffsetDays | yes | yes |  |  |  | Gets or sets the number of days prior to the schedule to send a reminder email. See also GroupType.ScheduleReminderEmailOffsetDays. |
-| ScheduleStartDate | yes | yes |  |  |  | Gets or sets the schedule start date to base the schedule off of. See GroupMemberScheduleTemplate. |
-| ScheduleTemplate |  | yes | yes |  |  | Gets or sets the GroupMemberScheduleTemplate. |
-| ScheduleTemplateId | yes | yes |  |  |  | Gets or sets the Id of the GroupMemberScheduleTemplate |
+| ScheduleStartDate | yes | yes |  |  |  | Gets or sets the schedule start date to base the schedule off of. See Group Member Schedule Template. |
+| ScheduleTemplate |  | yes | yes |  |  | Gets or sets the Group Member Schedule Template. |
+| ScheduleTemplateId | yes | yes |  |  |  | Gets or sets the Id of the Group Member Schedule Template |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -91,7 +91,7 @@
 
 | Property | Description |
 | --- | --- |
-| ArchivedByPersonAlias | Gets or sets the PersonAlias that archived (soft deleted) this group member |
+| ArchivedByPersonAlias | Gets or sets the Person Alias that archived (soft deleted) this group member |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -100,13 +100,13 @@
 | Group | Gets or sets the Group that the GroupMember belongs to. |
 | GroupMemberAssignments | Gets or sets the group member assignments. |
 | GroupMemberRequirements | Gets or sets the group member requirements. |
-| GroupRole | Gets or sets the GroupMember's role (GroupTypeRole) in the Group. |
+| GroupRole | Gets or sets the GroupMember's role (Group Type Role) in the Group. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | Person | Gets or sets the Person representing the GroupMember. |
-| ScheduleTemplate | Gets or sets the GroupMemberScheduleTemplate. |
+| ScheduleTemplate | Gets or sets the Group Member Schedule Template. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -115,25 +115,22 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ArchivedByPersonAlias | [PersonAlias](person-alias.md) |  |
-| ArchivedByPersonAliasId | [PersonAliasId](person-alias.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| GroupMemberAssignments | group member assignments |  |
-| GroupMemberRequirements | group member requirements |  |
-| GroupMemberStatus | GroupMemberStatus |  |
-| GroupRole | [Group](group.md) |  |
-| GroupRole | [GroupTypeRole](group-type-role.md) |  |
-| GroupRoleId | [Group](group.md) |  |
-| GroupTypeId | [GroupType](group-type.md) |  |
-| Person | [Person](person.md) |  |
-| PersonId | [Person](person.md) |  |
-| ScheduleStartDate | [GroupMemberScheduleTemplate](group-member-schedule-template.md) |  |
-| ScheduleTemplate | [GroupMemberScheduleTemplate](group-member-schedule-template.md) |  |
-| ScheduleTemplateId | [GroupMemberScheduleTemplate](group-member-schedule-template.md) |  |
+| ArchivedByPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| ArchivedByPersonAliasId | [PersonAliasId](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupMemberAssignments | group member assignments | 22bf14ed-e882-4bb0-9328-d12545bf5f61 |
+| GroupMemberRequirements | group member requirements | ff1b2c4b-0f2d-4d9b-9e85-7336ccc24a62 |
+| GroupRole | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupRole | [Group Type Role](group-type-role.md) | d155c373-9e47-4c6a-badd-792f31af5fba |
+| GroupRoleId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupTypeId | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| Person | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| ScheduleStartDate | [Group Member Schedule Template](group-member-schedule-template.md) | d84ed719-b659-433c-bfa0-e798e52c6b24 |
+| ScheduleTemplate | [Group Member Schedule Template](group-member-schedule-template.md) | d84ed719-b659-433c-bfa0-e798e52c6b24 |
+| ScheduleTemplateId | [Group Member Schedule Template](group-member-schedule-template.md) | d84ed719-b659-433c-bfa0-e798e52c6b24 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | GroupMemberStatus | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

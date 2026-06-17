@@ -1,7 +1,7 @@
 # Analytics Source Person Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourcePersonHistorical`
 - EntityType GUID: `fc84e469-7e8f-4202-89c3-f27dd41bc132`
@@ -16,7 +16,7 @@
 | Lava-marked properties | 49 |
 | Lava-marked non-database properties | 6 |
 | Related model links | 0 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -31,7 +31,7 @@
 | BirthDay | yes | yes |  |  |  |  |
 | BirthMonth | yes | yes |  |  |  |  |
 | BirthYear | yes | yes |  |  |  |  |
-| ConnectionStatusValueId | yes | yes |  |  |  | These are found in the "Connection Status" Defined Type. |
+| ConnectionStatusValueId | yes | yes |  |  |  | These are found in the Connection Status Defined Type. |
 | ContextKey |  |  | yes |  |  |  |
 | Count | yes | yes |  |  |  |  |
 | CurrentRowIndicator | yes | yes |  |  |  |  |
@@ -58,21 +58,21 @@
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | LastName | yes | yes |  |  |  |  |
-| MaritalStatusValueId | yes | yes |  |  |  | These are found in the "Marital Status" Defined Type. |
+| MaritalStatusValueId | yes | yes |  |  |  | These are found in the Marital Status Defined Type. |
 | MiddleName | yes | yes |  |  |  |  |
 | NickName | yes | yes |  |  |  |  |
 | PersonId | yes | yes |  |  |  |  |
 | PhotoId | yes | yes |  |  |  |  |
 | PrimaryFamilyId | yes | yes |  |  |  |  |
 | RecordStatusLastModifiedDateTime | yes | yes |  |  |  |  |
-| RecordStatusReasonValueId | yes | yes |  |  |  | These are found in the "Inactive Record Reason" Defined Type. |
-| RecordStatusValueId | yes | yes |  |  |  | These are found in the "Record Status" Defined Type. |
-| RecordTypeValueId | yes | yes |  |  |  | These are found in the "Record Type" Defined Type. |
+| RecordStatusReasonValueId | yes | yes |  |  |  | These are found in the Inactive Record Reason Defined Type. |
+| RecordStatusValueId | yes | yes |  |  |  | These are found in the Record Status Defined Type. |
+| RecordTypeValueId | yes | yes |  |  |  | These are found in the Record Type Defined Type. |
 | ReviewReasonNote | yes | yes |  |  |  |  |
-| ReviewReasonValueId | yes | yes |  |  |  | These are found in the "Review Reason" Defined Type. |
-| SuffixValueId | yes | yes |  |  |  | These are found in the "Suffix" Defined Type. |
+| ReviewReasonValueId | yes | yes |  |  |  | These are found in the Review Reason Defined Type. |
+| SuffixValueId | yes | yes |  |  |  | These are found in the Suffix Defined Type. |
 | SystemNote | yes | yes |  |  |  |  |
-| TitleValueId | yes | yes |  |  |  | These are found in the "Title" Defined Type. |
+| TitleValueId | yes | yes |  |  |  | These are found in the Title Defined Type. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -98,4 +98,6 @@ No related entity links were present in the scraped Model Map for this model.
 
 | Change | Property | Fields |
 | --- | --- | --- |
+| property_changed | MaritalStatusValueId | enum_values |
+| property_changed | RecordStatusReasonValueId | enum_values |
 | property_changed | RecordTypeValueId | enum_values |

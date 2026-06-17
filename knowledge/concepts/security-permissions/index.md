@@ -2,7 +2,7 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-06-17T21:47:57+00:00
+last_built: 2026-06-17T23:10:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -296,29 +296,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Auth](../../model-map/models/auth.md) | Core | 18.2.4 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Audit Log](../../model-map/models/auth-audit-log.md) | Core | 18.2.4 | 34 | 18 | 27 | 9 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Claim](../../model-map/models/auth-claim.md) | Core | 18.2.4 | 43 | 15 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Client](../../model-map/models/auth-client.md) | Core | 18.2.4 | 46 | 19 | 30 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Scope](../../model-map/models/auth-scope.md) | Core | 18.2.4 | 40 | 13 | 25 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Type Role](../../model-map/models/group-type-role.md) | Group | 18.2.4 | 54 | 26 | 39 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [History Login](../../model-map/models/history-login.md) | Security | 18.2.4 | 52 | 22 | 34 | 12 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth](../../model-map/models/auth.md) | Core | 19.1.8 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Audit Log](../../model-map/models/auth-audit-log.md) | Core | 19.1.8 | 34 | 18 | 27 | 9 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Claim](../../model-map/models/auth-claim.md) | Core | 19.1.8 | 43 | 15 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Client](../../model-map/models/auth-client.md) | Core | 19.1.8 | 46 | 19 | 30 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Scope](../../model-map/models/auth-scope.md) | Core | 19.1.8 | 40 | 13 | 25 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Type Role](../../model-map/models/group-type-role.md) | Group | 19.1.8 | 54 | 26 | 39 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [History Login](../../model-map/models/history-login.md) | Security | 19.1.8 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | Store Order Line Item Access | Other |  |  |  |  |  | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 18.2.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 18.2.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 18.2.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 18.2.4 | 55 | 23 | 40 | 17 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.1.8 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.1.8 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.1.8 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 18.2.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

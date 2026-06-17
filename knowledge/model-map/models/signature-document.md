@@ -1,7 +1,7 @@
 # Signature Document Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `SignatureDocument`
 - EntityType GUID: `c1724719-1c03-4d0c-8a66-e3545138f57f`
@@ -70,8 +70,8 @@
 | SignatureData |  |  | yes |  |  | The data that was collected during a drawn signature type. This is an img data url. Example: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAngAAABkCAYAAAAVH... This is stored as SignatureDataEncrypted. |
 | SignatureDataEncrypted | yes | yes |  |  |  | The encrypted data that was collected during a drawn signature type. Use SignatureData to set this from the unencrypted drawn signature. |
 | SignatureDocumentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| SignatureDocumentTemplate |  | yes | yes |  |  | Gets or sets the SignatureDocumentTemplate that is being executed in this persisted SignatureDocument instance. |
-| SignatureDocumentTemplateId | yes | yes |  |  |  | Gets or sets the SignatureDocumentTemplateId of the SignatureDocumentTemplate that this SignatureDocument instance is executing. |
+| SignatureDocumentTemplate |  | yes | yes |  |  | Gets or sets the Signature Document Template that is being executed in this persisted SignatureDocument instance. |
+| SignatureDocumentTemplateId | yes | yes |  |  |  | Gets or sets the SignatureDocumentTemplateId of the Signature Document Template that this SignatureDocument instance is executing. |
 | SignatureVerificationHash | yes | yes |  |  |  | The computed SHA1 hash for the SignedDocumentText, SignedClientIP address, SignedClientUserAgent, SignedDateTime, SignedByPersonAliasId, SignatureData, and SignedName. This hash can be used to prove the authenticity of the unaltered signature document. This is only calculated once during the pre-save event when the SignedDateTime was originally null/empty but now has a value. |
 | SignedByEmail | yes | yes |  |  |  | The email address that was used to send the completion receipt. |
 | SignedByPersonAlias |  | yes | yes |  |  | Gets or sets the signed by person alias. |
@@ -79,7 +79,7 @@
 | SignedClientIp | yes | yes |  |  |  | The observed IP address of the client system of the individual who signed the document. |
 | SignedClientUserAgent | yes | yes |  |  |  | The observed 'user agent' of the client system of the individual who signed the document. |
 | SignedDateTime | yes | yes |  |  |  | The date and time the document was signed. |
-| SignedDocumentText | yes | yes |  |  |  | The resulting text/document using the Lava template from the SignatureDocumentTemplate at the time the document was signed. Does not include the signature data. It would be what they saw just prior to signing. |
+| SignedDocumentText | yes | yes |  |  |  | The resulting text/document using the Lava template from the Signature Document Template at the time the document was signed. Does not include the signature data. It would be what they saw just prior to signing. |
 | SignedName | yes | yes |  |  |  | The name of the individual who signed the document. |
 | Status | yes | yes |  |  |  | Gets or sets the status. This is a hard coded list of values defined in the code as an enumeration. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -105,7 +105,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| SignatureDocumentTemplate | Gets or sets the SignatureDocumentTemplate that is being executed in this persisted SignatureDocument instance. |
+| SignatureDocumentTemplate | Gets or sets the Signature Document Template that is being executed in this persisted SignatureDocument instance. |
 | SignedByPersonAlias | Gets or sets the signed by person alias. |
 | TypeId |  |
 | TypeName |  |
@@ -115,9 +115,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| SignatureDocumentTemplate | [SignatureDocumentTemplate](signature-document-template.md) |  |
-| SignatureDocumentTemplateId | [SignatureDocumentTemplate](signature-document-template.md) |  |
-| SignedDocumentText | [SignatureDocumentTemplate](signature-document-template.md) |  |
+| SignatureDocumentTemplate | [Signature Document Template](signature-document-template.md) | 3f9828cc-8224-4ab0-98a5-6d60001ebe32 |
+| SignatureDocumentTemplateId | [Signature Document Template](signature-document-template.md) | 3f9828cc-8224-4ab0-98a5-6d60001ebe32 |
+| SignedDocumentText | [Signature Document Template](signature-document-template.md) | 3f9828cc-8224-4ab0-98a5-6d60001ebe32 |
 
 ## Stable To Pre-Alpha Changes
 

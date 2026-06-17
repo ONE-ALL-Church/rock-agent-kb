@@ -1,7 +1,7 @@
 # Benevolence Workflow Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `BenevolenceWorkflow`
 - EntityType GUID: `1f27a8e2-c40a-4c8d-9f22-55bc24b98d80`
@@ -90,8 +90,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BenevolenceType | [Benevolence Type](benevolence-type.md) |  |
-| WorkflowType | type |  |
+| BenevolenceType | [Benevolence Type](benevolence-type.md) | 9db5d35a-f2df-4aff-ab9f-06c2eb587c0d |
+| WorkflowType | type | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
 
 ## Stable To Pre-Alpha Changes
 

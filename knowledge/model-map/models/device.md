@@ -1,7 +1,7 @@
 # Device Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Device`
 - EntityType GUID: `c06ee1fe-af12-410a-a364-7a366cd72414`
@@ -37,8 +37,8 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | Description | yes | yes |  |  |  | Gets or sets a description of the device. |
 | DeviceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| DeviceType |  | yes | yes |  |  | Gets or sets the DefinedValue that represents the type of the device. |
-| DeviceTypeValueId | yes | yes |  |  |  | Gets or sets the Id of the DeviceType DefinedValue that identifies what type of device this is. These are found in the "Device Type" Defined Type. |
+| DeviceType |  | yes | yes |  |  | Gets or sets the Defined Value that represents the type of the device. |
+| DeviceTypeValueId | yes | yes |  |  |  | Gets or sets the Id of the DeviceType Defined Value that identifies what type of device this is. These are found in the Device Type Defined Type. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -85,7 +85,7 @@
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DeviceType | Gets or sets the DefinedValue that represents the type of the device. |
+| DeviceType | Gets or sets the Defined Value that represents the type of the device. |
 | EntityStringValue |  |
 | IdKey |  |
 | Location | Gets or sets the physical location or geographic fence for the device. |
@@ -103,10 +103,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| DeviceType | [DefinedValue](defined-value.md) |  |
-| DeviceTypeValueId | [DefinedValue](defined-value.md) |  |
-| LocationId | [Location](location.md) |  |
-| Locations | Locations |  |
+| DeviceType | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| DeviceTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| Locations | Locations | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Following Suggested Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `FollowingSuggested`
 - EntityType GUID: `ec14b80a-3776-4134-884d-031a89c0ef03`

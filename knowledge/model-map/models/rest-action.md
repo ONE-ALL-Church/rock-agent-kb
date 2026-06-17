@@ -1,7 +1,7 @@
 # Rest Action Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `RestAction`
 - EntityType GUID: `d4f7f055-5351-4adf-9f8d-4802cad6cc9d`

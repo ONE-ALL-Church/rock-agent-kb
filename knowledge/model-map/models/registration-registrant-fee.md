@@ -1,7 +1,7 @@
 # Registration Registrant Fee Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationRegistrantFee`
 - EntityType GUID: `ab66f63a-3e79-438f-8c52-c9a8c70a0511`

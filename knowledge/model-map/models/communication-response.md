@@ -1,7 +1,7 @@
 # Communication Response Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationResponse`
 - EntityType GUID: `db449144-6045-4b11-aa55-ecf286b117a9`
@@ -62,7 +62,7 @@
 | RelatedCommunicationId | yes | yes |  |  |  | Gets or sets the related communication identifier. |
 | RelatedMedium |  |  | yes |  |  | Gets or sets the related medium. |
 | RelatedMediumEntityTypeId | yes | yes |  |  |  | Gets or sets the related medium entity type identifier. |
-| RelatedSmsFromDefinedValueId | yes | yes |  |  |  | [Obsoleted in v15] Use RelatedSmsFromSystemPhoneNumberId instead. Gets or sets the related SMS from defined value identifier. |
+| RelatedSmsFromDefinedValueId | yes | yes |  |  | yes | Gets or sets the related SMS from defined value identifier. |
 | RelatedSmsFromSystemPhoneNumber |  |  | yes |  |  | Gets or sets the related SMS system phone number this response was received on. |
 | RelatedSmsFromSystemPhoneNumberId | yes | yes |  |  |  | Gets or sets the related SMS system phone number identifier this response was received on. |
 | RelatedTransport |  |  | yes |  |  | Gets or sets the related transport. |

@@ -1,7 +1,7 @@
 # Notification Message Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `NotificationMessageType`
 - EntityType GUID: `36fb1038-8836-429f-bad4-04d32892d6d0`
@@ -37,8 +37,8 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the component that handles logic for this instance. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the EntityType component that handles logic for this instance. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the component that handles logic for this instance. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Entity Type component that handles logic for this instance. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -59,7 +59,7 @@
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | NotificationMessageTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| NotificationMessages |  | yes | yes |  |  | Gets or sets a collection containing the NotificationMessage objects that belong to this NotificationMessageType. |
+| NotificationMessages |  | yes | yes |  |  | Gets or sets a collection containing the Notification Message objects that belong to this Notification Message Type. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | RelatedMobileApplicationSite |  | yes | yes |  |  | Gets or sets the related mobile site. If specified then messages will only show up on this mobile application. Otherwise messages will show up on all mobile applications. This does not affect other site types. |
@@ -83,12 +83,12 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the component that handles logic for this instance. |
+| EntityType | Gets or sets the Entity Type of the component that handles logic for this instance. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| NotificationMessages | Gets or sets a collection containing the NotificationMessage objects that belong to this NotificationMessageType. |
+| NotificationMessages | Gets or sets a collection containing the Notification Message objects that belong to this Notification Message Type. |
 | RelatedMobileApplicationSite | Gets or sets the related mobile site. If specified then messages will only show up on this mobile application. Otherwise messages will show up on all mobile applications. This does not affect other site types. |
 | RelatedTvApplicationSite | Gets or sets the related TV site. If specified then messages will only show up on this TV application. Otherwise messages will show up on all TV applications. This does not affect other site types. |
 | RelatedWebSite | Gets or sets the related web site. If specified then messages will only show up on this website. Otherwise messages will show up on all websites. This does not affect other site types. |
@@ -100,10 +100,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| NotificationMessages | [NotificationMessage](notification-message.md) |  |
-| NotificationMessages | [NotificationMessageType](notification-message-type.md) |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| NotificationMessages | [Notification Message](notification-message.md) | 239add2e-2dbf-46a7-bd28-4a2a201d4e7b |
+| NotificationMessages | [Notification Message Type](notification-message-type.md) | 36fb1038-8836-429f-bad4-04d32892d6d0 |
 
 ## Stable To Pre-Alpha Changes
 

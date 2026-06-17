@@ -1,13 +1,9 @@
 # Entity Campus Filter Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
-- Model title: `EntityCampusFilter
-
-[Obsoleted in v0] This model is no longer used and will be removed in the future.
-
-[EntityCampusFilter]`
+- Model title: `EntityCampusFilter`
 - EntityType GUID: `a736a9fb-f2a5-4458-b126-fad6bd3f3b78`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 

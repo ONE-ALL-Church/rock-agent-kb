@@ -1,7 +1,7 @@
 # Group Member Assignment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupMemberAssignment`
 - EntityType GUID: `22bf14ed-e882-4bb0-9328-d12545bf5f61`
@@ -41,9 +41,9 @@
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
 | GroupId | yes | yes |  | yes |  | Gets or sets the Group identifier. |
-| GroupMember |  |  | yes |  |  | Gets or sets the GroupMember. |
+| GroupMember |  |  | yes |  |  | Gets or sets the Group Member. |
 | GroupMemberAssignmentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| GroupMemberId | yes | yes |  |  |  | Gets or sets the GroupMember identifier. |
+| GroupMemberId | yes | yes |  |  |  | Gets or sets the Group Member identifier. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
@@ -92,14 +92,14 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| GroupId | [Group](group.md) |  |
-| GroupMember | [GroupMember](group-member.md) |  |
-| GroupMemberId | [GroupMember](group-member.md) |  |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
-| PersonId | [Person](person.md) |  |
-| Schedule | [Schedule](schedule.md) |  |
-| ScheduleId | [Schedule](schedule.md) |  |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupMember | [Group Member](group-member.md) | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
+| GroupMemberId | [Group Member](group-member.md) | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Schedule | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
+| ScheduleId | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Learning Class Content Page Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningClassContentPage`
 - EntityType GUID: `72a061c4-b7e6-4a91-a4f2-80551f772d46`
@@ -45,9 +45,9 @@
 | IdKey |  | yes | yes |  |  |  |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
-| LearningClass |  | yes | yes |  |  | Gets or sets the related LearningClass. |
+| LearningClass |  | yes | yes |  |  | Gets or sets the related Learning Class. |
 | LearningClassContentPageAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| LearningClassId | yes | yes |  |  |  | Gets or sets the id of the related LearningClass for the content tab. |
+| LearningClassId | yes | yes |  |  |  | Gets or sets the id of the related Learning Class for the content tab. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
 | ModifiedByPersonAliasId | yes | yes |  |  |  |  |
@@ -74,7 +74,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | IdKey |  |
-| LearningClass | Gets or sets the related LearningClass. |
+| LearningClass | Gets or sets the related Learning Class. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -86,8 +86,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LearningClass | [LearningClass](learning-class.md) |  |
-| LearningClassId | [LearningClass](learning-class.md) |  |
+| LearningClass | [Learning Class](learning-class.md) | eb41e4e1-64b1-4aa1-8f66-f0dfd81557d9 |
+| LearningClassId | [Learning Class](learning-class.md) | eb41e4e1-64b1-4aa1-8f66-f0dfd81557d9 |
 
 ## Stable To Pre-Alpha Changes
 

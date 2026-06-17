@@ -1,7 +1,7 @@
 # Personalization Segment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `PersonalizationSegment`
 - EntityType GUID: `368a3581-c8c4-4960-901a-9587864226f3`
@@ -29,7 +29,7 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| Categories |  | yes | yes |  |  | Gets or sets the collection of Categories that this PersonalizationSegment is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
+| Categories |  | yes | yes |  |  | Gets or sets the collection of Categories that this Personalization Segment is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -81,7 +81,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| Categories | Gets or sets the collection of Categories that this PersonalizationSegment is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
+| Categories | Gets or sets the collection of Categories that this Personalization Segment is associated with. NOTE: Since changes to Categories isn't tracked by ChangeTracker, set the ModifiedDateTime if Categories are modified. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -99,8 +99,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Categories | Categories |  |
-| Categories | [PersonalizationSegment](personalization-segment.md) |  |
+| Categories | Categories | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| Categories | [Personalization Segment](personalization-segment.md) | 368a3581-c8c4-4960-901a-9587864226f3 |
 
 ## Stable To Pre-Alpha Changes
 

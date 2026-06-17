@@ -1,7 +1,7 @@
 # Service Job History Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `ServiceJobHistory`
 - EntityType GUID: `d6a7c6e0-004f-4f38-9dca-16e645f5edf4`
@@ -53,7 +53,7 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| ServiceJob |  | yes | yes |  |  | Gets or sets the ServiceJob ServiceJob that this ServiceJobHistory provides a History value for. |
+| ServiceJob |  | yes | yes |  |  | Gets or sets the ServiceJob Service Job that this ServiceJobHistory provides a History value for. |
 | ServiceJobHistoryAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ServiceJobId | yes | yes |  |  |  | The Id of the ServiceJob |
 | ServiceWorker | yes | yes |  |  |  | Gets or sets the name of the service worker. |
@@ -82,7 +82,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| ServiceJob | Gets or sets the ServiceJob ServiceJob that this ServiceJobHistory provides a History value for. |
+| ServiceJob | Gets or sets the ServiceJob Service Job that this ServiceJobHistory provides a History value for. |
 | StatusMessageAsHtml | Gets the status message as HTML. |
 | TypeId |  |
 | TypeName |  |
@@ -92,7 +92,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ServiceJob | [ServiceJob](service-job.md) |  |
+| ServiceJob | [Service Job](service-job.md) | 52766196-a72f-4f60-997a-78e19508843d |
 
 ## Stable To Pre-Alpha Changes
 

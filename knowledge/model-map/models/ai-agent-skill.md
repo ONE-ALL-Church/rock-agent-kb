@@ -1,7 +1,7 @@
 # AI Agent Skill Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIAgentSkill`
 - EntityType GUID: `36deda2f-75bd-4bee-ac36-46d20dcd1331`

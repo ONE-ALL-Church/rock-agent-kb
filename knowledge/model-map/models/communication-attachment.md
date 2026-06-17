@@ -1,7 +1,7 @@
 # Communication Attachment Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationAttachment`
 - EntityType GUID: `4271bfb1-af05-4b6c-8931-032eb02dd760`
@@ -87,12 +87,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFile | [Communication](communication.md) |  |
-| BinaryFile | [Person](person.md) |  |
-| BinaryFileId | [Communication](communication.md) |  |
-| BinaryFileId | [Person](person.md) |  |
-| Communication | [Communication](communication.md) |  |
-| CommunicationId | [Communication](communication.md) |  |
+| BinaryFile | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| BinaryFile | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| BinaryFileId | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| BinaryFileId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| Communication | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| CommunicationId | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
 
 ## Stable To Pre-Alpha Changes
 

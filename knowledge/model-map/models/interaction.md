@@ -1,7 +1,7 @@
 # Interaction Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Interaction`
 - EntityType GUID: `3bb4b095-2de4-4009-8fa2-705bf284f7b7`
@@ -41,7 +41,7 @@
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
-| EntityId | yes | yes |  |  |  | Gets or sets the Id of the entity that this interaction component is tracking activity for. Page ViewsEntityId is left null, Page is the Component, Site is the ChannelCommunication Recipient ActivityEntityId is the CommunicationRecipient Id. Communication is the Component, single ChannelContent Channel ActivityEntityId is left null, ContentChannel is the Component, single ChannelWorkflow Form EntryEntityId is the Workflow Id, WorkflowType is the Component, single Channel |
+| EntityId | yes | yes |  |  |  | Gets or sets the Id of the entity that this interaction component is tracking activity for. Page ViewsEntityId is left null, Page is the Component, Site is the ChannelCommunication Recipient ActivityEntityId is the Communication Recipient Id. Communication is the Component, single ChannelContent Channel ActivityEntityId is left null, ContentChannel is the Component, single ChannelWorkflow Form EntryEntityId is the Workflow Id, WorkflowType is the Component, single Channel |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -51,14 +51,14 @@
 | IdKey |  | yes | yes |  |  |  |
 | InteractionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | InteractionComponent |  | yes | yes |  |  | Gets or sets the interaction component. |
-| InteractionComponentId | yes | yes |  | yes |  | Gets or sets the Id of the InteractionComponent Component that is associated with this Interaction. |
+| InteractionComponentId | yes | yes |  | yes |  | Gets or sets the Id of the Interaction Component Component that is associated with this Interaction. |
 | InteractionData | yes | yes |  |  |  | Gets or sets the interaction data. |
 | InteractionDateKey | yes | yes |  |  |  | Gets the interaction date key. |
 | InteractionDateTime | yes | yes |  |  |  | Gets or sets the interaction datetime. |
 | InteractionEndDateTime | yes | yes |  |  |  | Gets or sets the interaction end date time. |
 | InteractionLength | yes | yes |  |  |  | Gets or sets the length of time (or percent of time) of the interaction. The units on this depend on the InteractionChannel, which might have this be a Percent, Days, Seconds, Minutes, etc For example, if this interaction type is watching a video, this might be what percent of the video they watched |
 | InteractionSession |  | yes | yes |  |  | Gets or sets the interaction component. |
-| InteractionSessionId | yes | yes |  |  |  | Gets or sets the Id of the InteractionSession Session that that is associated with this Interaction. |
+| InteractionSessionId | yes | yes |  |  |  | Gets or sets the Id of the Interaction Session Session that that is associated with this Interaction. |
 | InteractionSourceDate |  | yes | yes |  |  | Gets or sets the interaction source date. |
 | InteractionSummary | yes | yes |  |  |  | Gets or sets the interaction summary. |
 | InteractionTimeToServe | yes | yes |  |  |  | Gets or sets the interaction time to serve. The units on this depend on the InteractionChannel, which might have this be a Percent, Days, Seconds, Minutes, etc. For example, if this is a page view, this would be how long (in seconds) it took for Rock to generate a response. |
@@ -118,10 +118,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityId | [CommunicationRecipient](communication-recipient.md) |  |
-| EntityId | [Workflow](workflow.md) |  |
-| InteractionComponentId | [InteractionComponent](interaction-component.md) |  |
-| InteractionSessionId | [InteractionSession](interaction-session.md) |  |
+| EntityId | [Communication Recipient](communication-recipient.md) | 3ec89b90-6692-451e-a48f-0d2adeba05bc |
+| EntityId | [Workflow](workflow.md) | 3540e9a7-fe30-43a9-8b0a-a372b63dfc93 |
+| InteractionComponentId | [Interaction Component](interaction-component.md) | ace6145b-57d6-4694-972f-ec43af776de7 |
+| InteractionSessionId | [Interaction Session](interaction-session.md) | 338025de-c16f-47bb-ba31-6de0c59e59aa |
 
 ## Stable To Pre-Alpha Changes
 

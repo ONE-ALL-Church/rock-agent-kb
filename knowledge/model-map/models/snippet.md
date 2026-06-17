@@ -1,7 +1,7 @@
 # Snippet Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `Snippet`
 - EntityType GUID: `93548852-201b-4ef6-af27-bbf535a2cc2b`
@@ -57,8 +57,8 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | Name | yes | yes |  | yes |  | Gets or sets the name of the Snippet. |
 | Order | yes | yes |  |  |  | Gets or sets the order. |
-| OwnerPersonAlias |  | yes | yes |  |  | Gets or sets the owner PersonAlias. |
-| OwnerPersonAliasId | yes | yes |  |  |  | Gets or sets the owner PersonAlias identifier. |
+| OwnerPersonAlias |  | yes | yes |  |  | Gets or sets the owner Person Alias. |
+| OwnerPersonAliasId | yes | yes |  |  |  | Gets or sets the owner Person Alias identifier. |
 | ParentAuthority |  |  | yes |  |  | Gets the parent authority. |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | SnippetAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
@@ -84,7 +84,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| OwnerPersonAlias | Gets or sets the owner PersonAlias. |
+| OwnerPersonAlias | Gets or sets the owner Person Alias. |
 | SnippetType | Gets or sets the type of the snippet. |
 | TypeId |  |
 | TypeName |  |
@@ -94,8 +94,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| OwnerPersonAlias | [PersonAlias](person-alias.md) |  |
-| OwnerPersonAliasId | [PersonAlias](person-alias.md) |  |
+| OwnerPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| OwnerPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

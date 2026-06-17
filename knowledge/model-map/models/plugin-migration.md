@@ -1,7 +1,7 @@
 # Plugin Migration Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `PluginMigration`
 - EntityType GUID: `f239557e-c7a8-4d1f-82cc-55cdd0aca3c8`

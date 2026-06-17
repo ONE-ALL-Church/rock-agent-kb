@@ -1,7 +1,7 @@
 # Learning Activity Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningActivity`
 - EntityType GUID: `98b98fa8-a92d-4e10-aa3e-b3082e61976f`
@@ -22,8 +22,8 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| ActivityComponent |  | yes | yes |  |  | Gets or sets the EntityType for the activity. |
-| ActivityComponentId | yes | yes |  |  |  | The id of the related EntityType that handles logic for this LearningActivity. |
+| ActivityComponent |  | yes | yes |  |  | Gets or sets the Entity Type for the activity. |
+| ActivityComponentId | yes | yes |  |  |  | The id of the related Entity Type that handles logic for this Learning Activity. |
 | ActivityComponentSettingsJson | yes | yes |  |  |  | Gets or sets the json config for the activity component before completion. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -46,7 +46,7 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IsShared | yes | yes |  |  |  | Indicates whether or not this activity is intended to be shared as a template by multiple LearningClassActivity. |
+| IsShared | yes | yes |  |  |  | Indicates whether or not this activity is intended to be shared as a template by multiple Learning Class Activity. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | LearningActivityAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
@@ -70,7 +70,7 @@
 
 | Property | Description |
 | --- | --- |
-| ActivityComponent | Gets or sets the EntityType for the activity. |
+| ActivityComponent | Gets or sets the Entity Type for the activity. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -88,11 +88,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActivityComponent | [EntityType](entity-type.md) |  |
-| ActivityComponentId | [EntityType](entity-type.md) |  |
-| ActivityComponentId | [LearningActivity](learning-activity.md) |  |
-| IsShared | [LearningClassActivity](learning-class-activity.md) |  |
-| LearningClassActivities | activities |  |
+| ActivityComponent | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| ActivityComponentId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| ActivityComponentId | [Learning Activity](learning-activity.md) | 98b98fa8-a92d-4e10-aa3e-b3082e61976f |
+| IsShared | [Learning Class Activity](learning-class-activity.md) | e82f540c-f483-4d4a-898a-3ae7ff76f75a |
+| LearningClassActivities | activities | e82f540c-f483-4d4a-898a-3ae7ff76f75a |
 
 ## Stable To Pre-Alpha Changes
 

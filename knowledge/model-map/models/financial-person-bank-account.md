@@ -1,7 +1,7 @@
 # Financial Person Bank Account Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialPersonBankAccount`
 - EntityType GUID: `ec1ae861-bdfe-4a08-9741-2e1d2293456f`
@@ -55,7 +55,7 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| PersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias. |
+| PersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias. |
 | PersonAliasId | yes | yes |  |  |  | Gets or sets the person alias identifier. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -76,7 +76,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| PersonAlias | Gets or sets the PersonAlias. |
+| PersonAlias | Gets or sets the Person Alias. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -85,7 +85,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PersonAlias | [PersonAlias](person-alias.md) |  |
+| PersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

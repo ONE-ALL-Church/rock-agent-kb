@@ -1,7 +1,7 @@
 # Document Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Document`
 - EntityType GUID: `7cefa340-9d98-4b2c-b462-313c61944b6c`
@@ -28,7 +28,7 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| BinaryFile |  | yes | yes |  |  | Gets or sets a BinaryFile that contains the content of the file. |
+| BinaryFile |  | yes | yes |  |  | Gets or sets a Binary File that contains the content of the file. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -38,8 +38,8 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | Description | yes | yes |  |  |  | Gets or sets a description of the document. |
 | DocumentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| DocumentType |  | yes | yes |  |  | Gets or sets the DocumentType of the document. |
-| DocumentTypeId | yes | yes |  | yes |  | Gets or sets the id of the DocumentType that this document belongs to. |
+| DocumentType |  | yes | yes |  |  | Gets or sets the Document Type of the document. |
+| DocumentTypeId | yes | yes |  | yes |  | Gets or sets the id of the Document Type that this document belongs to. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityId | yes | yes |  | yes |  | Gets or sets the Id of the entity that this document is related to. |
 | EntityStringValue |  | yes | yes |  |  |  |
@@ -74,10 +74,10 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BinaryFile | Gets or sets a BinaryFile that contains the content of the file. |
+| BinaryFile | Gets or sets a Binary File that contains the content of the file. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DocumentType | Gets or sets the DocumentType of the document. |
+| DocumentType | Gets or sets the Document Type of the document. |
 | EntityStringValue |  |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
@@ -91,9 +91,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFile | [BinaryFile](binary-file.md) |  |
-| DocumentType | [DocumentType](document-type.md) |  |
-| DocumentTypeId | [DocumentType](document-type.md) |  |
+| BinaryFile | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
+| DocumentType | [Document Type](document-type.md) | 18cf366f-46b6-49ca-b557-bcabd6bbd175 |
+| DocumentTypeId | [Document Type](document-type.md) | 18cf366f-46b6-49ca-b557-bcabd6bbd175 |
 
 ## Stable To Pre-Alpha Changes
 

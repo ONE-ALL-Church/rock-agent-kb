@@ -470,10 +470,10 @@
   },
   "approved_media_hash": "5fd933eab172803898a1a75a73c19cc38b9d98089a117a358ec5912c3af06486",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "system-admin-ops",
-  "guide_hash": "3d6c4ac3cdd9f0c387a61c5b9f19a79fae923550689992575b8ae0d4431e34aa",
-  "guide_line_count": 1757,
+  "guide_hash": "75c76617313c786397c56c126f48dba6776f283d2a876c133c248f64f1660285",
+  "guide_line_count": 1761,
   "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
   "guide_word_count": 12482,
   "rebuild_triggers": [
@@ -2218,7 +2218,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1626,
+      "end_line": 1627,
       "heading": "Recipe: Answer “What Changed In This Version That Matters Operationally?”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally",
@@ -2229,7 +2229,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1690,
+      "end_line": 1693,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2246,11 +2246,11 @@
         "65a454a45e1b631f",
         "2a835fe90be9f475"
       ],
-      "start_line": 1627
+      "start_line": 1628
     },
     {
       "confidence": "citation-only",
-      "end_line": 1728,
+      "end_line": 1732,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2260,11 +2260,11 @@
         "2a835fe90be9f475",
         "65a454a45e1b631f"
       ],
-      "start_line": 1691
+      "start_line": 1694
     },
     {
       "confidence": "high",
-      "end_line": 1757,
+      "end_line": 1761,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2288,7 +2288,7 @@
         "e8988031b9975c3b",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 1729
+      "start_line": 1733
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",

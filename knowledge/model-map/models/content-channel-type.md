@@ -1,7 +1,7 @@
 # Content Channel Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentChannelType`
 - EntityType GUID: `d5992f79-7fb8-49ff-82ab-e8cb2cec1e74`
@@ -15,8 +15,8 @@
 | Database-marked properties | 17 |
 | Lava-marked properties | 30 |
 | Lava-marked non-database properties | 13 |
-| Related model links | 4 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -61,7 +61,7 @@
 | Name | yes | yes |  | yes |  | Gets or sets the name of the ContentType. This property is required. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| ShowInChannelList | yes | yes |  |  |  | A flag indicating if a ContentChannel of this ContentChannelType will be shown in the content channel list. When false, it means any 'Channel Types Include' settings MUST specifically include in order to show it. |
+| ShowInChannelList | yes | yes |  |  |  | A flag indicating if a Content Channel of this ContentChannelType will be shown in the content channel list. When false, it means any 'Channel Types Include' settings MUST specifically include in order to show it. |
 | SupportedActions |  |  | yes |  |  | Provides a Dictionary`2 of actions that this model supports, and the description of each. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -90,14 +90,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Channels | channels |  |
-| DateRangeType | ContentChannelDateType |  |
-| ShowInChannelList | [ContentChannel](content-channel.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| Channels | channels | 44484685-477e-4668-89a6-84f29739eb68 |
+| ShowInChannelList | [Content Channel](content-channel.md) | 44484685-477e-4668-89a6-84f29739eb68 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | DateRangeType | related_entity_links |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

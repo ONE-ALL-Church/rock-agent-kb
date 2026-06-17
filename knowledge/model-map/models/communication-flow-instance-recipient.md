@@ -1,7 +1,7 @@
 # Communication Flow Instance Recipient Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationFlowInstanceRecipient`
 - EntityType GUID: `f615ac08-8acd-48f9-b42e-2f4ce02d4206`

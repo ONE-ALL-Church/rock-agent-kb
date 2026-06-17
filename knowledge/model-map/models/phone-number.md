@@ -1,7 +1,7 @@
 # Phone Number Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PhoneNumber`
 - EntityType GUID: `ad7e27cb-036d-40c6-b352-81b38bfae798`
@@ -63,8 +63,8 @@
 | NumberFormatted | yes | yes |  |  |  | Gets or sets the formatted number. Note: value is recalculated on every add/modify of entity during context's default SaveChanges() method. |
 | NumberFormattedWithCountryCode |  | yes | yes |  |  | Gets the number formatted with country code. |
 | NumberReversed | yes |  |  |  |  | Gets or sets the phone number reversed. This is the fastest way to search by phone number ending in xxxx. |
-| NumberTypeValue |  | yes | yes |  |  | Gets or sets the Phone Number's NumberType DefinedValue |
-| NumberTypeValueId | yes | yes |  |  |  | Gets the Phone Number's Number Type DefinedValue Id. |
+| NumberTypeValue |  | yes | yes |  |  | Gets or sets the Phone Number's NumberType Defined Value |
+| NumberTypeValueId | yes | yes |  |  |  | Gets the Phone Number's Number Type Defined Value Id. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | Person |  | yes | yes |  |  | Gets or sets the Person who the PhoneNumber belongs to. |
@@ -90,7 +90,7 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | NumberFormattedWithCountryCode | Gets the number formatted with country code. |
-| NumberTypeValue | Gets or sets the Phone Number's NumberType DefinedValue |
+| NumberTypeValue | Gets or sets the Phone Number's NumberType Defined Value |
 | Person | Gets or sets the Person who the PhoneNumber belongs to. |
 | TypeId |  |
 | TypeName |  |
@@ -100,10 +100,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| NumberTypeValue | [DefinedValue](defined-value.md) |  |
-| NumberTypeValueId | [DefinedValue](defined-value.md) |  |
-| Person | [Person](person.md) |  |
-| PersonId | [Person](person.md) |  |
+| NumberTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| NumberTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| Person | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
+| PersonId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

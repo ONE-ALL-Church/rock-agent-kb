@@ -1,7 +1,7 @@
 # Attribute Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Attribute`
 - EntityType GUID: `5997c8d3-8840-4591-99a5-552919f90cbd`
@@ -50,12 +50,12 @@
 | EnableHistory | yes | yes |  |  |  | Gets or sets a value indicating whether changes to this attribute's attribute values should be logged in AttributeValueHistorical |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType that this Attribute is used to configure. This property will not be populated if the Attribute is a Global (system) Attribute. |
-| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the EntityType that this Attribute is used to configure. This property will not be populated if the Attribute is a Global (system) Attribute. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type that this Attribute is used to configure. This property will not be populated if the Attribute is a Global (system) Attribute. |
+| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the Entity Type that this Attribute is used to configure. This property will not be populated if the Attribute is a Global (system) Attribute. |
 | EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the entity type qualifier column that contains the value (see EntityTypeQualifierValue) that is used narrow the scope of the Attribute to a subset or specific instance of an EntityType. |
 | EntityTypeQualifierValue | yes | yes |  |  |  | Gets or sets the entity type qualifier value that is used to narrow the scope of the Attribute to a subset or specific instance of an EntityType. |
-| FieldType |  | yes | yes |  |  | Gets or sets the FieldType that is used to get/capture the value of the Attribute |
-| FieldTypeId | yes | yes |  | yes |  | Gets or sets the FieldTypeId of the FieldType that is used to select/set the AttributeValue for this Attribute setting. The FieldType can also be used to enforce formatting of the attribute setting. This property is required. |
+| FieldType |  | yes | yes |  |  | Gets or sets the Field Type that is used to get/capture the value of the Attribute |
+| FieldTypeId | yes | yes |  | yes |  | Gets or sets the FieldTypeId of the Field Type that is used to select/set the Attribute Value for this Attribute setting. The FieldType can also be used to enforce formatting of the attribute setting. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -107,8 +107,8 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType that this Attribute is used to configure. This property will not be populated if the Attribute is a Global (system) Attribute. |
-| FieldType | Gets or sets the FieldType that is used to get/capture the value of the Attribute |
+| EntityType | Gets or sets the Entity Type that this Attribute is used to configure. This property will not be populated if the Attribute is a Global (system) Attribute. |
+| FieldType | Gets or sets the Field Type that is used to get/capture the value of the Attribute |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -121,13 +121,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AttributeQualifiers | AttributeQualifiers |  |
-| Categories | Categories |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| FieldType | [FieldType](field-type.md) |  |
-| FieldTypeId | [AttributeValue](attribute-value.md) |  |
-| FieldTypeId | [FieldType](field-type.md) |  |
+| AttributeQualifiers | AttributeQualifiers | ec7eb9ac-8b52-4a3d-8587-4a08050780cc |
+| Categories | Categories | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| FieldType | [Field Type](field-type.md) | 54018eb6-868c-477d-8b6a-455a6115b30b |
+| FieldTypeId | [Attribute Value](attribute-value.md) | d2bdccf0-d3f4-4f29-b286-da5b7bfa41c6 |
+| FieldTypeId | [Field Type](field-type.md) | 54018eb6-868c-477d-8b6a-455a6115b30b |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Lava Endpoint Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `LavaEndpoint`
 - EntityType GUID: `f1bbf7d4-cafd-450d-a89a-b3312c9738a2`
@@ -15,8 +15,8 @@
 | Database-marked properties | 23 |
 | Lava-marked properties | 36 |
 | Lava-marked non-database properties | 13 |
-| Related model links | 3 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 2 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
@@ -53,8 +53,8 @@
 | IsSystem | yes | yes |  | yes |  | Gets or sets a flag indicating if this endpoint is a part of the Rock core system/framework. This property is required. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
-| LavaApplication |  | yes | yes |  |  | Gets or sets the LavaApplication. |
-| LavaApplicationId | yes | yes |  | yes |  | Gets or sets the Id of the LavaApplication lava application that is associated with this end point. |
+| LavaApplication |  | yes | yes |  |  | Gets or sets the Lava Application. |
+| LavaApplicationId | yes | yes |  | yes |  | Gets or sets the Id of the Lava Application lava application that is associated with this end point. |
 | LavaEndpointAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
 | ModifiedByPersonAlias |  |  | yes |  |  |  |
@@ -85,7 +85,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | IdKey |  |
-| LavaApplication | Gets or sets the LavaApplication. |
+| LavaApplication | Gets or sets the Lava Application. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -97,13 +97,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| LavaApplication | [LavaApplication](lava-application.md) |  |
-| LavaApplicationId | [LavaApplication](lava-application.md) |  |
-| SupportedActions | Dictionary`2 |  |
+| LavaApplication | [Lava Application](lava-application.md) | fffe0de1-b410-435e-9aa8-3a0b18aaf0f7 |
+| LavaApplicationId | [Lava Application](lava-application.md) | fffe0de1-b410-435e-9aa8-3a0b18aaf0f7 |
 
 ## Stable To Pre-Alpha Changes
 
 | Change | Property | Fields |
 | --- | --- | --- |
 | property_changed | LavaApplicationId | is_qualifier |
-| property_changed | SupportedActions | related_entity_links |

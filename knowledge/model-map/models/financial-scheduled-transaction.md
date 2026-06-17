@@ -1,7 +1,7 @@
 # Financial Scheduled Transaction Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialScheduledTransaction`
 - EntityType GUID: `76824e8a-ccc4-4085-84d9-8af8c0807e20`
@@ -15,8 +15,8 @@
 | Database-marked properties | 32 |
 | Lava-marked properties | 53 |
 | Lava-marked non-database properties | 21 |
-| Related model links | 12 |
-| Pre-alpha changes touching this model | 3 |
+| Related model links | 11 |
+| Pre-alpha changes touching this model | 4 |
 
 ## Properties
 
@@ -26,7 +26,7 @@
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
-| AuthorizedPersonAlias |  | yes | yes |  |  | Gets or sets the authorized PersonAlias. |
+| AuthorizedPersonAlias |  | yes | yes |  |  | Gets or sets the authorized Person Alias. |
 | AuthorizedPersonAliasId | yes | yes |  |  |  | Gets or sets the authorized person alias identifier. |
 | AvailableKeys |  |  | yes |  |  |  |
 | CardReminderDate | yes | yes |  |  |  | Gets or sets the date to remind user to update scheduled transaction. |
@@ -42,17 +42,17 @@
 | EntityStringValue |  | yes | yes |  |  |  |
 | FinancialGateway |  | yes | yes |  |  | Gets or sets the gateway. |
 | FinancialGatewayId | yes | yes |  |  |  | Gets or sets the gateway identifier. |
-| FinancialPaymentDetail |  | yes | yes |  |  | Gets or sets the FinancialPaymentDetail. |
+| FinancialPaymentDetail |  | yes | yes |  |  | Gets or sets the Financial Payment Detail. |
 | FinancialPaymentDetailId | yes | yes |  |  |  | Gets or sets the financial payment detail identifier. |
 | FinancialScheduledTransactionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| ForeignCurrencyCodeValue |  | yes | yes |  |  | Gets or sets the foreign currency code type DefinedValue indicating where the transaction originated from; the source of the transaction. |
-| ForeignCurrencyCodeValueId | yes | yes |  |  |  | Gets or sets the foreign currency code value identifier. These are found in the "Currency Code" Defined Type. |
+| ForeignCurrencyCodeValue |  | yes | yes |  |  | Gets or sets the foreign currency code type Defined Value indicating where the transaction originated from; the source of the transaction. |
+| ForeignCurrencyCodeValueId | yes | yes |  |  |  | Gets or sets the foreign currency code value identifier. These are found in the Currency Code Defined Type. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
 | GatewayScheduleId | yes | yes |  |  |  | Gets or sets the payment gateway's payment schedule key/identifier. This is the value that uniquely identifies the payment schedule on with the payment gateway. |
 | Guid | yes | yes |  |  |  |  |
-| HistoryChangeList |  |  | yes |  |  | [Obsoleted in v14] Does nothing. No longer needed. We replaced this with a private property under the SaveHook class for this entity. Gets or sets the history change list. |
+| HistoryChangeList |  |  | yes |  | yes | Gets or sets the history change list. |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | InactivateDateTime | yes | yes |  |  |  | Gets or sets the inactivate date time. |
@@ -72,11 +72,11 @@
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PaymentPlan |  |  | yes |  |  |  |
-| PreviousGatewayScheduleIds |  |  | yes |  |  | This will be any previous GatewayScheduleId that this FinancialScheduledTransaction has had. This might be used in a case where a GatewayComponent may have changed what schedule id it used. |
+| PreviousGatewayScheduleIds |  |  | yes |  |  | This will be any previous GatewayScheduleId that this Financial Scheduled Transaction has had. This might be used in a case where a GatewayComponent may have changed what schedule id it used. |
 | PreviousGatewayScheduleIdsJson | yes | yes |  |  |  | The JSON for PreviousGatewayScheduleIds. If this is null, there are no PreviousGatewayScheduleIds. |
 | ScheduledTransactionDetails |  | yes | yes |  |  | Gets or sets the transaction details for this scheduled transaction. |
-| SourceTypeValue |  | yes | yes |  |  | Gets or sets the source type DefinedValue indicating where the transaction originated from; the source of the transaction. |
-| SourceTypeValueId | yes | yes |  |  |  | Gets or sets the source type value identifier. These are found in the "Transaction Source" Defined Type. |
+| SourceTypeValue |  | yes | yes |  |  | Gets or sets the source type Defined Value indicating where the transaction originated from; the source of the transaction. |
+| SourceTypeValueId | yes | yes |  |  |  | Gets or sets the source type value identifier. These are found in the Transaction Source Defined Type. |
 | StartDate | yes | yes |  |  |  | Gets or sets the start date for this schedule. The first transaction will occur on or after this date. |
 | Status | yes | yes |  |  |  | The status of the scheduled transactions provided by the payment gateway (i.e. Active, Cancelled, etc). If the gateway doesn't have a status field, this will be null; The payment gateway component maps this based on the StatusMessage. This is a hard coded list of values defined in the code as an enumeration. |
 | StatusMessage | yes | yes |  |  |  | Gets or sets the raw scheduled transaction status message returned from the Gateway If the gateway doesn't have a status field, this will be null; |
@@ -84,10 +84,10 @@
 | SupportedActions |  |  | yes |  |  |  |
 | TotalAmount | yes | yes |  |  |  | Gets the total amount. |
 | TransactionCode | yes | yes |  |  |  | Gets or sets the transaction code used for this scheduled transaction. |
-| TransactionFrequencyValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the payment frequency associated with this scheduled transaction. |
-| TransactionFrequencyValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the transaction frequency DefinedValue that represents the frequency that this transaction will occur. These are found in the "Recurring Transaction Frequency" Defined Type. |
-| TransactionTypeValue |  | yes | yes |  |  | Gets or sets the transaction type DefinedValue indicating the type of transaction that occurred. |
-| TransactionTypeValueId | yes | yes |  |  |  | Gets or sets the transaction type value identifier. These are found in the "Transaction Type" Defined Type. |
+| TransactionFrequencyValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the payment frequency associated with this scheduled transaction. |
+| TransactionFrequencyValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the transaction frequency Defined Value that represents the frequency that this transaction will occur. These are found in the Recurring Transaction Frequency Defined Type. |
+| TransactionTypeValue |  | yes | yes |  |  | Gets or sets the transaction type Defined Value indicating the type of transaction that occurred. |
+| TransactionTypeValueId | yes | yes |  |  |  | Gets or sets the transaction type value identifier. These are found in the Transaction Type Defined Type. |
 | Transactions |  | yes | yes |  |  | Gets or sets FinancialTransactions that have been processed and have cleared for this scheduled transaction profile. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -100,21 +100,21 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| AuthorizedPersonAlias | Gets or sets the authorized PersonAlias. |
+| AuthorizedPersonAlias | Gets or sets the authorized Person Alias. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | FinancialGateway | Gets or sets the gateway. |
-| FinancialPaymentDetail | Gets or sets the FinancialPaymentDetail. |
-| ForeignCurrencyCodeValue | Gets or sets the foreign currency code type DefinedValue indicating where the transaction originated from; the source of the transaction. |
+| FinancialPaymentDetail | Gets or sets the Financial Payment Detail. |
+| ForeignCurrencyCodeValue | Gets or sets the foreign currency code type Defined Value indicating where the transaction originated from; the source of the transaction. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | ScheduledTransactionDetails | Gets or sets the transaction details for this scheduled transaction. |
-| SourceTypeValue | Gets or sets the source type DefinedValue indicating where the transaction originated from; the source of the transaction. |
-| TransactionFrequencyValue | Gets or sets the DefinedValue representing the payment frequency associated with this scheduled transaction. |
-| TransactionTypeValue | Gets or sets the transaction type DefinedValue indicating the type of transaction that occurred. |
+| SourceTypeValue | Gets or sets the source type Defined Value indicating where the transaction originated from; the source of the transaction. |
+| TransactionFrequencyValue | Gets or sets the Defined Value representing the payment frequency associated with this scheduled transaction. |
+| TransactionTypeValue | Gets or sets the transaction type Defined Value indicating the type of transaction that occurred. |
 | Transactions | Gets or sets FinancialTransactions that have been processed and have cleared for this scheduled transaction profile. |
 | TypeId |  |
 | TypeName |  |
@@ -124,18 +124,17 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| AuthorizedPersonAlias | [PersonAlias](person-alias.md) |  |
-| FinancialGateway | gateway |  |
-| FinancialPaymentDetail | [FinancialPaymentDetail](financial-payment-detail.md) |  |
-| ForeignCurrencyCodeValue | [DefinedValue](defined-value.md) |  |
-| PreviousGatewayScheduleIds | [FinancialScheduledTransaction](financial-scheduled-transaction.md) |  |
-| PreviousGatewayScheduleIds | GatewayComponent |  |
-| ScheduledTransactionDetails | transaction details |  |
-| SourceTypeValue | [DefinedValue](defined-value.md) |  |
-| TransactionFrequencyValue | [DefinedValue](defined-value.md) |  |
-| TransactionFrequencyValueId | [DefinedValue](defined-value.md) |  |
-| TransactionTypeValue | [DefinedValue](defined-value.md) |  |
-| Transactions | FinancialTransactions |  |
+| AuthorizedPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| FinancialGateway | gateway | 122efe60-84a6-4c7a-a852-30e4bd89a662 |
+| FinancialPaymentDetail | [Financial Payment Detail](financial-payment-detail.md) | f3659077-43fd-4805-bc42-bc8a3f9c3008 |
+| ForeignCurrencyCodeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| PreviousGatewayScheduleIds | [Financial Scheduled Transaction](financial-scheduled-transaction.md) | 76824e8a-ccc4-4085-84d9-8af8c0807e20 |
+| ScheduledTransactionDetails | transaction details | a206615f-3fb5-48df-b606-86ae8716fd57 |
+| SourceTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| TransactionFrequencyValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| TransactionFrequencyValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| TransactionTypeValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| Transactions | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
 
 ## Stable To Pre-Alpha Changes
 
@@ -143,4 +142,5 @@
 | --- | --- | --- |
 | property_removed | HistoryChangeList |  |
 | property_changed | ForeignCurrencyCodeValueId | enum_values |
-| property_changed | PreviousGatewayScheduleIds | related_entity_links |
+| property_changed | SourceTypeValueId | enum_values |
+| property_changed | TransactionFrequencyValueId | enum_values |

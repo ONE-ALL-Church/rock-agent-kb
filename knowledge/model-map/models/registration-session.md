@@ -1,7 +1,7 @@
 # Registration Session Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationSession`
 - EntityType GUID: `6846744b-2623-4ef3-a20f-8027c4839094`

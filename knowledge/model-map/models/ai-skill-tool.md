@@ -1,7 +1,7 @@
 # AI Skill Tool Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AISkillTool`
 - EntityType GUID: `357d2625-fdca-41f8-ab8d-1cf2ce0abeed`

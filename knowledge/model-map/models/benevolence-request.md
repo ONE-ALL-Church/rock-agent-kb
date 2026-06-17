@@ -1,7 +1,7 @@
 # Benevolence Request Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `BenevolenceRequest`
 - EntityType GUID: `cf0ce5c1-9286-4310-9b50-10d040f8ebd2`
@@ -33,11 +33,11 @@
 | BenevolenceTypeId | yes | yes |  |  |  | Gets or sets the benevolence type identifier. |
 | Campus |  | yes | yes |  |  | Gets or sets the Campus that this Benevolence Request is associated with. |
 | CampusId | yes | yes |  |  |  | Gets or sets the campus identifier. |
-| CaseWorkerPersonAlias |  | yes | yes |  |  | Gets or sets the case worker PersonAlias. |
-| CaseWorkerPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId of the PersonAlias who is the case worker for this request. |
+| CaseWorkerPersonAlias |  | yes | yes |  |  | Gets or sets the case worker Person Alias. |
+| CaseWorkerPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId of the Person Alias who is the case worker for this request. |
 | CellPhoneNumber | yes | yes |  |  |  | Gets or sets the Cell Phone Number of the person who requested benevolence. |
-| ConnectionStatusValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the Requester's connection status. |
-| ConnectionStatusValueId | yes | yes |  |  |  | Gets or sets the Id of the Defined Value DefinedValue representing the connection status of the Requester. These are found in the "Connection Status" Defined Type. |
+| ConnectionStatusValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the Requester's connection status. |
+| ConnectionStatusValueId | yes | yes |  |  |  | Gets or sets the Id of the Defined Value Defined Value representing the connection status of the Requester. These are found in the Connection Status Defined Type. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -77,11 +77,11 @@
 | RequestDateKey | yes | yes |  |  |  | Gets the request date key. |
 | RequestDateTime | yes | yes |  | yes |  | Gets or sets the date that this benevolence request was entered. |
 | RequestSourceDate |  | yes | yes |  |  | Gets or sets the request source date. |
-| RequestStatusValue |  | yes | yes |  |  | Gets or sets the DefinedValue representing the Benevolence Request's status. |
-| RequestStatusValueId | yes | yes |  | yes |  | Gets or sets the Id of the Defined Value DefinedValue representing the status of the Benevolence Request. These are found in the "Benevolence Request Status" Defined Type. |
+| RequestStatusValue |  | yes | yes |  |  | Gets or sets the Defined Value representing the Benevolence Request's status. |
+| RequestStatusValueId | yes | yes |  | yes |  | Gets or sets the Id of the Defined Value Defined Value representing the status of the Benevolence Request. These are found in the Benevolence Request Status Defined Type. |
 | RequestText | yes | yes |  | yes |  | Gets or sets the text/content of the request. |
-| RequestedByPersonAlias |  | yes | yes |  |  | Gets or sets the requested by PersonAlias. |
-| RequestedByPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId of the PersonAlias who is submitting the BenevolenceRequest |
+| RequestedByPersonAlias |  | yes | yes |  |  | Gets or sets the requested by Person Alias. |
+| RequestedByPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonAliasId of the Person Alias who is submitting the BenevolenceRequest |
 | ResultSummary | yes | yes |  |  |  | Gets or sets the summary of the request result. |
 | SupportedActions |  |  | yes |  |  |  |
 | TotalAmount |  |  | yes |  |  | Gets the total amount of benevolence given. |
@@ -100,8 +100,8 @@
 | BenevolenceResults | Gets or sets a collection of BenevolenceResults |
 | BenevolenceType | Gets or sets the benevolence type. |
 | Campus | Gets or sets the Campus that this Benevolence Request is associated with. |
-| CaseWorkerPersonAlias | Gets or sets the case worker PersonAlias. |
-| ConnectionStatusValue | Gets or sets the DefinedValue representing the Requester's connection status. |
+| CaseWorkerPersonAlias | Gets or sets the case worker Person Alias. |
+| ConnectionStatusValue | Gets or sets the Defined Value representing the Requester's connection status. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | Documents | Gets or sets the documents. |
@@ -112,8 +112,8 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | RequestSourceDate | Gets or sets the request source date. |
-| RequestStatusValue | Gets or sets the DefinedValue representing the Benevolence Request's status. |
-| RequestedByPersonAlias | Gets or sets the requested by PersonAlias. |
+| RequestStatusValue | Gets or sets the Defined Value representing the Benevolence Request's status. |
+| RequestedByPersonAlias | Gets or sets the requested by Person Alias. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -122,19 +122,19 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BenevolenceResults | BenevolenceResults |  |
-| Campus | [Campus](campus.md) |  |
-| CaseWorkerPersonAlias | [PersonAlias](person-alias.md) |  |
-| CaseWorkerPersonAliasId | [PersonAlias](person-alias.md) |  |
-| ConnectionStatusValue | [DefinedValue](defined-value.md) |  |
-| ConnectionStatusValueId | [DefinedValue](defined-value.md) |  |
-| Documents | documents |  |
-| Location | [Location](location.md) |  |
-| LocationId | [Location](location.md) |  |
-| RequestStatusValue | [DefinedValue](defined-value.md) |  |
-| RequestStatusValueId | [DefinedValue](defined-value.md) |  |
-| RequestedByPersonAlias | [PersonAlias](person-alias.md) |  |
-| RequestedByPersonAliasId | [PersonAlias](person-alias.md) |  |
+| BenevolenceResults | BenevolenceResults | a4929a2d-5b83-4535-a1d4-8a2c84fba581 |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CaseWorkerPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| CaseWorkerPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| ConnectionStatusValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| ConnectionStatusValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| Documents | documents | 3d627f51-e262-454b-95a0-2ef97103bce1 |
+| Location | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| LocationId | [Location](location.md) | 0d6410ad-c83c-47ac-af3d-616d09edf63b |
+| RequestStatusValue | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RequestStatusValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
+| RequestedByPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| RequestedByPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
 ## Stable To Pre-Alpha Changes
 

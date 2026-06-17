@@ -1,7 +1,7 @@
 # History Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `History`
 - EntityType GUID: `546d5f43-1184-47c9-8265-2d7bf4e1bca5`
@@ -15,8 +15,8 @@
 | Database-marked properties | 26 |
 | Lava-marked properties | 42 |
 | Lava-marked non-database properties | 16 |
-| Related model links | 4 |
-| Pre-alpha changes touching this model | 3 |
+| Related model links | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -42,7 +42,7 @@
 | EntityId | yes | yes |  | yes |  | Gets or sets the Id of the entity that this history is related to. |
 | EntityStringValue |  | yes | yes |  |  |  |
 | EntityType |  | yes | yes |  |  | Gets or sets the entity type this history is associated with |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the EntityType. This property is required. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Entity Type. This property is required. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -77,7 +77,7 @@
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
 | ValidationResults |  |  | yes |  |  |  |
-| ValueName | yes | yes |  |  |  | Gets or sets the name of the value depending on ChangeType: ChangeTypeName.Property => Property Friendly Name, ChangeType.Attribute => Attribute Name, ChangeType.Record => the ToString of the record |
+| ValueName | yes | yes |  |  |  | Gets or sets the name of the value depending on ChangeType: ChangeTypeName.Property =&gt; Property Friendly Name, ChangeType.Attribute =&gt; Attribute Name, ChangeType.Record =&gt; the ToString of the record |
 | Verb | yes | yes |  |  |  | Gets or sets the verb which is a structured (for querying) field to describe what the action is (ADD, DELETE, UPDATE, VIEW, WATCHED, etc). HistoryVerb constants for common verbs |
 
 ## Lava-Marked Non-Database Properties
@@ -105,15 +105,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| CategoryId | [Category](category.md) |  |
-| ChangeType | HistoryChangeType |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| Verb | HistoryVerb |  |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | ChangeType | related_entity_links |
-| property_changed | ValueName | description |
-| property_changed | Verb | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

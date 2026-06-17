@@ -4586,10 +4586,10 @@
   },
   "approved_media_hash": "46de10ee1052213eb3ef46e3fb34b6ba2da41073a3e04f09e87ceb925e26b900",
   "approved_media_path": "knowledge/concepts/check-in/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "check-in",
-  "guide_hash": "7445cf6766e232067f1e4ec34f3750f3144a316d7085e4ac944cc2af52d7a216",
-  "guide_line_count": 1710,
+  "guide_hash": "4129183614162920f700fff59d2213bf736fbd045b7027db82a9b64d03b4a8ab",
+  "guide_line_count": 1714,
   "guide_path": "knowledge/concepts/check-in/guide.md",
   "guide_word_count": 13126,
   "rebuild_triggers": [
@@ -6255,7 +6255,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1556,
+      "end_line": 1557,
       "heading": "Recipe: Validate Mobile Check-In Readiness",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-validate-mobile-check-in-readiness",
@@ -6268,7 +6268,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1622,
+      "end_line": 1625,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -6286,11 +6286,11 @@
         "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
-      "start_line": 1557
+      "start_line": 1558
     },
     {
       "confidence": "citation-only",
-      "end_line": 1665,
+      "end_line": 1669,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -6304,11 +6304,11 @@
         "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
-      "start_line": 1623
+      "start_line": 1626
     },
     {
       "confidence": "high",
-      "end_line": 1710,
+      "end_line": 1714,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -6359,7 +6359,7 @@
         "eaf47d2e51a1810d",
         "3d0666ed2045fabc"
       ],
-      "start_line": 1666
+      "start_line": 1670
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T06:33:24+00:00",

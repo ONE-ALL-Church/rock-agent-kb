@@ -1,7 +1,7 @@
 # Workflow Activity Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActivityType`
 - EntityType GUID: `e5fbdba2-9539-4679-b948-2e06c1bb1e3f`
@@ -64,8 +64,8 @@
 | UrlEncodedKey |  | yes | yes |  |  |  |
 | ValidationResults |  |  | yes |  |  |  |
 | WorkflowActivityTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| WorkflowType |  | yes | yes |  |  | Gets or sets the WorkflowType that runs this WorkflowActivityType. |
-| WorkflowTypeId | yes | yes |  |  |  | Gets or sets the WorkflowTypeId of the WorkflowType that this WorkflowActivityType belongs to. |
+| WorkflowType |  | yes | yes |  |  | Gets or sets the Workflow Type that runs this WorkflowActivityType. |
+| WorkflowTypeId | yes | yes |  |  |  | Gets or sets the WorkflowTypeId of the Workflow Type that this WorkflowActivityType belongs to. |
 
 ## Lava-Marked Non-Database Properties
 
@@ -84,15 +84,15 @@
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
-| WorkflowType | Gets or sets the WorkflowType that runs this WorkflowActivityType. |
+| WorkflowType | Gets or sets the Workflow Type that runs this WorkflowActivityType. |
 
 ## Related Model Map Links
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActionTypes | WorkflowActionTypes |  |
-| WorkflowType | [WorkflowType](workflow-type.md) |  |
-| WorkflowTypeId | [WorkflowType](workflow-type.md) |  |
+| ActionTypes | WorkflowActionTypes | 23e3273a-b137-48a3-9aff-c8dc832ddca6 |
+| WorkflowType | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
+| WorkflowTypeId | [Workflow Type](workflow-type.md) | c9f3c4a5-1526-474d-803f-d6c7a45cbbae |
 
 ## Stable To Pre-Alpha Changes
 

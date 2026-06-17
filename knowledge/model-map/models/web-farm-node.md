@@ -1,8 +1,8 @@
 # Web Farm Node Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
-- Category: `Web Farm`
+- Rock version: `19.1.8`
+- Category: `WebFarm`
 - Model title: `WebFarmNode`
 - EntityType GUID: `2338d5c3-e808-408f-b000-e8a7d8a4858c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)

@@ -1,7 +1,7 @@
 # Content Channel Item Slug Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentChannelItemSlug`
 - EntityType GUID: `2ff2f1c3-a440-4d24-8fb8-2b0d9436ea75`
@@ -27,8 +27,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| ContentChannelItem |  | yes | yes |  |  | Gets or sets the ContentChannelItem. |
-| ContentChannelItemId | yes | yes |  | yes |  | Gets or sets the ContentChannelItem identifier. |
+| ContentChannelItem |  | yes | yes |  |  | Gets or sets the Content Channel Item. |
+| ContentChannelItemId | yes | yes |  | yes |  | Gets or sets the Content Channel Item identifier. |
 | ContentChannelItemSlugAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
@@ -69,7 +69,7 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| ContentChannelItem | Gets or sets the ContentChannelItem. |
+| ContentChannelItem | Gets or sets the Content Channel Item. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
@@ -85,8 +85,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ContentChannelItem | [ContentChannelItem](content-channel-item.md) |  |
-| ContentChannelItemId | [ContentChannelItem](content-channel-item.md) |  |
+| ContentChannelItem | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
+| ContentChannelItemId | [Content Channel Item](content-channel-item.md) | bf12ae64-21fb-433b-a8a4-e40e8c426dda |
 
 ## Stable To Pre-Alpha Changes
 

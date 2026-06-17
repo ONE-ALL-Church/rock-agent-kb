@@ -1,7 +1,7 @@
 # Analytics Dim Family Historical Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimFamilyHistorical`
 - EntityType GUID: `d906b981-9603-4b5f-9009-31f6edde9dc3`

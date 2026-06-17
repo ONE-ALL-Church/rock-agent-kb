@@ -1,7 +1,7 @@
 # Interactive Experience Occurrence Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `InteractiveExperienceOccurrence`
 - EntityType GUID: `2d1263a1-a3e7-4568-aa4b-c1234824188d`
@@ -15,8 +15,8 @@
 | Database-marked properties | 16 |
 | Lava-marked properties | 30 |
 | Lava-marked non-database properties | 15 |
-| Related model links | 7 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 6 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -35,8 +35,8 @@
 | CreatedByPersonId |  | yes | yes |  |  |  |
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
-| CurrentlyShownAction |  | yes | yes |  |  | Gets or sets the InteractiveExperienceAction that is currently being displayed. |
-| CurrentlyShownActionId | yes | yes |  |  |  | Gets or sets the InteractiveExperienceAction identifier that is currently being displayed. |
+| CurrentlyShownAction |  | yes | yes |  |  | Gets or sets the Interactive Experience Action that is currently being displayed. |
+| CurrentlyShownActionId | yes | yes |  |  |  | Gets or sets the Interactive Experience Action identifier that is currently being displayed. |
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
@@ -47,8 +47,8 @@
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | InteractiveExperienceOccurrenceAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| InteractiveExperienceSchedule |  | yes | yes |  |  | Gets or sets the InteractiveExperienceSchedule that the InteractiveExperienceOccurrence belongs to. |
-| InteractiveExperienceScheduleId | yes | yes |  | yes |  | Gets or sets the Id of the InteractiveExperienceSchedule that this InteractiveExperienceOccurrence is associated with. This property is required. |
+| InteractiveExperienceSchedule |  | yes | yes |  |  | Gets or sets the Interactive Experience Schedule that the InteractiveExperienceOccurrence belongs to. |
+| InteractiveExperienceScheduleId | yes | yes |  | yes |  | Gets or sets the Id of the Interactive Experience Schedule that this InteractiveExperienceOccurrence is associated with. This property is required. |
 | IsOccurrenceActive | yes |  |  |  |  | Gets a value indicating whether this occurrence is active right now. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
@@ -78,10 +78,10 @@
 | Campus | Gets or sets the Campus that is associated with this Interactive Experience Occurrence. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| CurrentlyShownAction | Gets or sets the InteractiveExperienceAction that is currently being displayed. |
+| CurrentlyShownAction | Gets or sets the Interactive Experience Action that is currently being displayed. |
 | EntityStringValue |  |
 | IdKey |  |
-| InteractiveExperienceSchedule | Gets or sets the InteractiveExperienceSchedule that the InteractiveExperienceOccurrence belongs to. |
+| InteractiveExperienceSchedule | Gets or sets the Interactive Experience Schedule that the InteractiveExperienceOccurrence belongs to. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -93,16 +93,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| CurrentlyShownAction | [InteractiveExperienceAction](interactive-experience-action.md) |  |
-| CurrentlyShownActionId | [InteractiveExperienceAction](interactive-experience-action.md) |  |
-| InteractiveExperienceSchedule | [InteractiveExperienceSchedule](interactive-experience-schedule.md) |  |
-| InteractiveExperienceScheduleId | [InteractiveExperienceSchedule](interactive-experience-schedule.md) |  |
-| OccurrenceDateTime | DateTime |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CurrentlyShownAction | [Interactive Experience Action](interactive-experience-action.md) | 8635e7e7-3576-47ff-92de-30a69eb5d011 |
+| CurrentlyShownActionId | [Interactive Experience Action](interactive-experience-action.md) | 8635e7e7-3576-47ff-92de-30a69eb5d011 |
+| InteractiveExperienceSchedule | [Interactive Experience Schedule](interactive-experience-schedule.md) | d23b4dcf-545a-490f-aead-ba78a8fb4028 |
+| InteractiveExperienceScheduleId | [Interactive Experience Schedule](interactive-experience-schedule.md) | d23b4dcf-545a-490f-aead-ba78a8fb4028 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | OccurrenceDateTime | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

@@ -1,7 +1,7 @@
 # Interactive Experience Action Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `InteractiveExperienceAction`
 - EntityType GUID: `8635e7e7-3576-47ff-92de-30a69eb5d011`
@@ -22,8 +22,8 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| ActionEntityType |  | yes | yes |  |  | Gets or sets the EntityType of the action. |
-| ActionEntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the EntityType of action. This property is required. |
+| ActionEntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the action. |
+| ActionEntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId for the Entity Type of action. This property is required. |
 | ActionSettingsJson | yes | yes |  |  |  | Gets or sets the action settings json. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -45,9 +45,9 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| InteractiveExperience |  | yes | yes |  |  | Gets or sets the InteractiveExperience that the InteractiveExperienceAction belongs to. |
+| InteractiveExperience |  | yes | yes |  |  | Gets or sets the Interactive Experience that the InteractiveExperienceAction belongs to. |
 | InteractiveExperienceActionAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| InteractiveExperienceId | yes | yes |  | yes |  | Gets or sets the Id of the InteractiveExperience that this InteractiveExperienceAction is associated with. This property is required. |
+| InteractiveExperienceId | yes | yes |  | yes |  | Gets or sets the Id of the Interactive Experience that this InteractiveExperienceAction is associated with. This property is required. |
 | IsModerationRequired | yes | yes |  | yes |  | Gets or sets a value indicating whether this instance is moderation required. |
 | IsMultipleSubmissionAllowed | yes | yes |  | yes |  | Gets or sets a flag indicating if multiple submission allowed. |
 | IsResponseAnonymous | yes | yes |  | yes |  | Gets or sets a value indicating if response anonymous. |
@@ -62,8 +62,8 @@
 | Order | yes | yes |  |  |  | Gets or sets the sort order of this action. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| ResponseVisualEntityType |  | yes | yes |  |  | Gets or sets the EntityType of the response visual. |
-| ResponseVisualEntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId for the EntityType of the response visual. |
+| ResponseVisualEntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the response visual. |
+| ResponseVisualEntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId for the Entity Type of the response visual. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -74,18 +74,18 @@
 
 | Property | Description |
 | --- | --- |
-| ActionEntityType | Gets or sets the EntityType of the action. |
+| ActionEntityType | Gets or sets the Entity Type of the action. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | IdKey |  |
-| InteractiveExperience | Gets or sets the InteractiveExperience that the InteractiveExperienceAction belongs to. |
+| InteractiveExperience | Gets or sets the Interactive Experience that the InteractiveExperienceAction belongs to. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| ResponseVisualEntityType | Gets or sets the EntityType of the response visual. |
+| ResponseVisualEntityType | Gets or sets the Entity Type of the response visual. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -94,12 +94,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActionEntityType | [EntityType](entity-type.md) |  |
-| ActionEntityTypeId | [EntityType](entity-type.md) |  |
-| InteractiveExperience | [InteractiveExperience](interactive-experience.md) |  |
-| InteractiveExperienceId | [InteractiveExperience](interactive-experience.md) |  |
-| ResponseVisualEntityType | [EntityType](entity-type.md) |  |
-| ResponseVisualEntityTypeId | [EntityType](entity-type.md) |  |
+| ActionEntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| ActionEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| InteractiveExperience | [Interactive Experience](interactive-experience.md) | 3d90e693-476e-4dfc-b958-a28d1dd370bf |
+| InteractiveExperienceId | [Interactive Experience](interactive-experience.md) | 3d90e693-476e-4dfc-b958-a28d1dd370bf |
+| ResponseVisualEntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| ResponseVisualEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Auth Scope Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AuthScope`
 - EntityType GUID: `8926fe3b-5ab6-4e48-8191-09eb1682f743`

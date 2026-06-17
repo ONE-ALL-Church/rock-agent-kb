@@ -1,7 +1,7 @@
 # Interactive Experience Schedule Campus Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `InteractiveExperienceScheduleCampus`
 - EntityType GUID: `abef4137-f25b-4b2e-af01-2ceff704fc11`
@@ -44,9 +44,9 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| InteractiveExperienceSchedule |  | yes | yes |  |  | Gets or sets the InteractiveExperienceSchedule that the InteractiveExperienceScheduleCampus belongs to. |
+| InteractiveExperienceSchedule |  | yes | yes |  |  | Gets or sets the Interactive Experience Schedule that the InteractiveExperienceScheduleCampus belongs to. |
 | InteractiveExperienceScheduleCampusAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| InteractiveExperienceScheduleId | yes | yes |  | yes |  | Gets or sets the Id of the InteractiveExperienceSchedule that this InteractiveExperienceScheduleCampus is associated with. This property is required. |
+| InteractiveExperienceScheduleId | yes | yes |  | yes |  | Gets or sets the Id of the Interactive Experience Schedule that this InteractiveExperienceScheduleCampus is associated with. This property is required. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
 | ModifiedAuditValuesAlreadyUpdated |  | yes | yes |  |  |  |
@@ -74,7 +74,7 @@
 | CreatedByPersonName |  |
 | EntityStringValue |  |
 | IdKey |  |
-| InteractiveExperienceSchedule | Gets or sets the InteractiveExperienceSchedule that the InteractiveExperienceScheduleCampus belongs to. |
+| InteractiveExperienceSchedule | Gets or sets the Interactive Experience Schedule that the InteractiveExperienceScheduleCampus belongs to. |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
@@ -86,10 +86,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| InteractiveExperienceSchedule | [InteractiveExperienceSchedule](interactive-experience-schedule.md) |  |
-| InteractiveExperienceScheduleId | [InteractiveExperienceSchedule](interactive-experience-schedule.md) |  |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| InteractiveExperienceSchedule | [Interactive Experience Schedule](interactive-experience-schedule.md) | d23b4dcf-545a-490f-aead-ba78a8fb4028 |
+| InteractiveExperienceScheduleId | [Interactive Experience Schedule](interactive-experience-schedule.md) | d23b4dcf-545a-490f-aead-ba78a8fb4028 |
 
 ## Stable To Pre-Alpha Changes
 

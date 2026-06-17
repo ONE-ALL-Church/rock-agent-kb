@@ -1,7 +1,7 @@
 # Notification Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `Notification`
 - EntityType GUID: `6db6d280-9740-41fd-b8bd-0aa29e12f4b6`
@@ -86,7 +86,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Recipients | recipients |  |
+| Recipients | recipients | 2ece2776-0fe2-429d-b655-ab56a2d6ee0b |
 
 ## Stable To Pre-Alpha Changes
 

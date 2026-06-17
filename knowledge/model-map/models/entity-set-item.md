@@ -1,7 +1,7 @@
 # Entity Set Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `EntitySetItem`
 - EntityType GUID: `1f9d13f9-bf55-48be-bea9-0939cd6fda5b`

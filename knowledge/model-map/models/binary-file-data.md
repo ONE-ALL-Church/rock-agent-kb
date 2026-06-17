@@ -1,7 +1,7 @@
 # Binary File Data Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `BinaryFileData`
 - EntityType GUID: `ea647542-1e0f-4dae-9537-65e3ffee8792`
@@ -28,7 +28,7 @@
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
 | BinaryFileDataAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| Content | yes | yes |  |  |  | Gets or sets the data/content of a BinaryFile NOTE: Use ContentStream instead of Content whenever possible |
+| Content | yes | yes |  |  |  | Gets or sets the data/content of a Binary File NOTE: Use ContentStream instead of Content whenever possible |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -81,7 +81,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Content | [BinaryFile](binary-file.md) |  |
+| Content | [Binary File](binary-file.md) | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 
 ## Stable To Pre-Alpha Changes
 

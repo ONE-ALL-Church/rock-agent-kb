@@ -1,7 +1,7 @@
 # Interaction Component Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `InteractionComponent`
 - EntityType GUID: `ace6145b-57d6-4694-972f-ec43af776de7`
@@ -40,7 +40,7 @@
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
-| EntityId | yes | yes |  |  |  | Gets or sets the Id of the entity that this interaction component is related to (determined by InteractionChannel.ComponentEntityTypeId ) Page ViewsPage IdCommunication Recipient ActivityCommunication IdContent Channel ActivityContentChannel IdSystem Events, like Workflow Form EntryDepends on Content Channel Type |
+| EntityId | yes | yes |  |  |  | Gets or sets the Id of the entity that this interaction component is related to (determined by InteractionChannel.ComponentEntityTypeId ) Page ViewsPage IdCommunication Recipient ActivityCommunication IdContent Channel ActivityContent Channel IdSystem Events, like Workflow Form EntryDepends on Content Channel Type |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -49,7 +49,7 @@
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | InteractionChannel |  | yes | yes |  |  | Gets or sets the channel. |
-| InteractionChannelId | yes | yes |  | yes |  | Gets or sets the Id of the InteractionChannel channel that is associated with this Component. |
+| InteractionChannelId | yes | yes |  | yes |  | Gets or sets the Id of the Interaction Channel channel that is associated with this Component. |
 | InteractionComponentAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
@@ -90,11 +90,11 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityId | [Communication](communication.md) |  |
-| EntityId | [ContentChannel](content-channel.md) |  |
-| EntityId | [Content Channel Type](content-channel-type.md) |  |
-| EntityId | [Page](page.md) |  |
-| InteractionChannelId | [InteractionChannel](interaction-channel.md) |  |
+| EntityId | [Communication](communication.md) | c4ccbd91-1264-48bf-bc33-92751c8948b5 |
+| EntityId | [Content Channel](content-channel.md) | 44484685-477e-4668-89a6-84f29739eb68 |
+| EntityId | [Content Channel Type](content-channel-type.md) | d5992f79-7fb8-49ff-82ab-e8cb2cec1e74 |
+| EntityId | [Page](page.md) | e104dcdf-247c-4ced-a119-8cc51632761f |
+| InteractionChannelId | [Interaction Channel](interaction-channel.md) | 08606092-5ff5-4a34-a7a6-3dee43f2843a |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Snippet Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `SnippetType`
 - EntityType GUID: `fd4c72de-6b5d-4eb5-9438-385e2e15af05`
@@ -87,7 +87,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Snippets | Snippets |  |
+| Snippets | Snippets | 93548852-201b-4ef6-af27-bbf535a2cc2b |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Ncoa History Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `NcoaHistory`
 - EntityType GUID: `1f20ac90-c57e-4dd1-a71b-06312110e56f`

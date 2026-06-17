@@ -1,7 +1,7 @@
 # Interactive Experience Schedule Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `InteractiveExperienceSchedule`
 - EntityType GUID: `d23b4dcf-545a-490f-aead-ba78a8fb4028`
@@ -34,8 +34,8 @@
 | CreatedByPersonName |  | yes | yes |  |  |  |
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
-| DataView |  | yes | yes |  |  | Gets or sets the DataView. |
-| DataViewId | yes | yes |  |  |  | Gets or sets the DataView identifier. |
+| DataView |  | yes | yes |  |  | Gets or sets the Data View. |
+| DataViewId | yes | yes |  |  |  | Gets or sets the Data View identifier. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
 | ForeignGuid | yes | yes |  |  |  |  |
@@ -46,8 +46,8 @@
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| InteractiveExperience |  | yes | yes |  |  | Gets or sets the InteractiveExperience that the InteractiveExperienceSchedule belongs to. |
-| InteractiveExperienceId | yes | yes |  | yes |  | Gets or sets the Id of the InteractiveExperience that this InteractiveExperienceSchedule is associated with. This property is required. |
+| InteractiveExperience |  | yes | yes |  |  | Gets or sets the Interactive Experience that the InteractiveExperienceSchedule belongs to. |
+| InteractiveExperienceId | yes | yes |  | yes |  | Gets or sets the Id of the Interactive Experience that this InteractiveExperienceSchedule is associated with. This property is required. |
 | InteractiveExperienceOccurrences |  | yes | yes |  |  | Gets or sets the occurrences for this Interactive Experience Schedule. |
 | InteractiveExperienceScheduleAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | InteractiveExperienceScheduleCampuses |  | yes | yes |  |  | Gets or sets the InteractiveExperienceScheduleCampuses for this Interactive Experience Schedule. |
@@ -78,11 +78,11 @@
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DataView | Gets or sets the DataView. |
+| DataView | Gets or sets the Data View. |
 | EntityStringValue |  |
 | Group | Gets or sets the Group. |
 | IdKey |  |
-| InteractiveExperience | Gets or sets the InteractiveExperience that the InteractiveExperienceSchedule belongs to. |
+| InteractiveExperience | Gets or sets the Interactive Experience that the InteractiveExperienceSchedule belongs to. |
 | InteractiveExperienceOccurrences | Gets or sets the occurrences for this Interactive Experience Schedule. |
 | InteractiveExperienceScheduleCampuses | Gets or sets the InteractiveExperienceScheduleCampuses for this Interactive Experience Schedule. |
 | ModifiedAuditValuesAlreadyUpdated |  |
@@ -97,16 +97,16 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| DataView | [DataView](data-view.md) |  |
-| DataViewId | [DataView](data-view.md) |  |
-| Group | [Group](group.md) |  |
-| GroupId | [Group](group.md) |  |
-| InteractiveExperience | [InteractiveExperience](interactive-experience.md) |  |
-| InteractiveExperienceId | [InteractiveExperience](interactive-experience.md) |  |
-| InteractiveExperienceOccurrences | occurrences |  |
-| InteractiveExperienceScheduleCampuses | InteractiveExperienceScheduleCampuses |  |
-| Schedule | [Schedule](schedule.md) |  |
-| ScheduleId | [Schedule](schedule.md) |  |
+| DataView | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| DataViewId | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| Group | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| GroupId | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| InteractiveExperience | [Interactive Experience](interactive-experience.md) | 3d90e693-476e-4dfc-b958-a28d1dd370bf |
+| InteractiveExperienceId | [Interactive Experience](interactive-experience.md) | 3d90e693-476e-4dfc-b958-a28d1dd370bf |
+| InteractiveExperienceOccurrences | occurrences | 2d1263a1-a3e7-4568-aa4b-c1234824188d |
+| InteractiveExperienceScheduleCampuses | InteractiveExperienceScheduleCampuses | abef4137-f25b-4b2e-af01-2ceff704fc11 |
+| Schedule | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
+| ScheduleId | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
 
 ## Stable To Pre-Alpha Changes
 

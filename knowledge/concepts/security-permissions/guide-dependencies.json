@@ -10913,10 +10913,10 @@
   },
   "approved_media_hash": "3cfe7bffdc7cce8b5bd2407659bedfd028b4a9c61f68243f5bc4a12cf6436488",
   "approved_media_path": "knowledge/concepts/security-permissions/approved-media.md",
-  "built_at": "2026-06-17T21:47:57+00:00",
+  "built_at": "2026-06-17T23:10:00+00:00",
   "concept_id": "security-permissions",
-  "guide_hash": "e5b2e7455dedbfc92ecbbbac1bbaf1856a96a520ad3445e7250d2e7a4b5421ac",
-  "guide_line_count": 1945,
+  "guide_hash": "f644f546ed06b10143535ece2a07afea194a0d118a24aaa3e7a15fc4f6335b67",
+  "guide_line_count": 1949,
   "guide_path": "knowledge/concepts/security-permissions/guide.md",
   "guide_word_count": 15818,
   "rebuild_triggers": [
@@ -13136,7 +13136,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1722,
+      "end_line": 1723,
       "heading": "Recipe: Review After Upgrade",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-review-after-upgrade",
@@ -13150,7 +13150,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1788,
+      "end_line": 1791,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -13168,11 +13168,11 @@
         "11cdf9c3e9ac92ed",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 1723
+      "start_line": 1724
     },
     {
       "confidence": "citation-only",
-      "end_line": 1831,
+      "end_line": 1835,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -13186,11 +13186,11 @@
         "c48789f22dbf970d",
         "4f7f4db582e9d83b"
       ],
-      "start_line": 1789
+      "start_line": 1792
     },
     {
       "confidence": "structural",
-      "end_line": 1833,
+      "end_line": 1837,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "18-source-map-and-dependency-notes",
@@ -13224,11 +13224,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1832
+      "start_line": 1836
     },
     {
       "confidence": "normal",
-      "end_line": 1857,
+      "end_line": 1861,
       "heading": "Primary Source Map",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-primary-source-map",
@@ -13263,11 +13263,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1834
+      "start_line": 1838
     },
     {
       "confidence": "structural",
-      "end_line": 1870,
+      "end_line": 1874,
       "heading": "Dependency Notes: People",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-people",
@@ -13302,11 +13302,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1858
+      "start_line": 1862
     },
     {
       "confidence": "structural",
-      "end_line": 1883,
+      "end_line": 1887,
       "heading": "Dependency Notes: Groups",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-groups",
@@ -13341,11 +13341,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1871
+      "start_line": 1875
     },
     {
       "confidence": "structural",
-      "end_line": 1897,
+      "end_line": 1901,
       "heading": "Dependency Notes: API",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-api",
@@ -13380,11 +13380,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1884
+      "start_line": 1888
     },
     {
       "confidence": "structural",
-      "end_line": 1911,
+      "end_line": 1915,
       "heading": "Dependency Notes: CMS",
       "needs_live_verification": false,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-cms",
@@ -13419,11 +13419,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1898
+      "start_line": 1902
     },
     {
       "confidence": "structural",
-      "end_line": 1925,
+      "end_line": 1929,
       "heading": "Dependency Notes: Workflows",
       "needs_live_verification": false,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-workflows",
@@ -13458,11 +13458,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1912
+      "start_line": 1916
     },
     {
       "confidence": "normal",
-      "end_line": 1945,
+      "end_line": 1949,
       "heading": "Live Verification Requirements",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-live-verification-requirements",
@@ -13471,7 +13471,7 @@
         "93a509c867f58175",
         "776256c424368312"
       ],
-      "start_line": 1926
+      "start_line": 1930
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:47+00:00",

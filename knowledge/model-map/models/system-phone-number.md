@@ -1,7 +1,7 @@
 # System Phone Number Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `SystemPhoneNumber`
 - EntityType GUID: `66d62a9f-13cd-4160-8653-211b2a4abf16`
@@ -60,8 +60,8 @@
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | Name | yes | yes |  | yes |  | Gets or sets the friendly name of the phone number. |
-| Number | yes | yes |  | yes |  | Gets or sets the phone number. This should be in E.123 format, such as +16235553324 . |
-| Order | yes | yes |  | yes |  | Gets or sets the sort and display order of the SystemPhoneNumber. This is an ascending order, so the lower the value the higher the sort priority. |
+| Number | yes | yes |  | yes |  | Gets or sets the phone number. This should be in E.123 format, such as +16235553324. |
+| Order | yes | yes |  | yes |  | Gets or sets the sort and display order of the System Phone Number. This is an ascending order, so the lower the value the higher the sort priority. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | ProviderIdentifier | yes | yes |  |  |  | Gets or sets the provider identifier. |
@@ -102,7 +102,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Order | [SystemPhoneNumber](system-phone-number.md) |  |
+| Order | [System Phone Number](system-phone-number.md) | 66d62a9f-13cd-4160-8653-211b2a4abf16 |
 
 ## Stable To Pre-Alpha Changes
 

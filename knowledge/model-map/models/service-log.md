@@ -1,7 +1,7 @@
 # Service Log Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `ServiceLog`
 - EntityType GUID: `b5c26a04-e374-495a-aec6-171c2d2cbd60`

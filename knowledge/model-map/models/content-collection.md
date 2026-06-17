@@ -1,7 +1,7 @@
 # Content Collection Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentCollection`
 - EntityType GUID: `ad7b9219-1b47-4164-9dd1-90f0af588cb8`
@@ -59,7 +59,7 @@
 | ModifiedByPersonId |  | yes | yes |  |  |  |
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
-| Name | yes | yes |  | yes |  | Gets or sets the name of the ContentCollection. |
+| Name | yes | yes |  | yes |  | Gets or sets the name of the Content Collection. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | SupportedActions |  |  | yes |  |  |  |
@@ -94,7 +94,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Name | [ContentCollection](content-collection.md) |  |
+| Name | [Content Collection](content-collection.md) | ad7b9219-1b47-4164-9dd1-90f0af588cb8 |
 
 ## Stable To Pre-Alpha Changes
 

@@ -1,7 +1,7 @@
 # Document Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `DocumentType`
 - EntityType GUID: `18cf366f-46b6-49ca-b557-bcabd6bbd175`
@@ -27,8 +27,8 @@
 | AttributeValues |  | yes | yes |  |  |  |
 | Attributes |  | yes | yes |  |  |  |
 | AvailableKeys |  |  | yes |  |  |  |
-| BinaryFileType |  | yes | yes |  |  | Gets or sets the BinaryFileType of the document type. |
-| BinaryFileTypeId | yes | yes |  |  |  | Gets or sets the id of the BinaryFileType that this document type belongs to. |
+| BinaryFileType |  | yes | yes |  |  | Gets or sets the Binary File Type of the document type. |
+| BinaryFileTypeId | yes | yes |  |  |  | Gets or sets the id of the Binary File Type that this document type belongs to. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -40,9 +40,9 @@
 | DocumentTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of the entities that Notes of this DocumentType |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the EntityType that this DocumentType is used for. A DocumentType can only be associated with a single EntityType and will only contain notes for entities of this type. This property is required. |
-| EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the name of the qualifier column/property on the EntityType that this Docuement Type applies to. If this is not provided, the document type can be used on all entities of the provided EntityType. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of the entities that Notes of this DocumentType |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the Id of the Entity Type that this DocumentType is used for. A DocumentType can only be associated with a single Entity Type and will only contain notes for entities of this type. This property is required. |
+| EntityTypeQualifierColumn | yes | yes |  |  |  | Gets or sets the name of the qualifier column/property on the Entity Type that this Docuement Type applies to. If this is not provided, the document type can be used on all entities of the provided Entity Type. |
 | EntityTypeQualifierValue | yes | yes |  |  |  | Gets or sets the qualifier value in the qualifier column that this document type applies to. For instance this note type and related notes will only be applicable to entity if the value in the EntityTypeQualiferColumn matches this value. This property should not be populated without also populating the EntityTypeQualifierColumn property. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -51,7 +51,7 @@
 | IconCssClass | yes | yes |  |  |  | Gets or sets the CSS class that is used for a vector/CSS icon. |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
-| IsImage | yes | yes |  | yes |  | Gets or sets the IsImage flag for the DocumentType. |
+| IsImage | yes | yes |  | yes |  | Gets or sets the IsImage flag for the Document Type. |
 | IsSystem | yes | yes |  | yes |  | Gets or sets a flag indicating if this DocumentType is part of the Rock core system/framework. This property is required. |
 | IsValid |  |  | yes |  |  |  |
 | Item |  |  | yes |  |  |  |
@@ -79,11 +79,11 @@
 | --- | --- |
 | AttributeValues |  |
 | Attributes |  |
-| BinaryFileType | Gets or sets the BinaryFileType of the document type. |
+| BinaryFileType | Gets or sets the Binary File Type of the document type. |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of the entities that Notes of this DocumentType |
+| EntityType | Gets or sets the Entity Type of the entities that Notes of this DocumentType |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -96,13 +96,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BinaryFileType | [BinaryFileType](binary-file-type.md) |  |
-| BinaryFileTypeId | [BinaryFileType](binary-file-type.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityType | Notes |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| EntityTypeQualifierColumn | [EntityType](entity-type.md) |  |
-| IsImage | [DocumentType](document-type.md) |  |
+| BinaryFileType | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| BinaryFileTypeId | [Binary File Type](binary-file-type.md) | 62af597f-f193-412b-94ea-291cf713327d |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityType | Notes | 7cefa340-9d98-4b2c-b462-313c61944b6c |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeQualifierColumn | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| IsImage | [Document Type](document-type.md) | 18cf366f-46b6-49ca-b557-bcabd6bbd175 |
 
 ## Stable To Pre-Alpha Changes
 

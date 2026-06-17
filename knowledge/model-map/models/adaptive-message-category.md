@@ -1,7 +1,7 @@
 # Adaptive Message Category Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AdaptiveMessageCategory`
 - EntityType GUID: `d47bda25-03a3-46ee-a0a6-f8b220e39e4a`
@@ -15,8 +15,8 @@
 | Database-marked properties | 8 |
 | Lava-marked properties | 15 |
 | Lava-marked non-database properties | 7 |
-| Related model links | 1 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 0 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -63,12 +63,8 @@
 
 ## Related Model Map Links
 
-| Property | Related Model | EntityType GUID |
-| --- | --- | --- |
-| SupportedActions | Dictionary`2 |  |
+No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

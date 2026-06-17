@@ -1,7 +1,7 @@
 # Financial Batch Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialBatch`
 - EntityType GUID: `bdd09c8e-2c52-4d08-9062-be7d52d190c2`
@@ -15,8 +15,8 @@
 | Database-marked properties | 22 |
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 14 |
-| Related model links | 7 |
-| Pre-alpha changes touching this model | 2 |
+| Related model links | 6 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -33,7 +33,7 @@
 | Campus |  | yes | yes |  |  | Gets or sets the Campus that this batch is associated with. |
 | CampusId | yes | yes |  |  |  | Gets or sets the CampusId of the Campus that this batch is associated with. If the batch is not linked to a campus, this value will be null. |
 | ContextKey |  |  | yes |  |  |  |
-| ControlAmount | yes | yes |  |  |  | Gets or sets the control amount. This should match the total value of all FinancialTransactions that are included in the batch. Use if you are incrementing the control amount based on a transaction amount. |
+| ControlAmount | yes | yes |  |  |  | Gets or sets the control amount. This should match the total value of all FinancialTransactions that are included in the batch. Use FinancialBatchService.IncrementControlAmount(System.Int32,System.Decimal,History.HistoryChangeList)() if you are incrementing the control amount based on a transaction amount. |
 | ControlItemCount | yes | yes |  |  |  | Gets or sets the control item count. |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -97,17 +97,13 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| BatchEndDateTime | FinancialTransactions |  |
-| BatchStartDateTime | FinancialTransactions |  |
-| Campus | [Campus](campus.md) |  |
-| CampusId | [Campus](campus.md) |  |
-| ControlAmount | FinancialTransactions |  |
-| SupportedActions | Dictionary`2 |  |
-| Transactions | FinancialTransactions |  |
+| BatchEndDateTime | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| BatchStartDateTime | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| Campus | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| CampusId | [Campus](campus.md) | 00096bed-9587-415e-8ad4-4e076ae8fbf0 |
+| ControlAmount | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
+| Transactions | FinancialTransactions | 2c1cb26b-ab22-42d0-8164-aedee0dae667 |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | ControlAmount | description |
-| property_changed | SupportedActions | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

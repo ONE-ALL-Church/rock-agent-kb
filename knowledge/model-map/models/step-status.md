@@ -1,7 +1,7 @@
 # Step Status Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StepStatus`
 - EntityType GUID: `6c270d6a-f126-445b-93f0-5079a968bf4e`
@@ -59,8 +59,8 @@
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | StatusColor | yes | yes |  |  |  | Gets or sets the color of the status. |
 | StatusColorOrDefault |  |  | yes |  |  | Gets the status color or default color depending on IsCompleteStatus. |
-| StepProgram |  | yes | yes |  |  | Gets or sets the StepProgram. |
-| StepProgramId | yes | yes |  | yes |  | Gets or sets the Id of the StepProgram to which this status belongs. This property is required. |
+| StepProgram |  | yes | yes |  |  | Gets or sets the Step Program. |
+| StepProgramId | yes | yes |  | yes |  | Gets or sets the Id of the Step Program to which this status belongs. This property is required. |
 | StepStatusAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | Steps |  | yes | yes |  |  | Gets or sets a collection containing the Steps that are of this step status. |
 | SupportedActions |  |  | yes |  |  |  |
@@ -82,7 +82,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| StepProgram | Gets or sets the StepProgram. |
+| StepProgram | Gets or sets the Step Program. |
 | Steps | Gets or sets a collection containing the Steps that are of this step status. |
 | TypeId |  |
 | TypeName |  |
@@ -92,9 +92,9 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| StepProgram | [StepProgram](step-program.md) |  |
-| StepProgramId | [StepProgram](step-program.md) |  |
-| Steps | Steps |  |
+| StepProgram | [Step Program](step-program.md) | e89f9528-a74e-41b7-8b65-b56b4ce7a122 |
+| StepProgramId | [Step Program](step-program.md) | e89f9528-a74e-41b7-8b65-b56b4ce7a122 |
+| Steps | Steps | 8eadb0dc-17f4-4541-a46e-53f89e21a622 |
 
 ## Stable To Pre-Alpha Changes
 

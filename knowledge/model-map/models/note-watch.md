@@ -1,7 +1,7 @@
 # Note Watch Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `NoteWatch`
 - EntityType GUID: `a5c129c2-e64d-4b72-b94d-dba6da6ac2e3`

@@ -1,7 +1,7 @@
 # Connection Activity Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionActivityType`
 - EntityType GUID: `97b143f0-cb9d-4652-8ff1-ff2fa1ea4945`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 40 |
-| Database-marked properties | 12 |
-| Lava-marked properties | 25 |
-| Lava-marked non-database properties | 13 |
-| Related model links | 2 |
-| Pre-alpha changes touching this model | 3 |
+| Properties | 43 |
+| Database-marked properties | 14 |
+| Lava-marked properties | 28 |
+| Lava-marked non-database properties | 14 |
+| Related model links | 3 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -29,7 +29,7 @@
 | AvailableKeys |  |  | yes |  |  |  |
 | ConnectionActivityTypeAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | ConnectionType |  | yes | yes |  |  | Gets or sets the type of the connection. |
-| ConnectionTypeId | yes | yes |  |  |  | Gets or sets the ConnectionType identifier. |
+| ConnectionTypeId | yes | yes |  |  |  | Gets or sets the Connection Type identifier. |
 | ContextKey |  |  | yes |  |  |  |
 | CreatedByPersonAlias |  |  | yes |  |  |  |
 | CreatedByPersonAliasId | yes | yes |  |  |  |  |
@@ -57,6 +57,9 @@
 | Name | yes | yes |  | yes |  | Gets or sets the name. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
+| PersonNoteCreationBehavior | yes | yes |  |  |  | Determines whether a Person Note summarizing this activity should be created when the activity is added to a Connection Request. This is a hard coded list of values defined in the code as an enumeration. |
+| PersonNoteType |  | yes | yes |  |  | Gets or sets the type for the Connection Activity Type/&gt; |
+| PersonNoteTypeId | yes | yes |  |  |  | The note type to use when creating person notes for this request. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
@@ -77,6 +80,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
+| PersonNoteType | Gets or sets the type for the Connection Activity Type/&gt; |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -85,13 +89,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ConnectionType | type |  |
-| ConnectionTypeId | [ConnectionType](connection-type.md) |  |
+| ConnectionType | type | b1e52ead-65bd-4c4d-bccd-73368067621d |
+| ConnectionTypeId | [Connection Type](connection-type.md) | b1e52ead-65bd-4c4d-bccd-73368067621d |
+| PersonNoteType | type | 337eed57-d4ab-4eed-bbdb-0cb3a467dbcc |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_added | PersonNoteCreationBehavior |  |
-| property_added | PersonNoteType |  |
-| property_added | PersonNoteTypeId |  |
+No stable-to-pre-alpha changes were detected for this model.

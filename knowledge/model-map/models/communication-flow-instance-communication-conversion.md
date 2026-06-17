@@ -1,7 +1,7 @@
 # Communication Flow Instance Communication Conversion Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationFlowInstanceCommunicationConversion`
 - EntityType GUID: `726b5b81-b4b2-4e74-9069-0409a3d19753`

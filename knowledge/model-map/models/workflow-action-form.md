@@ -1,7 +1,7 @@
 # Workflow Action Form Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActionForm`
 - EntityType GUID: `fdab9aeb-b2aa-4fb5-a35d-83254a9b014c`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Properties | 87 |
-| Database-marked properties | 48 |
-| Lava-marked properties | 72 |
-| Lava-marked non-database properties | 24 |
+| Properties | 85 |
+| Database-marked properties | 47 |
+| Lava-marked properties | 70 |
+| Lava-marked non-database properties | 23 |
 | Related model links | 1 |
-| Pre-alpha changes touching this model | 6 |
+| Pre-alpha changes touching this model | 4 |
 
 ## Properties
 
@@ -63,8 +63,6 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | NotificationSystemCommunication |  | yes | yes |  |  | Gets or sets the notification system communication. |
 | NotificationSystemCommunicationId | yes | yes |  |  |  | Gets or sets the notification system communication identifier. |
-| NotificationSystemEmail |  | yes | yes |  |  | [Obsoleted in v10] Use NotificationSystemCommunication instead. Gets or sets the notification system email. |
-| NotificationSystemEmailId | yes | yes |  |  |  | [Obsoleted in v10] Use NotificationSystemCommunicationId instead. Gets or sets the notification system email identifier. |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | PersonEntryAddressEntryOption | yes | yes |  |  |  | Gets or sets the person entry address entry option. This is a hard coded list of values defined in the code as an enumeration. |
@@ -72,18 +70,18 @@
 | PersonEntryBirthdateEntryOption | yes | yes |  |  |  | Gets or sets the person entry birthdate entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntryCampusIsVisible | yes | yes |  |  |  | Gets or sets a value indicating whether [person entry show campus]. |
 | PersonEntryCampusStatusValue |  | yes | yes |  |  | Gets or sets the person entry campus status value. |
-| PersonEntryCampusStatusValueId | yes | yes |  |  |  | Gets or sets the person entry campus status value identifier. This and PersonEntryCampusTypeValueId will determine which campuses will selectable These are found in the "Campus Status" Defined Type. |
+| PersonEntryCampusStatusValueId | yes | yes |  |  |  | Gets or sets the person entry campus status value identifier. This and PersonEntryCampusTypeValueId will determine which campuses will selectable These are found in the Campus Status Defined Type. |
 | PersonEntryCampusTypeValue |  | yes | yes |  |  | Gets or sets the person entry campus type value. |
-| PersonEntryCampusTypeValueId | yes | yes |  |  |  | Gets or sets the person entry campus type value identifier. This and PersonEntryCampusStatusValueId will determine which campuses will selectable These are found in the "Campus Type" Defined Type. |
+| PersonEntryCampusTypeValueId | yes | yes |  |  |  | Gets or sets the person entry campus type value identifier. This and PersonEntryCampusStatusValueId will determine which campuses will selectable These are found in the Campus Type Defined Type. |
 | PersonEntryConnectionStatusValue |  | yes | yes |  |  | Gets or sets the person entry connection status value |
-| PersonEntryConnectionStatusValueId | yes | yes |  |  |  | Gets or sets the person entry connection status value identifier. These are found in the "Connection Status" Defined Type. |
+| PersonEntryConnectionStatusValueId | yes | yes |  |  |  | Gets or sets the person entry connection status value identifier. These are found in the Connection Status Defined Type. |
 | PersonEntryDescription | yes | yes |  |  |  | Gets or sets the Description to display under the PersonEntryTitle |
 | PersonEntryEmailEntryOption | yes | yes |  |  |  | Gets or sets the person entry email entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntryEthnicityEntryOption | yes | yes |  |  |  | Gets or sets the person entry ethnicity entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntryFamilyAttributeGuid | yes | yes |  |  |  | Gets or sets the person entry family attribute unique identifier. (The one used to set the Added/Edited Person's Family to) |
 | PersonEntryGenderEntryOption | yes | yes |  |  |  | Gets or sets the person entry gender entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntryGroupLocationTypeValue |  | yes | yes |  |  | Gets or sets the person entry address type value identifier. |
-| PersonEntryGroupLocationTypeValueId | yes | yes |  |  |  | Gets or sets the person entry address type value identifier. These are found in the "Location Type" Defined Type. |
+| PersonEntryGroupLocationTypeValueId | yes | yes |  |  |  | Gets or sets the person entry address type value identifier. These are found in the Location Type Defined Type. |
 | PersonEntryHideIfCurrentPersonKnown | yes | yes |  |  |  | Gets or sets a value indicating whether Person Entry should be hidden if the CurrentPerson is known |
 | PersonEntryMaritalStatusEntryOption | yes | yes |  |  |  | Gets or sets the person entry marital status entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntryMobilePhoneEntryOption | yes | yes |  |  |  | Gets or sets the person entry mobile phone entry option. This is a hard coded list of values defined in the code as an enumeration. |
@@ -92,11 +90,11 @@
 | PersonEntryPreHtml | yes | yes |  |  |  | Gets or sets the person entry preHTML. |
 | PersonEntryRaceEntryOption | yes | yes |  |  |  | Gets or sets the person entry race entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntryRecordSourceValue |  | yes | yes |  |  | Gets or sets the person entry record source value identifier. |
-| PersonEntryRecordSourceValueId | yes | yes |  |  |  | Gets or sets the person entry record source value identifier. These are found in the "Record Source" Defined Type. |
+| PersonEntryRecordSourceValueId | yes | yes |  |  |  | Gets or sets the person entry record source value identifier. These are found in the Record Source Defined Type. |
 | PersonEntryRecordStatusValue |  | yes | yes |  |  | Gets or sets the person entry record status value identifier. |
-| PersonEntryRecordStatusValueId | yes | yes |  |  |  | Gets or sets the person entry record status value identifier. These are found in the "Record Status" Defined Type. |
+| PersonEntryRecordStatusValueId | yes | yes |  |  |  | Gets or sets the person entry record status value identifier. These are found in the Record Status Defined Type. |
 | PersonEntrySectionTypeValue |  | yes | yes |  |  | Gets or sets the person entry section type value. |
-| PersonEntrySectionTypeValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the DefinedValue that represents the SectionType for the Person Entry Section. These are found in the "Section Type" Defined Type. |
+| PersonEntrySectionTypeValueId | yes | yes |  |  |  | Gets or sets the DefinedValueId of the Defined Value that represents the SectionType for the Person Entry Section. These are found in the Section Type Defined Type. |
 | PersonEntryShowHeadingSeparator | yes | yes |  |  |  | Gets or sets whether a heading separator should be display under the PersonEntryTitle and PersonEntryDescription |
 | PersonEntrySmsOptInEntryOption | yes | yes |  |  |  | Gets or sets the person entry SMS opt in entry option. This is a hard coded list of values defined in the code as an enumeration. |
 | PersonEntrySpouseAttributeGuid | yes | yes |  |  |  | Gets or sets the person entry spouse workflow attribute unique identifier. (The one used to set the Added/Edited Person's Spouse to) |
@@ -127,7 +125,6 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | NotificationSystemCommunication | Gets or sets the notification system communication. |
-| NotificationSystemEmail | [Obsoleted in v10] Use NotificationSystemCommunication instead. Gets or sets the notification system email. |
 | PersonEntryCampusStatusValue | Gets or sets the person entry campus status value. |
 | PersonEntryCampusTypeValue | Gets or sets the person entry campus type value. |
 | PersonEntryConnectionStatusValue | Gets or sets the person entry connection status value |
@@ -143,14 +140,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| PersonEntrySectionTypeValueId | [DefinedValue](defined-value.md) |  |
+| PersonEntrySectionTypeValueId | [Defined Value](defined-value.md) | 53d4bf38-c49e-4a52-8b0e-5e016fb9574e |
 
 ## Stable To Pre-Alpha Changes
 
 | Change | Property | Fields |
 | --- | --- | --- |
-| property_removed | NotificationSystemEmail |  |
-| property_removed | NotificationSystemEmailId |  |
 | property_changed | PersonEntryCampusStatusValueId | enum_values |
 | property_changed | PersonEntryCampusTypeValueId | enum_values |
 | property_changed | PersonEntryRecordSourceValueId | enum_values |

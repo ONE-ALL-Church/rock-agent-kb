@@ -1,7 +1,7 @@
 # Rest Controller Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `RestController`
 - EntityType GUID: `65cdfd5b-a9aa-48fa-8d22-669612d5ea7d`

@@ -1,7 +1,7 @@
 # Data View Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `DataView`
 - EntityType GUID: `57f8fa29-dcf1-4f74-8553-87e90f234139`
@@ -37,14 +37,14 @@
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
 | DataViewAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
-| DataViewFilter |  | yes | yes |  |  | Gets or sets the base DataViewFilter that is used to generate this DataView. |
-| DataViewFilterId | yes | yes |  |  |  | Gets or sets the DataViewFilterId of the root/base DataViewFilter that is used to generate this DataView. |
+| DataViewFilter |  | yes | yes |  |  | Gets or sets the base Data View Filter that is used to generate this DataView. |
+| DataViewFilterId | yes | yes |  |  |  | Gets or sets the DataViewFilterId of the root/base Data View Filter that is used to generate this DataView. |
 | Description | yes | yes |  |  |  | Gets or sets the user defined description of the DataView |
 | DisableUseOfReadOnlyContext | yes | yes |  |  |  | Gets or sets whether using a read-only Rock Context is disabled. |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType (Rock.Data.IEntity) that this DataView reports on. |
-| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the EntityType (Rock.Data.IEntity) that this DataView reports on. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type (Rock.Data.IEntity) that this DataView reports on. |
+| EntityTypeId | yes | yes |  | yes |  | Gets or sets the EntityTypeId of the Entity Type (Rock.Data.IEntity) that this DataView reports on. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -75,9 +75,9 @@
 | RunCount | yes | yes |  |  |  | Gets or sets the run count. This is only updated when the data view is actually executed, not when we access the persisted values directly. |
 | RunCountLastRefreshDateTime | yes | yes |  |  |  | Gets or sets the DateTime that the Run Count was last reset to 0. |
 | SupportedActions |  |  | yes |  |  |  |
-| TimeToRunDurationMilliseconds | yes | yes |  |  |  | Gets or sets the amount of time in milliseconds that it took to run the DataView. This is only updated when the data view is actually executed, not when we access the persisted values directly. |
+| TimeToRunDurationMilliseconds | yes | yes |  |  |  | Gets or sets the amount of time in milliseconds that it took to run the Data View. This is only updated when the data view is actually executed, not when we access the persisted values directly. |
 | TransformEntityType |  | yes | yes |  |  | Gets or sets the entity type (MEF Component) used for an optional transformation |
-| TransformEntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the EntityType (MEF Component) that is used for an optional transformation on this DataView. |
+| TransformEntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the Entity Type (MEF Component) that is used for an optional transformation on this DataView. |
 | TypeId |  | yes | yes |  |  |  |
 | TypeName |  | yes | yes |  |  |  |
 | UrlEncodedKey |  | yes | yes |  |  |  |
@@ -92,9 +92,9 @@
 | Category | Gets or sets the Category that this DataView belongs to |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
-| DataViewFilter | Gets or sets the base DataViewFilter that is used to generate this DataView. |
+| DataViewFilter | Gets or sets the base Data View Filter that is used to generate this DataView. |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType (Rock.Data.IEntity) that this DataView reports on. |
+| EntityType | Gets or sets the Entity Type (Rock.Data.IEntity) that this DataView reports on. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -109,15 +109,15 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Category | [Category](category.md) |  |
-| CategoryId | [Category](category.md) |  |
-| DataViewFilter | [DataViewFilter](data-view-filter.md) |  |
-| DataViewFilterId | [DataViewFilter](data-view-filter.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| PersistedSchedule | [Schedule](schedule.md) |  |
-| TimeToRunDurationMilliseconds | [DataView](data-view.md) |  |
-| TransformEntityTypeId | [EntityType](entity-type.md) |  |
+| Category | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| CategoryId | [Category](category.md) | 1d68154e-ec76-44c8-9813-7736b27aecf9 |
+| DataViewFilter | [Data View Filter](data-view-filter.md) | 507e646b-9943-4dd6-8fb7-8ba9f95e6bd0 |
+| DataViewFilterId | [Data View Filter](data-view-filter.md) | 507e646b-9943-4dd6-8fb7-8ba9f95e6bd0 |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| PersistedSchedule | [Schedule](schedule.md) | 0b2c38a7-d79c-4f85-9757-f1b045d32c8a |
+| TimeToRunDurationMilliseconds | [Data View](data-view.md) | 57f8fa29-dcf1-4f74-8553-87e90f234139 |
+| TransformEntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
 
 ## Stable To Pre-Alpha Changes
 

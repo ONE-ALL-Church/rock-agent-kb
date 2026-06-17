@@ -1,7 +1,7 @@
 # Defined Value Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `DefinedValue`
 - EntityType GUID: `53d4bf38-c49e-4a52-8b0e-5e016fb9574e`
@@ -38,7 +38,7 @@
 | CreatedDateTime | yes | yes |  |  |  |  |
 | CustomSortValue |  |  | yes |  |  |  |
 | DefinedType |  | yes | yes |  |  | Gets or sets the Defined Type that this DefinedValue belongs to. |
-| DefinedTypeId | yes | yes |  | yes |  | Gets or sets the DefinedTypeId of the DefinedType that this DefinedValue belongs to. This property is required. |
+| DefinedTypeId | yes | yes |  | yes |  | Gets or sets the DefinedTypeId of the Defined Type that this DefinedValue belongs to. This property is required. |
 | DefinedValueAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | Description | yes | yes |  |  |  | Gets or sets the Description of the DefinedValue. |
 | EncryptedKey |  |  | yes |  |  |  |
@@ -92,7 +92,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| DefinedTypeId | [DefinedType](defined-type.md) |  |
+| DefinedTypeId | [Defined Type](defined-type.md) | 6028d502-79f4-4a74-9323-525e90f900c7 |
 
 ## Stable To Pre-Alpha Changes
 

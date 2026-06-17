@@ -1,7 +1,7 @@
 # Analytics Fact Attendance Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsFactAttendance`
 - EntityType GUID: `3fcc0df5-4299-4971-860c-8cb591da75d8`

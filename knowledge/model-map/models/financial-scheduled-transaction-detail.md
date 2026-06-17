@@ -1,7 +1,7 @@
 # Financial Scheduled Transaction Detail Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialScheduledTransactionDetail`
 - EntityType GUID: `a206615f-3fb5-48df-b606-86ae8716fd57`
@@ -22,8 +22,8 @@
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| Account |  | yes | yes |  |  | Gets or sets the FinancialAccount/account that the Amount of this transaction detail will be credited toward. |
-| AccountId | yes | yes |  |  |  | Gets or sets the AccountId of the FinancialAccount/account that that the transaction detail Amount should be directed toward. |
+| Account |  | yes | yes |  |  | Gets or sets the Financial Account/account that the Amount of this transaction detail will be credited toward. |
+| AccountId | yes | yes |  |  |  | Gets or sets the AccountId of the Financial Account/account that that the transaction detail Amount should be directed toward. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | Amount | yes | yes |  |  |  | Gets or sets the purchase/gift amount. |
 | AttributeValueDefaults |  |  | yes |  |  |  |
@@ -48,7 +48,7 @@
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
 | Guid | yes | yes |  |  |  |  |
-| HistoryChangeList |  |  | yes |  |  | [Obsoleted in v14] Does nothing. No longer needed. We replaced this with a private property under the SaveHook class for this entity. Gets or sets the history change list. |
+| HistoryChangeList |  |  | yes |  | yes | Gets or sets the history change list. |
 | Id | yes | yes |  |  |  |  |
 | IdKey |  | yes | yes |  |  |  |
 | IsValid |  |  | yes |  |  |  |
@@ -61,8 +61,8 @@
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | ParentAuthority |  |  | yes |  |  |  |
 | ParentAuthorityPre |  |  | yes |  |  |  |
-| ScheduledTransaction |  | yes | yes |  |  | Gets or sets the FinancialScheduledTransaction that this transaction detail belongs to. |
-| ScheduledTransactionId | yes | yes |  |  |  | Gets or sets the ScheduledTransactionId of the FinancialScheduledTransaction that this detail item belongs to. |
+| ScheduledTransaction |  | yes | yes |  |  | Gets or sets the Financial Scheduled Transaction that this transaction detail belongs to. |
+| ScheduledTransactionId | yes | yes |  |  |  | Gets or sets the ScheduledTransactionId of the Financial Scheduled Transaction that this detail item belongs to. |
 | Summary | yes | yes |  |  |  | Gets or sets the summary of this scheduled transaction detail. |
 | SupportedActions |  |  | yes |  |  |  |
 | TypeId |  | yes | yes |  |  |  |
@@ -74,7 +74,7 @@
 
 | Property | Description |
 | --- | --- |
-| Account | Gets or sets the FinancialAccount/account that the Amount of this transaction detail will be credited toward. |
+| Account | Gets or sets the Financial Account/account that the Amount of this transaction detail will be credited toward. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
@@ -85,7 +85,7 @@
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
-| ScheduledTransaction | Gets or sets the FinancialScheduledTransaction that this transaction detail belongs to. |
+| ScheduledTransaction | Gets or sets the Financial Scheduled Transaction that this transaction detail belongs to. |
 | TypeId |  |
 | TypeName |  |
 | UrlEncodedKey |  |
@@ -94,10 +94,10 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Account | [FinancialAccount](financial-account.md) |  |
-| AccountId | [FinancialAccount](financial-account.md) |  |
-| ScheduledTransaction | [FinancialScheduledTransaction](financial-scheduled-transaction.md) |  |
-| ScheduledTransactionId | [FinancialScheduledTransaction](financial-scheduled-transaction.md) |  |
+| Account | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| AccountId | [Financial Account](financial-account.md) | 798bce48-6aa7-4983-9214-f9bcefb4521d |
+| ScheduledTransaction | [Financial Scheduled Transaction](financial-scheduled-transaction.md) | 76824e8a-ccc4-4085-84d9-8af8c0807e20 |
+| ScheduledTransactionId | [Financial Scheduled Transaction](financial-scheduled-transaction.md) | 76824e8a-ccc4-4085-84d9-8af8c0807e20 |
 
 ## Stable To Pre-Alpha Changes
 

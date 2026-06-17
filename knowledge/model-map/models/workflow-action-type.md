@@ -1,7 +1,7 @@
 # Workflow Action Type Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActionType`
 - EntityType GUID: `23e3273a-b137-48a3-9aff-c8dc832ddca6`
@@ -15,15 +15,15 @@
 | Database-marked properties | 20 |
 | Lava-marked properties | 35 |
 | Lava-marked non-database properties | 15 |
-| Related model links | 6 |
-| Pre-alpha changes touching this model | 1 |
+| Related model links | 5 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
 | Property | DB | Lava | NotMapped | Required | Obsolete | Description |
 | --- | --- | --- | --- | --- | --- | --- |
-| ActivityType |  | yes | yes |  |  | Gets or sets the WorkflowActivityType that performs this ActionType. |
-| ActivityTypeId | yes | yes |  |  |  | Gets or sets the ActivityTypeId of the WorkflowActivityType that performs this Action Type. |
+| ActivityType |  | yes | yes |  |  | Gets or sets the Workflow Activity Type that performs this ActionType. |
+| ActivityTypeId | yes | yes |  |  |  | Gets or sets the ActivityTypeId of the Workflow Activity Type that performs this Action Type. |
 | AdditionalLavaFields |  |  | yes |  |  |  |
 | AttributeValueDefaults |  |  | yes |  |  |  |
 | AttributeValues |  | yes | yes |  |  |  |
@@ -41,8 +41,8 @@
 | CustomSortValue |  |  | yes |  |  |  |
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of that this ActionType is running against. |
-| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the EntityType that the action is operating against. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of that this ActionType is running against. |
+| EntityTypeId | yes | yes |  |  |  | Gets or sets the EntityTypeId of the Entity Type that the action is operating against. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
@@ -61,7 +61,7 @@
 | ModifiedByPersonName |  | yes | yes |  |  |  |
 | ModifiedDateTime | yes | yes |  |  |  |  |
 | Name | yes | yes |  | yes |  | Gets or sets the friendly name of the ActionType |
-| Order | yes | yes |  | yes |  | Gets or sets the order of the ActionType in the WorkflowActivityType |
+| Order | yes | yes |  | yes |  | Gets or sets the order of the ActionType in the Workflow Activity Type |
 | ParentAuthority |  |  | yes |  |  | Gets the parent security authority for this ActionType. |
 | ParentAuthorityPre |  |  | yes |  |  |  |
 | SupportedActions |  |  | yes |  |  |  |
@@ -78,13 +78,13 @@
 
 | Property | Description |
 | --- | --- |
-| ActivityType | Gets or sets the WorkflowActivityType that performs this ActionType. |
+| ActivityType | Gets or sets the Workflow Activity Type that performs this ActionType. |
 | AttributeValues |  |
 | Attributes |  |
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of that this ActionType is running against. |
+| EntityType | Gets or sets the Entity Type of that this ActionType is running against. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -98,15 +98,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| ActivityType | [WorkflowActivityType](workflow-activity-type.md) |  |
-| ActivityTypeId | [WorkflowActivityType](workflow-activity-type.md) |  |
-| EntityType | [EntityType](entity-type.md) |  |
-| EntityTypeId | [EntityType](entity-type.md) |  |
-| Order | [WorkflowActivityType](workflow-activity-type.md) |  |
-| WorkflowAction | ActionComponent |  |
+| ActivityType | [Workflow Activity Type](workflow-activity-type.md) | e5fbdba2-9539-4679-b948-2e06c1bb1e3f |
+| ActivityTypeId | [Workflow Activity Type](workflow-activity-type.md) | e5fbdba2-9539-4679-b948-2e06c1bb1e3f |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| EntityTypeId | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| Order | [Workflow Activity Type](workflow-activity-type.md) | e5fbdba2-9539-4679-b948-2e06c1bb1e3f |
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | WorkflowAction | related_entity_links |
+No stable-to-pre-alpha changes were detected for this model.

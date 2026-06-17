@@ -1,7 +1,7 @@
 # Communication Template Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationTemplate`
 - EntityType GUID: `a9493afe-4316-4651-800d-5028e4c7444d`
@@ -87,10 +87,10 @@
 | PushTitle | yes | yes |  |  |  | Gets or sets from number. |
 | ReplyToEmail | yes | yes |  |  |  | Gets or sets the reply to email. |
 | SMSAttachmentBinaryFileIds |  |  | yes |  |  | Gets or sets a list of sms binary file ids |
-| SMSFromDefinedValue |  | yes | yes |  |  | [Obsoleted in v15] Use SmsFromSystemPhoneNumber instead. Gets or sets the SMS from defined value. |
-| SMSFromDefinedValueId | yes | yes |  |  |  | [Obsoleted in v15] Use SmsFromSystemPhoneNumberId instead. Gets or sets from number. |
+| SMSFromDefinedValue |  | yes | yes |  | yes | Gets or sets the SMS from defined value. |
+| SMSFromDefinedValueId | yes | yes |  |  | yes | Gets or sets from number. |
 | SMSMessage | yes | yes |  |  |  | Gets or sets the message. |
-| SenderPersonAlias |  | yes | yes |  |  | Gets or sets the PersonAlias of the Communication's sender. |
+| SenderPersonAlias |  | yes | yes |  |  | Gets or sets the Person Alias of the Communication's sender. |
 | SenderPersonAliasId | yes | yes |  |  |  | Gets or sets the PersonId of the Person who is the sender of the Communication |
 | SmsFromSystemPhoneNumber |  | yes | yes |  |  | Gets or sets the system phone number used for SMS sending. |
 | SmsFromSystemPhoneNumberId | yes | yes |  |  |  | Gets or sets the system phone number identifier used for SMS sending. |
@@ -123,8 +123,8 @@
 | ModifiedByPersonId |  |
 | ModifiedByPersonName |  |
 | PushImageBinaryFile | Gets or sets the push image file. |
-| SMSFromDefinedValue | [Obsoleted in v15] Use SmsFromSystemPhoneNumber instead. Gets or sets the SMS from defined value. |
-| SenderPersonAlias | Gets or sets the PersonAlias of the Communication's sender. |
+| SMSFromDefinedValue | Gets or sets the SMS from defined value. |
+| SenderPersonAlias | Gets or sets the Person Alias of the Communication's sender. |
 | SmsFromSystemPhoneNumber | Gets or sets the system phone number used for SMS sending. |
 | TypeId |  |
 | TypeName |  |
@@ -134,8 +134,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| SenderPersonAlias | [PersonAlias](person-alias.md) |  |
-| SenderPersonAliasId | [Person](person.md) |  |
+| SenderPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
+| SenderPersonAliasId | [Person](person.md) | 72657ed8-d16e-492e-ac12-144c5e7567e7 |
 
 ## Stable To Pre-Alpha Changes
 

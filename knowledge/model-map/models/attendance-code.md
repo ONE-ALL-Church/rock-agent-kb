@@ -1,7 +1,7 @@
 # Attendance Code Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `AttendanceCode`
 - EntityType GUID: `d5adc6d3-9aa0-4ac6-9762-a703ee684934`
@@ -57,7 +57,7 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| Attendances | [Attendance](attendance.md) |  |
+| Attendances | [Attendance](attendance.md) | 4ccb856f-51e0-4e48-b94a-1705efba6c9e |
 
 ## Stable To Pre-Alpha Changes
 

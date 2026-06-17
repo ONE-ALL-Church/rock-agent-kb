@@ -1,7 +1,7 @@
 # Group Type Role Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupTypeRole`
 - EntityType GUID: `d155c373-9e47-4c6a-badd-792f31af5fba`
@@ -45,8 +45,8 @@
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
 | ForeignKey | yes | yes |  |  |  |  |
-| GroupType |  | yes | yes |  |  | Gets or sets the GroupType that this GroupRole belongs to. |
-| GroupTypeId | yes | yes |  |  |  | Gets or sets the Id of the GroupType that this GroupRole belongs to. This property is required. |
+| GroupType |  | yes | yes |  |  | Gets or sets the Group Type that this GroupRole belongs to. |
+| GroupTypeId | yes | yes |  |  |  | Gets or sets the Id of the Group Type that this GroupRole belongs to. This property is required. |
 | GroupTypeRoleAttributeValues |  |  | yes |  |  | Gets the entity attribute values. This should only be used inside LINQ statements when building a where clause for the query. This property should only be used inside LINQ statements for filtering or selecting values. Do not use it for accessing the attributes after the entity has been loaded. |
 | Guid | yes | yes |  |  |  |  |
 | Id | yes | yes |  |  |  |  |
@@ -86,7 +86,7 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| GroupType | Gets or sets the GroupType that this GroupRole belongs to. |
+| GroupType | Gets or sets the Group Type that this GroupRole belongs to. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -99,12 +99,12 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| GroupType | [GroupType](group-type.md) |  |
-| GroupTypeId | [GroupType](group-type.md) |  |
-| MaxCount | [Group](group.md) |  |
-| MaxCount | GroupMembers |  |
-| MinCount | [Group](group.md) |  |
-| MinCount | GroupMembers |  |
+| GroupType | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| GroupTypeId | [Group Type](group-type.md) | 0dd30b04-01cf-4b38-8e83-be661e2f7286 |
+| MaxCount | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| MaxCount | GroupMembers | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
+| MinCount | [Group](group.md) | 9bbfda11-0d22-40d5-902f-60adfbc88987 |
+| MinCount | GroupMembers | 49668b95-fedc-43dd-8085-d2b0d6343c48 |
 
 ## Stable To Pre-Alpha Changes
 

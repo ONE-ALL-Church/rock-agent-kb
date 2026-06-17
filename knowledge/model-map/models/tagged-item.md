@@ -1,7 +1,7 @@
 # Tagged Item Model Detail
 
 - Track: `stable`
-- Rock version: `18.2.4`
+- Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `TaggedItem`
 - EntityType GUID: `ab97403a-206e-4e0c-ac42-856a010fa6dd`
@@ -37,7 +37,7 @@
 | EncryptedKey |  |  | yes |  |  |  |
 | EntityGuid | yes | yes |  |  |  | Gets or sets the GUID identifier of the tagged entity. |
 | EntityStringValue |  | yes | yes |  |  |  |
-| EntityType |  | yes | yes |  |  | Gets or sets the EntityType of this item. |
+| EntityType |  | yes | yes |  |  | Gets or sets the Entity Type of this item. |
 | EntityTypeId | yes | yes |  | yes |  | Gets or sets the entity type identifier. |
 | ForeignGuid | yes | yes |  |  |  |  |
 | ForeignId | yes | yes |  |  |  |  |
@@ -75,7 +75,7 @@
 | CreatedByPersonId |  |
 | CreatedByPersonName |  |
 | EntityStringValue |  |
-| EntityType | Gets or sets the EntityType of this item. |
+| EntityType | Gets or sets the Entity Type of this item. |
 | IdKey |  |
 | ModifiedAuditValuesAlreadyUpdated |  |
 | ModifiedByPersonId |  |
@@ -89,8 +89,8 @@
 
 | Property | Related Model | EntityType GUID |
 | --- | --- | --- |
-| EntityType | [EntityType](entity-type.md) |  |
-| TagId | [Tag](tag.md) |  |
+| EntityType | [Entity Type](entity-type.md) | a2277fba-d09f-4d07-b0ab-1c650c25a7a7 |
+| TagId | [Tag](tag.md) | d34258d0-d366-4efb-aa76-84b059fb5434 |
 
 ## Stable To Pre-Alpha Changes
 
