@@ -11,12 +11,14 @@ This runbook covers the generated model-map layer used by concept indexes, long-
 - Do not publish local instance SQL schema snapshots or organization-specific plugin/custom model rows as the public model-map authority.
 - Keep the raw scrape artifacts under `data/review/model-map-scrape/`; generated public artifacts are under `knowledge/model-map/` and `agent/model-map-*.jsonl`.
 
-Current expected tracks:
+Current checked-in tracks from the last accepted scrape:
 
-| Track | Source | Expected Rock Version | Scrape Artifact |
+| Track | Source | Checked-in Rock Version | Scrape Artifact |
 | --- | --- | --- | --- |
 | Stable | `https://rocksolidchurchdemo.com/admin/power-tools/model-map` | `18.2.4` | `data/review/model-map-scrape/demo-model-map-full-scrape.json` |
 | Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.3` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
+
+Do not assume those versions are still live. `uv run kb status` probes the stable and latest Rock version endpoints and reports `model-map versions` as stale when either site has advanced.
 
 ## Prerequisites
 
@@ -54,10 +56,13 @@ NODE_PATH=/tmp/rock-model-map-scrape/node_modules \
   --password admin
 ```
 
-If the stable scrape is missing version metadata, stamp it from the stable demo Utility endpoint:
+Stamp the raw scrapes from the matching Utility endpoints after scraping:
 
 ```bash
 uv run kb modelmap stamp
+uv run kb modelmap stamp \
+  --scrape-path data/review/model-map-scrape/latest-model-map-full-scrape.json \
+  --endpoint-url https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber
 ```
 
 ## Rebuild Generated Artifacts
@@ -73,6 +78,8 @@ Rebuild the public model-map layer:
 ```bash
 uv run kb modelmap build
 ```
+
+The default build compares the local scrape versions to the live stable/latest endpoints and exits nonzero if either scrape is stale. Use `--skip-live-version-check` only for an explicit offline/custom-path rebuild, and call that out in the PR.
 
 Expected generated outputs include:
 

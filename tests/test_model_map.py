@@ -263,6 +263,119 @@ def test_stamp_model_map_scrape_version_records_demo_version(monkeypatch, tmp_pa
     assert model_rows[0]["rock_version_source_url"] == "https://demo.example/api/Utility/GetRockSemanticVersionNumber"
 
 
+def test_model_map_artifact_freshness_flags_live_version_drift(monkeypatch, tmp_path):
+    summary_path = tmp_path / "model-map-summary.json"
+    summary_path.write_text(
+        json.dumps(
+            {
+                "stable": {
+                    "rock_version": "18.2.4",
+                    "rock_version_source_url": "https://stable.example/api/Utility/GetRockSemanticVersionNumber",
+                    "source_url": "https://stable.example/admin/power-tools/model-map",
+                },
+                "latest": {
+                    "rock_version": "20.0.3",
+                    "rock_version_source_url": "https://latest.example/api/Utility/GetRockSemanticVersionNumber",
+                    "source_url": "https://latest.example/admin/power-tools/model-map",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    class FakeResponse:
+        status = 200
+        headers = {"content-type": "application/json"}
+
+        def __init__(self, body):
+            self.body = body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+        def read(self, _limit):
+            return self.body
+
+    def fake_urlopen(request, timeout):
+        assert timeout == 3
+        if request.full_url == "https://stable.example/api/Utility/GetRockSemanticVersionNumber":
+            return FakeResponse(b'"19.1.8"')
+        if request.full_url == "https://latest.example/api/Utility/GetRockSemanticVersionNumber":
+            return FakeResponse(b'"20.0.4"')
+        raise AssertionError(request.full_url)
+
+    monkeypatch.setattr(model_map.urllib.request, "urlopen", fake_urlopen)
+
+    result = model_map.model_map_artifact_freshness(summary_path=summary_path, timeout_seconds=3)
+
+    assert result["status"] == "stale"
+    assert [(row["track"], row["recorded_version"], row["live_version"]) for row in result["stale_tracks"]] == [
+        ("stable", "18.2.4", "19.1.8"),
+        ("latest", "20.0.3", "20.0.4"),
+    ]
+
+
+def test_model_map_scrape_freshness_accepts_current_scrapes(monkeypatch, tmp_path):
+    stable_path = tmp_path / "stable.json"
+    latest_path = tmp_path / "latest.json"
+    stable_path.write_text(
+        json.dumps(
+            {
+                "rock_version": "19.1.8",
+                "rock_version_source_url": "https://stable.example/api/Utility/GetRockSemanticVersionNumber",
+                "source_url": "https://stable.example/admin/power-tools/model-map",
+            }
+        ),
+        encoding="utf-8",
+    )
+    latest_path.write_text(
+        json.dumps(
+            {
+                "rock_version": "20.0.4",
+                "rock_version_source_url": "https://latest.example/api/Utility/GetRockSemanticVersionNumber",
+                "source_url": "https://latest.example/admin/power-tools/model-map",
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    class FakeResponse:
+        status = 200
+        headers = {"content-type": "application/json"}
+
+        def __init__(self, body):
+            self.body = body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+        def read(self, _limit):
+            return self.body
+
+    def fake_urlopen(request, timeout):
+        if "stable.example" in request.full_url:
+            return FakeResponse(b'"19.1.8"')
+        if "latest.example" in request.full_url:
+            return FakeResponse(b'"20.0.4"')
+        raise AssertionError(request.full_url)
+
+    monkeypatch.setattr(model_map.urllib.request, "urlopen", fake_urlopen)
+
+    result = model_map.model_map_scrape_freshness(
+        stable_scrape_path=stable_path,
+        latest_scrape_path=latest_path,
+    )
+
+    assert result["status"] == "current"
+    assert [row["status"] for row in result["tracks"]] == ["current", "current"]
+
+
 def test_build_model_map_version_diff_tracks_added_and_changed_properties(tmp_path):
     stable_path = tmp_path / "stable.json"
     latest_path = tmp_path / "latest.json"
