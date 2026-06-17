@@ -21,6 +21,17 @@ gitleaks detect --no-git --source .
 
 The tracked-tree audit is the repo-specific leak gate. The gitleaks pass is the generic secret-pattern gate and uses the checked-in `.gitleaks.toml` config.
 
+If the local checkout has restored ignored private corpus or review artifacts under `data/`, run the generic secret-pattern gate against a clean tracked-file export instead:
+
+```bash
+rm -rf /tmp/rock-agent-kb-tracked-export
+mkdir -p /tmp/rock-agent-kb-tracked-export
+git archive HEAD | tar -x -C /tmp/rock-agent-kb-tracked-export
+gitleaks detect --no-git --source /tmp/rock-agent-kb-tracked-export
+```
+
+Do not treat ignored private corpus findings as public launch findings unless the same finding is present in tracked files.
+
 ## Create Public Repo
 
 Create a new public repository, expected name:

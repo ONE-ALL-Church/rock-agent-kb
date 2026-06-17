@@ -90,6 +90,7 @@ from ..model_map import (
     MODEL_MAP_VERSION_DIFF_PATH,
     build_model_map,
     build_model_map_version_diff,
+    model_map_scrape_freshness,
     stamp_model_map_scrape_version,
 )
 from ..normalize import normalize_github_repo_metadata, normalize_raw_record, records_from_source_content
@@ -207,12 +208,14 @@ def status_command() -> None:
     guide = queues.get("guide_refresh") or {}
     concepts = queues.get("concept_staleness") or {}
     mobile = queues.get("mobile_selector_audit") or {}
+    model_map_versions = queues.get("model_map_versions") or {}
     queue_table.add_row("pending media candidates", str(media.get("pending_candidate_count", 0)))
     queue_table.add_row("claim review rows", str(claims.get("rows", 0)))
     queue_table.add_row("guide index rebuilds", str(len(guide.get("needs_generated_index_rebuild") or [])))
     queue_table.add_row("long-form guide refreshes", str(len(guide.get("needs_long_form_guide_refresh") or [])))
     queue_table.add_row("stale concepts", str(len(concepts.get("stale") or [])))
     queue_table.add_row("mobile selector audit", mobile_selector_audit_label(mobile))
+    queue_table.add_row("model-map versions", model_map_version_label(model_map_versions))
     console.print(queue_table)
 
     command_table = Table(title="Suggested Next Commands")
@@ -235,6 +238,35 @@ def mobile_selector_audit_label(mobile: dict[str, Any]) -> str:
     if selector_count is not None:
         return f"current ({selector_count} selectors)"
     return "current"
+
+
+def model_map_version_label(freshness: dict[str, Any]) -> str:
+    status = freshness.get("status") or "unknown"
+    tracks = freshness.get("tracks") or []
+    if status == "current":
+        return "current"
+    if status == "stale":
+        changes = [
+            f"{row.get('label') or row.get('track')}: {row.get('recorded_version')} -> {row.get('live_version')}"
+            for row in tracks
+            if row.get("status") == "stale"
+        ]
+        return "stale (" + "; ".join(changes) + ")"
+    if status == "unknown":
+        unknown = [
+            f"{row.get('label') or row.get('track')}: {row.get('probe_status')}"
+            for row in tracks
+            if row.get("status") == "unknown"
+        ]
+        return "unknown (" + "; ".join(unknown) + ")"
+    if status == "missing":
+        missing = [
+            f"{row.get('label') or row.get('track')}: {row.get('probe_status')}"
+            for row in tracks
+            if row.get("status") in {"missing", "missing-version"}
+        ]
+        return "missing (" + "; ".join(missing) + ")"
+    return str(status)
 
 
 def build_command(
@@ -1433,11 +1465,30 @@ def build_model_map_command(
         dir_okay=False,
         help="Latest/upcoming generic model-map scrape artifact.",
     ),
+    skip_live_version_check: bool = typer.Option(
+        False,
+        "--skip-live-version-check",
+        help="Allow rebuilding from local scrape artifacts without comparing them to the live Rock version endpoints.",
+    ),
 ) -> None:
     """Build generated public model-map resources from scraped generic Rock Model Maps."""
     ensure_generated_dirs()
     try:
+        if not skip_live_version_check:
+            freshness = model_map_scrape_freshness(stable_scrape_path=stable_path, latest_scrape_path=latest_path)
+            if freshness.get("status") in {"stale", "missing"}:
+                console.print_json(json.dumps(freshness))
+                console.print(
+                    "[red]ERROR[/red] Model-map scrape artifacts are not current. "
+                    "Rescrape and stamp the stable/latest model maps, or use --skip-live-version-check for an explicit offline rebuild."
+                )
+                raise typer.Exit(code=1)
+            if freshness.get("status") == "unknown":
+                console.print_json(json.dumps(freshness))
+                console.print("[yellow]WARNING[/yellow] Could not confirm live model-map versions; continuing with local scrape artifacts.")
         result = build_model_map(stable_scrape_path=stable_path, latest_scrape_path=latest_path)
+    except typer.Exit:
+        raise
     except Exception as exc:
         console.print(f"[red]ERROR[/red] {exc}")
         raise typer.Exit(code=1) from exc

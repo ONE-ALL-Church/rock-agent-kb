@@ -7,6 +7,7 @@ from ..concepts import concept_source_records, report_guide_refresh_plan
 from ..jsonl import read_jsonl
 from ..media import media_review_status_report
 from ..mobile_selector_audit import mobile_selector_audit_status
+from ..model_map import model_map_artifact_freshness
 from ..paths import AGENT_DIR, REPO_ROOT
 from .stages import STAGES, Stage, topological_stages
 from .state import StageStatus, changed_input_paths, load_state, stage_status
@@ -38,18 +39,29 @@ def build_status_report(
         )
     report = {
         "pipeline": pipeline_rows,
-        "suggested_commands": suggested_commands(pipeline_rows),
     }
     if include_queues:
         report["queues"] = review_queue_summary()
+    report["suggested_commands"] = suggested_commands(pipeline_rows, report.get("queues") or {})
     return report
 
 
-def suggested_commands(pipeline_rows: list[dict[str, Any]]) -> list[dict[str, str]]:
+def suggested_commands(pipeline_rows: list[dict[str, Any]], queues: dict[str, Any] | None = None) -> list[dict[str, str]]:
     commands = []
+    queues = queues or {}
+    model_map_versions = queues.get("model_map_versions") or {}
     for row in pipeline_rows:
         status = row["status"]
         if row.get("manual"):
+            if row["name"] == "model-map" and model_map_versions.get("status") == "stale":
+                commands.append(
+                    {
+                        "stage": row["name"],
+                        "reason": "live version changed",
+                        "command": "rescrape stable/latest model maps, stamp versions, then uv run kb modelmap build",
+                    }
+                )
+                continue
             commands.append(
                 {
                     "stage": row["name"],
@@ -105,4 +117,5 @@ def review_queue_summary() -> dict[str, Any]:
             "summary_scope": "guide-refresh-derived",
         },
         "mobile_selector_audit": mobile_status,
+        "model_map_versions": model_map_artifact_freshness(),
     }

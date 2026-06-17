@@ -43,6 +43,19 @@ LATEST_MODEL_MAP_SCRAPE_PATH = REVIEW_DIR / "model-map-scrape" / "latest-model-m
 MODEL_MAP_VERSION_DIFF_PATH = REVIEW_DIR / "model-map-scrape" / "stable-vs-latest-model-map-diff.json"
 MODEL_MAP_VERSION_DIFF_JSONL_PATH = REVIEW_DIR / "model-map-scrape" / "stable-vs-latest-model-map-diff.jsonl"
 
+MODEL_MAP_VERSION_TRACKS = {
+    "stable": {
+        "label": "stable",
+        "endpoint_url": DEMO_ROCK_VERSION_ENDPOINT,
+        "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+    },
+    "latest": {
+        "label": "latest/pre-alpha",
+        "endpoint_url": LATEST_ROCK_VERSION_ENDPOINT,
+        "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
+    },
+}
+
 
 def build_model_map(
     stable_scrape_path: Path = DEMO_MODEL_MAP_SCRAPE_PATH,
@@ -684,6 +697,145 @@ def parse_demo_rock_version_response(body: str) -> Optional[str]:
         parsed = str(parsed)
     match = re.search(r"\b\d+\.\d+\.\d+(?:\.\d+)?\b", parsed)
     return match.group(0) if match else None
+
+
+def model_map_artifact_freshness(
+    summary_path: Path = AGENT_MODEL_MAP_SUMMARY_PATH,
+    timeout_seconds: int = 5,
+) -> dict[str, Any]:
+    """Compare committed public model-map artifact versions with the live generic Rock sites."""
+    if not summary_path.exists():
+        return {
+            "schema": "rock-kb-model-map-version-freshness-v1",
+            "status": "missing",
+            "summary_path": str(summary_path),
+            "tracks": [],
+            "stale_tracks": [],
+            "message": "Model-map summary artifact is missing.",
+        }
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    stable = summary.get("stable") or {}
+    latest = summary.get("latest") or summary.get("pre_alpha") or {}
+    return model_map_version_freshness(
+        [
+            {
+                "track": "stable",
+                "recorded_version": stable.get("rock_version"),
+                "source_url": stable.get("source_url"),
+                "version_source_url": stable.get("rock_version_source_url"),
+                "path": stable.get("path"),
+            },
+            {
+                "track": "latest",
+                "recorded_version": latest.get("rock_version"),
+                "source_url": latest.get("source_url"),
+                "version_source_url": latest.get("rock_version_source_url"),
+                "path": latest.get("path"),
+            },
+        ],
+        timeout_seconds=timeout_seconds,
+        source="summary",
+        source_path=str(summary_path),
+    )
+
+
+def model_map_scrape_freshness(
+    stable_scrape_path: Path = DEMO_MODEL_MAP_SCRAPE_PATH,
+    latest_scrape_path: Path = LATEST_MODEL_MAP_SCRAPE_PATH,
+    timeout_seconds: int = 5,
+) -> dict[str, Any]:
+    """Compare local raw scrape versions with the live generic Rock sites before rebuilding."""
+    records = []
+    for track, path in [("stable", stable_scrape_path), ("latest", latest_scrape_path)]:
+        if not path.exists():
+            records.append({"track": track, "path": str(path), "recorded_version": None, "missing": True})
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        records.append(
+            {
+                "track": track,
+                "recorded_version": payload.get("rock_version"),
+                "source_url": payload.get("source_url"),
+                "version_source_url": payload.get("rock_version_source_url"),
+                "path": str(path),
+            }
+        )
+    return model_map_version_freshness(records, timeout_seconds=timeout_seconds, source="scrape")
+
+
+def model_map_version_freshness(
+    records: list[dict[str, Any]],
+    timeout_seconds: int = 5,
+    source: str = "unknown",
+    source_path: str | None = None,
+) -> dict[str, Any]:
+    """Compare recorded model-map Rock versions with live version endpoints."""
+    rows = []
+    for record in records:
+        track = str(record.get("track") or "")
+        track_config = MODEL_MAP_VERSION_TRACKS.get(track, {})
+        endpoint_url = str(record.get("version_source_url") or track_config.get("endpoint_url") or "")
+        recorded_version = record.get("recorded_version")
+        row = {
+            "track": track,
+            "label": track_config.get("label") or track,
+            "path": record.get("path"),
+            "source_url": record.get("source_url") or track_config.get("source_url"),
+            "version_source_url": endpoint_url,
+            "recorded_version": recorded_version,
+            "live_version": None,
+            "probe_status": "not_run",
+            "status": "unknown",
+        }
+        if record.get("missing"):
+            row["status"] = "missing"
+            row["probe_status"] = "missing_local_artifact"
+            rows.append(row)
+            continue
+        if not recorded_version:
+            row["status"] = "missing-version"
+            row["probe_status"] = "missing_recorded_version"
+            rows.append(row)
+            continue
+        if not endpoint_url:
+            row["status"] = "unknown"
+            row["probe_status"] = "missing_version_endpoint"
+            rows.append(row)
+            continue
+        probe = probe_demo_rock_version(endpoint_url=endpoint_url, timeout_seconds=timeout_seconds)
+        row["probe_status"] = probe.get("status")
+        row["http_status"] = probe.get("http_status")
+        row["live_version"] = probe.get("version")
+        if probe.get("status") != "detected" or not probe.get("version"):
+            row["status"] = "unknown"
+        elif probe.get("version") == recorded_version:
+            row["status"] = "current"
+        else:
+            row["status"] = "stale"
+        rows.append(row)
+
+    stale_tracks = [row for row in rows if row.get("status") == "stale"]
+    blocking_tracks = [row for row in rows if row.get("status") in {"missing", "missing-version"}]
+    unknown_tracks = [row for row in rows if row.get("status") == "unknown"]
+    if stale_tracks:
+        status = "stale"
+    elif blocking_tracks:
+        status = "missing"
+    elif unknown_tracks:
+        status = "unknown"
+    else:
+        status = "current"
+    return {
+        "schema": "rock-kb-model-map-version-freshness-v1",
+        "status": status,
+        "source": source,
+        "source_path": source_path,
+        "checked_at": now_iso(),
+        "tracks": rows,
+        "stale_tracks": stale_tracks,
+        "unknown_tracks": unknown_tracks,
+        "missing_tracks": blocking_tracks,
+    }
 
 
 def stamp_model_map_scrape_version(
