@@ -105,3 +105,8 @@ Never submit private person data, internal URLs, raw transcripts, screenshots wi
 
 For a reusable file version, use
 `docs/templates/agent-contributor-instructions.md`.
+
+For agents that support Codex-style skills, use the reusable skill package at
+`docs/templates/rock-kb-agent/`. It teaches agents how to search the hosted KB,
+respect trust tiers, use stable-first model-map references, and submit
+public-safe contribution bundles.

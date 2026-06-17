@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rock KB Agent"
+  short_description: "Use and contribute to the Rock KB"
+  default_prompt: "Use $rock-kb-agent to answer this Rock RMS question from the public KB and cite trust tiers."
