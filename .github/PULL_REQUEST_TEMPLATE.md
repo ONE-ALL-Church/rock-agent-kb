@@ -7,6 +7,7 @@
 - [ ] Rows that depend on local configuration set `needs_live_verification` to `true`.
 - [ ] For public-repo contribution PRs, I used `community-contributions/<org-key>/bundle.jsonl` rather than editing generated files.
 - [ ] I ran `uv run kb contributions check --path community-contributions/<org-key>` or `uv run kb contributions check --path contributions/<org-key>` as appropriate.
+- [ ] I ran `uv run kb audit source-url-duplicates`.
 - [ ] I ran `uv run kb audit public-export`.
 
 ## Notes

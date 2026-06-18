@@ -2,7 +2,7 @@
 concept_id: connections
 generated: true
 artifact_level: media_distillation
-approved_media_count: 8
+approved_media_count: 10
 ---
 
 # Connections Approved Media
@@ -11,6 +11,8 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:91dd3aa03e47ae7c` | Connections Board Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/engagement/connections-board) |
+| `media-insight:bdadc9c033c46aae` | Connections List Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/engagement/connections-list-1) |
 | `media-insight:1f90493258b0b21b` | Media Watch Transcript Insight | approved_for_public_distillation | 4 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
 | `media-insight:392aedce4cf2d99c` | Media Watch Transcript Insight | approved_for_public_distillation | 6 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
 | `media-insight:4b01eb5056bab0e5` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp) |

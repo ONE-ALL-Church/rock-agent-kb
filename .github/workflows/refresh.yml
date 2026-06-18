@@ -132,6 +132,7 @@ jobs:
       - name: Audit and test
         if: steps.refresh_sources.outcome == 'success'
         run: |
+          uv run kb audit source-url-duplicates
           uv run kb audit public-export
           uv run kb audit readiness --public-only
           uv run --extra dev pytest
@@ -148,6 +149,7 @@ jobs:
 
           ## Audit/Test Results
 
+          - `uv run kb audit source-url-duplicates`: passed
           - `uv run kb audit public-export`: passed
           - `uv run kb audit readiness --public-only`: passed
           - `uv run --extra dev pytest`: passed

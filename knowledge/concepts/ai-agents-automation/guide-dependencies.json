@@ -1436,6 +1436,53 @@
       "source_record_id": "media-insight:56972ff0f97e563a",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "workflows"
+      ],
+      "content_hash": "24d8e082da3236f7ba0bb7f439d362e58f8996fa16d4ad3695b95865f20e044e",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:e7c8cb97245bec8d",
+      "public_promotion_id": "media-public-promotion:24d8e082da3236f7",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:e7c8cb97245bec8d",
+      "source_title": "Data Automation Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "workflows"
+      ],
+      "content_hash": "efaf71c84d2f7dca3da5e73961e3ac8e5b4ebf159d30659df3db45ffab61479e",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:e6af71f0b72106fc",
+      "public_promotion_id": "media-public-promotion:efaf71c84d2f7dca",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:e6af71f0b72106fc",
+      "source_title": "Connection Request Status Automation Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+    },
+    {
+      "approved_concept_ids": [
+        "workflows"
+      ],
+      "content_hash": "46260f5fe4757699603295aafbff38e1a9f3c37899f883745d48ec5365d38ebd",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:7f62014ede8ae0e5",
+      "public_promotion_id": "media-public-promotion:46260f5fe4757699",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:7f62014ede8ae0e5",
+      "source_title": "Automations Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/core-concepts/automations"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -1445,18 +1492,21 @@
     "media-insight:5c9737a6d00c5149": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
     "media-insight:5dd64e1dc98b7742": "db6ac242a0713a98c8e469ab0ccc9d3b46f7565e95de388432a00d49436e1c3a",
     "media-insight:71525fead483ddca": "f195092064e7188bdd93a51c563b621e366e5bee5eebe113e1c7c022e734333f",
+    "media-insight:7f62014ede8ae0e5": "46260f5fe4757699603295aafbff38e1a9f3c37899f883745d48ec5365d38ebd",
     "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
     "media-insight:b4cdf69722ad5d13": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
+    "media-insight:e6af71f0b72106fc": "efaf71c84d2f7dca3da5e73961e3ac8e5b4ebf159d30659df3db45ffab61479e",
+    "media-insight:e7c8cb97245bec8d": "24d8e082da3236f7ba0bb7f439d362e58f8996fa16d4ad3695b95865f20e044e",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717"
   },
-  "approved_media_hash": "99e73fee9968d51e8279d9392fb3185a698c7c919086e92fde74e3050d77984d",
+  "approved_media_hash": "260c5599ae798761cfe73d55002b70b25cc99e32be41c386905250bfa1f8bb39",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-06-18T19:01:26+00:00",
+  "built_at": "2026-06-18T21:40:46+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "b82e9fd7c19c8ebd6f7de1843f7f86d6a2a85bcc8fa1eb5bf83762ed9543e6e7",
+  "guide_hash": "284d5c2cb01a8ee441a716c8fdc6ac407efc0bbc46d3734b7479081d2c3882f2",
   "guide_line_count": 1267,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 11301,
+  "guide_word_count": 11299,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2721,14 +2771,14 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "6612b451bd0ae178",
+        "dd0d53998f998249",
+        "bc1ab3f2dff77e89",
         "d2890df9787aa1ae",
         "f325315718b03eb6",
         "1fae67b5dc09e2b0",
         "d593e234279cb690",
-        "87de570d7b164f63",
-        "8540c4be8f5de2d1",
-        "6ca31915e98eb031",
-        "94226d7c1f62174e"
+        "87de570d7b164f63"
       ],
       "start_line": 1200
     },

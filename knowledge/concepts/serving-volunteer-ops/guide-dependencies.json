@@ -1700,23 +1700,6 @@
       "source_record_id": "media-insight:d1eb1a265dd0762b",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "content_hash": "8f1bd90ed2f6cfcbcc717b6a17b11a578d3be4a723f5301db757b37d25f0a902",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:f131f156d62b7d38",
-      "public_promotion_id": "media-public-promotion:8f1bd90ed2f6cfcb",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:f131f156d62b7d38",
-      "source_title": "Rapid Attendance Entry Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -1728,14 +1711,13 @@
     "media-insight:a8361b8714eb62ff": "e50271705c8eb7d790aa67cd7698a68889054bcb9702625f60406a45226fe4d8",
     "media-insight:c664b64e781d5fbb": "0e650c28997f503ffd3f75c3ef76d0e53774bcadede36ac65495358482847696",
     "media-insight:d1eb1a265dd0762b": "9c51ff5dc858db6cd2cf959ad669f38d5941101f771da6e8e6fe1def3d203bc6",
-    "media-insight:ee02b5c27faeaa28": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a",
-    "media-insight:f131f156d62b7d38": "8f1bd90ed2f6cfcbcc717b6a17b11a578d3be4a723f5301db757b37d25f0a902"
+    "media-insight:ee02b5c27faeaa28": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a"
   },
-  "approved_media_hash": "f547bef7543f1760bc5741c48b4fab589c22f51b1d5f382674716da049640c68",
+  "approved_media_hash": "85ac6911af93ec9dff07b09fdeeac7d1ba89b8cca3a048a054eeac2541267f26",
   "approved_media_path": "knowledge/concepts/serving-volunteer-ops/approved-media.md",
-  "built_at": "2026-06-18T19:01:25+00:00",
+  "built_at": "2026-06-18T21:40:45+00:00",
   "concept_id": "serving-volunteer-ops",
-  "guide_hash": "b9f10a0bab8d162cccfbaceb03236476f6973f7ed6708bf0364df109a7b679cc",
+  "guide_hash": "7aab0d4668a9bca8a07acbb71f68a7020e370be10b2ad0477aa85e3e241353fa",
   "guide_line_count": 2136,
   "guide_path": "knowledge/concepts/serving-volunteer-ops/guide.md",
   "guide_word_count": 14152,

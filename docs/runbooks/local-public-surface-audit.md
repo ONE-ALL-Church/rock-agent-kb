@@ -5,6 +5,7 @@ Run these checks before committing public-surface changes:
 ```bash
 python3 scripts/audit_tracked_tree.py
 python3 scripts/validate_bundle.py
+uv run kb audit source-url-duplicates
 uv run kb audit public-export
 uv run kb audit readiness
 uv run kb audit all
@@ -24,6 +25,7 @@ set -euo pipefail
 
 python3 scripts/audit_tracked_tree.py
 python3 scripts/validate_bundle.py
+uv run kb audit source-url-duplicates
 uv run kb audit public-export
 
 if command -v gitleaks >/dev/null 2>&1; then

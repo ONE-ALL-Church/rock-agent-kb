@@ -44,5 +44,5 @@ Follow the guide section for Recipe: Explain Why A Request Is Hidden.
 - https://community.rockrms.com/rocku/engagement/connection-request-status-automation
 - https://community.rockrms.com/ask/developing/2645
 - https://community.rockrms.com/recipes/446
-- https://community.rockrms.com/rocku/engagement/overview
 - https://community.rockrms.com/rocku/engagement/connections-list-1
+- https://community.rockrms.com/rocku/engagement/overview
