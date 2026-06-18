@@ -16,13 +16,13 @@ sources:
     name: Rock Manuals
     kind: rock_documentation
     root_url: https://community.rockrms.com/documentation
-    description: Official Rock RMS manuals and book content.
+    description: Official Rock RMS Rockumentation topic and article content.
     owner: Spark Development Network
     license_status: public_rights_reserved
     allowed_extraction_mode: cite_and_summarize
     refresh_cadence: weekly
     extraction_tier: 1
-    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    preferred_tooling: [rockumentation_block_action, static_http, custom_parser, crawl4ai]
     topics: [admin, operations, usage]
 
   - id: rock_recipes

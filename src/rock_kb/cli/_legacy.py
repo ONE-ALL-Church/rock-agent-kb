@@ -528,7 +528,7 @@ def _normalize_source(src) -> int:
                 urls.append(raw["source_url"])
         if not urls:
             urls = discover_community_urls(src, max_pages=250, id_sweep=src.kind in {"rock_recipes", "rock_qa"})
-        fetched_pages = fetch_community_pages(urls)
+        fetched_pages = fetch_community_pages(urls, source=src)
         records = [record for record in (normalize_community_fetch(src, row) for row in fetched_pages) if record]
     elif src.kind in {"rock_release_notes", "rock_mobile_release_notes", "rock_mobile_docs", "podcast_rss", "rss", "rock_model_map"}:
         fetched = fetch_url(src.root_url)

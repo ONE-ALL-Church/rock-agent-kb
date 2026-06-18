@@ -198,7 +198,7 @@
   ],
   "concept_id": "security-permissions",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-06-18T19:01:31+00:00",
+  "generated_at": "2026-06-18T20:02:45+00:00",
   "guide_sections": [
     "9-api-auth-deep-dive-api-auth-troubleshooting",
     "16-troubleshooting-decision-tree",

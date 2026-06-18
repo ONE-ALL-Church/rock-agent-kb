@@ -16,7 +16,7 @@
   "distilled_claim_count": 32,
   "evaluation_fail_count": 0,
   "evaluation_pass_count": 100,
-  "generated_at": "2026-06-18T19:01:45+00:00",
+  "generated_at": "2026-06-18T20:02:59+00:00",
   "notes": [
     "Answers are generated from approved public claims and route to live checklists.",
     "High-value concept first-check answers may use reviewer-authored override text while retaining generated claim IDs and citations.",

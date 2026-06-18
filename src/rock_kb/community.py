@@ -5,16 +5,21 @@ import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Any, Iterable, Optional
-from urllib.parse import urljoin, urlparse, urlunparse
+from urllib.parse import quote, urljoin, urlparse, urlunparse
 
 import httpx
 from bs4 import BeautifulSoup
+from markdownify import markdownify as html_to_markdown
 
 from .extract import USER_AGENT, canonicalize_url, discover_links, main_markdown, now_iso, page_title, sha256_text
 from .normalize import canonical_path_for, canonical_record_id, infer_audience, infer_rock_versions, summarize_locally
 from .sources import Source
 
 COMMUNITY_HOST = "community.rockrms.com"
+ROCKUMENTATION_HOME_PAGE_GUID = "85750a25-e864-4938-bde7-09cd32146a18"
+ROCKUMENTATION_HOME_BLOCK_GUID = "d30514c6-b51f-40b4-aa77-4108b35b7f13"
+ROCKUMENTATION_BOOK_PAGE_GUID = "6d657cde-b3b9-4acd-9cab-928234ab0fae"
+ROCKUMENTATION_BOOK_BLOCK_GUID = "a6f974bc-6d59-46e7-a832-37525a343706"
 
 IGNORED_EXTENSIONS = {
     ".css",
@@ -202,12 +207,28 @@ def is_not_found_page(html: str) -> bool:
     )
 
 
-def fetch_community_pages(urls: Iterable[str], workers: int = 8) -> list[dict[str, Any]]:
+def fetch_community_pages(urls: Iterable[str], workers: int = 8, source: Optional[Source] = None) -> list[dict[str, Any]]:
     unique_urls = sorted({clean_url_for_fetch(url) for url in urls})
     rows: list[dict[str, Any]] = []
 
     def fetch_one(url: str) -> dict[str, Any]:
         with httpx.Client(follow_redirects=True, timeout=25, headers={"User-Agent": USER_AGENT}) as client:
+            if source and source.kind == "rock_documentation":
+                payload = fetch_rockumentation_payload(client, url)
+                if payload:
+                    content = payload.get("initialContent") or ""
+                    configuration = payload.get("configurationValues") or {}
+                    return {
+                        "requested_url": url,
+                        "url": rockumentation_payload_url(url, configuration),
+                        "status_code": 200,
+                        "content_type": "application/json; rockumentation=1",
+                        "retrieved_at": now_iso(),
+                        "content_hash": sha256_text(json.dumps(payload, sort_keys=True)),
+                        "content": content,
+                        "rockumentation_payload": payload,
+                        "extraction_tool": "rockumentation_block_action",
+                    }
             response = client.get(url)
         return {
             "requested_url": url,
@@ -229,12 +250,83 @@ def fetch_community_pages(urls: Iterable[str], workers: int = 8) -> list[dict[st
     return sorted(rows, key=lambda row: row.get("url") or row.get("requested_url") or "")
 
 
+def fetch_rockumentation_payload(client: httpx.Client, url: str) -> Optional[dict[str, Any]]:
+    parsed = urlparse(clean_url_for_fetch(url))
+    if parsed.netloc.lower() != COMMUNITY_HOST:
+        return None
+    path = parsed.path.rstrip("/") or "/"
+    if path == "/documentation":
+        api_url = rockumentation_home_api_url()
+    else:
+        slug = documentation_slug_from_url(url)
+        if not slug:
+            return None
+        api_url = rockumentation_book_api_url(slug)
+    try:
+        response = client.post(api_url, headers={"Accept": "application/json"})
+    except httpx.HTTPError:
+        return None
+    if response.status_code >= 400 or "json" not in response.headers.get("content-type", ""):
+        return None
+    try:
+        payload = response.json()
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(payload, dict):
+        return None
+    content = payload.get("initialContent") or ""
+    configuration = payload.get("configurationValues") or {}
+    if path == "/documentation":
+        return payload if "topic-card" in content else None
+    if configuration.get("slug") or "rockumentation-article" in content:
+        return payload
+    return None
+
+
+def rockumentation_home_api_url() -> str:
+    return (
+        f"https://{COMMUNITY_HOST}/api/v2/BlockActions/"
+        f"{ROCKUMENTATION_HOME_PAGE_GUID}/{ROCKUMENTATION_HOME_BLOCK_GUID}/RefreshObsidianBlockInitialization"
+    )
+
+
+def rockumentation_book_api_url(slug: str) -> str:
+    encoded_slug = quote(slug.strip("/"), safe="")
+    return (
+        f"https://{COMMUNITY_HOST}/api/v2/BlockActions/"
+        f"{ROCKUMENTATION_BOOK_PAGE_GUID}/{ROCKUMENTATION_BOOK_BLOCK_GUID}/"
+        f"RefreshObsidianBlockInitialization?slug={encoded_slug}"
+    )
+
+
+def documentation_slug_from_url(url: str) -> Optional[str]:
+    parsed = urlparse(clean_url_for_fetch(url))
+    parts = [part for part in parsed.path.split("/") if part]
+    if not parts or parts[0] != "documentation":
+        return None
+    if len(parts) == 1 or (len(parts) > 1 and parts[1].lower() == "bookcontent"):
+        return None
+    return "/".join(parts[1:])
+
+
+def rockumentation_payload_url(fallback_url: str, configuration: dict[str, Any]) -> str:
+    requested = clean_url_for_fetch(fallback_url)
+    slug = documentation_slug_from_url(requested)
+    if slug:
+        return f"https://{COMMUNITY_HOST}/documentation/{slug}"
+    config_slug = str(configuration.get("slug") or "").strip("/")
+    if config_slug:
+        return f"https://{COMMUNITY_HOST}/documentation/{config_slug}"
+    return requested
+
+
 def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Optional[dict[str, Any]]:
+    rockumentation_payload = fetched.get("rockumentation_payload") if source.kind == "rock_documentation" else None
     html = fetched.get("content") or ""
     if fetched.get("status_code", 0) >= 400 or is_not_found_page(html):
         return None
-    title = readable_title(html, source)
-    text = readable_text(html)
+    title = rockumentation_title(rockumentation_payload) or readable_title(html, source)
+    text = rockumentation_readable_text(rockumentation_payload) or readable_text(html)
     if not title and not text:
         return None
     source_url = clean_url_for_fetch(fetched.get("url") or fetched.get("requested_url") or source.root_url)
@@ -254,7 +346,7 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
         "license_status": source.license_status,
         "allowed_extraction_mode": source.allowed_extraction_mode,
         "content_hash": fetched.get("content_hash") or sha256_text(text),
-        "extraction_tool": "community_static_discovery",
+        "extraction_tool": fetched.get("extraction_tool") or "community_static_discovery",
         "extraction_mode": source.allowed_extraction_mode,
         "summary_model": None,
         "topics": sorted(set(source.topics + infer_topics_from_url(source_url, text))),
@@ -270,7 +362,92 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
         "needs_review": source.allowed_extraction_mode in {"metadata_then_license_gate", "reviewed_summaries_only"},
     }
     record.update(extract_structured_fields(source, source_url, html, text, detail_type))
+    if rockumentation_payload:
+        record.update(extract_rockumentation_fields(rockumentation_payload, source_url, text))
     return record
+
+
+def rockumentation_title(payload: Any) -> str:
+    if not isinstance(payload, dict):
+        return ""
+    configuration = payload.get("configurationValues") or {}
+    title = configuration.get("title")
+    return " ".join(str(title).split()) if title else ""
+
+
+def rockumentation_readable_text(payload: Any) -> str:
+    article = rockumentation_article_soup(payload)
+    if not article:
+        return ""
+    for selector in ["script", "style", "noscript", "svg", ".js-menu-container", ".article-edit-panel"]:
+        for node in article.select(selector):
+            node.decompose()
+    markdown = html_to_markdown(str(article), heading_style="ATX").strip()
+    return " ".join(markdown.split())
+
+
+def rockumentation_article_soup(payload: Any) -> Optional[Any]:
+    if not isinstance(payload, dict):
+        return None
+    soup = BeautifulSoup(payload.get("initialContent") or "", "html.parser")
+    return soup.select_one('article.rockumentation-article[data-main-article="true"]') or soup.select_one("article.rockumentation-article")
+
+
+def extract_rockumentation_fields(payload: dict[str, Any], source_url: str, text: str) -> dict[str, Any]:
+    configuration = payload.get("configurationValues") or {}
+    article = rockumentation_article_soup(payload)
+    article_id = None
+    article_classes: list[str] = []
+    if article:
+        raw_article_id = article.get("data-article-id")
+        if raw_article_id and str(raw_article_id).isdigit():
+            article_id = int(raw_article_id)
+        article_classes = list(article.get("class") or [])
+    toc_html = configuration.get("tableOfContents") or ""
+    toc_links = rockumentation_links_from_html(toc_html, source_url)
+    content_links = rockumentation_links_from_html(payload.get("initialContent") or "", source_url)
+    return {
+        "detail_type": "documentation_article" if article_id else "documentation_index",
+        "documentation_article_id": article_id,
+        "documentation_slug": documentation_slug_from_url(source_url) or configuration.get("slug"),
+        "documentation_current_version": configuration.get("currentVersion"),
+        "documentation_version_id": configuration.get("versionId"),
+        "documentation_versions": configuration.get("versions") or [],
+        "documentation_table_of_contents_links": toc_links[:250],
+        "documentation_table_of_contents_link_count": len(toc_links),
+        "documentation_content_links": content_links[:80],
+        "documentation_article_classes": article_classes,
+        "rock_versions": infer_rock_versions(" ".join([text, str(configuration.get("currentVersion") or "")])),
+    }
+
+
+def rockumentation_links_from_html(html: str, base_url: str) -> list[dict[str, Any]]:
+    soup = BeautifulSoup(html, "html.parser")
+    links = []
+    for anchor in soup.find_all("a", href=True):
+        href = str(anchor["href"]).strip()
+        if not href or href.startswith(("#", "mailto:", "tel:", "javascript:")):
+            continue
+        absolute = clean_url_for_fetch(urljoin(base_url, href))
+        if urlparse(absolute).netloc.lower() != COMMUNITY_HOST:
+            continue
+        article_id = None
+        parent = anchor.find_parent(attrs={"data-article-id": True})
+        if parent and str(parent.get("data-article-id")).isdigit():
+            article_id = int(parent.get("data-article-id"))
+        classes = []
+        if parent:
+            classes = list(parent.get("class") or [])
+        links.append(
+            {
+                "url": absolute,
+                "text": " ".join(anchor.get_text(" ", strip=True).split())[:160],
+                "article_id": article_id,
+                "trailblazer": "trailblazer" in classes,
+            }
+        )
+    deduped = {item["url"]: item for item in links}
+    return list(deduped.values())
 
 
 def readable_title(html: str, source: Source) -> str:
@@ -667,6 +844,8 @@ def infer_detail_type(source: Source, url: str) -> str:
     path = urlparse(url).path.lower()
     if "/documentation/bookcontent" in path:
         return "documentation_bookcontent"
+    if source.kind == "rock_documentation" and path.startswith("/documentation/"):
+        return "documentation_article"
     if "/recipes/" in path:
         return "recipe"
     if "/ask/" in path and re.search(r"/[0-9]+(?:/|$)", path):

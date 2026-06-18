@@ -1,6 +1,11 @@
 from pathlib import Path
 
-from rock_kb.community import is_html_candidate, normalize_community_fetch
+from rock_kb.community import (
+    documentation_slug_from_url,
+    is_html_candidate,
+    normalize_community_fetch,
+    rockumentation_book_api_url,
+)
 from rock_kb.normalize import (
     normalize_github_repo_metadata,
     parse_mobile_doc_children,
@@ -105,6 +110,82 @@ def test_community_recipe_normalization():
     assert record["author"] is None or isinstance(record["author"], str)
     assert record["community_notice"].startswith("Community recipe")
     assert record["citations"][0]["url"] == "https://community.rockrms.com/recipes/543"
+
+
+def test_rockumentation_slug_and_api_url_helpers():
+    assert (
+        documentation_slug_from_url("https://community.rockrms.com/documentation/core-concepts/workflows?Version=v19.0")
+        == "core-concepts/workflows"
+    )
+    assert documentation_slug_from_url("https://community.rockrms.com/documentation") is None
+    assert documentation_slug_from_url("https://community.rockrms.com/documentation/bookcontent/1/358") is None
+
+    api_url = rockumentation_book_api_url("core-concepts/workflows/workflow-actions/people")
+
+    assert "RefreshObsidianBlockInitialization" in api_url
+    assert "slug=core-concepts%2Fworkflows%2Fworkflow-actions%2Fpeople" in api_url
+
+
+def test_rock_documentation_normalizes_rockumentation_payload():
+    source = get_source("rock_documentation")
+    payload = {
+        "configurationValues": {
+            "title": "People",
+            "slug": "people",
+            "currentVersion": "v19.0",
+            "versionId": 32,
+            "versions": [
+                {
+                    "value": "/documentation/core-concepts/workflows/workflow-actions/people",
+                    "text": "v19.0",
+                    "category": None,
+                    "disabled": None,
+                }
+            ],
+            "tableOfContents": """
+                <ul>
+                  <li data-article-id="2647" class="tree-item trailblazer">
+                    <span class="title"><a href="/documentation/core-concepts/workflows/workflow-actions/people">People</a></span>
+                  </li>
+                </ul>
+            """,
+        },
+        "initialContent": """
+            <div>
+              <div class="book-toc"><a href="/documentation/core-concepts">Core Concepts</a></div>
+              <article class="rockumentation-article" data-main-article="true" data-article-id="2647">
+                <h1>Family Inactivate</h1>
+                <p>Inactivates a given person's entire family.</p>
+                <a href="/documentation/core-concepts/workflows">Workflows</a>
+              </article>
+            </div>
+        """,
+    }
+
+    record = normalize_community_fetch(
+        source,
+        {
+            "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/people",
+            "status_code": 200,
+            "content_hash": "abc",
+            "content": payload["initialContent"],
+            "rockumentation_payload": payload,
+            "extraction_tool": "rockumentation_block_action",
+        },
+    )
+
+    assert record is not None
+    assert record["source_title"] == "People"
+    assert record["detail_type"] == "documentation_article"
+    assert record["extraction_tool"] == "rockumentation_block_action"
+    assert record["documentation_article_id"] == 2647
+    assert record["documentation_current_version"] == "v19.0"
+    assert record["documentation_version_id"] == 32
+    assert record["documentation_versions"][0]["text"] == "v19.0"
+    assert record["documentation_table_of_contents_link_count"] == 1
+    assert record["documentation_table_of_contents_links"][0]["trailblazer"] is True
+    assert "Inactivates a given person's entire family" in record["excerpt"]
+    assert "Core Concepts" not in record["excerpt"]
 
 
 def test_triumph_content_body_normalization():
