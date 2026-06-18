@@ -1201,20 +1201,20 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `9`
+- Approved media records routed to this concept: `12`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [Automations Transcript Insight](https://community.rockrms.com/rocku/core-concepts/automations) | approved_for_public_distillation | 3 | media-insight:7f62014ede8ae0e5 |
+| [Connection Request Status Automation Transcript Insight](https://community.rockrms.com/rocku/engagement/connection-request-status-automation) | approved_for_public_distillation | 3 | media-insight:e6af71f0b72106fc |
+| [Data Automation Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) | approved_for_public_distillation | 3 | media-insight:e7c8cb97245bec8d |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) | approved_for_public_distillation | 3 | media-insight:1b335b58b0acc8b1 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6) | approved_for_public_distillation | 3 | media-insight:56972ff0f97e563a |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz) | approved_for_public_distillation | 3 | media-insight:5c9737a6d00c5149 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd) | approved_for_public_distillation | 3 | media-insight:5dd64e1dc98b7742 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W) | approved_for_public_distillation | 3 | media-insight:71525fead483ddca |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) | approved_for_public_distillation | 3 | media-insight:927b060aba73b666 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz) | approved_for_public_distillation | 3 | media-insight:b4cdf69722ad5d13 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) | approved_for_public_distillation | 3 | media-insight:e81a9f6b5e5e2f8a |
-| More |  | 1 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 4 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

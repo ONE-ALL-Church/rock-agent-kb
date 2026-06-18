@@ -1,12 +1,12 @@
 # Rock Mobile Block Selector Image Audit
 
-Generated: 2026-06-18T02:07:21+00:00
+Generated: 2026-06-18T21:22:48+00:00
 
 This concept resource digs through official Rock Mobile block documentation pages and their screenshots to recover selector and x-ray clues useful for styling Rock RMS mobile app blocks. It complements the broader [Rock Mobile CSS X-Ray Design Resource](css-xray-design-resource.md).
 
 ## Method
 
-- Uses 83 official block-page source URLs under `developer/mobile-docs/essentials/blocks`.
+- Uses 91 official block-page source URLs under `developer/mobile-docs/essentials/blocks`.
 - Uses the reviewed selector inventory in [mobile-block-selector-xray.jsonl](../mobile-block-selector-xray.jsonl).
 - Selector rows preserve evidence type and confidence so OCR-derived callouts do not outrank explicit official text tables.
 - Source dependency hashes are recorded in [mobile-block-selector-xray-dependencies.json](../mobile-block-selector-xray-dependencies.json).

@@ -24,6 +24,29 @@ Prefer `official`, `release-note-confirmed`, `rocku-confirmed`,
 `community-unreviewed` rows as useful leads, not authoritative guidance, and
 label that tier in answers.
 
+## Rockumentation API Full Text
+
+For public Rockumentation pages, the hosted page may not contain the richest
+article payload. Public `/documentation/<slug>` and `/developer/<slug>` article
+pages can be inspected by POSTing to Rock's block-action API:
+
+```text
+https://community.rockrms.com/api/v2/BlockActions/6d657cde-b3b9-4acd-9cab-928234ab0fae/a6f974bc-6d59-46e7-a832-37525a343706/RefreshObsidianBlockInitialization?slug=<url-encoded-slug>
+```
+
+The `/documentation` home page uses:
+
+```text
+https://community.rockrms.com/api/v2/BlockActions/85750a25-e864-4938-bde7-09cd32146a18/d30514c6-b51f-40b4-aa77-4108b35b7f13/RefreshObsidianBlockInitialization
+```
+
+The JSON response's `initialContent` contains the article HTML, usually under
+`article.rockumentation-article[data-main-article="true"]`, and
+`configurationValues` contains title, version, table-of-contents, and slug
+metadata. Use this only for public documentation/developer/mobile docs and cite
+the public article URL, not the API URL. Do not use this API as a shortcut for
+private Rock instance content or secrets.
+
 ## Submit Reusable Public Knowledge
 
 When you discover a reusable Rock RMS insight, submit a distilled contribution

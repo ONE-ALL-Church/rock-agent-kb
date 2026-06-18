@@ -159,8 +159,7 @@ def test_build_agent_answer_pack_writes_answers_checklists_review_and_conflicts(
     assert "RockMigration" not in probe_sql
     rocku_review = next(row for row in review_rows if row["claim_id"] == "claim:rocku")
     assert rocku_review["recommended_action"] == "verify_live_before_operational_answer"
-    generic_review = next(row for row in review_rows if row["claim_id"] == "claim:generic")
-    assert generic_review["recommended_action"] == "keep_as_source_routing_context"
+    assert all(row["claim_id"] != "claim:generic" for row in review_rows)
     assert conflicts
     assert distilled
     assert authority_rules[0]["preferred_sources"]
@@ -182,7 +181,7 @@ def test_build_agent_answer_pack_writes_answers_checklists_review_and_conflicts(
     assert "Bind `<workflow_type_id>`" in rendered_recipes
 
 
-def test_claim_review_queue_excludes_answer_pack_usable_claims():
+def test_claim_review_queue_excludes_answer_pack_usable_and_singleton_routing_claims():
     rows = answer_module.claim_review_queue_rows(
         [
             {
@@ -208,8 +207,7 @@ def test_claim_review_queue_excludes_answer_pack_usable_claims():
         ]
     )
 
-    assert [row["claim_id"] for row in rows] == ["claim:routing"]
-    assert rows[0]["recommended_action"] == "keep_as_source_routing_context"
+    assert rows == []
 
 
 def test_groups_first_checks_uses_reviewer_authored_override():

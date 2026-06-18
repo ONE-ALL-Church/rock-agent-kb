@@ -1502,7 +1502,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `18`
+- Approved media records routed to this concept: `17`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1515,7 +1515,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Episode 84: Special Edition with Red Rocks Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-84-special-edition-with-red-rocks) | approved_for_public_distillation | 3 | media-insight:40920b5275ce640a |
 | [Episode 91: Special Edition with Cullen McCoy Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy) | approved_for_public_distillation | 2 | media-insight:f609e5067739f62b |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) | approved_for_public_distillation | 3 | media-insight:21c296e1bd9698dc |
-| More |  | 10 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 9 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

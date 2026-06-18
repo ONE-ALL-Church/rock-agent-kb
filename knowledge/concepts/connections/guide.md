@@ -1264,19 +1264,20 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `8`
+- Approved media records routed to this concept: `10`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [Connections Board Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-board) | approved_for_public_distillation | 2 | media-insight:91dd3aa03e47ae7c |
+| [Connections List Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-list-1) | approved_for_public_distillation | 2 | media-insight:bdadc9c033c46aae |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) | approved_for_public_distillation | 4 | media-insight:1f90493258b0b21b |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) | approved_for_public_distillation | 6 | media-insight:392aedce4cf2d99c |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp) | approved_for_public_distillation | 3 | media-insight:4b01eb5056bab0e5 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE) | approved_for_public_distillation | 3 | media-insight:7e8c9d47198de3f9 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) | approved_for_public_distillation | 3 | media-insight:a0960ff639b6ffaf |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) | approved_for_public_distillation | 3 | media-insight:a8361b8714eb62ff |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) | approved_for_public_distillation | 3 | media-insight:e81a9f6b5e5e2f8a |
-| [Rock's Future Anchored in Vision \| Ep 202 Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision) | approved_for_public_distillation | 4 | media-insight:00a8a57d7db012dc |
+| More |  | 2 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

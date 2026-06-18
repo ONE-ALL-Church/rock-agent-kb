@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-06-18T19:00:48+00:00
+last_built: 2026-06-18T21:40:17+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -30,9 +30,9 @@ Registration instances, templates, payments, forms, event occurrences, and regis
 ## How To Think About This Area
 
 - `Event Registration` spans events, finance, workflows, communications, groups. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_community_hubs, rock_community_site, rock_core_release_notes, rock_developer.
-- Related tags found in source records: workflow, usage, training, media, podcast, timestamped-insights, development, lava.
-- Source detail types include: developer_doc, documentation_bookcontent, question, recipe, training, triumph_resources.
+- The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_community_hubs, rock_core_release_notes, rock_documentation, rock_recipes.
+- Related tags found in source records: workflow, usage, training, operations, media, podcast, timestamped-insights, lava.
+- Source detail types include: developer_doc, documentation_article, documentation_bookcontent, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
 
@@ -110,17 +110,17 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_community_hubs`: 1
-- `rock_community_site`: 5
 - `rock_core_release_notes`: 9
-- `rock_developer`: 2
-- `rock_documentation`: 2
+- `rock_developer`: 1
+- `rock_documentation`: 9
+- `rock_mobile_docs`: 1
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 2
 - `rock_qa`: 1
 - `rock_recipes`: 12
 - `rock_rocku`: 40
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 5
+- `triumph_resources`: 3
 
 ## Highest Signal Sources
 
@@ -129,15 +129,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | GitHub Spotlight: 1/8/2025 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release v17.0.35, released on 1/8/2025. v16.10 Highlights A new optional Lava merge field, <!--[[ SignatureDetails ]]--> , has been added to the Electronic Signatures templates. This field allows you to insert a signer's final signature directly into the document, enabling the signature to appear throughout the document rather than being limited to the bottom. Issue... | [source](https://www.triumph.tech/resources/github-spotlight-182025) |
 | GitHub Spotlight: 12/29/2025 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release 19.0.3, released on 12/22/2025. v18.2 Highlights Issue 6427 : Fixed a bug where a group member was still shown as “Met” on the Group Member Detail page even after failing a requirement they had previously met. Issue 6589 : Fixed a bug where a registrant’s group member status was not updated on the Registrant Detail and Registration Detail blocks when the... | [source](https://www.triumph.tech/resources/github-spotlight-12292025) |
 | GitHub Spotlight: 4/2/2025 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release v18.0.3, released on 4/1/2025. 17.0 Highlights v17.0 was released in Alpha on March 4, 2025. See the Release Notes for complete details. 17.1 Highlights Added a new feature to the Registration List, Registrant List, Registration Detail, and Group Placement blocks that disables editing of person, registration, and group member attributes based on the... | [source](https://www.triumph.tech/resources/github-spotlight-422025) |
-| GitHub Spotlight: 5/1/2026 | triumph_resources | Here's what's new in Rock's GitHub for Pre-Alpha Release 20.0.2, released on April 29, 2026. v18.3 Highlights Issue 6800 : Fixed a bug in the Rock Transaction Queue where the queue stopped draining after certain exceptions. Issue 6802 : Fixed a bug in the Event Registration block where auto-applied discounts may overridden a manual discount that had been added to a registration. Issue 6799 : Fixed a bug in the Send... | [source](https://www.triumph.tech/resources/github-spotlight-4302026) |
-| GitHub Spotlight: 9/20/2024 | triumph_resources | Below is what's new in Rock's Github for pre-alpha release v17.0.28 that was released on 9/19/2024. v16.7 New setting in the Family Pre-Registration to move Child Information panel above the Adult panel. The team added buttons to hide the 'Clone Schedules' and 'Auto Schedule' in the Obsidian Group Scheduler block settings. Improved the logic that allows interactive experiences to work with a blank Enable Minutes... | [source](https://www.triumph.tech/resources/github-spotlight-9202024-2) |
-| Event & Calendar Guide | rock_documentation | Updates for Rock 18.1 Below is a summary of the updates for this version. The guide has been updated to include the revamped Registration Group Placement, which simplifies the process of sorting registrants into groups for events like sports teams and camps. Updates for Rock 4.0 No updates made. Updates for Rock 5.0 Below is a summary of the updates for this version. Added chapter on registration payment reminders.... | [source](https://community.rockrms.com/documentation/bookcontent/29) |
+| Add RSVP Occurrences | rock_documentation | Let’s look at how to add an occurrence to the RSVP List. You'll need to have at least one occurrence set up for the group before you can start sending your RSVP emails. 1. **Name** - You can optionally set a unique name for an occurrence. This applies only to the occurrence being viewed. Invitees will see the name you provide on the external website when they *Accept* or *Decline*. 2. **Date** - Set the date of the... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) |
+| Calendar Event Item Occurrence View | rock_mobile_docs | This block displays a specific event item occurrence. ## Page Parameters \| Name \| Type \| Description \| \| --- \| --- \| --- \| \| EventOccurrenceGuid \| Guid \| The guid of the particular event occurrence. \| ## Block Configuration ### Registration URL The base URL to use when linking to the registration page. ### Template The template to use when rendering the Event Item Occurrence. #### Merge Fields In the template, you... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view) |
+| Configure Check-in Registration | rock_documentation | Registration features are packed with options. To configure these options, follow these steps: 1. First, enable a particular device kiosk by setting its [Registration Mode](/documentation/church-management/check-in/registration) to 'Yes'. 2. Then open up the check-in configurator `Admin Tools > Check-in > Check-in Configuration`. 3. Select the configuration you want to enable registration for and then Edit. 4.... | [source](https://community.rockrms.com/documentation/church-management/check-in/registration/configure-check-in-registration) |
 | Event & Calendar Guide | rock_documentation | Updates for Rock 18.1 Below is a summary of the updates for this version. The guide has been updated to include the revamped Registration Group Placement, which simplifies the process of sorting registrants into groups for events like sports teams and camps. Updates for Rock 4.0 No updates made. Updates for Rock 5.0 Below is a summary of the updates for this version. Added chapter on registration payment reminders.... | [source](https://community.rockrms.com/documentation/bookcontent/29/365) |
-| Additional Registration Fees | rock_rocku | Additional Registration Fees Presenter: Cullen McCoy Length: 6:16 " Registration Walk-through 3m 55s Registration Structure 2m 04s Registration Templates 11m 44s Registration Instances 3m 12s Event Registration Attributes 4m 23s Registration Fees 1m 01s Additional Registration Fees 6m 16s Registration Discounts 5m 31s Partial Payments 3m 04s Group Placements [Legacy] 8m 35s Wait Lists 3m 30s Calendar Overview 3m 21s... | [source](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) |
-| Additional Registration Fees Transcript Insight | rock_rocku | Additional Registration Fees is approved as a public-safe RockU training distillation for source context. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) |
-| Calendar Overview | rock_rocku | Calendar Overview Presenter: Jon Edmiston Length: 3:21 " Registration Walk-through 3m 55s Registration Structure 2m 04s Registration Templates 11m 44s Registration Instances 3m 12s Event Registration Attributes 4m 23s Registration Fees 1m 01s Additional Registration Fees 6m 16s Registration Discounts 5m 31s Partial Payments 3m 04s Group Placements [Legacy] 8m 35s Wait Lists 3m 30s Calendar Overview 3m 21s Calendars... | [source](https://community.rockrms.com/rocku/event-registration/calendar-overview) |
-| Calendar Overview Transcript Insight | rock_rocku | Calendar Overview is approved as a public-safe RockU training distillation for staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/event-registration/calendar-overview) |
-| Calendars and Events | rock_rocku | Calendars and Events Presenter: Jon Edmiston Length: 7:57 " Registration Walk-through 3m 55s Registration Structure 2m 04s Registration Templates 11m 44s Registration Instances 3m 12s Event Registration Attributes 4m 23s Registration Fees 1m 01s Additional Registration Fees 6m 16s Registration Discounts 5m 31s Partial Payments 3m 04s Group Placements [Legacy] 8m 35s Wait Lists 3m 30s Calendar Overview 3m 21s... | [source](https://community.rockrms.com/rocku/event-registration/calendars-and-events) |
+| Event Registrations | rock_documentation | [Intro to Event Registrations](/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations?Version=v19.0) [Event Wizard](/documentation/church-management/event-calendar/event-registrations/event-wizard?Version=v19.0) [Registration Templates](/documentation/church-management/event-calendar/event-registrations/registration-templates?Version=v19.0) [Manage Event... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations) |
+| Intro to Event Registrations | rock_documentation | For many events it's good to know who will be coming. Rock's event registration features provide a simple tool to not only know who is planning to attend, but also to take care of many of the mundane tasks like event payments. The first thing that people want to know about event registration is the feature list. While not inclusive (you'll have to read further for that), below is a list of the major features... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations) |
+| Manage Event Registrations | rock_documentation | Now that you're comfortable creating event registrations, let's see how to manage them through the registration lifecycle. # Promoting Your Registration The easiest way to give your guests access to an event registration is through a calendar event. The [Link Events to Calendars](/documentation/church-management/event-calendar/calendars/link-events-to-calendars) article covers the process of linking calendar events... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
+| Registration | rock_documentation | [Intro to Registration](/documentation/church-management/check-in/registration/intro-to-registration?Version=v19.0) [Edit Families](/documentation/church-management/check-in/registration/edit-families?Version=v19.0) [Configure Check-in Registration](/documentation/church-management/check-in/registration/configure-check-in-registration?Version=v19.0) [Add Barcodes During... | [source](https://community.rockrms.com/documentation/church-management/check-in/registration) |
+| Registration Finances | rock_documentation | Paid registrations come with the additional complexity of having to work with money. Rock provides several tools to make this as simple as possible while also ensuring that there are good protections in place for proper accountability. # Manage Payments While most of the time payments for events will be handled by the registrar during the registration process, you can manually enter payments on their behalf from the... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances) |
 
 ## Data Model Landmarks
 

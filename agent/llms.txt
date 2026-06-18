@@ -23,7 +23,7 @@ This file is generated for AI agents. It points to source registries, curated kn
 - [Rock Developer Resources](https://community.rockrms.com/developer) - Developer docs, API, Lava, Obsidian, and platform resources.
 - [Rock API Documentation Landing Page](https://community.rockrms.com/api-docs) - Public API documentation landing page, demo API documentation links, and API learning resources.
 - [Rock Lava Reference](https://community.rockrms.com/lava) - Lava reference pages, filters, commands, shortcodes, and Rock-specific Lava usage.
-- [Rock Mobile Docs](https://community.rockrms.com/developer//mobile-docs) - Rock Mobile documentation tree and child pages.
+- [Rock Mobile Docs](https://community.rockrms.com/developer/mobile-docs) - Rock Mobile documentation tree and child pages.
 - [Rock Model Map](https://community.rockrms.com/ModelMap) - Public entity and model metadata for Rock.
 - [Rock Core Release Notes](https://www.rockrms.com/releasenotes) - Core Rock release notes, versions, module changes, issue links, and bulletins.
 - [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes) - Rock Mobile shell release notes, platform minimums, and module changes.

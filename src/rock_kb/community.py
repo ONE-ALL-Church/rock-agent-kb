@@ -20,6 +20,7 @@ ROCKUMENTATION_HOME_PAGE_GUID = "85750a25-e864-4938-bde7-09cd32146a18"
 ROCKUMENTATION_HOME_BLOCK_GUID = "d30514c6-b51f-40b4-aa77-4108b35b7f13"
 ROCKUMENTATION_BOOK_PAGE_GUID = "6d657cde-b3b9-4acd-9cab-928234ab0fae"
 ROCKUMENTATION_BOOK_BLOCK_GUID = "a6f974bc-6d59-46e7-a832-37525a343706"
+ROCKUMENTATION_API_TOOL = "rockumentation_block_action"
 
 IGNORED_EXTENSIONS = {
     ".css",
@@ -59,7 +60,6 @@ KIND_PATH_PREFIXES = {
         "/recipes",
         "/rocku",
         "/styling",
-        "/subscriptions",
     ],
     "rock_api_docs": ["/api-docs"],
     "rock_lava_docs": ["/lava"],
@@ -79,6 +79,10 @@ def community_prefixes(source: Source) -> list[str]:
     if raw_prefixes:
         return [normal_path_prefix(prefix) for prefix in raw_prefixes]
     return KIND_PATH_PREFIXES.get(source.kind, [urlparse(source.root_url).path or "/"])
+
+
+def community_excluded_prefixes(source: Source) -> list[str]:
+    return [normal_path_prefix(prefix) for prefix in source.raw.get("excluded_path_prefixes") or []]
 
 
 def normal_path_prefix(prefix: str) -> str:
@@ -107,6 +111,9 @@ def is_html_candidate(url: str, source: Source) -> bool:
         return False
     prefixes = community_prefixes(source)
     path = parsed.path.rstrip("/") or "/"
+    for excluded in community_excluded_prefixes(source):
+        if path == excluded or path.startswith(excluded + "/"):
+            return False
     return any(path == prefix or path.startswith(prefix + "/") for prefix in prefixes)
 
 
@@ -213,7 +220,7 @@ def fetch_community_pages(urls: Iterable[str], workers: int = 8, source: Optiona
 
     def fetch_one(url: str) -> dict[str, Any]:
         with httpx.Client(follow_redirects=True, timeout=25, headers={"User-Agent": USER_AGENT}) as client:
-            if source and source.kind == "rock_documentation":
+            if source and source_uses_rockumentation_api(source):
                 payload = fetch_rockumentation_payload(client, url)
                 if payload:
                     content = payload.get("initialContent") or ""
@@ -227,7 +234,7 @@ def fetch_community_pages(urls: Iterable[str], workers: int = 8, source: Optiona
                         "content_hash": sha256_text(json.dumps(payload, sort_keys=True)),
                         "content": content,
                         "rockumentation_payload": payload,
-                        "extraction_tool": "rockumentation_block_action",
+                        "extraction_tool": ROCKUMENTATION_API_TOOL,
                     }
             response = client.get(url)
         return {
@@ -250,6 +257,10 @@ def fetch_community_pages(urls: Iterable[str], workers: int = 8, source: Optiona
     return sorted(rows, key=lambda row: row.get("url") or row.get("requested_url") or "")
 
 
+def source_uses_rockumentation_api(source: Source) -> bool:
+    return ROCKUMENTATION_API_TOOL in source.preferred_tooling
+
+
 def fetch_rockumentation_payload(client: httpx.Client, url: str) -> Optional[dict[str, Any]]:
     parsed = urlparse(clean_url_for_fetch(url))
     if parsed.netloc.lower() != COMMUNITY_HOST:
@@ -258,7 +269,7 @@ def fetch_rockumentation_payload(client: httpx.Client, url: str) -> Optional[dic
     if path == "/documentation":
         api_url = rockumentation_home_api_url()
     else:
-        slug = documentation_slug_from_url(url)
+        slug = rockumentation_slug_from_url(url)
         if not slug:
             return None
         api_url = rockumentation_book_api_url(slug)
@@ -300,11 +311,23 @@ def rockumentation_book_api_url(slug: str) -> str:
 
 
 def documentation_slug_from_url(url: str) -> Optional[str]:
+    return rockumentation_slug_from_url(url, prefix="documentation")
+
+
+def developer_slug_from_url(url: str) -> Optional[str]:
+    return rockumentation_slug_from_url(url, prefix="developer")
+
+
+def rockumentation_slug_from_url(url: str, prefix: Optional[str] = None) -> Optional[str]:
     parsed = urlparse(clean_url_for_fetch(url))
     parts = [part for part in parsed.path.split("/") if part]
-    if not parts or parts[0] != "documentation":
+    if not parts:
         return None
-    if len(parts) == 1 or (len(parts) > 1 and parts[1].lower() == "bookcontent"):
+    if prefix and parts[0] != prefix:
+        return None
+    if parts[0] not in {"documentation", "developer"}:
+        return None
+    if len(parts) == 1 or (parts[0] == "documentation" and len(parts) > 1 and parts[1].lower() == "bookcontent"):
         return None
     return "/".join(parts[1:])
 
@@ -314,6 +337,9 @@ def rockumentation_payload_url(fallback_url: str, configuration: dict[str, Any])
     slug = documentation_slug_from_url(requested)
     if slug:
         return f"https://{COMMUNITY_HOST}/documentation/{slug}"
+    slug = developer_slug_from_url(requested)
+    if slug:
+        return f"https://{COMMUNITY_HOST}/developer/{slug}"
     config_slug = str(configuration.get("slug") or "").strip("/")
     if config_slug:
         return f"https://{COMMUNITY_HOST}/documentation/{config_slug}"
@@ -321,7 +347,7 @@ def rockumentation_payload_url(fallback_url: str, configuration: dict[str, Any])
 
 
 def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Optional[dict[str, Any]]:
-    rockumentation_payload = fetched.get("rockumentation_payload") if source.kind == "rock_documentation" else None
+    rockumentation_payload = fetched.get("rockumentation_payload") if source_uses_rockumentation_api(source) else None
     html = fetched.get("content") or ""
     if fetched.get("status_code", 0) >= 400 or is_not_found_page(html):
         return None
@@ -335,8 +361,9 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
         "source_title": title or source.name,
     }
     detail_type = infer_detail_type(source, source_url)
+    rockumentation_fields = extract_rockumentation_fields(rockumentation_payload, source_url, text) if rockumentation_payload else {}
     record = {
-        "id": canonical_record_id(source.id, source_url),
+        "id": rockumentation_record_id(source, rockumentation_fields) or canonical_record_id(source.id, source_url),
         "source_id": source.id,
         "source_url": source_url,
         "source_title": title or source.name,
@@ -362,8 +389,7 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
         "needs_review": source.allowed_extraction_mode in {"metadata_then_license_gate", "reviewed_summaries_only"},
     }
     record.update(extract_structured_fields(source, source_url, html, text, detail_type))
-    if rockumentation_payload:
-        record.update(extract_rockumentation_fields(rockumentation_payload, source_url, text))
+    record.update(rockumentation_fields)
     return record
 
 
@@ -383,7 +409,15 @@ def rockumentation_readable_text(payload: Any) -> str:
         for node in article.select(selector):
             node.decompose()
     markdown = html_to_markdown(str(article), heading_style="ATX").strip()
+    markdown = clean_rockumentation_markdown(markdown)
     return " ".join(markdown.split())
+
+
+def clean_rockumentation_markdown(markdown: str) -> str:
+    markdown = re.sub(r"!\[[^\]]*\]\([^)]+\)", " ", markdown)
+    markdown = re.sub(r"\bti\s+ti-[A-Za-z0-9_-]+\b", " ", markdown)
+    markdown = re.sub(r"[ \t]+\n", "\n", markdown)
+    return markdown.strip()
 
 
 def rockumentation_article_soup(payload: Any) -> Optional[Any]:
@@ -406,19 +440,74 @@ def extract_rockumentation_fields(payload: dict[str, Any], source_url: str, text
     toc_html = configuration.get("tableOfContents") or ""
     toc_links = rockumentation_links_from_html(toc_html, source_url)
     content_links = rockumentation_links_from_html(payload.get("initialContent") or "", source_url)
+    detail_type = infer_rockumentation_detail_type(source_url, article_id)
+    family = rockumentation_family_from_url(source_url)
+    slug = rockumentation_slug_from_url(source_url) or configuration.get("slug")
+    path_parts = [part for part in str(slug or "").split("/") if part]
     return {
-        "detail_type": "documentation_article" if article_id else "documentation_index",
+        "detail_type": detail_type,
         "documentation_article_id": article_id,
-        "documentation_slug": documentation_slug_from_url(source_url) or configuration.get("slug"),
+        "documentation_article_key": f"{family}:{article_id}" if family and article_id else None,
+        "documentation_family": family,
+        "documentation_slug": slug,
+        "documentation_path_parts": path_parts,
+        "documentation_parent_slugs": ["/".join(path_parts[:index]) for index in range(1, len(path_parts))],
         "documentation_current_version": configuration.get("currentVersion"),
         "documentation_version_id": configuration.get("versionId"),
         "documentation_versions": configuration.get("versions") or [],
+        "documentation_version_links": rockumentation_version_links(configuration.get("versions") or [], source_url),
+        "documentation_page_id": configuration.get("pageId"),
+        "documentation_entity_guid": configuration.get("entityGuid"),
+        "documentation_entity_type_guid": configuration.get("entityTypeGuid"),
+        "documentation_is_searchable": configuration.get("isSearchable"),
         "documentation_table_of_contents_links": toc_links[:250],
         "documentation_table_of_contents_link_count": len(toc_links),
         "documentation_content_links": content_links[:80],
         "documentation_article_classes": article_classes,
         "rock_versions": infer_rock_versions(" ".join([text, str(configuration.get("currentVersion") or "")])),
     }
+
+
+def rockumentation_record_id(source: Source, fields: dict[str, Any]) -> Optional[str]:
+    article_id = fields.get("documentation_article_id")
+    return f"{source.id}:article:{article_id}" if article_id else None
+
+
+def rockumentation_family_from_url(url: str) -> Optional[str]:
+    parsed = urlparse(clean_url_for_fetch(url))
+    parts = [part for part in parsed.path.split("/") if part]
+    if parts and parts[0] in {"documentation", "developer"}:
+        return parts[0]
+    return None
+
+
+def rockumentation_version_links(versions: list[dict[str, Any]], source_url: str) -> list[dict[str, Any]]:
+    family = rockumentation_family_from_url(source_url) or "documentation"
+    links: list[dict[str, Any]] = []
+    for version in versions:
+        if not isinstance(version, dict):
+            continue
+        value = str(version.get("value") or "").strip()
+        slug = rockumentation_slug_from_url(urljoin(f"https://{COMMUNITY_HOST}", value)) if value.startswith("/") else None
+        if not slug:
+            slug = str(version.get("slug") or "").strip("/")
+        links.append(
+            {
+                "text": version.get("text"),
+                "url": f"https://{COMMUNITY_HOST}/{family}/{slug}" if slug else None,
+                "raw_value": value,
+                "category": version.get("category"),
+                "disabled": version.get("disabled"),
+            }
+        )
+    return links
+
+
+def infer_rockumentation_detail_type(source_url: str, article_id: Optional[int]) -> str:
+    path = urlparse(source_url).path.lower()
+    if path.startswith("/developer/"):
+        return "developer_doc" if article_id else "developer_index"
+    return "documentation_article" if article_id else "documentation_index"
 
 
 def rockumentation_links_from_html(html: str, base_url: str) -> list[dict[str, Any]]:
@@ -435,6 +524,13 @@ def rockumentation_links_from_html(html: str, base_url: str) -> list[dict[str, A
         parent = anchor.find_parent(attrs={"data-article-id": True})
         if parent and str(parent.get("data-article-id")).isdigit():
             article_id = int(parent.get("data-article-id"))
+        parent_article_id = None
+        depth = 0
+        if parent:
+            for ancestor in parent.find_parents("li"):
+                if ancestor.get("data-article-id") and parent_article_id is None and str(ancestor.get("data-article-id")).isdigit():
+                    parent_article_id = int(ancestor.get("data-article-id"))
+                depth += 1
         classes = []
         if parent:
             classes = list(parent.get("class") or [])
@@ -443,6 +539,8 @@ def rockumentation_links_from_html(html: str, base_url: str) -> list[dict[str, A
                 "url": absolute,
                 "text": " ".join(anchor.get_text(" ", strip=True).split())[:160],
                 "article_id": article_id,
+                "parent_article_id": parent_article_id,
+                "depth": depth,
                 "trailblazer": "trailblazer" in classes,
             }
         )

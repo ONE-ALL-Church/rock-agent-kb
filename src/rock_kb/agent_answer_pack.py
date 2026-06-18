@@ -557,6 +557,8 @@ def claim_review_queue_rows(claims: list[dict[str, Any]]) -> list[dict[str, Any]
             action = "keep_as_source_routing_context"
         if action == "use_in_answer_pack":
             continue
+        if action == "keep_as_source_routing_context" and not claim.get("answer_candidate") and fingerprints[fingerprint] == 1:
+            continue
         rows.append(
             {
                 "schema": "rock-kb-claim-review-queue-v1",

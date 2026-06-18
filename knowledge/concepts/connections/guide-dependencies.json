@@ -1550,6 +1550,36 @@
       "source_record_id": "media-insight:7e8c9d47198de3f9",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE"
+    },
+    {
+      "approved_concept_ids": [
+        "workflows"
+      ],
+      "content_hash": "37dfacfec486bfc369eac5e35bc2ecd053c0e5dc94684ad801b43cbfb4e2bc57",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:91dd3aa03e47ae7c",
+      "public_promotion_id": "media-public-promotion:37dfacfec486bfc3",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:91dd3aa03e47ae7c",
+      "source_title": "Connections Board Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/engagement/connections-board"
+    },
+    {
+      "approved_concept_ids": [
+        "workflows"
+      ],
+      "content_hash": "3bf03dba83619f984ed3ab20aef2fc4fb7db3edebe67ad4d5465b5c2da04b8ff",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:bdadc9c033c46aae",
+      "public_promotion_id": "media-public-promotion:3bf03dba83619f98",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:bdadc9c033c46aae",
+      "source_title": "Connections List Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/engagement/connections-list-1"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -1558,18 +1588,20 @@
     "media-insight:392aedce4cf2d99c": "aca7690e739219473127f55c3324e6ea98d2e98b91432a872a4041d0522f071d",
     "media-insight:4b01eb5056bab0e5": "dea5e0adaecdab638b939daaa082c0bc6bc10ff206fea4e72d4defb3d8291b23",
     "media-insight:7e8c9d47198de3f9": "e29ede8fd06bb0bc5362dfbf164c2387a826a54d658c1a71c8cb2d3b94a3ef89",
+    "media-insight:91dd3aa03e47ae7c": "37dfacfec486bfc369eac5e35bc2ecd053c0e5dc94684ad801b43cbfb4e2bc57",
     "media-insight:a0960ff639b6ffaf": "ad73a7ae6bb075f6c2a73a41cf3a5c451a8943acca86edf80ac65d39e969100d",
     "media-insight:a8361b8714eb62ff": "e50271705c8eb7d790aa67cd7698a68889054bcb9702625f60406a45226fe4d8",
+    "media-insight:bdadc9c033c46aae": "3bf03dba83619f984ed3ab20aef2fc4fb7db3edebe67ad4d5465b5c2da04b8ff",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717"
   },
-  "approved_media_hash": "ac472fa1742b0227708da49a32b68f9c5c4a846385a7219c7a4ec0504e020dfc",
+  "approved_media_hash": "54d2198c2ce7edefe449835500807f0377ea8adaf3922b52ce58af6d0e1e2da7",
   "approved_media_path": "knowledge/concepts/connections/approved-media.md",
-  "built_at": "2026-06-18T20:02:32+00:00",
+  "built_at": "2026-06-18T21:40:36+00:00",
   "concept_id": "connections",
-  "guide_hash": "ee9d26838070346391d6537b494c7efb7ad7448e2df6aa88a4616ccad9578164",
-  "guide_line_count": 1345,
+  "guide_hash": "31a3fdfe36b82c9e1191562407731c12c39d55f7ec0595d10b4da8ed1bc20a9c",
+  "guide_line_count": 1346,
   "guide_path": "knowledge/concepts/connections/guide.md",
-  "guide_word_count": 10799,
+  "guide_word_count": 10804,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1795,15 +1827,6 @@
       "source_key": "de087d3bb047fce6",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "44c37d376b652418",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
     }
   ],
   "sections": [
@@ -3026,25 +3049,25 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1282,
+      "end_line": 1283,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "a520db9e9adc1368",
+        "a19faf4c8934cc5e",
         "7cd07bd6d4ff5479",
         "e80bc4203561cbcb",
         "c1a4dad8a0932665",
         "cc6ade534965c9aa",
         "de087d3bb047fce6",
-        "004db224c038a1f0",
-        "94226d7c1f62174e",
-        "44c37d376b652418"
+        "004db224c038a1f0"
       ],
       "start_line": 1263
     },
     {
       "confidence": "structural",
-      "end_line": 1284,
+      "end_line": 1285,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -3066,11 +3089,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1283
+      "start_line": 1284
     },
     {
       "confidence": "high",
-      "end_line": 1289,
+      "end_line": 1290,
       "heading": "Official Documentation",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-official-documentation",
@@ -3078,11 +3101,11 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 1285
+      "start_line": 1286
     },
     {
       "confidence": "citation-only",
-      "end_line": 1301,
+      "end_line": 1302,
       "heading": "RockU Training",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-rocku-training",
@@ -3095,11 +3118,11 @@
         "a520db9e9adc1368",
         "1bda1c7afae305e7"
       ],
-      "start_line": 1290
+      "start_line": 1291
     },
     {
       "confidence": "normal",
-      "end_line": 1310,
+      "end_line": 1311,
       "heading": "Developer And Mobile Docs",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-developer-and-mobile-docs",
@@ -3109,11 +3132,11 @@
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
       ],
-      "start_line": 1302
+      "start_line": 1303
     },
     {
       "confidence": "normal",
-      "end_line": 1324,
+      "end_line": 1325,
       "heading": "Model Map And Source Code",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-model-map-and-source-code",
@@ -3130,11 +3153,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1311
+      "start_line": 1312
     },
     {
       "confidence": "community-supported",
-      "end_line": 1329,
+      "end_line": 1330,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-community-examples",
@@ -3142,11 +3165,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1325
+      "start_line": 1326
     },
     {
       "confidence": "structural",
-      "end_line": 1345,
+      "end_line": 1346,
       "heading": "Live Verification Required",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-live-verification-required",
@@ -3154,7 +3177,7 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1330
+      "start_line": 1331
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",
@@ -3635,16 +3658,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "44c37d376b652418",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
     }
   ],
   "synthesis_profile": "comprehensive"

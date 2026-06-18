@@ -10,7 +10,7 @@ Plugin metadata, Rock Shop records, uninstall notes, and extension resources.
 
 This page is generated from normalized records. Follow source links before applying operational or code changes.
 
-Matched records: 340
+Matched records: 289
 
 ## Highest Signal Records
 

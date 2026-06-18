@@ -1266,7 +1266,13 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-No approved media distillations are currently routed to this concept.
+- Approved media records routed to this concept: `1`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Episode 143: Special Edition- Braden Cohen Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) | approved_for_public_distillation | 3 | media-insight:241f05754042fbc9 |
+
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 
 ## 20. Source Map And Dependency Notes

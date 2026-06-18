@@ -998,141 +998,23 @@
       "source_record_id": "media-insight:927b060aba73b666",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    },
-    {
-      "approved_concept_ids": [
-        "workflows"
-      ],
-      "content_hash": "0678a19a8696369e2197966577cd5ad837a8abaa40ab3ec7917d14723790fbc2",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:d3591980e5622db9",
-      "public_promotion_id": "media-public-promotion:0678a19a8696369e",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:d3591980e5622db9",
-      "source_title": "LMS - Create a Program Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/lms/lms-create-a-program"
-    },
-    {
-      "approved_concept_ids": [
-        "security-permissions",
-        "workflows"
-      ],
-      "content_hash": "432fbb536a985c088aef1dba1bdb293bc1c07a7146ad6f819021ef9a2e86b9d7",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:f0c688c9ed0d7ed7",
-      "public_promotion_id": "media-public-promotion:432fbb536a985c08",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:f0c688c9ed0d7ed7",
-      "source_title": "LMS - Administration Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/lms/lms-administration"
-    },
-    {
-      "approved_concept_ids": [
-        "workflows"
-      ],
-      "content_hash": "ef67685079a9c2a2acdc54eaa8f40296e04e275e68acc56d2e9611b09290f414",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:2a0b01a118d004aa",
-      "public_promotion_id": "media-public-promotion:ef67685079a9c2a2",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:2a0b01a118d004aa",
-      "source_title": "LMS - Activities Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/lms/lms-activities"
-    },
-    {
-      "approved_concept_ids": [
-        "communications",
-        "security-permissions",
-        "workflows"
-      ],
-      "content_hash": "5bdcfbb17df1ff72e6389dd7334bff56c85e629d5001a094b6d07e3196072773",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:424563b14f71f033",
-      "public_promotion_id": "media-public-promotion:5bdcfbb17df1ff72",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:424563b14f71f033",
-      "source_title": "Communication Preferences [Legacy] Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/communication/communication-preferences-legacy"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "content_hash": "e1aa10dd2d8dd1803fd31f252f3bc4ee6765744929931805bd6fd8ff7e82eff3",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:a8ed08ea505e5367",
-      "public_promotion_id": "media-public-promotion:e1aa10dd2d8dd180",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:a8ed08ea505e5367",
-      "source_title": "Labels [Legacy] Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/check-in/labels-legacy"
-    },
-    {
-      "approved_concept_ids": [
-        "workflows"
-      ],
-      "content_hash": "40958d4aa8154bf093c3d6406d952ff06ee85f72ff2d266d53cdc48bd11f91f8",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:71a849bba3bf0283",
-      "public_promotion_id": "media-public-promotion:40958d4aa8154bf0",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:71a849bba3bf0283",
-      "source_title": "Text to Workflow [Legacy] Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/workflows/text-to-workflow"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports",
-        "groups",
-        "workflows"
-      ],
-      "content_hash": "f3c31d88098dea300ce20c185f7d42def4ae228e97f127a1e05c20518aab53ae",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:9a2fef11fd30a564",
-      "public_promotion_id": "media-public-promotion:f3c31d88098dea30",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:9a2fef11fd30a564",
-      "source_title": "Group Requirements Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/groups/group-requirements"
     }
   ],
   "approved_media_dependency_hashes": {
-    "media-insight:2a0b01a118d004aa": "ef67685079a9c2a2acdc54eaa8f40296e04e275e68acc56d2e9611b09290f414",
-    "media-insight:424563b14f71f033": "5bdcfbb17df1ff72e6389dd7334bff56c85e629d5001a094b6d07e3196072773",
     "media-insight:51fb82169d3a4818": "1bf6bd15e7e3c885f14ee02abc44902cdb5c92ed60744ff3d01808739e23ba20",
-    "media-insight:71a849bba3bf0283": "40958d4aa8154bf093c3d6406d952ff06ee85f72ff2d266d53cdc48bd11f91f8",
     "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
-    "media-insight:9a2fef11fd30a564": "f3c31d88098dea300ce20c185f7d42def4ae228e97f127a1e05c20518aab53ae",
     "media-insight:a5cb300eafd257ca": "a65ec527228a1535329b795f207f426d3705e3ff72c6f6b0da625e868f088d8c",
-    "media-insight:a8ed08ea505e5367": "e1aa10dd2d8dd1803fd31f252f3bc4ee6765744929931805bd6fd8ff7e82eff3",
     "media-insight:d1eb1a265dd0762b": "9c51ff5dc858db6cd2cf959ad669f38d5941101f771da6e8e6fe1def3d203bc6",
-    "media-insight:d3591980e5622db9": "0678a19a8696369e2197966577cd5ad837a8abaa40ab3ec7917d14723790fbc2",
-    "media-insight:ee02b5c27faeaa28": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a",
-    "media-insight:f0c688c9ed0d7ed7": "432fbb536a985c088aef1dba1bdb293bc1c07a7146ad6f819021ef9a2e86b9d7"
+    "media-insight:ee02b5c27faeaa28": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a"
   },
-  "approved_media_hash": "6e25c07d4e18b889a44a2864c7249ccf2a8e1ece0e158a6cabfbf9960e221960",
+  "approved_media_hash": "8ea40668916d01b45a95804a70dc5c112e50a8a98abccea0e9765559679dc8d6",
   "approved_media_path": "knowledge/concepts/learning-lms-engagement/approved-media.md",
-  "built_at": "2026-06-18T20:02:41+00:00",
+  "built_at": "2026-06-18T21:40:48+00:00",
   "concept_id": "learning-lms-engagement",
-  "guide_hash": "5163138ccd182e77bf17948f2720a5eba045e6af2e05b596cc6650c7c21d0e0e",
-  "guide_line_count": 1258,
+  "guide_hash": "98df77095fec2a645241c97a8a964904196d05176daa9a2d8b3dc822b9297741",
+  "guide_line_count": 1254,
   "guide_path": "knowledge/concepts/learning-lms-engagement/guide.md",
-  "guide_word_count": 10968,
+  "guide_word_count": 10912,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2369,23 +2251,22 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1210,
+      "end_line": 1206,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "10d9f0934e171ebf",
-        "bb36a9170c60ca9d",
-        "bb36a9170c60ca9d",
-        "bb36a9170c60ca9d",
         "95396b5eafd3b56c",
-        "8540c4be8f5de2d1"
+        "8540c4be8f5de2d1",
+        "b68311e84ce45057",
+        "892f43823742ae10",
+        "121d4215e1fc4edb"
       ],
       "start_line": 1190
     },
     {
       "confidence": "high",
-      "end_line": 1258,
+      "end_line": 1254,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2414,7 +2295,7 @@
         "a1ed0fff68d780b1",
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 1211
+      "start_line": 1207
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:55:32+00:00",
