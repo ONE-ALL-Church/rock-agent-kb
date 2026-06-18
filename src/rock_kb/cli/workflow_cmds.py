@@ -43,6 +43,7 @@ def deploy_service_command(
 def eval_service_command(
     base_url: str = typer.Option(..., "--base-url", help="Hosted Rock KB service base URL."),
     limit: int = typer.Option(5, "--limit", min=1, max=20, help="Search hits to inspect per evaluation question."),
+    target_rank: int = typer.Option(2, "--target-rank", min=1, max=20, help="Expected concept must appear at or above this result rank."),
     concurrency: int = typer.Option(6, "--concurrency", min=1, max=25, help="Concurrent hosted search requests."),
 ) -> None:
     """Run the public evaluation set against the hosted service search API."""
@@ -50,7 +51,7 @@ def eval_service_command(
 
     from ..service_eval import evaluate_service
 
-    result = evaluate_service(base_url=base_url, limit=limit, concurrency=concurrency).as_dict()
+    result = evaluate_service(base_url=base_url, limit=limit, target_rank=target_rank, concurrency=concurrency).as_dict()
     print_json(data=result)
     if result["status"] != "ok":
         raise typer.Exit(code=1)

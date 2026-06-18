@@ -116,7 +116,7 @@ uv run kb audit public-export
 uv run kb audit readiness
 uv run kb audit all
 uv run kb deploy-service
-uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
+uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church --target-rank 2
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export

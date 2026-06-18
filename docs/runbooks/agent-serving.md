@@ -136,9 +136,12 @@ Run the hosted evaluation gate after deployment:
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
 ```
 
-The evaluator runs hosted searches concurrently with a conservative default of
-six concurrent requests. Use `--concurrency` only when intentionally tuning the
-gate; excessive concurrency can create avoidable D1/Worker request timeouts.
+The evaluator requests five search results per question and, by default,
+requires the expected concept to appear in the top two results
+(`--target-rank 2`). It runs hosted searches concurrently with a conservative
+default of six concurrent requests. Use `--concurrency` only when intentionally
+tuning the gate; excessive concurrency can create avoidable D1/Worker request
+timeouts.
 
 ## Network Operations
 
@@ -151,7 +154,7 @@ tests. The smoke path checks:
 - `GET /health`
 - `GET /manifest.json`
 - `GET /operations/dashboard`
-- `kb eval-service --limit 5`
+- `kb eval-service --limit 5 --target-rank 2`
 - `POST /mcp` tool listing for the expected read and intake tools
 - `POST /submit` without a valid token, which must be rejected rather than
   opening a PR or returning a server error

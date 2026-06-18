@@ -191,7 +191,7 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
      LIMIT ?`
   ).bind(fts, minRank, candidateLimit).all<SearchRow & { rank?: number }>();
   return (result.results || [])
-    .map((row) => ({ row, score: searchScore(row, terms) }))
+    .map((row) => ({ row, score: searchScore(row, terms, query) }))
     .sort((left, right) => right.score - left.score || String(left.row.id).localeCompare(String(right.row.id)))
     .slice(0, limit)
     .map((item) => publicSearchRow(item.row));
@@ -863,21 +863,41 @@ function searchTerms(query: string): string[] {
   return Array.from(new Set(filteredTerms.length ? filteredTerms : rawTerms));
 }
 
-function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[]): number {
+function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[], query: string): number {
   const conceptTerms = new Set(searchTerms(`${row.concept || ""} ${row.title || ""}`));
   const titleTerms = new Set(searchTerms(row.title || ""));
   const bodyTerms = new Set(searchTerms(row.body || ""));
   const conceptOverlap = overlapCount(queryTerms, conceptTerms);
   const titleOverlap = overlapCount(queryTerms, titleTerms);
   const bodyOverlap = overlapCount(queryTerms, bodyTerms);
+  const conceptPhraseBoost = phraseMatchBoost(query, row.concept || "", 48);
+  const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
   const kindBoost = row.kind === "answer" ? 28 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);
-  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + kindBoost + tierBoost - rankPenalty;
+  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + tierBoost - rankPenalty;
 }
 
 function overlapCount(queryTerms: string[], candidateTerms: Set<string>): number {
   return queryTerms.filter((term) => candidateTerms.has(term)).length;
+}
+
+function phraseMatchBoost(query: string, candidate: string, boost: number): number {
+  const queryText = normalizeSearchText(query);
+  const candidateWords = searchTerms(candidate.replace(/[-_/]+/g, " "));
+  if (!queryText || candidateWords.length === 0) {
+    return 0;
+  }
+  if (queryText.includes(candidateWords.join(" "))) {
+    return boost;
+  }
+  return candidateWords.every((term) => queryText.split(" ").includes(term)) ? Math.floor(boost * 0.75) : 0;
+}
+
+function normalizeSearchText(value: string): string {
+  return (value.match(/[A-Za-z0-9_]+/g) || [])
+    .map((term) => term.toLowerCase())
+    .join(" ");
 }
 
 function normalizeQuery(query: string): string {
