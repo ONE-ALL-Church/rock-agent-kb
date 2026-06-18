@@ -455,6 +455,7 @@ async function githubGraphql(env: ServiceEnv, query: string, variables: JsonReco
 
 function validateBundle(bundle: unknown[], orgId: string): string[] {
   const errors: string[] = [];
+  const seenContributionIds = new Map<string, string>();
   if (!bundle.length || bundle.length > 200) {
     errors.push("bundle must contain 1 to 200 rows");
   }
@@ -493,6 +494,15 @@ function validateBundle(bundle: unknown[], orgId: string): string[] {
     }
     if (row.schema !== "rock-kb-org-contribution-v1") errors.push(`${label} schema must be rock-kb-org-contribution-v1`);
     if (row.org_id !== orgId) errors.push(`${label} org_id must match authenticated org`);
+    const contributionId = String(row.contribution_id || "");
+    if (contributionId) {
+      const firstLabel = seenContributionIds.get(contributionId);
+      if (firstLabel) {
+        errors.push(`${label} duplicate contribution_id ${contributionId}; first seen at ${firstLabel}`);
+      } else {
+        seenContributionIds.set(contributionId, label);
+      }
+    }
     if (!CONTRIBUTION_TYPES.has(String(row.contribution_type))) errors.push(`${label} invalid contribution_type`);
     if (!PUBLIC_REVIEW_STATUSES.has(String(row.review_status))) errors.push(`${label} public contribution must be redaction reviewed or approved`);
     if (!CONFIDENCE_VALUES.has(String(row.confidence))) errors.push(`${label} invalid confidence`);

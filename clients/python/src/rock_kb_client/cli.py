@@ -10,6 +10,7 @@ from urllib import request
 from .validator import validate_bundle
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
+USER_AGENT = "rock-kb-client/0.1 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -99,7 +100,8 @@ def get_json(url: str):
 
 
 def get_text(url: str) -> str:
-    with request.urlopen(url) as response:
+    req = request.Request(url, headers={"user-agent": USER_AGENT})
+    with request.urlopen(req) as response:
         return response.read().decode("utf-8")
 
 
@@ -109,7 +111,12 @@ def post_json(url: str, payload: dict, token: str):
         url,
         data=body,
         method="POST",
-        headers={"content-type": "application/json", "authorization": f"Bearer {token}"},
+        headers={
+            "content-type": "application/json",
+            "authorization": f"Bearer {token}",
+            "user-agent": USER_AGENT,
+            "accept": "application/json",
+        },
     )
     with request.urlopen(req) as response:
         return json.loads(response.read().decode("utf-8"))
