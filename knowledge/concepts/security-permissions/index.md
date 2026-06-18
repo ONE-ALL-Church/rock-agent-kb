@@ -2,7 +2,7 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-06-18T19:00:51+00:00
+last_built: 2026-06-18T19:35:02+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -263,6 +263,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | risk | When auditing notes, inspect both note-type configuration and entity context because visibility and workflow meaning can vary by note type and target entity. | [source](https://community.rockrms.com/rocku/core-concepts/note-types) |
 | More |  | 254 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Preflight REST API work by checking identity, endpoint, and permission scope | ONE&ALL Church | task_card | Before changing or troubleshooting a Rock REST API integration, identify the exact controller route, the authenticated identity or REST key, the security grants that identity depends on, and whether the request should be read-only or write-capable. Validate the API behavior against public documentation and the target Rock version before broadening permissions. Treat a successful test call as only one signal: agents should still confirm least-privilege scope, logging, token handling, and rollback expectations before recommending production use. _(live verification recommended)_ | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
+
 ## Source Coverage
 
 - `rock_community_hubs`: 7
@@ -389,6 +397,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Source records: `145`
 - Lava capability source records: `53`
 - Approved claims: `272`
+- Community-reviewed contributions: `1`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

@@ -2,7 +2,7 @@
 id: concept-cms-websites
 title: CMS And Websites
 generated: true
-last_built: 2026-06-18T19:00:49+00:00
+last_built: 2026-06-18T19:35:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -181,6 +181,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Content Channel Types and Content Channels RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels) |
 | More |  | 146 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Run Helix active-search through the Lava Application Content block boundary | ONE&ALL Church | troubleshooting_pattern | For Helix pages that use HTMX active-search or live filters, distinguish a page-hosted Lava Application Content block from a bare call to the underlying `/api/v2/lava-app/...` endpoint. Build the first paint so the page renders useful content server-side, then let HTMX requests use the caret route form from inside the content block. Before using the same endpoint on a public or anonymous page, test it as an anonymous visitor and as the intended authenticated role; if the endpoint depends on block/runtime authentication or the data set is small enough to ship once, prefer a server-rendered list with client-side filtering and a no-JavaScript fallback. Do not treat a working staff-session HTMX request as proof that the endpoint is a safe public API. _(live verification recommended)_ | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
+
 ## Source Coverage
 
 - `rock_community_hubs`: 14
@@ -353,6 +361,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Source records: `144`
 - Lava capability source records: `53`
 - Approved claims: `164`
+- Community-reviewed contributions: `1`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

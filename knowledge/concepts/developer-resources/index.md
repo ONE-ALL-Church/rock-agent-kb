@@ -2,7 +2,7 @@
 id: concept-developer-resources
 title: Rock Developer Resources
 generated: true
-last_built: 2026-06-18T19:00:56+00:00
+last_built: 2026-06-18T19:35:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 120
@@ -350,6 +350,7 @@ Keywords: `design system, dynamic linq, pulled pre-alpha, realtime visualizer, r
 
 - Source records: `131`
 - Approved claims: `26`
+- Community-reviewed contributions: `0`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

@@ -24,7 +24,7 @@ def contribution_bundle_paths(root: Optional[Path] = None) -> list[Path]:
 
 
 def public_contribution_records(concept_id: Optional[str] = None, root: Optional[Path] = None) -> list[dict[str, Any]]:
-    records = []
+    records_by_id: dict[str, dict[str, Any]] = {}
     for path in contribution_bundle_paths(root):
         for row in read_jsonl(path):
             if row.get("review_status") not in PUBLIC_CONTRIBUTION_REVIEW_STATUSES:
@@ -32,7 +32,12 @@ def public_contribution_records(concept_id: Optional[str] = None, root: Optional
             concept_ids = [str(value) for value in row.get("concept_ids") or []]
             if concept_id and concept_id not in concept_ids:
                 continue
-            records.append(public_contribution_record(row, path))
+            record = public_contribution_record(row, path)
+            dedupe_id = str(record.get("contribution_id") or record.get("id") or "")
+            existing = records_by_id.get(dedupe_id)
+            if not existing or contribution_path_priority(path) < contribution_path_priority(Path(existing.get("bundle_path") or "")):
+                records_by_id[dedupe_id] = record
+    records = list(records_by_id.values())
     records.sort(key=lambda row: (row.get("source_id") or "", row.get("source_title") or ""))
     return records
 
@@ -137,6 +142,16 @@ def relative_path(path: Path) -> str:
 
 def authority_tier_for_contribution_path(path: Path) -> str:
     relative = relative_path(path)
-    if relative.startswith("community-contributions/"):
+    if relative.startswith("community-contributions/") or "community-contributions" in path.parts:
         return "community-unreviewed"
     return "community-reviewed"
+
+
+def contribution_path_priority(path: Path) -> int:
+    parts = path.parts
+    relative = relative_path(path)
+    if relative.startswith("contributions/") or "contributions" in parts:
+        return 0
+    if relative.startswith("community-contributions/") or "community-contributions" in parts:
+        return 1
+    return 0

@@ -2,7 +2,7 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-06-18T19:00:33+00:00
+last_built: 2026-06-18T19:34:44+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -147,6 +147,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | source_summary | Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
 | rocku-confirmed | source_summary | Next-Gen Labels adds check-in guidance for label troubleshooting: validate template, merge data, routing, and active check-in context before treating failures as printer-only issues. | [source](https://community.rockrms.com/rocku/check-in/next-gen-labels) |
 | More |  | 91 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Verify check-in room capacity separately from schedule availability | ONE&ALL Church | entity_note | When troubleshooting room availability or planned capacity for Rock check-in, inspect two different relationships. Room capacity thresholds live on the `Location` record, so a `SoftRoomThreshold` change applies to that room wherever it is reused; it is not scoped to one service time or schedule. Schedule availability is a separate group-location relationship: verify that the check-in group has the expected `GroupLocation`, that the `GroupLocation` points to the intended room, and that the correct schedule is linked through `GroupLocationSchedule` or the schedule collection exposed for that group location. A useful preflight report joins group, group location, location, and schedule, then compares room name, threshold, and schedule link before changing production configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/ModelMap) |
 
 ## Source Coverage
 
@@ -337,6 +345,7 @@ Keywords: `troubleshooting, error, printer, issue, failed`
 
 - Source records: `87`
 - Approved claims: `109`
+- Community-reviewed contributions: `1`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

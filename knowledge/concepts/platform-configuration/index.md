@@ -2,7 +2,7 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-06-18T19:00:41+00:00
+last_built: 2026-06-18T19:34:52+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -133,6 +133,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | community-reviewed | operational_guidance | Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | community-reviewed | operational_guidance | Rock-native tools are a strong first option for simpler dashboards, operational reports, and person-actionable workflows because they keep users close to the ministry record and workflow context. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) |
 | More |  | 60 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Verify check-in room capacity separately from schedule availability | ONE&ALL Church | entity_note | When troubleshooting room availability or planned capacity for Rock check-in, inspect two different relationships. Room capacity thresholds live on the `Location` record, so a `SoftRoomThreshold` change applies to that room wherever it is reused; it is not scoped to one service time or schedule. Schedule availability is a separate group-location relationship: verify that the check-in group has the expected `GroupLocation`, that the `GroupLocation` points to the intended room, and that the correct schedule is linked through `GroupLocationSchedule` or the schedule collection exposed for that group location. A useful preflight report joins group, group location, location, and schedule, then compares room name, threshold, and schedule link before changing production configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/ModelMap) |
 
 ## Source Coverage
 
@@ -295,6 +303,7 @@ Keywords: `campus, campuses, global attribute, system setting, configuration`
 
 - Source records: `90`
 - Approved claims: `78`
+- Community-reviewed contributions: `1`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

@@ -73,6 +73,14 @@ def build_concept_guide(
         for row in approved_claim_dependencies
         if row.get("claim_id")
     }
+    community_contribution_dependencies = [
+        row for row in public_contribution_records(concept.id) if row.get("authority_tier") == "community-reviewed"
+    ]
+    community_contribution_hashes = {
+        str(row.get("id")): row.get("content_hash")
+        for row in community_contribution_dependencies
+        if row.get("id")
+    }
     stale_reason = stale_reason_for(previous, source_hashes)
     built_at = generated_at_iso()
     guide_path = relative_concept_path(concept)
@@ -95,6 +103,10 @@ def build_concept_guide(
         "approved_claim_hashes": approved_claim_hashes,
         "approved_claim_count": len(approved_claim_hashes),
         "approved_claim_dependencies": approved_claim_dependencies,
+        "community_contribution_ids": list(community_contribution_hashes),
+        "community_contribution_hashes": community_contribution_hashes,
+        "community_contribution_count": len(community_contribution_hashes),
+        "community_contribution_dependencies": community_contribution_dependencies,
         "last_built": built_at,
         "rebuild_policy": concept.rebuild_policy,
         "needs_rebuild": False,
@@ -124,6 +136,9 @@ def render_concept_guide(
     subguide_sections = render_subguides(concept, all_matches, selected)
     reviewed_media_section = render_reviewed_media_insights(selected)
     approved_claim_section = render_approved_claims_section(dependency.get("approved_claim_dependencies") or [])
+    community_contribution_section = render_community_contribution_section(
+        dependency.get("community_contribution_dependencies") or []
+    )
 
     lines = [
         "---",
@@ -162,6 +177,7 @@ def render_concept_guide(
     lines.extend(render_synthesis_bullets(concept, selected))
     lines.extend(reviewed_media_section)
     lines.extend(approved_claim_section)
+    lines.extend(community_contribution_section)
     lines.extend(
         [
             "",
@@ -257,6 +273,7 @@ def render_concept_guide(
     lines.extend(
         [
             f"- Approved claims: `{dependency.get('approved_claim_count', 0)}`",
+            f"- Community-reviewed contributions: `{dependency.get('community_contribution_count', 0)}`",
             "- Dependency file: `agent/concept-dependencies.jsonl`",
             "",
             "When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.",
@@ -280,6 +297,42 @@ def render_lava_capability_reference_section(concept: Concept, dependency: dict[
         f"- Agent usage examples: [{prefix}lava-agent-usage-examples.md]({prefix}lava-agent-usage-examples.md)",
         "- Machine-readable rows: [agent/lava-capabilities.jsonl](../../../agent/lava-capabilities.jsonl)",
     ]
+
+def render_community_contribution_section(contributions: list[dict[str, Any]], limit: int = 8) -> list[str]:
+    if not contributions:
+        return []
+    selected = sorted(
+        contributions,
+        key=lambda row: (
+            str(row.get("authority_tier") or ""),
+            str(row.get("org_display_name") or row.get("org_id") or ""),
+            str(row.get("source_title") or ""),
+        ),
+    )[:limit]
+    lines = [
+        "",
+        "## Community-Reviewed Contribution Signals",
+        "",
+        "These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.",
+        "",
+        "| Title | Org | Type | Signal | Source |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for row in selected:
+        source_url = str(row.get("source_url") or "")
+        source_cell = f"[source]({source_url})" if source_url.startswith("http") else escape_table_cell(row.get("bundle_path") or "")
+        title = escape_table_cell(row.get("source_title") or row.get("contribution_id") or "")
+        org = escape_table_cell(row.get("org_display_name") or row.get("org_id") or "")
+        contribution_type = escape_table_cell(row.get("contribution_type") or "")
+        signal = escape_table_cell(row.get("summary") or row.get("excerpt") or "")
+        if row.get("needs_live_verification"):
+            signal = f"{signal} _(live verification recommended)_"
+        lines.append(f"| {title} | {org} | {contribution_type} | {signal} | {source_cell} |")
+    if len(contributions) > limit:
+        lines.append(
+            f"| More |  |  | {len(contributions) - limit} additional community-reviewed contribution signals are indexed for this concept. |  |"
+        )
+    return lines
 
 def render_approved_claims_section(claims: list[dict[str, Any]], limit: int = 18) -> list[str]:
     if not claims:

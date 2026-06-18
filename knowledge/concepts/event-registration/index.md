@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-06-18T19:00:48+00:00
+last_built: 2026-06-18T19:34:59+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -243,6 +243,7 @@ Keywords: `payment, cost, fee, gateway`
 
 - Source records: `92`
 - Approved claims: `64`
+- Community-reviewed contributions: `0`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

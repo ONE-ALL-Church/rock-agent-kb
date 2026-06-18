@@ -2,7 +2,7 @@
 id: concept-groups
 title: Groups
 generated: true
-last_built: 2026-06-18T19:00:34+00:00
+last_built: 2026-06-18T19:34:45+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -194,6 +194,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Group RSVP Occurrences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-rsvp-occurrences) |
 | More |  | 155 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Verify check-in room capacity separately from schedule availability | ONE&ALL Church | entity_note | When troubleshooting room availability or planned capacity for Rock check-in, inspect two different relationships. Room capacity thresholds live on the `Location` record, so a `SoftRoomThreshold` change applies to that room wherever it is reused; it is not scoped to one service time or schedule. Schedule availability is a separate group-location relationship: verify that the check-in group has the expected `GroupLocation`, that the `GroupLocation` points to the intended room, and that the correct schedule is linked through `GroupLocationSchedule` or the schedule collection exposed for that group location. A useful preflight report joins group, group location, location, and schedule, then compares room name, threshold, and schedule link before changing production configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/ModelMap) |
+
 ## Source Coverage
 
 - `rock_community_hubs`: 10
@@ -346,6 +354,7 @@ Keywords: `attendance, meeting, schedule`
 
 - Source records: `91`
 - Approved claims: `173`
+- Community-reviewed contributions: `1`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

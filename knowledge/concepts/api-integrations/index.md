@@ -2,7 +2,7 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-06-18T19:00:55+00:00
+last_built: 2026-06-18T19:35:06+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -86,6 +86,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | community-reviewed | operational_guidance | A church mobile chat experience should define expected features such as threaded messages, reactions, notifications, moderation, and staff access before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0) |
 | community-reviewed | operational_guidance | For Rock-adjacent automation, agents should verify source data and system state rather than treating generated AI output as an authoritative record. _(live verification recommended)_ | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
 | More |  | 12 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Preflight REST API work by checking identity, endpoint, and permission scope | ONE&ALL Church | task_card | Before changing or troubleshooting a Rock REST API integration, identify the exact controller route, the authenticated identity or REST key, the security grants that identity depends on, and whether the request should be read-only or write-capable. Validate the API behavior against public documentation and the target Rock version before broadening permissions. Treat a successful test call as only one signal: agents should still confirm least-privilege scope, logging, token handling, and rollback expectations before recommending production use. _(live verification recommended)_ | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
+| Use public source links for integration examples | ONE&ALL Church | source_link | When sharing integration examples through the Rock KB, cite public repositories or official documentation and keep instance-specific endpoints, credentials, and operational context out of the public contribution row. _(live verification recommended)_ | [source](https://github.com/ONE-ALL-Church/Rock-SQL-Library) |
 
 ## Source Coverage
 
@@ -235,6 +244,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Source records: `143`
 - Lava capability source records: `53`
 - Approved claims: `30`
+- Community-reviewed contributions: `2`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

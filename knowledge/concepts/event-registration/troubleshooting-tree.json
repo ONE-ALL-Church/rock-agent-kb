@@ -223,7 +223,7 @@
   ],
   "concept_id": "event-registration",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-06-18T19:01:28+00:00",
+  "generated_at": "2026-06-18T19:35:28+00:00",
   "guide_sections": [
     "16-troubleshooting-decision-tree",
     "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",

@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-06-18T19:00:38+00:00
+last_built: 2026-06-18T19:34:49+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -287,6 +287,7 @@ Keywords: `batch, deposit, reconciliation`
 
 - Source records: `90`
 - Approved claims: `108`
+- Community-reviewed contributions: `0`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

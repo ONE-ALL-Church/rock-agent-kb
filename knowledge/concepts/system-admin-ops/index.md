@@ -2,7 +2,7 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-06-18T19:00:39+00:00
+last_built: 2026-06-18T19:34:51+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -238,6 +238,7 @@ Keywords: `cleanup, data integrity, integrity, stale, orphaned`
 
 - Source records: `91`
 - Approved claims: `11`
+- Community-reviewed contributions: `0`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

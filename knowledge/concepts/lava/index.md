@@ -2,7 +2,7 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-06-18T19:00:37+00:00
+last_built: 2026-06-18T19:34:48+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -121,6 +121,17 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | For ministry process design, What is Lava should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/lava/what-is-lava) |
 | rocku-confirmed | operational_guidance | For Rock operations and administration, SQL Command should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/lava/sql-command) |
 | More |  | 63 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+
+## Community-Reviewed Contribution Signals
+
+These maintainer-promoted organization submissions are useful operational signals, but they are not official Rock behavior. Use them alongside the cited public sources and verify live-instance details before recommending changes.
+
+| Title | Org | Type | Signal | Source |
+| --- | --- | --- | --- | --- |
+| Run Helix active-search through the Lava Application Content block boundary | ONE&ALL Church | troubleshooting_pattern | For Helix pages that use HTMX active-search or live filters, distinguish a page-hosted Lava Application Content block from a bare call to the underlying `/api/v2/lava-app/...` endpoint. Build the first paint so the page renders useful content server-side, then let HTMX requests use the caret route form from inside the content block. Before using the same endpoint on a public or anonymous page, test it as an anonymous visitor and as the intended authenticated role; if the endpoint depends on block/runtime authentication or the data set is small enough to ship once, prefer a server-rendered list with client-side filtering and a no-JavaScript fallback. Do not treat a working staff-session HTMX request as proof that the endpoint is a safe public API. _(live verification recommended)_ | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
+| Treat entity-command where clauses as a brittle Dynamic LINQ boundary | ONE&ALL Church | troubleshooting_pattern | When a Lava entity command uses `where:`, Rock parses the rendered string as a Dynamic LINQ expression. In deploy scripts, composing that expression from captured rows, loop variables, or values that may render blank can make the whole entity command fail before any row is returned. Prefer literal values for simple lookups; for rerunnable configuration deploys, resolve existing row IDs with read-only SQL by stable natural keys, then use `modify{Entity}` for the actual write. If an entity-command `where:` fails unexpectedly, inspect the fully rendered expression and check for blank IDs, unescaped quotes, mixed operators, or values that belong in a parameterized SQL lookup instead. _(live verification recommended)_ | [source](https://community.rockrms.com/lava/commands/entity-commands) |
+| Use a two-phase pattern for rerunnable workflow ModifyEntity deploys | ONE&ALL Church | guide_section | For workflow configuration deploys written in Lava, make each step idempotent. First resolve the parent object by a stable key, modify it, then re-query the canonical ID before writing children. Apply this to workflow types, workflow attributes, activity types, action types, forms, form attributes, and action setting values. Do not carry a blank ID, a desired GUID from a create path, or an unverified `ModifyResult` object into dependent writes. For workflow attributes, explicitly scope every attribute to the actual workflow type with `EntityTypeId` for Workflow, `EntityTypeQualifierColumn = WorkflowTypeId`, and the actual workflow type ID as `EntityTypeQualifierValue`. Print the resolved IDs and verify the final shape before wiring the workflow to a live trigger. _(live verification recommended)_ | [source](https://community.rockrms.com/lava/commands/entity-commands) |
+| Workflow action settings are AttributeValue rows attached to the action type | ONE&ALL Church | entity_note | Workflow action component settings are stored as `AttributeValue` rows. The setting `AttributeId` belongs to the action component's setting attribute, and `EntityId` is the `WorkflowActionType.Id` being configured. For deploy scripts, resolve the action type ID after the action exists, then write explicit setting rows with verified setting attribute IDs. Avoid broad deletes and avoid parsing setting IDs out of free-form captured text. If a setting is a workflow attribute reference, store the workflow attribute GUID expected by that action component. Because component setting attribute IDs can vary by Rock version and plugin set, verify them in the target instance before reuse. _(live verification recommended)_ | [source](https://community.rockrms.com/lava/commands/entity-commands) |
 
 ## Source Coverage
 
@@ -259,6 +270,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Source records: `121`
 - Lava capability source records: `53`
 - Approved claims: `81`
+- Community-reviewed contributions: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

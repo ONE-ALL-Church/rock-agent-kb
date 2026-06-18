@@ -19,6 +19,7 @@ from rock_kb.concepts import (
     render_concept_approved_claims_artifact,
     render_concept_approved_media_artifact,
     render_concept_guide,
+    render_community_contribution_section,
     render_long_form_approved_claims_section,
     render_long_form_approved_media_section,
     render_approved_claims_section,
@@ -444,6 +445,90 @@ def test_render_approved_claims_labels_community_derived_material():
     assert "community-reviewed" in text
     assert "live verification recommended" in text
     assert "https://community.rockrms.com/community-hubs/example" in text
+
+
+def test_render_community_contribution_section_labels_reviewed_org_signals():
+    lines = render_community_contribution_section(
+        [
+            {
+                "id": "org_contribution:oneall:test",
+                "source_title": "Verify room capacity separately from schedules",
+                "summary": "Capacity lives on the room while schedule availability is a group-location relationship.",
+                "contribution_type": "entity_note",
+                "authority_tier": "community-reviewed",
+                "org_display_name": "ONE&ALL Church",
+                "source_url": "https://community.rockrms.com/ModelMap",
+                "needs_live_verification": True,
+            }
+        ]
+    )
+    text = "\n".join(lines)
+
+    assert "## Community-Reviewed Contribution Signals" in text
+    assert "not official Rock behavior" in text
+    assert "ONE&ALL Church" in text
+    assert "Capacity lives on the room" in text
+    assert "live verification recommended" in text
+    assert "https://community.rockrms.com/ModelMap" in text
+
+
+def test_concept_guide_tracks_and_renders_community_contributions(monkeypatch):
+    concept = Concept(
+        id="check-in",
+        title="Check-In",
+        description="Check-in.",
+        keywords=["check-in"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=5,
+        raw={},
+    )
+    monkeypatch.setattr(concepts_module, "approved_claim_dependencies_for_concept", lambda concept_id: [])
+    monkeypatch.setattr(concepts_module, "approved_media_dependencies_for_concept", lambda concept_id: [])
+    monkeypatch.setattr(
+        concepts_module,
+        "public_contribution_records",
+        lambda concept_id: [
+            {
+                "id": "org_contribution:oneall:checkin-room-capacity-location-vs-schedule",
+                "source_title": "Verify check-in room capacity separately from schedule availability",
+                "summary": "Room capacity thresholds live on Location records; schedule availability uses GroupLocationSchedule.",
+                "contribution_type": "entity_note",
+                "authority_tier": "community-reviewed",
+                "org_display_name": "ONE&ALL Church",
+                "source_url": "https://community.rockrms.com/ModelMap",
+                "content_hash": "contribution-hash",
+                "needs_live_verification": True,
+            },
+            {
+                "id": "org_contribution:example:unreviewed",
+                "source_title": "Unreviewed lead",
+                "summary": "This intake row should stay out of the reviewed concept section.",
+                "contribution_type": "source_link",
+                "authority_tier": "community-unreviewed",
+                "org_display_name": "Example Org",
+                "source_url": "https://community.rockrms.com/example",
+                "content_hash": "unreviewed-hash",
+                "needs_live_verification": True,
+            }
+        ],
+    )
+
+    text, dependency = build_concept_guide(concept, [], {})
+
+    assert "## Community-Reviewed Contribution Signals" in text
+    assert "Verify check-in room capacity separately" in text
+    assert "GroupLocationSchedule" in text
+    assert "Unreviewed lead" not in text
+    assert dependency["community_contribution_ids"] == [
+        "org_contribution:oneall:checkin-room-capacity-location-vs-schedule"
+    ]
+    assert dependency["community_contribution_hashes"] == {
+        "org_contribution:oneall:checkin-room-capacity-location-vs-schedule": "contribution-hash"
+    }
 
 
 def test_rank_records_prioritizes_approved_media_concept_mapping():
