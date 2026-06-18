@@ -32,12 +32,19 @@ class ServiceEvalResult:
         }
 
 
-def evaluate_service(base_url: str, limit: int = 5, timeout: float = 20.0, concurrency: int = 6) -> ServiceEvalResult:
+def evaluate_service(
+    base_url: str,
+    limit: int = 5,
+    timeout: float = 20.0,
+    concurrency: int = 6,
+    target_rank: int = 2,
+) -> ServiceEvalResult:
     base = base_url.rstrip("/")
     rows = list(read_jsonl(EVALUATION_SET_PATH))
     worker_count = max(1, min(concurrency, len(rows) or 1))
+    max_allowed_rank = max(1, min(target_rank, limit))
     with ThreadPoolExecutor(max_workers=worker_count) as executor:
-        results = list(executor.map(lambda row: evaluate_row(base, row, limit, timeout), rows))
+        results = list(executor.map(lambda row: evaluate_row(base, row, limit, timeout, max_allowed_rank), rows))
     fail_count = sum(1 for row in results if row["status"] == "fail")
     return ServiceEvalResult(
         status="fail" if fail_count else "ok",
@@ -47,7 +54,7 @@ def evaluate_service(base_url: str, limit: int = 5, timeout: float = 20.0, concu
     )
 
 
-def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float) -> dict[str, Any]:
+def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float, max_allowed_rank: int = 2) -> dict[str, Any]:
     question = str(row.get("question") or "")
     expected_concept = str(row.get("concept_id") or "")
     params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only"})
@@ -61,21 +68,28 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float)
             "id": row.get("id"),
             "question": question,
             "expected_concept": expected_concept,
+            "expected_concept_rank": None,
+            "max_allowed_rank": max_allowed_rank,
             "hit_count": 0,
             "concepts": [],
             "missing_terms": [],
             "status": "fail",
             "error": str(exc),
         }
-    concepts = {str(hit.get("concept") or "") for hit in hits if isinstance(hit, dict)}
+    ordered_concepts = [str(hit.get("concept") or "") for hit in hits if isinstance(hit, dict)]
+    concepts = set(ordered_concepts)
+    expected_rank = next((index + 1 for index, concept in enumerate(ordered_concepts) if concept == expected_concept), None)
     required_terms = [str(term).lower() for term in row.get("required_terms") or []]
     serialized = json.dumps(hits, ensure_ascii=False).lower()
     missing_terms = [term for term in required_terms if term.lower() not in serialized]
-    passed = bool(hits) and (not expected_concept or expected_concept in concepts) and not missing_terms
+    rank_passed = not expected_concept or (expected_rank is not None and expected_rank <= max_allowed_rank)
+    passed = bool(hits) and rank_passed and not missing_terms
     return {
         "id": row.get("id"),
         "question": question,
         "expected_concept": expected_concept,
+        "expected_concept_rank": expected_rank,
+        "max_allowed_rank": max_allowed_rank,
         "hit_count": len(hits),
         "concepts": sorted(concepts),
         "missing_terms": missing_terms,
