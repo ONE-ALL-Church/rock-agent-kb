@@ -45,6 +45,22 @@ test("privacy leak validation rejects bundle before GitHub is called", async () 
   }
 });
 
+test("duplicate contribution IDs are rejected before GitHub is called", async () => {
+  const github = githubMock();
+  const { mf, token } = await buildWorker({ github });
+  try {
+    const response = await submitBundle(mf, token, "testorg", [validContribution(), validContribution()]);
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.status, "rejected");
+    assert.deepEqual(github.calls, []);
+    assert.equal(payload.errors.some((error) => error.includes("duplicate contribution_id testorg-source-link-001")), true);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("auto-merge is skipped when GitHub changed-file path differs from expected contribution path", async () => {
   const github = githubMock({ changedFilename: "community-contributions/otherorg/bundle-20260613T000000.jsonl" });
   const { mf, token } = await buildWorker({ github });

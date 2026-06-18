@@ -71,6 +71,7 @@ SENSITIVE_PATTERNS = (
 
 def validate_bundle(path: Path) -> list[str]:
     errors: list[str] = []
+    seen_ids: dict[str, str] = {}
     for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
         if not line.strip():
             continue
@@ -83,6 +84,12 @@ def validate_bundle(path: Path) -> list[str]:
         if not isinstance(row, dict):
             errors.append(f"{label} row must be an object")
             continue
+        contribution_id = str(row.get("contribution_id") or "")
+        if contribution_id:
+            if contribution_id in seen_ids:
+                errors.append(f"{label} duplicate contribution_id {contribution_id}; first seen at {seen_ids[contribution_id]}")
+            else:
+                seen_ids[contribution_id] = label
         errors.extend(validate_row(row, label))
     return errors
 

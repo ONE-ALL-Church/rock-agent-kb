@@ -34,6 +34,38 @@ uvx rock-kb validate bundle.jsonl
 ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
 ```
 
+If you are working from a local `rock-agent-kb` checkout and `uvx rock-kb`
+reports that the package was not found, use the checked-in client:
+
+```bash
+uv run --project clients/python rock-kb validate bundle.jsonl
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --org <org-id>
+```
+
+Hosted submission requires a per-organization token. If `ROCK_KB_TOKEN` is
+missing, ask the user to have a Rock KB maintainer issue a token for the
+reviewed `orgs/<org-id>.yaml` registration. Do not request the token in a public
+issue, PR, or chat log. If a token is provided, use it only through an
+environment variable or a secret store:
+
+```bash
+export ROCK_KB_TOKEN='<issued-token>'
+uvx rock-kb submit bundle.jsonl --org <org-id>
+```
+
+For repeat use on macOS, store it in Keychain and load it into the environment
+when needed:
+
+```bash
+security add-generic-password -U -a "$USER" -s "rock-kb-token-<org-id>" -w '<issued-token>'
+export ROCK_KB_TOKEN="$(security find-generic-password -a "$USER" -s "rock-kb-token-<org-id>" -w)"
+```
+
+For CI, hosted agents, or app connectors, save it as a secret named
+`ROCK_KB_TOKEN`. Never save submit tokens in repo files, bundle rows,
+screenshots, transcripts, or generated artifacts. Ask a maintainer to rotate the
+token if it is lost or exposed.
+
 Use `community-contributions/example-org/bundle.example.jsonl` as the row-shape
 reference. Set `needs_live_verification: true` when behavior depends on local
 configuration, plugins, custom code, or a specific Rock version.

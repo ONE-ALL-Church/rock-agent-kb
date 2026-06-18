@@ -94,6 +94,7 @@ def main(argv: list[str]) -> int:
     errors: list[str] = []
     for path in paths:
         errors.extend(validate_file(path))
+    errors.extend(validate_unique_contribution_ids(paths))
     if errors:
         for error in errors:
             print(f"ERROR {error}", file=sys.stderr)
@@ -133,6 +134,30 @@ def validate_file(path: Path) -> list[str]:
         if expected_org_id and row.get("org_id") != expected_org_id:
             errors.append(f"{label} org_id does not match directory {expected_org_id}")
         errors.extend(validate_row(row, label))
+    return errors
+
+
+def validate_unique_contribution_ids(paths: list[Path]) -> list[str]:
+    errors: list[str] = []
+    seen: dict[str, str] = {}
+    for path in paths:
+        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if not isinstance(row, dict):
+                continue
+            contribution_id = str(row.get("contribution_id") or "")
+            if not contribution_id:
+                continue
+            label = f"{path}:{line_number}"
+            if contribution_id in seen:
+                errors.append(f"{label} duplicate contribution_id {contribution_id}; first seen at {seen[contribution_id]}")
+            else:
+                seen[contribution_id] = label
     return errors
 
 

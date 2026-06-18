@@ -79,3 +79,17 @@ def test_validate_bundle_script_rejects_org_directory_mismatch(tmp_path):
 
     assert result.returncode == 1
     assert "org_id does not match directory test-org" in result.stderr
+
+
+def test_validate_bundle_script_rejects_duplicate_contribution_ids_across_files(tmp_path):
+    row = json.loads(VALID_FIXTURE.read_text(encoding="utf-8"))
+    first = tmp_path / "community-contributions" / "test-org" / "bundle-1.jsonl"
+    second = tmp_path / "community-contributions" / "test-org" / "bundle-2.jsonl"
+    first.parent.mkdir(parents=True)
+    first.write_text(json.dumps(row) + "\n", encoding="utf-8")
+    second.write_text(json.dumps(row) + "\n", encoding="utf-8")
+
+    result = run_validator(tmp_path / "community-contributions")
+
+    assert result.returncode == 1
+    assert "duplicate contribution_id fixture-org:workflow-troubleshooting" in result.stderr

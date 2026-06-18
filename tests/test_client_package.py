@@ -44,6 +44,16 @@ def test_client_validator_rejects_private_path(tmp_path):
     assert any("private path reference" in error for error in errors)
 
 
+def test_client_validator_rejects_duplicate_contribution_ids(tmp_path):
+    row = json.loads(VALID_FIXTURE.read_text(encoding="utf-8"))
+    bundle = tmp_path / "bundle.jsonl"
+    bundle.write_text(json.dumps(row) + "\n" + json.dumps(row) + "\n", encoding="utf-8")
+
+    errors = load_client_validator().validate_bundle(bundle)
+
+    assert any("duplicate contribution_id fixture-org:workflow-troubleshooting" in error for error in errors)
+
+
 def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys):
     cli = load_client_cli()
     urls: list[str] = []
@@ -59,3 +69,53 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
     assert exit_code == 0
     assert urls == ["https://example.test/operations/dashboard"]
     assert "rock-kb-operations-dashboard-v1" in capsys.readouterr().out
+
+
+def test_client_get_text_sends_user_agent(monkeypatch):
+    cli = load_client_cli()
+    captured = {}
+
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def read(self):
+            return b"ok"
+
+    def fake_urlopen(req):
+        captured["user_agent"] = req.headers.get("User-agent")
+        return FakeResponse()
+
+    monkeypatch.setattr(cli.request, "urlopen", fake_urlopen)
+
+    assert cli.get_text("https://example.test/manifest.json") == "ok"
+    assert captured["user_agent"] == cli.USER_AGENT
+
+
+def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
+    cli = load_client_cli()
+    captured = {}
+
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def read(self):
+            return b'{"status":"ok"}'
+
+    def fake_urlopen(req):
+        captured["user_agent"] = req.headers.get("User-agent")
+        captured["accept"] = req.headers.get("Accept")
+        return FakeResponse()
+
+    monkeypatch.setattr(cli.request, "urlopen", fake_urlopen)
+
+    assert cli.post_json("https://example.test/submit", {"ok": True}, token="secret") == {"status": "ok"}
+    assert captured["user_agent"] == cli.USER_AGENT
+    assert captured["accept"] == "application/json"
