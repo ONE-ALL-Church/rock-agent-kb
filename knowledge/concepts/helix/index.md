@@ -2,7 +2,7 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-06-18T21:40:24+00:00
+last_built: 2026-06-18T00:00:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -60,6 +60,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_lava_docs`: 26
 - `rock_model_map`: 12
 - `rock_recipes`: 1
+- `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 7
 
 ## Highest Signal Sources
@@ -128,6 +129,7 @@ Lava fields that the stable scraped Model Map marks as non-database are tracked 
 | Repository | Language | Inclusion Reason | Citation |
 | --- | --- | --- | --- |
 | Triumph-Tech/magnus-vscode | TypeScript | github search: "Rock RMS" in:name,description,readme | [source](https://github.com/Triumph-Tech/magnus-vscode) |
+| SparkDevNetwork/Rock | C# | registered source repository | [source](https://github.com/SparkDevNetwork/Rock) |
 
 ## Subguides
 
@@ -220,7 +222,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `116`
+- Source records: `117`
 - Lava capability source records: `53`
 - Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`

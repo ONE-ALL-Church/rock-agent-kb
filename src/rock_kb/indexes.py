@@ -18,7 +18,36 @@ def all_normalized_records() -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for path in sorted(NORMALIZED_DIR.glob("*.jsonl")):
         records.extend(read_jsonl(path))
-    return records
+    return dedupe_records_by_id(records)
+
+
+def dedupe_records_by_id(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Collapse duplicate normalized records before building public artifacts."""
+
+    records_by_id: dict[str, dict[str, Any]] = {}
+    ordered_ids: list[str] = []
+    passthrough: list[dict[str, Any]] = []
+    for record in records:
+        record_id = str(record.get("id") or "").strip()
+        if not record_id:
+            passthrough.append(record)
+            continue
+        if record_id not in records_by_id:
+            records_by_id[record_id] = record
+            ordered_ids.append(record_id)
+            continue
+        if normalized_record_quality_key(record) > normalized_record_quality_key(records_by_id[record_id]):
+            records_by_id[record_id] = record
+    return [records_by_id[record_id] for record_id in ordered_ids] + passthrough
+
+
+def normalized_record_quality_key(record: dict[str, Any]) -> tuple[int, int, int, str]:
+    return (
+        len(str(record.get("excerpt") or "")),
+        len(str(record.get("summary") or "")),
+        int(bool(record.get("documentation_article_id"))),
+        str(record.get("retrieved_at") or ""),
+    )
 
 
 def build_sqlite_index(path: Optional[Path] = None) -> Path:

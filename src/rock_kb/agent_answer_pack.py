@@ -557,7 +557,7 @@ def claim_review_queue_rows(claims: list[dict[str, Any]]) -> list[dict[str, Any]
             action = "keep_as_source_routing_context"
         if action == "use_in_answer_pack":
             continue
-        if action == "keep_as_source_routing_context" and not claim.get("answer_candidate") and fingerprints[fingerprint] == 1:
+        if action == "keep_as_source_routing_context":
             continue
         rows.append(
             {
@@ -941,10 +941,14 @@ def write_review_dashboard(review_rows: list[dict[str, Any]], distilled_rows: li
     ]
     for action, count in sorted(by_action.items()):
         lines.append(f"| `{action}` | {count} |")
+    if not by_action:
+        lines.append("| No actionable claim review rows | 0 |")
     lines.extend(["", "## Concept Queue", "", "| Concept | Actions |", "| --- | --- |"])
     for concept_id, counter in sorted(by_concept.items()):
         actions = ", ".join(f"`{action}`: {count}" for action, count in sorted(counter.items()))
         lines.append(f"| `{concept_id}` | {actions} |")
+    if not by_concept:
+        lines.append("| No actionable concepts | 0 |")
     lines.extend(["", "## Distilled Claim Clusters", "", "| Concept | Distilled Claims |", "| --- | ---: |"])
     distilled_counts = Counter(str(row.get("concept_id") or "unknown") for row in distilled_rows)
     for concept_id, count in sorted(distilled_counts.items()):

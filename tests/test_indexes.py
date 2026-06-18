@@ -1,7 +1,13 @@
 import json
 
 import rock_kb.indexes as indexes_module
-from rock_kb.indexes import build_public_source_summaries, build_public_source_summary_pack, is_public_agent_record, public_agent_records
+from rock_kb.indexes import (
+    build_public_source_summaries,
+    build_public_source_summary_pack,
+    dedupe_records_by_id,
+    is_public_agent_record,
+    public_agent_records,
+)
 
 
 def test_public_agent_records_exclude_unreviewed_private_transcript_insights():
@@ -33,6 +39,35 @@ def test_public_agent_records_allow_reviewed_private_distillation():
     }
 
     assert is_public_agent_record(row) is True
+
+
+def test_dedupe_records_by_id_keeps_best_normalized_record():
+    rows = dedupe_records_by_id(
+        [
+            {
+                "id": "rock_lava_docs:home",
+                "source_id": "rock_lava_docs",
+                "summary": "Short summary.",
+                "excerpt": "Short excerpt.",
+                "retrieved_at": "2026-06-17T00:00:00+00:00",
+            },
+            {
+                "id": "rock_lava_docs:home",
+                "source_id": "rock_lava_docs",
+                "summary": "Longer summary with more useful source context.",
+                "excerpt": "Longer excerpt with more useful source context for the public agent pack.",
+                "retrieved_at": "2026-06-18T00:00:00+00:00",
+            },
+            {
+                "id": "rock_lava_docs:commands",
+                "source_id": "rock_lava_docs",
+                "summary": "Commands summary.",
+            },
+        ]
+    )
+
+    assert [row["id"] for row in rows] == ["rock_lava_docs:home", "rock_lava_docs:commands"]
+    assert rows[0]["summary"].startswith("Longer summary")
 
 
 def test_build_public_source_summaries_are_citation_first_without_raw_text():

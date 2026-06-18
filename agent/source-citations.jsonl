@@ -182,10 +182,6 @@
 {"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/learn"}], "id": "rock_community_site:b35fc6c8824a0633", "source_id": "rock_community_site"}
 {"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/podcast"}], "id": "rock_community_site:2546a45506d6fb3a", "source_id": "rock_community_site"}
 {"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling"}], "id": "rock_community_site:1c56e68c93516f90", "source_id": "rock_community_site"}
-{"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling"}], "id": "rock_community_site:1c56e68c93516f90", "source_id": "rock_community_site"}
-{"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling"}], "id": "rock_community_site:1c56e68c93516f90", "source_id": "rock_community_site"}
-{"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling"}], "id": "rock_community_site:1c56e68c93516f90", "source_id": "rock_community_site"}
-{"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling"}], "id": "rock_community_site:1c56e68c93516f90", "source_id": "rock_community_site"}
 {"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling/components/avatars"}], "id": "rock_community_site:a7afd98f8a5e5b81", "source_id": "rock_community_site"}
 {"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling/components/badges"}], "id": "rock_community_site:7d483c12fc2a8261", "source_id": "rock_community_site"}
 {"citations": [{"source_id": "rock_community_site", "url": "https://community.rockrms.com/styling/components/cards"}], "id": "rock_community_site:10d2be08e38a1644", "source_id": "rock_community_site"}
@@ -244,7 +240,6 @@
 {"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:d538ed00d2941a05", "source_id": "rock_core_release_notes"}
 {"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:fe0819df0319aa05", "source_id": "rock_core_release_notes"}
 {"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:c990bef57bf382f3", "source_id": "rock_core_release_notes"}
-{"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:41bf1638dbe4b16c", "source_id": "rock_core_release_notes"}
 {"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:41bf1638dbe4b16c", "source_id": "rock_core_release_notes"}
 {"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:52a7ece36cf7aa11", "source_id": "rock_core_release_notes"}
 {"citations": [{"source_id": "rock_core_release_notes", "url": "https://www.rockrms.com/releasenotes"}], "id": "rock_core_release_notes:154b58a9089c259a", "source_id": "rock_core_release_notes"}
@@ -2816,7 +2811,6 @@
 {"citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm"}], "id": "rock_documentation:article:1054", "source_id": "rock_documentation"}
 {"citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"}], "id": "rock_documentation:article:1056", "source_id": "rock_documentation"}
 {"citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/intro-to-scaling-rock"}], "id": "rock_documentation:article:2125", "source_id": "rock_documentation"}
-{"citations": [{"source_id": "rock_lava_docs", "url": "https://community.rockrms.com/lava"}], "id": "rock_lava_docs:044170dca04e8bbb", "source_id": "rock_lava_docs"}
 {"citations": [{"source_id": "rock_lava_docs", "url": "https://community.rockrms.com/lava"}], "id": "rock_lava_docs:044170dca04e8bbb", "source_id": "rock_lava_docs"}
 {"citations": [{"source_id": "rock_lava_docs", "url": "https://community.rockrms.com/lava/commands"}], "id": "rock_lava_docs:30be60a23d3d0317", "source_id": "rock_lava_docs"}
 {"citations": [{"source_id": "rock_lava_docs", "url": "https://community.rockrms.com/lava/commands/adaptivemessage-commands"}], "id": "rock_lava_docs:a20a2cf1b118835e", "source_id": "rock_lava_docs"}
