@@ -549,10 +549,10 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "53ee2a24710ff95c67799de882e526601657f58de5d7d2c292036aff87771b22",
   "approved_media_path": "knowledge/concepts/tv-apps/approved-media.md",
-  "built_at": "2026-06-17T23:10:00+00:00",
+  "built_at": "2026-06-18T02:07:57+00:00",
   "concept_id": "tv-apps",
-  "guide_hash": "fec9ecba59a969acd64593aae798142ac682ab1d8905cfa2348226fb86e63dfd",
-  "guide_line_count": 1189,
+  "guide_hash": "4489e7dbbfff97740ce3e419bfa0956f276f9f14414220b78bb0f7a2e5b86a03",
+  "guide_line_count": 1109,
   "guide_path": "knowledge/concepts/tv-apps/guide.md",
   "guide_word_count": 11923,
   "rebuild_triggers": [
@@ -1798,7 +1798,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1053,
+      "end_line": 1033,
       "heading": "Recipe: Decide Cache Policy",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-decide-cache-policy",
@@ -1810,7 +1810,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1119,
+      "end_line": 1059,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1828,11 +1828,11 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1054
+      "start_line": 1034
     },
     {
       "confidence": "structural",
-      "end_line": 1146,
+      "end_line": 1066,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1850,11 +1850,11 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1120
+      "start_line": 1060
     },
     {
       "confidence": "structural",
-      "end_line": 1148,
+      "end_line": 1068,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1873,11 +1873,11 @@
         "a76f73c64199a534",
         "bd028713c00f4c0b"
       ],
-      "start_line": 1147
+      "start_line": 1067
     },
     {
       "confidence": "normal",
-      "end_line": 1189,
+      "end_line": 1109,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1929,7 +1929,7 @@
         "a76f73c64199a534",
         "bd028713c00f4c0b"
       ],
-      "start_line": 1149
+      "start_line": 1069
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T18:14:21+00:00",

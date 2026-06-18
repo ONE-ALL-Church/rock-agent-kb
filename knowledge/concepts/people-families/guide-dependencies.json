@@ -3698,10 +3698,10 @@
   },
   "approved_media_hash": "20b69eadcc9511a5a54f8b14d28c7bb5347375a58c10492e985f420aadd8713c",
   "approved_media_path": "knowledge/concepts/people-families/approved-media.md",
-  "built_at": "2026-06-17T23:10:00+00:00",
+  "built_at": "2026-06-18T02:08:00+00:00",
   "concept_id": "people-families",
-  "guide_hash": "1f25e370a66d998bf8d6c394f56e99660c6950e54334d98d2c32d1dcc49eedbe",
-  "guide_line_count": 1912,
+  "guide_hash": "3e0449170a4727f0accfa7429080a8178168a691a701926164c2f439c97bbb67",
+  "guide_line_count": 1824,
   "guide_path": "knowledge/concepts/people-families/guide.md",
   "guide_word_count": 18803,
   "rebuild_triggers": [
@@ -6138,7 +6138,7 @@
     },
     {
       "confidence": "community-supported",
-      "end_line": 1722,
+      "end_line": 1699,
       "heading": "Recipe: Add A Bookmarked Groups-Like Profile Panel",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-add-a-bookmarked-groups-like-profile-panel",
@@ -6149,7 +6149,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1790,
+      "end_line": 1725,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -6167,11 +6167,11 @@
         "a7cecea2cefec5f0",
         "cd4325ef232d11ad"
       ],
-      "start_line": 1723
+      "start_line": 1700
     },
     {
       "confidence": "citation-only",
-      "end_line": 1834,
+      "end_line": 1746,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -6185,11 +6185,11 @@
         "d48e27874620e147",
         "103246342712cd75"
       ],
-      "start_line": 1791
+      "start_line": 1726
     },
     {
       "confidence": "structural",
-      "end_line": 1836,
+      "end_line": 1748,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -6230,11 +6230,11 @@
         "3d1915d78aeca733",
         "524bfe304bae1212"
       ],
-      "start_line": 1835
+      "start_line": 1747
     },
     {
       "confidence": "high",
-      "end_line": 1849,
+      "end_line": 1761,
       "heading": "Primary Official Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-sources",
@@ -6250,11 +6250,11 @@
         "324c7412fbbf81eb",
         "776256c424368312"
       ],
-      "start_line": 1837
+      "start_line": 1749
     },
     {
       "confidence": "citation-only",
-      "end_line": 1865,
+      "end_line": 1777,
       "heading": "RockU Training Coverage",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-rocku-training-coverage",
@@ -6273,11 +6273,11 @@
         "f100a7c66d47ef32",
         "add61f36fc8d2512"
       ],
-      "start_line": 1850
+      "start_line": 1762
     },
     {
       "confidence": "normal",
-      "end_line": 1881,
+      "end_line": 1793,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -6300,11 +6300,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1866
+      "start_line": 1778
     },
     {
       "confidence": "community-supported",
-      "end_line": 1896,
+      "end_line": 1808,
       "heading": "Community Recipes Used As Examples Only",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-recipes-used-as-examples-only",
@@ -6322,11 +6322,11 @@
         "3d1915d78aeca733",
         "524bfe304bae1212"
       ],
-      "start_line": 1882
+      "start_line": 1794
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1912,
+      "end_line": 1824,
       "heading": "Records Requiring Live Verification",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-records-requiring-live-verification",
@@ -6344,7 +6344,7 @@
         "3d1915d78aeca733",
         "524bfe304bae1212"
       ],
-      "start_line": 1897
+      "start_line": 1809
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T20:15:43+00:00",

@@ -1127,10 +1127,10 @@
   },
   "approved_media_hash": "6e25c07d4e18b889a44a2864c7249ccf2a8e1ece0e158a6cabfbf9960e221960",
   "approved_media_path": "knowledge/concepts/learning-lms-engagement/approved-media.md",
-  "built_at": "2026-06-17T23:10:00+00:00",
+  "built_at": "2026-06-18T02:07:47+00:00",
   "concept_id": "learning-lms-engagement",
-  "guide_hash": "7d96cbe6a73a612f877f9b1702786f03c50b6dd5b597f55fb65d39f830bcfafb",
-  "guide_line_count": 1346,
+  "guide_hash": "5163138ccd182e77bf17948f2720a5eba045e6af2e05b596cc6650c7c21d0e0e",
+  "guide_line_count": 1258,
   "guide_path": "knowledge/concepts/learning-lms-engagement/guide.md",
   "guide_word_count": 10968,
   "rebuild_triggers": [
@@ -2336,7 +2336,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1186,
+      "end_line": 1163,
       "heading": "Recipe: Review Upgrade Risk",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-upgrade-risk",
@@ -2347,7 +2347,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1254,
+      "end_line": 1189,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -2365,11 +2365,11 @@
         "121d4215e1fc4edb",
         "121d4215e1fc4edb"
       ],
-      "start_line": 1187
+      "start_line": 1164
     },
     {
       "confidence": "citation-only",
-      "end_line": 1298,
+      "end_line": 1210,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2381,11 +2381,11 @@
         "95396b5eafd3b56c",
         "8540c4be8f5de2d1"
       ],
-      "start_line": 1255
+      "start_line": 1190
     },
     {
       "confidence": "high",
-      "end_line": 1346,
+      "end_line": 1258,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2414,7 +2414,7 @@
         "a1ed0fff68d780b1",
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 1299
+      "start_line": 1211
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:55:32+00:00",

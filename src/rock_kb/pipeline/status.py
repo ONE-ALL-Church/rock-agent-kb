@@ -25,13 +25,22 @@ def build_status_report(
     for stage in topological_stages(stages or STAGES):
         status = stage_status(stage, state, repo_root=repo_root, upstream_statuses=statuses)
         statuses[stage.name] = status
-        changed = changed_input_paths(stage, state, repo_root=repo_root)[:3] if status == "stale" else []
+        changed = changed_input_paths(stage, state, repo_root=repo_root)[:3] if status in {"stale", "private-stale"} else []
+        version_status = None
+        if stage.name == "model-map":
+            version_status = model_map_artifact_freshness()
+            for track in version_status.get("stale_tracks") or []:
+                changed.append(
+                    f"{track.get('track') or 'model-map'} version "
+                    f"{track.get('recorded_version') or 'unknown'} -> {track.get('live_version') or 'unknown'}"
+                )
         pipeline_rows.append(
             {
                 "name": stage.name,
                 "description": stage.description,
                 "status": status,
                 "changed_inputs": changed,
+                "version_status": version_status,
                 "manual": stage.manual,
                 "private": stage.private,
                 "depends_on": stage.depends_on,
@@ -53,7 +62,8 @@ def suggested_commands(pipeline_rows: list[dict[str, Any]], queues: dict[str, An
     for row in pipeline_rows:
         status = row["status"]
         if row.get("manual"):
-            if row["name"] == "model-map" and model_map_versions.get("status") == "stale":
+            version_status = row.get("version_status") or model_map_versions
+            if row["name"] == "model-map" and version_status.get("status") == "stale":
                 commands.append(
                     {
                         "stage": row["name"],
@@ -67,6 +77,14 @@ def suggested_commands(pipeline_rows: list[dict[str, Any]], queues: dict[str, An
                     "stage": row["name"],
                     "reason": "manual gate",
                     "command": manual_stage_command(str(row["name"])),
+                }
+            )
+        elif status == "private-stale":
+            commands.append(
+                {
+                    "stage": row["name"],
+                    "reason": "private inputs changed",
+                    "command": f"uv run kb build --stage {row['name']} --force",
                 }
             )
         elif status in {"stale", "missing-outputs"}:

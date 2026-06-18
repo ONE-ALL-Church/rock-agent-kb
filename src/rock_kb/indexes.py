@@ -10,11 +10,6 @@ from .agent_answer_pack import build_agent_answer_pack
 from .extract import grep_sensitive_values
 from .jsonl import read_jsonl, write_jsonl
 from .lava_capabilities import build_lava_capability_reference
-from .model_map import (
-    DEMO_MODEL_MAP_SCRAPE_PATH,
-    LATEST_MODEL_MAP_SCRAPE_PATH,
-    build_model_map,
-)
 from .paths import AGENT_DIR, INDEX_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR, SOURCES_DIR
 from .sources import load_sources
 
@@ -184,9 +179,12 @@ def build_agent_pack() -> dict[str, int]:
 
 
 def build_or_reuse_model_map() -> dict[str, Any]:
-    """Rebuild the model map when raw scrapes exist, otherwise reuse committed generated artifacts."""
-    if DEMO_MODEL_MAP_SCRAPE_PATH.exists() and LATEST_MODEL_MAP_SCRAPE_PATH.exists():
-        return build_model_map()
+    """Reuse committed generated model-map artifacts.
+
+    Raw model-map scrapes are ignored review inputs and may be stale. Only the
+    explicit `kb modelmap build` command should regenerate public model-map
+    files from those scrapes.
+    """
 
     required_paths = [
         KNOWLEDGE_DIR / "model-map" / "index.md",

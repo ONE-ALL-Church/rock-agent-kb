@@ -555,6 +555,8 @@ def claim_review_queue_rows(claims: list[dict[str, Any]]) -> list[dict[str, Any]
             action = "use_in_answer_pack"
         if claim_tier == "routing_context_only" or is_generic_source_routing_claim(claim):
             action = "keep_as_source_routing_context"
+        if action == "use_in_answer_pack":
+            continue
         rows.append(
             {
                 "schema": "rock-kb-claim-review-queue-v1",

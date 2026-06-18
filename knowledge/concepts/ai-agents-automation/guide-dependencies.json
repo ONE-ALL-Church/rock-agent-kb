@@ -1451,10 +1451,10 @@
   },
   "approved_media_hash": "99e73fee9968d51e8279d9392fb3185a698c7c919086e92fde74e3050d77984d",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-06-17T23:10:00+00:00",
+  "built_at": "2026-06-18T02:07:45+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "130164d629ab81902621a3b7ad6d6c067e518e3692d28d6d120b48907b93c385",
-  "guide_line_count": 1355,
+  "guide_hash": "b82e9fd7c19c8ebd6f7de1843f7f86d6a2a85bcc8fa1eb5bf83762ed9543e6e7",
+  "guide_line_count": 1267,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
   "guide_word_count": 11301,
   "rebuild_triggers": [
@@ -2683,7 +2683,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1196,
+      "end_line": 1173,
       "heading": "Recipe: “Review An Agent Answer”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-an-agent-answer",
@@ -2694,7 +2694,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1264,
+      "end_line": 1199,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2712,11 +2712,11 @@
         "1fae67b5dc09e2b0",
         "d593e234279cb690"
       ],
-      "start_line": 1197
+      "start_line": 1174
     },
     {
       "confidence": "citation-only",
-      "end_line": 1308,
+      "end_line": 1220,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2730,11 +2730,11 @@
         "6ca31915e98eb031",
         "94226d7c1f62174e"
       ],
-      "start_line": 1265
+      "start_line": 1200
     },
     {
       "confidence": "high",
-      "end_line": 1355,
+      "end_line": 1267,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2764,7 +2764,7 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 1309
+      "start_line": 1221
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:01:02+00:00",

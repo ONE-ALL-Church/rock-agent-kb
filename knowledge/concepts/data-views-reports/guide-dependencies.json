@@ -19973,10 +19973,10 @@
   },
   "approved_media_hash": "769cc094468363bd078ac0249d0b422ad321eb17fed862c76bf53b87eb652057",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-06-17T23:10:00+00:00",
+  "built_at": "2026-06-18T02:07:52+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "490d8c3b526d03cfa73af7ce1a8ad6a7815055f4f2768406d1ee50e7cc6fa59b",
-  "guide_line_count": 2091,
+  "guide_hash": "20a3962ae33a49f89f02c82e7be34ec1c5fa6f495ad0d64be1eeaf4c85b990a6",
+  "guide_line_count": 2003,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
   "guide_word_count": 16085,
   "rebuild_triggers": [
@@ -22090,7 +22090,7 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1920,
+      "end_line": 1897,
       "heading": "Recipe: Diagnose Slow Reporting",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-slow-reporting",
@@ -22102,7 +22102,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1988,
+      "end_line": 1923,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -22120,11 +22120,11 @@
         "0343f1e6031032b4",
         "6dca8c5215eee229"
       ],
-      "start_line": 1921
+      "start_line": 1898
     },
     {
       "confidence": "citation-only",
-      "end_line": 2032,
+      "end_line": 1944,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -22138,11 +22138,11 @@
         "7392dbb131202d0a",
         "ef1e6fc776f40c8b"
       ],
-      "start_line": 1989
+      "start_line": 1924
     },
     {
       "confidence": "structural",
-      "end_line": 2034,
+      "end_line": 1946,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -22192,11 +22192,11 @@
         "f57e2ecdeb65a00e",
         "bce31f25cb8a199e"
       ],
-      "start_line": 2033
+      "start_line": 1945
     },
     {
       "confidence": "normal",
-      "end_line": 2045,
+      "end_line": 1957,
       "heading": "Official And Training Sources",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-official-and-training-sources",
@@ -22217,11 +22217,11 @@
         "add61f36fc8d2512",
         "c48789f22dbf970d"
       ],
-      "start_line": 2035
+      "start_line": 1947
     },
     {
       "confidence": "normal",
-      "end_line": 2062,
+      "end_line": 1974,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -22242,11 +22242,11 @@
         "6afa5ff762c19a12",
         "e0c96eaf68bbdb83"
       ],
-      "start_line": 2046
+      "start_line": 1958
     },
     {
       "confidence": "normal",
-      "end_line": 2078,
+      "end_line": 1990,
       "heading": "Community And Partner Pattern Sources",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-community-and-partner-pattern-sources",
@@ -22268,11 +22268,11 @@
         "29eaffcb0b588e0f",
         "f57e2ecdeb65a00e"
       ],
-      "start_line": 2063
+      "start_line": 1975
     },
     {
       "confidence": "normal",
-      "end_line": 2091,
+      "end_line": 2003,
       "heading": "Dependencies On Other Guides",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependencies-on-other-guides",
@@ -22282,7 +22282,7 @@
         "c48789f22dbf970d",
         "bce31f25cb8a199e"
       ],
-      "start_line": 2079
+      "start_line": 1991
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T14:31:33+00:00",

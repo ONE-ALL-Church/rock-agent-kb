@@ -3798,10 +3798,10 @@
   },
   "approved_media_hash": "1316caaeda7cfcc6a9d5848969f37bf9a95027603a09842e7d1f7b64e0de7ee1",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-06-17T23:10:00+00:00",
+  "built_at": "2026-06-18T02:07:53+00:00",
   "concept_id": "mobile",
-  "guide_hash": "dc7c780d5d1d0693bf4cb4cfab2f05ce92fc7725801103eb42b305b941de8f5d",
-  "guide_line_count": 1591,
+  "guide_hash": "f29787f3aeb9885ceca12cd4808c52b24d514e9665073d90b251f54f259b8c97",
+  "guide_line_count": 1503,
   "guide_path": "knowledge/concepts/mobile/guide.md",
   "guide_word_count": 12885,
   "rebuild_triggers": [
@@ -5524,7 +5524,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1397,
+      "end_line": 1374,
       "heading": "Recipe: Review App Store Readiness",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-review-app-store-readiness",
@@ -5538,7 +5538,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1465,
+      "end_line": 1400,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -5556,11 +5556,11 @@
         "d7a4121f91c3b42b",
         "281ea075e1d0d1ab"
       ],
-      "start_line": 1398
+      "start_line": 1375
     },
     {
       "confidence": "citation-only",
-      "end_line": 1509,
+      "end_line": 1421,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -5574,11 +5574,11 @@
         "45babaf3ce911131",
         "d2890df9787aa1ae"
       ],
-      "start_line": 1466
+      "start_line": 1401
     },
     {
       "confidence": "structural",
-      "end_line": 1511,
+      "end_line": 1423,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5615,11 +5615,11 @@
         "362ccb41c9d64b1f",
         "459b95df0ea8e5ee"
       ],
-      "start_line": 1510
+      "start_line": 1422
     },
     {
       "confidence": "normal",
-      "end_line": 1522,
+      "end_line": 1434,
       "heading": "Primary Official Mobile Docs",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-primary-official-mobile-docs",
@@ -5633,11 +5633,11 @@
         "7151c6037ac8c7a3",
         "9201fe8635986015"
       ],
-      "start_line": 1512
+      "start_line": 1424
     },
     {
       "confidence": "normal",
-      "end_line": 1536,
+      "end_line": 1448,
       "heading": "Commands And Controls",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-commands-and-controls",
@@ -5653,11 +5653,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1523
+      "start_line": 1435
     },
     {
       "confidence": "normal",
-      "end_line": 1552,
+      "end_line": 1464,
       "heading": "Blocks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-blocks",
@@ -5676,11 +5676,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1537
+      "start_line": 1449
     },
     {
       "confidence": "normal",
-      "end_line": 1564,
+      "end_line": 1476,
       "heading": "App Factory And Store Operations",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-app-factory-and-store-operations",
@@ -5695,22 +5695,22 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1553
+      "start_line": 1465
     },
     {
       "confidence": "normal",
-      "end_line": 1568,
+      "end_line": 1480,
       "heading": "Release Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-release-notes",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1565
+      "start_line": 1477
     },
     {
       "confidence": "normal",
-      "end_line": 1585,
+      "end_line": 1497,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -5730,11 +5730,11 @@
         "f5ba65fbdf6d9fea",
         "043ee0dda2027021"
       ],
-      "start_line": 1569
+      "start_line": 1481
     },
     {
       "confidence": "community-supported",
-      "end_line": 1591,
+      "end_line": 1503,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-examples",
@@ -5742,7 +5742,7 @@
         "362ccb41c9d64b1f",
         "459b95df0ea8e5ee"
       ],
-      "start_line": 1586
+      "start_line": 1498
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:13:12+00:00",

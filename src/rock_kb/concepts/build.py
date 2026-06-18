@@ -694,7 +694,7 @@ def replace_or_insert_generated_model_map_pointer_section(guide_text: str, secti
 def replace_or_insert_generated_claim_section(guide_text: str, section: str) -> str:
     section = section.strip() + "\n"
     pattern = re.compile(
-        rf"\n?{re.escape(APPROVED_CLAIMS_SECTION_START)}.*?{re.escape(APPROVED_CLAIMS_SECTION_END)}\n?",
+        rf"\n*{re.escape(APPROVED_CLAIMS_SECTION_START)}.*?{re.escape(APPROVED_CLAIMS_SECTION_END)}\n*",
         re.DOTALL,
     )
     if pattern.search(guide_text):
@@ -709,7 +709,7 @@ def replace_or_insert_generated_media_section(guide_text: str, section: str) -> 
     section = section.strip() + "\n"
     start = "<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->"
     end = "<!-- END GENERATED APPROVED MEDIA COVERAGE -->"
-    pattern = re.compile(rf"\n?{re.escape(start)}.*?{re.escape(end)}\n?", re.DOTALL)
+    pattern = re.compile(rf"\n*{re.escape(start)}.*?{re.escape(end)}\n*", re.DOTALL)
     if pattern.search(guide_text):
         return pattern.sub("\n\n" + section + "\n", guide_text).rstrip() + "\n"
 

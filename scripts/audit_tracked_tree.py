@@ -80,6 +80,8 @@ def should_scan_text(rel_path: str) -> bool:
 
 
 def audit_text_file(path: Path) -> list[str]:
+    if not path.exists():
+        return []
     try:
         text = path.read_text(encoding="utf-8")
     except UnicodeDecodeError:

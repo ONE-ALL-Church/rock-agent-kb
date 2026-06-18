@@ -50,6 +50,16 @@ Each line in `bundle.jsonl` is one JSON object with:
 - Submissions remain community-tier evidence after acceptance unless maintainers later verify the claim against stronger sources.
 - Do not assume auto-merge. Automated acceptance is allowed only after org registration, server-side path restrictions, and required checks are active.
 
+## Agent Submission Flow
+
+Agents from other organizations should keep pull requests narrow and reviewable:
+
+1. Change only `community-contributions/<org-id>/bundle.jsonl` or `source-suggestions/<org-id>/`.
+2. Include a short PR summary listing the concepts touched and source URLs used.
+3. Do not rebuild generated files in the PR. Maintainers rebuild `agent/`, `claims/`, `concepts/`, and `knowledge/` after review.
+4. Treat local-instance observations as examples unless the row explicitly says `needs_live_verification: true`.
+5. Keep organization-specific operational details generalized unless the organization intentionally wants them public.
+
 ## Validate
 
 Run this before opening a PR:

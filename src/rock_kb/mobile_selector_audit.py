@@ -276,7 +276,16 @@ def mobile_selector_audit_status() -> dict[str, Any]:
     dependency = load_selector_dependency_metadata()
     stale = selector_audit_dependency_staleness(dependency) if dependency else []
     inventory_errors = validate_selector_inventory(read_selector_inventory() if SELECTOR_INVENTORY_PATH.exists() else [])
+    if missing_paths:
+        status = "missing"
+    elif inventory_errors:
+        status = "error"
+    elif stale:
+        status = "stale"
+    else:
+        status = "fresh"
     return {
+        "status": status,
         "missing_paths": missing_paths,
         "stale_dependencies": stale,
         "stale_dependency_count": len(stale),
