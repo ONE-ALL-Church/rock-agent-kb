@@ -2,7 +2,7 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-06-18T21:40:06+00:00
+last_built: 2026-06-18T00:00:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -32,7 +32,7 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 - `Lava` spans cms, workflows, sql, security. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_community_hubs, rock_lava_docs, rock_documentation, rock_recipes.
 - Related tags found in source records: workflow, lava, development, cms, usage, sql, training, media.
-- Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training.
+- Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training, triumph_resources.
 
 ## Reviewed Media Insights
 
@@ -134,11 +134,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_podcast_rss`: 1
 - `rock_recipes`: 15
 - `rock_rocku`: 20
+- `triumph_resources`: 1
 
 ## Highest Signal Sources
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
+| GitHub Spotlight: 10/18/2024 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release v17.0.30 released on 10/17/2024. v16.7 Highlights Issue 6006 A new feature has been added to the workflow form when the Person Entry feature is enabled and configured to allow campus selection. There is now an option to filter out inactive campuses. While this option was available in the Workflow Form Builder, it is now included in the workflow form action.... | [source](https://www.triumph.tech/resources/github-spotlight-10182024) |
 | About Lava Fluid | rock_lava_docs | A New Engine Under the Hood Rock v13 introduces a new Lava engine called Fluid. What does that mean? It means the way your Lava is processed behind the scenes will be changing. We’re making this change because the new Fluid engine is faster than the old DotLiquid engine, and because the change to Fluid sets up Rock to move to the new .NET Core framework more easily. Generally you shouldn’t notice a big difference,... | [source](https://community.rockrms.com/lava/fluid) |
 | Adaptive Message | rock_lava_docs | Adaptive Message v17.0 This Lava command provides an easy way to retrieve personalized adaptive messages for an individual. This command operates in two modes: Message Mode or Category Mode . Message Mode In this mode the command returns adaptive messages that best match the individual. Below is an example of how to retrieve up to two matching adaptations for the "giving" Adaptive Message: {% adaptivemessage... | [source](https://community.rockrms.com/lava/commands/adaptivemessage-commands) |
 | Attributes | rock_lava_docs | Attribute Filters If you've worked with Rock for any length of time, you know Attributes are a key feature of its extensibility. Lava allows you to work with them in several powerful ways. Finding Attributes Most places that support Lava allow you to enable a Debug mode that lists all of the merge fields available. Fields that have "Attributes" show you those that are available; like so: Using Attributes In Lava Now... | [source](https://community.rockrms.com/lava/filters/attribute-filters) |
@@ -150,7 +152,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Getting Started | rock_lava_docs | Getting Started With Lava Commands Lava, on its own, is quite amazing. Enabling Commands adds great power, and with that comes... you know... great responsibility. Commands let you do several things that can bypass the built-in security and business logic inside the code. Security To help keep things secure you must enable Lava Commands when you'd like to use them. Let's take a quick look at how to configure them.... | [source](https://community.rockrms.com/lava/commands) |
 | Include | rock_lava_docs | Include While you can type your Lava syntax right into a block's settings, there will be times when you want to reuse your template in several places (think about a template that renders a navigation menu). The include tag reads the contents of a file and uses the Lava in it as the template. Usage {% include ' ~~ /Assets/Lava/PageNav.lava' %} This particular include will look for the file 'PageNav.lava' in the... | [source](https://community.rockrms.com/lava/tags/include-tags) |
 | Interaction Content Channel Item Write | rock_lava_docs | Interaction Content Channel Item Write Command v11.0 This Lava command will write a content channel interaction for the specified content channel item. The Basics By specifying the content channel item ID - as well as a few other optional values - you can log an interaction without having to actually load the content channel item on the page. {% interactioncontentchannelitemwrite contentchannelitemid:'1'... | [source](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write) |
-| Interaction Intent Write | rock_lava_docs | Interaction Intent Write Command v16.4 This Lava command will write an intent interaction for the specified intent. The Basics By specifying the interaction intent value ID - as well as a few other optional values - you can log an interaction. {% interactionintentwrite intentvalueid:'1' operation:'View' summary:'Viewed content with discipleship intent' personaliasid:'10' %} And just like that, an interaction record... | [source](https://community.rockrms.com/lava/commands/interaction-intent-write) |
 
 ## Data Model Landmarks
 
@@ -264,7 +265,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `115`
+- Source records: `116`
 - Lava capability source records: `53`
 - Approved claims: `81`
 - Dependency file: `agent/concept-dependencies.jsonl`

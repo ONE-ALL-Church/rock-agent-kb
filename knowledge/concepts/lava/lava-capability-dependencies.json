@@ -14,7 +14,7 @@
     "tv-apps",
     "workflows"
   ],
-  "generated_at": "2026-06-18T21:41:14+00:00",
+  "generated_at": "2026-06-18T00:00:00+00:00",
   "resource_paths": {
     "agent_capabilities": "agent/lava-capabilities.jsonl",
     "agent_summary": "agent/lava-capability-summary.json",
@@ -26,7 +26,7 @@
   "schema": "rock-kb-lava-capability-dependencies-v1",
   "source_dependencies": [
     {
-      "content_hash": "ca26f9ed8d2672c9b56cf929c7b5815f309e3359d598ba1771f44a11e973b7be",
+      "content_hash": "813b0acbb5ec81315b30509abb29d176dc1dcb01e04f3c47560bc6be60717ce5",
       "lava_doc_category": "overview",
       "lava_element_count": 0,
       "source_id": "rock_lava_docs",

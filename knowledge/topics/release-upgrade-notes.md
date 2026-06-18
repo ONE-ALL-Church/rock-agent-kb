@@ -10,7 +10,7 @@ Core and mobile release notes grouped for upgrade planning.
 
 This page is generated from normalized records. Follow source links before applying operational or code changes.
 
-Matched records: 2442
+Matched records: 2440
 
 ## Highest Signal Records
 

@@ -196,12 +196,12 @@ def test_claim_review_queue_excludes_answer_pack_usable_and_singleton_routing_cl
             },
             {
                 "claim_id": "claim:routing",
-                "claim": "Use this only for source routing.",
+                "claim": "Use this only for source routing, even if the extractor marked it as a candidate.",
                 "claim_type": "risk",
                 "concept_ids": ["workflows"],
                 "claim_tier": "routing_context_only",
                 "authority_tier": "community-reviewed",
-                "answer_candidate": False,
+                "answer_candidate": True,
                 "source_refs": [{"source_id": "rock_rocku", "url": "https://example.com/rocku"}],
             },
         ]

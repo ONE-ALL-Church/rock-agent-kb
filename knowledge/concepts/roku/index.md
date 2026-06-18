@@ -2,7 +2,7 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-06-18T21:40:27+00:00
+last_built: 2026-06-18T00:00:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -31,7 +31,7 @@ Roku developer documentation for Rock-powered SceneGraph applications, pages, co
 ## How To Think About This Area
 
 - `Roku Apps` spans api-integrations, lava, cms, security, media, tv-apps. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_mobile_release_notes, rock_api_docs.
+- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_mobile_release_notes, rock_api_docs, sparkdevnetwork_rock.
 - Related tags found in source records: lava, development, workflow, cms, api, obsidian, security, mobile.
 - Source detail types include: developer_doc, rock_lava_docs, triumph_resources.
 
@@ -55,6 +55,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_lava_docs`: 53
 - `rock_mobile_release_notes`: 1
 - `rock_model_map`: 12
+- `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 4
 
 ## Highest Signal Sources
@@ -107,6 +108,12 @@ Lava fields that the stable scraped Model Map marks as non-database are tracked 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 7.0 | CMS | Fixed an issue where the PlayAudio and PlayVideo media commands could cause the application to crash. Fixes: #35 | [source](https://www.rockrms.com/mobilereleasenotes) |
+
+## Repository Landmarks
+
+| Repository | Language | Inclusion Reason | Citation |
+| --- | --- | --- | --- |
+| SparkDevNetwork/Rock | C# | registered source repository | [source](https://github.com/SparkDevNetwork/Rock) |
 
 ## Subguides
 
@@ -173,7 +180,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `91`
+- Source records: `92`
 - Lava capability source records: `53`
 - Approved claims: `6`
 - Dependency file: `agent/concept-dependencies.jsonl`
