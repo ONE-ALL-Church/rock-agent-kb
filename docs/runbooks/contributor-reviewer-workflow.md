@@ -89,10 +89,21 @@ Maintainers validate accepted reviewed bundles in place:
 
 ```bash
 python scripts/validate_bundle.py
-uv run kb contributions check --path contributions
+uv run kb contributions check --path community-contributions
 ```
 
-Then run the normal `kb status` / `kb build` / audit path before refreshing the public surface.
+After accepting a public contribution PR, import or promote the reviewed rows into the canonical contribution layer, then rebuild from the pipeline rather than editing generated artifacts by hand:
+
+```bash
+uv run kb contributions validate
+uv run kb status
+uv run kb build
+python3 scripts/audit_tracked_tree.py
+python3 scripts/validate_bundle.py
+uv run kb audit public-export
+```
+
+Rows under `community-contributions/` are public intake. Rows under `contributions/` are the reviewed build input that can feed generated guides and agent artifacts.
 
 ## Claim Tier Review
 

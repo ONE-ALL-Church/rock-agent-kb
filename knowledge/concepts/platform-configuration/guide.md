@@ -1471,29 +1471,6 @@ Use the v17/v17.5 Lava docs as the version anchor ([Attribute Lava Filters](http
 6. If data was stored with the wrong field type, plan migration before switching type.
 7. Test old values after field type change.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1520,48 +1497,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1583,29 +1518,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 10 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 20. Source Map And Dependency Notes
 

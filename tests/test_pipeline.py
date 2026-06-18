@@ -59,6 +59,42 @@ def test_stage_is_stale_after_input_changes(tmp_path):
     assert changed_input_paths(stage, state, repo_root=tmp_path) == ["inputs/a.txt"]
 
 
+def test_changed_input_paths_uses_per_file_hashes(tmp_path):
+    stage = Stage(
+        name="one",
+        description="one",
+        inputs=["inputs/*.txt"],
+        outputs=["outputs/result.txt"],
+        run=lambda: None,
+    )
+    first = touch(tmp_path / "inputs/a.txt", "a")
+    touch(tmp_path / "inputs/b.txt", "b")
+    touch(tmp_path / "outputs/result.txt", "ok")
+    state = update_stage_state(stage, {}, repo_root=tmp_path)
+
+    first.write_text("changed", encoding="utf-8")
+
+    assert changed_input_paths(stage, state, repo_root=tmp_path) == ["inputs/a.txt"]
+
+
+def test_private_stage_with_private_only_input_change_is_private_stale(tmp_path):
+    stage = Stage(
+        name="claims",
+        description="claims",
+        inputs=["data/review/*.jsonl"],
+        outputs=["claims/approved-claims.jsonl"],
+        run=lambda: None,
+        private=True,
+    )
+    review = touch(tmp_path / "data/review/a.jsonl", "{}")
+    touch(tmp_path / "claims/approved-claims.jsonl", "{}")
+    state = update_stage_state(stage, {}, repo_root=tmp_path)
+
+    review.write_text('{"changed":true}', encoding="utf-8")
+
+    assert stage_status(stage, state, repo_root=tmp_path) == "private-stale"
+
+
 def test_downstream_is_stale_when_upstream_is_stale(tmp_path):
     stage = Stage(
         name="two",
@@ -73,6 +109,22 @@ def test_downstream_is_stale_when_upstream_is_stale(tmp_path):
     state = update_stage_state(stage, {}, repo_root=tmp_path)
 
     assert stage_status(stage, state, repo_root=tmp_path, upstream_statuses={"one": "stale"}) == "stale"
+
+
+def test_downstream_allows_private_stale_upstream(tmp_path):
+    stage = Stage(
+        name="two",
+        description="two",
+        inputs=["inputs/two.txt"],
+        outputs=["outputs/two.txt"],
+        run=lambda: None,
+        depends_on=["one"],
+    )
+    touch(tmp_path / "inputs/two.txt")
+    touch(tmp_path / "outputs/two.txt")
+    state = update_stage_state(stage, {}, repo_root=tmp_path)
+
+    assert stage_status(stage, state, repo_root=tmp_path, upstream_statuses={"one": "private-stale"}) == "fresh"
 
 
 def test_missing_outputs_are_detected(tmp_path):
@@ -249,6 +301,33 @@ def test_build_reuses_public_artifacts_when_private_inputs_absent(tmp_path):
     assert runs == []
     assert result["actions"][0]["action"] == "reuse-public-artifacts"
     assert result["ran"][0]["stage"] == "public-stage"
+
+
+def test_build_marks_private_stale_without_force(tmp_path):
+    runs = []
+
+    def run_private():
+        runs.append("private")
+
+    private_stage = Stage(
+        name="private-stage",
+        description="private",
+        inputs=["data/review/*.jsonl"],
+        outputs=["claims/approved-claims.jsonl"],
+        run=run_private,
+        private=True,
+    )
+    review = touch(tmp_path / "data/review/a.jsonl", "{}")
+    touch(tmp_path / "claims/approved-claims.jsonl", "{}")
+    state_path = tmp_path / "state.json"
+    save_state(update_stage_state(private_stage, {}, repo_root=tmp_path), state_path)
+    review.write_text('{"changed":true}', encoding="utf-8")
+
+    result = run_build(stages=[private_stage], repo_root=tmp_path, state_path=state_path)
+
+    assert runs == []
+    assert result["actions"][0]["status"] == "private-stale"
+    assert result["actions"][0]["action"] == "private-inputs-changed"
 
 
 def test_build_manual_gate_blocks_downstream(tmp_path):

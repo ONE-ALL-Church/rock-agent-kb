@@ -1697,29 +1697,6 @@ Check:
 
 Sources: [Release Notes](https://www.rockrms.com/releasenotes), [GitHub Spotlight: 9/6/2024](https://www.triumph.tech/resources/github-spotlight-962024-2), [GitHub Spotlight: 5/21/2026](https://www.triumph.tech/resources/github-spotlight-5212026).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1746,48 +1723,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1809,29 +1744,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 65 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 18. Source Map And Dependency Notes
 

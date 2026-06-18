@@ -1276,29 +1276,6 @@ Do not assume expanded Linkages contain a complete public URL. Inspect:
 
 Use the [API Q&A](https://community.rockrms.com/ask/developing/2547) as evidence that this is a known integration question, not as an answered recipe.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1325,48 +1302,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1388,29 +1323,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 15 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 18. Source Map And Dependency Notes
 

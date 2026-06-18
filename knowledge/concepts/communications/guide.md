@@ -1101,29 +1101,6 @@ Inspect:
 
 Do not promise analytics for workflow emails unless confirmed in the live instance. The source pack includes an unanswered community question showing this can differ by path ([Mailgun Tracking Q&A](https://community.rockrms.com/ask/using/2824)).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1150,48 +1127,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1213,29 +1148,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 31 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 18. Source Map And Dependency Notes
 

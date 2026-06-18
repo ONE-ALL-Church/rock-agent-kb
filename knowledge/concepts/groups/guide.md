@@ -1166,29 +1166,6 @@ Inspect:
 
 Community examples show custom pages using Dynamic Data and communications for scheduled members ([View and Communicate with all Scheduled Group Members](https://community.rockrms.com/recipes/185)). Build the production version with reviewed SQL, permissions, and communication policy.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1215,48 +1192,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1278,29 +1213,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 39 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 19. Source Map And Dependency Notes
 

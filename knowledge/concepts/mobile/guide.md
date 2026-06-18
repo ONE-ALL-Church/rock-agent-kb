@@ -1371,29 +1371,6 @@ The deprecation basis is the On Device Platform doc ([On Device Platform](https:
 
 Use App Store Product Page, Rock Logins, Developer Accounts, and Android Keystore docs as primary sources ([App Store Product Page](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page), [Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins), [Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts), [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1420,48 +1397,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1483,29 +1418,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | More |  | 17 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 19. Source Map And Dependency Notes
 

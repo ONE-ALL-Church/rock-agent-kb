@@ -9,9 +9,17 @@ from typing import Any, Literal
 from ..paths import INDEX_DIR, REPO_ROOT
 from .stages import Stage
 
-StageStatus = Literal["fresh", "stale", "missing-outputs", "manual"]
+StageStatus = Literal["fresh", "stale", "private-stale", "missing-outputs", "manual"]
 
 DEFAULT_STATE_PATH = INDEX_DIR / "build-state.json"
+NON_BLOCKING_UPSTREAM_STATUSES = {"fresh", "private-stale"}
+PRIVATE_INPUT_PREFIXES = (
+    "data/media/",
+    "data/normalized/",
+    "data/private/",
+    "data/raw-manifests/",
+    "data/review/",
+)
 
 
 def load_state(path: Path = DEFAULT_STATE_PATH) -> dict[str, dict[str, Any]]:
@@ -34,6 +42,7 @@ def update_stage_state(
     updated = dict(state)
     updated[stage.name] = {
         "input_hash": combined_input_hash(stage, repo_root=repo_root),
+        "input_files": input_file_hashes(stage, repo_root=repo_root),
         "completed_at": completed_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
     }
     return updated
@@ -47,21 +56,41 @@ def stage_status(
 ) -> StageStatus:
     if stage.manual:
         return "manual"
-    if any((upstream_statuses or {}).get(dep) != "fresh" for dep in stage.depends_on):
+    if any((upstream_statuses or {}).get(dep) not in NON_BLOCKING_UPSTREAM_STATUSES for dep in stage.depends_on):
         return "stale"
     if missing_output_patterns(stage, repo_root=repo_root):
         return "missing-outputs"
     previous = state.get(stage.name) or {}
     if previous.get("input_hash") != combined_input_hash(stage, repo_root=repo_root):
+        changed = changed_input_paths(stage, state, repo_root=repo_root)
+        if stage.private and changed and all(is_private_input_path(path) for path in changed):
+            return "private-stale"
         return "stale"
     return "fresh"
 
 
 def changed_input_paths(stage: Stage, state: dict[str, dict[str, Any]], repo_root: Path = REPO_ROOT) -> list[str]:
     previous = state.get(stage.name) or {}
-    if previous.get("input_hash") == combined_input_hash(stage, repo_root=repo_root):
+    current_hash = combined_input_hash(stage, repo_root=repo_root)
+    if previous.get("input_hash") == current_hash:
         return []
-    return [path.relative_to(repo_root).as_posix() for path in input_files(stage, repo_root=repo_root)]
+    current_files = input_file_hashes(stage, repo_root=repo_root)
+    previous_files = previous.get("input_files")
+    if isinstance(previous_files, dict):
+        return sorted(
+            path
+            for path in set(current_files) | set(previous_files)
+            if current_files.get(path) != previous_files.get(path)
+        )
+    return sorted(current_files)
+
+
+def input_file_hashes(stage: Stage, repo_root: Path = REPO_ROOT) -> dict[str, str]:
+    return {path.relative_to(repo_root).as_posix(): file_hash(path) for path in input_files(stage, repo_root=repo_root)}
+
+
+def is_private_input_path(path: str) -> bool:
+    return path.startswith(PRIVATE_INPUT_PREFIXES)
 
 
 def combined_input_hash(stage: Stage, repo_root: Path = REPO_ROOT) -> str:

@@ -1060,29 +1060,6 @@ If a browser call to schedules fails but Postman works, inspect:
 
 The provided Q&A mentions a v12.8 browser exception involving `FriendlyScheduleText` lacking a setter, but it has no answer in the source pack, so do not treat it as a solved known issue ([REST API for Schedules](https://community.rockrms.com/ask/developing/2710)).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
@@ -1109,48 +1086,6 @@ This generated summary links the long-form guide to the approved public claim gr
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
 ## Approved Media Coverage
 
@@ -1171,29 +1106,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Schedules Transcript Insight](https://community.rockrms.com/rocku/check-in/schedules) | approved_for_public_distillation | 2 | media-insight:70fee5b08ce0f4f2 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 19. Source Map And Dependency Notes
 

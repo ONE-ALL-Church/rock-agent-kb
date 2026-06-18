@@ -131,8 +131,6 @@ def test_build_or_reuse_model_map_reuses_generated_artifacts_without_raw_scrapes
     agent_dir.mkdir(parents=True)
     monkeypatch.setattr(indexes_module, "KNOWLEDGE_DIR", knowledge_dir)
     monkeypatch.setattr(indexes_module, "AGENT_DIR", agent_dir)
-    monkeypatch.setattr(indexes_module, "DEMO_MODEL_MAP_SCRAPE_PATH", tmp_path / "missing-demo.json")
-    monkeypatch.setattr(indexes_module, "LATEST_MODEL_MAP_SCRAPE_PATH", tmp_path / "missing-latest.json")
 
     (model_map_dir / "index.md").write_text("# Model Map\n", encoding="utf-8")
     (model_map_dir / "stable-models.jsonl").write_text('{"model":"Person"}\n', encoding="utf-8")

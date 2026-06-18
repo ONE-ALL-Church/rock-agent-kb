@@ -916,6 +916,42 @@ def test_replace_or_insert_generated_media_section_replaces_existing_section():
     assert text.count("BEGIN GENERATED APPROVED MEDIA COVERAGE") == 1
 
 
+def test_generated_claim_and_media_sections_are_idempotent():
+    claim_section = render_long_form_approved_claims_section(
+        [
+            {
+                "claim_id": "claim:one",
+                "claim": "One claim.",
+                "claim_type": "configuration",
+                "authority_tier": "community-reviewed",
+                "source_refs": [],
+            }
+        ]
+    )
+    media_section = render_long_form_approved_media_section(
+        [
+            {
+                "source_record_id": "media-insight:one",
+                "source_title": "One media",
+                "source_url": "https://example.com/media",
+                "review_status": "approved_for_public_distillation",
+                "key_insight_count": 1,
+            }
+        ]
+    )
+    text = "# Guide\n\nBody.\n\n## Source Map And Dependency Notes\n"
+    first = replace_or_insert_generated_media_section(
+        replace_or_insert_generated_claim_section(text, claim_section),
+        media_section,
+    )
+    second = replace_or_insert_generated_media_section(
+        replace_or_insert_generated_claim_section(first, claim_section),
+        media_section,
+    )
+
+    assert second == first
+
+
 def test_build_single_concept_creates_baseline_agent_entrypoints(monkeypatch, tmp_path):
     monkeypatch.setattr(concepts_module, "KNOWLEDGE_DIR", tmp_path / "knowledge")
     monkeypatch.setattr(concepts_module, "AGENT_DIR", tmp_path / "agent")

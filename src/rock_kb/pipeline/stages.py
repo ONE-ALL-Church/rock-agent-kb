@@ -152,7 +152,7 @@ STAGES: list[Stage] = [
         name="mobile-selector-audit",
         description="Build Rock Mobile selector audit resources from reviewed inventory and normalized sources.",
         inputs=[
-            "knowledge/concepts/mobile/resources/*.jsonl",
+            "knowledge/concepts/mobile/mobile-block-selector-xray.jsonl",
             "knowledge/concepts/mobile/resources/*.md",
             "data/normalized/*.jsonl",
         ],

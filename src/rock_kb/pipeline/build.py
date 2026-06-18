@@ -49,10 +49,13 @@ def run_build(
             statuses[stage.name] = "fresh"
             continue
         should_run = force or status in {"stale", "missing-outputs"}
+        action_name = "run" if should_run else "skip"
+        if status == "private-stale" and not force:
+            action_name = "private-inputs-changed"
         action = {
             "stage": stage.name,
             "status": status,
-            "action": "run" if should_run else "skip",
+            "action": action_name,
             "command": f"uv run kb build --stage {stage.name}",
         }
         actions.append(action)

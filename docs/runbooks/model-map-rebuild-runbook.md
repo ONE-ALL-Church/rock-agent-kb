@@ -109,7 +109,7 @@ uv run kb publish export
 
 Use `ROCK_KB_GENERATED_AT=<iso timestamp>` for intentional rebuilds that should not change generated metadata on every run. `build-agent-pack` refreshes the generated model-map pointer block in long-form concept guides.
 
-In CI, raw scrape artifacts under `data/review/model-map-scrape/` may be absent because that directory is review/private working state. In that case `uv run kb build --stage agent-pack` reuses the committed generated model-map layer under `knowledge/model-map/` and `agent/model-map-*.jsonl`. Run `uv run kb modelmap build` only after intentionally refreshing the stable/latest raw scrapes.
+Raw scrape artifacts under `data/review/model-map-scrape/` are ignored review/private working state. `uv run kb build --stage agent-pack` always reuses the committed generated model-map layer under `knowledge/model-map/` and `agent/model-map-*.jsonl`; it must not regenerate the model-map from ignored raw scrapes. Run `uv run kb modelmap build` only after intentionally refreshing and reviewing the stable/latest raw scrapes.
 
 ## Validation
 

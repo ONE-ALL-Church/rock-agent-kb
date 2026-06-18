@@ -50,6 +50,39 @@ def test_mobile_selector_audit_dependencies_include_all_block_pages(tmp_path, mo
     assert "note-item-name" in audit.SELECTOR_AUDIT_PATH.read_text()
 
 
+def test_mobile_selector_audit_status_reports_fresh(tmp_path, monkeypatch):
+    concept_dir = tmp_path / "knowledge" / "concepts" / "mobile"
+    normalized_dir = tmp_path / "data" / "normalized"
+    monkeypatch.setattr(audit, "MOBILE_CONCEPT_DIR", concept_dir)
+    monkeypatch.setattr(audit, "MOBILE_RESOURCE_DIR", concept_dir / "resources")
+    monkeypatch.setattr(audit, "SELECTOR_INVENTORY_PATH", concept_dir / "mobile-block-selector-xray.jsonl")
+    monkeypatch.setattr(audit, "DEPENDENCY_PATH", concept_dir / "mobile-block-selector-xray-dependencies.json")
+    monkeypatch.setattr(audit, "SELECTOR_AUDIT_PATH", concept_dir / "resources" / "block-selector-image-audit.md")
+    monkeypatch.setattr(audit, "CSS_XRAY_RESOURCE_PATH", concept_dir / "resources" / "css-xray-design-resource.md")
+    monkeypatch.setattr(audit, "NORMALIZED_DIR", normalized_dir)
+    source_url = "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/notes"
+    write_jsonl(
+        audit.SELECTOR_INVENTORY_PATH,
+        [
+            {
+                "block": "Notes",
+                "confidence": "high",
+                "description": "note title",
+                "evidence": "official_text",
+                "kind": "selector",
+                "selector": "note-item-name",
+                "url": source_url,
+            }
+        ],
+    )
+    write_jsonl(normalized_dir / "rock_mobile_docs.jsonl", [normalized_row(source_url, "hash-a")])
+    audit.CSS_XRAY_RESOURCE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    audit.CSS_XRAY_RESOURCE_PATH.write_text("# CSS X-Ray\n", encoding="utf-8")
+    audit.build_mobile_selector_audit()
+
+    assert audit.mobile_selector_audit_status()["status"] == "fresh"
+
+
 def test_selector_audit_dependency_staleness_reports_changed_hash(tmp_path, monkeypatch):
     normalized_dir = tmp_path / "data" / "normalized"
     monkeypatch.setattr(audit, "NORMALIZED_DIR", normalized_dir)
