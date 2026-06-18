@@ -1,0 +1,139 @@
+{
+  "approved_claim_dependencies": [],
+  "approved_claim_hashes": {},
+  "approved_claims_hash": "527fe633ce2e2ee16e43a1304c6c8910971d31e16c008bd79ea10b850f605e29",
+  "approved_claims_path": "knowledge/concepts/obsidian-development/approved-claims.md",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "f768e9a71799adfa685a6d1e9f212cff4a00b0eef2b1cd554f5c1fa1a1b517cd",
+  "approved_media_path": "knowledge/concepts/obsidian-development/approved-media.md",
+  "built_at": "2026-06-18T23:02:35+00:00",
+  "concept_id": "obsidian-development",
+  "guide_hash": "dedc675d0dfa2859473eeac82c2457d01a1f30271c400138c84e7e7714a78dba",
+  "guide_line_count": 71,
+  "guide_path": "knowledge/concepts/obsidian-development/guide.md",
+  "guide_word_count": 497,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "8b36a3bb6cf452c1",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/obsidian"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 32,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": false,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 40,
+      "heading": "2. Agent Workflow",
+      "needs_live_verification": true,
+      "section_id": "2-agent-workflow",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 33
+    },
+    {
+      "confidence": "normal",
+      "end_line": 45,
+      "heading": "3. Boundaries",
+      "needs_live_verification": false,
+      "section_id": "3-boundaries",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 41
+    },
+    {
+      "confidence": "structural",
+      "end_line": 53,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 46
+    },
+    {
+      "confidence": "structural",
+      "end_line": 60,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 54
+    },
+    {
+      "confidence": "normal",
+      "end_line": 71,
+      "heading": "4. Source Map And Dependency Notes",
+      "needs_live_verification": true,
+      "section_id": "4-source-map-and-dependency-notes",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 61
+    }
+  ],
+  "source_pack_hydrated_at": null,
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "8b36a3bb6cf452c1",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/obsidian",
+      "url": "https://community.rockrms.com/developer/obsidian"
+    }
+  ],
+  "synthesis_profile": null
+}

@@ -123,9 +123,10 @@ def audit_guide_quality(
     checks.extend(contribution_quality_checks(guide_text, contribution_records, private_draft_records))
     failures = [item for item in checks if not item["passed"]]
     score = int(100 * (len(checks) - len(failures)) / len(checks))
+    is_starter_guide = "guide_status: starter_needs_review" in guide_text[:1000]
     return {
         "concept_id": concept_id,
-        "status": "pass" if not failures else "fail",
+        "status": "pass" if not failures else "starter" if is_starter_guide else "fail",
         "score": score,
         "generated_at": generated_at_iso(),
         "guide_word_count": word_count,

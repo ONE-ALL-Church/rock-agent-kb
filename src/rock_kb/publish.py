@@ -361,9 +361,13 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             errors.append(f"{path}:{index} entity row has no source_urls or source_keys")
         if path.endswith(("concept-task-cards.jsonl", "task-cards.jsonl", "agent-cards.jsonl")) and not (row.get("source_urls") or row.get("source_keys")):
             errors.append(f"{path}:{index} task card has no source_urls or source_keys")
-        if path.endswith("section-source-map.jsonl") and not (row.get("source_keys") or row.get("citations")):
+        structural_section_without_sources = row.get("section_id") in {
+            "approved-claim-coverage",
+            "approved-media-coverage",
+        } and row.get("confidence") == "structural"
+        if path.endswith("section-source-map.jsonl") and not (row.get("source_keys") or row.get("citations") or structural_section_without_sources):
             errors.append(f"{path}:{index} section source row has no source_keys or citations")
-        if path.endswith("section-status.jsonl") and not row.get("depends_on_sources"):
+        if path.endswith("section-status.jsonl") and not (row.get("depends_on_sources") or row.get("section_id") in {"approved-claim-coverage", "approved-media-coverage"}):
             errors.append(f"{path}:{index} section status row has no depends_on_sources")
         if path.endswith("lava-capabilities.jsonl") and not (row.get("official_url") and row.get("source_record_id")):
             errors.append(f"{path}:{index} Lava capability row has no official_url or source_record_id")

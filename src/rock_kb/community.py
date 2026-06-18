@@ -444,12 +444,26 @@ def extract_rockumentation_fields(payload: dict[str, Any], source_url: str, text
     family = rockumentation_family_from_url(source_url)
     slug = rockumentation_slug_from_url(source_url) or configuration.get("slug")
     path_parts = [part for part in str(slug or "").split("/") if part]
+    documentation_path = "/".join([family, *path_parts]) if family and path_parts else None
+    branch_depth = 2 if family == "documentation" else 1
+    documentation_branch = (
+        "/".join([family, *path_parts[:branch_depth]])
+        if family and len(path_parts) >= branch_depth
+        else documentation_path
+    )
+    documentation_branches = []
+    if family:
+        for index in range(1, len(path_parts) + 1):
+            documentation_branches.append("/".join([family, *path_parts[:index]]))
     return {
         "detail_type": detail_type,
         "documentation_article_id": article_id,
         "documentation_article_key": f"{family}:{article_id}" if family and article_id else None,
         "documentation_family": family,
         "documentation_slug": slug,
+        "documentation_path": documentation_path,
+        "documentation_branch": documentation_branch,
+        "documentation_branches": documentation_branches,
         "documentation_path_parts": path_parts,
         "documentation_parent_slugs": ["/".join(path_parts[:index]) for index in range(1, len(path_parts))],
         "documentation_current_version": configuration.get("currentVersion"),

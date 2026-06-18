@@ -2,7 +2,7 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-06-18T00:00:00+00:00
+last_built: 2026-06-18T23:01:28+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,7 +35,7 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 ## How To Think About This Area
 
 - `Helix` spans lava, api-integrations, security, cms, workflows, forms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_recipes, rock_core_release_notes, rock_documentation, rock_model_map, rock_lava_docs.
+- The strongest source families in this build are: rock_developer, rock_documentation, rock_recipes, rock_core_release_notes, rock_model_map, rock_lava_docs.
 - Related tags found in source records: development, lava, api, workflow, cms, obsidian, operations, releases.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_community_site, rock_lava_docs, triumph_resources.
 
@@ -56,8 +56,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_community_site`: 1
 - `rock_core_release_notes`: 11
 - `rock_developer`: 27
-- `rock_documentation`: 3
-- `rock_lava_docs`: 26
+- `rock_documentation`: 4
+- `rock_lava_docs`: 25
 - `rock_model_map`: 12
 - `rock_recipes`: 1
 - `sparkdevnetwork_rock`: 1
@@ -70,15 +70,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Overview | rock_developer | Helix is the codename for an upcoming project that represents the next evolution of Lava for web development, integrating four distinct technologies. * [HTMX](/documentation/helix/overview#htmx) * [Lava Applications](/documentation/helix/overview#lava-applications) * [Lava Commands](/documentation/helix/overview#lava-commands) * [Control Shortcodes](/documentation/helix/overview#control-shortcodes) Important Before... | [source](https://community.rockrms.com/developer/helix/overview) |
 | Observability | rock_developer | We expect our applications to be fast. Embracing the principle of "inspect what you expect," we've integrated observability into each Lava Endpoint call. Activities for each endpoint are named using the pattern: `LavaEndpoint: {LavaEndpoint.Name} \| {LavaEndpoint.LavaApplication.Name}`. Additionally, we add the following attributes to the root activity: * rock.lava\_endpoint: the name of the endpoint. *... | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
 | Magnus | rock_developer | Lava Applications and Magnus are a perfect match. You can easily edit your applications and endpoints right in VS Code. Since content blocks can link to an application, we can group front-end content blocks with back-end endpoints, simplifying application development. See the [Magnus homepage](https://www.triumph.tech/magnus) on the Triumph site for more information on installing and configuring this plugin. | [source](https://community.rockrms.com/developer/helix/lava-applications/magnus) |
-| Forms & Controls | rock_developer | [Understanding Forms](/documentation/helix/forms-controls/understanding-forms) [Using Form Controls](/documentation/helix/forms-controls/using-form-controls) [Creating New Controls](/documentation/helix/forms-controls/creating-new-controls) [Form Validation](/documentation/helix/forms-controls/form-validation) [Loading Indicator](/documentation/helix/forms-controls/loading-indicator) | [source](https://community.rockrms.com/developer/helix/forms-controls) |
 | Learning More | rock_developer | Want to go deeper on HTMX? The [HTMX website](https://www.htmx.org/) provides a much deeper understanding of what's passible. There's also two ebooks you can check-out. ## Examples The best way to understand is to see it in action. Triumph has created a small gallery of simple examples for you to see the power and jumpstart you on your way to implementing HTMX yourself. If you know of any other HTMX galleries for... | [source](https://community.rockrms.com/developer/helix/htmx/learning-more) |
+| Forms & Controls | rock_developer | [Understanding Forms](/documentation/helix/forms-controls/understanding-forms) [Using Form Controls](/documentation/helix/forms-controls/using-form-controls) [Creating New Controls](/documentation/helix/forms-controls/creating-new-controls) [Form Validation](/documentation/helix/forms-controls/form-validation) [Loading Indicator](/documentation/helix/forms-controls/loading-indicator) | [source](https://community.rockrms.com/developer/helix/forms-controls) |
 | Lava Applications | rock_developer | HTMX empowers you to build responsive and dynamic applications by creating server-side endpoints that return HTML snippets. Managing multiple endpoints is common, even in basic applications. To simplify this, we introduced Lava Applications, which consist of two key components: the Application and its Endpoints. Below is a diagram of a very basic Lava Application: The example showcases an application with five... | [source](https://community.rockrms.com/developer/helix/lava-applications) |
-| 🧬 Helix | rock_developer | Redefine the boundaries of what you believed possible with Lava. ** Dynamic Content without the Need for JavaScript** Infuse your web pages with live content updates using Lava, bypassing the complexity of JavaScript. [HTMX](/documentation/helix/htmx) ** Elevate Lava Beyond Reading to Updating Data** Transform Lava into a powerful tool that not only reads but also updates data seamlessly within your applications.... | [source](https://community.rockrms.com/developer/helix) |
 | Content Block | rock_developer | With your application and endpoints ready you're pretty much set on the backend. While you can technically call the backend from any webpage by importing the HTMX library yourself, we highly recommend using the provided Lava Application Content block on the front-end. This block automatically registers HTMX for you and provides convenience features and styling. Below are the block settings for the Lava Application... | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
 | Customizing Rock | rock_developer | There are several levels of customization available for your Rock instance, described below in basic categories. While it might seem desirable to aim for the highest level, it's often better to aim lower. Each new level, while offering more power and capabilities, also introduces greater complexity and increased support costs. We advise staying as low on the pyramid as possible. Lava Applications provide enhanced... | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
+| HTMX | rock_developer | [Learning More](/documentation/helix/htmx/learning-more) [Syntax Style Guides](/documentation/helix/htmx/syntax-style-guides) | [source](https://community.rockrms.com/developer/helix/htmx) |
+| 🧬 Helix | rock_developer | Redefine the boundaries of what you believed possible with Lava. ** Dynamic Content without the Need for JavaScript** Infuse your web pages with live content updates using Lava, bypassing the complexity of JavaScript. [HTMX](/documentation/helix/htmx) ** Elevate Lava Beyond Reading to Updating Data** Transform Lava into a powerful tool that not only reads but also updates data seamlessly within your applications.... | [source](https://community.rockrms.com/developer/helix) |
 | Applications | rock_developer | Configuring a Lava Application is quite straightforward. Below is a screenshot of the editing panel. Below are the properties that are required: * **Name** - A friendly name for you to keep your applications organized. * **Description** - To serve as a place for some documentation about your application. * **Slug** - Helps to tell HTMX what application to use (in the example above the application slug is... | [source](https://community.rockrms.com/developer/helix/lava-applications/applications) |
 | FAQ | rock_developer | Here you'll find a comprehensive list of frequently asked questions about the Helix project, accompanied by detailed answers. **Why is Helix not a part of core?** ~~Helix is a R&D project by Triumph Tech. Only Spark Development Network can decide to put code into core.~~ It is now in core! **Is Helix available in Rock Mobile?** We like the way you think! Helix would be very powerful if it was a part of Rock Mobile.... | [source](https://community.rockrms.com/developer/helix/overview/faq) |
-| Loading Indicator | rock_developer | HTMX has a sophisticated and well considered loading indicator pattern. See their documentation for all of the details. Below are a couple of prebuilt patterns to help you get started. Note The image paths below are for when using Helix with Rock v18 or later. If you are using the plugin version of Helix, the paths will be `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/...` ## Adding Indicator To Buttons One great... | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
 
 ## Data Model Landmarks
 
@@ -222,7 +222,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `117`
+- Source records: `118`
 - Lava capability source records: `53`
 - Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`

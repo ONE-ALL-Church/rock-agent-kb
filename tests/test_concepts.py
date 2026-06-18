@@ -124,6 +124,56 @@ def test_path_constrained_concept_and_subguide_prefer_matching_developer_branch(
     assert "https://community.rockrms.com/developer/obsidian/form-validation" not in text
 
 
+def test_documentation_branch_constraints_match_structured_metadata():
+    concept = Concept(
+        id="prayer-care",
+        title="Prayer And Care",
+        description="Prayer.",
+        keywords=["prayer"],
+        source_weights={"rock_documentation": 1},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={"documentation_branches": ["documentation/engagement/prayer"]},
+    )
+    records = [
+        {
+            "id": "prayer",
+            "source_id": "rock_documentation",
+            "source_title": "Request Settings",
+            "source_url": "https://community.rockrms.com/documentation/engagement/prayer/request-settings",
+            "documentation_branch": "documentation/engagement/prayer",
+            "documentation_branches": [
+                "documentation/engagement",
+                "documentation/engagement/prayer",
+                "documentation/engagement/prayer/request-settings",
+            ],
+            "documentation_path": "documentation/engagement/prayer/request-settings",
+            "summary": "Configuration for request settings.",
+        },
+        {
+            "id": "groups",
+            "source_id": "rock_documentation",
+            "source_title": "Prayer Group Mention",
+            "source_url": "https://community.rockrms.com/documentation/engagement/groups/prayer-group-mention",
+            "documentation_branch": "documentation/engagement/groups",
+            "documentation_branches": [
+                "documentation/engagement",
+                "documentation/engagement/groups",
+                "documentation/engagement/groups/prayer-group-mention",
+            ],
+            "documentation_path": "documentation/engagement/groups/prayer-group-mention",
+            "summary": "Mentions prayer while documenting groups.",
+        },
+    ]
+
+    ranked = rank_records_for_concept(concept, records)
+
+    assert [record["id"] for record in ranked] == ["prayer"]
+
+
 def test_record_table_rows_skip_sensitive_looking_summaries():
     rows = record_table_rows(
         [

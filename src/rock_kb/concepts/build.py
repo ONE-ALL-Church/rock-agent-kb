@@ -571,6 +571,7 @@ def refresh_long_form_approved_claims(
                     "guide_path": relative_path(guide_path),
                     "status": "missing_guide",
                     "approved_claim_count": 0,
+                    "approved_media_count": 0,
                     "changed": False,
                 }
             )

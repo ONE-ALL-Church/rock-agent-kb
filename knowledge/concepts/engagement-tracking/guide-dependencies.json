@@ -1,0 +1,196 @@
+{
+  "approved_claim_dependencies": [],
+  "approved_claim_hashes": {},
+  "approved_claims_hash": "a63ae3b543194adb41aebd6e9600222f075591f6b09edafb9fb9db2745181c86",
+  "approved_claims_path": "knowledge/concepts/engagement-tracking/approved-claims.md",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "79b1615d8b90e2855f4085d8ae88b47af6695f86081fd6b99fc997596166a855",
+  "approved_media_path": "knowledge/concepts/engagement-tracking/approved-media.md",
+  "built_at": "2026-06-18T23:02:33+00:00",
+  "concept_id": "engagement-tracking",
+  "guide_hash": "ac69ec3a638a34c1f633cc7ffc408a271e23bfedc7856373be3c1c7c67e5a26a",
+  "guide_line_count": 70,
+  "guide_path": "knowledge/concepts/engagement-tracking/guide.md",
+  "guide_word_count": 510,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "e261a62bd0cdb7e8",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/steps"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "433c95686237aa43",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "9f7f2404ad9395cf",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "62c8e250fa83c52b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 39,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": false,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "e261a62bd0cdb7e8"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 47,
+      "heading": "2. Agent Workflow",
+      "needs_live_verification": true,
+      "section_id": "2-agent-workflow",
+      "source_keys": [
+        "433c95686237aa43"
+      ],
+      "start_line": 40
+    },
+    {
+      "confidence": "normal",
+      "end_line": 52,
+      "heading": "3. Boundaries",
+      "needs_live_verification": false,
+      "section_id": "3-boundaries",
+      "source_keys": [
+        "9f7f2404ad9395cf"
+      ],
+      "start_line": 48
+    },
+    {
+      "confidence": "structural",
+      "end_line": 60,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "9f7f2404ad9395cf"
+      ],
+      "start_line": 53
+    },
+    {
+      "confidence": "structural",
+      "end_line": 67,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "9f7f2404ad9395cf"
+      ],
+      "start_line": 61
+    },
+    {
+      "confidence": "normal",
+      "end_line": 70,
+      "heading": "4. Source Map And Dependency Notes",
+      "needs_live_verification": false,
+      "section_id": "4-source-map-and-dependency-notes",
+      "source_keys": [
+        "62c8e250fa83c52b"
+      ],
+      "start_line": 68
+    }
+  ],
+  "source_pack_hydrated_at": null,
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "e261a62bd0cdb7e8",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/steps",
+      "url": "https://community.rockrms.com/documentation/engagement/steps"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "433c95686237aa43",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/assessments",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "9f7f2404ad9395cf",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/streaks",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "62c8e250fa83c52b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools"
+    }
+  ],
+  "synthesis_profile": null
+}

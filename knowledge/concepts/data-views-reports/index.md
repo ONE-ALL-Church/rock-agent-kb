@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-06-18T00:00:00+00:00
+last_built: 2026-06-18T23:01:25+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -31,7 +31,7 @@ Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
 ## How To Think About This Area
 
 - `Data Views And Reports` spans sql, model-map, lava, finance, attendance. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_rocku, triumph_resources, rock_community_hubs, rock_recipes, rock_documentation, rock_model_map.
+- The strongest source families in this build are: rock_rocku, triumph_resources, rock_community_hubs, rock_documentation, rock_recipes, rock_model_map.
 - Related tags found in source records: media, podcast, timestamped-insights, usage, workflow, training, lava, operations.
 - Source detail types include: documentation_article, recipe.
 
@@ -361,9 +361,9 @@ Keywords: `data view, filter`
 | Data View Overview Transcript Insight | rock_rocku | Data View Overview strengthens the reporting guide by reinforcing Data Views as reusable qualifying-record definitions whose filters, persistence, and consumers must be checked before edits. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | Post Filter Transformation Transcript Insight | rock_rocku | Post Filter Transformation is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/reporting/post-filter-transformation) |
 | Background | rock_recipes | 6 Reporting Dashboard Shared by Missie Dawes , ABWE International 2 years ago 14.1 Administration / Finance, Leadership Intermediate Background Our organization relies heavily upon four main types of reports within Rock: 1) Reports, 2) Data Views, 3) pages with dynamic Rock report functionality (e.g., dynamic report blocks, dynamic data blocks), and 4) pages with embedded Power BI reports. Although staff can only... | [source](https://community.rockrms.com/recipes/397) |
-| Reporting Tool Finder | rock_recipes | 1 Reporting Tool Finder Shared by Peter Sanders , Traders Point Christian Church 4 years ago 10.0 General Intermediate This recipe is the sequel to our team’s Data View Finder . Like data views, we have plenty of reports, dynamic data block pages, and Power BI reports in Rock. We wanted a tool that listed all those items in one place, with searchability. This recipe breaks down how we did that by utilizing a dynamic... | [source](https://community.rockrms.com/recipes/264) |
+| Create a Report | rock_documentation | Let's jump right in and take a look at a report. For our example, we'll look at a report that gives the name and phone numbers of individuals with duplicate phone numbers. The figure below shows what this report would look like. The callouts for the figure explain the various steps used in the creation of our report. 1. **Name / Description** - First, we give our report a name and description. We highly recommend... | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report) |
+| Intro to Reports | rock_documentation | Now that we've selected the records we need, we're ready to define how we want our report to display. Usually this means adding fields to our report. Let’s see how this is done. Note **Reuse Is Good**Separating the filtering from the display also has the added benefit that reports with separate display features can use the same filtering logic. In many systems you would have to redefine the same filters twice. This... | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports) |
 | Use Attendance Analytics | rock_documentation | While there are a number of ways to access attendance data using Data Views and SQL reports, Rock also provides powerful analytics capabilities that you can access from `Tools > Reporting > Attendance Analytics`. This powerful tool should be able to answer any question you throw at it. Let's see what's possible. This block operates in two modes: *Chart*and *Attendees*. # Chart Mode When in chart mode, the analytics... | [source](https://community.rockrms.com/documentation/church-management/check-in/attendance/use-attendance-analytics) |
-| Dynamic Report Block | rock_documentation | As you create reports you may find that you need to duplicate Data Views and Reports to solve similar problems. For instance, your organization may want a list of people who have a background check that's expired or about to expire. Let's say the report will be used at each of your campuses. You might be tempted to create a data view and report for each campus, but there is an easier way. Rock provides a block... | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block) |
 
 ### Reports
 

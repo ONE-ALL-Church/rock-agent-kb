@@ -189,6 +189,11 @@ concepts:
       - id: cleanup-integrity
         title: Cleanup And Data Integrity
         keywords: [cleanup, data integrity, integrity, stale, orphaned]
+      - id: search
+        title: Search
+        keywords: [search, universal search, indexing, index, search components]
+        documentation_branches:
+          - documentation/core-concepts/search
 
   - id: platform-configuration
     title: Platform Configuration
@@ -314,6 +319,231 @@ concepts:
         title: Reporting And Administration
         keywords: [report, reporting, dashboard, administration, configuration, lms]
 
+  - id: documents-signatures
+    title: Documents And Signatures
+    description: Documents, document templates, generated PDFs, electronic signatures, signature requests, storage, and document-related workflow patterns.
+    max_records: 60
+    keywords: [document, documents, signature, signatures, electronic signature, e-signature, pdf, generated pdf, signed document, document template]
+    documentation_branches:
+      - documentation/core-concepts/documents
+    source_weights:
+      rock_documentation: 8
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 2
+      rock_developer: 2
+      rock_core_release_notes: 3
+      sparkdevnetwork_rock: 2
+      triumph_resources: 4
+    depends_on_topics: [people, workflows, communications, security, platform-configuration, cms]
+    subguides:
+      - id: document-templates
+        title: Document Templates
+        keywords: [document template, template, merge field, generated document]
+        documentation_path_prefixes:
+          - documentation/core-concepts/documents
+      - id: electronic-signatures
+        title: Electronic Signatures
+        keywords: [electronic signature, e-signature, signature request, signed document]
+        documentation_path_prefixes:
+          - documentation/core-concepts/documents/electronic-signatures
+      - id: generated-pdfs
+        title: Generated PDFs
+        keywords: [pdf, generated pdf, document pdf]
+        documentation_path_prefixes:
+          - documentation/core-concepts/documents
+
+  - id: hosting-infrastructure
+    title: Hosting And Infrastructure
+    description: Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL, SMTP, storage, performance posture, and operational readiness.
+    max_records: 60
+    keywords: [hosting, infrastructure, azure, server, web farm, ssl, smtp, backup, storage, performance, sizing, environment, deployment]
+    documentation_branches:
+      - documentation/supporting-rock/hosting
+    source_weights:
+      rock_documentation: 8
+      rock_developer: 4
+      rock_rocku: 3
+      rock_recipes: 3
+      rock_qa: 3
+      rock_core_release_notes: 4
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [operations, security, jobs, cache, search, cms, api-integrations]
+    subguides:
+      - id: sizing-and-service-options
+        title: Sizing And Service Options
+        keywords: [sizing, service options, compare sizing, hosting plan]
+        documentation_path_prefixes:
+          - documentation/supporting-rock/hosting
+      - id: azure-hosting
+        title: Azure Hosting
+        keywords: [azure, app service, sql database, storage account]
+        documentation_path_prefixes:
+          - documentation/supporting-rock/hosting/azure-hosting
+      - id: operational-readiness
+        title: Operational Readiness
+        keywords: [backup, ssl, smtp, storage, performance, readiness]
+
+  - id: prayer-care
+    title: Prayer And Care
+    description: Prayer requests, prayer teams, moderation, categories, care follow-up, visibility, communication, and privacy-sensitive ministry workflows.
+    max_records: 50
+    keywords: [prayer, prayer request, prayer team, care, pastoral care, moderation, confidential, follow-up, request settings]
+    documentation_branches:
+      - documentation/engagement/prayer
+    source_weights:
+      rock_documentation: 8
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 3
+      rock_developer: 1
+      rock_core_release_notes: 3
+      sparkdevnetwork_rock: 2
+      triumph_resources: 4
+    depends_on_topics: [people, groups, communications, workflows, security, cms]
+    subguides:
+      - id: prayer-requests
+        title: Prayer Requests
+        keywords: [prayer request, request, category, expiration, approval]
+        documentation_path_prefixes:
+          - documentation/engagement/prayer
+      - id: teams-and-moderation
+        title: Teams And Moderation
+        keywords: [prayer team, moderation, approval, confidential, visibility]
+      - id: follow-up-and-communications
+        title: Follow-Up And Communications
+        keywords: [follow-up, communication, notification, pastoral care]
+
+  - id: engagement-tracking
+    title: Engagement Tracking
+    description: Steps, step programs, streaks, assessments, achievements, engagement tools, journey-style tracking, completion signals, and related reporting.
+    max_records: 80
+    keywords: [engagement, step, steps, streak, streaks, assessment, assessments, achievement, achievements, badge, completion, journey, tracking]
+    documentation_branches:
+      - documentation/engagement/steps
+      - documentation/engagement/streaks
+      - documentation/engagement/assessments
+      - documentation/engagement/additional-engagement-tools
+    source_weights:
+      rock_documentation: 8
+      rock_rocku: 4
+      rock_recipes: 3
+      rock_qa: 3
+      rock_model_map: 3
+      rock_developer: 2
+      rock_core_release_notes: 4
+      rock_mobile_release_notes: 1
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [people, groups, workflows, communications, data-views, reports, security, learning-lms-engagement]
+    subguides:
+      - id: steps
+        title: Steps
+        keywords: [step, steps, step program, step type]
+        documentation_branches:
+          - documentation/engagement/steps
+      - id: streaks
+        title: Streaks
+        keywords: [streak, streaks, engagement streak]
+        documentation_branches:
+          - documentation/engagement/streaks
+      - id: assessments
+        title: Assessments
+        keywords: [assessment, assessments, retake, assessment type]
+        documentation_branches:
+          - documentation/engagement/assessments
+      - id: achievements
+        title: Achievements
+        keywords: [achievement, achievements, badge, achievement type]
+        documentation_branches:
+          - documentation/engagement/additional-engagement-tools
+
+  - id: content-personalization
+    title: Content And Personalization
+    description: Content channels, assets, structured content, adaptive messages, personalization, segments, website content operations, and publishing workflows.
+    max_records: 80
+    keywords: [content, content channel, structured content, asset manager, personalization, adaptive message, segment, publishing, website content]
+    documentation_branches:
+      - documentation/digital-publishing/content-management
+      - documentation/digital-publishing/personalization
+    source_weights:
+      rock_documentation: 8
+      rock_rocku: 4
+      rock_developer: 4
+      rock_lava_docs: 3
+      rock_recipes: 3
+      rock_qa: 2
+      rock_core_release_notes: 4
+      sparkdevnetwork_rock: 3
+      triumph_resources: 5
+    depends_on_topics: [cms, lava, security, communications, media, workflows, people]
+    subguides:
+      - id: content-channels
+        title: Content Channels
+        keywords: [content channel, content item, structured content]
+        documentation_path_prefixes:
+          - documentation/digital-publishing/content-management
+      - id: asset-manager
+        title: Asset Manager
+        keywords: [asset manager, asset, file, image]
+        documentation_path_prefixes:
+          - documentation/digital-publishing/content-management/asset-manager
+      - id: adaptive-messages
+        title: Adaptive Messages
+        keywords: [adaptive message, adaptive messages, personalization]
+        documentation_path_prefixes:
+          - documentation/digital-publishing/personalization/adaptive-messages
+      - id: personalization-segments
+        title: Personalization And Segments
+        keywords: [personalization, segment, segments, audience]
+        documentation_branches:
+          - documentation/digital-publishing/personalization
+
+  - id: obsidian-development
+    title: Obsidian Development
+    description: Obsidian block development, grid reference, custom actions, field types, browser bus, TypeScript patterns, development environment, and migration from WebForms blocks.
+    max_records: 80
+    keywords: [obsidian, obsidian block, typescript, grid reference, field type, browser bus, custom action, list block, detail block]
+    documentation_branches:
+      - developer/obsidian
+    developer_doc_prefixes: [obsidian]
+    source_weights:
+      rock_developer: 10
+      rock_api_docs: 3
+      rock_lava_docs: 2
+      rock_model_map: 3
+      rock_core_release_notes: 4
+      sparkdevnetwork_rock: 4
+      public_rock_repos: 2
+      triumph_resources: 4
+    depends_on_topics: [developer-resources, api-integrations, security, cms, platform-configuration, workflows]
+    subguides:
+      - id: blocks
+        title: Blocks
+        keywords: [block, blocks, creating blocks, list block, detail block]
+        developer_doc_prefixes: [obsidian/blocks]
+        documentation_path_prefixes:
+          - developer/obsidian/blocks
+      - id: grid-reference
+        title: Grid Reference
+        keywords: [grid, grid reference, columns, filters]
+        developer_doc_prefixes: [obsidian/grid-reference]
+        documentation_path_prefixes:
+          - developer/obsidian/grid-reference
+      - id: field-types
+        title: Field Types
+        keywords: [field type, field types, creating field types]
+        developer_doc_prefixes: [obsidian/creating-field-types]
+        documentation_path_prefixes:
+          - developer/obsidian/creating-field-types
+      - id: development-environment
+        title: Development Environment
+        keywords: [development environment, debugging, vscode, typescript]
+        developer_doc_prefixes: [obsidian/core-development-environment]
+        documentation_path_prefixes:
+          - developer/obsidian/core-development-environment
+
   - id: event-registration
     title: Event Registration
     description: Registration instances, templates, payments, forms, event occurrences, and registration operations.
@@ -337,6 +567,11 @@ concepts:
       - id: payments
         title: Payments
         keywords: [payment, cost, fee, gateway]
+      - id: event-calendar
+        title: Event Calendar
+        keywords: [event calendar, calendar, event item, event occurrence, occurrence]
+        documentation_branches:
+          - documentation/church-management/event-calendar
 
   - id: cms-websites
     title: CMS And Websites
@@ -457,6 +692,12 @@ concepts:
       - id: releases
         title: Mobile Releases
         keywords: [release, ios, android, minimum]
+      - id: app-publishing
+        title: App Publishing
+        keywords: [app factory, app store, google play, publish, publishing, store listing, developer account]
+        documentation_path_prefixes:
+          - developer/mobile-docs/app-factory
+          - developer/mobile-docs/building-your-first-app
 
   - id: api-integrations
     title: API And Integrations

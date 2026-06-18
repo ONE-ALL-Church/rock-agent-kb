@@ -1,0 +1,158 @@
+{
+  "approved_claim_dependencies": [],
+  "approved_claim_hashes": {},
+  "approved_claims_hash": "e9ceb7f06d17b19e30bd5a43fc71e4b14782fcfb8611fad3ed3909cf0c7e23af",
+  "approved_claims_path": "knowledge/concepts/content-personalization/approved-claims.md",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "091daab68bfb7615d3320351590e4b1504a046279d7a3e43d5984a4430af548e",
+  "approved_media_path": "knowledge/concepts/content-personalization/approved-media.md",
+  "built_at": "2026-06-18T23:02:34+00:00",
+  "concept_id": "content-personalization",
+  "guide_hash": "90bc64c10dbfd25c3ff940e46652ec088570d7abd7a417fd4a231d4f5355a7b0",
+  "guide_line_count": 68,
+  "guide_path": "knowledge/concepts/content-personalization/guide.md",
+  "guide_word_count": 526,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "ed70438a6c00a8f2",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "64fbac29d223ecdd",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 37,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": false,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 45,
+      "heading": "2. Agent Workflow",
+      "needs_live_verification": true,
+      "section_id": "2-agent-workflow",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 38
+    },
+    {
+      "confidence": "normal",
+      "end_line": 50,
+      "heading": "3. Boundaries",
+      "needs_live_verification": false,
+      "section_id": "3-boundaries",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 46
+    },
+    {
+      "confidence": "structural",
+      "end_line": 58,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 51
+    },
+    {
+      "confidence": "structural",
+      "end_line": 65,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 59
+    },
+    {
+      "confidence": "normal",
+      "end_line": 68,
+      "heading": "4. Source Map And Dependency Notes",
+      "needs_live_verification": false,
+      "section_id": "4-source-map-and-dependency-notes",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 66
+    }
+  ],
+  "source_pack_hydrated_at": null,
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "ed70438a6c00a8f2",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/digital-publishing/content-management",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "64fbac29d223ecdd",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/digital-publishing/personalization",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization"
+    }
+  ],
+  "synthesis_profile": null
+}

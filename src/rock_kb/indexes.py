@@ -17,8 +17,41 @@ from .sources import load_sources
 def all_normalized_records() -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for path in sorted(NORMALIZED_DIR.glob("*.jsonl")):
-        records.extend(read_jsonl(path))
+        records.extend(enrich_derived_documentation_metadata(record) for record in read_jsonl(path))
     return dedupe_records_by_id(records)
+
+
+def enrich_derived_documentation_metadata(record: dict[str, Any]) -> dict[str, Any]:
+    """Backfill compact Rockumentation branch fields for older normalized rows."""
+
+    family = str(record.get("documentation_family") or "").strip()
+    if family not in {"documentation", "developer"}:
+        return record
+    if record.get("documentation_path") and record.get("documentation_branch") and record.get("documentation_branches"):
+        return record
+
+    path_parts = [str(part).strip("/") for part in record.get("documentation_path_parts") or [] if str(part or "").strip("/")]
+    if not path_parts:
+        slug = str(record.get("documentation_slug") or "").strip("/")
+        path_parts = [part for part in slug.split("/") if part]
+    if not path_parts:
+        return record
+
+    enriched = dict(record)
+    documentation_path = "/".join([family, *path_parts])
+    branch_depth = 2 if family == "documentation" else 1
+    documentation_branch = (
+        "/".join([family, *path_parts[:branch_depth]])
+        if len(path_parts) >= branch_depth
+        else documentation_path
+    )
+    enriched.setdefault("documentation_path", documentation_path)
+    enriched.setdefault("documentation_branch", documentation_branch)
+    enriched.setdefault(
+        "documentation_branches",
+        ["/".join([family, *path_parts[:index]]) for index in range(1, len(path_parts) + 1)],
+    )
+    return enriched
 
 
 def dedupe_records_by_id(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -318,6 +351,15 @@ def build_public_source_summary_pack(records: list[dict[str, Any]]) -> tuple[lis
             "contains_raw_source_text": False,
             "needs_review": bool(record.get("needs_review")),
         }
+        for key in [
+            "documentation_family",
+            "documentation_slug",
+            "documentation_path",
+            "documentation_branch",
+            "documentation_branches",
+        ]:
+            if record.get(key) not in (None, "", [], {}):
+                row[key] = record.get(key)
         serialized = json.dumps(row, ensure_ascii=False, sort_keys=True)
         if grep_sensitive_values([serialized]):
             skipped_by_source[source_id] += 1

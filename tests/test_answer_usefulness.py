@@ -31,10 +31,11 @@ def test_security_best_answer_mentions_inherited_page_block_and_record_permissio
 
 
 def test_evaluation_report_has_no_failures():
-    text = read_artifact("agent/evaluation-report.json")
+    report = json.loads((REPO_ROOT / "agent/evaluation-report.json").read_text(encoding="utf-8"))
 
-    assert '"question_count": 100' in text
-    assert '"fail_count": 0' in text
+    assert report["question_count"] == report["result_count"]
+    assert report["question_count"] >= 100
+    assert report["fail_count"] == 0
 
 
 def test_lava_risky_answer_mentions_webhook_security_and_live_review():
