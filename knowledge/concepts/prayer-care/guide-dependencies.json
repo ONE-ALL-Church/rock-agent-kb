@@ -1,0 +1,214 @@
+{
+  "approved_claim_dependencies": [],
+  "approved_claim_hashes": {},
+  "approved_claims_hash": "756eccbdbc0261f42cd65d0d955331f5207f1582d942129b53994c0ea42f1ed2",
+  "approved_claims_path": "knowledge/concepts/prayer-care/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "groups",
+        "workflows"
+      ],
+      "content_hash": "8f1bd90ed2f6cfcbcc717b6a17b11a578d3be4a723f5301db757b37d25f0a902",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:f131f156d62b7d38",
+      "public_promotion_id": "media-public-promotion:8f1bd90ed2f6cfcb",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:f131f156d62b7d38",
+      "source_title": "Rapid Attendance Entry Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
+    },
+    {
+      "approved_concept_ids": [
+        "workflows"
+      ],
+      "content_hash": "27561046c0bab311556210276f759b97aec8b74fedd6994c25b449f6e0ba7779",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:762111bd5a9d1218",
+      "public_promotion_id": "media-public-promotion:27561046c0bab311",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:762111bd5a9d1218",
+      "source_title": "Prayer Requests Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:762111bd5a9d1218": "27561046c0bab311556210276f759b97aec8b74fedd6994c25b449f6e0ba7779",
+    "media-insight:f131f156d62b7d38": "8f1bd90ed2f6cfcbcc717b6a17b11a578d3be4a723f5301db757b37d25f0a902"
+  },
+  "approved_media_hash": "1533b0c05b04dcf5cc1a52a110e93f623d80669d4595f571563dbcc976289b7c",
+  "approved_media_path": "knowledge/concepts/prayer-care/approved-media.md",
+  "built_at": "2026-06-18T23:02:31+00:00",
+  "concept_id": "prayer-care",
+  "guide_hash": "cd208f12c2e4b84457d04f3ea1cb9362c4fc4f621fd89340efc81d41a75ed0b7",
+  "guide_line_count": 76,
+  "guide_path": "knowledge/concepts/prayer-care/guide.md",
+  "guide_word_count": 527,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "67bf41b13dcab2bb",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "8f42746b6ac656d0",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "78f1e8bbd9d351ff",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 34,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": true,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "67bf41b13dcab2bb"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 42,
+      "heading": "2. Agent Workflow",
+      "needs_live_verification": true,
+      "section_id": "2-agent-workflow",
+      "source_keys": [
+        "67bf41b13dcab2bb"
+      ],
+      "start_line": 35
+    },
+    {
+      "confidence": "normal",
+      "end_line": 47,
+      "heading": "3. Boundaries",
+      "needs_live_verification": false,
+      "section_id": "3-boundaries",
+      "source_keys": [
+        "67bf41b13dcab2bb"
+      ],
+      "start_line": 43
+    },
+    {
+      "confidence": "structural",
+      "end_line": 55,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "67bf41b13dcab2bb"
+      ],
+      "start_line": 48
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 69,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "8f42746b6ac656d0",
+        "78f1e8bbd9d351ff"
+      ],
+      "start_line": 56
+    },
+    {
+      "confidence": "normal",
+      "end_line": 76,
+      "heading": "4. Source Map And Dependency Notes",
+      "needs_live_verification": false,
+      "section_id": "4-source-map-and-dependency-notes",
+      "source_keys": [
+        "67bf41b13dcab2bb"
+      ],
+      "start_line": 70
+    }
+  ],
+  "source_pack_hydrated_at": null,
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "67bf41b13dcab2bb",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/prayer",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "8f42746b6ac656d0",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "78f1e8bbd9d351ff",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
+      "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
+    }
+  ],
+  "synthesis_profile": null
+}

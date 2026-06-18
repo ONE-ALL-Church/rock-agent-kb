@@ -1,0 +1,65 @@
+{
+  "authority_coverage": [
+    "official",
+    "official-model-map"
+  ],
+  "checks": [
+    {
+      "id": "min_words",
+      "message": "Guide has 510 words; expected at least 7000.",
+      "passed": false
+    },
+    {
+      "id": "min_sections",
+      "message": "Guide has 7 sections; expected at least 35.",
+      "passed": false
+    },
+    {
+      "id": "official_sources",
+      "message": "Guide should cite official documentation/developer docs.",
+      "passed": true
+    },
+    {
+      "id": "release_sources",
+      "message": "Guide should cite release notes.",
+      "passed": false
+    },
+    {
+      "id": "source_code",
+      "message": "Guide should cite source code.",
+      "passed": false
+    },
+    {
+      "id": "community_marked",
+      "message": "Guide should include community examples as examples.",
+      "passed": false
+    },
+    {
+      "id": "task_cards",
+      "message": "Guide has 0 task cards; expected at least 5.",
+      "passed": false
+    },
+    {
+      "id": "entity_coverage",
+      "message": "Guide has 5 entity rows; expected at least 8.",
+      "passed": false
+    },
+    {
+      "id": "low_uncited_sections",
+      "message": "Too many substantive sections have no citations.",
+      "passed": true
+    }
+  ],
+  "concept_id": "engagement-tracking",
+  "contribution_record_count": 0,
+  "entity_count": 5,
+  "generated_at": "2026-06-18T23:02:33+00:00",
+  "guide_line_count": 70,
+  "guide_word_count": 510,
+  "private_draft_contribution_record_count": 0,
+  "score": 22,
+  "section_count": 7,
+  "source_count": 5,
+  "status": "starter",
+  "task_card_count": 0
+}

@@ -144,7 +144,10 @@ def synthesis_output_path(concept_id: str) -> Path:
 def rank_records_for_concept(concept: Concept, records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     scored = []
     for record in records:
-        if concept_has_path_constraints(concept) and record_is_unmatched_developer_branch(record, concept.raw):
+        if concept_has_path_constraints(concept) and (
+            record_is_unmatched_developer_branch(record, concept.raw)
+            or record_is_unmatched_documentation_branch(record, concept.raw)
+        ):
             continue
         text = record_text(record)
         score = score_text(text, concept.keywords)
@@ -172,10 +175,20 @@ def records_matching_subguide(records: list[dict[str, Any]], subguide: dict[str,
     return matched
 
 def concept_has_path_constraints(concept: Concept) -> bool:
-    return record_constraint_values(concept.raw, "source_url_prefixes") or record_constraint_values(concept.raw, "developer_doc_prefixes")
+    return (
+        record_constraint_values(concept.raw, "source_url_prefixes")
+        or record_constraint_values(concept.raw, "developer_doc_prefixes")
+        or record_constraint_values(concept.raw, "documentation_branches")
+        or record_constraint_values(concept.raw, "documentation_path_prefixes")
+    )
 
 def subguide_has_path_constraints(subguide: dict[str, Any]) -> bool:
-    return record_constraint_values(subguide, "source_url_prefixes") or record_constraint_values(subguide, "developer_doc_prefixes")
+    return (
+        record_constraint_values(subguide, "source_url_prefixes")
+        or record_constraint_values(subguide, "developer_doc_prefixes")
+        or record_constraint_values(subguide, "documentation_branches")
+        or record_constraint_values(subguide, "documentation_path_prefixes")
+    )
 
 def record_matches_path_constraints(record: dict[str, Any], config: dict[str, Any]) -> bool:
     source_url_prefixes = record_constraint_values(config, "source_url_prefixes")
@@ -190,11 +203,41 @@ def record_matches_path_constraints(record: dict[str, Any], config: dict[str, An
         if any(doc_path == prefix or doc_path.startswith(f"{prefix}/") for prefix in developer_doc_prefixes):
             return True
 
+    documentation_branches = record_constraint_values(config, "documentation_branches")
+    if documentation_branches:
+        record_branches = {
+            str(value).rstrip("/")
+            for value in [
+                record.get("documentation_branch"),
+                *(record.get("documentation_branches") or []),
+            ]
+            if str(value or "").strip()
+        }
+        if record_branches & set(documentation_branches):
+            return True
+
+    documentation_path_prefixes = record_constraint_values(config, "documentation_path_prefixes")
+    if documentation_path_prefixes:
+        documentation_path = str(record.get("documentation_path") or "").rstrip("/")
+        if any(documentation_path == prefix or documentation_path.startswith(f"{prefix}/") for prefix in documentation_path_prefixes):
+            return True
+
     return False
 
 def record_is_unmatched_developer_branch(record: dict[str, Any], config: dict[str, Any]) -> bool:
     source_url = str(record.get("source_url") or "")
     if not source_url.startswith("https://community.rockrms.com/developer"):
+        return False
+    return not record_matches_path_constraints(record, config)
+
+def record_is_unmatched_documentation_branch(record: dict[str, Any], config: dict[str, Any]) -> bool:
+    if not (
+        record_constraint_values(config, "documentation_branches")
+        or record_constraint_values(config, "documentation_path_prefixes")
+    ):
+        return False
+    source_url = str(record.get("source_url") or "")
+    if not (source_url.startswith("https://community.rockrms.com/documentation") or record.get("documentation_family") == "documentation"):
         return False
     return not record_matches_path_constraints(record, config)
 
@@ -241,6 +284,10 @@ def record_text(record: dict[str, Any]) -> str:
         record.get("repo"),
         " ".join(record.get("topics") or []),
         " ".join(record.get("rock_versions") or []),
+        record.get("documentation_branch"),
+        record.get("documentation_path"),
+        " ".join(record.get("documentation_branches") or []),
+        " ".join(record.get("documentation_path_parts") or []),
     ]
     return " ".join(str(value or "") for value in values).lower()
 

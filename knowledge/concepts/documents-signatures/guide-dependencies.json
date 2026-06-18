@@ -1,0 +1,213 @@
+{
+  "approved_claim_dependencies": [],
+  "approved_claim_hashes": {},
+  "approved_claims_hash": "ea36d5bc0e8c66163b2b405f0c004692054fe62b39a5b6075c8c441ccd4ce7e6",
+  "approved_claims_path": "knowledge/concepts/documents-signatures/approved-claims.md",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "event-registration",
+        "workflows"
+      ],
+      "content_hash": "8927f9b3ed0a173410b07b8c3059b3b799806dde179a8b905b8eb9fc55420e9b",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:7ededa8a19f050ad",
+      "public_promotion_id": "media-public-promotion:8927f9b3ed0a1734",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:7ededa8a19f050ad",
+      "source_title": "Electronic Signatures Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+    },
+    {
+      "approved_concept_ids": [
+        "workflows"
+      ],
+      "content_hash": "1cd25035790930d75e0a3848c370f979b68245f76fae1baf736c6e5b45aee48c",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:ddfbf4b112e0b7a8",
+      "public_promotion_id": "media-public-promotion:1cd25035790930d7",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:ddfbf4b112e0b7a8",
+      "source_title": "Electronic Signatures Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/workflows/electronic-signatures-1"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:7ededa8a19f050ad": "8927f9b3ed0a173410b07b8c3059b3b799806dde179a8b905b8eb9fc55420e9b",
+    "media-insight:ddfbf4b112e0b7a8": "1cd25035790930d75e0a3848c370f979b68245f76fae1baf736c6e5b45aee48c"
+  },
+  "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
+  "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
+  "built_at": "2026-06-18T23:02:28+00:00",
+  "concept_id": "documents-signatures",
+  "guide_hash": "20af4c2e977e5886e0536a3d58b14aa51a920dda0f05048d98cdaf807680f884",
+  "guide_line_count": 84,
+  "guide_path": "knowledge/concepts/documents-signatures/guide.md",
+  "guide_word_count": 641,
+  "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "44c48fbb00fd6286",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "99161b788cad1f6e",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "9ca73fb85a7d51b9",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/workflows/electronic-signatures-1"
+    }
+  ],
+  "sections": [
+    {
+      "confidence": "citation-only",
+      "end_line": 26,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 14
+    },
+    {
+      "confidence": "normal",
+      "end_line": 39,
+      "heading": "1. Executive Summary For Agents",
+      "needs_live_verification": false,
+      "section_id": "1-executive-summary-for-agents",
+      "source_keys": [
+        "44c48fbb00fd6286"
+      ],
+      "start_line": 27
+    },
+    {
+      "confidence": "normal",
+      "end_line": 47,
+      "heading": "2. Agent Workflow",
+      "needs_live_verification": true,
+      "section_id": "2-agent-workflow",
+      "source_keys": [
+        "44c48fbb00fd6286"
+      ],
+      "start_line": 40
+    },
+    {
+      "confidence": "normal",
+      "end_line": 52,
+      "heading": "3. Boundaries",
+      "needs_live_verification": false,
+      "section_id": "3-boundaries",
+      "source_keys": [
+        "44c48fbb00fd6286"
+      ],
+      "start_line": 48
+    },
+    {
+      "confidence": "structural",
+      "end_line": 60,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "44c48fbb00fd6286"
+      ],
+      "start_line": 53
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 74,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "99161b788cad1f6e",
+        "9ca73fb85a7d51b9"
+      ],
+      "start_line": 61
+    },
+    {
+      "confidence": "normal",
+      "end_line": 84,
+      "heading": "4. Source Map And Dependency Notes",
+      "needs_live_verification": false,
+      "section_id": "4-source-map-and-dependency-notes",
+      "source_keys": [
+        "44c48fbb00fd6286"
+      ],
+      "start_line": 75
+    }
+  ],
+  "source_pack_hydrated_at": null,
+  "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "44c48fbb00fd6286",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/documents",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "99161b788cad1f6e",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+      "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "9ca73fb85a7d51b9",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
+      "url": "https://community.rockrms.com/rocku/workflows/electronic-signatures-1"
+    }
+  ],
+  "synthesis_profile": null
+}

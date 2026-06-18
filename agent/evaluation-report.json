@@ -21,10 +21,19 @@
     "connections": {
       "pass": 4
     },
+    "content-personalization": {
+      "pass": 4
+    },
     "data-views-reports": {
       "pass": 4
     },
     "developer-resources": {
+      "pass": 4
+    },
+    "documents-signatures": {
+      "pass": 4
+    },
+    "engagement-tracking": {
       "pass": 4
     },
     "event-registration": {
@@ -39,6 +48,9 @@
     "helix": {
       "pass": 4
     },
+    "hosting-infrastructure": {
+      "pass": 4
+    },
     "lava": {
       "pass": 4
     },
@@ -48,10 +60,16 @@
     "mobile": {
       "pass": 4
     },
+    "obsidian-development": {
+      "pass": 4
+    },
     "people-families": {
       "pass": 4
     },
     "platform-configuration": {
+      "pass": 4
+    },
+    "prayer-care": {
       "pass": 4
     },
     "roku": {
@@ -77,12 +95,12 @@
     }
   },
   "fail_count": 0,
-  "generated_at": "2026-06-18T00:00:00+00:00",
+  "generated_at": "2026-06-18T23:03:01+00:00",
   "near_misses": [],
-  "pass_count": 100,
+  "pass_count": 124,
   "pass_rate": 1.0,
-  "question_count": 100,
-  "result_count": 100,
+  "question_count": 124,
+  "result_count": 124,
   "schema": "rock-kb-evaluation-report-v1",
   "term_miss_count": 0
 }

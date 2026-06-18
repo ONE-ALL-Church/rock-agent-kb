@@ -196,6 +196,14 @@ def test_rock_documentation_normalizes_rockumentation_payload():
     assert record["documentation_article_key"] == "documentation:2647"
     assert record["documentation_family"] == "documentation"
     assert record["documentation_path_parts"] == ["core-concepts", "workflows", "workflow-actions", "people"]
+    assert record["documentation_path"] == "documentation/core-concepts/workflows/workflow-actions/people"
+    assert record["documentation_branch"] == "documentation/core-concepts/workflows"
+    assert record["documentation_branches"] == [
+        "documentation/core-concepts",
+        "documentation/core-concepts/workflows",
+        "documentation/core-concepts/workflows/workflow-actions",
+        "documentation/core-concepts/workflows/workflow-actions/people",
+    ]
     assert record["documentation_parent_slugs"] == [
         "core-concepts",
         "core-concepts/workflows",
@@ -277,6 +285,9 @@ def test_rock_developer_normalizes_rockumentation_payload():
     assert record["documentation_article_key"] == "developer:2721"
     assert record["documentation_family"] == "developer"
     assert record["documentation_slug"] == "mobile-docs/app-factory"
+    assert record["documentation_path"] == "developer/mobile-docs/app-factory"
+    assert record["documentation_branch"] == "developer/mobile-docs"
+    assert record["documentation_branches"] == ["developer/mobile-docs", "developer/mobile-docs/app-factory"]
     assert record["documentation_version_links"][0]["url"] == "https://community.rockrms.com/developer/mobile-docs/app-factory"
     assert record["documentation_table_of_contents_links"][0]["url"] == "https://community.rockrms.com/developer/mobile-docs/app-factory"
     assert "Package and publish Rock Mobile applications" in record["excerpt"]

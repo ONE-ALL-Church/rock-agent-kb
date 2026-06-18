@@ -2,7 +2,7 @@
 id: concept-communications
 title: Communications
 generated: true
-last_built: 2026-06-18T00:00:00+00:00
+last_built: 2026-06-18T23:01:22+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -30,9 +30,9 @@ Email, SMS, communication templates, transports, segments, and deliverability.
 ## How To Think About This Area
 
 - `Communications` spans people, workflows, lava, security. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_documentation, rock_recipes, rock_core_release_notes.
-- Related tags found in source records: usage, workflow, training, media, podcast, timestamped-insights, operations, admin.
-- Source detail types include: documentation_article, recipe, training, triumph_resources.
+- The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_documentation, rock_mobile_docs, rock_recipes.
+- Related tags found in source records: usage, workflow, training, media, operations, podcast, timestamped-insights, admin.
+- Source detail types include: developer_doc, documentation_article, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
 
@@ -177,11 +177,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_community_hubs`: 16
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 15
+- `rock_documentation`: 17
+- `rock_mobile_docs`: 1
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 3
-- `rock_recipes`: 3
-- `rock_rocku`: 39
+- `rock_recipes`: 1
+- `rock_rocku`: 38
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -190,17 +191,17 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
 | Demystifying Email Spam with Google Postmaster Tools | triumph_resources | With Google’s recent announcement requiring spam reports of less than 0.3% starting in February 2024, monitoring your email reputation is more important than ever. Fortunately, Google will give you a glimpse into your email deliverability with Google Postmaster Tools. The tools are a free service to help track and optimize your email reputation by providing data and insights on your spam rate, and other various... | [source](https://www.triumph.tech/resources/demystifying-email-spam-with-google-postmaster-tools) |
+| Communication Entry | rock_mobile_docs | Allows you to send out Email/SMS communications to a group of recipients. M v5.0 C v15.0 This block is relatively simple to use, but it requires a decent understanding of [Communications in Rock](https://community.rockrms.com/rocku/communication). ## Setup For this block to work correctly, you must pass in a valid `EntitySetGuid` page parameter. This will populate the list of recipients that receive the... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry) |
 | Communication History & Analytics | rock_documentation | Even for the most avid communicators, finding that email you sent five years ago... to just three people... is a breeze. Your list of communications can be filtered by status, topic, date and more. You can view your communication history under `People > Communication Reports > Communication History`. With just a few clicks, you can narrow down your Communication History list to find exactly what you need. To filter... | [source](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics) |
 | Communication Mediums | rock_documentation | Communication Mediums (`Admin Tools > Settings > Communication Mediums`) represent the available communication methods in Rock, including email. 1. **Active** - Ensure this option is selected to enable email communication from Rock. 2. **Transport Container**- Choose the email service provider you've configured in Communication Transports. This setting helps Rock know which service to use for sending emails. 3.... | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums) |
 | Communication Reports | rock_documentation | [Communication History & Analytics](/documentation/engagement/communications/communication-reports/communication-history-analytics?Version=v19.0) [Communication Saturation Report](/documentation/engagement/communications/communication-reports/communication-saturation-report?Version=v19.0) [Email Analytics](/documentation/engagement/communications/communication-reports/email-analytics?Version=v19.0) [Unsubscribe... | [source](https://community.rockrms.com/documentation/engagement/communications/communication-reports) |
 | Communications | rock_documentation | SECTIONS [Prepare for Communications](?Version=v19.0#prepare-for-communications) [Email](?Version=v19.0#email) [SMS](?Version=v19.0#sms) [Push Notifications](?Version=v19.0#push-notifications) [Send a Communication](?Version=v19.0#send-a-communication) [Communication Preferences](?Version=v19.0#communication-preferences) [Communication Reports](?Version=v19.0#communication-reports) ### Prepare for Communications... | [source](https://community.rockrms.com/documentation/engagement/communications) |
-| Communications | rock_documentation | # Activate Communication Flow Show Details 18.0 Triggers an On-Demand Communication Flow #### Inputs * **Communication Flow** – The On-Demand communication flow to trigger. * **Person** – The individual(s) to include in the communication flow (e.g., the requestor or approver). Triggers an **On-Demand** Communication Flow for the list of people you provide. To use this action, you must have an **On-Demand... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/communications) |
+| Configure Communication List Subscriptions | rock_documentation | ## Communication List Subscribe Block Rock ships with the *Communication List Subscribe* block ready for you to use on your external website under `Connect > Subscribe`. This block will display the communication lists a person is subscribed to or can be subscribed to. Pictured below is an example of this block on the external website. In this example, the block shows the three communication lists that ship with Rock... | [source](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/configure-communication-list-subscriptions) |
 | Configure Email | rock_documentation | Email is an important part of your communication strategy. Getting it configured in Rock should be one of your first priorities after install. Like many aspects of Rock, you have choices when it comes to email. We highly recommend using an email service that will provide additional services like bounced mail processing, the ability to track when emails have been opened and when links have been clicked. Rock ships... | [source](https://community.rockrms.com/documentation/engagement/communications/email/configure-email) |
 | Email | rock_documentation | [Intro to Email](/documentation/engagement/communications/email/intro-to-email?Version=v19.0) [Configure Email](/documentation/engagement/communications/email/configure-email?Version=v19.0) [Email Integrations](/documentation/engagement/communications/email/email-integrations?Version=v19.0) [Advanced Email](/documentation/engagement/communications/email/advanced-email?Version=v19.0) | [source](https://community.rockrms.com/documentation/engagement/communications/email) |
+| Email Analytics | rock_documentation | The *Email Analytics* report shows how your emails perform over time. It gathers data across all sent messages and displays charts for opens, clicks and client usage. Navigate to `People > Communication Reports > Email Analytics` to access the report. Right off the bat you’ll see charts and summary numbers showing how your messages perform over the selected time period. Choose from: * One Month * Three Months * Six... | [source](https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics) |
 | Email from the Entry Form | rock_documentation | In many cases you'll want to email an individual to let them know that a workflow needs their entry before continuing. While you're welcome to configure the Email Send action to do this, there is a short-cut built into the Entry Form action. 1. **Notification Email** - You can select a pre-configured email template to use for the email. 2. **Include Actions in Email** - You can also select whether the commands... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/email-from-the-entry-form) |
 | Intro to Email | rock_documentation | Email is the backbone of most communication strategies, so it is worth setting up early and [setting up well](/documentation/engagement/communications/email/configure-email). Once it is ready, you can send a heartfelt note to one person or a polished newsletter to thousands, all from inside Rock. The key is [choosing a delivery service](/documentation/engagement/communications/email/email-integrations), or... | [source](https://community.rockrms.com/documentation/engagement/communications/email/intro-to-email) |
-| Intro to SMS | rock_documentation | People read text messages. They read them fast, and they reply faster. For many in your organization a quick text is the surest way to be seen, which makes SMS one of the most powerful tools you have. Getting started is simple. You will [set up a phone number](/documentation/engagement/communications/sms/configure-sms), connect it in Rock and you are ready to send. SMS is not just one direction either. People can... | [source](https://community.rockrms.com/documentation/engagement/communications/sms/intro-to-sms) |
-| SMS | rock_documentation | [Intro to SMS](/documentation/engagement/communications/sms/intro-to-sms?Version=v19.0) [Configure SMS](/documentation/engagement/communications/sms/configure-sms?Version=v19.0) [SMS Conversations](/documentation/engagement/communications/sms/sms-conversations?Version=v19.0) [SMS Pipeline](/documentation/engagement/communications/sms/sms-pipeline?Version=v19.0) | [source](https://community.rockrms.com/documentation/engagement/communications/sms) |
 
 ## Data Model Landmarks
 

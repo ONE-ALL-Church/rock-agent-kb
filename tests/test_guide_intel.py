@@ -152,6 +152,16 @@ def test_audit_guide_quality_flags_shallow_guides():
     assert any(check["id"] == "min_words" and not check["passed"] for check in audit["checks"])
 
 
+def test_audit_guide_quality_marks_explicit_starter_guides():
+    markdown = "---\nguide_status: starter_needs_review\n---\n\n## Tiny\n\nNo citations."
+    sections = section_source_map("check-in", parse_markdown_sections(markdown), {})
+
+    audit = audit_guide_quality("check-in", markdown, sections, {"sources": []}, [])
+
+    assert audit["status"] == "starter"
+    assert any(check["id"] == "min_words" and not check["passed"] for check in audit["checks"])
+
+
 def test_audit_guide_quality_checks_contribution_guardrails():
     markdown = (
         ("## Contribution Examples\n\n"
