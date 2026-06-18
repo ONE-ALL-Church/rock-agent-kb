@@ -88,6 +88,18 @@ def test_answer_search_rows_include_live_inspection_checklist(monkeypatch):
     assert "Workflow docs" in rows[0]["body"]
 
 
+def test_model_map_search_rows_include_model_detail_properties():
+    rows = service_projection.model_map_search_rows()
+    row = next(row for row in rows if row["id"] == "model_map:stable:group-member")
+
+    assert row["kind"] == "model_map"
+    assert row["concept"] == "model-map"
+    assert row["path"] == "knowledge/model-map/models/group-member.md"
+    assert "GroupMember" in row["body"]
+    assert "PersonId" in row["body"]
+    assert "GroupRoleId" in row["body"]
+
+
 def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     projection = build_service_projection(destination=tmp_path / "dist")
 
