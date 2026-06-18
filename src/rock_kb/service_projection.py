@@ -111,6 +111,7 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows.extend(answer_search_rows())
     rows.extend(claim_search_rows())
     rows.extend(contribution_search_rows())
+    rows.extend(model_map_search_rows())
     rows.extend(source_summary_search_rows())
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -275,6 +276,38 @@ def source_summary_search_rows() -> list[dict[str, Any]]:
                     "payload": source,
                 }
             )
+    return rows
+
+
+def model_map_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    for model in read_jsonl(REPO_ROOT / "knowledge" / "model-map" / "stable-models.jsonl"):
+        model_slug = str(model.get("model_slug") or "")
+        detail_path = str(model.get("model_detail_path") or "")
+        if not model_slug or not detail_path:
+            continue
+        body_parts = [
+            str(model.get("model_name") or ""),
+            str(model.get("model_title") or ""),
+            str(model.get("model_category") or ""),
+            str(model.get("description") or ""),
+            read_text(REPO_ROOT / detail_path),
+        ]
+        rows.append(
+            {
+                "id": f"model_map:stable:{model_slug}",
+                "kind": "model_map",
+                "title": f"{model.get('model_name') or model_slug} Model Map",
+                "body": "\n\n".join(part for part in body_parts if part),
+                "path": detail_path,
+                "url": model.get("source_url") or "",
+                "concept": "model-map",
+                "authority_tier": "official",
+                "claim_tier": "source_backed",
+                "source_id": "rock_model_map",
+                "payload": model,
+            }
+        )
     return rows
 
 
