@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from rock_kb.audit import audit_duplicate_source_urls, audit_license_records, validate_markdown_frontmatter
+from rock_kb.audit import audit_duplicate_source_urls, audit_license_records, audit_rockumentation_api_coverage, validate_markdown_frontmatter
 from rock_kb.contributions import (
     CONTRIBUTION_SCHEMA,
     contribution_check_report,
@@ -88,6 +88,84 @@ def test_duplicate_source_url_audit_flags_unapproved_source_pairs(tmp_path):
     errors = audit_duplicate_source_urls([path])
 
     assert errors == ["duplicate source_url pair rock_community_site vs rock_developer: 1"]
+
+
+def test_rockumentation_api_coverage_requires_branch_metadata(tmp_path):
+    path = tmp_path / "rock_documentation.jsonl"
+    write_jsonl(
+        path,
+        [
+            {
+                "id": "rock_documentation:article:1",
+                "source_id": "rock_documentation",
+                "source_url": "https://community.rockrms.com/documentation/engagement/prayer",
+                "extraction_tool": "rockumentation_block_action",
+                "documentation_article_id": 1,
+                "documentation_family": "documentation",
+                "documentation_slug": "engagement/prayer",
+                "documentation_path": "documentation/engagement/prayer",
+                "documentation_branch": "documentation/engagement/prayer",
+            },
+            {
+                "id": "rock_documentation:article:2",
+                "source_id": "rock_documentation",
+                "source_url": "https://community.rockrms.com/documentation/supporting-rock/hosting",
+                "extraction_tool": "rockumentation_block_action",
+                "documentation_article_id": 2,
+                "documentation_family": "documentation",
+                "documentation_slug": "supporting-rock/hosting",
+            },
+        ],
+    )
+
+    result = audit_rockumentation_api_coverage([path])
+
+    assert result["status"] == "error"
+    assert result["api_rows"] == 2
+    assert any("missing API routing metadata: documentation_path, documentation_branch" in error for error in result["errors"])
+
+
+def test_rockumentation_api_coverage_allows_static_rows_without_probe(tmp_path):
+    path = tmp_path / "rock_developer.jsonl"
+    write_jsonl(
+        path,
+        [
+            {
+                "id": "rock_developer:static",
+                "source_id": "rock_developer",
+                "source_url": "https://community.rockrms.com/developer/changelog",
+                "extraction_tool": "community_static_discovery",
+            }
+        ],
+    )
+
+    result = audit_rockumentation_api_coverage([path])
+
+    assert result["status"] == "ok"
+    assert result["static_candidate_rows"] == 1
+    assert result["probed_static_rows"] == 0
+
+
+def test_rockumentation_api_coverage_probe_flags_static_api_payload(tmp_path, monkeypatch):
+    path = tmp_path / "rock_developer.jsonl"
+    write_jsonl(
+        path,
+        [
+            {
+                "id": "rock_developer:static",
+                "source_id": "rock_developer",
+                "source_url": "https://community.rockrms.com/developer/helix",
+                "extraction_tool": "community_static_discovery",
+            }
+        ],
+    )
+    monkeypatch.setattr("rock_kb.audit.fetch_rockumentation_payload", lambda client, url: {"configurationValues": {"slug": "helix"}})
+
+    result = audit_rockumentation_api_coverage([path], probe_static=True)
+
+    assert result["status"] == "error"
+    assert result["probed_static_rows"] == 1
+    assert "returns Rockumentation API payload" in result["errors"][0]
 
 
 def test_frontmatter_validation(tmp_path):
