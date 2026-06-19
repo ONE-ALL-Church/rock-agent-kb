@@ -10,6 +10,9 @@ jobs:
   release-client:
     runs-on: ubuntu-latest
     environment: production
+    permissions:
+      contents: read
+      id-token: write
     env:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     defaults:
@@ -20,8 +23,15 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - name: Build package
         run: uv build
-      - name: Publish package
+      - name: Smoke test wheel
+        run: uv run --isolated --no-project --with dist/*.whl rock-kb --help
+      - name: Smoke test source distribution
+        run: uv run --isolated --no-project --with dist/*.tar.gz rock-kb --help
+      - name: Publish package with token
         if: ${{ env.PYPI_TOKEN != '' }}
         env:
           UV_PUBLISH_TOKEN: ${{ env.PYPI_TOKEN }}
+        run: uv publish
+      - name: Publish package with trusted publishing
+        if: ${{ env.PYPI_TOKEN == '' }}
         run: uv publish

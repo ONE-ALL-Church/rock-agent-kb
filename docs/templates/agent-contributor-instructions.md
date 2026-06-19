@@ -8,16 +8,20 @@ organization.
 Before answering a Rock RMS operational question, query the hosted Rock KB:
 
 ```bash
-uvx rock-kb search "<question or error>"
-uvx rock-kb get <concept-id>
-uvx rock-kb claims <concept-id> --min-tier source_backed
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "<question or error>"
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get <concept-id>
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims <concept-id> --min-tier source_backed
 ```
 
 When your client supports HTTP MCP, add the hosted MCP endpoint:
 
 ```bash
-uvx rock-kb mcp-config
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb mcp-config
 ```
+
+After the client is published to PyPI, the shorter `uvx rock-kb ...` form is
+equivalent. Until then, use the Git-backed `uvx --from ... rock-kb` command
+above or the local-checkout fallback below.
 
 Prefer `official`, `release-note-confirmed`, `rocku-confirmed`,
 `source-code-confirmed`, and `community-reviewed` results. Treat
@@ -53,8 +57,8 @@ When you discover a reusable Rock RMS insight, submit a distilled contribution
 row instead of raw evidence. The row must be newly written and public-safe.
 
 ```bash
-uvx rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb validate bundle.jsonl
+ROCK_KB_TOKEN=<issued-token> uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb submit bundle.jsonl --org <org-id>
 ```
 
 If you are working from a local `rock-agent-kb` checkout and `uvx rock-kb`
@@ -73,7 +77,7 @@ environment variable or a secret store:
 
 ```bash
 export ROCK_KB_TOKEN='<issued-token>'
-uvx rock-kb submit bundle.jsonl --org <org-id>
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb submit bundle.jsonl --org <org-id>
 ```
 
 For repeat use on macOS, store it in Keychain and load it into the environment

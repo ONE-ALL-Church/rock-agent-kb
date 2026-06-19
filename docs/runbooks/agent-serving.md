@@ -193,7 +193,20 @@ The hosted service should expose these through manifest/artifact retrieval, but 
 
 ## Terminal Client
 
-The thin consumer client lives under `clients/python/` and is intended to be published as `rock-kb`:
+The thin consumer client lives under `clients/python/` and is intended to be
+published as `rock-kb`. Until the PyPI package is released, use the Git-backed
+`uvx --from` form:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb concepts
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get check-in
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims workflows --min-tier source_backed
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb dashboard
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb mcp-config
+```
+
+After PyPI release:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
@@ -205,3 +218,11 @@ uvx rock-kb mcp-config
 ```
 
 Set `ROCK_KB_URL` to use staging. Set `ROCK_KB_TOKEN` for `rock-kb submit`.
+
+To make plain `uvx rock-kb` work from the package registry, publish the client
+from `.github/workflows/release-client.yml`. The workflow supports either a
+production environment secret named `PYPI_TOKEN` or PyPI trusted publishing with
+the GitHub workflow configured as a publisher for the `rock-kb` PyPI project.
+After one of those PyPI-side publish paths exists, push a tag such as
+`rock-kb-v0.1.0` or run the workflow manually. The workflow builds the wheel and
+source distribution, smoke-tests both, and then runs `uv publish`.
