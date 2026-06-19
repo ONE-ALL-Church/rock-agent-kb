@@ -164,7 +164,7 @@
 | PushImageBinaryFileId | image file | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 | Recipients | CommunicationRecipients | 3ec89b90-6692-451e-a48f-0d2adeba05bc |
 | ReviewerPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
-| SendSourceDate | send source date | a454cbaf-0c8f-4b92-86c1-4d93ffd6e0a5 |
+| SendSourceDate | send source date | dd0346c0-82fd-4ba2-acf1-768b14b9a480 |
 | SenderPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 | SenderPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 

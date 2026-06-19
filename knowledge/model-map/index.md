@@ -35,12 +35,12 @@ This generated resource is built from authenticated Obsidian block-action respon
 
 ## Pre-Alpha Difference Callouts
 
-- Total changes: 88
+- Total changes: 84
 - Models added: 0
 - Models removed: 1
 - Properties added: 9
 - Properties removed: 17
-- Properties changed: 61
+- Properties changed: 57
 
 ## Largest Stable Models
 

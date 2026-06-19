@@ -2,7 +2,7 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-06-19T07:39:20+00:00
+last_built: 2026-06-19T08:37:51+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -140,7 +140,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.1.8 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.1.8 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance](../../model-map/models/attendance.md) | Event | 19.1.8 | 82 | 39 | 65 | 26 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance](../../model-map/models/attendance.md) | Event | 19.1.8 | 82 | 39 | 65 | 26 | 2 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Check In Session](../../model-map/models/attendance-check-in-session.md) | Event | 19.1.8 | 21 | 7 | 14 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Code](../../model-map/models/attendance-code.md) | Event | 19.1.8 | 20 | 7 | 12 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.1.8 | 64 | 27 | 47 | 20 | 1 | [source](https://community.rockrms.com/ModelMap) |
