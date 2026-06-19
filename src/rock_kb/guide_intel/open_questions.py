@@ -115,17 +115,25 @@ def audit_guide_quality(
         check("official_sources", bool(source_authorities & {"official", "official-developer"}), "Guide should cite official documentation/developer docs."),
         check("release_sources", "official-release" in source_authorities, "Guide should cite release notes."),
         check("source_code", "source-code" in source_authorities, "Guide should cite source code."),
-        check("community_marked", "community-example" in source_authorities or "community-answer" in source_authorities, "Guide should include community examples as examples."),
         check("task_cards", len(task_cards) >= 5, f"Guide has {len(task_cards)} task cards; expected at least 5."),
         check("entity_coverage", len(entity_rows) >= 8, f"Guide has {len(entity_rows)} entity rows; expected at least 8."),
         check("low_uncited_sections", uncited_section_ratio(section_rows) <= 0.35, "Too many substantive sections have no citations."),
     ]
+    if source_authorities & {"community-example", "community-answer"}:
+        checks.append(
+            check(
+                "community_marked",
+                guide_labels_contribution_examples(guide_text),
+                "Guides using community sources must label them as examples or patterns, not official guidance.",
+            )
+        )
     checks.extend(contribution_quality_checks(guide_text, contribution_records, private_draft_records))
     failures = [item for item in checks if not item["passed"]]
     score = int(100 * (len(checks) - len(failures)) / len(checks))
+    is_starter_guide = "guide_status: starter_needs_review" in guide_text[:1000]
     return {
         "concept_id": concept_id,
-        "status": "pass" if not failures else "fail",
+        "status": "pass" if not failures else "starter" if is_starter_guide else "fail",
         "score": score,
         "generated_at": generated_at_iso(),
         "guide_word_count": word_count,

@@ -12,7 +12,7 @@ from rich.console import Console
 from rich.table import Table
 
 from ..agent_answer_pack import build_agent_answer_pack
-from ..audit import audit_license_records
+from ..audit import audit_duplicate_source_urls, audit_license_records
 from ..cloudflare_markdown import cloudflare_markdown_env_ready, extract_cloudflare_markdown
 from ..claims import approved_claims_path, build_approved_claims, validate_claim_file
 from ..concepts import (
@@ -412,8 +412,8 @@ REFRESH_STEPS = [
     RefreshStep("rock_community_hubs", discover=True, max_pages=100),
     RefreshStep("rock_shop_plugins", discover=True, max_pages=180),
     RefreshStep("triumph_resources", discover=True, max_pages=180),
-    RefreshStep("rock_community_site", discover=True, max_pages=160),
-    RefreshStep("rock_mobile_docs"),
+    RefreshStep("rock_community_site", discover=True, max_pages=40),
+    RefreshStep("rock_mobile_docs", discover=True, max_pages=250),
     RefreshStep("rock_model_map"),
     RefreshStep("rock_core_release_notes"),
     RefreshStep("rock_mobile_release_notes"),
@@ -512,6 +512,7 @@ def _normalize_source(src) -> int:
         "rock_qa",
         "rocku",
         "rock_developer",
+        "rock_mobile_docs",
         "rock_community_hubs",
         "rock_community_site",
         "rock_api_docs",
@@ -528,9 +529,9 @@ def _normalize_source(src) -> int:
                 urls.append(raw["source_url"])
         if not urls:
             urls = discover_community_urls(src, max_pages=250, id_sweep=src.kind in {"rock_recipes", "rock_qa"})
-        fetched_pages = fetch_community_pages(urls)
+        fetched_pages = fetch_community_pages(urls, source=src)
         records = [record for record in (normalize_community_fetch(src, row) for row in fetched_pages) if record]
-    elif src.kind in {"rock_release_notes", "rock_mobile_release_notes", "rock_mobile_docs", "podcast_rss", "rss", "rock_model_map"}:
+    elif src.kind in {"rock_release_notes", "rock_mobile_release_notes", "podcast_rss", "rss", "rock_model_map"}:
         fetched = fetch_url(src.root_url)
         records = records_from_source_content(src, fetched["content"])
     else:
@@ -1620,6 +1621,16 @@ def audit_licenses() -> None:
             console.print(f"[red]ERROR[/red] {error}")
         raise typer.Exit(code=1)
     console.print("[green]License and citation audit passed.[/green]")
+
+
+def audit_source_url_duplicates_command() -> None:
+    """Fail if normalized sources duplicate URLs across unapproved source pairs."""
+    errors = audit_duplicate_source_urls()
+    if errors:
+        for error in errors:
+            console.print(f"[red]ERROR[/red] {error}")
+        raise typer.Exit(code=1)
+    console.print("[green]Source URL duplicate audit passed.[/green]")
 
 
 def audit_source_policy_command() -> None:

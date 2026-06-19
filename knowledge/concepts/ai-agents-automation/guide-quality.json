@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11301 words; expected at least 7000.",
+      "message": "Guide has 11299 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -36,11 +36,6 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guide should include community examples as examples.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
       "message": "Guide has 8 task cards; expected at least 5.",
       "passed": true
@@ -54,14 +49,19 @@
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
       "passed": true
+    },
+    {
+      "id": "community_marked",
+      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
     }
   ],
   "concept_id": "ai-agents-automation",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-06-18T19:01:26+00:00",
+  "generated_at": "2026-06-19T00:30:31+00:00",
   "guide_line_count": 1267,
-  "guide_word_count": 11301,
+  "guide_word_count": 11299,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 83,

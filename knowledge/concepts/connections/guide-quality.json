@@ -14,7 +14,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 10799 words; expected at least 7000.",
+      "message": "Guide has 10804 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -38,11 +38,6 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guide should include community examples as examples.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
       "message": "Guide has 5 task cards; expected at least 5.",
       "passed": true
@@ -56,18 +51,23 @@
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
       "passed": true
+    },
+    {
+      "id": "community_marked",
+      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
     }
   ],
   "concept_id": "connections",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-06-18T19:01:19+00:00",
-  "guide_line_count": 1345,
-  "guide_word_count": 10799,
+  "generated_at": "2026-06-19T00:30:20+00:00",
+  "guide_line_count": 1346,
+  "guide_word_count": 10804,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 105,
-  "source_count": 26,
+  "source_count": 25,
   "status": "pass",
   "task_card_count": 5
 }

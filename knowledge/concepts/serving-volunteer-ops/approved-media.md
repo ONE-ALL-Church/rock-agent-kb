@@ -2,7 +2,7 @@
 concept_id: serving-volunteer-ops
 generated: true
 artifact_level: media_distillation
-approved_media_count: 10
+approved_media_count: 9
 ---
 
 # Serving And Volunteer Operations Approved Media
@@ -20,4 +20,3 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:c664b64e781d5fbb` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
 | `media-insight:d1eb1a265dd0762b` | Media Watch Transcript Insight | approved_for_public_distillation | 5 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | `media-insight:ee02b5c27faeaa28` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
-| `media-insight:f131f156d62b7d38` | Rapid Attendance Entry Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |

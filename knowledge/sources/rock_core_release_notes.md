@@ -5,7 +5,7 @@ generated: true
 
 # rock_core_release_notes
 
-Records: 1324
+Records: 1323
 
 | Title | Summary | Citation |
 | --- | --- | --- |
@@ -45,7 +45,6 @@ Records: 1324
 | Rock Core Release Notes | Fixed an issue where deleting a Campus would also delete associated Attendance, Prayer Request, and Registration records. These records are now safely detached before the Campus is removed. Fixes: #6563 | [source](https://www.rockrms.com/releasenotes) |
 | Rock Core Release Notes | Added a comment to the RockNextGen Theme CSS explaining why two color-interface variables appear inverted in Dark mode to prevent accidental changes related to issue. Fixes: #6645 | [source](https://www.rockrms.com/releasenotes) |
 | Rock Core Release Notes | Added an automatic data migration that moves File Storage Provider settings from any existing legacy Azure Blob Storage provider plugin (Pillars) to the core Azure Blob Storage provider. This is required because the legacy provider can no longer upload large files due to library updates in v19. All settings are carried over, related File Types are updated,... | [source](https://www.rockrms.com/releasenotes) |
-| Rock Core Release Notes | Added a new Schedule Builder Field Type and Attribute that allows administrators to create and select custom schedules using the standard Schedule Builder interface. | [source](https://www.rockrms.com/releasenotes) |
 | Rock Core Release Notes | Added a new Schedule Builder Field Type and Attribute that allows administrators to create and select custom schedules using the standard Schedule Builder interface. | [source](https://www.rockrms.com/releasenotes) |
 | Rock Core Release Notes | Added a page and a block for displaying Rock MCP Servers. | [source](https://www.rockrms.com/releasenotes) |
 | Rock Core Release Notes | Improved the Person Duplicate Detail block by displaying the Record Source of each individual, helping administrators make more informed and faster merge decisions. | [source](https://www.rockrms.com/releasenotes) |
