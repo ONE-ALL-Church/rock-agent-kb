@@ -38,11 +38,6 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guide should include community examples as examples.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
       "message": "Guide has 6 task cards; expected at least 5.",
       "passed": true
@@ -56,12 +51,17 @@
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
       "passed": true
+    },
+    {
+      "id": "community_marked",
+      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
     }
   ],
   "concept_id": "scheduling-locations",
   "contribution_record_count": 0,
   "entity_count": 16,
-  "generated_at": "2026-06-18T23:02:58+00:00",
+  "generated_at": "2026-06-19T00:20:28+00:00",
   "guide_line_count": 1143,
   "guide_word_count": 11458,
   "private_draft_contribution_record_count": 0,

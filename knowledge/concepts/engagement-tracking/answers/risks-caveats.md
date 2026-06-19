@@ -15,6 +15,6 @@ No approved claims are currently routed to Engagement Tracking; inspect source s
 ## Citations
 
 - [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation](https://community.rockrms.com/documentation/engagement/steps)
-- [rock_documentation](https://community.rockrms.com/documentation/engagement/assessments)
-- [rock_documentation](https://community.rockrms.com/documentation/engagement/streaks)
+- [rock_documentation:article:1666](https://community.rockrms.com/documentation/engagement/steps/fundamentals)
+- [rock_documentation:article:1516](https://community.rockrms.com/documentation/engagement/streaks)
+- [rock_documentation:article:1712](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments)

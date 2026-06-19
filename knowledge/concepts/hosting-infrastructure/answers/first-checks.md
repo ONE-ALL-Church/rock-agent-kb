@@ -15,5 +15,6 @@ Start with the highest-priority reviewed claims for this concept.
 ## Citations
 
 - [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation](https://community.rockrms.com/documentation/supporting-rock/hosting)
-- [rock_documentation](https://community.rockrms.com/documentation/supporting-rock/caching)
+- [rock_documentation:article:1041](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting)
+- [rock_documentation:article:1040](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting)
+- [rock_documentation:article:2137](https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting)

@@ -7,12 +7,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "091daab68bfb7615d3320351590e4b1504a046279d7a3e43d5984a4430af548e",
   "approved_media_path": "knowledge/concepts/content-personalization/approved-media.md",
-  "built_at": "2026-06-18T23:02:34+00:00",
+  "built_at": "2026-06-19T00:20:04+00:00",
   "concept_id": "content-personalization",
-  "guide_hash": "90bc64c10dbfd25c3ff940e46652ec088570d7abd7a417fd4a231d4f5355a7b0",
-  "guide_line_count": 68,
+  "guide_hash": "db1974304a04d6f67bc19bdf6f73ab0e46d3c834cdd2cc4a15c5ed4e1a88533a",
+  "guide_line_count": 993,
   "guide_path": "knowledge/concepts/content-personalization/guide.md",
-  "guide_word_count": 526,
+  "guide_word_count": 12795,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -25,21 +25,102 @@
     },
     {
       "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
+      "content_hash": "8d409aeb240bb0d8f9190747df0cab233a63cdb30f7e83bbba0f606ba79a626d",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
-      "source_key": "ed70438a6c00a8f2",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management"
+      "source_key": "3374a116f8eca98f",
+      "source_record_id": "rock_documentation:article:2185",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels"
     },
     {
       "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
+      "content_hash": "f3f29acebc94f9c165c3a0cc438214b79a664f4cb81b4a70916f00c20d6bdc4c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "34c9290486f4732f",
+      "source_record_id": "rock_documentation:article:2246",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments"
+    },
+    {
+      "authority": "official",
+      "content_hash": "36eef0b47daca57becc572647fdf222b47720cdf5c5cf1c94567313804ca7e5e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "64fbac29d223ecdd",
-      "source_record_id": "",
+      "source_record_id": "rock_documentation:article:1381",
       "url": "https://community.rockrms.com/documentation/digital-publishing/personalization"
+    },
+    {
+      "authority": "official",
+      "content_hash": "34b19fb11f1be897ca00d25c185ecde4401ad745ef18f44b1b78e58fe79863df",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "2a8b39905fc2970a",
+      "source_record_id": "rock_documentation:article:2188",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b070e2a347e0b0bcf488e4760db906f67fa7d6bcb2a58b924bc2fbe2c436a3d9",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "ed70438a6c00a8f2",
+      "source_record_id": "rock_documentation:article:1382",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "b2d0ebfb2ec9ab34dadfac5a46fcb88331ed2772215f497f20859683a74e3ce6",
+      "excerpt_hash": "767597f6a003b9cb4435c6c8f71a7579901138a4a794316cba222c3492347904",
+      "source_id": "rock_lava_docs",
+      "source_key": "6ad836de36757aea",
+      "source_record_id": "rock_lava_docs:6ad836de36757aea",
+      "url": "https://community.rockrms.com/lava/commands/interaction-content-channel-item-write"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "06dbd0397ed52b635063fa77caeb21a79e53e6f31ce0a41506fb61308ded060a",
+      "excerpt_hash": "9c6d6dd7fc610f856436eaaf9126aff5b6703b7073ec8bf449eab27b9f500937",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:fd103bc445b10f36",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "d0563606e17fa034c7e3ad49defb3557e8d39115435cfc58c3562031ce561398",
+      "excerpt_hash": "bb7562def784e491f6a7d75f40779263e6f82efd6b0eaec47d02c118e4c66430",
+      "source_id": "rock_rocku",
+      "source_key": "2875911abf284e79",
+      "source_record_id": "rock_rocku:2875911abf284e79",
+      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8295e0fd8fcbee0c9f04dd0eeb4525e8c37dd5e950be03af76e38a54b0a3e41b",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "74350a9d67f0f58b1dac166ba61be504c2a48835bc286c3bb2e103dc032d5ff7",
+      "excerpt_hash": "163215543f07ec7ec143bc4b67e3cbd9e917cb18c2cf0887e9d6f860c1e20590",
+      "source_id": "rock_recipes",
+      "source_key": "c545bf3f3cbdeff5",
+      "source_record_id": "rock_recipes:c545bf3f3cbdeff5",
+      "url": "https://community.rockrms.com/recipes/128"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "761b8ed5d1178fa002a1a97dd6c96eacbbdfed878e4f04d6f0a27c1fa0882c55",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "712b5651915bba65",
+      "source_record_id": "triumph_resources:712b5651915bba65",
+      "url": "https://www.triumph.tech/resources/structured-content-rock-upgrade"
     }
   ],
   "sections": [
@@ -56,72 +137,1209 @@
     },
     {
       "confidence": "normal",
-      "end_line": 37,
+      "end_line": 44,
       "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "ed70438a6c00a8f2"
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "64fbac29d223ecdd"
       ],
       "start_line": 27
     },
     {
       "confidence": "normal",
-      "end_line": 45,
-      "heading": "2. Agent Workflow",
-      "needs_live_verification": true,
-      "section_id": "2-agent-workflow",
+      "end_line": 63,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "64fbac29d223ecdd"
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "64fbac29d223ecdd",
+        "64fbac29d223ecdd",
+        "34c9290486f4732f",
+        "6ad836de36757aea"
       ],
-      "start_line": 38
+      "start_line": 45
     },
     {
-      "confidence": "normal",
-      "end_line": 50,
-      "heading": "3. Boundaries",
-      "needs_live_verification": false,
-      "section_id": "3-boundaries",
+      "confidence": "high",
+      "end_line": 79,
+      "heading": "3. Content And Personalization Mental Model",
+      "needs_live_verification": true,
+      "section_id": "3-content-and-personalization-mental-model",
       "source_keys": [
+        "3374a116f8eca98f",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "6ad836de36757aea",
+        "776256c424368312"
+      ],
+      "start_line": 64
+    },
+    {
+      "confidence": "high",
+      "end_line": 94,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "34c9290486f4732f",
+        "2875911abf284e79",
+        "776256c424368312",
+        "d275b5b94a9da833",
+        "c545bf3f3cbdeff5",
+        "712b5651915bba65"
+      ],
+      "start_line": 80
+    },
+    {
+      "confidence": "high",
+      "end_line": 132,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "34c9290486f4732f",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "3374a116f8eca98f",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2",
+        "6ad836de36757aea",
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "d275b5b94a9da833",
+        "34c9290486f4732f",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "ed70438a6c00a8f2",
         "ed70438a6c00a8f2"
       ],
-      "start_line": 46
+      "start_line": 95
+    },
+    {
+      "confidence": "high",
+      "end_line": 154,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 133
     },
     {
       "confidence": "structural",
-      "end_line": 58,
+      "end_line": 156,
+      "heading": "7. Common Content And Personalization Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-content-and-personalization-workflows",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "c545bf3f3cbdeff5",
+        "776256c424368312",
+        "34c9290486f4732f",
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 155
+    },
+    {
+      "confidence": "normal",
+      "end_line": 168,
+      "heading": "Create a structured content channel",
+      "needs_live_verification": true,
+      "section_id": "7-common-content-and-personalization-workflows-create-a-structured-content-channel",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 157
+    },
+    {
+      "confidence": "normal",
+      "end_line": 185,
+      "heading": "Publish a content item",
+      "needs_live_verification": true,
+      "section_id": "7-common-content-and-personalization-workflows-publish-a-content-item",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 169
+    },
+    {
+      "confidence": "normal",
+      "end_line": 189,
+      "heading": "Display a list of channel items",
+      "needs_live_verification": true,
+      "section_id": "7-common-content-and-personalization-workflows-display-a-list-of-channel-items",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 186
+    },
+    {
+      "confidence": "normal",
+      "end_line": 193,
+      "heading": "Display a single channel item",
+      "needs_live_verification": true,
+      "section_id": "7-common-content-and-personalization-workflows-display-a-single-channel-item",
+      "source_keys": [
+        "c545bf3f3cbdeff5",
+        "776256c424368312"
+      ],
+      "start_line": 190
+    },
+    {
+      "confidence": "normal",
+      "end_line": 197,
+      "heading": "Aggregate content into a collection",
+      "needs_live_verification": true,
+      "section_id": "7-common-content-and-personalization-workflows-aggregate-content-into-a-collection",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 194
+    },
+    {
+      "confidence": "normal",
+      "end_line": 208,
+      "heading": "Add personalization to channel items",
+      "needs_live_verification": true,
+      "section_id": "7-common-content-and-personalization-workflows-add-personalization-to-channel-items",
+      "source_keys": [
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f"
+      ],
+      "start_line": 198
+    },
+    {
+      "confidence": "normal",
+      "end_line": 212,
+      "heading": "Use adaptive messages",
+      "needs_live_verification": false,
+      "section_id": "7-common-content-and-personalization-workflows-use-adaptive-messages",
+      "source_keys": [
+        "64fbac29d223ecdd",
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 209
+    },
+    {
+      "confidence": "normal",
+      "end_line": 216,
+      "heading": "8. Content Channels Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-content-channels-deep-dive",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 213
+    },
+    {
+      "confidence": "normal",
+      "end_line": 240,
+      "heading": "Channel type strategy",
+      "needs_live_verification": false,
+      "section_id": "8-content-channels-deep-dive-channel-type-strategy",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 217
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 259,
+      "heading": "Channel configuration",
+      "needs_live_verification": true,
+      "section_id": "8-content-channels-deep-dive-channel-configuration",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 241
+    },
+    {
+      "confidence": "normal",
+      "end_line": 275,
+      "heading": "Item lifecycle",
+      "needs_live_verification": false,
+      "section_id": "8-content-channels-deep-dive-item-lifecycle",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 260
+    },
+    {
+      "confidence": "normal",
+      "end_line": 291,
+      "heading": "Display and Lava",
+      "needs_live_verification": true,
+      "section_id": "8-content-channels-deep-dive-display-and-lava",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 276
+    },
+    {
+      "confidence": "normal",
+      "end_line": 303,
+      "heading": "RSS and feeds",
+      "needs_live_verification": false,
+      "section_id": "8-content-channels-deep-dive-rss-and-feeds",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 292
+    },
+    {
+      "confidence": "high",
+      "end_line": 309,
+      "heading": "Security",
+      "needs_live_verification": true,
+      "section_id": "8-content-channels-deep-dive-security",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "776256c424368312"
+      ],
+      "start_line": 304
+    },
+    {
+      "confidence": "normal",
+      "end_line": 313,
+      "heading": "9. Asset Manager Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-asset-manager-deep-dive",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 310
+    },
+    {
+      "confidence": "normal",
+      "end_line": 321,
+      "heading": "Asset Manager vs file attributes",
+      "needs_live_verification": false,
+      "section_id": "9-asset-manager-deep-dive-asset-manager-vs-file-attributes",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 314
+    },
+    {
+      "confidence": "high",
+      "end_line": 327,
+      "heading": "Viewing and managing assets",
+      "needs_live_verification": true,
+      "section_id": "9-asset-manager-deep-dive-viewing-and-managing-assets",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 322
+    },
+    {
+      "confidence": "normal",
+      "end_line": 342,
+      "heading": "Storage provider setup",
+      "needs_live_verification": true,
+      "section_id": "9-asset-manager-deep-dive-storage-provider-setup",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 328
+    },
+    {
+      "confidence": "normal",
+      "end_line": 353,
+      "heading": "Image and file performance",
+      "needs_live_verification": true,
+      "section_id": "9-asset-manager-deep-dive-image-and-file-performance",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 343
+    },
+    {
+      "confidence": "normal",
+      "end_line": 357,
+      "heading": "Structured content file behavior",
+      "needs_live_verification": true,
+      "section_id": "9-asset-manager-deep-dive-structured-content-file-behavior",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 354
+    },
+    {
+      "confidence": "normal",
+      "end_line": 361,
+      "heading": "10. Adaptive Messages Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-adaptive-messages-deep-dive",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 358
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 380,
+      "heading": "When to use adaptive messages",
+      "needs_live_verification": false,
+      "section_id": "10-adaptive-messages-deep-dive-when-to-use-adaptive-messages",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 362
+    },
+    {
+      "confidence": "normal",
+      "end_line": 386,
+      "heading": "Setup model",
+      "needs_live_verification": true,
+      "section_id": "10-adaptive-messages-deep-dive-setup-model",
+      "source_keys": [
+        "64fbac29d223ecdd",
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 381
+    },
+    {
+      "confidence": "normal",
+      "end_line": 400,
+      "heading": "Entity and API landmarks",
+      "needs_live_verification": true,
+      "section_id": "10-adaptive-messages-deep-dive-entity-and-api-landmarks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 387
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 418,
+      "heading": "Troubleshooting adaptive messages",
+      "needs_live_verification": true,
+      "section_id": "10-adaptive-messages-deep-dive-troubleshooting-adaptive-messages",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 401
+    },
+    {
+      "confidence": "normal",
+      "end_line": 422,
+      "heading": "11. Personalization And Segments Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "11-personalization-and-segments-deep-dive",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 419
+    },
+    {
+      "confidence": "normal",
+      "end_line": 428,
+      "heading": "Site-level prerequisites",
+      "needs_live_verification": true,
+      "section_id": "11-personalization-and-segments-deep-dive-site-level-prerequisites",
+      "source_keys": [
+        "34c9290486f4732f",
+        "34c9290486f4732f"
+      ],
+      "start_line": 423
+    },
+    {
+      "confidence": "normal",
+      "end_line": 434,
+      "heading": "Segment types",
+      "needs_live_verification": true,
+      "section_id": "11-personalization-and-segments-deep-dive-segment-types",
+      "source_keys": [
+        "34c9290486f4732f",
+        "34c9290486f4732f"
+      ],
+      "start_line": 429
+    },
+    {
+      "confidence": "normal",
+      "end_line": 447,
+      "heading": "Request filters",
+      "needs_live_verification": false,
+      "section_id": "11-personalization-and-segments-deep-dive-request-filters",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 435
+    },
+    {
+      "confidence": "normal",
+      "end_line": 458,
+      "heading": "Update Personalization Data job",
+      "needs_live_verification": false,
+      "section_id": "11-personalization-and-segments-deep-dive-update-personalization-data-job",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 448
+    },
+    {
+      "confidence": "normal",
+      "end_line": 464,
+      "heading": "Personalizing content channel items",
+      "needs_live_verification": false,
+      "section_id": "11-personalization-and-segments-deep-dive-personalizing-content-channel-items",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 459
+    },
+    {
+      "confidence": "normal",
+      "end_line": 480,
+      "heading": "Personalizing with Lava",
+      "needs_live_verification": false,
+      "section_id": "11-personalization-and-segments-deep-dive-personalizing-with-lava",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 465
+    },
+    {
+      "confidence": "structural",
+      "end_line": 482,
+      "heading": "12. Related Rock Areas: Cms, Lava, Security, Communications, Media, Workflows, People",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "2a8b39905fc2970a",
+        "776256c424368312",
+        "34c9290486f4732f",
+        "ed70438a6c00a8f2",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 481
+    },
+    {
+      "confidence": "normal",
+      "end_line": 486,
+      "heading": "CMS",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-cms",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 483
+    },
+    {
+      "confidence": "normal",
+      "end_line": 492,
+      "heading": "Lava",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-lava",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "2a8b39905fc2970a"
+      ],
+      "start_line": 487
+    },
+    {
+      "confidence": "high",
+      "end_line": 503,
+      "heading": "Security",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-security",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "776256c424368312"
+      ],
+      "start_line": 493
+    },
+    {
+      "confidence": "normal",
+      "end_line": 507,
+      "heading": "Communications",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-communications",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 504
+    },
+    {
+      "confidence": "high",
+      "end_line": 511,
+      "heading": "Media",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-media",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 508
+    },
+    {
+      "confidence": "normal",
+      "end_line": 515,
+      "heading": "Workflows",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-workflows",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 512
+    },
+    {
+      "confidence": "structural",
+      "end_line": 519,
+      "heading": "People",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-cms-lava-security-communications-media-workflows-people-people",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 516
+    },
+    {
+      "confidence": "structural",
+      "end_line": 523,
+      "heading": "13. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f",
+        "776256c424368312",
+        "34c9290486f4732f",
+        "2a8b39905fc2970a",
+        "712b5651915bba65"
+      ],
+      "start_line": 520
+    },
+    {
+      "confidence": "structural",
+      "end_line": 527,
+      "heading": "Public content safety",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-public-content-safety",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 524
+    },
+    {
+      "confidence": "structural",
+      "end_line": 540,
+      "heading": "Change management",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-change-management",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 528
+    },
+    {
+      "confidence": "normal",
+      "end_line": 552,
+      "heading": "Security review",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-security-review",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 541
+    },
+    {
+      "confidence": "normal",
+      "end_line": 561,
+      "heading": "Job monitoring",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-job-monitoring",
+      "source_keys": [
+        "34c9290486f4732f",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 553
+    },
+    {
+      "confidence": "normal",
+      "end_line": 572,
+      "heading": "Cache and indexing",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-cache-and-indexing",
+      "source_keys": [
+        "2a8b39905fc2970a"
+      ],
+      "start_line": 562
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 576,
+      "heading": "Editorial quality",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-editorial-quality",
+      "source_keys": [
+        "712b5651915bba65"
+      ],
+      "start_line": 573
+    },
+    {
+      "confidence": "structural",
+      "end_line": 578,
+      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "6ad836de36757aea",
+        "776256c424368312"
+      ],
+      "start_line": 577
+    },
+    {
+      "confidence": "normal",
+      "end_line": 589,
+      "heading": "REST and model landmarks",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-rest-and-model-landmarks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 579
+    },
+    {
+      "confidence": "normal",
+      "end_line": 593,
+      "heading": "Content Channel Item Personal List Lava block",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-content-channel-item-personal-list-lava-block",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 590
+    },
+    {
+      "confidence": "normal",
+      "end_line": 597,
+      "heading": "File Asset Manager block",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-file-asset-manager-block",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 594
+    },
+    {
+      "confidence": "normal",
+      "end_line": 601,
+      "heading": "Structured content block types",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-structured-content-block-types",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 598
+    },
+    {
+      "confidence": "normal",
+      "end_line": 612,
+      "heading": "Lava interaction logging",
+      "needs_live_verification": true,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-interaction-logging",
+      "source_keys": [
+        "6ad836de36757aea",
+        "776256c424368312"
+      ],
+      "start_line": 602
+    },
+    {
+      "confidence": "structural",
+      "end_line": 616,
+      "heading": "15. Reporting, Analytics, And Model Map",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map",
+      "source_keys": [
+        "6ad836de36757aea",
+        "776256c424368312",
+        "ed70438a6c00a8f2",
+        "34c9290486f4732f"
+      ],
+      "start_line": 613
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 632,
+      "heading": "Content item reporting",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-content-item-reporting",
+      "source_keys": [
+        "6ad836de36757aea",
+        "776256c424368312"
+      ],
+      "start_line": 617
+    },
+    {
+      "confidence": "normal",
+      "end_line": 643,
+      "heading": "Content collection analytics",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-content-collection-analytics",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 633
+    },
+    {
+      "confidence": "normal",
+      "end_line": 654,
+      "heading": "Media analytics",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map-media-analytics",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 644
+    },
+    {
+      "confidence": "normal",
+      "end_line": 665,
+      "heading": "Personalization reporting",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-personalization-reporting",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 655
+    },
+    {
+      "confidence": "normal",
+      "end_line": 682,
+      "heading": "16. Version And Release Caveats",
+      "needs_live_verification": true,
+      "section_id": "16-version-and-release-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "6ad836de36757aea",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "c545bf3f3cbdeff5",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "776256c424368312"
+      ],
+      "start_line": 666
+    },
+    {
+      "confidence": "structural",
+      "end_line": 684,
+      "heading": "17. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "712b5651915bba65",
+        "34c9290486f4732f",
+        "64fbac29d223ecdd",
+        "d275b5b94a9da833",
+        "3374a116f8eca98f"
+      ],
+      "start_line": 683
+    },
+    {
+      "confidence": "normal",
+      "end_line": 697,
+      "heading": "Playbook: Build a ministry resource library",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-ministry-resource-library",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 685
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 710,
+      "heading": "Playbook: Convert HTML-heavy channel items to structured content",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-convert-html-heavy-channel-items-to-structured-content",
+      "source_keys": [
+        "712b5651915bba65"
+      ],
+      "start_line": 698
+    },
+    {
+      "confidence": "normal",
+      "end_line": 722,
+      "heading": "Playbook: Add personalized homepage promos",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-add-personalized-homepage-promos",
+      "source_keys": [
+        "34c9290486f4732f",
+        "34c9290486f4732f"
+      ],
+      "start_line": 711
+    },
+    {
+      "confidence": "normal",
+      "end_line": 735,
+      "heading": "Playbook: Use adaptive messages for giving campaign variants",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-use-adaptive-messages-for-giving-campaign-variants",
+      "source_keys": [
+        "64fbac29d223ecdd"
+      ],
+      "start_line": 723
+    },
+    {
+      "confidence": "high",
+      "end_line": 745,
+      "heading": "Playbook: Publish sermon media through content channel items",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-publish-sermon-media-through-content-channel-items",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 736
+    },
+    {
+      "confidence": "normal",
+      "end_line": 756,
+      "heading": "Playbook: Configure RSS feed for a content channel",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-configure-rss-feed-for-a-content-channel",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 746
+    },
+    {
+      "confidence": "structural",
+      "end_line": 758,
+      "heading": "18. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree",
+      "source_keys": [
+        "3374a116f8eca98f",
+        "34c9290486f4732f",
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 757
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 773,
+      "heading": "Content item is missing from a page",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-content-item-is-missing-from-a-page",
+      "source_keys": [
+        "3374a116f8eca98f"
+      ],
+      "start_line": 759
+    },
+    {
+      "confidence": "normal",
+      "end_line": 790,
+      "heading": "Personalized content is wrong",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-personalized-content-is-wrong",
+      "source_keys": [
+        "34c9290486f4732f"
+      ],
+      "start_line": 774
+    },
+    {
+      "confidence": "normal",
+      "end_line": 804,
+      "heading": "Content collection search is stale or empty",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-content-collection-search-is-stale-or-empty",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 791
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 817,
+      "heading": "Asset image does not display",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-asset-image-does-not-display",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 805
+    },
+    {
+      "confidence": "structural",
+      "end_line": 830,
+      "heading": "Adaptive message does not behave",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree-adaptive-message-does-not-behave",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 818
+    },
+    {
+      "confidence": "structural",
+      "end_line": 832,
+      "heading": "19. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes",
+      "source_keys": [
+        "ed70438a6c00a8f2",
+        "2a8b39905fc2970a",
+        "776256c424368312",
+        "6ad836de36757aea"
+      ],
+      "start_line": 831
+    },
+    {
+      "confidence": "structural",
+      "end_line": 851,
+      "heading": "Recipe: Audit a content channel before editing",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-audit-a-content-channel-before-editing",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 833
+    },
+    {
+      "confidence": "normal",
+      "end_line": 865,
+      "heading": "Recipe: Diagnose “editor cannot see channel in Tools > Content”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-diagnose-editor-cannot-see-channel-in-tools-content",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 852
+    },
+    {
+      "confidence": "structural",
+      "end_line": 878,
+      "heading": "Recipe: Diagnose “segment should include this person”",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-diagnose-segment-should-include-this-person",
+      "source_keys": [
+        "ed70438a6c00a8f2"
+      ],
+      "start_line": 866
+    },
+    {
+      "confidence": "high",
+      "end_line": 895,
+      "heading": "Recipe: Create safe Lava for channel display",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-create-safe-lava-for-channel-display",
+      "source_keys": [
+        "2a8b39905fc2970a",
+        "776256c424368312"
+      ],
+      "start_line": 879
+    },
+    {
+      "confidence": "normal",
+      "end_line": 909,
+      "heading": "Recipe: Verify content interactions",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-verify-content-interactions",
+      "source_keys": [
+        "6ad836de36757aea",
+        "776256c424368312"
+      ],
+      "start_line": 896
+    },
+    {
+      "confidence": "structural",
+      "end_line": 927,
+      "heading": "Recipe: Public launch review for content personalization",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-public-launch-review-for-content-personalization",
+      "source_keys": [
+        "6ad836de36757aea",
+        "776256c424368312"
+      ],
+      "start_line": 910
+    },
+    {
+      "confidence": "structural",
+      "end_line": 935,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "ed70438a6c00a8f2"
+        "6ad836de36757aea",
+        "776256c424368312"
       ],
-      "start_line": 51
+      "start_line": 928
     },
     {
       "confidence": "structural",
-      "end_line": 65,
+      "end_line": 942,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "ed70438a6c00a8f2"
+        "6ad836de36757aea",
+        "776256c424368312"
       ],
-      "start_line": 59
+      "start_line": 936
     },
     {
-      "confidence": "normal",
-      "end_line": 68,
-      "heading": "4. Source Map And Dependency Notes",
+      "confidence": "high",
+      "end_line": 993,
+      "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
-      "section_id": "4-source-map-and-dependency-notes",
+      "section_id": "20-source-map-and-dependency-notes",
       "source_keys": [
-        "64fbac29d223ecdd"
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "3374a116f8eca98f",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "34c9290486f4732f",
+        "64fbac29d223ecdd",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "34c9290486f4732f",
+        "64fbac29d223ecdd",
+        "64fbac29d223ecdd",
+        "64fbac29d223ecdd",
+        "2875911abf284e79",
+        "c545bf3f3cbdeff5",
+        "712b5651915bba65",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "6ad836de36757aea",
+        "776256c424368312"
       ],
-      "start_line": 66
+      "start_line": 943
     }
   ],
-  "source_pack_hydrated_at": null,
+  "source_pack_hydrated_at": "2026-06-19T00:00:28+00:00",
   "sources": [
     {
       "authority": "official-model-map",
@@ -136,23 +1354,255 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "kind": "citation_only",
+      "change_type": null,
+      "content_hash": "8d409aeb240bb0d8f9190747df0cab233a63cdb30f7e83bbba0f606ba79a626d",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "ed70438a6c00a8f2",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/digital-publishing/content-management",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management"
+      "source_key": "3374a116f8eca98f",
+      "source_record_id": "rock_documentation:article:2185",
+      "title": "Content Channels",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels",
+      "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "kind": "citation_only",
+      "change_type": null,
+      "content_hash": "f3f29acebc94f9c165c3a0cc438214b79a664f4cb81b4a70916f00c20d6bdc4c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "34c9290486f4732f",
+      "source_record_id": "rock_documentation:article:2246",
+      "title": "Personalization Segments",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "36eef0b47daca57becc572647fdf222b47720cdf5c5cf1c94567313804ca7e5e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "rock_documentation",
       "source_key": "64fbac29d223ecdd",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/digital-publishing/personalization",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization"
+      "source_record_id": "rock_documentation:article:1381",
+      "title": "Personalization",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "34b19fb11f1be897ca00d25c185ecde4401ad745ef18f44b1b78e58fe79863df",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2a8b39905fc2970a",
+      "source_record_id": "rock_documentation:article:2188",
+      "title": "Content Component",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b070e2a347e0b0bcf488e4760db906f67fa7d6bcb2a58b924bc2fbe2c436a3d9",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ed70438a6c00a8f2",
+      "source_record_id": "rock_documentation:article:1382",
+      "title": "Content Management",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b2d0ebfb2ec9ab34dadfac5a46fcb88331ed2772215f497f20859683a74e3ce6",
+      "excerpt_hash": "767597f6a003b9cb4435c6c8f71a7579901138a4a794316cba222c3492347904",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "6ad836de36757aea",
+      "source_record_id": "rock_lava_docs:6ad836de36757aea",
+      "title": "Interaction Content Channel Item Write",
+      "topics": [
+        "cms",
+        "development",
+        "lava",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/interaction-content-channel-item-write",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "06dbd0397ed52b635063fa77caeb21a79e53e6f31ce0a41506fb61308ded060a",
+      "excerpt_hash": "9c6d6dd7fc610f856436eaaf9126aff5b6703b7073ec8bf449eab27b9f500937",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "October 6, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:fd103bc445b10f36",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "17.5"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "d0563606e17fa034c7e3ad49defb3557e8d39115435cfc58c3562031ce561398",
+      "excerpt_hash": "bb7562def784e491f6a7d75f40779263e6f82efd6b0eaec47d02c118e4c66430",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2875911abf284e79",
+      "source_record_id": "rock_rocku:2875911abf284e79",
+      "title": "Content Channel Types and Content Channels",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "8295e0fd8fcbee0c9f04dd0eeb4525e8c37dd5e950be03af76e38a54b0a3e41b",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "74350a9d67f0f58b1dac166ba61be504c2a48835bc286c3bb2e103dc032d5ff7",
+      "excerpt_hash": "163215543f07ec7ec143bc4b67e3cbd9e917cb18c2cf0887e9d6f860c1e20590",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "c545bf3f3cbdeff5",
+      "source_record_id": "rock_recipes:c545bf3f3cbdeff5",
+      "title": "Content Channels With Slugs",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/128",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "761b8ed5d1178fa002a1a97dd6c96eacbbdfed878e4f04d6f0a27c1fa0882c55",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "712b5651915bba65",
+      "source_record_id": "triumph_resources:712b5651915bba65",
+      "title": "From Chaos to Clarity: Why Structured Content Is the Rock Upgrade You Need",
+      "topics": [
+        "ai",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/structured-content-rock-upgrade",
+      "version": null
     }
   ],
-  "synthesis_profile": null
+  "synthesis_profile": "comprehensive"
 }

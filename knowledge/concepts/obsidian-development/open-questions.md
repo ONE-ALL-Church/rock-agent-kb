@@ -10,6 +10,9 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen`: Troubleshoot An Existing Obsidian Screen (122 words)
+- `19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block`: Recipe: Identify The Source Files Behind A Visible Obsidian Block (85 words)
+- `19-agent-task-recipes-recipe-review-an-obsidian-pull-request`: Recipe: Review An Obsidian Pull Request (87 words)
 
 ## Community-Supported Only
 
@@ -17,8 +20,45 @@ This file is for human reviewers and future agents. It lists guide areas where s
 ## Needs Live Verification
 
 - `generated-model-map-pointers`: Generated Model Map Pointers
-- `2-agent-workflow`: 2. Agent Workflow
-- `4-source-map-and-dependency-notes`: 4. Source Map And Dependency Notes
+- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
+- `3-obsidian-development-mental-model`: 3. Obsidian Development Mental Model
+- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
+- `5-core-configuration-and-data-model`: 5. Core Configuration And Data Model
+- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
+- `7-common-obsidian-development-workflows-build-a-new-core-list-block`: Build A New Core List Block
+- `7-common-obsidian-development-workflows-build-a-detail-block`: Build A Detail Block
+- `7-common-obsidian-development-workflows-convert-webforms-behavior-to-obsidian`: Convert WebForms Behavior To Obsidian
+- `7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen`: Troubleshoot An Existing Obsidian Screen
+- `8-blocks-deep-dive-c-block-responsibilities`: C# Block Responsibilities
+- `8-blocks-deep-dive-typescript-component-responsibilities`: TypeScript Component Responsibilities
+- `8-blocks-deep-dive-block-actions`: Block Actions
+- `8-blocks-deep-dive-blockcrumbs-and-navigation-context`: BlockCrumbs And Navigation Context
+- `8-blocks-deep-dive-detail-blocks`: Detail Blocks
+- `8-blocks-deep-dive-list-blocks`: List Blocks
+- `8-blocks-deep-dive-person-preferences`: Person Preferences
+- `9-grid-reference-deep-dive-standard-column-properties`: Standard Column Properties
+- `9-grid-reference-deep-dive-textcolumn`: TextColumn
+- `9-grid-reference-deep-dive-booleancolumn`: BooleanColumn
+- `9-grid-reference-deep-dive-labelcolumn`: LabelColumn
+- `9-grid-reference-deep-dive-highlightdetailcolumn`: HighlightDetailColumn
+- `9-grid-reference-deep-dive-personcolumn`: PersonColumn
+- `9-grid-reference-deep-dive-selectcolumn`: SelectColumn
+- `9-grid-reference-deep-dive-reordercolumn`: ReorderColumn
+- `9-grid-reference-deep-dive-securitycolumn`: SecurityColumn
+- `10-field-types-deep-dive-converting-core-field-types`: Converting Core Field Types
+- `10-field-types-deep-dive-field-type-gallery`: Field Type Gallery
+- `10-field-types-deep-dive-common-field-type-failure-modes`: Common Field Type Failure Modes
+- `11-development-environment-deep-dive-core-development-setup`: Core Development Setup
+- `11-development-environment-deep-dive-vs-code-debugging`: VS Code Debugging
+- `11-development-environment-deep-dive-plugin-development-setup`: Plugin Development Setup
+- `11-development-environment-deep-dive-build-and-type-checking`: Build And Type Checking
+- `12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-cms`: CMS
+- `12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-platform-configuration`: Platform Configuration
+- `12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-workflows`: Workflows
+- `13-administration-and-operational-guardrails-security-first`: Security First
+- `13-administration-and-operational-guardrails-configuration-hygiene`: Configuration Hygiene
+- `13-administration-and-operational-guardrails-admin-ui-expectations`: Admin UI Expectations
+- `15-reporting-analytics-and-model-map-field-types-and-filtering`: Field Types And Filtering
 
 ## Live Verification Clarification
 

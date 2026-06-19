@@ -7,12 +7,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "f768e9a71799adfa685a6d1e9f212cff4a00b0eef2b1cd554f5c1fa1a1b517cd",
   "approved_media_path": "knowledge/concepts/obsidian-development/approved-media.md",
-  "built_at": "2026-06-18T23:02:35+00:00",
+  "built_at": "2026-06-19T00:20:05+00:00",
   "concept_id": "obsidian-development",
-  "guide_hash": "dedc675d0dfa2859473eeac82c2457d01a1f30271c400138c84e7e7714a78dba",
-  "guide_line_count": 71,
+  "guide_hash": "574b07cdfe8f79f395d314dd1f5e1919de567e91f83fade45b4bfcf66e869bf5",
+  "guide_line_count": 1376,
   "guide_path": "knowledge/concepts/obsidian-development/guide.md",
-  "guide_word_count": 497,
+  "guide_word_count": 14144,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -25,12 +25,255 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": null,
-      "excerpt_hash": null,
+      "content_hash": "f09e950ee48c43b84ded674aea348ebc62ced7f4d67c112d293b5640eec79eec",
+      "excerpt_hash": "5ffba8dc1aca784fdbfe32f3cf41209d57519d1519881c12bd3056fddc70b146",
+      "source_id": "rock_developer",
+      "source_key": "9eb572eefcc91592",
+      "source_record_id": "rock_developer:article:384",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "dde5fa802728f380a49af785752082814bddba136bd3ad3dc718607e22c7f13c",
+      "excerpt_hash": "adbfa15c691a95b24d2a6db4611e02a40f51551be323546f5fc3a60ce3f889ec",
+      "source_id": "rock_developer",
+      "source_key": "688f7051e9eaa0b1",
+      "source_record_id": "rock_developer:article:377",
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "422dc6079e0c64fde12b7a0f2d8c2c805bdae480c38b1dba968c13f5e4fb5fbb",
+      "excerpt_hash": "95defee4702ae28438a7e568193d6367610db206222b49146c972e86836d7393",
+      "source_id": "rock_developer",
+      "source_key": "5b8aa0c453e855f4",
+      "source_record_id": "rock_developer:article:365",
+      "url": "https://community.rockrms.com/developer/obsidian/obsidian-component-structure"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f8360040c3062012857ecb9987a4ae708e8ac047214029808802000ee1efe3dc",
+      "excerpt_hash": "8f00c9d9e98496384c269f8628c27c9836a7ff3b078b6269c25a42b2f036796c",
+      "source_id": "rock_developer",
+      "source_key": "11bfad701dd44b19",
+      "source_record_id": "rock_developer:article:372",
+      "url": "https://community.rockrms.com/developer/obsidian/grids"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a84bd10a728ef83714d9f3b5b5c690f0d6f4bab4161428e1e8e9b516196305cb",
+      "excerpt_hash": "01ce9281812921ae18dbfbb479a8060369781df769d072a5286014f88c0e9743",
+      "source_id": "rock_developer",
+      "source_key": "d126ee444c6d1662",
+      "source_record_id": "rock_developer:article:381",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "3b951f1106d5a90d7b0842787875918e7e4930dcc01d25628b22f3c6042d5564",
+      "excerpt_hash": "096cc5d7e753c14a62b78ad135db3c63b760957a7374ea9dbbea745f53c3cb4c",
+      "source_id": "rock_developer",
+      "source_key": "75b846ec4ce0aab8",
+      "source_record_id": "rock_developer:article:382",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2827496bb2fcf3001bb98d778246148e6405a741b26790e2d9ca2706ff758a72",
+      "excerpt_hash": "bae34521593d6415cd56de50b664b1c921aa708ef86f6ca05629d1e7ef0c09fd",
+      "source_id": "rock_lava_docs",
+      "source_key": "16b69950a994d9e5",
+      "source_record_id": "rock_lava_docs:16b69950a994d9e5",
+      "url": "https://community.rockrms.com/lava/obsidian"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "67e98a7a867629f82c0966112a0f7f5709930e194541f0828abb2ceb8ae063a6",
+      "excerpt_hash": "419176cdf3593ac52d1edec4f2ffab549121ab2c49d21de86bf2acc7c1d9bcba",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:b44bf921d419bbb8",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "bb5b629adf7383377aa9459a5e32425216e6c18d07cd32decf1bc0d7501488c9",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e9c0038334f27b7a915e30dcc9c194dd6c4df318e1c8dad2fd8ef8a40fa14920",
+      "excerpt_hash": "5e85932f45016a3c406f7ae38ca6aaadf778bba5659e076a1a0a62ac7d73eb10",
+      "source_id": "rock_developer",
+      "source_key": "b168f80a45ce8a1c",
+      "source_record_id": "rock_developer:article:378",
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d87b51e423ea0f17e6159d950c5d76b9f67d8dafe0279020d6353051e4d52f75",
+      "excerpt_hash": "e392e4147db6b200b34b23c24631c051281622996e58c2a1185b06038d48c9b9",
+      "source_id": "rock_developer",
+      "source_key": "095fcaaf294bf490",
+      "source_record_id": "rock_developer:article:379",
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks"
+    },
+    {
+      "authority": "official-model-map",
+      "content_hash": "11257e535cb6cb78715198c740b5c365cf8311b0b9a83b4f88c79e66d0ee036e",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:f8998112262aea8f",
+      "url": "https://community.rockrms.com/ModelMap"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "76bc477b8b014d1252cdce0b339038c6df5db644f8bb530078ffe9fb9cbe0945",
+      "excerpt_hash": "60a569273cc6f371dea8638178057f8f67eb15da2aa9068b7a342853f1397c61",
+      "source_id": "rock_developer",
+      "source_key": "e39ba57a3615907c",
+      "source_record_id": "rock_developer:article:370",
+      "url": "https://community.rockrms.com/developer/obsidian/browser-bus"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "19a82f575ac0cda397a154a1f0e79cc9b0a4a1ca46355ac0c1bbb1589a1c2a44",
+      "excerpt_hash": "c126e78187be30513645250b588e9b2696348dd94efe894ff8ab7992ea82935b",
+      "source_id": "rock_developer",
+      "source_key": "36c3d697c2cf3359",
+      "source_record_id": "rock_developer:article:368",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "78a7ddc97e82f91dff536e10f85e9c96277a10b5fe333f9a494001120b0cbaa5",
+      "excerpt_hash": "2f9b3b3426ae16ccc802deeee68affa8f04c00bb20190541a871989566904f39",
+      "source_id": "rock_developer",
+      "source_key": "6d390930ff8b14a8",
+      "source_record_id": "rock_developer:article:364",
+      "url": "https://community.rockrms.com/developer/obsidian/null-vs-undefined"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "61190960a130b00b794fcb48efc92b3b3cf894a81922012724e8ce4161d31f59",
+      "excerpt_hash": "570c32f4ee1d7a2ed94e860eeb3b293cb2cf53cbdcd4cc0b558544ca8b4cecbc",
       "source_id": "rock_developer",
       "source_key": "8b36a3bb6cf452c1",
-      "source_record_id": "",
+      "source_record_id": "rock_developer:article:185",
       "url": "https://community.rockrms.com/developer/obsidian"
+    },
+    {
+      "authority": "official-api",
+      "content_hash": "64a5132777e73d448c3aba900106e9bcc2ab05d0785ac2847a46a7ab0f06a6f7",
+      "excerpt_hash": "cc7a47de7d022a633b75aabdb55a9f81ebd43176448999297ae87dedecf338f6",
+      "source_id": "rock_api_docs",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
+      "url": "https://community.rockrms.com/api-docs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "922ff9edd0c5538659ab1f5060e76d60e8da94bc4f5b912c19933e9b963e9146",
+      "excerpt_hash": "1bd7ba1ebcb9e3a6b6a101452d655e5cbd896face57fe3a94cb90b16cc34317a",
+      "source_id": "rock_developer",
+      "source_key": "6a44a9e1765b521b",
+      "source_record_id": "rock_developer:article:2658",
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d1b197081109bc7ebdd1729bf9f64be604915ea46718451cf6c25b504651fc3e",
+      "excerpt_hash": "68d3bd4611eeaab795187f7ef59a8f560e487a3b7dbe07084a409ec5a39657aa",
+      "source_id": "rock_developer",
+      "source_key": "553bda51c1d439cb",
+      "source_record_id": "rock_developer:article:373",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "0858a031937d3aa418891ac4f7222b9b5d9516166746e3c676fa782fe84e5441",
+      "excerpt_hash": "b8388d6727da46a24d273211068ff8bca2e5ab7b078efb83b08b915f90b632f5",
+      "source_id": "rock_developer",
+      "source_key": "17e45cec6ac45c65",
+      "source_record_id": "rock_developer:article:366",
+      "url": "https://community.rockrms.com/developer/obsidian/form-validation"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a1f17a09dc5ecf7a73ff056b6105b0e735ffbeaed115f17d69a09b199afb0fc1",
+      "excerpt_hash": "4d581ac1932cb73bee132ee8e1288c768a57a837efb1035cf1b6a3343a56233e",
+      "source_id": "rock_developer",
+      "source_key": "9633cce6873cff38",
+      "source_record_id": "rock_developer:article:380",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ea6ddd076f591cc20a5a444f08a3320d8a771217e4daedb73b6880c0d36f5356",
+      "excerpt_hash": "46c420758ce502f2b6fe25cc459246960f8621aaae408e040a161809bdc66b60",
+      "source_id": "rock_developer",
+      "source_key": "5966214bad72bdf7",
+      "source_record_id": "rock_developer:article:376",
+      "url": "https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c56434359b6f776529415c9916dc89e37d6a5b2d7ddf62614d0cebbee4c9db1c",
+      "excerpt_hash": "2592d756c8f99e4e5f1137b7d1076e62b78e67e977c61ef717a0019d72b042cf",
+      "source_id": "rock_developer",
+      "source_key": "eeb549b0d1c823a2",
+      "source_record_id": "rock_developer:article:375",
+      "url": "https://community.rockrms.com/developer/obsidian/app-laws"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "2f53921f05cbf949ce0ccc2843dd502481a893e02f57b2e924b880fd60ca4de9",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "9d0ccce785ef64bb",
+      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
+      "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e95a89ce9ea76a2029d39feadb43a7378a66a878d172e49c20b7bbb93a63384b",
+      "excerpt_hash": "276acf7eafd3b0e14bc74ca35b231202396c735083b81330372cb9696bb9e87e",
+      "source_id": "rock_developer",
+      "source_key": "a9c1cee2ea409fb9",
+      "source_record_id": "rock_developer:article:371",
+      "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "0d8a92c8fe49b17c55c1fa971987d334e9eeaa9c511f6d0a11f63eb6b95d859c",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "3bfb39e6d8d15f43",
+      "source_record_id": "triumph_resources:3bfb39e6d8d15f43",
+      "url": "https://www.triumph.tech/resources/github-spotlight-1262024"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "e9fe7db83ef3f6cec02d3ef151d8fc7bc025cea7a7809c9682dc8ec388852001",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "34bd6d6dedcd64a1",
+      "source_record_id": "triumph_resources:34bd6d6dedcd64a1",
+      "url": "https://www.triumph.tech/resources/github-spotlight-7182025"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": "07a39ba0761c5162c953526b2480fac3614bb94018bc069bbf30e01af5d9b8b8",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_id": "triumph_resources",
+      "source_key": "89dd946aff8f266d",
+      "source_record_id": "triumph_resources:89dd946aff8f266d",
+      "url": "https://www.triumph.tech/resources/github-spotlight-872025"
     }
   ],
   "sections": [
@@ -47,72 +290,1379 @@
     },
     {
       "confidence": "normal",
-      "end_line": 32,
+      "end_line": 43,
       "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "9eb572eefcc91592",
+        "688f7051e9eaa0b1",
+        "688f7051e9eaa0b1",
+        "5b8aa0c453e855f4",
+        "11bfad701dd44b19",
+        "d126ee444c6d1662",
+        "75b846ec4ce0aab8",
+        "16b69950a994d9e5",
+        "776256c424368312"
       ],
       "start_line": 27
     },
     {
       "confidence": "normal",
-      "end_line": 40,
-      "heading": "2. Agent Workflow",
-      "needs_live_verification": true,
-      "section_id": "2-agent-workflow",
+      "end_line": 71,
+      "heading": "2. Scope And Terminology",
+      "needs_live_verification": false,
+      "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "9eb572eefcc91592",
+        "688f7051e9eaa0b1",
+        "688f7051e9eaa0b1",
+        "d275b5b94a9da833",
+        "b168f80a45ce8a1c",
+        "095fcaaf294bf490",
+        "d126ee444c6d1662",
+        "bce31f25cb8a199e",
+        "75b846ec4ce0aab8",
+        "9eb572eefcc91592",
+        "e39ba57a3615907c"
       ],
-      "start_line": 33
+      "start_line": 44
     },
     {
       "confidence": "normal",
-      "end_line": 45,
-      "heading": "3. Boundaries",
-      "needs_live_verification": false,
-      "section_id": "3-boundaries",
+      "end_line": 99,
+      "heading": "3. Obsidian Development Mental Model",
+      "needs_live_verification": true,
+      "section_id": "3-obsidian-development-mental-model",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "5b8aa0c453e855f4",
+        "36c3d697c2cf3359",
+        "d275b5b94a9da833",
+        "16b69950a994d9e5",
+        "6d390930ff8b14a8"
       ],
-      "start_line": 41
+      "start_line": 72
+    },
+    {
+      "confidence": "normal",
+      "end_line": 128,
+      "heading": "4. Source Authority And How To Use This Guide",
+      "needs_live_verification": true,
+      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "36c3d697c2cf3359",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "8b36a3bb6cf452c1",
+        "776256c424368312",
+        "bce31f25cb8a199e",
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 100
+    },
+    {
+      "confidence": "normal",
+      "end_line": 148,
+      "heading": "5. Core Configuration And Data Model",
+      "needs_live_verification": true,
+      "section_id": "5-core-configuration-and-data-model",
+      "source_keys": [
+        "776256c424368312",
+        "6a44a9e1765b521b",
+        "776256c424368312",
+        "d126ee444c6d1662",
+        "d275b5b94a9da833",
+        "776256c424368312",
+        "553bda51c1d439cb",
+        "36c3d697c2cf3359",
+        "9eb572eefcc91592",
+        "688f7051e9eaa0b1",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 129
+    },
+    {
+      "confidence": "normal",
+      "end_line": 166,
+      "heading": "6. Primary Entities And Relationships",
+      "needs_live_verification": true,
+      "section_id": "6-primary-entities-and-relationships",
+      "source_keys": [
+        "6a44a9e1765b521b",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "d126ee444c6d1662",
+        "bce31f25cb8a199e",
+        "d275b5b94a9da833",
+        "9eb572eefcc91592",
+        "776256c424368312",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 149
     },
     {
       "confidence": "structural",
-      "end_line": 53,
+      "end_line": 168,
+      "heading": "7. Common Obsidian Development Workflows",
+      "needs_live_verification": false,
+      "section_id": "7-common-obsidian-development-workflows",
+      "source_keys": [
+        "095fcaaf294bf490",
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "11bfad701dd44b19",
+        "776256c424368312",
+        "b168f80a45ce8a1c",
+        "17e45cec6ac45c65",
+        "6a44a9e1765b521b",
+        "75b846ec4ce0aab8",
+        "16b69950a994d9e5",
+        "6d390930ff8b14a8"
+      ],
+      "start_line": 167
+    },
+    {
+      "confidence": "normal",
+      "end_line": 185,
+      "heading": "Build A New Core List Block",
+      "needs_live_verification": true,
+      "section_id": "7-common-obsidian-development-workflows-build-a-new-core-list-block",
+      "source_keys": [
+        "095fcaaf294bf490",
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb",
+        "11bfad701dd44b19",
+        "776256c424368312"
+      ],
+      "start_line": 169
+    },
+    {
+      "confidence": "normal",
+      "end_line": 202,
+      "heading": "Build A Detail Block",
+      "needs_live_verification": true,
+      "section_id": "7-common-obsidian-development-workflows-build-a-detail-block",
+      "source_keys": [
+        "b168f80a45ce8a1c",
+        "17e45cec6ac45c65",
+        "6a44a9e1765b521b",
+        "776256c424368312"
+      ],
+      "start_line": 186
+    },
+    {
+      "confidence": "normal",
+      "end_line": 219,
+      "heading": "Add A Custom Block Settings Screen",
+      "needs_live_verification": false,
+      "section_id": "7-common-obsidian-development-workflows-add-a-custom-block-settings-screen",
+      "source_keys": [
+        "6a44a9e1765b521b",
+        "776256c424368312"
+      ],
+      "start_line": 203
+    },
+    {
+      "confidence": "normal",
+      "end_line": 234,
+      "heading": "Convert WebForms Behavior To Obsidian",
+      "needs_live_verification": true,
+      "section_id": "7-common-obsidian-development-workflows-convert-webforms-behavior-to-obsidian",
+      "source_keys": [
+        "75b846ec4ce0aab8",
+        "16b69950a994d9e5",
+        "6d390930ff8b14a8"
+      ],
+      "start_line": 220
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 260,
+      "heading": "Troubleshoot An Existing Obsidian Screen",
+      "needs_live_verification": true,
+      "section_id": "7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen",
+      "source_keys": [
+        "75b846ec4ce0aab8",
+        "16b69950a994d9e5",
+        "6d390930ff8b14a8"
+      ],
+      "start_line": 235
+    },
+    {
+      "confidence": "normal",
+      "end_line": 264,
+      "heading": "8. Blocks Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "8-blocks-deep-dive",
+      "source_keys": [
+        "688f7051e9eaa0b1"
+      ],
+      "start_line": 261
+    },
+    {
+      "confidence": "normal",
+      "end_line": 282,
+      "heading": "C# Block Responsibilities",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-c-block-responsibilities",
+      "source_keys": [
+        "688f7051e9eaa0b1"
+      ],
+      "start_line": 265
+    },
+    {
+      "confidence": "normal",
+      "end_line": 299,
+      "heading": "TypeScript Component Responsibilities",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-typescript-component-responsibilities",
+      "source_keys": [
+        "5b8aa0c453e855f4",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 283
+    },
+    {
+      "confidence": "normal",
+      "end_line": 316,
+      "heading": "Block Actions",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-block-actions",
+      "source_keys": [
+        "688f7051e9eaa0b1"
+      ],
+      "start_line": 300
+    },
+    {
+      "confidence": "normal",
+      "end_line": 320,
+      "heading": "BlockCrumbs And Navigation Context",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-blockcrumbs-and-navigation-context",
+      "source_keys": [
+        "688f7051e9eaa0b1"
+      ],
+      "start_line": 317
+    },
+    {
+      "confidence": "normal",
+      "end_line": 333,
+      "heading": "Boxes, Bags, And Entities",
+      "needs_live_verification": false,
+      "section_id": "8-blocks-deep-dive-boxes-bags-and-entities",
+      "source_keys": [
+        "688f7051e9eaa0b1"
+      ],
+      "start_line": 321
+    },
+    {
+      "confidence": "normal",
+      "end_line": 353,
+      "heading": "Detail Blocks",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-detail-blocks",
+      "source_keys": [
+        "b168f80a45ce8a1c"
+      ],
+      "start_line": 334
+    },
+    {
+      "confidence": "normal",
+      "end_line": 373,
+      "heading": "List Blocks",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-list-blocks",
+      "source_keys": [
+        "095fcaaf294bf490",
+        "11bfad701dd44b19"
+      ],
+      "start_line": 354
+    },
+    {
+      "confidence": "normal",
+      "end_line": 379,
+      "heading": "Custom Actions",
+      "needs_live_verification": false,
+      "section_id": "8-blocks-deep-dive-custom-actions",
+      "source_keys": [
+        "6a44a9e1765b521b"
+      ],
+      "start_line": 374
+    },
+    {
+      "confidence": "normal",
+      "end_line": 383,
+      "heading": "Person Preferences",
+      "needs_live_verification": true,
+      "section_id": "8-blocks-deep-dive-person-preferences",
+      "source_keys": [
+        "688f7051e9eaa0b1"
+      ],
+      "start_line": 380
+    },
+    {
+      "confidence": "normal",
+      "end_line": 387,
+      "heading": "9. Grid Reference Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive",
+      "source_keys": [
+        "11bfad701dd44b19"
+      ],
+      "start_line": 384
+    },
+    {
+      "confidence": "normal",
+      "end_line": 401,
+      "heading": "Grid Architecture",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-grid-architecture",
+      "source_keys": [
+        "553bda51c1d439cb",
+        "553bda51c1d439cb"
+      ],
+      "start_line": 388
+    },
+    {
+      "confidence": "normal",
+      "end_line": 413,
+      "heading": "Standard Column Properties",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-standard-column-properties",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 402
+    },
+    {
+      "confidence": "normal",
+      "end_line": 423,
+      "heading": "TextColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-textcolumn",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "776256c424368312"
+      ],
+      "start_line": 414
+    },
+    {
+      "confidence": "normal",
+      "end_line": 427,
+      "heading": "BooleanColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-booleancolumn",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 424
+    },
+    {
+      "confidence": "normal",
+      "end_line": 438,
+      "heading": "DateColumn And DateTimeColumn",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-datecolumn-and-datetimecolumn",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 428
+    },
+    {
+      "confidence": "normal",
+      "end_line": 450,
+      "heading": "NumberColumn, CurrencyColumn, And NumberBadgeColumn",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-numbercolumn-currencycolumn-and-numberbadgecolumn",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 439
+    },
+    {
+      "confidence": "normal",
+      "end_line": 461,
+      "heading": "LabelColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-labelcolumn",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 451
+    },
+    {
+      "confidence": "normal",
+      "end_line": 465,
+      "heading": "HighlightDetailColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-highlightdetailcolumn",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 462
+    },
+    {
+      "confidence": "normal",
+      "end_line": 471,
+      "heading": "PersonColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-personcolumn",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 466
+    },
+    {
+      "confidence": "normal",
+      "end_line": 483,
+      "heading": "ButtonColumn, EditColumn, DeleteColumn, CopyColumn",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-buttoncolumn-editcolumn-deletecolumn-copycolumn",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 472
+    },
+    {
+      "confidence": "normal",
+      "end_line": 487,
+      "heading": "SelectColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-selectcolumn",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 484
+    },
+    {
+      "confidence": "normal",
+      "end_line": 500,
+      "heading": "ReorderColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-reordercolumn",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 488
+    },
+    {
+      "confidence": "normal",
+      "end_line": 504,
+      "heading": "SecurityColumn",
+      "needs_live_verification": true,
+      "section_id": "9-grid-reference-deep-dive-securitycolumn",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 501
+    },
+    {
+      "confidence": "normal",
+      "end_line": 510,
+      "heading": "AttributeColumns And RockFieldColumn",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-attributecolumns-and-rockfieldcolumn",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 505
+    },
+    {
+      "confidence": "normal",
+      "end_line": 514,
+      "heading": "Generic Column",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-generic-column",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 511
+    },
+    {
+      "confidence": "normal",
+      "end_line": 526,
+      "heading": "Filters",
+      "needs_live_verification": false,
+      "section_id": "9-grid-reference-deep-dive-filters",
+      "source_keys": [
+        "553bda51c1d439cb"
+      ],
+      "start_line": 515
+    },
+    {
+      "confidence": "normal",
+      "end_line": 532,
+      "heading": "10. Field Types Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "10-field-types-deep-dive",
+      "source_keys": [
+        "d126ee444c6d1662"
+      ],
+      "start_line": 527
+    },
+    {
+      "confidence": "normal",
+      "end_line": 547,
+      "heading": "Field Type Responsibilities",
+      "needs_live_verification": false,
+      "section_id": "10-field-types-deep-dive-field-type-responsibilities",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 533
+    },
+    {
+      "confidence": "normal",
+      "end_line": 559,
+      "heading": "Universal Field Types",
+      "needs_live_verification": false,
+      "section_id": "10-field-types-deep-dive-universal-field-types",
+      "source_keys": [
+        "75b846ec4ce0aab8",
+        "776256c424368312"
+      ],
+      "start_line": 548
+    },
+    {
+      "confidence": "normal",
+      "end_line": 574,
+      "heading": "Core Field Type Patterns",
+      "needs_live_verification": false,
+      "section_id": "10-field-types-deep-dive-core-field-type-patterns",
+      "source_keys": [
+        "d126ee444c6d1662",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 560
+    },
+    {
+      "confidence": "normal",
+      "end_line": 589,
+      "heading": "Converting Core Field Types",
+      "needs_live_verification": true,
+      "section_id": "10-field-types-deep-dive-converting-core-field-types",
+      "source_keys": [
+        "9633cce6873cff38"
+      ],
+      "start_line": 575
+    },
+    {
+      "confidence": "normal",
+      "end_line": 593,
+      "heading": "Field Type Gallery",
+      "needs_live_verification": true,
+      "section_id": "10-field-types-deep-dive-field-type-gallery",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 590
+    },
+    {
+      "confidence": "normal",
+      "end_line": 606,
+      "heading": "Configuration Values",
+      "needs_live_verification": false,
+      "section_id": "10-field-types-deep-dive-configuration-values",
+      "source_keys": [
+        "d126ee444c6d1662",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 594
+    },
+    {
+      "confidence": "normal",
+      "end_line": 648,
+      "heading": "Common Field Type Failure Modes",
+      "needs_live_verification": true,
+      "section_id": "10-field-types-deep-dive-common-field-type-failure-modes",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312"
+      ],
+      "start_line": 607
+    },
+    {
+      "confidence": "normal",
+      "end_line": 652,
+      "heading": "11. Development Environment Deep Dive",
+      "needs_live_verification": false,
+      "section_id": "11-development-environment-deep-dive",
+      "source_keys": [
+        "5966214bad72bdf7"
+      ],
+      "start_line": 649
+    },
+    {
+      "confidence": "normal",
+      "end_line": 663,
+      "heading": "Core Development Setup",
+      "needs_live_verification": true,
+      "section_id": "11-development-environment-deep-dive-core-development-setup",
+      "source_keys": [
+        "5966214bad72bdf7",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 653
+    },
+    {
+      "confidence": "normal",
+      "end_line": 681,
+      "heading": "VS Code Debugging",
+      "needs_live_verification": true,
+      "section_id": "11-development-environment-deep-dive-vs-code-debugging",
+      "source_keys": [
+        "5966214bad72bdf7"
+      ],
+      "start_line": 664
+    },
+    {
+      "confidence": "normal",
+      "end_line": 694,
+      "heading": "Plugin Development Setup",
+      "needs_live_verification": true,
+      "section_id": "11-development-environment-deep-dive-plugin-development-setup",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 682
+    },
+    {
+      "confidence": "normal",
+      "end_line": 700,
+      "heading": "File Types And Naming",
+      "needs_live_verification": false,
+      "section_id": "11-development-environment-deep-dive-file-types-and-naming",
+      "source_keys": [
+        "36c3d697c2cf3359",
+        "eeb549b0d1c823a2"
+      ],
+      "start_line": 695
+    },
+    {
+      "confidence": "normal",
+      "end_line": 706,
+      "heading": "Build And Type Checking",
+      "needs_live_verification": true,
+      "section_id": "11-development-environment-deep-dive-build-and-type-checking",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 701
+    },
+    {
+      "confidence": "structural",
+      "end_line": 708,
+      "heading": "12. Related Rock Areas: Developer Resources, Api Integrations, Security, Cms, Platform Configuration, Workflows",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "14e4b0253d1428ca",
+        "36c3d697c2cf3359",
+        "776256c424368312",
+        "9d0ccce785ef64bb"
+      ],
+      "start_line": 707
+    },
+    {
+      "confidence": "normal",
+      "end_line": 712,
+      "heading": "Developer Resources",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-developer-resources",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 709
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 724,
+      "heading": "API Integrations",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-api-integrations",
+      "source_keys": [
+        "14e4b0253d1428ca"
+      ],
+      "start_line": 713
+    },
+    {
+      "confidence": "normal",
+      "end_line": 742,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-security",
+      "source_keys": [
+        "36c3d697c2cf3359",
+        "9eb572eefcc91592",
+        "776256c424368312"
+      ],
+      "start_line": 725
+    },
+    {
+      "confidence": "normal",
+      "end_line": 756,
+      "heading": "CMS",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-cms",
+      "source_keys": [
+        "776256c424368312",
+        "9d0ccce785ef64bb"
+      ],
+      "start_line": 743
+    },
+    {
+      "confidence": "normal",
+      "end_line": 762,
+      "heading": "Platform Configuration",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-platform-configuration",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 757
+    },
+    {
+      "confidence": "normal",
+      "end_line": 776,
+      "heading": "Workflows",
+      "needs_live_verification": true,
+      "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-workflows",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312"
+      ],
+      "start_line": 763
+    },
+    {
+      "confidence": "structural",
+      "end_line": 778,
+      "heading": "13. Administration And Operational Guardrails",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails",
+      "source_keys": [
+        "776256c424368312",
+        "11bfad701dd44b19",
+        "d275b5b94a9da833",
+        "16b69950a994d9e5",
+        "17e45cec6ac45c65"
+      ],
+      "start_line": 777
+    },
+    {
+      "confidence": "normal",
+      "end_line": 790,
+      "heading": "Version First",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-version-first",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 779
+    },
+    {
+      "confidence": "structural",
+      "end_line": 803,
+      "heading": "Security First",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-security-first",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 791
+    },
+    {
+      "confidence": "normal",
+      "end_line": 819,
+      "heading": "Payload Size And Grid Performance",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-payload-size-and-grid-performance",
+      "source_keys": [
+        "11bfad701dd44b19",
+        "776256c424368312"
+      ],
+      "start_line": 804
+    },
+    {
+      "confidence": "normal",
+      "end_line": 831,
+      "heading": "Configuration Hygiene",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-configuration-hygiene",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 820
+    },
+    {
+      "confidence": "normal",
+      "end_line": 835,
+      "heading": "Lava Guardrails",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-lava-guardrails",
+      "source_keys": [
+        "16b69950a994d9e5"
+      ],
+      "start_line": 832
+    },
+    {
+      "confidence": "normal",
+      "end_line": 850,
+      "heading": "Admin UI Expectations",
+      "needs_live_verification": true,
+      "section_id": "13-administration-and-operational-guardrails-admin-ui-expectations",
+      "source_keys": [
+        "17e45cec6ac45c65"
+      ],
+      "start_line": 836
+    },
+    {
+      "confidence": "normal",
+      "end_line": 901,
+      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "14-developer-api-lava-and-source-code-landmarks",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "5966214bad72bdf7",
+        "5966214bad72bdf7",
+        "8b36a3bb6cf452c1",
+        "6d390930ff8b14a8",
+        "5b8aa0c453e855f4",
+        "17e45cec6ac45c65",
+        "688f7051e9eaa0b1",
+        "688f7051e9eaa0b1",
+        "b168f80a45ce8a1c",
+        "095fcaaf294bf490",
+        "6a44a9e1765b521b",
+        "36c3d697c2cf3359",
+        "d126ee444c6d1662",
+        "d126ee444c6d1662",
+        "9633cce6873cff38",
+        "75b846ec4ce0aab8",
+        "e39ba57a3615907c",
+        "a9c1cee2ea409fb9",
+        "11bfad701dd44b19",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb",
+        "8b36a3bb6cf452c1",
+        "eeb549b0d1c823a2",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "14e4b0253d1428ca",
+        "16b69950a994d9e5",
+        "776256c424368312",
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 851
+    },
+    {
+      "confidence": "structural",
+      "end_line": 905,
+      "heading": "15. Reporting, Analytics, And Model Map",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "5966214bad72bdf7",
+        "5966214bad72bdf7",
+        "8b36a3bb6cf452c1",
+        "6d390930ff8b14a8",
+        "5b8aa0c453e855f4",
+        "17e45cec6ac45c65",
+        "688f7051e9eaa0b1",
+        "688f7051e9eaa0b1",
+        "b168f80a45ce8a1c",
+        "095fcaaf294bf490",
+        "6a44a9e1765b521b",
+        "36c3d697c2cf3359",
+        "d126ee444c6d1662",
+        "d126ee444c6d1662",
+        "9633cce6873cff38",
+        "75b846ec4ce0aab8",
+        "e39ba57a3615907c",
+        "a9c1cee2ea409fb9",
+        "11bfad701dd44b19",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb",
+        "8b36a3bb6cf452c1",
+        "eeb549b0d1c823a2",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "14e4b0253d1428ca",
+        "16b69950a994d9e5",
+        "776256c424368312",
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 902
+    },
+    {
+      "confidence": "normal",
+      "end_line": 925,
+      "heading": "Grid Reporting Behavior",
+      "needs_live_verification": false,
+      "section_id": "15-reporting-analytics-and-model-map-grid-reporting-behavior",
+      "source_keys": [
+        "11bfad701dd44b19"
+      ],
+      "start_line": 906
+    },
+    {
+      "confidence": "normal",
+      "end_line": 929,
+      "heading": "Field Types And Filtering",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-field-types-and-filtering",
+      "source_keys": [
+        "d126ee444c6d1662"
+      ],
+      "start_line": 926
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 940,
+      "heading": "Model Map Use",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-model-map-use",
+      "source_keys": [
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 930
+    },
+    {
+      "confidence": "normal",
+      "end_line": 952,
+      "heading": "Export Caveats",
+      "needs_live_verification": true,
+      "section_id": "15-reporting-analytics-and-model-map-export-caveats",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 941
+    },
+    {
+      "confidence": "normal",
+      "end_line": 976,
+      "heading": "16. Version And Release Caveats",
+      "needs_live_verification": true,
+      "section_id": "16-version-and-release-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "9d0ccce785ef64bb",
+        "3bfb39e6d8d15f43",
+        "776256c424368312",
+        "34bd6d6dedcd64a1",
+        "89dd946aff8f266d",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312"
+      ],
+      "start_line": 953
+    },
+    {
+      "confidence": "structural",
+      "end_line": 978,
+      "heading": "17. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "17-implementation-playbooks",
+      "source_keys": [
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "d126ee444c6d1662",
+        "9633cce6873cff38",
+        "d275b5b94a9da833",
+        "8b36a3bb6cf452c1",
+        "776256c424368312",
+        "e39ba57a3615907c",
+        "a9c1cee2ea409fb9"
+      ],
+      "start_line": 977
+    },
+    {
+      "confidence": "normal",
+      "end_line": 999,
+      "heading": "Playbook: Create A Safe Obsidian List Block",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-create-a-safe-obsidian-list-block",
+      "source_keys": [
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb"
+      ],
+      "start_line": 979
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1011,
+      "heading": "Playbook: Add A Person Column Correctly",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-add-a-person-column-correctly",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 1000
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1026,
+      "heading": "Playbook: Add Dynamic Attribute Columns",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-add-dynamic-attribute-columns",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 1012
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1045,
+      "heading": "Playbook: Build A Field Type Edit Component",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-field-type-edit-component",
+      "source_keys": [
+        "d126ee444c6d1662",
+        "9633cce6873cff38",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 1027
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1056,
+      "heading": "Playbook: Diagnose A Broken Picker",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-diagnose-a-broken-picker",
+      "source_keys": [
+        "8b36a3bb6cf452c1",
+        "776256c424368312"
+      ],
+      "start_line": 1046
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1071,
+      "heading": "Playbook: Add Browser Bus Interaction",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-add-browser-bus-interaction",
+      "source_keys": [
+        "e39ba57a3615907c"
+      ],
+      "start_line": 1057
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1090,
+      "heading": "Playbook: Cache Repeated API Calls",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-cache-repeated-api-calls",
+      "source_keys": [
+        "a9c1cee2ea409fb9"
+      ],
+      "start_line": 1072
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1092,
+      "heading": "18. Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "18-troubleshooting-decision-tree",
+      "source_keys": [
+        "776256c424368312",
+        "6d390930ff8b14a8",
+        "17e45cec6ac45c65",
+        "11bfad701dd44b19",
+        "8b36a3bb6cf452c1",
+        "16b69950a994d9e5",
+        "9eb572eefcc91592"
+      ],
+      "start_line": 1091
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1108,
+      "heading": "Symptom: Block Does Not Appear In Page Zone Editor",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1093
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1123,
+      "heading": "Symptom: Block Renders Blank",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-block-renders-blank",
+      "source_keys": [
+        "6d390930ff8b14a8"
+      ],
+      "start_line": 1109
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1137,
+      "heading": "Symptom: Save Button Does Nothing",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-save-button-does-nothing",
+      "source_keys": [
+        "17e45cec6ac45c65"
+      ],
+      "start_line": 1124
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1151,
+      "heading": "Symptom: Save Succeeds But Data Does Not Change",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-save-succeeds-but-data-does-not-change",
+      "source_keys": [
+        "17e45cec6ac45c65"
+      ],
+      "start_line": 1138
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1166,
+      "heading": "Symptom: Grid Is Slow",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-grid-is-slow",
+      "source_keys": [
+        "11bfad701dd44b19"
+      ],
+      "start_line": 1152
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1177,
+      "heading": "Symptom: Grid Sort Duplicates Or Moves Wrong Rows",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-grid-sort-duplicates-or-moves-wrong-rows",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1167
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1189,
+      "heading": "Symptom: Grid Export Fails",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-grid-export-fails",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1178
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1200,
+      "heading": "Symptom: Field Type Displays Raw JSON",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-field-type-displays-raw-json",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1190
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1211,
+      "heading": "Symptom: Picker Cannot Be Cleared",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-picker-cannot-be-cleared",
+      "source_keys": [
+        "8b36a3bb6cf452c1"
+      ],
+      "start_line": 1201
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1217,
+      "heading": "Symptom: Lava Redirect Or Meta Tag Does Not Work",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-lava-redirect-or-meta-tag-does-not-work",
+      "source_keys": [
+        "16b69950a994d9e5"
+      ],
+      "start_line": 1212
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1229,
+      "heading": "Symptom: Security Modal Opens But User Cannot Save",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 1218
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1242,
+      "heading": "Symptom: Works For Admin But Not Staff",
+      "needs_live_verification": true,
+      "section_id": "18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 1230
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1244,
+      "heading": "19. Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes",
+      "source_keys": [
+        "9eb572eefcc91592",
+        "776256c424368312",
+        "e39ba57a3615907c"
+      ],
+      "start_line": 1243
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 1256,
+      "heading": "Recipe: Identify The Source Files Behind A Visible Obsidian Block",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block",
+      "source_keys": [
+        "9eb572eefcc91592"
+      ],
+      "start_line": 1245
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1267,
+      "heading": "Recipe: Determine Whether A Bug Is Version-Related",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-determine-whether-a-bug-is-version-related",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1257
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 1285,
+      "heading": "Recipe: Review An Obsidian Pull Request",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-review-an-obsidian-pull-request",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1268
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1298,
+      "heading": "Recipe: Audit A Block For Security",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-audit-a-block-for-security",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1286
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1313,
+      "heading": "Recipe: Audit A Grid For Operational Readiness",
+      "needs_live_verification": true,
+      "section_id": "19-agent-task-recipes-recipe-audit-a-grid-for-operational-readiness",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1299
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1333,
+      "heading": "Recipe: Decide Whether To Use Browser Bus",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-decide-whether-to-use-browser-bus",
+      "source_keys": [
+        "e39ba57a3615907c"
+      ],
+      "start_line": 1314
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1341,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "e39ba57a3615907c"
       ],
-      "start_line": 46
+      "start_line": 1334
     },
     {
       "confidence": "structural",
-      "end_line": 60,
+      "end_line": 1348,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "e39ba57a3615907c"
       ],
-      "start_line": 54
+      "start_line": 1342
     },
     {
       "confidence": "normal",
-      "end_line": 71,
-      "heading": "4. Source Map And Dependency Notes",
+      "end_line": 1376,
+      "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
-      "section_id": "4-source-map-and-dependency-notes",
+      "section_id": "20-source-map-and-dependency-notes",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "9eb572eefcc91592",
+        "688f7051e9eaa0b1",
+        "688f7051e9eaa0b1",
+        "b168f80a45ce8a1c",
+        "095fcaaf294bf490",
+        "11bfad701dd44b19",
+        "553bda51c1d439cb",
+        "9eb572eefcc91592",
+        "553bda51c1d439cb",
+        "d126ee444c6d1662",
+        "75b846ec4ce0aab8",
+        "36c3d697c2cf3359",
+        "17e45cec6ac45c65",
+        "e39ba57a3615907c",
+        "16b69950a994d9e5",
+        "8b36a3bb6cf452c1",
+        "776256c424368312"
       ],
-      "start_line": 61
+      "start_line": 1349
     }
   ],
-  "source_pack_hydrated_at": null,
+  "source_pack_hydrated_at": "2026-06-19T00:07:23+00:00",
   "sources": [
     {
       "authority": "official-model-map",
@@ -127,13 +1677,668 @@
     {
       "authority": "official-developer",
       "authority_score": 90,
-      "kind": "citation_only",
+      "change_type": null,
+      "content_hash": "f09e950ee48c43b84ded674aea348ebc62ced7f4d67c112d293b5640eec79eec",
+      "excerpt_hash": "5ffba8dc1aca784fdbfe32f3cf41209d57519d1519881c12bd3056fddc70b146",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9eb572eefcc91592",
+      "source_record_id": "rock_developer:article:384",
+      "title": "Columns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "dde5fa802728f380a49af785752082814bddba136bd3ad3dc718607e22c7f13c",
+      "excerpt_hash": "adbfa15c691a95b24d2a6db4611e02a40f51551be323546f5fc3a60ce3f889ec",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "688f7051e9eaa0b1",
+      "source_record_id": "rock_developer:article:377",
+      "title": "Creating Blocks",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "422dc6079e0c64fde12b7a0f2d8c2c805bdae480c38b1dba968c13f5e4fb5fbb",
+      "excerpt_hash": "95defee4702ae28438a7e568193d6367610db206222b49146c972e86836d7393",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "5b8aa0c453e855f4",
+      "source_record_id": "rock_developer:article:365",
+      "title": "Obsidian Component Structure",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/obsidian-component-structure",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f8360040c3062012857ecb9987a4ae708e8ac047214029808802000ee1efe3dc",
+      "excerpt_hash": "8f00c9d9e98496384c269f8628c27c9836a7ff3b078b6269c25a42b2f036796c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "11bfad701dd44b19",
+      "source_record_id": "rock_developer:article:372",
+      "title": "Grids",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grids",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a84bd10a728ef83714d9f3b5b5c690f0d6f4bab4161428e1e8e9b516196305cb",
+      "excerpt_hash": "01ce9281812921ae18dbfbb479a8060369781df769d072a5286014f88c0e9743",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d126ee444c6d1662",
+      "source_record_id": "rock_developer:article:381",
+      "title": "Core Field Type Patterns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "3b951f1106d5a90d7b0842787875918e7e4930dcc01d25628b22f3c6042d5564",
+      "excerpt_hash": "096cc5d7e753c14a62b78ad135db3c63b760957a7374ea9dbbea745f53c3cb4c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "75b846ec4ce0aab8",
+      "source_record_id": "rock_developer:article:382",
+      "title": "Universal Field Types",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2827496bb2fcf3001bb98d778246148e6405a741b26790e2d9ca2706ff758a72",
+      "excerpt_hash": "bae34521593d6415cd56de50b664b1c921aa708ef86f6ca05629d1e7ef0c09fd",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "16b69950a994d9e5",
+      "source_record_id": "rock_lava_docs:16b69950a994d9e5",
+      "title": "Lava With Obsidian",
+      "topics": [
+        "cms",
+        "development",
+        "lava",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/obsidian",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "67e98a7a867629f82c0966112a0f7f5709930e194541f0828abb2ceb8ae063a6",
+      "excerpt_hash": "419176cdf3593ac52d1edec4f2ffab549121ab2c49d21de86bf2acc7c1d9bcba",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "December 8, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:b44bf921d419bbb8",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.1"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "bb5b629adf7383377aa9459a5e32425216e6c18d07cd32decf1bc0d7501488c9",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e9c0038334f27b7a915e30dcc9c194dd6c4df318e1c8dad2fd8ef8a40fa14920",
+      "excerpt_hash": "5e85932f45016a3c406f7ae38ca6aaadf778bba5659e076a1a0a62ac7d73eb10",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b168f80a45ce8a1c",
+      "source_record_id": "rock_developer:article:378",
+      "title": "Creating Detail Blocks",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d87b51e423ea0f17e6159d950c5d76b9f67d8dafe0279020d6353051e4d52f75",
+      "excerpt_hash": "e392e4147db6b200b34b23c24631c051281622996e58c2a1185b06038d48c9b9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "095fcaaf294bf490",
+      "source_record_id": "rock_developer:article:379",
+      "title": "Creating List Blocks",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks",
+      "version": null
+    },
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "change_type": null,
+      "content_hash": "11257e535cb6cb78715198c740b5c365cf8311b0b9a83b4f88c79e66d0ee036e",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:f8998112262aea8f",
+      "title": "Field Type",
+      "topics": [
+        "api",
+        "core",
+        "data",
+        "lava",
+        "model-map"
+      ],
+      "url": "https://community.rockrms.com/ModelMap",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "76bc477b8b014d1252cdce0b339038c6df5db644f8bb530078ffe9fb9cbe0945",
+      "excerpt_hash": "60a569273cc6f371dea8638178057f8f67eb15da2aa9068b7a342853f1397c61",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e39ba57a3615907c",
+      "source_record_id": "rock_developer:article:370",
+      "title": "Browser Bus",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/browser-bus",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "19a82f575ac0cda397a154a1f0e79cc9b0a4a1ca46355ac0c1bbb1589a1c2a44",
+      "excerpt_hash": "c126e78187be30513645250b588e9b2696348dd94efe894ff8ab7992ea82935b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "36c3d697c2cf3359",
+      "source_record_id": "rock_developer:article:368",
+      "title": "Creating UI Controls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "78a7ddc97e82f91dff536e10f85e9c96277a10b5fe333f9a494001120b0cbaa5",
+      "excerpt_hash": "2f9b3b3426ae16ccc802deeee68affa8f04c00bb20190541a871989566904f39",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6d390930ff8b14a8",
+      "source_record_id": "rock_developer:article:364",
+      "title": "Null vs Undefined",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "61190960a130b00b794fcb48efc92b3b3cf894a81922012724e8ce4161d31f59",
+      "excerpt_hash": "570c32f4ee1d7a2ed94e860eeb3b293cb2cf53cbdcd4cc0b558544ca8b4cecbc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "rock_developer",
       "source_key": "8b36a3bb6cf452c1",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/developer/obsidian",
-      "url": "https://community.rockrms.com/developer/obsidian"
+      "source_record_id": "rock_developer:article:185",
+      "title": "Obsidian",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian",
+      "version": null
+    },
+    {
+      "authority": "official-api",
+      "authority_score": 88,
+      "change_type": null,
+      "content_hash": "64a5132777e73d448c3aba900106e9bcc2ab05d0785ac2847a46a7ab0f06a6f7",
+      "excerpt_hash": "cc7a47de7d022a633b75aabdb55a9f81ebd43176448999297ae87dedecf338f6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_api_docs",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
+      "title": "API Documentation",
+      "topics": [
+        "api",
+        "development",
+        "integrations",
+        "lava",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/api-docs",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "922ff9edd0c5538659ab1f5060e76d60e8da94bc4f5b912c19933e9b963e9146",
+      "excerpt_hash": "1bd7ba1ebcb9e3a6b6a101452d655e5cbd896face57fe3a94cb90b16cc34317a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6a44a9e1765b521b",
+      "source_record_id": "rock_developer:article:2658",
+      "title": "Implementing IHasCustomActions",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d1b197081109bc7ebdd1729bf9f64be604915ea46718451cf6c25b504651fc3e",
+      "excerpt_hash": "68d3bd4611eeaab795187f7ef59a8f560e487a3b7dbe07084a409ec5a39657aa",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "553bda51c1d439cb",
+      "source_record_id": "rock_developer:article:373",
+      "title": "Grid Reference",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "0858a031937d3aa418891ac4f7222b9b5d9516166746e3c676fa782fe84e5441",
+      "excerpt_hash": "b8388d6727da46a24d273211068ff8bca2e5ab7b078efb83b08b915f90b632f5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "17e45cec6ac45c65",
+      "source_record_id": "rock_developer:article:366",
+      "title": "Form Validation",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/form-validation",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a1f17a09dc5ecf7a73ff056b6105b0e735ffbeaed115f17d69a09b199afb0fc1",
+      "excerpt_hash": "4d581ac1932cb73bee132ee8e1288c768a57a837efb1035cf1b6a3343a56233e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9633cce6873cff38",
+      "source_record_id": "rock_developer:article:380",
+      "title": "Converting Core Field Types",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ea6ddd076f591cc20a5a444f08a3320d8a771217e4daedb73b6880c0d36f5356",
+      "excerpt_hash": "46c420758ce502f2b6fe25cc459246960f8621aaae408e040a161809bdc66b60",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "5966214bad72bdf7",
+      "source_record_id": "rock_developer:article:376",
+      "title": "Debugging Obsidian in VS Code",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c56434359b6f776529415c9916dc89e37d6a5b2d7ddf62614d0cebbee4c9db1c",
+      "excerpt_hash": "2592d756c8f99e4e5f1137b7d1076e62b78e67e977c61ef717a0019d72b042cf",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "eeb549b0d1c823a2",
+      "source_record_id": "rock_developer:article:375",
+      "title": "App Laws",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/app-laws",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "2f53921f05cbf949ce0ccc2843dd502481a893e02f57b2e924b880fd60ca4de9",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "9d0ccce785ef64bb",
+      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
+      "title": "GitHub Spotlight: 10/4/2024",
+      "topics": [
+        "ai",
+        "github",
+        "implementation",
+        "mobile",
+        "operations",
+        "releases",
+        "resources",
+        "security",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-1042024",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e95a89ce9ea76a2029d39feadb43a7378a66a878d172e49c20b7bbb93a63384b",
+      "excerpt_hash": "276acf7eafd3b0e14bc74ca35b231202396c735083b81330372cb9696bb9e87e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a9c1cee2ea409fb9",
+      "source_record_id": "rock_developer:article:371",
+      "title": "Caching API Calls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "0d8a92c8fe49b17c55c1fa971987d334e9eeaa9c511f6d0a11f63eb6b95d859c",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "3bfb39e6d8d15f43",
+      "source_record_id": "triumph_resources:3bfb39e6d8d15f43",
+      "title": "GitHub Spotlight: 12/6/2024",
+      "topics": [
+        "ai",
+        "api",
+        "github",
+        "implementation",
+        "lava",
+        "operations",
+        "releases",
+        "resources",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-1262024",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "e9fe7db83ef3f6cec02d3ef151d8fc7bc025cea7a7809c9682dc8ec388852001",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "34bd6d6dedcd64a1",
+      "source_record_id": "triumph_resources:34bd6d6dedcd64a1",
+      "title": "GitHub Spotlight: 7/18/2025",
+      "topics": [
+        "ai",
+        "finance",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "triumph"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-7182025",
+      "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "change_type": null,
+      "content_hash": "07a39ba0761c5162c953526b2480fac3614bb94018bc069bbf30e01af5d9b8b8",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "triumph_resources",
+      "source_key": "89dd946aff8f266d",
+      "source_record_id": "triumph_resources:89dd946aff8f266d",
+      "title": "GitHub Spotlight: 8/7/2025",
+      "topics": [
+        "ai",
+        "api",
+        "github",
+        "implementation",
+        "operations",
+        "releases",
+        "resources",
+        "triumph",
+        "workflow"
+      ],
+      "url": "https://www.triumph.tech/resources/github-spotlight-872025",
+      "version": null
     }
   ],
-  "synthesis_profile": null
+  "synthesis_profile": "comprehensive"
 }

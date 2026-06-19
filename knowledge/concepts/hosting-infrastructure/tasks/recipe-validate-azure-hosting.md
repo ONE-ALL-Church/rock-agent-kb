@@ -1,0 +1,48 @@
+---
+concept_id: hosting-infrastructure
+task_id: recipe-validate-azure-hosting
+title: Recipe: Validate Azure Hosting
+generated: true
+---
+
+# Recipe: Validate Azure Hosting
+
+Follow the guide section for Recipe: Validate Azure Hosting.
+
+## When To Use
+
+- Use this when the user's task matches this operational symptom or implementation path.
+- Verify live Rock records before making changes.
+
+## Live Records To Inspect
+
+- `Guide section`
+
+## Entities And Tables
+
+- `See guide`
+
+## Steps
+
+1. Read the linked guide section.
+2. Inspect live Rock records before making changes.
+3. Cite exact source URLs in the final answer.
+
+## Do Not Assume
+
+- Do not treat generated guidance as live-instance proof.
+
+## Source Links
+
+- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
+- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
+- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
+- https://community.rockrms.com/recipes/259
+- https://community.rockrms.com/recipes/355
+- https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms
+- https://www.triumph.tech/resources/azure-mobile-app
+- https://community.rockrms.com/recipes/202
+- https://community.rockrms.com/recipes/176
+- https://community.rockrms.com/recipes/352

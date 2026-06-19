@@ -15,6 +15,6 @@ No approved claims are currently routed to Documents And Signatures; inspect sou
 ## Citations
 
 - [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation](https://community.rockrms.com/documentation/core-concepts/documents)
-- [rock_rocku](https://community.rockrms.com/rocku/event-registration/electronic-signatures)
-- [rock_rocku](https://community.rockrms.com/rocku/workflows/electronic-signatures-1)
+- [rock_documentation:article:1008](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents)
+- [rock_documentation:article:852](https://community.rockrms.com/documentation/core-concepts/documents)
+- [rock_core_release_notes:fd91665df6fc5388](https://www.rockrms.com/releasenotes)

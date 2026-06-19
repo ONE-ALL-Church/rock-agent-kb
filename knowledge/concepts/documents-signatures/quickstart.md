@@ -17,22 +17,42 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 
 ## Primary Tasks
 
+- [Recipe: Find All Pending Signature Requests For A Template](tasks/recipe-find-all-pending-signature-requests-for-a-template.md): Follow the guide section for Recipe: Find All Pending Signature Requests For A Template.
+- [Recipe: Verify A Person Has A Valid Signed Waiver](tasks/recipe-verify-a-person-has-a-valid-signed-waiver.md): Follow the guide section for Recipe: Verify A Person Has A Valid Signed Waiver.
+- [Recipe: Diagnose A Failed Registration Signature](tasks/recipe-diagnose-a-failed-registration-signature.md): Follow the guide section for Recipe: Diagnose A Failed Registration Signature.
+- [Recipe: Audit Public Exposure Risk](tasks/recipe-audit-public-exposure-risk.md): Follow the guide section for Recipe: Audit Public Exposure Risk.
+- [Recipe: Build A Staff Resend Process](tasks/recipe-build-a-staff-resend-process.md): Follow the guide section for Recipe: Build A Staff Resend Process.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-39: 1. Executive Summary For Agents (normal)
-- `2-agent-workflow` lines 40-47: 2. Agent Workflow (normal)
+- `1-executive-summary-for-agents` lines 27-44: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 45-83: 2. Scope And Terminology (high)
+- `3-documents-and-signatures-mental-model-entity-documents` lines 88-100: Entity Documents (normal)
+- `3-documents-and-signatures-mental-model-merge-documents` lines 101-115: Merge Documents (normal)
+- `3-documents-and-signatures-mental-model-electronic-signatures` lines 116-132: Electronic Signatures (normal)
+- `3-documents-and-signatures-mental-model-generated-pdfs` lines 133-146: Generated PDFs (normal)
 
 ## Core Entities
 
+- `Attribute`: Rock concept/entity referenced by the documents-signatures guide.
 - `Block`: Rock concept/entity referenced by the documents-signatures guide.
+- `Family`: Rock concept/entity referenced by the documents-signatures guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
+- `GroupMember`: Rock concept/entity referenced by the documents-signatures guide.
+- `Label`: Rock concept/entity referenced by the documents-signatures guide.
+- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the documents-signatures guide.
 - `Person`: Rock concept/entity referenced by the documents-signatures guide.
+- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the documents-signatures guide.
 
 ## Version Caveats
 
+- `17.0`: Updated Electronic Signatures to allow for inserting the signature at specific places in the document template using a new optional "<!--[[ SignatureDetails ]]-->" keyword.
+- `17.8`: Fixed an issue where files uploaded through the Entity Document Add workflow action weren't properly linked to their parent Document. Because of that missing link, Rock couldn't check the Document Type's security rules w
+- `18.3`: Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant with
+- `16.1`: Fixed Signature Document Templates filtering to not show inactive templates in Workflow Actions. Fixes: #5511
+- `15.2`: Fixed inactive signature document template from being selected in event registration. Fixes: #5510
 
 ## Files For Agents
 
