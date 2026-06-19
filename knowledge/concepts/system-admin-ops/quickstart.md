@@ -50,7 +50,7 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 
 ## Version Caveats
 
-- `19.1`: Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the 
+- `19.1`: Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the
 - `19.1`: Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729
 
 ## Files For Agents
