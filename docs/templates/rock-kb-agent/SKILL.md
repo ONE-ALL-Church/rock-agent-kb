@@ -13,7 +13,7 @@ The KB is source-tiered. Never blend community-only material into authoritative 
 
 ## Install And Availability
 
-Use `uvx rock-kb` when the `rock-kb` client is available from the package registry:
+Use the published `rock-kb` client from PyPI:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
@@ -23,7 +23,14 @@ uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
 
-When operating from a local `rock-agent-kb` checkout before the package is published, use the checked-in client instead:
+To test unreleased client changes from GitHub instead of PyPI, use:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
+```
+
+When operating from a local `rock-agent-kb` checkout and testing local client
+changes, use the checked-in client instead:
 
 ```bash
 uv run --project clients/python rock-kb search "check-in labels not printing"
@@ -75,6 +82,36 @@ Use `community-unreviewed` rows only as leads. Say they are unreviewed.
 
 4. For version-sensitive answers, call out Rock version when the KB provides it. If version is missing or behavior can vary by instance, say so.
 
+## Rockumentation API Full Text
+
+Rock's public Rockumentation pages can expose richer article content through the
+same public block-action API used by the KB ingester. Use this only to inspect
+public documentation, developer docs, and mobile docs; do not use it for private
+Rock instances or authenticated content.
+
+For `/documentation/<slug>` and `/developer/<slug>` article pages, POST to:
+
+```text
+https://community.rockrms.com/api/v2/BlockActions/6d657cde-b3b9-4acd-9cab-928234ab0fae/a6f974bc-6d59-46e7-a832-37525a343706/RefreshObsidianBlockInitialization?slug=<url-encoded-slug>
+```
+
+For the `/documentation` home page, POST to:
+
+```text
+https://community.rockrms.com/api/v2/BlockActions/85750a25-e864-4938-bde7-09cd32146a18/d30514c6-b51f-40b4-aa77-4108b35b7f13/RefreshObsidianBlockInitialization
+```
+
+The response is JSON. Article full text is in `initialContent`, usually inside
+`article.rockumentation-article[data-main-article="true"]`. Metadata such as
+title, current version, version links, table of contents, and slug is in
+`configurationValues`; article IDs may appear as `data-article-id` attributes.
+If operating inside this repo, prefer the existing helpers in
+`src/rock_kb/community.py` instead of writing one-off parsing code.
+
+Do not assume every Community page uses this API. Lava reference pages currently
+work better through the static/parser source path unless the API is re-probed and
+shown to return real article content.
+
 ## Model Map
 
 Use stable model-map data as the default public reference:
@@ -116,9 +153,8 @@ uvx rock-kb validate bundle.jsonl
 ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
 ```
 
-If you are operating from a local `rock-agent-kb` checkout and `uvx rock-kb`
-fails with "rock-kb was not found in the package registry", use the checked-in
-client instead:
+If you are operating from a local `rock-agent-kb` checkout and need unreleased
+client changes, use the checked-in client instead:
 
 ```bash
 uv run --project clients/python rock-kb validate bundle.jsonl

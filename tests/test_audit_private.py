@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from rock_kb.audit import audit_license_records, validate_markdown_frontmatter
+from rock_kb.audit import audit_duplicate_source_urls, audit_license_records, validate_markdown_frontmatter
 from rock_kb.contributions import (
     CONTRIBUTION_SCHEMA,
     contribution_check_report,
@@ -71,6 +71,23 @@ def test_license_audit_blocks_full_text_without_permission(tmp_path):
     )
     errors = audit_license_records([path])
     assert any("full_text" in error for error in errors)
+
+
+def test_duplicate_source_url_audit_flags_unapproved_source_pairs(tmp_path):
+    path = tmp_path / "records.jsonl"
+    write_jsonl(
+        path,
+        [
+            {"id": "a", "source_id": "rock_community_site", "source_url": "https://community.rockrms.com/developer/helix"},
+            {"id": "b", "source_id": "rock_developer", "source_url": "https://community.rockrms.com/developer/helix/"},
+            {"id": "c", "source_id": "public_rock_repos", "source_url": "https://github.com/SparkDevNetwork/Rock"},
+            {"id": "d", "source_id": "sparkdevnetwork_rock", "source_url": "https://github.com/SparkDevNetwork/Rock"},
+        ],
+    )
+
+    errors = audit_duplicate_source_urls([path])
+
+    assert errors == ["duplicate source_url pair rock_community_site vs rock_developer: 1"]
 
 
 def test_frontmatter_validation(tmp_path):

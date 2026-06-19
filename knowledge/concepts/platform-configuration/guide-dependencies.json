@@ -3090,23 +3090,6 @@
       "source_record_id": "media-insight:97a12ee26ba9575f",
       "source_title": "Episode 37: Special Edition Garrett Johnson Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "mobile",
-        "security-permissions"
-      ],
-      "content_hash": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:c44e84f71993048e",
-      "public_promotion_id": "media-public-promotion:9d45b1e89b0aad26",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:c44e84f71993048e",
-      "source_title": "Mobile Check-in Configuration Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -3125,15 +3108,14 @@
     "media-insight:97a12ee26ba9575f": "3261d99ef95297865c9aae3bfedfaceb6feb26ffdcf46e6f53a51f7ed56989de",
     "media-insight:a11e091aa9800728": "c28fedc8f70ee4ede99d6eaf11af5393690da6e2e01c752732a48859d82ed243",
     "media-insight:b68b16ee29ac1067": "82dd15e55759f16a2433ce9c91fcba38d5dc7c70a2808e2cbfedb22dd83e3d9f",
-    "media-insight:c44e84f71993048e": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717",
     "media-insight:f609e5067739f62b": "963a4d284a9509efc6682d2facfc5b6bbddf99f7eea910c9f3f1c3197eb37de6"
   },
-  "approved_media_hash": "2b895e0d3ba51200c237e5e951ed38b446530f148fc119dbfd04344bf44878b0",
+  "approved_media_hash": "86163bdfb40d439e7ac20354271075bacc69a70b5d9836dbb0df886aec2e72a1",
   "approved_media_path": "knowledge/concepts/platform-configuration/approved-media.md",
-  "built_at": "2026-06-18T19:01:23+00:00",
+  "built_at": "2026-06-19T00:30:27+00:00",
   "concept_id": "platform-configuration",
-  "guide_hash": "27ffc85179e82ec6e9e25f8ea5b9d6d9b666cd7b9c5d00af3105f6d213a118d7",
+  "guide_hash": "f4522fe56f2d54762c8bf08bc321e2be746bb4673aa89598a4e0e62da515c977",
   "guide_line_count": 1568,
   "guide_path": "knowledge/concepts/platform-configuration/guide.md",
   "guide_word_count": 13911,

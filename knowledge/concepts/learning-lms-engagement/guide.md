@@ -1191,20 +1191,16 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `12`
+- Approved media records routed to this concept: `5`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
-| [Group Requirements Transcript Insight](https://community.rockrms.com/rocku/groups/group-requirements) | approved_for_public_distillation | 3 | media-insight:9a2fef11fd30a564 |
-| [LMS - Activities Transcript Insight](https://community.rockrms.com/rocku/lms/lms-activities) | approved_for_public_distillation | 3 | media-insight:2a0b01a118d004aa |
-| [LMS - Administration Transcript Insight](https://community.rockrms.com/rocku/lms/lms-administration) | approved_for_public_distillation | 3 | media-insight:f0c688c9ed0d7ed7 |
-| [LMS - Create a Program Transcript Insight](https://community.rockrms.com/rocku/lms/lms-create-a-program) | approved_for_public_distillation | 3 | media-insight:d3591980e5622db9 |
-| [Labels [Legacy] Transcript Insight](https://community.rockrms.com/rocku/check-in/labels-legacy) | approved_for_public_distillation | 3 | media-insight:a8ed08ea505e5367 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) | approved_for_public_distillation | 4 | media-insight:51fb82169d3a4818 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) | approved_for_public_distillation | 3 | media-insight:927b060aba73b666 |
-| More |  | 4 additional reviewed media records are tracked in `approved-media.md`. |  |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) | approved_for_public_distillation | 3 | media-insight:a5cb300eafd257ca |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) | approved_for_public_distillation | 5 | media-insight:d1eb1a265dd0762b |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) | approved_for_public_distillation | 3 | media-insight:ee02b5c27faeaa28 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

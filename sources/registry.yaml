@@ -16,13 +16,13 @@ sources:
     name: Rock Manuals
     kind: rock_documentation
     root_url: https://community.rockrms.com/documentation
-    description: Official Rock RMS manuals and book content.
+    description: Official Rock RMS Rockumentation topic and article content.
     owner: Spark Development Network
     license_status: public_rights_reserved
     allowed_extraction_mode: cite_and_summarize
     refresh_cadence: weekly
     extraction_tier: 1
-    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    preferred_tooling: [rockumentation_block_action, static_http, custom_parser, crawl4ai]
     topics: [admin, operations, usage]
 
   - id: rock_recipes
@@ -74,7 +74,9 @@ sources:
     allowed_extraction_mode: cite_and_summarize
     refresh_cadence: weekly
     extraction_tier: 1
-    preferred_tooling: [static_http, custom_parser, crawl4ai, rockumentation_skill_builder]
+    preferred_tooling: [rockumentation_block_action, static_http, custom_parser, crawl4ai, rockumentation_skill_builder]
+    path_prefixes: [/developer]
+    excluded_path_prefixes: [/developer/mobile-docs]
     topics: [development, api, lava, obsidian]
 
   - id: rock_api_docs
@@ -108,14 +110,14 @@ sources:
   - id: rock_mobile_docs
     name: Rock Mobile Docs
     kind: rock_mobile_docs
-    root_url: https://community.rockrms.com/developer//mobile-docs
+    root_url: https://community.rockrms.com/developer/mobile-docs
     description: Rock Mobile documentation tree and child pages.
     owner: Spark Development Network
     license_status: public_rights_reserved
     allowed_extraction_mode: cite_and_summarize
     refresh_cadence: weekly
     extraction_tier: 1
-    preferred_tooling: [static_http, custom_parser, crawl4ai, rockumentation_skill_builder]
+    preferred_tooling: [rockumentation_block_action, static_http, custom_parser, crawl4ai, rockumentation_skill_builder]
     discover_children: true
     child_url_allowlist:
       - https://community.rockrms.com/developer/mobile-docs
@@ -211,7 +213,15 @@ sources:
       - /recipes
       - /rocku
       - /styling
-      - /subscriptions
+    excluded_path_prefixes:
+      - /api-docs
+      - /ask
+      - /community-hubs
+      - /developer
+      - /documentation
+      - /lava
+      - /recipes
+      - /rocku
     topics: [community, documentation, usage, development]
 
   - id: rock_shop_plugins

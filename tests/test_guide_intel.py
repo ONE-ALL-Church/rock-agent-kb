@@ -152,6 +152,39 @@ def test_audit_guide_quality_flags_shallow_guides():
     assert any(check["id"] == "min_words" and not check["passed"] for check in audit["checks"])
 
 
+def test_audit_guide_quality_marks_explicit_starter_guides():
+    markdown = "---\nguide_status: starter_needs_review\n---\n\n## Tiny\n\nNo citations."
+    sections = section_source_map("check-in", parse_markdown_sections(markdown), {})
+
+    audit = audit_guide_quality("check-in", markdown, sections, {"sources": []}, [])
+
+    assert audit["status"] == "starter"
+    assert any(check["id"] == "min_words" and not check["passed"] for check in audit["checks"])
+
+
+def test_audit_guide_quality_requires_community_label_only_when_community_sources_exist():
+    markdown = ("## Official Only\n\nOfficial docs and source code cover this. " * 900)
+    sections = section_source_map("obsidian-development", parse_markdown_sections(markdown), {})
+    dependency = {
+        "sources": [
+            {"authority": "official-developer"},
+            {"authority": "official-release"},
+            {"authority": "source-code"},
+        ]
+    }
+
+    official_audit = audit_guide_quality("obsidian-development", markdown, sections, dependency, [{}] * 5, [{}] * 8)
+
+    assert "community_marked" not in {check["id"] for check in official_audit["checks"]}
+
+    community_dependency = {"sources": [*dependency["sources"], {"authority": "community-example"}]}
+
+    community_audit = audit_guide_quality("obsidian-development", markdown, sections, community_dependency, [{}] * 5, [{}] * 8)
+
+    checks = {check["id"]: check["passed"] for check in community_audit["checks"]}
+    assert checks["community_marked"] is False
+
+
 def test_audit_guide_quality_checks_contribution_guardrails():
     markdown = (
         ("## Contribution Examples\n\n"

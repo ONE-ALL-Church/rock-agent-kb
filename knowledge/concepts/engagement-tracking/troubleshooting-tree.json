@@ -1,0 +1,194 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-step-program",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/streaks",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
+        "https://community.rockrms.com/documentation/engagement/assessments",
+        "https://community.rockrms.com/documentation/engagement/steps",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/233",
+        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A Step Program",
+      "when": "Follow the guide section for Recipe: Audit A Step Program."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-diagnose-step-badge-display",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+        "https://community.rockrms.com/documentation/engagement/steps",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/233",
+        "https://community.rockrms.com/documentation/engagement/streaks",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Diagnose Step Badge Display",
+      "when": "Follow the guide section for Recipe: Diagnose Step Badge Display."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-a-streak-type-before-rebuild",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/streaks",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+        "https://community.rockrms.com/documentation/engagement/assessments",
+        "https://community.rockrms.com/documentation/engagement/steps",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/233",
+        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review A Streak Type Before Rebuild",
+      "when": "Follow the guide section for Recipe: Review A Streak Type Before Rebuild."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-verify-assessment-request-flow",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/assessments",
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
+        "https://community.rockrms.com/documentation/engagement/steps",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
+        "https://community.rockrms.com/documentation/engagement/streaks",
+        "https://www.rockrms.com/releasenotes",
+        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments",
+        "https://community.rockrms.com/ask/using/2824",
+        "https://community.rockrms.com/recipes/233"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Verify Assessment Request Flow",
+      "when": "Follow the guide section for Recipe: Verify Assessment Request Flow."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-achievement-type",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
+        "https://community.rockrms.com/documentation/engagement/streaks",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/engagement/steps",
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types",
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-types"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit Achievement Type",
+      "when": "Follow the guide section for Recipe: Audit Achievement Type."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-explain-engagement-data-to-a-ministry-user",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/streaks",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+        "https://community.rockrms.com/documentation/engagement/assessments",
+        "https://community.rockrms.com/documentation/engagement/steps",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/recipes/233",
+        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Explain Engagement Data To A Ministry User",
+      "when": "Follow the guide section for Recipe: Explain Engagement Data To A Ministry User."
+    }
+  ],
+  "concept_id": "engagement-tracking",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-19T00:30:39+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-a-step-is-missing-from-a-person",
+    "18-troubleshooting-decision-tree-step-program-completion-looks-wrong",
+    "18-troubleshooting-decision-tree-streak-count-looks-wrong",
+    "18-troubleshooting-decision-tree-assessment-cannot-be-retaken",
+    "18-troubleshooting-decision-tree-assessment-results-are-not-reportable",
+    "18-troubleshooting-decision-tree-achievement-does-not-create-attempts",
+    "18-troubleshooting-decision-tree-achievement-saves-but-behaves-incorrectly",
+    "18-troubleshooting-decision-tree-achievement-success-workflow-does-not-run",
+    "18-troubleshooting-decision-tree-step-is-not-added-when-achievement-succeeds",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-audit-a-step-program",
+    "19-agent-task-recipes-recipe-diagnose-step-badge-display",
+    "19-agent-task-recipes-recipe-review-a-streak-type-before-rebuild",
+    "19-agent-task-recipes-recipe-verify-assessment-request-flow",
+    "19-agent-task-recipes-recipe-audit-achievement-type",
+    "19-agent-task-recipes-recipe-explain-engagement-data-to-a-ministry-user"
+  ]
+}

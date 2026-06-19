@@ -193,7 +193,8 @@ The hosted service should expose these through manifest/artifact retrieval, but 
 
 ## Terminal Client
 
-The thin consumer client lives under `clients/python/` and is intended to be published as `rock-kb`:
+The thin consumer client lives under `clients/python/` and is published to PyPI
+as `rock-kb`:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
@@ -204,4 +205,18 @@ uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
 
+To test unreleased client changes directly from GitHub, use the Git-backed
+`uvx --from` form:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
+```
+
 Set `ROCK_KB_URL` to use staging. Set `ROCK_KB_TOKEN` for `rock-kb submit`.
+
+To release a new PyPI version, bump `clients/python/pyproject.toml`, then run
+`.github/workflows/release-client.yml` from `main` after merge. The workflow
+builds the wheel and source distribution, smoke-tests both, and publishes via
+PyPI trusted publishing. Tags such as `rock-kb-v0.1.0` are useful release
+markers, but the `production` environment currently allows protected branches,
+so the publish job should be run from `main`.

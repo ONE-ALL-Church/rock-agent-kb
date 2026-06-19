@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13404 words; expected at least 7000.",
+      "message": "Guide has 13432 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -36,11 +36,6 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guide should include community examples as examples.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
       "message": "Guide has 5 task cards; expected at least 5.",
       "passed": true
@@ -54,14 +49,19 @@
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
       "passed": true
+    },
+    {
+      "id": "community_marked",
+      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
     }
   ],
   "concept_id": "apple-tv",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-06-18T19:01:39+00:00",
-  "guide_line_count": 1368,
-  "guide_word_count": 13404,
+  "generated_at": "2026-06-19T00:31:00+00:00",
+  "guide_line_count": 1374,
+  "guide_word_count": 13432,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 93,

@@ -1,0 +1,188 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-inventory-hosting",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting",
+        "https://community.rockrms.com/recipes/259",
+        "https://community.rockrms.com/recipes/355",
+        "https://community.rockrms.com/recipes/202",
+        "https://community.rockrms.com/recipes/176",
+        "https://community.rockrms.com/recipes/352",
+        "https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms",
+        "https://www.triumph.tech/resources/azure-mobile-app"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Inventory Hosting",
+      "when": "Follow the guide section for Recipe: Inventory Hosting."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-validate-azure-hosting",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting",
+        "https://community.rockrms.com/recipes/259",
+        "https://community.rockrms.com/recipes/355",
+        "https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms",
+        "https://www.triumph.tech/resources/azure-mobile-app",
+        "https://community.rockrms.com/recipes/202",
+        "https://community.rockrms.com/recipes/176",
+        "https://community.rockrms.com/recipes/352"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Validate Azure Hosting",
+      "when": "Follow the guide section for Recipe: Validate Azure Hosting."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-sql-performance",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting",
+        "https://community.rockrms.com/recipes/259",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Performance/Benchmarks/Security/EncryptionBenchmarks.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration.Performance/BenchmarkRunners/PersonSearchBenchmarks.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Performance/Attributes/OperationsPerSecondColumnAttribute.cs",
+        "https://community.rockrms.com/rocku/workflows/workflow-performance-tips"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review SQL Performance",
+      "when": "Follow the guide section for Recipe: Review SQL Performance."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-backup-and-restore",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting",
+        "https://community.rockrms.com/recipes/355",
+        "https://www.triumph.tech/resources/separating-development-and-production",
+        "https://community.rockrms.com/recipes/296",
+        "https://community.rockrms.com/recipes/259",
+        "https://community.rockrms.com/rocku/workflows/workflow-performance-tips",
+        "https://community.rockrms.com/rocku/workflows/text-to-workflow-performance"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review Backup And Restore",
+      "when": "Follow the guide section for Recipe: Review Backup And Restore."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-web-farm",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting",
+        "https://www.triumph.tech/resources/github-spotlight-1152026",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting",
+        "https://community.rockrms.com/recipes/176",
+        "https://community.rockrms.com/recipes/202"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review Web Farm",
+      "when": "Follow the guide section for Recipe: Review Web Farm."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-public-launch-hosting-gate",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting",
+        "https://community.rockrms.com/recipes/259",
+        "https://community.rockrms.com/recipes/355",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/recipes/202",
+        "https://community.rockrms.com/recipes/176",
+        "https://community.rockrms.com/recipes/352",
+        "https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Public Launch Hosting Gate",
+      "when": "Follow the guide section for Recipe: Public Launch Hosting Gate."
+    }
+  ],
+  "concept_id": "hosting-infrastructure",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-19T00:30:36+00:00",
+  "guide_sections": [
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-site-is-down",
+    "17-troubleshooting-decision-tree-site-is-slow",
+    "17-troubleshooting-decision-tree-check-in-is-slow",
+    "17-troubleshooting-decision-tree-file-uploads-fail",
+    "17-troubleshooting-decision-tree-development-environment-sends-real-messages",
+    "17-troubleshooting-decision-tree-web-farm-node-behaves-differently",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-inventory-hosting",
+    "18-agent-task-recipes-recipe-validate-azure-hosting",
+    "18-agent-task-recipes-recipe-review-sql-performance",
+    "18-agent-task-recipes-recipe-review-backup-and-restore",
+    "18-agent-task-recipes-recipe-review-web-farm",
+    "18-agent-task-recipes-recipe-public-launch-hosting-gate"
+  ]
+}
