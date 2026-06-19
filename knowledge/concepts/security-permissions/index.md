@@ -2,7 +2,7 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-06-19T06:17:55+00:00
+last_built: 2026-06-19T07:39:33+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
