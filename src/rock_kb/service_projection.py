@@ -281,16 +281,22 @@ def source_summary_search_rows() -> list[dict[str, Any]]:
 
 def model_map_search_rows() -> list[dict[str, Any]]:
     rows = []
+    digests_by_slug = {
+        str((row.get("identity") or {}).get("model_slug") or ""): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "model-map-digests.jsonl")
+    }
     for model in read_jsonl(REPO_ROOT / "knowledge" / "model-map" / "stable-models.jsonl"):
         model_slug = str(model.get("model_slug") or "")
         detail_path = str(model.get("model_detail_path") or "")
         if not model_slug or not detail_path:
             continue
+        digest = digests_by_slug.get(model_slug)
         body_parts = [
             str(model.get("model_name") or ""),
             str(model.get("model_title") or ""),
             str(model.get("model_category") or ""),
             str(model.get("description") or ""),
+            f"{model.get('model_name') or model_slug} model map exact slug {model_slug}",
             read_text(REPO_ROOT / detail_path),
         ]
         rows.append(
@@ -305,10 +311,32 @@ def model_map_search_rows() -> list[dict[str, Any]]:
                 "authority_tier": "official",
                 "claim_tier": "source_backed",
                 "source_id": "rock_model_map",
-                "payload": model,
+                "payload": compact_model_map_search_payload(digest or model),
             }
         )
     return rows
+
+
+def compact_model_map_search_payload(row: dict[str, Any]) -> dict[str, Any]:
+    if row.get("identity"):
+        identity = row.get("identity") or {}
+        counts = row.get("counts") or {}
+        property_groups = row.get("property_groups") or {}
+        return {
+            "schema": "rock-kb-model-map-search-payload-v1",
+            "identity": identity,
+            "counts": counts,
+            "property_group_counts": {
+                key: len(value) if isinstance(value, list) else 0
+                for key, value in property_groups.items()
+            },
+            "required_fields": row.get("required_fields") or [],
+            "relationships": row.get("relationships") or [],
+            "version_diff_count": len(row.get("version_diffs") or []),
+            "operational_notes": row.get("operational_notes") or [],
+            "paths": row.get("paths") or {},
+        }
+    return row
 
 
 def load_org_registry() -> list[dict[str, Any]]:

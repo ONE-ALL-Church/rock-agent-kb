@@ -36,6 +36,7 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_PROPERTIES_PATH", agent_dir / "model-map-properties.jsonl")
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_METHODS_PATH", agent_dir / "model-map-methods.jsonl")
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_VERSION_DIFF_PATH", agent_dir / "model-map-version-diff.jsonl")
+    monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_DIGESTS_PATH", agent_dir / "model-map-digests.jsonl")
     model_dir.mkdir(parents=True)
     (model_dir / "instance-schema.json").write_text("{}", encoding="utf-8")
     (model_dir / "entity-crosswalk.jsonl").write_text("", encoding="utf-8")
@@ -196,6 +197,7 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     assert counts["pre_alpha_methods"] == 2
     assert counts["model_detail_pages"] == 2
     assert counts["version_diff_changes"] == 1
+    assert counts["model_digests"] == 2
 
     stable_models = list(read_jsonl(model_dir / "stable-models.jsonl"))
     person = next(row for row in stable_models if row["model_name"] == "Person")
@@ -222,6 +224,7 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     assert summary["paths"]["agent_entities"] == "agent/model-map-entities.jsonl"
     assert summary["paths"]["agent_properties"] == "agent/model-map-properties.jsonl"
     assert summary["paths"]["agent_methods"] == "agent/model-map-methods.jsonl"
+    assert summary["paths"]["agent_digests"] == "agent/model-map-digests.jsonl"
     properties = list(read_jsonl(model_dir / "stable-properties.jsonl"))
     full_name = next(row for row in properties if row["property_name"] == "FullName")
     assert full_name["is_lava"] is True
@@ -235,8 +238,16 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     methods = list(read_jsonl(model_dir / "stable-methods.jsonl"))
     assert methods[0]["signature"] == "ToString()"
     assert list(read_jsonl(agent_dir / "model-map-methods.jsonl")) == methods
+    digests = list(read_jsonl(agent_dir / "model-map-digests.jsonl"))
+    person_digest = next(row for row in digests if row["identity"]["model_slug"] == "person")
+    assert person_digest["counts"]["database_properties"] == 1
+    assert person_digest["property_groups"]["lava_non_database"][0]["name"] == "FullName"
+    assert person_digest["relationships"][0]["target_model_slug"] == "group"
+    assert person_digest["methods"][0]["signature"] == "ToString()"
+    assert person_digest["version_diffs"][0]["property_name"] == "FullName"
     assert (model_dir / "version-diff.jsonl").exists()
     assert (agent_dir / "model-map-version-diff.jsonl").exists()
+    assert (agent_dir / "model-map-digests.jsonl").exists()
     assert not (model_dir / "instance-schema.json").exists()
     assert not (model_dir / "entity-crosswalk.jsonl").exists()
     assert not (agent_dir / "model-map-relationships.jsonl").exists()

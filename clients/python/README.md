@@ -8,6 +8,8 @@ Install and run the published client from PyPI with `uvx`:
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
+uvx rock-kb model-map list
+uvx rock-kb model group
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -22,6 +24,9 @@ From a local `rock-agent-kb` checkout:
 
 ```bash
 uv run --project clients/python rock-kb search "check-in labels not printing"
+uv run --project clients/python rock-kb model-map list
+uv run --project clients/python rock-kb model group --fields identity,required,relationships,diffs
+uv run --project clients/python rock-kb model group --property Members
 uv run --project clients/python rock-kb validate bundle.jsonl
 ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --org <org-id>
 ```
