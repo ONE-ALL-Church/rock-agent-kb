@@ -49,7 +49,7 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 
 ## Version Caveats
 
-- `18.1`: Improved the Connection Request Board with updates to campus filtering, connector preferences, and workflow configuration. Added new block settings to define default Connection State and Status filters. Workflows on the 
+- `18.1`: Improved the Connection Request Board with updates to campus filtering, connector preferences, and workflow configuration. Added new block settings to define default Connection State and Status filters. Workflows on the
 - `17.2`: Fixed an issue where the Connection Opportunity Signup block only displayed request attributes defined on the opportunity itself, now correctly including attributes inherited from the Connection Type. Fixes: #6356
 
 ## Files For Agents

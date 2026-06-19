@@ -1,7 +1,14 @@
 import json
 
 import rock_kb.indexes as indexes_module
-from rock_kb.indexes import build_public_source_summaries, build_public_source_summary_pack, is_public_agent_record, public_agent_records
+from rock_kb.indexes import (
+    build_public_source_summaries,
+    build_public_source_summary_pack,
+    dedupe_records_by_id,
+    enrich_derived_documentation_metadata,
+    is_public_agent_record,
+    public_agent_records,
+)
 
 
 def test_public_agent_records_exclude_unreviewed_private_transcript_insights():
@@ -35,6 +42,54 @@ def test_public_agent_records_allow_reviewed_private_distillation():
     assert is_public_agent_record(row) is True
 
 
+def test_dedupe_records_by_id_keeps_best_normalized_record():
+    rows = dedupe_records_by_id(
+        [
+            {
+                "id": "rock_lava_docs:home",
+                "source_id": "rock_lava_docs",
+                "summary": "Short summary.",
+                "excerpt": "Short excerpt.",
+                "retrieved_at": "2026-06-17T00:00:00+00:00",
+            },
+            {
+                "id": "rock_lava_docs:home",
+                "source_id": "rock_lava_docs",
+                "summary": "Longer summary with more useful source context.",
+                "excerpt": "Longer excerpt with more useful source context for the public agent pack.",
+                "retrieved_at": "2026-06-18T00:00:00+00:00",
+            },
+            {
+                "id": "rock_lava_docs:commands",
+                "source_id": "rock_lava_docs",
+                "summary": "Commands summary.",
+            },
+        ]
+    )
+
+    assert [row["id"] for row in rows] == ["rock_lava_docs:home", "rock_lava_docs:commands"]
+    assert rows[0]["summary"].startswith("Longer summary")
+
+
+def test_enrich_derived_documentation_metadata_backfills_branch_fields():
+    row = enrich_derived_documentation_metadata(
+        {
+            "id": "rock_documentation:article:10",
+            "documentation_family": "documentation",
+            "documentation_slug": "engagement/prayer/request-settings",
+            "documentation_path_parts": ["engagement", "prayer", "request-settings"],
+        }
+    )
+
+    assert row["documentation_path"] == "documentation/engagement/prayer/request-settings"
+    assert row["documentation_branch"] == "documentation/engagement/prayer"
+    assert row["documentation_branches"] == [
+        "documentation/engagement",
+        "documentation/engagement/prayer",
+        "documentation/engagement/prayer/request-settings",
+    ]
+
+
 def test_build_public_source_summaries_are_citation_first_without_raw_text():
     rows = build_public_source_summaries(
         [
@@ -46,6 +101,11 @@ def test_build_public_source_summaries_are_citation_first_without_raw_text():
                 "source_title": "Check-In",
                 "summary": "Check-In uses areas, groups, schedules, locations, and labels. Verify release caveats before changing live kiosks.",
                 "topics": ["check-in", "configuration"],
+                "documentation_family": "documentation",
+                "documentation_slug": "church-management/check-in",
+                "documentation_path": "documentation/church-management/check-in",
+                "documentation_branch": "documentation/church-management/check-in",
+                "documentation_branches": ["documentation/church-management", "documentation/church-management/check-in"],
                 "content_hash": "abc",
                 "citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation/bookcontent/9"}],
             }
@@ -57,6 +117,7 @@ def test_build_public_source_summaries_are_citation_first_without_raw_text():
     assert rows[0]["key_insights"]
     assert rows[0]["citations"][0]["url"].startswith("https://community.rockrms.com")
     assert rows[0]["contains_raw_source_text"] is False
+    assert rows[0]["documentation_branch"] == "documentation/church-management/check-in"
 
 
 def test_reviewed_media_source_summaries_preserve_timestamps_without_media_urls():

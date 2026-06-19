@@ -415,6 +415,10 @@ def record_matches_concept(record: dict[str, Any], concept: Any) -> bool:
             record.get("source_id"),
             " ".join(record.get("topics") or []),
             " ".join(record.get("rock_versions") or []),
+            record.get("documentation_branch"),
+            record.get("documentation_path"),
+            " ".join(record.get("documentation_branches") or []),
+            " ".join(record.get("documentation_path_parts") or []),
         ]
     ).lower()
     needles = {concept.id.replace("-", " "), *[keyword.lower() for keyword in concept.keywords], *[topic.lower() for topic in concept.depends_on_topics]}

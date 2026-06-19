@@ -1,0 +1,197 @@
+{
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-identify-the-source-files-behind-a-visible-obsidian-block",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/developer/obsidian/browser-bus",
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Identify The Source Files Behind A Visible Obsidian Block",
+      "when": "Follow the guide section for Recipe: Identify The Source Files Behind A Visible Obsidian Block."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-determine-whether-a-bug-is-version-related",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
+        "https://community.rockrms.com/developer/obsidian",
+        "https://community.rockrms.com/developer/obsidian/browser-bus",
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Determine Whether A Bug Is Version-Related",
+      "when": "Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-review-an-obsidian-pull-request",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
+        "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Review An Obsidian Pull Request",
+      "when": "Follow the guide section for Recipe: Review An Obsidian Pull Request."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-block-for-security",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/developer/obsidian/browser-bus",
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A Block For Security",
+      "when": "Follow the guide section for Recipe: Audit A Block For Security."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-a-grid-for-operational-readiness",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/browser-bus",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit A Grid For Operational Readiness",
+      "when": "Follow the guide section for Recipe: Audit A Grid For Operational Readiness."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-decide-whether-to-use-browser-bus",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://community.rockrms.com/developer/obsidian/browser-bus",
+        "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
+        "https://community.rockrms.com/developer/obsidian",
+        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
+        "https://community.rockrms.com/ModelMap",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
+        "https://community.rockrms.com/developer/obsidian/grids"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Decide Whether To Use Browser Bus",
+      "when": "Follow the guide section for Recipe: Decide Whether To Use Browser Bus."
+    }
+  ],
+  "concept_id": "obsidian-development",
+  "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
+  "generated_at": "2026-06-19T00:30:42+00:00",
+  "guide_sections": [
+    "18-troubleshooting-decision-tree",
+    "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",
+    "18-troubleshooting-decision-tree-symptom-block-renders-blank",
+    "18-troubleshooting-decision-tree-symptom-save-button-does-nothing",
+    "18-troubleshooting-decision-tree-symptom-save-succeeds-but-data-does-not-change",
+    "18-troubleshooting-decision-tree-symptom-grid-is-slow",
+    "18-troubleshooting-decision-tree-symptom-grid-sort-duplicates-or-moves-wrong-rows",
+    "18-troubleshooting-decision-tree-symptom-grid-export-fails",
+    "18-troubleshooting-decision-tree-symptom-field-type-displays-raw-json",
+    "18-troubleshooting-decision-tree-symptom-picker-cannot-be-cleared",
+    "18-troubleshooting-decision-tree-symptom-lava-redirect-or-meta-tag-does-not-work",
+    "18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save",
+    "18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff",
+    "19-agent-task-recipes",
+    "19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block",
+    "19-agent-task-recipes-recipe-determine-whether-a-bug-is-version-related",
+    "19-agent-task-recipes-recipe-review-an-obsidian-pull-request",
+    "19-agent-task-recipes-recipe-audit-a-block-for-security",
+    "19-agent-task-recipes-recipe-audit-a-grid-for-operational-readiness",
+    "19-agent-task-recipes-recipe-decide-whether-to-use-browser-bus"
+  ]
+}

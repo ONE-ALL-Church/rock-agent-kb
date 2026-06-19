@@ -1,0 +1,70 @@
+{
+  "authority_coverage": [
+    "community-example",
+    "official",
+    "official-model-map",
+    "official-release",
+    "official-training",
+    "official-triumph",
+    "source-code"
+  ],
+  "checks": [
+    {
+      "id": "min_words",
+      "message": "Guide has 11132 words; expected at least 7000.",
+      "passed": true
+    },
+    {
+      "id": "min_sections",
+      "message": "Guide has 92 sections; expected at least 35.",
+      "passed": true
+    },
+    {
+      "id": "official_sources",
+      "message": "Guide should cite official documentation/developer docs.",
+      "passed": true
+    },
+    {
+      "id": "release_sources",
+      "message": "Guide should cite release notes.",
+      "passed": true
+    },
+    {
+      "id": "source_code",
+      "message": "Guide should cite source code.",
+      "passed": true
+    },
+    {
+      "id": "task_cards",
+      "message": "Guide has 5 task cards; expected at least 5.",
+      "passed": true
+    },
+    {
+      "id": "entity_coverage",
+      "message": "Guide has 11 entity rows; expected at least 8.",
+      "passed": true
+    },
+    {
+      "id": "low_uncited_sections",
+      "message": "Too many substantive sections have no citations.",
+      "passed": true
+    },
+    {
+      "id": "community_marked",
+      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
+    }
+  ],
+  "concept_id": "documents-signatures",
+  "contribution_record_count": 0,
+  "entity_count": 11,
+  "generated_at": "2026-06-19T00:30:35+00:00",
+  "guide_line_count": 1347,
+  "guide_word_count": 11132,
+  "private_draft_contribution_record_count": 0,
+  "score": 100,
+  "section_count": 92,
+  "source_count": 15,
+  "status": "pass",
+  "task_card_count": 5
+}

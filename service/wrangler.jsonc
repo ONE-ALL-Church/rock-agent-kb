@@ -20,7 +20,7 @@
     {
       "binding": "KB_DB",
       "database_name": "rock-agent-kb",
-      "database_id": "00000000-0000-0000-0000-000000000000"
+      "database_id": "72e145ba-3f65-4334-8d6f-72918ea92966"
     }
   ],
   "r2_buckets": [
@@ -42,7 +42,7 @@
         {
           "binding": "KB_DB",
           "database_name": "rock-agent-kb",
-          "database_id": "00000000-0000-0000-0000-000000000000"
+          "database_id": "72e145ba-3f65-4334-8d6f-72918ea92966"
         }
       ],
       "r2_buckets": [

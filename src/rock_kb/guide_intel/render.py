@@ -34,7 +34,7 @@ def render_task_card(card: dict[str, Any]) -> str:
     lines.extend(["", "## Source Links", ""])
     lines.extend(f"- {url}" for url in card.get("source_urls") or [])
     lines.append("")
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
 
 def render_quickstart(
     concept_id: str,
@@ -97,7 +97,7 @@ def render_quickstart(
         ]
     )
     lines.append("")
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
 
 def render_agent_cheatsheet(
     concept_id: str,
@@ -141,7 +141,7 @@ def render_agent_cheatsheet(
             reason = "live verification" if row.get("needs_live_verification") else row.get("confidence")
             lines.append(f"| `{row['section_id']}` | {row.get('confidence')} | {reason} |")
     lines.append("")
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
 
 def render_open_questions(concept_id: str, section_rows: list[dict[str, Any]]) -> str:
     concept = get_concept(concept_id)
@@ -189,4 +189,4 @@ def render_open_questions(concept_id: str, section_rows: list[dict[str, Any]]) -
             ]
         )
     lines.append("")
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)

@@ -355,16 +355,37 @@
   },
   "approved_claims_hash": "5f539f5f347197ff609164fe66fb3aa6bc42178d0410e57c64d14876acf416dd",
   "approved_claims_path": "knowledge/concepts/apple-tv/approved-claims.md",
-  "approved_media_dependencies": [],
-  "approved_media_dependency_hashes": {},
-  "approved_media_hash": "e1b7f70ff2a33221abcd352d9fdde6ff23373e4e723f652463355c0e54899b5a",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "mobile",
+        "tv-apps"
+      ],
+      "content_hash": "9e35e221842326efc33fea82912797c311684a7ce295ca6a3cb6b42f1080c7bd",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:241f05754042fbc9",
+      "public_promotion_id": "media-public-promotion:9e35e221842326ef",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:241f05754042fbc9",
+      "source_title": "Episode 143: Special Edition- Braden Cohen Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:241f05754042fbc9": "9e35e221842326efc33fea82912797c311684a7ce295ca6a3cb6b42f1080c7bd"
+  },
+  "approved_media_hash": "2bebf3831a4916b42badb896e3af36fda58d52a936405d6bf77af38246768f60",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-06-18T19:01:39+00:00",
+  "built_at": "2026-06-19T00:31:00+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "fc72cf37ee24f1a8fac0204b1ead3c85083ea51ea017bb83d35a03d7e39b8e8a",
-  "guide_line_count": 1368,
+  "guide_hash": "47976f5c30047af4cd54d5356dc4510c9d2de24b4355ab49819d490637d08111",
+  "guide_line_count": 1374,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
-  "guide_word_count": 13404,
+  "guide_word_count": 13432,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1697,27 +1718,19 @@
       "start_line": 1243
     },
     {
-      "confidence": "structural",
-      "end_line": 1271,
+      "confidence": "citation-only",
+      "end_line": 1277,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "74ac83f99a50c012",
-        "74ac83f99a50c012",
-        "80679876651d7dc7",
-        "53ad1133e1cb2d0a",
-        "0c49f1da7a50e9ad",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
       "start_line": 1265
     },
     {
       "confidence": "structural",
-      "end_line": 1273,
+      "end_line": 1279,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1734,11 +1747,11 @@
         "d275b5b94a9da833",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1272
+      "start_line": 1278
     },
     {
       "confidence": "normal",
-      "end_line": 1368,
+      "end_line": 1374,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1806,7 +1819,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1274
+      "start_line": 1280
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",

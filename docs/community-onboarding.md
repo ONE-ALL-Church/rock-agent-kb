@@ -73,6 +73,12 @@ uvx rock-kb validate bundle.jsonl
 ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
 ```
 
+To test unreleased client changes from GitHub instead of the PyPI package, add:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb <command>
+```
+
 Valid rows must be newly written public-safe summaries. They cannot contain raw transcripts, private source paths, direct media URLs, copied proprietary text, secrets, or instance-specific private details.
 
 On success, the hosted service opens a PR under:
@@ -89,7 +95,7 @@ flag allows it, the org registry sets `intake.auto_merge_allowed: true`, and the
 PR changes exactly the expected bundle path for that org. Otherwise the PR stays
 review-required.
 
-Use `uvx rock-kb dashboard` to see public operational counts for community-unreviewed intake rows, review queues, source-conflict prompts, evaluation status, and aggregate telemetry. It does not expose private corpus data or raw query text.
+Use `rock-kb dashboard` to see public operational counts for community-unreviewed intake rows, review queues, source-conflict prompts, evaluation status, and aggregate telemetry. It does not expose private corpus data or raw query text.
 
 ## Agent Prompt Starter
 
