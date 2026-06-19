@@ -2,6 +2,7 @@ from pathlib import Path
 
 from rock_kb.community import (
     developer_slug_from_url,
+    fetch_rockumentation_payload,
     documentation_slug_from_url,
     is_html_candidate,
     normalize_community_fetch,
@@ -128,6 +129,35 @@ def test_rockumentation_slug_and_api_url_helpers():
 
     assert "RefreshObsidianBlockInitialization" in api_url
     assert "slug=core-concepts%2Fworkflows%2Fworkflow-actions%2Fpeople" in api_url
+
+
+def test_mobile_docs_deep_article_url_can_use_rockumentation_payload():
+    class Response:
+        status_code = 200
+        headers = {"content-type": "application/json; charset=utf-8"}
+
+        def json(self):
+            return {
+                "configurationValues": {"slug": "avatar", "title": "Avatar"},
+                "initialContent": '<article class="rockumentation-article" data-main-article="true">Avatar content</article>',
+            }
+
+    class Client:
+        requested_url = ""
+
+        def post(self, url, headers=None):
+            self.requested_url = url
+            return Response()
+
+    client = Client()
+    payload = fetch_rockumentation_payload(
+        client,
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/avatar",
+    )
+
+    assert payload is not None
+    assert payload["configurationValues"]["title"] == "Avatar"
+    assert "slug=mobile-docs%2Fessentials%2Fcontrols%2Fcontent-controls%2Favatar" in client.requested_url
 
 
 def test_rock_documentation_normalizes_rockumentation_payload():

@@ -171,7 +171,7 @@
   ],
   "concept_id": "scheduling-locations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-06-19T06:19:01+00:00",
+  "generated_at": "2026-06-19T07:23:01+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",
