@@ -47,6 +47,7 @@ def test_worker_exposes_model_map_lookup_routes_and_tools():
         'url.pathname.startsWith("/model-map/models/")',
         "kb_list_models",
         "kb_get_model",
+        "exactModelMapRows",
         "exactModelMapBoost",
         "agent/model-map-digests.jsonl",
     ]

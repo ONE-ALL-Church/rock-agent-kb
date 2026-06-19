@@ -207,11 +207,32 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
      ORDER BY rank
      LIMIT ?`
   ).bind(fts, minRank, candidateLimit).all<SearchRow & { rank?: number }>();
-  return (result.results || [])
+  const rowsById = new Map<string, SearchRow & { rank?: number }>();
+  for (const row of result.results || []) {
+    rowsById.set(row.id, row);
+  }
+  for (const row of await exactModelMapRows(env, query, minRank)) {
+    rowsById.set(row.id, row);
+  }
+  return Array.from(rowsById.values())
     .map((row) => ({ row, score: searchScore(row, terms, query) }))
     .sort((left, right) => right.score - left.score || String(left.row.id).localeCompare(String(right.row.id)))
     .slice(0, limit)
     .map((item) => publicSearchRow(item.row));
+}
+
+async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+  if (!normalizeModelLookup(query)) {
+    return [];
+  }
+  const result = await env.KB_DB.prepare(
+    `SELECT *
+     FROM search_rows
+     WHERE kind = 'model_map' AND claim_tier_rank >= ?`
+  ).bind(minRank).all<SearchRow>();
+  return (result.results || [])
+    .filter((row) => exactModelMapBoost(row, query) > 0)
+    .map((row) => ({ ...row, rank: 0 }));
 }
 
 async function claims(env: ServiceEnv, conceptId: string, minTier: string, tier: string | null): Promise<JsonRecord[]> {
@@ -1092,6 +1113,9 @@ function exactModelMapBoost(row: SearchRow, query: string): number {
     identity.model_name,
     identity.model_title,
     `${identity.model_name || ""} Model Map`,
+    row.id.replace(/^model_map:stable:/, ""),
+    row.title,
+    row.path.split("/").pop()?.replace(/\.md$/, ""),
   ].map((value) => normalizeModelLookup(String(value || ""))).filter(Boolean);
   return candidates.includes(reducedQuery) ? 500 : 0;
 }
