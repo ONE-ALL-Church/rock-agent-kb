@@ -13,7 +13,7 @@ from rich.console import Console
 from rich.table import Table
 
 from ..agent_answer_pack import build_agent_answer_pack
-from ..audit import audit_duplicate_source_urls, audit_license_records
+from ..audit import audit_duplicate_source_urls, audit_license_records, audit_rockumentation_api_coverage
 from ..cloudflare_markdown import cloudflare_markdown_env_ready, extract_cloudflare_markdown
 from ..claims import approved_claims_path, build_approved_claims, validate_claim_file
 from ..concepts import (
@@ -1761,6 +1761,17 @@ def audit_source_url_duplicates_command() -> None:
             console.print(f"[red]ERROR[/red] {error}")
         raise typer.Exit(code=1)
     console.print("[green]Source URL duplicate audit passed.[/green]")
+
+
+def audit_rockumentation_api_coverage_command(
+    probe_static: bool = typer.Option(False, "--probe-static", help="Live-probe static documentation/developer rows for Rockumentation API payloads."),
+    max_static_probes: Optional[int] = typer.Option(None, "--max-static-probes", min=1, help="Limit live probes when using --probe-static."),
+) -> None:
+    """Fail if API-backed Rockumentation rows lack branch metadata."""
+    result = audit_rockumentation_api_coverage(probe_static=probe_static, max_static_probes=max_static_probes)
+    console.print_json(json.dumps(result))
+    if result["status"] != "ok":
+        raise typer.Exit(code=1)
 
 
 def audit_source_policy_command() -> None:

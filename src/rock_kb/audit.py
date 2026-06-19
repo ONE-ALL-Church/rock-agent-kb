@@ -4,8 +4,10 @@ from pathlib import Path
 from typing import Any, Optional
 from urllib.parse import urlsplit, urlunsplit
 
+import httpx
 import yaml
 
+from .community import ROCKUMENTATION_API_TOOL, fetch_rockumentation_payload, rockumentation_slug_from_url
 from .jsonl import read_jsonl
 from .paths import NORMALIZED_DIR
 
@@ -18,6 +20,8 @@ ALLOWED_DUPLICATE_SOURCE_URL_PAIRS = {
     ("public_rock_repos", "sparkdevnetwork_rock"),
     ("public_rock_repos", "sparkdevnetwork_slingshot"),
 }
+
+ROCKUMENTATION_API_SOURCE_IDS = {"rock_documentation", "rock_developer", "rock_mobile_docs"}
 
 
 def audit_license_records(paths: Optional[list[Path]] = None) -> list[str]:
@@ -75,6 +79,76 @@ def canonical_audit_url(url: str) -> str:
         return ""
     path = parsed.path.rstrip("/") or "/"
     return urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), path, "", ""))
+
+
+def audit_rockumentation_api_coverage(
+    paths: Optional[list[Path]] = None,
+    probe_static: bool = False,
+    max_static_probes: Optional[int] = None,
+) -> dict[str, Any]:
+    """Audit that Rockumentation API rows have routing metadata.
+
+    Static rows are not failures by themselves because legacy book, changelog,
+    and utility pages do not use the Rockumentation article API. When
+    ``probe_static`` is enabled, static documentation/developer rows are checked
+    against the public block-action API and fail if they now return article
+    payloads.
+    """
+    errors: list[str] = []
+    api_rows = 0
+    static_candidates: list[tuple[Path, dict[str, Any]]] = []
+
+    for path in rockumentation_audit_paths(paths):
+        for record in read_jsonl(path):
+            source_id = str(record.get("source_id") or path.stem)
+            if source_id not in ROCKUMENTATION_API_SOURCE_IDS:
+                continue
+            url = str(record.get("source_url") or "")
+            slug = rockumentation_slug_from_url(url)
+            if record.get("extraction_tool") == ROCKUMENTATION_API_TOOL:
+                api_rows += 1
+                if record.get("documentation_article_id"):
+                    missing = [
+                        field
+                        for field in ["documentation_slug", "documentation_path", "documentation_branch"]
+                        if not record.get(field)
+                    ]
+                    if missing:
+                        errors.append(f"{path.name}:{record.get('id')} missing API routing metadata: {', '.join(missing)}")
+                    family = record.get("documentation_family")
+                    expected_path = f"{family}/{record.get('documentation_slug')}" if family and record.get("documentation_slug") else None
+                    if expected_path and record.get("documentation_path") != expected_path:
+                        errors.append(
+                            f"{path.name}:{record.get('id')} documentation_path {record.get('documentation_path')!r} does not match {expected_path!r}"
+                        )
+            elif slug:
+                static_candidates.append((path, record))
+
+    probed = 0
+    if probe_static and static_candidates:
+        with httpx.Client(timeout=30, follow_redirects=True) as client:
+            for path, record in static_candidates:
+                if max_static_probes is not None and probed >= max_static_probes:
+                    break
+                probed += 1
+                if fetch_rockumentation_payload(client, str(record.get("source_url") or "")):
+                    errors.append(
+                        f"{path.name}:{record.get('id')} is static but returns Rockumentation API payload: {record.get('source_url')}"
+                    )
+
+    return {
+        "status": "ok" if not errors else "error",
+        "errors": errors,
+        "api_rows": api_rows,
+        "static_candidate_rows": len(static_candidates),
+        "probed_static_rows": probed,
+    }
+
+
+def rockumentation_audit_paths(paths: Optional[list[Path]] = None) -> list[Path]:
+    if paths is not None:
+        return paths
+    return [NORMALIZED_DIR / f"{source_id}.jsonl" for source_id in sorted(ROCKUMENTATION_API_SOURCE_IDS) if (NORMALIZED_DIR / f"{source_id}.jsonl").exists()]
 
 
 def validate_markdown_frontmatter(path: Path) -> list[str]:

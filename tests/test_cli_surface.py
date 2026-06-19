@@ -68,6 +68,7 @@ FINAL_COMMANDS = [
     ["modelmap", "diff"],
     ["audit", "guide"],
     ["audit", "licenses"],
+    ["audit", "rockumentation-api-coverage"],
     ["audit", "source-policy"],
     ["audit", "public-export"],
     ["audit", "readiness"],
