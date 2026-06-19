@@ -25,12 +25,12 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-44: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 45-83: 2. Scope And Terminology (high)
-- `3-documents-and-signatures-mental-model-entity-documents` lines 88-100: Entity Documents (normal)
-- `3-documents-and-signatures-mental-model-merge-documents` lines 101-115: Merge Documents (normal)
-- `3-documents-and-signatures-mental-model-electronic-signatures` lines 116-132: Electronic Signatures (normal)
-- `3-documents-and-signatures-mental-model-generated-pdfs` lines 133-146: Generated PDFs (normal)
+- `1-executive-summary-for-agents` lines 29-46: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 47-85: 2. Scope And Terminology (high)
+- `3-documents-and-signatures-mental-model-entity-documents` lines 90-102: Entity Documents (normal)
+- `3-documents-and-signatures-mental-model-merge-documents` lines 103-117: Merge Documents (normal)
+- `3-documents-and-signatures-mental-model-electronic-signatures` lines 118-134: Electronic Signatures (normal)
+- `3-documents-and-signatures-mental-model-generated-pdfs` lines 135-148: Generated PDFs (normal)
 
 ## Core Entities
 

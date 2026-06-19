@@ -27,12 +27,12 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-53: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology-key-terms` lines 86-117: Key Terms (normal)
-- `3-security-and-permissions-mental-model-the-actor-layer` lines 124-141: The Actor Layer (normal)
-- `3-security-and-permissions-mental-model-the-object-layer` lines 142-157: The Object Layer (normal)
-- `3-security-and-permissions-mental-model-the-action-layer` lines 158-163: The Action Layer (normal)
-- `3-security-and-permissions-mental-model-the-code-layer` lines 196-210: The Code Layer (normal)
+- `1-executive-summary-for-agents` lines 29-55: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology-key-terms` lines 88-119: Key Terms (normal)
+- `3-security-and-permissions-mental-model-the-actor-layer` lines 126-143: The Actor Layer (normal)
+- `3-security-and-permissions-mental-model-the-object-layer` lines 144-159: The Object Layer (normal)
+- `3-security-and-permissions-mental-model-the-action-layer` lines 160-165: The Action Layer (normal)
+- `3-security-and-permissions-mental-model-the-code-layer` lines 198-212: The Code Layer (normal)
 
 ## Core Entities
 

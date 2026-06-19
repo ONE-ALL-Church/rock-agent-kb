@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationFlowCommunication`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `07d0cecc-066f-45a8-95bc-7c8f5199d53c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 32 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 0 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

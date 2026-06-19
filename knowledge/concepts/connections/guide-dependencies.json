@@ -1596,12 +1596,12 @@
   },
   "approved_media_hash": "54d2198c2ce7edefe449835500807f0377ea8adaf3922b52ce58af6d0e1e2da7",
   "approved_media_path": "knowledge/concepts/connections/approved-media.md",
-  "built_at": "2026-06-19T05:25:42+00:00",
+  "built_at": "2026-06-19T05:56:48+00:00",
   "concept_id": "connections",
-  "guide_hash": "31a3fdfe36b82c9e1191562407731c12c39d55f7ec0595d10b4da8ed1bc20a9c",
-  "guide_line_count": 1346,
+  "guide_hash": "d4b2ec423a7a19b1fa71790ed220d1c38037e5983cdd8c6211768774d1e69b8b",
+  "guide_line_count": 1348,
   "guide_path": "knowledge/concepts/connections/guide.md",
-  "guide_word_count": 10804,
+  "guide_word_count": 10817,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1832,7 +1832,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -1843,7 +1843,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 52,
+      "end_line": 54,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -1858,11 +1858,11 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 91,
+      "end_line": 93,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -1880,11 +1880,11 @@
         "256bfaf3b8f47935",
         "d275b5b94a9da833"
       ],
-      "start_line": 53
+      "start_line": 55
     },
     {
       "confidence": "high",
-      "end_line": 117,
+      "end_line": 119,
       "heading": "3. Connections Mental Model",
       "needs_live_verification": true,
       "section_id": "3-connections-mental-model",
@@ -1898,11 +1898,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 92
+      "start_line": 94
     },
     {
       "confidence": "high",
-      "end_line": 142,
+      "end_line": 144,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -1917,11 +1917,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 118
+      "start_line": 120
     },
     {
       "confidence": "structural",
-      "end_line": 144,
+      "end_line": 146,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -1930,22 +1930,22 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 143
+      "start_line": 145
     },
     {
       "confidence": "normal",
-      "end_line": 161,
+      "end_line": 163,
       "heading": "Configuration Surfaces",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-configuration-surfaces",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 145
+      "start_line": 147
     },
     {
       "confidence": "high",
-      "end_line": 186,
+      "end_line": 188,
       "heading": "Connection Type Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-connection-type-configuration",
@@ -1953,11 +1953,11 @@
         "d275b5b94a9da833",
         "256bfaf3b8f47935"
       ],
-      "start_line": 162
+      "start_line": 164
     },
     {
       "confidence": "normal",
-      "end_line": 217,
+      "end_line": 219,
       "heading": "Connection Status Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-connection-status-configuration",
@@ -1966,11 +1966,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 187
+      "start_line": 189
     },
     {
       "confidence": "high",
-      "end_line": 241,
+      "end_line": 243,
       "heading": "Connection Opportunity Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-connection-opportunity-configuration",
@@ -1979,11 +1979,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 218
+      "start_line": 220
     },
     {
       "confidence": "needs-citation",
-      "end_line": 275,
+      "end_line": 277,
       "heading": "Connection Request Data",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-connection-request-data",
@@ -1992,11 +1992,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 242
+      "start_line": 244
     },
     {
       "confidence": "structural",
-      "end_line": 277,
+      "end_line": 279,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -2008,11 +2008,11 @@
         "8f6a778d85c0f9ee",
         "2513c4a11db9a79e"
       ],
-      "start_line": 276
+      "start_line": 278
     },
     {
       "confidence": "needs-citation",
-      "end_line": 316,
+      "end_line": 318,
       "heading": "Entity Relationship Map",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-entity-relationship-map",
@@ -2021,22 +2021,22 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 278
+      "start_line": 280
     },
     {
       "confidence": "normal",
-      "end_line": 320,
+      "end_line": 322,
       "heading": "ConnectionType",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectiontype",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 317
+      "start_line": 319
     },
     {
       "confidence": "community-supported",
-      "end_line": 324,
+      "end_line": 326,
       "heading": "ConnectionOpportunity",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectionopportunity",
@@ -2044,44 +2044,44 @@
         "bce31f25cb8a199e",
         "8f6a778d85c0f9ee"
       ],
-      "start_line": 321
+      "start_line": 323
     },
     {
       "confidence": "normal",
-      "end_line": 328,
+      "end_line": 330,
       "heading": "ConnectionRequest",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectionrequest",
       "source_keys": [
         "2513c4a11db9a79e"
       ],
-      "start_line": 325
+      "start_line": 327
     },
     {
       "confidence": "normal",
-      "end_line": 332,
+      "end_line": 334,
       "heading": "ConnectionStatus",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectionstatus",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 329
+      "start_line": 331
     },
     {
       "confidence": "normal",
-      "end_line": 336,
+      "end_line": 338,
       "heading": "ConnectionOpportunityConnectorGroup",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectionopportunityconnectorgroup",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 333
+      "start_line": 335
     },
     {
       "confidence": "structural",
-      "end_line": 338,
+      "end_line": 340,
       "heading": "7. Common Connections Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-connections-workflows",
@@ -2092,22 +2092,22 @@
         "d275b5b94a9da833",
         "dd0d53998f998249"
       ],
-      "start_line": 337
+      "start_line": 339
     },
     {
       "confidence": "normal",
-      "end_line": 353,
+      "end_line": 355,
       "heading": "Staff Creates A Request",
       "needs_live_verification": true,
       "section_id": "7-common-connections-workflows-staff-creates-a-request",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 339
+      "start_line": 341
     },
     {
       "confidence": "normal",
-      "end_line": 369,
+      "end_line": 371,
       "heading": "Person Self-Service Signup",
       "needs_live_verification": true,
       "section_id": "7-common-connections-workflows-person-self-service-signup",
@@ -2115,22 +2115,22 @@
         "d053fa2b17b02661",
         "776256c424368312"
       ],
-      "start_line": 354
+      "start_line": 356
     },
     {
       "confidence": "normal",
-      "end_line": 384,
+      "end_line": 386,
       "heading": "Connector Works The Request",
       "needs_live_verification": false,
       "section_id": "7-common-connections-workflows-connector-works-the-request",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 370
+      "start_line": 372
     },
     {
       "confidence": "normal",
-      "end_line": 402,
+      "end_line": 404,
       "heading": "Manager Reviews Pipeline",
       "needs_live_verification": false,
       "section_id": "7-common-connections-workflows-manager-reviews-pipeline",
@@ -2138,11 +2138,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 385
+      "start_line": 387
     },
     {
       "confidence": "normal",
-      "end_line": 418,
+      "end_line": 420,
       "heading": "Workflow Automation Runs",
       "needs_live_verification": false,
       "section_id": "7-common-connections-workflows-workflow-automation-runs",
@@ -2150,11 +2150,11 @@
         "dd0d53998f998249",
         "d275b5b94a9da833"
       ],
-      "start_line": 403
+      "start_line": 405
     },
     {
       "confidence": "structural",
-      "end_line": 420,
+      "end_line": 422,
       "heading": "8. Opportunities Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-opportunities-deep-dive",
@@ -2165,11 +2165,11 @@
         "8f6a778d85c0f9ee",
         "776256c424368312"
       ],
-      "start_line": 419
+      "start_line": 421
     },
     {
       "confidence": "needs-citation",
-      "end_line": 437,
+      "end_line": 439,
       "heading": "What Opportunities Are For",
       "needs_live_verification": false,
       "section_id": "8-opportunities-deep-dive-what-opportunities-are-for",
@@ -2177,22 +2177,22 @@
         "dd0d53998f998249",
         "d275b5b94a9da833"
       ],
-      "start_line": 421
+      "start_line": 423
     },
     {
       "confidence": "normal",
-      "end_line": 457,
+      "end_line": 459,
       "heading": "Key Opportunity Settings To Inspect",
       "needs_live_verification": true,
       "section_id": "8-opportunities-deep-dive-key-opportunity-settings-to-inspect",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 438
+      "start_line": 440
     },
     {
       "confidence": "normal",
-      "end_line": 463,
+      "end_line": 465,
       "heading": "Opportunity Lists And Public Discovery",
       "needs_live_verification": false,
       "section_id": "8-opportunities-deep-dive-opportunity-lists-and-public-discovery",
@@ -2200,22 +2200,22 @@
         "a3c93b37668c6775",
         "8f6a778d85c0f9ee"
       ],
-      "start_line": 458
+      "start_line": 460
     },
     {
       "confidence": "normal",
-      "end_line": 478,
+      "end_line": 480,
       "heading": "Opportunity Workflow Configuration",
       "needs_live_verification": true,
       "section_id": "8-opportunities-deep-dive-opportunity-workflow-configuration",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 464
+      "start_line": 466
     },
     {
       "confidence": "structural",
-      "end_line": 480,
+      "end_line": 482,
       "heading": "9. Requests And Statuses Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-requests-and-statuses-deep-dive",
@@ -2225,55 +2225,55 @@
         "776256c424368312",
         "dd0d53998f998249"
       ],
-      "start_line": 479
+      "start_line": 481
     },
     {
       "confidence": "normal",
-      "end_line": 494,
+      "end_line": 496,
       "heading": "Request Lifecycle",
       "needs_live_verification": false,
       "section_id": "9-requests-and-statuses-deep-dive-request-lifecycle",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 481
+      "start_line": 483
     },
     {
       "confidence": "normal",
-      "end_line": 505,
+      "end_line": 507,
       "heading": "Status Vs State",
       "needs_live_verification": true,
       "section_id": "9-requests-and-statuses-deep-dive-status-vs-state",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 495
+      "start_line": 497
     },
     {
       "confidence": "normal",
-      "end_line": 509,
+      "end_line": 511,
       "heading": "Note Required On Completion",
       "needs_live_verification": false,
       "section_id": "9-requests-and-statuses-deep-dive-note-required-on-completion",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 506
+      "start_line": 508
     },
     {
       "confidence": "normal",
-      "end_line": 518,
+      "end_line": 520,
       "heading": "Due Dates And Due-Soon Behavior",
       "needs_live_verification": true,
       "section_id": "9-requests-and-statuses-deep-dive-due-dates-and-due-soon-behavior",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 510
+      "start_line": 512
     },
     {
       "confidence": "high",
-      "end_line": 532,
+      "end_line": 534,
       "heading": "Future Follow-Up",
       "needs_live_verification": true,
       "section_id": "9-requests-and-statuses-deep-dive-future-follow-up",
@@ -2283,11 +2283,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 519
+      "start_line": 521
     },
     {
       "confidence": "normal",
-      "end_line": 547,
+      "end_line": 549,
       "heading": "Status Automation",
       "needs_live_verification": true,
       "section_id": "9-requests-and-statuses-deep-dive-status-automation",
@@ -2295,11 +2295,11 @@
         "dd0d53998f998249",
         "d275b5b94a9da833"
       ],
-      "start_line": 533
+      "start_line": 535
     },
     {
       "confidence": "structural",
-      "end_line": 549,
+      "end_line": 551,
       "heading": "10. Boards And Lists Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-boards-and-lists-deep-dive",
@@ -2311,22 +2311,22 @@
         "d053fa2b17b02661",
         "2513c4a11db9a79e"
       ],
-      "start_line": 548
+      "start_line": 550
     },
     {
       "confidence": "normal",
-      "end_line": 568,
+      "end_line": 570,
       "heading": "Board View",
       "needs_live_verification": false,
       "section_id": "10-boards-and-lists-deep-dive-board-view",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 550
+      "start_line": 552
     },
     {
       "confidence": "high",
-      "end_line": 580,
+      "end_line": 582,
       "heading": "List View",
       "needs_live_verification": true,
       "section_id": "10-boards-and-lists-deep-dive-list-view",
@@ -2334,22 +2334,22 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 569
+      "start_line": 571
     },
     {
       "confidence": "normal",
-      "end_line": 584,
+      "end_line": 586,
       "heading": "Grid And Snapshot Views",
       "needs_live_verification": true,
       "section_id": "10-boards-and-lists-deep-dive-grid-and-snapshot-views",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 581
+      "start_line": 583
     },
     {
       "confidence": "normal",
-      "end_line": 592,
+      "end_line": 594,
       "heading": "Mobile Views",
       "needs_live_verification": false,
       "section_id": "10-boards-and-lists-deep-dive-mobile-views",
@@ -2359,11 +2359,11 @@
         "d053fa2b17b02661",
         "2513c4a11db9a79e"
       ],
-      "start_line": 585
+      "start_line": 587
     },
     {
       "confidence": "structural",
-      "end_line": 594,
+      "end_line": 596,
       "heading": "11. Assignment And Follow-Up Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-assignment-and-follow-up-deep-dive",
@@ -2372,11 +2372,11 @@
         "256bfaf3b8f47935",
         "8595bbf975a173fd"
       ],
-      "start_line": 593
+      "start_line": 595
     },
     {
       "confidence": "normal",
-      "end_line": 613,
+      "end_line": 615,
       "heading": "Connector Assignment",
       "needs_live_verification": true,
       "section_id": "11-assignment-and-follow-up-deep-dive-connector-assignment",
@@ -2384,44 +2384,44 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 595
+      "start_line": 597
     },
     {
       "confidence": "normal",
-      "end_line": 629,
+      "end_line": 631,
       "heading": "Follow-Up Activities",
       "needs_live_verification": false,
       "section_id": "11-assignment-and-follow-up-deep-dive-follow-up-activities",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 614
+      "start_line": 616
     },
     {
       "confidence": "community-supported",
-      "end_line": 640,
+      "end_line": 642,
       "heading": "Connector Availability And Workload",
       "needs_live_verification": false,
       "section_id": "11-assignment-and-follow-up-deep-dive-connector-availability-and-workload",
       "source_keys": [
         "8595bbf975a173fd"
       ],
-      "start_line": 630
+      "start_line": 632
     },
     {
       "confidence": "normal",
-      "end_line": 652,
+      "end_line": 654,
       "heading": "Future Follow-Up Discipline",
       "needs_live_verification": false,
       "section_id": "11-assignment-and-follow-up-deep-dive-future-follow-up-discipline",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 641
+      "start_line": 643
     },
     {
       "confidence": "structural",
-      "end_line": 654,
+      "end_line": 656,
       "heading": "12. Related Rock Areas: People, Workflows, Groups, Communications, Security, Reporting",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting",
@@ -2430,33 +2430,33 @@
         "d275b5b94a9da833",
         "a88d2175a735a712"
       ],
-      "start_line": 653
+      "start_line": 655
     },
     {
       "confidence": "normal",
-      "end_line": 666,
+      "end_line": 668,
       "heading": "People",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-people",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 655
+      "start_line": 657
     },
     {
       "confidence": "normal",
-      "end_line": 681,
+      "end_line": 683,
       "heading": "Workflows",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-workflows",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 667
+      "start_line": 669
     },
     {
       "confidence": "normal",
-      "end_line": 694,
+      "end_line": 696,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-groups",
@@ -2464,33 +2464,33 @@
         "d275b5b94a9da833",
         "a88d2175a735a712"
       ],
-      "start_line": 682
+      "start_line": 684
     },
     {
       "confidence": "normal",
-      "end_line": 707,
+      "end_line": 709,
       "heading": "Communications",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-communications",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 695
+      "start_line": 697
     },
     {
       "confidence": "normal",
-      "end_line": 724,
+      "end_line": 726,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-security",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 708
+      "start_line": 710
     },
     {
       "confidence": "normal",
-      "end_line": 742,
+      "end_line": 744,
       "heading": "Reporting",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-reporting",
@@ -2498,22 +2498,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 725
+      "start_line": 727
     },
     {
       "confidence": "structural",
-      "end_line": 744,
+      "end_line": 746,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 743
+      "start_line": 745
     },
     {
       "confidence": "structural",
-      "end_line": 761,
+      "end_line": 763,
       "heading": "Minimum Viable Governance",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-minimum-viable-governance",
@@ -2521,11 +2521,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 745
+      "start_line": 747
     },
     {
       "confidence": "needs-citation",
-      "end_line": 796,
+      "end_line": 798,
       "heading": "Configuration Review Checklist",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-configuration-review-checklist",
@@ -2533,11 +2533,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 762
+      "start_line": 764
     },
     {
       "confidence": "normal",
-      "end_line": 816,
+      "end_line": 818,
       "heading": "Operational Metrics",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-operational-metrics",
@@ -2546,11 +2546,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 797
+      "start_line": 799
     },
     {
       "confidence": "structural",
-      "end_line": 818,
+      "end_line": 820,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -2561,11 +2561,11 @@
         "8f6a778d85c0f9ee",
         "d275b5b94a9da833"
       ],
-      "start_line": 817
+      "start_line": 819
     },
     {
       "confidence": "normal",
-      "end_line": 828,
+      "end_line": 830,
       "heading": "Mobile Blocks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-mobile-blocks",
@@ -2575,11 +2575,11 @@
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
       ],
-      "start_line": 819
+      "start_line": 821
     },
     {
       "confidence": "normal",
-      "end_line": 838,
+      "end_line": 840,
       "heading": "Query/Page Parameter Landmarks",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-query-page-parameter-landmarks",
@@ -2587,33 +2587,33 @@
         "d053fa2b17b02661",
         "2513c4a11db9a79e"
       ],
-      "start_line": 829
+      "start_line": 831
     },
     {
       "confidence": "community-supported",
-      "end_line": 852,
+      "end_line": 854,
       "heading": "Lava",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava",
       "source_keys": [
         "8f6a778d85c0f9ee"
       ],
-      "start_line": 839
+      "start_line": 841
     },
     {
       "confidence": "normal",
-      "end_line": 865,
+      "end_line": 867,
       "heading": "REST/API",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rest-api",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 853
+      "start_line": 855
     },
     {
       "confidence": "normal",
-      "end_line": 895,
+      "end_line": 897,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
@@ -2631,11 +2631,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 866
+      "start_line": 868
     },
     {
       "confidence": "structural",
-      "end_line": 897,
+      "end_line": 899,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -2643,22 +2643,22 @@
         "bce31f25cb8a199e",
         "d275b5b94a9da833"
       ],
-      "start_line": 896
+      "start_line": 898
     },
     {
       "confidence": "citation-only",
-      "end_line": 901,
+      "end_line": 903,
       "heading": "Model Map",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 898
+      "start_line": 900
     },
     {
       "confidence": "normal",
-      "end_line": 907,
+      "end_line": 909,
       "heading": "Built-In Reporting Filters",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-built-in-reporting-filters",
@@ -2666,11 +2666,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 902
+      "start_line": 904
     },
     {
       "confidence": "structural",
-      "end_line": 928,
+      "end_line": 930,
       "heading": "Analytics Dimensions",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-analytics-dimensions",
@@ -2678,11 +2678,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 908
+      "start_line": 910
     },
     {
       "confidence": "normal",
-      "end_line": 950,
+      "end_line": 952,
       "heading": "Analytics Measures",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-analytics-measures",
@@ -2690,11 +2690,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 929
+      "start_line": 931
     },
     {
       "confidence": "structural",
-      "end_line": 952,
+      "end_line": 954,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats",
@@ -2705,33 +2705,33 @@
         "d053fa2b17b02661",
         "776256c424368312"
       ],
-      "start_line": 951
+      "start_line": 953
     },
     {
       "confidence": "normal",
-      "end_line": 956,
+      "end_line": 958,
       "heading": "Rock v10",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v10",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 953
+      "start_line": 955
     },
     {
       "confidence": "normal",
-      "end_line": 960,
+      "end_line": 962,
       "heading": "Rock v12",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v12",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 957
+      "start_line": 959
     },
     {
       "confidence": "normal",
-      "end_line": 964,
+      "end_line": 966,
       "heading": "Mobile v3.0 / Core v13.3",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-mobile-v3-0-core-v13-3",
@@ -2739,66 +2739,66 @@
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
       ],
-      "start_line": 961
+      "start_line": 963
     },
     {
       "confidence": "normal",
-      "end_line": 968,
+      "end_line": 970,
       "heading": "Mobile v5.0 / Core v16.1",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-mobile-v5-0-core-v16-1",
       "source_keys": [
         "d053fa2b17b02661"
       ],
-      "start_line": 965
+      "start_line": 967
     },
     {
       "confidence": "normal",
-      "end_line": 972,
+      "end_line": 974,
       "heading": "Rock v17.2",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v17-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 969
+      "start_line": 971
     },
     {
       "confidence": "normal",
-      "end_line": 985,
+      "end_line": 987,
       "heading": "Rock v18.1",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v18-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 973
+      "start_line": 975
     },
     {
       "confidence": "normal",
-      "end_line": 994,
+      "end_line": 996,
       "heading": "Rock v18.3",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v18-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 986
+      "start_line": 988
     },
     {
       "confidence": "normal",
-      "end_line": 998,
+      "end_line": 1000,
       "heading": "Rock v19.1 / Current Release Notes",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v19-1-current-release-notes",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 995
+      "start_line": 997
     },
     {
       "confidence": "structural",
-      "end_line": 1000,
+      "end_line": 1002,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -2809,22 +2809,22 @@
         "dd0d53998f998249",
         "d275b5b94a9da833"
       ],
-      "start_line": 999
+      "start_line": 1001
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1018,
+      "end_line": 1020,
       "heading": "Playbook: Create A New Serving Pipeline",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-create-a-new-serving-pipeline",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1001
+      "start_line": 1003
     },
     {
       "confidence": "normal",
-      "end_line": 1033,
+      "end_line": 1035,
       "heading": "Playbook: Public Opportunity Cards",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-public-opportunity-cards",
@@ -2832,11 +2832,11 @@
         "a3c93b37668c6775",
         "8f6a778d85c0f9ee"
       ],
-      "start_line": 1019
+      "start_line": 1021
     },
     {
       "confidence": "normal",
-      "end_line": 1048,
+      "end_line": 1050,
       "heading": "Playbook: Add Status Automation",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-status-automation",
@@ -2844,11 +2844,11 @@
         "dd0d53998f998249",
         "d275b5b94a9da833"
       ],
-      "start_line": 1034
+      "start_line": 1036
     },
     {
       "confidence": "normal",
-      "end_line": 1064,
+      "end_line": 1066,
       "heading": "Playbook: Build A Manager Dashboard",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-build-a-manager-dashboard",
@@ -2856,11 +2856,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1049
+      "start_line": 1051
     },
     {
       "confidence": "structural",
-      "end_line": 1066,
+      "end_line": 1068,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -2869,44 +2869,44 @@
         "2513c4a11db9a79e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1065
+      "start_line": 1067
     },
     {
       "confidence": "normal",
-      "end_line": 1082,
+      "end_line": 1084,
       "heading": "Request Missing From Board",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-request-missing-from-board",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1067
+      "start_line": 1069
     },
     {
       "confidence": "normal",
-      "end_line": 1093,
+      "end_line": 1095,
       "heading": "Request Missing From Mobile Request List",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-request-missing-from-mobile-request-list",
       "source_keys": [
         "2513c4a11db9a79e"
       ],
-      "start_line": 1083
+      "start_line": 1085
     },
     {
       "confidence": "normal",
-      "end_line": 1104,
+      "end_line": 1106,
       "heading": "Opportunity Missing From Selector Or Report",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-opportunity-missing-from-selector-or-report",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1094
+      "start_line": 1096
     },
     {
       "confidence": "normal",
-      "end_line": 1117,
+      "end_line": 1119,
       "heading": "Request Did Not Auto-Assign",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-request-did-not-auto-assign",
@@ -2914,44 +2914,44 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1105
+      "start_line": 1107
     },
     {
       "confidence": "normal",
-      "end_line": 1130,
+      "end_line": 1132,
       "heading": "Status Change Did Something Unexpected",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-status-change-did-something-unexpected",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1118
+      "start_line": 1120
     },
     {
       "confidence": "normal",
-      "end_line": 1141,
+      "end_line": 1143,
       "heading": "Signup Missing Attributes",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-signup-missing-attributes",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1131
+      "start_line": 1133
     },
     {
       "confidence": "normal",
-      "end_line": 1151,
+      "end_line": 1153,
       "heading": "List Sorting Looks Wrong",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-list-sorting-looks-wrong",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1142
+      "start_line": 1144
     },
     {
       "confidence": "structural",
-      "end_line": 1153,
+      "end_line": 1155,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
@@ -2964,11 +2964,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1152
+      "start_line": 1154
     },
     {
       "confidence": "normal",
-      "end_line": 1172,
+      "end_line": 1174,
       "heading": "Recipe: Audit One Connection Type",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-audit-one-connection-type",
@@ -2977,22 +2977,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1154
+      "start_line": 1156
     },
     {
       "confidence": "normal",
-      "end_line": 1190,
+      "end_line": 1192,
       "heading": "Recipe: Explain Why A Request Is Hidden",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-explain-why-a-request-is-hidden",
       "source_keys": [
         "2513c4a11db9a79e"
       ],
-      "start_line": 1173
+      "start_line": 1175
     },
     {
       "confidence": "normal",
-      "end_line": 1206,
+      "end_line": 1208,
       "heading": "Recipe: Validate Signup Flow",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-validate-signup-flow",
@@ -3000,11 +3000,11 @@
         "d053fa2b17b02661",
         "776256c424368312"
       ],
-      "start_line": 1191
+      "start_line": 1193
     },
     {
       "confidence": "normal",
-      "end_line": 1221,
+      "end_line": 1223,
       "heading": "Recipe: Build Opportunity Cards",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-build-opportunity-cards",
@@ -3012,22 +3012,22 @@
         "a3c93b37668c6775",
         "8f6a778d85c0f9ee"
       ],
-      "start_line": 1207
+      "start_line": 1209
     },
     {
       "confidence": "community-supported",
-      "end_line": 1236,
+      "end_line": 1238,
       "heading": "Recipe: Investigate Connector Workload",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-investigate-connector-workload",
       "source_keys": [
         "8595bbf975a173fd"
       ],
-      "start_line": 1222
+      "start_line": 1224
     },
     {
       "confidence": "citation-only",
-      "end_line": 1262,
+      "end_line": 1264,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -3045,11 +3045,11 @@
         "e80bc4203561cbcb",
         "94226d7c1f62174e"
       ],
-      "start_line": 1237
+      "start_line": 1239
     },
     {
       "confidence": "citation-only",
-      "end_line": 1283,
+      "end_line": 1285,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3063,11 +3063,11 @@
         "de087d3bb047fce6",
         "004db224c038a1f0"
       ],
-      "start_line": 1263
+      "start_line": 1265
     },
     {
       "confidence": "structural",
-      "end_line": 1285,
+      "end_line": 1287,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -3089,11 +3089,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1284
+      "start_line": 1286
     },
     {
       "confidence": "high",
-      "end_line": 1290,
+      "end_line": 1292,
       "heading": "Official Documentation",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-official-documentation",
@@ -3101,11 +3101,11 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 1286
+      "start_line": 1288
     },
     {
       "confidence": "citation-only",
-      "end_line": 1302,
+      "end_line": 1304,
       "heading": "RockU Training",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-rocku-training",
@@ -3118,11 +3118,11 @@
         "a520db9e9adc1368",
         "1bda1c7afae305e7"
       ],
-      "start_line": 1291
+      "start_line": 1293
     },
     {
       "confidence": "normal",
-      "end_line": 1311,
+      "end_line": 1313,
       "heading": "Developer And Mobile Docs",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-developer-and-mobile-docs",
@@ -3132,11 +3132,11 @@
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
       ],
-      "start_line": 1303
+      "start_line": 1305
     },
     {
       "confidence": "normal",
-      "end_line": 1325,
+      "end_line": 1327,
       "heading": "Model Map And Source Code",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-model-map-and-source-code",
@@ -3153,11 +3153,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1312
+      "start_line": 1314
     },
     {
       "confidence": "community-supported",
-      "end_line": 1330,
+      "end_line": 1332,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-community-examples",
@@ -3165,11 +3165,11 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1326
+      "start_line": 1328
     },
     {
       "confidence": "structural",
-      "end_line": 1346,
+      "end_line": 1348,
       "heading": "Live Verification Required",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-live-verification-required",
@@ -3177,7 +3177,7 @@
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
-      "start_line": 1331
+      "start_line": 1333
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionStatusAutomation`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `acf794c7-f12d-42df-85c5-089a28993ee6`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 30 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 6 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

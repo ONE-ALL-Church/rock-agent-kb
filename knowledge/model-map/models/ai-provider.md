@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIProvider`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `37`
+- Obsolete methods: `4`
 - EntityType GUID: `945a994f-f15e-43ac-b503-a54bde70f77f`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 28 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 0 |
+| Method signatures | 37 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

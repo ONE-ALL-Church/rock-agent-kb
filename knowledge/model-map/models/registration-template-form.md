@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `RegistrationTemplateForm`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `2f0b3a6a-4e47-45a8-a331-7234ce711356`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 26 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 2 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

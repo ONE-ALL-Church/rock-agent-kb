@@ -1189,12 +1189,12 @@
   },
   "approved_media_hash": "f4a7714da2d5a9c2b70df6928b92d0fa85a0ccbd4388f1c14400331218b450df",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-06-19T05:26:16+00:00",
+  "built_at": "2026-06-19T05:57:21+00:00",
   "concept_id": "api-integrations",
-  "guide_hash": "2802ca67a96fa5a48a5d1975dc49b9be96e1ca11bdbe9e55a83cbd8908a6d90b",
-  "guide_line_count": 1557,
+  "guide_hash": "ff15225f17c1911147f28f8c8ad4355d45cb40ab3e6af62413ba785684bfba8d",
+  "guide_line_count": 1559,
   "guide_path": "knowledge/concepts/api-integrations/guide.md",
-  "guide_word_count": 14146,
+  "guide_word_count": 14159,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1812,7 +1812,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -1823,7 +1823,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 61,
+      "end_line": 63,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -1842,11 +1842,11 @@
         "46476aa8453a8245",
         "fe094e82abfc4adf"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "needs-citation",
-      "end_line": 67,
+      "end_line": 69,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology",
@@ -1865,11 +1865,11 @@
         "46476aa8453a8245",
         "fe094e82abfc4adf"
       ],
-      "start_line": 62
+      "start_line": 64
     },
     {
       "confidence": "needs-citation",
-      "end_line": 79,
+      "end_line": 81,
       "heading": "API",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-api",
@@ -1888,11 +1888,11 @@
         "46476aa8453a8245",
         "fe094e82abfc4adf"
       ],
-      "start_line": 68
+      "start_line": 70
     },
     {
       "confidence": "normal",
-      "end_line": 85,
+      "end_line": 87,
       "heading": "REST API v1",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-rest-api-v1",
@@ -1900,11 +1900,11 @@
         "371700349ffde4af",
         "547b1337a6e19cf7"
       ],
-      "start_line": 80
+      "start_line": 82
     },
     {
       "confidence": "normal",
-      "end_line": 91,
+      "end_line": 93,
       "heading": "REST API v2",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-rest-api-v2",
@@ -1913,22 +1913,22 @@
         "983ad6bce37e8e15",
         "46476aa8453a8245"
       ],
-      "start_line": 86
+      "start_line": 88
     },
     {
       "confidence": "normal",
-      "end_line": 95,
+      "end_line": 97,
       "heading": "OData",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-odata",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 92
+      "start_line": 94
     },
     {
       "confidence": "community-supported",
-      "end_line": 101,
+      "end_line": 103,
       "heading": "Swagger / API Docs",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-swagger-api-docs",
@@ -1936,44 +1936,44 @@
         "14e4b0253d1428ca",
         "027cede393b38974"
       ],
-      "start_line": 96
+      "start_line": 98
     },
     {
       "confidence": "normal",
-      "end_line": 107,
+      "end_line": 109,
       "heading": "REST Key / Authorization Token",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-rest-key-authorization-token",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 102
+      "start_line": 104
     },
     {
       "confidence": "normal",
-      "end_line": 113,
+      "end_line": 115,
       "heading": "CORS",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-cors",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 108
+      "start_line": 110
     },
     {
       "confidence": "normal",
-      "end_line": 117,
+      "end_line": 119,
       "heading": "Lava Webhook",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-lava-webhook",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 114
+      "start_line": 116
     },
     {
       "confidence": "normal",
-      "end_line": 121,
+      "end_line": 123,
       "heading": "Lava Application / Lava Endpoint",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-lava-application-lava-endpoint",
@@ -1983,22 +1983,22 @@
         "6a9eebe7a077d89a",
         "f146552f6ffaa13a"
       ],
-      "start_line": 118
+      "start_line": 120
     },
     {
       "confidence": "community-supported",
-      "end_line": 127,
+      "end_line": 129,
       "heading": "Webhook To Workflow",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-webhook-to-workflow",
       "source_keys": [
         "4f209a87e662fefd"
       ],
-      "start_line": 122
+      "start_line": 124
     },
     {
       "confidence": "normal",
-      "end_line": 131,
+      "end_line": 133,
       "heading": "Model Map",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-model-map",
@@ -2007,11 +2007,11 @@
         "b480ac589da5149f",
         "e395e8db6cce68d7"
       ],
-      "start_line": 128
+      "start_line": 130
     },
     {
       "confidence": "structural",
-      "end_line": 141,
+      "end_line": 143,
       "heading": "3. API And Integrations Mental Model",
       "needs_live_verification": false,
       "section_id": "3-api-and-integrations-mental-model",
@@ -2020,11 +2020,11 @@
         "b480ac589da5149f",
         "e395e8db6cce68d7"
       ],
-      "start_line": 132
+      "start_line": 134
     },
     {
       "confidence": "normal",
-      "end_line": 155,
+      "end_line": 157,
       "heading": "Caller Types",
       "needs_live_verification": false,
       "section_id": "3-api-and-integrations-mental-model-caller-types",
@@ -2041,11 +2041,11 @@
         "9d82300fec33a358",
         "9d82300fec33a358"
       ],
-      "start_line": 142
+      "start_line": 144
     },
     {
       "confidence": "normal",
-      "end_line": 175,
+      "end_line": 177,
       "heading": "Endpoint Surface Types",
       "needs_live_verification": false,
       "section_id": "3-api-and-integrations-mental-model-endpoint-surface-types",
@@ -2056,11 +2056,11 @@
         "4f209a87e662fefd",
         "46476aa8453a8245"
       ],
-      "start_line": 156
+      "start_line": 158
     },
     {
       "confidence": "normal",
-      "end_line": 194,
+      "end_line": 196,
       "heading": "Identity And Permission Chain",
       "needs_live_verification": true,
       "section_id": "3-api-and-integrations-mental-model-identity-and-permission-chain",
@@ -2075,11 +2075,11 @@
         "62524909bcc2f18b",
         "9d82300fec33a358"
       ],
-      "start_line": 176
+      "start_line": 178
     },
     {
       "confidence": "community-supported",
-      "end_line": 223,
+      "end_line": 225,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -2088,11 +2088,11 @@
         "4f209a87e662fefd",
         "8cdec880af451ef9"
       ],
-      "start_line": 195
+      "start_line": 197
     },
     {
       "confidence": "structural",
-      "end_line": 225,
+      "end_line": 227,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -2117,22 +2117,22 @@
         "4f0249164a4754aa",
         "2e094e868018787d"
       ],
-      "start_line": 224
+      "start_line": 226
     },
     {
       "confidence": "normal",
-      "end_line": 240,
+      "end_line": 242,
       "heading": "REST Keys",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-rest-keys",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 226
+      "start_line": 228
     },
     {
       "confidence": "normal",
-      "end_line": 256,
+      "end_line": 258,
       "heading": "REST Controllers And REST Actions",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-rest-controllers-and-rest-actions",
@@ -2141,11 +2141,11 @@
         "983ad6bce37e8e15",
         "46476aa8453a8245"
       ],
-      "start_line": 241
+      "start_line": 243
     },
     {
       "confidence": "normal",
-      "end_line": 274,
+      "end_line": 276,
       "heading": "REST CORS Domains",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-rest-cors-domains",
@@ -2153,11 +2153,11 @@
         "547b1337a6e19cf7",
         "027cede393b38974"
       ],
-      "start_line": 257
+      "start_line": 259
     },
     {
       "confidence": "normal",
-      "end_line": 304,
+      "end_line": 306,
       "heading": "Lava Webhook Defined Type",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-webhook-defined-type",
@@ -2165,22 +2165,22 @@
         "53ad1133e1cb2d0a",
         "06156bb3a5401956"
       ],
-      "start_line": 275
+      "start_line": 277
     },
     {
       "confidence": "community-supported",
-      "end_line": 327,
+      "end_line": 329,
       "heading": "Workflow Webhook Defined Type",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-workflow-webhook-defined-type",
       "source_keys": [
         "4f209a87e662fefd"
       ],
-      "start_line": 305
+      "start_line": 307
     },
     {
       "confidence": "normal",
-      "end_line": 345,
+      "end_line": 347,
       "heading": "Lava Applications",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-lava-applications",
@@ -2188,11 +2188,11 @@
         "8f9847f0880303e0",
         "8f9847f0880303e0"
       ],
-      "start_line": 328
+      "start_line": 330
     },
     {
       "confidence": "normal",
-      "end_line": 389,
+      "end_line": 391,
       "heading": "Lava Endpoints",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-lava-endpoints",
@@ -2201,11 +2201,11 @@
         "f146552f6ffaa13a",
         "427e5301d593e4bc"
       ],
-      "start_line": 346
+      "start_line": 348
     },
     {
       "confidence": "normal",
-      "end_line": 401,
+      "end_line": 403,
       "heading": "External Integration Attributes And Block Settings",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-external-integration-attributes-and-block-settings",
@@ -2219,11 +2219,11 @@
         "4f0249164a4754aa",
         "2e094e868018787d"
       ],
-      "start_line": 390
+      "start_line": 392
     },
     {
       "confidence": "structural",
-      "end_line": 403,
+      "end_line": 405,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -2243,22 +2243,22 @@
         "643c380d40ffe79d",
         "9cff0c87fd8eab29"
       ],
-      "start_line": 402
+      "start_line": 404
     },
     {
       "confidence": "citation-only",
-      "end_line": 416,
+      "end_line": 418,
       "heading": "RestController And RestAction",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-restcontroller-and-restaction",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 404
+      "start_line": 406
     },
     {
       "confidence": "normal",
-      "end_line": 428,
+      "end_line": 430,
       "heading": "LavaApplication And LavaEndpoint",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-lavaapplication-and-lavaendpoint",
@@ -2268,11 +2268,11 @@
         "379b8b3e079b94e5",
         "f146552f6ffaa13a"
       ],
-      "start_line": 417
+      "start_line": 419
     },
     {
       "confidence": "normal",
-      "end_line": 440,
+      "end_line": 442,
       "heading": "Person, UserLogin, REST Key, And Person Token",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-person-userlogin-rest-key-and-person-token",
@@ -2282,11 +2282,11 @@
         "bce31f25cb8a199e",
         "f807acb8c3c3d207"
       ],
-      "start_line": 429
+      "start_line": 431
     },
     {
       "confidence": "normal",
-      "end_line": 453,
+      "end_line": 455,
       "heading": "WorkflowType, Workflow, Workflow Attributes",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-workflowtype-workflow-workflow-attributes",
@@ -2296,22 +2296,22 @@
         "ed1e9ea215aa359f",
         "ed1e9ea215aa359f"
       ],
-      "start_line": 441
+      "start_line": 443
     },
     {
       "confidence": "normal",
-      "end_line": 465,
+      "end_line": 467,
       "heading": "Attribute And AttributeValue",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
       "source_keys": [
         "0a1df6eb6e308fc2"
       ],
-      "start_line": 454
+      "start_line": 456
     },
     {
       "confidence": "normal",
-      "end_line": 471,
+      "end_line": 473,
       "heading": "BinaryFile, Document Type, And File Security",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-binaryfile-document-type-and-file-security",
@@ -2319,11 +2319,11 @@
         "3c3c83e2437f3933",
         "776256c424368312"
       ],
-      "start_line": 466
+      "start_line": 468
     },
     {
       "confidence": "normal",
-      "end_line": 481,
+      "end_line": 483,
       "heading": "Interaction, Analytics, And Observability Entities",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-interaction-analytics-and-observability-entities",
@@ -2332,11 +2332,11 @@
         "9cff0c87fd8eab29",
         "379b8b3e079b94e5"
       ],
-      "start_line": 472
+      "start_line": 474
     },
     {
       "confidence": "structural",
-      "end_line": 483,
+      "end_line": 485,
       "heading": "7. Common API And Integrations Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-api-and-integrations-workflows",
@@ -2354,33 +2354,33 @@
         "ed1e9ea215aa359f",
         "776256c424368312"
       ],
-      "start_line": 482
+      "start_line": 484
     },
     {
       "confidence": "community-supported",
-      "end_line": 497,
+      "end_line": 499,
       "heading": "External Site Reads Public Calendar Data",
       "needs_live_verification": true,
       "section_id": "7-common-api-and-integrations-workflows-external-site-reads-public-calendar-data",
       "source_keys": [
         "470797c964770153"
       ],
-      "start_line": 484
+      "start_line": 486
     },
     {
       "confidence": "community-supported",
-      "end_line": 519,
+      "end_line": 521,
       "heading": "External System Sends A Webhook To Rock",
       "needs_live_verification": false,
       "section_id": "7-common-api-and-integrations-workflows-external-system-sends-a-webhook-to-rock",
       "source_keys": [
         "4f209a87e662fefd"
       ],
-      "start_line": 498
+      "start_line": 500
     },
     {
       "confidence": "normal",
-      "end_line": 548,
+      "end_line": 550,
       "heading": "Rock Calls An External API From Lava",
       "needs_live_verification": true,
       "section_id": "7-common-api-and-integrations-workflows-rock-calls-an-external-api-from-lava",
@@ -2388,22 +2388,22 @@
         "fe094e82abfc4adf",
         "7c71a22de1006d62"
       ],
-      "start_line": 520
+      "start_line": 522
     },
     {
       "confidence": "normal",
-      "end_line": 568,
+      "end_line": 570,
       "heading": "Create A Custom API With Lava Webhook",
       "needs_live_verification": false,
       "section_id": "7-common-api-and-integrations-workflows-create-a-custom-api-with-lava-webhook",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 549
+      "start_line": 551
     },
     {
       "confidence": "normal",
-      "end_line": 585,
+      "end_line": 587,
       "heading": "Build A Helix HTMX Application",
       "needs_live_verification": false,
       "section_id": "7-common-api-and-integrations-workflows-build-a-helix-htmx-application",
@@ -2413,11 +2413,11 @@
         "242a3ac9b87c1e0c",
         "379b8b3e079b94e5"
       ],
-      "start_line": 569
+      "start_line": 571
     },
     {
       "confidence": "normal",
-      "end_line": 610,
+      "end_line": 612,
       "heading": "Launch A Workflow Through REST v2",
       "needs_live_verification": true,
       "section_id": "7-common-api-and-integrations-workflows-launch-a-workflow-through-rest-v2",
@@ -2426,11 +2426,11 @@
         "ed1e9ea215aa359f",
         "776256c424368312"
       ],
-      "start_line": 586
+      "start_line": 588
     },
     {
       "confidence": "structural",
-      "end_line": 612,
+      "end_line": 614,
       "heading": "8. REST API Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-rest-api-deep-dive",
@@ -2444,11 +2444,11 @@
         "547b1337a6e19cf7",
         "a2819513ef35f906"
       ],
-      "start_line": 611
+      "start_line": 613
     },
     {
       "confidence": "normal",
-      "end_line": 626,
+      "end_line": 628,
       "heading": "Route Discovery",
       "needs_live_verification": true,
       "section_id": "8-rest-api-deep-dive-route-discovery",
@@ -2458,33 +2458,33 @@
         "22092085266102c5",
         "c6379a1fcb4a7101"
       ],
-      "start_line": 613
+      "start_line": 615
     },
     {
       "confidence": "normal",
-      "end_line": 641,
+      "end_line": 643,
       "heading": "CRUDS Pattern",
       "needs_live_verification": true,
       "section_id": "8-rest-api-deep-dive-cruds-pattern",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 627
+      "start_line": 629
     },
     {
       "confidence": "normal",
-      "end_line": 652,
+      "end_line": 654,
       "heading": "Identifier Handling",
       "needs_live_verification": true,
       "section_id": "8-rest-api-deep-dive-identifier-handling",
       "source_keys": [
         "983ad6bce37e8e15"
       ],
-      "start_line": 642
+      "start_line": 644
     },
     {
       "confidence": "normal",
-      "end_line": 668,
+      "end_line": 670,
       "heading": "OData Querying",
       "needs_live_verification": true,
       "section_id": "8-rest-api-deep-dive-odata-querying",
@@ -2492,33 +2492,33 @@
         "547b1337a6e19cf7",
         "a2819513ef35f906"
       ],
-      "start_line": 653
+      "start_line": 655
     },
     {
       "confidence": "normal",
-      "end_line": 680,
+      "end_line": 682,
       "heading": "API v2 Security Actions",
       "needs_live_verification": false,
       "section_id": "8-rest-api-deep-dive-api-v2-security-actions",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 669
+      "start_line": 671
     },
     {
       "confidence": "normal",
-      "end_line": 695,
+      "end_line": 697,
       "heading": "API v2 Generated Controller Example",
       "needs_live_verification": false,
       "section_id": "8-rest-api-deep-dive-api-v2-generated-controller-example",
       "source_keys": [
         "983ad6bce37e8e15"
       ],
-      "start_line": 681
+      "start_line": 683
     },
     {
       "confidence": "structural",
-      "end_line": 697,
+      "end_line": 699,
       "heading": "9. API Authentication Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-api-authentication-deep-dive",
@@ -2531,55 +2531,55 @@
         "4f0249164a4754aa",
         "9cff0c87fd8eab29"
       ],
-      "start_line": 696
+      "start_line": 698
     },
     {
       "confidence": "normal",
-      "end_line": 715,
+      "end_line": 717,
       "heading": "Cookie Authentication",
       "needs_live_verification": false,
       "section_id": "9-api-authentication-deep-dive-cookie-authentication",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 698
+      "start_line": 700
     },
     {
       "confidence": "normal",
-      "end_line": 731,
+      "end_line": 733,
       "heading": "REST Authorization Token",
       "needs_live_verification": false,
       "section_id": "9-api-authentication-deep-dive-rest-authorization-token",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 716
+      "start_line": 718
     },
     {
       "confidence": "normal",
-      "end_line": 735,
+      "end_line": 737,
       "heading": "API Key Purpose",
       "needs_live_verification": true,
       "section_id": "9-api-authentication-deep-dive-api-key-purpose",
       "source_keys": [
         "0dccb7f3384b930a"
       ],
-      "start_line": 732
+      "start_line": 734
     },
     {
       "confidence": "normal",
-      "end_line": 747,
+      "end_line": 749,
       "heading": "Browser JavaScript And Token Exposure",
       "needs_live_verification": false,
       "section_id": "9-api-authentication-deep-dive-browser-javascript-and-token-exposure",
       "source_keys": [
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 736
+      "start_line": 738
     },
     {
       "confidence": "normal",
-      "end_line": 762,
+      "end_line": 764,
       "heading": "External Identity Providers",
       "needs_live_verification": true,
       "section_id": "9-api-authentication-deep-dive-external-identity-providers",
@@ -2587,11 +2587,11 @@
         "8cdec880af451ef9",
         "1910ec97cc1c1067"
       ],
-      "start_line": 748
+      "start_line": 750
     },
     {
       "confidence": "normal",
-      "end_line": 775,
+      "end_line": 777,
       "heading": "Remote Authentication For TV Apps",
       "needs_live_verification": false,
       "section_id": "9-api-authentication-deep-dive-remote-authentication-for-tv-apps",
@@ -2599,11 +2599,11 @@
         "4f0249164a4754aa",
         "9cff0c87fd8eab29"
       ],
-      "start_line": 763
+      "start_line": 765
     },
     {
       "confidence": "structural",
-      "end_line": 777,
+      "end_line": 779,
       "heading": "10. Webhooks Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-webhooks-deep-dive",
@@ -2617,11 +2617,11 @@
         "f76e5d37a4b67cbe",
         "2e094e868018787d"
       ],
-      "start_line": 776
+      "start_line": 778
     },
     {
       "confidence": "structural",
-      "end_line": 789,
+      "end_line": 791,
       "heading": "Webhook Design Principles",
       "needs_live_verification": false,
       "section_id": "10-webhooks-deep-dive-webhook-design-principles",
@@ -2629,44 +2629,44 @@
         "4f0249164a4754aa",
         "9cff0c87fd8eab29"
       ],
-      "start_line": 778
+      "start_line": 780
     },
     {
       "confidence": "normal",
-      "end_line": 807,
+      "end_line": 809,
       "heading": "Lava Webhook Matching",
       "needs_live_verification": true,
       "section_id": "10-webhooks-deep-dive-lava-webhook-matching",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 790
+      "start_line": 792
     },
     {
       "confidence": "community-supported",
-      "end_line": 828,
+      "end_line": 830,
       "heading": "Response Content Types",
       "needs_live_verification": false,
       "section_id": "10-webhooks-deep-dive-response-content-types",
       "source_keys": [
         "06156bb3a5401956"
       ],
-      "start_line": 808
+      "start_line": 810
     },
     {
       "confidence": "community-supported",
-      "end_line": 842,
+      "end_line": 844,
       "heading": "Workflow Webhook Response",
       "needs_live_verification": true,
       "section_id": "10-webhooks-deep-dive-workflow-webhook-response",
       "source_keys": [
         "4f209a87e662fefd"
       ],
-      "start_line": 829
+      "start_line": 831
     },
     {
       "confidence": "normal",
-      "end_line": 857,
+      "end_line": 859,
       "heading": "Mailgun Webhooks",
       "needs_live_verification": false,
       "section_id": "10-webhooks-deep-dive-mailgun-webhooks",
@@ -2674,22 +2674,22 @@
         "776256c424368312",
         "f76e5d37a4b67cbe"
       ],
-      "start_line": 843
+      "start_line": 845
     },
     {
       "confidence": "normal",
-      "end_line": 870,
+      "end_line": 872,
       "heading": "SMS Pipeline Webhooks",
       "needs_live_verification": false,
       "section_id": "10-webhooks-deep-dive-sms-pipeline-webhooks",
       "source_keys": [
         "2e094e868018787d"
       ],
-      "start_line": 858
+      "start_line": 860
     },
     {
       "confidence": "structural",
-      "end_line": 872,
+      "end_line": 874,
       "heading": "11. Related Rock Areas: Security, Workflows, Lava, Model Map",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-security-workflows-lava-model-map",
@@ -2709,11 +2709,11 @@
         "e1caa5870d162bcc",
         "e395e8db6cce68d7"
       ],
-      "start_line": 871
+      "start_line": 873
     },
     {
       "confidence": "normal",
-      "end_line": 886,
+      "end_line": 888,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-security-workflows-lava-model-map-security",
@@ -2723,11 +2723,11 @@
         "62524909bcc2f18b",
         "802567c280193bd0"
       ],
-      "start_line": 873
+      "start_line": 875
     },
     {
       "confidence": "normal",
-      "end_line": 909,
+      "end_line": 911,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-security-workflows-lava-model-map-workflows",
@@ -2736,11 +2736,11 @@
         "46476aa8453a8245",
         "4f209a87e662fefd"
       ],
-      "start_line": 887
+      "start_line": 889
     },
     {
       "confidence": "normal",
-      "end_line": 932,
+      "end_line": 934,
       "heading": "Lava",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-security-workflows-lava-model-map-lava",
@@ -2751,11 +2751,11 @@
         "789454b4b23d582c",
         "802567c280193bd0"
       ],
-      "start_line": 910
+      "start_line": 912
     },
     {
       "confidence": "normal",
-      "end_line": 945,
+      "end_line": 947,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-security-workflows-lava-model-map-model-map",
@@ -2764,11 +2764,11 @@
         "e1caa5870d162bcc",
         "e395e8db6cce68d7"
       ],
-      "start_line": 933
+      "start_line": 935
     },
     {
       "confidence": "structural",
-      "end_line": 947,
+      "end_line": 949,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -2781,11 +2781,11 @@
         "f146552f6ffaa13a",
         "379b8b3e079b94e5"
       ],
-      "start_line": 946
+      "start_line": 948
     },
     {
       "confidence": "structural",
-      "end_line": 959,
+      "end_line": 961,
       "heading": "Least Privilege",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-least-privilege",
@@ -2794,11 +2794,11 @@
         "e1caa5870d162bcc",
         "e395e8db6cce68d7"
       ],
-      "start_line": 948
+      "start_line": 950
     },
     {
       "confidence": "structural",
-      "end_line": 984,
+      "end_line": 986,
       "heading": "Secret Handling",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-secret-handling",
@@ -2807,66 +2807,66 @@
         "e1caa5870d162bcc",
         "e395e8db6cce68d7"
       ],
-      "start_line": 960
+      "start_line": 962
     },
     {
       "confidence": "normal",
-      "end_line": 1003,
+      "end_line": 1005,
       "heading": "Input Validation",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-input-validation",
       "source_keys": [
         "554e0dda0bc287c2"
       ],
-      "start_line": 985
+      "start_line": 987
     },
     {
       "confidence": "normal",
-      "end_line": 1015,
+      "end_line": 1017,
       "heading": "Method Semantics",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-method-semantics",
       "source_keys": [
         "802567c280193bd0"
       ],
-      "start_line": 1004
+      "start_line": 1006
     },
     {
       "confidence": "structural",
-      "end_line": 1025,
+      "end_line": 1027,
       "heading": "Caching",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-caching",
       "source_keys": [
         "802567c280193bd0"
       ],
-      "start_line": 1016
+      "start_line": 1018
     },
     {
       "confidence": "normal",
-      "end_line": 1039,
+      "end_line": 1041,
       "heading": "Rate Limiting And Load",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-rate-limiting-and-load",
       "source_keys": [
         "f146552f6ffaa13a"
       ],
-      "start_line": 1026
+      "start_line": 1028
     },
     {
       "confidence": "normal",
-      "end_line": 1054,
+      "end_line": 1056,
       "heading": "Observability",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-observability",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 1040
+      "start_line": 1042
     },
     {
       "confidence": "structural",
-      "end_line": 1056,
+      "end_line": 1058,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -2891,11 +2891,11 @@
         "c440f7dfeb33e10e",
         "f76e5d37a4b67cbe"
       ],
-      "start_line": 1055
+      "start_line": 1057
     },
     {
       "confidence": "normal",
-      "end_line": 1067,
+      "end_line": 1069,
       "heading": "REST And API Source",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-rest-and-api-source",
@@ -2905,11 +2905,11 @@
         "46476aa8453a8245",
         "ed1e9ea215aa359f"
       ],
-      "start_line": 1057
+      "start_line": 1059
     },
     {
       "confidence": "normal",
-      "end_line": 1078,
+      "end_line": 1080,
       "heading": "Lava Application Source",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-application-source",
@@ -2919,11 +2919,11 @@
         "f146552f6ffaa13a",
         "72e58feaf1e9531d"
       ],
-      "start_line": 1068
+      "start_line": 1070
     },
     {
       "confidence": "normal",
-      "end_line": 1091,
+      "end_line": 1093,
       "heading": "Model Map Source",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-model-map-source",
@@ -2935,11 +2935,11 @@
         "8f3a78dde9c3ddb6",
         "e395e8db6cce68d7"
       ],
-      "start_line": 1079
+      "start_line": 1081
     },
     {
       "confidence": "normal",
-      "end_line": 1102,
+      "end_line": 1104,
       "heading": "Security And Workflow Source",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-security-and-workflow-source",
@@ -2949,22 +2949,22 @@
         "1910ec97cc1c1067",
         "c440f7dfeb33e10e"
       ],
-      "start_line": 1092
+      "start_line": 1094
     },
     {
       "confidence": "normal",
-      "end_line": 1110,
+      "end_line": 1112,
       "heading": "Integration-Specific Source",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-integration-specific-source",
       "source_keys": [
         "f76e5d37a4b67cbe"
       ],
-      "start_line": 1103
+      "start_line": 1105
     },
     {
       "confidence": "structural",
-      "end_line": 1112,
+      "end_line": 1114,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -2976,11 +2976,11 @@
         "8f3a78dde9c3ddb6",
         "ed2eb5a93323c1b0"
       ],
-      "start_line": 1111
+      "start_line": 1113
     },
     {
       "confidence": "normal",
-      "end_line": 1123,
+      "end_line": 1125,
       "heading": "API Usage Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-api-usage-reporting",
@@ -2989,11 +2989,11 @@
         "9cff0c87fd8eab29",
         "643c380d40ffe79d"
       ],
-      "start_line": 1113
+      "start_line": 1115
     },
     {
       "confidence": "normal",
-      "end_line": 1147,
+      "end_line": 1149,
       "heading": "Model Map Use Cases",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-model-map-use-cases",
@@ -3002,11 +3002,11 @@
         "8f3a78dde9c3ddb6",
         "ed2eb5a93323c1b0"
       ],
-      "start_line": 1124
+      "start_line": 1126
     },
     {
       "confidence": "structural",
-      "end_line": 1149,
+      "end_line": 1151,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -3021,44 +3021,44 @@
         "d81b99f44bb58799",
         "6920f6e860c4b936"
       ],
-      "start_line": 1148
+      "start_line": 1150
     },
     {
       "confidence": "normal",
-      "end_line": 1155,
+      "end_line": 1157,
       "heading": "API v2 Starts In v17 Pattern",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-api-v2-starts-in-v17-pattern",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 1150
+      "start_line": 1152
     },
     {
       "confidence": "normal",
-      "end_line": 1161,
+      "end_line": 1163,
       "heading": "Workflow Action Launch API Fix In v18.2",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-workflow-action-launch-api-fix-in-v18-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1156
+      "start_line": 1158
     },
     {
       "confidence": "normal",
-      "end_line": 1167,
+      "end_line": 1169,
       "heading": "DataView Endpoint Permission Fix In v17.5",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-dataview-endpoint-permission-fix-in-v17-5",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1162
+      "start_line": 1164
     },
     {
       "confidence": "normal",
-      "end_line": 1173,
+      "end_line": 1175,
       "heading": "Mailgun API Key And Webhook Signing Key",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-mailgun-api-key-and-webhook-signing-key",
@@ -3066,11 +3066,11 @@
         "776256c424368312",
         "f76e5d37a4b67cbe"
       ],
-      "start_line": 1168
+      "start_line": 1170
     },
     {
       "confidence": "normal",
-      "end_line": 1179,
+      "end_line": 1181,
       "heading": "Helix And Lava Applications",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-helix-and-lava-applications",
@@ -3079,11 +3079,11 @@
         "6a9eebe7a077d89a",
         "6a9eebe7a077d89a"
       ],
-      "start_line": 1174
+      "start_line": 1176
     },
     {
       "confidence": "normal",
-      "end_line": 1185,
+      "end_line": 1187,
       "heading": "Mobile And Shell Caveats",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-mobile-and-shell-caveats",
@@ -3093,11 +3093,11 @@
         "d81b99f44bb58799",
         "6920f6e860c4b936"
       ],
-      "start_line": 1180
+      "start_line": 1182
     },
     {
       "confidence": "structural",
-      "end_line": 1187,
+      "end_line": 1189,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -3109,11 +3109,11 @@
         "62524909bcc2f18b",
         "9d82300fec33a358"
       ],
-      "start_line": 1186
+      "start_line": 1188
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1203,
+      "end_line": 1205,
       "heading": "Playbook A: Server-To-Server REST Read Integration",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration",
@@ -3123,11 +3123,11 @@
         "d81b99f44bb58799",
         "6920f6e860c4b936"
       ],
-      "start_line": 1188
+      "start_line": 1190
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1217,
+      "end_line": 1219,
       "heading": "Playbook B: Browser Public Data Feed",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-b-browser-public-data-feed",
@@ -3137,11 +3137,11 @@
         "d81b99f44bb58799",
         "6920f6e860c4b936"
       ],
-      "start_line": 1204
+      "start_line": 1206
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1232,
+      "end_line": 1234,
       "heading": "Playbook C: Webhook To Workflow Intake",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-c-webhook-to-workflow-intake",
@@ -3151,11 +3151,11 @@
         "d81b99f44bb58799",
         "6920f6e860c4b936"
       ],
-      "start_line": 1218
+      "start_line": 1220
     },
     {
       "confidence": "structural",
-      "end_line": 1247,
+      "end_line": 1249,
       "heading": "Playbook D: Lava Application Endpoint",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-d-lava-application-endpoint",
@@ -3165,22 +3165,22 @@
         "d81b99f44bb58799",
         "6920f6e860c4b936"
       ],
-      "start_line": 1233
+      "start_line": 1235
     },
     {
       "confidence": "normal",
-      "end_line": 1263,
+      "end_line": 1265,
       "heading": "Playbook E: Custom REST v2 Endpoint",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-e-custom-rest-v2-endpoint",
       "source_keys": [
         "62524909bcc2f18b"
       ],
-      "start_line": 1248
+      "start_line": 1250
     },
     {
       "confidence": "normal",
-      "end_line": 1278,
+      "end_line": 1280,
       "heading": "Playbook F: Agent Tool For Rock Data",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-f-agent-tool-for-rock-data",
@@ -3189,11 +3189,11 @@
         "9d82300fec33a358",
         "9d82300fec33a358"
       ],
-      "start_line": 1264
+      "start_line": 1266
     },
     {
       "confidence": "structural",
-      "end_line": 1280,
+      "end_line": 1282,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -3205,11 +3205,11 @@
         "fe094e82abfc4adf",
         "7c71a22de1006d62"
       ],
-      "start_line": 1279
+      "start_line": 1281
     },
     {
       "confidence": "normal",
-      "end_line": 1293,
+      "end_line": 1295,
       "heading": "API Call Returns 401/Unauthorized",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
@@ -3217,11 +3217,11 @@
         "46476aa8453a8245",
         "776256c424368312"
       ],
-      "start_line": 1281
+      "start_line": 1283
     },
     {
       "confidence": "normal",
-      "end_line": 1309,
+      "end_line": 1311,
       "heading": "Browser Shows CORS / Failed To Fetch",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
@@ -3229,11 +3229,11 @@
         "547b1337a6e19cf7",
         "027cede393b38974"
       ],
-      "start_line": 1294
+      "start_line": 1296
     },
     {
       "confidence": "structural",
-      "end_line": 1323,
+      "end_line": 1325,
       "heading": "Works In Postman But Not Browser",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
@@ -3241,11 +3241,11 @@
         "547b1337a6e19cf7",
         "027cede393b38974"
       ],
-      "start_line": 1310
+      "start_line": 1312
     },
     {
       "confidence": "structural",
-      "end_line": 1336,
+      "end_line": 1338,
       "heading": "Lava Webhook Returns Wrong Template Or 404",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
@@ -3253,11 +3253,11 @@
         "547b1337a6e19cf7",
         "027cede393b38974"
       ],
-      "start_line": 1324
+      "start_line": 1326
     },
     {
       "confidence": "normal",
-      "end_line": 1354,
+      "end_line": 1356,
       "heading": "Lava Web Request Fails Silently Or Returns Empty Result",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
@@ -3265,11 +3265,11 @@
         "fe094e82abfc4adf",
         "7c71a22de1006d62"
       ],
-      "start_line": 1337
+      "start_line": 1339
     },
     {
       "confidence": "structural",
-      "end_line": 1370,
+      "end_line": 1372,
       "heading": "Workflow Webhook Does Not Start Workflow",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
@@ -3277,33 +3277,33 @@
         "fe094e82abfc4adf",
         "7c71a22de1006d62"
       ],
-      "start_line": 1355
+      "start_line": 1357
     },
     {
       "confidence": "normal",
-      "end_line": 1387,
+      "end_line": 1389,
       "heading": "REST v2 Workflow Launch Fails",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
       "source_keys": [
         "46476aa8453a8245"
       ],
-      "start_line": 1371
+      "start_line": 1373
     },
     {
       "confidence": "normal",
-      "end_line": 1403,
+      "end_line": 1405,
       "heading": "Mailgun Webhook Tracking Fails",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1388
+      "start_line": 1390
     },
     {
       "confidence": "structural",
-      "end_line": 1405,
+      "end_line": 1407,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -3311,55 +3311,55 @@
         "776256c424368312",
         "9d82300fec33a358"
       ],
-      "start_line": 1404
+      "start_line": 1406
     },
     {
       "confidence": "structural",
-      "end_line": 1415,
+      "end_line": 1417,
       "heading": "Recipe: Find The Right API Route",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-the-right-api-route",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1406
+      "start_line": 1408
     },
     {
       "confidence": "structural",
-      "end_line": 1425,
+      "end_line": 1427,
       "heading": "Recipe: Audit A REST Key",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-audit-a-rest-key",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1416
+      "start_line": 1418
     },
     {
       "confidence": "structural",
-      "end_line": 1436,
+      "end_line": 1438,
       "heading": "Recipe: Diagnose External Website API Failure",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-external-website-api-failure",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1426
+      "start_line": 1428
     },
     {
       "confidence": "structural",
-      "end_line": 1449,
+      "end_line": 1451,
       "heading": "Recipe: Review A Lava Webhook Before Launch",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-review-a-lava-webhook-before-launch",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1437
+      "start_line": 1439
     },
     {
       "confidence": "normal",
-      "end_line": 1465,
+      "end_line": 1467,
       "heading": "Recipe: Build A Safe Agent Tool",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-safe-agent-tool",
@@ -3368,11 +3368,11 @@
         "9d82300fec33a358",
         "9d82300fec33a358"
       ],
-      "start_line": 1450
+      "start_line": 1452
     },
     {
       "confidence": "normal",
-      "end_line": 1491,
+      "end_line": 1493,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -3390,11 +3390,11 @@
         "61505a876029525c",
         "7b2dd6a6b528a9f3"
       ],
-      "start_line": 1466
+      "start_line": 1468
     },
     {
       "confidence": "citation-only",
-      "end_line": 1510,
+      "end_line": 1512,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3407,11 +3407,11 @@
         "7b2dd6a6b528a9f3",
         "e49179e5511d18c4"
       ],
-      "start_line": 1492
+      "start_line": 1494
     },
     {
       "confidence": "normal",
-      "end_line": 1557,
+      "end_line": 1559,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -3452,7 +3452,7 @@
         "7c71a22de1006d62",
         "027cede393b38974"
       ],
-      "start_line": 1511
+      "start_line": 1513
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:01:30+00:00",

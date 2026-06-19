@@ -3698,12 +3698,12 @@
   },
   "approved_media_hash": "20b69eadcc9511a5a54f8b14d28c7bb5347375a58c10492e985f420aadd8713c",
   "approved_media_path": "knowledge/concepts/people-families/approved-media.md",
-  "built_at": "2026-06-19T05:26:26+00:00",
+  "built_at": "2026-06-19T05:57:31+00:00",
   "concept_id": "people-families",
-  "guide_hash": "3e0449170a4727f0accfa7429080a8178168a691a701926164c2f439c97bbb67",
-  "guide_line_count": 1824,
+  "guide_hash": "b992186886a151839b84beedecf49052d6f34bfe82bdf5821abe799604dd0241",
+  "guide_line_count": 1826,
   "guide_path": "knowledge/concepts/people-families/guide.md",
-  "guide_word_count": 18803,
+  "guide_word_count": 18816,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4294,7 +4294,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -4305,7 +4305,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 53,
+      "end_line": 55,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -4316,11 +4316,11 @@
         "a467324213982116",
         "776256c424368312"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 101,
+      "end_line": 103,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -4336,11 +4336,11 @@
         "776256c424368312",
         "ce238e87b2bd2f47"
       ],
-      "start_line": 54
+      "start_line": 56
     },
     {
       "confidence": "high",
-      "end_line": 138,
+      "end_line": 140,
       "heading": "3. People And Families Mental Model",
       "needs_live_verification": true,
       "section_id": "3-people-and-families-mental-model",
@@ -4359,11 +4359,11 @@
         "6f19b884e4da0469",
         "c59b260abd179b4d"
       ],
-      "start_line": 102
+      "start_line": 104
     },
     {
       "confidence": "high",
-      "end_line": 176,
+      "end_line": 178,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -4383,11 +4383,11 @@
         "e6630327330e74d2",
         "689aac240f23e895"
       ],
-      "start_line": 139
+      "start_line": 141
     },
     {
       "confidence": "structural",
-      "end_line": 180,
+      "end_line": 182,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -4406,11 +4406,11 @@
         "3c3c83e2437f3933",
         "ce238e87b2bd2f47"
       ],
-      "start_line": 177
+      "start_line": 179
     },
     {
       "confidence": "normal",
-      "end_line": 206,
+      "end_line": 208,
       "heading": "Person",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-person",
@@ -4426,11 +4426,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 181
+      "start_line": 183
     },
     {
       "confidence": "normal",
-      "end_line": 222,
+      "end_line": 224,
       "heading": "PersonAlias",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-personalias",
@@ -4439,11 +4439,11 @@
         "eefea0267df4f0c7",
         "a467324213982116"
       ],
-      "start_line": 207
+      "start_line": 209
     },
     {
       "confidence": "normal",
-      "end_line": 239,
+      "end_line": 241,
       "heading": "Family Group",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-family-group",
@@ -4451,22 +4451,22 @@
         "6ed8a60516b78b29",
         "324c7412fbbf81eb"
       ],
-      "start_line": 223
+      "start_line": 225
     },
     {
       "confidence": "normal",
-      "end_line": 245,
+      "end_line": 247,
       "heading": "GroupMember And GroupTypeRole",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-groupmember-and-grouptyperole",
       "source_keys": [
         "324c7412fbbf81eb"
       ],
-      "start_line": 240
+      "start_line": 242
     },
     {
       "confidence": "normal",
-      "end_line": 258,
+      "end_line": 260,
       "heading": "Known Relationships",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-known-relationships",
@@ -4474,11 +4474,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 246
+      "start_line": 248
     },
     {
       "confidence": "normal",
-      "end_line": 276,
+      "end_line": 278,
       "heading": "Attribute",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-attribute",
@@ -4486,11 +4486,11 @@
         "3c3c83e2437f3933",
         "d275b5b94a9da833"
       ],
-      "start_line": 259
+      "start_line": 261
     },
     {
       "confidence": "normal",
-      "end_line": 290,
+      "end_line": 292,
       "heading": "AttributeValue",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-attributevalue",
@@ -4498,11 +4498,11 @@
         "3c3c83e2437f3933",
         "d275b5b94a9da833"
       ],
-      "start_line": 277
+      "start_line": 279
     },
     {
       "confidence": "normal",
-      "end_line": 296,
+      "end_line": 298,
       "heading": "Notes, Tags, Following, Badges, Assessments, Background Checks",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-notes-tags-following-badges-assessments-background-checks",
@@ -4510,11 +4510,11 @@
         "ce238e87b2bd2f47",
         "d275b5b94a9da833"
       ],
-      "start_line": 291
+      "start_line": 293
     },
     {
       "confidence": "structural",
-      "end_line": 300,
+      "end_line": 302,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -4534,11 +4534,11 @@
         "3c3c83e2437f3933",
         "32cb7b69d5e41921"
       ],
-      "start_line": 297
+      "start_line": 299
     },
     {
       "confidence": "normal",
-      "end_line": 311,
+      "end_line": 313,
       "heading": "Person To PersonAlias",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-person-to-personalias",
@@ -4546,22 +4546,22 @@
         "eefea0267df4f0c7",
         "a467324213982116"
       ],
-      "start_line": 301
+      "start_line": 303
     },
     {
       "confidence": "normal",
-      "end_line": 326,
+      "end_line": 328,
       "heading": "Person To Family Group",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-person-to-family-group",
       "source_keys": [
         "6ed8a60516b78b29"
       ],
-      "start_line": 312
+      "start_line": 314
     },
     {
       "confidence": "normal",
-      "end_line": 338,
+      "end_line": 340,
       "heading": "Family Group To GroupLocation And Location",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-family-group-to-grouplocation-and-location",
@@ -4570,22 +4570,22 @@
         "70e6cbd4131c9d85",
         "cd4325ef232d11ad"
       ],
-      "start_line": 327
+      "start_line": 329
     },
     {
       "confidence": "normal",
-      "end_line": 351,
+      "end_line": 353,
       "heading": "Person To Known Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-person-to-known-relationships",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 339
+      "start_line": 341
     },
     {
       "confidence": "normal",
-      "end_line": 363,
+      "end_line": 365,
       "heading": "Person To PhoneNumber And Email",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-person-to-phonenumber-and-email",
@@ -4593,22 +4593,22 @@
         "d275b5b94a9da833",
         "c2b76d26bac94066"
       ],
-      "start_line": 352
+      "start_line": 354
     },
     {
       "confidence": "normal",
-      "end_line": 377,
+      "end_line": 379,
       "heading": "Person To Attributes",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-person-to-attributes",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 364
+      "start_line": 366
     },
     {
       "confidence": "normal",
-      "end_line": 381,
+      "end_line": 383,
       "heading": "Group Or Family To Attributes",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-group-or-family-to-attributes",
@@ -4616,11 +4616,11 @@
         "103246342712cd75",
         "324c7412fbbf81eb"
       ],
-      "start_line": 378
+      "start_line": 380
     },
     {
       "confidence": "normal",
-      "end_line": 394,
+      "end_line": 396,
       "heading": "Person To Workflows",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-person-to-workflows",
@@ -4629,11 +4629,11 @@
         "ea6aab44a90c83e0",
         "776256c424368312"
       ],
-      "start_line": 382
+      "start_line": 384
     },
     {
       "confidence": "normal",
-      "end_line": 398,
+      "end_line": 400,
       "heading": "Person To Communications",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-person-to-communications",
@@ -4641,11 +4641,11 @@
         "37a5719afb8ff6dc",
         "776256c424368312"
       ],
-      "start_line": 395
+      "start_line": 397
     },
     {
       "confidence": "high",
-      "end_line": 413,
+      "end_line": 415,
       "heading": "Person To Attendance And Check-In",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-person-to-attendance-and-check-in",
@@ -4655,11 +4655,11 @@
         "d275b5b94a9da833",
         "324c7412fbbf81eb"
       ],
-      "start_line": 399
+      "start_line": 401
     },
     {
       "confidence": "normal",
-      "end_line": 426,
+      "end_line": 428,
       "heading": "Person To Security",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-person-to-security",
@@ -4667,11 +4667,11 @@
         "70e6cbd4131c9d85",
         "32cb7b69d5e41921"
       ],
-      "start_line": 414
+      "start_line": 416
     },
     {
       "confidence": "structural",
-      "end_line": 428,
+      "end_line": 430,
       "heading": "7. Common People And Families Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-people-and-families-workflows",
@@ -4698,11 +4698,11 @@
         "d8cb2591331ab81a",
         "a467324213982116"
       ],
-      "start_line": 427
+      "start_line": 429
     },
     {
       "confidence": "normal",
-      "end_line": 446,
+      "end_line": 448,
       "heading": "Search For A Person",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-search-for-a-person",
@@ -4711,11 +4711,11 @@
         "c2b76d26bac94066",
         "d275b5b94a9da833"
       ],
-      "start_line": 429
+      "start_line": 431
     },
     {
       "confidence": "normal",
-      "end_line": 460,
+      "end_line": 462,
       "heading": "Add Or Edit An Individual",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-add-or-edit-an-individual",
@@ -4723,11 +4723,11 @@
         "48ff2ab108e64a0c",
         "776256c424368312"
       ],
-      "start_line": 447
+      "start_line": 449
     },
     {
       "confidence": "normal",
-      "end_line": 481,
+      "end_line": 483,
       "heading": "Add Or Edit A Family",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-add-or-edit-a-family",
@@ -4738,11 +4738,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 461
+      "start_line": 463
     },
     {
       "confidence": "normal",
-      "end_line": 505,
+      "end_line": 507,
       "heading": "Merge Duplicate Records",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-merge-duplicate-records",
@@ -4753,11 +4753,11 @@
         "5a9634c1949b175e",
         "589cd1b8ebb20daa"
       ],
-      "start_line": 482
+      "start_line": 484
     },
     {
       "confidence": "community-supported",
-      "end_line": 525,
+      "end_line": 527,
       "heading": "Delete Or Deactivate A Person",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-delete-or-deactivate-a-person",
@@ -4765,11 +4765,11 @@
         "c59b260abd179b4d",
         "779667324381ab6d"
       ],
-      "start_line": 506
+      "start_line": 508
     },
     {
       "confidence": "normal",
-      "end_line": 543,
+      "end_line": 545,
       "heading": "Add Person Or Family Attributes",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-add-person-or-family-attributes",
@@ -4781,22 +4781,22 @@
         "3c3c83e2437f3933",
         "776256c424368312"
       ],
-      "start_line": 526
+      "start_line": 528
     },
     {
       "confidence": "community-supported",
-      "end_line": 556,
+      "end_line": 558,
       "heading": "Track How A Person Record Was Created",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-track-how-a-person-record-was-created",
       "source_keys": [
         "56e37ba19266fb29"
       ],
-      "start_line": 544
+      "start_line": 546
     },
     {
       "confidence": "normal",
-      "end_line": 571,
+      "end_line": 573,
       "heading": "Run Person-Based Automation",
       "needs_live_verification": true,
       "section_id": "7-common-people-and-families-workflows-run-person-based-automation",
@@ -4805,11 +4805,11 @@
         "d8cb2591331ab81a",
         "a467324213982116"
       ],
-      "start_line": 557
+      "start_line": 559
     },
     {
       "confidence": "structural",
-      "end_line": 573,
+      "end_line": 575,
       "heading": "8. Person Model Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-person-model-deep-dive",
@@ -4831,11 +4831,11 @@
         "cd4325ef232d11ad",
         "20bfddf20a7dc5c1"
       ],
-      "start_line": 572
+      "start_line": 574
     },
     {
       "confidence": "normal",
-      "end_line": 589,
+      "end_line": 591,
       "heading": "Identity Fields",
       "needs_live_verification": true,
       "section_id": "8-person-model-deep-dive-identity-fields",
@@ -4846,11 +4846,11 @@
         "524bfe304bae1212",
         "9a9b8618881c682d"
       ],
-      "start_line": 574
+      "start_line": 576
     },
     {
       "confidence": "normal",
-      "end_line": 600,
+      "end_line": 602,
       "heading": "Names",
       "needs_live_verification": true,
       "section_id": "8-person-model-deep-dive-names",
@@ -4860,11 +4860,11 @@
         "70e6cbd4131c9d85",
         "4cd568f15fa8d193"
       ],
-      "start_line": 590
+      "start_line": 592
     },
     {
       "confidence": "normal",
-      "end_line": 606,
+      "end_line": 608,
       "heading": "Demographics",
       "needs_live_verification": true,
       "section_id": "8-person-model-deep-dive-demographics",
@@ -4876,11 +4876,11 @@
         "566505af9997c21f",
         "776256c424368312"
       ],
-      "start_line": 601
+      "start_line": 603
     },
     {
       "confidence": "normal",
-      "end_line": 618,
+      "end_line": 620,
       "heading": "Contact Fields",
       "needs_live_verification": true,
       "section_id": "8-person-model-deep-dive-contact-fields",
@@ -4888,11 +4888,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 607
+      "start_line": 609
     },
     {
       "confidence": "normal",
-      "end_line": 630,
+      "end_line": 632,
       "heading": "Photo And Avatar",
       "needs_live_verification": false,
       "section_id": "8-person-model-deep-dive-photo-and-avatar",
@@ -4900,22 +4900,22 @@
         "776256c424368312",
         "b142d80b94d41ad3"
       ],
-      "start_line": 619
+      "start_line": 621
     },
     {
       "confidence": "normal",
-      "end_line": 643,
+      "end_line": 645,
       "heading": "Record Status, Connection Status, And Record Source",
       "needs_live_verification": false,
       "section_id": "8-person-model-deep-dive-record-status-connection-status-and-record-source",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 631
+      "start_line": 633
     },
     {
       "confidence": "normal",
-      "end_line": 659,
+      "end_line": 661,
       "heading": "Logins, Account Protection, Impersonation, And Passwordless Login",
       "needs_live_verification": true,
       "section_id": "8-person-model-deep-dive-logins-account-protection-impersonation-and-passwordless-login",
@@ -4926,11 +4926,11 @@
         "20bfddf20a7dc5c1",
         "70e6cbd4131c9d85"
       ],
-      "start_line": 644
+      "start_line": 646
     },
     {
       "confidence": "structural",
-      "end_line": 661,
+      "end_line": 663,
       "heading": "9. Families Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-families-deep-dive",
@@ -4944,44 +4944,44 @@
         "5e25d86a5751ae77",
         "524bfe304bae1212"
       ],
-      "start_line": 660
+      "start_line": 662
     },
     {
       "confidence": "normal",
-      "end_line": 675,
+      "end_line": 677,
       "heading": "Family As Group",
       "needs_live_verification": true,
       "section_id": "9-families-deep-dive-family-as-group",
       "source_keys": [
         "324c7412fbbf81eb"
       ],
-      "start_line": 662
+      "start_line": 664
     },
     {
       "confidence": "normal",
-      "end_line": 688,
+      "end_line": 690,
       "heading": "Family Membership Roles",
       "needs_live_verification": false,
       "section_id": "9-families-deep-dive-family-membership-roles",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 676
+      "start_line": 678
     },
     {
       "confidence": "normal",
-      "end_line": 700,
+      "end_line": 702,
       "heading": "Head Of Household And Salutation",
       "needs_live_verification": false,
       "section_id": "9-families-deep-dive-head-of-household-and-salutation",
       "source_keys": [
         "70e6cbd4131c9d85"
       ],
-      "start_line": 689
+      "start_line": 691
     },
     {
       "confidence": "normal",
-      "end_line": 712,
+      "end_line": 714,
       "heading": "Blended Families",
       "needs_live_verification": false,
       "section_id": "9-families-deep-dive-blended-families",
@@ -4991,11 +4991,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 701
+      "start_line": 703
     },
     {
       "confidence": "high",
-      "end_line": 724,
+      "end_line": 726,
       "heading": "Family Address And Campus",
       "needs_live_verification": false,
       "section_id": "9-families-deep-dive-family-address-and-campus",
@@ -5004,11 +5004,11 @@
         "324c7412fbbf81eb",
         "d275b5b94a9da833"
       ],
-      "start_line": 713
+      "start_line": 715
     },
     {
       "confidence": "normal",
-      "end_line": 739,
+      "end_line": 741,
       "heading": "Family Giving",
       "needs_live_verification": true,
       "section_id": "9-families-deep-dive-family-giving",
@@ -5016,11 +5016,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 725
+      "start_line": 727
     },
     {
       "confidence": "normal",
-      "end_line": 754,
+      "end_line": 756,
       "heading": "Family Event Registration",
       "needs_live_verification": false,
       "section_id": "9-families-deep-dive-family-event-registration",
@@ -5029,11 +5029,11 @@
         "776256c424368312",
         "524bfe304bae1212"
       ],
-      "start_line": 740
+      "start_line": 742
     },
     {
       "confidence": "structural",
-      "end_line": 756,
+      "end_line": 758,
       "heading": "10. Attributes Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-attributes-deep-dive",
@@ -5049,11 +5049,11 @@
         "d275b5b94a9da833",
         "8a9de81093dfafd1"
       ],
-      "start_line": 755
+      "start_line": 757
     },
     {
       "confidence": "normal",
-      "end_line": 777,
+      "end_line": 779,
       "heading": "Attribute Definition",
       "needs_live_verification": false,
       "section_id": "10-attributes-deep-dive-attribute-definition",
@@ -5061,22 +5061,22 @@
         "3c3c83e2437f3933",
         "0a1df6eb6e308fc2"
       ],
-      "start_line": 757
+      "start_line": 759
     },
     {
       "confidence": "normal",
-      "end_line": 791,
+      "end_line": 793,
       "heading": "Attribute Value",
       "needs_live_verification": false,
       "section_id": "10-attributes-deep-dive-attribute-value",
       "source_keys": [
         "3c3c83e2437f3933"
       ],
-      "start_line": 778
+      "start_line": 780
     },
     {
       "confidence": "normal",
-      "end_line": 802,
+      "end_line": 804,
       "heading": "Person Attribute Field Type In Workflows",
       "needs_live_verification": false,
       "section_id": "10-attributes-deep-dive-person-attribute-field-type-in-workflows",
@@ -5084,22 +5084,22 @@
         "a467324213982116",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 792
+      "start_line": 794
     },
     {
       "confidence": "normal",
-      "end_line": 814,
+      "end_line": 816,
       "heading": "Attribute Lava Filters",
       "needs_live_verification": true,
       "section_id": "10-attributes-deep-dive-attribute-lava-filters",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 803
+      "start_line": 805
     },
     {
       "confidence": "normal",
-      "end_line": 822,
+      "end_line": 824,
       "heading": "Entity Commands And Attribute Prefetch",
       "needs_live_verification": true,
       "section_id": "10-attributes-deep-dive-entity-commands-and-attribute-prefetch",
@@ -5109,11 +5109,11 @@
         "3d7f0942c946fafb",
         "3d7f0942c946fafb"
       ],
-      "start_line": 815
+      "start_line": 817
     },
     {
       "confidence": "normal",
-      "end_line": 837,
+      "end_line": 839,
       "heading": "Attribute UI And Mobile Support",
       "needs_live_verification": false,
       "section_id": "10-attributes-deep-dive-attribute-ui-and-mobile-support",
@@ -5122,11 +5122,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 823
+      "start_line": 825
     },
     {
       "confidence": "normal",
-      "end_line": 850,
+      "end_line": 852,
       "heading": "Attribute Migration And Source Control",
       "needs_live_verification": true,
       "section_id": "10-attributes-deep-dive-attribute-migration-and-source-control",
@@ -5134,11 +5134,11 @@
         "d275b5b94a9da833",
         "8a9de81093dfafd1"
       ],
-      "start_line": 838
+      "start_line": 840
     },
     {
       "confidence": "structural",
-      "end_line": 852,
+      "end_line": 854,
       "heading": "11. Related Rock Areas: Groups, Security, Communications, Check In",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-groups-security-communications-check-in",
@@ -5156,11 +5156,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 851
+      "start_line": 853
     },
     {
       "confidence": "normal",
-      "end_line": 867,
+      "end_line": 869,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-groups-security-communications-check-in-groups",
@@ -5168,11 +5168,11 @@
         "324c7412fbbf81eb",
         "2a863471e239f0b9"
       ],
-      "start_line": 853
+      "start_line": 855
     },
     {
       "confidence": "normal",
-      "end_line": 888,
+      "end_line": 890,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-groups-security-communications-check-in-security",
@@ -5182,11 +5182,11 @@
         "70e6cbd4131c9d85",
         "e6630327330e74d2"
       ],
-      "start_line": 868
+      "start_line": 870
     },
     {
       "confidence": "normal",
-      "end_line": 905,
+      "end_line": 907,
       "heading": "Communications",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-groups-security-communications-check-in-communications",
@@ -5194,11 +5194,11 @@
         "37a5719afb8ff6dc",
         "b703bb29e52972c9"
       ],
-      "start_line": 889
+      "start_line": 891
     },
     {
       "confidence": "normal",
-      "end_line": 925,
+      "end_line": 927,
       "heading": "Check-In",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-groups-security-communications-check-in-check-in",
@@ -5211,11 +5211,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 906
+      "start_line": 908
     },
     {
       "confidence": "structural",
-      "end_line": 927,
+      "end_line": 929,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -5225,11 +5225,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 926
+      "start_line": 928
     },
     {
       "confidence": "needs-citation",
-      "end_line": 944,
+      "end_line": 946,
       "heading": "Person Data Is High Impact",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-person-data-is-high-impact",
@@ -5242,11 +5242,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 928
+      "start_line": 930
     },
     {
       "confidence": "structural",
-      "end_line": 960,
+      "end_line": 962,
       "heading": "Before Creating A Person",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-person",
@@ -5259,11 +5259,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 945
+      "start_line": 947
     },
     {
       "confidence": "structural",
-      "end_line": 975,
+      "end_line": 977,
       "heading": "Before Editing A Family",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-editing-a-family",
@@ -5276,11 +5276,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 961
+      "start_line": 963
     },
     {
       "confidence": "structural",
-      "end_line": 992,
+      "end_line": 994,
       "heading": "Before Merging",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-before-merging",
@@ -5293,11 +5293,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 976
+      "start_line": 978
     },
     {
       "confidence": "structural",
-      "end_line": 1003,
+      "end_line": 1005,
       "heading": "Before Deactivating",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-deactivating",
@@ -5310,11 +5310,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 993
+      "start_line": 995
     },
     {
       "confidence": "structural",
-      "end_line": 1012,
+      "end_line": 1014,
       "heading": "Before Deleting",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-deleting",
@@ -5327,11 +5327,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1004
+      "start_line": 1006
     },
     {
       "confidence": "structural",
-      "end_line": 1027,
+      "end_line": 1029,
       "heading": "Before Exposing Person Data In Lava Or Dynamic Data",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-exposing-person-data-in-lava-or-dynamic-data",
@@ -5344,11 +5344,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1013
+      "start_line": 1015
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1048,
+      "end_line": 1050,
       "heading": "Data Integrity Monitoring",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-data-integrity-monitoring",
@@ -5361,11 +5361,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1028
+      "start_line": 1030
     },
     {
       "confidence": "structural",
-      "end_line": 1050,
+      "end_line": 1052,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -5382,22 +5382,22 @@
         "6ed8a60516b78b29",
         "8a5899b11a6ccbbe"
       ],
-      "start_line": 1049
+      "start_line": 1051
     },
     {
       "confidence": "normal",
-      "end_line": 1059,
+      "end_line": 1061,
       "heading": "PersonAlias Service",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-personalias-service",
       "source_keys": [
         "eefea0267df4f0c7"
       ],
-      "start_line": 1051
+      "start_line": 1053
     },
     {
       "confidence": "normal",
-      "end_line": 1077,
+      "end_line": 1079,
       "heading": "Person Entity Lava Command",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-person-entity-lava-command",
@@ -5405,22 +5405,22 @@
         "2619e681b7108e4e",
         "3d7f0942c946fafb"
       ],
-      "start_line": 1060
+      "start_line": 1062
     },
     {
       "confidence": "normal",
-      "end_line": 1101,
+      "end_line": 1103,
       "heading": "Person Lava Filters",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-person-lava-filters",
       "source_keys": [
         "70e6cbd4131c9d85"
       ],
-      "start_line": 1078
+      "start_line": 1080
     },
     {
       "confidence": "normal",
-      "end_line": 1105,
+      "end_line": 1107,
       "heading": "Attribute Filters",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-attribute-filters",
@@ -5428,33 +5428,33 @@
         "6f19b884e4da0469",
         "a467324213982116"
       ],
-      "start_line": 1102
+      "start_line": 1104
     },
     {
       "confidence": "normal",
-      "end_line": 1117,
+      "end_line": 1119,
       "heading": "AttributeValuesContainer",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-attributevaluescontainer",
       "source_keys": [
         "0a1df6eb6e308fc2"
       ],
-      "start_line": 1106
+      "start_line": 1108
     },
     {
       "confidence": "normal",
-      "end_line": 1129,
+      "end_line": 1131,
       "heading": "SetPersonAttribute Workflow Action",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-setpersonattribute-workflow-action",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1118
+      "start_line": 1120
     },
     {
       "confidence": "normal",
-      "end_line": 1141,
+      "end_line": 1143,
       "heading": "PersonAttributeForms Block",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-personattributeforms-block",
@@ -5462,33 +5462,33 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1130
+      "start_line": 1132
     },
     {
       "confidence": "normal",
-      "end_line": 1153,
+      "end_line": 1155,
       "heading": "Mobile Person Profile Block",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-person-profile-block",
       "source_keys": [
         "3e86700219ae1673"
       ],
-      "start_line": 1142
+      "start_line": 1144
     },
     {
       "confidence": "normal",
-      "end_line": 1165,
+      "end_line": 1167,
       "heading": "Mobile Group Members Block",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-group-members-block",
       "source_keys": [
         "6ed8a60516b78b29"
       ],
-      "start_line": 1154
+      "start_line": 1156
     },
     {
       "confidence": "normal",
-      "end_line": 1178,
+      "end_line": 1180,
       "heading": "Check-In Source Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-check-in-source-landmarks",
@@ -5504,22 +5504,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1166
+      "start_line": 1168
     },
     {
       "confidence": "normal",
-      "end_line": 1182,
+      "end_line": 1184,
       "heading": "Observe Lava Tag",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-observe-lava-tag",
       "source_keys": [
         "8a5899b11a6ccbbe"
       ],
-      "start_line": 1179
+      "start_line": 1181
     },
     {
       "confidence": "structural",
-      "end_line": 1184,
+      "end_line": 1186,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -5539,22 +5539,22 @@
         "a703d75cabd7c43b",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 1183
+      "start_line": 1185
     },
     {
       "confidence": "citation-only",
-      "end_line": 1200,
+      "end_line": 1202,
       "heading": "Person Reports",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-person-reports",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 1185
+      "start_line": 1187
     },
     {
       "confidence": "normal",
-      "end_line": 1218,
+      "end_line": 1220,
       "heading": "Attribute Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-attribute-reporting",
@@ -5562,33 +5562,33 @@
         "3c3c83e2437f3933",
         "d275b5b94a9da833"
       ],
-      "start_line": 1201
+      "start_line": 1203
     },
     {
       "confidence": "community-supported",
-      "end_line": 1232,
+      "end_line": 1234,
       "heading": "Family Reporting",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-family-reporting",
       "source_keys": [
         "4cd568f15fa8d193"
       ],
-      "start_line": 1219
+      "start_line": 1221
     },
     {
       "confidence": "citation-only",
-      "end_line": 1236,
+      "end_line": 1238,
       "heading": "BI Family Report",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-bi-family-report",
       "source_keys": [
         "add61f36fc8d2512"
       ],
-      "start_line": 1233
+      "start_line": 1235
     },
     {
       "confidence": "community-supported",
-      "end_line": 1248,
+      "end_line": 1250,
       "heading": "Data Views And Automation",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-data-views-and-automation",
@@ -5597,11 +5597,11 @@
         "bfec572063ff18fc",
         "d8cb2591331ab81a"
       ],
-      "start_line": 1237
+      "start_line": 1239
     },
     {
       "confidence": "community-supported",
-      "end_line": 1261,
+      "end_line": 1263,
       "heading": "Profile Custom Reports",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-profile-custom-reports",
@@ -5613,11 +5613,11 @@
         "a703d75cabd7c43b",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 1249
+      "start_line": 1251
     },
     {
       "confidence": "structural",
-      "end_line": 1265,
+      "end_line": 1267,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -5628,33 +5628,33 @@
         "6f19b884e4da0469",
         "566505af9997c21f"
       ],
-      "start_line": 1262
+      "start_line": 1264
     },
     {
       "confidence": "normal",
-      "end_line": 1269,
+      "end_line": 1271,
       "heading": "v16.3",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-v16-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1266
+      "start_line": 1268
     },
     {
       "confidence": "normal",
-      "end_line": 1273,
+      "end_line": 1275,
       "heading": "v16.5",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v16-5",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1270
+      "start_line": 1272
     },
     {
       "confidence": "high",
-      "end_line": 1277,
+      "end_line": 1279,
       "heading": "v16.7",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v16-7",
@@ -5662,33 +5662,33 @@
         "324c7412fbbf81eb",
         "d275b5b94a9da833"
       ],
-      "start_line": 1274
+      "start_line": 1276
     },
     {
       "confidence": "normal",
-      "end_line": 1281,
+      "end_line": 1283,
       "heading": "v17.1",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1278
+      "start_line": 1280
     },
     {
       "confidence": "normal",
-      "end_line": 1285,
+      "end_line": 1287,
       "heading": "v17.2",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-v17-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1282
+      "start_line": 1284
     },
     {
       "confidence": "normal",
-      "end_line": 1291,
+      "end_line": 1293,
       "heading": "v17.5",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17-5",
@@ -5696,11 +5696,11 @@
         "776256c424368312",
         "6f19b884e4da0469"
       ],
-      "start_line": 1286
+      "start_line": 1288
     },
     {
       "confidence": "normal",
-      "end_line": 1299,
+      "end_line": 1301,
       "heading": "v18.1",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v18-1",
@@ -5709,11 +5709,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1292
+      "start_line": 1294
     },
     {
       "confidence": "normal",
-      "end_line": 1307,
+      "end_line": 1309,
       "heading": "v18.2",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v18-2",
@@ -5722,11 +5722,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1300
+      "start_line": 1302
     },
     {
       "confidence": "normal",
-      "end_line": 1313,
+      "end_line": 1315,
       "heading": "v18.3",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-v18-3",
@@ -5734,11 +5734,11 @@
         "776256c424368312",
         "566505af9997c21f"
       ],
-      "start_line": 1308
+      "start_line": 1310
     },
     {
       "confidence": "normal",
-      "end_line": 1321,
+      "end_line": 1323,
       "heading": "v19.1",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v19-1",
@@ -5747,11 +5747,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1314
+      "start_line": 1316
     },
     {
       "confidence": "structural",
-      "end_line": 1323,
+      "end_line": 1325,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -5776,11 +5776,11 @@
         "589cd1b8ebb20daa",
         "f100a7c66d47ef32"
       ],
-      "start_line": 1322
+      "start_line": 1324
     },
     {
       "confidence": "normal",
-      "end_line": 1341,
+      "end_line": 1343,
       "heading": "Playbook: Build A Person Attribute",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-person-attribute",
@@ -5789,11 +5789,11 @@
         "0a1df6eb6e308fc2",
         "6f19b884e4da0469"
       ],
-      "start_line": 1324
+      "start_line": 1326
     },
     {
       "confidence": "normal",
-      "end_line": 1356,
+      "end_line": 1358,
       "heading": "Playbook: Build A Family Attribute",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-family-attribute",
@@ -5801,11 +5801,11 @@
         "103246342712cd75",
         "324c7412fbbf81eb"
       ],
-      "start_line": 1342
+      "start_line": 1344
     },
     {
       "confidence": "normal",
-      "end_line": 1373,
+      "end_line": 1375,
       "heading": "Playbook: Build A New Person Entry Workflow",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-new-person-entry-workflow",
@@ -5814,11 +5814,11 @@
         "a467324213982116",
         "776256c424368312"
       ],
-      "start_line": 1357
+      "start_line": 1359
     },
     {
       "confidence": "normal",
-      "end_line": 1390,
+      "end_line": 1392,
       "heading": "Playbook: Add A Person Profile Panel",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-person-profile-panel",
@@ -5827,11 +5827,11 @@
         "e6630327330e74d2",
         "3d7f0942c946fafb"
       ],
-      "start_line": 1374
+      "start_line": 1376
     },
     {
       "confidence": "normal",
-      "end_line": 1409,
+      "end_line": 1411,
       "heading": "Playbook: Diagnose Missing Check-In Family",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-diagnose-missing-check-in-family",
@@ -5841,11 +5841,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1391
+      "start_line": 1393
     },
     {
       "confidence": "normal",
-      "end_line": 1426,
+      "end_line": 1428,
       "heading": "Playbook: Safely Merge Duplicate People",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-safely-merge-duplicate-people",
@@ -5853,11 +5853,11 @@
         "cd4325ef232d11ad",
         "eefea0267df4f0c7"
       ],
-      "start_line": 1410
+      "start_line": 1412
     },
     {
       "confidence": "community-supported",
-      "end_line": 1443,
+      "end_line": 1445,
       "heading": "Playbook: Recover From Wrong Merge",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-recover-from-wrong-merge",
@@ -5866,11 +5866,11 @@
         "5a9634c1949b175e",
         "589cd1b8ebb20daa"
       ],
-      "start_line": 1427
+      "start_line": 1429
     },
     {
       "confidence": "normal",
-      "end_line": 1460,
+      "end_line": 1462,
       "heading": "Playbook: Build A Family Registration Or Pre-Registration Flow",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-family-registration-or-pre-registration-flow",
@@ -5880,11 +5880,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1444
+      "start_line": 1446
     },
     {
       "confidence": "structural",
-      "end_line": 1462,
+      "end_line": 1464,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -5903,11 +5903,11 @@
         "32cb7b69d5e41921",
         "e6630327330e74d2"
       ],
-      "start_line": 1461
+      "start_line": 1463
     },
     {
       "confidence": "normal",
-      "end_line": 1478,
+      "end_line": 1480,
       "heading": "Person Does Not Appear In Search",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-person-does-not-appear-in-search",
@@ -5916,11 +5916,11 @@
         "d275b5b94a9da833",
         "eefea0267df4f0c7"
       ],
-      "start_line": 1463
+      "start_line": 1465
     },
     {
       "confidence": "normal",
-      "end_line": 1492,
+      "end_line": 1494,
       "heading": "Family Members Are Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-family-members-are-wrong",
@@ -5929,11 +5929,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1479
+      "start_line": 1481
     },
     {
       "confidence": "normal",
-      "end_line": 1507,
+      "end_line": 1509,
       "heading": "Person Attribute Does Not Display",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-person-attribute-does-not-display",
@@ -5942,11 +5942,11 @@
         "6f19b884e4da0469",
         "1c8d2f8448113003"
       ],
-      "start_line": 1493
+      "start_line": 1495
     },
     {
       "confidence": "normal",
-      "end_line": 1520,
+      "end_line": 1522,
       "heading": "Workflow Person Attribute Resolves Wrong Person",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-workflow-person-attribute-resolves-wrong-person",
@@ -5955,11 +5955,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1508
+      "start_line": 1510
     },
     {
       "confidence": "high",
-      "end_line": 1535,
+      "end_line": 1537,
       "heading": "Child Cannot Check In With Adult",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-child-cannot-check-in-with-adult",
@@ -5968,11 +5968,11 @@
         "324c7412fbbf81eb",
         "776256c424368312"
       ],
-      "start_line": 1521
+      "start_line": 1523
     },
     {
       "confidence": "normal",
-      "end_line": 1547,
+      "end_line": 1549,
       "heading": "Registration Shows Wrong Family Member",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-registration-shows-wrong-family-member",
@@ -5980,22 +5980,22 @@
         "776256c424368312",
         "524bfe304bae1212"
       ],
-      "start_line": 1536
+      "start_line": 1538
     },
     {
       "confidence": "normal",
-      "end_line": 1558,
+      "end_line": 1560,
       "heading": "Giving History Looks Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-giving-history-looks-wrong",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1548
+      "start_line": 1550
     },
     {
       "confidence": "normal",
-      "end_line": 1571,
+      "end_line": 1573,
       "heading": "Profile Custom Tab Exposes Too Much",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-profile-custom-tab-exposes-too-much",
@@ -6004,11 +6004,11 @@
         "e6630327330e74d2",
         "6f19b884e4da0469"
       ],
-      "start_line": 1559
+      "start_line": 1561
     },
     {
       "confidence": "structural",
-      "end_line": 1573,
+      "end_line": 1575,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -6027,11 +6027,11 @@
         "3d1915d78aeca733",
         "a703d75cabd7c43b"
       ],
-      "start_line": 1572
+      "start_line": 1574
     },
     {
       "confidence": "structural",
-      "end_line": 1593,
+      "end_line": 1595,
       "heading": "Recipe: Identify A Person Safely",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-identify-a-person-safely",
@@ -6040,22 +6040,22 @@
         "e6630327330e74d2",
         "6f19b884e4da0469"
       ],
-      "start_line": 1574
+      "start_line": 1576
     },
     {
       "confidence": "normal",
-      "end_line": 1599,
+      "end_line": 1601,
       "heading": "Recipe: Explain Why `PersonAlias` Matters",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-explain-why-personalias-matters",
       "source_keys": [
         "eefea0267df4f0c7"
       ],
-      "start_line": 1594
+      "start_line": 1596
     },
     {
       "confidence": "normal",
-      "end_line": 1617,
+      "end_line": 1619,
       "heading": "Recipe: Inspect A Person Attribute",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-inspect-a-person-attribute",
@@ -6063,22 +6063,22 @@
         "3c3c83e2437f3933",
         "6f19b884e4da0469"
       ],
-      "start_line": 1600
+      "start_line": 1602
     },
     {
       "confidence": "normal",
-      "end_line": 1625,
+      "end_line": 1627,
       "heading": "Recipe: Determine If A Value Is Person Id Or Alias Guid",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-determine-if-a-value-is-person-id-or-alias-guid",
       "source_keys": [
         "a467324213982116"
       ],
-      "start_line": 1618
+      "start_line": 1620
     },
     {
       "confidence": "normal",
-      "end_line": 1644,
+      "end_line": 1646,
       "heading": "Recipe: Audit A Family For Check-In",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-a-family-for-check-in",
@@ -6087,11 +6087,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1626
+      "start_line": 1628
     },
     {
       "confidence": "structural",
-      "end_line": 1656,
+      "end_line": 1658,
       "heading": "Recipe: Review A Person Profile Customization",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-review-a-person-profile-customization",
@@ -6100,11 +6100,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1645
+      "start_line": 1647
     },
     {
       "confidence": "community-supported",
-      "end_line": 1669,
+      "end_line": 1671,
       "heading": "Recipe: Triage An Accidental Merge",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-triage-an-accidental-merge",
@@ -6112,44 +6112,44 @@
         "689aac240f23e895",
         "5a9634c1949b175e"
       ],
-      "start_line": 1657
+      "start_line": 1659
     },
     {
       "confidence": "normal",
-      "end_line": 1678,
+      "end_line": 1680,
       "heading": "Recipe: Track New Record Source",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-track-new-record-source",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1670
+      "start_line": 1672
     },
     {
       "confidence": "community-supported",
-      "end_line": 1687,
+      "end_line": 1689,
       "heading": "Recipe: Build A Staff Directory From Person Attributes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-a-staff-directory-from-person-attributes",
       "source_keys": [
         "3d1915d78aeca733"
       ],
-      "start_line": 1679
+      "start_line": 1681
     },
     {
       "confidence": "community-supported",
-      "end_line": 1699,
+      "end_line": 1701,
       "heading": "Recipe: Add A Bookmarked Groups-Like Profile Panel",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-add-a-bookmarked-groups-like-profile-panel",
       "source_keys": [
         "a703d75cabd7c43b"
       ],
-      "start_line": 1688
+      "start_line": 1690
     },
     {
       "confidence": "citation-only",
-      "end_line": 1725,
+      "end_line": 1727,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -6167,11 +6167,11 @@
         "a7cecea2cefec5f0",
         "cd4325ef232d11ad"
       ],
-      "start_line": 1700
+      "start_line": 1702
     },
     {
       "confidence": "citation-only",
-      "end_line": 1746,
+      "end_line": 1748,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -6185,11 +6185,11 @@
         "d48e27874620e147",
         "103246342712cd75"
       ],
-      "start_line": 1726
+      "start_line": 1728
     },
     {
       "confidence": "structural",
-      "end_line": 1748,
+      "end_line": 1750,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -6230,11 +6230,11 @@
         "3d1915d78aeca733",
         "524bfe304bae1212"
       ],
-      "start_line": 1747
+      "start_line": 1749
     },
     {
       "confidence": "high",
-      "end_line": 1761,
+      "end_line": 1763,
       "heading": "Primary Official Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-sources",
@@ -6250,11 +6250,11 @@
         "324c7412fbbf81eb",
         "776256c424368312"
       ],
-      "start_line": 1749
+      "start_line": 1751
     },
     {
       "confidence": "citation-only",
-      "end_line": 1777,
+      "end_line": 1779,
       "heading": "RockU Training Coverage",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-rocku-training-coverage",
@@ -6273,11 +6273,11 @@
         "f100a7c66d47ef32",
         "add61f36fc8d2512"
       ],
-      "start_line": 1762
+      "start_line": 1764
     },
     {
       "confidence": "normal",
-      "end_line": 1793,
+      "end_line": 1795,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -6300,11 +6300,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1778
+      "start_line": 1780
     },
     {
       "confidence": "community-supported",
-      "end_line": 1808,
+      "end_line": 1810,
       "heading": "Community Recipes Used As Examples Only",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-recipes-used-as-examples-only",
@@ -6322,11 +6322,11 @@
         "3d1915d78aeca733",
         "524bfe304bae1212"
       ],
-      "start_line": 1794
+      "start_line": 1796
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1824,
+      "end_line": 1826,
       "heading": "Records Requiring Live Verification",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-records-requiring-live-verification",
@@ -6344,7 +6344,7 @@
         "3d1915d78aeca733",
         "524bfe304bae1212"
       ],
-      "start_line": 1809
+      "start_line": 1811
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T20:15:43+00:00",

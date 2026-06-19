@@ -26,12 +26,12 @@ Obsidian block development, grid reference, custom actions, field types, browser
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-43: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 44-71: 2. Scope And Terminology (normal)
-- `3-obsidian-development-mental-model` lines 72-99: 3. Obsidian Development Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 100-128: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model` lines 129-148: 5. Core Configuration And Data Model (normal)
-- `6-primary-entities-and-relationships` lines 149-166: 6. Primary Entities And Relationships (normal)
+- `1-executive-summary-for-agents` lines 29-45: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 46-73: 2. Scope And Terminology (normal)
+- `3-obsidian-development-mental-model` lines 74-101: 3. Obsidian Development Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 102-130: 4. Source Authority And How To Use This Guide (normal)
+- `5-core-configuration-and-data-model` lines 131-150: 5. Core Configuration And Data Model (normal)
+- `6-primary-entities-and-relationships` lines 151-168: 6. Primary Entities And Relationships (normal)
 
 ## Core Entities
 

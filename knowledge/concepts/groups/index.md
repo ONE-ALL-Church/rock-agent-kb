@@ -2,7 +2,7 @@
 id: concept-groups
 title: Groups
 generated: true
-last_built: 2026-06-19T05:24:28+00:00
+last_built: 2026-06-19T05:52:07+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -238,16 +238,16 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Group Demographic Value](../../model-map/models/group-demographic-value.md) | Group | 19.1.8 | 48 | 18 | 33 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Historical](../../model-map/models/group-historical.md) | Group | 19.1.8 | 61 | 28 | 46 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
-Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
+Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Group.ArchivedByPersonAlias` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.ChatChannelAvatarBinaryFile` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Group.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.ArchivedByPersonAlias` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.ChatChannelAvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Group.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Subguides
 

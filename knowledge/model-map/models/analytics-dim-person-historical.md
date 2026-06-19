@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsDimPersonHistorical`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `13`
+- Obsolete methods: `3`
 - EntityType GUID: `050aaa2b-43ea-4952-936c-70638d3bcc0d`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 87 |
 | Lava-marked non-database properties | 6 |
 | Related model links | 0 |
+| Method signatures | 13 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 3 |
 
 ## Properties

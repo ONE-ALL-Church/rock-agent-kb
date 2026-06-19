@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningClassActivityCompletion`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `14d1295a-ce9e-4fcb-a63c-6df04db5e9b1`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 42 |
 | Lava-marked non-database properties | 16 |
 | Related model links | 23 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

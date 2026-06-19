@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `InteractionChannel`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `08606092-5ff5-4a34-a7a6-3dee43f2843a`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 50 |
 | Lava-marked non-database properties | 16 |
 | Related model links | 21 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 1 |
 
 ## Properties

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourcePersonHistorical`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `13`
+- Obsolete methods: `3`
 - EntityType GUID: `fc84e469-7e8f-4202-89c3-f27dd41bc132`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 49 |
 | Lava-marked non-database properties | 6 |
 | Related model links | 0 |
+| Method signatures | 13 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 3 |
 
 ## Properties

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialBatch`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `37`
+- Obsolete methods: `4`
 - EntityType GUID: `bdd09c8e-2c52-4d08-9062-be7d52d190c2`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 6 |
+| Method signatures | 37 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

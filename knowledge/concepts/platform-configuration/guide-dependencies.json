@@ -3113,12 +3113,12 @@
   },
   "approved_media_hash": "86163bdfb40d439e7ac20354271075bacc69a70b5d9836dbb0df886aec2e72a1",
   "approved_media_path": "knowledge/concepts/platform-configuration/approved-media.md",
-  "built_at": "2026-06-19T05:25:49+00:00",
+  "built_at": "2026-06-19T05:56:55+00:00",
   "concept_id": "platform-configuration",
-  "guide_hash": "f4522fe56f2d54762c8bf08bc321e2be746bb4673aa89598a4e0e62da515c977",
-  "guide_line_count": 1568,
+  "guide_hash": "f26ca34e1658b7951e0d1ccbadd13acb4b4eac8a3e78efc56696b2d86110f2f6",
+  "guide_line_count": 1570,
   "guide_path": "knowledge/concepts/platform-configuration/guide.md",
-  "guide_word_count": 13911,
+  "guide_word_count": 13924,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3475,7 +3475,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -3486,7 +3486,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 46,
+      "end_line": 48,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -3497,11 +3497,11 @@
         "0a1df6eb6e308fc2",
         "6f19b884e4da0469"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 102,
+      "end_line": 104,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -3519,11 +3519,11 @@
         "f4d1879d32a182fe",
         "6f19b884e4da0469"
       ],
-      "start_line": 47
+      "start_line": 49
     },
     {
       "confidence": "normal",
-      "end_line": 143,
+      "end_line": 145,
       "heading": "3. Platform Configuration Mental Model",
       "needs_live_verification": true,
       "section_id": "3-platform-configuration-mental-model",
@@ -3535,11 +3535,11 @@
         "d275b5b94a9da833",
         "1c8d2f8448113003"
       ],
-      "start_line": 103
+      "start_line": 105
     },
     {
       "confidence": "high",
-      "end_line": 170,
+      "end_line": 172,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -3555,11 +3555,11 @@
         "eee9d10d47a9c9cf",
         "4a743aeb950e2e7d"
       ],
-      "start_line": 144
+      "start_line": 146
     },
     {
       "confidence": "structural",
-      "end_line": 172,
+      "end_line": 174,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -3578,11 +3578,11 @@
         "6f19b884e4da0469",
         "42ae97c8913020ff"
       ],
-      "start_line": 171
+      "start_line": 173
     },
     {
       "confidence": "normal",
-      "end_line": 197,
+      "end_line": 199,
       "heading": "Entity Types",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-entity-types",
@@ -3591,11 +3591,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 173
+      "start_line": 175
     },
     {
       "confidence": "normal",
-      "end_line": 209,
+      "end_line": 211,
       "heading": "Attributes",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-attributes",
@@ -3603,22 +3603,22 @@
         "0a1df6eb6e308fc2",
         "4a743aeb950e2e7d"
       ],
-      "start_line": 198
+      "start_line": 200
     },
     {
       "confidence": "normal",
-      "end_line": 230,
+      "end_line": 232,
       "heading": "Attribute Values",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-attribute-values",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 210
+      "start_line": 212
     },
     {
       "confidence": "normal",
-      "end_line": 243,
+      "end_line": 245,
       "heading": "Field Types",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-field-types",
@@ -3628,11 +3628,11 @@
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
-      "start_line": 231
+      "start_line": 233
     },
     {
       "confidence": "normal",
-      "end_line": 256,
+      "end_line": 258,
       "heading": "Defined Types And Defined Values",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-defined-types-and-defined-values",
@@ -3642,11 +3642,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 244
+      "start_line": 246
     },
     {
       "confidence": "high",
-      "end_line": 272,
+      "end_line": 274,
       "heading": "Categories",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-categories",
@@ -3656,11 +3656,11 @@
         "776256c424368312",
         "1c8d2f8448113003"
       ],
-      "start_line": 257
+      "start_line": 259
     },
     {
       "confidence": "normal",
-      "end_line": 285,
+      "end_line": 287,
       "heading": "Campuses",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-campuses",
@@ -3668,11 +3668,11 @@
         "ad95479957e39324",
         "eee9d10d47a9c9cf"
       ],
-      "start_line": 273
+      "start_line": 275
     },
     {
       "confidence": "normal",
-      "end_line": 308,
+      "end_line": 310,
       "heading": "Global Attributes And System Settings",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-global-attributes-and-system-settings",
@@ -3680,11 +3680,11 @@
         "6f19b884e4da0469",
         "42ae97c8913020ff"
       ],
-      "start_line": 286
+      "start_line": 288
     },
     {
       "confidence": "structural",
-      "end_line": 312,
+      "end_line": 314,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships",
@@ -3692,22 +3692,22 @@
         "6f19b884e4da0469",
         "42ae97c8913020ff"
       ],
-      "start_line": 309
+      "start_line": 311
     },
     {
       "confidence": "normal",
-      "end_line": 334,
+      "end_line": 336,
       "heading": "Attribute Relationship Map",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-attribute-relationship-map",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 313
+      "start_line": 315
     },
     {
       "confidence": "normal",
-      "end_line": 350,
+      "end_line": 352,
       "heading": "Defined Type Relationship Map",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-defined-type-relationship-map",
@@ -3718,33 +3718,33 @@
         "d275b5b94a9da833",
         "6f19b884e4da0469"
       ],
-      "start_line": 335
+      "start_line": 337
     },
     {
       "confidence": "normal",
-      "end_line": 365,
+      "end_line": 367,
       "heading": "Entity Type Relationship Map",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-entity-type-relationship-map",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 351
+      "start_line": 353
     },
     {
       "confidence": "normal",
-      "end_line": 378,
+      "end_line": 380,
       "heading": "Category Relationship Map",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-category-relationship-map",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 366
+      "start_line": 368
     },
     {
       "confidence": "structural",
-      "end_line": 393,
+      "end_line": 395,
       "heading": "Campus Relationship Map",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-campus-relationship-map",
@@ -3752,11 +3752,11 @@
         "6f19b884e4da0469",
         "42ae97c8913020ff"
       ],
-      "start_line": 379
+      "start_line": 381
     },
     {
       "confidence": "structural",
-      "end_line": 395,
+      "end_line": 397,
       "heading": "7. Common Platform Configuration Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-platform-configuration-workflows",
@@ -3773,11 +3773,11 @@
         "0a1df6eb6e308fc2",
         "15b3cb4c85a240f2"
       ],
-      "start_line": 394
+      "start_line": 396
     },
     {
       "confidence": "normal",
-      "end_line": 413,
+      "end_line": 415,
       "heading": "Add A Person Attribute",
       "needs_live_verification": true,
       "section_id": "7-common-platform-configuration-workflows-add-a-person-attribute",
@@ -3787,22 +3787,22 @@
         "103246342712cd75",
         "9cc51ccd39c60247"
       ],
-      "start_line": 396
+      "start_line": 398
     },
     {
       "confidence": "normal",
-      "end_line": 430,
+      "end_line": 432,
       "heading": "Add A Connection Request Attribute",
       "needs_live_verification": true,
       "section_id": "7-common-platform-configuration-workflows-add-a-connection-request-attribute",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 414
+      "start_line": 416
     },
     {
       "confidence": "normal",
-      "end_line": 446,
+      "end_line": 448,
       "heading": "Add Attributes To Defined Values",
       "needs_live_verification": false,
       "section_id": "7-common-platform-configuration-workflows-add-attributes-to-defined-values",
@@ -3811,11 +3811,11 @@
         "6f19b884e4da0469",
         "d275b5b94a9da833"
       ],
-      "start_line": 431
+      "start_line": 433
     },
     {
       "confidence": "normal",
-      "end_line": 461,
+      "end_line": 463,
       "heading": "Configure A Campus-Aware Report",
       "needs_live_verification": true,
       "section_id": "7-common-platform-configuration-workflows-configure-a-campus-aware-report",
@@ -3823,22 +3823,22 @@
         "eee9d10d47a9c9cf",
         "ad95479957e39324"
       ],
-      "start_line": 447
+      "start_line": 449
     },
     {
       "confidence": "normal",
-      "end_line": 475,
+      "end_line": 477,
       "heading": "Add Mobile Site Attributes",
       "needs_live_verification": true,
       "section_id": "7-common-platform-configuration-workflows-add-mobile-site-attributes",
       "source_keys": [
         "08c5a24830c0d336"
       ],
-      "start_line": 462
+      "start_line": 464
     },
     {
       "confidence": "normal",
-      "end_line": 490,
+      "end_line": 492,
       "heading": "Use Attributes In Custom Blocks",
       "needs_live_verification": true,
       "section_id": "7-common-platform-configuration-workflows-use-attributes-in-custom-blocks",
@@ -3846,11 +3846,11 @@
         "0a1df6eb6e308fc2",
         "15b3cb4c85a240f2"
       ],
-      "start_line": 476
+      "start_line": 478
     },
     {
       "confidence": "structural",
-      "end_line": 492,
+      "end_line": 494,
       "heading": "8. Attributes And Attribute Values Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-attributes-and-attribute-values-deep-dive",
@@ -3865,11 +3865,11 @@
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
-      "start_line": 491
+      "start_line": 493
     },
     {
       "confidence": "needs-citation",
-      "end_line": 514,
+      "end_line": 516,
       "heading": "Attribute Definition Fields",
       "needs_live_verification": true,
       "section_id": "8-attributes-and-attribute-values-deep-dive-attribute-definition-fields",
@@ -3877,22 +3877,22 @@
         "0a1df6eb6e308fc2",
         "15b3cb4c85a240f2"
       ],
-      "start_line": 493
+      "start_line": 495
     },
     {
       "confidence": "normal",
-      "end_line": 527,
+      "end_line": 529,
       "heading": "Qualifiers",
       "needs_live_verification": true,
       "section_id": "8-attributes-and-attribute-values-deep-dive-qualifiers",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 515
+      "start_line": 517
     },
     {
       "confidence": "normal",
-      "end_line": 540,
+      "end_line": 542,
       "heading": "Raw Values Versus Formatted Values",
       "needs_live_verification": true,
       "section_id": "8-attributes-and-attribute-values-deep-dive-raw-values-versus-formatted-values",
@@ -3900,22 +3900,22 @@
         "a467324213982116",
         "6f19b884e4da0469"
       ],
-      "start_line": 528
+      "start_line": 530
     },
     {
       "confidence": "normal",
-      "end_line": 556,
+      "end_line": 558,
       "heading": "Attribute Security",
       "needs_live_verification": false,
       "section_id": "8-attributes-and-attribute-values-deep-dive-attribute-security",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 541
+      "start_line": 543
     },
     {
       "confidence": "high",
-      "end_line": 570,
+      "end_line": 572,
       "heading": "Attribute Categories",
       "needs_live_verification": false,
       "section_id": "8-attributes-and-attribute-values-deep-dive-attribute-categories",
@@ -3923,11 +3923,11 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 557
+      "start_line": 559
     },
     {
       "confidence": "normal",
-      "end_line": 596,
+      "end_line": 598,
       "heading": "Attribute Values In Lava",
       "needs_live_verification": true,
       "section_id": "8-attributes-and-attribute-values-deep-dive-attribute-values-in-lava",
@@ -3936,11 +3936,11 @@
         "a467324213982116",
         "6f19b884e4da0469"
       ],
-      "start_line": 571
+      "start_line": 573
     },
     {
       "confidence": "normal",
-      "end_line": 609,
+      "end_line": 611,
       "heading": "Attribute Values In Mobile",
       "needs_live_verification": false,
       "section_id": "8-attributes-and-attribute-values-deep-dive-attribute-values-in-mobile",
@@ -3948,11 +3948,11 @@
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
-      "start_line": 597
+      "start_line": 599
     },
     {
       "confidence": "structural",
-      "end_line": 613,
+      "end_line": 615,
       "heading": "9. Defined Types And Values Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-defined-types-and-values-deep-dive",
@@ -3960,44 +3960,44 @@
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
-      "start_line": 610
+      "start_line": 612
     },
     {
       "confidence": "normal",
-      "end_line": 632,
+      "end_line": 634,
       "heading": "Defined Type Fields To Inspect",
       "needs_live_verification": true,
       "section_id": "9-defined-types-and-values-deep-dive-defined-type-fields-to-inspect",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 614
+      "start_line": 616
     },
     {
       "confidence": "normal",
-      "end_line": 649,
+      "end_line": 651,
       "heading": "Defined Value Fields To Inspect",
       "needs_live_verification": true,
       "section_id": "9-defined-types-and-values-deep-dive-defined-value-fields-to-inspect",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 633
+      "start_line": 635
     },
     {
       "confidence": "normal",
-      "end_line": 663,
+      "end_line": 665,
       "heading": "Deletion And Reference Safety",
       "needs_live_verification": false,
       "section_id": "9-defined-types-and-values-deep-dive-deletion-and-reference-safety",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 650
+      "start_line": 652
     },
     {
       "confidence": "normal",
-      "end_line": 678,
+      "end_line": 680,
       "heading": "Defined Value Attributes",
       "needs_live_verification": false,
       "section_id": "9-defined-types-and-values-deep-dive-defined-value-attributes",
@@ -4005,22 +4005,22 @@
         "6f19b884e4da0469",
         "d275b5b94a9da833"
       ],
-      "start_line": 664
+      "start_line": 666
     },
     {
       "confidence": "citation-only",
-      "end_line": 695,
+      "end_line": 697,
       "heading": "Categorizing Defined Values",
       "needs_live_verification": true,
       "section_id": "9-defined-types-and-values-deep-dive-categorizing-defined-values",
       "source_keys": [
         "fa81c26b6f35354e"
       ],
-      "start_line": 679
+      "start_line": 681
     },
     {
       "confidence": "structural",
-      "end_line": 697,
+      "end_line": 699,
       "heading": "10. Categories And Entity Types Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-categories-and-entity-types-deep-dive",
@@ -4028,33 +4028,33 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 696
+      "start_line": 698
     },
     {
       "confidence": "normal",
-      "end_line": 709,
+      "end_line": 711,
       "heading": "Entity Type As A Configuration Boundary",
       "needs_live_verification": false,
       "section_id": "10-categories-and-entity-types-deep-dive-entity-type-as-a-configuration-boundary",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 698
+      "start_line": 700
     },
     {
       "confidence": "normal",
-      "end_line": 720,
+      "end_line": 722,
       "heading": "Entity Type Security",
       "needs_live_verification": true,
       "section_id": "10-categories-and-entity-types-deep-dive-entity-type-security",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 710
+      "start_line": 712
     },
     {
       "confidence": "normal",
-      "end_line": 732,
+      "end_line": 734,
       "heading": "Entity Type List And Editing",
       "needs_live_verification": false,
       "section_id": "10-categories-and-entity-types-deep-dive-entity-type-list-and-editing",
@@ -4062,11 +4062,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 721
+      "start_line": 723
     },
     {
       "confidence": "normal",
-      "end_line": 746,
+      "end_line": 748,
       "heading": "Category Version Caveats",
       "needs_live_verification": true,
       "section_id": "10-categories-and-entity-types-deep-dive-category-version-caveats",
@@ -4074,11 +4074,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 733
+      "start_line": 735
     },
     {
       "confidence": "structural",
-      "end_line": 748,
+      "end_line": 750,
       "heading": "11. Campuses And Global Settings Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-campuses-and-global-settings-deep-dive",
@@ -4089,22 +4089,22 @@
         "eee9d10d47a9c9cf",
         "6f19b884e4da0469"
       ],
-      "start_line": 747
+      "start_line": 749
     },
     {
       "confidence": "citation-only",
-      "end_line": 765,
+      "end_line": 767,
       "heading": "Campus As Context",
       "needs_live_verification": true,
       "section_id": "11-campuses-and-global-settings-deep-dive-campus-as-context",
       "source_keys": [
         "f4d1879d32a182fe"
       ],
-      "start_line": 749
+      "start_line": 751
     },
     {
       "confidence": "normal",
-      "end_line": 780,
+      "end_line": 782,
       "heading": "Campus Context In Mobile",
       "needs_live_verification": false,
       "section_id": "11-campuses-and-global-settings-deep-dive-campus-context-in-mobile",
@@ -4112,44 +4112,44 @@
         "ad95479957e39324",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 766
+      "start_line": 768
     },
     {
       "confidence": "community-supported",
-      "end_line": 795,
+      "end_line": 797,
       "heading": "Campus Filters In Reports",
       "needs_live_verification": true,
       "section_id": "11-campuses-and-global-settings-deep-dive-campus-filters-in-reports",
       "source_keys": [
         "eee9d10d47a9c9cf"
       ],
-      "start_line": 781
+      "start_line": 783
     },
     {
       "confidence": "normal",
-      "end_line": 820,
+      "end_line": 822,
       "heading": "Global Attributes",
       "needs_live_verification": true,
       "section_id": "11-campuses-and-global-settings-deep-dive-global-attributes",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 796
+      "start_line": 798
     },
     {
       "confidence": "normal",
-      "end_line": 834,
+      "end_line": 836,
       "heading": "System Settings",
       "needs_live_verification": true,
       "section_id": "11-campuses-and-global-settings-deep-dive-system-settings",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 821
+      "start_line": 823
     },
     {
       "confidence": "structural",
-      "end_line": 836,
+      "end_line": 838,
       "heading": "12. Related Rock Areas: People, Groups, Workflows, Cms, Security, Data Views, Reports, Operations",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations",
@@ -4166,11 +4166,11 @@
         "19a30b51edaa7382",
         "6612b451bd0ae178"
       ],
-      "start_line": 835
+      "start_line": 837
     },
     {
       "confidence": "citation-only",
-      "end_line": 848,
+      "end_line": 850,
       "heading": "People",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-people",
@@ -4179,22 +4179,22 @@
         "103246342712cd75",
         "9cc51ccd39c60247"
       ],
-      "start_line": 837
+      "start_line": 839
     },
     {
       "confidence": "community-supported",
-      "end_line": 861,
+      "end_line": 863,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-groups",
       "source_keys": [
         "4a743aeb950e2e7d"
       ],
-      "start_line": 849
+      "start_line": 851
     },
     {
       "confidence": "normal",
-      "end_line": 873,
+      "end_line": 875,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-workflows",
@@ -4202,11 +4202,11 @@
         "a467324213982116",
         "776256c424368312"
       ],
-      "start_line": 862
+      "start_line": 864
     },
     {
       "confidence": "normal",
-      "end_line": 885,
+      "end_line": 887,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-cms",
@@ -4215,11 +4215,11 @@
         "776256c424368312",
         "08c5a24830c0d336"
       ],
-      "start_line": 874
+      "start_line": 876
     },
     {
       "confidence": "normal",
-      "end_line": 899,
+      "end_line": 901,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-security",
@@ -4230,11 +4230,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 886
+      "start_line": 888
     },
     {
       "confidence": "structural",
-      "end_line": 910,
+      "end_line": 912,
       "heading": "Data Views",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-data-views",
@@ -4245,11 +4245,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 900
+      "start_line": 902
     },
     {
       "confidence": "structural",
-      "end_line": 921,
+      "end_line": 923,
       "heading": "Reports",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-reports",
@@ -4260,11 +4260,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 911
+      "start_line": 913
     },
     {
       "confidence": "citation-only",
-      "end_line": 934,
+      "end_line": 936,
       "heading": "Operations",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-operations",
@@ -4272,11 +4272,11 @@
         "19a30b51edaa7382",
         "6612b451bd0ae178"
       ],
-      "start_line": 922
+      "start_line": 924
     },
     {
       "confidence": "structural",
-      "end_line": 936,
+      "end_line": 938,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
@@ -4289,11 +4289,11 @@
         "6f19b884e4da0469",
         "776256c424368312"
       ],
-      "start_line": 935
+      "start_line": 937
     },
     {
       "confidence": "structural",
-      "end_line": 949,
+      "end_line": 951,
       "heading": "Naming",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-naming",
@@ -4301,11 +4301,11 @@
         "19a30b51edaa7382",
         "6612b451bd0ae178"
       ],
-      "start_line": 937
+      "start_line": 939
     },
     {
       "confidence": "structural",
-      "end_line": 964,
+      "end_line": 966,
       "heading": "Change Management",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-change-management",
@@ -4313,33 +4313,33 @@
         "19a30b51edaa7382",
         "6612b451bd0ae178"
       ],
-      "start_line": 950
+      "start_line": 952
     },
     {
       "confidence": "normal",
-      "end_line": 979,
+      "end_line": 981,
       "heading": "Public Exposure",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-public-exposure",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 965
+      "start_line": 967
     },
     {
       "confidence": "normal",
-      "end_line": 1005,
+      "end_line": 1007,
       "heading": "Deletion",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-deletion",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 980
+      "start_line": 982
     },
     {
       "confidence": "normal",
-      "end_line": 1023,
+      "end_line": 1025,
       "heading": "Version Awareness",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-version-awareness",
@@ -4350,11 +4350,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1006
+      "start_line": 1008
     },
     {
       "confidence": "structural",
-      "end_line": 1025,
+      "end_line": 1027,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -4371,66 +4371,66 @@
         "d275b5b94a9da833",
         "d8d7c232c812383f"
       ],
-      "start_line": 1024
+      "start_line": 1026
     },
     {
       "confidence": "normal",
-      "end_line": 1038,
+      "end_line": 1040,
       "heading": "Developer Attributes",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-attributes",
       "source_keys": [
         "0a1df6eb6e308fc2"
       ],
-      "start_line": 1026
+      "start_line": 1028
     },
     {
       "confidence": "normal",
-      "end_line": 1044,
+      "end_line": 1046,
       "heading": "Field Types And Field Attributes",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-field-types-and-field-attributes",
       "source_keys": [
         "8a9de81093dfafd1"
       ],
-      "start_line": 1039
+      "start_line": 1041
     },
     {
       "confidence": "normal",
-      "end_line": 1061,
+      "end_line": 1063,
       "heading": "Lava Attribute Filters",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-attribute-filters",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1045
+      "start_line": 1047
     },
     {
       "confidence": "normal",
-      "end_line": 1065,
+      "end_line": 1067,
       "heading": "Workflow Lava",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-workflow-lava",
       "source_keys": [
         "a467324213982116"
       ],
-      "start_line": 1062
+      "start_line": 1064
     },
     {
       "confidence": "normal",
-      "end_line": 1071,
+      "end_line": 1073,
       "heading": "Obsidian Attribute Columns",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-obsidian-attribute-columns",
       "source_keys": [
         "15b3cb4c85a240f2"
       ],
-      "start_line": 1066
+      "start_line": 1068
     },
     {
       "confidence": "normal",
-      "end_line": 1080,
+      "end_line": 1082,
       "heading": "Mobile Controls",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-mobile-controls",
@@ -4440,11 +4440,11 @@
         "08c5a24830c0d336",
         "ad95479957e39324"
       ],
-      "start_line": 1072
+      "start_line": 1074
     },
     {
       "confidence": "normal",
-      "end_line": 1090,
+      "end_line": 1092,
       "heading": "REST v2",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rest-v2",
@@ -4453,22 +4453,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1081
+      "start_line": 1083
     },
     {
       "confidence": "normal",
-      "end_line": 1096,
+      "end_line": 1098,
       "heading": "Agent Tooling For Attributes",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-agent-tooling-for-attributes",
       "source_keys": [
         "d8d7c232c812383f"
       ],
-      "start_line": 1091
+      "start_line": 1093
     },
     {
       "confidence": "structural",
-      "end_line": 1098,
+      "end_line": 1100,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -4476,22 +4476,22 @@
         "bce31f25cb8a199e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1097
+      "start_line": 1099
     },
     {
       "confidence": "citation-only",
-      "end_line": 1102,
+      "end_line": 1104,
       "heading": "Model Map",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 1099
+      "start_line": 1101
     },
     {
       "confidence": "normal",
-      "end_line": 1110,
+      "end_line": 1112,
       "heading": "SQL Relationship Patterns",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-sql-relationship-patterns",
@@ -4501,11 +4501,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1103
+      "start_line": 1105
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1138,
+      "end_line": 1140,
       "heading": "Reporting Rules",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-reporting-rules",
@@ -4515,11 +4515,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1111
+      "start_line": 1113
     },
     {
       "confidence": "structural",
-      "end_line": 1140,
+      "end_line": 1142,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats",
@@ -4528,99 +4528,99 @@
         "08c5a24830c0d336",
         "776256c424368312"
       ],
-      "start_line": 1139
+      "start_line": 1141
     },
     {
       "confidence": "normal",
-      "end_line": 1144,
+      "end_line": 1146,
       "heading": "Rock v10.3+",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v10-3",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1141
+      "start_line": 1143
     },
     {
       "confidence": "normal",
-      "end_line": 1148,
+      "end_line": 1150,
       "heading": "Rock v15.0+",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v15-0",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1145
+      "start_line": 1147
     },
     {
       "confidence": "normal",
-      "end_line": 1152,
+      "end_line": 1154,
       "heading": "Rock v16.8+",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v16-8",
       "source_keys": [
         "08c5a24830c0d336"
       ],
-      "start_line": 1149
+      "start_line": 1151
     },
     {
       "confidence": "normal",
-      "end_line": 1156,
+      "end_line": 1158,
       "heading": "Rock v17 And v17.5+",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v17-and-v17-5",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1153
+      "start_line": 1155
     },
     {
       "confidence": "normal",
-      "end_line": 1160,
+      "end_line": 1162,
       "heading": "Rock v17.2",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v17-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1157
+      "start_line": 1159
     },
     {
       "confidence": "normal",
-      "end_line": 1164,
+      "end_line": 1166,
       "heading": "Rock v18.2",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v18-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1161
+      "start_line": 1163
     },
     {
       "confidence": "normal",
-      "end_line": 1168,
+      "end_line": 1170,
       "heading": "Rock v18.3",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v18-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1165
+      "start_line": 1167
     },
     {
       "confidence": "normal",
-      "end_line": 1177,
+      "end_line": 1179,
       "heading": "Rock v19.1",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1169
+      "start_line": 1171
     },
     {
       "confidence": "structural",
-      "end_line": 1179,
+      "end_line": 1181,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -4628,77 +4628,77 @@
         "776256c424368312",
         "ad95479957e39324"
       ],
-      "start_line": 1178
+      "start_line": 1180
     },
     {
       "confidence": "structural",
-      "end_line": 1195,
+      "end_line": 1197,
       "heading": "Playbook: Audit An Attribute Before Editing",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-audit-an-attribute-before-editing",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1180
+      "start_line": 1182
     },
     {
       "confidence": "structural",
-      "end_line": 1208,
+      "end_line": 1210,
       "heading": "Playbook: Create A Safe Defined Type",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-create-a-safe-defined-type",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1196
+      "start_line": 1198
     },
     {
       "confidence": "structural",
-      "end_line": 1221,
+      "end_line": 1223,
       "heading": "Playbook: Replace A Defined Value",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-replace-a-defined-value",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1209
+      "start_line": 1211
     },
     {
       "confidence": "structural",
-      "end_line": 1235,
+      "end_line": 1237,
       "heading": "Playbook: Diagnose Missing Attribute In A Block",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-diagnose-missing-attribute-in-a-block",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1222
+      "start_line": 1224
     },
     {
       "confidence": "structural",
-      "end_line": 1247,
+      "end_line": 1249,
       "heading": "Playbook: Diagnose Lava Attribute Output",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-diagnose-lava-attribute-output",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1236
+      "start_line": 1238
     },
     {
       "confidence": "normal",
-      "end_line": 1260,
+      "end_line": 1262,
       "heading": "Playbook: Build A Campus-Aware Workflow Or Report",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-campus-aware-workflow-or-report",
       "source_keys": [
         "ad95479957e39324"
       ],
-      "start_line": 1248
+      "start_line": 1250
     },
     {
       "confidence": "structural",
-      "end_line": 1262,
+      "end_line": 1264,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -4709,88 +4709,88 @@
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
-      "start_line": 1261
+      "start_line": 1263
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1278,
+      "end_line": 1280,
       "heading": "Attribute Does Not Appear",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-attribute-does-not-appear",
       "source_keys": [
         "ad95479957e39324"
       ],
-      "start_line": 1263
+      "start_line": 1265
     },
     {
       "confidence": "normal",
-      "end_line": 1289,
+      "end_line": 1291,
       "heading": "Attribute Appears With Wrong Category",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-attribute-appears-with-wrong-category",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1279
+      "start_line": 1281
     },
     {
       "confidence": "structural",
-      "end_line": 1304,
+      "end_line": 1306,
       "heading": "Lava Attribute Returns Blank",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-lava-attribute-returns-blank",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1290
+      "start_line": 1292
     },
     {
       "confidence": "normal",
-      "end_line": 1315,
+      "end_line": 1317,
       "heading": "Defined Value Picker Is Hard To Use",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-defined-value-picker-is-hard-to-use",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1305
+      "start_line": 1307
     },
     {
       "confidence": "normal",
-      "end_line": 1329,
+      "end_line": 1331,
       "heading": "Defined Value Cannot Be Deleted",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-defined-value-cannot-be-deleted",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1316
+      "start_line": 1318
     },
     {
       "confidence": "normal",
-      "end_line": 1344,
+      "end_line": 1346,
       "heading": "Entity Type Cannot Be Deleted Or Edited Safely",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-entity-type-cannot-be-deleted-or-edited-safely",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1330
+      "start_line": 1332
     },
     {
       "confidence": "structural",
-      "end_line": 1357,
+      "end_line": 1359,
       "heading": "Campus Filter Shows Wrong Data",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-campus-filter-shows-wrong-data",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1345
+      "start_line": 1347
     },
     {
       "confidence": "normal",
-      "end_line": 1372,
+      "end_line": 1374,
       "heading": "Mobile Attribute Editing Fails",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-mobile-attribute-editing-fails",
@@ -4798,11 +4798,11 @@
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
-      "start_line": 1358
+      "start_line": 1360
     },
     {
       "confidence": "structural",
-      "end_line": 1374,
+      "end_line": 1376,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
@@ -4811,88 +4811,88 @@
         "776256c424368312",
         "6f19b884e4da0469"
       ],
-      "start_line": 1373
+      "start_line": 1375
     },
     {
       "confidence": "normal",
-      "end_line": 1389,
+      "end_line": 1391,
       "heading": "Recipe: Find Available Attributes For An Add Or Update Operation",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-find-available-attributes-for-an-add-or-update-operation",
       "source_keys": [
         "d8d7c232c812383f"
       ],
-      "start_line": 1375
+      "start_line": 1377
     },
     {
       "confidence": "structural",
-      "end_line": 1402,
+      "end_line": 1404,
       "heading": "Recipe: Explain A Platform Configuration Object To A User",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-explain-a-platform-configuration-object-to-a-user",
       "source_keys": [
         "d8d7c232c812383f"
       ],
-      "start_line": 1390
+      "start_line": 1392
     },
     {
       "confidence": "structural",
-      "end_line": 1425,
+      "end_line": 1427,
       "heading": "Recipe: Safely Answer “Can We Delete This?”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-safely-answer-can-we-delete-this",
       "source_keys": [
         "d8d7c232c812383f"
       ],
-      "start_line": 1403
+      "start_line": 1405
     },
     {
       "confidence": "normal",
-      "end_line": 1437,
+      "end_line": 1439,
       "heading": "Recipe: Build A Source-Backed Explanation",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-build-a-source-backed-explanation",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1426
+      "start_line": 1428
     },
     {
       "confidence": "normal",
-      "end_line": 1450,
+      "end_line": 1452,
       "heading": "Recipe: Triage Attribute Security",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-triage-attribute-security",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1438
+      "start_line": 1440
     },
     {
       "confidence": "structural",
-      "end_line": 1463,
+      "end_line": 1465,
       "heading": "Recipe: Convert A Free-Text Attribute To A Defined Value",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-convert-a-free-text-attribute-to-a-defined-value",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1451
+      "start_line": 1453
     },
     {
       "confidence": "structural",
-      "end_line": 1474,
+      "end_line": 1476,
       "heading": "Recipe: Diagnose Attribute Field Type Mismatch",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-diagnose-attribute-field-type-mismatch",
       "source_keys": [
         "6f19b884e4da0469"
       ],
-      "start_line": 1464
+      "start_line": 1466
     },
     {
       "confidence": "normal",
-      "end_line": 1500,
+      "end_line": 1502,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -4910,11 +4910,11 @@
         "abe67980f434af23",
         "346df253ccafa818"
       ],
-      "start_line": 1475
+      "start_line": 1477
     },
     {
       "confidence": "citation-only",
-      "end_line": 1521,
+      "end_line": 1523,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4928,11 +4928,11 @@
         "abe67980f434af23",
         "fb5f22127915c464"
       ],
-      "start_line": 1501
+      "start_line": 1503
     },
     {
       "confidence": "high",
-      "end_line": 1568,
+      "end_line": 1570,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -4969,7 +4969,7 @@
         "4a743aeb950e2e7d",
         "42ae97c8913020ff"
       ],
-      "start_line": 1522
+      "start_line": 1524
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:20:02+00:00",

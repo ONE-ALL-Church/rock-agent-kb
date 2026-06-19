@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupScheduleExclusion`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `047d57ee-1b06-455f-86ea-d96b8325c77d`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 25 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 2 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

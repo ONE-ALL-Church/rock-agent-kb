@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `EntitySetItem`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `1f9d13f9-bf55-48be-bea9-0939cd6fda5b`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 27 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 0 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

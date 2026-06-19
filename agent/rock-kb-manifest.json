@@ -19,6 +19,7 @@
     "live_probe_recipes": "agent/live-probe-recipes.jsonl",
     "model_map": "knowledge/model-map/index.md",
     "model_map_entities": "agent/model-map-entities.jsonl",
+    "model_map_methods": "agent/model-map-methods.jsonl",
     "model_map_model_details": "knowledge/model-map/models/*.md",
     "model_map_properties": "agent/model-map-properties.jsonl",
     "model_map_summary": "agent/model-map-summary.json",
@@ -805,7 +806,7 @@
     }
   ],
   "entity_count": 448,
-  "generated_at": "2026-06-19T05:26:32+00:00",
+  "generated_at": "2026-06-19T05:57:36+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",

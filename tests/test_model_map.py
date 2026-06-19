@@ -25,6 +25,8 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     monkeypatch.setattr(model_map, "MODEL_MAP_LATEST_MODELS_PATH", model_dir / "latest-models.jsonl")
     monkeypatch.setattr(model_map, "MODEL_MAP_STABLE_PROPERTIES_PATH", model_dir / "stable-properties.jsonl")
     monkeypatch.setattr(model_map, "MODEL_MAP_LATEST_PROPERTIES_PATH", model_dir / "latest-properties.jsonl")
+    monkeypatch.setattr(model_map, "MODEL_MAP_STABLE_METHODS_PATH", model_dir / "stable-methods.jsonl")
+    monkeypatch.setattr(model_map, "MODEL_MAP_LATEST_METHODS_PATH", model_dir / "latest-methods.jsonl")
     monkeypatch.setattr(model_map, "MODEL_MAP_PUBLIC_VERSION_DIFF_PATH", model_dir / "version-diff.json")
     monkeypatch.setattr(model_map, "MODEL_MAP_PUBLIC_VERSION_DIFF_JSONL_PATH", model_dir / "version-diff.jsonl")
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_SUMMARY_PATH", agent_dir / "model-map-summary.json")
@@ -32,6 +34,7 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_RELATIONSHIPS_PATH", agent_dir / "model-map-relationships.jsonl")
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_REFLECTION_PATH", agent_dir / "model-map-reflection-properties.jsonl")
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_PROPERTIES_PATH", agent_dir / "model-map-properties.jsonl")
+    monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_METHODS_PATH", agent_dir / "model-map-methods.jsonl")
     monkeypatch.setattr(model_map, "AGENT_MODEL_MAP_VERSION_DIFF_PATH", agent_dir / "model-map-version-diff.jsonl")
     model_dir.mkdir(parents=True)
     (model_dir / "instance-schema.json").write_text("{}", encoding="utf-8")
@@ -56,6 +59,9 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
                         "database_property_count": 1,
                         "lava_property_count": 2,
                         "not_mapped_property_count": 1,
+                        "table_name": "Person",
+                        "method_count": 1,
+                        "obsolete_method_count": 0,
                         "properties": [
                             {
                                 "name": "FullName",
@@ -80,6 +86,14 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
                                         "href": "?EntityType=entity-group",
                                     }
                                 ],
+                            }
+                        ],
+                        "methods": [
+                            {
+                                "signature": "ToString()",
+                                "description": "Returns a string.",
+                                "inherited": True,
+                                "is_obsolete": False,
                             }
                         ],
                     },
@@ -111,6 +125,9 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
                         "database_property_count": 1,
                         "lava_property_count": 2,
                         "not_mapped_property_count": 1,
+                        "table_name": "Person",
+                        "method_count": 2,
+                        "obsolete_method_count": 1,
                         "properties": [
                             {
                                 "name": "FullName",
@@ -137,6 +154,21 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
                                 ],
                             },
                         ],
+                        "methods": [
+                            {
+                                "signature": "ToString()",
+                                "description": "Returns a string.",
+                                "inherited": True,
+                                "is_obsolete": False,
+                            },
+                            {
+                                "signature": "ToLiquid()",
+                                "description": "Legacy DotLiquid method.",
+                                "inherited": True,
+                                "is_obsolete": True,
+                                "obsolete_message": "DotLiquid is no longer supported.",
+                            },
+                        ],
                     },
                     {
                         "model_link_name": "Group",
@@ -153,13 +185,15 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
 
     counts = model_map.build_model_map(stable_scrape_path=stable_path, latest_scrape_path=latest_path)
 
-    assert counts["source"] == "scraped_model_maps"
+    assert counts["source"] == "scraped_generic_rock_model_maps"
     assert counts["stable_version"] == "18.2.4"
     assert counts["pre_alpha_version"] == "20.0.3"
     assert counts["stable_models"] == 2
     assert counts["stable_properties"] == 2
+    assert counts["stable_methods"] == 1
     assert counts["pre_alpha_models"] == 2
     assert counts["pre_alpha_properties"] == 2
+    assert counts["pre_alpha_methods"] == 2
     assert counts["model_detail_pages"] == 2
     assert counts["version_diff_changes"] == 1
 
@@ -170,6 +204,8 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     assert person["database_property_count"] == 1
     assert person["lava_property_count"] == 2
     assert person["lava_non_database_property_count"] == 1
+    assert person["table_name"] == "Person"
+    assert person["method_count"] == 1
 
     summary = json.loads((agent_dir / "model-map-summary.json").read_text(encoding="utf-8"))
     assert summary["stable_model_count"] == 2
@@ -178,9 +214,14 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     assert summary["contains_row_data"] is False
     assert summary["stable"]["rock_version"] == "18.2.4"
     assert summary["pre_alpha"]["rock_version"] == "20.0.3"
+    assert summary["stable_method_count"] == 1
+    assert summary["pre_alpha_method_count"] == 2
+    assert summary["stable_table_name_model_count"] == 1
+    assert summary["stable_missing_table_name_count"] == 1
     assert summary["version_diff"]["property_changed_count"] == 1
     assert summary["paths"]["agent_entities"] == "agent/model-map-entities.jsonl"
     assert summary["paths"]["agent_properties"] == "agent/model-map-properties.jsonl"
+    assert summary["paths"]["agent_methods"] == "agent/model-map-methods.jsonl"
     properties = list(read_jsonl(model_dir / "stable-properties.jsonl"))
     full_name = next(row for row in properties if row["property_name"] == "FullName")
     assert full_name["is_lava"] is True
@@ -191,6 +232,9 @@ def test_build_model_map_writes_scraped_models_properties_and_category_pages(mon
     assert is_system["is_database"] is True
     assert is_system["is_lava_supported_non_database"] is False
     assert list(read_jsonl(agent_dir / "model-map-properties.jsonl")) == properties
+    methods = list(read_jsonl(model_dir / "stable-methods.jsonl"))
+    assert methods[0]["signature"] == "ToString()"
+    assert list(read_jsonl(agent_dir / "model-map-methods.jsonl")) == methods
     assert (model_dir / "version-diff.jsonl").exists()
     assert (agent_dir / "model-map-version-diff.jsonl").exists()
     assert not (model_dir / "instance-schema.json").exists()

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Meta`
 - Model title: `MetaLastNameLookup`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `13`
+- Obsolete methods: `3`
 - EntityType GUID: `0fb0f456-6999-426d-9c86-973d54749565`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 14 |
 | Lava-marked non-database properties | 5 |
 | Related model links | 0 |
+| Method signatures | 13 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

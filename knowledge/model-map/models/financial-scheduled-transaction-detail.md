@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `FinancialScheduledTransactionDetail`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `a206615f-3fb5-48df-b606-86ae8716fd57`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 31 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 4 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 1 |
 
 ## Properties

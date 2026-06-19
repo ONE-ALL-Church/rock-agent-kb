@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `StepTypePrerequisite`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `f2181fcd-1423-4937-9137-099154e1c3ec`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 26 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 4 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

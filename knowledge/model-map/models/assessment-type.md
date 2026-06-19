@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `AssessmentType`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `d17a28ac-f529-4ab0-a790-c21f9e74ac89`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 11 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

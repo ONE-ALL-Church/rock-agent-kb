@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `Attendance`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `39`
+- Obsolete methods: `4`
 - EntityType GUID: `4ccb856f-51e0-4e48-b94a-1705efba6c9e`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,7 +20,9 @@
 | Lava-marked properties | 65 |
 | Lava-marked non-database properties | 26 |
 | Related model links | 26 |
-| Pre-alpha changes touching this model | 2 |
+| Method signatures | 39 |
+| Obsolete methods | 4 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -172,4 +178,5 @@
 | Change | Property | Fields |
 | --- | --- | --- |
 | property_changed | DeclineReasonValueId | enum_values |
+| property_changed | SearchTypeValueId | enum_values |
 | property_changed | SourceValueId | enum_values |

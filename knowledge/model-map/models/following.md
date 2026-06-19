@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Following`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `d9ad7a30-92f2-467b-a3f9-37ca246f90bd`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 27 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 0 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

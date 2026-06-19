@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionType`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `38`
+- Obsolete methods: `5`
 - EntityType GUID: `b1e52ead-65bd-4c4d-bccd-73368067621d`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 53 |
 | Lava-marked non-database properties | 21 |
 | Related model links | 11 |
+| Method signatures | 38 |
+| Obsolete methods | 5 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

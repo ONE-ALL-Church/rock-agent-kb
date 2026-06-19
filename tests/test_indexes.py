@@ -196,8 +196,10 @@ def test_build_or_reuse_model_map_reuses_generated_artifacts_without_raw_scrapes
     (model_map_dir / "index.md").write_text("# Model Map\n", encoding="utf-8")
     (model_map_dir / "stable-models.jsonl").write_text('{"model":"Person"}\n', encoding="utf-8")
     (model_map_dir / "stable-properties.jsonl").write_text('{"property":"Name"}\n', encoding="utf-8")
+    (model_map_dir / "stable-methods.jsonl").write_text('{"method":"ToString"}\n', encoding="utf-8")
     (model_map_dir / "latest-models.jsonl").write_text('{"model":"Person"}\n{"model":"AI"}\n', encoding="utf-8")
     (model_map_dir / "latest-properties.jsonl").write_text('{"property":"Name"}\n{"property":"Prompt"}\n', encoding="utf-8")
+    (model_map_dir / "latest-methods.jsonl").write_text('{"method":"ToString"}\n{"method":"ToLiquid"}\n', encoding="utf-8")
     (model_map_dir / "version-diff.jsonl").write_text('{"change":"added"}\n', encoding="utf-8")
     (agent_dir / "model-map-summary.json").write_text(
         json.dumps({"stable": {"rock_version": "18.2.4"}, "pre_alpha": {"rock_version": "20.0.3"}}),
@@ -205,6 +207,7 @@ def test_build_or_reuse_model_map_reuses_generated_artifacts_without_raw_scrapes
     )
     (agent_dir / "model-map-entities.jsonl").write_text('{"entity":"Person"}\n', encoding="utf-8")
     (agent_dir / "model-map-properties.jsonl").write_text('{"property":"Name"}\n', encoding="utf-8")
+    (agent_dir / "model-map-methods.jsonl").write_text('{"method":"ToString"}\n', encoding="utf-8")
     (agent_dir / "model-map-version-diff.jsonl").write_text('{"change":"added"}\n', encoding="utf-8")
 
     result = indexes_module.build_or_reuse_model_map()
@@ -215,3 +218,5 @@ def test_build_or_reuse_model_map_reuses_generated_artifacts_without_raw_scrapes
     assert result["pre_alpha_version"] == "20.0.3"
     assert result["stable_models"] == 1
     assert result["pre_alpha_models"] == 2
+    assert result["stable_methods"] == 1
+    assert result["pre_alpha_methods"] == 2

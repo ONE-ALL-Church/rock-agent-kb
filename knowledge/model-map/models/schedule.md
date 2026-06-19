@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Schedule`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `54`
+- Obsolete methods: `4`
 - EntityType GUID: `0b2c38a7-d79c-4f85-9757-f1b045d32c8a`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 47 |
 | Lava-marked non-database properties | 22 |
 | Related model links | 2 |
+| Method signatures | 54 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

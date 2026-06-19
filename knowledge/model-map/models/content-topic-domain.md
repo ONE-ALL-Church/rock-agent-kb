@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentTopicDomain`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `8c26a4d9-9c0b-4433-af31-6c7094befb51`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 26 |
 | Lava-marked non-database properties | 12 |
 | Related model links | 0 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

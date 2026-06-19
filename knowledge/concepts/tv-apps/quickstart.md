@@ -26,12 +26,12 @@ Apple TV and Roku developer documentation for Rock-powered TV applications, page
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-49: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 50-64: 2. Scope And Terminology (normal)
-- `3-tv-apps-mental-model` lines 65-92: 3. TV Apps Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 93-116: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-apple-tv-application-configuration` lines 119-132: Apple TV Application Configuration (normal)
-- `5-core-configuration-and-data-model-roku-application-configuration` lines 133-143: Roku Application Configuration (normal)
+- `1-executive-summary-for-agents` lines 29-51: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 52-66: 2. Scope And Terminology (normal)
+- `3-tv-apps-mental-model` lines 67-94: 3. TV Apps Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 95-118: 4. Source Authority And How To Use This Guide (normal)
+- `5-core-configuration-and-data-model-apple-tv-application-configuration` lines 121-134: Apple TV Application Configuration (normal)
+- `5-core-configuration-and-data-model-roku-application-configuration` lines 135-145: Roku Application Configuration (normal)
 
 ## Core Entities
 

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `MetricCategory`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `18`
+- Obsolete methods: `3`
 - EntityType GUID: `3d35c859-df37-433f-a20a-0ffd0fcb9862`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 15 |
 | Lava-marked non-database properties | 7 |
 | Related model links | 0 |
+| Method signatures | 18 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

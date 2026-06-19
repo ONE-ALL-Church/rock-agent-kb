@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11912 words; expected at least 7000.",
+      "message": "Guide has 11925 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,9 +60,9 @@
   "concept_id": "groups",
   "contribution_record_count": 0,
   "entity_count": 20,
-  "generated_at": "2026-06-19T05:25:39+00:00",
-  "guide_line_count": 1266,
-  "guide_word_count": 11912,
+  "generated_at": "2026-06-19T05:56:45+00:00",
+  "guide_line_count": 1268,
+  "guide_word_count": 11925,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 105,

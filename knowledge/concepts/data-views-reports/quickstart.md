@@ -28,12 +28,12 @@ Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-66: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 67-72: 2. Scope And Terminology (normal)
-- `2-scope-and-terminology-core-terms` lines 73-124: Core Terms (high)
-- `3-data-views-and-reports-mental-model-the-layered-stack` lines 127-142: The Layered Stack (normal)
-- `3-data-views-and-reports-mental-model-data-view-composition` lines 170-181: Data View Composition (normal)
-- `3-data-views-and-reports-mental-model-related-data-view-semantics` lines 182-195: Related Data View Semantics (normal)
+- `1-executive-summary-for-agents` lines 29-68: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 69-74: 2. Scope And Terminology (normal)
+- `2-scope-and-terminology-core-terms` lines 75-126: Core Terms (high)
+- `3-data-views-and-reports-mental-model-the-layered-stack` lines 129-144: The Layered Stack (normal)
+- `3-data-views-and-reports-mental-model-data-view-composition` lines 172-183: Data View Composition (normal)
+- `3-data-views-and-reports-mental-model-related-data-view-semantics` lines 184-197: Related Data View Semantics (normal)
 
 ## Core Entities
 

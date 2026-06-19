@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationRecipient`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `37`
+- Obsolete methods: `4`
 - EntityType GUID: `3ec89b90-6692-451e-a48f-0d2adeba05bc`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 43 |
 | Lava-marked non-database properties | 16 |
 | Related model links | 6 |
+| Method signatures | 37 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

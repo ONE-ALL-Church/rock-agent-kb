@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `CommunicationAttachment`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `4271bfb1-af05-4b6c-8931-032eb02dd760`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 26 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 6 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

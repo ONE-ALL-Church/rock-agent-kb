@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `RequestFilter`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `37`
+- Obsolete methods: `4`
 - EntityType GUID: `97fac672-37a4-4185-b1d4-c68426c625b1`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 27 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 0 |
+| Method signatures | 37 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

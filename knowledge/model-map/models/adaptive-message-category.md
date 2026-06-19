@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AdaptiveMessageCategory`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `18`
+- Obsolete methods: `3`
 - EntityType GUID: `d47bda25-03a3-46ee-a0a6-f8b220e39e4a`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 15 |
 | Lava-marked non-database properties | 7 |
 | Related model links | 0 |
+| Method signatures | 18 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

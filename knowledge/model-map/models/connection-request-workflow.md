@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Engagement`
 - Model title: `ConnectionRequestWorkflow`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `c69d1c9f-5521-4c83-8fe9-5044ecc2ce65`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 29 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 6 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

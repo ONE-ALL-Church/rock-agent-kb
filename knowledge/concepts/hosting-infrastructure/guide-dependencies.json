@@ -7,12 +7,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "c70dd7bd17fb56c9f07afc729d49f78385973d53f04dfd2fd29ee7a06e1f4f0a",
   "approved_media_path": "knowledge/concepts/hosting-infrastructure/approved-media.md",
-  "built_at": "2026-06-19T05:25:58+00:00",
+  "built_at": "2026-06-19T05:57:03+00:00",
   "concept_id": "hosting-infrastructure",
-  "guide_hash": "d042310fa7dc78099ab763ad271c99887a093afe312f670aed9ebaa6b3331e17",
-  "guide_line_count": 1291,
+  "guide_hash": "d0db1811a3d9270c9d0583f0f018bc957f5598ef659731fe7fae51f876119333",
+  "guide_line_count": 1293,
   "guide_path": "knowledge/concepts/hosting-infrastructure/guide.md",
-  "guide_word_count": 10776,
+  "guide_word_count": 10789,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -306,7 +306,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -317,7 +317,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 47,
+      "end_line": 49,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -335,11 +335,11 @@
         "0fcd2ac23fd69b6f",
         "37d73f4bb8f370d1"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 77,
+      "end_line": 79,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -352,11 +352,11 @@
         "41282deb68221b2f",
         "41282deb68221b2f"
       ],
-      "start_line": 48
+      "start_line": 50
     },
     {
       "confidence": "structural",
-      "end_line": 81,
+      "end_line": 83,
       "heading": "3. Hosting And Infrastructure Mental Model",
       "needs_live_verification": false,
       "section_id": "3-hosting-and-infrastructure-mental-model",
@@ -368,22 +368,22 @@
         "776256c424368312",
         "67d6aea706833a8c"
       ],
-      "start_line": 78
+      "start_line": 80
     },
     {
       "confidence": "normal",
-      "end_line": 94,
+      "end_line": 96,
       "heading": "Layer 1: Request Entry",
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-1-request-entry",
       "source_keys": [
         "41282deb68221b2f"
       ],
-      "start_line": 82
+      "start_line": 84
     },
     {
       "confidence": "normal",
-      "end_line": 110,
+      "end_line": 112,
       "heading": "Layer 2: Web Runtime",
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-2-web-runtime",
@@ -391,11 +391,11 @@
         "9a56101f501ad2b0",
         "2dfb9f2f4d2b5a77"
       ],
-      "start_line": 95
+      "start_line": 97
     },
     {
       "confidence": "normal",
-      "end_line": 127,
+      "end_line": 129,
       "heading": "Layer 3: Database And Persistence",
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-3-database-and-persistence",
@@ -405,33 +405,33 @@
         "9a56101f501ad2b0",
         "9c0f2b67a14e49e7"
       ],
-      "start_line": 111
+      "start_line": 113
     },
     {
       "confidence": "normal",
-      "end_line": 146,
+      "end_line": 148,
       "heading": "Layer 4: Shared Services",
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-4-shared-services",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 128
+      "start_line": 130
     },
     {
       "confidence": "normal",
-      "end_line": 163,
+      "end_line": 165,
       "heading": "Layer 5: Operations And Governance",
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-5-operations-and-governance",
       "source_keys": [
         "67d6aea706833a8c"
       ],
-      "start_line": 147
+      "start_line": 149
     },
     {
       "confidence": "high",
-      "end_line": 179,
+      "end_line": 181,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -443,11 +443,11 @@
         "9c0f2b67a14e49e7",
         "cef09f72b9bb29cf"
       ],
-      "start_line": 164
+      "start_line": 166
     },
     {
       "confidence": "structural",
-      "end_line": 183,
+      "end_line": 185,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -459,11 +459,11 @@
         "9c0f2b67a14e49e7",
         "cef09f72b9bb29cf"
       ],
-      "start_line": 180
+      "start_line": 182
     },
     {
       "confidence": "normal",
-      "end_line": 197,
+      "end_line": 199,
       "heading": "File-Based Configuration",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-file-based-configuration",
@@ -472,11 +472,11 @@
         "764c3704f9a5e2d7",
         "3f080bbdd436b2c2"
       ],
-      "start_line": 184
+      "start_line": 186
     },
     {
       "confidence": "normal",
-      "end_line": 219,
+      "end_line": 221,
       "heading": "IIS And Windows Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-iis-and-windows-configuration",
@@ -485,11 +485,11 @@
         "9a56101f501ad2b0",
         "9a56101f501ad2b0"
       ],
-      "start_line": 198
+      "start_line": 200
     },
     {
       "confidence": "high",
-      "end_line": 239,
+      "end_line": 241,
       "heading": "SQL Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-sql-configuration",
@@ -498,11 +498,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 220
+      "start_line": 222
     },
     {
       "confidence": "needs-citation",
-      "end_line": 259,
+      "end_line": 261,
       "heading": "Rock Database Records That Affect Hosting",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-rock-database-records-that-affect-hosting",
@@ -514,22 +514,22 @@
         "9c0f2b67a14e49e7",
         "cef09f72b9bb29cf"
       ],
-      "start_line": 240
+      "start_line": 242
     },
     {
       "confidence": "normal",
-      "end_line": 280,
+      "end_line": 282,
       "heading": "Azure Resource Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-azure-resource-configuration",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 260
+      "start_line": 262
     },
     {
       "confidence": "structural",
-      "end_line": 284,
+      "end_line": 286,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -545,22 +545,22 @@
         "9987fbde44f24f8a",
         "04cd045d09d8c6fd"
       ],
-      "start_line": 281
+      "start_line": 283
     },
     {
       "confidence": "normal",
-      "end_line": 297,
+      "end_line": 299,
       "heading": "Site, Domain, And Request Handling",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-site-domain-and-request-handling",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 285
+      "start_line": 287
     },
     {
       "confidence": "normal",
-      "end_line": 314,
+      "end_line": 316,
       "heading": "File Type And Storage Provider",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-file-type-and-storage-provider",
@@ -568,22 +568,22 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 298
+      "start_line": 300
     },
     {
       "confidence": "community-supported",
-      "end_line": 327,
+      "end_line": 329,
       "heading": "Communication Transport And SMTP",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-communication-transport-and-smtp",
       "source_keys": [
         "14ccd9891ccb509b"
       ],
-      "start_line": 315
+      "start_line": 317
     },
     {
       "confidence": "community-supported",
-      "end_line": 347,
+      "end_line": 349,
       "heading": "Jobs And Background Processing",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-jobs-and-background-processing",
@@ -592,11 +592,11 @@
         "738e729c11ee15d9",
         "2ba569f45e9e56e6"
       ],
-      "start_line": 328
+      "start_line": 330
     },
     {
       "confidence": "normal",
-      "end_line": 365,
+      "end_line": 367,
       "heading": "Web Farm Nodes And Message Bus",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-web-farm-nodes-and-message-bus",
@@ -604,11 +604,11 @@
         "41282deb68221b2f",
         "a8cd8e65dd3fb6eb"
       ],
-      "start_line": 348
+      "start_line": 350
     },
     {
       "confidence": "normal",
-      "end_line": 381,
+      "end_line": 383,
       "heading": "Authentication Services",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-authentication-services",
@@ -617,11 +617,11 @@
         "04cd045d09d8c6fd",
         "d275b5b94a9da833"
       ],
-      "start_line": 366
+      "start_line": 368
     },
     {
       "confidence": "structural",
-      "end_line": 383,
+      "end_line": 385,
       "heading": "7. Common Hosting And Infrastructure Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-hosting-and-infrastructure-workflows",
@@ -634,11 +634,11 @@
         "764c3704f9a5e2d7",
         "b8c26e21c3c8c4d2"
       ],
-      "start_line": 382
+      "start_line": 384
     },
     {
       "confidence": "normal",
-      "end_line": 395,
+      "end_line": 397,
       "heading": "New Hosting Selection",
       "needs_live_verification": false,
       "section_id": "7-common-hosting-and-infrastructure-workflows-new-hosting-selection",
@@ -648,11 +648,11 @@
         "9a56101f501ad2b0",
         "41282deb68221b2f"
       ],
-      "start_line": 384
+      "start_line": 386
     },
     {
       "confidence": "normal",
-      "end_line": 413,
+      "end_line": 415,
       "heading": "Provision Azure Hosting",
       "needs_live_verification": false,
       "section_id": "7-common-hosting-and-infrastructure-workflows-provision-azure-hosting",
@@ -661,11 +661,11 @@
         "e60d5759c6472cc6",
         "ef2a6648ec0aa0de"
       ],
-      "start_line": 396
+      "start_line": 398
     },
     {
       "confidence": "normal",
-      "end_line": 427,
+      "end_line": 429,
       "heading": "Install Internally",
       "needs_live_verification": false,
       "section_id": "7-common-hosting-and-infrastructure-workflows-install-internally",
@@ -679,11 +679,11 @@
         "9a56101f501ad2b0",
         "9a56101f501ad2b0"
       ],
-      "start_line": 414
+      "start_line": 416
     },
     {
       "confidence": "community-supported",
-      "end_line": 448,
+      "end_line": 450,
       "heading": "Refresh Development From Production",
       "needs_live_verification": true,
       "section_id": "7-common-hosting-and-infrastructure-workflows-refresh-development-from-production",
@@ -692,66 +692,66 @@
         "b8c26e21c3c8c4d2",
         "b8c26e21c3c8c4d2"
       ],
-      "start_line": 428
+      "start_line": 430
     },
     {
       "confidence": "normal",
-      "end_line": 452,
+      "end_line": 454,
       "heading": "8. Sizing And Service Options Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 449
+      "start_line": 451
     },
     {
       "confidence": "structural",
-      "end_line": 476,
+      "end_line": 478,
       "heading": "Workload Drivers",
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-workload-drivers",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 453
+      "start_line": 455
     },
     {
       "confidence": "normal",
-      "end_line": 487,
+      "end_line": 489,
       "heading": "Small Install Pattern",
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-small-install-pattern",
       "source_keys": [
         "9a56101f501ad2b0"
       ],
-      "start_line": 477
+      "start_line": 479
     },
     {
       "confidence": "normal",
-      "end_line": 500,
+      "end_line": 502,
       "heading": "Medium Pattern",
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-medium-pattern",
       "source_keys": [
         "9a56101f501ad2b0"
       ],
-      "start_line": 488
+      "start_line": 490
     },
     {
       "confidence": "community-supported",
-      "end_line": 517,
+      "end_line": 519,
       "heading": "Large Pattern",
       "needs_live_verification": true,
       "section_id": "8-sizing-and-service-options-deep-dive-large-pattern",
       "source_keys": [
         "cef09f72b9bb29cf"
       ],
-      "start_line": 501
+      "start_line": 503
     },
     {
       "confidence": "normal",
-      "end_line": 529,
+      "end_line": 531,
       "heading": "Extra-Large And Cluster Pattern",
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-extra-large-and-cluster-pattern",
@@ -759,33 +759,33 @@
         "41282deb68221b2f",
         "41282deb68221b2f"
       ],
-      "start_line": 518
+      "start_line": 520
     },
     {
       "confidence": "normal",
-      "end_line": 533,
+      "end_line": 535,
       "heading": "9. Azure Hosting Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 530
+      "start_line": 532
     },
     {
       "confidence": "normal",
-      "end_line": 544,
+      "end_line": 546,
       "heading": "Azure Resource Group",
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive-azure-resource-group",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 534
+      "start_line": 536
     },
     {
       "confidence": "normal",
-      "end_line": 555,
+      "end_line": 557,
       "heading": "Azure Runtime Choices",
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive-azure-runtime-choices",
@@ -793,11 +793,11 @@
         "ef2a6648ec0aa0de",
         "9a56101f501ad2b0"
       ],
-      "start_line": 545
+      "start_line": 547
     },
     {
       "confidence": "high",
-      "end_line": 576,
+      "end_line": 578,
       "heading": "Azure SQL Database",
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive-azure-sql-database",
@@ -806,22 +806,22 @@
         "776256c424368312",
         "9c0f2b67a14e49e7"
       ],
-      "start_line": 556
+      "start_line": 558
     },
     {
       "confidence": "normal",
-      "end_line": 593,
+      "end_line": 595,
       "heading": "Azure Storage",
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive-azure-storage",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 577
+      "start_line": 579
     },
     {
       "confidence": "citation-only",
-      "end_line": 609,
+      "end_line": 611,
       "heading": "Azure Monitoring",
       "needs_live_verification": true,
       "section_id": "9-azure-hosting-deep-dive-azure-monitoring",
@@ -829,11 +829,11 @@
         "37d73f4bb8f370d1",
         "57063cd37cb3505a"
       ],
-      "start_line": 594
+      "start_line": 596
     },
     {
       "confidence": "structural",
-      "end_line": 613,
+      "end_line": 615,
       "heading": "10. Operational Readiness Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-operational-readiness-deep-dive",
@@ -845,55 +845,55 @@
         "776256c424368312",
         "751d45f23bf73d1a"
       ],
-      "start_line": 610
+      "start_line": 612
     },
     {
       "confidence": "community-supported",
-      "end_line": 631,
+      "end_line": 633,
       "heading": "Backup Readiness",
       "needs_live_verification": false,
       "section_id": "10-operational-readiness-deep-dive-backup-readiness",
       "source_keys": [
         "b4e301e4e673a895"
       ],
-      "start_line": 614
+      "start_line": 616
     },
     {
       "confidence": "community-supported",
-      "end_line": 646,
+      "end_line": 648,
       "heading": "Restore Readiness",
       "needs_live_verification": true,
       "section_id": "10-operational-readiness-deep-dive-restore-readiness",
       "source_keys": [
         "b8c26e21c3c8c4d2"
       ],
-      "start_line": 632
+      "start_line": 634
     },
     {
       "confidence": "community-supported",
-      "end_line": 660,
+      "end_line": 662,
       "heading": "SSL Readiness",
       "needs_live_verification": true,
       "section_id": "10-operational-readiness-deep-dive-ssl-readiness",
       "source_keys": [
         "cf84d41b11c33606"
       ],
-      "start_line": 647
+      "start_line": 649
     },
     {
       "confidence": "community-supported",
-      "end_line": 675,
+      "end_line": 677,
       "heading": "SMTP Readiness",
       "needs_live_verification": true,
       "section_id": "10-operational-readiness-deep-dive-smtp-readiness",
       "source_keys": [
         "14ccd9891ccb509b"
       ],
-      "start_line": 661
+      "start_line": 663
     },
     {
       "confidence": "normal",
-      "end_line": 697,
+      "end_line": 699,
       "heading": "Security Readiness",
       "needs_live_verification": true,
       "section_id": "10-operational-readiness-deep-dive-security-readiness",
@@ -901,11 +901,11 @@
         "776256c424368312",
         "751d45f23bf73d1a"
       ],
-      "start_line": 676
+      "start_line": 678
     },
     {
       "confidence": "structural",
-      "end_line": 699,
+      "end_line": 701,
       "heading": "11. Related Rock Areas: Operations, Security, Jobs, Cache, Search, Cms, Api Integrations",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations",
@@ -916,44 +916,44 @@
         "41282deb68221b2f",
         "d275b5b94a9da833"
       ],
-      "start_line": 698
+      "start_line": 700
     },
     {
       "confidence": "citation-only",
-      "end_line": 703,
+      "end_line": 705,
       "heading": "Operations",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-operations",
       "source_keys": [
         "0fcd2ac23fd69b6f"
       ],
-      "start_line": 700
+      "start_line": 702
     },
     {
       "confidence": "normal",
-      "end_line": 707,
+      "end_line": 709,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-security",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 704
+      "start_line": 706
     },
     {
       "confidence": "community-supported",
-      "end_line": 711,
+      "end_line": 713,
       "heading": "Jobs",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-jobs",
       "source_keys": [
         "b8c26e21c3c8c4d2"
       ],
-      "start_line": 708
+      "start_line": 710
     },
     {
       "confidence": "normal",
-      "end_line": 715,
+      "end_line": 717,
       "heading": "Cache",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-cache",
@@ -961,11 +961,11 @@
         "b8c26e21c3c8c4d2",
         "41282deb68221b2f"
       ],
-      "start_line": 712
+      "start_line": 714
     },
     {
       "confidence": "normal",
-      "end_line": 719,
+      "end_line": 721,
       "heading": "Search",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-search",
@@ -973,33 +973,33 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 716
+      "start_line": 718
     },
     {
       "confidence": "normal",
-      "end_line": 723,
+      "end_line": 725,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-cms",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 720
+      "start_line": 722
     },
     {
       "confidence": "normal",
-      "end_line": 727,
+      "end_line": 729,
       "heading": "API Integrations",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-api-integrations",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 724
+      "start_line": 726
     },
     {
       "confidence": "structural",
-      "end_line": 729,
+      "end_line": 731,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -1009,33 +1009,33 @@
         "b8c26e21c3c8c4d2",
         "776256c424368312"
       ],
-      "start_line": 728
+      "start_line": 730
     },
     {
       "confidence": "structural",
-      "end_line": 733,
+      "end_line": 735,
       "heading": "Public-Safe Documentation",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-public-safe-documentation",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 730
+      "start_line": 732
     },
     {
       "confidence": "structural",
-      "end_line": 747,
+      "end_line": 749,
       "heading": "Change Control",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-change-control",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 734
+      "start_line": 736
     },
     {
       "confidence": "community-supported",
-      "end_line": 764,
+      "end_line": 766,
       "heading": "Production And Development Separation",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-production-and-development-separation",
@@ -1043,11 +1043,11 @@
         "41a4b0ccee3c9a70",
         "b8c26e21c3c8c4d2"
       ],
-      "start_line": 748
+      "start_line": 750
     },
     {
       "confidence": "structural",
-      "end_line": 781,
+      "end_line": 783,
       "heading": "Secrets And Credentials",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-secrets-and-credentials",
@@ -1055,66 +1055,66 @@
         "41a4b0ccee3c9a70",
         "b8c26e21c3c8c4d2"
       ],
-      "start_line": 765
+      "start_line": 767
     },
     {
       "confidence": "normal",
-      "end_line": 797,
+      "end_line": 799,
       "heading": "Upgrade Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-upgrade-guardrails",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 782
+      "start_line": 784
     },
     {
       "confidence": "normal",
-      "end_line": 809,
+      "end_line": 811,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 798
+      "start_line": 800
     },
     {
       "confidence": "normal",
-      "end_line": 823,
+      "end_line": 825,
       "heading": "Lava Endpoints",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-endpoints",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 810
+      "start_line": 812
     },
     {
       "confidence": "structural",
-      "end_line": 835,
+      "end_line": 837,
       "heading": "API And REST Keys",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-and-rest-keys",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 824
+      "start_line": 826
     },
     {
       "confidence": "structural",
-      "end_line": 839,
+      "end_line": 841,
       "heading": "Source-Code Version Caveat",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-source-code-version-caveat",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 836
+      "start_line": 838
     },
     {
       "confidence": "structural",
-      "end_line": 843,
+      "end_line": 845,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -1122,44 +1122,44 @@
         "d275b5b94a9da833",
         "95b51ab73ae1cb06"
       ],
-      "start_line": 840
+      "start_line": 842
     },
     {
       "confidence": "structural",
-      "end_line": 861,
+      "end_line": 863,
       "heading": "Useful Operational Reports",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-useful-operational-reports",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 844
+      "start_line": 846
     },
     {
       "confidence": "needs-citation",
-      "end_line": 871,
+      "end_line": 873,
       "heading": "Model Map Usage",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map-usage",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 862
+      "start_line": 864
     },
     {
       "confidence": "citation-only",
-      "end_line": 875,
+      "end_line": 877,
       "heading": "Analytics And Digital Load",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-analytics-and-digital-load",
       "source_keys": [
         "95b51ab73ae1cb06"
       ],
-      "start_line": 872
+      "start_line": 874
     },
     {
       "confidence": "structural",
-      "end_line": 877,
+      "end_line": 879,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -1167,11 +1167,11 @@
         "776256c424368312",
         "acccc60e0cfe7b67"
       ],
-      "start_line": 876
+      "start_line": 878
     },
     {
       "confidence": "normal",
-      "end_line": 891,
+      "end_line": 893,
       "heading": "v19.1",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-v19-1",
@@ -1179,33 +1179,33 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 878
+      "start_line": 880
     },
     {
       "confidence": "citation-only",
-      "end_line": 895,
+      "end_line": 897,
       "heading": "v18.3 And v19 Pre-Alpha Notes",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v18-3-and-v19-pre-alpha-notes",
       "source_keys": [
         "acccc60e0cfe7b67"
       ],
-      "start_line": 892
+      "start_line": 894
     },
     {
       "confidence": "normal",
-      "end_line": 899,
+      "end_line": 901,
       "heading": "v18.1",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v18-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 896
+      "start_line": 898
     },
     {
       "confidence": "normal",
-      "end_line": 905,
+      "end_line": 907,
       "heading": "v17.5",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17-5",
@@ -1213,55 +1213,55 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 900
+      "start_line": 902
     },
     {
       "confidence": "normal",
-      "end_line": 909,
+      "end_line": 911,
       "heading": "v17.2",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 906
+      "start_line": 908
     },
     {
       "confidence": "normal",
-      "end_line": 913,
+      "end_line": 915,
       "heading": "v17.1",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 910
+      "start_line": 912
     },
     {
       "confidence": "normal",
-      "end_line": 917,
+      "end_line": 919,
       "heading": "v17.0",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17-0",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 914
+      "start_line": 916
     },
     {
       "confidence": "normal",
-      "end_line": 921,
+      "end_line": 923,
       "heading": "v16.3",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v16-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 918
+      "start_line": 920
     },
     {
       "confidence": "structural",
-      "end_line": 923,
+      "end_line": 925,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -1272,11 +1272,11 @@
         "41282deb68221b2f",
         "776256c424368312"
       ],
-      "start_line": 922
+      "start_line": 924
     },
     {
       "confidence": "normal",
-      "end_line": 940,
+      "end_line": 942,
       "heading": "Playbook: Choose Hosting Model",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-choose-hosting-model",
@@ -1285,11 +1285,11 @@
         "e60d5759c6472cc6",
         "9a56101f501ad2b0"
       ],
-      "start_line": 924
+      "start_line": 926
     },
     {
       "confidence": "structural",
-      "end_line": 968,
+      "end_line": 970,
       "heading": "Playbook: Production Readiness Review",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-production-readiness-review",
@@ -1298,44 +1298,44 @@
         "e60d5759c6472cc6",
         "9a56101f501ad2b0"
       ],
-      "start_line": 941
+      "start_line": 943
     },
     {
       "confidence": "normal",
-      "end_line": 985,
+      "end_line": 987,
       "heading": "Playbook: Azure Cost And Capacity Review",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-azure-cost-and-capacity-review",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 969
+      "start_line": 971
     },
     {
       "confidence": "normal",
-      "end_line": 1005,
+      "end_line": 1007,
       "heading": "Playbook: Web Farm Readiness",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-web-farm-readiness",
       "source_keys": [
         "41282deb68221b2f"
       ],
-      "start_line": 986
+      "start_line": 988
     },
     {
       "confidence": "normal",
-      "end_line": 1023,
+      "end_line": 1025,
       "heading": "Playbook: Storage Provider Upgrade Review",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-storage-provider-upgrade-review",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1006
+      "start_line": 1008
     },
     {
       "confidence": "structural",
-      "end_line": 1025,
+      "end_line": 1027,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -1347,55 +1347,55 @@
         "764c3704f9a5e2d7",
         "41282deb68221b2f"
       ],
-      "start_line": 1024
+      "start_line": 1026
     },
     {
       "confidence": "community-supported",
-      "end_line": 1040,
+      "end_line": 1042,
       "heading": "Site Is Down",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-site-is-down",
       "source_keys": [
         "3f080bbdd436b2c2"
       ],
-      "start_line": 1026
+      "start_line": 1028
     },
     {
       "confidence": "structural",
-      "end_line": 1053,
+      "end_line": 1055,
       "heading": "Site Is Slow",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-site-is-slow",
       "source_keys": [
         "3f080bbdd436b2c2"
       ],
-      "start_line": 1041
+      "start_line": 1043
     },
     {
       "confidence": "citation-only",
-      "end_line": 1066,
+      "end_line": 1068,
       "heading": "Check-In Is Slow",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-check-in-is-slow",
       "source_keys": [
         "ef6c59be30105708"
       ],
-      "start_line": 1054
+      "start_line": 1056
     },
     {
       "confidence": "normal",
-      "end_line": 1079,
+      "end_line": 1081,
       "heading": "File Uploads Fail",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-file-uploads-fail",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1067
+      "start_line": 1069
     },
     {
       "confidence": "community-supported",
-      "end_line": 1092,
+      "end_line": 1094,
       "heading": "Development Environment Sends Real Messages",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-development-environment-sends-real-messages",
@@ -1403,22 +1403,22 @@
         "b8c26e21c3c8c4d2",
         "764c3704f9a5e2d7"
       ],
-      "start_line": 1080
+      "start_line": 1082
     },
     {
       "confidence": "normal",
-      "end_line": 1107,
+      "end_line": 1109,
       "heading": "Web Farm Node Behaves Differently",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-web-farm-node-behaves-differently",
       "source_keys": [
         "41282deb68221b2f"
       ],
-      "start_line": 1093
+      "start_line": 1095
     },
     {
       "confidence": "structural",
-      "end_line": 1109,
+      "end_line": 1111,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -1427,55 +1427,55 @@
         "e60d5759c6472cc6",
         "776256c424368312"
       ],
-      "start_line": 1108
+      "start_line": 1110
     },
     {
       "confidence": "structural",
-      "end_line": 1126,
+      "end_line": 1128,
       "heading": "Recipe: Inventory Hosting",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-inventory-hosting",
       "source_keys": [
         "41282deb68221b2f"
       ],
-      "start_line": 1110
+      "start_line": 1112
     },
     {
       "confidence": "normal",
-      "end_line": 1142,
+      "end_line": 1144,
       "heading": "Recipe: Validate Azure Hosting",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-validate-azure-hosting",
       "source_keys": [
         "e60d5759c6472cc6"
       ],
-      "start_line": 1127
+      "start_line": 1129
     },
     {
       "confidence": "normal",
-      "end_line": 1158,
+      "end_line": 1160,
       "heading": "Recipe: Review SQL Performance",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-review-sql-performance",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1143
+      "start_line": 1145
     },
     {
       "confidence": "structural",
-      "end_line": 1172,
+      "end_line": 1174,
       "heading": "Recipe: Review Backup And Restore",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-review-backup-and-restore",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1159
+      "start_line": 1161
     },
     {
       "confidence": "normal",
-      "end_line": 1190,
+      "end_line": 1192,
       "heading": "Recipe: Review Web Farm",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-review-web-farm",
@@ -1483,11 +1483,11 @@
         "41282deb68221b2f",
         "41282deb68221b2f"
       ],
-      "start_line": 1173
+      "start_line": 1175
     },
     {
       "confidence": "structural",
-      "end_line": 1210,
+      "end_line": 1212,
       "heading": "Recipe: Public Launch Hosting Gate",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-public-launch-hosting-gate",
@@ -1495,11 +1495,11 @@
         "41282deb68221b2f",
         "41282deb68221b2f"
       ],
-      "start_line": 1191
+      "start_line": 1193
     },
     {
       "confidence": "structural",
-      "end_line": 1218,
+      "end_line": 1220,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -1507,11 +1507,11 @@
         "41282deb68221b2f",
         "41282deb68221b2f"
       ],
-      "start_line": 1211
+      "start_line": 1213
     },
     {
       "confidence": "structural",
-      "end_line": 1225,
+      "end_line": 1227,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1519,11 +1519,11 @@
         "41282deb68221b2f",
         "41282deb68221b2f"
       ],
-      "start_line": 1219
+      "start_line": 1221
     },
     {
       "confidence": "high",
-      "end_line": 1291,
+      "end_line": 1293,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -1571,7 +1571,7 @@
         "9987fbde44f24f8a",
         "04cd045d09d8c6fd"
       ],
-      "start_line": 1226
+      "start_line": 1228
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:34:02+00:00",

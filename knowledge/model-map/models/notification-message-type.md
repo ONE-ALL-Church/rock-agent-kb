@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `NotificationMessageType`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `36fb1038-8836-429f-bad4-04d32892d6d0`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 36 |
 | Lava-marked non-database properties | 17 |
 | Related model links | 4 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

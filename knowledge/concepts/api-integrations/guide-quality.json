@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 14146 words; expected at least 7000.",
+      "message": "Guide has 14159 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,9 +60,9 @@
   "concept_id": "api-integrations",
   "contribution_record_count": 0,
   "entity_count": 10,
-  "generated_at": "2026-06-19T05:26:16+00:00",
-  "guide_line_count": 1557,
-  "guide_word_count": 14146,
+  "generated_at": "2026-06-19T05:57:21+00:00",
+  "guide_line_count": 1559,
+  "guide_word_count": 14159,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 118,

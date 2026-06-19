@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `ContentChannelItem`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `41`
+- Obsolete methods: `4`
 - EntityType GUID: `bf12ae64-21fb-433b-a8a4-e40e8c426dda`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 52 |
 | Lava-marked non-database properties | 21 |
 | Related model links | 3 |
+| Method signatures | 41 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

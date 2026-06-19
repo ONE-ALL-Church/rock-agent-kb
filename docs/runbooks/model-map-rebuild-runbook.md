@@ -4,16 +4,16 @@ This runbook covers the generated model-map layer used by concept indexes, long-
 
 ## Policy
 
-- Treat the generic stable demo scrape as the default public model-map authority.
-- Treat the generic latest/pre-alpha scrape as a comparison layer only.
+- Treat the generic stable demo Obsidian block-action export as the default public model-map authority.
+- Treat the generic latest/pre-alpha export as a comparison layer only.
 - Prefer stable model and property rows in concept guides, agent retrieval, and model detail pages.
 - Call out latest/pre-alpha differences only when a model or property differs from stable.
 - Do not publish local instance SQL schema snapshots or organization-specific plugin/custom model rows as the public model-map authority.
-- Keep the raw scrape artifacts under `data/review/model-map-scrape/`; generated public artifacts are under `knowledge/model-map/` and `agent/model-map-*.jsonl`.
+- Keep the raw fetch artifacts under `data/review/model-map-scrape/`; generated public artifacts are under `knowledge/model-map/` and `agent/model-map-*.jsonl`.
 
 Current checked-in tracks from the last accepted scrape:
 
-| Track | Source | Checked-in Rock Version | Scrape Artifact |
+| Track | Source | Checked-in Rock Version | Raw Artifact |
 | --- | --- | --- | --- |
 | Stable | `https://rocksolidchurchdemo.com/admin/power-tools/model-map` | `19.1.8` | `data/review/model-map-scrape/demo-model-map-full-scrape.json` |
 | Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.4` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
@@ -22,48 +22,42 @@ Do not assume those versions are still live. `uv run kb status` probes the stabl
 
 ## Prerequisites
 
-The scraper is a Node/Playwright script:
+The fetcher uses Node/Playwright for authentication, then calls Obsidian block
+actions directly:
+
+- `RefreshObsidianBlockInitialization` for category/model routing.
+- `GetModelDetails` for each model detail payload.
+
+It records collection method, block GUIDs, initialization/detail endpoints,
+table names, obsolete flags, enum/DefinedValue flags, and method signatures so
+freshness and routing can be checked from generated artifacts.
 
 ```bash
 npm install --prefix /tmp/rock-model-map-scrape playwright
 ```
 
-Run the scraper with `NODE_PATH` pointed at that temporary install unless Playwright is already available to Node in the repo.
+`uv run kb modelmap fetch` automatically adds `/tmp/rock-model-map-scrape/node_modules` to `NODE_PATH` when that directory exists.
 
 The public demo credentials used for the generic demo sites are `admin` / `admin`.
 
-## Refresh The Scrapes
+## Refresh The Raw Artifacts
 
-Refresh stable:
-
-```bash
-NODE_PATH=/tmp/rock-model-map-scrape/node_modules \
-  node tools/model_map_obsidian_scrape.js \
-  --url https://rocksolidchurchdemo.com/admin/power-tools/model-map \
-  --output data/review/model-map-scrape/demo-model-map-full-scrape.json \
-  --username admin \
-  --password admin
-```
-
-Refresh latest/pre-alpha:
+Refresh both stable and latest/pre-alpha:
 
 ```bash
-NODE_PATH=/tmp/rock-model-map-scrape/node_modules \
-  node tools/model_map_obsidian_scrape.js \
-  --url https://rockrmslatest.com/admin/power-tools/model-map \
-  --output data/review/model-map-scrape/latest-model-map-full-scrape.json \
-  --username admin \
-  --password admin
+uv run kb modelmap fetch --track both --concurrency 16
 ```
 
-Stamp the raw scrapes from the matching Utility endpoints after scraping:
+Refresh a single track only when intentionally debugging or limiting scope:
 
 ```bash
-uv run kb modelmap stamp
-uv run kb modelmap stamp \
-  --scrape-path data/review/model-map-scrape/latest-model-map-full-scrape.json \
-  --endpoint-url https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber
+uv run kb modelmap fetch --track stable
+uv run kb modelmap fetch --track latest
 ```
+
+The older `stamp` command remains available for legacy raw artifacts, but the
+current fetch path already probes and records the live Rock semantic version for
+each track.
 
 ## Rebuild Generated Artifacts
 
@@ -79,15 +73,17 @@ Rebuild the public model-map layer:
 uv run kb modelmap build
 ```
 
-The default build compares the local scrape versions to the live stable/latest endpoints and exits nonzero if either scrape is stale. Use `--skip-live-version-check` only for an explicit offline/custom-path rebuild, and call that out in the PR.
+The default build compares the local raw artifact versions to the live stable/latest endpoints and exits nonzero if either artifact is stale. Use `--skip-live-version-check` only for an explicit offline/custom-path rebuild, and call that out in the PR.
 
 Expected generated outputs include:
 
 - `knowledge/model-map/index.md`
 - `knowledge/model-map/stable-models.jsonl`
 - `knowledge/model-map/stable-properties.jsonl`
+- `knowledge/model-map/stable-methods.jsonl`
 - `knowledge/model-map/latest-models.jsonl`
 - `knowledge/model-map/latest-properties.jsonl`
+- `knowledge/model-map/latest-methods.jsonl`
 - `knowledge/model-map/version-diff.json`
 - `knowledge/model-map/version-diff.jsonl`
 - `knowledge/model-map/models/*.md`
@@ -95,6 +91,7 @@ Expected generated outputs include:
 - `agent/model-map-summary.json`
 - `agent/model-map-entities.jsonl`
 - `agent/model-map-properties.jsonl`
+- `agent/model-map-methods.jsonl`
 - `agent/model-map-version-diff.jsonl`
 
 ## Rebuild Dependent Layers
@@ -109,7 +106,7 @@ uv run kb publish export
 
 Use `ROCK_KB_GENERATED_AT=<iso timestamp>` for intentional rebuilds that should not change generated metadata on every run. `build-agent-pack` refreshes the generated model-map pointer block in long-form concept guides.
 
-Raw scrape artifacts under `data/review/model-map-scrape/` are ignored review/private working state. `uv run kb build --stage agent-pack` always reuses the committed generated model-map layer under `knowledge/model-map/` and `agent/model-map-*.jsonl`; it must not regenerate the model-map from ignored raw scrapes. Run `uv run kb modelmap build` only after intentionally refreshing and reviewing the stable/latest raw scrapes.
+Raw fetch artifacts under `data/review/model-map-scrape/` are ignored review/private working state. `uv run kb build --stage agent-pack` always reuses the committed generated model-map layer under `knowledge/model-map/` and `agent/model-map-*.jsonl`; it must not regenerate the model-map from ignored raw artifacts. Run `uv run kb modelmap build` only after intentionally refreshing and reviewing the stable/latest raw artifacts.
 
 ## Validation
 
@@ -137,6 +134,6 @@ rg -n "Generated Model Map Pointer|Data Model Landmarks|Pre-alpha" knowledge/con
 ## Review Notes
 
 - A large generated diff is normal because `knowledge/model-map/`, concept indexes, long-form guide pointer blocks, and agent rows all depend on the same generated model-map layer. If you regenerate the ignored scratch export, review it as a local audit artifact only.
-- Review generated model pages for obvious scrape noise before publishing. Pay attention to rows that look like enum option values or action payload artifacts rather than model properties.
+- Review generated model pages for obvious collection noise before publishing. Pay attention to rows that look like enum option values or action payload artifacts rather than model properties.
 - If latest/pre-alpha differs from stable, the stable row should remain the default reference and the latest difference should be a callout, not a replacement.
 - If the stable demo version changes, update the expected version table in this runbook and review the generated diff as a version upgrade.

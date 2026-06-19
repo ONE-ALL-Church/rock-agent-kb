@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowLog`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `4`
+- Obsolete methods: `0`
 - EntityType GUID: `332cff36-d637-414d-b732-370b330b8d73`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 5 |
 | Lava-marked non-database properties | 1 |
 | Related model links | 2 |
+| Method signatures | 4 |
+| Obsolete methods | 0 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

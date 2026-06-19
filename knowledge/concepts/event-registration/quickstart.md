@@ -28,12 +28,12 @@ Registration instances, templates, payments, forms, event occurrences, and regis
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-43: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 44-87: 2. Scope And Terminology (high)
-- `3-event-registration-mental-model` lines 88-115: 3. Event Registration Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 116-139: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-configuration-surfaces` lines 142-194: Configuration Surfaces (high)
-- `6-primary-entities-and-relationships-registration-instance` lines 233-255: Registration Instance (normal)
+- `1-executive-summary-for-agents` lines 29-45: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 46-89: 2. Scope And Terminology (high)
+- `3-event-registration-mental-model` lines 90-117: 3. Event Registration Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 118-141: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-configuration-surfaces` lines 144-196: Configuration Surfaces (high)
+- `6-primary-entities-and-relationships-registration-instance` lines 235-257: Registration Instance (normal)
 
 ## Core Entities
 

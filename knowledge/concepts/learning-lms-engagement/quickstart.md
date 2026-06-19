@@ -25,12 +25,12 @@ Learning programs, LMS courses, lessons, requirements, completion tracking, enga
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-46: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 47-81: 2. Scope And Terminology (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 107-120: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 121-155: 5. Core Configuration And Data Model (high)
-- `6-primary-entities-and-relationships-lms-entity-relationships` lines 158-173: LMS Entity Relationships (high)
-- `6-primary-entities-and-relationships-engagement-entity-relationships` lines 174-187: Engagement Entity Relationships (normal)
+- `1-executive-summary-for-agents` lines 29-48: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 49-83: 2. Scope And Terminology (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 109-122: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model` lines 123-157: 5. Core Configuration And Data Model (high)
+- `6-primary-entities-and-relationships-lms-entity-relationships` lines 160-175: LMS Entity Relationships (high)
+- `6-primary-entities-and-relationships-engagement-entity-relationships` lines 176-189: Engagement Entity Relationships (normal)
 
 ## Core Entities
 

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupDemographicValue`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `c9ced7b0-88bf-40d1-83d1-a58b3c57a2e1`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 33 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 0 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

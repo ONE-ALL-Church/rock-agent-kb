@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `SignatureDocument`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `c1724719-1c03-4d0c-8a66-e3545138f57f`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 49 |
 | Lava-marked non-database properties | 18 |
 | Related model links | 3 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

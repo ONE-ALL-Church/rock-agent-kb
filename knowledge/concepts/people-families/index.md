@@ -2,7 +2,7 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-06-19T05:25:00+00:00
+last_built: 2026-06-19T05:52:38+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -169,16 +169,16 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.1.8 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
-Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
+Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Person Alias.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.Person` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.TypeId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.TypeName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.UrlEncodedKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.Person` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.TypeName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.UrlEncodedKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

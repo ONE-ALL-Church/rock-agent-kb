@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13432 words; expected at least 7000.",
+      "message": "Guide has 13445 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,9 +59,9 @@
   "concept_id": "apple-tv",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-06-19T05:26:23+00:00",
-  "guide_line_count": 1374,
-  "guide_word_count": 13432,
+  "generated_at": "2026-06-19T05:57:28+00:00",
+  "guide_line_count": 1376,
+  "guide_word_count": 13445,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 93,

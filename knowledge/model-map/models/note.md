@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Note`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `35`
+- Obsolete methods: `4`
 - EntityType GUID: `53dc1e78-14a5-44de-903f-6a2cb02164e7`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 51 |
 | Lava-marked non-database properties | 25 |
 | Related model links | 2 |
+| Method signatures | 35 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

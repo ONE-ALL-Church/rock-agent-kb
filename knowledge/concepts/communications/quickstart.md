@@ -27,12 +27,12 @@ Email, SMS, communication templates, transports, segments, and deliverability.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-56: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 57-82: 2. Scope And Terminology (high)
-- `3-communications-mental-model` lines 83-102: 3. Communications Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 103-114: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-communication-transports` lines 117-132: Communication transports (normal)
-- `5-core-configuration-and-data-model-communication-mediums` lines 133-138: Communication mediums (normal)
+- `1-executive-summary-for-agents` lines 29-58: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 59-84: 2. Scope And Terminology (high)
+- `3-communications-mental-model` lines 85-104: 3. Communications Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 105-116: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-communication-transports` lines 119-134: Communication transports (normal)
+- `5-core-configuration-and-data-model-communication-mediums` lines 135-140: Communication mediums (normal)
 
 ## Core Entities
 

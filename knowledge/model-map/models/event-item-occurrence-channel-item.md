@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventItemOccurrenceChannelItem`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `378a9559-bd86-45a8-b218-2c5d4cf3d770`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 25 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 4 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

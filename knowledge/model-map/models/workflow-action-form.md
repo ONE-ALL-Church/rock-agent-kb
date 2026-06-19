@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowActionForm`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `37`
+- Obsolete methods: `4`
 - EntityType GUID: `fdab9aeb-b2aa-4fb5-a35d-83254a9b014c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,7 +20,9 @@
 | Lava-marked properties | 70 |
 | Lava-marked non-database properties | 23 |
 | Related model links | 1 |
-| Pre-alpha changes touching this model | 4 |
+| Method signatures | 37 |
+| Obsolete methods | 4 |
+| Pre-alpha changes touching this model | 5 |
 
 ## Properties
 
@@ -148,5 +154,6 @@
 | --- | --- | --- |
 | property_changed | PersonEntryCampusStatusValueId | enum_values |
 | property_changed | PersonEntryCampusTypeValueId | enum_values |
+| property_changed | PersonEntryGroupLocationTypeValueId | enum_values |
 | property_changed | PersonEntryRecordSourceValueId | enum_values |
 | property_changed | PersonEntrySectionTypeValueId | enum_values |

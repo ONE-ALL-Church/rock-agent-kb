@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Interaction`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `42`
+- Obsolete methods: `4`
 - EntityType GUID: `3bb4b095-2de4-4009-8fa2-705bf284f7b7`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 53 |
 | Lava-marked non-database properties | 18 |
 | Related model links | 4 |
+| Method signatures | 42 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

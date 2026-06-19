@@ -2,7 +2,7 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-06-19T05:25:02+00:00
+last_built: 2026-06-19T05:52:40+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -117,8 +117,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Event Calendar](../../model-map/models/event-calendar.md) | Event | 19.1.8 | 43 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar Content Channel](../../model-map/models/event-calendar-content-channel.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar Item](../../model-map/models/event-calendar-item.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Location](../../model-map/models/group-location.md) | Group | 19.1.8 | 50 | 17 | 35 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Location Historical](../../model-map/models/group-location-historical.md) | Group | 19.1.8 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Location](../../model-map/models/group-location.md) | Group | 19.1.8 | 50 | 17 | 35 | 18 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Location Historical](../../model-map/models/group-location-historical.md) | Group | 19.1.8 | 49 | 19 | 34 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.1.8 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Interaction Session Location](../../model-map/models/interaction-session-location.md) | Core | 19.1.8 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
@@ -126,16 +126,16 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Interactive Experience Schedule Campus](../../model-map/models/interactive-experience-schedule-campus.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Location](../../model-map/models/location.md) | Core | 19.1.8 | 81 | 39 | 66 | 27 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
-Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
+Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

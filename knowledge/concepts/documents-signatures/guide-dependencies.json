@@ -42,12 +42,12 @@
   },
   "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
   "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
-  "built_at": "2026-06-19T05:25:56+00:00",
+  "built_at": "2026-06-19T05:57:02+00:00",
   "concept_id": "documents-signatures",
-  "guide_hash": "27b48033b654a49642db98ab4883381145d68e0e009a56b4266b4b69bd6d751a",
-  "guide_line_count": 1347,
+  "guide_hash": "a9f141b1e8fe33914138db1c98c9c16f081efdd9943a67cc78c839509c57fb9a",
+  "guide_line_count": 1349,
   "guide_path": "knowledge/concepts/documents-signatures/guide.md",
-  "guide_word_count": 11132,
+  "guide_word_count": 11145,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -188,7 +188,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -199,7 +199,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 44,
+      "end_line": 46,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -222,11 +222,11 @@
         "ba453d3167752790",
         "44c48fbb00fd6286"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 83,
+      "end_line": 85,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -238,11 +238,11 @@
         "bce31f25cb8a199e",
         "44c48fbb00fd6286"
       ],
-      "start_line": 45
+      "start_line": 47
     },
     {
       "confidence": "structural",
-      "end_line": 87,
+      "end_line": 89,
       "heading": "3. Documents And Signatures Mental Model",
       "needs_live_verification": false,
       "section_id": "3-documents-and-signatures-mental-model",
@@ -254,22 +254,22 @@
         "bce31f25cb8a199e",
         "44c48fbb00fd6286"
       ],
-      "start_line": 84
+      "start_line": 86
     },
     {
       "confidence": "normal",
-      "end_line": 100,
+      "end_line": 102,
       "heading": "Entity Documents",
       "needs_live_verification": true,
       "section_id": "3-documents-and-signatures-mental-model-entity-documents",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 88
+      "start_line": 90
     },
     {
       "confidence": "normal",
-      "end_line": 115,
+      "end_line": 117,
       "heading": "Merge Documents",
       "needs_live_verification": true,
       "section_id": "3-documents-and-signatures-mental-model-merge-documents",
@@ -277,11 +277,11 @@
         "44c48fbb00fd6286",
         "44c48fbb00fd6286"
       ],
-      "start_line": 101
+      "start_line": 103
     },
     {
       "confidence": "normal",
-      "end_line": 132,
+      "end_line": 134,
       "heading": "Electronic Signatures",
       "needs_live_verification": false,
       "section_id": "3-documents-and-signatures-mental-model-electronic-signatures",
@@ -289,22 +289,22 @@
         "44c48fbb00fd6286",
         "44c48fbb00fd6286"
       ],
-      "start_line": 116
+      "start_line": 118
     },
     {
       "confidence": "normal",
-      "end_line": 146,
+      "end_line": 148,
       "heading": "Generated PDFs",
       "needs_live_verification": false,
       "section_id": "3-documents-and-signatures-mental-model-generated-pdfs",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 133
+      "start_line": 135
     },
     {
       "confidence": "high",
-      "end_line": 158,
+      "end_line": 160,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -322,22 +322,22 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 147
+      "start_line": 149
     },
     {
       "confidence": "structural",
-      "end_line": 160,
+      "end_line": 162,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 159
+      "start_line": 161
     },
     {
       "confidence": "normal",
-      "end_line": 183,
+      "end_line": 185,
       "heading": "Entity Document Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-entity-document-configuration",
@@ -346,11 +346,11 @@
         "44c48fbb00fd6286",
         "44c48fbb00fd6286"
       ],
-      "start_line": 161
+      "start_line": 163
     },
     {
       "confidence": "normal",
-      "end_line": 198,
+      "end_line": 200,
       "heading": "Merge Template Configuration",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-merge-template-configuration",
@@ -359,33 +359,33 @@
         "44c48fbb00fd6286",
         "44c48fbb00fd6286"
       ],
-      "start_line": 184
+      "start_line": 186
     },
     {
       "confidence": "normal",
-      "end_line": 223,
+      "end_line": 225,
       "heading": "Signature Document Template Configuration",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-signature-document-template-configuration",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 199
+      "start_line": 201
     },
     {
       "confidence": "needs-citation",
-      "end_line": 260,
+      "end_line": 262,
       "heading": "Signature Document Instance Data",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-signature-document-instance-data",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 224
+      "start_line": 226
     },
     {
       "confidence": "structural",
-      "end_line": 262,
+      "end_line": 264,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -394,33 +394,33 @@
         "776256c424368312",
         "badab030c195b30e"
       ],
-      "start_line": 261
+      "start_line": 263
     },
     {
       "confidence": "normal",
-      "end_line": 281,
+      "end_line": 283,
       "heading": "Entity Document Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-entity-document-relationships",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 263
+      "start_line": 265
     },
     {
       "confidence": "normal",
-      "end_line": 294,
+      "end_line": 296,
       "heading": "Merge Document Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-merge-document-relationships",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 282
+      "start_line": 284
     },
     {
       "confidence": "normal",
-      "end_line": 310,
+      "end_line": 312,
       "heading": "Signature Document Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-signature-document-relationships",
@@ -428,11 +428,11 @@
         "776256c424368312",
         "badab030c195b30e"
       ],
-      "start_line": 295
+      "start_line": 297
     },
     {
       "confidence": "structural",
-      "end_line": 312,
+      "end_line": 314,
       "heading": "7. Common Documents And Signatures Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-documents-and-signatures-workflows",
@@ -441,11 +441,11 @@
         "badab030c195b30e",
         "44c48fbb00fd6286"
       ],
-      "start_line": 311
+      "start_line": 313
     },
     {
       "confidence": "needs-citation",
-      "end_line": 330,
+      "end_line": 332,
       "heading": "Add A Document To A Person",
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-add-a-document-to-a-person",
@@ -453,55 +453,55 @@
         "776256c424368312",
         "badab030c195b30e"
       ],
-      "start_line": 313
+      "start_line": 315
     },
     {
       "confidence": "normal",
-      "end_line": 345,
+      "end_line": 347,
       "heading": "Add Documents To Groups Or Other Entities",
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-add-documents-to-groups-or-other-entities",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 331
+      "start_line": 333
     },
     {
       "confidence": "normal",
-      "end_line": 360,
+      "end_line": 362,
       "heading": "Add Entity Documents From Workflows",
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-add-entity-documents-from-workflows",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 346
+      "start_line": 348
     },
     {
       "confidence": "normal",
-      "end_line": 379,
+      "end_line": 381,
       "heading": "Generate A Merge Document From A Grid",
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-generate-a-merge-document-from-a-grid",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 361
+      "start_line": 363
     },
     {
       "confidence": "normal",
-      "end_line": 398,
+      "end_line": 400,
       "heading": "Collect A Signature In A Workflow",
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-collect-a-signature-in-a-workflow",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 380
+      "start_line": 382
     },
     {
       "confidence": "high",
-      "end_line": 416,
+      "end_line": 418,
       "heading": "Collect A Signature In Event Registration",
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-collect-a-signature-in-event-registration",
@@ -509,11 +509,11 @@
         "44c48fbb00fd6286",
         "776256c424368312"
       ],
-      "start_line": 399
+      "start_line": 401
     },
     {
       "confidence": "structural",
-      "end_line": 425,
+      "end_line": 427,
       "heading": "8. Document Templates Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-document-templates-deep-dive",
@@ -521,11 +521,11 @@
         "44c48fbb00fd6286",
         "776256c424368312"
       ],
-      "start_line": 417
+      "start_line": 419
     },
     {
       "confidence": "normal",
-      "end_line": 440,
+      "end_line": 442,
       "heading": "Merge Templates",
       "needs_live_verification": true,
       "section_id": "8-document-templates-deep-dive-merge-templates",
@@ -533,11 +533,11 @@
         "44c48fbb00fd6286",
         "44c48fbb00fd6286"
       ],
-      "start_line": 426
+      "start_line": 428
     },
     {
       "confidence": "high",
-      "end_line": 470,
+      "end_line": 472,
       "heading": "Signature Document Templates",
       "needs_live_verification": true,
       "section_id": "8-document-templates-deep-dive-signature-document-templates",
@@ -547,22 +547,22 @@
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 441
+      "start_line": 443
     },
     {
       "confidence": "normal",
-      "end_line": 484,
+      "end_line": 486,
       "heading": "Signature Placement",
       "needs_live_verification": true,
       "section_id": "8-document-templates-deep-dive-signature-placement",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 471
+      "start_line": 473
     },
     {
       "confidence": "structural",
-      "end_line": 486,
+      "end_line": 488,
       "heading": "9. Electronic Signatures Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-electronic-signatures-deep-dive",
@@ -570,132 +570,132 @@
         "44c48fbb00fd6286",
         "ba453d3167752790"
       ],
-      "start_line": 485
+      "start_line": 487
     },
     {
       "confidence": "normal",
-      "end_line": 501,
+      "end_line": 503,
       "heading": "Anatomy Of A Rock Electronic Signature",
       "needs_live_verification": false,
       "section_id": "9-electronic-signatures-deep-dive-anatomy-of-a-rock-electronic-signature",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 487
+      "start_line": 489
     },
     {
       "confidence": "normal",
-      "end_line": 513,
+      "end_line": 515,
       "heading": "Typed Versus Drawn Signatures",
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-typed-versus-drawn-signatures",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 502
+      "start_line": 504
     },
     {
       "confidence": "normal",
-      "end_line": 529,
+      "end_line": 531,
       "heading": "Validity And Reuse",
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-validity-and-reuse",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 514
+      "start_line": 516
     },
     {
       "confidence": "normal",
-      "end_line": 550,
+      "end_line": 552,
       "heading": "Workflows",
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-workflows",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 530
+      "start_line": 532
     },
     {
       "confidence": "normal",
-      "end_line": 564,
+      "end_line": 566,
       "heading": "Event Registrations",
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-event-registrations",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 551
+      "start_line": 553
     },
     {
       "confidence": "normal",
-      "end_line": 582,
+      "end_line": 584,
       "heading": "Managing Signed Documents",
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-managing-signed-documents",
       "source_keys": [
         "ba453d3167752790"
       ],
-      "start_line": 565
+      "start_line": 567
     },
     {
       "confidence": "structural",
-      "end_line": 584,
+      "end_line": 586,
       "heading": "10. Generated PDFs Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-generated-pdfs-deep-dive",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 583
+      "start_line": 585
     },
     {
       "confidence": "normal",
-      "end_line": 590,
+      "end_line": 592,
       "heading": "What The PDF Represents",
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-what-the-pdf-represents",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 585
+      "start_line": 587
     },
     {
       "confidence": "structural",
-      "end_line": 600,
+      "end_line": 602,
       "heading": "PDF Preview Versus Signed PDF",
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-pdf-preview-versus-signed-pdf",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 591
+      "start_line": 593
     },
     {
       "confidence": "normal",
-      "end_line": 616,
+      "end_line": 618,
       "heading": "Performance And Offloading",
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-performance-and-offloading",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 601
+      "start_line": 603
     },
     {
       "confidence": "needs-citation",
-      "end_line": 642,
+      "end_line": 644,
       "heading": "PDF Troubleshooting",
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-pdf-troubleshooting",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 617
+      "start_line": 619
     },
     {
       "confidence": "structural",
-      "end_line": 644,
+      "end_line": 646,
       "heading": "11. Related Rock Areas: People, Workflows, Communications, Security, Platform Configuration, Cms",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms",
@@ -706,22 +706,22 @@
         "776256c424368312",
         "2000146157764196"
       ],
-      "start_line": 643
+      "start_line": 645
     },
     {
       "confidence": "normal",
-      "end_line": 656,
+      "end_line": 658,
       "heading": "People",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-people",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 645
+      "start_line": 647
     },
     {
       "confidence": "normal",
-      "end_line": 672,
+      "end_line": 674,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-workflows",
@@ -729,22 +729,22 @@
         "9ca73fb85a7d51b9",
         "44c48fbb00fd6286"
       ],
-      "start_line": 657
+      "start_line": 659
     },
     {
       "confidence": "normal",
-      "end_line": 687,
+      "end_line": 689,
       "heading": "Communications",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-communications",
       "source_keys": [
         "ba453d3167752790"
       ],
-      "start_line": 673
+      "start_line": 675
     },
     {
       "confidence": "high",
-      "end_line": 704,
+      "end_line": 706,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-security",
@@ -752,11 +752,11 @@
         "44c48fbb00fd6286",
         "776256c424368312"
       ],
-      "start_line": 688
+      "start_line": 690
     },
     {
       "confidence": "structural",
-      "end_line": 719,
+      "end_line": 721,
       "heading": "Platform Configuration",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-platform-configuration",
@@ -764,11 +764,11 @@
         "44c48fbb00fd6286",
         "776256c424368312"
       ],
-      "start_line": 705
+      "start_line": 707
     },
     {
       "confidence": "normal",
-      "end_line": 734,
+      "end_line": 736,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-cms",
@@ -777,11 +777,11 @@
         "44c48fbb00fd6286",
         "2000146157764196"
       ],
-      "start_line": 720
+      "start_line": 722
     },
     {
       "confidence": "structural",
-      "end_line": 736,
+      "end_line": 738,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -790,11 +790,11 @@
         "2000146157764196",
         "badab030c195b30e"
       ],
-      "start_line": 735
+      "start_line": 737
     },
     {
       "confidence": "needs-citation",
-      "end_line": 753,
+      "end_line": 755,
       "heading": "Before Creating A New Document Type",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-new-document-type",
@@ -803,11 +803,11 @@
         "44c48fbb00fd6286",
         "2000146157764196"
       ],
-      "start_line": 737
+      "start_line": 739
     },
     {
       "confidence": "needs-citation",
-      "end_line": 771,
+      "end_line": 773,
       "heading": "Before Creating A New Signature Template",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-new-signature-template",
@@ -816,11 +816,11 @@
         "44c48fbb00fd6286",
         "2000146157764196"
       ],
-      "start_line": 754
+      "start_line": 756
     },
     {
       "confidence": "structural",
-      "end_line": 780,
+      "end_line": 782,
       "heading": "Naming Standards",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-naming-standards",
@@ -829,11 +829,11 @@
         "44c48fbb00fd6286",
         "2000146157764196"
       ],
-      "start_line": 772
+      "start_line": 774
     },
     {
       "confidence": "structural",
-      "end_line": 793,
+      "end_line": 795,
       "heading": "Security Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-security-guardrails",
@@ -842,22 +842,22 @@
         "44c48fbb00fd6286",
         "2000146157764196"
       ],
-      "start_line": 781
+      "start_line": 783
     },
     {
       "confidence": "community-supported",
-      "end_line": 799,
+      "end_line": 801,
       "heading": "Data Integrity Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-data-integrity-guardrails",
       "source_keys": [
         "badab030c195b30e"
       ],
-      "start_line": 794
+      "start_line": 796
     },
     {
       "confidence": "structural",
-      "end_line": 801,
+      "end_line": 803,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -865,110 +865,110 @@
         "badab030c195b30e",
         "44c48fbb00fd6286"
       ],
-      "start_line": 800
+      "start_line": 802
     },
     {
       "confidence": "needs-citation",
-      "end_line": 822,
+      "end_line": 824,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
       "source_keys": [
         "badab030c195b30e"
       ],
-      "start_line": 802
+      "start_line": 804
     },
     {
       "confidence": "structural",
-      "end_line": 834,
+      "end_line": 836,
       "heading": "API Considerations",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-considerations",
       "source_keys": [
         "badab030c195b30e"
       ],
-      "start_line": 823
+      "start_line": 825
     },
     {
       "confidence": "normal",
-      "end_line": 843,
+      "end_line": 845,
       "heading": "Lava In Merge Documents",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-in-merge-documents",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 835
+      "start_line": 837
     },
     {
       "confidence": "needs-citation",
-      "end_line": 856,
+      "end_line": 858,
       "heading": "Lava In Signature Templates",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 844
+      "start_line": 846
     },
     {
       "confidence": "structural",
-      "end_line": 858,
+      "end_line": 860,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 857
+      "start_line": 859
     },
     {
       "confidence": "citation-only",
-      "end_line": 862,
+      "end_line": 864,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 859
+      "start_line": 861
     },
     {
       "confidence": "needs-citation",
-      "end_line": 881,
+      "end_line": 883,
       "heading": "Signature Reporting",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-signature-reporting",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 863
+      "start_line": 865
     },
     {
       "confidence": "structural",
-      "end_line": 896,
+      "end_line": 898,
       "heading": "Entity Document Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-entity-document-reporting",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 882
+      "start_line": 884
     },
     {
       "confidence": "structural",
-      "end_line": 905,
+      "end_line": 907,
       "heading": "Merge Document Analytics",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-merge-document-analytics",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 897
+      "start_line": 899
     },
     {
       "confidence": "structural",
-      "end_line": 907,
+      "end_line": 909,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -977,11 +977,11 @@
         "c0cf9e3bbb1f6f9b",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 906
+      "start_line": 908
     },
     {
       "confidence": "normal",
-      "end_line": 913,
+      "end_line": 915,
       "heading": "Inactive Signature Templates",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-inactive-signature-templates",
@@ -989,11 +989,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 908
+      "start_line": 910
     },
     {
       "confidence": "normal",
-      "end_line": 919,
+      "end_line": 921,
       "heading": "Signature Placement Keyword",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-signature-placement-keyword",
@@ -1001,121 +1001,121 @@
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 914
+      "start_line": 916
     },
     {
       "confidence": "citation-only",
-      "end_line": 925,
+      "end_line": 927,
       "heading": "Signature Template Detail PDF Viewer",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-signature-template-detail-pdf-viewer",
       "source_keys": [
         "9d0ccce785ef64bb"
       ],
-      "start_line": 920
+      "start_line": 922
     },
     {
       "confidence": "normal",
-      "end_line": 931,
+      "end_line": 933,
       "heading": "Registration Signature Relationship Fix",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-registration-signature-relationship-fix",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 926
+      "start_line": 928
     },
     {
       "confidence": "normal",
-      "end_line": 937,
+      "end_line": 939,
       "heading": "Document Type Security Fix",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-document-type-security-fix",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 932
+      "start_line": 934
     },
     {
       "confidence": "structural",
-      "end_line": 943,
+      "end_line": 945,
       "heading": "Legacy Signature Providers",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-legacy-signature-providers",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 938
+      "start_line": 940
     },
     {
       "confidence": "structural",
-      "end_line": 945,
+      "end_line": 947,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 944
+      "start_line": 946
     },
     {
       "confidence": "needs-citation",
-      "end_line": 969,
+      "end_line": 971,
       "heading": "Playbook: Build A New Event Waiver",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-new-event-waiver",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 946
+      "start_line": 948
     },
     {
       "confidence": "structural",
-      "end_line": 981,
+      "end_line": 983,
       "heading": "Playbook: Add Documents To A Group Page",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-documents-to-a-group-page",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 970
+      "start_line": 972
     },
     {
       "confidence": "needs-citation",
-      "end_line": 996,
+      "end_line": 998,
       "heading": "Playbook: Build A Merge Letter Template",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-merge-letter-template",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 982
+      "start_line": 984
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1012,
+      "end_line": 1014,
       "heading": "Playbook: Move From Legacy Signature Provider To Rock-Native Signatures",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 997
+      "start_line": 999
     },
     {
       "confidence": "structural",
-      "end_line": 1027,
+      "end_line": 1029,
       "heading": "Playbook: Audit Document Security After Upgrade",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-audit-document-security-after-upgrade",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1013
+      "start_line": 1015
     },
     {
       "confidence": "structural",
-      "end_line": 1029,
+      "end_line": 1031,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -1123,66 +1123,66 @@
         "776256c424368312",
         "44c48fbb00fd6286"
       ],
-      "start_line": 1028
+      "start_line": 1030
     },
     {
       "confidence": "structural",
-      "end_line": 1039,
+      "end_line": 1041,
       "heading": "Start Here: What Kind Of Document Is Broken?",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1030
+      "start_line": 1032
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1065,
+      "end_line": 1067,
       "heading": "Entity Documents",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-entity-documents",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1040
+      "start_line": 1042
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1091,
+      "end_line": 1093,
       "heading": "Merge Documents",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-merge-documents",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1066
+      "start_line": 1068
     },
     {
       "confidence": "normal",
-      "end_line": 1138,
+      "end_line": 1140,
       "heading": "Electronic Signatures",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-electronic-signatures",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1092
+      "start_line": 1094
     },
     {
       "confidence": "normal",
-      "end_line": 1166,
+      "end_line": 1168,
       "heading": "Generated PDFs",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-generated-pdfs",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1139
+      "start_line": 1141
     },
     {
       "confidence": "structural",
-      "end_line": 1168,
+      "end_line": 1170,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -1192,55 +1192,55 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1167
+      "start_line": 1169
     },
     {
       "confidence": "structural",
-      "end_line": 1188,
+      "end_line": 1190,
       "heading": "Recipe: Find All Pending Signature Requests For A Template",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1169
+      "start_line": 1171
     },
     {
       "confidence": "structural",
-      "end_line": 1211,
+      "end_line": 1213,
       "heading": "Recipe: Verify A Person Has A Valid Signed Waiver",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-verify-a-person-has-a-valid-signed-waiver",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1189
+      "start_line": 1191
     },
     {
       "confidence": "structural",
-      "end_line": 1233,
+      "end_line": 1235,
       "heading": "Recipe: Diagnose A Failed Registration Signature",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-a-failed-registration-signature",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1212
+      "start_line": 1214
     },
     {
       "confidence": "structural",
-      "end_line": 1254,
+      "end_line": 1256,
       "heading": "Recipe: Audit Public Exposure Risk",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-public-exposure-risk",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1234
+      "start_line": 1236
     },
     {
       "confidence": "normal",
-      "end_line": 1270,
+      "end_line": 1272,
       "heading": "Recipe: Build A Staff Resend Process",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-staff-resend-process",
@@ -1249,11 +1249,11 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1255
+      "start_line": 1257
     },
     {
       "confidence": "structural",
-      "end_line": 1278,
+      "end_line": 1280,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -1262,11 +1262,11 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1271
+      "start_line": 1273
     },
     {
       "confidence": "citation-only",
-      "end_line": 1292,
+      "end_line": 1294,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1274,11 +1274,11 @@
         "99161b788cad1f6e",
         "9ca73fb85a7d51b9"
       ],
-      "start_line": 1279
+      "start_line": 1281
     },
     {
       "confidence": "high",
-      "end_line": 1347,
+      "end_line": 1349,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -1312,7 +1312,7 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1293
+      "start_line": 1295
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:39:56+00:00",

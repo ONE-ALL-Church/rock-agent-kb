@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Security`
 - Model title: `HistoryLogin`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `38`
+- Obsolete methods: `4`
 - EntityType GUID: `b0c039e1-d2b0-460a-a787-83565bcb665c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 12 |
 | Related model links | 4 |
+| Method signatures | 38 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

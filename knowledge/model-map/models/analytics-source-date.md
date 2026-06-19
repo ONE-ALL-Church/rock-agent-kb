@@ -4,7 +4,11 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceDate`
-- EntityType GUID: `1a31a638-7740-48c9-b4cd-dee98562bdf8`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `5`
+- Obsolete methods: `0`
+- EntityType GUID: `a454cbaf-0c8f-4b92-86c1-4d93ffd6e0a5`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
 ## Summary
@@ -16,6 +20,8 @@
 | Lava-marked properties | 47 |
 | Lava-marked non-database properties | 0 |
 | Related model links | 0 |
+| Method signatures | 5 |
+| Obsolete methods | 0 |
 | Pre-alpha changes touching this model | 2 |
 
 ## Properties

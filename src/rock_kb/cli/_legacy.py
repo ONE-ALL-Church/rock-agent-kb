@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
@@ -123,6 +124,8 @@ from ..source_orchestration import (
 )
 
 console = Console()
+
+DEFAULT_MODEL_MAP_NODE_PATH = Path("/tmp/rock-model-map-scrape/node_modules")
 
 
 def list_sources() -> None:
@@ -1456,7 +1459,7 @@ def build_model_map_command(
         exists=True,
         file_okay=True,
         dir_okay=False,
-        help="Stable generic model-map scrape artifact.",
+        help="Stable generic model-map raw artifact.",
     ),
     latest_path: Path = typer.Option(
         LATEST_MODEL_MAP_SCRAPE_PATH,
@@ -1464,15 +1467,15 @@ def build_model_map_command(
         exists=True,
         file_okay=True,
         dir_okay=False,
-        help="Latest/upcoming generic model-map scrape artifact.",
+        help="Latest/upcoming generic model-map raw artifact.",
     ),
     skip_live_version_check: bool = typer.Option(
         False,
         "--skip-live-version-check",
-        help="Allow rebuilding from local scrape artifacts without comparing them to the live Rock version endpoints.",
+        help="Allow rebuilding from local raw artifacts without comparing them to the live Rock version endpoints.",
     ),
 ) -> None:
-    """Build generated public model-map resources from scraped generic Rock Model Maps."""
+    """Build generated public model-map resources from saved generic Rock Model Map artifacts."""
     ensure_generated_dirs()
     try:
         if not skip_live_version_check:
@@ -1480,13 +1483,13 @@ def build_model_map_command(
             if freshness.get("status") in {"stale", "missing"}:
                 console.print_json(json.dumps(freshness))
                 console.print(
-                    "[red]ERROR[/red] Model-map scrape artifacts are not current. "
-                    "Rescrape and stamp the stable/latest model maps, or use --skip-live-version-check for an explicit offline rebuild."
+                    "[red]ERROR[/red] Model-map raw artifacts are not current. "
+                    "Run `uv run kb modelmap fetch --track both`, or use --skip-live-version-check for an explicit offline rebuild."
                 )
                 raise typer.Exit(code=1)
             if freshness.get("status") == "unknown":
                 console.print_json(json.dumps(freshness))
-                console.print("[yellow]WARNING[/yellow] Could not confirm live model-map versions; continuing with local scrape artifacts.")
+                console.print("[yellow]WARNING[/yellow] Could not confirm live model-map versions; continuing with local raw artifacts.")
         result = build_model_map(stable_scrape_path=stable_path, latest_scrape_path=latest_path)
     except typer.Exit:
         raise
@@ -1494,6 +1497,133 @@ def build_model_map_command(
         console.print(f"[red]ERROR[/red] {exc}")
         raise typer.Exit(code=1) from exc
     console.print_json(json.dumps(result))
+
+
+def fetch_model_map_obsidian_command(
+    stable_url: str = typer.Option(
+        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+        "--stable-url",
+        help="Stable/default Rock Model Map URL.",
+    ),
+    latest_url: str = typer.Option(
+        "https://rockrmslatest.com/admin/power-tools/model-map",
+        "--latest-url",
+        help="Latest/pre-alpha Rock Model Map URL.",
+    ),
+    stable_output: Path = typer.Option(
+        DEMO_MODEL_MAP_SCRAPE_PATH,
+        "--stable-output",
+        file_okay=True,
+        dir_okay=False,
+        help="Output path for the stable model-map raw artifact.",
+    ),
+    latest_output: Path = typer.Option(
+        LATEST_MODEL_MAP_SCRAPE_PATH,
+        "--latest-output",
+        file_okay=True,
+        dir_okay=False,
+        help="Output path for the latest/pre-alpha model-map raw artifact.",
+    ),
+    username: str = typer.Option("admin", "--username", help="Rock login username for the generic demo sites."),
+    password: str = typer.Option("admin", "--password", help="Rock login password for the generic demo sites."),
+    concurrency: int = typer.Option(12, "--concurrency", min=1, max=64, help="Parallel GetModelDetails calls per track."),
+    node_path: Optional[Path] = typer.Option(
+        DEFAULT_MODEL_MAP_NODE_PATH,
+        "--node-path",
+        file_okay=False,
+        dir_okay=True,
+        help="Optional Node module directory containing Playwright.",
+    ),
+    track: str = typer.Option(
+        "both",
+        "--track",
+        help="Which track to fetch: stable, latest, or both.",
+    ),
+) -> None:
+    """Fetch model-map raw artifacts through authenticated Obsidian block-action calls."""
+    selected = track.strip().lower()
+    if selected not in {"stable", "latest", "both"}:
+        console.print("[red]ERROR[/red] --track must be stable, latest, or both")
+        raise typer.Exit(code=1)
+
+    script_path = REPO_ROOT / "tools" / "model_map_obsidian_scrape.js"
+    if not script_path.exists():
+        console.print(f"[red]ERROR[/red] Missing model-map fetch script: {script_path}")
+        raise typer.Exit(code=1)
+
+    env = os.environ.copy()
+    if node_path and node_path.exists():
+        existing = env.get("NODE_PATH")
+        env["NODE_PATH"] = f"{node_path}{os.pathsep}{existing}" if existing else str(node_path)
+
+    jobs = []
+    if selected in {"stable", "both"}:
+        jobs.append(("stable", stable_url, stable_output))
+    if selected in {"latest", "both"}:
+        jobs.append(("latest", latest_url, latest_output))
+
+    results = []
+    for label, url, output in jobs:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        command = [
+            "node",
+            str(script_path),
+            "--url",
+            url,
+            "--output",
+            str(output),
+            "--track",
+            label,
+            "--username",
+            username,
+            "--password",
+            password,
+            "--concurrency",
+            str(concurrency),
+        ]
+        proc = subprocess.run(command, cwd=REPO_ROOT, env=env, text=True, capture_output=True)
+        if proc.returncode != 0:
+            console.print(f"[red]ERROR[/red] Model-map fetch failed for {label}.")
+            if proc.stdout.strip():
+                console.print(proc.stdout.strip())
+            if proc.stderr.strip():
+                console.print(proc.stderr.strip())
+            raise typer.Exit(code=proc.returncode)
+        parsed = parse_trailing_json(proc.stdout)
+        results.append(
+            {
+                "track": label,
+                "url": url,
+                "output": str(output),
+                "models_jsonl": str(output.with_name(f"{output.stem}.models.jsonl")),
+                "result": parsed,
+            }
+        )
+    console.print_json(
+        json.dumps(
+            {
+                "schema": "rock-kb-model-map-fetch-result-v1",
+                "status": "ok",
+                "collection_method": "obsidian_block_action",
+                "tracks": results,
+            }
+        )
+    )
+
+
+def parse_trailing_json(output: str) -> Optional[dict[str, Any]]:
+    text = output.strip()
+    if not text:
+        return None
+    for index, char in enumerate(text):
+        if char != "{":
+            continue
+        try:
+            parsed = json.loads(text[index:])
+        except json.JSONDecodeError:
+            continue
+        return parsed if isinstance(parsed, dict) else None
+    return None
 
 
 def stamp_model_map_scrape_version_command(

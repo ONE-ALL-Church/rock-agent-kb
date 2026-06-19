@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `WebFarm`
 - Model title: `WebFarmNodeMetric`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `3194a5e3-f352-4cd0-a585-f1dd37008b9c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 28 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 2 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

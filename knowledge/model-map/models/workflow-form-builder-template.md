@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Workflow`
 - Model title: `WorkflowFormBuilderTemplate`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `65fa3078-9d42-4857-b78a-f32a05f7a4c1`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 31 |
 | Lava-marked non-database properties | 12 |
 | Related model links | 0 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

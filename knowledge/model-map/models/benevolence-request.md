@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Finance`
 - Model title: `BenevolenceRequest`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `cf0ce5c1-9286-4310-9b50-10d040f8ebd2`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 50 |
 | Lava-marked non-database properties | 22 |
 | Related model links | 13 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

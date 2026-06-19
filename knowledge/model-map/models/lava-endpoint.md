@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `LavaEndpoint`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `38`
+- Obsolete methods: `4`
 - EntityType GUID: `f1bbf7d4-cafd-450d-a89a-b3312c9738a2`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 36 |
 | Lava-marked non-database properties | 13 |
 | Related model links | 2 |
+| Method signatures | 38 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 1 |
 
 ## Properties

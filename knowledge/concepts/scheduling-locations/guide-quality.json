@@ -14,7 +14,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11458 words; expected at least 7000.",
+      "message": "Guide has 11471 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -61,9 +61,9 @@
   "concept_id": "scheduling-locations",
   "contribution_record_count": 0,
   "entity_count": 16,
-  "generated_at": "2026-06-19T05:26:28+00:00",
-  "guide_line_count": 1143,
-  "guide_word_count": 11458,
+  "generated_at": "2026-06-19T05:57:32+00:00",
+  "guide_line_count": 1145,
+  "guide_word_count": 11471,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 91,

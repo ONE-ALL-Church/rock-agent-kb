@@ -5776,12 +5776,12 @@
   },
   "approved_media_hash": "837728495591af88c85f6d94796d6897a80f35b4f4510b6b734a81606591b343",
   "approved_media_path": "knowledge/concepts/communications/approved-media.md",
-  "built_at": "2026-06-19T05:26:09+00:00",
+  "built_at": "2026-06-19T05:57:14+00:00",
   "concept_id": "communications",
-  "guide_hash": "ad1f8a3095eeeaca499e8bbc24ac1ee866757d0c3dc9655ded22907c240e704f",
-  "guide_line_count": 1219,
+  "guide_hash": "c561fa58606e287c9f93a5ad01c488e430e8022d256b7fefa8428b6fe7d51e3f",
+  "guide_line_count": 1221,
   "guide_path": "knowledge/concepts/communications/guide.md",
-  "guide_word_count": 12233,
+  "guide_word_count": 12246,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6282,7 +6282,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -6293,7 +6293,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 56,
+      "end_line": 58,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -6310,11 +6310,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 82,
+      "end_line": 84,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -6340,11 +6340,11 @@
         "47b1e742fdc55188",
         "5be0469caeb64aba"
       ],
-      "start_line": 57
+      "start_line": 59
     },
     {
       "confidence": "high",
-      "end_line": 102,
+      "end_line": 104,
       "heading": "3. Communications Mental Model",
       "needs_live_verification": true,
       "section_id": "3-communications-mental-model",
@@ -6353,11 +6353,11 @@
         "d84571f39fffc06c",
         "480d21b5449b6ce5"
       ],
-      "start_line": 83
+      "start_line": 85
     },
     {
       "confidence": "high",
-      "end_line": 114,
+      "end_line": 116,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -6367,11 +6367,11 @@
         "0de3abf0560c66c2",
         "bce31f25cb8a199e"
       ],
-      "start_line": 103
+      "start_line": 105
     },
     {
       "confidence": "structural",
-      "end_line": 116,
+      "end_line": 118,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -6388,11 +6388,11 @@
         "480d21b5449b6ce5",
         "0de3abf0560c66c2"
       ],
-      "start_line": 115
+      "start_line": 117
     },
     {
       "confidence": "normal",
-      "end_line": 132,
+      "end_line": 134,
       "heading": "Communication transports",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-communication-transports",
@@ -6402,22 +6402,22 @@
         "a2e3fbe6c24b7688",
         "14ccd9891ccb509b"
       ],
-      "start_line": 117
+      "start_line": 119
     },
     {
       "confidence": "normal",
-      "end_line": 138,
+      "end_line": 140,
       "heading": "Communication mediums",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-communication-mediums",
       "source_keys": [
         "8db81e9fcf844d74"
       ],
-      "start_line": 133
+      "start_line": 135
     },
     {
       "confidence": "high",
-      "end_line": 174,
+      "end_line": 176,
       "heading": "Communication templates",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-communication-templates",
@@ -6432,11 +6432,11 @@
         "f7fa2f440b0913e4",
         "776256c424368312"
       ],
-      "start_line": 139
+      "start_line": 141
     },
     {
       "confidence": "normal",
-      "end_line": 190,
+      "end_line": 192,
       "heading": "Communication lists and segments",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-communication-lists-and-segments",
@@ -6444,11 +6444,11 @@
         "5be0469caeb64aba",
         "8db81e9fcf844d74"
       ],
-      "start_line": 175
+      "start_line": 177
     },
     {
       "confidence": "normal",
-      "end_line": 206,
+      "end_line": 208,
       "heading": "System phone numbers and SMS pipeline",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-system-phone-numbers-and-sms-pipeline",
@@ -6457,11 +6457,11 @@
         "0de3abf0560c66c2",
         "776256c424368312"
       ],
-      "start_line": 191
+      "start_line": 193
     },
     {
       "confidence": "high",
-      "end_line": 214,
+      "end_line": 216,
       "heading": "Communication jobs",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-communication-jobs",
@@ -6469,11 +6469,11 @@
         "3cc90794fea05600",
         "776256c424368312"
       ],
-      "start_line": 207
+      "start_line": 209
     },
     {
       "confidence": "structural",
-      "end_line": 216,
+      "end_line": 218,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -6490,11 +6490,11 @@
         "776256c424368312",
         "3b95395311c4d6e7"
       ],
-      "start_line": 215
+      "start_line": 217
     },
     {
       "confidence": "normal",
-      "end_line": 235,
+      "end_line": 237,
       "heading": "Communication",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-communication",
@@ -6503,11 +6503,11 @@
         "d84571f39fffc06c",
         "480d21b5449b6ce5"
       ],
-      "start_line": 217
+      "start_line": 219
     },
     {
       "confidence": "normal",
-      "end_line": 252,
+      "end_line": 254,
       "heading": "CommunicationRecipient",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-communicationrecipient",
@@ -6515,11 +6515,11 @@
         "bce31f25cb8a199e",
         "354b9731c846d9e2"
       ],
-      "start_line": 236
+      "start_line": 238
     },
     {
       "confidence": "normal",
-      "end_line": 265,
+      "end_line": 267,
       "heading": "CommunicationAttachment and CommunicationTemplateAttachment",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-communicationattachment-and-communicationtemplateattachment",
@@ -6527,11 +6527,11 @@
         "bce31f25cb8a199e",
         "480d21b5449b6ce5"
       ],
-      "start_line": 253
+      "start_line": 255
     },
     {
       "confidence": "normal",
-      "end_line": 269,
+      "end_line": 271,
       "heading": "CommunicationTemplate",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-communicationtemplate",
@@ -6539,11 +6539,11 @@
         "f7fa2f440b0913e4",
         "f213c580d2e960b8"
       ],
-      "start_line": 266
+      "start_line": 268
     },
     {
       "confidence": "community-supported",
-      "end_line": 273,
+      "end_line": 275,
       "heading": "SystemCommunication",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-systemcommunication",
@@ -6553,22 +6553,22 @@
         "ec1feb0cddfde711",
         "ecde9f4bc419a44d"
       ],
-      "start_line": 270
+      "start_line": 272
     },
     {
       "confidence": "citation-only",
-      "end_line": 277,
+      "end_line": 279,
       "heading": "CommunicationResponse and CommunicationResponseAttachment",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-communicationresponse-and-communicationresponseattachment",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 274
+      "start_line": 276
     },
     {
       "confidence": "normal",
-      "end_line": 281,
+      "end_line": 283,
       "heading": "SmsPipeline and SmsAction",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-smspipeline-and-smsaction",
@@ -6576,11 +6576,11 @@
         "bce31f25cb8a199e",
         "776256c424368312"
       ],
-      "start_line": 278
+      "start_line": 280
     },
     {
       "confidence": "normal",
-      "end_line": 294,
+      "end_line": 296,
       "heading": "CommunicationFlow entities",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-communicationflow-entities",
@@ -6589,11 +6589,11 @@
         "776256c424368312",
         "3b95395311c4d6e7"
       ],
-      "start_line": 282
+      "start_line": 284
     },
     {
       "confidence": "structural",
-      "end_line": 296,
+      "end_line": 298,
       "heading": "7. Common Communications Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-communications-workflows",
@@ -6608,11 +6608,11 @@
         "a7132ab63248a9bb",
         "6dc3320b1b9cdede"
       ],
-      "start_line": 295
+      "start_line": 297
     },
     {
       "confidence": "high",
-      "end_line": 313,
+      "end_line": 315,
       "heading": "Sending a standard email",
       "needs_live_verification": false,
       "section_id": "7-common-communications-workflows-sending-a-standard-email",
@@ -6622,11 +6622,11 @@
         "3cc90794fea05600",
         "776256c424368312"
       ],
-      "start_line": 297
+      "start_line": 299
     },
     {
       "confidence": "community-supported",
-      "end_line": 330,
+      "end_line": 332,
       "heading": "Sending SMS",
       "needs_live_verification": true,
       "section_id": "7-common-communications-workflows-sending-sms",
@@ -6635,22 +6635,22 @@
         "5be0469caeb64aba",
         "356a951e99f60415"
       ],
-      "start_line": 314
+      "start_line": 316
     },
     {
       "confidence": "citation-only",
-      "end_line": 345,
+      "end_line": 347,
       "heading": "Sending to a communication list",
       "needs_live_verification": true,
       "section_id": "7-common-communications-workflows-sending-to-a-communication-list",
       "source_keys": [
         "5be0469caeb64aba"
       ],
-      "start_line": 331
+      "start_line": 333
     },
     {
       "confidence": "high",
-      "end_line": 363,
+      "end_line": 365,
       "heading": "Managing communication preferences",
       "needs_live_verification": true,
       "section_id": "7-common-communications-workflows-managing-communication-preferences",
@@ -6660,11 +6660,11 @@
         "3cc90794fea05600",
         "f7fa2f440b0913e4"
       ],
-      "start_line": 346
+      "start_line": 348
     },
     {
       "confidence": "normal",
-      "end_line": 380,
+      "end_line": 382,
       "heading": "Using Communication Flows",
       "needs_live_verification": true,
       "section_id": "7-common-communications-workflows-using-communication-flows",
@@ -6672,11 +6672,11 @@
         "776256c424368312",
         "5be0469caeb64aba"
       ],
-      "start_line": 364
+      "start_line": 366
     },
     {
       "confidence": "normal",
-      "end_line": 392,
+      "end_line": 394,
       "heading": "Using mobile communication blocks",
       "needs_live_verification": false,
       "section_id": "7-common-communications-workflows-using-mobile-communication-blocks",
@@ -6687,11 +6687,11 @@
         "a7132ab63248a9bb",
         "6dc3320b1b9cdede"
       ],
-      "start_line": 381
+      "start_line": 383
     },
     {
       "confidence": "structural",
-      "end_line": 394,
+      "end_line": 396,
       "heading": "8. Email Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-email-deep-dive",
@@ -6710,11 +6710,11 @@
         "09fbb886af0c4d56",
         "a339f42421301dac"
       ],
-      "start_line": 393
+      "start_line": 395
     },
     {
       "confidence": "high",
-      "end_line": 410,
+      "end_line": 412,
       "heading": "Email authoring",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-email-authoring",
@@ -6722,11 +6722,11 @@
         "3cc90794fea05600",
         "f213c580d2e960b8"
       ],
-      "start_line": 395
+      "start_line": 397
     },
     {
       "confidence": "normal",
-      "end_line": 416,
+      "end_line": 418,
       "heading": "Email transport and validation",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-email-transport-and-validation",
@@ -6735,11 +6735,11 @@
         "753a244af11d9442",
         "b77af0c0af5d415f"
       ],
-      "start_line": 411
+      "start_line": 413
     },
     {
       "confidence": "normal",
-      "end_line": 422,
+      "end_line": 424,
       "heading": "Deliverability and provider setup",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-deliverability-and-provider-setup",
@@ -6748,11 +6748,11 @@
         "14ccd9891ccb509b",
         "a2e3fbe6c24b7688"
       ],
-      "start_line": 417
+      "start_line": 419
     },
     {
       "confidence": "high",
-      "end_line": 435,
+      "end_line": 437,
       "heading": "Email analytics",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-email-analytics",
@@ -6762,44 +6762,44 @@
         "3b95395311c4d6e7",
         "a9b81d5c581f1d75"
       ],
-      "start_line": 423
+      "start_line": 425
     },
     {
       "confidence": "community-supported",
-      "end_line": 439,
+      "end_line": 441,
       "heading": "Email preview and preheaders",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-email-preview-and-preheaders",
       "source_keys": [
         "16a72d50946ebc8a"
       ],
-      "start_line": 436
+      "start_line": 438
     },
     {
       "confidence": "community-supported",
-      "end_line": 450,
+      "end_line": 452,
       "heading": "View email on webpage",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-view-email-on-webpage",
       "source_keys": [
         "09fbb886af0c4d56"
       ],
-      "start_line": 440
+      "start_line": 442
     },
     {
       "confidence": "community-supported",
-      "end_line": 465,
+      "end_line": 467,
       "heading": "Email template design systems",
       "needs_live_verification": true,
       "section_id": "8-email-deep-dive-email-template-design-systems",
       "source_keys": [
         "a339f42421301dac"
       ],
-      "start_line": 451
+      "start_line": 453
     },
     {
       "confidence": "structural",
-      "end_line": 467,
+      "end_line": 469,
       "heading": "9. SMS Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-sms-deep-dive",
@@ -6817,11 +6817,11 @@
         "356a951e99f60415",
         "75050d25302d523c"
       ],
-      "start_line": 466
+      "start_line": 468
     },
     {
       "confidence": "normal",
-      "end_line": 483,
+      "end_line": 485,
       "heading": "SMS recipient eligibility",
       "needs_live_verification": true,
       "section_id": "9-sms-deep-dive-sms-recipient-eligibility",
@@ -6830,11 +6830,11 @@
         "106816ba49366476",
         "f7fa2f440b0913e4"
       ],
-      "start_line": 468
+      "start_line": 470
     },
     {
       "confidence": "normal",
-      "end_line": 495,
+      "end_line": 497,
       "heading": "SMS opt-out and opt-in",
       "needs_live_verification": true,
       "section_id": "9-sms-deep-dive-sms-opt-out-and-opt-in",
@@ -6844,11 +6844,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 484
+      "start_line": 486
     },
     {
       "confidence": "normal",
-      "end_line": 511,
+      "end_line": 513,
       "heading": "SMS conversations",
       "needs_live_verification": false,
       "section_id": "9-sms-deep-dive-sms-conversations",
@@ -6856,22 +6856,22 @@
         "5be0469caeb64aba",
         "a7132ab63248a9bb"
       ],
-      "start_line": 496
+      "start_line": 498
     },
     {
       "confidence": "community-supported",
-      "end_line": 526,
+      "end_line": 528,
       "heading": "Staff-specific texting numbers",
       "needs_live_verification": true,
       "section_id": "9-sms-deep-dive-staff-specific-texting-numbers",
       "source_keys": [
         "ee2d97dc97cb1034"
       ],
-      "start_line": 512
+      "start_line": 514
     },
     {
       "confidence": "community-supported",
-      "end_line": 530,
+      "end_line": 532,
       "heading": "Calls to SMS numbers",
       "needs_live_verification": true,
       "section_id": "9-sms-deep-dive-calls-to-sms-numbers",
@@ -6879,33 +6879,33 @@
         "cc3f7b3e1b6d67b7",
         "289cf03dbb480b6c"
       ],
-      "start_line": 527
+      "start_line": 529
     },
     {
       "confidence": "community-supported",
-      "end_line": 543,
+      "end_line": 545,
       "heading": "SMS cost, segments, and encoding",
       "needs_live_verification": false,
       "section_id": "9-sms-deep-dive-sms-cost-segments-and-encoding",
       "source_keys": [
         "356a951e99f60415"
       ],
-      "start_line": 531
+      "start_line": 533
     },
     {
       "confidence": "community-supported",
-      "end_line": 547,
+      "end_line": 549,
       "heading": "Disabled SMS warnings",
       "needs_live_verification": true,
       "section_id": "9-sms-deep-dive-disabled-sms-warnings",
       "source_keys": [
         "75050d25302d523c"
       ],
-      "start_line": 544
+      "start_line": 546
     },
     {
       "confidence": "structural",
-      "end_line": 549,
+      "end_line": 551,
       "heading": "10. Related Rock Areas: People, Workflows, Lava, Security",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-workflows-lava-security",
@@ -6926,11 +6926,11 @@
         "3cc90794fea05600",
         "29f8c3c14333fef9"
       ],
-      "start_line": 548
+      "start_line": 550
     },
     {
       "confidence": "normal",
-      "end_line": 565,
+      "end_line": 567,
       "heading": "People",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-workflows-lava-security-people",
@@ -6939,11 +6939,11 @@
         "47b1e742fdc55188",
         "8db81e9fcf844d74"
       ],
-      "start_line": 550
+      "start_line": 552
     },
     {
       "confidence": "normal",
-      "end_line": 580,
+      "end_line": 582,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-workflows-lava-security-workflows",
@@ -6954,11 +6954,11 @@
         "7e8185e20337160a",
         "776256c424368312"
       ],
-      "start_line": 566
+      "start_line": 568
     },
     {
       "confidence": "normal",
-      "end_line": 588,
+      "end_line": 590,
       "heading": "Lava",
       "needs_live_verification": true,
       "section_id": "10-related-rock-areas-people-workflows-lava-security-lava",
@@ -6970,11 +6970,11 @@
         "ecde9f4bc419a44d",
         "4fd5159f5e8e1a4f"
       ],
-      "start_line": 581
+      "start_line": 583
     },
     {
       "confidence": "high",
-      "end_line": 607,
+      "end_line": 609,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "10-related-rock-areas-people-workflows-lava-security-security",
@@ -6983,11 +6983,11 @@
         "29f8c3c14333fef9",
         "776256c424368312"
       ],
-      "start_line": 589
+      "start_line": 591
     },
     {
       "confidence": "structural",
-      "end_line": 609,
+      "end_line": 611,
       "heading": "11. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails",
@@ -6998,11 +6998,11 @@
         "5be0469caeb64aba",
         "a2e3fbe6c24b7688"
       ],
-      "start_line": 608
+      "start_line": 610
     },
     {
       "confidence": "needs-citation",
-      "end_line": 627,
+      "end_line": 629,
       "heading": "Governance",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-governance",
@@ -7011,11 +7011,11 @@
         "29f8c3c14333fef9",
         "776256c424368312"
       ],
-      "start_line": 610
+      "start_line": 612
     },
     {
       "confidence": "normal",
-      "end_line": 631,
+      "end_line": 633,
       "heading": "Saturation and over-communication",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-saturation-and-over-communication",
@@ -7023,44 +7023,44 @@
         "5be0469caeb64aba",
         "3cc90794fea05600"
       ],
-      "start_line": 628
+      "start_line": 630
     },
     {
       "confidence": "normal",
-      "end_line": 646,
+      "end_line": 648,
       "heading": "Approval policies",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-approval-policies",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 632
+      "start_line": 634
     },
     {
       "confidence": "structural",
-      "end_line": 661,
+      "end_line": 663,
       "heading": "Template operations",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-template-operations",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 647
+      "start_line": 649
     },
     {
       "confidence": "community-supported",
-      "end_line": 665,
+      "end_line": 667,
       "heading": "Lower environment safety",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-lower-environment-safety",
       "source_keys": [
         "a2e3fbe6c24b7688"
       ],
-      "start_line": 662
+      "start_line": 664
     },
     {
       "confidence": "structural",
-      "end_line": 667,
+      "end_line": 669,
       "heading": "12. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks",
@@ -7088,11 +7088,11 @@
         "354b9731c846d9e2",
         "bdb88e0ed0d58cbc"
       ],
-      "start_line": 666
+      "start_line": 668
     },
     {
       "confidence": "normal",
-      "end_line": 673,
+      "end_line": 675,
       "heading": "Transport components",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-transport-components",
@@ -7101,11 +7101,11 @@
         "480d21b5449b6ce5",
         "b77af0c0af5d415f"
       ],
-      "start_line": 668
+      "start_line": 670
     },
     {
       "confidence": "normal",
-      "end_line": 678,
+      "end_line": 680,
       "heading": "Recipient objects",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-recipient-objects",
@@ -7113,11 +7113,11 @@
         "3144c89b60a04911",
         "47b1e742fdc55188"
       ],
-      "start_line": 674
+      "start_line": 676
     },
     {
       "confidence": "normal",
-      "end_line": 682,
+      "end_line": 684,
       "heading": "Recipient detail stored procedure",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-recipient-detail-stored-procedure",
@@ -7125,11 +7125,11 @@
         "f7fa2f440b0913e4",
         "8db81e9fcf844d74"
       ],
-      "start_line": 679
+      "start_line": 681
     },
     {
       "confidence": "normal",
-      "end_line": 694,
+      "end_line": 696,
       "heading": "Obsidian communication blocks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-obsidian-communication-blocks",
@@ -7148,11 +7148,11 @@
         "3b95395311c4d6e7",
         "5b8aa0c453e855f4"
       ],
-      "start_line": 683
+      "start_line": 685
     },
     {
       "confidence": "normal",
-      "end_line": 700,
+      "end_line": 702,
       "heading": "REST endpoints",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-rest-endpoints",
@@ -7160,11 +7160,11 @@
         "354b9731c846d9e2",
         "bdb88e0ed0d58cbc"
       ],
-      "start_line": 695
+      "start_line": 697
     },
     {
       "confidence": "structural",
-      "end_line": 702,
+      "end_line": 704,
       "heading": "13. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map",
@@ -7175,11 +7175,11 @@
         "bce31f25cb8a199e",
         "2617ec7030df84be"
       ],
-      "start_line": 701
+      "start_line": 703
     },
     {
       "confidence": "normal",
-      "end_line": 715,
+      "end_line": 717,
       "heading": "Communication analytics",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-communication-analytics",
@@ -7188,55 +7188,55 @@
         "5be0469caeb64aba",
         "5be0469caeb64aba"
       ],
-      "start_line": 703
+      "start_line": 705
     },
     {
       "confidence": "citation-only",
-      "end_line": 719,
+      "end_line": 721,
       "heading": "Saturation reporting",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-saturation-reporting",
       "source_keys": [
         "5be0469caeb64aba"
       ],
-      "start_line": 716
+      "start_line": 718
     },
     {
       "confidence": "citation-only",
-      "end_line": 723,
+      "end_line": 725,
       "heading": "Unsubscribe reporting",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-unsubscribe-reporting",
       "source_keys": [
         "0de3abf0560c66c2"
       ],
-      "start_line": 720
+      "start_line": 722
     },
     {
       "confidence": "citation-only",
-      "end_line": 748,
+      "end_line": 750,
       "heading": "Model Map coverage",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-model-map-coverage",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 724
+      "start_line": 726
     },
     {
       "confidence": "citation-only",
-      "end_line": 752,
+      "end_line": 754,
       "heading": "Business Intelligence",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-business-intelligence",
       "source_keys": [
         "2617ec7030df84be"
       ],
-      "start_line": 749
+      "start_line": 751
     },
     {
       "confidence": "structural",
-      "end_line": 754,
+      "end_line": 756,
       "heading": "14. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats",
@@ -7245,11 +7245,11 @@
         "776256c424368312",
         "3cc90794fea05600"
       ],
-      "start_line": 753
+      "start_line": 755
     },
     {
       "confidence": "normal",
-      "end_line": 764,
+      "end_line": 766,
       "heading": "v17.x",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v17-x",
@@ -7259,11 +7259,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 755
+      "start_line": 757
     },
     {
       "confidence": "high",
-      "end_line": 770,
+      "end_line": 772,
       "heading": "v18.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v18-1",
@@ -7272,33 +7272,33 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 765
+      "start_line": 767
     },
     {
       "confidence": "normal",
-      "end_line": 780,
+      "end_line": 782,
       "heading": "v18.2",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v18-2",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 771
+      "start_line": 773
     },
     {
       "confidence": "normal",
-      "end_line": 790,
+      "end_line": 792,
       "heading": "v18.3",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v18-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 781
+      "start_line": 783
     },
     {
       "confidence": "normal",
-      "end_line": 796,
+      "end_line": 798,
       "heading": "v19.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v19-1",
@@ -7306,11 +7306,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 791
+      "start_line": 793
     },
     {
       "confidence": "structural",
-      "end_line": 798,
+      "end_line": 800,
       "heading": "15. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks",
@@ -7323,44 +7323,44 @@
         "289cf03dbb480b6c",
         "776256c424368312"
       ],
-      "start_line": 797
+      "start_line": 799
     },
     {
       "confidence": "community-supported",
-      "end_line": 810,
+      "end_line": 812,
       "heading": "Playbook: Configure a safe email transport in development",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-configure-a-safe-email-transport-in-development",
       "source_keys": [
         "a2e3fbe6c24b7688"
       ],
-      "start_line": 799
+      "start_line": 801
     },
     {
       "confidence": "normal",
-      "end_line": 825,
+      "end_line": 827,
       "heading": "Playbook: Build a governed template library",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-build-a-governed-template-library",
       "source_keys": [
         "3cc90794fea05600"
       ],
-      "start_line": 811
+      "start_line": 813
     },
     {
       "confidence": "citation-only",
-      "end_line": 840,
+      "end_line": 842,
       "heading": "Playbook: Create or audit a communication list",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-create-or-audit-a-communication-list",
       "source_keys": [
         "5be0469caeb64aba"
       ],
-      "start_line": 826
+      "start_line": 828
     },
     {
       "confidence": "community-supported",
-      "end_line": 855,
+      "end_line": 857,
       "heading": "Playbook: Launch staff SMS conversations",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-launch-staff-sms-conversations",
@@ -7370,11 +7370,11 @@
         "ee2d97dc97cb1034",
         "289cf03dbb480b6c"
       ],
-      "start_line": 841
+      "start_line": 843
     },
     {
       "confidence": "normal",
-      "end_line": 870,
+      "end_line": 872,
       "heading": "Playbook: Implement a Communication Flow",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-implement-a-communication-flow",
@@ -7382,11 +7382,11 @@
         "776256c424368312",
         "5be0469caeb64aba"
       ],
-      "start_line": 856
+      "start_line": 858
     },
     {
       "confidence": "structural",
-      "end_line": 872,
+      "end_line": 874,
       "heading": "16. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree",
@@ -7397,11 +7397,11 @@
         "75050d25302d523c",
         "3cc90794fea05600"
       ],
-      "start_line": 871
+      "start_line": 873
     },
     {
       "confidence": "structural",
-      "end_line": 885,
+      "end_line": 887,
       "heading": "A communication did not send",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-a-communication-did-not-send",
@@ -7409,44 +7409,44 @@
         "776256c424368312",
         "5be0469caeb64aba"
       ],
-      "start_line": 873
+      "start_line": 875
     },
     {
       "confidence": "normal",
-      "end_line": 898,
+      "end_line": 900,
       "heading": "Some recipients are missing",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-some-recipients-are-missing",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 886
+      "start_line": 888
     },
     {
       "confidence": "community-supported",
-      "end_line": 909,
+      "end_line": 911,
       "heading": "Email delivered but analytics are missing",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-email-delivered-but-analytics-are-missing",
       "source_keys": [
         "a9b81d5c581f1d75"
       ],
-      "start_line": 899
+      "start_line": 901
     },
     {
       "confidence": "normal",
-      "end_line": 921,
+      "end_line": 923,
       "heading": "SMS reply is not visible",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-sms-reply-is-not-visible",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 910
+      "start_line": 912
     },
     {
       "confidence": "normal",
-      "end_line": 933,
+      "end_line": 935,
       "heading": "SMS recipient did not receive message",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-sms-recipient-did-not-receive-message",
@@ -7454,33 +7454,33 @@
         "75050d25302d523c",
         "776256c424368312"
       ],
-      "start_line": 922
+      "start_line": 924
     },
     {
       "confidence": "normal",
-      "end_line": 944,
+      "end_line": 946,
       "heading": "Template is missing from wizard",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-template-is-missing-from-wizard",
       "source_keys": [
         "3cc90794fea05600"
       ],
-      "start_line": 934
+      "start_line": 936
     },
     {
       "confidence": "normal",
-      "end_line": 953,
+      "end_line": 955,
       "heading": "User cannot view communication detail",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-user-cannot-view-communication-detail",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 945
+      "start_line": 947
     },
     {
       "confidence": "structural",
-      "end_line": 955,
+      "end_line": 957,
       "heading": "17. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes",
@@ -7491,88 +7491,88 @@
         "a7132ab63248a9bb",
         "a9b81d5c581f1d75"
       ],
-      "start_line": 954
+      "start_line": 956
     },
     {
       "confidence": "structural",
-      "end_line": 984,
+      "end_line": 986,
       "heading": "Recipe: Audit a single sent communication",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-a-single-sent-communication",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 956
+      "start_line": 958
     },
     {
       "confidence": "structural",
-      "end_line": 1003,
+      "end_line": 1005,
       "heading": "Recipe: Explain why a person did not get an email",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-explain-why-a-person-did-not-get-an-email",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 985
+      "start_line": 987
     },
     {
       "confidence": "normal",
-      "end_line": 1021,
+      "end_line": 1023,
       "heading": "Recipe: Explain why a person did not get SMS",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-explain-why-a-person-did-not-get-sms",
       "source_keys": [
         "f2743496a4d1a6bf"
       ],
-      "start_line": 1004
+      "start_line": 1006
     },
     {
       "confidence": "citation-only",
-      "end_line": 1039,
+      "end_line": 1041,
       "heading": "Recipe: Audit communication list freshness",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-communication-list-freshness",
       "source_keys": [
         "5be0469caeb64aba"
       ],
-      "start_line": 1022
+      "start_line": 1024
     },
     {
       "confidence": "structural",
-      "end_line": 1070,
+      "end_line": 1072,
       "heading": "Recipe: Review a communication template",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-review-a-communication-template",
       "source_keys": [
         "5be0469caeb64aba"
       ],
-      "start_line": 1040
+      "start_line": 1042
     },
     {
       "confidence": "normal",
-      "end_line": 1088,
+      "end_line": 1090,
       "heading": "Recipe: Investigate SMS conversation access",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-investigate-sms-conversation-access",
       "source_keys": [
         "a7132ab63248a9bb"
       ],
-      "start_line": 1071
+      "start_line": 1073
     },
     {
       "confidence": "community-supported",
-      "end_line": 1104,
+      "end_line": 1106,
       "heading": "Recipe: Determine whether a workflow email supports analytics",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-determine-whether-a-workflow-email-supports-analytics",
       "source_keys": [
         "a9b81d5c581f1d75"
       ],
-      "start_line": 1089
+      "start_line": 1091
     },
     {
       "confidence": "citation-only",
-      "end_line": 1130,
+      "end_line": 1132,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -7590,11 +7590,11 @@
         "0de3abf0560c66c2",
         "5be0469caeb64aba"
       ],
-      "start_line": 1105
+      "start_line": 1107
     },
     {
       "confidence": "citation-only",
-      "end_line": 1151,
+      "end_line": 1153,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -7606,11 +7606,11 @@
         "5be0469caeb64aba",
         "5be0469caeb64aba"
       ],
-      "start_line": 1131
+      "start_line": 1133
     },
     {
       "confidence": "high",
-      "end_line": 1219,
+      "end_line": 1221,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes",
@@ -7659,7 +7659,7 @@
         "9a37f70b2e2f8ef1",
         "4fd5159f5e8e1a4f"
       ],
-      "start_line": 1152
+      "start_line": 1154
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:23:39+00:00",

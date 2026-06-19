@@ -19,7 +19,9 @@ Agents starting from this long-form guide should inspect the stable generated mo
 - Global model-map index: [Rock Model Map](../../model-map/index.md)
 - Stable model rows: `../../model-map/stable-models.jsonl`
 - Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
 - Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
 - Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
 
 <!-- END GENERATED MODEL MAP POINTERS -->

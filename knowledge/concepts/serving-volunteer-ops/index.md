@@ -2,7 +2,7 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-06-19T05:24:38+00:00
+last_built: 2026-06-19T05:52:16+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -140,7 +140,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.1.8 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.1.8 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance](../../model-map/models/attendance.md) | Event | 19.1.8 | 82 | 39 | 65 | 26 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance](../../model-map/models/attendance.md) | Event | 19.1.8 | 82 | 39 | 65 | 26 | 3 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Check In Session](../../model-map/models/attendance-check-in-session.md) | Event | 19.1.8 | 21 | 7 | 14 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Code](../../model-map/models/attendance-code.md) | Event | 19.1.8 | 20 | 7 | 12 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.1.8 | 64 | 27 | 47 | 20 | 1 | [source](https://community.rockrms.com/ModelMap) |
@@ -151,16 +151,16 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Group Requirement Type](../../model-map/models/group-requirement-type.md) | Group | 19.1.8 | 65 | 33 | 50 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.1.8 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
-Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
+Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Campus` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the scraped Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

@@ -1501,12 +1501,12 @@
   },
   "approved_media_hash": "260c5599ae798761cfe73d55002b70b25cc99e32be41c386905250bfa1f8bb39",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-06-19T05:25:52+00:00",
+  "built_at": "2026-06-19T05:56:58+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "284d5c2cb01a8ee441a716c8fdc6ac407efc0bbc46d3734b7479081d2c3882f2",
-  "guide_line_count": 1267,
+  "guide_hash": "c36a6bae4ea4b4efe650958344f42d62cba27a8962bc55afbda4fb6560aac0f0",
+  "guide_line_count": 1269,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 11299,
+  "guide_word_count": 11312,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1701,7 +1701,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -1712,7 +1712,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 54,
+      "end_line": 56,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -1727,11 +1727,11 @@
         "776256c424368312",
         "790df48a4843d338"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 107,
+      "end_line": 109,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -1753,11 +1753,11 @@
         "1007e337f89a52b2",
         "776256c424368312"
       ],
-      "start_line": 55
+      "start_line": 57
     },
     {
       "confidence": "normal",
-      "end_line": 135,
+      "end_line": 137,
       "heading": "3. AI Agents And Automation Mental Model",
       "needs_live_verification": true,
       "section_id": "3-ai-agents-and-automation-mental-model",
@@ -1765,11 +1765,11 @@
         "790df48a4843d338",
         "790df48a4843d338"
       ],
-      "start_line": 108
+      "start_line": 110
     },
     {
       "confidence": "high",
-      "end_line": 163,
+      "end_line": 165,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -1794,11 +1794,11 @@
         "776256c424368312",
         "1007e337f89a52b2"
       ],
-      "start_line": 136
+      "start_line": 138
     },
     {
       "confidence": "normal",
-      "end_line": 215,
+      "end_line": 217,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model",
@@ -1815,11 +1815,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 164
+      "start_line": 166
     },
     {
       "confidence": "normal",
-      "end_line": 244,
+      "end_line": 246,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships",
@@ -1829,11 +1829,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 216
+      "start_line": 218
     },
     {
       "confidence": "structural",
-      "end_line": 246,
+      "end_line": 248,
       "heading": "7. Common AI Agents And Automation Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-ai-agents-and-automation-workflows",
@@ -1842,33 +1842,33 @@
         "776256c424368312",
         "3206cee519301613"
       ],
-      "start_line": 245
+      "start_line": 247
     },
     {
       "confidence": "normal",
-      "end_line": 262,
+      "end_line": 264,
       "heading": "Staff Person Research",
       "needs_live_verification": false,
       "section_id": "7-common-ai-agents-and-automation-workflows-staff-person-research",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 247
+      "start_line": 249
     },
     {
       "confidence": "normal",
-      "end_line": 276,
+      "end_line": 278,
       "heading": "Group Lookup And Membership Insight",
       "needs_live_verification": false,
       "section_id": "7-common-ai-agents-and-automation-workflows-group-lookup-and-membership-insight",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 263
+      "start_line": 265
     },
     {
       "confidence": "normal",
-      "end_line": 292,
+      "end_line": 294,
       "heading": "Event Registration Support",
       "needs_live_verification": true,
       "section_id": "7-common-ai-agents-and-automation-workflows-event-registration-support",
@@ -1876,55 +1876,55 @@
         "790df48a4843d338",
         "790df48a4843d338"
       ],
-      "start_line": 277
+      "start_line": 279
     },
     {
       "confidence": "normal",
-      "end_line": 307,
+      "end_line": 309,
       "heading": "Connection Request Creation",
       "needs_live_verification": false,
       "section_id": "7-common-ai-agents-and-automation-workflows-connection-request-creation",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 293
+      "start_line": 295
     },
     {
       "confidence": "normal",
-      "end_line": 319,
+      "end_line": 321,
       "heading": "Chat Message Automation",
       "needs_live_verification": true,
       "section_id": "7-common-ai-agents-and-automation-workflows-chat-message-automation",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 308
+      "start_line": 310
     },
     {
       "confidence": "normal",
-      "end_line": 336,
+      "end_line": 338,
       "heading": "Mobile Voice Agent",
       "needs_live_verification": true,
       "section_id": "7-common-ai-agents-and-automation-workflows-mobile-voice-agent",
       "source_keys": [
         "3206cee519301613"
       ],
-      "start_line": 320
+      "start_line": 322
     },
     {
       "confidence": "normal",
-      "end_line": 340,
+      "end_line": 342,
       "heading": "8. Agent Tools And Lookup Surfaces Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 337
+      "start_line": 339
     },
     {
       "confidence": "normal",
-      "end_line": 363,
+      "end_line": 365,
       "heading": "Lookup Tools",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-lookup-tools",
@@ -1932,77 +1932,77 @@
         "790df48a4843d338",
         "790df48a4843d338"
       ],
-      "start_line": 341
+      "start_line": 343
     },
     {
       "confidence": "needs-citation",
-      "end_line": 369,
+      "end_line": 371,
       "heading": "List Tools",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-list-tools",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 364
+      "start_line": 366
     },
     {
       "confidence": "structural",
-      "end_line": 373,
+      "end_line": 375,
       "heading": "Get Tools",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-get-tools",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 370
+      "start_line": 372
     },
     {
       "confidence": "structural",
-      "end_line": 379,
+      "end_line": 381,
       "heading": "Summary Tools",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-summary-tools",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 374
+      "start_line": 376
     },
     {
       "confidence": "normal",
-      "end_line": 390,
+      "end_line": 392,
       "heading": "Insight Tools",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-insight-tools",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 380
+      "start_line": 382
     },
     {
       "confidence": "needs-citation",
-      "end_line": 404,
+      "end_line": 406,
       "heading": "AvailableAttributes Tools",
       "needs_live_verification": true,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 391
+      "start_line": 393
     },
     {
       "confidence": "needs-citation",
-      "end_line": 423,
+      "end_line": 425,
       "heading": "AddOrUpdate Tools",
       "needs_live_verification": false,
       "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-addorupdate-tools",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 405
+      "start_line": 407
     },
     {
       "confidence": "normal",
-      "end_line": 445,
+      "end_line": 447,
       "heading": "9. Permissions And Data Boundaries Deep Dive",
       "needs_live_verification": true,
       "section_id": "9-permissions-and-data-boundaries-deep-dive",
@@ -2010,33 +2010,33 @@
         "790df48a4843d338",
         "1007e337f89a52b2"
       ],
-      "start_line": 424
+      "start_line": 426
     },
     {
       "confidence": "normal",
-      "end_line": 468,
+      "end_line": 470,
       "heading": "Public vs Internal Agents",
       "needs_live_verification": false,
       "section_id": "9-permissions-and-data-boundaries-deep-dive-public-vs-internal-agents",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 446
+      "start_line": 448
     },
     {
       "confidence": "normal",
-      "end_line": 481,
+      "end_line": 483,
       "heading": "Raw ID Boundary",
       "needs_live_verification": false,
       "section_id": "9-permissions-and-data-boundaries-deep-dive-raw-id-boundary",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 469
+      "start_line": 471
     },
     {
       "confidence": "needs-citation",
-      "end_line": 508,
+      "end_line": 510,
       "heading": "Sensitive Data Classes",
       "needs_live_verification": false,
       "section_id": "9-permissions-and-data-boundaries-deep-dive-sensitive-data-classes",
@@ -2044,11 +2044,11 @@
         "790df48a4843d338",
         "1007e337f89a52b2"
       ],
-      "start_line": 482
+      "start_line": 484
     },
     {
       "confidence": "normal",
-      "end_line": 520,
+      "end_line": 522,
       "heading": "Generated v2 Endpoint Boundary",
       "needs_live_verification": true,
       "section_id": "9-permissions-and-data-boundaries-deep-dive-generated-v2-endpoint-boundary",
@@ -2057,11 +2057,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 509
+      "start_line": 511
     },
     {
       "confidence": "high",
-      "end_line": 549,
+      "end_line": 551,
       "heading": "10. Automation Design And Workflows Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-automation-design-and-workflows-deep-dive",
@@ -2072,11 +2072,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 521
+      "start_line": 523
     },
     {
       "confidence": "needs-citation",
-      "end_line": 570,
+      "end_line": 572,
       "heading": "Trigger Design",
       "needs_live_verification": false,
       "section_id": "10-automation-design-and-workflows-deep-dive-trigger-design",
@@ -2087,11 +2087,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 550
+      "start_line": 552
     },
     {
       "confidence": "structural",
-      "end_line": 583,
+      "end_line": 585,
       "heading": "Action Design",
       "needs_live_verification": false,
       "section_id": "10-automation-design-and-workflows-deep-dive-action-design",
@@ -2102,11 +2102,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 571
+      "start_line": 573
     },
     {
       "confidence": "structural",
-      "end_line": 597,
+      "end_line": 599,
       "heading": "Agent-In-The-Loop Automation",
       "needs_live_verification": false,
       "section_id": "10-automation-design-and-workflows-deep-dive-agent-in-the-loop-automation",
@@ -2117,11 +2117,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 584
+      "start_line": 586
     },
     {
       "confidence": "structural",
-      "end_line": 610,
+      "end_line": 612,
       "heading": "Agent-As-Reviewer Automation",
       "needs_live_verification": true,
       "section_id": "10-automation-design-and-workflows-deep-dive-agent-as-reviewer-automation",
@@ -2132,11 +2132,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 598
+      "start_line": 600
     },
     {
       "confidence": "structural",
-      "end_line": 614,
+      "end_line": 616,
       "heading": "11. Verification And Review Gates Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-verification-and-review-gates-deep-dive",
@@ -2148,11 +2148,11 @@
         "dd0d53998f998249",
         "790df48a4843d338"
       ],
-      "start_line": 611
+      "start_line": 613
     },
     {
       "confidence": "structural",
-      "end_line": 624,
+      "end_line": 626,
       "heading": "Read-Only Low-Risk Gate",
       "needs_live_verification": true,
       "section_id": "11-verification-and-review-gates-deep-dive-read-only-low-risk-gate",
@@ -2163,11 +2163,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 615
+      "start_line": 617
     },
     {
       "confidence": "structural",
-      "end_line": 638,
+      "end_line": 640,
       "heading": "Sensitive Read Gate",
       "needs_live_verification": true,
       "section_id": "11-verification-and-review-gates-deep-dive-sensitive-read-gate",
@@ -2178,11 +2178,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 625
+      "start_line": 627
     },
     {
       "confidence": "structural",
-      "end_line": 652,
+      "end_line": 654,
       "heading": "Write Preview Gate",
       "needs_live_verification": false,
       "section_id": "11-verification-and-review-gates-deep-dive-write-preview-gate",
@@ -2193,11 +2193,11 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 639
+      "start_line": 641
     },
     {
       "confidence": "structural",
-      "end_line": 662,
+      "end_line": 664,
       "heading": "Post-Write Verification Gate",
       "needs_live_verification": false,
       "section_id": "11-verification-and-review-gates-deep-dive-post-write-verification-gate",
@@ -2208,33 +2208,33 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 653
+      "start_line": 655
     },
     {
       "confidence": "normal",
-      "end_line": 680,
+      "end_line": 682,
       "heading": "Security Review Gate",
       "needs_live_verification": true,
       "section_id": "11-verification-and-review-gates-deep-dive-security-review-gate",
       "source_keys": [
         "1007e337f89a52b2"
       ],
-      "start_line": 663
+      "start_line": 665
     },
     {
       "confidence": "normal",
-      "end_line": 684,
+      "end_line": 686,
       "heading": "Debugging Gate",
       "needs_live_verification": true,
       "section_id": "11-verification-and-review-gates-deep-dive-debugging-gate",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 681
+      "start_line": 683
     },
     {
       "confidence": "structural",
-      "end_line": 686,
+      "end_line": 688,
       "heading": "12. Related Rock Areas: Security, Api Integrations, Workflows, Platform Configuration, Data Views, Reports, Operations, Lava",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava",
@@ -2244,22 +2244,22 @@
         "776256c424368312",
         "790df48a4843d338"
       ],
-      "start_line": 685
+      "start_line": 687
     },
     {
       "confidence": "normal",
-      "end_line": 690,
+      "end_line": 692,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-security",
       "source_keys": [
         "1007e337f89a52b2"
       ],
-      "start_line": 687
+      "start_line": 689
     },
     {
       "confidence": "normal",
-      "end_line": 694,
+      "end_line": 696,
       "heading": "API Integrations",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-api-integrations",
@@ -2267,11 +2267,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 691
+      "start_line": 693
     },
     {
       "confidence": "structural",
-      "end_line": 698,
+      "end_line": 700,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-workflows",
@@ -2279,11 +2279,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 695
+      "start_line": 697
     },
     {
       "confidence": "structural",
-      "end_line": 702,
+      "end_line": 704,
       "heading": "Platform Configuration",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-platform-configuration",
@@ -2291,66 +2291,66 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 699
+      "start_line": 701
     },
     {
       "confidence": "normal",
-      "end_line": 706,
+      "end_line": 708,
       "heading": "Data Views",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-data-views",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 703
+      "start_line": 705
     },
     {
       "confidence": "structural",
-      "end_line": 720,
+      "end_line": 722,
       "heading": "Reports",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-reports",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 707
+      "start_line": 709
     },
     {
       "confidence": "normal",
-      "end_line": 724,
+      "end_line": 726,
       "heading": "Operations",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-operations",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 721
+      "start_line": 723
     },
     {
       "confidence": "normal",
-      "end_line": 728,
+      "end_line": 730,
       "heading": "Lava",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-lava",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 725
+      "start_line": 727
     },
     {
       "confidence": "needs-citation",
-      "end_line": 767,
+      "end_line": 769,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 729
+      "start_line": 731
     },
     {
       "confidence": "structural",
-      "end_line": 769,
+      "end_line": 771,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -2358,11 +2358,11 @@
         "790df48a4843d338",
         "d275b5b94a9da833"
       ],
-      "start_line": 768
+      "start_line": 770
     },
     {
       "confidence": "normal",
-      "end_line": 788,
+      "end_line": 790,
       "heading": "Developer Docs",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-docs",
@@ -2382,11 +2382,11 @@
         "790df48a4843d338",
         "790df48a4843d338"
       ],
-      "start_line": 770
+      "start_line": 772
     },
     {
       "confidence": "normal",
-      "end_line": 809,
+      "end_line": 811,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
@@ -2405,11 +2405,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 789
+      "start_line": 791
     },
     {
       "confidence": "normal",
-      "end_line": 817,
+      "end_line": 819,
       "heading": "Native Tool Development",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-native-tool-development",
@@ -2418,33 +2418,33 @@
         "790df48a4843d338",
         "790df48a4843d338"
       ],
-      "start_line": 810
+      "start_line": 812
     },
     {
       "confidence": "normal",
-      "end_line": 840,
+      "end_line": 842,
       "heading": "Lava Tool Development",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-tool-development",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 818
+      "start_line": 820
     },
     {
       "confidence": "citation-only",
-      "end_line": 878,
+      "end_line": 880,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 841
+      "start_line": 843
     },
     {
       "confidence": "high",
-      "end_line": 903,
+      "end_line": 905,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats",
@@ -2458,11 +2458,11 @@
         "44c37d376b652418",
         "512ed4dbdfde5317"
       ],
-      "start_line": 879
+      "start_line": 881
     },
     {
       "confidence": "structural",
-      "end_line": 905,
+      "end_line": 907,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -2475,11 +2475,11 @@
         "790df48a4843d338",
         "d275b5b94a9da833"
       ],
-      "start_line": 904
+      "start_line": 906
     },
     {
       "confidence": "needs-citation",
-      "end_line": 920,
+      "end_line": 922,
       "heading": "Playbook: Build A Read-Only Staff Agent",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-read-only-staff-agent",
@@ -2493,66 +2493,66 @@
         "44c37d376b652418",
         "512ed4dbdfde5317"
       ],
-      "start_line": 906
+      "start_line": 908
     },
     {
       "confidence": "normal",
-      "end_line": 933,
+      "end_line": 935,
       "heading": "Playbook: Build A Custom Lookup Tool",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-custom-lookup-tool",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 921
+      "start_line": 923
     },
     {
       "confidence": "normal",
-      "end_line": 948,
+      "end_line": 950,
       "heading": "Playbook: Build A Lava Insight Tool",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-lava-insight-tool",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 934
+      "start_line": 936
     },
     {
       "confidence": "normal",
-      "end_line": 963,
+      "end_line": 965,
       "heading": "Playbook: Build A Native AddOrUpdate Tool",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-native-addorupdate-tool",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 949
+      "start_line": 951
     },
     {
       "confidence": "normal",
-      "end_line": 976,
+      "end_line": 978,
       "heading": "Playbook: Add A Skill To An Agent",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-a-skill-to-an-agent",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 964
+      "start_line": 966
     },
     {
       "confidence": "structural",
-      "end_line": 988,
+      "end_line": 990,
       "heading": "Playbook: Configure Chat Message Automation",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-configure-chat-message-automation",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 977
+      "start_line": 979
     },
     {
       "confidence": "structural",
-      "end_line": 990,
+      "end_line": 992,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -2563,66 +2563,66 @@
         "776256c424368312",
         "7c71a22de1006d62"
       ],
-      "start_line": 989
+      "start_line": 991
     },
     {
       "confidence": "normal",
-      "end_line": 1005,
+      "end_line": 1007,
       "heading": "Agent Does Not Call The Expected Tool",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 991
+      "start_line": 993
     },
     {
       "confidence": "structural",
-      "end_line": 1020,
+      "end_line": 1022,
       "heading": "Tool Returns No Records",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-tool-returns-no-records",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 1006
+      "start_line": 1008
     },
     {
       "confidence": "structural",
-      "end_line": 1033,
+      "end_line": 1035,
       "heading": "Tool Returns Too Much Data",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-tool-returns-too-much-data",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 1021
+      "start_line": 1023
     },
     {
       "confidence": "structural",
-      "end_line": 1048,
+      "end_line": 1050,
       "heading": "Write Tool Fails",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-write-tool-fails",
       "source_keys": [
         "790df48a4843d338"
       ],
-      "start_line": 1034
+      "start_line": 1036
     },
     {
       "confidence": "normal",
-      "end_line": 1063,
+      "end_line": 1065,
       "heading": "Permissions Look Wrong",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-permissions-look-wrong",
       "source_keys": [
         "1007e337f89a52b2"
       ],
-      "start_line": 1049
+      "start_line": 1051
     },
     {
       "confidence": "normal",
-      "end_line": 1076,
+      "end_line": 1078,
       "heading": "API Endpoint Denies Access",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-api-endpoint-denies-access",
@@ -2630,36 +2630,25 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1064
+      "start_line": 1066
     },
     {
       "confidence": "community-supported",
-      "end_line": 1089,
+      "end_line": 1091,
       "heading": "Lava WebRequest Or External Call Behaves Unexpectedly",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1077
+      "start_line": 1079
     },
     {
       "confidence": "structural",
-      "end_line": 1091,
+      "end_line": 1093,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1090
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1103,
-      "heading": "Recipe: “Find The Right Person”",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-find-the-right-person",
       "source_keys": [
         "7c71a22de1006d62"
       ],
@@ -2667,84 +2656,95 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1111,
+      "end_line": 1105,
+      "heading": "Recipe: “Find The Right Person”",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-find-the-right-person",
+      "source_keys": [
+        "7c71a22de1006d62"
+      ],
+      "start_line": 1094
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1113,
       "heading": "Recipe: “Summarize This Person”",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-summarize-this-person",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1104
+      "start_line": 1106
     },
     {
       "confidence": "structural",
-      "end_line": 1122,
+      "end_line": 1124,
       "heading": "Recipe: “Draft A Communication”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-draft-a-communication",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1112
+      "start_line": 1114
     },
     {
       "confidence": "structural",
-      "end_line": 1131,
+      "end_line": 1133,
       "heading": "Recipe: “Create A Connection Request”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-create-a-connection-request",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1123
+      "start_line": 1125
     },
     {
       "confidence": "structural",
-      "end_line": 1140,
+      "end_line": 1142,
       "heading": "Recipe: “Explain A Workflow Queue”",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-explain-a-workflow-queue",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1132
+      "start_line": 1134
     },
     {
       "confidence": "structural",
-      "end_line": 1151,
+      "end_line": 1153,
       "heading": "Recipe: “Audit Agent Security”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-audit-agent-security",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1141
+      "start_line": 1143
     },
     {
       "confidence": "structural",
-      "end_line": 1163,
+      "end_line": 1165,
       "heading": "Recipe: “Build A Safe Public Agent”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-build-a-safe-public-agent",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1152
+      "start_line": 1154
     },
     {
       "confidence": "structural",
-      "end_line": 1173,
+      "end_line": 1175,
       "heading": "Recipe: “Review An Agent Answer”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-an-agent-answer",
       "source_keys": [
         "7c71a22de1006d62"
       ],
-      "start_line": 1164
+      "start_line": 1166
     },
     {
       "confidence": "citation-only",
-      "end_line": 1199,
+      "end_line": 1201,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2762,11 +2762,11 @@
         "1fae67b5dc09e2b0",
         "d593e234279cb690"
       ],
-      "start_line": 1174
+      "start_line": 1176
     },
     {
       "confidence": "citation-only",
-      "end_line": 1220,
+      "end_line": 1222,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2780,11 +2780,11 @@
         "d593e234279cb690",
         "87de570d7b164f63"
       ],
-      "start_line": 1200
+      "start_line": 1202
     },
     {
       "confidence": "high",
-      "end_line": 1267,
+      "end_line": 1269,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2814,7 +2814,7 @@
         "bc1ab3f2dff77e89",
         "dd0d53998f998249"
       ],
-      "start_line": 1221
+      "start_line": 1223
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:01:02+00:00",

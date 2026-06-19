@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `UserLogin`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `35`
+- Obsolete methods: `4`
 - EntityType GUID: `0fa592f1-728c-4885-be38-60ed6c0d834f`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 44 |
 | Lava-marked non-database properties | 18 |
 | Related model links | 4 |
+| Method signatures | 35 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

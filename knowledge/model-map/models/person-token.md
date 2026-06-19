@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `PersonToken`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `19`
+- Obsolete methods: `3`
 - EntityType GUID: `846b2bce-7101-46b9-b89c-cd68073712ce`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 16 |
 | Lava-marked non-database properties | 5 |
 | Related model links | 0 |
+| Method signatures | 19 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

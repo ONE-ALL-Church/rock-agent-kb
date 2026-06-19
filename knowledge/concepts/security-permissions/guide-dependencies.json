@@ -10913,12 +10913,12 @@
   },
   "approved_media_hash": "3cfe7bffdc7cce8b5bd2407659bedfd028b4a9c61f68243f5bc4a12cf6436488",
   "approved_media_path": "knowledge/concepts/security-permissions/approved-media.md",
-  "built_at": "2026-06-19T05:26:11+00:00",
+  "built_at": "2026-06-19T05:57:16+00:00",
   "concept_id": "security-permissions",
-  "guide_hash": "06389761b7852f718af20e4591f8b84043f59017398a878351996e5fb882054c",
-  "guide_line_count": 1861,
+  "guide_hash": "50e77327add63bb97dadf4785ee36dba6c6ff6ec7f726299c3b9359238bf15b9",
+  "guide_line_count": 1863,
   "guide_path": "knowledge/concepts/security-permissions/guide.md",
-  "guide_word_count": 15818,
+  "guide_word_count": 15831,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -11491,7 +11491,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -11502,7 +11502,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 53,
+      "end_line": 55,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -11516,11 +11516,11 @@
         "acd6d42ca9f08d83",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "structural",
-      "end_line": 57,
+      "end_line": 59,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -11534,11 +11534,11 @@
         "acd6d42ca9f08d83",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 54
+      "start_line": 56
     },
     {
       "confidence": "structural",
-      "end_line": 73,
+      "end_line": 75,
       "heading": "In Scope",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-in-scope",
@@ -11552,11 +11552,11 @@
         "acd6d42ca9f08d83",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 58
+      "start_line": 60
     },
     {
       "confidence": "structural",
-      "end_line": 85,
+      "end_line": 87,
       "heading": "Out Of Scope",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-out-of-scope",
@@ -11570,11 +11570,11 @@
         "acd6d42ca9f08d83",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 74
+      "start_line": 76
     },
     {
       "confidence": "normal",
-      "end_line": 117,
+      "end_line": 119,
       "heading": "Key Terms",
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-key-terms",
@@ -11587,11 +11587,11 @@
         "f807acb8c3c3d207",
         "30be60a23d3d0317"
       ],
-      "start_line": 86
+      "start_line": 88
     },
     {
       "confidence": "structural",
-      "end_line": 123,
+      "end_line": 125,
       "heading": "3. Security And Permissions Mental Model",
       "needs_live_verification": false,
       "section_id": "3-security-and-permissions-mental-model",
@@ -11604,11 +11604,11 @@
         "f807acb8c3c3d207",
         "30be60a23d3d0317"
       ],
-      "start_line": 118
+      "start_line": 120
     },
     {
       "confidence": "normal",
-      "end_line": 141,
+      "end_line": 143,
       "heading": "The Actor Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-actor-layer",
@@ -11616,11 +11616,11 @@
         "547b1337a6e19cf7",
         "4da60cf32b65caa5"
       ],
-      "start_line": 124
+      "start_line": 126
     },
     {
       "confidence": "normal",
-      "end_line": 157,
+      "end_line": 159,
       "heading": "The Object Layer",
       "needs_live_verification": false,
       "section_id": "3-security-and-permissions-mental-model-the-object-layer",
@@ -11628,11 +11628,11 @@
         "f807acb8c3c3d207",
         "eb2b5509786a6895"
       ],
-      "start_line": 142
+      "start_line": 144
     },
     {
       "confidence": "normal",
-      "end_line": 163,
+      "end_line": 165,
       "heading": "The Action Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-action-layer",
@@ -11642,11 +11642,11 @@
         "1644f75ed87c145f",
         "b0818453909eedfc"
       ],
-      "start_line": 158
+      "start_line": 160
     },
     {
       "confidence": "community-supported",
-      "end_line": 181,
+      "end_line": 183,
       "heading": "The Direct Rule Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-direct-rule-layer",
@@ -11654,22 +11654,22 @@
         "b01012caadf0fabf",
         "acf429889b78e679"
       ],
-      "start_line": 164
+      "start_line": 166
     },
     {
       "confidence": "community-supported",
-      "end_line": 195,
+      "end_line": 197,
       "heading": "The Inheritance Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-inheritance-layer",
       "source_keys": [
         "33a1fd3aa58eac64"
       ],
-      "start_line": 182
+      "start_line": 184
     },
     {
       "confidence": "normal",
-      "end_line": 210,
+      "end_line": 212,
       "heading": "The Code Layer",
       "needs_live_verification": false,
       "section_id": "3-security-and-permissions-mental-model-the-code-layer",
@@ -11677,33 +11677,33 @@
         "eb2b5509786a6895",
         "32cb7b69d5e41921"
       ],
-      "start_line": 196
+      "start_line": 198
     },
     {
       "confidence": "normal",
-      "end_line": 223,
+      "end_line": 225,
       "heading": "The Cache Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-cache-layer",
       "source_keys": [
         "22b41f2966cd6d95"
       ],
-      "start_line": 211
+      "start_line": 213
     },
     {
       "confidence": "structural",
-      "end_line": 227,
+      "end_line": 229,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": false,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
       "source_keys": [
         "22b41f2966cd6d95"
       ],
-      "start_line": 224
+      "start_line": 226
     },
     {
       "confidence": "normal",
-      "end_line": 235,
+      "end_line": 237,
       "heading": "Highest Authority Sources",
       "needs_live_verification": false,
       "section_id": "4-source-authority-and-how-to-use-this-guide-highest-authority-sources",
@@ -11718,11 +11718,11 @@
         "4da60cf32b65caa5",
         "776256c424368312"
       ],
-      "start_line": 228
+      "start_line": 230
     },
     {
       "confidence": "normal",
-      "end_line": 244,
+      "end_line": 246,
       "heading": "Medium Authority Sources",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide-medium-authority-sources",
@@ -11736,11 +11736,11 @@
         "35849560e533395e",
         "7095e2ef10a6a935"
       ],
-      "start_line": 236
+      "start_line": 238
     },
     {
       "confidence": "community-supported",
-      "end_line": 256,
+      "end_line": 258,
       "heading": "Lower Authority But Useful Sources",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide-lower-authority-but-useful-sources",
@@ -11751,11 +11751,11 @@
         "815d0e383009d2a5",
         "e6630327330e74d2"
       ],
-      "start_line": 245
+      "start_line": 247
     },
     {
       "confidence": "normal",
-      "end_line": 278,
+      "end_line": 280,
       "heading": "How Agents Should Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide-how-agents-should-use-this-guide",
@@ -11764,11 +11764,11 @@
         "93a509c867f58175",
         "33a1fd3aa58eac64"
       ],
-      "start_line": 257
+      "start_line": 259
     },
     {
       "confidence": "structural",
-      "end_line": 282,
+      "end_line": 284,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model",
@@ -11777,11 +11777,11 @@
         "93a509c867f58175",
         "33a1fd3aa58eac64"
       ],
-      "start_line": 279
+      "start_line": 281
     },
     {
       "confidence": "normal",
-      "end_line": 294,
+      "end_line": 296,
       "heading": "Core Configuration Areas",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-core-configuration-areas",
@@ -11792,11 +11792,11 @@
         "66cd0caee02b1e4b",
         "9cff0c87fd8eab29"
       ],
-      "start_line": 283
+      "start_line": 285
     },
     {
       "confidence": "community-supported",
-      "end_line": 313,
+      "end_line": 315,
       "heading": "`Auth` Records",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-auth-records",
@@ -11804,11 +11804,11 @@
         "b01012caadf0fabf",
         "acf429889b78e679"
       ],
-      "start_line": 295
+      "start_line": 297
     },
     {
       "confidence": "normal",
-      "end_line": 331,
+      "end_line": 333,
       "heading": "Authorization Constants",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-authorization-constants",
@@ -11816,11 +11816,11 @@
         "93a509c867f58175",
         "eb2b5509786a6895"
       ],
-      "start_line": 314
+      "start_line": 316
     },
     {
       "confidence": "community-supported",
-      "end_line": 344,
+      "end_line": 346,
       "heading": "Security Roles As Groups",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-security-roles-as-groups",
@@ -11828,11 +11828,11 @@
         "9986b460da442f0d",
         "815d0e383009d2a5"
       ],
-      "start_line": 332
+      "start_line": 334
     },
     {
       "confidence": "normal",
-      "end_line": 361,
+      "end_line": 363,
       "heading": "Person, User Login, And Account Security",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-person-user-login-and-account-security",
@@ -11840,11 +11840,11 @@
         "e1c6e91a2341a6ca",
         "2e737fcc6a7c59c1"
       ],
-      "start_line": 345
+      "start_line": 347
     },
     {
       "confidence": "normal",
-      "end_line": 374,
+      "end_line": 376,
       "heading": "API Keys And Purpose",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-api-keys-and-purpose",
@@ -11852,22 +11852,22 @@
         "0dccb7f3384b930a",
         "3b57bdbcc4304afb"
       ],
-      "start_line": 362
+      "start_line": 364
     },
     {
       "confidence": "normal",
-      "end_line": 390,
+      "end_line": 392,
       "heading": "Document Type And File Type Security",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-document-type-and-file-type-security",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 375
+      "start_line": 377
     },
     {
       "confidence": "normal",
-      "end_line": 404,
+      "end_line": 406,
       "heading": "Workflow Type Security",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-workflow-type-security",
@@ -11875,11 +11875,11 @@
         "776256c424368312",
         "b62f52dbefd1a36d"
       ],
-      "start_line": 391
+      "start_line": 393
     },
     {
       "confidence": "normal",
-      "end_line": 419,
+      "end_line": 421,
       "heading": "Reporting And Data View Security",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-reporting-and-data-view-security",
@@ -11888,11 +11888,11 @@
         "776256c424368312",
         "e6630327330e74d2"
       ],
-      "start_line": 405
+      "start_line": 407
     },
     {
       "confidence": "structural",
-      "end_line": 423,
+      "end_line": 425,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships",
@@ -11901,11 +11901,11 @@
         "776256c424368312",
         "e6630327330e74d2"
       ],
-      "start_line": 420
+      "start_line": 422
     },
     {
       "confidence": "normal",
-      "end_line": 445,
+      "end_line": 447,
       "heading": "Person, UserLogin, Group, And Security Role",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-person-userlogin-group-and-security-role",
@@ -11914,22 +11914,22 @@
         "9986b460da442f0d",
         "93a509c867f58175"
       ],
-      "start_line": 424
+      "start_line": 426
     },
     {
       "confidence": "normal",
-      "end_line": 473,
+      "end_line": 475,
       "heading": "EntityType And Securable Entities",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-entitytype-and-securable-entities",
       "source_keys": [
         "f807acb8c3c3d207"
       ],
-      "start_line": 446
+      "start_line": 448
     },
     {
       "confidence": "normal",
-      "end_line": 487,
+      "end_line": 489,
       "heading": "Page, Site, And Block",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-site-and-block",
@@ -11937,11 +11937,11 @@
         "eb2b5509786a6895",
         "33a1fd3aa58eac64"
       ],
-      "start_line": 474
+      "start_line": 476
     },
     {
       "confidence": "normal",
-      "end_line": 506,
+      "end_line": 508,
       "heading": "Group, GroupType, And Group Security",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-group-grouptype-and-group-security",
@@ -11950,22 +11950,22 @@
         "93a509c867f58175",
         "db21941c572fe3c9"
       ],
-      "start_line": 488
+      "start_line": 490
     },
     {
       "confidence": "normal",
-      "end_line": 520,
+      "end_line": 522,
       "heading": "Report, DataView, And Dynamic Data",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-report-dataview-and-dynamic-data",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 507
+      "start_line": 509
     },
     {
       "confidence": "normal",
-      "end_line": 534,
+      "end_line": 536,
       "heading": "WorkflowType, Workflow, Activity, And Action",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-workflowtype-workflow-activity-and-action",
@@ -11973,22 +11973,22 @@
         "776256c424368312",
         "b62f52dbefd1a36d"
       ],
-      "start_line": 521
+      "start_line": 523
     },
     {
       "confidence": "normal",
-      "end_line": 548,
+      "end_line": 550,
       "heading": "DocumentType, BinaryFileType, BinaryFile, And Document",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-documenttype-binaryfiletype-binaryfile-and-document",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 535
+      "start_line": 537
     },
     {
       "confidence": "normal",
-      "end_line": 560,
+      "end_line": 562,
       "heading": "API Endpoints, Auth Clients, Claims, And Scopes",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-api-endpoints-auth-clients-claims-and-scopes",
@@ -11999,11 +11999,11 @@
         "3c393f2460131fab",
         "91a73cf09eafa5bc"
       ],
-      "start_line": 549
+      "start_line": 551
     },
     {
       "confidence": "structural",
-      "end_line": 562,
+      "end_line": 564,
       "heading": "7. Common Security And Permissions Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-security-and-permissions-workflows",
@@ -12018,11 +12018,11 @@
         "547b1337a6e19cf7",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 561
+      "start_line": 563
     },
     {
       "confidence": "normal",
-      "end_line": 578,
+      "end_line": 580,
       "heading": "Grant A Staff User Access To A Page",
       "needs_live_verification": true,
       "section_id": "7-common-security-and-permissions-workflows-grant-a-staff-user-access-to-a-page",
@@ -12030,11 +12030,11 @@
         "eb2b5509786a6895",
         "33a1fd3aa58eac64"
       ],
-      "start_line": 563
+      "start_line": 565
     },
     {
       "confidence": "community-supported",
-      "end_line": 591,
+      "end_line": 593,
       "heading": "Explain Why A User Can See A Page",
       "needs_live_verification": true,
       "section_id": "7-common-security-and-permissions-workflows-explain-why-a-user-can-see-a-page",
@@ -12042,33 +12042,33 @@
         "acf429889b78e679",
         "33a1fd3aa58eac64"
       ],
-      "start_line": 579
+      "start_line": 581
     },
     {
       "confidence": "community-supported",
-      "end_line": 609,
+      "end_line": 611,
       "heading": "Create A New Security Role",
       "needs_live_verification": true,
       "section_id": "7-common-security-and-permissions-workflows-create-a-new-security-role",
       "source_keys": [
         "815d0e383009d2a5"
       ],
-      "start_line": 592
+      "start_line": 594
     },
     {
       "confidence": "community-supported",
-      "end_line": 622,
+      "end_line": 624,
       "heading": "Remove Access For Departed Staff",
       "needs_live_verification": false,
       "section_id": "7-common-security-and-permissions-workflows-remove-access-for-departed-staff",
       "source_keys": [
         "acf429889b78e679"
       ],
-      "start_line": 610
+      "start_line": 612
     },
     {
       "confidence": "normal",
-      "end_line": 636,
+      "end_line": 638,
       "heading": "Secure A Custom Block",
       "needs_live_verification": true,
       "section_id": "7-common-security-and-permissions-workflows-secure-a-custom-block",
@@ -12076,11 +12076,11 @@
         "eb2b5509786a6895",
         "32cb7b69d5e41921"
       ],
-      "start_line": 623
+      "start_line": 625
     },
     {
       "confidence": "normal",
-      "end_line": 649,
+      "end_line": 651,
       "heading": "Secure A Custom Lava Page",
       "needs_live_verification": true,
       "section_id": "7-common-security-and-permissions-workflows-secure-a-custom-lava-page",
@@ -12088,11 +12088,11 @@
         "30be60a23d3d0317",
         "db21941c572fe3c9"
       ],
-      "start_line": 637
+      "start_line": 639
     },
     {
       "confidence": "normal",
-      "end_line": 664,
+      "end_line": 666,
       "heading": "Secure A REST Integration",
       "needs_live_verification": true,
       "section_id": "7-common-security-and-permissions-workflows-secure-a-rest-integration",
@@ -12100,11 +12100,11 @@
         "547b1337a6e19cf7",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 650
+      "start_line": 652
     },
     {
       "confidence": "structural",
-      "end_line": 666,
+      "end_line": 668,
       "heading": "8. Authorization Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-authorization-deep-dive",
@@ -12117,11 +12117,11 @@
         "33a1fd3aa58eac64",
         "22b41f2966cd6d95"
       ],
-      "start_line": 665
+      "start_line": 667
     },
     {
       "confidence": "normal",
-      "end_line": 684,
+      "end_line": 686,
       "heading": "Standard Actions",
       "needs_live_verification": true,
       "section_id": "8-authorization-deep-dive-standard-actions",
@@ -12129,44 +12129,44 @@
         "eb2b5509786a6895",
         "93a509c867f58175"
       ],
-      "start_line": 667
+      "start_line": 669
     },
     {
       "confidence": "normal",
-      "end_line": 706,
+      "end_line": 708,
       "heading": "Custom Actions",
       "needs_live_verification": false,
       "section_id": "8-authorization-deep-dive-custom-actions",
       "source_keys": [
         "eb2b5509786a6895"
       ],
-      "start_line": 685
+      "start_line": 687
     },
     {
       "confidence": "community-supported",
-      "end_line": 726,
+      "end_line": 728,
       "heading": "Allow And Deny Strategy",
       "needs_live_verification": true,
       "section_id": "8-authorization-deep-dive-allow-and-deny-strategy",
       "source_keys": [
         "815d0e383009d2a5"
       ],
-      "start_line": 707
+      "start_line": 709
     },
     {
       "confidence": "community-supported",
-      "end_line": 739,
+      "end_line": 741,
       "heading": "Person-Specific Permissions",
       "needs_live_verification": false,
       "section_id": "8-authorization-deep-dive-person-specific-permissions",
       "source_keys": [
         "acf429889b78e679"
       ],
-      "start_line": 727
+      "start_line": 729
     },
     {
       "confidence": "normal",
-      "end_line": 753,
+      "end_line": 755,
       "heading": "Page And Block Security Order",
       "needs_live_verification": true,
       "section_id": "8-authorization-deep-dive-page-and-block-security-order",
@@ -12174,33 +12174,33 @@
         "f807acb8c3c3d207",
         "33a1fd3aa58eac64"
       ],
-      "start_line": 740
+      "start_line": 742
     },
     {
       "confidence": "normal",
-      "end_line": 767,
+      "end_line": 769,
       "heading": "Entity Parent Authority",
       "needs_live_verification": true,
       "section_id": "8-authorization-deep-dive-entity-parent-authority",
       "source_keys": [
         "f807acb8c3c3d207"
       ],
-      "start_line": 754
+      "start_line": 756
     },
     {
       "confidence": "normal",
-      "end_line": 781,
+      "end_line": 783,
       "heading": "Authorization Cache",
       "needs_live_verification": true,
       "section_id": "8-authorization-deep-dive-authorization-cache",
       "source_keys": [
         "22b41f2966cd6d95"
       ],
-      "start_line": 768
+      "start_line": 770
     },
     {
       "confidence": "structural",
-      "end_line": 783,
+      "end_line": 785,
       "heading": "9. API Auth Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-api-auth-deep-dive",
@@ -12217,11 +12217,11 @@
         "e1c6e91a2341a6ca",
         "776256c424368312"
       ],
-      "start_line": 782
+      "start_line": 784
     },
     {
       "confidence": "normal",
-      "end_line": 802,
+      "end_line": 804,
       "heading": "Legacy REST API Authorization",
       "needs_live_verification": true,
       "section_id": "9-api-auth-deep-dive-legacy-rest-api-authorization",
@@ -12230,22 +12230,22 @@
         "547b1337a6e19cf7",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 784
+      "start_line": 786
     },
     {
       "confidence": "normal",
-      "end_line": 814,
+      "end_line": 816,
       "heading": "v2 API Pattern",
       "needs_live_verification": true,
       "section_id": "9-api-auth-deep-dive-v2-api-pattern",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 803
+      "start_line": 805
     },
     {
       "confidence": "normal",
-      "end_line": 829,
+      "end_line": 831,
       "heading": "API Keys",
       "needs_live_verification": true,
       "section_id": "9-api-auth-deep-dive-api-keys",
@@ -12253,22 +12253,22 @@
         "0dccb7f3384b930a",
         "3b57bdbcc4304afb"
       ],
-      "start_line": 815
+      "start_line": 817
     },
     {
       "confidence": "normal",
-      "end_line": 845,
+      "end_line": 847,
       "heading": "Remote Lava Endpoint",
       "needs_live_verification": false,
       "section_id": "9-api-auth-deep-dive-remote-lava-endpoint",
       "source_keys": [
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 830
+      "start_line": 832
     },
     {
       "confidence": "normal",
-      "end_line": 859,
+      "end_line": 861,
       "heading": "Mobile And TV App API Keys",
       "needs_live_verification": true,
       "section_id": "9-api-auth-deep-dive-mobile-and-tv-app-api-keys",
@@ -12276,11 +12276,11 @@
         "66cd0caee02b1e4b",
         "9cff0c87fd8eab29"
       ],
-      "start_line": 846
+      "start_line": 848
     },
     {
       "confidence": "normal",
-      "end_line": 872,
+      "end_line": 874,
       "heading": "External Identity Providers: Auth0 And Entra",
       "needs_live_verification": false,
       "section_id": "9-api-auth-deep-dive-external-identity-providers-auth0-and-entra",
@@ -12289,22 +12289,22 @@
         "91a73cf09eafa5bc",
         "e1c6e91a2341a6ca"
       ],
-      "start_line": 860
+      "start_line": 862
     },
     {
       "confidence": "normal",
-      "end_line": 888,
+      "end_line": 890,
       "heading": "API Auth Troubleshooting",
       "needs_live_verification": true,
       "section_id": "9-api-auth-deep-dive-api-auth-troubleshooting",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 873
+      "start_line": 875
     },
     {
       "confidence": "structural",
-      "end_line": 890,
+      "end_line": 892,
       "heading": "10. Related Rock Areas: People, Groups, Api, Cms, Workflows",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-groups-api-cms-workflows",
@@ -12321,11 +12321,11 @@
         "776256c424368312",
         "b62f52dbefd1a36d"
       ],
-      "start_line": 889
+      "start_line": 891
     },
     {
       "confidence": "community-supported",
-      "end_line": 911,
+      "end_line": 913,
       "heading": "People",
       "needs_live_verification": true,
       "section_id": "10-related-rock-areas-people-groups-api-cms-workflows-people",
@@ -12333,11 +12333,11 @@
         "e6630327330e74d2",
         "65e2b4737880732d"
       ],
-      "start_line": 891
+      "start_line": 893
     },
     {
       "confidence": "normal",
-      "end_line": 928,
+      "end_line": 930,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-groups-api-cms-workflows-groups",
@@ -12345,11 +12345,11 @@
         "9986b460da442f0d",
         "db21941c572fe3c9"
       ],
-      "start_line": 912
+      "start_line": 914
     },
     {
       "confidence": "normal",
-      "end_line": 943,
+      "end_line": 945,
       "heading": "API",
       "needs_live_verification": true,
       "section_id": "10-related-rock-areas-people-groups-api-cms-workflows-api",
@@ -12359,22 +12359,22 @@
         "1a7cdd8d2a7f15eb",
         "4da60cf32b65caa5"
       ],
-      "start_line": 929
+      "start_line": 931
     },
     {
       "confidence": "normal",
-      "end_line": 961,
+      "end_line": 963,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-groups-api-cms-workflows-cms",
       "source_keys": [
         "d3637bd6759cc965"
       ],
-      "start_line": 944
+      "start_line": 946
     },
     {
       "confidence": "normal",
-      "end_line": 979,
+      "end_line": 981,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-people-groups-api-cms-workflows-workflows",
@@ -12382,11 +12382,11 @@
         "776256c424368312",
         "b62f52dbefd1a36d"
       ],
-      "start_line": 962
+      "start_line": 964
     },
     {
       "confidence": "structural",
-      "end_line": 981,
+      "end_line": 983,
       "heading": "11. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails",
@@ -12404,22 +12404,22 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 980
+      "start_line": 982
     },
     {
       "confidence": "community-supported",
-      "end_line": 996,
+      "end_line": 998,
       "heading": "Least Privilege",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-least-privilege",
       "source_keys": [
         "815d0e383009d2a5"
       ],
-      "start_line": 982
+      "start_line": 984
     },
     {
       "confidence": "normal",
-      "end_line": 1010,
+      "end_line": 1012,
       "heading": "Separation Of Duties",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-separation-of-duties",
@@ -12427,11 +12427,11 @@
         "93a509c867f58175",
         "eb2b5509786a6895"
       ],
-      "start_line": 997
+      "start_line": 999
     },
     {
       "confidence": "community-supported",
-      "end_line": 1027,
+      "end_line": 1029,
       "heading": "Sensitive Domain Guardrails",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-sensitive-domain-guardrails",
@@ -12441,44 +12441,44 @@
         "d56571028d2bf7e6",
         "e6630327330e74d2"
       ],
-      "start_line": 1011
+      "start_line": 1013
     },
     {
       "confidence": "community-supported",
-      "end_line": 1042,
+      "end_line": 1044,
       "heading": "Temporary Access And Impersonation",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-temporary-access-and-impersonation",
       "source_keys": [
         "77a1b89d1cf3317f"
       ],
-      "start_line": 1028
+      "start_line": 1030
     },
     {
       "confidence": "normal",
-      "end_line": 1059,
+      "end_line": 1061,
       "heading": "Public And Anonymous Access",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-public-and-anonymous-access",
       "source_keys": [
         "dfd0cdc56d97fa7f"
       ],
-      "start_line": 1043
+      "start_line": 1045
     },
     {
       "confidence": "normal",
-      "end_line": 1074,
+      "end_line": 1076,
       "heading": "Lava Command Governance",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-lava-command-governance",
       "source_keys": [
         "30be60a23d3d0317"
       ],
-      "start_line": 1060
+      "start_line": 1062
     },
     {
       "confidence": "community-supported",
-      "end_line": 1096,
+      "end_line": 1098,
       "heading": "Security Audits",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-security-audits",
@@ -12487,11 +12487,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1075
+      "start_line": 1077
     },
     {
       "confidence": "structural",
-      "end_line": 1098,
+      "end_line": 1100,
       "heading": "12. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks",
@@ -12510,33 +12510,33 @@
         "dfd0cdc56d97fa7f",
         "4da60cf32b65caa5"
       ],
-      "start_line": 1097
+      "start_line": 1099
     },
     {
       "confidence": "normal",
-      "end_line": 1109,
+      "end_line": 1111,
       "heading": "`Rock.Security.Authorization`",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-rock-security-authorization",
       "source_keys": [
         "93a509c867f58175"
       ],
-      "start_line": 1099
+      "start_line": 1101
     },
     {
       "confidence": "normal",
-      "end_line": 1119,
+      "end_line": 1121,
       "heading": "`AuthorizationCacheConsumer`",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-authorizationcacheconsumer",
       "source_keys": [
         "22b41f2966cd6d95"
       ],
-      "start_line": 1110
+      "start_line": 1112
     },
     {
       "confidence": "normal",
-      "end_line": 1135,
+      "end_line": 1137,
       "heading": "Block Authorization APIs",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-block-authorization-apis",
@@ -12544,11 +12544,11 @@
         "eb2b5509786a6895",
         "32cb7b69d5e41921"
       ],
-      "start_line": 1120
+      "start_line": 1122
     },
     {
       "confidence": "normal",
-      "end_line": 1146,
+      "end_line": 1148,
       "heading": "Obsidian Permission Bags",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-obsidian-permission-bags",
@@ -12557,77 +12557,77 @@
         "042687d0bb61532f",
         "b0818453909eedfc"
       ],
-      "start_line": 1136
+      "start_line": 1138
     },
     {
       "confidence": "normal",
-      "end_line": 1150,
+      "end_line": 1152,
       "heading": "`SecurityColumn`",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-securitycolumn",
       "source_keys": [
         "d3637bd6759cc965"
       ],
-      "start_line": 1147
+      "start_line": 1149
     },
     {
       "confidence": "normal",
-      "end_line": 1162,
+      "end_line": 1164,
       "heading": "API Patterns",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-api-patterns",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 1151
+      "start_line": 1153
     },
     {
       "confidence": "normal",
-      "end_line": 1175,
+      "end_line": 1177,
       "heading": "Lava Commands",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-lava-commands",
       "source_keys": [
         "30be60a23d3d0317"
       ],
-      "start_line": 1163
+      "start_line": 1165
     },
     {
       "confidence": "normal",
-      "end_line": 1188,
+      "end_line": 1190,
       "heading": "Remote Lava",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-remote-lava",
       "source_keys": [
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 1176
+      "start_line": 1178
     },
     {
       "confidence": "normal",
-      "end_line": 1200,
+      "end_line": 1202,
       "heading": "Helix Endpoints",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-helix-endpoints",
       "source_keys": [
         "dfd0cdc56d97fa7f"
       ],
-      "start_line": 1189
+      "start_line": 1191
     },
     {
       "confidence": "normal",
-      "end_line": 1215,
+      "end_line": 1217,
       "heading": "Agent Tools",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-agent-tools",
       "source_keys": [
         "4da60cf32b65caa5"
       ],
-      "start_line": 1201
+      "start_line": 1203
     },
     {
       "confidence": "structural",
-      "end_line": 1217,
+      "end_line": 1219,
       "heading": "13. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map",
@@ -12637,66 +12637,66 @@
         "776256c424368312",
         "ef6c59be30105708"
       ],
-      "start_line": 1216
+      "start_line": 1218
     },
     {
       "confidence": "citation-only",
-      "end_line": 1229,
+      "end_line": 1231,
       "heading": "Reporting Security",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-reporting-security",
       "source_keys": [
         "65d1fcd90e8699b2"
       ],
-      "start_line": 1218
+      "start_line": 1220
     },
     {
       "confidence": "community-supported",
-      "end_line": 1242,
+      "end_line": 1244,
       "heading": "Dynamic Data And SQL Reports",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-dynamic-data-and-sql-reports",
       "source_keys": [
         "e6630327330e74d2"
       ],
-      "start_line": 1230
+      "start_line": 1232
     },
     {
       "confidence": "normal",
-      "end_line": 1253,
+      "end_line": 1255,
       "heading": "DataView API Caveat",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-dataview-api-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1243
+      "start_line": 1245
     },
     {
       "confidence": "structural",
-      "end_line": 1268,
+      "end_line": 1270,
       "heading": "Model Map Use",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-model-map-use",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1254
+      "start_line": 1256
     },
     {
       "confidence": "citation-only",
-      "end_line": 1287,
+      "end_line": 1289,
       "heading": "Analytics For Security Health",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-analytics-for-security-health",
       "source_keys": [
         "ef6c59be30105708"
       ],
-      "start_line": 1269
+      "start_line": 1271
     },
     {
       "confidence": "structural",
-      "end_line": 1289,
+      "end_line": 1291,
       "heading": "14. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats",
@@ -12709,110 +12709,110 @@
         "776256c424368312",
         "81d4cf108de5ed46"
       ],
-      "start_line": 1288
+      "start_line": 1290
     },
     {
       "confidence": "normal",
-      "end_line": 1293,
+      "end_line": 1295,
       "heading": "v14: IdKey In Public Obsidian Blocks",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v14-idkey-in-public-obsidian-blocks",
       "source_keys": [
         "f807acb8c3c3d207"
       ],
-      "start_line": 1290
+      "start_line": 1292
     },
     {
       "confidence": "normal",
-      "end_line": 1297,
+      "end_line": 1299,
       "heading": "v14: Check-in Manager Delete Attendance Verb",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v14-check-in-manager-delete-attendance-verb",
       "source_keys": [
         "2e737fcc6a7c59c1"
       ],
-      "start_line": 1294
+      "start_line": 1296
     },
     {
       "confidence": "community-supported",
-      "end_line": 1301,
+      "end_line": 1303,
       "heading": "v15: Fluid Lava Requirement For Some Community Security Tools",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v15-fluid-lava-requirement-for-some-community-security-tools",
       "source_keys": [
         "33a1fd3aa58eac64"
       ],
-      "start_line": 1298
+      "start_line": 1300
     },
     {
       "confidence": "citation-only",
-      "end_line": 1305,
+      "end_line": 1307,
       "heading": "v16.7: Security Cookie Rejection Setting",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v16-7-security-cookie-rejection-setting",
       "source_keys": [
         "01e25571b075eddb"
       ],
-      "start_line": 1302
+      "start_line": 1304
     },
     {
       "confidence": "normal",
-      "end_line": 1309,
+      "end_line": 1311,
       "heading": "v17: v2 API Secure By Default",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v17-v2-api-secure-by-default",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 1306
+      "start_line": 1308
     },
     {
       "confidence": "normal",
-      "end_line": 1313,
+      "end_line": 1315,
       "heading": "v17.5: DataView Endpoint Permission Fix",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v17-5-dataview-endpoint-permission-fix",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1310
+      "start_line": 1312
     },
     {
       "confidence": "normal",
-      "end_line": 1317,
+      "end_line": 1319,
       "heading": "v17.8: Document Upload Security Fix",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v17-8-document-upload-security-fix",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1314
+      "start_line": 1316
     },
     {
       "confidence": "normal",
-      "end_line": 1321,
+      "end_line": 1323,
       "heading": "v18.3 And v19.1: Workflow Type View Hardening And Document Type Visibility",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v18-3-and-v19-1-workflow-type-view-hardening-and-document-type-visibility",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1318
+      "start_line": 1320
     },
     {
       "confidence": "citation-only",
-      "end_line": 1325,
+      "end_line": 1327,
       "heading": "v18.3/v19.1/v20 Pre-Alpha Notes",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-v18-3-v19-1-v20-pre-alpha-notes",
       "source_keys": [
         "81d4cf108de5ed46"
       ],
-      "start_line": 1322
+      "start_line": 1324
     },
     {
       "confidence": "structural",
-      "end_line": 1327,
+      "end_line": 1329,
       "heading": "15. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks",
@@ -12829,11 +12829,11 @@
         "547b1337a6e19cf7",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 1326
+      "start_line": 1328
     },
     {
       "confidence": "community-supported",
-      "end_line": 1342,
+      "end_line": 1344,
       "heading": "Playbook: Audit Who Can Administrate A Page",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-audit-who-can-administrate-a-page",
@@ -12841,33 +12841,33 @@
         "33a1fd3aa58eac64",
         "acf429889b78e679"
       ],
-      "start_line": 1328
+      "start_line": 1330
     },
     {
       "confidence": "community-supported",
-      "end_line": 1358,
+      "end_line": 1360,
       "heading": "Playbook: Build A Staff-Only Report Page",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-build-a-staff-only-report-page",
       "source_keys": [
         "e6630327330e74d2"
       ],
-      "start_line": 1343
+      "start_line": 1345
     },
     {
       "confidence": "normal",
-      "end_line": 1373,
+      "end_line": 1375,
       "heading": "Playbook: Create A Public Group Finder Safely",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-create-a-public-group-finder-safely",
       "source_keys": [
         "db21941c572fe3c9"
       ],
-      "start_line": 1359
+      "start_line": 1361
     },
     {
       "confidence": "normal",
-      "end_line": 1388,
+      "end_line": 1390,
       "heading": "Playbook: Harden A Workflow Type",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-harden-a-workflow-type",
@@ -12875,11 +12875,11 @@
         "776256c424368312",
         "b62f52dbefd1a36d"
       ],
-      "start_line": 1374
+      "start_line": 1376
     },
     {
       "confidence": "normal",
-      "end_line": 1404,
+      "end_line": 1406,
       "heading": "Playbook: Review A Custom Lava/SQL Block",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-review-a-custom-lava-sql-block",
@@ -12887,22 +12887,22 @@
         "30be60a23d3d0317",
         "9c6602ae13ab291c"
       ],
-      "start_line": 1389
+      "start_line": 1391
     },
     {
       "confidence": "normal",
-      "end_line": 1419,
+      "end_line": 1421,
       "heading": "Playbook: Add A v2 API Endpoint",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-add-a-v2-api-endpoint",
       "source_keys": [
         "acd6d42ca9f08d83"
       ],
-      "start_line": 1405
+      "start_line": 1407
     },
     {
       "confidence": "normal",
-      "end_line": 1434,
+      "end_line": 1436,
       "heading": "Playbook: Rotate An Exposed API Key",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks-playbook-rotate-an-exposed-api-key",
@@ -12910,22 +12910,22 @@
         "547b1337a6e19cf7",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 1420
+      "start_line": 1422
     },
     {
       "confidence": "normal",
-      "end_line": 1449,
+      "end_line": 1451,
       "heading": "Playbook: Review Document Security After Upgrade",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-review-document-security-after-upgrade",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1435
+      "start_line": 1437
     },
     {
       "confidence": "structural",
-      "end_line": 1451,
+      "end_line": 1453,
       "heading": "16. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree",
@@ -12940,11 +12940,11 @@
         "1a7cdd8d2a7f15eb",
         "db21941c572fe3c9"
       ],
-      "start_line": 1450
+      "start_line": 1452
     },
     {
       "confidence": "normal",
-      "end_line": 1468,
+      "end_line": 1470,
       "heading": "User Cannot See A Page",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-user-cannot-see-a-page",
@@ -12953,33 +12953,33 @@
         "33a1fd3aa58eac64",
         "22b41f2966cd6d95"
       ],
-      "start_line": 1452
+      "start_line": 1454
     },
     {
       "confidence": "normal",
-      "end_line": 1480,
+      "end_line": 1482,
       "heading": "User Can See Page But Not Button",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-user-can-see-page-but-not-button",
       "source_keys": [
         "eb2b5509786a6895"
       ],
-      "start_line": 1469
+      "start_line": 1471
     },
     {
       "confidence": "community-supported",
-      "end_line": 1495,
+      "end_line": 1497,
       "heading": "User Can See Too Much Data",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-user-can-see-too-much-data",
       "source_keys": [
         "e6630327330e74d2"
       ],
-      "start_line": 1481
+      "start_line": 1483
     },
     {
       "confidence": "normal",
-      "end_line": 1510,
+      "end_line": 1512,
       "heading": "API Key Gets Permission Denied",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-api-key-gets-permission-denied",
@@ -12988,66 +12988,66 @@
         "acd6d42ca9f08d83",
         "776256c424368312"
       ],
-      "start_line": 1496
+      "start_line": 1498
     },
     {
       "confidence": "normal",
-      "end_line": 1525,
+      "end_line": 1527,
       "heading": "API Key Works But Should Not",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-api-key-works-but-should-not",
       "source_keys": [
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 1511
+      "start_line": 1513
     },
     {
       "confidence": "normal",
-      "end_line": 1538,
+      "end_line": 1540,
       "heading": "Workflow Visible To Wrong Users",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-workflow-visible-to-wrong-users",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1526
+      "start_line": 1528
     },
     {
       "confidence": "normal",
-      "end_line": 1552,
+      "end_line": 1554,
       "heading": "Document Or File Visible To Wrong Users",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-document-or-file-visible-to-wrong-users",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1539
+      "start_line": 1541
     },
     {
       "confidence": "normal",
-      "end_line": 1565,
+      "end_line": 1567,
       "heading": "Group Finder Shows Private Groups",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-group-finder-shows-private-groups",
       "source_keys": [
         "db21941c572fe3c9"
       ],
-      "start_line": 1553
+      "start_line": 1555
     },
     {
       "confidence": "normal",
-      "end_line": 1580,
+      "end_line": 1582,
       "heading": "Permission Change Did Not Apply",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-permission-change-did-not-apply",
       "source_keys": [
         "22b41f2966cd6d95"
       ],
-      "start_line": 1566
+      "start_line": 1568
     },
     {
       "confidence": "structural",
-      "end_line": 1582,
+      "end_line": 1584,
       "heading": "17. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes",
@@ -13062,22 +13062,22 @@
         "01e25571b075eddb",
         "81d4cf108de5ed46"
       ],
-      "start_line": 1581
+      "start_line": 1583
     },
     {
       "confidence": "community-supported",
-      "end_line": 1599,
+      "end_line": 1601,
       "heading": "Recipe: Answer “Who Has Access To This?”",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-answer-who-has-access-to-this",
       "source_keys": [
         "b01012caadf0fabf"
       ],
-      "start_line": 1583
+      "start_line": 1585
     },
     {
       "confidence": "normal",
-      "end_line": 1620,
+      "end_line": 1622,
       "heading": "Recipe: Answer “Why Was I Denied?”",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-answer-why-was-i-denied",
@@ -13085,11 +13085,11 @@
         "f807acb8c3c3d207",
         "b01012caadf0fabf"
       ],
-      "start_line": 1600
+      "start_line": 1602
     },
     {
       "confidence": "structural",
-      "end_line": 1633,
+      "end_line": 1635,
       "heading": "Recipe: Review A Permission Change Request",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-review-a-permission-change-request",
@@ -13097,22 +13097,22 @@
         "f807acb8c3c3d207",
         "b01012caadf0fabf"
       ],
-      "start_line": 1621
+      "start_line": 1623
     },
     {
       "confidence": "normal",
-      "end_line": 1647,
+      "end_line": 1649,
       "heading": "Recipe: Review A Custom Agent Tool",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-review-a-custom-agent-tool",
       "source_keys": [
         "4da60cf32b65caa5"
       ],
-      "start_line": 1634
+      "start_line": 1636
     },
     {
       "confidence": "normal",
-      "end_line": 1665,
+      "end_line": 1667,
       "heading": "Recipe: Review A Public Route",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-review-a-public-route",
@@ -13121,22 +13121,22 @@
         "dfd0cdc56d97fa7f",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 1648
+      "start_line": 1650
     },
     {
       "confidence": "community-supported",
-      "end_line": 1682,
+      "end_line": 1684,
       "heading": "Recipe: Review A Security Role",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-review-a-security-role",
       "source_keys": [
         "b01012caadf0fabf"
       ],
-      "start_line": 1666
+      "start_line": 1668
     },
     {
       "confidence": "normal",
-      "end_line": 1700,
+      "end_line": 1702,
       "heading": "Recipe: Review After Upgrade",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-review-after-upgrade",
@@ -13146,11 +13146,11 @@
         "01e25571b075eddb",
         "81d4cf108de5ed46"
       ],
-      "start_line": 1683
+      "start_line": 1685
     },
     {
       "confidence": "normal",
-      "end_line": 1726,
+      "end_line": 1728,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -13168,11 +13168,11 @@
         "11cdf9c3e9ac92ed",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 1701
+      "start_line": 1703
     },
     {
       "confidence": "citation-only",
-      "end_line": 1747,
+      "end_line": 1749,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -13186,11 +13186,11 @@
         "c48789f22dbf970d",
         "4f7f4db582e9d83b"
       ],
-      "start_line": 1727
+      "start_line": 1729
     },
     {
       "confidence": "structural",
-      "end_line": 1749,
+      "end_line": 1751,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "18-source-map-and-dependency-notes",
@@ -13224,11 +13224,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1748
+      "start_line": 1750
     },
     {
       "confidence": "normal",
-      "end_line": 1773,
+      "end_line": 1775,
       "heading": "Primary Source Map",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-primary-source-map",
@@ -13263,11 +13263,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1750
+      "start_line": 1752
     },
     {
       "confidence": "structural",
-      "end_line": 1786,
+      "end_line": 1788,
       "heading": "Dependency Notes: People",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-people",
@@ -13302,11 +13302,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1774
+      "start_line": 1776
     },
     {
       "confidence": "structural",
-      "end_line": 1799,
+      "end_line": 1801,
       "heading": "Dependency Notes: Groups",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-groups",
@@ -13341,11 +13341,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1787
+      "start_line": 1789
     },
     {
       "confidence": "structural",
-      "end_line": 1813,
+      "end_line": 1815,
       "heading": "Dependency Notes: API",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-api",
@@ -13380,11 +13380,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1800
+      "start_line": 1802
     },
     {
       "confidence": "structural",
-      "end_line": 1827,
+      "end_line": 1829,
       "heading": "Dependency Notes: CMS",
       "needs_live_verification": false,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-cms",
@@ -13419,11 +13419,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1814
+      "start_line": 1816
     },
     {
       "confidence": "structural",
-      "end_line": 1841,
+      "end_line": 1843,
       "heading": "Dependency Notes: Workflows",
       "needs_live_verification": false,
       "section_id": "18-source-map-and-dependency-notes-dependency-notes-workflows",
@@ -13458,11 +13458,11 @@
         "33a1fd3aa58eac64",
         "b01012caadf0fabf"
       ],
-      "start_line": 1828
+      "start_line": 1830
     },
     {
       "confidence": "normal",
-      "end_line": 1861,
+      "end_line": 1863,
       "heading": "Live Verification Requirements",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes-live-verification-requirements",
@@ -13471,7 +13471,7 @@
         "93a509c867f58175",
         "776256c424368312"
       ],
-      "start_line": 1842
+      "start_line": 1844
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:47+00:00",

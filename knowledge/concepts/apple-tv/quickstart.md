@@ -25,12 +25,12 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-48: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 49-86: 2. Scope And Terminology (normal)
-- `3-apple-tv-apps-mental-model` lines 87-128: 3. Apple TV Apps Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 129-152: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-apple-tv-app-record` lines 155-184: Apple TV App Record (normal)
-- `5-core-configuration-and-data-model-tv-page-record` lines 185-193: TV Page Record (normal)
+- `1-executive-summary-for-agents` lines 29-50: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 51-88: 2. Scope And Terminology (normal)
+- `3-apple-tv-apps-mental-model` lines 89-130: 3. Apple TV Apps Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 131-154: 4. Source Authority And How To Use This Guide (normal)
+- `5-core-configuration-and-data-model-apple-tv-app-record` lines 157-186: Apple TV App Record (normal)
+- `5-core-configuration-and-data-model-tv-page-record` lines 187-195: TV Page Record (normal)
 
 ## Core Entities
 

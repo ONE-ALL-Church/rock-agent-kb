@@ -78,6 +78,7 @@ uv run kb concepts synthesize --concept check-in --model gpt-5.5
 uv run kb concepts synthesize --concept workflows --hydrate-sources --include-contributions --model gpt-5.5
 uv run kb concepts hydrate --concept workflows --include-private-drafts --private-draft-path data/review/private-distill/rockproduction_docs_private_candidates-workflows.jsonl
 uv run kb modelmap build
+uv run kb modelmap fetch
 uv run kb modelmap stamp
 uv run kb modelmap diff
 ```
@@ -141,7 +142,7 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 | `kb private ...` | Private-source scanning, distillation, review reporting, staleness, and impact checks. |
 | `kb contributions ...` | Contribution bundle creation, validation, promotion, and import. |
 | `kb concepts ...` | Concept listing, authored synthesis, and hydration. |
-| `kb modelmap ...` | Stable/latest Rock model-map build, stamping, and diffs. |
+| `kb modelmap ...` | Stable/latest Rock model-map API fetch, build, stamping, and diffs. |
 | `kb audit ...` | Guide, license, source-policy, public-export, readiness, and all-in-one audits. |
 | `kb publish ...` | Public export and legacy public-repo push commands. |
 | `kb report ...` | Refresh reports and maintainer dashboards. |
