@@ -22,7 +22,7 @@
 | Related model links | 6 |
 | Method signatures | 35 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -111,6 +111,4 @@
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | GroupLocationTypeValueId | enum_values |
+No stable-to-pre-alpha changes were detected for this model.

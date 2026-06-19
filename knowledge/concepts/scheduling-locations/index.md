@@ -2,7 +2,7 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-06-19T07:39:44+00:00
+last_built: 2026-06-19T08:38:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -117,8 +117,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Event Calendar](../../model-map/models/event-calendar.md) | Event | 19.1.8 | 43 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar Content Channel](../../model-map/models/event-calendar-content-channel.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar Item](../../model-map/models/event-calendar-item.md) | Event | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Location](../../model-map/models/group-location.md) | Group | 19.1.8 | 50 | 17 | 35 | 18 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Location Historical](../../model-map/models/group-location-historical.md) | Group | 19.1.8 | 49 | 19 | 34 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Location](../../model-map/models/group-location.md) | Group | 19.1.8 | 50 | 17 | 35 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Location Historical](../../model-map/models/group-location-historical.md) | Group | 19.1.8 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.1.8 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Interaction Session Location](../../model-map/models/interaction-session-location.md) | Core | 19.1.8 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |

@@ -2,7 +2,7 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-06-19T07:39:12+00:00
+last_built: 2026-06-19T08:37:43+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -266,7 +266,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Workflow Action Form](../../model-map/models/workflow-action-form.md) | Workflow | 19.1.8 | 85 | 47 | 70 | 23 | 5 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form](../../model-map/models/workflow-action-form.md) | Workflow | 19.1.8 | 85 | 47 | 70 | 23 | 4 | [source](https://community.rockrms.com/ModelMap) |
 | [Workflow Action Form Attribute](../../model-map/models/workflow-action-form-attribute.md) | Workflow | 19.1.8 | 52 | 21 | 36 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Workflow Action Form Section](../../model-map/models/workflow-action-form-section.md) | Workflow | 19.1.8 | 46 | 16 | 30 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
 | [Workflow Action](../../model-map/models/workflow-action.md) | Workflow | 19.1.8 | 47 | 14 | 31 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |

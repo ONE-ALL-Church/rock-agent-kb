@@ -21,7 +21,7 @@
   },
   "concept_slice_count": 18,
   "contains_row_data": false,
-  "generated_at": "2026-06-19T06:17:19+00:00",
+  "generated_at": "2026-06-19T08:36:49+00:00",
   "generation_method": [
     "Stable and pre-alpha model/property data come from authenticated Obsidian block-action calls against generic Rock demo Model Map pages.",
     "The collector uses RefreshObsidianBlockInitialization for the category/model list and GetModelDetails for each model detail payload.",
@@ -136,11 +136,11 @@
   "stable_property_count": 16111,
   "stable_table_name_model_count": 1,
   "version_diff": {
-    "change_count": 88,
+    "change_count": 84,
     "model_added_count": 0,
     "model_removed_count": 1,
     "property_added_count": 9,
-    "property_changed_count": 61,
+    "property_changed_count": 57,
     "property_removed_count": 17
   }
 }

@@ -11,3 +11,4 @@ service/dist/
 service/.wrangler/
 service/node_modules/
 agent/*.generated.tmp
+clients/python/uv.lock
