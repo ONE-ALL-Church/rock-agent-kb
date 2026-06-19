@@ -1,18 +1,24 @@
 {
   "authority_coverage": [
+    "community-example",
     "official",
-    "official-model-map"
+    "official-developer",
+    "official-model-map",
+    "official-release",
+    "official-training",
+    "official-triumph",
+    "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 526 words; expected at least 7000.",
-      "passed": false
+      "message": "Guide has 12795 words; expected at least 7000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 7 sections; expected at least 35.",
-      "passed": false
+      "message": "Guide has 90 sections; expected at least 35.",
+      "passed": true
     },
     {
       "id": "official_sources",
@@ -22,44 +28,44 @@
     {
       "id": "release_sources",
       "message": "Guide should cite release notes.",
-      "passed": false
+      "passed": true
     },
     {
       "id": "source_code",
       "message": "Guide should cite source code.",
-      "passed": false
-    },
-    {
-      "id": "community_marked",
-      "message": "Guide should include community examples as examples.",
-      "passed": false
+      "passed": true
     },
     {
       "id": "task_cards",
-      "message": "Guide has 0 task cards; expected at least 5.",
-      "passed": false
+      "message": "Guide has 6 task cards; expected at least 5.",
+      "passed": true
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 4 entity rows; expected at least 8.",
-      "passed": false
+      "message": "Guide has 10 entity rows; expected at least 8.",
+      "passed": true
     },
     {
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
       "passed": true
+    },
+    {
+      "id": "community_marked",
+      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
     }
   ],
   "concept_id": "content-personalization",
   "contribution_record_count": 0,
-  "entity_count": 4,
-  "generated_at": "2026-06-18T23:02:34+00:00",
-  "guide_line_count": 68,
-  "guide_word_count": 526,
+  "entity_count": 10,
+  "generated_at": "2026-06-19T00:20:04+00:00",
+  "guide_line_count": 993,
+  "guide_word_count": 12795,
   "private_draft_contribution_record_count": 0,
-  "score": 22,
-  "section_count": 7,
-  "source_count": 3,
-  "status": "starter",
-  "task_card_count": 0
+  "score": 100,
+  "section_count": 90,
+  "source_count": 12,
+  "status": "pass",
+  "task_card_count": 6
 }

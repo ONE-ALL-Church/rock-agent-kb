@@ -15,4 +15,6 @@ No approved claims are currently routed to Obsidian Development; inspect source 
 ## Citations
 
 - [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_developer](https://community.rockrms.com/developer/obsidian)
+- [rock_developer:article:384](https://community.rockrms.com/developer/obsidian/grid-reference/columns)
+- [rock_developer:article:377](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks)
+- [rock_developer:article:365](https://community.rockrms.com/developer/obsidian/obsidian-component-structure)

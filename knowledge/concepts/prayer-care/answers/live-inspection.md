@@ -15,6 +15,6 @@ For Prayer And Care, inspect these live surfaces before changing production beha
 ## Citations
 
 - [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation](https://community.rockrms.com/documentation/engagement/prayer)
-- [rock_rocku](https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests)
-- [rock_rocku](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry)
+- [rock_documentation:article:1514](https://community.rockrms.com/documentation/engagement/prayer)
+- [rock_model_map:b00bb6224fbaea6f](https://community.rockrms.com/ModelMap)
+- [rock_core_release_notes:be695906ad3e81a9](https://www.rockrms.com/releasenotes)

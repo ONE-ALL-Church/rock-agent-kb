@@ -17,22 +17,41 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 
 ## Primary Tasks
 
+- [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md): Follow the guide section for Recipe: Audit A Step Program.
+- [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md): Follow the guide section for Recipe: Diagnose Step Badge Display.
+- [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md): Follow the guide section for Recipe: Review A Streak Type Before Rebuild.
+- [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md): Follow the guide section for Recipe: Verify Assessment Request Flow.
+- [Recipe: Audit Achievement Type](tasks/recipe-audit-achievement-type.md): Follow the guide section for Recipe: Audit Achievement Type.
+- [Recipe: Explain Engagement Data To A Ministry User](tasks/recipe-explain-engagement-data-to-a-ministry-user.md): Follow the guide section for Recipe: Explain Engagement Data To A Ministry User.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-39: 1. Executive Summary For Agents (normal)
-- `2-agent-workflow` lines 40-47: 2. Agent Workflow (normal)
+- `1-executive-summary-for-agents` lines 27-40: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 41-90: 2. Scope And Terminology (high)
+- `3-engagement-tracking-mental-model` lines 91-112: 3. Engagement Tracking Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 113-131: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-steps-configuration` lines 134-179: Steps Configuration (high)
+- `5-core-configuration-and-data-model-step-status-and-completion` lines 180-185: Step Status And Completion (normal)
 
 ## Core Entities
 
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
+- `Attribute`: Rock concept/entity referenced by the engagement-tracking guide.
+- `Block`: Rock concept/entity referenced by the engagement-tracking guide.
+- `Campus`: Rock concept/entity referenced by the engagement-tracking guide.
+- `Family`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
+- `Label`: Rock concept/entity referenced by the engagement-tracking guide.
+- `LearningClassActivityCompletion`: Person-specific activity completion signal used by LMS reporting, workflow triggers, and downstream engagement steps.
+- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
+- `Page`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Person`: Rock concept/entity referenced by the engagement-tracking guide.
-- `Step`: Person-specific engagement milestone instance.
-- `Workflow`: Rock concept/entity referenced by the engagement-tracking guide.
+- `PersonAlias`: Rock concept/entity referenced by the engagement-tracking guide.
 
 ## Version Caveats
 
+- `18.1`: Added new "Core Steps" Step Program with system-protected Step Types, including initial "eRA" type. Added the ability to transfer Step Types from one Step Program to another.
+- `18.3`: Fixed an issue where editing a Step Program removed the Step Type association from its workflow triggers, and also addressed Step Type-level triggers being incorrectly displayed on the Step Program Detail. Fixes: #6753
 
 ## Files For Agents
 

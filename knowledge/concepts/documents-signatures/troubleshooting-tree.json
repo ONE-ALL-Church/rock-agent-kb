@@ -1,7 +1,155 @@
 {
-  "branches": [],
+  "branches": [
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-find-all-pending-signature-requests-for-a-template",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
+        "https://community.rockrms.com/recipes/434",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/recipes/482",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Find All Pending Signature Requests For A Template",
+      "when": "Follow the guide section for Recipe: Find All Pending Signature Requests For A Template."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-verify-a-person-has-a-valid-signed-waiver",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
+        "https://community.rockrms.com/recipes/434",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/recipes/482",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Verify A Person Has A Valid Signed Waiver",
+      "when": "Follow the guide section for Recipe: Verify A Person Has A Valid Signed Waiver."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-diagnose-a-failed-registration-signature",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
+        "https://community.rockrms.com/recipes/434",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/recipes/482",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Diagnose A Failed Registration Signature",
+      "when": "Follow the guide section for Recipe: Diagnose A Failed Registration Signature."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-audit-public-exposure-risk",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/482",
+        "https://community.rockrms.com/recipes/434"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Audit Public Exposure Risk",
+      "when": "Follow the guide section for Recipe: Audit Public Exposure Risk."
+    },
+    {
+      "do_not_assume": [
+        "Do not treat generated guidance as live-instance proof."
+      ],
+      "entities": [],
+      "id": "recipe-build-a-staff-resend-process",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
+        "https://community.rockrms.com/recipes/434",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/recipes/482",
+        "https://www.triumph.tech/resources/github-spotlight-1042024",
+        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+      ],
+      "start_with": [
+        "Read the linked guide section.",
+        "Inspect live Rock records before making changes."
+      ],
+      "title": "Recipe: Build A Staff Resend Process",
+      "when": "Follow the guide section for Recipe: Build A Staff Resend Process."
+    }
+  ],
   "concept_id": "documents-signatures",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-06-18T23:02:28+00:00",
-  "guide_sections": []
+  "generated_at": "2026-06-19T00:19:58+00:00",
+  "guide_sections": [
+    "10-generated-pdfs-deep-dive-pdf-troubleshooting",
+    "17-troubleshooting-decision-tree",
+    "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
+    "17-troubleshooting-decision-tree-entity-documents",
+    "17-troubleshooting-decision-tree-merge-documents",
+    "17-troubleshooting-decision-tree-electronic-signatures",
+    "17-troubleshooting-decision-tree-generated-pdfs",
+    "18-agent-task-recipes",
+    "18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template",
+    "18-agent-task-recipes-recipe-verify-a-person-has-a-valid-signed-waiver",
+    "18-agent-task-recipes-recipe-diagnose-a-failed-registration-signature",
+    "18-agent-task-recipes-recipe-audit-public-exposure-risk",
+    "18-agent-task-recipes-recipe-build-a-staff-resend-process"
+  ]
 }
