@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Meta`
 - Model title: `MetaNickNameLookup`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `13`
+- Obsolete methods: `3`
 - EntityType GUID: `5fcbe899-3756-4f64-8540-ce37ea9eed45`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 14 |
 | Lava-marked non-database properties | 5 |
 | Related model links | 0 |
+| Method signatures | 13 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

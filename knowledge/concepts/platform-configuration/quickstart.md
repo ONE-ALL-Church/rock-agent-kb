@@ -27,12 +27,12 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-46: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 47-102: 2. Scope And Terminology (normal)
-- `3-platform-configuration-mental-model` lines 103-143: 3. Platform Configuration Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 144-170: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-entity-types` lines 173-197: Entity Types (normal)
-- `5-core-configuration-and-data-model-attributes` lines 198-209: Attributes (normal)
+- `1-executive-summary-for-agents` lines 29-48: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 49-104: 2. Scope And Terminology (normal)
+- `3-platform-configuration-mental-model` lines 105-145: 3. Platform Configuration Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 146-172: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-entity-types` lines 175-199: Entity Types (normal)
+- `5-core-configuration-and-data-model-attributes` lines 200-211: Attributes (normal)
 
 ## Core Entities
 

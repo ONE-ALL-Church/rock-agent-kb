@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `Group`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `55`
+- Obsolete methods: `4`
 - EntityType GUID: `9bbfda11-0d22-40d5-902f-60adfbc88987`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 93 |
 | Lava-marked non-database properties | 32 |
 | Related model links | 26 |
+| Method signatures | 55 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 5 |
 
 ## Properties

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Event`
 - Model title: `EventItem`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `42`
+- Obsolete methods: `4`
 - EntityType GUID: `6a58ad11-3491-84ae-4896-8f39906ea65e`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 35 |
 | Lava-marked non-database properties | 17 |
 | Related model links | 7 |
+| Method signatures | 42 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

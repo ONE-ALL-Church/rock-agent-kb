@@ -30,12 +30,12 @@ Person records, families, aliases, attributes, relationships, and data hygiene.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-53: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 54-101: 2. Scope And Terminology (normal)
-- `3-people-and-families-mental-model` lines 102-138: 3. People And Families Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 139-176: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-person` lines 181-206: Person (normal)
-- `5-core-configuration-and-data-model-personalias` lines 207-222: PersonAlias (normal)
+- `1-executive-summary-for-agents` lines 29-55: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 56-103: 2. Scope And Terminology (normal)
+- `3-people-and-families-mental-model` lines 104-140: 3. People And Families Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 141-178: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-person` lines 183-208: Person (normal)
+- `5-core-configuration-and-data-model-personalias` lines 209-224: PersonAlias (normal)
 
 ## Core Entities
 

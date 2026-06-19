@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `LMS`
 - Model title: `LearningGradingSystem`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `0b693caf-3718-4913-b7ac-61d31b4df099`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 24 |
 | Lava-marked non-database properties | 12 |
 | Related model links | 2 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

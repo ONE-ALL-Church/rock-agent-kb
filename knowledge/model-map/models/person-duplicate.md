@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `PersonDuplicate`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `34`
+- Obsolete methods: `4`
 - EntityType GUID: `20b2b2b6-38c3-4302-9200-63dd4c78687b`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 32 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 0 |
+| Method signatures | 34 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

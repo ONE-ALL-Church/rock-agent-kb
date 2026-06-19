@@ -1,30 +1,56 @@
 {
   "schema": "rock-kb-model-map-version-diff-v1",
-  "generated_at": "2026-06-18T21:38:58+00:00",
+  "generated_at": "2026-06-19T05:51:10+00:00",
   "stable": {
     "path": "data/review/model-map-scrape/demo-model-map-full-scrape.json",
     "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
+    "collection_method": "obsidian_block_action",
+    "block_file_url": "/Obsidian/Blocks/Example/modelMap.obs",
+    "block_guid": "2583de89-f028-4ace-9e1f-2873340726ac",
+    "block_type_guid": "da2aad13-209b-4885-8739-b7be99f6510d",
+    "initialization_endpoint": "https://rocksolidchurchdemo.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/RefreshObsidianBlockInitialization",
+    "detail_endpoint": "https://rocksolidchurchdemo.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/GetModelDetails",
     "rock_version": "19.1.8",
     "rock_version_source_url": "https://rocksolidchurchdemo.com/api/Utility/GetRockSemanticVersionNumber",
+    "listed_model_count": 326,
+    "category_count": 18,
+    "failure_count": 0,
     "model_count": 326,
-    "property_count": 16111
+    "property_count": 16111,
+    "method_count": 10665,
+    "table_name_model_count": 1,
+    "missing_table_name_count": 325,
+    "obsolete_model_count": 1
   },
   "latest": {
     "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
     "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
+    "collection_method": "obsidian_block_action",
+    "block_file_url": "/Obsidian/Blocks/Example/modelMap.obs",
+    "block_guid": "2583de89-f028-4ace-9e1f-2873340726ac",
+    "block_type_guid": "da2aad13-209b-4885-8739-b7be99f6510d",
+    "initialization_endpoint": "https://rockrmslatest.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/RefreshObsidianBlockInitialization",
+    "detail_endpoint": "https://rockrmslatest.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/GetModelDetails",
     "rock_version": "20.0.4",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
+    "listed_model_count": 325,
+    "category_count": 17,
+    "failure_count": 0,
     "model_count": 325,
-    "property_count": 16100
+    "property_count": 16100,
+    "method_count": 9739,
+    "table_name_model_count": 1,
+    "missing_table_name_count": 324,
+    "obsolete_model_count": 1
   },
-  "change_count": 84,
+  "change_count": 88,
   "model_added_count": 0,
   "model_removed_count": 1,
   "property_added_count": 9,
   "property_removed_count": 17,
-  "property_changed_count": 57,
+  "property_changed_count": 61,
   "changed_field_counts": {
-    "enum_values": 55,
+    "enum_values": 59,
     "is_qualifier": 2
   },
   "changes": [
@@ -62,6 +88,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -90,6 +118,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -132,6 +162,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -164,6 +196,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -210,6 +244,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -242,6 +278,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -288,6 +326,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -316,6 +356,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -358,6 +400,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -390,6 +434,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -436,6 +482,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -468,6 +516,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -514,6 +564,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -542,6 +594,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -584,6 +638,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -616,6 +672,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -662,6 +720,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -694,6 +754,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -740,6 +802,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "156 = Credit Card",
@@ -788,6 +852,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "156 = Credit Card",
@@ -850,6 +916,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -886,6 +954,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -934,6 +1004,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -958,6 +1030,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -984,6 +1058,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "156 = Credit Card",
@@ -1032,6 +1108,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "156 = Credit Card",
@@ -1094,6 +1172,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -1130,6 +1210,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -1180,6 +1262,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -1208,6 +1292,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -1250,6 +1336,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -1282,6 +1370,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -1328,6 +1418,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -1360,6 +1452,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -1406,6 +1500,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "728 = Family Emergency",
@@ -1434,6 +1530,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "738 = Family Emergency",
@@ -1462,6 +1560,100 @@
       "stable_model_title": "Attendance",
       "latest_model_title": "Attendance",
       "model_category": "Event",
+      "property_name": "SearchTypeValueId",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.4",
+      "changed_fields": [
+        "enum_values"
+      ],
+      "stable": {
+        "description": "getsorsetstheidofthecheckinsearchtypedefinedvaluethatwasusedtosearchforthepersonfamilythesearefoundinthesearchtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "1443 = inactive",
+            "label": ""
+          },
+          {
+            "value": "158 = Name",
+            "label": "Search for family based on name"
+          },
+          {
+            "value": "39 = Phone Number",
+            "label": "Search for family based on phone number"
+          },
+          {
+            "value": "576 = Name & Phone",
+            "label": "This option allows you to search by phone and name at the same time. If the input has at least one non-numeric character the search will assume to be name. Otherwise phone number will be used."
+          },
+          {
+            "value": "684 = Scanned Id",
+            "label": "Search for family based on a barcode, proximity card, etc."
+          },
+          {
+            "value": "685 = Family Id",
+            "label": "Search for family based on a Family Id"
+          }
+        ],
+        "related_entity_links": [
+          {
+            "text": "definedvalue"
+          }
+        ]
+      },
+      "latest": {
+        "description": "getsorsetstheidofthecheckinsearchtypedefinedvaluethatwasusedtosearchforthepersonfamilythesearefoundinthesearchtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "158 = Name",
+            "label": "Search for family based on name"
+          },
+          {
+            "value": "39 = Phone Number",
+            "label": "Search for family based on phone number"
+          },
+          {
+            "value": "576 = Name & Phone",
+            "label": "This option allows you to search by phone and name at the same time. If the input has at least one non-numeric character the search will assume to be name. Otherwise phone number will be used."
+          },
+          {
+            "value": "684 = Scanned Id",
+            "label": "Search for family based on a barcode, proximity card, etc."
+          },
+          {
+            "value": "685 = Family Id",
+            "label": "Search for family based on a Family Id"
+          }
+        ],
+        "related_entity_links": [
+          {
+            "text": "definedvalue"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_changed",
+      "model_name": "Attendance",
+      "stable_model_title": "Attendance",
+      "latest_model_title": "Attendance",
+      "model_category": "Event",
       "property_name": "SourceValueId",
       "stable_version": "19.1.8",
       "latest_version": "20.0.4",
@@ -1476,6 +1668,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1273 = Legacy Kiosk",
@@ -1512,6 +1706,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1280 = Legacy Kiosk",
@@ -1562,6 +1758,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "817 = Physical",
@@ -1582,6 +1780,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "824 = Physical",
@@ -1616,6 +1816,8 @@
         "is_required": false,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "764 = Closed",
@@ -1640,6 +1842,8 @@
         "is_required": false,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "774 = Closed",
@@ -1678,6 +1882,8 @@
         "is_required": false,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "767 = Online",
@@ -1698,6 +1904,8 @@
         "is_required": false,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "777 = Online",
@@ -1732,6 +1940,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "959 = Weekend Service",
@@ -1755,6 +1965,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "967 = Weekend Service",
@@ -1790,6 +2002,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -1814,6 +2028,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -1838,6 +2054,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -1862,6 +2080,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -1886,6 +2106,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -1912,6 +2134,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "780 = Message Notes",
@@ -1932,6 +2156,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "790 = Message Notes",
@@ -1966,6 +2192,8 @@
         "is_required": false,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1301 = Cloud Print Proxy",
@@ -1998,6 +2226,8 @@
         "is_required": false,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1326 = Cloud Print Proxy",
@@ -2044,6 +2274,8 @@
         "is_required": true,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -2059,6 +2291,8 @@
         "is_required": true,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -2086,6 +2320,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -2112,6 +2348,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "156 = Credit Card",
@@ -2164,6 +2402,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "156 = Credit Card",
@@ -2230,6 +2470,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "824 = AED",
@@ -2782,6 +3024,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "832 = AED",
@@ -3348,6 +3592,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "130 = One-Time",
@@ -3400,6 +3646,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "130 = One-Time",
@@ -3464,6 +3712,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -3490,6 +3740,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "824 = AED",
@@ -4042,6 +4294,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "832 = AED",
@@ -4608,6 +4862,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -4644,6 +4900,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -4694,6 +4952,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "130 = One-Time",
@@ -4746,6 +5006,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "130 = One-Time",
@@ -4810,6 +5072,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -4834,6 +5098,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -4858,6 +5124,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -4884,6 +5152,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "824 = AED",
@@ -5436,6 +5706,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "832 = AED",
@@ -6002,6 +6274,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "769 = Property",
@@ -6034,6 +6308,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "779 = Property",
@@ -6080,6 +6356,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -6120,6 +6398,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "10 = Website",
@@ -6172,6 +6452,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -6197,6 +6479,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -6225,6 +6509,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -6253,6 +6539,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       }
@@ -6276,6 +6564,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -6302,6 +6592,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -6380,6 +6672,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -6454,6 +6748,192 @@
     {
       "schema": "rock-kb-model-map-version-change-v1",
       "change_type": "property_changed",
+      "model_name": "Group Location",
+      "stable_model_title": "GroupLocation",
+      "latest_model_title": "GroupLocation",
+      "model_category": "Group",
+      "property_name": "GroupLocationTypeValueId",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.4",
+      "changed_fields": [
+        "enum_values"
+      ],
+      "stable": {
+        "description": "theidofthegrouplocationtypedefinedvaluethatisusedtoidentifythetypeofgrouplocationthatthisisexampleshomeaddressworkaddressprimaryaddressthesearefoundinthelocationtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "137 = Previous",
+            "label": "Address where the family used to live."
+          },
+          {
+            "value": "1442 = Other",
+            "label": "Some other type of Address"
+          },
+          {
+            "value": "19 = Home",
+            "label": "Address where the family lives."
+          },
+          {
+            "value": "20 = Work",
+            "label": "Address where the group works."
+          },
+          {
+            "value": "209 = Meeting Location",
+            "label": "Indicates the place where the group regularly meets."
+          },
+          {
+            "value": "572 = Geographic Area",
+            "label": "Used to defined a geofenced area."
+          }
+        ],
+        "related_entity_links": [
+          {
+            "text": "definedvalue"
+          },
+          {
+            "text": "grouplocation"
+          }
+        ]
+      },
+      "latest": {
+        "description": "theidofthegrouplocationtypedefinedvaluethatisusedtoidentifythetypeofgrouplocationthatthisisexampleshomeaddressworkaddressprimaryaddressthesearefoundinthelocationtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "137 = Previous",
+            "label": "Address where the family used to live."
+          },
+          {
+            "value": "19 = Home",
+            "label": "Address where the family lives."
+          },
+          {
+            "value": "20 = Work",
+            "label": "Address where the group works."
+          },
+          {
+            "value": "209 = Meeting Location",
+            "label": "Indicates the place where the group regularly meets."
+          },
+          {
+            "value": "572 = Geographic Area",
+            "label": "Used to defined a geofenced area."
+          }
+        ],
+        "related_entity_links": [
+          {
+            "text": "definedvalue"
+          },
+          {
+            "text": "grouplocation"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_changed",
+      "model_name": "Group Location Historical",
+      "stable_model_title": "GroupLocationHistorical",
+      "latest_model_title": "GroupLocationHistorical",
+      "model_category": "Group",
+      "property_name": "GroupLocationTypeValueId",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.4",
+      "changed_fields": [
+        "enum_values"
+      ],
+      "stable": {
+        "description": "getsorsetsthegrouplocationtypevalueidentifierforthisgrouplocationatthispointinhistorythesearefoundinthelocationtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "137 = Previous",
+            "label": "Address where the family used to live."
+          },
+          {
+            "value": "1442 = Other",
+            "label": "Some other type of Address"
+          },
+          {
+            "value": "19 = Home",
+            "label": "Address where the family lives."
+          },
+          {
+            "value": "20 = Work",
+            "label": "Address where the group works."
+          },
+          {
+            "value": "209 = Meeting Location",
+            "label": "Indicates the place where the group regularly meets."
+          },
+          {
+            "value": "572 = Geographic Area",
+            "label": "Used to defined a geofenced area."
+          }
+        ],
+        "related_entity_links": []
+      },
+      "latest": {
+        "description": "getsorsetsthegrouplocationtypevalueidentifierforthisgrouplocationatthispointinhistorythesearefoundinthelocationtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "137 = Previous",
+            "label": "Address where the family used to live."
+          },
+          {
+            "value": "19 = Home",
+            "label": "Address where the family lives."
+          },
+          {
+            "value": "20 = Work",
+            "label": "Address where the group works."
+          },
+          {
+            "value": "209 = Meeting Location",
+            "label": "Indicates the place where the group regularly meets."
+          },
+          {
+            "value": "572 = Geographic Area",
+            "label": "Used to defined a geofenced area."
+          }
+        ],
+        "related_entity_links": []
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_changed",
       "model_name": "Group Type",
       "stable_model_title": "GroupType",
       "latest_model_title": "GroupType",
@@ -6472,6 +6952,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -6550,6 +7032,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -6642,6 +7126,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1248 = Interaction Intents",
@@ -6702,6 +7188,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1255 = Interaction Intents",
@@ -6776,6 +7264,8 @@
         "is_required": true,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -6791,6 +7281,8 @@
         "is_required": true,
         "is_qualifier": true,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -6819,6 +7311,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -6847,6 +7341,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -6875,6 +7371,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       }
@@ -6898,6 +7396,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -6924,6 +7424,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -7002,6 +7504,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -7093,6 +7597,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": true,
+        "is_defined_value": false,
         "enum_values": [
           {
             "value": "0",
@@ -7131,6 +7637,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1181 = Hispanic or Latino",
@@ -7155,6 +7663,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1189 = Hispanic or Latino",
@@ -7193,6 +7703,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -7225,6 +7737,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "143 = Married",
@@ -7271,6 +7785,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1175 = White",
@@ -7311,6 +7827,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1183 = White",
@@ -7365,6 +7883,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -7437,6 +7957,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -7523,6 +8045,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -7559,6 +8083,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "164 = No Longer Attending",
@@ -7609,6 +8135,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -7645,6 +8173,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1 = Person",
@@ -7695,6 +8225,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1000 = TV",
@@ -7723,6 +8255,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1008 = TV",
@@ -7765,6 +8299,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "679 = iOS",
@@ -7797,6 +8333,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "679 = iOS",
@@ -7843,6 +8381,8 @@
         "is_required": true,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "692 = Email",
@@ -7867,6 +8407,8 @@
         "is_required": true,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "696 = Email",
@@ -7905,6 +8447,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -7983,6 +8527,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -8074,6 +8620,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": [
           {
@@ -8102,6 +8650,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       }
@@ -8127,6 +8677,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -8205,6 +8757,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -8297,6 +8851,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1413 = Outreach",
@@ -8321,6 +8877,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1410 = Outreach",
@@ -8357,6 +8915,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -8381,6 +8941,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": true,
+        "is_enum": false,
+        "is_defined_value": false,
         "enum_values": [],
         "related_entity_links": []
       },
@@ -8407,6 +8969,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1249 = Check-in",
@@ -8435,6 +8999,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1256 = Check-in",
@@ -8477,6 +9043,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "764 = Closed",
@@ -8501,6 +9069,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "774 = Closed",
@@ -8539,6 +9109,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "767 = Online",
@@ -8559,6 +9131,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "777 = Online",
@@ -8567,6 +9141,92 @@
           {
             "value": "778 = Physical",
             "label": ""
+          }
+        ],
+        "related_entity_links": []
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_changed",
+      "model_name": "Workflow Action Form",
+      "stable_model_title": "WorkflowActionForm",
+      "latest_model_title": "WorkflowActionForm",
+      "model_category": "Workflow",
+      "property_name": "PersonEntryGroupLocationTypeValueId",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.4",
+      "changed_fields": [
+        "enum_values"
+      ],
+      "stable": {
+        "description": "getsorsetsthepersonentryaddresstypevalueidentifierthesearefoundinthelocationtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "137 = Previous",
+            "label": "Address where the family used to live."
+          },
+          {
+            "value": "1442 = Other",
+            "label": "Some other type of Address"
+          },
+          {
+            "value": "19 = Home",
+            "label": "Address where the family lives."
+          },
+          {
+            "value": "20 = Work",
+            "label": "Address where the group works."
+          },
+          {
+            "value": "209 = Meeting Location",
+            "label": "Indicates the place where the group regularly meets."
+          },
+          {
+            "value": "572 = Geographic Area",
+            "label": "Used to defined a geofenced area."
+          }
+        ],
+        "related_entity_links": []
+      },
+      "latest": {
+        "description": "getsorsetsthepersonentryaddresstypevalueidentifierthesearefoundinthelocationtypedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "value": "137 = Previous",
+            "label": "Address where the family used to live."
+          },
+          {
+            "value": "19 = Home",
+            "label": "Address where the family lives."
+          },
+          {
+            "value": "20 = Work",
+            "label": "Address where the group works."
+          },
+          {
+            "value": "209 = Meeting Location",
+            "label": "Indicates the place where the group regularly meets."
+          },
+          {
+            "value": "572 = Geographic Area",
+            "label": "Used to defined a geofenced area."
           }
         ],
         "related_entity_links": []
@@ -8593,6 +9253,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1384 = External Website",
@@ -8661,6 +9323,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1381 = External Website",
@@ -8743,6 +9407,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1001 = No Style",
@@ -8767,6 +9433,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1009 = No Style",
@@ -8805,6 +9473,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1001 = No Style",
@@ -8829,6 +9499,8 @@
         "is_required": false,
         "is_qualifier": false,
         "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
         "enum_values": [
           {
             "value": "1009 = No Style",

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `AI`
 - Model title: `AIAgent`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `36`
+- Obsolete methods: `4`
 - EntityType GUID: `ee3fe609-5c7c-492e-b0e9-5461045fc825`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 30 |
 | Lava-marked non-database properties | 14 |
 | Related model links | 1 |
+| Method signatures | 36 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

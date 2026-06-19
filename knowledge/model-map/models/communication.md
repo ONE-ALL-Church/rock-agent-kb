@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Communication`
 - Model title: `Communication`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `50`
+- Obsolete methods: `4`
 - EntityType GUID: `c4ccbd91-1264-48bf-bc33-92751c8948b5`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 76 |
 | Lava-marked non-database properties | 24 |
 | Related model links | 11 |
+| Method signatures | 50 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 2 |
 
 ## Properties
@@ -158,7 +164,7 @@
 | PushImageBinaryFileId | image file | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 | Recipients | CommunicationRecipients | 3ec89b90-6692-451e-a48f-0d2adeba05bc |
 | ReviewerPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
-| SendSourceDate | send source date | 1a31a638-7740-48c9-b4cd-dee98562bdf8 |
+| SendSourceDate | send source date | a454cbaf-0c8f-4b92-86c1-4d93ffd6e0a5 |
 | SenderPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 | SenderPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 

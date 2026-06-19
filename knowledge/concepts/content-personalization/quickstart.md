@@ -26,12 +26,12 @@ Content channels, assets, structured content, adaptive messages, personalization
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-44: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 45-63: 2. Scope And Terminology (normal)
-- `3-content-and-personalization-mental-model` lines 64-79: 3. Content And Personalization Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 80-94: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 95-132: 5. Core Configuration And Data Model (high)
-- `6-primary-entities-and-relationships` lines 133-154: 6. Primary Entities And Relationships (high)
+- `1-executive-summary-for-agents` lines 29-46: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 47-65: 2. Scope And Terminology (normal)
+- `3-content-and-personalization-mental-model` lines 66-81: 3. Content And Personalization Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 82-96: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model` lines 97-134: 5. Core Configuration And Data Model (high)
+- `6-primary-entities-and-relationships` lines 135-156: 6. Primary Entities And Relationships (high)
 
 ## Core Entities
 

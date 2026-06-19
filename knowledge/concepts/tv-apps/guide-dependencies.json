@@ -549,12 +549,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "53ee2a24710ff95c67799de882e526601657f58de5d7d2c292036aff87771b22",
   "approved_media_path": "knowledge/concepts/tv-apps/approved-media.md",
-  "built_at": "2026-06-19T05:26:22+00:00",
+  "built_at": "2026-06-19T05:57:26+00:00",
   "concept_id": "tv-apps",
-  "guide_hash": "4489e7dbbfff97740ce3e419bfa0956f276f9f14414220b78bb0f7a2e5b86a03",
-  "guide_line_count": 1109,
+  "guide_hash": "16847d6ee5d4b0053ff4ffab761a529a4ccb330ae339699ea3ab695fe499ef18",
+  "guide_line_count": 1111,
   "guide_path": "knowledge/concepts/tv-apps/guide.md",
-  "guide_word_count": 11923,
+  "guide_word_count": 11936,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -749,7 +749,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -760,7 +760,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 49,
+      "end_line": 51,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -771,11 +771,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 64,
+      "end_line": 66,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -794,11 +794,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 50
+      "start_line": 52
     },
     {
       "confidence": "normal",
-      "end_line": 92,
+      "end_line": 94,
       "heading": "3. TV Apps Mental Model",
       "needs_live_verification": true,
       "section_id": "3-tv-apps-mental-model",
@@ -810,11 +810,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 65
+      "start_line": 67
     },
     {
       "confidence": "normal",
-      "end_line": 116,
+      "end_line": 118,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -831,11 +831,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 93
+      "start_line": 95
     },
     {
       "confidence": "structural",
-      "end_line": 118,
+      "end_line": 120,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -850,11 +850,11 @@
         "489761c69361347a",
         "2aa8d37e7332b898"
       ],
-      "start_line": 117
+      "start_line": 119
     },
     {
       "confidence": "normal",
-      "end_line": 132,
+      "end_line": 134,
       "heading": "Apple TV Application Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-apple-tv-application-configuration",
@@ -864,11 +864,11 @@
         "74ac83f99a50c012",
         "a76f73c64199a534"
       ],
-      "start_line": 119
+      "start_line": 121
     },
     {
       "confidence": "normal",
-      "end_line": 143,
+      "end_line": 145,
       "heading": "Roku Application Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-roku-application-configuration",
@@ -876,11 +876,11 @@
         "35d2e6eb8d06e01f",
         "bd028713c00f4c0b"
       ],
-      "start_line": 133
+      "start_line": 135
     },
     {
       "confidence": "normal",
-      "end_line": 159,
+      "end_line": 161,
       "heading": "TV Page Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-tv-page-configuration",
@@ -889,11 +889,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 144
+      "start_line": 146
     },
     {
       "confidence": "normal",
-      "end_line": 172,
+      "end_line": 174,
       "heading": "Remote Authentication Data Model",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-remote-authentication-data-model",
@@ -904,11 +904,11 @@
         "489761c69361347a",
         "2aa8d37e7332b898"
       ],
-      "start_line": 160
+      "start_line": 162
     },
     {
       "confidence": "structural",
-      "end_line": 174,
+      "end_line": 176,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -919,11 +919,11 @@
         "a183a0fe156ec11e",
         "fbe6e72b8c6fd35b"
       ],
-      "start_line": 173
+      "start_line": 175
     },
     {
       "confidence": "normal",
-      "end_line": 180,
+      "end_line": 182,
       "heading": "Application To Page",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-application-to-page",
@@ -931,11 +931,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 175
+      "start_line": 177
     },
     {
       "confidence": "normal",
-      "end_line": 193,
+      "end_line": 195,
       "heading": "Application To API Key",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-application-to-api-key",
@@ -944,11 +944,11 @@
         "35d2e6eb8d06e01f",
         "14e4b0253d1428ca"
       ],
-      "start_line": 181
+      "start_line": 183
     },
     {
       "confidence": "normal",
-      "end_line": 208,
+      "end_line": 210,
       "heading": "Application To Authentication Page",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-application-to-authentication-page",
@@ -956,11 +956,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 194
+      "start_line": 196
     },
     {
       "confidence": "normal",
-      "end_line": 212,
+      "end_line": 214,
       "heading": "RemoteAuthenticationSession To Person And Site",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-remoteauthenticationsession-to-person-and-site",
@@ -968,11 +968,11 @@
         "a183a0fe156ec11e",
         "fbe6e72b8c6fd35b"
       ],
-      "start_line": 209
+      "start_line": 211
     },
     {
       "confidence": "normal",
-      "end_line": 218,
+      "end_line": 220,
       "heading": "Page To Interaction",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-to-interaction",
@@ -982,11 +982,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 213
+      "start_line": 215
     },
     {
       "confidence": "structural",
-      "end_line": 220,
+      "end_line": 222,
       "heading": "7. Common TV Apps Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-tv-apps-workflows",
@@ -995,11 +995,11 @@
         "35d2e6eb8d06e01f",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 219
+      "start_line": 221
     },
     {
       "confidence": "normal",
-      "end_line": 235,
+      "end_line": 237,
       "heading": "Create A New Apple TV App",
       "needs_live_verification": true,
       "section_id": "7-common-tv-apps-workflows-create-a-new-apple-tv-app",
@@ -1012,11 +1012,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 221
+      "start_line": 223
     },
     {
       "confidence": "normal",
-      "end_line": 250,
+      "end_line": 252,
       "heading": "Create A New Roku App",
       "needs_live_verification": true,
       "section_id": "7-common-tv-apps-workflows-create-a-new-roku-app",
@@ -1027,11 +1027,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 236
+      "start_line": 238
     },
     {
       "confidence": "normal",
-      "end_line": 262,
+      "end_line": 264,
       "heading": "Add A Menu Or Navigation Surface",
       "needs_live_verification": false,
       "section_id": "7-common-tv-apps-workflows-add-a-menu-or-navigation-surface",
@@ -1039,11 +1039,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 251
+      "start_line": 253
     },
     {
       "confidence": "normal",
-      "end_line": 268,
+      "end_line": 270,
       "heading": "Add Media Playback",
       "needs_live_verification": true,
       "section_id": "7-common-tv-apps-workflows-add-media-playback",
@@ -1053,11 +1053,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 263
+      "start_line": 265
     },
     {
       "confidence": "normal",
-      "end_line": 282,
+      "end_line": 284,
       "heading": "Add Remote Sign-In",
       "needs_live_verification": false,
       "section_id": "7-common-tv-apps-workflows-add-remote-sign-in",
@@ -1065,22 +1065,22 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 269
+      "start_line": 271
     },
     {
       "confidence": "structural",
-      "end_line": 284,
+      "end_line": 286,
       "heading": "8. Apple TV Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-apple-tv-deep-dive",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 283
+      "start_line": 285
     },
     {
       "confidence": "normal",
-      "end_line": 294,
+      "end_line": 296,
       "heading": "Apple TV Platform Contract",
       "needs_live_verification": true,
       "section_id": "8-apple-tv-deep-dive-apple-tv-platform-contract",
@@ -1091,22 +1091,22 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 285
+      "start_line": 287
     },
     {
       "confidence": "normal",
-      "end_line": 324,
+      "end_line": 326,
       "heading": "Apple TV Pages And Merge Fields",
       "needs_live_verification": true,
       "section_id": "8-apple-tv-deep-dive-apple-tv-pages-and-merge-fields",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 295
+      "start_line": 297
     },
     {
       "confidence": "normal",
-      "end_line": 340,
+      "end_line": 342,
       "heading": "Apple TV Templates",
       "needs_live_verification": false,
       "section_id": "8-apple-tv-deep-dive-apple-tv-templates",
@@ -1120,11 +1120,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 325
+      "start_line": 327
     },
     {
       "confidence": "normal",
-      "end_line": 351,
+      "end_line": 353,
       "heading": "Apple TV Commands",
       "needs_live_verification": false,
       "section_id": "8-apple-tv-deep-dive-apple-tv-commands",
@@ -1135,22 +1135,22 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 341
+      "start_line": 343
     },
     {
       "confidence": "normal",
-      "end_line": 364,
+      "end_line": 366,
       "heading": "Apple TV Testing And Demo Key",
       "needs_live_verification": true,
       "section_id": "8-apple-tv-deep-dive-apple-tv-testing-and-demo-key",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 352
+      "start_line": 354
     },
     {
       "confidence": "normal",
-      "end_line": 377,
+      "end_line": 379,
       "heading": "Apple TV Application Images",
       "needs_live_verification": true,
       "section_id": "8-apple-tv-deep-dive-apple-tv-application-images",
@@ -1160,22 +1160,22 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 365
+      "start_line": 367
     },
     {
       "confidence": "structural",
-      "end_line": 379,
+      "end_line": 381,
       "heading": "9. Roku Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-roku-deep-dive",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 378
+      "start_line": 380
     },
     {
       "confidence": "normal",
-      "end_line": 385,
+      "end_line": 387,
       "heading": "Roku Platform Contract",
       "needs_live_verification": false,
       "section_id": "9-roku-deep-dive-roku-platform-contract",
@@ -1184,11 +1184,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 380
+      "start_line": 382
     },
     {
       "confidence": "normal",
-      "end_line": 406,
+      "end_line": 408,
       "heading": "Roku Pages",
       "needs_live_verification": true,
       "section_id": "9-roku-deep-dive-roku-pages",
@@ -1196,11 +1196,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 386
+      "start_line": 388
     },
     {
       "confidence": "normal",
-      "end_line": 419,
+      "end_line": 421,
       "heading": "Roku Commands",
       "needs_live_verification": true,
       "section_id": "9-roku-deep-dive-roku-commands",
@@ -1214,44 +1214,44 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 407
+      "start_line": 409
     },
     {
       "confidence": "normal",
-      "end_line": 430,
+      "end_line": 432,
       "heading": "Roku Navigation Caching",
       "needs_live_verification": false,
       "section_id": "9-roku-deep-dive-roku-navigation-caching",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 420
+      "start_line": 422
     },
     {
       "confidence": "normal",
-      "end_line": 443,
+      "end_line": 445,
       "heading": "Roku Focus Management",
       "needs_live_verification": false,
       "section_id": "9-roku-deep-dive-roku-focus-management",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 431
+      "start_line": 433
     },
     {
       "confidence": "normal",
-      "end_line": 465,
+      "end_line": 467,
       "heading": "Roku RowList",
       "needs_live_verification": false,
       "section_id": "9-roku-deep-dive-roku-rowlist",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 444
+      "start_line": 446
     },
     {
       "confidence": "normal",
-      "end_line": 471,
+      "end_line": 473,
       "heading": "Roku Layout Guardrails",
       "needs_live_verification": false,
       "section_id": "9-roku-deep-dive-roku-layout-guardrails",
@@ -1259,11 +1259,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 466
+      "start_line": 468
     },
     {
       "confidence": "structural",
-      "end_line": 473,
+      "end_line": 475,
       "heading": "10. Security And Authentication Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-security-and-authentication-deep-dive",
@@ -1277,11 +1277,11 @@
         "7a2228513497371a",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 472
+      "start_line": 474
     },
     {
       "confidence": "normal",
-      "end_line": 486,
+      "end_line": 488,
       "heading": "API Key Security",
       "needs_live_verification": true,
       "section_id": "10-security-and-authentication-deep-dive-api-key-security",
@@ -1289,11 +1289,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 474
+      "start_line": 476
     },
     {
       "confidence": "normal",
-      "end_line": 502,
+      "end_line": 504,
       "heading": "Remote Authentication Flow",
       "needs_live_verification": true,
       "section_id": "10-security-and-authentication-deep-dive-remote-authentication-flow",
@@ -1305,11 +1305,11 @@
         "489761c69361347a",
         "2aa8d37e7332b898"
       ],
-      "start_line": 487
+      "start_line": 489
     },
     {
       "confidence": "normal",
-      "end_line": 511,
+      "end_line": 513,
       "heading": "Remote Auth Component Selection",
       "needs_live_verification": true,
       "section_id": "10-security-and-authentication-deep-dive-remote-auth-component-selection",
@@ -1317,22 +1317,22 @@
         "a3e67115b1e1fc4f",
         "7a2228513497371a"
       ],
-      "start_line": 503
+      "start_line": 505
     },
     {
       "confidence": "normal",
-      "end_line": 529,
+      "end_line": 531,
       "heading": "Page Security And Sensitive Data",
       "needs_live_verification": false,
       "section_id": "10-security-and-authentication-deep-dive-page-security-and-sensitive-data",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 512
+      "start_line": 514
     },
     {
       "confidence": "structural",
-      "end_line": 531,
+      "end_line": 533,
       "heading": "11. Styling And Controls Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-styling-and-controls-deep-dive",
@@ -1340,11 +1340,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 530
+      "start_line": 532
     },
     {
       "confidence": "normal",
-      "end_line": 544,
+      "end_line": 546,
       "heading": "Apple TV Styling",
       "needs_live_verification": true,
       "section_id": "11-styling-and-controls-deep-dive-apple-tv-styling",
@@ -1357,11 +1357,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 532
+      "start_line": 534
     },
     {
       "confidence": "normal",
-      "end_line": 559,
+      "end_line": 561,
       "heading": "Apple TV Custom Controls",
       "needs_live_verification": true,
       "section_id": "11-styling-and-controls-deep-dive-apple-tv-custom-controls",
@@ -1369,11 +1369,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 545
+      "start_line": 547
     },
     {
       "confidence": "normal",
-      "end_line": 577,
+      "end_line": 579,
       "heading": "Roku Controls",
       "needs_live_verification": true,
       "section_id": "11-styling-and-controls-deep-dive-roku-controls",
@@ -1383,11 +1383,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 560
+      "start_line": 562
     },
     {
       "confidence": "structural",
-      "end_line": 579,
+      "end_line": 581,
       "heading": "12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Mobile",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile",
@@ -1399,44 +1399,44 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 578
+      "start_line": 580
     },
     {
       "confidence": "citation-only",
-      "end_line": 583,
+      "end_line": 585,
       "heading": "API Integrations",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-api-integrations",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 580
+      "start_line": 582
     },
     {
       "confidence": "normal",
-      "end_line": 596,
+      "end_line": 598,
       "heading": "Lava",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-lava",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 584
+      "start_line": 586
     },
     {
       "confidence": "structural",
-      "end_line": 600,
+      "end_line": 602,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-cms",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 597
+      "start_line": 599
     },
     {
       "confidence": "normal",
-      "end_line": 604,
+      "end_line": 606,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-security",
@@ -1444,11 +1444,11 @@
         "a183a0fe156ec11e",
         "7a2228513497371a"
       ],
-      "start_line": 601
+      "start_line": 603
     },
     {
       "confidence": "normal",
-      "end_line": 608,
+      "end_line": 610,
       "heading": "Media",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-media",
@@ -1456,22 +1456,22 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 605
+      "start_line": 607
     },
     {
       "confidence": "normal",
-      "end_line": 612,
+      "end_line": 614,
       "heading": "Mobile",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-mobile",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 609
+      "start_line": 611
     },
     {
       "confidence": "normal",
-      "end_line": 648,
+      "end_line": 650,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
@@ -1482,11 +1482,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 613
+      "start_line": 615
     },
     {
       "confidence": "normal",
-      "end_line": 679,
+      "end_line": 681,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -1515,11 +1515,11 @@
         "53ad1133e1cb2d0a",
         "14e4b0253d1428ca"
       ],
-      "start_line": 649
+      "start_line": 651
     },
     {
       "confidence": "normal",
-      "end_line": 702,
+      "end_line": 704,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -1530,11 +1530,11 @@
         "35d2e6eb8d06e01f",
         "a183a0fe156ec11e"
       ],
-      "start_line": 680
+      "start_line": 682
     },
     {
       "confidence": "normal",
-      "end_line": 722,
+      "end_line": 724,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats",
@@ -1546,11 +1546,11 @@
         "35d2e6eb8d06e01f",
         "14e4b0253d1428ca"
       ],
-      "start_line": 703
+      "start_line": 705
     },
     {
       "confidence": "structural",
-      "end_line": 724,
+      "end_line": 726,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -1559,11 +1559,11 @@
         "35d2e6eb8d06e01f",
         "ec2bead07b6e067b"
       ],
-      "start_line": 723
+      "start_line": 725
     },
     {
       "confidence": "normal",
-      "end_line": 747,
+      "end_line": 749,
       "heading": "Playbook: Anonymous Sermon Library",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-anonymous-sermon-library",
@@ -1572,11 +1572,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 725
+      "start_line": 727
     },
     {
       "confidence": "normal",
-      "end_line": 767,
+      "end_line": 769,
       "heading": "Playbook: Campus Selection",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-campus-selection",
@@ -1584,11 +1584,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 748
+      "start_line": 750
     },
     {
       "confidence": "normal",
-      "end_line": 790,
+      "end_line": 792,
       "heading": "Playbook: Remote Login With Personalized Home",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-remote-login-with-personalized-home",
@@ -1597,22 +1597,22 @@
         "35d2e6eb8d06e01f",
         "ec2bead07b6e067b"
       ],
-      "start_line": 768
+      "start_line": 770
     },
     {
       "confidence": "normal",
-      "end_line": 810,
+      "end_line": 812,
       "heading": "Playbook: Live Event Countdown",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-live-event-countdown",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 791
+      "start_line": 793
     },
     {
       "confidence": "normal",
-      "end_line": 831,
+      "end_line": 833,
       "heading": "Playbook: Roku Media Shelves",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-roku-media-shelves",
@@ -1621,11 +1621,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 811
+      "start_line": 813
     },
     {
       "confidence": "structural",
-      "end_line": 833,
+      "end_line": 835,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -1634,11 +1634,11 @@
         "35d2e6eb8d06e01f",
         "ec2bead07b6e067b"
       ],
-      "start_line": 832
+      "start_line": 834
     },
     {
       "confidence": "normal",
-      "end_line": 843,
+      "end_line": 845,
       "heading": "App Does Not Launch Or Shows Wrong Content",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",
@@ -1646,33 +1646,33 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 834
+      "start_line": 836
     },
     {
       "confidence": "normal",
-      "end_line": 853,
+      "end_line": 855,
       "heading": "Page Is Blank",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-page-is-blank",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 844
+      "start_line": 846
     },
     {
       "confidence": "normal",
-      "end_line": 864,
+      "end_line": 866,
       "heading": "Roku Focus Does Not Move",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-roku-focus-does-not-move",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 854
+      "start_line": 856
     },
     {
       "confidence": "normal",
-      "end_line": 876,
+      "end_line": 878,
       "heading": "Navigation Button Does Nothing",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-navigation-button-does-nothing",
@@ -1680,11 +1680,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 865
+      "start_line": 867
     },
     {
       "confidence": "normal",
-      "end_line": 886,
+      "end_line": 888,
       "heading": "Media Does Not Play",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-media-does-not-play",
@@ -1692,11 +1692,11 @@
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 877
+      "start_line": 879
     },
     {
       "confidence": "normal",
-      "end_line": 901,
+      "end_line": 903,
       "heading": "Remote Login Fails",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-remote-login-fails",
@@ -1705,11 +1705,11 @@
         "35d2e6eb8d06e01f",
         "ec2bead07b6e067b"
       ],
-      "start_line": 887
+      "start_line": 889
     },
     {
       "confidence": "normal",
-      "end_line": 913,
+      "end_line": 915,
       "heading": "Analytics Missing",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-analytics-missing",
@@ -1718,11 +1718,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 902
+      "start_line": 904
     },
     {
       "confidence": "structural",
-      "end_line": 915,
+      "end_line": 917,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
@@ -1732,11 +1732,11 @@
         "a183a0fe156ec11e",
         "ec2bead07b6e067b"
       ],
-      "start_line": 914
+      "start_line": 916
     },
     {
       "confidence": "structural",
-      "end_line": 944,
+      "end_line": 946,
       "heading": "Recipe: Audit A TV App Configuration",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-audit-a-tv-app-configuration",
@@ -1745,11 +1745,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 916
+      "start_line": 918
     },
     {
       "confidence": "structural",
-      "end_line": 957,
+      "end_line": 959,
       "heading": "Recipe: Trace A Page GUID",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-trace-a-page-guid",
@@ -1758,11 +1758,11 @@
         "35d2e6eb8d06e01f",
         "74ac83f99a50c012"
       ],
-      "start_line": 945
+      "start_line": 947
     },
     {
       "confidence": "normal",
-      "end_line": 982,
+      "end_line": 984,
       "heading": "Recipe: Validate Remote Auth In Data",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-validate-remote-auth-in-data",
@@ -1770,11 +1770,11 @@
         "a183a0fe156ec11e",
         "ec2bead07b6e067b"
       ],
-      "start_line": 958
+      "start_line": 960
     },
     {
       "confidence": "structural",
-      "end_line": 995,
+      "end_line": 997,
       "heading": "Recipe: Review A Roku Page For Focus",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-review-a-roku-page-for-focus",
@@ -1782,11 +1782,11 @@
         "a183a0fe156ec11e",
         "ec2bead07b6e067b"
       ],
-      "start_line": 983
+      "start_line": 985
     },
     {
       "confidence": "normal",
-      "end_line": 1012,
+      "end_line": 1014,
       "heading": "Recipe: Review Apple TV Markup",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-review-apple-tv-markup",
@@ -1794,11 +1794,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 996
+      "start_line": 998
     },
     {
       "confidence": "structural",
-      "end_line": 1033,
+      "end_line": 1035,
       "heading": "Recipe: Decide Cache Policy",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-decide-cache-policy",
@@ -1806,11 +1806,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 1013
+      "start_line": 1015
     },
     {
       "confidence": "normal",
-      "end_line": 1059,
+      "end_line": 1061,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1828,11 +1828,11 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1034
+      "start_line": 1036
     },
     {
       "confidence": "structural",
-      "end_line": 1066,
+      "end_line": 1068,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1850,11 +1850,11 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1060
+      "start_line": 1062
     },
     {
       "confidence": "structural",
-      "end_line": 1068,
+      "end_line": 1070,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1873,11 +1873,11 @@
         "a76f73c64199a534",
         "bd028713c00f4c0b"
       ],
-      "start_line": 1067
+      "start_line": 1069
     },
     {
       "confidence": "normal",
-      "end_line": 1109,
+      "end_line": 1111,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1929,7 +1929,7 @@
         "a76f73c64199a534",
         "bd028713c00f4c0b"
       ],
-      "start_line": 1069
+      "start_line": 1071
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T18:14:21+00:00",

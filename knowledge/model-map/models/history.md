@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `History`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `58`
+- Obsolete methods: `4`
 - EntityType GUID: `546d5f43-1184-47c9-8265-2d7bf4e1bca5`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 42 |
 | Lava-marked non-database properties | 16 |
 | Related model links | 2 |
+| Method signatures | 58 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

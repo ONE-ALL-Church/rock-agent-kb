@@ -26,12 +26,12 @@ Roku developer documentation for Rock-powered SceneGraph applications, pages, co
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-48: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 49-72: 2. Scope And Terminology (normal)
-- `3-roku-apps-mental-model` lines 73-90: 3. Roku Apps Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 91-116: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-application-configuration` lines 121-134: Application Configuration (normal)
-- `5-core-configuration-and-data-model-page-configuration` lines 135-146: Page Configuration (normal)
+- `1-executive-summary-for-agents` lines 29-50: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 51-74: 2. Scope And Terminology (normal)
+- `3-roku-apps-mental-model` lines 75-92: 3. Roku Apps Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 93-118: 4. Source Authority And How To Use This Guide (normal)
+- `5-core-configuration-and-data-model-application-configuration` lines 123-136: Application Configuration (normal)
+- `5-core-configuration-and-data-model-page-configuration` lines 137-148: Page Configuration (normal)
 
 ## Core Entities
 

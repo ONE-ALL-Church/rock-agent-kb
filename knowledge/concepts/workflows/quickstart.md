@@ -27,12 +27,12 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-48: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 49-95: 2. Scope And Terminology (high)
-- `3-workflows-mental-model` lines 96-147: 3. Workflows Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 148-173: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-workflow-type-configuration` lines 176-196: Workflow Type Configuration (normal)
-- `5-core-configuration-and-data-model-activities-and-actions` lines 225-239: Activities And Actions (normal)
+- `1-executive-summary-for-agents` lines 29-50: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 51-97: 2. Scope And Terminology (high)
+- `3-workflows-mental-model` lines 98-149: 3. Workflows Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 150-175: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-workflow-type-configuration` lines 178-198: Workflow Type Configuration (normal)
+- `5-core-configuration-and-data-model-activities-and-actions` lines 227-241: Activities And Actions (normal)
 
 ## Core Entities
 

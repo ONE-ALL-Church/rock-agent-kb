@@ -43,7 +43,7 @@ Generated content is meant to be reproducible from the registries, normalized re
 - `kb private ...` - private-source scanning, distillation, review reporting, staleness, and impact checks; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb contributions ...` - contribution bundle creation, validation, promotion, and import; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb concepts ...` - concept listing, authored synthesis, and hydration; see [CLI Reference](docs/runbooks/cli-reference.md).
-- `kb modelmap ...` - stable/latest Rock model-map build, stamping, and diffs; see [CLI Reference](docs/runbooks/cli-reference.md).
+- `kb modelmap ...` - stable/latest Rock model-map API fetch, build, stamping, and diffs; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb audit ...` - guide, license, source-policy, public-export, readiness, and all-in-one audits; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb publish ...` - public export and legacy public-repo push commands; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb report ...` - refresh reports and maintainer dashboards; see [CLI Reference](docs/runbooks/cli-reference.md).

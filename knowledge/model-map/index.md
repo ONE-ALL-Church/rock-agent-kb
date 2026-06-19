@@ -1,11 +1,12 @@
 # Rock Model Map
 
-This generated resource is built from scraped generic Rock Model Map pages, not from a local SQL schema snapshot.
+This generated resource is built from authenticated Obsidian block-action responses from generic Rock Model Map pages, not from a local SQL schema snapshot.
 
 ## How To Use This
 
 - Use `stable-models.jsonl` for the preferred stable generic Rock model landmarks.
 - Use `stable-properties.jsonl` for stable per-model property flags, descriptions, enum values, and related entity link text from the scraped Model Map.
+- Use `stable-methods.jsonl` for stable method signatures, inheritance, and obsolete-method callouts from the model detail payload.
 - Use `models/*.md` for direct human-readable stable model detail pages.
 - Use `version-diff.jsonl`, `latest-models.jsonl`, and `latest-properties.jsonl` only to call out pre-alpha/upcoming differences.
 - For database columns in a specific Rock instance, verify against that instance's schema separately; this public layer intentionally avoids organization-specific SQL metadata.
@@ -25,15 +26,21 @@ This generated resource is built from scraped generic Rock Model Map pages, not 
 - Lava-marked properties: 11358
 - Lava-marked non-database properties: 4677
 - NotMapped properties: 9357
+- Enum properties: 208
+- DefinedValue properties: 106
+- Method signatures: 10665
+- Models with API table name: 1
+- Models missing API table name: 325
+- Obsolete models: 1
 
 ## Pre-Alpha Difference Callouts
 
-- Total changes: 84
+- Total changes: 88
 - Models added: 0
 - Models removed: 1
 - Properties added: 9
 - Properties removed: 17
-- Properties changed: 57
+- Properties changed: 61
 
 ## Largest Stable Models
 

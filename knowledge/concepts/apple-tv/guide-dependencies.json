@@ -380,12 +380,12 @@
   },
   "approved_media_hash": "2bebf3831a4916b42badb896e3af36fda58d52a936405d6bf77af38246768f60",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-06-19T05:26:23+00:00",
+  "built_at": "2026-06-19T05:57:28+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "47976f5c30047af4cd54d5356dc4510c9d2de24b4355ab49819d490637d08111",
-  "guide_line_count": 1374,
+  "guide_hash": "797cd4d64e861eedc07e35139283f4309af3cc2ddafa9065a3d73350e135627b",
+  "guide_line_count": 1376,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
-  "guide_word_count": 13432,
+  "guide_word_count": 13445,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -517,7 +517,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -528,7 +528,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 48,
+      "end_line": 50,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -544,11 +544,11 @@
         "74ac83f99a50c012",
         "80679876651d7dc7"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 86,
+      "end_line": 88,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -571,11 +571,11 @@
         "74ac83f99a50c012",
         "80679876651d7dc7"
       ],
-      "start_line": 49
+      "start_line": 51
     },
     {
       "confidence": "normal",
-      "end_line": 128,
+      "end_line": 130,
       "heading": "3. Apple TV Apps Mental Model",
       "needs_live_verification": true,
       "section_id": "3-apple-tv-apps-mental-model",
@@ -588,11 +588,11 @@
         "80679876651d7dc7",
         "0c49f1da7a50e9ad"
       ],
-      "start_line": 87
+      "start_line": 89
     },
     {
       "confidence": "normal",
-      "end_line": 152,
+      "end_line": 154,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -605,11 +605,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 129
+      "start_line": 131
     },
     {
       "confidence": "structural",
-      "end_line": 154,
+      "end_line": 156,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -620,11 +620,11 @@
         "80679876651d7dc7",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 153
+      "start_line": 155
     },
     {
       "confidence": "normal",
-      "end_line": 184,
+      "end_line": 186,
       "heading": "Apple TV App Record",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-apple-tv-app-record",
@@ -638,11 +638,11 @@
         "0c49f1da7a50e9ad",
         "d275b5b94a9da833"
       ],
-      "start_line": 155
+      "start_line": 157
     },
     {
       "confidence": "normal",
-      "end_line": 193,
+      "end_line": 195,
       "heading": "TV Page Record",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-tv-page-record",
@@ -652,22 +652,22 @@
         "d275b5b94a9da833",
         "80679876651d7dc7"
       ],
-      "start_line": 185
+      "start_line": 187
     },
     {
       "confidence": "normal",
-      "end_line": 197,
+      "end_line": 199,
       "heading": "Page List Block Options",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-page-list-block-options",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 194
+      "start_line": 196
     },
     {
       "confidence": "normal",
-      "end_line": 205,
+      "end_line": 207,
       "heading": "Remote Authentication Data Model",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-remote-authentication-data-model",
@@ -680,11 +680,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 198
+      "start_line": 200
     },
     {
       "confidence": "normal",
-      "end_line": 209,
+      "end_line": 211,
       "heading": "Lava Endpoint And API Context",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-endpoint-and-api-context",
@@ -692,11 +692,11 @@
         "53ad1133e1cb2d0a",
         "d275b5b94a9da833"
       ],
-      "start_line": 206
+      "start_line": 208
     },
     {
       "confidence": "structural",
-      "end_line": 211,
+      "end_line": 213,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -705,22 +705,22 @@
         "d275b5b94a9da833",
         "80679876651d7dc7"
       ],
-      "start_line": 210
+      "start_line": 212
     },
     {
       "confidence": "normal",
-      "end_line": 229,
+      "end_line": 231,
       "heading": "Apple TV App To Site",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-apple-tv-app-to-site",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 212
+      "start_line": 214
     },
     {
       "confidence": "normal",
-      "end_line": 243,
+      "end_line": 245,
       "heading": "Apple TV App To TV Pages",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-apple-tv-app-to-tv-pages",
@@ -728,22 +728,22 @@
         "d275b5b94a9da833",
         "74ac83f99a50c012"
       ],
-      "start_line": 230
+      "start_line": 232
     },
     {
       "confidence": "normal",
-      "end_line": 263,
+      "end_line": 265,
       "heading": "TV Pages To Lava Merge Fields",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-tv-pages-to-lava-merge-fields",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 244
+      "start_line": 246
     },
     {
       "confidence": "normal",
-      "end_line": 269,
+      "end_line": 271,
       "heading": "TV Pages To Commands",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-tv-pages-to-commands",
@@ -754,11 +754,11 @@
         "80679876651d7dc7",
         "80679876651d7dc7"
       ],
-      "start_line": 264
+      "start_line": 266
     },
     {
       "confidence": "normal",
-      "end_line": 283,
+      "end_line": 285,
       "heading": "Remote Authentication Session To Site And Person Alias",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-remote-authentication-session-to-site-and-person-alias",
@@ -766,11 +766,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 270
+      "start_line": 272
     },
     {
       "confidence": "structural",
-      "end_line": 285,
+      "end_line": 287,
       "heading": "7. Common Apple TV Apps Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-apple-tv-apps-workflows",
@@ -780,11 +780,11 @@
         "80679876651d7dc7",
         "d275b5b94a9da833"
       ],
-      "start_line": 284
+      "start_line": 286
     },
     {
       "confidence": "normal",
-      "end_line": 308,
+      "end_line": 310,
       "heading": "Create A New App",
       "needs_live_verification": true,
       "section_id": "7-common-apple-tv-apps-workflows-create-a-new-app",
@@ -794,11 +794,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 286
+      "start_line": 288
     },
     {
       "confidence": "normal",
-      "end_line": 331,
+      "end_line": 333,
       "heading": "Add A Content Page",
       "needs_live_verification": true,
       "section_id": "7-common-apple-tv-apps-workflows-add-a-content-page",
@@ -806,11 +806,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 309
+      "start_line": 311
     },
     {
       "confidence": "normal",
-      "end_line": 343,
+      "end_line": 345,
       "heading": "Build A Campus Selector",
       "needs_live_verification": true,
       "section_id": "7-common-apple-tv-apps-workflows-build-a-campus-selector",
@@ -820,11 +820,11 @@
         "80679876651d7dc7",
         "74ac83f99a50c012"
       ],
-      "start_line": 332
+      "start_line": 334
     },
     {
       "confidence": "normal",
-      "end_line": 365,
+      "end_line": 367,
       "heading": "Add Login",
       "needs_live_verification": true,
       "section_id": "7-common-apple-tv-apps-workflows-add-login",
@@ -832,55 +832,55 @@
         "74ac83f99a50c012",
         "d275b5b94a9da833"
       ],
-      "start_line": 344
+      "start_line": 346
     },
     {
       "confidence": "normal",
-      "end_line": 384,
+      "end_line": 386,
       "heading": "Play Media",
       "needs_live_verification": true,
       "section_id": "7-common-apple-tv-apps-workflows-play-media",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 366
+      "start_line": 368
     },
     {
       "confidence": "normal",
-      "end_line": 388,
+      "end_line": 390,
       "heading": "8. Building Your First Apple TV App Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive",
       "source_keys": [
         "4155cc8ec235808f"
       ],
-      "start_line": 385
+      "start_line": 387
     },
     {
       "confidence": "normal",
-      "end_line": 402,
+      "end_line": 404,
       "heading": "Step 1: Confirm Preconditions",
       "needs_live_verification": true,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-1-confirm-preconditions",
       "source_keys": [
         "0c49f1da7a50e9ad"
       ],
-      "start_line": 389
+      "start_line": 391
     },
     {
       "confidence": "normal",
-      "end_line": 417,
+      "end_line": 419,
       "heading": "Step 2: Create The App",
       "needs_live_verification": true,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-2-create-the-app",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 403
+      "start_line": 405
     },
     {
       "confidence": "normal",
-      "end_line": 431,
+      "end_line": 433,
       "heading": "Step 3: Create The Start Screen",
       "needs_live_verification": true,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-3-create-the-start-screen",
@@ -888,11 +888,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 418
+      "start_line": 420
     },
     {
       "confidence": "normal",
-      "end_line": 443,
+      "end_line": 445,
       "heading": "Step 4: Add Content Pages",
       "needs_live_verification": false,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-4-add-content-pages",
@@ -906,11 +906,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 432
+      "start_line": 434
     },
     {
       "confidence": "normal",
-      "end_line": 467,
+      "end_line": 469,
       "heading": "Step 5: Wire Navigation",
       "needs_live_verification": false,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-5-wire-navigation",
@@ -919,11 +919,11 @@
         "80679876651d7dc7",
         "80679876651d7dc7"
       ],
-      "start_line": 444
+      "start_line": 446
     },
     {
       "confidence": "normal",
-      "end_line": 480,
+      "end_line": 482,
       "heading": "Step 6: Add Images",
       "needs_live_verification": true,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-6-add-images",
@@ -935,11 +935,11 @@
         "4155cc8ec235808f",
         "74ac83f99a50c012"
       ],
-      "start_line": 468
+      "start_line": 470
     },
     {
       "confidence": "normal",
-      "end_line": 504,
+      "end_line": 506,
       "heading": "Step 7: Test The App",
       "needs_live_verification": true,
       "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-7-test-the-app",
@@ -947,22 +947,22 @@
         "74ac83f99a50c012",
         "80679876651d7dc7"
       ],
-      "start_line": 481
+      "start_line": 483
     },
     {
       "confidence": "normal",
-      "end_line": 508,
+      "end_line": 510,
       "heading": "9. Apple TV Sign-In And Authentication Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 505
+      "start_line": 507
     },
     {
       "confidence": "normal",
-      "end_line": 528,
+      "end_line": 530,
       "heading": "Server Setup",
       "needs_live_verification": true,
       "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-server-setup",
@@ -972,22 +972,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 509
+      "start_line": 511
     },
     {
       "confidence": "normal",
-      "end_line": 538,
+      "end_line": 540,
       "heading": "TVML Setup",
       "needs_live_verification": false,
       "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-tvml-setup",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 529
+      "start_line": 531
     },
     {
       "confidence": "normal",
-      "end_line": 558,
+      "end_line": 560,
       "heading": "Session Lifecycle",
       "needs_live_verification": false,
       "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-session-lifecycle",
@@ -996,33 +996,33 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 539
+      "start_line": 541
     },
     {
       "confidence": "normal",
-      "end_line": 574,
+      "end_line": 576,
       "heading": "Security Guardrails",
       "needs_live_verification": true,
       "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-security-guardrails",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 559
+      "start_line": 561
     },
     {
       "confidence": "normal",
-      "end_line": 578,
+      "end_line": 580,
       "heading": "10. Apple TV JavaScript Commands Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-apple-tv-javascript-commands-deep-dive",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 575
+      "start_line": 577
     },
     {
       "confidence": "normal",
-      "end_line": 603,
+      "end_line": 605,
       "heading": "Navigation Commands",
       "needs_live_verification": true,
       "section_id": "10-apple-tv-javascript-commands-deep-dive-navigation-commands",
@@ -1030,11 +1030,11 @@
         "80679876651d7dc7",
         "80679876651d7dc7"
       ],
-      "start_line": 579
+      "start_line": 581
     },
     {
       "confidence": "normal",
-      "end_line": 615,
+      "end_line": 617,
       "heading": "Media Commands",
       "needs_live_verification": true,
       "section_id": "10-apple-tv-javascript-commands-deep-dive-media-commands",
@@ -1042,22 +1042,22 @@
         "80679876651d7dc7",
         "80679876651d7dc7"
       ],
-      "start_line": 604
+      "start_line": 606
     },
     {
       "confidence": "normal",
-      "end_line": 623,
+      "end_line": 625,
       "heading": "Personal Commands",
       "needs_live_verification": true,
       "section_id": "10-apple-tv-javascript-commands-deep-dive-personal-commands",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 616
+      "start_line": 618
     },
     {
       "confidence": "normal",
-      "end_line": 645,
+      "end_line": 647,
       "heading": "Utility Commands",
       "needs_live_verification": true,
       "section_id": "10-apple-tv-javascript-commands-deep-dive-utility-commands",
@@ -1065,55 +1065,55 @@
         "80679876651d7dc7",
         "80679876651d7dc7"
       ],
-      "start_line": 624
+      "start_line": 626
     },
     {
       "confidence": "normal",
-      "end_line": 657,
+      "end_line": 659,
       "heading": "Demo Commands",
       "needs_live_verification": true,
       "section_id": "10-apple-tv-javascript-commands-deep-dive-demo-commands",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 646
+      "start_line": 648
     },
     {
       "confidence": "normal",
-      "end_line": 661,
+      "end_line": 663,
       "heading": "11. Apple TV Styling Deep Dive",
       "needs_live_verification": true,
       "section_id": "11-apple-tv-styling-deep-dive",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 658
+      "start_line": 660
     },
     {
       "confidence": "structural",
-      "end_line": 675,
+      "end_line": 677,
       "heading": "Style Placement",
       "needs_live_verification": true,
       "section_id": "11-apple-tv-styling-deep-dive-style-placement",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 662
+      "start_line": 664
     },
     {
       "confidence": "normal",
-      "end_line": 689,
+      "end_line": 691,
       "heading": "Global Styles",
       "needs_live_verification": true,
       "section_id": "11-apple-tv-styling-deep-dive-global-styles",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 676
+      "start_line": 678
     },
     {
       "confidence": "normal",
-      "end_line": 695,
+      "end_line": 697,
       "heading": "Text Styling",
       "needs_live_verification": false,
       "section_id": "11-apple-tv-styling-deep-dive-text-styling",
@@ -1121,11 +1121,11 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 690
+      "start_line": 692
     },
     {
       "confidence": "normal",
-      "end_line": 707,
+      "end_line": 709,
       "heading": "Themes And Media Queries",
       "needs_live_verification": true,
       "section_id": "11-apple-tv-styling-deep-dive-themes-and-media-queries",
@@ -1133,22 +1133,22 @@
         "74ac83f99a50c012",
         "74ac83f99a50c012"
       ],
-      "start_line": 696
+      "start_line": 698
     },
     {
       "confidence": "normal",
-      "end_line": 713,
+      "end_line": 715,
       "heading": "Built-In Images And Resources",
       "needs_live_verification": false,
       "section_id": "11-apple-tv-styling-deep-dive-built-in-images-and-resources",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 708
+      "start_line": 710
     },
     {
       "confidence": "normal",
-      "end_line": 726,
+      "end_line": 728,
       "heading": "Rock Custom Controls",
       "needs_live_verification": false,
       "section_id": "11-apple-tv-styling-deep-dive-rock-custom-controls",
@@ -1158,22 +1158,22 @@
         "0137078fdb6164bb",
         "0137078fdb6164bb"
       ],
-      "start_line": 714
+      "start_line": 716
     },
     {
       "confidence": "normal",
-      "end_line": 743,
+      "end_line": 745,
       "heading": "Styling Pitfalls",
       "needs_live_verification": false,
       "section_id": "11-apple-tv-styling-deep-dive-styling-pitfalls",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 727
+      "start_line": 729
     },
     {
       "confidence": "structural",
-      "end_line": 745,
+      "end_line": 747,
       "heading": "12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Tv Apps",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps",
@@ -1185,22 +1185,22 @@
         "80679876651d7dc7",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 744
+      "start_line": 746
     },
     {
       "confidence": "citation-only",
-      "end_line": 758,
+      "end_line": 760,
       "heading": "API Integrations",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-api-integrations",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 746
+      "start_line": 748
     },
     {
       "confidence": "normal",
-      "end_line": 772,
+      "end_line": 774,
       "heading": "Lava",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava",
@@ -1208,22 +1208,22 @@
         "74ac83f99a50c012",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 759
+      "start_line": 761
     },
     {
       "confidence": "normal",
-      "end_line": 776,
+      "end_line": 778,
       "heading": "CMS",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 773
+      "start_line": 775
     },
     {
       "confidence": "normal",
-      "end_line": 792,
+      "end_line": 794,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-security",
@@ -1232,33 +1232,33 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 777
+      "start_line": 779
     },
     {
       "confidence": "normal",
-      "end_line": 796,
+      "end_line": 798,
       "heading": "Media",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 793
+      "start_line": 795
     },
     {
       "confidence": "citation-only",
-      "end_line": 800,
+      "end_line": 802,
       "heading": "TV Apps",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-tv-apps",
       "source_keys": [
         "9d0ccce785ef64bb"
       ],
-      "start_line": 797
+      "start_line": 799
     },
     {
       "confidence": "structural",
-      "end_line": 802,
+      "end_line": 804,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
@@ -1269,44 +1269,44 @@
         "d275b5b94a9da833",
         "4155cc8ec235808f"
       ],
-      "start_line": 801
+      "start_line": 803
     },
     {
       "confidence": "structural",
-      "end_line": 816,
+      "end_line": 818,
       "heading": "Ownership",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-ownership",
       "source_keys": [
         "9d0ccce785ef64bb"
       ],
-      "start_line": 803
+      "start_line": 805
     },
     {
       "confidence": "structural",
-      "end_line": 820,
+      "end_line": 822,
       "heading": "Environment Separation",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-environment-separation",
       "source_keys": [
         "9d0ccce785ef64bb"
       ],
-      "start_line": 817
+      "start_line": 819
     },
     {
       "confidence": "structural",
-      "end_line": 831,
+      "end_line": 833,
       "heading": "API Key Hygiene",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-api-key-hygiene",
       "source_keys": [
         "9d0ccce785ef64bb"
       ],
-      "start_line": 821
+      "start_line": 823
     },
     {
       "confidence": "normal",
-      "end_line": 835,
+      "end_line": 837,
       "heading": "Caching And Personalization",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-caching-and-personalization",
@@ -1314,22 +1314,22 @@
         "74ac83f99a50c012",
         "80679876651d7dc7"
       ],
-      "start_line": 832
+      "start_line": 834
     },
     {
       "confidence": "normal",
-      "end_line": 848,
+      "end_line": 850,
       "heading": "Analytics And Retention",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-analytics-and-retention",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 836
+      "start_line": 838
     },
     {
       "confidence": "normal",
-      "end_line": 861,
+      "end_line": 863,
       "heading": "Image Operations",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-image-operations",
@@ -1339,11 +1339,11 @@
         "4155cc8ec235808f",
         "4155cc8ec235808f"
       ],
-      "start_line": 849
+      "start_line": 851
     },
     {
       "confidence": "structural",
-      "end_line": 877,
+      "end_line": 879,
       "heading": "Release Gate",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-release-gate",
@@ -1353,11 +1353,11 @@
         "4155cc8ec235808f",
         "4155cc8ec235808f"
       ],
-      "start_line": 862
+      "start_line": 864
     },
     {
       "confidence": "normal",
-      "end_line": 908,
+      "end_line": 910,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -1372,11 +1372,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 878
+      "start_line": 880
     },
     {
       "confidence": "normal",
-      "end_line": 937,
+      "end_line": 939,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -1386,11 +1386,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 909
+      "start_line": 911
     },
     {
       "confidence": "normal",
-      "end_line": 958,
+      "end_line": 960,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats",
@@ -1404,11 +1404,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 938
+      "start_line": 940
     },
     {
       "confidence": "structural",
-      "end_line": 960,
+      "end_line": 962,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -1421,11 +1421,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 959
+      "start_line": 961
     },
     {
       "confidence": "needs-citation",
-      "end_line": 988,
+      "end_line": 990,
       "heading": "Playbook: Weekend Messages App",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-weekend-messages-app",
@@ -1439,11 +1439,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 961
+      "start_line": 963
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1007,
+      "end_line": 1009,
       "heading": "Playbook: Campus-Aware App",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-campus-aware-app",
@@ -1457,11 +1457,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 989
+      "start_line": 991
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1032,
+      "end_line": 1034,
       "heading": "Playbook: Remote Login",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-remote-login",
@@ -1475,11 +1475,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1008
+      "start_line": 1010
     },
     {
       "confidence": "structural",
-      "end_line": 1051,
+      "end_line": 1053,
       "heading": "Playbook: Media Resume",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-media-resume",
@@ -1493,11 +1493,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1033
+      "start_line": 1035
     },
     {
       "confidence": "structural",
-      "end_line": 1066,
+      "end_line": 1068,
       "heading": "Playbook: Production Readiness Audit",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-production-readiness-audit",
@@ -1511,11 +1511,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1052
+      "start_line": 1054
     },
     {
       "confidence": "structural",
-      "end_line": 1068,
+      "end_line": 1070,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -1528,11 +1528,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1067
+      "start_line": 1069
     },
     {
       "confidence": "structural",
-      "end_line": 1083,
+      "end_line": 1085,
       "heading": "App Does Not Launch",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-app-does-not-launch",
@@ -1546,11 +1546,11 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1069
+      "start_line": 1071
     },
     {
       "confidence": "structural",
-      "end_line": 1096,
+      "end_line": 1098,
       "heading": "Page Is Blank",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-page-is-blank",
@@ -1564,91 +1564,80 @@
         "9d0ccce785ef64bb",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1084
+      "start_line": 1086
     },
     {
       "confidence": "normal",
-      "end_line": 1108,
+      "end_line": 1110,
       "heading": "Navigation Does Not Work",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-navigation-does-not-work",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 1097
+      "start_line": 1099
     },
     {
       "confidence": "structural",
-      "end_line": 1124,
+      "end_line": 1126,
       "heading": "Sign-In Fails",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-sign-in-fails",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 1109
+      "start_line": 1111
     },
     {
       "confidence": "normal",
-      "end_line": 1138,
+      "end_line": 1140,
       "heading": "Media Will Not Play",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-media-will-not-play",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1125
+      "start_line": 1127
     },
     {
       "confidence": "structural",
-      "end_line": 1149,
+      "end_line": 1151,
       "heading": "Resume Does Not Work",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1139
+      "start_line": 1141
     },
     {
       "confidence": "structural",
-      "end_line": 1161,
+      "end_line": 1163,
       "heading": "Styles Do Not Apply",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-styles-do-not-apply",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1150
+      "start_line": 1152
     },
     {
       "confidence": "structural",
-      "end_line": 1174,
+      "end_line": 1176,
       "heading": "Images Do Not Render",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-images-do-not-render",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1162
+      "start_line": 1164
     },
     {
       "confidence": "structural",
-      "end_line": 1176,
+      "end_line": 1178,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
-      "source_keys": [
-        "80679876651d7dc7"
-      ],
-      "start_line": 1175
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1189,
-      "heading": "Recipe: Inspect An Existing Apple TV App",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-inspect-an-existing-apple-tv-app",
       "source_keys": [
         "80679876651d7dc7"
       ],
@@ -1656,51 +1645,62 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1202,
+      "end_line": 1191,
+      "heading": "Recipe: Inspect An Existing Apple TV App",
+      "needs_live_verification": false,
+      "section_id": "19-agent-task-recipes-recipe-inspect-an-existing-apple-tv-app",
+      "source_keys": [
+        "80679876651d7dc7"
+      ],
+      "start_line": 1179
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1204,
       "heading": "Recipe: Diagnose A Broken Button",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-diagnose-a-broken-button",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1190
+      "start_line": 1192
     },
     {
       "confidence": "structural",
-      "end_line": 1215,
+      "end_line": 1217,
       "heading": "Recipe: Add A New Page Safely",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-add-a-new-page-safely",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1203
+      "start_line": 1205
     },
     {
       "confidence": "structural",
-      "end_line": 1228,
+      "end_line": 1230,
       "heading": "Recipe: Review For Security",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-for-security",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1216
+      "start_line": 1218
     },
     {
       "confidence": "structural",
-      "end_line": 1242,
+      "end_line": 1244,
       "heading": "Recipe: Review For Performance",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-for-performance",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1229
+      "start_line": 1231
     },
     {
       "confidence": "normal",
-      "end_line": 1264,
+      "end_line": 1266,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1715,22 +1715,22 @@
         "7cf9c01c97ba95d5",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1243
+      "start_line": 1245
     },
     {
       "confidence": "citation-only",
-      "end_line": 1277,
+      "end_line": 1279,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1265
+      "start_line": 1267
     },
     {
       "confidence": "structural",
-      "end_line": 1279,
+      "end_line": 1281,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1747,11 +1747,11 @@
         "d275b5b94a9da833",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1278
+      "start_line": 1280
     },
     {
       "confidence": "normal",
-      "end_line": 1374,
+      "end_line": 1376,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1819,7 +1819,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1280
+      "start_line": 1282
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",

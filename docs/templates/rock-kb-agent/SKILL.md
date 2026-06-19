@@ -119,9 +119,16 @@ Use stable model-map data as the default public reference:
 - Global index: `knowledge/model-map/index.md`
 - Stable models: `knowledge/model-map/stable-models.jsonl`
 - Stable properties: `knowledge/model-map/stable-properties.jsonl`
+- Stable methods: `knowledge/model-map/stable-methods.jsonl`
 - Model detail pages: `knowledge/model-map/models/*.md`
 - Latest/pre-alpha rows: `knowledge/model-map/latest-models.jsonl`
+- Latest/pre-alpha methods: `knowledge/model-map/latest-methods.jsonl`
 - Stable-to-latest diff: `knowledge/model-map/version-diff.jsonl`
+
+The generated rows include Obsidian block-action provenance such as collection
+method, initialization/detail endpoints, table names, obsolete flags, enum and
+DefinedValue flags, and method signatures. Use those fields to judge staleness
+and source quality before citing a row.
 
 Do not treat latest/pre-alpha model data as the default. Use it only as an upcoming-version callout when it differs from stable.
 

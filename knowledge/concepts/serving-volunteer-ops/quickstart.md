@@ -27,12 +27,12 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-58: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology-core-terms` lines 65-108: Core Terms (high)
-- `3-serving-and-volunteer-operations-mental-model-layer-2-where-and-when` lines 135-144: Layer 2: Where And When (normal)
-- `3-serving-and-volunteer-operations-mental-model-layer-3-assignment-and-response` lines 145-152: Layer 3: Assignment And Response (normal)
-- `3-serving-and-volunteer-operations-mental-model-layer-4-actual-attendance` lines 153-160: Layer 4: Actual Attendance (normal)
-- `5-core-configuration-and-data-model-group-types` lines 237-269: Group Types (normal)
+- `1-executive-summary-for-agents` lines 29-60: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology-core-terms` lines 67-110: Core Terms (high)
+- `3-serving-and-volunteer-operations-mental-model-layer-2-where-and-when` lines 137-146: Layer 2: Where And When (normal)
+- `3-serving-and-volunteer-operations-mental-model-layer-3-assignment-and-response` lines 147-154: Layer 3: Assignment And Response (normal)
+- `3-serving-and-volunteer-operations-mental-model-layer-4-actual-attendance` lines 155-162: Layer 4: Actual Attendance (normal)
+- `5-core-configuration-and-data-model-group-types` lines 239-271: Group Types (normal)
 
 ## Core Entities
 

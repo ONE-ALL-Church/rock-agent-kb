@@ -210,7 +210,7 @@ def render_concept_guide(
             lines.extend(
                 [
                     "",
-                    "Lava fields that the stable scraped Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:",
+                    "Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:",
                     "",
                 ]
             )
@@ -369,12 +369,12 @@ def model_map_lava_non_database_notes(model_crosswalk: dict[str, dict[str, Any]]
         if not row.get("is_lava_supported_non_database"):
             continue
         notes.append(
-            "- `{model}.{property}` is Lava-marked but not database-marked in the scraped Model Map"
+            "- `{model}.{property}` is Lava-marked but not database-marked in the generated Model Map"
             " (Rock {rock_version}; source {source_url}).".format(
                 model=row.get("model_name"),
                 property=row.get("property_name"),
                 rock_version=row.get("rock_version") or "unknown",
-                source_url=row.get("source_url") or "Model Map scrape",
+                source_url=row.get("source_url") or "Model Map",
             )
         )
     return notes
@@ -670,7 +670,9 @@ def render_long_form_model_map_pointer_section(concept: Concept) -> str:
             "- Global model-map index: [Rock Model Map](../../model-map/index.md)",
             "- Stable model rows: `../../model-map/stable-models.jsonl`",
             "- Stable property rows: `../../model-map/stable-properties.jsonl`",
+            "- Stable method rows: `../../model-map/stable-methods.jsonl`",
             "- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`",
+            "- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`",
             "- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`",
             "",
             MODEL_MAP_POINTER_SECTION_END,
@@ -1356,6 +1358,7 @@ def build_agent_manifest() -> dict[str, Any]:
             "model_map_summary": "agent/model-map-summary.json",
             "model_map_entities": "agent/model-map-entities.jsonl",
             "model_map_properties": "agent/model-map-properties.jsonl",
+            "model_map_methods": "agent/model-map-methods.jsonl",
             "model_map_version_diff": "agent/model-map-version-diff.jsonl",
             "model_map_model_details": "knowledge/model-map/models/*.md",
             "lava_capabilities": "agent/lava-capabilities.jsonl",

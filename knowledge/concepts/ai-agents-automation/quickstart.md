@@ -28,12 +28,12 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-54: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 55-107: 2. Scope And Terminology (high)
-- `3-ai-agents-and-automation-mental-model` lines 108-135: 3. AI Agents And Automation Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 136-163: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 164-215: 5. Core Configuration And Data Model (normal)
-- `6-primary-entities-and-relationships` lines 216-244: 6. Primary Entities And Relationships (normal)
+- `1-executive-summary-for-agents` lines 29-56: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 57-109: 2. Scope And Terminology (high)
+- `3-ai-agents-and-automation-mental-model` lines 110-137: 3. AI Agents And Automation Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 138-165: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model` lines 166-217: 5. Core Configuration And Data Model (normal)
+- `6-primary-entities-and-relationships` lines 218-246: 6. Primary Entities And Relationships (normal)
 
 ## Core Entities
 

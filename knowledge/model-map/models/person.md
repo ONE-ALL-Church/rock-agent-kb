@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CRM`
 - Model title: `Person`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `89`
+- Obsolete methods: `6`
 - EntityType GUID: `72657ed8-d16e-492e-ac12-144c5e7567e7`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 125 |
 | Lava-marked non-database properties | 51 |
 | Related model links | 38 |
+| Method signatures | 89 |
+| Obsolete methods | 6 |
 | Pre-alpha changes touching this model | 6 |
 
 ## Properties

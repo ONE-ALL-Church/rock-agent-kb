@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `CMS`
 - Model title: `Site`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `43`
+- Obsolete methods: `4`
 - EntityType GUID: `7244c10b-5d87-467b-a7f5-12dc29910ca8`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 88 |
 | Lava-marked non-database properties | 34 |
 | Related model links | 15 |
+| Method signatures | 43 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

@@ -26,12 +26,12 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-47: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 48-77: 2. Scope And Terminology (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-1-request-entry` lines 82-94: Layer 1: Request Entry (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-2-web-runtime` lines 95-110: Layer 2: Web Runtime (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-3-database-and-persistence` lines 111-127: Layer 3: Database And Persistence (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-4-shared-services` lines 128-146: Layer 4: Shared Services (normal)
+- `1-executive-summary-for-agents` lines 29-49: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 50-79: 2. Scope And Terminology (normal)
+- `3-hosting-and-infrastructure-mental-model-layer-1-request-entry` lines 84-96: Layer 1: Request Entry (normal)
+- `3-hosting-and-infrastructure-mental-model-layer-2-web-runtime` lines 97-112: Layer 2: Web Runtime (normal)
+- `3-hosting-and-infrastructure-mental-model-layer-3-database-and-persistence` lines 113-129: Layer 3: Database And Persistence (normal)
+- `3-hosting-and-infrastructure-mental-model-layer-4-shared-services` lines 130-148: Layer 4: Shared Services (normal)
 
 ## Core Entities
 

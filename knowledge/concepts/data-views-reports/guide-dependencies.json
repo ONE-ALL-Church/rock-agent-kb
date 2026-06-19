@@ -19973,12 +19973,12 @@
   },
   "approved_media_hash": "769cc094468363bd078ac0249d0b422ad321eb17fed862c76bf53b87eb652057",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-06-19T05:26:13+00:00",
+  "built_at": "2026-06-19T05:57:18+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "20a3962ae33a49f89f02c82e7be34ec1c5fa6f495ad0d64be1eeaf4c85b990a6",
-  "guide_line_count": 2003,
+  "guide_hash": "968a053a91a6776429f61893f6964f60409a7b747c4ca3329b49fdb5707a31e3",
+  "guide_line_count": 2005,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
-  "guide_word_count": 16085,
+  "guide_word_count": 16098,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -20488,7 +20488,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -20499,7 +20499,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 66,
+      "end_line": 68,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -20511,11 +20511,11 @@
         "c48789f22dbf970d",
         "bce31f25cb8a199e"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 72,
+      "end_line": 74,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -20523,11 +20523,11 @@
         "fa937a53da06e8f9",
         "61c4d70cb34c2f18"
       ],
-      "start_line": 67
+      "start_line": 69
     },
     {
       "confidence": "high",
-      "end_line": 124,
+      "end_line": 126,
       "heading": "Core Terms",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology-core-terms",
@@ -20547,11 +20547,11 @@
         "776256c424368312",
         "bce31f25cb8a199e"
       ],
-      "start_line": 73
+      "start_line": 75
     },
     {
       "confidence": "structural",
-      "end_line": 126,
+      "end_line": 128,
       "heading": "3. Data Views And Reports Mental Model",
       "needs_live_verification": false,
       "section_id": "3-data-views-and-reports-mental-model",
@@ -20568,11 +20568,11 @@
         "5e7b28c13867308a",
         "b76c54ab2f315c82"
       ],
-      "start_line": 125
+      "start_line": 127
     },
     {
       "confidence": "normal",
-      "end_line": 142,
+      "end_line": 144,
       "heading": "The Layered Stack",
       "needs_live_verification": false,
       "section_id": "3-data-views-and-reports-mental-model-the-layered-stack",
@@ -20580,33 +20580,33 @@
         "fa937a53da06e8f9",
         "61c4d70cb34c2f18"
       ],
-      "start_line": 127
+      "start_line": 129
     },
     {
       "confidence": "community-supported",
-      "end_line": 169,
+      "end_line": 171,
       "heading": "Record Set vs Presentation",
       "needs_live_verification": false,
       "section_id": "3-data-views-and-reports-mental-model-record-set-vs-presentation",
       "source_keys": [
         "4f8e5e0d0ad869d3"
       ],
-      "start_line": 143
+      "start_line": 145
     },
     {
       "confidence": "normal",
-      "end_line": 181,
+      "end_line": 183,
       "heading": "Data View Composition",
       "needs_live_verification": true,
       "section_id": "3-data-views-and-reports-mental-model-data-view-composition",
       "source_keys": [
         "d5a19275308b631d"
       ],
-      "start_line": 170
+      "start_line": 172
     },
     {
       "confidence": "normal",
-      "end_line": 195,
+      "end_line": 197,
       "heading": "Related Data View Semantics",
       "needs_live_verification": true,
       "section_id": "3-data-views-and-reports-mental-model-related-data-view-semantics",
@@ -20617,22 +20617,22 @@
         "a73841dd22eae732",
         "fc07497deefb876f"
       ],
-      "start_line": 182
+      "start_line": 184
     },
     {
       "confidence": "normal",
-      "end_line": 207,
+      "end_line": 209,
       "heading": "\"All\" vs \"Any\" Is Usually The Bug",
       "needs_live_verification": false,
       "section_id": "3-data-views-and-reports-mental-model-all-vs-any-is-usually-the-bug",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 196
+      "start_line": 198
     },
     {
       "confidence": "high",
-      "end_line": 219,
+      "end_line": 221,
       "heading": "Data View Caching And Persisted Values",
       "needs_live_verification": true,
       "section_id": "3-data-views-and-reports-mental-model-data-view-caching-and-persisted-values",
@@ -20641,11 +20641,11 @@
         "5e7b28c13867308a",
         "b76c54ab2f315c82"
       ],
-      "start_line": 208
+      "start_line": 210
     },
     {
       "confidence": "community-supported",
-      "end_line": 234,
+      "end_line": 236,
       "heading": "Reports Are Not Security Boundaries By Themselves",
       "needs_live_verification": true,
       "section_id": "3-data-views-and-reports-mental-model-reports-are-not-security-boundaries-by-themselves",
@@ -20653,11 +20653,11 @@
         "fa937a53da06e8f9",
         "4f8e5e0d0ad869d3"
       ],
-      "start_line": 220
+      "start_line": 222
     },
     {
       "confidence": "community-supported",
-      "end_line": 248,
+      "end_line": 250,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": false,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -20665,11 +20665,11 @@
         "41325db2c931ed9e",
         "08b927e6cd97a5e1"
       ],
-      "start_line": 235
+      "start_line": 237
     },
     {
       "confidence": "normal",
-      "end_line": 264,
+      "end_line": 266,
       "heading": "How Agents Should Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide-how-agents-should-use-this-guide",
@@ -20677,11 +20677,11 @@
         "61c4d70cb34c2f18",
         "fa937a53da06e8f9"
       ],
-      "start_line": 249
+      "start_line": 251
     },
     {
       "confidence": "structural",
-      "end_line": 268,
+      "end_line": 270,
       "heading": "Citation Policy",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide-citation-policy",
@@ -20689,11 +20689,11 @@
         "41325db2c931ed9e",
         "08b927e6cd97a5e1"
       ],
-      "start_line": 265
+      "start_line": 267
     },
     {
       "confidence": "structural",
-      "end_line": 270,
+      "end_line": 272,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -20708,11 +20708,11 @@
         "41325db2c931ed9e",
         "b76e00f4cafbfba8"
       ],
-      "start_line": 269
+      "start_line": 271
     },
     {
       "confidence": "normal",
-      "end_line": 298,
+      "end_line": 300,
       "heading": "Data View Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-data-view-configuration",
@@ -20723,11 +20723,11 @@
         "61c4d70cb34c2f18",
         "61c4d70cb34c2f18"
       ],
-      "start_line": 271
+      "start_line": 273
     },
     {
       "confidence": "normal",
-      "end_line": 318,
+      "end_line": 320,
       "heading": "Data View Filter Data Model",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-data-view-filter-data-model",
@@ -20736,11 +20736,11 @@
         "ab43821372ff127c",
         "21eb62d70f20f132"
       ],
-      "start_line": 299
+      "start_line": 301
     },
     {
       "confidence": "normal",
-      "end_line": 342,
+      "end_line": 344,
       "heading": "Data View Query Arguments And Overrides",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-data-view-query-arguments-and-overrides",
@@ -20748,11 +20748,11 @@
         "b76c54ab2f315c82",
         "d5a19275308b631d"
       ],
-      "start_line": 319
+      "start_line": 321
     },
     {
       "confidence": "citation-only",
-      "end_line": 360,
+      "end_line": 362,
       "heading": "Report Configuration",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-report-configuration",
@@ -20760,11 +20760,11 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 343
+      "start_line": 345
     },
     {
       "confidence": "community-supported",
-      "end_line": 375,
+      "end_line": 377,
       "heading": "Dynamic Report Block Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-dynamic-report-block-configuration",
@@ -20772,11 +20772,11 @@
         "fa937a53da06e8f9",
         "290e1cb2ac8563dc"
       ],
-      "start_line": 361
+      "start_line": 363
     },
     {
       "confidence": "normal",
-      "end_line": 391,
+      "end_line": 393,
       "heading": "Dynamic Data Block Configuration",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-dynamic-data-block-configuration",
@@ -20784,11 +20784,11 @@
         "61c4d70cb34c2f18",
         "41325db2c931ed9e"
       ],
-      "start_line": 376
+      "start_line": 378
     },
     {
       "confidence": "normal",
-      "end_line": 406,
+      "end_line": 408,
       "heading": "Lava SQL Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-sql-configuration",
@@ -20796,11 +20796,11 @@
         "b76e00f4cafbfba8",
         "b76e00f4cafbfba8"
       ],
-      "start_line": 392
+      "start_line": 394
     },
     {
       "confidence": "structural",
-      "end_line": 408,
+      "end_line": 410,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -20818,22 +20818,22 @@
         "c48789f22dbf970d",
         "bce31f25cb8a199e"
       ],
-      "start_line": 407
+      "start_line": 409
     },
     {
       "confidence": "normal",
-      "end_line": 430,
+      "end_line": 432,
       "heading": "`DataView`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-dataview",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 409
+      "start_line": 411
     },
     {
       "confidence": "normal",
-      "end_line": 447,
+      "end_line": 449,
       "heading": "`DataViewFilter`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-dataviewfilter",
@@ -20841,11 +20841,11 @@
         "ab43821372ff127c",
         "ab43821372ff127c"
       ],
-      "start_line": 431
+      "start_line": 433
     },
     {
       "confidence": "structural",
-      "end_line": 464,
+      "end_line": 466,
       "heading": "`Report`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-report",
@@ -20853,33 +20853,33 @@
         "ab43821372ff127c",
         "ab43821372ff127c"
       ],
-      "start_line": 448
+      "start_line": 450
     },
     {
       "confidence": "community-supported",
-      "end_line": 480,
+      "end_line": 482,
       "heading": "`ReportField`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-reportfield",
       "source_keys": [
         "290e1cb2ac8563dc"
       ],
-      "start_line": 465
+      "start_line": 467
     },
     {
       "confidence": "normal",
-      "end_line": 492,
+      "end_line": 494,
       "heading": "`Category`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-category",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 481
+      "start_line": 483
     },
     {
       "confidence": "community-supported",
-      "end_line": 509,
+      "end_line": 511,
       "heading": "`Block` And `Page`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-block-and-page",
@@ -20887,11 +20887,11 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 493
+      "start_line": 495
     },
     {
       "confidence": "structural",
-      "end_line": 520,
+      "end_line": 522,
       "heading": "`Attribute` And `AttributeValue`",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
@@ -20899,22 +20899,22 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 510
+      "start_line": 512
     },
     {
       "confidence": "normal",
-      "end_line": 532,
+      "end_line": 534,
       "heading": "Person And Alias",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-person-and-alias",
       "source_keys": [
         "786a1035c8d7111e"
       ],
-      "start_line": 521
+      "start_line": 523
     },
     {
       "confidence": "normal",
-      "end_line": 563,
+      "end_line": 565,
       "heading": "Attendance",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-attendance",
@@ -20922,11 +20922,11 @@
         "d50e9300409bad92",
         "786a1035c8d7111e"
       ],
-      "start_line": 533
+      "start_line": 535
     },
     {
       "confidence": "community-supported",
-      "end_line": 591,
+      "end_line": 593,
       "heading": "Finance",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-finance",
@@ -20935,11 +20935,11 @@
         "499c26a9b6eee7ac",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 564
+      "start_line": 566
     },
     {
       "confidence": "citation-only",
-      "end_line": 612,
+      "end_line": 614,
       "heading": "Analytics Models",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-analytics-models",
@@ -20947,11 +20947,11 @@
         "c48789f22dbf970d",
         "bce31f25cb8a199e"
       ],
-      "start_line": 592
+      "start_line": 594
     },
     {
       "confidence": "structural",
-      "end_line": 614,
+      "end_line": 616,
       "heading": "7. Common Data Views And Reports Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-data-views-and-reports-workflows",
@@ -20965,11 +20965,11 @@
         "2617ec7030df84be",
         "c48789f22dbf970d"
       ],
-      "start_line": 613
+      "start_line": 615
     },
     {
       "confidence": "citation-only",
-      "end_line": 631,
+      "end_line": 633,
       "heading": "Workflow 1: Build A Staff List Report",
       "needs_live_verification": true,
       "section_id": "7-common-data-views-and-reports-workflows-workflow-1-build-a-staff-list-report",
@@ -20978,11 +20978,11 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 615
+      "start_line": 617
     },
     {
       "confidence": "community-supported",
-      "end_line": 645,
+      "end_line": 647,
       "heading": "Workflow 2: Build A Ministry Dashboard",
       "needs_live_verification": true,
       "section_id": "7-common-data-views-and-reports-workflows-workflow-2-build-a-ministry-dashboard",
@@ -20990,33 +20990,33 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 632
+      "start_line": 634
     },
     {
       "confidence": "community-supported",
-      "end_line": 657,
+      "end_line": 659,
       "heading": "Workflow 3: Build A Data View Finder",
       "needs_live_verification": true,
       "section_id": "7-common-data-views-and-reports-workflows-workflow-3-build-a-data-view-finder",
       "source_keys": [
         "08b927e6cd97a5e1"
       ],
-      "start_line": 646
+      "start_line": 648
     },
     {
       "confidence": "community-supported",
-      "end_line": 671,
+      "end_line": 673,
       "heading": "Workflow 4: Build A Report Finder",
       "needs_live_verification": false,
       "section_id": "7-common-data-views-and-reports-workflows-workflow-4-build-a-report-finder",
       "source_keys": [
         "41325db2c931ed9e"
       ],
-      "start_line": 658
+      "start_line": 660
     },
     {
       "confidence": "community-supported",
-      "end_line": 687,
+      "end_line": 689,
       "heading": "Workflow 5: Convert A One-Off SQL Request Into A Governed Report",
       "needs_live_verification": false,
       "section_id": "7-common-data-views-and-reports-workflows-workflow-5-convert-a-one-off-sql-request-into-a-governed-report",
@@ -21024,11 +21024,11 @@
         "53d45a055ba960f2",
         "a4907154b62a17b2"
       ],
-      "start_line": 672
+      "start_line": 674
     },
     {
       "confidence": "citation-only",
-      "end_line": 701,
+      "end_line": 703,
       "heading": "Workflow 6: Build A BI Report",
       "needs_live_verification": true,
       "section_id": "7-common-data-views-and-reports-workflows-workflow-6-build-a-bi-report",
@@ -21036,11 +21036,11 @@
         "2617ec7030df84be",
         "c48789f22dbf970d"
       ],
-      "start_line": 688
+      "start_line": 690
     },
     {
       "confidence": "structural",
-      "end_line": 703,
+      "end_line": 705,
       "heading": "8. Data Views Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-data-views-deep-dive",
@@ -21052,66 +21052,66 @@
         "e9103d0e1b9ca69f",
         "c8fa3f06ab5af54c"
       ],
-      "start_line": 702
+      "start_line": 704
     },
     {
       "confidence": "normal",
-      "end_line": 727,
+      "end_line": 729,
       "heading": "Choosing The Entity Type",
       "needs_live_verification": false,
       "section_id": "8-data-views-deep-dive-choosing-the-entity-type",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 704
+      "start_line": 706
     },
     {
       "confidence": "structural",
-      "end_line": 752,
+      "end_line": 754,
       "heading": "Filter Tree Design",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-filter-tree-design",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 728
+      "start_line": 730
     },
     {
       "confidence": "structural",
-      "end_line": 773,
+      "end_line": 775,
       "heading": "Naming And Description",
       "needs_live_verification": false,
       "section_id": "8-data-views-deep-dive-naming-and-description",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 753
+      "start_line": 755
     },
     {
       "confidence": "structural",
-      "end_line": 793,
+      "end_line": 795,
       "heading": "Categories And Ownership",
       "needs_live_verification": false,
       "section_id": "8-data-views-deep-dive-categories-and-ownership",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 774
+      "start_line": 776
     },
     {
       "confidence": "citation-only",
-      "end_line": 814,
+      "end_line": 816,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-security",
       "source_keys": [
         "fa937a53da06e8f9"
       ],
-      "start_line": 794
+      "start_line": 796
     },
     {
       "confidence": "normal",
-      "end_line": 837,
+      "end_line": 839,
       "heading": "Related Data Views",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-related-data-views",
@@ -21120,11 +21120,11 @@
         "89f69f3a892facc7",
         "e9103d0e1b9ca69f"
       ],
-      "start_line": 815
+      "start_line": 817
     },
     {
       "confidence": "normal",
-      "end_line": 849,
+      "end_line": 851,
       "heading": "Post-Filter Transformations",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-post-filter-transformations",
@@ -21132,33 +21132,33 @@
         "fa937a53da06e8f9",
         "61c4d70cb34c2f18"
       ],
-      "start_line": 838
+      "start_line": 840
     },
     {
       "confidence": "normal",
-      "end_line": 864,
+      "end_line": 866,
       "heading": "Data View Usage Before Editing",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-data-view-usage-before-editing",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 850
+      "start_line": 852
     },
     {
       "confidence": "normal",
-      "end_line": 879,
+      "end_line": 881,
       "heading": "Testing Data Views",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-testing-data-views",
       "source_keys": [
         "c8fa3f06ab5af54c"
       ],
-      "start_line": 865
+      "start_line": 867
     },
     {
       "confidence": "normal",
-      "end_line": 925,
+      "end_line": 927,
       "heading": "Common Data View Anti-Patterns",
       "needs_live_verification": true,
       "section_id": "8-data-views-deep-dive-common-data-view-anti-patterns",
@@ -21166,11 +21166,11 @@
         "61c4d70cb34c2f18",
         "fa937a53da06e8f9"
       ],
-      "start_line": 880
+      "start_line": 882
     },
     {
       "confidence": "structural",
-      "end_line": 927,
+      "end_line": 929,
       "heading": "9. Reports Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive",
@@ -21181,11 +21181,11 @@
         "4f8e5e0d0ad869d3",
         "08b927e6cd97a5e1"
       ],
-      "start_line": 926
+      "start_line": 928
     },
     {
       "confidence": "structural",
-      "end_line": 953,
+      "end_line": 955,
       "heading": "What Reports Are Good At",
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive-what-reports-are-good-at",
@@ -21193,11 +21193,11 @@
         "61c4d70cb34c2f18",
         "fa937a53da06e8f9"
       ],
-      "start_line": 928
+      "start_line": 930
     },
     {
       "confidence": "community-supported",
-      "end_line": 968,
+      "end_line": 970,
       "heading": "Report Field Design",
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive-report-field-design",
@@ -21205,11 +21205,11 @@
         "fa937a53da06e8f9",
         "290e1cb2ac8563dc"
       ],
-      "start_line": 954
+      "start_line": 956
     },
     {
       "confidence": "structural",
-      "end_line": 983,
+      "end_line": 985,
       "heading": "Data View And Report Separation",
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive-data-view-and-report-separation",
@@ -21217,44 +21217,44 @@
         "fa937a53da06e8f9",
         "290e1cb2ac8563dc"
       ],
-      "start_line": 969
+      "start_line": 971
     },
     {
       "confidence": "citation-only",
-      "end_line": 998,
+      "end_line": 1000,
       "heading": "Dynamic Report Runtime Filters",
       "needs_live_verification": true,
       "section_id": "9-reports-deep-dive-dynamic-report-runtime-filters",
       "source_keys": [
         "fa937a53da06e8f9"
       ],
-      "start_line": 984
+      "start_line": 986
     },
     {
       "confidence": "community-supported",
-      "end_line": 1011,
+      "end_line": 1013,
       "heading": "Reports As Page Contracts",
       "needs_live_verification": true,
       "section_id": "9-reports-deep-dive-reports-as-page-contracts",
       "source_keys": [
         "290e1cb2ac8563dc"
       ],
-      "start_line": 999
+      "start_line": 1001
     },
     {
       "confidence": "structural",
-      "end_line": 1026,
+      "end_line": 1028,
       "heading": "Report Security",
       "needs_live_verification": true,
       "section_id": "9-reports-deep-dive-report-security",
       "source_keys": [
         "290e1cb2ac8563dc"
       ],
-      "start_line": 1012
+      "start_line": 1014
     },
     {
       "confidence": "community-supported",
-      "end_line": 1043,
+      "end_line": 1045,
       "heading": "Report Inventory And Governance",
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive-report-inventory-and-governance",
@@ -21262,11 +21262,11 @@
         "4f8e5e0d0ad869d3",
         "08b927e6cd97a5e1"
       ],
-      "start_line": 1027
+      "start_line": 1029
     },
     {
       "confidence": "structural",
-      "end_line": 1045,
+      "end_line": 1047,
       "heading": "10. Business Intelligence Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive",
@@ -21284,11 +21284,11 @@
         "add61f36fc8d2512",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 1044
+      "start_line": 1046
     },
     {
       "confidence": "citation-only",
-      "end_line": 1060,
+      "end_line": 1062,
       "heading": "What BI Adds",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-what-bi-adds",
@@ -21296,11 +21296,11 @@
         "c48789f22dbf970d",
         "c48789f22dbf970d"
       ],
-      "start_line": 1046
+      "start_line": 1048
     },
     {
       "confidence": "citation-only",
-      "end_line": 1068,
+      "end_line": 1070,
       "heading": "Community Analytics Practice Signals",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-community-analytics-practice-signals",
@@ -21309,11 +21309,11 @@
         "32ff83664ebc9114",
         "fb5f22127915c464"
       ],
-      "start_line": 1061
+      "start_line": 1063
     },
     {
       "confidence": "community-supported",
-      "end_line": 1082,
+      "end_line": 1084,
       "heading": "BI Model Layer",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-bi-model-layer",
@@ -21322,22 +21322,22 @@
         "53d45a055ba960f2",
         "499c26a9b6eee7ac"
       ],
-      "start_line": 1069
+      "start_line": 1071
     },
     {
       "confidence": "citation-only",
-      "end_line": 1099,
+      "end_line": 1101,
       "heading": "BI Job",
       "needs_live_verification": true,
       "section_id": "10-business-intelligence-deep-dive-bi-job",
       "source_keys": [
         "7392dbb131202d0a"
       ],
-      "start_line": 1083
+      "start_line": 1085
     },
     {
       "confidence": "citation-only",
-      "end_line": 1112,
+      "end_line": 1114,
       "heading": "Power BI Template",
       "needs_live_verification": true,
       "section_id": "10-business-intelligence-deep-dive-power-bi-template",
@@ -21347,22 +21347,22 @@
         "add61f36fc8d2512",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 1100
+      "start_line": 1102
     },
     {
       "confidence": "citation-only",
-      "end_line": 1127,
+      "end_line": 1129,
       "heading": "Embedded Reports",
       "needs_live_verification": true,
       "section_id": "10-business-intelligence-deep-dive-embedded-reports",
       "source_keys": [
         "c48789f22dbf970d"
       ],
-      "start_line": 1113
+      "start_line": 1115
     },
     {
       "confidence": "community-supported",
-      "end_line": 1143,
+      "end_line": 1145,
       "heading": "BI Finance Reports",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-bi-finance-reports",
@@ -21371,22 +21371,22 @@
         "53d45a055ba960f2",
         "499c26a9b6eee7ac"
       ],
-      "start_line": 1128
+      "start_line": 1130
     },
     {
       "confidence": "citation-only",
-      "end_line": 1157,
+      "end_line": 1159,
       "heading": "BI Attendance Reports",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-bi-attendance-reports",
       "source_keys": [
         "d50e9300409bad92"
       ],
-      "start_line": 1144
+      "start_line": 1146
     },
     {
       "confidence": "community-supported",
-      "end_line": 1173,
+      "end_line": 1175,
       "heading": "BI Family Reports",
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-bi-family-reports",
@@ -21394,11 +21394,11 @@
         "add61f36fc8d2512",
         "53d45a055ba960f2"
       ],
-      "start_line": 1158
+      "start_line": 1160
     },
     {
       "confidence": "structural",
-      "end_line": 1175,
+      "end_line": 1177,
       "heading": "11. Related Rock Areas: Sql, Model Map, Lava, Finance, Attendance",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-sql-model-map-lava-finance-attendance",
@@ -21414,11 +21414,11 @@
         "a4907154b62a17b2",
         "786a1035c8d7111e"
       ],
-      "start_line": 1174
+      "start_line": 1176
     },
     {
       "confidence": "normal",
-      "end_line": 1202,
+      "end_line": 1204,
       "heading": "SQL",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-sql-model-map-lava-finance-attendance-sql",
@@ -21427,11 +21427,11 @@
         "3b02b9c6ab091f7a",
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1176
+      "start_line": 1178
     },
     {
       "confidence": "community-supported",
-      "end_line": 1214,
+      "end_line": 1216,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-sql-model-map-lava-finance-attendance-model-map",
@@ -21439,11 +21439,11 @@
         "bce31f25cb8a199e",
         "3a3a2346619ea8e1"
       ],
-      "start_line": 1203
+      "start_line": 1205
     },
     {
       "confidence": "normal",
-      "end_line": 1240,
+      "end_line": 1242,
       "heading": "Lava",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-sql-model-map-lava-finance-attendance-lava",
@@ -21452,11 +21452,11 @@
         "b76e00f4cafbfba8",
         "fabd5e16d3ed5b89"
       ],
-      "start_line": 1215
+      "start_line": 1217
     },
     {
       "confidence": "community-supported",
-      "end_line": 1257,
+      "end_line": 1259,
       "heading": "Finance",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-sql-model-map-lava-finance-attendance-finance",
@@ -21464,22 +21464,22 @@
         "53d45a055ba960f2",
         "a4907154b62a17b2"
       ],
-      "start_line": 1241
+      "start_line": 1243
     },
     {
       "confidence": "normal",
-      "end_line": 1287,
+      "end_line": 1289,
       "heading": "Attendance",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-sql-model-map-lava-finance-attendance-attendance",
       "source_keys": [
         "786a1035c8d7111e"
       ],
-      "start_line": 1258
+      "start_line": 1260
     },
     {
       "confidence": "structural",
-      "end_line": 1289,
+      "end_line": 1291,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -21489,11 +21489,11 @@
         "29eaffcb0b588e0f",
         "9c0f2b67a14e49e7"
       ],
-      "start_line": 1288
+      "start_line": 1290
     },
     {
       "confidence": "community-supported",
-      "end_line": 1308,
+      "end_line": 1310,
       "heading": "Reporting Governance",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-reporting-governance",
@@ -21501,11 +21501,11 @@
         "08b927e6cd97a5e1",
         "4f8e5e0d0ad869d3"
       ],
-      "start_line": 1290
+      "start_line": 1292
     },
     {
       "confidence": "structural",
-      "end_line": 1336,
+      "end_line": 1338,
       "heading": "Security Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-security-guardrails",
@@ -21513,44 +21513,44 @@
         "08b927e6cd97a5e1",
         "4f8e5e0d0ad869d3"
       ],
-      "start_line": 1309
+      "start_line": 1311
     },
     {
       "confidence": "citation-only",
-      "end_line": 1368,
+      "end_line": 1370,
       "heading": "Performance Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-performance-guardrails",
       "source_keys": [
         "29eaffcb0b588e0f"
       ],
-      "start_line": 1337
+      "start_line": 1339
     },
     {
       "confidence": "community-supported",
-      "end_line": 1384,
+      "end_line": 1386,
       "heading": "Database Maintenance",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-database-maintenance",
       "source_keys": [
         "9c0f2b67a14e49e7"
       ],
-      "start_line": 1369
+      "start_line": 1371
     },
     {
       "confidence": "structural",
-      "end_line": 1400,
+      "end_line": 1402,
       "heading": "Change Control",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-change-control",
       "source_keys": [
         "9c0f2b67a14e49e7"
       ],
-      "start_line": 1385
+      "start_line": 1387
     },
     {
       "confidence": "structural",
-      "end_line": 1402,
+      "end_line": 1404,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -21566,33 +21566,33 @@
         "ab43821372ff127c",
         "4f8e5e0d0ad869d3"
       ],
-      "start_line": 1401
+      "start_line": 1403
     },
     {
       "confidence": "normal",
-      "end_line": 1414,
+      "end_line": 1416,
       "heading": "Data Filter Components",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-data-filter-components",
       "source_keys": [
         "786a1035c8d7111e"
       ],
-      "start_line": 1403
+      "start_line": 1405
     },
     {
       "confidence": "normal",
-      "end_line": 1427,
+      "end_line": 1429,
       "heading": "`DataViewFilter.Logic`",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-dataviewfilter-logic",
       "source_keys": [
         "21eb62d70f20f132"
       ],
-      "start_line": 1415
+      "start_line": 1417
     },
     {
       "confidence": "normal",
-      "end_line": 1438,
+      "end_line": 1440,
       "heading": "Obsidian Filter Bags",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-obsidian-filter-bags",
@@ -21600,22 +21600,22 @@
         "e0c96eaf68bbdb83",
         "6afa5ff762c19a12"
       ],
-      "start_line": 1428
+      "start_line": 1430
     },
     {
       "confidence": "normal",
-      "end_line": 1442,
+      "end_line": 1444,
       "heading": "Save Hooks And Cache",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-save-hooks-and-cache",
       "source_keys": [
         "5e7b28c13867308a"
       ],
-      "start_line": 1439
+      "start_line": 1441
     },
     {
       "confidence": "normal",
-      "end_line": 1453,
+      "end_line": 1455,
       "heading": "Tests As Operational Models",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-tests-as-operational-models",
@@ -21624,11 +21624,11 @@
         "89f69f3a892facc7",
         "e9103d0e1b9ca69f"
       ],
-      "start_line": 1443
+      "start_line": 1445
     },
     {
       "confidence": "normal",
-      "end_line": 1457,
+      "end_line": 1459,
       "heading": "API And Entity Commands",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-and-entity-commands",
@@ -21636,11 +21636,11 @@
         "ab43821372ff127c",
         "4f8e5e0d0ad869d3"
       ],
-      "start_line": 1454
+      "start_line": 1456
     },
     {
       "confidence": "structural",
-      "end_line": 1459,
+      "end_line": 1461,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -21652,22 +21652,22 @@
         "61c4d70cb34c2f18",
         "3a3a2346619ea8e1"
       ],
-      "start_line": 1458
+      "start_line": 1460
     },
     {
       "confidence": "citation-only",
-      "end_line": 1473,
+      "end_line": 1475,
       "heading": "Reporting Strategy",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-reporting-strategy",
       "source_keys": [
         "fa937a53da06e8f9"
       ],
-      "start_line": 1460
+      "start_line": 1462
     },
     {
       "confidence": "community-supported",
-      "end_line": 1495,
+      "end_line": 1497,
       "heading": "Analytics Tables vs Transactional Tables",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-analytics-tables-vs-transactional-tables",
@@ -21676,33 +21676,33 @@
         "499c26a9b6eee7ac",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1474
+      "start_line": 1476
     },
     {
       "confidence": "normal",
-      "end_line": 1510,
+      "end_line": 1512,
       "heading": "Metrics And Measurement Classifications",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-metrics-and-measurement-classifications",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 1496
+      "start_line": 1498
     },
     {
       "confidence": "community-supported",
-      "end_line": 1526,
+      "end_line": 1528,
       "heading": "Model Discovery Process",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-discovery-process",
       "source_keys": [
         "3a3a2346619ea8e1"
       ],
-      "start_line": 1511
+      "start_line": 1513
     },
     {
       "confidence": "structural",
-      "end_line": 1528,
+      "end_line": 1530,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -21715,44 +21715,44 @@
         "2617ec7030df84be",
         "638bd14421adcd15"
       ],
-      "start_line": 1527
+      "start_line": 1529
     },
     {
       "confidence": "normal",
-      "end_line": 1541,
+      "end_line": 1543,
       "heading": "Rock Version Matters",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-rock-version-matters",
       "source_keys": [
         "61c4d70cb34c2f18"
       ],
-      "start_line": 1529
+      "start_line": 1531
     },
     {
       "confidence": "citation-only",
-      "end_line": 1545,
+      "end_line": 1547,
       "heading": "Dynamic Report Filtering",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-dynamic-report-filtering",
       "source_keys": [
         "fa937a53da06e8f9"
       ],
-      "start_line": 1542
+      "start_line": 1544
     },
     {
       "confidence": "normal",
-      "end_line": 1549,
+      "end_line": 1551,
       "heading": "Lava SQL Parameters And Timeout",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-lava-sql-parameters-and-timeout",
       "source_keys": [
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1546
+      "start_line": 1548
     },
     {
       "confidence": "high",
-      "end_line": 1553,
+      "end_line": 1555,
       "heading": "Data View Caching",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-data-view-caching",
@@ -21761,44 +21761,44 @@
         "5e7b28c13867308a",
         "d5a19275308b631d"
       ],
-      "start_line": 1550
+      "start_line": 1552
     },
     {
       "confidence": "citation-only",
-      "end_line": 1557,
+      "end_line": 1559,
       "heading": "BI Template Version",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-bi-template-version",
       "source_keys": [
         "2617ec7030df84be"
       ],
-      "start_line": 1554
+      "start_line": 1556
     },
     {
       "confidence": "citation-only",
-      "end_line": 1561,
+      "end_line": 1563,
       "heading": "Analytics Source Giving Unit",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-analytics-source-giving-unit",
       "source_keys": [
         "638bd14421adcd15"
       ],
-      "start_line": 1558
+      "start_line": 1560
     },
     {
       "confidence": "structural",
-      "end_line": 1565,
+      "end_line": 1567,
       "heading": "Source Code Branch Caveat",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-source-code-branch-caveat",
       "source_keys": [
         "638bd14421adcd15"
       ],
-      "start_line": 1562
+      "start_line": 1564
     },
     {
       "confidence": "structural",
-      "end_line": 1567,
+      "end_line": 1569,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -21811,11 +21811,11 @@
         "41325db2c931ed9e",
         "ab43821372ff127c"
       ],
-      "start_line": 1566
+      "start_line": 1568
     },
     {
       "confidence": "citation-only",
-      "end_line": 1588,
+      "end_line": 1590,
       "heading": "Playbook A: Create A New Data View And Report",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-a-create-a-new-data-view-and-report",
@@ -21824,11 +21824,11 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 1568
+      "start_line": 1570
     },
     {
       "confidence": "structural",
-      "end_line": 1602,
+      "end_line": 1604,
       "heading": "Playbook B: Fix A Data View Returning Too Many Rows",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-b-fix-a-data-view-returning-too-many-rows",
@@ -21837,11 +21837,11 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 1589
+      "start_line": 1591
     },
     {
       "confidence": "structural",
-      "end_line": 1615,
+      "end_line": 1617,
       "heading": "Playbook C: Fix A Data View Returning Zero Rows",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-c-fix-a-data-view-returning-zero-rows",
@@ -21850,11 +21850,11 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 1603
+      "start_line": 1605
     },
     {
       "confidence": "community-supported",
-      "end_line": 1633,
+      "end_line": 1635,
       "heading": "Playbook D: Build A Finance Giving Report",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-d-build-a-finance-giving-report",
@@ -21862,22 +21862,22 @@
         "53d45a055ba960f2",
         "499c26a9b6eee7ac"
       ],
-      "start_line": 1616
+      "start_line": 1618
     },
     {
       "confidence": "normal",
-      "end_line": 1649,
+      "end_line": 1651,
       "heading": "Playbook E: Build An Attendance Report",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-e-build-an-attendance-report",
       "source_keys": [
         "786a1035c8d7111e"
       ],
-      "start_line": 1634
+      "start_line": 1636
     },
     {
       "confidence": "community-supported",
-      "end_line": 1664,
+      "end_line": 1666,
       "heading": "Playbook F: Build A Reporting Inventory Dashboard",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-f-build-a-reporting-inventory-dashboard",
@@ -21885,22 +21885,22 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 1650
+      "start_line": 1652
     },
     {
       "confidence": "normal",
-      "end_line": 1678,
+      "end_line": 1680,
       "heading": "Playbook G: Retire A Report Or Data View",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-g-retire-a-report-or-data-view",
       "source_keys": [
         "ab43821372ff127c"
       ],
-      "start_line": 1665
+      "start_line": 1667
     },
     {
       "confidence": "structural",
-      "end_line": 1680,
+      "end_line": 1682,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -21909,11 +21909,11 @@
         "29eaffcb0b588e0f",
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1679
+      "start_line": 1681
     },
     {
       "confidence": "citation-only",
-      "end_line": 1697,
+      "end_line": 1699,
       "heading": "Symptom: Report Shows No Rows",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
@@ -21922,11 +21922,11 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 1681
+      "start_line": 1683
     },
     {
       "confidence": "structural",
-      "end_line": 1712,
+      "end_line": 1714,
       "heading": "Symptom: Report Shows Too Many Rows",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-report-shows-too-many-rows",
@@ -21935,66 +21935,66 @@
         "fa937a53da06e8f9",
         "fa937a53da06e8f9"
       ],
-      "start_line": 1698
+      "start_line": 1700
     },
     {
       "confidence": "citation-only",
-      "end_line": 1729,
+      "end_line": 1731,
       "heading": "Symptom: Report Is Slow",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-report-is-slow",
       "source_keys": [
         "29eaffcb0b588e0f"
       ],
-      "start_line": 1713
+      "start_line": 1715
     },
     {
       "confidence": "structural",
-      "end_line": 1744,
+      "end_line": 1746,
       "heading": "Symptom: Dynamic Report Differs From Data View Editor",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-dynamic-report-differs-from-data-view-editor",
       "source_keys": [
         "29eaffcb0b588e0f"
       ],
-      "start_line": 1730
+      "start_line": 1732
     },
     {
       "confidence": "structural",
-      "end_line": 1759,
+      "end_line": 1761,
       "heading": "Symptom: BI Dashboard Is Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-bi-dashboard-is-wrong",
       "source_keys": [
         "29eaffcb0b588e0f"
       ],
-      "start_line": 1745
+      "start_line": 1747
     },
     {
       "confidence": "normal",
-      "end_line": 1776,
+      "end_line": 1778,
       "heading": "Symptom: Lava SQL Report Is Unsafe",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-lava-sql-report-is-unsafe",
       "source_keys": [
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1760
+      "start_line": 1762
     },
     {
       "confidence": "structural",
-      "end_line": 1791,
+      "end_line": 1793,
       "heading": "Symptom: Data View Fails After Upgrade",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-symptom-data-view-fails-after-upgrade",
       "source_keys": [
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1777
+      "start_line": 1779
     },
     {
       "confidence": "structural",
-      "end_line": 1793,
+      "end_line": 1795,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -22005,44 +22005,44 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 1792
+      "start_line": 1794
     },
     {
       "confidence": "structural",
-      "end_line": 1806,
+      "end_line": 1808,
       "heading": "Recipe: Answer \"What Does This Report Actually Show?\"",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-answer-what-does-this-report-actually-show",
       "source_keys": [
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1794
+      "start_line": 1796
     },
     {
       "confidence": "structural",
-      "end_line": 1819,
+      "end_line": 1821,
       "heading": "Recipe: Answer \"Can I Change This Data View?\"",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-answer-can-i-change-this-data-view",
       "source_keys": [
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1807
+      "start_line": 1809
     },
     {
       "confidence": "structural",
-      "end_line": 1830,
+      "end_line": 1832,
       "heading": "Recipe: Build \"People Who Attended X But Not Y\"",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-people-who-attended-x-but-not-y",
       "source_keys": [
         "b76e00f4cafbfba8"
       ],
-      "start_line": 1820
+      "start_line": 1822
     },
     {
       "confidence": "community-supported",
-      "end_line": 1844,
+      "end_line": 1846,
       "heading": "Recipe: Build \"Lapsed Givers\"",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-lapsed-givers",
@@ -22050,11 +22050,11 @@
         "a4907154b62a17b2",
         "53d45a055ba960f2"
       ],
-      "start_line": 1831
+      "start_line": 1833
     },
     {
       "confidence": "community-supported",
-      "end_line": 1857,
+      "end_line": 1859,
       "heading": "Recipe: Build \"Where Are Our Reporting Tools?\"",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-where-are-our-reporting-tools",
@@ -22062,11 +22062,11 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 1845
+      "start_line": 1847
     },
     {
       "confidence": "structural",
-      "end_line": 1870,
+      "end_line": 1872,
       "heading": "Recipe: Validate A BI Finance Dashboard",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-validate-a-bi-finance-dashboard",
@@ -22074,11 +22074,11 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 1858
+      "start_line": 1860
     },
     {
       "confidence": "structural",
-      "end_line": 1883,
+      "end_line": 1885,
       "heading": "Recipe: Audit Reporting Security",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-reporting-security",
@@ -22086,11 +22086,11 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 1871
+      "start_line": 1873
     },
     {
       "confidence": "structural",
-      "end_line": 1897,
+      "end_line": 1899,
       "heading": "Recipe: Diagnose Slow Reporting",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-slow-reporting",
@@ -22098,11 +22098,11 @@
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e"
       ],
-      "start_line": 1884
+      "start_line": 1886
     },
     {
       "confidence": "citation-only",
-      "end_line": 1923,
+      "end_line": 1925,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -22120,11 +22120,11 @@
         "0343f1e6031032b4",
         "6dca8c5215eee229"
       ],
-      "start_line": 1898
+      "start_line": 1900
     },
     {
       "confidence": "citation-only",
-      "end_line": 1944,
+      "end_line": 1946,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -22138,11 +22138,11 @@
         "7392dbb131202d0a",
         "ef1e6fc776f40c8b"
       ],
-      "start_line": 1924
+      "start_line": 1926
     },
     {
       "confidence": "structural",
-      "end_line": 1946,
+      "end_line": 1948,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -22192,11 +22192,11 @@
         "f57e2ecdeb65a00e",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1945
+      "start_line": 1947
     },
     {
       "confidence": "normal",
-      "end_line": 1957,
+      "end_line": 1959,
       "heading": "Official And Training Sources",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-official-and-training-sources",
@@ -22217,11 +22217,11 @@
         "add61f36fc8d2512",
         "c48789f22dbf970d"
       ],
-      "start_line": 1947
+      "start_line": 1949
     },
     {
       "confidence": "normal",
-      "end_line": 1974,
+      "end_line": 1976,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -22242,11 +22242,11 @@
         "6afa5ff762c19a12",
         "e0c96eaf68bbdb83"
       ],
-      "start_line": 1958
+      "start_line": 1960
     },
     {
       "confidence": "normal",
-      "end_line": 1990,
+      "end_line": 1992,
       "heading": "Community And Partner Pattern Sources",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-community-and-partner-pattern-sources",
@@ -22268,11 +22268,11 @@
         "29eaffcb0b588e0f",
         "f57e2ecdeb65a00e"
       ],
-      "start_line": 1975
+      "start_line": 1977
     },
     {
       "confidence": "normal",
-      "end_line": 2003,
+      "end_line": 2005,
       "heading": "Dependencies On Other Guides",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependencies-on-other-guides",
@@ -22282,7 +22282,7 @@
         "c48789f22dbf970d",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1991
+      "start_line": 1993
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T14:31:33+00:00",

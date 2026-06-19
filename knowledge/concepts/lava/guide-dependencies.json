@@ -3319,12 +3319,12 @@
   },
   "approved_media_hash": "1d7a891c12ef59462440f6f8733a46b4f7c65066ee1de3b59dbe1aedf3816a18",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-06-19T05:25:44+00:00",
+  "built_at": "2026-06-19T05:56:49+00:00",
   "concept_id": "lava",
-  "guide_hash": "d582f57a47e6bc2be7baaca8e5a1142dfc13f259f475a8607ed06e0fcdbc25c5",
-  "guide_line_count": 2019,
+  "guide_hash": "9c384c931a0face85fd7ebb2011ca280dd687cd181c808d7fa9b57410919ce37",
+  "guide_line_count": 2021,
   "guide_path": "knowledge/concepts/lava/guide.md",
-  "guide_word_count": 14824,
+  "guide_word_count": 14837,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3780,7 +3780,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -3791,7 +3791,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 51,
+      "end_line": 53,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -3802,11 +3802,11 @@
         "8cdbc423958bc54d",
         "044170dca04e8bbb"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "normal",
-      "end_line": 96,
+      "end_line": 98,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -3827,11 +3827,11 @@
         "408b3cfc2191b9b4",
         "408b3cfc2191b9b4"
       ],
-      "start_line": 52
+      "start_line": 54
     },
     {
       "confidence": "normal",
-      "end_line": 138,
+      "end_line": 140,
       "heading": "3. Lava Mental Model",
       "needs_live_verification": false,
       "section_id": "3-lava-mental-model",
@@ -3846,11 +3846,11 @@
         "044170dca04e8bbb",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 97
+      "start_line": 99
     },
     {
       "confidence": "community-supported",
-      "end_line": 165,
+      "end_line": 167,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -3859,11 +3859,11 @@
         "7a69cf141b23edc3",
         "9dda6ab83ecc98f7"
       ],
-      "start_line": 139
+      "start_line": 141
     },
     {
       "confidence": "structural",
-      "end_line": 167,
+      "end_line": 169,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -3880,55 +3880,55 @@
         "bdb99031078768b1",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 166
+      "start_line": 168
     },
     {
       "confidence": "normal",
-      "end_line": 186,
+      "end_line": 188,
       "heading": "Lava Engine Liquid Framework",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-engine-liquid-framework",
       "source_keys": [
         "408b3cfc2191b9b4"
       ],
-      "start_line": 168
+      "start_line": 170
     },
     {
       "confidence": "normal",
-      "end_line": 198,
+      "end_line": 200,
       "heading": "Default Enabled Lava Commands",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-default-enabled-lava-commands",
       "source_keys": [
         "8cdbc423958bc54d"
       ],
-      "start_line": 187
+      "start_line": 189
     },
     {
       "confidence": "normal",
-      "end_line": 209,
+      "end_line": 211,
       "heading": "HTML Block Command Enablement",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-html-block-command-enablement",
       "source_keys": [
         "8cdbc423958bc54d"
       ],
-      "start_line": 199
+      "start_line": 201
     },
     {
       "confidence": "normal",
-      "end_line": 221,
+      "end_line": 223,
       "heading": "Communication Entry Command Enablement",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-communication-entry-command-enablement",
       "source_keys": [
         "8cdbc423958bc54d"
       ],
-      "start_line": 210
+      "start_line": 212
     },
     {
       "confidence": "normal",
-      "end_line": 236,
+      "end_line": 238,
       "heading": "Lava Shortcode Entity",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-shortcode-entity",
@@ -3944,33 +3944,33 @@
         "044170dca04e8bbb",
         "c5fb1f756d5547be"
       ],
-      "start_line": 222
+      "start_line": 224
     },
     {
       "confidence": "normal",
-      "end_line": 247,
+      "end_line": 249,
       "heading": "Lava Shortcode Cache",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-shortcode-cache",
       "source_keys": [
         "bdb99031078768b1"
       ],
-      "start_line": 237
+      "start_line": 239
     },
     {
       "confidence": "normal",
-      "end_line": 260,
+      "end_line": 262,
       "heading": "Lava Webhooks",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lava-webhooks",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 248
+      "start_line": 250
     },
     {
       "confidence": "normal",
-      "end_line": 273,
+      "end_line": 275,
       "heading": "Remote Lava REST Endpoint",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-remote-lava-rest-endpoint",
@@ -3978,11 +3978,11 @@
         "044170dca04e8bbb",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 261
+      "start_line": 263
     },
     {
       "confidence": "structural",
-      "end_line": 275,
+      "end_line": 277,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -3992,33 +3992,33 @@
         "8cdbc423958bc54d",
         "776256c424368312"
       ],
-      "start_line": 274
+      "start_line": 276
     },
     {
       "confidence": "normal",
-      "end_line": 301,
+      "end_line": 303,
       "heading": "LavaShortcode",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-lavashortcode",
       "source_keys": [
         "29dea9c9114ae180"
       ],
-      "start_line": 276
+      "start_line": 278
     },
     {
       "confidence": "normal",
-      "end_line": 311,
+      "end_line": 313,
       "heading": "Block, Page, Site, Theme, And Include Files",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-block-page-site-theme-and-include-files",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 302
+      "start_line": 304
     },
     {
       "confidence": "normal",
-      "end_line": 323,
+      "end_line": 325,
       "heading": "Entity Commands And Rock Models",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-entity-commands-and-rock-models",
@@ -4026,11 +4026,11 @@
         "044170dca04e8bbb",
         "8cdbc423958bc54d"
       ],
-      "start_line": 312
+      "start_line": 314
     },
     {
       "confidence": "normal",
-      "end_line": 335,
+      "end_line": 337,
       "heading": "Attribute And AttributeValue",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
@@ -4039,22 +4039,22 @@
         "044170dca04e8bbb",
         "776256c424368312"
       ],
-      "start_line": 324
+      "start_line": 326
     },
     {
       "confidence": "normal",
-      "end_line": 358,
+      "end_line": 360,
       "heading": "Workflow, Workflow Type, Activity Type, And Attributes",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-workflow-workflow-type-activity-type-and-attributes",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 336
+      "start_line": 338
     },
     {
       "confidence": "normal",
-      "end_line": 376,
+      "end_line": 378,
       "heading": "Interaction Records",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-interaction-records",
@@ -4063,33 +4063,33 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 359
+      "start_line": 361
     },
     {
       "confidence": "normal",
-      "end_line": 388,
+      "end_line": 390,
       "heading": "Devices And Printers",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-devices-and-printers",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 377
+      "start_line": 379
     },
     {
       "confidence": "normal",
-      "end_line": 399,
+      "end_line": 401,
       "heading": "Search Index Documents",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-search-index-documents",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 389
+      "start_line": 391
     },
     {
       "confidence": "structural",
-      "end_line": 401,
+      "end_line": 403,
       "heading": "7. Common Lava Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-lava-workflows",
@@ -4105,11 +4105,11 @@
         "7a69cf141b23edc3",
         "2b0a81a795e23c56"
       ],
-      "start_line": 400
+      "start_line": 402
     },
     {
       "confidence": "normal",
-      "end_line": 423,
+      "end_line": 425,
       "heading": "Rendering Personalized CMS Content",
       "needs_live_verification": false,
       "section_id": "7-common-lava-workflows-rendering-personalized-cms-content",
@@ -4117,44 +4117,44 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 402
+      "start_line": 404
     },
     {
       "confidence": "normal",
-      "end_line": 447,
+      "end_line": 449,
       "heading": "Querying Rock Entities",
       "needs_live_verification": false,
       "section_id": "7-common-lava-workflows-querying-rock-entities",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 424
+      "start_line": 426
     },
     {
       "confidence": "community-supported",
-      "end_line": 461,
+      "end_line": 463,
       "heading": "Building A Dynamic Report Page",
       "needs_live_verification": true,
       "section_id": "7-common-lava-workflows-building-a-dynamic-report-page",
       "source_keys": [
         "eee9d10d47a9c9cf"
       ],
-      "start_line": 448
+      "start_line": 450
     },
     {
       "confidence": "needs-citation",
-      "end_line": 484,
+      "end_line": 486,
       "heading": "Launching A Workflow From Lava",
       "needs_live_verification": false,
       "section_id": "7-common-lava-workflows-launching-a-workflow-from-lava",
       "source_keys": [
         "eee9d10d47a9c9cf"
       ],
-      "start_line": 462
+      "start_line": 464
     },
     {
       "confidence": "normal",
-      "end_line": 503,
+      "end_line": 505,
       "heading": "Creating A Lava API Or Webhook",
       "needs_live_verification": false,
       "section_id": "7-common-lava-workflows-creating-a-lava-api-or-webhook",
@@ -4162,11 +4162,11 @@
         "044170dca04e8bbb",
         "06156bb3a5401956"
       ],
-      "start_line": 485
+      "start_line": 487
     },
     {
       "confidence": "community-supported",
-      "end_line": 519,
+      "end_line": 521,
       "heading": "Formatting Data With Shortcodes",
       "needs_live_verification": false,
       "section_id": "7-common-lava-workflows-formatting-data-with-shortcodes",
@@ -4179,33 +4179,33 @@
         "7a69cf141b23edc3",
         "2b0a81a795e23c56"
       ],
-      "start_line": 504
+      "start_line": 506
     },
     {
       "confidence": "normal",
-      "end_line": 534,
+      "end_line": 536,
       "heading": "Calling External APIs",
       "needs_live_verification": true,
       "section_id": "7-common-lava-workflows-calling-external-apis",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 520
+      "start_line": 522
     },
     {
       "confidence": "normal",
-      "end_line": 546,
+      "end_line": 548,
       "heading": "Adding Page-Level CSS",
       "needs_live_verification": true,
       "section_id": "7-common-lava-workflows-adding-page-level-css",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 535
+      "start_line": 537
     },
     {
       "confidence": "structural",
-      "end_line": 548,
+      "end_line": 550,
       "heading": "8. Commands Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive",
@@ -4216,11 +4216,11 @@
         "03c075d61d8647e0",
         "789454b4b23d582c"
       ],
-      "start_line": 547
+      "start_line": 549
     },
     {
       "confidence": "normal",
-      "end_line": 587,
+      "end_line": 589,
       "heading": "Command Enablement",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-command-enablement",
@@ -4228,22 +4228,22 @@
         "8cdbc423958bc54d",
         "8cdbc423958bc54d"
       ],
-      "start_line": 549
+      "start_line": 551
     },
     {
       "confidence": "normal",
-      "end_line": 624,
+      "end_line": 626,
       "heading": "Entity Command",
       "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-entity-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 588
+      "start_line": 590
     },
     {
       "confidence": "normal",
-      "end_line": 662,
+      "end_line": 664,
       "heading": "SQL Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-sql-command",
@@ -4253,11 +4253,11 @@
         "27845921e0602d01",
         "27845921e0602d01"
       ],
-      "start_line": 625
+      "start_line": 627
     },
     {
       "confidence": "normal",
-      "end_line": 691,
+      "end_line": 693,
       "heading": "Cache Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-cache-command",
@@ -4266,11 +4266,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 663
+      "start_line": 665
     },
     {
       "confidence": "normal",
-      "end_line": 727,
+      "end_line": 729,
       "heading": "Web Request Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-web-request-command",
@@ -4278,22 +4278,22 @@
         "044170dca04e8bbb",
         "03c075d61d8647e0"
       ],
-      "start_line": 692
+      "start_line": 694
     },
     {
       "confidence": "normal",
-      "end_line": 745,
+      "end_line": 747,
       "heading": "Workflow Activate Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-workflow-activate-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 728
+      "start_line": 730
     },
     {
       "confidence": "normal",
-      "end_line": 763,
+      "end_line": 765,
       "heading": "Interaction Write Commands",
       "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-interaction-write-commands",
@@ -4302,88 +4302,88 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 746
+      "start_line": 748
     },
     {
       "confidence": "normal",
-      "end_line": 780,
+      "end_line": 782,
       "heading": "Search Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-search-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 764
+      "start_line": 766
     },
     {
       "confidence": "normal",
-      "end_line": 792,
+      "end_line": 794,
       "heading": "Adaptive Message Command",
       "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-adaptive-message-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 781
+      "start_line": 783
     },
     {
       "confidence": "normal",
-      "end_line": 808,
+      "end_line": 810,
       "heading": "Set Culture Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-set-culture-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 793
+      "start_line": 795
     },
     {
       "confidence": "normal",
-      "end_line": 820,
+      "end_line": 822,
       "heading": "Stylesheet Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-stylesheet-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 809
+      "start_line": 811
     },
     {
       "confidence": "normal",
-      "end_line": 833,
+      "end_line": 835,
       "heading": "Print ZPL Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-print-zpl-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 821
+      "start_line": 823
     },
     {
       "confidence": "normal",
-      "end_line": 848,
+      "end_line": 850,
       "heading": "Observe Tag/Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-observe-tag-command",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 834
+      "start_line": 836
     },
     {
       "confidence": "normal",
-      "end_line": 852,
+      "end_line": 854,
       "heading": "Tag List Command",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-tag-list-command",
       "source_keys": [
         "8cdbc423958bc54d"
       ],
-      "start_line": 849
+      "start_line": 851
     },
     {
       "confidence": "normal",
-      "end_line": 858,
+      "end_line": 860,
       "heading": "Helix Commands And Data Modification",
       "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-helix-commands-and-data-modification",
@@ -4391,11 +4391,11 @@
         "789454b4b23d582c",
         "789454b4b23d582c"
       ],
-      "start_line": 853
+      "start_line": 855
     },
     {
       "confidence": "structural",
-      "end_line": 862,
+      "end_line": 864,
       "heading": "9. Filters Deep Dive",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive",
@@ -4403,33 +4403,33 @@
         "789454b4b23d582c",
         "789454b4b23d582c"
       ],
-      "start_line": 859
+      "start_line": 861
     },
     {
       "confidence": "normal",
-      "end_line": 893,
+      "end_line": 895,
       "heading": "Attribute Filter",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive-attribute-filter",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 863
+      "start_line": 865
     },
     {
       "confidence": "community-supported",
-      "end_line": 907,
+      "end_line": 909,
       "heading": "Legacy Attribute Syntax",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive-legacy-attribute-syntax",
       "source_keys": [
         "aea75eac89bfedf8"
       ],
-      "start_line": 894
+      "start_line": 896
     },
     {
       "confidence": "normal",
-      "end_line": 920,
+      "end_line": 922,
       "heading": "Date Filters",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive-date-filters",
@@ -4437,22 +4437,22 @@
         "330a24a589f8ffae",
         "7dbb91e2425d154d"
       ],
-      "start_line": 908
+      "start_line": 910
     },
     {
       "confidence": "normal",
-      "end_line": 929,
+      "end_line": 931,
       "heading": "Person Filters",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive-person-filters",
       "source_keys": [
         "f89cbbab07e7a22a"
       ],
-      "start_line": 921
+      "start_line": 923
     },
     {
       "confidence": "normal",
-      "end_line": 941,
+      "end_line": 943,
       "heading": "Text Filters",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive-text-filters",
@@ -4461,22 +4461,22 @@
         "044170dca04e8bbb",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 930
+      "start_line": 932
     },
     {
       "confidence": "normal",
-      "end_line": 953,
+      "end_line": 955,
       "heading": "Array And Sorting Filters",
       "needs_live_verification": false,
       "section_id": "9-filters-deep-dive-array-and-sorting-filters",
       "source_keys": [
         "408b3cfc2191b9b4"
       ],
-      "start_line": 942
+      "start_line": 944
     },
     {
       "confidence": "normal",
-      "end_line": 964,
+      "end_line": 966,
       "heading": "JSON Filters",
       "needs_live_verification": false,
       "section_id": "9-filters-deep-dive-json-filters",
@@ -4484,33 +4484,33 @@
         "044170dca04e8bbb",
         "9dda6ab83ecc98f7"
       ],
-      "start_line": 954
+      "start_line": 956
     },
     {
       "confidence": "normal",
-      "end_line": 968,
+      "end_line": 970,
       "heading": "Culture-Affected Filters",
       "needs_live_verification": true,
       "section_id": "9-filters-deep-dive-culture-affected-filters",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 965
+      "start_line": 967
     },
     {
       "confidence": "normal",
-      "end_line": 977,
+      "end_line": 979,
       "heading": "Mobile Lava Filters",
       "needs_live_verification": false,
       "section_id": "9-filters-deep-dive-mobile-lava-filters",
       "source_keys": [
         "ae672f3d3d6f8730"
       ],
-      "start_line": 969
+      "start_line": 971
     },
     {
       "confidence": "structural",
-      "end_line": 979,
+      "end_line": 981,
       "heading": "10. Shortcodes Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive",
@@ -4525,33 +4525,33 @@
         "6fc03eb03266e00f",
         "8d5f90a85566fd59"
       ],
-      "start_line": 978
+      "start_line": 980
     },
     {
       "confidence": "normal",
-      "end_line": 1002,
+      "end_line": 1004,
       "heading": "Why Shortcodes Exist",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-why-shortcodes-exist",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 980
+      "start_line": 982
     },
     {
       "confidence": "normal",
-      "end_line": 1020,
+      "end_line": 1022,
       "heading": "Inline Versus Block",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-inline-versus-block",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1003
+      "start_line": 1005
     },
     {
       "confidence": "normal",
-      "end_line": 1039,
+      "end_line": 1041,
       "heading": "Shortcode Configuration Fields",
       "needs_live_verification": true,
       "section_id": "10-shortcodes-deep-dive-shortcode-configuration-fields",
@@ -4559,66 +4559,66 @@
         "29dea9c9114ae180",
         "45a3212e9ff95472"
       ],
-      "start_line": 1021
+      "start_line": 1023
     },
     {
       "confidence": "normal",
-      "end_line": 1054,
+      "end_line": 1056,
       "heading": "Parameters",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-parameters",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1040
+      "start_line": 1042
     },
     {
       "confidence": "normal",
-      "end_line": 1068,
+      "end_line": 1070,
       "heading": "Enabled Commands Inside Shortcodes",
       "needs_live_verification": true,
       "section_id": "10-shortcodes-deep-dive-enabled-commands-inside-shortcodes",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1055
+      "start_line": 1057
     },
     {
       "confidence": "normal",
-      "end_line": 1080,
+      "end_line": 1082,
       "heading": "Block Content",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-block-content",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1069
+      "start_line": 1071
     },
     {
       "confidence": "normal",
-      "end_line": 1086,
+      "end_line": 1088,
       "heading": "Block Configuration",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-block-configuration",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1081
+      "start_line": 1083
     },
     {
       "confidence": "normal",
-      "end_line": 1106,
+      "end_line": 1108,
       "heading": "Passing Objects",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-passing-objects",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1087
+      "start_line": 1089
     },
     {
       "confidence": "normal",
-      "end_line": 1117,
+      "end_line": 1119,
       "heading": "Scope Behavior",
       "needs_live_verification": true,
       "section_id": "10-shortcodes-deep-dive-scope-behavior",
@@ -4627,11 +4627,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1107
+      "start_line": 1109
     },
     {
       "confidence": "normal",
-      "end_line": 1128,
+      "end_line": 1130,
       "heading": "Shortcode Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "10-shortcodes-deep-dive-shortcode-source-code-landmarks",
@@ -4643,11 +4643,11 @@
         "6fc03eb03266e00f",
         "8d5f90a85566fd59"
       ],
-      "start_line": 1118
+      "start_line": 1120
     },
     {
       "confidence": "structural",
-      "end_line": 1130,
+      "end_line": 1132,
       "heading": "11. Related Rock Areas: Cms, Workflows, Sql, Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-cms-workflows-sql-security",
@@ -4664,11 +4664,11 @@
         "8cdbc423958bc54d",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1129
+      "start_line": 1131
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1150,
+      "end_line": 1152,
       "heading": "CMS",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-cms-workflows-sql-security-cms",
@@ -4680,11 +4680,11 @@
         "6fc03eb03266e00f",
         "8d5f90a85566fd59"
       ],
-      "start_line": 1131
+      "start_line": 1133
     },
     {
       "confidence": "normal",
-      "end_line": 1166,
+      "end_line": 1168,
       "heading": "Workflows",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-cms-workflows-sql-security-workflows",
@@ -4692,11 +4692,11 @@
         "044170dca04e8bbb",
         "776256c424368312"
       ],
-      "start_line": 1151
+      "start_line": 1153
     },
     {
       "confidence": "normal",
-      "end_line": 1181,
+      "end_line": 1183,
       "heading": "SQL",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-cms-workflows-sql-security-sql",
@@ -4704,11 +4704,11 @@
         "27845921e0602d01",
         "044170dca04e8bbb"
       ],
-      "start_line": 1167
+      "start_line": 1169
     },
     {
       "confidence": "normal",
-      "end_line": 1196,
+      "end_line": 1198,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-cms-workflows-sql-security-security",
@@ -4719,11 +4719,11 @@
         "044170dca04e8bbb",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1182
+      "start_line": 1184
     },
     {
       "confidence": "structural",
-      "end_line": 1198,
+      "end_line": 1200,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -4734,11 +4734,11 @@
         "aea75eac89bfedf8",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 1197
+      "start_line": 1199
     },
     {
       "confidence": "structural",
-      "end_line": 1213,
+      "end_line": 1215,
       "heading": "Pre-Change Checklist",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-pre-change-checklist",
@@ -4749,11 +4749,11 @@
         "044170dca04e8bbb",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1199
+      "start_line": 1201
     },
     {
       "confidence": "structural",
-      "end_line": 1230,
+      "end_line": 1232,
       "heading": "Command Review Checklist",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-command-review-checklist",
@@ -4764,44 +4764,44 @@
         "044170dca04e8bbb",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1214
+      "start_line": 1216
     },
     {
       "confidence": "normal",
-      "end_line": 1247,
+      "end_line": 1249,
       "heading": "Performance Checklist",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-performance-checklist",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1231
+      "start_line": 1233
     },
     {
       "confidence": "structural",
-      "end_line": 1261,
+      "end_line": 1263,
       "heading": "Caching Checklist",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-caching-checklist",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1248
+      "start_line": 1250
     },
     {
       "confidence": "community-supported",
-      "end_line": 1277,
+      "end_line": 1279,
       "heading": "Exception List Checklist",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-exception-list-checklist",
       "source_keys": [
         "aea75eac89bfedf8"
       ],
-      "start_line": 1262
+      "start_line": 1264
     },
     {
       "confidence": "normal",
-      "end_line": 1289,
+      "end_line": 1291,
       "heading": "Remote Execution Checklist",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-remote-execution-checklist",
@@ -4809,11 +4809,11 @@
         "044170dca04e8bbb",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 1278
+      "start_line": 1280
     },
     {
       "confidence": "structural",
-      "end_line": 1291,
+      "end_line": 1293,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -4837,11 +4837,11 @@
         "5435261c47164ba6",
         "427e5301d593e4bc"
       ],
-      "start_line": 1290
+      "start_line": 1292
     },
     {
       "confidence": "normal",
-      "end_line": 1306,
+      "end_line": 1308,
       "heading": "Official Lava Documentation",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-official-lava-documentation",
@@ -4857,22 +4857,22 @@
         "408b3cfc2191b9b4",
         "408b3cfc2191b9b4"
       ],
-      "start_line": 1292
+      "start_line": 1294
     },
     {
       "confidence": "community-supported",
-      "end_line": 1310,
+      "end_line": 1312,
       "heading": "RockU",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-rocku",
       "source_keys": [
         "fff246618402f859"
       ],
-      "start_line": 1307
+      "start_line": 1309
     },
     {
       "confidence": "normal",
-      "end_line": 1314,
+      "end_line": 1316,
       "heading": "Mobile Developer Docs",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-developer-docs",
@@ -4880,11 +4880,11 @@
         "ae672f3d3d6f8730",
         "6800ccf5533f9abd"
       ],
-      "start_line": 1311
+      "start_line": 1313
     },
     {
       "confidence": "normal",
-      "end_line": 1318,
+      "end_line": 1320,
       "heading": "Helix",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-helix",
@@ -4892,22 +4892,22 @@
         "789454b4b23d582c",
         "789454b4b23d582c"
       ],
-      "start_line": 1315
+      "start_line": 1317
     },
     {
       "confidence": "normal",
-      "end_line": 1329,
+      "end_line": 1331,
       "heading": "AI Agent Lava Tools",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-ai-agent-lava-tools",
       "source_keys": [
         "c5a1de077b0ba284"
       ],
-      "start_line": 1319
+      "start_line": 1321
     },
     {
       "confidence": "normal",
-      "end_line": 1344,
+      "end_line": 1346,
       "heading": "Source Files",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-source-files",
@@ -4923,11 +4923,11 @@
         "5435261c47164ba6",
         "427e5301d593e4bc"
       ],
-      "start_line": 1330
+      "start_line": 1332
     },
     {
       "confidence": "structural",
-      "end_line": 1346,
+      "end_line": 1348,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -4939,11 +4939,11 @@
         "044170dca04e8bbb",
         "9dda6ab83ecc98f7"
       ],
-      "start_line": 1345
+      "start_line": 1347
     },
     {
       "confidence": "community-supported",
-      "end_line": 1361,
+      "end_line": 1363,
       "heading": "Reporting With Lava",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-reporting-with-lava",
@@ -4953,11 +4953,11 @@
         "2b0a81a795e23c56",
         "2f8bd3380c8c91e4"
       ],
-      "start_line": 1347
+      "start_line": 1349
     },
     {
       "confidence": "normal",
-      "end_line": 1371,
+      "end_line": 1373,
       "heading": "Analytics With Interaction Commands",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-analytics-with-interaction-commands",
@@ -4966,22 +4966,22 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1362
+      "start_line": 1364
     },
     {
       "confidence": "community-supported",
-      "end_line": 1384,
+      "end_line": 1386,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map",
       "source_keys": [
         "9dda6ab83ecc98f7"
       ],
-      "start_line": 1372
+      "start_line": 1374
     },
     {
       "confidence": "structural",
-      "end_line": 1386,
+      "end_line": 1388,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -4990,11 +4990,11 @@
         "776256c424368312",
         "044170dca04e8bbb"
       ],
-      "start_line": 1385
+      "start_line": 1387
     },
     {
       "confidence": "normal",
-      "end_line": 1406,
+      "end_line": 1408,
       "heading": "Fluid Migration",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-fluid-migration",
@@ -5004,11 +5004,11 @@
         "408b3cfc2191b9b4",
         "776256c424368312"
       ],
-      "start_line": 1387
+      "start_line": 1389
     },
     {
       "confidence": "normal",
-      "end_line": 1410,
+      "end_line": 1412,
       "heading": "v10",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v10",
@@ -5016,11 +5016,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1407
+      "start_line": 1409
     },
     {
       "confidence": "normal",
-      "end_line": 1414,
+      "end_line": 1416,
       "heading": "v11-v12",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v11-v12",
@@ -5030,11 +5030,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1411
+      "start_line": 1413
     },
     {
       "confidence": "normal",
-      "end_line": 1418,
+      "end_line": 1420,
       "heading": "v13",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v13",
@@ -5043,11 +5043,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1415
+      "start_line": 1417
     },
     {
       "confidence": "normal",
-      "end_line": 1422,
+      "end_line": 1424,
       "heading": "v15",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v15",
@@ -5055,11 +5055,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1419
+      "start_line": 1421
     },
     {
       "confidence": "normal",
-      "end_line": 1426,
+      "end_line": 1428,
       "heading": "v16",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v16",
@@ -5067,11 +5067,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1423
+      "start_line": 1425
     },
     {
       "confidence": "normal",
-      "end_line": 1430,
+      "end_line": 1432,
       "heading": "v17",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v17",
@@ -5082,22 +5082,22 @@
         "044170dca04e8bbb",
         "776256c424368312"
       ],
-      "start_line": 1427
+      "start_line": 1429
     },
     {
       "confidence": "normal",
-      "end_line": 1434,
+      "end_line": 1436,
       "heading": "v18",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-v18",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1431
+      "start_line": 1433
     },
     {
       "confidence": "normal",
-      "end_line": 1449,
+      "end_line": 1451,
       "heading": "v19",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-v19",
@@ -5105,11 +5105,11 @@
         "044170dca04e8bbb",
         "776256c424368312"
       ],
-      "start_line": 1435
+      "start_line": 1437
     },
     {
       "confidence": "structural",
-      "end_line": 1451,
+      "end_line": 1453,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -5120,11 +5120,11 @@
         "06156bb3a5401956",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 1450
+      "start_line": 1452
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1480,
+      "end_line": 1482,
       "heading": "Playbook: Add A Safe Read-Only Entity List",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-safe-read-only-entity-list",
@@ -5132,22 +5132,22 @@
         "044170dca04e8bbb",
         "776256c424368312"
       ],
-      "start_line": 1452
+      "start_line": 1454
     },
     {
       "confidence": "normal",
-      "end_line": 1508,
+      "end_line": 1510,
       "heading": "Playbook: Replace Unsafe SQL With Parameterized SQL",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-replace-unsafe-sql-with-parameterized-sql",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1481
+      "start_line": 1483
     },
     {
       "confidence": "normal",
-      "end_line": 1525,
+      "end_line": 1527,
       "heading": "Playbook: Build A Reusable Shortcode",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-reusable-shortcode",
@@ -5155,11 +5155,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1509
+      "start_line": 1511
     },
     {
       "confidence": "structural",
-      "end_line": 1540,
+      "end_line": 1542,
       "heading": "Playbook: Diagnose A Broken Shortcode",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-a-broken-shortcode",
@@ -5167,11 +5167,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1526
+      "start_line": 1528
     },
     {
       "confidence": "normal",
-      "end_line": 1561,
+      "end_line": 1563,
       "heading": "Playbook: Migrate DotLiquid Lava To Fluid",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-migrate-dotliquid-lava-to-fluid",
@@ -5179,11 +5179,11 @@
         "408b3cfc2191b9b4",
         "408b3cfc2191b9b4"
       ],
-      "start_line": 1541
+      "start_line": 1543
     },
     {
       "confidence": "normal",
-      "end_line": 1576,
+      "end_line": 1578,
       "heading": "Playbook: Create A Lava Webhook",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-create-a-lava-webhook",
@@ -5191,11 +5191,11 @@
         "044170dca04e8bbb",
         "06156bb3a5401956"
       ],
-      "start_line": 1562
+      "start_line": 1564
     },
     {
       "confidence": "normal",
-      "end_line": 1589,
+      "end_line": 1591,
       "heading": "Playbook: Add Remote Lava Preview Tooling",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-remote-lava-preview-tooling",
@@ -5203,11 +5203,11 @@
         "044170dca04e8bbb",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 1577
+      "start_line": 1579
     },
     {
       "confidence": "normal",
-      "end_line": 1602,
+      "end_line": 1604,
       "heading": "Playbook: Add Interaction Analytics",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-interaction-analytics",
@@ -5216,11 +5216,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1590
+      "start_line": 1592
     },
     {
       "confidence": "structural",
-      "end_line": 1604,
+      "end_line": 1606,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -5233,11 +5233,11 @@
         "03c075d61d8647e0",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1603
+      "start_line": 1605
     },
     {
       "confidence": "structural",
-      "end_line": 1619,
+      "end_line": 1621,
       "heading": "The Lava Renders Blank",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-the-lava-renders-blank",
@@ -5246,11 +5246,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1605
+      "start_line": 1607
     },
     {
       "confidence": "normal",
-      "end_line": 1633,
+      "end_line": 1635,
       "heading": "The Command Says It Is Not Authorized",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-the-command-says-it-is-not-authorized",
@@ -5259,11 +5259,11 @@
         "776256c424368312",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 1620
+      "start_line": 1622
     },
     {
       "confidence": "structural",
-      "end_line": 1647,
+      "end_line": 1649,
       "heading": "Entity Query Returns The Wrong Rows",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-entity-query-returns-the-wrong-rows",
@@ -5272,33 +5272,33 @@
         "776256c424368312",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 1634
+      "start_line": 1636
     },
     {
       "confidence": "normal",
-      "end_line": 1663,
+      "end_line": 1665,
       "heading": "SQL Errors",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-sql-errors",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 1648
+      "start_line": 1650
     },
     {
       "confidence": "normal",
-      "end_line": 1679,
+      "end_line": 1681,
       "heading": "Fluid Migration Errors",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-fluid-migration-errors",
       "source_keys": [
         "408b3cfc2191b9b4"
       ],
-      "start_line": 1664
+      "start_line": 1666
     },
     {
       "confidence": "normal",
-      "end_line": 1692,
+      "end_line": 1694,
       "heading": "Shortcode Output Leaks Or Variables Collide",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-shortcode-output-leaks-or-variables-collide",
@@ -5306,11 +5306,11 @@
         "044170dca04e8bbb",
         "776256c424368312"
       ],
-      "start_line": 1680
+      "start_line": 1682
     },
     {
       "confidence": "normal",
-      "end_line": 1707,
+      "end_line": 1709,
       "heading": "Page Shows Another Person's Data",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-page-shows-another-person-s-data",
@@ -5318,11 +5318,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1693
+      "start_line": 1695
     },
     {
       "confidence": "normal",
-      "end_line": 1725,
+      "end_line": 1727,
       "heading": "Web Request Fails",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-web-request-fails",
@@ -5330,22 +5330,22 @@
         "044170dca04e8bbb",
         "03c075d61d8647e0"
       ],
-      "start_line": 1708
+      "start_line": 1710
     },
     {
       "confidence": "normal",
-      "end_line": 1738,
+      "end_line": 1740,
       "heading": "Mobile Lava Breaks",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-mobile-lava-breaks",
       "source_keys": [
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1726
+      "start_line": 1728
     },
     {
       "confidence": "structural",
-      "end_line": 1740,
+      "end_line": 1742,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -5359,44 +5359,44 @@
         "7a69cf141b23edc3",
         "c5a1de077b0ba284"
       ],
-      "start_line": 1739
+      "start_line": 1741
     },
     {
       "confidence": "structural",
-      "end_line": 1759,
+      "end_line": 1761,
       "heading": "Recipe: Inventory Lava Risk On A Page",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-inventory-lava-risk-on-a-page",
       "source_keys": [
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1741
+      "start_line": 1743
     },
     {
       "confidence": "structural",
-      "end_line": 1790,
+      "end_line": 1792,
       "heading": "Recipe: Review A Shortcode For Production",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-review-a-shortcode-for-production",
       "source_keys": [
         "ae672f3d3d6f8730"
       ],
-      "start_line": 1760
+      "start_line": 1762
     },
     {
       "confidence": "community-supported",
-      "end_line": 1804,
+      "end_line": 1806,
       "heading": "Recipe: Find Legacy Attribute Lava",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-legacy-attribute-lava",
       "source_keys": [
         "aea75eac89bfedf8"
       ],
-      "start_line": 1791
+      "start_line": 1793
     },
     {
       "confidence": "normal",
-      "end_line": 1825,
+      "end_line": 1827,
       "heading": "Recipe: Safely Use `securityenabled:'false'`",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-safely-use-securityenabled-false",
@@ -5404,22 +5404,22 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1805
+      "start_line": 1807
     },
     {
       "confidence": "community-supported",
-      "end_line": 1838,
+      "end_line": 1840,
       "heading": "Recipe: Create A Staff-Friendly Link Copy Shortcode",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-create-a-staff-friendly-link-copy-shortcode",
       "source_keys": [
         "41b966b61c9300b7"
       ],
-      "start_line": 1826
+      "start_line": 1828
     },
     {
       "confidence": "community-supported",
-      "end_line": 1851,
+      "end_line": 1853,
       "heading": "Recipe: Add A Translation Shortcode",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-add-a-translation-shortcode",
@@ -5427,11 +5427,11 @@
         "2cf629bb08a7d467",
         "90540cd784c71558"
       ],
-      "start_line": 1839
+      "start_line": 1841
     },
     {
       "confidence": "normal",
-      "end_line": 1866,
+      "end_line": 1868,
       "heading": "Recipe: Generate Labels With Lava",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-generate-labels-with-lava",
@@ -5439,22 +5439,22 @@
         "044170dca04e8bbb",
         "7a69cf141b23edc3"
       ],
-      "start_line": 1852
+      "start_line": 1854
     },
     {
       "confidence": "normal",
-      "end_line": 1892,
+      "end_line": 1894,
       "heading": "Recipe: Build An Agent Lava Tool",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-an-agent-lava-tool",
       "source_keys": [
         "c5a1de077b0ba284"
       ],
-      "start_line": 1867
+      "start_line": 1869
     },
     {
       "confidence": "normal",
-      "end_line": 1918,
+      "end_line": 1920,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -5472,11 +5472,11 @@
         "ef20cb439da472d1",
         "d7c5d81821110702"
       ],
-      "start_line": 1893
+      "start_line": 1895
     },
     {
       "confidence": "community-supported",
-      "end_line": 1939,
+      "end_line": 1941,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -5489,11 +5489,11 @@
         "6116d88a4926ec12",
         "fff246618402f859"
       ],
-      "start_line": 1919
+      "start_line": 1921
     },
     {
       "confidence": "structural",
-      "end_line": 1941,
+      "end_line": 1943,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5527,11 +5527,11 @@
         "90540cd784c71558",
         "06156bb3a5401956"
       ],
-      "start_line": 1940
+      "start_line": 1942
     },
     {
       "confidence": "normal",
-      "end_line": 1948,
+      "end_line": 1950,
       "heading": "Core Lava",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-core-lava",
@@ -5541,11 +5541,11 @@
         "408b3cfc2191b9b4",
         "408b3cfc2191b9b4"
       ],
-      "start_line": 1942
+      "start_line": 1944
     },
     {
       "confidence": "normal",
-      "end_line": 1965,
+      "end_line": 1967,
       "heading": "Commands",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-commands",
@@ -5567,11 +5567,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1949
+      "start_line": 1951
     },
     {
       "confidence": "normal",
-      "end_line": 1972,
+      "end_line": 1974,
       "heading": "Filters And Tags",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-filters-and-tags",
@@ -5581,11 +5581,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1966
+      "start_line": 1968
     },
     {
       "confidence": "normal",
-      "end_line": 1980,
+      "end_line": 1982,
       "heading": "Shortcodes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-shortcodes",
@@ -5596,11 +5596,11 @@
         "044170dca04e8bbb",
         "044170dca04e8bbb"
       ],
-      "start_line": 1973
+      "start_line": 1975
     },
     {
       "confidence": "normal",
-      "end_line": 1989,
+      "end_line": 1991,
       "heading": "API, Remote, Mobile, Helix, Agents",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-api-remote-mobile-helix-agents",
@@ -5612,11 +5612,11 @@
         "789454b4b23d582c",
         "c5a1de077b0ba284"
       ],
-      "start_line": 1981
+      "start_line": 1983
     },
     {
       "confidence": "normal",
-      "end_line": 2004,
+      "end_line": 2006,
       "heading": "Release Notes And Source Code",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-release-notes-and-source-code",
@@ -5634,11 +5634,11 @@
         "5435261c47164ba6",
         "427e5301d593e4bc"
       ],
-      "start_line": 1990
+      "start_line": 1992
     },
     {
       "confidence": "community-supported",
-      "end_line": 2019,
+      "end_line": 2021,
       "heading": "Community Pattern Sources",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-community-pattern-sources",
@@ -5653,7 +5653,7 @@
         "90540cd784c71558",
         "06156bb3a5401956"
       ],
-      "start_line": 2005
+      "start_line": 2007
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T17:12:16+00:00",

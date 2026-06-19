@@ -25,12 +25,12 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-52: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 53-93: 2. Scope And Terminology (normal)
-- `3-rock-mobile-mental-model-rock-core-configuration` lines 98-120: Rock Core Configuration (normal)
-- `3-rock-mobile-mental-model-native-shell-runtime` lines 121-131: Native Shell Runtime (normal)
-- `3-rock-mobile-mental-model-device-and-platform-environment` lines 132-137: Device And Platform Environment (normal)
-- `3-rock-mobile-mental-model-deployment-flow` lines 138-150: Deployment Flow (normal)
+- `1-executive-summary-for-agents` lines 29-54: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 55-95: 2. Scope And Terminology (normal)
+- `3-rock-mobile-mental-model-rock-core-configuration` lines 100-122: Rock Core Configuration (normal)
+- `3-rock-mobile-mental-model-native-shell-runtime` lines 123-133: Native Shell Runtime (normal)
+- `3-rock-mobile-mental-model-device-and-platform-environment` lines 134-139: Device And Platform Environment (normal)
+- `3-rock-mobile-mental-model-deployment-flow` lines 140-152: Deployment Flow (normal)
 
 ## Core Entities
 

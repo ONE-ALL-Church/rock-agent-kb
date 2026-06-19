@@ -25,12 +25,12 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-52: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 53-91: 2. Scope And Terminology (high)
-- `3-connections-mental-model` lines 92-117: 3. Connections Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 118-142: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-configuration-surfaces` lines 145-161: Configuration Surfaces (normal)
-- `5-core-configuration-and-data-model-connection-type-configuration` lines 162-186: Connection Type Configuration (high)
+- `1-executive-summary-for-agents` lines 29-54: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 55-93: 2. Scope And Terminology (high)
+- `3-connections-mental-model` lines 94-119: 3. Connections Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 120-144: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-configuration-surfaces` lines 147-163: Configuration Surfaces (normal)
+- `5-core-configuration-and-data-model-connection-type-configuration` lines 164-188: Connection Type Configuration (high)
 
 ## Core Entities
 

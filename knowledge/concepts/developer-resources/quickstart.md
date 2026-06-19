@@ -25,12 +25,12 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-45: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 46-69: 2. Scope And Terminology (normal)
-- `3-rock-developer-resources-mental-model-layer-1-platform-and-runtime` lines 74-86: Layer 1: Platform and runtime (normal)
-- `3-rock-developer-resources-mental-model-layer-2-ui-technology-choice` lines 87-100: Layer 2: UI technology choice (normal)
-- `3-rock-developer-resources-mental-model-layer-3-data-model-and-persistence` lines 101-113: Layer 3: Data model and persistence (normal)
-- `3-rock-developer-resources-mental-model-layer-4-security-and-operational-guardrails` lines 114-127: Layer 4: Security and operational guardrails (normal)
+- `1-executive-summary-for-agents` lines 29-47: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 48-71: 2. Scope And Terminology (normal)
+- `3-rock-developer-resources-mental-model-layer-1-platform-and-runtime` lines 76-88: Layer 1: Platform and runtime (normal)
+- `3-rock-developer-resources-mental-model-layer-2-ui-technology-choice` lines 89-102: Layer 2: UI technology choice (normal)
+- `3-rock-developer-resources-mental-model-layer-3-data-model-and-persistence` lines 103-115: Layer 3: Data model and persistence (normal)
+- `3-rock-developer-resources-mental-model-layer-4-security-and-operational-guardrails` lines 116-129: Layer 4: Security and operational guardrails (normal)
 
 ## Core Entities
 

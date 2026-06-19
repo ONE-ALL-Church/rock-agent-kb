@@ -26,6 +26,8 @@ MODEL_MAP_STABLE_MODELS_PATH = MODEL_MAP_DIR / "stable-models.jsonl"
 MODEL_MAP_LATEST_MODELS_PATH = MODEL_MAP_DIR / "latest-models.jsonl"
 MODEL_MAP_STABLE_PROPERTIES_PATH = MODEL_MAP_DIR / "stable-properties.jsonl"
 MODEL_MAP_LATEST_PROPERTIES_PATH = MODEL_MAP_DIR / "latest-properties.jsonl"
+MODEL_MAP_STABLE_METHODS_PATH = MODEL_MAP_DIR / "stable-methods.jsonl"
+MODEL_MAP_LATEST_METHODS_PATH = MODEL_MAP_DIR / "latest-methods.jsonl"
 MODEL_MAP_PUBLIC_VERSION_DIFF_PATH = MODEL_MAP_DIR / "version-diff.json"
 MODEL_MAP_PUBLIC_VERSION_DIFF_JSONL_PATH = MODEL_MAP_DIR / "version-diff.jsonl"
 
@@ -34,6 +36,7 @@ AGENT_MODEL_MAP_ENTITIES_PATH = AGENT_DIR / "model-map-entities.jsonl"
 AGENT_MODEL_MAP_RELATIONSHIPS_PATH = AGENT_DIR / "model-map-relationships.jsonl"
 AGENT_MODEL_MAP_REFLECTION_PATH = AGENT_DIR / "model-map-reflection-properties.jsonl"
 AGENT_MODEL_MAP_PROPERTIES_PATH = AGENT_DIR / "model-map-properties.jsonl"
+AGENT_MODEL_MAP_METHODS_PATH = AGENT_DIR / "model-map-methods.jsonl"
 AGENT_MODEL_MAP_VERSION_DIFF_PATH = AGENT_DIR / "model-map-version-diff.jsonl"
 
 DEMO_ROCK_VERSION_ENDPOINT = "https://rocksolidchurchdemo.com/api/Utility/GetRockSemanticVersionNumber"
@@ -74,6 +77,8 @@ def build_model_map(
     latest_models = scraped_model_rows(latest, latest_scrape_path, track="pre-alpha")
     stable_properties = scraped_property_rows(stable, stable_scrape_path, track="stable")
     latest_properties = scraped_property_rows(latest, latest_scrape_path, track="pre-alpha")
+    stable_methods = scraped_method_rows(stable, stable_scrape_path, track="stable")
+    latest_methods = scraped_method_rows(latest, latest_scrape_path, track="pre-alpha")
     diff_result = build_model_map_version_diff(
         stable_path=stable_scrape_path,
         latest_path=latest_scrape_path,
@@ -88,8 +93,11 @@ def build_model_map(
     write_jsonl(MODEL_MAP_LATEST_MODELS_PATH, latest_models)
     write_jsonl(MODEL_MAP_STABLE_PROPERTIES_PATH, stable_properties)
     write_jsonl(MODEL_MAP_LATEST_PROPERTIES_PATH, latest_properties)
+    write_jsonl(MODEL_MAP_STABLE_METHODS_PATH, stable_methods)
+    write_jsonl(MODEL_MAP_LATEST_METHODS_PATH, latest_methods)
     write_jsonl(AGENT_MODEL_MAP_ENTITIES_PATH, agent_scraped_entity_rows(stable_models))
     write_jsonl(AGENT_MODEL_MAP_PROPERTIES_PATH, stable_properties)
+    write_jsonl(AGENT_MODEL_MAP_METHODS_PATH, stable_methods)
     write_jsonl(AGENT_MODEL_MAP_VERSION_DIFF_PATH, diff_rows)
 
     summary = build_scraped_summary(
@@ -99,6 +107,8 @@ def build_model_map(
         latest_models=latest_models,
         stable_properties=stable_properties,
         latest_properties=latest_properties,
+        stable_methods=stable_methods,
+        latest_methods=latest_methods,
         concept_rows=concept_rows,
         model_detail_count=model_detail_count,
         diff_result=diff_result,
@@ -112,13 +122,15 @@ def build_model_map(
     MODEL_MAP_INDEX_PATH.write_text(render_scraped_index_md(summary, stable_models), encoding="utf-8")
 
     return {
-        "source": "scraped_model_maps",
+        "source": model_map_summary_source(stable, latest),
         "stable_version": summary["stable"].get("rock_version"),
         "pre_alpha_version": summary["latest"].get("rock_version"),
         "stable_models": len(stable_models),
         "pre_alpha_models": len(latest_models),
         "stable_properties": len(stable_properties),
         "pre_alpha_properties": len(latest_properties),
+        "stable_methods": len(stable_methods),
+        "pre_alpha_methods": len(latest_methods),
         "stable_lava_properties": sum(1 for row in stable_properties if row.get("is_lava")),
         "stable_non_database_lava_properties": sum(1 for row in stable_properties if row.get("is_lava_supported_non_database")),
         "concept_slices": len(concept_rows),
@@ -164,11 +176,24 @@ def scraped_model_rows(scrape: dict[str, Any], scrape_path: Path, track: str) ->
                 "source_path": source_path,
                 "model_name": model_name,
                 "model_title": model.get("model_title"),
+                "collection_method": scrape.get("collection_method") or "page_script_scrape",
+                "initialization_endpoint": model.get("initialization_endpoint")
+                or (scrape.get("obsidian_block_action") or {}).get("initialization_endpoint"),
+                "detail_endpoint": model.get("detail_endpoint")
+                or (scrape.get("obsidian_block_action") or {}).get("detail_endpoint"),
+                "block_guid": model.get("block_guid") or (scrape.get("obsidian_block_action") or {}).get("block_guid"),
+                "block_type_guid": model.get("block_type_guid")
+                or (scrape.get("obsidian_block_action") or {}).get("block_type_guid"),
+                "block_file_url": model.get("block_file_url")
+                or (scrape.get("obsidian_block_action") or {}).get("block_file_url"),
                 "model_slug": slug,
                 "model_category": model.get("category_name") or "Other",
                 "model_guid": model.get("model_guid"),
                 "entity_type_id": model.get("selected_entity_type_id") or None,
                 "entity_type_guid": model.get("selected_entity_type_guid") or model.get("model_guid"),
+                "table_name": model.get("table_name"),
+                "is_obsolete": bool(model.get("is_obsolete")),
+                "obsolete_message": model.get("obsolete_message"),
                 "description": normalize_description(model.get("description") or ""),
                 "example": normalize_description(model.get("example") or ""),
                 "property_count": int(model.get("property_count") or len(properties)),
@@ -183,6 +208,8 @@ def scraped_model_rows(scrape: dict[str, Any], scrape_path: Path, track: str) ->
                 "obsolete_property_count": int(model.get("obsolete_property_count") or 0),
                 "enum_value_property_count": int(model.get("enum_value_property_count") or 0),
                 "related_entity_property_count": int(model.get("related_entity_property_count") or 0),
+                "method_count": int(model.get("method_count") or len(model.get("methods") or [])),
+                "obsolete_method_count": int(model.get("obsolete_method_count") or 0),
                 "model_detail_path": f"knowledge/model-map/models/{slug}.md",
                 "contains_row_data": False,
                 "source_keys": [f"rock_model_map_scrape_{track}"],
@@ -217,6 +244,7 @@ def scraped_property_rows(scrape: dict[str, Any], scrape_path: Path, track: str)
                     "property_slug": slugify(property_name),
                     "property_id": prop.get("property_id"),
                     "row_index": prop.get("row_index"),
+                    "collection_method": scrape.get("collection_method") or "page_script_scrape",
                     "inherited": bool(prop.get("inherited")),
                     "is_database": bool(prop.get("is_database")),
                     "is_not_mapped": bool(prop.get("is_not_mapped")),
@@ -226,6 +254,8 @@ def scraped_property_rows(scrape: dict[str, Any], scrape_path: Path, track: str)
                     "is_required": bool(prop.get("is_required")),
                     "is_obsolete": bool(prop.get("is_obsolete")),
                     "is_virtual": bool(prop.get("is_virtual")),
+                    "is_enum": bool(prop.get("is_enum")),
+                    "is_defined_value": bool(prop.get("is_defined_value")),
                     "obsolete_message": prop.get("obsolete_message"),
                     "description": normalize_description(prop.get("description") or ""),
                     "related_entity_links": scraped_related_links(prop.get("related_entity_links") or []),
@@ -237,6 +267,43 @@ def scraped_property_rows(scrape: dict[str, Any], scrape_path: Path, track: str)
                 }
             )
     return sorted(rows, key=lambda row: (row["model_category"], row["model_name"], row["property_name"]))
+
+
+def scraped_method_rows(scrape: dict[str, Any], scrape_path: Path, track: str) -> list[dict[str, Any]]:
+    rows = []
+    source_path = public_source_path(scrape_path)
+    for model in scrape.get("models") or []:
+        model_name = model_display_name(model)
+        model_slug = slugify(model_name)
+        for method in model.get("methods") or []:
+            signature = str(method.get("signature") or "").strip()
+            if not signature:
+                continue
+            rows.append(
+                {
+                    "schema": "rock-kb-scraped-model-map-method-v1",
+                    "track": track,
+                    "rock_version": method.get("rock_version") or model.get("rock_version") or scrape.get("rock_version"),
+                    "source_url": scrape.get("source_url"),
+                    "source_path": source_path,
+                    "collection_method": scrape.get("collection_method") or "page_script_scrape",
+                    "model_name": model_name,
+                    "model_title": model.get("model_title"),
+                    "model_slug": model_slug,
+                    "model_category": model.get("category_name") or "Other",
+                    "method_id": method.get("method_id"),
+                    "row_index": method.get("row_index"),
+                    "signature": signature,
+                    "inherited": bool(method.get("inherited")),
+                    "is_obsolete": bool(method.get("is_obsolete")),
+                    "obsolete_message": method.get("obsolete_message"),
+                    "description": normalize_description(method.get("description") or ""),
+                    "contains_row_data": False,
+                    "source_keys": [f"rock_model_map_scrape_{track}"],
+                    "source_urls": [scrape.get("source_url")] if scrape.get("source_url") else [],
+                }
+            )
+    return sorted(rows, key=lambda row: (row["model_category"], row["model_name"], row["signature"]))
 
 
 def public_source_path(path: Path) -> str:
@@ -326,6 +393,8 @@ def build_scraped_summary(
     latest_models: list[dict[str, Any]],
     stable_properties: list[dict[str, Any]],
     latest_properties: list[dict[str, Any]],
+    stable_methods: list[dict[str, Any]],
+    latest_methods: list[dict[str, Any]],
     concept_rows: list[dict[str, Any]],
     model_detail_count: int,
     diff_result: dict[str, Any],
@@ -336,10 +405,12 @@ def build_scraped_summary(
     return {
         "schema": "rock-kb-model-map-summary-v2",
         "generated_at": generated_at_iso(),
-        "source": "scraped_generic_rock_model_maps",
+        "source": model_map_summary_source(stable, latest),
         "generation_method": [
-            "Stable and pre-alpha model/property data come from authenticated scrapes of generic Rock demo Model Map pages.",
+            "Stable and pre-alpha model/property data come from authenticated Obsidian block-action calls against generic Rock demo Model Map pages.",
+            "The collector uses RefreshObsidianBlockInitialization for the category/model list and GetModelDetails for each model detail payload.",
             "Stable model/property data is the preferred reference layer for concept guide landmarks, agent entity rows, and model detail pages.",
+            "Stable method rows are stored separately so agents can inspect API/Lava surface hints without bloating model or property records.",
             "The public KB no longer publishes the prior read-only SQL instance schema crosswalk.",
             "The public KB no longer publishes source-parsed reflection properties as the model-map authority.",
             "Use the version diff to see changes between the stable and upcoming generic Rock versions.",
@@ -352,12 +423,21 @@ def build_scraped_summary(
         "latest_model_count": len(latest_models),
         "stable_property_count": len(stable_properties),
         "latest_property_count": len(latest_properties),
+        "stable_method_count": len(stable_methods),
+        "latest_method_count": len(latest_methods),
         "stable_database_property_count": sum(1 for row in stable_properties if row.get("is_database")),
         "stable_lava_property_count": sum(1 for row in stable_properties if row.get("is_lava")),
         "stable_non_database_lava_property_count": sum(1 for row in stable_properties if row.get("is_lava_supported_non_database")),
         "stable_not_mapped_property_count": sum(1 for row in stable_properties if row.get("is_not_mapped")),
+        "stable_enum_property_count": sum(1 for row in stable_properties if row.get("is_enum")),
+        "stable_defined_value_property_count": sum(1 for row in stable_properties if row.get("is_defined_value")),
+        "stable_table_name_model_count": sum(1 for row in stable_models if row.get("table_name")),
+        "stable_missing_table_name_count": sum(1 for row in stable_models if not row.get("table_name")),
+        "stable_obsolete_model_count": sum(1 for row in stable_models if row.get("is_obsolete")),
+        "stable_obsolete_method_count": sum(1 for row in stable_methods if row.get("is_obsolete")),
         "pre_alpha_model_count": len(latest_models),
         "pre_alpha_property_count": len(latest_properties),
+        "pre_alpha_method_count": len(latest_methods),
         "concept_slice_count": len(concept_rows),
         "model_detail_count": model_detail_count,
         "category_counts": dict(sorted(category_counts.items())),
@@ -375,6 +455,8 @@ def build_scraped_summary(
             "latest_models": "knowledge/model-map/latest-models.jsonl",
             "stable_properties": "knowledge/model-map/stable-properties.jsonl",
             "latest_properties": "knowledge/model-map/latest-properties.jsonl",
+            "stable_methods": "knowledge/model-map/stable-methods.jsonl",
+            "latest_methods": "knowledge/model-map/latest-methods.jsonl",
             "version_diff": "knowledge/model-map/version-diff.json",
             "version_diff_rows": "knowledge/model-map/version-diff.jsonl",
             "model_details": "knowledge/model-map/models/*.md",
@@ -382,9 +464,19 @@ def build_scraped_summary(
             "agent_summary": "agent/model-map-summary.json",
             "agent_entities": "agent/model-map-entities.jsonl",
             "agent_properties": "agent/model-map-properties.jsonl",
+            "agent_methods": "agent/model-map-methods.jsonl",
             "agent_version_diff": "agent/model-map-version-diff.jsonl",
         },
     }
+
+
+def model_map_summary_source(stable: dict[str, Any], latest: dict[str, Any]) -> str:
+    methods = {stable.get("collection_method"), latest.get("collection_method")}
+    if methods == {"obsidian_block_action"}:
+        return "obsidian_block_action_model_maps"
+    if "obsidian_block_action" in methods:
+        return "mixed_model_map_collection"
+    return "scraped_generic_rock_model_maps"
 
 
 def render_scraped_index_md(summary: dict[str, Any], stable_models: list[dict[str, Any]]) -> str:
@@ -395,12 +487,13 @@ def render_scraped_index_md(summary: dict[str, Any], stable_models: list[dict[st
     lines = [
         "# Rock Model Map",
         "",
-        "This generated resource is built from scraped generic Rock Model Map pages, not from a local SQL schema snapshot.",
+        "This generated resource is built from authenticated Obsidian block-action responses from generic Rock Model Map pages, not from a local SQL schema snapshot.",
         "",
         "## How To Use This",
         "",
         "- Use `stable-models.jsonl` for the preferred stable generic Rock model landmarks.",
         "- Use `stable-properties.jsonl` for stable per-model property flags, descriptions, enum values, and related entity link text from the scraped Model Map.",
+        "- Use `stable-methods.jsonl` for stable method signatures, inheritance, and obsolete-method callouts from the model detail payload.",
         "- Use `models/*.md` for direct human-readable stable model detail pages.",
         "- Use `version-diff.jsonl`, `latest-models.jsonl`, and `latest-properties.jsonl` only to call out pre-alpha/upcoming differences.",
         "- For database columns in a specific Rock instance, verify against that instance's schema separately; this public layer intentionally avoids organization-specific SQL metadata.",
@@ -430,6 +523,12 @@ def render_scraped_index_md(summary: dict[str, Any], stable_models: list[dict[st
         f"- Lava-marked properties: {summary.get('stable_lava_property_count') or 0}",
         f"- Lava-marked non-database properties: {summary.get('stable_non_database_lava_property_count') or 0}",
         f"- NotMapped properties: {summary.get('stable_not_mapped_property_count') or 0}",
+        f"- Enum properties: {summary.get('stable_enum_property_count') or 0}",
+        f"- DefinedValue properties: {summary.get('stable_defined_value_property_count') or 0}",
+        f"- Method signatures: {summary.get('stable_method_count') or 0}",
+        f"- Models with API table name: {summary.get('stable_table_name_model_count') or 0}",
+        f"- Models missing API table name: {summary.get('stable_missing_table_name_count') or 0}",
+        f"- Obsolete models: {summary.get('stable_obsolete_model_count') or 0}",
         "",
         "## Pre-Alpha Difference Callouts",
         "",
@@ -519,6 +618,10 @@ def render_scraped_model_detail_md(
         f"- Rock version: `{model.get('rock_version') or 'unknown'}`",
         f"- Category: `{model.get('model_category') or ''}`",
         f"- Model title: `{model.get('model_title') or ''}`",
+        f"- Table name: `{model.get('table_name') or 'not provided'}`",
+        f"- Obsolete: `{'yes' if model.get('is_obsolete') else 'no'}`",
+        f"- Method signatures: `{model.get('method_count') or 0}`",
+        f"- Obsolete methods: `{model.get('obsolete_method_count') or 0}`",
         f"- EntityType GUID: `{model.get('entity_type_guid') or 'not provided'}`",
         f"- Source: [Model Map]({model.get('source_url')})",
         "",
@@ -531,6 +634,8 @@ def render_scraped_model_detail_md(
         f"| Lava-marked properties | {len(lava_rows)} |",
         f"| Lava-marked non-database properties | {len(lava_non_db_rows)} |",
         f"| Related model links | {len(related_model_rows)} |",
+        f"| Method signatures | {model.get('method_count') or 0} |",
+        f"| Obsolete methods | {model.get('obsolete_method_count') or 0} |",
         f"| Pre-alpha changes touching this model | {len(changes)} |",
         "",
         "## Properties",
@@ -723,6 +828,12 @@ def model_map_artifact_freshness(
                 "recorded_version": stable.get("rock_version"),
                 "source_url": stable.get("source_url"),
                 "version_source_url": stable.get("rock_version_source_url"),
+                "collection_method": stable.get("collection_method"),
+                "initialization_endpoint": stable.get("initialization_endpoint"),
+                "detail_endpoint": stable.get("detail_endpoint"),
+                "model_count": stable.get("model_count"),
+                "listed_model_count": stable.get("listed_model_count"),
+                "failure_count": stable.get("failure_count"),
                 "path": stable.get("path"),
             },
             {
@@ -730,6 +841,12 @@ def model_map_artifact_freshness(
                 "recorded_version": latest.get("rock_version"),
                 "source_url": latest.get("source_url"),
                 "version_source_url": latest.get("rock_version_source_url"),
+                "collection_method": latest.get("collection_method"),
+                "initialization_endpoint": latest.get("initialization_endpoint"),
+                "detail_endpoint": latest.get("detail_endpoint"),
+                "model_count": latest.get("model_count"),
+                "listed_model_count": latest.get("listed_model_count"),
+                "failure_count": latest.get("failure_count"),
                 "path": latest.get("path"),
             },
         ],
@@ -757,6 +874,12 @@ def model_map_scrape_freshness(
                 "recorded_version": payload.get("rock_version"),
                 "source_url": payload.get("source_url"),
                 "version_source_url": payload.get("rock_version_source_url"),
+                "collection_method": payload.get("collection_method"),
+                "initialization_endpoint": (payload.get("obsidian_block_action") or {}).get("initialization_endpoint"),
+                "detail_endpoint": (payload.get("obsidian_block_action") or {}).get("detail_endpoint"),
+                "model_count": payload.get("model_count"),
+                "listed_model_count": payload.get("listed_model_count"),
+                "failure_count": payload.get("failure_count"),
                 "path": str(path),
             }
         )
@@ -782,6 +905,12 @@ def model_map_version_freshness(
             "path": record.get("path"),
             "source_url": record.get("source_url") or track_config.get("source_url"),
             "version_source_url": endpoint_url,
+            "collection_method": record.get("collection_method"),
+            "initialization_endpoint": record.get("initialization_endpoint"),
+            "detail_endpoint": record.get("detail_endpoint"),
+            "model_count": record.get("model_count"),
+            "listed_model_count": record.get("listed_model_count"),
+            "failure_count": record.get("failure_count"),
             "recorded_version": recorded_version,
             "live_version": None,
             "probe_status": "not_run",
@@ -975,14 +1104,32 @@ def load_model_map_scrape(path: Path) -> dict[str, Any]:
 
 
 def scrape_summary(scrape: dict[str, Any], path: Path) -> dict[str, Any]:
+    block_action = scrape.get("obsidian_block_action") or {}
     return {
         "path": public_source_path(path),
         "source_url": scrape.get("source_url"),
+        "collection_method": scrape.get("collection_method") or "page_script_scrape",
+        "block_file_url": block_action.get("block_file_url"),
+        "block_guid": block_action.get("block_guid"),
+        "block_type_guid": block_action.get("block_type_guid"),
+        "initialization_endpoint": block_action.get("initialization_endpoint"),
+        "detail_endpoint": block_action.get("detail_endpoint"),
         "rock_version": scrape.get("rock_version"),
         "rock_version_source_url": scrape.get("rock_version_source_url"),
+        "listed_model_count": scrape.get("listed_model_count"),
+        "category_count": scrape.get("category_count"),
+        "failure_count": scrape.get("failure_count"),
         "model_count": scrape.get("model_count") or len(scrape.get("models") or []),
         "property_count": scrape.get("property_count")
         or sum(int(model.get("property_count") or len(model.get("properties") or [])) for model in scrape.get("models") or []),
+        "method_count": scrape.get("method_count")
+        or sum(int(model.get("method_count") or len(model.get("methods") or [])) for model in scrape.get("models") or []),
+        "table_name_model_count": scrape.get("table_name_model_count")
+        or scrape.get("table_backed_model_count")
+        or sum(1 for model in scrape.get("models") or [] if model.get("table_name")),
+        "missing_table_name_count": sum(1 for model in scrape.get("models") or [] if not model.get("table_name")),
+        "obsolete_model_count": scrape.get("obsolete_model_count")
+        or sum(1 for model in scrape.get("models") or [] if model.get("is_obsolete")),
     }
 
 
@@ -1070,6 +1217,8 @@ def comparable_property_values(prop: dict[str, Any]) -> dict[str, Any]:
         "is_required": bool(prop.get("is_required") if "is_required" in prop else prop.get("required")),
         "is_qualifier": bool(prop.get("is_qualifier") if "is_qualifier" in prop else prop.get("isAttributeQualifier")),
         "is_obsolete": bool(prop.get("is_obsolete") if "is_obsolete" in prop else prop.get("isObsolete")),
+        "is_enum": bool(prop.get("is_enum") if "is_enum" in prop else prop.get("isEnum")),
+        "is_defined_value": bool(prop.get("is_defined_value") if "is_defined_value" in prop else prop.get("isDefinedValue")),
         "enum_values": normalize_enum_values(prop.get("enum_values") or prop.get("keyValues") or []),
         "related_entity_links": normalize_related_links(prop.get("related_entity_links") or []),
     }

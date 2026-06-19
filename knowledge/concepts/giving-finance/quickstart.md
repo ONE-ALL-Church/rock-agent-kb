@@ -25,12 +25,12 @@ Giving, transactions, batches, statements, pledges, gateways, and finance admini
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-61: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 62-124: 2. Scope And Terminology (high)
-- `3-giving-and-finance-mental-model` lines 125-153: 3. Giving And Finance Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 154-172: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-financial-accounts` lines 175-190: Financial Accounts (normal)
-- `5-core-configuration-and-data-model-financial-gateways` lines 191-219: Financial Gateways (high)
+- `1-executive-summary-for-agents` lines 29-63: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 64-126: 2. Scope And Terminology (high)
+- `3-giving-and-finance-mental-model` lines 127-155: 3. Giving And Finance Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 156-174: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-financial-accounts` lines 177-192: Financial Accounts (normal)
+- `5-core-configuration-and-data-model-financial-gateways` lines 193-221: Financial Gateways (high)
 
 ## Core Entities
 

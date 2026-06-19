@@ -4,7 +4,11 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `AnalyticsSourcePostalCode`
-- EntityType GUID: `ca3ab274-6c0a-4d07-ae4d-065b847e163b`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `9`
+- Obsolete methods: `0`
+- EntityType GUID: `9cc5eafa-101d-4c49-9a50-d2ac1a4cb49c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
 ## Summary
@@ -16,6 +20,8 @@
 | Lava-marked properties | 25 |
 | Lava-marked non-database properties | 0 |
 | Related model links | 0 |
+| Method signatures | 9 |
+| Obsolete methods | 0 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

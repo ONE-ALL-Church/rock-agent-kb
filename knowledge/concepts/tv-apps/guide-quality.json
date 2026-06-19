@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11923 words; expected at least 7000.",
+      "message": "Guide has 11936 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,9 +59,9 @@
   "concept_id": "tv-apps",
   "contribution_record_count": 0,
   "entity_count": 10,
-  "generated_at": "2026-06-19T05:26:22+00:00",
-  "guide_line_count": 1109,
-  "guide_word_count": 11923,
+  "generated_at": "2026-06-19T05:57:26+00:00",
+  "guide_line_count": 1111,
+  "guide_word_count": 11936,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 82,

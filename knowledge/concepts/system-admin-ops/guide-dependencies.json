@@ -470,12 +470,12 @@
   },
   "approved_media_hash": "5fd933eab172803898a1a75a73c19cc38b9d98089a117a358ec5912c3af06486",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-06-19T05:25:47+00:00",
+  "built_at": "2026-06-19T05:56:53+00:00",
   "concept_id": "system-admin-ops",
-  "guide_hash": "2f1e2739afe527d02ae6c56e6b87be7c41d9bc8abd3e2d1f2f348592143edb47",
-  "guide_line_count": 1673,
+  "guide_hash": "b793ad2482d47727651a86cd90b7c9c5c36071048c63c5026aa0933b83a4121c",
+  "guide_line_count": 1675,
   "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
-  "guide_word_count": 12482,
+  "guide_word_count": 12495,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -670,7 +670,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -681,18 +681,18 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 52,
+      "end_line": 54,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
         "6612b451bd0ae178"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 105,
+      "end_line": 107,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -713,11 +713,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 53
+      "start_line": 55
     },
     {
       "confidence": "structural",
-      "end_line": 109,
+      "end_line": 111,
       "heading": "3. System Administration And Operations Mental Model",
       "needs_live_verification": false,
       "section_id": "3-system-administration-and-operations-mental-model",
@@ -732,11 +732,11 @@
         "776256c424368312",
         "d522a2bab06881e5"
       ],
-      "start_line": 106
+      "start_line": 108
     },
     {
       "confidence": "needs-citation",
-      "end_line": 115,
+      "end_line": 117,
       "heading": "Layer 1: Configuration",
       "needs_live_verification": true,
       "section_id": "3-system-administration-and-operations-mental-model-layer-1-configuration",
@@ -757,11 +757,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 110
+      "start_line": 112
     },
     {
       "confidence": "normal",
-      "end_line": 121,
+      "end_line": 123,
       "heading": "Layer 2: Runtime Execution",
       "needs_live_verification": false,
       "section_id": "3-system-administration-and-operations-mental-model-layer-2-runtime-execution",
@@ -769,11 +769,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 116
+      "start_line": 118
     },
     {
       "confidence": "high",
-      "end_line": 127,
+      "end_line": 129,
       "heading": "Layer 3: Derived State",
       "needs_live_verification": false,
       "section_id": "3-system-administration-and-operations-mental-model-layer-3-derived-state",
@@ -781,11 +781,11 @@
         "befb5c4701d20849",
         "d275b5b94a9da833"
       ],
-      "start_line": 122
+      "start_line": 124
     },
     {
       "confidence": "normal",
-      "end_line": 133,
+      "end_line": 135,
       "heading": "Layer 4: Security And Authorization",
       "needs_live_verification": true,
       "section_id": "3-system-administration-and-operations-mental-model-layer-4-security-and-authorization",
@@ -793,11 +793,11 @@
         "d275b5b94a9da833",
         "d522a2bab06881e5"
       ],
-      "start_line": 128
+      "start_line": 130
     },
     {
       "confidence": "normal",
-      "end_line": 137,
+      "end_line": 139,
       "heading": "Layer 5: Version Behavior",
       "needs_live_verification": false,
       "section_id": "3-system-administration-and-operations-mental-model-layer-5-version-behavior",
@@ -805,11 +805,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 134
+      "start_line": 136
     },
     {
       "confidence": "normal",
-      "end_line": 166,
+      "end_line": 168,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -823,11 +823,11 @@
         "d275b5b94a9da833",
         "6612b451bd0ae178"
       ],
-      "start_line": 138
+      "start_line": 140
     },
     {
       "confidence": "structural",
-      "end_line": 170,
+      "end_line": 172,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -842,11 +842,11 @@
         "96f179b05ec9a0dc",
         "e8988031b9975c3b"
       ],
-      "start_line": 167
+      "start_line": 169
     },
     {
       "confidence": "citation-only",
-      "end_line": 187,
+      "end_line": 189,
       "heading": "Entities, Properties, And Attributes",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-entities-properties-and-attributes",
@@ -855,11 +855,11 @@
         "19a30b51edaa7382",
         "19a30b51edaa7382"
       ],
-      "start_line": 171
+      "start_line": 173
     },
     {
       "confidence": "normal",
-      "end_line": 202,
+      "end_line": 204,
       "heading": "Defined Types And Defined Values",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-defined-types-and-defined-values",
@@ -868,11 +868,11 @@
         "62524909bcc2f18b",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 188
+      "start_line": 190
     },
     {
       "confidence": "high",
-      "end_line": 223,
+      "end_line": 225,
       "heading": "Service Jobs",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-service-jobs",
@@ -881,11 +881,11 @@
         "befb5c4701d20849",
         "d275b5b94a9da833"
       ],
-      "start_line": 203
+      "start_line": 205
     },
     {
       "confidence": "normal",
-      "end_line": 241,
+      "end_line": 243,
       "heading": "Job History",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-job-history",
@@ -895,11 +895,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 224
+      "start_line": 226
     },
     {
       "confidence": "normal",
-      "end_line": 249,
+      "end_line": 251,
       "heading": "Data Views",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-data-views",
@@ -909,11 +909,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 242
+      "start_line": 244
     },
     {
       "confidence": "normal",
-      "end_line": 265,
+      "end_line": 267,
       "heading": "Universal Search Components",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-universal-search-components",
@@ -921,11 +921,11 @@
         "befb5c4701d20849",
         "befb5c4701d20849"
       ],
-      "start_line": 250
+      "start_line": 252
     },
     {
       "confidence": "normal",
-      "end_line": 274,
+      "end_line": 276,
       "heading": "Cache",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-cache",
@@ -934,22 +934,22 @@
         "96f179b05ec9a0dc",
         "78b1a0a9975427ba"
       ],
-      "start_line": 266
+      "start_line": 268
     },
     {
       "confidence": "community-supported",
-      "end_line": 280,
+      "end_line": 282,
       "heading": "Security Rules",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-security-rules",
       "source_keys": [
         "e8988031b9975c3b"
       ],
-      "start_line": 275
+      "start_line": 277
     },
     {
       "confidence": "structural",
-      "end_line": 282,
+      "end_line": 284,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -960,11 +960,11 @@
         "776256c424368312",
         "e8988031b9975c3b"
       ],
-      "start_line": 281
+      "start_line": 283
     },
     {
       "confidence": "normal",
-      "end_line": 309,
+      "end_line": 311,
       "heading": "ServiceJob And ServiceJobHistory",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-servicejob-and-servicejobhistory",
@@ -973,22 +973,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 283
+      "start_line": 285
     },
     {
       "confidence": "normal",
-      "end_line": 339,
+      "end_line": 341,
       "heading": "ServiceJobHistory Fields To Inspect",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-servicejobhistory-fields-to-inspect",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 310
+      "start_line": 312
     },
     {
       "confidence": "normal",
-      "end_line": 358,
+      "end_line": 360,
       "heading": "DataView And Persisted Data View State",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-dataview-and-persisted-data-view-state",
@@ -997,11 +997,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 340
+      "start_line": 342
     },
     {
       "confidence": "needs-citation",
-      "end_line": 377,
+      "end_line": 379,
       "heading": "ExceptionLog",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-exceptionlog",
@@ -1010,11 +1010,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 359
+      "start_line": 361
     },
     {
       "confidence": "normal",
-      "end_line": 395,
+      "end_line": 397,
       "heading": "Attribute And AttributeValue",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
@@ -1023,11 +1023,11 @@
         "62524909bcc2f18b",
         "776256c424368312"
       ],
-      "start_line": 378
+      "start_line": 380
     },
     {
       "confidence": "community-supported",
-      "end_line": 411,
+      "end_line": 413,
       "heading": "Page, Block, And Security Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-block-and-security-relationships",
@@ -1035,11 +1035,11 @@
         "e8988031b9975c3b",
         "e8988031b9975c3b"
       ],
-      "start_line": 396
+      "start_line": 398
     },
     {
       "confidence": "structural",
-      "end_line": 413,
+      "end_line": 415,
       "heading": "7. Common System Administration And Operations Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-system-administration-and-operations-workflows",
@@ -1049,99 +1049,99 @@
         "befb5c4701d20849",
         "78b1a0a9975427ba"
       ],
-      "start_line": 412
+      "start_line": 414
     },
     {
       "confidence": "normal",
-      "end_line": 430,
+      "end_line": 432,
       "heading": "Workflow: Investigate A Failed Service Job",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-failed-service-job",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 414
+      "start_line": 416
     },
     {
       "confidence": "normal",
-      "end_line": 453,
+      "end_line": 455,
       "heading": "Workflow: Confirm Whether A Job Actually Ran",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-confirm-whether-a-job-actually-ran",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 431
+      "start_line": 433
     },
     {
       "confidence": "normal",
-      "end_line": 469,
+      "end_line": 471,
       "heading": "Workflow: Investigate A Warning Job",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-warning-job",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 454
+      "start_line": 456
     },
     {
       "confidence": "normal",
-      "end_line": 484,
+      "end_line": 486,
       "heading": "Workflow: Investigate Stale Search Results",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-stale-search-results",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 470
+      "start_line": 472
     },
     {
       "confidence": "normal",
-      "end_line": 499,
+      "end_line": 501,
       "heading": "Workflow: Investigate Stale Persisted Data View Results",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-stale-persisted-data-view-results",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 485
+      "start_line": 487
     },
     {
       "confidence": "normal",
-      "end_line": 513,
+      "end_line": 515,
       "heading": "Workflow: Investigate A Cache Suspect",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-cache-suspect",
       "source_keys": [
         "78b1a0a9975427ba"
       ],
-      "start_line": 500
+      "start_line": 502
     },
     {
       "confidence": "needs-citation",
-      "end_line": 530,
+      "end_line": 532,
       "heading": "Workflow: Investigate An Exception Spike",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike",
       "source_keys": [
         "78b1a0a9975427ba"
       ],
-      "start_line": 514
+      "start_line": 516
     },
     {
       "confidence": "normal",
-      "end_line": 545,
+      "end_line": 547,
       "heading": "Workflow: Review Operational Health After Upgrade",
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-review-operational-health-after-upgrade",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 531
+      "start_line": 533
     },
     {
       "confidence": "structural",
-      "end_line": 547,
+      "end_line": 549,
       "heading": "8. Jobs And Scheduling Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-jobs-and-scheduling-deep-dive",
@@ -1151,11 +1151,11 @@
         "d275b5b94a9da833",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 546
+      "start_line": 548
     },
     {
       "confidence": "normal",
-      "end_line": 553,
+      "end_line": 555,
       "heading": "What Jobs Are For",
       "needs_live_verification": false,
       "section_id": "8-jobs-and-scheduling-deep-dive-what-jobs-are-for",
@@ -1163,33 +1163,33 @@
         "19a30b51edaa7382",
         "befb5c4701d20849"
       ],
-      "start_line": 548
+      "start_line": 550
     },
     {
       "confidence": "normal",
-      "end_line": 574,
+      "end_line": 576,
       "heading": "Job Configuration Fields To Inspect",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-configuration-fields-to-inspect",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 554
+      "start_line": 556
     },
     {
       "confidence": "normal",
-      "end_line": 589,
+      "end_line": 591,
       "heading": "Job History Interpretation",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-history-interpretation",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 575
+      "start_line": 577
     },
     {
       "confidence": "normal",
-      "end_line": 603,
+      "end_line": 605,
       "heading": "Job History UI Behavior",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-history-ui-behavior",
@@ -1197,77 +1197,77 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 590
+      "start_line": 592
     },
     {
       "confidence": "normal",
-      "end_line": 609,
+      "end_line": 611,
       "heading": "Job History Security",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-history-security",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 604
+      "start_line": 606
     },
     {
       "confidence": "normal",
-      "end_line": 622,
+      "end_line": 624,
       "heading": "Job Retention",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-retention",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 610
+      "start_line": 612
     },
     {
       "confidence": "normal",
-      "end_line": 644,
+      "end_line": 646,
       "heading": "Update Persisted DataViews Job",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-update-persisted-dataviews-job",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 623
+      "start_line": 625
     },
     {
       "confidence": "normal",
-      "end_line": 659,
+      "end_line": 661,
       "heading": "Universal Search Re-Index Job",
       "needs_live_verification": false,
       "section_id": "8-jobs-and-scheduling-deep-dive-universal-search-re-index-job",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 645
+      "start_line": 647
     },
     {
       "confidence": "normal",
-      "end_line": 673,
+      "end_line": 675,
       "heading": "Index Rock Site Job",
       "needs_live_verification": false,
       "section_id": "8-jobs-and-scheduling-deep-dive-index-rock-site-job",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 660
+      "start_line": 662
     },
     {
       "confidence": "community-supported",
-      "end_line": 689,
+      "end_line": 691,
       "heading": "Launch Workflow Job",
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-launch-workflow-job",
       "source_keys": [
         "f0b9a2a5b041884c"
       ],
-      "start_line": 674
+      "start_line": 676
     },
     {
       "confidence": "structural",
-      "end_line": 691,
+      "end_line": 693,
       "heading": "9. Diagnostics And Exceptions Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-diagnostics-and-exceptions-deep-dive",
@@ -1275,22 +1275,22 @@
         "f0b9a2a5b041884c",
         "776256c424368312"
       ],
-      "start_line": 690
+      "start_line": 692
     },
     {
       "confidence": "structural",
-      "end_line": 707,
+      "end_line": 709,
       "heading": "Diagnostic Mindset",
       "needs_live_verification": true,
       "section_id": "9-diagnostics-and-exceptions-deep-dive-diagnostic-mindset",
       "source_keys": [
         "f0b9a2a5b041884c"
       ],
-      "start_line": 692
+      "start_line": 694
     },
     {
       "confidence": "structural",
-      "end_line": 709,
+      "end_line": 711,
       "heading": "Exception Investigation Branches",
       "needs_live_verification": false,
       "section_id": "9-diagnostics-and-exceptions-deep-dive-exception-investigation-branches",
@@ -1300,77 +1300,77 @@
         "befb5c4701d20849",
         "776256c424368312"
       ],
-      "start_line": 708
+      "start_line": 710
     },
     {
       "confidence": "normal",
-      "end_line": 726,
+      "end_line": 728,
       "heading": "Request-Time Exception",
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-request-time-exception",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 710
+      "start_line": 712
     },
     {
       "confidence": "normal",
-      "end_line": 741,
+      "end_line": 743,
       "heading": "Job-Time Exception",
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-job-time-exception",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 727
+      "start_line": 729
     },
     {
       "confidence": "normal",
-      "end_line": 756,
+      "end_line": 758,
       "heading": "DataView Exception",
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-dataview-exception",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 742
+      "start_line": 744
     },
     {
       "confidence": "normal",
-      "end_line": 771,
+      "end_line": 773,
       "heading": "Search Exception",
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-search-exception",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 757
+      "start_line": 759
     },
     {
       "confidence": "normal",
-      "end_line": 784,
+      "end_line": 786,
       "heading": "Cache Exception",
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-cache-exception",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 772
+      "start_line": 774
     },
     {
       "confidence": "structural",
-      "end_line": 801,
+      "end_line": 803,
       "heading": "Diagnostic Evidence To Capture",
       "needs_live_verification": false,
       "section_id": "9-diagnostics-and-exceptions-deep-dive-diagnostic-evidence-to-capture",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 785
+      "start_line": 787
     },
     {
       "confidence": "structural",
-      "end_line": 803,
+      "end_line": 805,
       "heading": "10. Cache And Indexing Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-cache-and-indexing-deep-dive",
@@ -1380,11 +1380,11 @@
         "776256c424368312",
         "befb5c4701d20849"
       ],
-      "start_line": 802
+      "start_line": 804
     },
     {
       "confidence": "normal",
-      "end_line": 834,
+      "end_line": 836,
       "heading": "Lava Cache Command",
       "needs_live_verification": false,
       "section_id": "10-cache-and-indexing-deep-dive-lava-cache-command",
@@ -1392,11 +1392,11 @@
         "78b1a0a9975427ba",
         "78b1a0a9975427ba"
       ],
-      "start_line": 804
+      "start_line": 806
     },
     {
       "confidence": "needs-citation",
-      "end_line": 852,
+      "end_line": 854,
       "heading": "Cache Keys",
       "needs_live_verification": true,
       "section_id": "10-cache-and-indexing-deep-dive-cache-keys",
@@ -1404,44 +1404,44 @@
         "78b1a0a9975427ba",
         "78b1a0a9975427ba"
       ],
-      "start_line": 835
+      "start_line": 837
     },
     {
       "confidence": "citation-only",
-      "end_line": 856,
+      "end_line": 858,
       "heading": "Cache Tags",
       "needs_live_verification": true,
       "section_id": "10-cache-and-indexing-deep-dive-cache-tags",
       "source_keys": [
         "96f179b05ec9a0dc"
       ],
-      "start_line": 853
+      "start_line": 855
     },
     {
       "confidence": "normal",
-      "end_line": 870,
+      "end_line": 872,
       "heading": "Cache Clearing",
       "needs_live_verification": true,
       "section_id": "10-cache-and-indexing-deep-dive-cache-clearing",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 857
+      "start_line": 859
     },
     {
       "confidence": "normal",
-      "end_line": 884,
+      "end_line": 886,
       "heading": "Universal Search Provider Setup",
       "needs_live_verification": false,
       "section_id": "10-cache-and-indexing-deep-dive-universal-search-provider-setup",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 871
+      "start_line": 873
     },
     {
       "confidence": "normal",
-      "end_line": 896,
+      "end_line": 898,
       "heading": "Entity Indexing",
       "needs_live_verification": true,
       "section_id": "10-cache-and-indexing-deep-dive-entity-indexing",
@@ -1449,22 +1449,22 @@
         "befb5c4701d20849",
         "befb5c4701d20849"
       ],
-      "start_line": 885
+      "start_line": 887
     },
     {
       "confidence": "normal",
-      "end_line": 910,
+      "end_line": 912,
       "heading": "Site Indexing",
       "needs_live_verification": false,
       "section_id": "10-cache-and-indexing-deep-dive-site-indexing",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 897
+      "start_line": 899
     },
     {
       "confidence": "structural",
-      "end_line": 912,
+      "end_line": 914,
       "heading": "11. Cleanup And Data Integrity Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-cleanup-and-data-integrity-deep-dive",
@@ -1476,11 +1476,11 @@
         "e8988031b9975c3b",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 911
+      "start_line": 913
     },
     {
       "confidence": "citation-only",
-      "end_line": 929,
+      "end_line": 931,
       "heading": "Cleanup As Operational Risk Management",
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-cleanup-as-operational-risk-management",
@@ -1488,77 +1488,77 @@
         "8d8c28f726e09218",
         "c680a16482a4af12"
       ],
-      "start_line": 913
+      "start_line": 915
     },
     {
       "confidence": "normal",
-      "end_line": 940,
+      "end_line": 942,
       "heading": "Service Job History Cleanup",
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-service-job-history-cleanup",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 930
+      "start_line": 932
     },
     {
       "confidence": "normal",
-      "end_line": 952,
+      "end_line": 954,
       "heading": "Rock Cleanup And Cache Folder Caveat",
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-rock-cleanup-and-cache-folder-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 941
+      "start_line": 943
     },
     {
       "confidence": "normal",
-      "end_line": 971,
+      "end_line": 973,
       "heading": "Attribute Data Integrity",
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-attribute-data-integrity",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 953
+      "start_line": 955
     },
     {
       "confidence": "community-supported",
-      "end_line": 986,
+      "end_line": 988,
       "heading": "Security Data Integrity",
       "needs_live_verification": false,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-security-data-integrity",
       "source_keys": [
         "e8988031b9975c3b"
       ],
-      "start_line": 972
+      "start_line": 974
     },
     {
       "confidence": "normal",
-      "end_line": 1006,
+      "end_line": 1008,
       "heading": "Data View Integrity",
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-data-view-integrity",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 987
+      "start_line": 989
     },
     {
       "confidence": "community-supported",
-      "end_line": 1023,
+      "end_line": 1025,
       "heading": "Integration And Recipe Integrity",
       "needs_live_verification": false,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-integration-and-recipe-integrity",
       "source_keys": [
         "f0b9a2a5b041884c"
       ],
-      "start_line": 1007
+      "start_line": 1009
     },
     {
       "confidence": "structural",
-      "end_line": 1025,
+      "end_line": 1027,
       "heading": "12. Related Rock Areas: Security, Workflows, Data Views, Reports, Cache, Jobs, Release Notes",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes",
@@ -1569,11 +1569,11 @@
         "78b1a0a9975427ba",
         "96f179b05ec9a0dc"
       ],
-      "start_line": 1024
+      "start_line": 1026
     },
     {
       "confidence": "high",
-      "end_line": 1039,
+      "end_line": 1041,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-security",
@@ -1581,22 +1581,22 @@
         "d275b5b94a9da833",
         "befb5c4701d20849"
       ],
-      "start_line": 1026
+      "start_line": 1028
     },
     {
       "confidence": "normal",
-      "end_line": 1056,
+      "end_line": 1058,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-workflows",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1040
+      "start_line": 1042
     },
     {
       "confidence": "normal",
-      "end_line": 1060,
+      "end_line": 1062,
       "heading": "Data Views",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-data-views",
@@ -1605,11 +1605,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1057
+      "start_line": 1059
     },
     {
       "confidence": "structural",
-      "end_line": 1073,
+      "end_line": 1075,
       "heading": "Reports",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-reports",
@@ -1618,11 +1618,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1061
+      "start_line": 1063
     },
     {
       "confidence": "normal",
-      "end_line": 1077,
+      "end_line": 1079,
       "heading": "Cache",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-cache",
@@ -1630,33 +1630,33 @@
         "78b1a0a9975427ba",
         "96f179b05ec9a0dc"
       ],
-      "start_line": 1074
+      "start_line": 1076
     },
     {
       "confidence": "normal",
-      "end_line": 1081,
+      "end_line": 1083,
       "heading": "Jobs",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-jobs",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1078
+      "start_line": 1080
     },
     {
       "confidence": "normal",
-      "end_line": 1085,
+      "end_line": 1087,
       "heading": "Release Notes",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-release-notes",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1082
+      "start_line": 1084
     },
     {
       "confidence": "structural",
-      "end_line": 1087,
+      "end_line": 1089,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
@@ -1668,33 +1668,33 @@
         "53ad1133e1cb2d0a",
         "e8988031b9975c3b"
       ],
-      "start_line": 1086
+      "start_line": 1088
     },
     {
       "confidence": "structural",
-      "end_line": 1098,
+      "end_line": 1100,
       "heading": "Read Before Write",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-read-before-write",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1088
+      "start_line": 1090
     },
     {
       "confidence": "structural",
-      "end_line": 1108,
+      "end_line": 1110,
       "heading": "Do Not Treat Derived State As Source Of Truth",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-do-not-treat-derived-state-as-source-of-truth",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1099
+      "start_line": 1101
     },
     {
       "confidence": "normal",
-      "end_line": 1112,
+      "end_line": 1114,
       "heading": "Avoid Broad Cache Clears During Incidents",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-avoid-broad-cache-clears-during-incidents",
@@ -1702,66 +1702,66 @@
         "78b1a0a9975427ba",
         "96f179b05ec9a0dc"
       ],
-      "start_line": 1109
+      "start_line": 1111
     },
     {
       "confidence": "normal",
-      "end_line": 1116,
+      "end_line": 1118,
       "heading": "Do Not Index Sensitive Attributes Casually",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-do-not-index-sensitive-attributes-casually",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 1113
+      "start_line": 1115
     },
     {
       "confidence": "normal",
-      "end_line": 1120,
+      "end_line": 1122,
       "heading": "Treat Lava APIs As High Risk",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-treat-lava-apis-as-high-risk",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1117
+      "start_line": 1119
     },
     {
       "confidence": "community-supported",
-      "end_line": 1131,
+      "end_line": 1133,
       "heading": "Validate Community Recipes",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-validate-community-recipes",
       "source_keys": [
         "e8988031b9975c3b"
       ],
-      "start_line": 1121
+      "start_line": 1123
     },
     {
       "confidence": "normal",
-      "end_line": 1135,
+      "end_line": 1137,
       "heading": "Keep Version Context Visible",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-keep-version-context-visible",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1132
+      "start_line": 1134
     },
     {
       "confidence": "structural",
-      "end_line": 1147,
+      "end_line": 1149,
       "heading": "Prefer Entity IDs And GUIDs Over Names",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-prefer-entity-ids-and-guids-over-names",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1136
+      "start_line": 1138
     },
     {
       "confidence": "structural",
-      "end_line": 1149,
+      "end_line": 1151,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -1773,11 +1773,11 @@
         "802567c280193bd0",
         "d522a2bab06881e5"
       ],
-      "start_line": 1148
+      "start_line": 1150
     },
     {
       "confidence": "normal",
-      "end_line": 1161,
+      "end_line": 1163,
       "heading": "Developer Codex",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-codex",
@@ -1785,11 +1785,11 @@
         "62524909bcc2f18b",
         "62524909bcc2f18b"
       ],
-      "start_line": 1150
+      "start_line": 1152
     },
     {
       "confidence": "normal",
-      "end_line": 1171,
+      "end_line": 1173,
       "heading": "ServiceJobHistory Source",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-servicejobhistory-source",
@@ -1800,11 +1800,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1162
+      "start_line": 1164
     },
     {
       "confidence": "normal",
-      "end_line": 1181,
+      "end_line": 1183,
       "heading": "Data View Source",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-data-view-source",
@@ -1815,11 +1815,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1172
+      "start_line": 1174
     },
     {
       "confidence": "normal",
-      "end_line": 1199,
+      "end_line": 1201,
       "heading": "Lava Cache And Lava APIs",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-cache-and-lava-apis",
@@ -1827,77 +1827,77 @@
         "78b1a0a9975427ba",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1182
+      "start_line": 1184
     },
     {
       "confidence": "normal",
-      "end_line": 1213,
+      "end_line": 1215,
       "heading": "Helix",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-helix",
       "source_keys": [
         "802567c280193bd0"
       ],
-      "start_line": 1200
+      "start_line": 1202
     },
     {
       "confidence": "normal",
-      "end_line": 1223,
+      "end_line": 1225,
       "heading": "Agent Lookup Tools",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-agent-lookup-tools",
       "source_keys": [
         "d522a2bab06881e5"
       ],
-      "start_line": 1214
+      "start_line": 1216
     },
     {
       "confidence": "structural",
-      "end_line": 1225,
+      "end_line": 1227,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 1224
+      "start_line": 1226
     },
     {
       "confidence": "citation-only",
-      "end_line": 1229,
+      "end_line": 1231,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 1226
+      "start_line": 1228
     },
     {
       "confidence": "structural",
-      "end_line": 1247,
+      "end_line": 1249,
       "heading": "Reports And Operational Dashboards",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-reports-and-operational-dashboards",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 1230
+      "start_line": 1232
     },
     {
       "confidence": "structural",
-      "end_line": 1251,
+      "end_line": 1253,
       "heading": "Analytics Boundaries",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-analytics-boundaries",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 1248
+      "start_line": 1250
     },
     {
       "confidence": "structural",
-      "end_line": 1253,
+      "end_line": 1255,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats",
@@ -1907,55 +1907,55 @@
         "770c36f4ad87e97d",
         "42ae97c8913020ff"
       ],
-      "start_line": 1252
+      "start_line": 1254
     },
     {
       "confidence": "normal",
-      "end_line": 1264,
+      "end_line": 1266,
       "heading": "Rock v19.1 Cache/Cleanup Caveat",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v19-1-cache-cleanup-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1254
+      "start_line": 1256
     },
     {
       "confidence": "normal",
-      "end_line": 1274,
+      "end_line": 1276,
       "heading": "Rock v19.1 Attribute Category Caveat",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v19-1-attribute-category-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1265
+      "start_line": 1267
     },
     {
       "confidence": "normal",
-      "end_line": 1284,
+      "end_line": 1286,
       "heading": "Rock v19.1 Workflow Caveats",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-rock-v19-1-workflow-caveats",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1275
+      "start_line": 1277
     },
     {
       "confidence": "normal",
-      "end_line": 1288,
+      "end_line": 1290,
       "heading": "Universal Search Version Notes",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-universal-search-version-notes",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 1285
+      "start_line": 1287
     },
     {
       "confidence": "citation-only",
-      "end_line": 1292,
+      "end_line": 1294,
       "heading": "Third-Party GitHub Spotlight Records",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats-third-party-github-spotlight-records",
@@ -1963,11 +1963,11 @@
         "770c36f4ad87e97d",
         "42ae97c8913020ff"
       ],
-      "start_line": 1289
+      "start_line": 1291
     },
     {
       "confidence": "structural",
-      "end_line": 1294,
+      "end_line": 1296,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -1978,77 +1978,77 @@
         "53ad1133e1cb2d0a",
         "e8988031b9975c3b"
       ],
-      "start_line": 1293
+      "start_line": 1295
     },
     {
       "confidence": "normal",
-      "end_line": 1313,
+      "end_line": 1315,
       "heading": "Playbook: Build A Job Health Review",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-build-a-job-health-review",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1295
+      "start_line": 1297
     },
     {
       "confidence": "normal",
-      "end_line": 1332,
+      "end_line": 1334,
       "heading": "Playbook: Validate Universal Search",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-validate-universal-search",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 1314
+      "start_line": 1316
     },
     {
       "confidence": "normal",
-      "end_line": 1351,
+      "end_line": 1353,
       "heading": "Playbook: Validate Persisted Data Views",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-validate-persisted-data-views",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1333
+      "start_line": 1335
     },
     {
       "confidence": "normal",
-      "end_line": 1368,
+      "end_line": 1370,
       "heading": "Playbook: Review Lava Cache Safety",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-review-lava-cache-safety",
       "source_keys": [
         "78b1a0a9975427ba"
       ],
-      "start_line": 1352
+      "start_line": 1354
     },
     {
       "confidence": "normal",
-      "end_line": 1387,
+      "end_line": 1389,
       "heading": "Playbook: Review Lava Webhooks",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-review-lava-webhooks",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1369
+      "start_line": 1371
     },
     {
       "confidence": "community-supported",
-      "end_line": 1406,
+      "end_line": 1408,
       "heading": "Playbook: Review Security Integrity",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-review-security-integrity",
       "source_keys": [
         "e8988031b9975c3b"
       ],
-      "start_line": 1388
+      "start_line": 1390
     },
     {
       "confidence": "structural",
-      "end_line": 1408,
+      "end_line": 1410,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -2059,99 +2059,99 @@
         "d275b5b94a9da833",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1407
+      "start_line": 1409
     },
     {
       "confidence": "structural",
-      "end_line": 1425,
+      "end_line": 1427,
       "heading": "A Job Did Not Run",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-job-did-not-run",
       "source_keys": [
         "e8988031b9975c3b"
       ],
-      "start_line": 1409
+      "start_line": 1411
     },
     {
       "confidence": "structural",
-      "end_line": 1440,
+      "end_line": 1442,
       "heading": "A Job Failed",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-job-failed",
       "source_keys": [
         "e8988031b9975c3b"
       ],
-      "start_line": 1426
+      "start_line": 1428
     },
     {
       "confidence": "normal",
-      "end_line": 1457,
+      "end_line": 1459,
       "heading": "Search Is Missing Results",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-search-is-missing-results",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 1441
+      "start_line": 1443
     },
     {
       "confidence": "normal",
-      "end_line": 1471,
+      "end_line": 1473,
       "heading": "Search Shows Sensitive Results",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-search-shows-sensitive-results",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 1458
+      "start_line": 1460
     },
     {
       "confidence": "structural",
-      "end_line": 1486,
+      "end_line": 1488,
       "heading": "Report Results Are Stale",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-report-results-are-stale",
       "source_keys": [
         "befb5c4701d20849"
       ],
-      "start_line": 1472
+      "start_line": 1474
     },
     {
       "confidence": "normal",
-      "end_line": 1500,
+      "end_line": 1502,
       "heading": "Clear Cache Throws An Error",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-clear-cache-throws-an-error",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1487
+      "start_line": 1489
     },
     {
       "confidence": "normal",
-      "end_line": 1515,
+      "end_line": 1517,
       "heading": "A Data View API Call Fails",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1501
+      "start_line": 1503
     },
     {
       "confidence": "normal",
-      "end_line": 1530,
+      "end_line": 1532,
       "heading": "A Lava Endpoint Exposes Too Much",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-lava-endpoint-exposes-too-much",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1516
+      "start_line": 1518
     },
     {
       "confidence": "structural",
-      "end_line": 1532,
+      "end_line": 1534,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
@@ -2159,77 +2159,77 @@
         "53ad1133e1cb2d0a",
         "776256c424368312"
       ],
-      "start_line": 1531
+      "start_line": 1533
     },
     {
       "confidence": "structural",
-      "end_line": 1548,
+      "end_line": 1550,
       "heading": "Recipe: Answer “Is The System Healthy?”",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-answer-is-the-system-healthy",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1533
+      "start_line": 1535
     },
     {
       "confidence": "structural",
-      "end_line": 1559,
+      "end_line": 1561,
       "heading": "Recipe: Answer “Why Is This Data Wrong?”",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-answer-why-is-this-data-wrong",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1549
+      "start_line": 1551
     },
     {
       "confidence": "structural",
-      "end_line": 1570,
+      "end_line": 1572,
       "heading": "Recipe: Answer “Can I Clear Cache?”",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-answer-can-i-clear-cache",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1560
+      "start_line": 1562
     },
     {
       "confidence": "structural",
-      "end_line": 1581,
+      "end_line": 1583,
       "heading": "Recipe: Answer “Why Did This Workflow Not Start?”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-answer-why-did-this-workflow-not-start",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1571
+      "start_line": 1573
     },
     {
       "confidence": "structural",
-      "end_line": 1592,
+      "end_line": 1594,
       "heading": "Recipe: Answer “Why Is This Data View Slow?”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-answer-why-is-this-data-view-slow",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 1582
+      "start_line": 1584
     },
     {
       "confidence": "normal",
-      "end_line": 1604,
+      "end_line": 1606,
       "heading": "Recipe: Answer “What Changed In This Version That Matters Operationally?”",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1593
+      "start_line": 1595
     },
     {
       "confidence": "citation-only",
-      "end_line": 1628,
+      "end_line": 1630,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2246,11 +2246,11 @@
         "65a454a45e1b631f",
         "2a835fe90be9f475"
       ],
-      "start_line": 1605
+      "start_line": 1607
     },
     {
       "confidence": "citation-only",
-      "end_line": 1644,
+      "end_line": 1646,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2260,11 +2260,11 @@
         "2a835fe90be9f475",
         "65a454a45e1b631f"
       ],
-      "start_line": 1629
+      "start_line": 1631
     },
     {
       "confidence": "high",
-      "end_line": 1673,
+      "end_line": 1675,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2288,7 +2288,7 @@
         "e8988031b9975c3b",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 1645
+      "start_line": 1647
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",

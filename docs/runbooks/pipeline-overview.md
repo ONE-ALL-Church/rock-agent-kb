@@ -30,7 +30,7 @@ uv run --extra dev pytest
 - `knowledge/sources/` - generated human-readable source pages from normalized records.
 - `knowledge/topics/` - generated curated topic pages for API, Lava, mobile, releases, SQL, workflows, and plugins.
 - `knowledge/concepts/` - generated concept guides with source dependency maps.
-- `knowledge/model-map/` - generated Rock model-map mirror from stable/latest generic demo scrapes, property rows, version diff, and category slices.
+- `knowledge/model-map/` - generated Rock model-map mirror from stable/latest generic demo Obsidian block-action fetches, model/property/method rows, version diff, and category slices.
 - `concepts/registry.yaml` - concept definitions, keywords, subguides, and source weighting.
 - `agent/` - generated `llms.txt`, topic indexes, release indexes, and citation maps.
 - `tools/` and `src/rock_kb/` - CLI and implementation.
@@ -38,7 +38,7 @@ uv run --extra dev pytest
 - `docs/runbooks/local-transcription.md` - local and hosted transcription model decision.
 - `docs/decisions/topic-split-rules.md` - routing rules for deciding whether a domain belongs in a new concept or an existing guide.
 - `docs/decisions/current-tooling-research.md` - current crawler, document conversion, and transcription research decisions.
-- `docs/runbooks/model-map-rebuild-runbook.md` - stable/latest generic Rock Model Map scrape, rebuild, validation, and review workflow.
+- `docs/runbooks/model-map-rebuild-runbook.md` - stable/latest generic Rock Model Map API fetch, rebuild, validation, and review workflow.
 - `docs/runbooks/contributor-reviewer-workflow.md` - community contribution, media review, claim promotion, and rebuild workflow.
 - `docs/decisions/private-and-org-data-integration-plan.md` - implementation plan for owner-private docs and outside-org contribution bundles.
 - `docs/decisions/org-data-implementation-roadmap.md` - implementation roadmap for private org data, outside-org bundles, review gates, and rebuild tracking.

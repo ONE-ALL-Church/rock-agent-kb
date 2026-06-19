@@ -2610,12 +2610,12 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-06-19T05:26:05+00:00",
+  "built_at": "2026-06-19T05:57:11+00:00",
   "concept_id": "event-registration",
-  "guide_hash": "6090eb3512d3e05a311b9ae5034b0b3a51bdcf1e5d4e4c3fcc041c26d9b808c4",
-  "guide_line_count": 1382,
+  "guide_hash": "3eaae75ce2b9bc17c4a8fd2f3d0e39e05117438dce73b35d5d3490f8b92e5d03",
+  "guide_line_count": 1384,
   "guide_path": "knowledge/concepts/event-registration/guide.md",
-  "guide_word_count": 11160,
+  "guide_word_count": 11173,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2864,7 +2864,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -2875,7 +2875,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 43,
+      "end_line": 45,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -2884,11 +2884,11 @@
         "cdbd7089fd2af521",
         "776256c424368312"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 87,
+      "end_line": 89,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -2906,22 +2906,22 @@
         "f88b0748151b17a6",
         "8b1609730224eb1b"
       ],
-      "start_line": 44
+      "start_line": 46
     },
     {
       "confidence": "normal",
-      "end_line": 115,
+      "end_line": 117,
       "heading": "3. Event Registration Mental Model",
       "needs_live_verification": true,
       "section_id": "3-event-registration-mental-model",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 88
+      "start_line": 90
     },
     {
       "confidence": "high",
-      "end_line": 139,
+      "end_line": 141,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -2935,11 +2935,11 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 116
+      "start_line": 118
     },
     {
       "confidence": "structural",
-      "end_line": 141,
+      "end_line": 143,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -2949,11 +2949,11 @@
         "d275b5b94a9da833",
         "60357b5b8ff0c238"
       ],
-      "start_line": 140
+      "start_line": 142
     },
     {
       "confidence": "high",
-      "end_line": 194,
+      "end_line": 196,
       "heading": "Configuration Surfaces",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-configuration-surfaces",
@@ -2968,22 +2968,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 142
+      "start_line": 144
     },
     {
       "confidence": "community-supported",
-      "end_line": 214,
+      "end_line": 216,
       "heading": "Data Model Orientation",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-data-model-orientation",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 195
+      "start_line": 197
     },
     {
       "confidence": "structural",
-      "end_line": 216,
+      "end_line": 218,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -2996,33 +2996,33 @@
         "f88b0748151b17a6",
         "776256c424368312"
       ],
-      "start_line": 215
+      "start_line": 217
     },
     {
       "confidence": "community-supported",
-      "end_line": 232,
+      "end_line": 234,
       "heading": "Registration Template",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-registration-template",
       "source_keys": [
         "84c5de76cca78a1a"
       ],
-      "start_line": 217
+      "start_line": 219
     },
     {
       "confidence": "normal",
-      "end_line": 255,
+      "end_line": 257,
       "heading": "Registration Instance",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-registration-instance",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 233
+      "start_line": 235
     },
     {
       "confidence": "normal",
-      "end_line": 269,
+      "end_line": 271,
       "heading": "Registration",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-registration",
@@ -3030,11 +3030,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 256
+      "start_line": 258
     },
     {
       "confidence": "normal",
-      "end_line": 286,
+      "end_line": 288,
       "heading": "RegistrationRegistrant",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-registrationregistrant",
@@ -3042,22 +3042,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 270
+      "start_line": 272
     },
     {
       "confidence": "normal",
-      "end_line": 303,
+      "end_line": 305,
       "heading": "Event Item Occurrence And Linkage",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-event-item-occurrence-and-linkage",
       "source_keys": [
         "e9dcfbe00e9392de"
       ],
-      "start_line": 287
+      "start_line": 289
     },
     {
       "confidence": "normal",
-      "end_line": 324,
+      "end_line": 326,
       "heading": "Attributes And Form Fields",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-attributes-and-form-fields",
@@ -3066,11 +3066,11 @@
         "f88b0748151b17a6",
         "776256c424368312"
       ],
-      "start_line": 304
+      "start_line": 306
     },
     {
       "confidence": "structural",
-      "end_line": 326,
+      "end_line": 328,
       "heading": "7. Common Event Registration Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows",
@@ -3085,11 +3085,11 @@
         "e9dcfbe00e9392de",
         "1b6019ed673610cf"
       ],
-      "start_line": 325
+      "start_line": 327
     },
     {
       "confidence": "needs-citation",
-      "end_line": 345,
+      "end_line": 347,
       "heading": "Basic Public Registration",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-basic-public-registration",
@@ -3098,22 +3098,22 @@
         "f88b0748151b17a6",
         "776256c424368312"
       ],
-      "start_line": 327
+      "start_line": 329
     },
     {
       "confidence": "normal",
-      "end_line": 358,
+      "end_line": 360,
       "heading": "Family And Guest Registration",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-family-and-guest-registration",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 346
+      "start_line": 348
     },
     {
       "confidence": "citation-only",
-      "end_line": 378,
+      "end_line": 380,
       "heading": "Paid Registration",
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-paid-registration",
@@ -3124,11 +3124,11 @@
         "f88b0748151b17a6",
         "f88b0748151b17a6"
       ],
-      "start_line": 359
+      "start_line": 361
     },
     {
       "confidence": "normal",
-      "end_line": 393,
+      "end_line": 395,
       "heading": "Wait List Registration",
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-wait-list-registration",
@@ -3137,11 +3137,11 @@
         "e9dcfbe00e9392de",
         "776256c424368312"
       ],
-      "start_line": 379
+      "start_line": 381
     },
     {
       "confidence": "normal",
-      "end_line": 411,
+      "end_line": 413,
       "heading": "Group Placement",
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-group-placement",
@@ -3149,11 +3149,11 @@
         "f88b0748151b17a6",
         "1b6019ed673610cf"
       ],
-      "start_line": 394
+      "start_line": 396
     },
     {
       "confidence": "normal",
-      "end_line": 424,
+      "end_line": 426,
       "heading": "Payment Reminder Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-payment-reminder-workflow",
@@ -3162,11 +3162,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 412
+      "start_line": 414
     },
     {
       "confidence": "structural",
-      "end_line": 426,
+      "end_line": 428,
       "heading": "8. Registration Instances Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-registration-instances-deep-dive",
@@ -3177,11 +3177,11 @@
         "8b1609730224eb1b",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 425
+      "start_line": 427
     },
     {
       "confidence": "normal",
-      "end_line": 432,
+      "end_line": 434,
       "heading": "Instance Identity",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-instance-identity",
@@ -3189,11 +3189,11 @@
         "1b6019ed673610cf",
         "f9ada88191ace9fa"
       ],
-      "start_line": 427
+      "start_line": 429
     },
     {
       "confidence": "structural",
-      "end_line": 445,
+      "end_line": 447,
       "heading": "Active And Date Windows",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-active-and-date-windows",
@@ -3201,22 +3201,22 @@
         "1b6019ed673610cf",
         "f9ada88191ace9fa"
       ],
-      "start_line": 433
+      "start_line": 435
     },
     {
       "confidence": "community-supported",
-      "end_line": 460,
+      "end_line": 462,
       "heading": "Capacity And Spots",
       "needs_live_verification": false,
       "section_id": "8-registration-instances-deep-dive-capacity-and-spots",
       "source_keys": [
         "f3cc81b84e9a9aa9"
       ],
-      "start_line": 446
+      "start_line": 448
     },
     {
       "confidence": "normal",
-      "end_line": 475,
+      "end_line": 477,
       "heading": "URL Slug And Public Linkage",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-url-slug-and-public-linkage",
@@ -3224,22 +3224,22 @@
         "1b6019ed673610cf",
         "8b1609730224eb1b"
       ],
-      "start_line": 461
+      "start_line": 463
     },
     {
       "confidence": "citation-only",
-      "end_line": 487,
+      "end_line": 489,
       "heading": "Attributes",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-attributes",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 476
+      "start_line": 478
     },
     {
       "confidence": "structural",
-      "end_line": 489,
+      "end_line": 491,
       "heading": "9. Payments Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive",
@@ -3251,22 +3251,22 @@
         "d275b5b94a9da833",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 488
+      "start_line": 490
     },
     {
       "confidence": "citation-only",
-      "end_line": 519,
+      "end_line": 521,
       "heading": "Cost Model",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-cost-model",
       "source_keys": [
         "cdbd7089fd2af521"
       ],
-      "start_line": 490
+      "start_line": 492
     },
     {
       "confidence": "high",
-      "end_line": 533,
+      "end_line": 535,
       "heading": "Discounts",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-discounts",
@@ -3275,55 +3275,55 @@
         "776256c424368312",
         "1b6019ed673610cf"
       ],
-      "start_line": 520
+      "start_line": 522
     },
     {
       "confidence": "normal",
-      "end_line": 550,
+      "end_line": 552,
       "heading": "Partial Payments",
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-partial-payments",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 534
+      "start_line": 536
     },
     {
       "confidence": "normal",
-      "end_line": 563,
+      "end_line": 565,
       "heading": "Payment Plans",
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-payment-plans",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 551
+      "start_line": 553
     },
     {
       "confidence": "citation-only",
-      "end_line": 577,
+      "end_line": 579,
       "heading": "Payment Gateways And Saved Accounts",
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-payment-gateways-and-saved-accounts",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 564
+      "start_line": 566
     },
     {
       "confidence": "normal",
-      "end_line": 592,
+      "end_line": 594,
       "heading": "Batches And Matching",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-batches-and-matching",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 578
+      "start_line": 580
     },
     {
       "confidence": "structural",
-      "end_line": 594,
+      "end_line": 596,
       "heading": "10. Related Rock Areas: Events, Finance, Workflows, Communications, Groups",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups",
@@ -3336,22 +3336,22 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6"
       ],
-      "start_line": 593
+      "start_line": 595
     },
     {
       "confidence": "citation-only",
-      "end_line": 608,
+      "end_line": 610,
       "heading": "Events And Calendars",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-events-and-calendars",
       "source_keys": [
         "cdbd7089fd2af521"
       ],
-      "start_line": 595
+      "start_line": 597
     },
     {
       "confidence": "community-supported",
-      "end_line": 627,
+      "end_line": 629,
       "heading": "Finance",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-finance",
@@ -3359,22 +3359,22 @@
         "1f10c6dc510ad680",
         "ba714c760814915d"
       ],
-      "start_line": 609
+      "start_line": 611
     },
     {
       "confidence": "community-supported",
-      "end_line": 645,
+      "end_line": 647,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-workflows",
       "source_keys": [
         "f3cc81b84e9a9aa9"
       ],
-      "start_line": 628
+      "start_line": 630
     },
     {
       "confidence": "normal",
-      "end_line": 671,
+      "end_line": 673,
       "heading": "Communications",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-communications",
@@ -3383,11 +3383,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 646
+      "start_line": 648
     },
     {
       "confidence": "normal",
-      "end_line": 686,
+      "end_line": 688,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-groups",
@@ -3395,11 +3395,11 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6"
       ],
-      "start_line": 672
+      "start_line": 674
     },
     {
       "confidence": "structural",
-      "end_line": 688,
+      "end_line": 690,
       "heading": "11. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails",
@@ -3409,11 +3409,11 @@
         "f9ada88191ace9fa",
         "4df598747f60249c"
       ],
-      "start_line": 687
+      "start_line": 689
     },
     {
       "confidence": "structural",
-      "end_line": 703,
+      "end_line": 705,
       "heading": "Permissions",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-permissions",
@@ -3421,66 +3421,66 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6"
       ],
-      "start_line": 689
+      "start_line": 691
     },
     {
       "confidence": "community-supported",
-      "end_line": 707,
+      "end_line": 709,
       "heading": "Naming",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-naming",
       "source_keys": [
         "f9ada88191ace9fa"
       ],
-      "start_line": 704
+      "start_line": 706
     },
     {
       "confidence": "structural",
-      "end_line": 736,
+      "end_line": 738,
       "heading": "Change Management",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-change-management",
       "source_keys": [
         "f9ada88191ace9fa"
       ],
-      "start_line": 708
+      "start_line": 710
     },
     {
       "confidence": "community-supported",
-      "end_line": 740,
+      "end_line": 742,
       "heading": "Notes And Auditability",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-notes-and-auditability",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 737
+      "start_line": 739
     },
     {
       "confidence": "needs-citation",
-      "end_line": 755,
+      "end_line": 757,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-security",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 741
+      "start_line": 743
     },
     {
       "confidence": "needs-citation",
-      "end_line": 773,
+      "end_line": 775,
       "heading": "Operational Health Checks",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-operational-health-checks",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 756
+      "start_line": 758
     },
     {
       "confidence": "structural",
-      "end_line": 775,
+      "end_line": 777,
       "heading": "12. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks",
@@ -3490,33 +3490,33 @@
         "d275b5b94a9da833",
         "2a94aef5f83aa079"
       ],
-      "start_line": 774
+      "start_line": 776
     },
     {
       "confidence": "normal",
-      "end_line": 788,
+      "end_line": 790,
       "heading": "Public/Mobile Event Occurrence Rendering",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering",
       "source_keys": [
         "e9dcfbe00e9392de"
       ],
-      "start_line": 776
+      "start_line": 778
     },
     {
       "confidence": "community-supported",
-      "end_line": 802,
+      "end_line": 804,
       "heading": "API Linkage Caveat",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat",
       "source_keys": [
         "8b1609730224eb1b"
       ],
-      "start_line": 789
+      "start_line": 791
     },
     {
       "confidence": "normal",
-      "end_line": 814,
+      "end_line": 816,
       "heading": "Internal Registrant List",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-internal-registrant-list",
@@ -3524,11 +3524,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 803
+      "start_line": 805
     },
     {
       "confidence": "normal",
-      "end_line": 818,
+      "end_line": 820,
       "heading": "Registration List Wait-List Indicator",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-registration-list-wait-list-indicator",
@@ -3536,11 +3536,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 815
+      "start_line": 817
     },
     {
       "confidence": "normal",
-      "end_line": 822,
+      "end_line": 824,
       "heading": "Fee And Payment List Blocks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-fee-and-payment-list-blocks",
@@ -3548,11 +3548,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 819
+      "start_line": 821
     },
     {
       "confidence": "normal",
-      "end_line": 844,
+      "end_line": 846,
       "heading": "Payment Reminder Block",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-payment-reminder-block",
@@ -3564,22 +3564,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 823
+      "start_line": 825
     },
     {
       "confidence": "normal",
-      "end_line": 848,
+      "end_line": 850,
       "heading": "Agent Skills",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-agent-skills",
       "source_keys": [
         "2a94aef5f83aa079"
       ],
-      "start_line": 845
+      "start_line": 847
     },
     {
       "confidence": "structural",
-      "end_line": 850,
+      "end_line": 852,
       "heading": "13. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map",
@@ -3591,22 +3591,22 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 849
+      "start_line": 851
     },
     {
       "confidence": "structural",
-      "end_line": 872,
+      "end_line": 874,
       "heading": "Core Metrics",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-core-metrics",
       "source_keys": [
         "2a94aef5f83aa079"
       ],
-      "start_line": 851
+      "start_line": 853
     },
     {
       "confidence": "community-supported",
-      "end_line": 886,
+      "end_line": 888,
       "heading": "Reporting Entity Choice",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-reporting-entity-choice",
@@ -3617,33 +3617,33 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 873
+      "start_line": 875
     },
     {
       "confidence": "community-supported",
-      "end_line": 904,
+      "end_line": 906,
       "heading": "Model Map Verification",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-model-map-verification",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 887
+      "start_line": 889
     },
     {
       "confidence": "needs-citation",
-      "end_line": 917,
+      "end_line": 919,
       "heading": "Analytics Checks",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-analytics-checks",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 905
+      "start_line": 907
     },
     {
       "confidence": "structural",
-      "end_line": 919,
+      "end_line": 921,
       "heading": "14. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats",
@@ -3652,55 +3652,55 @@
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 918
+      "start_line": 920
     },
     {
       "confidence": "normal",
-      "end_line": 923,
+      "end_line": 925,
       "heading": "Rock 18.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-rock-18-1",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 920
+      "start_line": 922
     },
     {
       "confidence": "normal",
-      "end_line": 929,
+      "end_line": 931,
       "heading": "Rock 18.3",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-rock-18-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 924
+      "start_line": 926
     },
     {
       "confidence": "normal",
-      "end_line": 942,
+      "end_line": 944,
       "heading": "Rock 19.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-rock-19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 930
+      "start_line": 932
     },
     {
       "confidence": "citation-only",
-      "end_line": 946,
+      "end_line": 948,
       "heading": "v16.10 / v17.0 Spotlight",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v16-10-v17-0-spotlight",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 943
+      "start_line": 945
     },
     {
       "confidence": "structural",
-      "end_line": 948,
+      "end_line": 950,
       "heading": "15. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks",
@@ -3708,77 +3708,77 @@
         "c0cf9e3bbb1f6f9b",
         "776256c424368312"
       ],
-      "start_line": 947
+      "start_line": 949
     },
     {
       "confidence": "needs-citation",
-      "end_line": 973,
+      "end_line": 975,
       "heading": "Playbook A: Create A Standard Paid Event Registration",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 949
+      "start_line": 951
     },
     {
       "confidence": "normal",
-      "end_line": 985,
+      "end_line": 987,
       "heading": "Playbook B: Add Eligibility Rules In v19.1+",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 974
+      "start_line": 976
     },
     {
       "confidence": "structural",
-      "end_line": 995,
+      "end_line": 997,
       "heading": "Playbook C: Prevent Duplicate Registrants In v19.1+",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 986
+      "start_line": 988
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1008,
+      "end_line": 1010,
       "heading": "Playbook D: Configure Payment Reminders",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-d-configure-payment-reminders",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 996
+      "start_line": 998
     },
     {
       "confidence": "structural",
-      "end_line": 1022,
+      "end_line": 1024,
       "heading": "Playbook E: Diagnose A Missing Public Registration Button",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1009
+      "start_line": 1011
     },
     {
       "confidence": "structural",
-      "end_line": 1033,
+      "end_line": 1035,
       "heading": "Playbook F: Build A Read-Only Registration Dashboard",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks-playbook-f-build-a-read-only-registration-dashboard",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1023
+      "start_line": 1025
     },
     {
       "confidence": "structural",
-      "end_line": 1035,
+      "end_line": 1037,
       "heading": "16. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree",
@@ -3787,110 +3787,110 @@
         "1b6019ed673610cf",
         "d275b5b94a9da833"
       ],
-      "start_line": 1034
+      "start_line": 1036
     },
     {
       "confidence": "structural",
-      "end_line": 1052,
+      "end_line": 1054,
       "heading": "Public page says registration is closed",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1036
+      "start_line": 1038
     },
     {
       "confidence": "structural",
-      "end_line": 1065,
+      "end_line": 1067,
       "heading": "User cannot select the intended family member",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1053
+      "start_line": 1055
     },
     {
       "confidence": "structural",
-      "end_line": 1075,
+      "end_line": 1077,
       "heading": "Duplicate registration is blocked",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1066
+      "start_line": 1068
     },
     {
       "confidence": "structural",
-      "end_line": 1089,
+      "end_line": 1091,
       "heading": "Discount code does not work",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-discount-code-does-not-work",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1076
+      "start_line": 1078
     },
     {
       "confidence": "structural",
-      "end_line": 1105,
+      "end_line": 1107,
       "heading": "Balance due is wrong",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-balance-due-is-wrong",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1090
+      "start_line": 1092
     },
     {
       "confidence": "normal",
-      "end_line": 1117,
+      "end_line": 1119,
       "heading": "Payment plan amount is wrong",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1106
+      "start_line": 1108
     },
     {
       "confidence": "structural",
-      "end_line": 1129,
+      "end_line": 1131,
       "heading": "Signature document shown for wrong registrant",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1118
+      "start_line": 1120
     },
     {
       "confidence": "structural",
-      "end_line": 1143,
+      "end_line": 1145,
       "heading": "Registrant missing from group placement",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1130
+      "start_line": 1132
     },
     {
       "confidence": "normal",
-      "end_line": 1157,
+      "end_line": 1159,
       "heading": "Payment reminder did not send",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1144
+      "start_line": 1146
     },
     {
       "confidence": "structural",
-      "end_line": 1159,
+      "end_line": 1161,
       "heading": "17. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes",
@@ -3900,99 +3900,99 @@
         "4df598747f60249c",
         "8b1609730224eb1b"
       ],
-      "start_line": 1158
+      "start_line": 1160
     },
     {
       "confidence": "structural",
-      "end_line": 1177,
+      "end_line": 1179,
       "heading": "Recipe: Summarize A Registration Instance",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-summarize-a-registration-instance",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1160
+      "start_line": 1162
     },
     {
       "confidence": "structural",
-      "end_line": 1193,
+      "end_line": 1195,
       "heading": "Recipe: Verify A Public Registration URL",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-verify-a-public-registration-url",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1178
+      "start_line": 1180
     },
     {
       "confidence": "structural",
-      "end_line": 1209,
+      "end_line": 1211,
       "heading": "Recipe: Audit Payment Risk",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-payment-risk",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1194
+      "start_line": 1196
     },
     {
       "confidence": "structural",
-      "end_line": 1223,
+      "end_line": 1225,
       "heading": "Recipe: Audit Discount Codes",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-discount-codes",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1210
+      "start_line": 1212
     },
     {
       "confidence": "structural",
-      "end_line": 1238,
+      "end_line": 1240,
       "heading": "Recipe: Audit Wait List",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-wait-list",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1224
+      "start_line": 1226
     },
     {
       "confidence": "community-supported",
-      "end_line": 1251,
+      "end_line": 1253,
       "heading": "Recipe: Build A Registrant Packet Export",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-build-a-registrant-packet-export",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 1239
+      "start_line": 1241
     },
     {
       "confidence": "community-supported",
-      "end_line": 1262,
+      "end_line": 1264,
       "heading": "Recipe: Add Staff Notes To Registration Detail",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 1252
+      "start_line": 1254
     },
     {
       "confidence": "community-supported",
-      "end_line": 1279,
+      "end_line": 1281,
       "heading": "Recipe: Investigate API Registration URL Issues",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-investigate-api-registration-url-issues",
       "source_keys": [
         "8b1609730224eb1b"
       ],
-      "start_line": 1263
+      "start_line": 1265
     },
     {
       "confidence": "citation-only",
-      "end_line": 1305,
+      "end_line": 1307,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -4010,11 +4010,11 @@
         "e4f10f35a86cedbd",
         "5ecfe350fe307663"
       ],
-      "start_line": 1280
+      "start_line": 1282
     },
     {
       "confidence": "citation-only",
-      "end_line": 1326,
+      "end_line": 1328,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4028,11 +4028,11 @@
         "f88b0748151b17a6",
         "ce8eb086e4ef0cc6"
       ],
-      "start_line": 1306
+      "start_line": 1308
     },
     {
       "confidence": "high",
-      "end_line": 1382,
+      "end_line": 1384,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes",
@@ -4072,7 +4072,7 @@
         "f9ada88191ace9fa",
         "8b1609730224eb1b"
       ],
-      "start_line": 1327
+      "start_line": 1329
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T06:46:40+00:00",

@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `Location`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `44`
+- Obsolete methods: `4`
 - EntityType GUID: `0d6410ad-c83c-47ac-af3d-616d09edf63b`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 66 |
 | Lava-marked non-database properties | 27 |
 | Related model links | 6 |
+| Method signatures | 44 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

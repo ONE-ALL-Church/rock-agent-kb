@@ -11,7 +11,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 16330 words; expected at least 7000.",
+      "message": "Guide has 16343 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -58,9 +58,9 @@
   "concept_id": "developer-resources",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-06-19T05:26:20+00:00",
-  "guide_line_count": 1593,
-  "guide_word_count": 16330,
+  "generated_at": "2026-06-19T05:57:24+00:00",
+  "guide_line_count": 1595,
+  "guide_word_count": 16343,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 162,

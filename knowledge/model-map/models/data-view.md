@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `DataView`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `45`
+- Obsolete methods: `4`
 - EntityType GUID: `57f8fa29-dcf1-4f74-8553-87e90f234139`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 45 |
 | Lava-marked non-database properties | 17 |
 | Related model links | 9 |
+| Method signatures | 45 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

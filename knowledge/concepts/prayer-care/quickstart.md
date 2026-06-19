@@ -25,12 +25,12 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-44: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 45-73: 2. Scope And Terminology (high)
-- `3-prayer-and-care-mental-model` lines 74-87: 3. Prayer And Care Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 88-100: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-prayer-request-entry-configuration` lines 103-151: Prayer Request Entry Configuration (high)
-- `5-core-configuration-and-data-model-prayer-request-detail-configuration` lines 152-193: Prayer Request Detail Configuration (normal)
+- `1-executive-summary-for-agents` lines 29-46: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 47-75: 2. Scope And Terminology (high)
+- `3-prayer-and-care-mental-model` lines 76-89: 3. Prayer And Care Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 90-102: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-prayer-request-entry-configuration` lines 105-153: Prayer Request Entry Configuration (high)
+- `5-core-configuration-and-data-model-prayer-request-detail-configuration` lines 154-195: Prayer Request Detail Configuration (normal)
 
 ## Core Entities
 

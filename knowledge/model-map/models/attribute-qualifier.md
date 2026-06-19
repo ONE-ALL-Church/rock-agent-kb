@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Core`
 - Model title: `AttributeQualifier`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `15`
+- Obsolete methods: `3`
 - EntityType GUID: `ec7eb9ac-8b52-4a3d-8587-4a08050780cc`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 15 |
 | Lava-marked non-database properties | 6 |
 | Related model links | 2 |
+| Method signatures | 15 |
+| Obsolete methods | 3 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

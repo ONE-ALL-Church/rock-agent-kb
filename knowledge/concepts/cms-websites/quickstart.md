@@ -27,12 +27,12 @@ Pages, blocks, themes, content channels, personalization, media, and website ope
 
 ## High-Signal Sections
 
-- `2-scope-and-terminology` lines 58-122: 2. Scope And Terminology (normal)
-- `3-cms-and-websites-mental-model` lines 123-142: 3. CMS And Websites Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 143-167: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-blocks` lines 200-217: Blocks (normal)
-- `5-core-configuration-and-data-model-themes` lines 228-243: Themes (normal)
-- `5-core-configuration-and-data-model-content-channel-types` lines 244-256: Content Channel Types (normal)
+- `2-scope-and-terminology` lines 60-124: 2. Scope And Terminology (normal)
+- `3-cms-and-websites-mental-model` lines 125-144: 3. CMS And Websites Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 145-169: 4. Source Authority And How To Use This Guide (normal)
+- `5-core-configuration-and-data-model-blocks` lines 202-219: Blocks (normal)
+- `5-core-configuration-and-data-model-themes` lines 230-245: Themes (normal)
+- `5-core-configuration-and-data-model-content-channel-types` lines 246-258: Content Channel Types (normal)
 
 ## Core Entities
 

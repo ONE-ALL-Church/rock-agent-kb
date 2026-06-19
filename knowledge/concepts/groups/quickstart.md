@@ -26,12 +26,12 @@ Group types, group members, attendance, group finder, small groups, serving team
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-44: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 45-66: 2. Scope And Terminology (normal)
-- `3-groups-mental-model` lines 67-88: 3. Groups Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 89-101: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-group-type-configuration` lines 104-127: Group Type Configuration (normal)
-- `5-core-configuration-and-data-model-locations-and-schedules` lines 146-157: Locations And Schedules (normal)
+- `1-executive-summary-for-agents` lines 29-46: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 47-68: 2. Scope And Terminology (normal)
+- `3-groups-mental-model` lines 69-90: 3. Groups Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 91-103: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-group-type-configuration` lines 106-129: Group Type Configuration (normal)
+- `5-core-configuration-and-data-model-locations-and-schedules` lines 148-159: Locations And Schedules (normal)
 
 ## Core Entities
 

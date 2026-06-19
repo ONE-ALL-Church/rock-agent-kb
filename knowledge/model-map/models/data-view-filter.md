@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Reporting`
 - Model title: `DataViewFilter`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `40`
+- Obsolete methods: `4`
 - EntityType GUID: `507e646b-9943-4dd6-8fb7-8ba9f95e6bd0`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 31 |
 | Lava-marked non-database properties | 16 |
 | Related model links | 1 |
+| Method signatures | 40 |
+| Obsolete methods | 4 |
 | Pre-alpha changes touching this model | 0 |
 
 ## Properties

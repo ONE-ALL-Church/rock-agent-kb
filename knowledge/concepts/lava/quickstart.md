@@ -28,12 +28,12 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-51: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 52-96: 2. Scope And Terminology (normal)
-- `3-lava-mental-model` lines 97-138: 3. Lava Mental Model (normal)
-- `5-core-configuration-and-data-model-lava-engine-liquid-framework` lines 168-186: Lava Engine Liquid Framework (normal)
-- `5-core-configuration-and-data-model-default-enabled-lava-commands` lines 187-198: Default Enabled Lava Commands (normal)
-- `5-core-configuration-and-data-model-html-block-command-enablement` lines 199-209: HTML Block Command Enablement (normal)
+- `1-executive-summary-for-agents` lines 29-53: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 54-98: 2. Scope And Terminology (normal)
+- `3-lava-mental-model` lines 99-140: 3. Lava Mental Model (normal)
+- `5-core-configuration-and-data-model-lava-engine-liquid-framework` lines 170-188: Lava Engine Liquid Framework (normal)
+- `5-core-configuration-and-data-model-default-enabled-lava-commands` lines 189-200: Default Enabled Lava Commands (normal)
+- `5-core-configuration-and-data-model-html-block-command-enablement` lines 201-211: HTML Block Command Enablement (normal)
 
 ## Core Entities
 

@@ -26,12 +26,12 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-40: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 41-90: 2. Scope And Terminology (high)
-- `3-engagement-tracking-mental-model` lines 91-112: 3. Engagement Tracking Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 113-131: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-steps-configuration` lines 134-179: Steps Configuration (high)
-- `5-core-configuration-and-data-model-step-status-and-completion` lines 180-185: Step Status And Completion (normal)
+- `1-executive-summary-for-agents` lines 29-42: 1. Executive Summary For Agents (high)
+- `2-scope-and-terminology` lines 43-92: 2. Scope And Terminology (high)
+- `3-engagement-tracking-mental-model` lines 93-114: 3. Engagement Tracking Mental Model (high)
+- `4-source-authority-and-how-to-use-this-guide` lines 115-133: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-steps-configuration` lines 136-181: Steps Configuration (high)
+- `5-core-configuration-and-data-model-step-status-and-completion` lines 182-187: Step Status And Completion (normal)
 
 ## Core Entities
 

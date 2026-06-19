@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Other`
 - Model title: `FinancialTransactionScannedCheck`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `4`
+- Obsolete methods: `0`
 - EntityType GUID: `0ad40889-547b-4966-b3e1-2f9b2829c09c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,6 +20,8 @@
 | Lava-marked properties | 3 |
 | Lava-marked non-database properties | 0 |
 | Related model links | 0 |
+| Method signatures | 4 |
+| Obsolete methods | 0 |
 | Pre-alpha changes touching this model | 1 |
 
 ## Properties

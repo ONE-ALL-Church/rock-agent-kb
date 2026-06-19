@@ -4,6 +4,10 @@
 - Rock version: `19.1.8`
 - Category: `Group`
 - Model title: `GroupLocationHistorical`
+- Table name: `not provided`
+- Obsolete: `no`
+- Method signatures: `35`
+- Obsolete methods: `4`
 - EntityType GUID: `03128778-5e7d-4fe4-9c7a-929936e06f90`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
@@ -16,7 +20,9 @@
 | Lava-marked properties | 34 |
 | Lava-marked non-database properties | 15 |
 | Related model links | 6 |
-| Pre-alpha changes touching this model | 0 |
+| Method signatures | 35 |
+| Obsolete methods | 4 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
@@ -105,4 +111,6 @@
 
 ## Stable To Pre-Alpha Changes
 
-No stable-to-pre-alpha changes were detected for this model.
+| Change | Property | Fields |
+| --- | --- | --- |
+| property_changed | GroupLocationTypeValueId | enum_values |

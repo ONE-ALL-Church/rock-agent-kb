@@ -25,12 +25,12 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-43: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 44-79: 2. Scope And Terminology (normal)
-- `3-helix-mental-model` lines 80-110: 3. Helix Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 111-125: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-lava-application-configuration` lines 128-151: Lava Application Configuration (normal)
-- `5-core-configuration-and-data-model-lava-endpoint-configuration` lines 152-170: Lava Endpoint Configuration (normal)
+- `1-executive-summary-for-agents` lines 29-45: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 46-81: 2. Scope And Terminology (normal)
+- `3-helix-mental-model` lines 82-112: 3. Helix Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 113-127: 4. Source Authority And How To Use This Guide (normal)
+- `5-core-configuration-and-data-model-lava-application-configuration` lines 130-153: Lava Application Configuration (normal)
+- `5-core-configuration-and-data-model-lava-endpoint-configuration` lines 154-172: Lava Endpoint Configuration (normal)
 
 ## Core Entities
 

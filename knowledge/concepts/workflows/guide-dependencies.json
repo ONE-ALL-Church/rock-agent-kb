@@ -44884,12 +44884,12 @@
   },
   "approved_media_hash": "34facef638c10e2ea5f5cded427018fbaaa76e63569ce6cbcf5c327a1431bc02",
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
-  "built_at": "2026-06-19T05:25:40+00:00",
+  "built_at": "2026-06-19T05:56:46+00:00",
   "concept_id": "workflows",
-  "guide_hash": "5d6fc2d6ede8d088611a772d27e395fdc8c7c34a77055c3aad53736edf34b03b",
-  "guide_line_count": 1654,
+  "guide_hash": "14de623a863198341141fb3061c3b91e01752f73319eb15355d1b9417dbd6973",
+  "guide_line_count": 1656,
   "guide_path": "knowledge/concepts/workflows/guide.md",
-  "guide_word_count": 14214,
+  "guide_word_count": 14227,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -45453,7 +45453,7 @@
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 26,
+      "end_line": 28,
       "heading": "Generated Model Map Pointers",
       "needs_live_verification": true,
       "section_id": "generated-model-map-pointers",
@@ -45464,7 +45464,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 48,
+      "end_line": 50,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
@@ -45483,11 +45483,11 @@
         "9e63e94510f23ab0",
         "213eb833b4eb5705"
       ],
-      "start_line": 27
+      "start_line": 29
     },
     {
       "confidence": "high",
-      "end_line": 95,
+      "end_line": 97,
       "heading": "2. Scope And Terminology",
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
@@ -45504,11 +45504,11 @@
         "294e3e0faa75e82f",
         "31f907d743909991"
       ],
-      "start_line": 49
+      "start_line": 51
     },
     {
       "confidence": "normal",
-      "end_line": 147,
+      "end_line": 149,
       "heading": "3. Workflows Mental Model",
       "needs_live_verification": true,
       "section_id": "3-workflows-mental-model",
@@ -45524,11 +45524,11 @@
         "9e63e94510f23ab0",
         "a2c4a7e46fb87fd9"
       ],
-      "start_line": 96
+      "start_line": 98
     },
     {
       "confidence": "high",
-      "end_line": 173,
+      "end_line": 175,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -45547,11 +45547,11 @@
         "776256c424368312",
         "b541c1ff52eab1ba"
       ],
-      "start_line": 148
+      "start_line": 150
     },
     {
       "confidence": "structural",
-      "end_line": 175,
+      "end_line": 177,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
@@ -45565,11 +45565,11 @@
         "1b8a5b2efafa7c8f",
         "2ba569f45e9e56e6"
       ],
-      "start_line": 174
+      "start_line": 176
     },
     {
       "confidence": "normal",
-      "end_line": 196,
+      "end_line": 198,
       "heading": "Workflow Type Configuration",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-workflow-type-configuration",
@@ -45577,11 +45577,11 @@
         "dd8512f4246a1a6d",
         "dd8512f4246a1a6d"
       ],
-      "start_line": 176
+      "start_line": 178
     },
     {
       "confidence": "community-supported",
-      "end_line": 224,
+      "end_line": 226,
       "heading": "Workflow Attributes",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-workflow-attributes",
@@ -45589,22 +45589,22 @@
         "676957b9d54bf21e",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 197
+      "start_line": 199
     },
     {
       "confidence": "normal",
-      "end_line": 239,
+      "end_line": 241,
       "heading": "Activities And Actions",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-activities-and-actions",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 225
+      "start_line": 227
     },
     {
       "confidence": "normal",
-      "end_line": 257,
+      "end_line": 259,
       "heading": "Workflow Forms",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-workflow-forms",
@@ -45615,11 +45615,11 @@
         "4ff395147b8e6fd4",
         "efec644d633df84d"
       ],
-      "start_line": 240
+      "start_line": 242
     },
     {
       "confidence": "normal",
-      "end_line": 272,
+      "end_line": 274,
       "heading": "Persistence And Processing",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-persistence-and-processing",
@@ -45628,22 +45628,22 @@
         "2ba569f45e9e56e6",
         "dd8512f4246a1a6d"
       ],
-      "start_line": 258
+      "start_line": 260
     },
     {
       "confidence": "normal",
-      "end_line": 286,
+      "end_line": 288,
       "heading": "Status",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-status",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 273
+      "start_line": 275
     },
     {
       "confidence": "high",
-      "end_line": 326,
+      "end_line": 328,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships",
@@ -45660,11 +45660,11 @@
         "e26a8d4dbb95dd18",
         "b3238f9bdb78bd56"
       ],
-      "start_line": 287
+      "start_line": 289
     },
     {
       "confidence": "structural",
-      "end_line": 328,
+      "end_line": 330,
       "heading": "7. Common Workflows Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows",
@@ -45684,55 +45684,55 @@
         "0125195eaf9ab2d4",
         "09981138d163eb3d"
       ],
-      "start_line": 327
+      "start_line": 329
     },
     {
       "confidence": "community-supported",
-      "end_line": 353,
+      "end_line": 355,
       "heading": "Request Intake Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-request-intake-workflow",
       "source_keys": [
         "c65353e48ca13fd6"
       ],
-      "start_line": 329
+      "start_line": 331
     },
     {
       "confidence": "community-supported",
-      "end_line": 376,
+      "end_line": 378,
       "heading": "Event Call-To-Action Workflow",
       "needs_live_verification": true,
       "section_id": "7-common-workflows-workflows-event-call-to-action-workflow",
       "source_keys": [
         "b89c217b09ef1764"
       ],
-      "start_line": 354
+      "start_line": 356
     },
     {
       "confidence": "community-supported",
-      "end_line": 397,
+      "end_line": 399,
       "heading": "Staff Approval Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-staff-approval-workflow",
       "source_keys": [
         "c65353e48ca13fd6"
       ],
-      "start_line": 377
+      "start_line": 379
     },
     {
       "confidence": "community-supported",
-      "end_line": 425,
+      "end_line": 427,
       "heading": "Helper Workflow",
       "needs_live_verification": true,
       "section_id": "7-common-workflows-workflows-helper-workflow",
       "source_keys": [
         "a2c4a7e46fb87fd9"
       ],
-      "start_line": 398
+      "start_line": 400
     },
     {
       "confidence": "community-supported",
-      "end_line": 439,
+      "end_line": 441,
       "heading": "Grid-Launched Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-grid-launched-workflow",
@@ -45741,11 +45741,11 @@
         "927a0c62307ddd7a",
         "916bb0c04d8478c8"
       ],
-      "start_line": 426
+      "start_line": 428
     },
     {
       "confidence": "community-supported",
-      "end_line": 461,
+      "end_line": 463,
       "heading": "Webhook-To-Workflow Integration",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-webhook-to-workflow-integration",
@@ -45754,11 +45754,11 @@
         "b3238f9bdb78bd56",
         "b3238f9bdb78bd56"
       ],
-      "start_line": 440
+      "start_line": 442
     },
     {
       "confidence": "normal",
-      "end_line": 478,
+      "end_line": 480,
       "heading": "Form Builder Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-form-builder-workflow",
@@ -45767,11 +45767,11 @@
         "dd8512f4246a1a6d",
         "31f907d743909991"
       ],
-      "start_line": 462
+      "start_line": 464
     },
     {
       "confidence": "community-supported",
-      "end_line": 494,
+      "end_line": 496,
       "heading": "Electronic Signature Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-electronic-signature-workflow",
@@ -45779,22 +45779,22 @@
         "390a990a15a512ec",
         "9af162570ab9ac58"
       ],
-      "start_line": 479
+      "start_line": 481
     },
     {
       "confidence": "community-supported",
-      "end_line": 508,
+      "end_line": 510,
       "heading": "Bulk Creation Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-workflows-workflows-bulk-creation-workflow",
       "source_keys": [
         "0125195eaf9ab2d4"
       ],
-      "start_line": 495
+      "start_line": 497
     },
     {
       "confidence": "community-supported",
-      "end_line": 523,
+      "end_line": 525,
       "heading": "Finance Or Contribution Workflow",
       "needs_live_verification": true,
       "section_id": "7-common-workflows-workflows-finance-or-contribution-workflow",
@@ -45802,11 +45802,11 @@
         "09981138d163eb3d",
         "5e8b8d8bea8d4976"
       ],
-      "start_line": 509
+      "start_line": 511
     },
     {
       "confidence": "structural",
-      "end_line": 525,
+      "end_line": 527,
       "heading": "8. Triggers And Activation Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-triggers-and-activation-deep-dive",
@@ -45823,33 +45823,33 @@
         "9e63e94510f23ab0",
         "9af162570ab9ac58"
       ],
-      "start_line": 524
+      "start_line": 526
     },
     {
       "confidence": "normal",
-      "end_line": 541,
+      "end_line": 543,
       "heading": "Workflow Entry Activation",
       "needs_live_verification": true,
       "section_id": "8-triggers-and-activation-deep-dive-workflow-entry-activation",
       "source_keys": [
         "294e3e0faa75e82f"
       ],
-      "start_line": 526
+      "start_line": 528
     },
     {
       "confidence": "normal",
-      "end_line": 559,
+      "end_line": 561,
       "heading": "Entity Triggers",
       "needs_live_verification": true,
       "section_id": "8-triggers-and-activation-deep-dive-entity-triggers",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 542
+      "start_line": 544
     },
     {
       "confidence": "normal",
-      "end_line": 590,
+      "end_line": 592,
       "heading": "Lava `workflowactivate`",
       "needs_live_verification": true,
       "section_id": "8-triggers-and-activation-deep-dive-lava-workflowactivate",
@@ -45859,22 +45859,22 @@
         "e26a8d4dbb95dd18",
         "6dc9381936c94c9e"
       ],
-      "start_line": 560
+      "start_line": 562
     },
     {
       "confidence": "community-supported",
-      "end_line": 606,
+      "end_line": 608,
       "heading": "Webhook Activation",
       "needs_live_verification": false,
       "section_id": "8-triggers-and-activation-deep-dive-webhook-activation",
       "source_keys": [
         "b3238f9bdb78bd56"
       ],
-      "start_line": 591
+      "start_line": 593
     },
     {
       "confidence": "community-supported",
-      "end_line": 620,
+      "end_line": 622,
       "heading": "Grid Activation",
       "needs_live_verification": false,
       "section_id": "8-triggers-and-activation-deep-dive-grid-activation",
@@ -45883,11 +45883,11 @@
         "927a0c62307ddd7a",
         "916bb0c04d8478c8"
       ],
-      "start_line": 607
+      "start_line": 609
     },
     {
       "confidence": "community-supported",
-      "end_line": 635,
+      "end_line": 637,
       "heading": "Connection, Step, Group, And Requirement Activation",
       "needs_live_verification": true,
       "section_id": "8-triggers-and-activation-deep-dive-connection-step-group-and-requirement-activation",
@@ -45895,11 +45895,11 @@
         "9e63e94510f23ab0",
         "9af162570ab9ac58"
       ],
-      "start_line": 621
+      "start_line": 623
     },
     {
       "confidence": "structural",
-      "end_line": 637,
+      "end_line": 639,
       "heading": "9. Workflow Forms Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-workflow-forms-deep-dive",
@@ -45917,11 +45917,11 @@
         "9a5d010b44c3807d",
         "64e0316c0363bf14"
       ],
-      "start_line": 636
+      "start_line": 638
     },
     {
       "confidence": "normal",
-      "end_line": 654,
+      "end_line": 656,
       "heading": "Form Design Principles",
       "needs_live_verification": true,
       "section_id": "9-workflow-forms-deep-dive-form-design-principles",
@@ -45929,33 +45929,33 @@
         "dd8512f4246a1a6d",
         "c7e64b58d0d67e94"
       ],
-      "start_line": 638
+      "start_line": 640
     },
     {
       "confidence": "citation-only",
-      "end_line": 668,
+      "end_line": 670,
       "heading": "Form Fields And Sections",
       "needs_live_verification": false,
       "section_id": "9-workflow-forms-deep-dive-form-fields-and-sections",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 655
+      "start_line": 657
     },
     {
       "confidence": "normal",
-      "end_line": 679,
+      "end_line": 681,
       "heading": "Conditional Logic",
       "needs_live_verification": true,
       "section_id": "9-workflow-forms-deep-dive-conditional-logic",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 669
+      "start_line": 671
     },
     {
       "confidence": "high",
-      "end_line": 707,
+      "end_line": 709,
       "heading": "Person Entry",
       "needs_live_verification": true,
       "section_id": "9-workflow-forms-deep-dive-person-entry",
@@ -45969,11 +45969,11 @@
         "7ba65ddfd0a24f47",
         "f682e2af95d9c13c"
       ],
-      "start_line": 680
+      "start_line": 682
     },
     {
       "confidence": "normal",
-      "end_line": 719,
+      "end_line": 721,
       "heading": "Campus Selection And Inactive Campuses",
       "needs_live_verification": true,
       "section_id": "9-workflow-forms-deep-dive-campus-selection-and-inactive-campuses",
@@ -45981,33 +45981,33 @@
         "936b211bc3f33eab",
         "b541c1ff52eab1ba"
       ],
-      "start_line": 708
+      "start_line": 710
     },
     {
       "confidence": "citation-only",
-      "end_line": 733,
+      "end_line": 735,
       "heading": "Form Styling",
       "needs_live_verification": false,
       "section_id": "9-workflow-forms-deep-dive-form-styling",
       "source_keys": [
         "9a5d010b44c3807d"
       ],
-      "start_line": 720
+      "start_line": 722
     },
     {
       "confidence": "community-supported",
-      "end_line": 747,
+      "end_line": 749,
       "heading": "Modal Workflow Entry",
       "needs_live_verification": true,
       "section_id": "9-workflow-forms-deep-dive-modal-workflow-entry",
       "source_keys": [
         "64e0316c0363bf14"
       ],
-      "start_line": 734
+      "start_line": 736
     },
     {
       "confidence": "structural",
-      "end_line": 749,
+      "end_line": 751,
       "heading": "10. Workflow Integrations Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-workflow-integrations-deep-dive",
@@ -46021,33 +46021,33 @@
         "09981138d163eb3d",
         "c65353e48ca13fd6"
       ],
-      "start_line": 748
+      "start_line": 750
     },
     {
       "confidence": "community-supported",
-      "end_line": 764,
+      "end_line": 766,
       "heading": "Outbound Webhooks And Zapier",
       "needs_live_verification": true,
       "section_id": "10-workflow-integrations-deep-dive-outbound-webhooks-and-zapier",
       "source_keys": [
         "5e8b8d8bea8d4976"
       ],
-      "start_line": 750
+      "start_line": 752
     },
     {
       "confidence": "community-supported",
-      "end_line": 785,
+      "end_line": 787,
       "heading": "Inbound Webhooks",
       "needs_live_verification": true,
       "section_id": "10-workflow-integrations-deep-dive-inbound-webhooks",
       "source_keys": [
         "b3238f9bdb78bd56"
       ],
-      "start_line": 765
+      "start_line": 767
     },
     {
       "confidence": "normal",
-      "end_line": 808,
+      "end_line": 810,
       "heading": "Lava As Integration Glue",
       "needs_live_verification": false,
       "section_id": "10-workflow-integrations-deep-dive-lava-as-integration-glue",
@@ -46055,11 +46055,11 @@
         "944d44ff4810c8f9",
         "e26a8d4dbb95dd18"
       ],
-      "start_line": 786
+      "start_line": 788
     },
     {
       "confidence": "community-supported",
-      "end_line": 823,
+      "end_line": 825,
       "heading": "Communications",
       "needs_live_verification": false,
       "section_id": "10-workflow-integrations-deep-dive-communications",
@@ -46067,11 +46067,11 @@
         "b89c217b09ef1764",
         "a2c4a7e46fb87fd9"
       ],
-      "start_line": 809
+      "start_line": 811
     },
     {
       "confidence": "community-supported",
-      "end_line": 837,
+      "end_line": 839,
       "heading": "Connections",
       "needs_live_verification": false,
       "section_id": "10-workflow-integrations-deep-dive-connections",
@@ -46079,11 +46079,11 @@
         "b89c217b09ef1764",
         "09981138d163eb3d"
       ],
-      "start_line": 824
+      "start_line": 826
     },
     {
       "confidence": "community-supported",
-      "end_line": 852,
+      "end_line": 854,
       "heading": "Groups And Group Member Attributes",
       "needs_live_verification": false,
       "section_id": "10-workflow-integrations-deep-dive-groups-and-group-member-attributes",
@@ -46091,11 +46091,11 @@
         "c65353e48ca13fd6",
         "a2c4a7e46fb87fd9"
       ],
-      "start_line": 838
+      "start_line": 840
     },
     {
       "confidence": "structural",
-      "end_line": 854,
+      "end_line": 856,
       "heading": "11. Related Rock Areas: Lava, Jobs, Communications, Security, Attributes",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-jobs-communications-security-attributes",
@@ -46109,11 +46109,11 @@
         "09981138d163eb3d",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 853
+      "start_line": 855
     },
     {
       "confidence": "normal",
-      "end_line": 871,
+      "end_line": 873,
       "heading": "Lava",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-lava-jobs-communications-security-attributes-lava",
@@ -46121,11 +46121,11 @@
         "944d44ff4810c8f9",
         "6dc9381936c94c9e"
       ],
-      "start_line": 855
+      "start_line": 857
     },
     {
       "confidence": "community-supported",
-      "end_line": 886,
+      "end_line": 888,
       "heading": "Jobs",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-jobs-communications-security-attributes-jobs",
@@ -46133,11 +46133,11 @@
         "b3238f9bdb78bd56",
         "213eb833b4eb5705"
       ],
-      "start_line": 872
+      "start_line": 874
     },
     {
       "confidence": "structural",
-      "end_line": 898,
+      "end_line": 900,
       "heading": "Communications",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-lava-jobs-communications-security-attributes-communications",
@@ -46145,22 +46145,22 @@
         "b3238f9bdb78bd56",
         "213eb833b4eb5705"
       ],
-      "start_line": 887
+      "start_line": 889
     },
     {
       "confidence": "normal",
-      "end_line": 913,
+      "end_line": 915,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-lava-jobs-communications-security-attributes-security",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 899
+      "start_line": 901
     },
     {
       "confidence": "community-supported",
-      "end_line": 929,
+      "end_line": 931,
       "heading": "Attributes",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-jobs-communications-security-attributes-attributes",
@@ -46170,11 +46170,11 @@
         "09981138d163eb3d",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 914
+      "start_line": 916
     },
     {
       "confidence": "structural",
-      "end_line": 931,
+      "end_line": 933,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -46187,11 +46187,11 @@
         "9e63e94510f23ab0",
         "213eb833b4eb5705"
       ],
-      "start_line": 930
+      "start_line": 932
     },
     {
       "confidence": "structural",
-      "end_line": 954,
+      "end_line": 956,
       "heading": "Naming Standards",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-naming-standards",
@@ -46201,77 +46201,77 @@
         "09981138d163eb3d",
         "fde4b2ba74c5f195"
       ],
-      "start_line": 932
+      "start_line": 934
     },
     {
       "confidence": "normal",
-      "end_line": 970,
+      "end_line": 972,
       "heading": "Change Management",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-change-management",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 955
+      "start_line": 957
     },
     {
       "confidence": "community-supported",
-      "end_line": 991,
+      "end_line": 993,
       "heading": "Where-Used Audits",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-where-used-audits",
       "source_keys": [
         "9e63e94510f23ab0"
       ],
-      "start_line": 971
+      "start_line": 973
     },
     {
       "confidence": "community-supported",
-      "end_line": 1006,
+      "end_line": 1008,
       "heading": "Active Workflow Hygiene",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-active-workflow-hygiene",
       "source_keys": [
         "213eb833b4eb5705"
       ],
-      "start_line": 992
+      "start_line": 994
     },
     {
       "confidence": "normal",
-      "end_line": 1018,
+      "end_line": 1020,
       "heading": "Maximum Age And Auto-Completion",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-maximum-age-and-auto-completion",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 1007
+      "start_line": 1009
     },
     {
       "confidence": "normal",
-      "end_line": 1034,
+      "end_line": 1036,
       "heading": "Error Handling",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-error-handling",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 1019
+      "start_line": 1021
     },
     {
       "confidence": "normal",
-      "end_line": 1051,
+      "end_line": 1053,
       "heading": "Public Form Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-public-form-guardrails",
       "source_keys": [
         "dd8512f4246a1a6d"
       ],
-      "start_line": 1035
+      "start_line": 1037
     },
     {
       "confidence": "structural",
-      "end_line": 1053,
+      "end_line": 1055,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -46292,11 +46292,11 @@
         "547b1337a6e19cf7",
         "acd6d42ca9f08d83"
       ],
-      "start_line": 1052
+      "start_line": 1054
     },
     {
       "confidence": "normal",
-      "end_line": 1064,
+      "end_line": 1066,
       "heading": "Lava Command Source",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-command-source",
@@ -46304,22 +46304,22 @@
         "e26a8d4dbb95dd18",
         "6dc9381936c94c9e"
       ],
-      "start_line": 1054
+      "start_line": 1056
     },
     {
       "confidence": "normal",
-      "end_line": 1068,
+      "end_line": 1070,
       "heading": "Deprecated Activate Workflow Block",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-deprecated-activate-workflow-block",
       "source_keys": [
         "294e3e0faa75e82f"
       ],
-      "start_line": 1065
+      "start_line": 1067
     },
     {
       "confidence": "normal",
-      "end_line": 1081,
+      "end_line": 1083,
       "heading": "Person Entry Source",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-person-entry-source",
@@ -46335,11 +46335,11 @@
         "2372cf4622f3d2cc",
         "65cd0c1557af0575"
       ],
-      "start_line": 1069
+      "start_line": 1071
     },
     {
       "confidence": "normal",
-      "end_line": 1096,
+      "end_line": 1098,
       "heading": "API And Data Access",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-and-data-access",
@@ -46347,22 +46347,22 @@
         "547b1337a6e19cf7",
         "acd6d42ca9f08d83"
       ],
-      "start_line": 1082
+      "start_line": 1084
     },
     {
       "confidence": "normal",
-      "end_line": 1100,
+      "end_line": 1102,
       "heading": "Internal API Warning",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-internal-api-warning",
       "source_keys": [
         "936b211bc3f33eab"
       ],
-      "start_line": 1097
+      "start_line": 1099
     },
     {
       "confidence": "structural",
-      "end_line": 1102,
+      "end_line": 1104,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -46373,11 +46373,11 @@
         "bce31f25cb8a199e",
         "1b8a5b2efafa7c8f"
       ],
-      "start_line": 1101
+      "start_line": 1103
     },
     {
       "confidence": "community-supported",
-      "end_line": 1124,
+      "end_line": 1126,
       "heading": "What To Report",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-what-to-report",
@@ -46386,11 +46386,11 @@
         "fde4b2ba74c5f195",
         "676957b9d54bf21e"
       ],
-      "start_line": 1103
+      "start_line": 1105
     },
     {
       "confidence": "citation-only",
-      "end_line": 1134,
+      "end_line": 1136,
       "heading": "Model Map Use",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map-use",
@@ -46399,11 +46399,11 @@
         "bce31f25cb8a199e",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1125
+      "start_line": 1127
     },
     {
       "confidence": "community-supported",
-      "end_line": 1149,
+      "end_line": 1151,
       "heading": "Reporting Caveats",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-reporting-caveats",
@@ -46411,11 +46411,11 @@
         "fde4b2ba74c5f195",
         "213eb833b4eb5705"
       ],
-      "start_line": 1135
+      "start_line": 1137
     },
     {
       "confidence": "community-supported",
-      "end_line": 1166,
+      "end_line": 1168,
       "heading": "Health Metrics",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-health-metrics",
@@ -46423,11 +46423,11 @@
         "213eb833b4eb5705",
         "1b8a5b2efafa7c8f"
       ],
-      "start_line": 1150
+      "start_line": 1152
     },
     {
       "confidence": "high",
-      "end_line": 1193,
+      "end_line": 1195,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats",
@@ -46445,11 +46445,11 @@
         "dd8512f4246a1a6d",
         "294e3e0faa75e82f"
       ],
-      "start_line": 1167
+      "start_line": 1169
     },
     {
       "confidence": "structural",
-      "end_line": 1195,
+      "end_line": 1197,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -46467,11 +46467,11 @@
         "9e63e94510f23ab0",
         "213eb833b4eb5705"
       ],
-      "start_line": 1194
+      "start_line": 1196
     },
     {
       "confidence": "citation-only",
-      "end_line": 1216,
+      "end_line": 1218,
       "heading": "Playbook: Build A Public Intake Workflow",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-public-intake-workflow",
@@ -46480,11 +46480,11 @@
         "c7e64b58d0d67e94",
         "ea6aab44a90c83e0"
       ],
-      "start_line": 1196
+      "start_line": 1198
     },
     {
       "confidence": "community-supported",
-      "end_line": 1233,
+      "end_line": 1235,
       "heading": "Playbook: Add A Workflow To A Grid",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-workflow-to-a-grid",
@@ -46493,33 +46493,33 @@
         "927a0c62307ddd7a",
         "916bb0c04d8478c8"
       ],
-      "start_line": 1217
+      "start_line": 1219
     },
     {
       "confidence": "community-supported",
-      "end_line": 1248,
+      "end_line": 1250,
       "heading": "Playbook: Create A Helper Workflow",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-create-a-helper-workflow",
       "source_keys": [
         "a2c4a7e46fb87fd9"
       ],
-      "start_line": 1234
+      "start_line": 1236
     },
     {
       "confidence": "normal",
-      "end_line": 1261,
+      "end_line": 1263,
       "heading": "Playbook: Replace Deprecated Activate Workflow Block",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-replace-deprecated-activate-workflow-block",
       "source_keys": [
         "294e3e0faa75e82f"
       ],
-      "start_line": 1249
+      "start_line": 1251
     },
     {
       "confidence": "community-supported",
-      "end_line": 1280,
+      "end_line": 1282,
       "heading": "Playbook: Build Webhook-To-Workflow",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-webhook-to-workflow",
@@ -46527,11 +46527,11 @@
         "b3238f9bdb78bd56",
         "5e8b8d8bea8d4976"
       ],
-      "start_line": 1262
+      "start_line": 1264
     },
     {
       "confidence": "community-supported",
-      "end_line": 1300,
+      "end_line": 1302,
       "heading": "Playbook: Audit A Workflow Before Editing",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-audit-a-workflow-before-editing",
@@ -46539,11 +46539,11 @@
         "9e63e94510f23ab0",
         "213eb833b4eb5705"
       ],
-      "start_line": 1281
+      "start_line": 1283
     },
     {
       "confidence": "structural",
-      "end_line": 1302,
+      "end_line": 1304,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -46555,110 +46555,110 @@
         "31f907d743909991",
         "dd8512f4246a1a6d"
       ],
-      "start_line": 1301
+      "start_line": 1303
     },
     {
       "confidence": "normal",
-      "end_line": 1313,
+      "end_line": 1315,
       "heading": "Workflow Did Not Start",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-workflow-did-not-start",
       "source_keys": [
         "6dc9381936c94c9e"
       ],
-      "start_line": 1303
+      "start_line": 1305
     },
     {
       "confidence": "structural",
-      "end_line": 1327,
+      "end_line": 1329,
       "heading": "Workflow Started But Form Did Not Show",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-workflow-started-but-form-did-not-show",
       "source_keys": [
         "6dc9381936c94c9e"
       ],
-      "start_line": 1314
+      "start_line": 1316
     },
     {
       "confidence": "structural",
-      "end_line": 1341,
+      "end_line": 1343,
       "heading": "Form Submission Fails",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-form-submission-fails",
       "source_keys": [
         "6dc9381936c94c9e"
       ],
-      "start_line": 1328
+      "start_line": 1330
     },
     {
       "confidence": "normal",
-      "end_line": 1354,
+      "end_line": 1356,
       "heading": "Person Entry Creates Duplicates",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-person-entry-creates-duplicates",
       "source_keys": [
         "65cd0c1557af0575"
       ],
-      "start_line": 1342
+      "start_line": 1344
     },
     {
       "confidence": "community-supported",
-      "end_line": 1372,
+      "end_line": 1374,
       "heading": "Workflow Is Stuck Active",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-workflow-is-stuck-active",
       "source_keys": [
         "213eb833b4eb5705"
       ],
-      "start_line": 1355
+      "start_line": 1357
     },
     {
       "confidence": "structural",
-      "end_line": 1386,
+      "end_line": 1388,
       "heading": "Workflow Sends Duplicate Communications",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-workflow-sends-duplicate-communications",
       "source_keys": [
         "213eb833b4eb5705"
       ],
-      "start_line": 1373
+      "start_line": 1375
     },
     {
       "confidence": "structural",
-      "end_line": 1400,
+      "end_line": 1402,
       "heading": "Workflow Does Not Send Communication",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-workflow-does-not-send-communication",
       "source_keys": [
         "213eb833b4eb5705"
       ],
-      "start_line": 1387
+      "start_line": 1389
     },
     {
       "confidence": "community-supported",
-      "end_line": 1412,
+      "end_line": 1414,
       "heading": "Webhook Workflow Is Slow",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-webhook-workflow-is-slow",
       "source_keys": [
         "b3238f9bdb78bd56"
       ],
-      "start_line": 1401
+      "start_line": 1403
     },
     {
       "confidence": "structural",
-      "end_line": 1425,
+      "end_line": 1427,
       "heading": "Workflow Attribute Value Looks Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-workflow-attribute-value-looks-wrong",
       "source_keys": [
         "b3238f9bdb78bd56"
       ],
-      "start_line": 1413
+      "start_line": 1415
     },
     {
       "confidence": "normal",
-      "end_line": 1439,
+      "end_line": 1441,
       "heading": "Form Builder Staff Cannot Find The Form Link",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-form-builder-staff-cannot-find-the-form-link",
@@ -46666,11 +46666,11 @@
         "31f907d743909991",
         "dd8512f4246a1a6d"
       ],
-      "start_line": 1426
+      "start_line": 1428
     },
     {
       "confidence": "structural",
-      "end_line": 1441,
+      "end_line": 1443,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -46682,66 +46682,66 @@
         "944d44ff4810c8f9",
         "e26a8d4dbb95dd18"
       ],
-      "start_line": 1440
+      "start_line": 1442
     },
     {
       "confidence": "community-supported",
-      "end_line": 1468,
+      "end_line": 1470,
       "heading": "Recipe: Find Every Launch Path For A Workflow Type",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-every-launch-path-for-a-workflow-type",
       "source_keys": [
         "9e63e94510f23ab0"
       ],
-      "start_line": 1442
+      "start_line": 1444
     },
     {
       "confidence": "structural",
-      "end_line": 1485,
+      "end_line": 1487,
       "heading": "Recipe: Explain A Workflow To A Staff Owner",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-explain-a-workflow-to-a-staff-owner",
       "source_keys": [
         "9e63e94510f23ab0"
       ],
-      "start_line": 1469
+      "start_line": 1471
     },
     {
       "confidence": "structural",
-      "end_line": 1496,
+      "end_line": 1498,
       "heading": "Recipe: Diagnose A Missing Submission",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-a-missing-submission",
       "source_keys": [
         "9e63e94510f23ab0"
       ],
-      "start_line": 1486
+      "start_line": 1488
     },
     {
       "confidence": "structural",
-      "end_line": 1509,
+      "end_line": 1511,
       "heading": "Recipe: Safely Retire A Workflow",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-safely-retire-a-workflow",
       "source_keys": [
         "9e63e94510f23ab0"
       ],
-      "start_line": 1497
+      "start_line": 1499
     },
     {
       "confidence": "community-supported",
-      "end_line": 1525,
+      "end_line": 1527,
       "heading": "Recipe: Build A Workflow Health Dashboard",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-a-workflow-health-dashboard",
       "source_keys": [
         "213eb833b4eb5705"
       ],
-      "start_line": 1510
+      "start_line": 1512
     },
     {
       "confidence": "normal",
-      "end_line": 1540,
+      "end_line": 1542,
       "heading": "Recipe: Validate Person Entry Configuration",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-validate-person-entry-configuration",
@@ -46749,11 +46749,11 @@
         "936b211bc3f33eab",
         "f682e2af95d9c13c"
       ],
-      "start_line": 1526
+      "start_line": 1528
     },
     {
       "confidence": "normal",
-      "end_line": 1562,
+      "end_line": 1564,
       "heading": "Recipe: Audit `workflowactivate` Lava",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-audit-workflowactivate-lava",
@@ -46761,11 +46761,11 @@
         "944d44ff4810c8f9",
         "e26a8d4dbb95dd18"
       ],
-      "start_line": 1541
+      "start_line": 1543
     },
     {
       "confidence": "citation-only",
-      "end_line": 1588,
+      "end_line": 1590,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -46783,11 +46783,11 @@
         "9ac0699e8486beee",
         "a520db9e9adc1368"
       ],
-      "start_line": 1563
+      "start_line": 1565
     },
     {
       "confidence": "citation-only",
-      "end_line": 1609,
+      "end_line": 1611,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -46801,11 +46801,11 @@
         "d61d88d50d1aa308",
         "e25a6cf1bfd0bcd6"
       ],
-      "start_line": 1589
+      "start_line": 1591
     },
     {
       "confidence": "high",
-      "end_line": 1654,
+      "end_line": 1656,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -46840,7 +46840,7 @@
         "a2c4a7e46fb87fd9",
         "09981138d163eb3d"
       ],
-      "start_line": 1610
+      "start_line": 1612
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:49+00:00",

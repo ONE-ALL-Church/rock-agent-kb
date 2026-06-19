@@ -243,28 +243,31 @@ def build_agent_pack() -> dict[str, int]:
 def build_or_reuse_model_map() -> dict[str, Any]:
     """Reuse committed generated model-map artifacts.
 
-    Raw model-map scrapes are ignored review inputs and may be stale. Only the
-    explicit `kb modelmap build` command should regenerate public model-map
-    files from those scrapes.
+    Raw model-map fetch artifacts are ignored review inputs and may be stale.
+    Only the explicit `kb modelmap fetch` plus `kb modelmap build` workflow
+    should regenerate public model-map files from those artifacts.
     """
 
     required_paths = [
         KNOWLEDGE_DIR / "model-map" / "index.md",
         KNOWLEDGE_DIR / "model-map" / "stable-models.jsonl",
         KNOWLEDGE_DIR / "model-map" / "stable-properties.jsonl",
+        KNOWLEDGE_DIR / "model-map" / "stable-methods.jsonl",
         KNOWLEDGE_DIR / "model-map" / "latest-models.jsonl",
         KNOWLEDGE_DIR / "model-map" / "latest-properties.jsonl",
+        KNOWLEDGE_DIR / "model-map" / "latest-methods.jsonl",
         KNOWLEDGE_DIR / "model-map" / "version-diff.jsonl",
         AGENT_DIR / "model-map-summary.json",
         AGENT_DIR / "model-map-entities.jsonl",
         AGENT_DIR / "model-map-properties.jsonl",
+        AGENT_DIR / "model-map-methods.jsonl",
         AGENT_DIR / "model-map-version-diff.jsonl",
     ]
     missing = [str(path) for path in required_paths if not path.exists()]
     if missing:
         raise FileNotFoundError(
-            "Model-map raw scrape artifacts are missing and generated model-map artifacts are incomplete. "
-            "Run tools/model_map_obsidian_scrape.js for stable/latest and then `uv run kb modelmap build`. "
+            "Generated model-map artifacts are incomplete. "
+            "Run `uv run kb modelmap fetch --track both` and then `uv run kb modelmap build`. "
             f"Missing generated artifacts: {', '.join(missing[:5])}"
         )
 
@@ -273,6 +276,8 @@ def build_or_reuse_model_map() -> dict[str, Any]:
     latest_models = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "latest-models.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     stable_properties = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "stable-properties.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     latest_properties = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "latest-properties.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
+    stable_methods = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "stable-methods.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
+    latest_methods = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "latest-methods.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     version_diff_changes = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "version-diff.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     return {
         "source": "reused_generated_model_map",
@@ -283,6 +288,8 @@ def build_or_reuse_model_map() -> dict[str, Any]:
         "pre_alpha_models": latest_models,
         "stable_properties": stable_properties,
         "pre_alpha_properties": latest_properties,
+        "stable_methods": stable_methods,
+        "pre_alpha_methods": latest_methods,
         "version_diff_changes": version_diff_changes,
     }
 

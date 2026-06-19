@@ -26,12 +26,12 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 27-49: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 50-72: 2. Scope And Terminology (normal)
-- `3-scheduling-and-locations-mental-model` lines 73-108: 3. Scheduling And Locations Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 109-120: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-locations` lines 123-151: Locations (high)
-- `5-core-configuration-and-data-model-schedules` lines 152-175: Schedules (normal)
+- `1-executive-summary-for-agents` lines 29-51: 1. Executive Summary For Agents (normal)
+- `2-scope-and-terminology` lines 52-74: 2. Scope And Terminology (normal)
+- `3-scheduling-and-locations-mental-model` lines 75-110: 3. Scheduling And Locations Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 111-122: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model-locations` lines 125-153: Locations (high)
+- `5-core-configuration-and-data-model-schedules` lines 154-177: Schedules (normal)
 
 ## Core Entities
 
