@@ -29,6 +29,20 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
         return retrieval.search(query, limit=limit)
 
     @mcp.tool(
+        name="kb_list_models",
+        description="List stable Rock Model Map models with slugs, categories, versions, and counts.",
+    )
+    def kb_list_models() -> dict[str, Any]:
+        return retrieval.list_models()
+
+    @mcp.tool(
+        name="kb_get_model",
+        description="Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or property.",
+    )
+    def kb_get_model(model: str, fields: str | None = None, property: str | None = None) -> dict[str, Any] | None:
+        return retrieval.get_model(model, fields=fields, property=property)
+
+    @mcp.tool(
         name="kb_manifest",
         description="Return the public Rock KB manifest with available entrypoints and artifact metadata.",
     )

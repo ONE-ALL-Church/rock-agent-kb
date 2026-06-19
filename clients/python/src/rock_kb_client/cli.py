@@ -10,7 +10,7 @@ from urllib import request
 from .validator import validate_bundle
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-USER_AGENT = "rock-kb-client/0.1 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
+USER_AGENT = "rock-kb-client/0.1.1 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -31,6 +31,21 @@ def main(argv: list[str] | None = None) -> int:
     claims.add_argument("concept_id")
     claims.add_argument("--tier")
     claims.add_argument("--min-tier", default="routing_context_only")
+
+    model = subparsers.add_parser("model")
+    model.add_argument("model")
+    model.add_argument("--fields")
+    model.add_argument("--property")
+    model.add_argument("--format", choices=["json", "markdown"], default="json")
+
+    model_map = subparsers.add_parser("model-map")
+    model_map_subparsers = model_map.add_subparsers(dest="model_map_command", required=True)
+    model_map_subparsers.add_parser("list")
+    model_map_get = model_map_subparsers.add_parser("get")
+    model_map_get.add_argument("model")
+    model_map_get.add_argument("--fields")
+    model_map_get.add_argument("--property")
+    model_map_get.add_argument("--format", choices=["json", "markdown"], default="json")
 
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
@@ -58,6 +73,13 @@ def main(argv: list[str] | None = None) -> int:
         if args.tier:
             suffix += f"&tier={quote(args.tier)}"
         return print_json(get_json(f"{base_url}/claims/{quote(args.concept_id)}{suffix}"))
+    if args.command == "model":
+        return print_model(base_url, args.model, args.fields, args.property, args.format)
+    if args.command == "model-map":
+        if args.model_map_command == "list":
+            return print_json(get_json(f"{base_url}/model-map/models"))
+        if args.model_map_command == "get":
+            return print_model(base_url, args.model, args.fields, args.property, args.format)
     if args.command == "manifest":
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":
@@ -93,6 +115,21 @@ def main(argv: list[str] | None = None) -> int:
             }
         )
     return 1
+
+
+def print_model(base_url: str, model: str, fields: str | None, property_name: str | None, format_name: str) -> int:
+    params = []
+    if fields:
+        params.append(f"fields={quote(fields)}")
+    if property_name:
+        params.append(f"property={quote(property_name)}")
+    if format_name:
+        params.append(f"format={quote(format_name)}")
+    suffix = f"?{'&'.join(params)}" if params else ""
+    url = f"{base_url}/model-map/models/{quote(model)}{suffix}"
+    if format_name == "markdown":
+        return print_text(get_text(url))
+    return print_json(get_json(url))
 
 
 def get_json(url: str):

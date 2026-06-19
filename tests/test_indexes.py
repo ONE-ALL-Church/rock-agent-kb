@@ -209,6 +209,7 @@ def test_build_or_reuse_model_map_reuses_generated_artifacts_without_raw_scrapes
     (agent_dir / "model-map-properties.jsonl").write_text('{"property":"Name"}\n', encoding="utf-8")
     (agent_dir / "model-map-methods.jsonl").write_text('{"method":"ToString"}\n', encoding="utf-8")
     (agent_dir / "model-map-version-diff.jsonl").write_text('{"change":"added"}\n', encoding="utf-8")
+    (agent_dir / "model-map-digests.jsonl").write_text('{"identity":{"model_slug":"person"}}\n', encoding="utf-8")
 
     result = indexes_module.build_or_reuse_model_map()
 
@@ -220,3 +221,4 @@ def test_build_or_reuse_model_map_reuses_generated_artifacts_without_raw_scrapes
     assert result["pre_alpha_models"] == 2
     assert result["stable_methods"] == 1
     assert result["pre_alpha_methods"] == 2
+    assert result["model_digests"] == 1

@@ -102,9 +102,116 @@ def get_claims(concept_id: str, tier: str | None = None, root: Path | None = Non
     return rows
 
 
+def list_models(root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    digests = list(read_jsonl(root / "agent" / "model-map-digests.jsonl"))
+    models = []
+    for digest in digests:
+        identity = digest.get("identity") or {}
+        counts = digest.get("counts") or {}
+        models.append(
+            {
+                "model_slug": identity.get("model_slug"),
+                "model_name": identity.get("model_name"),
+                "model_title": identity.get("model_title"),
+                "model_category": identity.get("model_category"),
+                "rock_version": identity.get("rock_version"),
+                "property_count": counts.get("properties") or 0,
+                "method_count": counts.get("methods") or 0,
+                "model_detail_path": identity.get("model_detail_path"),
+            }
+        )
+    return {
+        "schema": "rock-kb-model-map-model-list-v1",
+        "count": len(models),
+        "models": sorted(models, key=lambda row: str(row.get("model_name") or "")),
+    }
+
+
+def get_model(model: str, fields: str | None = None, property: str | None = None, root: Path | None = None) -> dict[str, Any] | None:
+    root = root or REPO_ROOT
+    digests = list(read_jsonl(root / "agent" / "model-map-digests.jsonl"))
+    digest = next((row for row in digests if model_digest_matches(row, model)), None)
+    if not digest:
+        return None
+    selected = select_model_digest(digest, fields)
+    if property:
+        selected = {**selected, "property_matches": find_model_properties(digest, property)}
+    identity = digest.get("identity") or {}
+    return {
+        "schema": "rock-kb-model-map-model-result-v1",
+        "status": "ok",
+        "query": model,
+        "matched_model": {
+            "model_slug": identity.get("model_slug"),
+            "model_name": identity.get("model_name"),
+            "model_title": identity.get("model_title"),
+        },
+        "model": selected,
+    }
+
+
 def build_fts_query(query: str) -> str:
     terms = re.findall(r"[A-Za-z0-9_]+", query)
     return " ".join(terms)
+
+
+def model_digest_matches(digest: dict[str, Any], query: str) -> bool:
+    identity = digest.get("identity") or {}
+    normalized = normalize_model_lookup(query)
+    candidates = [
+        identity.get("model_slug"),
+        identity.get("model_name"),
+        identity.get("model_title"),
+        f"{identity.get('model_name') or ''} Model Map",
+    ]
+    return normalized in {normalize_model_lookup(str(candidate or "")) for candidate in candidates}
+
+
+def select_model_digest(digest: dict[str, Any], fields: str | None) -> dict[str, Any]:
+    requested = [part.strip().lower() for part in str(fields or "").split(",") if part.strip()]
+    if not requested:
+        return dict(digest)
+    aliases = {
+        "required": "required_fields",
+        "relationships": "relationships",
+        "diffs": "version_diffs",
+        "properties": "property_groups",
+        "property_groups": "property_groups",
+        "methods": "methods",
+        "notes": "operational_notes",
+    }
+    selected: dict[str, Any] = {
+        "schema": digest.get("schema", "rock-kb-agent-model-map-digest-v1"),
+        "identity": digest.get("identity"),
+    }
+    for requested_field in requested:
+        field = aliases.get(requested_field, requested_field)
+        if field in digest:
+            selected[field] = digest[field]
+    return selected
+
+
+def find_model_properties(digest: dict[str, Any], property_name: str) -> list[dict[str, Any]]:
+    normalized = normalize_model_lookup(property_name)
+    matches = []
+    for group, rows in ((digest.get("property_groups") or {}).items()):
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            candidates = {normalize_model_lookup(str(row.get("name") or "")), normalize_model_lookup(str(row.get("slug") or ""))}
+            if normalized in candidates or any(normalized and normalized in candidate for candidate in candidates):
+                matches.append({"group": group, **row})
+    return matches
+
+
+def normalize_model_lookup(value: str) -> str:
+    terms = [
+        term.lower()
+        for term in re.findall(r"[A-Za-z0-9_]+", value)
+        if term.lower() not in {"model", "map", "modelmap"}
+    ]
+    return " ".join(terms).strip()
 
 
 def is_public_artifact_path(path: str) -> bool:

@@ -151,5 +151,13 @@ def test_build_server_registers_expected_tools():
     server = build_server(fastmcp_cls=FakeFastMCP)
 
     assert server.name == "Rock KB"
-    assert set(server.tools) == {"kb_search", "kb_manifest", "kb_list_concepts", "kb_get_concept", "kb_get_claims"}
+    assert set(server.tools) == {
+        "kb_search",
+        "kb_list_models",
+        "kb_get_model",
+        "kb_manifest",
+        "kb_list_concepts",
+        "kb_get_concept",
+        "kb_get_claims",
+    }
     assert "Start here for any Rock question" in server.tools["kb_search"]["description"]

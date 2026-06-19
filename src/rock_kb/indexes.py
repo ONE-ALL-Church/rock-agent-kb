@@ -262,6 +262,7 @@ def build_or_reuse_model_map() -> dict[str, Any]:
         AGENT_DIR / "model-map-properties.jsonl",
         AGENT_DIR / "model-map-methods.jsonl",
         AGENT_DIR / "model-map-version-diff.jsonl",
+        AGENT_DIR / "model-map-digests.jsonl",
     ]
     missing = [str(path) for path in required_paths if not path.exists()]
     if missing:
@@ -279,6 +280,7 @@ def build_or_reuse_model_map() -> dict[str, Any]:
     stable_methods = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "stable-methods.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     latest_methods = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "latest-methods.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     version_diff_changes = sum(1 for line in (KNOWLEDGE_DIR / "model-map" / "version-diff.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
+    model_digests = sum(1 for line in (AGENT_DIR / "model-map-digests.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())
     return {
         "source": "reused_generated_model_map",
         "reused_existing_artifacts": 1,
@@ -291,6 +293,7 @@ def build_or_reuse_model_map() -> dict[str, Any]:
         "stable_methods": stable_methods,
         "pre_alpha_methods": latest_methods,
         "version_diff_changes": version_diff_changes,
+        "model_digests": model_digests,
     }
 
 

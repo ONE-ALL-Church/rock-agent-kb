@@ -95,7 +95,10 @@ def test_model_map_search_rows_include_model_detail_properties():
     assert row["kind"] == "model_map"
     assert row["concept"] == "model-map"
     assert row["path"] == "knowledge/model-map/models/group-member.md"
+    assert row["payload"]["schema"] == "rock-kb-model-map-search-payload-v1"
+    assert row["payload"]["identity"]["model_slug"] == "group-member"
     assert "GroupMember" in row["body"]
+    assert "exact slug group-member" in row["body"]
     assert "PersonId" in row["body"]
     assert "GroupRoleId" in row["body"]
 

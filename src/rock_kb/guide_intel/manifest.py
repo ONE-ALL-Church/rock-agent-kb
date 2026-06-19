@@ -53,6 +53,7 @@ def build_rock_kb_manifest() -> dict[str, Any]:
             "model_map_properties": "agent/model-map-properties.jsonl",
             "model_map_methods": "agent/model-map-methods.jsonl",
             "model_map_version_diff": "agent/model-map-version-diff.jsonl",
+            "model_map_digests": "agent/model-map-digests.jsonl",
             "model_map_model_details": "knowledge/model-map/models/*.md",
             "lava_capabilities": "agent/lava-capabilities.jsonl",
             "lava_capability_summary": "agent/lava-capability-summary.json",

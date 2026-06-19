@@ -148,6 +148,23 @@ export default {
         ctx.waitUntil(recordUsage(env, "search", query, rows.length));
         return json({ schema: "rock-kb-search-result-v1", query, min_tier: minTier, results: rows });
       }
+      if (url.pathname === "/model-map/models") {
+        return json(await listModelMapModels(env));
+      }
+      if (url.pathname.startsWith("/model-map/models/")) {
+        const model = decodeURIComponent(url.pathname.slice("/model-map/models/".length));
+        const result = await getModelMapModel(env, model, {
+          fields: url.searchParams.get("fields"),
+          property: url.searchParams.get("property"),
+        });
+        if (!result) {
+          return json({ schema: "rock-kb-model-map-model-result-v1", status: "not_found", model }, 404);
+        }
+        if ((url.searchParams.get("format") || "json") === "markdown") {
+          return text(renderModelMapMarkdown(result), "text/markdown; charset=utf-8");
+        }
+        return json(result);
+      }
       if (url.pathname.startsWith("/claims/")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/claims/".length));
         const minTier = url.searchParams.get("min_tier") || "routing_context_only";
@@ -238,6 +255,19 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     ctx.waitUntil(recordUsage(env, "mcp_search", query, rows.length));
     return rows;
   }
+  if (name === "kb_list_models") {
+    return listModelMapModels(env);
+  }
+  if (name === "kb_get_model") {
+    const result = await getModelMapModel(env, String(args.model || args.model_slug || ""), {
+      fields: stringOrNull(args.fields),
+      property: stringOrNull(args.property),
+    });
+    if (!result) {
+      return { schema: "rock-kb-model-map-model-result-v1", status: "not_found", model: String(args.model || args.model_slug || "") };
+    }
+    return result;
+  }
   if (name === "kb_manifest") {
     return artifactJsonValue(env, "agent/rock-kb-manifest.json");
   }
@@ -280,6 +310,164 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
     release_caveats: caveats.filter((row) => row.concept_id === conceptId),
     claims: claimRows
   };
+}
+
+async function listModelMapModels(env: ServiceEnv): Promise<JsonRecord> {
+  const digests = await artifactJsonlValue(env, "agent/model-map-digests.jsonl");
+  return {
+    schema: "rock-kb-model-map-model-list-v1",
+    count: digests.length,
+    models: digests.map((digest) => {
+      const identity = asRecord(digest.identity);
+      const counts = asRecord(digest.counts);
+      return {
+        model_slug: identity.model_slug || "",
+        model_name: identity.model_name || "",
+        model_title: identity.model_title || "",
+        model_category: identity.model_category || "",
+        rock_version: identity.rock_version || "",
+        property_count: counts.properties || 0,
+        method_count: counts.methods || 0,
+        model_detail_path: identity.model_detail_path || "",
+      };
+    }).sort((left, right) => String(left.model_name).localeCompare(String(right.model_name)))
+  };
+}
+
+async function getModelMapModel(env: ServiceEnv, query: string, options: { fields?: string | null; property?: string | null } = {}): Promise<JsonRecord | null> {
+  const digests = await artifactJsonlValue(env, "agent/model-map-digests.jsonl");
+  const digest = findModelDigest(digests, query);
+  if (!digest) {
+    return null;
+  }
+  const selected = selectModelDigest(digest, options.fields, options.property);
+  const identity = asRecord(digest.identity);
+  return {
+    schema: "rock-kb-model-map-model-result-v1",
+    status: "ok",
+    query,
+    matched_model: {
+      model_slug: identity.model_slug || "",
+      model_name: identity.model_name || "",
+      model_title: identity.model_title || "",
+    },
+    model: selected,
+  };
+}
+
+function findModelDigest(digests: JsonRecord[], query: string): JsonRecord | null {
+  const normalized = normalizeModelLookup(query);
+  if (!normalized) {
+    return null;
+  }
+  for (const digest of digests) {
+    const identity = asRecord(digest.identity);
+    const candidates = [
+      identity.model_slug,
+      identity.model_name,
+      identity.model_title,
+      `${identity.model_name || ""} Model Map`,
+    ].map((value) => normalizeModelLookup(String(value || "")));
+    if (candidates.includes(normalized)) {
+      return digest;
+    }
+  }
+  return null;
+}
+
+function selectModelDigest(digest: JsonRecord, fieldsValue?: string | null, propertyValue?: string | null): JsonRecord {
+  const fields = parseCsv(fieldsValue);
+  let selected = fields.length ? selectFields(digest, fields) : { ...digest };
+  if (propertyValue) {
+    selected = { ...selected, property_matches: findProperties(digest, propertyValue) };
+  }
+  return selected;
+}
+
+function selectFields(digest: JsonRecord, fields: string[]): JsonRecord {
+  const aliases: Record<string, string> = {
+    required: "required_fields",
+    relationships: "relationships",
+    diffs: "version_diffs",
+    properties: "property_groups",
+    property_groups: "property_groups",
+    methods: "methods",
+    notes: "operational_notes",
+  };
+  const selected: JsonRecord = {
+    schema: digest.schema || "rock-kb-agent-model-map-digest-v1",
+    identity: digest.identity,
+  };
+  for (const rawField of fields) {
+    const field = aliases[rawField] || rawField;
+    if (field in digest) {
+      selected[field] = digest[field];
+    }
+  }
+  return selected;
+}
+
+function findProperties(digest: JsonRecord, propertyValue: string): JsonRecord[] {
+  const propertyGroups = asRecord(digest.property_groups);
+  const normalized = normalizeModelLookup(propertyValue);
+  const seen = new Set<string>();
+  const matches: JsonRecord[] = [];
+  for (const [group, rows] of Object.entries(propertyGroups)) {
+    if (!Array.isArray(rows)) {
+      continue;
+    }
+    for (const row of rows) {
+      const property = asRecord(row);
+      const key = String(property.name || "");
+      if (!key || seen.has(`${group}:${key}`)) {
+        continue;
+      }
+      const propertyCandidates = [property.name, property.slug].map((value) => normalizeModelLookup(String(value || "")));
+      if (propertyCandidates.includes(normalized) || propertyCandidates.some((candidate) => candidate.includes(normalized))) {
+        seen.add(`${group}:${key}`);
+        matches.push({ group, ...property });
+      }
+    }
+  }
+  return matches;
+}
+
+function renderModelMapMarkdown(result: JsonRecord): string {
+  const model = asRecord(result.model);
+  const identity = asRecord(model.identity);
+  const counts = asRecord(model.counts);
+  const lines = [
+    `# ${identity.model_name || result.query} Model Map`,
+    "",
+    `- Slug: \`${identity.model_slug || ""}\``,
+    `- Rock version: \`${identity.rock_version || "unknown"}\``,
+    `- Category: \`${identity.model_category || ""}\``,
+    `- Detail path: \`${identity.model_detail_path || ""}\``,
+    "",
+    "## Counts",
+    "",
+    `- Properties: ${counts.properties || 0}`,
+    `- Database properties: ${counts.database_properties || 0}`,
+    `- Lava properties: ${counts.lava_properties || 0}`,
+    `- NotMapped properties: ${counts.not_mapped_properties || 0}`,
+    `- Methods: ${counts.methods || 0}`,
+  ];
+  const required = Array.isArray(model.required_fields) ? model.required_fields : [];
+  if (required.length) {
+    lines.push("", "## Required Fields", "");
+    for (const property of required) {
+      const row = asRecord(property);
+      lines.push(`- \`${row.name || ""}\` - ${row.description || ""}`);
+    }
+  }
+  const notes = Array.isArray(model.operational_notes) ? model.operational_notes : [];
+  if (notes.length) {
+    lines.push("", "## Operational Notes", "");
+    for (const note of notes) {
+      lines.push(`- ${note}`);
+    }
+  }
+  return `${lines.join("\n")}\n`;
 }
 
 async function submitContribution(request: Request, env: ServiceEnv): Promise<JsonRecord> {
@@ -883,9 +1071,29 @@ function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[], q
   const conceptPhraseBoost = phraseMatchBoost(query, row.concept || "", 48);
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
   const kindBoost = row.kind === "answer" ? 28 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
+  const modelMapExactBoost = exactModelMapBoost(row, query);
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);
-  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + tierBoost - rankPenalty;
+  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + tierBoost - rankPenalty;
+}
+
+function exactModelMapBoost(row: SearchRow, query: string): number {
+  if (row.kind !== "model_map") {
+    return 0;
+  }
+  const payload = parsePayload(row);
+  const identity = asRecord(payload.identity || payload);
+  const reducedQuery = normalizeModelLookup(query);
+  if (!reducedQuery) {
+    return 0;
+  }
+  const candidates = [
+    identity.model_slug,
+    identity.model_name,
+    identity.model_title,
+    `${identity.model_name || ""} Model Map`,
+  ].map((value) => normalizeModelLookup(String(value || ""))).filter(Boolean);
+  return candidates.includes(reducedQuery) ? 500 : 0;
 }
 
 function overlapCount(queryTerms: string[], candidateTerms: Set<string>): number {
@@ -912,6 +1120,20 @@ function normalizeSearchText(value: string): string {
 
 function normalizeQuery(query: string): string {
   return searchTerms(query).join(" ");
+}
+
+function normalizeModelLookup(value: string): string {
+  const words = (value.match(/[A-Za-z0-9_]+/g) || [])
+    .map((term) => term.toLowerCase())
+    .filter((term) => term !== "model" && term !== "map" && term !== "modelmap");
+  return words.join(" ").trim();
+}
+
+function parseCsv(value?: string | null): string[] {
+  return String(value || "")
+    .split(",")
+    .map((part) => part.trim().toLowerCase())
+    .filter(Boolean);
 }
 
 function safeArtifactPath(path: string): boolean {
@@ -1014,6 +1236,10 @@ function json(value: unknown, status = 200): Response {
   return cors(new Response(JSON.stringify(value, null, 2) + "\n", { status, headers: { "content-type": "application/json; charset=utf-8" } }));
 }
 
+function text(value: string, contentType = "text/plain; charset=utf-8", status = 200): Response {
+  return cors(new Response(value, { status, headers: { "content-type": contentType } }));
+}
+
 function cors(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
@@ -1025,6 +1251,8 @@ function cors(response: Response): Response {
 function toolDefinitions(): JsonRecord[] {
   return [
     { name: "kb_search", description: "Search public Rock KB rows with authority and claim tiers.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" } }, required: ["query"] } },
+    { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },

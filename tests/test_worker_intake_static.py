@@ -37,3 +37,19 @@ def test_worker_auto_merge_keeps_server_side_path_gate():
 
     for snippet in expected_snippets:
         assert snippet in source
+
+
+def test_worker_exposes_model_map_lookup_routes_and_tools():
+    source = WORKER.read_text(encoding="utf-8")
+
+    expected_snippets = [
+        'url.pathname === "/model-map/models"',
+        'url.pathname.startsWith("/model-map/models/")',
+        "kb_list_models",
+        "kb_get_model",
+        "exactModelMapBoost",
+        "agent/model-map-digests.jsonl",
+    ]
+
+    for snippet in expected_snippets:
+        assert snippet in source

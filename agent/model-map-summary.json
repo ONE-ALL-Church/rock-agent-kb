@@ -21,7 +21,7 @@
   },
   "concept_slice_count": 18,
   "contains_row_data": false,
-  "generated_at": "2026-06-19T05:51:11+00:00",
+  "generated_at": "2026-06-19T06:17:19+00:00",
   "generation_method": [
     "Stable and pre-alpha model/property data come from authenticated Obsidian block-action calls against generic Rock demo Model Map pages.",
     "The collector uses RefreshObsidianBlockInitialization for the category/model list and GetModelDetails for each model detail payload.",
@@ -57,6 +57,7 @@
   "latest_property_count": 16100,
   "model_detail_count": 326,
   "paths": {
+    "agent_digests": "agent/model-map-digests.jsonl",
     "agent_entities": "agent/model-map-entities.jsonl",
     "agent_methods": "agent/model-map-methods.jsonl",
     "agent_properties": "agent/model-map-properties.jsonl",

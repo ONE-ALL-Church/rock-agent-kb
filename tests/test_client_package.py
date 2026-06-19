@@ -71,6 +71,49 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
     assert "rock-kb-operations-dashboard-v1" in capsys.readouterr().out
 
 
+def test_client_model_command_hits_exact_model_endpoint(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"schema": "rock-kb-model-map-model-result-v1", "status": "ok"}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    exit_code = cli.main([
+        "--url",
+        "https://example.test",
+        "model",
+        "Group",
+        "--fields",
+        "identity,required,diffs",
+        "--property",
+        "Members",
+    ])
+
+    assert exit_code == 0
+    assert urls == ["https://example.test/model-map/models/Group?fields=identity%2Crequired%2Cdiffs&property=Members&format=json"]
+    assert "rock-kb-model-map-model-result-v1" in capsys.readouterr().out
+
+
+def test_client_model_map_list_command_hits_model_list_endpoint(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"schema": "rock-kb-model-map-model-list-v1", "count": 0, "models": []}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    exit_code = cli.main(["--url", "https://example.test", "model-map", "list"])
+
+    assert exit_code == 0
+    assert urls == ["https://example.test/model-map/models"]
+    assert "rock-kb-model-map-model-list-v1" in capsys.readouterr().out
+
+
 def test_client_get_text_sends_user_agent(monkeypatch):
     cli = load_client_cli()
     captured = {}

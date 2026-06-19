@@ -140,7 +140,7 @@
   ],
   "concept_id": "connections",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-06-19T05:56:48+00:00",
+  "generated_at": "2026-06-19T06:18:14+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-request-missing-from-board",

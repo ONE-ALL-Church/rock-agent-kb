@@ -19,6 +19,8 @@ Use the published `rock-kb` client from PyPI:
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
+uvx rock-kb model-map list
+uvx rock-kb model group
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -36,6 +38,8 @@ changes, use the checked-in client instead:
 uv run --project clients/python rock-kb search "check-in labels not printing"
 uv run --project clients/python rock-kb get check-in
 uv run --project clients/python rock-kb claims workflows --min-tier source_backed
+uv run --project clients/python rock-kb model-map list
+uv run --project clients/python rock-kb model group
 uv run --project clients/python rock-kb dashboard
 uv run --project clients/python rock-kb mcp-config
 ```
@@ -45,6 +49,8 @@ Use these commands for specific jobs:
 - `search`: first stop for symptoms, errors, workflow questions, Lava behavior, API/security questions, and broad triage.
 - `get <concept-id>`: open the concept guide after search identifies the right area.
 - `claims <concept-id>`: inspect structured claims and trust tiers before giving precise guidance.
+- `model-map list`: list stable Rock Model Map models when discovering the exact slug to inspect.
+- `model <slug-or-name>`: fetch an exact stable Model Map digest for a known model, such as `group` or `Group Member`.
 - `dashboard`: check public contribution counts, review queues, and operational health.
 - `mcp-config`: connect clients that support HTTP MCP to the hosted KB.
 - `validate <bundle.jsonl>`: check a contribution bundle before submitting.
@@ -116,10 +122,26 @@ shown to return real article content.
 
 Use stable model-map data as the default public reference:
 
+For known models, use exact lookup before generic search:
+
+```bash
+uvx rock-kb model-map list
+uvx rock-kb model group
+uvx rock-kb model group --fields identity,required,relationships,diffs
+uvx rock-kb model group --property Members
+uvx rock-kb model-map get group --format markdown
+```
+
+Exact lookup accepts model slugs or names, so `group`, `Group`, and `Group Model Map`
+all target the stable `Group` model instead of related models such as
+`ConnectionOpportunityGroup`. Use `search` only when you do not know the model
+name or need broader concept context.
+
 - Global index: `knowledge/model-map/index.md`
 - Stable models: `knowledge/model-map/stable-models.jsonl`
 - Stable properties: `knowledge/model-map/stable-properties.jsonl`
 - Stable methods: `knowledge/model-map/stable-methods.jsonl`
+- Agent model digests: `agent/model-map-digests.jsonl`
 - Model detail pages: `knowledge/model-map/models/*.md`
 - Latest/pre-alpha rows: `knowledge/model-map/latest-models.jsonl`
 - Latest/pre-alpha methods: `knowledge/model-map/latest-methods.jsonl`

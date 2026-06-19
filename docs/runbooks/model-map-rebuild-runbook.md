@@ -93,6 +93,7 @@ Expected generated outputs include:
 - `agent/model-map-properties.jsonl`
 - `agent/model-map-methods.jsonl`
 - `agent/model-map-version-diff.jsonl`
+- `agent/model-map-digests.jsonl`
 
 ## Rebuild Dependent Layers
 
@@ -128,6 +129,8 @@ Then spot-check:
 head -40 agent/model-map-summary.json
 sed -n '1,120p' knowledge/model-map/index.md
 sed -n '1,160p' knowledge/model-map/models/group-member.md
+uv run --project clients/python rock-kb --url https://rock-agent-kb.oneandall.church model-map list
+uv run --project clients/python rock-kb --url https://rock-agent-kb.oneandall.church model group --fields identity,required,relationships,diffs
 rg -n "Generated Model Map Pointer|Data Model Landmarks|Pre-alpha" knowledge/concepts/groups knowledge/concepts/workflows knowledge/concepts/security-permissions
 ```
 

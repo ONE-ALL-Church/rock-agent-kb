@@ -38,6 +38,7 @@ AGENT_MODEL_MAP_REFLECTION_PATH = AGENT_DIR / "model-map-reflection-properties.j
 AGENT_MODEL_MAP_PROPERTIES_PATH = AGENT_DIR / "model-map-properties.jsonl"
 AGENT_MODEL_MAP_METHODS_PATH = AGENT_DIR / "model-map-methods.jsonl"
 AGENT_MODEL_MAP_VERSION_DIFF_PATH = AGENT_DIR / "model-map-version-diff.jsonl"
+AGENT_MODEL_MAP_DIGESTS_PATH = AGENT_DIR / "model-map-digests.jsonl"
 
 DEMO_ROCK_VERSION_ENDPOINT = "https://rocksolidchurchdemo.com/api/Utility/GetRockSemanticVersionNumber"
 DEMO_MODEL_MAP_SCRAPE_PATH = REVIEW_DIR / "model-map-scrape" / "demo-model-map-full-scrape.json"
@@ -86,6 +87,7 @@ def build_model_map(
         output_jsonl_path=MODEL_MAP_PUBLIC_VERSION_DIFF_JSONL_PATH,
     )
     diff_rows = list(read_jsonl(MODEL_MAP_PUBLIC_VERSION_DIFF_JSONL_PATH))
+    model_digests = build_model_map_digests(stable_models, stable_properties, stable_methods, diff_rows)
     model_detail_count = build_scraped_model_detail_pages(stable_models, stable_properties, diff_rows)
     concept_rows = build_scraped_concept_slice_pages(stable_models)
 
@@ -99,6 +101,7 @@ def build_model_map(
     write_jsonl(AGENT_MODEL_MAP_PROPERTIES_PATH, stable_properties)
     write_jsonl(AGENT_MODEL_MAP_METHODS_PATH, stable_methods)
     write_jsonl(AGENT_MODEL_MAP_VERSION_DIFF_PATH, diff_rows)
+    write_jsonl(AGENT_MODEL_MAP_DIGESTS_PATH, model_digests)
 
     summary = build_scraped_summary(
         stable=stable,
@@ -136,6 +139,7 @@ def build_model_map(
         "concept_slices": len(concept_rows),
         "model_detail_pages": model_detail_count,
         "version_diff_changes": diff_result["change_count"],
+        "model_digests": len(model_digests),
     }
 
 
@@ -341,6 +345,191 @@ def build_scraped_model_detail_pages(
     return count
 
 
+def build_model_map_digests(
+    model_rows: list[dict[str, Any]],
+    property_rows: list[dict[str, Any]],
+    method_rows: list[dict[str, Any]],
+    diff_rows: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    properties_by_model: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in property_rows:
+        properties_by_model[str(row.get("model_slug") or "")].append(row)
+    methods_by_model: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in method_rows:
+        methods_by_model[str(row.get("model_slug") or "")].append(row)
+    changes_by_model: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in diff_rows:
+        changes_by_model[str(row.get("model_name") or "")].append(row)
+    models_by_key = {normalize_name(row.get("model_name")): row for row in model_rows}
+    return [
+        build_model_map_digest(
+            model,
+            properties_by_model.get(str(model.get("model_slug") or ""), []),
+            methods_by_model.get(str(model.get("model_slug") or ""), []),
+            changes_by_model.get(str(model.get("model_name") or ""), []),
+            models_by_key,
+        )
+        for model in model_rows
+    ]
+
+
+def build_model_map_digest(
+    model: dict[str, Any],
+    properties: list[dict[str, Any]],
+    methods: list[dict[str, Any]],
+    changes: list[dict[str, Any]],
+    models_by_key: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    property_groups = {
+        "database": [compact_property(row) for row in properties if row.get("is_database")],
+        "lava": [compact_property(row) for row in properties if row.get("is_lava")],
+        "lava_non_database": [compact_property(row) for row in properties if row.get("is_lava_supported_non_database")],
+        "not_mapped": [compact_property(row) for row in properties if row.get("is_not_mapped")],
+        "required": [compact_property(row) for row in properties if row.get("is_required")],
+        "enum": [compact_property(row) for row in properties if row.get("is_enum")],
+        "defined_value": [compact_property(row) for row in properties if row.get("is_defined_value")],
+        "obsolete": [compact_property(row) for row in properties if row.get("is_obsolete")],
+    }
+    relationships = [
+        {
+            "property_name": row.get("property_name"),
+            "related_model": row.get("related_model"),
+            "entity_type_guid": row.get("entity_type_guid"),
+            "target_model_slug": (row.get("target_model") or {}).get("model_slug") if row.get("target_model") else None,
+        }
+        for row in related_model_links_for_properties(properties, models_by_key)
+    ]
+    return {
+        "schema": "rock-kb-agent-model-map-digest-v1",
+        "identity": {
+            "track": model.get("track"),
+            "rock_version": model.get("rock_version"),
+            "model_slug": model.get("model_slug"),
+            "model_name": model.get("model_name"),
+            "model_title": model.get("model_title"),
+            "model_category": model.get("model_category"),
+            "table_name": model.get("table_name"),
+            "entity_type_id": model.get("entity_type_id"),
+            "entity_type_guid": model.get("entity_type_guid"),
+            "model_guid": model.get("model_guid"),
+            "is_obsolete": bool(model.get("is_obsolete")),
+            "obsolete_message": model.get("obsolete_message"),
+            "source_url": model.get("source_url"),
+            "model_detail_path": model.get("model_detail_path"),
+            "collection_method": model.get("collection_method"),
+            "initialization_endpoint": model.get("initialization_endpoint"),
+            "detail_endpoint": model.get("detail_endpoint"),
+        },
+        "counts": {
+            "properties": model.get("property_count") or len(properties),
+            "database_properties": model.get("database_property_count") or len(property_groups["database"]),
+            "lava_properties": model.get("lava_property_count") or len(property_groups["lava"]),
+            "lava_non_database_properties": model.get("lava_non_database_property_count") or len(property_groups["lava_non_database"]),
+            "not_mapped_properties": model.get("not_mapped_property_count") or len(property_groups["not_mapped"]),
+            "required_properties": model.get("required_property_count") or len(property_groups["required"]),
+            "enum_properties": model.get("enum_value_property_count") or len(property_groups["enum"]),
+            "defined_value_properties": sum(1 for row in properties if row.get("is_defined_value")),
+            "obsolete_properties": model.get("obsolete_property_count") or len(property_groups["obsolete"]),
+            "relationships": len(relationships),
+            "methods": model.get("method_count") or len(methods),
+            "obsolete_methods": model.get("obsolete_method_count") or sum(1 for row in methods if row.get("is_obsolete")),
+            "version_diffs": len(changes),
+        },
+        "required_fields": property_groups["required"],
+        "operational_notes": model_map_operational_notes(model, property_groups, changes),
+        "relationships": relationships,
+        "version_diffs": [compact_version_diff(row) for row in changes],
+        "property_groups": property_groups,
+        "methods": [compact_method(row) for row in methods],
+        "paths": {
+            "model_detail": model.get("model_detail_path"),
+            "stable_models": "knowledge/model-map/stable-models.jsonl",
+            "stable_properties": "knowledge/model-map/stable-properties.jsonl",
+            "stable_methods": "knowledge/model-map/stable-methods.jsonl",
+            "version_diff": "knowledge/model-map/version-diff.jsonl",
+        },
+    }
+
+
+def compact_property(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "name": row.get("property_name"),
+        "slug": row.get("property_slug"),
+        "description": row.get("description"),
+        "flags": {
+            "database": bool(row.get("is_database")),
+            "lava": bool(row.get("is_lava")),
+            "lava_non_database": bool(row.get("is_lava_supported_non_database")),
+            "not_mapped": bool(row.get("is_not_mapped")),
+            "required": bool(row.get("is_required")),
+            "obsolete": bool(row.get("is_obsolete")),
+            "enum": bool(row.get("is_enum")),
+            "defined_value": bool(row.get("is_defined_value")),
+            "virtual": bool(row.get("is_virtual")),
+            "qualifier": bool(row.get("is_qualifier")),
+            "inherited": bool(row.get("inherited")),
+        },
+        "related_entities": [
+            {
+                "text": link.get("text"),
+                "entity_type_guid": link.get("entity_type_guid"),
+            }
+            for link in row.get("related_entity_links") or []
+        ],
+        "related_defined_types": [
+            {
+                "text": link.get("text"),
+                "entity_type_guid": link.get("entity_type_guid"),
+            }
+            for link in row.get("related_defined_type_links") or []
+        ],
+        "enum_values": row.get("enum_values") or [],
+        "obsolete_message": row.get("obsolete_message"),
+    }
+
+
+def compact_method(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "signature": row.get("signature"),
+        "description": row.get("description"),
+        "inherited": bool(row.get("inherited")),
+        "is_obsolete": bool(row.get("is_obsolete")),
+        "obsolete_message": row.get("obsolete_message"),
+    }
+
+
+def compact_version_diff(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "change_type": row.get("change_type"),
+        "property_name": row.get("property_name"),
+        "changed_fields": row.get("changed_fields") or [],
+        "stable_value": row.get("stable_value"),
+        "latest_value": row.get("latest_value"),
+    }
+
+
+def model_map_operational_notes(
+    model: dict[str, Any],
+    property_groups: dict[str, list[dict[str, Any]]],
+    changes: list[dict[str, Any]],
+) -> list[str]:
+    notes = [
+        "Use the stable track as the default public model reference.",
+        "Verify a specific Rock instance schema separately before SQL or production data changes.",
+    ]
+    if not model.get("table_name"):
+        notes.append("The Model Map did not provide an API table name for this model.")
+    if property_groups.get("lava_non_database"):
+        notes.append("Some Lava-supported properties are not database-backed; do not assume every Lava field is a SQL column.")
+    if property_groups.get("not_mapped"):
+        notes.append("NotMapped properties may be computed or framework-backed rather than persisted columns.")
+    if changes:
+        notes.append("Stable-to-pre-alpha differences exist; use them only as upcoming-version callouts.")
+    if model.get("is_obsolete"):
+        notes.append("This model is marked obsolete in the stable Model Map.")
+    return notes
+
+
 def build_scraped_concept_slice_pages(model_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows_by_category: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in model_rows:
@@ -466,6 +655,7 @@ def build_scraped_summary(
             "agent_properties": "agent/model-map-properties.jsonl",
             "agent_methods": "agent/model-map-methods.jsonl",
             "agent_version_diff": "agent/model-map-version-diff.jsonl",
+            "agent_digests": "agent/model-map-digests.jsonl",
         },
     }
 
