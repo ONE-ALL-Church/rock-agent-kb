@@ -20,11 +20,14 @@ Use the hosted MCP endpoint when your agent supports HTTP MCP:
 Terminal agents can use the CLI:
 
 ```bash
-uvx rock-kb search "check-in labels not printing"
-uvx rock-kb get check-in
-uvx rock-kb claims security-permissions --min-tier source_backed
-uvx rock-kb dashboard
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get check-in
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims security-permissions --min-tier source_backed
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb dashboard
 ```
+
+After the client is published to PyPI, the shorter `uvx rock-kb ...` command is
+equivalent. Until then, use the Git-backed `uvx --from ... rock-kb` form above.
 
 If your organization runs a staging copy, set:
 
@@ -69,8 +72,8 @@ A real registration is considered ready for hosted intake only after:
 Prepare a JSONL bundle:
 
 ```bash
-uvx rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb validate bundle.jsonl
+ROCK_KB_TOKEN=<issued-token> uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb submit bundle.jsonl --org <org-id>
 ```
 
 Valid rows must be newly written public-safe summaries. They cannot contain raw transcripts, private source paths, direct media URLs, copied proprietary text, secrets, or instance-specific private details.
@@ -89,7 +92,7 @@ flag allows it, the org registry sets `intake.auto_merge_allowed: true`, and the
 PR changes exactly the expected bundle path for that org. Otherwise the PR stays
 review-required.
 
-Use `uvx rock-kb dashboard` to see public operational counts for community-unreviewed intake rows, review queues, source-conflict prompts, evaluation status, and aggregate telemetry. It does not expose private corpus data or raw query text.
+Use `rock-kb dashboard` to see public operational counts for community-unreviewed intake rows, review queues, source-conflict prompts, evaluation status, and aggregate telemetry. It does not expose private corpus data or raw query text.
 
 ## Agent Prompt Starter
 

@@ -2,6 +2,18 @@
 
 Thin terminal client for the public Rock RMS agent knowledge base.
 
+Current public install from GitHub, before the PyPI package is released:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get check-in
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims workflows --min-tier source_backed
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb dashboard
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb mcp-config
+```
+
+After the client is published to PyPI, the shorter package-registry form works:
+
 ```bash
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb get check-in
