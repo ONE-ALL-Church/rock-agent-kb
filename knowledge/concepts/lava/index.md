@@ -2,7 +2,7 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-06-19T07:21:05+00:00
+last_built: 2026-06-19T07:39:15+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -233,8 +233,8 @@ Keywords: `filter, text filter, date filter, person filter`
 | Countdown | rock_mobile_docs | M v1.0 Adding a countdown timer to your page is simple. There are several options for providing a date and time to the control. ### String Simply enter a raw date time value as a string. ``` <Rock:Countdown StartDateTime="08/27/2020 10:30AM" /> ``` ### Lava Filter See the [Lava documentation](https://community.rockrms.com/lava/filters/date-filters) for more information. ``` <Rock:Countdown StartDateTime="{{ 'Now' \|... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/countdown) |
 | Slicker Campus Filters | rock_recipes | 2 Slicker Campus Filters Shared by Steve Klein , Liquid Church 2 years ago 13.7 General Beginner The Why We have multiple locations so we are frequently building dynamic reports which include a campus filter. In the past, our campus filters would display all campuses by default or the selected campus. With a little bit of SQL and Lava, we found that we could include an All Campuses option in our campus filter and... | [source](https://community.rockrms.com/recipes/393) |
 | Person | rock_lava_docs | Person Filters Rock is based on managing people, so it's not surprising that we have special Lava filters for the Person model. Address Show Details Server: v2.0 Provides an address for the person you provide. Additional Details This filter has some input parameters: Address Type: Home, Work, etc. Format Template (optional) v3.0 : An optional template parameter to help you format the address any way you wish. See... | [source](https://community.rockrms.com/lava/filters/person-filters) |
-| List Tools | rock_developer | ## Overview `List` tools help an agent find and return a set of matching records. `List` tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set and return the data. The last item, pagination, is not required but is suggested if you have a large data set. At the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) |
 | Event Item Occurrence List By Audience Lava | rock_mobile_docs | *Block that takes an audience and displays calendar item occurrences for it using Lava.* ## Query Parameters The query parameters this block looks for upon initialization are as follows: \| Name \| Type \| Description \| \| --- \| --- \| --- \| \| CampusGuid \| Guid \| An optional Guid of the campus to filter event items to. \| ## Block Configuration ### List Title The title to make available in the lava. ### Audience The... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava) |
+| List Tools | rock_developer | ## Overview `List` tools help an agent find and return a set of matching records. `List` tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set and return the data. The last item, pagination, is not required but is suggested if you have a large data set. At the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) |
 
 ### Shortcodes
 

@@ -2,7 +2,7 @@
 id: concept-documents-signatures
 title: Documents And Signatures
 generated: true
-last_built: 2026-06-19T07:21:17+00:00
+last_built: 2026-06-19T07:39:26+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -71,7 +71,7 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 | Merge Documents | rock_documentation | [Intro to Merge Documents](/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents?Version=v19.0) [Use Merge Documents](/documentation/core-concepts/documents/merge-documents/use-merge-documents?Version=v19.0) [Administrate Merge Templates](/documentation/core-concepts/documents/merge-documents/administrate-merge-templates?Version=v19.0) [Creating a Merge... | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents) |
 | Entity Documents | rock_documentation | [Intro to Entity Documents](/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents?Version=v19.0) [Configure Entity Documents](/documentation/core-concepts/documents/entity-documents/configure-entity-documents?Version=v19.0) [Add the Block](/documentation/core-concepts/documents/entity-documents/add-the-block?Version=v19.0) [Manage Entity... | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents) |
 | Configure Entity Documents | rock_documentation | The first step is to define what types of documents you can add to entities. Navigate to `Admin Tools > Settings > Document Types` to manage the types of documents that can be stored for each entity. Pictured below, you can see we've already configured three types of documents, all for people. You might be wondering why we didn't mix it up a little and show you some example document types for other entities besides... | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents) |
-| Intro to Entity Documents | rock_documentation | Want to track documents for a person or group? The *Entity Documents* feature lets you add documents just about anywhere in Rock. You can even add multiple documents of the same type to the same entity, quickly and easily. If you want to cut to the chase and see what adding a document for a person looks like, we have an example in our... | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents) |
+| Creating a Merge Document | rock_documentation | As mentioned previously, Rock currently supports two different merge document formats: HTML and Word. Below we cover how to create a merge document for each format. ## Word The most common document format is Word. Creating these documents is actually pretty simple. Before we jump in it's important to talk about the two strategies for merging using Word. The first strategy is to create a Word document where the whole... | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/creating-a-merge-document) |
 
 ## Data Model Landmarks
 

@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-06-19T07:21:06+00:00
+last_built: 2026-06-19T07:39:16+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -281,7 +281,7 @@ Keywords: `batch, deposit, reconciliation`
 | Rock Core Release Notes | rock_core_release_notes | Added Financial Batch Detail block to support check scanning, creation of batch, batch detail viewing, and batch modifications. Also added Financial Batch List to view available batches. | [source](https://www.rockrms.com/releasenotes) |
 | Scan Checks | rock_documentation | When you're ready you'll be at the home page. Here you can start scanning checks to a current batch listed or create a new batch right from this window by pressing the icon next to the batches panel. Now press the Scan button pictured below to start scanning and advance to the *Scan Settings* page. The *Scan Settings* page (pictured below) lets you select which tender type you'll be scanning into Rock. In most cases... | [source](https://community.rockrms.com/documentation/church-management/finance/check-scanning/scan-checks) |
 | Financial Batch | rock_model_map | Financial Batch is a Rock model in the Finance category. | [source](https://community.rockrms.com/ModelMap) |
-| Rock Solid Finances | rock_documentation | Updates for Rock 14.0 Below is a summary of the updates for this version. Text Giving allows people to donate from their phone by sending a simple text message Updates for Rock 1.0 No updates made. Updates for Rock 2.0 No updates made. Updates for Rock 3.0 No updates made. Updates for Rock 4.0 Below is a summary of the updates for this version. Added some notes about the transaction date used when scanning checks.... | [source](https://community.rockrms.com/documentation/bookcontent/15/261) |
+| Rock Solid Finances | rock_documentation | Updates for Rock 18.1 No updates made. Updates for Rock 1.0 No updates made. Updates for Rock 2.0 No updates made. Updates for Rock 3.0 No updates made. Updates for Rock 4.0 Below is a summary of the updates for this version. Added some notes about the transaction date used when scanning checks. New recommendation on using the latest Ranger driver with Canon check readers. Added a few updates to the check scanning... | [source](https://community.rockrms.com/documentation/bookcontent/15) |
 
 
 ## Rebuild Dependencies
