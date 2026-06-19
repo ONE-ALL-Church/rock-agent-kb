@@ -20,14 +20,11 @@ Use the hosted MCP endpoint when your agent supports HTTP MCP:
 Terminal agents can use the CLI:
 
 ```bash
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get check-in
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims security-permissions --min-tier source_backed
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb dashboard
+uvx rock-kb search "check-in labels not printing"
+uvx rock-kb get check-in
+uvx rock-kb claims security-permissions --min-tier source_backed
+uvx rock-kb dashboard
 ```
-
-After the client is published to PyPI, the shorter `uvx rock-kb ...` command is
-equivalent. Until then, use the Git-backed `uvx --from ... rock-kb` form above.
 
 If your organization runs a staging copy, set:
 
@@ -72,8 +69,14 @@ A real registration is considered ready for hosted intake only after:
 Prepare a JSONL bundle:
 
 ```bash
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb submit bundle.jsonl --org <org-id>
+uvx rock-kb validate bundle.jsonl
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
+```
+
+To test unreleased client changes from GitHub instead of the PyPI package, add:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb <command>
 ```
 
 Valid rows must be newly written public-safe summaries. They cannot contain raw transcripts, private source paths, direct media URLs, copied proprietary text, secrets, or instance-specific private details.

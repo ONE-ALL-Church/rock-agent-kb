@@ -13,18 +13,7 @@ The KB is source-tiered. Never blend community-only material into authoritative 
 
 ## Install And Availability
 
-Use the Git-backed `uvx` command until the `rock-kb` client is published to the
-package registry:
-
-```bash
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get check-in
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims workflows --min-tier source_backed
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb dashboard
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb mcp-config
-```
-
-After the client is published to PyPI, the shorter package-registry form is equivalent:
+Use the published `rock-kb` client from PyPI:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
@@ -34,7 +23,14 @@ uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
 
-When operating from a local `rock-agent-kb` checkout before the package is published, use the checked-in client instead:
+To test unreleased client changes from GitHub instead of PyPI, use:
+
+```bash
+uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "check-in labels not printing"
+```
+
+When operating from a local `rock-agent-kb` checkout and testing local client
+changes, use the checked-in client instead:
 
 ```bash
 uv run --project clients/python rock-kb search "check-in labels not printing"
@@ -61,16 +57,16 @@ If `uv` is missing, install it first from `https://docs.astral.sh/uv/`, then ret
 1. Start with the hosted KB when available:
 
 ```bash
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb search "<question or error>"
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb get <concept-id>
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb claims <concept-id> --min-tier source_backed
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb dashboard
+uvx rock-kb search "<question or error>"
+uvx rock-kb get <concept-id>
+uvx rock-kb claims <concept-id> --min-tier source_backed
+uvx rock-kb dashboard
 ```
 
 If the client supports HTTP MCP, configure:
 
 ```bash
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb mcp-config
+uvx rock-kb mcp-config
 ```
 
 2. Prefer this evidence order:
@@ -153,13 +149,12 @@ Do not edit generated paths such as `agent/`, `claims/`, `concepts/`, `knowledge
 Validate before submitting:
 
 ```bash
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb submit bundle.jsonl --org <org-id>
+uvx rock-kb validate bundle.jsonl
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
 ```
 
-If you are operating from a local `rock-agent-kb` checkout and `uvx rock-kb`
-fails with "rock-kb was not found in the package registry", use the checked-in
-client instead:
+If you are operating from a local `rock-agent-kb` checkout and need unreleased
+client changes, use the checked-in client instead:
 
 ```bash
 uv run --project clients/python rock-kb validate bundle.jsonl
@@ -174,7 +169,7 @@ Use one of these safe local patterns after the maintainer provides the raw token
 
 ```bash
 export ROCK_KB_TOKEN='<issued-token>'
-uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=clients/python' rock-kb submit bundle.jsonl --org <org-id>
+uvx rock-kb submit bundle.jsonl --org <org-id>
 ```
 
 For future terminal sessions on macOS, prefer Keychain over a repo-local file:
