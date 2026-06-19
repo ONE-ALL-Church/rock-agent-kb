@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-06-18T23:01:17+00:00
+last_built: 2026-06-19T05:15:19+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
