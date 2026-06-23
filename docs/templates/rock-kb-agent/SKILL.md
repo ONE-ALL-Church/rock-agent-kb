@@ -182,6 +182,12 @@ uvx rock-kb validate bundle.jsonl
 ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
 ```
 
+Before submitting, make sure every `concept_ids` value is an existing KB concept
+id. Do not invent plain-language ids. Use `uvx rock-kb concepts` or the local
+`concepts/registry.yaml` as the source of truth, then run validation. For
+example, use `event-registration` rather than `registrations`, and
+`giving-finance` rather than `finance`.
+
 If you are operating from a local `rock-agent-kb` checkout and need unreleased
 client changes, use the checked-in client instead:
 

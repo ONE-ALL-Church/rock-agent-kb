@@ -31,7 +31,7 @@ Each line in `bundle.jsonl` is one JSON object with:
 - `org_id`: must match the folder name; `community-contributions/test-org/bundle.jsonl` may contain only rows with `org_id: test-org`
 - `org_display_name`: public display name or `Anonymous Organization`
 - `contribution_type`: one of `task_card`, `troubleshooting_pattern`, `release_caveat`, `entity_note`, `guide_section`, `source_link`, `open_question`
-- `concept_ids`: one or more KB concept ids
+- `concept_ids`: one or more existing KB concept ids from `concepts/registry.yaml`
 - `title`: short public-safe title
 - `distilled_summary`: newly written public-safe guidance
 - `source_urls`: public source URLs, or an empty list when using `source_record_ids`
@@ -46,6 +46,7 @@ Each line in `bundle.jsonl` is one JSON object with:
 
 - Write original summaries; do not copy private docs, transcripts, SQL exports, chat logs, staff notes, screenshots, or vendor material.
 - Use canonical public source URLs when possible.
+- Do not invent `concept_ids`. Check `concepts/registry.yaml` or run `uvx rock-kb concepts`; for example, use `event-registration` rather than `registrations`.
 - Do not include private paths, direct media file URLs, HLS manifests, tokenized player URLs, secrets, staff/person data, internal Rock ids, or organization-only operational details.
 - Submissions remain community-tier evidence after acceptance unless maintainers later verify the claim against stronger sources.
 - Do not assume auto-merge. Automated acceptance is allowed only after org registration, server-side path restrictions, and required checks are active.

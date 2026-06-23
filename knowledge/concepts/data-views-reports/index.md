@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-06-19T08:38:05+00:00
+last_built: 2026-06-23T22:14:58+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
