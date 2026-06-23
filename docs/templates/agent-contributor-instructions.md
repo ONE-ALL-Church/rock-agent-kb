@@ -100,6 +100,19 @@ Use `community-contributions/example-org/bundle.example.jsonl` as the row-shape
 reference. Set `needs_live_verification: true` when behavior depends on local
 configuration, plugins, custom code, or a specific Rock version.
 
+Before submitting, verify that every `concept_ids` value is an existing KB
+concept id. Do not invent natural-language ids. Use one of these checks:
+
+```bash
+uvx rock-kb concepts
+uvx rock-kb validate bundle.jsonl
+```
+
+From a local checkout, `concepts/registry.yaml` is the source of truth. For
+example, registration-related rows should use `event-registration`, not
+`registrations`; giving and finance rows should use `giving-finance`, not
+`finance`.
+
 ## Never Submit
 
 - Private person data, staff notes, live IDs, or screenshots with private state.
