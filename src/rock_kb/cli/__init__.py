@@ -9,6 +9,7 @@ from . import (
     contribution_cmds,
     corpus_cmds,
     extract_cmds,
+    lava_cmds,
     media_cmds,
     modelmap_cmds,
     private_cmds,
@@ -24,6 +25,7 @@ app = typer.Typer(help="Rock RMS knowledge base tooling.")
 workflow_cmds.register(app)
 app.add_typer(sources_cmds.app, name="sources")
 app.add_typer(extract_cmds.app, name="extract")
+app.add_typer(lava_cmds.app, name="lava")
 app.add_typer(media_cmds.app, name="media")
 app.add_typer(claims_cmds.app, name="claims")
 app.add_typer(corpus_cmds.app, name="corpus")

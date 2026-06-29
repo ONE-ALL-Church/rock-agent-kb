@@ -112,6 +112,7 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows.extend(claim_search_rows())
     rows.extend(contribution_search_rows())
     rows.extend(model_map_search_rows())
+    rows.extend(lava_context_search_rows())
     rows.extend(source_summary_search_rows())
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -315,6 +316,80 @@ def model_map_search_rows() -> list[dict[str, Any]]:
             }
         )
     return rows
+
+
+def lava_context_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    for context in read_jsonl(REPO_ROOT / "agent" / "lava-contexts.jsonl"):
+        context_id = str(context.get("id") or context.get("context_id") or "")
+        if not context_id:
+            continue
+        concepts = context.get("concept_ids") or ["lava"]
+        body = lava_context_search_body(context)
+        for concept_id in concepts:
+            rows.append(
+                {
+                    "id": f"{context_id}:{concept_id}",
+                    "kind": "lava_context",
+                    "title": f"{context.get('surface_name') or context.get('context_id')} - {context.get('root_key')}",
+                    "body": body,
+                    "path": "agent/lava-contexts.jsonl",
+                    "url": context.get("source_url") or "",
+                    "concept": concept_id,
+                    "authority_tier": "source-code-confirmed",
+                    "claim_tier": "source_backed",
+                    "source_id": context.get("source_id") or "sparkdevnetwork_rock",
+                    "payload": compact_lava_context_search_payload(context),
+                }
+            )
+    return rows
+
+
+def lava_context_search_body(context: dict[str, Any]) -> str:
+    parts = [
+        context.get("context_id"),
+        context.get("context_family"),
+        context.get("surface_name"),
+        context.get("surface_type"),
+        context.get("root_key"),
+        context.get("root_type"),
+        context.get("nested_path"),
+        context.get("value_kind"),
+        context.get("availability"),
+        context.get("source_symbol"),
+        context.get("source_file"),
+        context.get("notes"),
+    ]
+    for link in context.get("model_map_links") or []:
+        if isinstance(link, dict):
+            parts.extend(str(link.get(key) or "") for key in ["model_slug", "model_name", "model_title", "model_detail_path"])
+    return " ".join(str(part) for part in parts if part)
+
+
+def compact_lava_context_search_payload(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "schema": row.get("schema", "rock-kb-lava-context-v1"),
+        "id": row.get("id"),
+        "context_id": row.get("context_id"),
+        "context_family": row.get("context_family"),
+        "surface_name": row.get("surface_name"),
+        "surface_type": row.get("surface_type"),
+        "concept_ids": row.get("concept_ids") or [],
+        "root_key": row.get("root_key"),
+        "root_type": row.get("root_type"),
+        "model_slug": row.get("model_slug"),
+        "value_kind": row.get("value_kind"),
+        "nested_path": row.get("nested_path"),
+        "availability": row.get("availability"),
+        "source_url": row.get("source_url"),
+        "source_file": row.get("source_file"),
+        "source_symbol": row.get("source_symbol"),
+        "source_line_start": row.get("source_line_start"),
+        "source_ref": row.get("source_ref"),
+        "model_map_links": row.get("model_map_links") or [],
+        "needs_live_verification": row.get("needs_live_verification"),
+        "notes": row.get("notes"),
+    }
 
 
 def compact_model_map_search_payload(row: dict[str, Any]) -> dict[str, Any]:

@@ -1,0 +1,72 @@
+{
+  "context_count": 58,
+  "context_families": {
+    "check-in-label": 29,
+    "cms-block": 1,
+    "communication": 3,
+    "global": 18,
+    "mobile-block": 1,
+    "workflow": 6
+  },
+  "generated_at": "2026-06-29T20:44:11+00:00",
+  "resource_paths": {
+    "agent_contexts": "agent/lava-contexts.jsonl",
+    "agent_summary": "agent/lava-context-summary.json",
+    "contexts": "knowledge/concepts/lava/lava-contexts.jsonl",
+    "directory": "knowledge/concepts/lava/lava-context-directory.md"
+  },
+  "schema": "rock-kb-lava-context-dependencies-v1",
+  "source_dependencies": [
+    {
+      "content_hash": "8741ed59dfd45127d61fe1e6b1e749274349a63d74e129d09de0d707258b224a",
+      "source_file": "Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs"
+    },
+    {
+      "content_hash": "fd6657a4062407414fd5c646e6eebcb4a7491fd3297e86c33955ab1fbf66bae2",
+      "source_file": "Rock/CheckIn/v2/Labels/FieldSourceHelper.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/FieldSourceHelper.cs"
+    },
+    {
+      "content_hash": "c7cdc768fc9538a59e31c8b2ad28312a66a6062ea7db5577b2e5cb33dd0af2f0",
+      "source_file": "Rock/CheckIn/v2/Labels/LabelField.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/LabelField.cs"
+    },
+    {
+      "content_hash": "a0463f95c806cee2c25bc8b3593ae94724ddeea69e70f67a282312e7f2b90adf",
+      "source_file": "Rock/Lava/LavaHelper.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/LavaHelper.cs"
+    },
+    {
+      "content_hash": "346a77ad6e7c85da2d5829944455135825a8dda4320d3e00b374bfeff4f9de05",
+      "source_file": "Rock/CheckIn/v2/Labels/PersonLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/PersonLabelData.cs"
+    },
+    {
+      "content_hash": "dca2e17ab5d7f6f3de38059e24c84669ac6843aadaabd3febac52949aa557b52",
+      "source_file": "Rock/Net/RockRequestContext.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Net/RockRequestContext.cs"
+    },
+    {
+      "content_hash": "bd21f8726d1259a0bad407fc1414173b6e4e77ff30c089baad20596b47a702c0",
+      "source_file": "Rock/Workflow/ActionComponent.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "develop",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/ActionComponent.cs"
+    }
+  ],
+  "source_id": "sparkdevnetwork_rock",
+  "source_ref": "develop"
+}

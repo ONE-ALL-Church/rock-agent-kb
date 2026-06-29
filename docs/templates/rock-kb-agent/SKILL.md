@@ -154,6 +154,36 @@ and source quality before citing a row.
 
 Do not treat latest/pre-alpha model data as the default. Use it only as an upcoming-version callout when it differs from stable.
 
+## Lava Context Roots
+
+For Lava questions, do not start by guessing which objects are available. First
+identify the rendering surface, then use the generated Lava context directory to
+find available root keys:
+
+```bash
+uvx rock-kb search "PersonAttendance Check-In Label Designer Lava roots"
+uvx rock-kb search "communication recipient merge values"
+uvx rock-kb search "workflow action Lava merge fields"
+```
+
+Use this lookup order:
+
+1. Lava context directory: find the available root key or nested path for the
+   specific surface.
+2. Model Map: inspect properties and relationships for linked model roots.
+3. Lava capabilities: confirm filters, commands, syntax behavior, and risk.
+4. Official docs/source citations: final evidence for precise answers.
+
+Important generated artifacts:
+
+- Lava context rows: `agent/lava-contexts.jsonl`
+- Lava context directory: `knowledge/concepts/lava/lava-context-directory.md`
+- Lava context summary: `agent/lava-context-summary.json`
+
+Rows marked `needs_live_verification: true` are source-code-backed leads whose
+exact availability still depends on page, block, communication, workflow, label,
+or instance configuration.
+
 ## Answer Rules
 
 - Cite source URLs or KB artifact paths when practical.
