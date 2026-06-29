@@ -1091,7 +1091,7 @@ function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[], q
   const bodyOverlap = overlapCount(queryTerms, bodyTerms);
   const conceptPhraseBoost = phraseMatchBoost(query, row.concept || "", 48);
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
-  const kindBoost = row.kind === "answer" ? 28 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
+  const kindBoost = row.kind === "answer" ? 28 : row.kind === "lava_context" ? 20 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
   const modelMapExactBoost = exactModelMapBoost(row, query);
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);

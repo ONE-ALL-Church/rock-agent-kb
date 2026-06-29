@@ -2,7 +2,7 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-06-23T22:14:36+00:00
+last_built: 2026-06-29T20:42:12+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

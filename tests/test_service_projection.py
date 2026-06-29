@@ -103,6 +103,49 @@ def test_model_map_search_rows_include_model_detail_properties():
     assert "GroupRoleId" in row["body"]
 
 
+def test_lava_context_search_rows_include_source_backed_roots(monkeypatch):
+    def fake_read_jsonl(path):
+        if path.name == "lava-contexts.jsonl":
+            return [
+                {
+                    "schema": "rock-kb-lava-context-v1",
+                    "id": "lava_context:check-in-label-person-dynamic-text:personattendance:abc12345",
+                    "context_id": "check-in-label-person-dynamic-text",
+                    "context_family": "check-in-label",
+                    "surface_name": "Check-In Label Designer Person Dynamic Text",
+                    "surface_type": "label_dynamic_text",
+                    "concept_ids": ["lava", "check-in"],
+                    "root_key": "PersonAttendance",
+                    "root_type": "List<LabelAttendanceDetail>",
+                    "model_slug": None,
+                    "value_kind": "collection",
+                    "nested_path": "",
+                    "availability": "source-code-confirmed",
+                    "source_id": "sparkdevnetwork_rock",
+                    "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/PersonLabelData.cs#L52",
+                    "source_file": "Rock/CheckIn/v2/Labels/PersonLabelData.cs",
+                    "source_symbol": "PersonLabelData",
+                    "source_line_start": 52,
+                    "source_ref": "develop",
+                    "model_map_links": [],
+                    "needs_live_verification": False,
+                    "notes": "Person label data property exposed to Dynamic Text Lava.",
+                }
+            ]
+        return []
+
+    monkeypatch.setattr(service_projection, "read_jsonl", fake_read_jsonl)
+
+    rows = service_projection.lava_context_search_rows()
+
+    assert {row["concept"] for row in rows} == {"lava", "check-in"}
+    assert all(row["kind"] == "lava_context" for row in rows)
+    assert all(row["authority_tier"] == "source-code-confirmed" for row in rows)
+    assert all(row["claim_tier"] == "source_backed" for row in rows)
+    assert "PersonAttendance" in rows[0]["body"]
+    assert rows[0]["payload"]["source_line_start"] == 52
+
+
 def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     projection = build_service_projection(destination=tmp_path / "dist")
 

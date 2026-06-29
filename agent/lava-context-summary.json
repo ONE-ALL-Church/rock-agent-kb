@@ -1,0 +1,38 @@
+{
+  "availability": {
+    "documented-boundary": 2,
+    "source-code-confirmed": 56
+  },
+  "context_count": 58,
+  "context_families": {
+    "check-in-label": 29,
+    "cms-block": 1,
+    "communication": 3,
+    "global": 18,
+    "mobile-block": 1,
+    "workflow": 6
+  },
+  "generated_at": "2026-06-29T20:44:11+00:00",
+  "model_link_count": 20,
+  "needs_live_verification_count": 15,
+  "paths": {
+    "agent_contexts": "agent/lava-contexts.jsonl",
+    "contexts": "knowledge/concepts/lava/lava-contexts.jsonl",
+    "dependencies": "knowledge/concepts/lava/lava-context-dependencies.json",
+    "directory": "knowledge/concepts/lava/lava-context-directory.md"
+  },
+  "schema": "rock-kb-lava-context-summary-v1",
+  "source_file_count": 7,
+  "source_id": "sparkdevnetwork_rock",
+  "source_ref": "develop",
+  "surface_types": {
+    "common_merge_fields": 18,
+    "communication_template_dynamic_merge_values": 1,
+    "communication_template_merge_values": 2,
+    "label_dynamic_text": 19,
+    "label_dynamic_text_nested_path": 6,
+    "label_field_source": 2,
+    "surface_boundary": 4,
+    "workflow_action_merge_fields": 6
+  }
+}

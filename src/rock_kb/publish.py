@@ -46,6 +46,8 @@ PUBLIC_PATHS = [
     "agent/model-map-digests.jsonl",
     "agent/lava-capabilities.jsonl",
     "agent/lava-capability-summary.json",
+    "agent/lava-contexts.jsonl",
+    "agent/lava-context-summary.json",
     "agent/answer-pack.jsonl",
     "agent/live-inspection-checklists.jsonl",
     "agent/live-probe-recipes.jsonl",
@@ -232,6 +234,9 @@ def audit_agent_entrypoint_coverage() -> list[str]:
         "model_map_model_details",
         "lava_capabilities",
         "lava_capability_summary",
+        "lava_contexts",
+        "lava_context_summary",
+        "lava_context_directory",
         "lava_reference_index",
         "lava_safety_matrix",
         "lava_agent_usage_examples",
@@ -343,6 +348,7 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             "section-source-map.jsonl",
             "section-status.jsonl",
             "lava-capabilities.jsonl",
+            "lava-contexts.jsonl",
         )
     ):
         return []
@@ -373,6 +379,8 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             errors.append(f"{path}:{index} section status row has no depends_on_sources")
         if path.endswith("lava-capabilities.jsonl") and not (row.get("official_url") and row.get("source_record_id")):
             errors.append(f"{path}:{index} Lava capability row has no official_url or source_record_id")
+        if path.endswith("lava-contexts.jsonl") and not (row.get("source_url") and row.get("source_file") and row.get("source_line_start")):
+            errors.append(f"{path}:{index} Lava context row has no source_url, source_file, or source_line_start")
     return errors
 
 

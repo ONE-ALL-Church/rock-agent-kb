@@ -25,6 +25,8 @@ FINAL_COMMANDS = [
     ["sources", "scan"],
     ["extract", "markdown"],
     ["extract", "doctor"],
+    ["lava", "contexts-build"],
+    ["lava", "contexts-refresh-source"],
     ["media", "discover"],
     ["media", "transcribe"],
     ["media", "batch"],

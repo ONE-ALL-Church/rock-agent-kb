@@ -47,6 +47,23 @@ metadata. Use this only for public documentation/developer/mobile docs and cite
 the public article URL, not the API URL. Do not use this API as a shortcut for
 private Rock instance content or secrets.
 
+## Lava Context Roots
+
+For Lava questions, identify the rendering surface before recommending syntax or
+model properties. Search the KB for the context first:
+
+```bash
+uvx rock-kb search "PersonAttendance Check-In Label Designer Lava roots"
+uvx rock-kb search "communication recipient merge values"
+uvx rock-kb search "workflow action Lava merge fields"
+```
+
+Use the generated Lava context directory to determine which root keys exist in
+that surface, then use the Model Map for properties and the Lava capability
+reference for filters, commands, and safety notes. Rows marked
+`needs_live_verification: true` still require checking the specific page, block,
+communication, workflow, label, or instance configuration.
+
 ## Submit Reusable Public Knowledge
 
 When you discover a reusable Rock RMS insight, submit a distilled contribution

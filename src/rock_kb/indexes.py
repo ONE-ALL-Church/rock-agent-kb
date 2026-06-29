@@ -10,6 +10,7 @@ from .agent_answer_pack import build_agent_answer_pack
 from .extract import grep_sensitive_values
 from .jsonl import read_jsonl, write_jsonl
 from .lava_capabilities import build_lava_capability_reference
+from .lava_contexts import build_lava_context_reference
 from .paths import AGENT_DIR, INDEX_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR, SOURCES_DIR
 from .sources import load_sources
 
@@ -230,6 +231,7 @@ def build_agent_pack() -> dict[str, int]:
     counts["knowledge_topic_pages"] = build_curated_topic_pages(records)
     counts.update({f"model_map_{key}": value for key, value in build_or_reuse_model_map().items()})
     counts.update(build_lava_capability_reference(records))
+    counts.update(build_lava_context_reference())
     from .concepts import refresh_long_form_model_map_pointers
 
     model_map_pointer_result = refresh_long_form_model_map_pointers()

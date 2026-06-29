@@ -19,6 +19,14 @@ from .lava_capabilities import (
     SAFETY_MATRIX,
     USAGE_EXAMPLES,
 )
+from .lava_contexts import (
+    AGENT_CONTEXT_JSONL,
+    AGENT_CONTEXT_SUMMARY_JSON,
+    CONTEXT_DEPENDENCY_JSON,
+    CONTEXT_INDEX,
+    CONTEXT_JSONL,
+    LAVA_CONTEXT_SCHEMA,
+)
 from .media import media_global_index_path, media_priority_queue_path, media_priority_report_path, media_status_report
 from .mobile_selector_audit import mobile_selector_audit_status
 from .paths import AGENT_DIR, DATA_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR, REPO_ROOT
@@ -37,6 +45,7 @@ def goal_readiness_report(include_private: bool = True) -> dict[str, Any]:
         agent_manifest_check(),
         concept_artifacts_check(),
         lava_capability_reference_check(),
+        lava_context_reference_check(),
         rebuild_metadata_check(),
     ]
     has_private = private_processing_artifacts_available()
@@ -254,6 +263,9 @@ def agent_manifest_check() -> dict[str, Any]:
         "claim_review_dashboard",
         "lava_capabilities",
         "lava_capability_summary",
+        "lava_contexts",
+        "lava_context_summary",
+        "lava_context_directory",
         "lava_reference_index",
         "lava_safety_matrix",
         "lava_agent_usage_examples",
@@ -390,6 +402,52 @@ def lava_capability_reference_check() -> dict[str, Any]:
             "risk_tiers": risk_tiers,
             "dependency_path": str(DEPENDENCY_JSON.relative_to(REPO_ROOT)),
             "dependent_concepts": sorted(dependent_concepts),
+            "errors": errors[:50],
+            "error_count": len(errors),
+        },
+    )
+
+
+def lava_context_reference_check() -> dict[str, Any]:
+    required_paths = [
+        CONTEXT_JSONL,
+        CONTEXT_INDEX,
+        CONTEXT_DEPENDENCY_JSON,
+        AGENT_CONTEXT_JSONL,
+        AGENT_CONTEXT_SUMMARY_JSON,
+    ]
+    errors = [f"{path.relative_to(REPO_ROOT)} is missing" for path in required_paths if not path.exists()]
+    rows = list(read_jsonl(CONTEXT_JSONL)) if CONTEXT_JSONL.exists() else []
+    families = sorted({str(row.get("context_family")) for row in rows if row.get("context_family")})
+    surface_types = sorted({str(row.get("surface_type")) for row in rows if row.get("surface_type")})
+    if len(rows) < 20:
+        errors.append(f"lava context row count is too low: {len(rows)}")
+    for index, row in enumerate(rows):
+        if row.get("schema") != LAVA_CONTEXT_SCHEMA:
+            errors.append(f"lava context row {index} has wrong schema")
+        if not (row.get("source_url") and row.get("source_file") and row.get("source_line_start")):
+            errors.append(f"lava context row {index} lacks source traceability")
+        if not isinstance(row.get("needs_live_verification"), bool):
+            errors.append(f"lava context row {index} lacks boolean live verification flag")
+    dependency: dict[str, Any] = {}
+    if CONTEXT_DEPENDENCY_JSON.exists():
+        try:
+            dependency = json.loads(CONTEXT_DEPENDENCY_JSON.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            errors.append("lava context dependency file is invalid JSON")
+    if not dependency.get("source_dependencies"):
+        errors.append("lava context dependencies lack source_dependencies")
+    return check(
+        "lava_context_reference",
+        "fail" if errors else "pass",
+        "Lava data-context directory exists and is source-traceable."
+        if not errors
+        else "Lava data-context directory is missing or invalid.",
+        {
+            "context_count": len(rows),
+            "families": families,
+            "surface_types": surface_types,
+            "dependency_path": str(CONTEXT_DEPENDENCY_JSON.relative_to(REPO_ROOT)),
             "errors": errors[:50],
             "error_count": len(errors),
         },
