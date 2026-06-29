@@ -5,6 +5,7 @@ from rock_kb.lava_contexts import (
     lava_context_rows,
     parse_common_merge_fields,
     parse_communication_merge_values,
+    parse_curated_surface_contexts,
     parse_person_label_data,
     parse_workflow_merge_fields,
 )
@@ -111,6 +112,65 @@ protected Dictionary<string, object> GetMergeFields( WorkflowAction action )
     assert by_key["Action"]["model_slug"] == "workflow-action"
     assert by_key["Activity"]["model_slug"] == "workflow-activity"
     assert by_key["Workflow"]["model_slug"] == "workflow"
+
+
+def test_parse_curated_surface_contexts_covers_v2_context_families():
+    rows = parse_curated_surface_contexts(
+        {
+            "content_channel_view": """
+itemMergeFields["Item"] = item;
+mergeFields.TryAdd( "Person", RequestContext.CurrentPerson );
+["Items"] = currentPageContent,
+""",
+            "mobile_prayer_session": """
+mergeFields.Add( "SessionContext", Encryption.EncryptString( sessionContext.ToJson() ) );
+mergeFields.Add( "Request", request );
+""",
+            "workflow_entry": """
+mergeFields.Add( "Action", action );
+mergeFields.Add( "Activity", activity );
+mergeFields.Add( "Workflow", workflow );
+mergeFields.Add( "Item", workflowType );
+""",
+            "registrant_waitlist_move": """
+{ MergeFieldKey.RegistrationInstance, registrationInstance },
+{ MergeFieldKey.TransitionedRegistrants, transitionedRegistrants },
+""",
+            "group_detail_lava": 'mergeFields.Add( "AllowedActions", securityActions );',
+            "calendar_lava": 'mergeFields.Add( "EventItemOccurrences", eventOccurrenceSummaries );',
+            "event_item_occurrence_lava": 'mergeFields.Add( "Event", eventItemOccurrence.EventItem );',
+            "realtime_visualizer": 'mergeFields.AddOrReplace( "Args", LavaHelper.JavaScriptObjectToLavaObject( arguments ) );',
+            "following_by_entity_lava": 'mergeFields.Add( "FollowingItems", items.Take( quantity ) );',
+            "motivators": """
+mergeFields.Add( "Person", targetPerson );
+mergeFields.Add( "MotivatorScores", results.MotivatorScores );
+""",
+            "fundraising_opportunity_view": """
+mergeFields.Add( "RegistrationInstance", registrationInstance );
+mergeFields.Add( "GroupMember", groupMember );
+""",
+            "transaction_entry_v2": """
+mergeFields.Add( "ScheduledTransactions", scheduledTransactionList );
+mergeFields.Add( "PaymentDetail", financialPaymentDetail );
+mergeFields.Add( "TransactionAccountDetails", commentTransactionAccountDetails );
+""",
+        }
+    )
+
+    keys = {(row["context_family"], row["context_id"], row["root_key"]) for row in rows}
+
+    assert ("cms-block", "cms-content-channel-view-template", "Items") in keys
+    assert ("mobile-block", "mobile-prayer-session-template", "Request") in keys
+    assert ("workflow", "workflow-entry-form-template", "Workflow") in keys
+    assert ("event-registration", "event-registrant-waitlist-transition-template", "TransitionedRegistrants") in keys
+    assert ("group-lava", "group-detail-lava-template", "AllowedActions") in keys
+    assert ("event-lava", "calendar-lava-template", "EventItemOccurrences") in keys
+    assert ("utility-lava", "realtime-visualizer-message-template", "Args") in keys
+    assert ("following", "following-by-entity-lava-template", "FollowingItems") in keys
+    assert ("assessment-lava", "motivators-assessment-template", "MotivatorScores") in keys
+    assert ("finance-lava", "transaction-entry-payment-comment-template", "TransactionAccountDetails") in keys
+    assert next(row for row in rows if row["root_key"] == "Request")["model_slug"] == "prayer-request"
+    assert next(row for row in rows if row["root_key"] == "PaymentDetail")["model_slug"] == "financial-payment-detail"
 
 
 def test_lava_context_rows_have_stable_required_fields(monkeypatch):

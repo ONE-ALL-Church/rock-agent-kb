@@ -32,6 +32,12 @@ COMMUNICATION_CONCEPT_IDS = ["lava", "communications", "people-families"]
 WORKFLOW_CONCEPT_IDS = ["lava", "workflows"]
 CMS_CONCEPT_IDS = ["lava", "cms-websites"]
 MOBILE_CONCEPT_IDS = ["lava", "mobile"]
+EVENT_CONCEPT_IDS = ["lava", "event-registration"]
+GROUP_CONCEPT_IDS = ["lava", "groups"]
+EVENT_LAVA_CONCEPT_IDS = ["lava", "event-calendar"]
+FOLLOWING_CONCEPT_IDS = ["lava", "people-families"]
+ASSESSMENT_CONCEPT_IDS = ["lava", "people-families", "engagement-tracking"]
+FINANCE_CONCEPT_IDS = ["lava", "giving-finance"]
 
 
 @dataclass(frozen=True)
@@ -53,6 +59,33 @@ class SourceFile:
         return f"https://github.com/SparkDevNetwork/Rock/blob/{SOURCE_REF}/{self.source_file}"
 
 
+@dataclass(frozen=True)
+class CuratedContextRoot:
+    root_key: str
+    root_type: str
+    model_slug: str | None = None
+    value_kind: str = "object"
+    nested_path: str = ""
+    availability: str = "source-code-confirmed"
+    needs_live_verification: bool = False
+    source_symbol: str | None = None
+    notes: str = ""
+    source_patterns: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class CuratedContextSpec:
+    source_key: str
+    context_id: str
+    context_family: str
+    surface_name: str
+    surface_type: str
+    concept_ids: tuple[str, ...]
+    source_symbol: str
+    notes: str
+    roots: tuple[CuratedContextRoot, ...]
+
+
 SOURCE_FILES: dict[str, SourceFile] = {
     "lava_helper": SourceFile("lava_helper", "Rock/Lava/LavaHelper.cs", "LavaHelper.GetCommonMergeFields"),
     "request_context": SourceFile("request_context", "Rock/Net/RockRequestContext.cs", "RockRequestContext.GetCommonMergeFields"),
@@ -65,6 +98,59 @@ SOURCE_FILES: dict[str, SourceFile] = {
         "CommunicationRecipient.CommunicationMergeValues",
     ),
     "workflow_action": SourceFile("workflow_action", "Rock/Workflow/ActionComponent.cs", "ActionComponent.GetMergeFields"),
+    "content_channel_view": SourceFile("content_channel_view", "Rock.Blocks/Cms/ContentChannelView.cs", "ContentChannelView"),
+    "content_channel_item_view": SourceFile(
+        "content_channel_item_view",
+        "Rock.Blocks/Cms/ContentChannelItemView.cs",
+        "ContentChannelItemView",
+    ),
+    "mobile_cms_content": SourceFile("mobile_cms_content", "Rock/Blocks/Types/Mobile/Cms/Content.cs", "Mobile.Cms.Content"),
+    "mobile_group_view": SourceFile("mobile_group_view", "Rock/Blocks/Types/Mobile/Groups/GroupView.cs", "Mobile.Groups.GroupView"),
+    "mobile_prayer_session": SourceFile(
+        "mobile_prayer_session",
+        "Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs",
+        "Mobile.Prayer.PrayerSession",
+    ),
+    "mobile_communication_view": SourceFile(
+        "mobile_communication_view",
+        "Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs",
+        "Mobile.Communication.CommunicationView",
+    ),
+    "workflow_entry": SourceFile("workflow_entry", "Rock.Blocks/WorkFlow/WorkflowEntry.cs", "WorkflowEntry"),
+    "registration_entry": SourceFile("registration_entry", "Rock.Blocks/Event/RegistrationEntry.cs", "RegistrationEntry"),
+    "registrant_waitlist_move": SourceFile(
+        "registrant_waitlist_move",
+        "Rock.Blocks/Event/RegistrantWaitListMove.cs",
+        "RegistrantWaitListMove",
+    ),
+    "group_detail_lava": SourceFile("group_detail_lava", "RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs", "GroupDetailLava"),
+    "group_finder": SourceFile("group_finder", "RockWeb/Blocks/Groups/GroupFinder.ascx.cs", "GroupFinder"),
+    "calendar_lava": SourceFile("calendar_lava", "RockWeb/Blocks/Event/CalendarLava.ascx.cs", "CalendarLava"),
+    "event_item_occurrence_lava": SourceFile(
+        "event_item_occurrence_lava",
+        "RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs",
+        "EventItemOccurrenceLava",
+    ),
+    "realtime_visualizer": SourceFile("realtime_visualizer", "Rock.Blocks/Utility/RealTimeVisualizer.cs", "RealTimeVisualizer"),
+    "following_by_entity_lava": SourceFile(
+        "following_by_entity_lava",
+        "Rock.Blocks/Core/FollowingByEntityLava.cs",
+        "FollowingByEntityLava",
+    ),
+    "motivators": SourceFile("motivators", "Rock.Blocks/Crm/Motivators.cs", "Motivators"),
+    "gifts_assessment": SourceFile("gifts_assessment", "Rock.Blocks/Crm/GiftsAssessment.cs", "GiftsAssessment"),
+    "conflict_profile": SourceFile("conflict_profile", "Rock.Blocks/Crm/ConflictProfile.cs", "ConflictProfile"),
+    "disc": SourceFile("disc", "Rock.Blocks/Crm/Disc.cs", "Disc"),
+    "fundraising_opportunity_view": SourceFile(
+        "fundraising_opportunity_view",
+        "RockWeb/Blocks/Fundraising/FundraisingOpportunityView.ascx.cs",
+        "FundraisingOpportunityView",
+    ),
+    "transaction_entry_v2": SourceFile(
+        "transaction_entry_v2",
+        "RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs",
+        "TransactionEntryV2",
+    ),
 }
 
 TYPE_MODEL_MAP = {
@@ -77,7 +163,20 @@ TYPE_MODEL_MAP = {
     "WorkflowAction": ("Rock.Model.WorkflowAction", "workflow-action", "object"),
     "WorkflowActivity": ("Rock.Model.WorkflowActivity", "workflow-activity", "object"),
     "Workflow": ("Rock.Model.Workflow", "workflow", "object"),
+    "WorkflowType": ("Rock.Model.WorkflowType", "workflow-type", "object"),
     "Campus": ("Rock.Model.Campus", "campus", "object"),
+    "ContentChannel": ("Rock.Model.ContentChannel", "content-channel", "object"),
+    "ContentChannelItem": ("Rock.Model.ContentChannelItem", "content-channel-item", "object"),
+    "Registration": ("Rock.Model.Registration", "registration", "object"),
+    "RegistrationInstance": ("Rock.Model.RegistrationInstance", "registration-instance", "object"),
+    "RegistrationRegistrant": ("Rock.Model.RegistrationRegistrant", "registration-registrant", "object"),
+    "GroupMember": ("Rock.Model.GroupMember", "group-member", "object"),
+    "EventItem": ("Rock.Model.EventItem", "event-item", "object"),
+    "EventItemOccurrence": ("Rock.Model.EventItemOccurrence", "event-item-occurrence", "object"),
+    "PrayerRequest": ("Rock.Model.PrayerRequest", "prayer-request", "object"),
+    "FinancialTransaction": ("Rock.Model.FinancialTransaction", "financial-transaction", "object"),
+    "FinancialScheduledTransaction": ("Rock.Model.FinancialScheduledTransaction", "financial-scheduled-transaction", "object"),
+    "FinancialPaymentDetail": ("Rock.Model.FinancialPaymentDetail", "financial-payment-detail", "object"),
     "Device": ("Rock.Common.Mobile.DeviceData", None, "object"),
 }
 
@@ -103,6 +202,514 @@ LABEL_NESTED_MODEL_MAP = {
     "Location": TYPE_MODEL_MAP["Location"],
     "Schedule": TYPE_MODEL_MAP["Schedule"],
 }
+
+
+def simple_context_root(
+    root_key: str,
+    root_type: str,
+    value_kind: str,
+    *,
+    model_slug: str | None = None,
+    availability: str = "source-code-confirmed",
+    needs_live_verification: bool = False,
+    source_symbol: str | None = None,
+    notes: str = "",
+    source_patterns: tuple[str, ...] = (),
+) -> CuratedContextRoot:
+    return CuratedContextRoot(
+        root_key=root_key,
+        root_type=root_type,
+        model_slug=model_slug,
+        value_kind=value_kind,
+        availability=availability,
+        needs_live_verification=needs_live_verification,
+        source_symbol=source_symbol,
+        notes=notes,
+        source_patterns=source_patterns,
+    )
+
+
+def model_context_root(
+    root_key: str,
+    type_key: str,
+    *,
+    value_kind: str | None = None,
+    root_type: str | None = None,
+    needs_live_verification: bool = False,
+    source_symbol: str | None = None,
+    notes: str = "",
+    source_patterns: tuple[str, ...] = (),
+) -> CuratedContextRoot:
+    default_type, model_slug, default_kind = TYPE_MODEL_MAP[type_key]
+    return simple_context_root(
+        root_key,
+        root_type or default_type,
+        value_kind or default_kind,
+        model_slug=model_slug,
+        needs_live_verification=needs_live_verification,
+        source_symbol=source_symbol,
+        notes=notes,
+        source_patterns=source_patterns,
+    )
+
+
+CURATED_CONTEXT_SPECS: tuple[CuratedContextSpec, ...] = (
+    CuratedContextSpec(
+        source_key="content_channel_view",
+        context_id="cms-content-channel-view-template",
+        context_family="cms-block",
+        surface_name="CMS Content Channel View Lava template",
+        surface_type="cms_content_channel_view_template",
+        concept_ids=tuple(CMS_CONCEPT_IDS),
+        source_symbol="ContentChannelView.GetTemplateMergeFields",
+        notes="ContentChannelView builds these roots for the list/archive Lava template.",
+        roots=(
+            simple_context_root("DetailPage", "PageReference route", "scalar"),
+            simple_context_root("DetailPageRoute", "string", "scalar"),
+            model_context_root("Person", "Person", needs_live_verification=True),
+            model_context_root("Item", "ContentChannelItem"),
+            simple_context_root("Pagination", "PaginationBag", "object"),
+            simple_context_root("LinkedPages", "Dictionary<string, object>", "dictionary"),
+            model_context_root("Items", "ContentChannelItem", value_kind="collection", root_type="IEnumerable<ContentChannelItem>"),
+            simple_context_root("ItemTagList", "IEnumerable<Tag>", "collection"),
+            simple_context_root("ArchiveSummary", "IEnumerable<ArchiveSummary>", "collection"),
+            simple_context_root("RockVersion", "string", "scalar"),
+            simple_context_root("CurrentPageUrl", "string", "scalar"),
+            simple_context_root("ArchiveSummaryPageUrl", "string", "scalar"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="content_channel_item_view",
+        context_id="cms-content-channel-item-view-template",
+        context_family="cms-block",
+        surface_name="CMS Content Channel Item View Lava template",
+        surface_type="cms_content_channel_item_view_template",
+        concept_ids=tuple(CMS_CONCEPT_IDS),
+        source_symbol="ContentChannelItemView.GetTemplateMergeFields",
+        notes="ContentChannelItemView builds these roots for single content item Lava rendering.",
+        roots=(
+            model_context_root("Item", "ContentChannelItem"),
+            simple_context_root("RockVersion", "string", "scalar"),
+            simple_context_root("DetailPage", "int or string", "scalar"),
+            simple_context_root("DetailPageRoute", "string", "scalar"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="mobile_cms_content",
+        context_id="mobile-cms-content-template",
+        context_family="mobile-block",
+        surface_name="Mobile CMS Content block server Lava",
+        surface_type="mobile_cms_content_template",
+        concept_ids=tuple(MOBILE_CONCEPT_IDS),
+        source_symbol="Mobile.Cms.Content.GetInitialContent",
+        notes="Mobile CMS Content adds CurrentPage when server-side Lava processing is enabled.",
+        roots=(simple_context_root("CurrentPage", "PageCache", "object", needs_live_verification=True),),
+    ),
+    CuratedContextSpec(
+        source_key="mobile_cms_content",
+        context_id="mobile-cms-command-template",
+        context_family="mobile-block",
+        surface_name="Mobile CMS Content command Lava",
+        surface_type="mobile_cms_command_template",
+        concept_ids=tuple(MOBILE_CONCEPT_IDS),
+        source_symbol="Mobile.Cms.Content.ProcessCallbackCommand",
+        notes="Mobile CMS callback command Lava receives command metadata plus the current page.",
+        roots=(
+            simple_context_root("Command", "string", "scalar"),
+            simple_context_root("Parameters", "IDictionary<string, object>", "dictionary"),
+            simple_context_root("CurrentPage", "PageCache", "object", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="mobile_group_view",
+        context_id="mobile-group-view-template",
+        context_family="mobile-block",
+        surface_name="Mobile Group View block Lava template",
+        surface_type="mobile_group_view_template",
+        concept_ids=tuple(MOBILE_CONCEPT_IDS + GROUP_CONCEPT_IDS[1:]),
+        source_symbol="Mobile.Groups.GroupView.GetTemplateMergeFields",
+        notes="Mobile Group View declares group, linked-page, attribute, and authorization roots for its template.",
+        roots=(
+            model_context_root("Group", "Group"),
+            simple_context_root("GroupEditPage", "string", "scalar"),
+            simple_context_root("ShowLeaderList", "bool", "scalar"),
+            simple_context_root("VisibleAttributes", "IEnumerable<AttributeCache>", "collection"),
+            simple_context_root("AllowedActions", "Dictionary<string, bool>", "dictionary", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="mobile_prayer_session",
+        context_id="mobile-prayer-session-template",
+        context_family="mobile-block",
+        surface_name="Mobile Prayer Session block Lava template",
+        surface_type="mobile_prayer_session_template",
+        concept_ids=tuple(MOBILE_CONCEPT_IDS + ["prayer-care"]),
+        source_symbol="Mobile.Prayer.PrayerSession.GetRequestContent",
+        notes="Mobile Prayer Session declares button labels, session context, and the prayer request root.",
+        roots=(
+            simple_context_root("PrayedButtonText", "string", "scalar"),
+            simple_context_root("ShowFollowButton", "bool", "scalar"),
+            simple_context_root("ShowInappropriateButton", "bool", "scalar"),
+            simple_context_root("SessionContext", "encrypted JSON string", "scalar", needs_live_verification=True),
+            model_context_root("Request", "PrayerRequest"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="mobile_communication_view",
+        context_id="mobile-communication-view-template",
+        context_family="mobile-block",
+        surface_name="Mobile Communication View block Lava template",
+        surface_type="mobile_communication_view_template",
+        concept_ids=tuple(MOBILE_CONCEPT_IDS + COMMUNICATION_CONCEPT_IDS[1:]),
+        source_symbol="Mobile.Communication.CommunicationView.GetTemplateMergeFields",
+        notes="Mobile Communication View declares communication recipient roots and may copy additional recipient merge values.",
+        roots=(
+            simple_context_root("CurrentPage", "PageCache", "object", needs_live_verification=True),
+            model_context_root("Communication", "Communication"),
+            model_context_root("Person", "Person"),
+            simple_context_root("Content", "string", "scalar"),
+            simple_context_root(
+                "AdditionalRecipientMergeValues",
+                "dynamic recipient merge values",
+                "dynamic",
+                needs_live_verification=True,
+                source_patterns=(r"mergeFields\.Add\(\s*mergeField\.Key\s*,\s*mergeField\.Value\s*\)",),
+            ),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="workflow_entry",
+        context_id="workflow-entry-form-template",
+        context_family="workflow",
+        surface_name="Workflow Entry block form Lava",
+        surface_type="workflow_entry_form_template",
+        concept_ids=tuple(WORKFLOW_CONCEPT_IDS),
+        source_symbol="WorkflowEntry.GetMergeFields",
+        notes="Workflow Entry adds workflow state roots for form rendering and action processing.",
+        roots=(
+            model_context_root("Action", "WorkflowAction", needs_live_verification=True),
+            model_context_root("Activity", "WorkflowActivity", needs_live_verification=True),
+            model_context_root("Workflow", "Workflow"),
+            model_context_root("Item", "WorkflowType", notes="WorkflowEntry uses Item for workflow-type selection in some form flows."),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="registration_entry",
+        context_id="event-registration-entry-template",
+        context_family="event-registration",
+        surface_name="Event Registration Entry Lava templates",
+        surface_type="event_registration_entry_template",
+        concept_ids=tuple(EVENT_CONCEPT_IDS),
+        source_symbol="RegistrationEntry.GetMergeFields",
+        notes="Registration Entry uses these roots for registration UI, success, and confirmation Lava.",
+        roots=(
+            model_context_root("RegistrationInstance", "RegistrationInstance", source_patterns=(r'mergeFields\.Add\(\s*"RegistrationInstance"',)),
+            model_context_root("Registration", "Registration", source_patterns=(r'mergeFields\.Add\(\s*"Registration"',)),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="registration_entry",
+        context_id="event-registration-signature-document",
+        context_family="event-registration",
+        surface_name="Event Registration signature document Lava",
+        surface_type="event_registration_signature_document",
+        concept_ids=tuple(EVENT_CONCEPT_IDS + ["documents-signatures"]),
+        source_symbol="RegistrationEntry.BuildSignatureDocumentMergeFields",
+        notes="Registration Entry builds signature-document Lava roots for registration and registrant context.",
+        roots=(
+            model_context_root("Registration", "Registration", source_patterns=(r'\{\s*"Registration"\s*,',)),
+            model_context_root("Registrant", "RegistrationRegistrant", source_patterns=(r'\{\s*"Registrant"\s*,',)),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="registrant_waitlist_move",
+        context_id="event-registrant-waitlist-transition-template",
+        context_family="event-registration",
+        surface_name="Registrant wait-list transition email Lava",
+        surface_type="event_registration_waitlist_transition_template",
+        concept_ids=tuple(EVENT_CONCEPT_IDS + COMMUNICATION_CONCEPT_IDS[1:]),
+        source_symbol="RegistrantWaitListMove.BuildMergeFields",
+        notes="Registrant wait-list transition emails use these roots when resolving the email template.",
+        roots=(
+            model_context_root("RegistrationInstance", "RegistrationInstance"),
+            model_context_root("Registration", "Registration"),
+            model_context_root("TransitionedRegistrants", "RegistrationRegistrant", value_kind="collection", root_type="List<RegistrationRegistrant>"),
+            simple_context_root("AdditionalFieldsNeeded", "bool", "scalar"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="group_detail_lava",
+        context_id="group-detail-lava-template",
+        context_family="group-lava",
+        surface_name="Group Detail Lava block",
+        surface_type="group_detail_lava_template",
+        concept_ids=tuple(GROUP_CONCEPT_IDS),
+        source_symbol="GroupDetailLava.ShowViewGroup",
+        notes="Legacy Group Detail Lava exposes the group plus linked page and security helper dictionaries.",
+        roots=(
+            model_context_root("Group", "Group"),
+            simple_context_root("LinkedPages", "Dictionary<string, object>", "dictionary"),
+            simple_context_root("AllowedActions", "Dictionary<string, bool>", "dictionary", needs_live_verification=True),
+            simple_context_root("CurrentPage", "Dictionary<string, object>", "dictionary", needs_live_verification=True),
+            simple_context_root("ButtonVisibility", "Dictionary<string, bool>", "dictionary", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="group_finder",
+        context_id="group-finder-lava-template",
+        context_family="group-lava",
+        surface_name="Group Finder Lava block",
+        surface_type="group_finder_lava_template",
+        concept_ids=tuple(GROUP_CONCEPT_IDS),
+        source_symbol="GroupFinder.ShowResults",
+        notes="Group Finder exposes selected group/location context, linked pages, campus context, and result lists.",
+        roots=(
+            model_context_root("Group", "Group", needs_live_verification=True),
+            model_context_root("Location", "Location", needs_live_verification=True),
+            simple_context_root("LinkedPages", "Dictionary<string, object>", "dictionary"),
+            model_context_root("CampusContext", "Campus", needs_live_verification=True),
+            simple_context_root("AllowedActions", "Dictionary<string, bool>", "dictionary", needs_live_verification=True),
+            simple_context_root("Fences", "IEnumerable<GeoFence>", "collection", needs_live_verification=True),
+            model_context_root("Groups", "Group", value_kind="collection", root_type="IEnumerable<Group>"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="calendar_lava",
+        context_id="calendar-lava-template",
+        context_family="event-lava",
+        surface_name="Calendar Lava block",
+        surface_type="calendar_lava_template",
+        concept_ids=tuple(EVENT_LAVA_CONCEPT_IDS),
+        source_symbol="CalendarLava.BindEvents",
+        notes="Calendar Lava exposes date filters plus event summaries and occurrence summaries.",
+        roots=(
+            simple_context_root("DetailsPage", "PageReference route", "scalar"),
+            model_context_root("EventItems", "EventItem", value_kind="collection", root_type="IEnumerable<EventItem>"),
+            model_context_root("EventItemOccurrences", "EventItemOccurrence", value_kind="collection", root_type="IEnumerable<EventItemOccurrence>"),
+            model_context_root("CurrentPerson", "Person", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="event_item_occurrence_lava",
+        context_id="event-item-occurrence-lava-template",
+        context_family="event-lava",
+        surface_name="Event Item Occurrence Lava block",
+        surface_type="event_item_occurrence_lava_template",
+        concept_ids=tuple(EVENT_LAVA_CONCEPT_IDS),
+        source_symbol="EventItemOccurrenceLava.ShowEventItemOccurrence",
+        notes="Event Item Occurrence Lava exposes occurrence, event, campus, registration, and status roots.",
+        roots=(
+            simple_context_root("RegistrationPage", "PageReference route", "scalar"),
+            model_context_root("CampusContext", "Campus", needs_live_verification=True),
+            simple_context_root("RegistrationStatusLabel", "string", "scalar", needs_live_verification=True),
+            simple_context_root("RegistrationStatusLabels", "Dictionary<string, string>", "dictionary", needs_live_verification=True),
+            model_context_root("EventItemOccurrence", "EventItemOccurrence"),
+            model_context_root("Event", "EventItem"),
+            model_context_root("CurrentPerson", "Person", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="realtime_visualizer",
+        context_id="realtime-visualizer-settings-template",
+        context_family="utility-lava",
+        surface_name="Real Time Visualizer settings Lava",
+        surface_type="realtime_visualizer_settings_template",
+        concept_ids=tuple(DEFAULT_CONCEPT_IDS),
+        source_symbol="RealTimeVisualizer.GetSettingsHtml",
+        notes="Real Time Visualizer settings templates receive the block settings root.",
+        roots=(simple_context_root("Settings", "Dictionary<string, object>", "dictionary"),),
+    ),
+    CuratedContextSpec(
+        source_key="realtime_visualizer",
+        context_id="realtime-visualizer-message-template",
+        context_family="utility-lava",
+        surface_name="Real Time Visualizer message Lava",
+        surface_type="realtime_visualizer_message_template",
+        concept_ids=tuple(DEFAULT_CONCEPT_IDS),
+        source_symbol="RealTimeVisualizer.OnMessage",
+        notes="Real Time Visualizer message templates receive real-time topic, message, and argument roots.",
+        roots=(
+            simple_context_root("Topic", "string", "scalar"),
+            simple_context_root("Message", "string", "scalar"),
+            simple_context_root("Args", "Lava object converted from JavaScript arguments", "dynamic", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="following_by_entity_lava",
+        context_id="following-by-entity-lava-template",
+        context_family="following",
+        surface_name="Following By Entity Lava block",
+        surface_type="following_by_entity_lava_template",
+        concept_ids=tuple(FOLLOWING_CONCEPT_IDS),
+        source_symbol="FollowingByEntityLava.BindGrid",
+        notes="Following By Entity Lava exposes followed items and paging/link metadata.",
+        roots=(
+            simple_context_root("FollowingItems", "IEnumerable<Following>", "collection"),
+            simple_context_root("HasMore", "bool", "scalar"),
+            simple_context_root("EntityType", "string", "scalar"),
+            simple_context_root("LinkUrl", "string", "scalar"),
+            simple_context_root("Quantity", "int", "scalar"),
+            simple_context_root("BlockId", "int", "scalar"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="motivators",
+        context_id="motivators-assessment-template",
+        context_family="assessment-lava",
+        surface_name="Motivators assessment Lava templates",
+        surface_type="assessment_lava_template",
+        concept_ids=tuple(ASSESSMENT_CONCEPT_IDS),
+        source_symbol="Motivators.ShowResults",
+        notes="Motivators assessment result templates receive the target person and score roots.",
+        roots=(
+            model_context_root("Person", "Person"),
+            simple_context_root("MotivatorThemeScores", "IEnumerable<MotivatorThemeScore>", "collection"),
+            simple_context_root("MotivatorScores", "IEnumerable<MotivatorScore>", "collection"),
+            simple_context_root("GrowthScore", "object", "object"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="gifts_assessment",
+        context_id="gifts-assessment-template",
+        context_family="assessment-lava",
+        surface_name="Gifts assessment Lava template",
+        surface_type="assessment_lava_template",
+        concept_ids=tuple(ASSESSMENT_CONCEPT_IDS),
+        source_symbol="GiftsAssessment.ShowResults",
+        notes="Gifts assessment result templates receive the target person root.",
+        roots=(model_context_root("Person", "Person"),),
+    ),
+    CuratedContextSpec(
+        source_key="conflict_profile",
+        context_id="conflict-profile-template",
+        context_family="assessment-lava",
+        surface_name="Conflict profile Lava template",
+        surface_type="assessment_lava_template",
+        concept_ids=tuple(ASSESSMENT_CONCEPT_IDS),
+        source_symbol="ConflictProfile.ShowResults",
+        notes="Conflict profile result templates receive the target person root.",
+        roots=(model_context_root("Person", "Person"),),
+    ),
+    CuratedContextSpec(
+        source_key="disc",
+        context_id="disc-assessment-template",
+        context_family="assessment-lava",
+        surface_name="DISC assessment Lava template",
+        surface_type="assessment_lava_template",
+        concept_ids=tuple(ASSESSMENT_CONCEPT_IDS),
+        source_symbol="Disc.ShowResults",
+        notes="DISC assessment result templates receive the target person root.",
+        roots=(model_context_root("Person", "Person"),),
+    ),
+    CuratedContextSpec(
+        source_key="fundraising_opportunity_view",
+        context_id="fundraising-opportunity-template",
+        context_family="finance-lava",
+        surface_name="Fundraising Opportunity View Lava template",
+        surface_type="fundraising_opportunity_lava_template",
+        concept_ids=tuple(FINANCE_CONCEPT_IDS + EVENT_CONCEPT_IDS[1:]),
+        source_symbol="FundraisingOpportunityView.ShowView",
+        notes="Fundraising Opportunity View exposes group, registration, progress, and content-channel roots.",
+        roots=(
+            simple_context_root("Block", "BlockCache", "object", needs_live_verification=True),
+            model_context_root("Group", "Group"),
+            simple_context_root("RegistrationPage", "PageReference route", "scalar"),
+            model_context_root("RegistrationInstance", "RegistrationInstance"),
+            simple_context_root("RegistrationInstanceLinkages", "IEnumerable<RegistrationInstanceLinkage>", "collection"),
+            simple_context_root("CurrentRegistrationCount", "int", "scalar"),
+            simple_context_root("MaxRegistrantCount", "int", "scalar"),
+            simple_context_root("RegistrationSpotsAvailable", "int", "scalar"),
+            model_context_root("GroupMember", "GroupMember", needs_live_verification=True),
+            simple_context_root("ParticipationMode", "string", "scalar"),
+            simple_context_root("ProgressTitle", "string", "scalar"),
+            simple_context_root("FamilyMemberGroupMembers", "IEnumerable<GroupMember>", "collection", model_slug="group-member"),
+            simple_context_root("AmountLeft", "decimal", "scalar"),
+            simple_context_root("PercentMet", "decimal", "scalar"),
+            simple_context_root("MakeDonationUrl", "string", "scalar"),
+            simple_context_root("ParticipantPageUrl", "string", "scalar"),
+            simple_context_root("MakeDonationButtonText", "string", "scalar"),
+            model_context_root("ContentChannelItems", "ContentChannelItem", value_kind="collection", root_type="IEnumerable<ContentChannelItem>"),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="transaction_entry_v2",
+        context_id="transaction-entry-scheduled-transactions-template",
+        context_family="finance-lava",
+        surface_name="Transaction Entry scheduled transactions Lava template",
+        surface_type="transaction_entry_scheduled_transactions_template",
+        concept_ids=tuple(FINANCE_CONCEPT_IDS),
+        source_symbol="TransactionEntryV2.LoadScheduledTransactions",
+        notes="Transaction Entry exposes these roots when rendering scheduled transaction rows.",
+        roots=(
+            simple_context_root("GiftTerm", "string", "scalar"),
+            simple_context_root("LinkedPages", "Dictionary<string, object>", "dictionary"),
+            model_context_root(
+                "ScheduledTransactions",
+                "FinancialScheduledTransaction",
+                value_kind="collection",
+                root_type="IEnumerable<FinancialScheduledTransaction>",
+            ),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="transaction_entry_v2",
+        context_id="transaction-entry-confirm-account-email",
+        context_family="finance-lava",
+        surface_name="Transaction Entry confirm account email Lava",
+        surface_type="transaction_entry_confirm_account_email",
+        concept_ids=tuple(FINANCE_CONCEPT_IDS + COMMUNICATION_CONCEPT_IDS[1:]),
+        source_symbol="TransactionEntryV2.SendConfirmAccountEmail",
+        notes="Transaction Entry confirmation emails receive account URL, person, and user roots.",
+        roots=(
+            simple_context_root("ConfirmAccountUrl", "string", "scalar"),
+            model_context_root("Person", "Person"),
+            simple_context_root("User", "UserLogin", "object", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="transaction_entry_v2",
+        context_id="transaction-entry-intro-message",
+        context_family="finance-lava",
+        surface_name="Transaction Entry intro message Lava",
+        surface_type="transaction_entry_intro_message",
+        concept_ids=tuple(FINANCE_CONCEPT_IDS),
+        source_symbol="TransactionEntryV2.SetIntroMessage",
+        notes="Transaction Entry intro message can expose the transaction entity root when configured.",
+        roots=(simple_context_root("TransactionEntity", "IEntity", "dynamic", needs_live_verification=True),),
+    ),
+    CuratedContextSpec(
+        source_key="transaction_entry_v2",
+        context_id="transaction-entry-finish-template",
+        context_family="finance-lava",
+        surface_name="Transaction Entry finish Lava template",
+        surface_type="transaction_entry_finish_template",
+        concept_ids=tuple(FINANCE_CONCEPT_IDS),
+        source_symbol="TransactionEntryV2.ShowTransactionSummary",
+        notes="Transaction Entry finish template receives transaction, person, payment, and billing roots after payment.",
+        roots=(
+            simple_context_root("TransactionEntity", "IEntity", "dynamic", needs_live_verification=True, source_patterns=(r'mergeFields\.Add\(\s*"TransactionEntity"',)),
+            simple_context_root("Transaction", "FinancialTransaction or FinancialScheduledTransaction", "object", model_slug="financial-transaction"),
+            model_context_root("Person", "Person"),
+            model_context_root("PaymentDetail", "FinancialPaymentDetail"),
+            model_context_root("BillingLocation", "Location", needs_live_verification=True),
+        ),
+    ),
+    CuratedContextSpec(
+        source_key="transaction_entry_v2",
+        context_id="transaction-entry-payment-comment-template",
+        context_family="finance-lava",
+        surface_name="Transaction Entry payment comment Lava template",
+        surface_type="transaction_entry_payment_comment_template",
+        concept_ids=tuple(FINANCE_CONCEPT_IDS),
+        source_symbol="TransactionEntryV2.SetPaymentComment",
+        notes="Transaction Entry payment comment template receives payment timing, currency, and account allocation roots.",
+        roots=(
+            simple_context_root("TransactionDateTime", "DateTime", "scalar"),
+            simple_context_root("CurrencyType", "DefinedValueCache", "object", needs_live_verification=True),
+            simple_context_root("TransactionAccountDetails", "IEnumerable<FinancialTransactionDetail>", "collection"),
+        ),
+    ),
+)
 
 
 def build_lava_context_reference(fetch_missing: bool = True, source_dir: Path | None = None) -> dict[str, Any]:
@@ -162,6 +769,7 @@ def lava_context_rows(source_texts: dict[str, str]) -> list[dict[str, Any]]:
     rows.extend(parse_field_source_helper_person_label_paths(source_texts.get("field_source_helper", "")))
     rows.extend(parse_communication_merge_values(source_texts.get("communication_recipient", "")))
     rows.extend(parse_workflow_merge_fields(source_texts.get("workflow_action", "")))
+    rows.extend(parse_curated_surface_contexts(source_texts))
     rows.extend(static_surface_boundary_rows(source_texts))
 
     normalized = []
@@ -443,6 +1051,67 @@ def parse_workflow_merge_fields(text: str) -> list[dict[str, Any]]:
     return rows
 
 
+def parse_curated_surface_contexts(source_texts: dict[str, str]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for spec in CURATED_CONTEXT_SPECS:
+        text = source_texts.get(spec.source_key, "")
+        if not text:
+            continue
+        source = SOURCE_FILES[spec.source_key]
+        for root in spec.roots:
+            line_number = find_curated_root_line(text, root)
+            if line_number is None:
+                continue
+            rows.append(
+                context_row(
+                    context_id=spec.context_id,
+                    context_family=spec.context_family,
+                    surface_name=spec.surface_name,
+                    surface_type=spec.surface_type,
+                    concept_ids=list(spec.concept_ids),
+                    root_key=root.root_key,
+                    root_type=root.root_type,
+                    model_slug=root.model_slug,
+                    value_kind=root.value_kind,
+                    nested_path=root.nested_path,
+                    source=source,
+                    source_symbol=root.source_symbol or spec.source_symbol,
+                    source_line_start=line_number,
+                    source_line_end=line_number,
+                    availability=root.availability,
+                    notes=root.notes or spec.notes,
+                    needs_live_verification=root.needs_live_verification,
+                )
+            )
+    return rows
+
+
+def find_curated_root_line(text: str, root: CuratedContextRoot) -> int | None:
+    patterns = root.source_patterns or curated_root_patterns(root.root_key)
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if any(re.search(pattern, line) for pattern in patterns):
+            return line_number
+    return None
+
+
+def curated_root_patterns(root_key: str) -> tuple[str, ...]:
+    escaped = re.escape(root_key)
+    merge_field_variables = (
+        "mergeFields",
+        "itemMergeFields",
+        "introMessageMergeFields",
+        "feeCoverageMergeFields",
+        "amountSummaryMergeFields",
+    )
+    merge_field_expression = "|".join(merge_field_variables)
+    return (
+        rf"\b(?:{merge_field_expression})\.(?:Add|AddOrReplace|TryAdd)\(\s*\"{escaped}\"\s*,",
+        rf"\[\s*\"{escaped}\"\s*\]\s*=",
+        rf"\{{\s*\"{escaped}\"\s*,",
+        rf"\{{\s*MergeFieldKey\.{escaped}\s*,",
+    )
+
+
 def static_surface_boundary_rows(source_texts: dict[str, str]) -> list[dict[str, Any]]:
     rows = []
     for source_key, context_id, family, surface_name, concept_ids, notes in [
@@ -483,46 +1152,6 @@ def static_surface_boundary_rows(source_texts: dict[str, str]) -> list[dict[str,
                 source_line_start=line_number,
                 source_line_end=line_number,
                 availability="source-code-confirmed",
-                notes=notes,
-                needs_live_verification=True,
-            )
-        )
-    for context_id, family, surface_name, concept_ids, notes, source_key in [
-        (
-            "cms-block-template-context",
-            "cms-block",
-            "CMS/web block Lava template context",
-            CMS_CONCEPT_IDS,
-            "V1 only records this as a source-code boundary. Add explicit block roots when public source declares them.",
-            "lava_helper",
-        ),
-        (
-            "mobile-block-template-context",
-            "mobile-block",
-            "Mobile block Lava template context",
-            MOBILE_CONCEPT_IDS,
-            "V1 only records this as a source-code boundary. Add explicit mobile roots when public source declares them.",
-            "lava_helper",
-        ),
-    ]:
-        source = SOURCE_FILES[source_key]
-        text = source_texts.get(source_key, "")
-        line_number = first_interesting_line(text, "GetCommonMergeFields") if text else 1
-        rows.append(
-            context_row(
-                context_id=context_id,
-                context_family=family,
-                surface_name=surface_name,
-                surface_type="surface_boundary",
-                concept_ids=concept_ids,
-                root_key="source-boundary",
-                root_type="source-code boundary",
-                model_slug=None,
-                value_kind="boundary",
-                source=source,
-                source_line_start=line_number,
-                source_line_end=line_number,
-                availability="documented-boundary",
                 notes=notes,
                 needs_live_verification=True,
             )
