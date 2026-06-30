@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -346,12 +347,20 @@ def lava_context_search_rows() -> list[dict[str, Any]]:
 
 
 def lava_context_search_body(context: dict[str, Any]) -> str:
+    root_key = str(context.get("root_key") or "")
+    context_id = str(context.get("context_id") or "")
+    surface_name = str(context.get("surface_name") or "")
+    surface_type = str(context.get("surface_type") or "")
     parts = [
-        context.get("context_id"),
+        context_id,
         context.get("context_family"),
-        context.get("surface_name"),
-        context.get("surface_type"),
-        context.get("root_key"),
+        surface_name,
+        surface_type,
+        root_key,
+        spaced_search_alias(root_key),
+        spaced_search_alias(context_id),
+        spaced_search_alias(surface_name),
+        spaced_search_alias(surface_type),
         context.get("root_type"),
         context.get("nested_path"),
         context.get("value_kind"),
@@ -363,7 +372,19 @@ def lava_context_search_body(context: dict[str, Any]) -> str:
     for link in context.get("model_map_links") or []:
         if isinstance(link, dict):
             parts.extend(str(link.get(key) or "") for key in ["model_slug", "model_name", "model_title", "model_detail_path"])
+            parts.append(spaced_search_alias(str(link.get("model_slug") or "")))
+            parts.append(spaced_search_alias(str(link.get("model_title") or "")))
     return " ".join(str(part) for part in parts if part)
+
+
+def spaced_search_alias(value: str) -> str:
+    """Add natural-language tokens for compact ids and PascalCase/CamelCase keys."""
+    if not value:
+        return ""
+    spaced = re.sub(r"[-_/]+", " ", value)
+    spaced = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", spaced)
+    spaced = re.sub(r"(?<=[A-Z])(?=[A-Z][a-z])", " ", spaced)
+    return re.sub(r"\s+", " ", spaced).strip()
 
 
 def compact_lava_context_search_payload(row: dict[str, Any]) -> dict[str, Any]:
