@@ -1093,9 +1093,10 @@ function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[], q
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
   const kindBoost = row.kind === "answer" ? 28 : row.kind === "lava_context" ? 20 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
   const modelMapExactBoost = exactModelMapBoost(row, query);
+  const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);
-  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + tierBoost - rankPenalty;
+  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + tierBoost - rankPenalty;
 }
 
 function exactModelMapBoost(row: SearchRow, query: string): number {
@@ -1120,6 +1121,24 @@ function exactModelMapBoost(row: SearchRow, query: string): number {
   return candidates.includes(reducedQuery) ? 500 : 0;
 }
 
+function exactLavaContextRootBoost(row: SearchRow, queryTerms: string[], query: string): number {
+  if (row.kind !== "lava_context") {
+    return 0;
+  }
+  const payload = parsePayload(row);
+  const rootKey = String(payload.root_key || "");
+  if (!rootKey) {
+    return 0;
+  }
+  const aliases = [rootKey, spacedSearchAlias(rootKey)].filter(Boolean);
+  const rootTerms = new Set(searchTerms(aliases.join(" ")));
+  const rootOverlap = overlapCount(queryTerms, rootTerms);
+  if (rootOverlap === 0) {
+    return 0;
+  }
+  return rootOverlap * 70 + Math.max(...aliases.map((alias) => phraseMatchBoost(query, alias, 90)));
+}
+
 function overlapCount(queryTerms: string[], candidateTerms: Set<string>): number {
   return queryTerms.filter((term) => candidateTerms.has(term)).length;
 }
@@ -1140,6 +1159,15 @@ function normalizeSearchText(value: string): string {
   return (value.match(/[A-Za-z0-9_]+/g) || [])
     .map((term) => term.toLowerCase())
     .join(" ");
+}
+
+function spacedSearchAlias(value: string): string {
+  return value
+    .replace(/[-_/]+/g, " ")
+    .replace(/([a-z0-9])(?=[A-Z])/g, "$1 ")
+    .replace(/([A-Z])(?=[A-Z][a-z])/g, "$1 ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function normalizeQuery(query: string): string {
