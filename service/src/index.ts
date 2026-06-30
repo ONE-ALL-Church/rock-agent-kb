@@ -1070,6 +1070,20 @@ const SEARCH_STOP_WORDS = new Set([
   "with"
 ]);
 
+const LAVA_CONTEXT_QUERY_INTENT_TERMS = new Set([
+  "context",
+  "contexts",
+  "field",
+  "fields",
+  "lava",
+  "merge",
+  "root",
+  "roots",
+  "syntax",
+  "template",
+  "templates",
+]);
+
 function buildFtsQuery(query: string): string {
   return searchTerms(query).map((term) => `${term}*`).slice(0, 12).join(" OR ");
 }
@@ -1125,6 +1139,9 @@ function exactLavaContextRootBoost(row: SearchRow, queryTerms: string[], query: 
   if (row.kind !== "lava_context") {
     return 0;
   }
+  if (!hasLavaContextQueryIntent(queryTerms)) {
+    return 0;
+  }
   const payload = parsePayload(row);
   const rootKey = String(payload.root_key || "");
   if (!rootKey) {
@@ -1137,6 +1154,10 @@ function exactLavaContextRootBoost(row: SearchRow, queryTerms: string[], query: 
     return 0;
   }
   return rootOverlap * 70 + Math.max(...aliases.map((alias) => phraseMatchBoost(query, alias, 90)));
+}
+
+function hasLavaContextQueryIntent(queryTerms: string[]): boolean {
+  return queryTerms.some((term) => LAVA_CONTEXT_QUERY_INTENT_TERMS.has(term));
 }
 
 function overlapCount(queryTerms: string[], candidateTerms: Set<string>): number {
