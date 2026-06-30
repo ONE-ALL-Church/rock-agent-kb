@@ -54,3 +54,19 @@ def test_worker_exposes_model_map_lookup_routes_and_tools():
 
     for snippet in expected_snippets:
         assert snippet in source
+
+
+def test_worker_gates_lava_context_root_boost_to_lava_intent_queries():
+    source = WORKER.read_text(encoding="utf-8")
+
+    expected_snippets = [
+        "LAVA_CONTEXT_QUERY_INTENT_TERMS",
+        '"lava"',
+        '"merge"',
+        '"root"',
+        '"template"',
+        "hasLavaContextQueryIntent(queryTerms)",
+    ]
+
+    for snippet in expected_snippets:
+        assert snippet in source
