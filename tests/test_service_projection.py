@@ -143,7 +143,32 @@ def test_lava_context_search_rows_include_source_backed_roots(monkeypatch):
     assert all(row["authority_tier"] == "source-code-confirmed" for row in rows)
     assert all(row["claim_tier"] == "source_backed" for row in rows)
     assert "PersonAttendance" in rows[0]["body"]
+    assert "Person Attendance" in rows[0]["body"]
     assert rows[0]["payload"]["source_line_start"] == 52
+
+
+def test_lava_context_search_body_adds_natural_language_aliases():
+    body = service_projection.lava_context_search_body(
+        {
+            "context_id": "event-registrant-waitlist-transition-template",
+            "context_family": "event-registration",
+            "surface_name": "Registrant wait-list transition email Lava",
+            "surface_type": "event_registration_waitlist_transition_template",
+            "root_key": "TransitionedRegistrants",
+            "root_type": "List<RegistrationRegistrant>",
+            "value_kind": "collection",
+            "availability": "source-code-confirmed",
+            "source_symbol": "RegistrantWaitListMove.BuildMergeFields",
+            "source_file": "Rock.Blocks/Event/RegistrantWaitListMove.cs",
+            "notes": "Registrant wait-list transition emails use this root.",
+            "model_map_links": [{"model_slug": "registration-registrant", "model_title": "RegistrationRegistrant"}],
+        }
+    )
+
+    assert "Transitioned Registrants" in body
+    assert "event registrant waitlist transition template" in body
+    assert "registration registrant" in body
+    assert "Registration Registrant" in body
 
 
 def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
