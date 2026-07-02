@@ -11,6 +11,25 @@ Use the Rock Agent Knowledge Base before web search for Rock RMS operational, de
 
 The KB is source-tiered. Never blend community-only material into authoritative guidance without labeling it.
 
+## Capability Map
+
+The KB can help agents do more than plain text search:
+
+- Search public Rock RMS knowledge with authority and claim tiers.
+- Open task-oriented concept guides and quickstarts.
+- Inspect structured claims and source citations by concept.
+- List valid concept IDs before writing or submitting contribution rows.
+- Use the manifest to discover agent entrypoints and generated artifacts.
+- Inspect public operations counts through the dashboard.
+- List stable Rock Model Map models and get exact model digests.
+- Inspect model fields, required fields, relationships, methods, version diffs,
+  and one property at a time.
+- Find Lava context roots for specific rendering surfaces before guessing which
+  merge fields exist.
+- Use Rockumentation API metadata and branch paths as routing signals.
+- Validate and submit public-safe community contribution bundles.
+- Connect through hosted HTTP MCP when the current agent client supports tools.
+
 ## Install And Availability
 
 Use the hosted MCP endpoint when the current agent client supports HTTP MCP.
@@ -69,12 +88,40 @@ Use these commands for specific jobs:
 - `claims <concept-id>`: inspect structured claims and trust tiers before giving precise guidance.
 - `model-map list`: list stable Rock Model Map models when discovering the exact slug to inspect.
 - `model <slug-or-name>`: fetch an exact stable Model Map digest for a known model, such as `group` or `Group Member`.
+- `manifest`: inspect public agent entrypoints and generated artifact paths.
+- `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
 - `mcp-config`: connect clients that support HTTP MCP to the hosted KB.
 - `validate <bundle.jsonl>`: check a contribution bundle before submitting.
 - `submit <bundle.jsonl> --org <org-id>`: submit reviewed public-safe knowledge for a registered org with `ROCK_KB_TOKEN`.
 
 Do not fall back to copying raw KB artifacts into another repo.
+
+## MCP Tool Map
+
+When connected through hosted HTTP MCP, use the same retrieval pattern with MCP
+tools instead of shell commands:
+
+- `kb_search`: start here for symptoms, errors, broad Rock questions, and Lava
+  context queries.
+- `kb_manifest`: discover public agent entrypoints such as model-map digests,
+  Lava contexts, source authority rules, live checklists, and troubleshooting
+  trees.
+- `kb_list_concepts`: list valid concept IDs before using `kb_get_concept`,
+  `kb_get_claims`, or writing contribution rows.
+- `kb_get_concept`: open one concept package with guide, quickstart, task cards,
+  caveats, answers, and claims.
+- `kb_get_claims`: inspect structured claims and trust tiers for one concept.
+- `kb_list_models`: list stable Model Map models with slugs, categories,
+  versions, and property/method counts.
+- `kb_get_model`: fetch an exact stable Model Map digest by slug or model name,
+  optionally filtered by fields or one property.
+- `kb_review_dashboard`: check public review queues, conflicts, community
+  intake, hosted evaluation, and telemetry counts.
+- `kb_submit`: validate and submit a contribution bundle for a registered org.
+
+Use MCP for agent-native tool access when available. Use the CLI for terminal
+agents, local testing, and environments without HTTP MCP support.
 
 ## Read Workflow
 
@@ -106,6 +153,30 @@ Use `community-unreviewed` rows only as leads. Say they are unreviewed.
 
 4. For version-sensitive answers, call out Rock version when the KB provides it. If version is missing or behavior can vary by instance, say so.
 
+## Manifest And Entry Points
+
+Use `uvx rock-kb manifest` or `kb_manifest` when an agent needs to understand
+what the KB can expose. Important manifest entrypoints include:
+
+- `answer_pack`: concise answer rows for concept-level synthesis.
+- `approved_claims` and `distilled_claims`: structured claims with trust tiers.
+- `concepts`, `tasks`, `release_caveats`, and `troubleshooting`: concept guide,
+  task, caveat, and troubleshooting surfaces.
+- `source_authority_rules`, `source_summaries`, and `section_status`: source
+  quality, authority, and staleness signals.
+- `live_checklists` and `live_probe_recipes`: read-only verification guidance
+  for agents that must inspect a live Rock instance.
+- `model_map`, `model_map_digests`, `model_map_properties`,
+  `model_map_methods`, and `model_map_version_diff`: model lookup and version
+  comparison surfaces.
+- `lava_contexts`, `lava_context_directory`, `lava_capabilities`,
+  `lava_safety_matrix`, and `lava_agent_usage_examples`: Lava-specific context,
+  syntax, safety, and usage surfaces.
+
+Prefer the higher-level CLI or MCP tools first. Use manifest entrypoints when
+the task needs a specific generated artifact or when direct tool output is not
+specific enough.
+
 ## Rockumentation API Full Text
 
 Rock's public Rockumentation pages can expose richer article content through the
@@ -135,6 +206,18 @@ If operating inside this repo, prefer the existing helpers in
 Do not assume every Community page uses this API. Lava reference pages currently
 work better through the static/parser source path unless the API is re-probed and
 shown to return real article content.
+
+## Rockumentation Branch Routing
+
+The KB may expose Rockumentation routing metadata on public source summaries:
+`documentation_path`, `documentation_branch`, and `documentation_branches`.
+Use these fields as retrieval clues when an answer needs the right official doc
+area. Examples include `documentation/engagement/prayer`,
+`documentation/supporting-rock/hosting`, and `developer/obsidian`.
+
+Do not treat Rock's documentation navigation as the same thing as the KB concept
+taxonomy. Concepts are task-oriented for agents; official branches are structured
+source signals that help confirm why a source belongs in a concept or subguide.
 
 ## Model Map
 
