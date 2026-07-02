@@ -4,7 +4,16 @@ This knowledge base is public-safe Rock RMS guidance for agents. It combines sou
 
 ## Read The KB
 
-Use the hosted MCP endpoint when your agent supports HTTP MCP:
+Most testers should use one of two paths:
+
+- **MCP for agents:** best when the AI client supports HTTP MCP tools.
+- **CLI for terminal testing:** best when a person or terminal-based agent wants
+  to run quick searches.
+
+### Option 1: Connect An MCP-Capable Agent
+
+Use the hosted MCP endpoint when your agent supports HTTP MCP. This does not
+require Python or `uv` on the tester's machine:
 
 ```json
 {
@@ -17,13 +26,52 @@ Use the hosted MCP endpoint when your agent supports HTTP MCP:
 }
 ```
 
-Terminal agents can use the CLI:
+### Option 2: Test From A Terminal
+
+Terminal agents can use the `rock-kb` CLI. The examples below use `uvx`, which
+comes from the `uv` Python toolchain and runs the published PyPI package without
+a manual install.
+
+First install `uv` if `uvx` is not already available:
+
+```bash
+uvx --version
+```
+
+If that command fails, install `uv` from the official installer:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+On macOS with Homebrew, this is also fine:
+
+```bash
+brew install uv
+```
+
+Then run a first smoke test:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
+```
+
+After that, use the CLI for common lookups:
+
+```bash
 uvx rock-kb get check-in
 uvx rock-kb claims security-permissions --min-tier source_backed
+uvx rock-kb model-map list
+uvx rock-kb model group
 uvx rock-kb dashboard
+```
+
+For repeated use on a server or shared agent environment, install the CLI
+permanently instead:
+
+```bash
+uv tool install rock-kb
+rock-kb search "check-in labels not printing"
 ```
 
 If your organization runs a staging copy, set:
