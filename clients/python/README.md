@@ -2,10 +2,41 @@
 
 Thin terminal client for the public Rock RMS agent knowledge base.
 
-Install and run the published client from PyPI with `uvx`:
+## Quick Start
+
+The published client is available from PyPI as `rock-kb`.
+
+For one-off use, run it with `uvx`. `uvx` is part of the `uv` Python toolchain;
+it downloads or reuses a cached copy of the package and runs the command in an
+isolated environment.
+
+Check whether `uvx` is installed:
+
+```bash
+uvx --version
+```
+
+If it is missing, install `uv`:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Or on macOS with Homebrew:
+
+```bash
+brew install uv
+```
+
+Then run a smoke test:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
+```
+
+Common commands:
+
+```bash
 uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
@@ -13,6 +44,17 @@ uvx rock-kb model group
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
+
+For repeated use on a server or agent host, install the CLI permanently:
+
+```bash
+uv tool install rock-kb
+rock-kb search "check-in labels not printing"
+rock-kb mcp-config
+```
+
+`rock-kb mcp-config` prints the hosted HTTP MCP config. It does not start a
+local server.
 
 To test unreleased client changes directly from GitHub, use:
 

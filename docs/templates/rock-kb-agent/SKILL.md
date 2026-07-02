@@ -13,7 +13,17 @@ The KB is source-tiered. Never blend community-only material into authoritative 
 
 ## Install And Availability
 
-Use the published `rock-kb` client from PyPI:
+Use the hosted MCP endpoint when the current agent client supports HTTP MCP.
+The CLI prints the configuration block:
+
+```bash
+uvx rock-kb mcp-config
+```
+
+Use the published `rock-kb` client from PyPI for terminal access. The examples
+use `uvx`, which comes from the `uv` Python toolchain and runs the package
+without a manual install. If `uvx --version` fails, install `uv` first from
+`https://docs.astral.sh/uv/` or with `brew install uv` on macOS.
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
@@ -23,6 +33,14 @@ uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
+```
+
+For repeated use on a server or persistent agent host, install the CLI once:
+
+```bash
+uv tool install rock-kb
+rock-kb search "check-in labels not printing"
+rock-kb mcp-config
 ```
 
 To test unreleased client changes from GitHub instead of PyPI, use:
@@ -56,7 +74,7 @@ Use these commands for specific jobs:
 - `validate <bundle.jsonl>`: check a contribution bundle before submitting.
 - `submit <bundle.jsonl> --org <org-id>`: submit reviewed public-safe knowledge for a registered org with `ROCK_KB_TOKEN`.
 
-If `uv` is missing, install it first from `https://docs.astral.sh/uv/`, then retry. Do not fall back to copying raw KB artifacts into another repo.
+Do not fall back to copying raw KB artifacts into another repo.
 
 ## Read Workflow
 
