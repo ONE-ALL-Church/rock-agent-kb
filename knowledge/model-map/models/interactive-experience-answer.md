@@ -1,7 +1,7 @@
 # Interactive Experience Answer Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Event`
 - Model title: `InteractiveExperienceAnswer`
 - Table name: `not provided`

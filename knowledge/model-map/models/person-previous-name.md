@@ -1,7 +1,7 @@
 # Person Previous Name Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `CRM`
 - Model title: `PersonPreviousName`
 - Table name: `not provided`

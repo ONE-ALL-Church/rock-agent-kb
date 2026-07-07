@@ -2,7 +2,7 @@
 id: concept-communications
 title: Communications
 generated: true
-last_built: 2026-07-06T19:25:14+00:00
+last_built: 2026-07-07T20:48:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -207,29 +207,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Communication Flow Communication](../../model-map/models/communication-flow-communication.md) | Communication | 19.1.8 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Flow Instance Communication](../../model-map/models/communication-flow-instance-communication.md) | Communication | 19.1.8 | 43 | 12 | 28 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Flow Instance Communication Conversion](../../model-map/models/communication-flow-instance-communication-conversion.md) | Communication | 19.1.8 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Flow Instance Recipient](../../model-map/models/communication-flow-instance-recipient.md) | Communication | 19.1.8 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Recipient](../../model-map/models/communication-recipient.md) | Communication | 19.1.8 | 62 | 28 | 43 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Template](../../model-map/models/communication-template.md) | Communication | 19.1.8 | 80 | 41 | 63 | 22 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Template Attachment](../../model-map/models/communication-template-attachment.md) | Communication | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication](../../model-map/models/communication.md) | Communication | 19.1.8 | 94 | 53 | 76 | 24 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Attachment](../../model-map/models/communication-attachment.md) | Communication | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Flow](../../model-map/models/communication-flow.md) | Communication | 19.1.8 | 56 | 24 | 39 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Flow Instance](../../model-map/models/communication-flow-instance.md) | Communication | 19.1.8 | 43 | 13 | 26 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Communication Response](../../model-map/models/communication-response.md) | Communication | 19.1.8 | 53 | 19 | 32 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Flow Communication](../../model-map/models/communication-flow-communication.md) | Communication | 19.2.0 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Flow Instance Communication](../../model-map/models/communication-flow-instance-communication.md) | Communication | 19.2.0 | 43 | 12 | 28 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Flow Instance Communication Conversion](../../model-map/models/communication-flow-instance-communication-conversion.md) | Communication | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Flow Instance Recipient](../../model-map/models/communication-flow-instance-recipient.md) | Communication | 19.2.0 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Recipient](../../model-map/models/communication-recipient.md) | Communication | 19.2.0 | 62 | 28 | 43 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Template](../../model-map/models/communication-template.md) | Communication | 19.2.0 | 80 | 41 | 63 | 22 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Template Attachment](../../model-map/models/communication-template-attachment.md) | Communication | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication](../../model-map/models/communication.md) | Communication | 19.2.0 | 94 | 53 | 76 | 24 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Attachment](../../model-map/models/communication-attachment.md) | Communication | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Flow](../../model-map/models/communication-flow.md) | Communication | 19.2.0 | 56 | 24 | 39 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Flow Instance](../../model-map/models/communication-flow-instance.md) | Communication | 19.2.0 | 43 | 13 | 26 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Communication Response](../../model-map/models/communication-response.md) | Communication | 19.2.0 | 53 | 19 | 32 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Communication.AdditionalMergeFields` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.Attachments` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.CommunicationTemplate` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.CommunicationTopicValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Communication.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.AdditionalMergeFields` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.Attachments` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.CommunicationTemplate` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.CommunicationTopicValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Communication.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

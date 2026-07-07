@@ -15,7 +15,7 @@ This generated resource is built from authenticated Obsidian block-action respon
 
 | Track | Rock Version | Source | Models | Properties |
 | --- | --- | --- | ---: | ---: |
-| Stable | `19.1.8` | [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map) | 326 | 16111 |
+| Stable | `19.2.0` | [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map) | 326 | 16111 |
 | Pre-alpha / upcoming | `20.0.4` | [Model Map](https://rockrmslatest.com/admin/power-tools/model-map) | 325 | 16100 |
 
 ## Stable Coverage

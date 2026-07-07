@@ -1,14 +1,14 @@
 # Analytics Source Date Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Reporting`
 - Model title: `AnalyticsSourceDate`
 - Table name: `not provided`
 - Obsolete: `no`
 - Method signatures: `5`
 - Obsolete methods: `0`
-- EntityType GUID: `dd0346c0-82fd-4ba2-acf1-768b14b9a480`
+- EntityType GUID: `25f883ad-c457-4e16-9f12-a83adff2029c`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
 ## Summary

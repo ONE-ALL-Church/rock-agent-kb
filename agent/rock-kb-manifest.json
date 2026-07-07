@@ -810,7 +810,7 @@
     }
   ],
   "entity_count": 448,
-  "generated_at": "2026-07-06T19:25:14+00:00",
+  "generated_at": "2026-07-07T20:49:12+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",

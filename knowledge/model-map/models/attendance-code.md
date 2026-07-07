@@ -1,7 +1,7 @@
 # Attendance Code Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Event`
 - Model title: `AttendanceCode`
 - Table name: `not provided`

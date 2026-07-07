@@ -1,7 +1,7 @@
 # Media Account Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `CMS`
 - Model title: `MediaAccount`
 - Table name: `not provided`

@@ -1,7 +1,7 @@
 # Registration Template Placement Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Event`
 - Model title: `RegistrationTemplatePlacement`
 - Table name: `not provided`

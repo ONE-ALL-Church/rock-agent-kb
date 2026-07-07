@@ -2,7 +2,7 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-07-06T19:25:14+00:00
+last_built: 2026-07-07T20:47:56+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -266,29 +266,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Workflow Action Form](../../model-map/models/workflow-action-form.md) | Workflow | 19.1.8 | 85 | 47 | 70 | 23 | 4 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action Form Attribute](../../model-map/models/workflow-action-form-attribute.md) | Workflow | 19.1.8 | 52 | 21 | 36 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action Form Section](../../model-map/models/workflow-action-form-section.md) | Workflow | 19.1.8 | 46 | 16 | 30 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action](../../model-map/models/workflow-action.md) | Workflow | 19.1.8 | 47 | 14 | 31 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action Type](../../model-map/models/workflow-action-type.md) | Workflow | 19.1.8 | 51 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Form Builder Template](../../model-map/models/workflow-form-builder-template.md) | Workflow | 19.1.8 | 46 | 19 | 31 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Trigger](../../model-map/models/workflow-trigger.md) | Workflow | 19.1.8 | 29 | 14 | 21 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Automation Trigger](../../model-map/models/automation-trigger.md) | Core | 19.1.8 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Workflow Trigger](../../model-map/models/group-member-workflow-trigger.md) | Group | 19.1.8 | 29 | 14 | 22 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.1.8 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow](../../model-map/models/workflow.md) | Workflow | 19.1.8 | 60 | 22 | 42 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Activity](../../model-map/models/workflow-activity.md) | Workflow | 19.1.8 | 53 | 17 | 38 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form](../../model-map/models/workflow-action-form.md) | Workflow | 19.2.0 | 85 | 47 | 70 | 23 | 4 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form Attribute](../../model-map/models/workflow-action-form-attribute.md) | Workflow | 19.2.0 | 52 | 21 | 36 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form Section](../../model-map/models/workflow-action-form-section.md) | Workflow | 19.2.0 | 46 | 16 | 30 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action](../../model-map/models/workflow-action.md) | Workflow | 19.2.0 | 47 | 14 | 31 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Type](../../model-map/models/workflow-action-type.md) | Workflow | 19.2.0 | 51 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Form Builder Template](../../model-map/models/workflow-form-builder-template.md) | Workflow | 19.2.0 | 46 | 19 | 31 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Trigger](../../model-map/models/workflow-trigger.md) | Workflow | 19.2.0 | 29 | 14 | 21 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Automation Trigger](../../model-map/models/automation-trigger.md) | Core | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Workflow Trigger](../../model-map/models/group-member-workflow-trigger.md) | Group | 19.2.0 | 29 | 14 | 22 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.2.0 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow](../../model-map/models/workflow.md) | Workflow | 19.2.0 | 60 | 22 | 42 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Activity](../../model-map/models/workflow-activity.md) | Workflow | 19.2.0 | 53 | 17 | 38 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Automation Trigger.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.AutomationEvents` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.ComponentEntityType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.AutomationEvents` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.ComponentEntityType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Subguides
 
