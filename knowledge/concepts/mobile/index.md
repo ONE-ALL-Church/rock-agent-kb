@@ -2,7 +2,7 @@
 id: concept-mobile
 title: Rock Mobile
 generated: true
-last_built: 2026-06-29T20:42:36+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -30,7 +30,7 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 - `Rock Mobile` spans api, check-in, cms, security. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_mobile_docs, rock_developer, triumph_resources.
-- Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, media, podcast.
+- Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, api, media.
 - Source detail types include: developer_doc, triumph_resources.
 
 ## Reviewed Media Insights
@@ -137,8 +137,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_community_hubs`: 13
-- `rock_developer`: 1
-- `rock_mobile_docs`: 50
+- `rock_developer`: 4
+- `rock_mobile_docs`: 47
 - `rock_mobile_release_notes`: 2
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 6
@@ -156,12 +156,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | App Configuration | rock_mobile_docs | Now it's time to configure your app. There are some options that are not covered below; they are beyond the scope of this walkthrough. Start by filling in the **Application Name** and optional **Description**. Note Don't worry too much about the name you enter. It will be used to identify your application in Rock but has no effect on the official app name once deployed to the app stores. ## Application Type You have... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) |
 | App Store Product Page | rock_mobile_docs | # App Store Product Page Every element of your App Store product page has the power to drive downloads of your iOS app. Learn how to help people discover your app and engage them through thoughtfully crafted metadata on your product page and in search results. ## App Name Your app’s name plays a critical role in how users discover it on the App Store. Choose a simple, memorable name that is easy to spell and hints... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page) |
 | Blur Effect | rock_mobile_docs | M v4.0 You may have noticed the setting to adjust the [Navigation Bar Transparency and Blur (iOS)](/documentation/mobile-docs/styling/style-guide/shell-components#navigation-bar-transparency-and-blur-ios-), but why stop there? You can apply the same effects to almost any iOS visual element (cards, StackLayout, etc). The effect can be applied to almost any visual element: ``` <Rock:ContainedCard HeightRequest="300"... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/effects/blur-effect) |
-| Chat View | rock_mobile_docs | Enables a full-featured real-time chat experience with support for threads, reactions, media, group messaging and more. M v7.0Cv17.1 [Integrated Scroll](https://community.rockrms.com/page/3516?slug=essentials%2fblocks#integrated-scroll) Note To get started with Chat in Rock Mobile, contact the App Factory team to discuss the required pre-configuration for your mobile app. ### Overview The **Chat View** block brings... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/chat-view) |
 | Command Reference | rock_mobile_docs | Provide a command as a parameter for something else. The `CommandReference` object is defined like a normal command reference: ### Properties \| Property \| Type \| Description \| \| --- \| --- \| --- \| \| Command \| ICommand \| The command to be executed. \| \| CommandParameter \| object \| The parameter to be passed to the command. In M v3.0 this became the default content property, so you can specify the parameter as a direct... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference) |
 | Commands | rock_mobile_docs | The .NET MAUI framework and the Rock Mobile application shell both utilize *Commands* to manage most actions and events. When a button is tapped, a Command executes. Typically, a Command is accessible via a `Command` property, although sometimes a view may support multiple Commands, in which case their names vary. Additionally, each Command can accept a parameter to fine-tune how it performs its task. Since all... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/commands) |
 | Content | rock_mobile_docs | Arguably the most fundamental block in any Rock Mobile application, this block could be described as a necessity, used to render Lava and XAML within your shell, as provided in the "Content" block setting. If you are unfamiliar with XAML, please refer to the [official Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/maui/xaml/). If you are unfamiliar with Lava, please check out the [Rock Lava... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
 | Content Controls | rock_mobile_docs | [Activity Indicator](/documentation/mobile-docs/essentials/controls/content-controls/activity-indicator) [Application Info](/documentation/mobile-docs/essentials/controls/content-controls/application-info) [Avatar](/documentation/mobile-docs/essentials/controls/content-controls/avatar) [Bible Audio](/documentation/mobile-docs/essentials/controls/content-controls/bible-audio) [Bible... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls) |
 | Context Menu | rock_mobile_docs | Display a native context menu that can be attached to nearly any control. A popular pattern in mobile development is attaching a native menu to a control that opens with a tap or long press. With Rock Mobile, this is not only easy to implement but also highly customizable! Note Due to limitations on Android, these are *more* fleshed out on iOS. We didn't want to take the native iOS features away, so some properties... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu) |
+| Core & Shell Dependencies | rock_mobile_docs | Special care must be taken when adding new features. This is because coordination is needed with both the Rock Mobile Shell version and the Rock Core version. ## Tags Items that require a specific mobile shell version will be tagged with an "M" like so: **URL reference** − https://img.shields.io/badge/M-v1.0-ee7725?style=flat M v2.0 Items that require a specific version of the core Rock server are tagged with a "C"... | [source](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies) |
 
 ## Data Model Landmarks
 
@@ -195,8 +195,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
-| 7.0 | Mobile | Fixed an issue where the ShowPopUp command displayed the popup on a white screen instead of overlaying the triggering page when running in MAUI. Fixes: #38 | [source](https://www.rockrms.com/mobilereleasenotes) |
-| 7.0 | CMS | Added the ExecuteCommand control, enabling command execution with configurable timing and repetition. | [source](https://www.rockrms.com/mobilereleasenotes) |
+| 19.1 | Mobile | Fixed external links silently failing on Android when the address belonged to a site that also has an installed app handler (for example, opening a YouTube link on a device with the YouTube app installed). The link now falls back to the device's default browser handling so it opens correctly. Fixes: #123 | [source](https://www.rockrms.com/mobilereleasenotes) |
+| 19.1 | Mobile | Fixed Android media playback so audio from other apps now lowers in volume when Rock Mobile starts playing audio. | [source](https://www.rockrms.com/mobilereleasenotes) |
 
 ## Repository Landmarks
 
@@ -281,7 +281,7 @@ Keywords: `app factory, app store, google play, publish, publishing, store listi
 | Store Graphics & Icons | rock_mobile_docs | ### Launch Image The launch screen, commonly referred to as the splash screen, is the static visual that appears instantly when a user opens an app, filling the gap while the app loads in the background. App Factory utilizes a **2048x2048** graphic resolution with a safe area of **720x1440.** ### App Icons Your app icon is a crucial aspect of your app’s branding. It appears on the Home Screen and in key locations... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons) |
 | Deploying Your App | rock_mobile_docs | ## Deployment Navigating to the **Application** page for your app shows the deployment status in the top right. New apps start as Not Deployed, so you'll need to click the **Deploy** button in the bottom right corner to test your app. The first deploy may take a few moments, but generally this process happens quickly. Note that making changes to the app (like adding new pages and blocks or changing block settings... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app) |
 | Image Resources | rock_mobile_docs | When publishing a Rock Mobile app with App Factory, additional image resources can be provided and compiled into the shell that goes into the app stores. The advantage of this feature is that the images are not loaded over the network, improving performance in load time and avoiding pop-ins. This also means that the images are not processed on the server (or if using a CDN), so desired optimizations must be applied... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources) |
-| 🏭 App Factory | rock_mobile_docs | Compiling the shell and publishing apps to the stores is a complicated process that requires a good deal of technical proficiency. Because most churches aren't equipped to do this on their own, Spark has partnered with Triumph Tech to provide the [App Factory service plan](https://www.triumph.tech/app-factory) to make this process easy for you. Whether the apps are hosted under your developer store accounts or under... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory) |
+| App Configuration | rock_mobile_docs | Now it's time to configure your app. There are some options that are not covered below; they are beyond the scope of this walkthrough. Start by filling in the **Application Name** and optional **Description**. Note Don't worry too much about the name you enter. It will be used to identify your application in Rock but has no effect on the official app name once deployed to the app stores. ## Application Type You have... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) |
 
 
 ## Lava Capability References

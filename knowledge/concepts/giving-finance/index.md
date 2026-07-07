@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-06-29T20:42:16+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -280,8 +280,8 @@ Keywords: `batch, deposit, reconciliation`
 | Check Scanning | rock_mobile_docs | ## Overview Check Scanner use document intelligence prebuilt model specifically for scanning US Check. Below is instruction on how to set up the document intelligence for check scanning. ### Set up Document Intelligence (AI Foundry) 1. Open Document Intelligence in your AI Foundry. 2. Click "Create". 3. Fill out the project and instance details, then continue. 4. Review the configuration and create the resource. 5.... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning) |
 | Rock Core Release Notes | rock_core_release_notes | Added Financial Batch Detail block to support check scanning, creation of batch, batch detail viewing, and batch modifications. Also added Financial Batch List to view available batches. | [source](https://www.rockrms.com/releasenotes) |
 | Scan Checks | rock_documentation | When you're ready you'll be at the home page. Here you can start scanning checks to a current batch listed or create a new batch right from this window by pressing the icon next to the batches panel. Now press the Scan button pictured below to start scanning and advance to the *Scan Settings* page. The *Scan Settings* page (pictured below) lets you select which tender type you'll be scanning into Rock. In most cases... | [source](https://community.rockrms.com/documentation/church-management/finance/check-scanning/scan-checks) |
+| Rock Mobile Release Notes | rock_mobile_release_notes | Added the new Financial Batch Detail and Financial Batch List blocks, giving finance teams a way to scan checks, create batches, and view, review, or modify batch details from the app. | [source](https://www.rockrms.com/mobilereleasenotes) |
 | Financial Batch | rock_model_map | Financial Batch is a Rock model in the Finance category. | [source](https://community.rockrms.com/ModelMap) |
-| Rock Solid Finances | rock_documentation | Updates for Rock 18.1 No updates made. Updates for Rock 1.0 No updates made. Updates for Rock 2.0 No updates made. Updates for Rock 3.0 No updates made. Updates for Rock 4.0 Below is a summary of the updates for this version. Added some notes about the transaction date used when scanning checks. New recommendation on using the latest Ranger driver with Canon check readers. Added a few updates to the check scanning... | [source](https://community.rockrms.com/documentation/bookcontent/15) |
 
 
 ## Rebuild Dependencies

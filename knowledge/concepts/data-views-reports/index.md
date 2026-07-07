@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-06-29T20:42:35+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -32,7 +32,7 @@ Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
 
 - `Data Views And Reports` spans sql, model-map, lava, finance, attendance. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_rocku, triumph_resources, rock_community_hubs, rock_documentation, rock_recipes, rock_model_map.
-- Related tags found in source records: media, podcast, timestamped-insights, usage, workflow, training, operations, ai.
+- Related tags found in source records: media, podcast, timestamped-insights, usage, workflow, training, lava, operations.
 - Source detail types include: documentation_article, recipe.
 
 ## Reviewed Media Insights
@@ -286,7 +286,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | --- |
 | Grouping Sets Transcript Insight | triumph_resources | Grouping Sets adds public-safe guidance for Rock SQL reporting: use SQL rollup patterns when one report needs multiple aggregation levels, and validate the final query against the local Rock schema before production use. | [source](https://www.triumph.tech/resources/grouping-sets) |
 | SQL Window Functions Transcript Insight | triumph_resources | SQL Window Functions adds public-safe guidance for Rock reporting: use window aggregates and ranking functions when a query needs grouped or ordered context while preserving the original rows. | [source](https://www.triumph.tech/resources/sql-window-functions) |
-| Use the BI Job | rock_documentation | Rock’s *Process BI Analytics* job keeps the data that the BI tool uses up to date. The job is located in the *Jobs Administration* screen (`Admin Tools > System Settings > Jobs Administration`). While the job ships with Rock, you need to schedule it and run it at least once for the data to be available. (If you open your BI tools and don’t see any data, this is why.) Let’s take a look at the BI job settings and what... | [source](https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job) |
+| Reports | rock_documentation | [Intro to Reports](/documentation/church-management/reporting/reports/intro-to-reports?Version=v19.0) [Create a Report](/documentation/church-management/reporting/reports/create-a-report?Version=v19.0) [Use Lava in Reports](/documentation/church-management/reporting/reports/use-lava-in-reports?Version=v19.0) [Secure Report Data](/documentation/church-management/reporting/reports/secure-report-data?Version=v19.0) | [source](https://community.rockrms.com/documentation/church-management/reporting/reports) |
 | Assign Statement Transcript Insight | rock_rocku | Assign Statement is approved as a public-safe RockU training distillation for reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/lava/assign-statement) |
 | Attendance Analytics Transcript Insight | rock_rocku | Attendance Analytics is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/check-in/attendance-analytics) |
 | BI Attendance Report Transcript Insight | rock_rocku | BI Attendance Report is approved as a public-safe RockU training distillation for reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report) |

@@ -22,7 +22,7 @@ def audit_all(
     """Run licenses, source-policy, public-export, and readiness audits in sequence."""
     legacy.audit_licenses()
     legacy.audit_source_url_duplicates_command()
-    legacy.audit_rockumentation_api_coverage_command()
+    legacy.audit_rockumentation_api_coverage_command(probe_static=False, max_static_probes=None)
     legacy.audit_source_policy_command()
     legacy.audit_public_export_command()
     legacy.audit_readiness(public_only=public_only)

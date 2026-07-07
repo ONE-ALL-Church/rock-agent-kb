@@ -2,7 +2,7 @@
 id: concept-communications
 title: Communications
 generated: true
-last_built: 2026-06-29T20:42:32+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -236,7 +236,7 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 18.3 | Communication | Fixed an issue where saving a Communication Template from the Communication Wizard failed if the template name included special characters. The preview image generation used the template name for the file, which caused an error on systems that don't allow certain characters. Template names are now cleaned up automatically to prevent this issue. Fixes: #6668 | [source](https://www.rockrms.com/releasenotes) |
-| 18.2 | Communication | Fixed an issue where communication approvers were always redirected to the Communication Wizard page, even when the communication was originally created using the Simple Communication page. Approvers are now redirected to the appropriate editing page based on how the communication was initially created. Fixes: #6523 | [source](https://www.rockrms.com/releasenotes) |
+| 18.2 | Communication | Fixed an issue with the Communication Entry Wizard block where changing the Communication Type (e.g., from Recipient Preference to Email or SMS) while creating a message could result in some recipients being excluded from the send list. This happened after advancing through the wizard and then returning to the first step to change the type before sending.... | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 

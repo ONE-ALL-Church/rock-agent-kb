@@ -2,7 +2,7 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-06-29T20:42:37+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -32,7 +32,7 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 
 - `API And Integrations` spans security, workflows, lava, model-map. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_community_hubs, triumph_resources, rock_podcast_rss, rock_developer, rock_documentation, rock_api_docs.
-- Related tags found in source records: api, lava, development, operations, releases, security, obsidian, ai.
+- Related tags found in source records: api, lava, development, operations, security, releases, ai, obsidian.
 - Source detail types include: developer_doc, documentation_article, question, recipe, rock_lava_docs, triumph_resources.
 
 ## Reviewed Media Insights
@@ -92,7 +92,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_api_docs`: 1
 - `rock_community_hubs`: 2
-- `rock_core_release_notes`: 6
+- `rock_core_release_notes`: 4
 - `rock_demo_api_docs_v1`: 1
 - `rock_demo_api_docs_v2`: 1
 - `rock_developer`: 21
@@ -101,15 +101,16 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_mobile_docs`: 6
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 4
-- `rock_qa`: 3
+- `rock_qa`: 4
 - `rock_recipes`: 5
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 16
+- `triumph_resources`: 17
 
 ## Highest Signal Sources
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
+| Architecture Series Gets a New Home | triumph_resources | The mission of Triumph is to provide the world’s best Rock services. We do this to help the churches who pay for those services, but we also want the revenue from those services to fund the creation of content and tools that we can give back to the Rock Community. The mission of Triumph and the need for better resourcing of the Architecture videos align perfectly. Therefore, we have decided to move the architecture... | [source](https://www.triumph.tech/resources/architecture-series-gets-a-new-home) |
 | Five Layers of Defense from Bot Attacks | triumph_resources | Bot traffic is frustrating, unpredictable and heavier than most churches realize. If you’re seeing late-night exception alerts, sluggish page loads or a flood of fake form entries, you’re not alone. The good news is that there are practical steps you can take to reduce unwanted bots and protect your Rock site from spam and overload. Here are five actionable ways to harden your site, starting with simple, quick wins... | [source](https://www.triumph.tech/resources/defense-from-bot-attacks) |
 | GitHub Spotlight: 1/8/2025 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release v17.0.35, released on 1/8/2025. v16.10 Highlights A new optional Lava merge field, <!--[[ SignatureDetails ]]--> , has been added to the Electronic Signatures templates. This field allows you to insert a signer's final signature directly into the document, enabling the signature to appear throughout the document rather than being limited to the bottom. Issue... | [source](https://www.triumph.tech/resources/github-spotlight-182025) |
 | GitHub Spotlight: 11/14/2025 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release 19.0.1, released on 11/12/2025. 18.0 Highlights Updated the LMS Activity Completion workflow so that it now uses the Learning Class Activity Completion entity instead of the Student (Group Member) entity. Fixed an issue in the Family Preregistration block where editing security on child attributes was being enforced, preventing new guests from entering a... | [source](https://www.triumph.tech/resources/github-spotlight-11142025) |
@@ -121,7 +122,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | GitHub Spotlight: 9/6/2024 | triumph_resources | Below is what's new in Rock's Github for pre-alpha release v17.0.27 that was released on 9/5/2024. v16.7 A new setting was added to allow rejecting security cookies that are older than a date specified. This could be helpful in situations where a login token was inappropriately used or shared. Note that this will require all individuals to re-login if they had logged in before the date provided. Logic has been added... | [source](https://www.triumph.tech/resources/github-spotlight-962024-2) |
 | New Resi Media Sync Plugin for Rock | triumph_resources | Seamless Video Integration at Your Fingertips We’re excited to announce the Resi Media Sync plugin for Rock! This integration lets you effortlessly import metadata from videos from your Resi account into Rock media files. Once connected, any new video added in Resi automatically appears in your Rock instance, ready for embedding and detailed tracking. Whether it’s a sermon, event, or announcement, this sync ensures... | [source](https://www.triumph.tech/resources/new-resi-media-sync-plugin-for-rock) |
 | One Thing Every Executive Pastor Needs to Know About Rock Integrations | triumph_resources | Let’s start at the beginning - What’s an API? Simply put, an API is a way that two software programs can talk to each other and share data. Just as humans share data through a common language so do computers. In life there’s often a right way and a wrong way to do things. Software development is no different. When done wrong, one common issue we see with Rock integrations is how they use the Rock API (data sharing... | [source](https://www.triumph.tech/resources/one-thing-every-executive-pastor-needs-to-know-about-rock-integrations) |
-| Resources | triumph_resources | All Best Practice (19) Triumph News (10) Leadership (7) Github Spotlight (35) Special Projects (3) January 22, 2025 GitHub Spotlight: 1/22/25 Here’s what’s new in Rock’s GitHub for Pre-Alpha Release v17.0.36, released on 1/22/2025. More Details January 10, 2025 New Resi Media Sync Plugin for Rock Seamless Video Integration at Your Fingertips More Details January 8, 2025 GitHub Spotlight: 1/8/2025 What's New in... | [source](https://www.triumph.tech/resources/page/10) |
 
 ## Data Model Landmarks
 
@@ -157,8 +157,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | --- | --- | --- | --- |
 | 18.1 | Core | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 | 16.1 | Communication | Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694 | [source](https://www.rockrms.com/releasenotes) |
-| 15.5 | Communication | Improved the Mailgun integration to use the API Key for tracking opens, etc. if the HTTP Webhook Signing Key is not defined, as well as logging a single exception to alert Rock admins of this missing key value. Fixes: #5780 | [source](https://www.rockrms.com/releasenotes) |
-| 15.4 | Communication | Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694 | [source](https://www.rockrms.com/releasenotes) |
 | 18.2 | API | Fixed an error that prevented the Workflows Action Launch API endpoint from functioning. Fixes: #6604 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | API | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
 
@@ -199,6 +197,8 @@ Keywords: `auth, token, bearer, api key`
 | GitHub Spotlight: 9/6/2024 | triumph_resources | Below is what's new in Rock's Github for pre-alpha release v17.0.27 that was released on 9/5/2024. v16.7 A new setting was added to allow rejecting security cookies that are older than a date specified. This could be helpful in situations where a login token was inappropriately used or shared. Note that this will require all individuals to re-login if they had logged in before the date provided. Logic has been added... | [source](https://www.triumph.tech/resources/github-spotlight-962024-2) |
 | Rock Security | rock_developer | See <https://community.rockrms.com/developer/videos/70> (from the beta launch at CITRT 2014) * Block Security Order * Entity Parent Authority * Block Security Actions * Entity Type Security (Admin UI) * Custom Action Verbs * **PersonActionIdentifier** The RSVP system uses our newer 'non-security' type identification token generator (called PersonActionIdentifier) which identifies a person for only one particular... | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
 | webrequest not running?? | rock_qa | 0 webrequest not running?? 1 Kelvin Liu posted 3 Years Ago Hi I have noticed that since sometime in mid March our lava codes which use webrequest have all been failing silently. No noticeable errors just suddenly not doing what it has been doing for more than a year(s). We were on Rock v9.x ... Just upgraded to 10 (in May) but I know it's not related to the upgrade because the problem has been there since March.... | [source](https://community.rockrms.com/ask/developing/2708) |
+| Creating An App | rock_developer | Creating a TV application from scratch. ### Creating an Application In your Rock instance, go ahead and navigate to `Admin Tools > CMS Configuration > Apple TV Apps`. Once there, create a new site. Let's break this down. **Name** - the name of your application. This is private to your Rock Instance, and isn't what it has to be named when published to the App Store. **Description** - An optional description of the... | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) |
+| Applications | rock_developer | *Learn how to create a Roku application in Rock to manage your TV content.* ## Application Settings When creating or editing a Roku application, you have access to the following configuration options. ### Enable Page Views Whether (or not) page interactions should be written to track the usage of your application. ### Page View Retention Duration The duration (in days) to retain the page interactions that are... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
 | Rock Core Release Notes | rock_core_release_notes | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 
 ### Webhooks
@@ -224,8 +224,8 @@ Keywords: `webhook, integration`
 | Lava Webhook to Create an iCal (.ics) File | rock_recipes | 0 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 23 days ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540) |
 | Step 1: Create OpenAI Account | rock_recipes | 6 ChatGPT Shortcode Shared by Brian Davis , ONE&ALL Church 3 years ago 10.0 General Intermediate In this recipe we'll walk through the steps to build a basic integration in Rock RMS to communicate with ChatGPT to ask questions via the ChatGPT API. I'll also provide some examples of how this integration might be used. The recipe might look alarmingly long, but I'll have you chatting with an AI in a couple minutes and... | [source](https://community.rockrms.com/recipes/362) |
 | New Resi Media Sync Plugin for Rock | triumph_resources | Seamless Video Integration at Your Fingertips We’re excited to announce the Resi Media Sync plugin for Rock! This integration lets you effortlessly import metadata from videos from your Resi account into Rock media files. Once connected, any new video added in Resi automatically appears in your Rock instance, ready for embedding and detailed tracking. Whether it’s a sermon, event, or announcement, this sync ensures... | [source](https://www.triumph.tech/resources/new-resi-media-sync-plugin-for-rock) |
-| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
 | Extending Communication Transports | rock_developer | ## SMS Transports In Rock v12.1, we’ve added the `ISmsPipelineWebhook` interface that will let you identify the location of any corresponding webhook. The `SmsPipelineWebhookPath` property will be used by the SMS Pipeline block to display the full URL to the webhook which is useful when administrators are setting up the interface with the remote service. | [source](https://community.rockrms.com/developer/303---blast-off/extending-communication-transports) |
+| Docker Desktop | rock_developer | We use Docker Desktop to provide a clean database for each suite of integration tests. This makes sure the database is 1) in a known clean state and 2) does not require any specific steps to prepare the database for tests. To run the integration tests you just need to make sure Docker Desktop is installed and running. Everything else will be automatic. The first time you run the tests for that specific version of... | [source](https://community.rockrms.com/developer/developer-codex/coding-standards/testing/unit-testing/docker-desktop) |
 
 
 ## Lava Capability References

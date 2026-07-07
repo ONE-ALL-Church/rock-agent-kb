@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-06-29T20:42:27+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -39,14 +39,14 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 8
+- `rock_core_release_notes`: 7
 - `rock_documentation`: 21
 - `rock_model_map`: 12
 - `rock_qa`: 2
 - `rock_recipes`: 10
 - `rock_rocku`: 2
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 16
+- `triumph_resources`: 17
 
 ## Highest Signal Sources
 
@@ -104,7 +104,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 17.5 | Check-in | Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prevents loading attendance data when context is missing. Fixes: #6409 | [source](https://www.rockrms.com/releasenotes) |
 | 17.1 | Check-in | Fixed a performance issue in Next-Gen Check-in that caused delays when printing to Bluetooth printers. The slowdown was due to how label image data was encoded, which has now been optimized. Printing performance should now be smooth and immediate. Fixes: #6260 | [source](https://www.rockrms.com/releasenotes) |
 | 16.3 | Communication | Fixed issue where Communication Entry Wizard block becomes unusable when an SMS image attachment is auto-resized and uploaded to Azure Blob Storage. Fixes: #5719 | [source](https://www.rockrms.com/releasenotes) |
-| 17.2 | Core | Improved the database index fill factor from 80% to 100% to reduce table size and improve maintenance performance. In the past, this was changed due to a common practice of reserving space to reduce page splits in the tables but, upon further research, it is an industry recommendation to fill the pages to 100% to reduce database footprint and improve... | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 

@@ -2,7 +2,7 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-06-29T20:42:42+00:00
+last_built: 2026-07-06T19:25:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -31,8 +31,8 @@ Roku developer documentation for Rock-powered SceneGraph applications, pages, co
 ## How To Think About This Area
 
 - `Roku Apps` spans api-integrations, lava, cms, security, media, tv-apps. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_mobile_release_notes, rock_api_docs, sparkdevnetwork_rock.
-- Related tags found in source records: lava, development, workflow, cms, api, obsidian, security, mobile.
+- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_api_docs, sparkdevnetwork_rock.
+- Related tags found in source records: lava, development, workflow, cms, api, obsidian, security, sql.
 - Source detail types include: developer_doc, rock_lava_docs, triumph_resources.
 
 ## Approved Claims
@@ -53,10 +53,9 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_api_docs`: 1
 - `rock_developer`: 20
 - `rock_lava_docs`: 53
-- `rock_mobile_release_notes`: 1
 - `rock_model_map`: 12
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 4
+- `triumph_resources`: 5
 
 ## Highest Signal Sources
 
@@ -102,12 +101,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 - `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 - `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 - `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-
-## Version And Release Watch
-
-| Version | Module | Change | Citation |
-| --- | --- | --- | --- |
-| 7.0 | CMS | Fixed an issue where the PlayAudio and PlayVideo media commands could cause the application to crash. Fixes: #35 | [source](https://www.rockrms.com/mobilereleasenotes) |
 
 ## Repository Landmarks
 
