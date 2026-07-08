@@ -5,12 +5,12 @@ import json
 import os
 import sys
 from pathlib import Path
-from urllib import request
+from urllib import error, request
 
 from .validator import validate_bundle
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-USER_AGENT = "rock-kb-client/0.1.1 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
+USER_AGENT = "rock-kb-client/0.1.2 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -53,9 +53,15 @@ def main(argv: list[str] | None = None) -> int:
     validate = subparsers.add_parser("validate")
     validate.add_argument("bundle", type=Path)
 
+    auth_check = subparsers.add_parser("auth-check")
+    auth_check.add_argument("--org", required=True)
+    add_token_options(auth_check)
+
     submit = subparsers.add_parser("submit")
     submit.add_argument("bundle", type=Path)
-    submit.add_argument("--org", required=True)
+    submit.add_argument("--org", help="Defaults to the org_id in the bundle when every row has the same org_id.")
+    submit.add_argument("--dry-run", action="store_true", help="Validate hosted auth and bundle without opening a PR.")
+    add_token_options(submit)
 
     subparsers.add_parser("mcp-config")
 
@@ -91,18 +97,28 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"ERROR {error}", file=sys.stderr)
             return 1
         return print_json({"status": "ok", "file": str(args.bundle)})
+    if args.command == "auth-check":
+        token = resolve_token(args)
+        if not token:
+            print(missing_token_message(args.org), file=sys.stderr)
+            return 1
+        return print_json(post_json(f"{base_url}/auth/check", {"org_id": args.org}, token=token))
     if args.command == "submit":
         errors = validate_bundle(args.bundle)
         if errors:
             for error in errors:
                 print(f"ERROR {error}", file=sys.stderr)
             return 1
-        token = os.environ.get("ROCK_KB_TOKEN")
-        if not token:
-            print("ERROR ROCK_KB_TOKEN is required for submit", file=sys.stderr)
-            return 1
         rows = [json.loads(line) for line in args.bundle.read_text(encoding="utf-8").splitlines() if line.strip()]
-        return print_json(post_json(f"{base_url}/submit", {"org_id": args.org, "bundle": rows}, token=token))
+        org_id = args.org or infer_org_id(rows)
+        if not org_id:
+            print("ERROR --org is required when bundle rows do not all use the same org_id", file=sys.stderr)
+            return 1
+        token = resolve_token(args)
+        if not token:
+            print(missing_token_message(org_id), file=sys.stderr)
+            return 1
+        return print_json(post_json(f"{base_url}/submit", {"org_id": org_id, "bundle": rows, "dry_run": bool(args.dry_run)}, token=token))
     if args.command == "mcp-config":
         return print_json(
             {
@@ -115,6 +131,35 @@ def main(argv: list[str] | None = None) -> int:
             }
         )
     return 1
+
+
+def add_token_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--token-file", type=Path, help="Read the submit token from a secret-mounted file.")
+    parser.add_argument("--token-stdin", action="store_true", help="Read the submit token from stdin.")
+
+
+def resolve_token(args) -> str:
+    if getattr(args, "token_stdin", False):
+        return sys.stdin.read().strip()
+    token_file = getattr(args, "token_file", None) or (Path(os.environ["ROCK_KB_TOKEN_FILE"]) if os.environ.get("ROCK_KB_TOKEN_FILE") else None)
+    if token_file:
+        return token_file.read_text(encoding="utf-8").strip()
+    return os.environ.get("ROCK_KB_TOKEN", "").strip()
+
+
+def infer_org_id(rows: list[dict]) -> str:
+    org_ids = {str(row.get("org_id") or "") for row in rows}
+    org_ids.discard("")
+    return next(iter(org_ids)) if len(org_ids) == 1 else ""
+
+
+def missing_token_message(org_id: str) -> str:
+    return (
+        "ERROR hosted submission requires a per-organization submit token.\n"
+        f"Org: {org_id}\n"
+        "Ask a Rock KB maintainer to review orgs/<org-id>.yaml and issue or rotate a token outside git.\n"
+        "Provide it to this command with ROCK_KB_TOKEN, ROCK_KB_TOKEN_FILE, --token-file, or --token-stdin."
+    )
 
 
 def print_model(base_url: str, model: str, fields: str | None, property_name: str | None, format_name: str) -> int:
@@ -155,8 +200,15 @@ def post_json(url: str, payload: dict, token: str):
             "accept": "application/json",
         },
     )
-    with request.urlopen(req) as response:
-        return json.loads(response.read().decode("utf-8"))
+    try:
+        with request.urlopen(req) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except error.HTTPError as exc:
+        body = exc.read().decode("utf-8")
+        try:
+            return json.loads(body)
+        except json.JSONDecodeError:
+            raise RuntimeError(f"HTTP {exc.code}: {body}") from exc
 
 
 def quote(value: str) -> str:

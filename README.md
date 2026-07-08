@@ -16,6 +16,30 @@ uv run --extra dev pytest
 
 Generated content is meant to be reproducible from the registries, normalized records, reviewed claims, and CLI. For intentional rebuilds, pin `ROCK_KB_GENERATED_AT=<iso timestamp>` so generated `generated_at` metadata does not churn; standard `SOURCE_DATE_EPOCH` is also supported.
 
+## Contribute
+
+The easiest path is a source suggestion: copy `source-suggestions/SUGGESTION_TEMPLATE.md` to `source-suggestions/<org-id>/<topic>.md`, fill it in, and open a PR that only changes that folder.
+
+Normal GitHub PR contributions do not need a Rock KB submit token. Hosted agent submission uses a per-organization token after the organization is reviewed in `orgs/<org-id>.yaml`; agents can check the token with `rock-kb auth-check --org <org-id>` and test with `rock-kb submit bundle.jsonl --dry-run`.
+
+For reviewed public-safe knowledge, generate a starter bundle row:
+
+```bash
+python3 scripts/new_contribution.py \
+  --org-id your-org \
+  --org-name "Your Org" \
+  --concept workflows \
+  --type troubleshooting_pattern \
+  --title "Workflow launch triage pattern" \
+  --summary "When a workflow does not launch, first verify the trigger, active workflow type, entity context, action logs, and idempotency of notifications or webhooks before changing configuration." \
+  --source-url https://community.rockrms.com/documentation \
+  --needs-live-verification \
+  --redaction-reviewed \
+  --license-attested
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full public-safety rules.
+
 ## Layout
 
 - `sources/` - source catalog, license posture, crawl strategy, refresh cadence, and preferred tooling.
