@@ -2,10 +2,19 @@
 
 Use this folder for lightweight source-discovery notes when a full contribution bundle is not ready.
 
+Source suggestions submitted by GitHub PR do not need a Rock KB submit token. The contributor only needs GitHub access to open a PR.
+
 Preferred path:
 
 ```text
 source-suggestions/<org-id>/<short-topic>.md
+```
+
+The fastest start is to copy the template:
+
+```bash
+mkdir -p source-suggestions/<org-id>
+cp source-suggestions/SUGGESTION_TEMPLATE.md source-suggestions/<org-id>/<short-topic>.md
 ```
 
 Each suggestion should include:

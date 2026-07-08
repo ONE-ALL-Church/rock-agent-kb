@@ -71,7 +71,9 @@ row instead of raw evidence. The row must be newly written and public-safe.
 
 ```bash
 uvx rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb auth-check --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --dry-run
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl
 ```
 
 If you are working from a local `rock-agent-kb` checkout and need unreleased
@@ -79,7 +81,9 @@ client changes, use the checked-in client:
 
 ```bash
 uv run --project clients/python rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb auth-check --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --dry-run
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl
 ```
 
 To test an unreleased public branch without a local checkout, use the Git-backed
@@ -97,7 +101,9 @@ environment variable or a secret store:
 
 ```bash
 export ROCK_KB_TOKEN='<issued-token>'
-uvx rock-kb submit bundle.jsonl --org <org-id>
+uvx rock-kb auth-check --org <org-id>
+uvx rock-kb submit bundle.jsonl --dry-run
+uvx rock-kb submit bundle.jsonl
 ```
 
 For repeat use on macOS, store it in Keychain and load it into the environment
@@ -109,9 +115,14 @@ export ROCK_KB_TOKEN="$(security find-generic-password -a "$USER" -s "rock-kb-to
 ```
 
 For CI, hosted agents, or app connectors, save it as a secret named
-`ROCK_KB_TOKEN`. Never save submit tokens in repo files, bundle rows,
-screenshots, transcripts, or generated artifacts. Ask a maintainer to rotate the
-token if it is lost or exposed.
+`ROCK_KB_TOKEN`, or mount it as a secret file and set `ROCK_KB_TOKEN_FILE`.
+Never save submit tokens in repo files, bundle rows, screenshots, transcripts,
+or generated artifacts. Ask a maintainer to rotate the token if it is lost or
+exposed.
+
+`rock-kb submit` infers `--org` from the bundle when all rows use the same
+`org_id`. Use `--org <org-id>` only when submitting mixed or unusual test
+bundles.
 
 Use `community-contributions/example-org/bundle.example.jsonl` as the row-shape
 reference. Set `needs_live_verification: true` when behavior depends on local

@@ -7,12 +7,14 @@ Community contribution bundles are public-safe JSONL files that suggest reusable
 Create or update:
 
 ```text
-community-contributions/<org-id>/bundle.jsonl
+community-contributions/<org-id>/bundle*.jsonl
 ```
 
 Use a stable lowercase `org-id` with letters, numbers, dashes, or underscores. If the organization should stay anonymous, use a stable non-identifying value such as `anonymous-west-001` and set `org_display_name` to `Anonymous Organization`.
 
 The planned public org registry lives under `orgs/<org-id>.yaml`. Until that registry validator and server-side GitHub rulesets are active, every public contribution PR requires maintainer review.
+
+Normal GitHub PR submissions do not need a Rock KB submit token. Hosted agent submission through `kb_submit` requires a reviewed org registration and a per-org token delivered outside git.
 
 For lightweight source ideas without a full bundle, add notes under:
 
@@ -21,6 +23,26 @@ source-suggestions/<org-id>/
 ```
 
 Do not edit generated paths such as `agent/`, `claims/`, `concepts/`, `contributions/`, `knowledge/`, `sources/`, or `public-export-manifest.json`.
+
+## Quick Bundle Generator
+
+Use this command when you already have a reviewed public-safe summary:
+
+```bash
+python3 scripts/new_contribution.py \
+  --org-id your-org \
+  --org-name "Your Org" \
+  --concept workflows \
+  --type troubleshooting_pattern \
+  --title "Workflow launch triage pattern" \
+  --summary "When a workflow does not launch, first verify the trigger, active workflow type, entity context, action logs, and idempotency of notifications or webhooks before changing configuration." \
+  --source-url https://community.rockrms.com/documentation \
+  --needs-live-verification \
+  --redaction-reviewed \
+  --license-attested
+```
+
+The script writes `community-contributions/<org-id>/bundle-<timestamp>.jsonl` and prints the validation command.
 
 ## Bundle Row Fields
 
@@ -66,7 +88,7 @@ Agents from other organizations should keep pull requests narrow and reviewable:
 Run this before opening a PR:
 
 ```bash
-python scripts/validate_bundle.py
+python3 scripts/validate_bundle.py
 ```
 
 The PR workflow runs the same validator for changes under `community-contributions/**` and `source-suggestions/**`.

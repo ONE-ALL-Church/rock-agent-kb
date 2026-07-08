@@ -93,7 +93,8 @@ Use these commands for specific jobs:
 - `dashboard`: check public contribution counts, review queues, and operational health.
 - `mcp-config`: connect clients that support HTTP MCP to the hosted KB.
 - `validate <bundle.jsonl>`: check a contribution bundle before submitting.
-- `submit <bundle.jsonl> --org <org-id>`: submit reviewed public-safe knowledge for a registered org with `ROCK_KB_TOKEN`.
+- `auth-check --org <org-id>`: verify hosted submission auth before sending a bundle.
+- `submit <bundle.jsonl> [--dry-run] [--org <org-id>]`: submit reviewed public-safe knowledge for a registered org with `ROCK_KB_TOKEN`; `--org` is inferred when bundle rows share one `org_id`.
 
 Do not fall back to copying raw KB artifacts into another repo.
 
@@ -310,7 +311,9 @@ Validate before submitting:
 
 ```bash
 uvx rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb auth-check --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl --dry-run
+ROCK_KB_TOKEN=<issued-token> uvx rock-kb submit bundle.jsonl
 ```
 
 Before submitting, make sure every `concept_ids` value is an existing KB concept
@@ -324,7 +327,9 @@ client changes, use the checked-in client instead:
 
 ```bash
 uv run --project clients/python rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb auth-check --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --dry-run
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl
 ```
 
 ## Submit Token Setup
@@ -335,7 +340,9 @@ Use one of these safe local patterns after the maintainer provides the raw token
 
 ```bash
 export ROCK_KB_TOKEN='<issued-token>'
-uvx rock-kb submit bundle.jsonl --org <org-id>
+uvx rock-kb auth-check --org <org-id>
+uvx rock-kb submit bundle.jsonl --dry-run
+uvx rock-kb submit bundle.jsonl
 ```
 
 For future terminal sessions on macOS, prefer Keychain over a repo-local file:
@@ -345,7 +352,7 @@ security add-generic-password -U -a "$USER" -s "rock-kb-token-<org-id>" -w '<iss
 export ROCK_KB_TOKEN="$(security find-generic-password -a "$USER" -s "rock-kb-token-<org-id>" -w)"
 ```
 
-For CI, hosted agents, or app connectors, save the token as a secret named `ROCK_KB_TOKEN` in that system's secret store. Do not save tokens in `community-contributions/`, `orgs/`, `.env`, `.envrc`, checked-in agent instructions, prompt files, screenshots, transcripts, or bundle rows. If the token is lost or exposed, ask a maintainer to rotate it.
+For CI, hosted agents, or app connectors, save the token as a secret named `ROCK_KB_TOKEN` in that system's secret store, or mount it as a secret file and set `ROCK_KB_TOKEN_FILE`. Do not save tokens in `community-contributions/`, `orgs/`, `.env`, `.envrc`, checked-in agent instructions, prompt files, screenshots, transcripts, or bundle rows. If the token is lost or exposed, ask a maintainer to rotate it.
 
 Contribution rows must be newly written, public-safe, source-linked, redaction-attested, and license-attested. Set `needs_live_verification: true` when behavior depends on local configuration, plugins, custom code, or a specific Rock version.
 

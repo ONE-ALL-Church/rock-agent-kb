@@ -183,6 +183,9 @@ export default {
       if (url.pathname === "/submit" && request.method === "POST") {
         return json(await submitContribution(request, env));
       }
+      if (url.pathname === "/auth/check" && request.method === "POST") {
+        return json(await checkSubmitAuth(request, env));
+      }
       return json({ error: "not_found" }, 404);
     } catch (error) {
       console.log(JSON.stringify({ level: "error", message: String(error) }));
@@ -495,18 +498,28 @@ async function submitContribution(request: Request, env: ServiceEnv): Promise<Js
   const body = await request.json<JsonRecord>();
   const orgId = String(body.org_id || "");
   const bundle = Array.isArray(body.bundle) ? body.bundle : [];
+  const dryRun = body.dry_run === true;
   const auth = request.headers.get("Authorization") || "";
   const token = auth.startsWith("Bearer ") ? auth.slice("Bearer ".length).trim() : String(body.token || "");
   if (!orgId || !(await tokenAllowed(env, orgId, token))) {
-    return { schema: "rock-kb-submit-result-v1", status: "rejected", errors: ["unauthorized org token"] };
+    return submitRejected(["unauthorized org token"], orgId);
   }
   const org = await registeredOrg(env, orgId);
   if (!org) {
-    return { schema: "rock-kb-submit-result-v1", status: "rejected", errors: [`org ${orgId} is not registered`] };
+    return submitRejected([`org ${orgId} is not registered or is not reviewed`], orgId);
   }
   const errors = validateBundle(bundle, orgId);
   if (errors.length) {
-    return { schema: "rock-kb-submit-result-v1", status: "rejected", errors };
+    return submitRejected(errors, orgId);
+  }
+  if (dryRun) {
+    return {
+      schema: "rock-kb-submit-result-v1",
+      status: "validated",
+      org_id: orgId,
+      row_count: bundle.length,
+      next: "Dry run passed. Re-run without dry_run to open a contribution PR."
+    };
   }
   if (!env.GITHUB_TOKEN) {
     return {
@@ -518,6 +531,39 @@ async function submitContribution(request: Request, env: ServiceEnv): Promise<Js
     };
   }
   return createContributionPullRequest(env, orgId, org, bundle as JsonRecord[]);
+}
+
+async function checkSubmitAuth(request: Request, env: ServiceEnv): Promise<JsonRecord> {
+  const body = await request.json<JsonRecord>();
+  const orgId = String(body.org_id || "");
+  const auth = request.headers.get("Authorization") || "";
+  const token = auth.startsWith("Bearer ") ? auth.slice("Bearer ".length).trim() : String(body.token || "");
+  if (!orgId) {
+    return submitRejected(["org_id is required"], "");
+  }
+  if (!(await tokenAllowed(env, orgId, token))) {
+    return submitRejected(["unauthorized org token"], orgId);
+  }
+  const org = await registeredOrg(env, orgId);
+  if (!org) {
+    return submitRejected([`org ${orgId} is not registered or is not reviewed`], orgId);
+  }
+  return {
+    schema: "rock-kb-submit-auth-check-v1",
+    status: "ok",
+    org_id: orgId,
+    next: "Auth is valid. Use /submit or rock-kb submit to validate and open a contribution PR."
+  };
+}
+
+function submitRejected(errors: string[], orgId: string): JsonRecord {
+  return {
+    schema: "rock-kb-submit-result-v1",
+    status: "rejected",
+    org_id: orgId,
+    errors,
+    next: "Use a reviewed org registration and provide the per-org token with Authorization: Bearer <token> or ROCK_KB_TOKEN. Tokens must be delivered outside git and stored only in a secret store."
+  };
 }
 
 async function createContributionPullRequest(env: ServiceEnv, orgId: string, org: JsonRecord, bundle: JsonRecord[]): Promise<JsonRecord> {
@@ -1331,6 +1377,6 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_concept", description: "Return one concept package.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
-    { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" } }, required: ["org_id", "bundle"] } }
+    { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }
   ];
 }
