@@ -28,13 +28,23 @@ uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group --fields identity,required,relationships,diffs
 uv run --project clients/python rock-kb model group --property Members
 uv run --project clients/python rock-kb validate bundle.jsonl
-ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb auth-check --org <org-id>
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --dry-run
+ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl
 ```
 
-Set `ROCK_KB_URL` to point at a staging service. Set `ROCK_KB_TOKEN` when submitting bundles.
+Set `ROCK_KB_URL` to point at a staging service. Set `ROCK_KB_TOKEN` when submitting bundles. `rock-kb submit` infers `--org` from the bundle when all rows use the same `org_id`.
+
+Secret-file usage is also supported, which is often easier for hosted agents:
+
+```bash
+rock-kb auth-check --org <org-id> --token-file /run/secrets/rock-kb-token
+rock-kb submit bundle.jsonl --token-file /run/secrets/rock-kb-token --dry-run
+rock-kb submit bundle.jsonl --token-file /run/secrets/rock-kb-token
+```
 
 Hosted submission is token-gated per organization. If `rock-kb submit` reports
 that `ROCK_KB_TOKEN` is required, ask a Rock KB maintainer to issue a token for
 the reviewed `orgs/<org-id>.yaml` registration. Store the token in an
-environment variable, CI/app secret, or local secret store such as macOS
-Keychain; do not save it in repo files.
+environment variable, CI/app secret, mounted secret file, or local secret store
+such as macOS Keychain; do not save it in repo files.

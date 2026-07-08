@@ -61,6 +61,47 @@ test("duplicate contribution IDs are rejected before GitHub is called", async ()
   }
 });
 
+test("auth check validates reviewed org token without opening GitHub", async () => {
+  const github = githubMock();
+  const { mf, token } = await buildWorker({ github });
+  try {
+    const response = await mf.dispatchFetch("https://kb.example.test/auth/check", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ org_id: "testorg" }),
+    });
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.schema, "rock-kb-submit-auth-check-v1");
+    assert.equal(payload.status, "ok");
+    assert.equal(payload.org_id, "testorg");
+    assert.deepEqual(github.calls, []);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("submit dry run validates bundle without opening GitHub", async () => {
+  const github = githubMock();
+  const { mf, token } = await buildWorker({ github });
+  try {
+    const response = await submitBundle(mf, token, "testorg", [validContribution()], { dry_run: true });
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.status, "validated");
+    assert.equal(payload.row_count, 1);
+    assert.match(payload.next, /Dry run passed/);
+    assert.deepEqual(github.calls, []);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("auto-merge is skipped when GitHub changed-file path differs from expected contribution path", async () => {
   const github = githubMock({ changedFilename: "community-contributions/otherorg/bundle-20260613T000000.jsonl" });
   const { mf, token } = await buildWorker({ github });
@@ -111,14 +152,14 @@ async function buildWorker({ github }) {
   return { mf, token };
 }
 
-async function submitBundle(mf, token, orgId, bundle) {
+async function submitBundle(mf, token, orgId, bundle, extra = {}) {
   return mf.dispatchFetch("https://kb.example.test/submit", {
     method: "POST",
     headers: {
       authorization: `Bearer ${token}`,
       "content-type": "application/json",
     },
-    body: JSON.stringify({ org_id: orgId, bundle }),
+    body: JSON.stringify({ org_id: orgId, bundle, ...extra }),
   });
 }
 

@@ -162,3 +162,55 @@ def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
     assert cli.post_json("https://example.test/submit", {"ok": True}, token="secret") == {"status": "ok"}
     assert captured["user_agent"] == cli.USER_AGENT
     assert captured["accept"] == "application/json"
+
+
+def test_client_submit_infers_org_and_reads_token_file(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    row = json.loads(VALID_FIXTURE.read_text(encoding="utf-8"))
+    bundle = tmp_path / "bundle.jsonl"
+    bundle.write_text(json.dumps(row) + "\n", encoding="utf-8")
+    token_file = tmp_path / "token.txt"
+    token_file.write_text("secret-token\n", encoding="utf-8")
+    captured = {}
+
+    def fake_post_json(url: str, payload: dict, token: str):
+        captured["url"] = url
+        captured["payload"] = payload
+        captured["token"] = token
+        return {"status": "validated"}
+
+    monkeypatch.setattr(cli, "post_json", fake_post_json)
+
+    exit_code = cli.main(["--url", "https://example.test", "submit", str(bundle), "--token-file", str(token_file), "--dry-run"])
+
+    assert exit_code == 0
+    assert captured["url"] == "https://example.test/submit"
+    assert captured["payload"]["org_id"] == row["org_id"]
+    assert captured["payload"]["dry_run"] is True
+    assert captured["token"] == "secret-token"
+    assert "validated" in capsys.readouterr().out
+
+
+def test_client_auth_check_uses_token_file(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    token_file = tmp_path / "token.txt"
+    token_file.write_text("secret-token\n", encoding="utf-8")
+    captured = {}
+
+    def fake_post_json(url: str, payload: dict, token: str):
+        captured["url"] = url
+        captured["payload"] = payload
+        captured["token"] = token
+        return {"status": "ok"}
+
+    monkeypatch.setattr(cli, "post_json", fake_post_json)
+
+    exit_code = cli.main(["--url", "https://example.test", "auth-check", "--org", "fixture-org", "--token-file", str(token_file)])
+
+    assert exit_code == 0
+    assert captured == {
+        "url": "https://example.test/auth/check",
+        "payload": {"org_id": "fixture-org"},
+        "token": "secret-token",
+    }
+    assert "ok" in capsys.readouterr().out
