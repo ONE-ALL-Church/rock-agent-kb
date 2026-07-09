@@ -1232,8 +1232,17 @@ def test_media_public_promote_updates_matching_insight_without_raw_transcript(mo
                 "timestamp": "00:12",
                 "timestamp_seconds": 12,
                 "contains_verbatim_transcript": False,
+                "evidence_class": "operational_recommendation",
+                "temporal_status": "current",
             }
         ],
+        "generation_provenance": {
+            "model": "test-model",
+            "prompt_id": "rock-kb-media-claim-distillation",
+            "prompt_version": "1.0.0",
+            "method": "agent_reviewed_whole_source",
+            "source_input_hash": candidate["transcript_hash"],
+        },
     }
 
     result = promote_media_public_candidates(
@@ -1256,14 +1265,116 @@ def test_media_public_promote_updates_matching_insight_without_raw_transcript(mo
     assert promotion["summary"] == rewrite["summary"]
     assert promotion["key_insights"][0]["timestamp"] == "00:12"
     assert promotion["key_insights"][0]["timestamp_seconds"] == 12
+    assert promotion["generation_provenance"]["model"] == "test-model"
     assert updated["needs_review"] is False
     assert updated["review_status"] == "approved_for_public_distillation"
     assert updated["review_origin"] == "media_public_promotion"
     assert updated["approved_concept_ids"] == ["check-in"]
     assert updated["summary"] == rewrite["summary"]
     assert updated["key_insights"] == rewrite["key_insights"]
+    assert updated["generation_provenance"] == rewrite["generation_provenance"]
     serialized = json.dumps(promotion)
     assert transcript not in serialized
+
+
+def test_media_promotion_rejects_generation_provenance_for_different_source(monkeypatch, tmp_path):
+    monkeypatch.setattr(media_module, "MEDIA_DIR", tmp_path / "media")
+    monkeypatch.setattr(media_module, "REVIEW_DIR", tmp_path / "review")
+    monkeypatch.setattr(media_module, "NORMALIZED_DIR", tmp_path / "normalized")
+    source = get_source("rock_podcast_rss")
+    transcript = "Rock admins discuss a concrete workflow pattern and its permission boundaries. " * 4
+    transcript_row = {
+        "media_id": "media:hash-check",
+        "source_record_id": "rock_podcast_rss:hash-check",
+        "source_url": "https://shows.acast.com/rock-cast/episodes/hash-check",
+        "source_title": "Hash Check",
+        "transcript_status": "transcribed",
+        "transcribed_at": "2026-07-09T00:00:00+00:00",
+        "transcript": transcript,
+    }
+    candidate = media_public_candidate_records(source, [transcript_row])[0]
+    write_jsonl(media_public_candidates_path(source.id), [candidate])
+    write_jsonl(media_insights_path(source.id), media_insight_records(source, [transcript_row]))
+    rewrite = {
+        "summary": "This source describes a workflow pattern with explicit permission boundaries.",
+        "key_insights": [
+            {
+                "insight": "Workflow tools should expose only the permissions needed for the current task.",
+                "source_url": transcript_row["source_url"],
+            }
+        ],
+        "generation_provenance": {
+            "model": "test-model",
+            "prompt_id": "rock-kb-media-claim-distillation",
+            "prompt_version": "1.0.0",
+            "method": "agent_reviewed_whole_source",
+            "source_input_hash": "0" * 64,
+        },
+    }
+
+    try:
+        promote_media_public_candidates(
+            source,
+            candidate_ids=[candidate["id"]],
+            rewrites_by_candidate_id={candidate["id"]: rewrite},
+        )
+    except ValueError as exc:
+        assert "does not match transcript_hash" in str(exc)
+    else:
+        raise AssertionError("expected mismatched generation provenance to be rejected")
+
+
+def test_media_promotion_preserves_reviewed_at_when_only_provenance_is_added(monkeypatch, tmp_path):
+    monkeypatch.setattr(media_module, "MEDIA_DIR", tmp_path / "media")
+    monkeypatch.setattr(media_module, "REVIEW_DIR", tmp_path / "review")
+    monkeypatch.setattr(media_module, "NORMALIZED_DIR", tmp_path / "normalized")
+    source = get_source("rock_podcast_rss")
+    transcript = "Rock admins discuss a reusable workflow pattern and permission boundary. " * 4
+    transcript_row = {
+        "media_id": "media:idempotent",
+        "source_record_id": "rock_podcast_rss:idempotent",
+        "source_url": "https://shows.acast.com/rock-cast/episodes/idempotent",
+        "source_title": "Idempotent Review",
+        "transcript_status": "transcribed",
+        "transcribed_at": "2026-07-09T00:00:00+00:00",
+        "transcript": transcript,
+    }
+    candidate = media_public_candidate_records(source, [transcript_row])[0]
+    rewrite = {
+        "summary": "This source describes a reusable workflow pattern with permission boundaries.",
+        "key_insights": [
+            {
+                "insight": "Workflow tools should expose only the permissions needed for the current task.",
+                "source_url": transcript_row["source_url"],
+            }
+        ],
+    }
+    write_jsonl(media_public_candidates_path(source.id), [candidate])
+    write_jsonl(media_insights_path(source.id), media_insight_records(source, [transcript_row]))
+    promote_media_public_candidates(
+        source,
+        candidate_ids=[candidate["id"]],
+        rewrites_by_candidate_id={candidate["id"]: rewrite},
+    )
+    promotion = next(read_jsonl(media_public_promotions_path(source.id)))
+    promotion["reviewed_at"] = "2026-07-01T00:00:00+00:00"
+    write_jsonl(media_public_promotions_path(source.id), [promotion])
+
+    promote_media_public_candidates(
+        source,
+        candidate_ids=[candidate["id"]],
+        rewrites_by_candidate_id={candidate["id"]: rewrite},
+        review_provenance={
+            "model": "test-model",
+            "prompt_id": "legacy-review",
+            "prompt_version": "legacy-unversioned",
+            "method": "agent_reviewed_whole_source",
+        },
+    )
+    updated = next(read_jsonl(media_public_promotions_path(source.id)))
+
+    assert updated["reviewed_at"] == "2026-07-01T00:00:00+00:00"
+    assert updated["generation_provenance"]["model"] == "test-model"
 
 
 def test_build_media_insights_reapplies_existing_public_promotions(monkeypatch, tmp_path):

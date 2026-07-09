@@ -122,6 +122,27 @@ uv run kb claims live-plan
 
 Retain detailed evidence in the private corpus and add public-safe promotion overlays under `data/review/live-claim-verifications.jsonl`. Do not promote a claim to `live_verified` from source text alone.
 
+## Media Claim Distillation
+
+Use the versioned [Media Claim Distillation Prompt](../prompts/media-claim-distillation-v1.md) for agent-authored transcript rewrites. Record the exact model, prompt ID and version, review method, and full-source input hash in `generation_provenance`. The hash must match the candidate `transcript_hash`; do not label a legacy rewrite with a newer prompt version that did not produce it.
+
+```bash
+uv run kb media promote \
+  --source <source-id> \
+  --candidate-id <candidate-id> \
+  --rewrite-file data/review/media-rewrites/<source-id>.transcript-reviewed-rewrites.jsonl \
+  --reviewer <reviewer-id> \
+  --review-model <exact-model-id> \
+  --prompt-id rock-kb-media-claim-distillation \
+  --prompt-version 1.0.0 \
+  --review-method agent_reviewed_whole_source
+
+uv run kb claims provenance
+uv run kb claims evaluation-sample --model <model-id> --sample-size 48
+```
+
+The evaluation sample is ignored/private because it may contain bounded transcript or normalized-source context. Score source fidelity, specificity, agent actionability, concept routing, temporal precision, and duplication risk before deciding whether to replace legacy claims. Do not regenerate the entire claim graph solely because a newer model is available.
+
 ## Source Conflict Review
 
 `agent/source-conflicts.jsonl` is an authority-alignment report, not automatic proof that two sources contradict each other. Review these rows when they change materially or before a readiness pass:
@@ -163,6 +184,8 @@ uv run --extra dev pytest
 - Public text is paraphrased or reviewer-authored, not copied from raw transcripts or private docs.
 - Canonical source URLs are present; direct media file URLs are not public.
 - Timestamp fields are included when they help agents route evidence.
+- New agent-authored rewrites include truthful `generation_provenance`; legacy rows remain explicitly unprovenanced.
+- Demonstrations, partner/custom examples, current behavior, and exploratory roadmap work are labeled and worded differently.
 - Concept IDs are specific enough to improve retrieval.
 - Claims are durable and reusable for Rock RMS users beyond one organization.
 - Operational answers use only `answer_pack_approved` or `live_verified` claims.
