@@ -31,6 +31,16 @@ def build_media_understanding_benchmark(
     selected: list[dict[str, Any]] = []
     selected.extend(
         benchmark_sample_rows(
+            source_by_id.get("rock_youtube"),
+            role="official_rock_video",
+            media_kind="video",
+            limit=1,
+            pending_first=True,
+            include_media_url=include_media_url,
+        )
+    )
+    selected.extend(
+        benchmark_sample_rows(
             source_by_id.get("rock_podcast_rss"),
             role="podcast_audio",
             media_kind="audio",
@@ -496,7 +506,7 @@ def media_understanding_prompt(role: str) -> str:
         "Return non-verbatim notes with concise topic labels, timestamp references when available, "
         "and a clear distinction between audio transcript facts and visual observations."
     )
-    if role in {"rock_training_video", "community_video", "triumph_technical_video"}:
+    if role in {"official_rock_video", "rock_training_video", "community_video", "triumph_technical_video"}:
         return shared + " Include any screen, slide, UI, or demo context that would not appear in an audio-only transcript."
     return shared + " Focus on transcript accuracy, speaker or host context, and durable topics for later reviewer-written summaries."
 

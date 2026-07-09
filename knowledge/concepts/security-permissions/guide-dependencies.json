@@ -533,6 +533,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it.",
+      "claim_hash": "814025556e8548ee211a65192def57e2af90ab2965fd9c01ea6af2d7365ca411",
+      "claim_id": "claim:0ed16cad9954cfbf26ed",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1989s",
+          "timestamp": "33:09",
+          "timestamp_seconds": 1989.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The BI Embed Report RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "7e990f3bfb66448cbfbaddeba4e48454f6e11cf1595129fd3f568e68e6a53df6",
@@ -1690,6 +1725,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance.",
+      "claim_hash": "f596d5dab860771d1f2f903759a78f3b3e5d7edba5dead214bfb6fe716b9efe2",
+      "claim_id": "claim:3840e502df599a6bf7a2",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=451s",
+          "timestamp": "07:31",
+          "timestamp_seconds": 451.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Adding pages and blocks changes both navigation and authorization; agents should inspect site, page hierarchy, route, block type, zone, and inherited security before publishing.",
       "claim_hash": "332a4b9786c6153ab8b80646b50d2df2eb6698b526136c33d1172c0bc8d3f4af",
@@ -2391,6 +2461,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging.",
+      "claim_hash": "893e17f1ea7329f097da5de992b3be3a0c132f5db8b5ebefac94e59b43bb9763",
+      "claim_id": "claim:4b7b8d0b0379ceb7587f",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s",
+          "timestamp": "87:48",
+          "timestamp_seconds": 5268.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For version, roadmap, and release-caveat awareness, Passwordless Login should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "77426f54465dc1ccbdb6e7d2b149fe4e547515536b0824e35398a8861001577b",
@@ -2858,6 +2963,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers.",
+      "claim_hash": "dceff80dbfeb8ba26cca009d81907e01f550c0d81a8e212016fd230c4dfc84e7",
+      "claim_id": "claim:57e32b4d554a759231a1",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s",
+          "timestamp": "76:13",
+          "timestamp_seconds": 4573.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For ministry process design, Communication Templates [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
       "claim_hash": "3dbdb3b081c97a817e591a417c856927f96595b583076e7edf49fbf6a8bbb76a",
@@ -3176,6 +3316,41 @@
           "timestamp_seconds": 176.0,
           "title": "Passwordless Login",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/passwordless-login"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data.",
+      "claim_hash": "94bcf476d05c2ba2e1d30b8a606d2298f4894353614a8ad6c7068979cc12a7a9",
+      "claim_id": "claim:60c2bcd25e1cce4efef4",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s",
+          "timestamp": "67:34",
+          "timestamp_seconds": 4054.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
       ]
     },
@@ -5835,6 +6010,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article.",
+      "claim_hash": "fdce653f4f95d47833a8b736d39ca0daa20f78b5cec1a173e0b75a849f7f26ab",
+      "claim_id": "claim:aaa109fc541fff897e3f",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=2328s",
+          "timestamp": "38:48",
+          "timestamp_seconds": 2328.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For risk, governance, permissions, and policy review, Reports should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "8394fa8ff4079c3668c6a3a4d10cb7df306a49a43098b9a7b53c97055c796001",
@@ -5864,6 +6074,41 @@
           "timestamp_seconds": 258.72,
           "title": "Reports",
           "url": "https://community.rockrms.com/rocku/reporting/reports"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent.",
+      "claim_hash": "592ef5901499476b35f92579617ce37012bff24adaaa0ba329c0b5fff462ec62",
+      "claim_id": "claim:ab59d559b804403dc4a0",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=600s",
+          "timestamp": "10:00",
+          "timestamp_seconds": 600.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
       ]
     },
@@ -6056,6 +6301,41 @@
           "timestamp_seconds": 106.0,
           "title": "Benevolence",
           "url": "https://community.rockrms.com/rocku/finance/benevolence"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent.",
+      "claim_hash": "9f929ffc9c09c55f1a3ac5defa3a7e0904bc3bc8452266fd82e5964a5748eef7",
+      "claim_id": "claim:b4fb38224ff8452078f3",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s",
+          "timestamp": "24:01",
+          "timestamp_seconds": 1441.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
       ]
     },
@@ -6812,6 +7092,41 @@
           "timestamp_seconds": 76.64,
           "title": "Episode 161 : Building Next Gen Rock: A Look at Check-In",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability.",
+      "claim_hash": "bb6a5eb5b0a147c952d10eb484ff3e264d3e78a2b63084ceb71ea30f1b5bce53",
+      "claim_id": "claim:c3921cb1d8b61e06c713",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s",
+          "timestamp": "71:20",
+          "timestamp_seconds": 4280.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
       ]
     },
@@ -8672,6 +8987,38 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability.",
+      "claim_hash": "5202be7270c1bf1b5fe0d63157341095d26a14a47201c7dc6dc6c25c16597cd2",
+      "claim_id": "claim:eb03c3644ee4b1ae217b",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "BI Embed Report is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "54615bb22931668f7591d07290006a96565b0cab6824e480f1d8284720eb7278",
@@ -8758,6 +9105,41 @@
           "source_id": "rock_rocku",
           "title": "Content Channel Types and Content Channels",
           "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence.",
+      "claim_hash": "ba73e597cb57051033fbbdb9154265d347b4352f54a6483601dfed189a0bef49",
+      "claim_id": "claim:ed0bfda39f5c0b664ef3",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=3550s",
+          "timestamp": "59:10",
+          "timestamp_seconds": 3550.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
       ]
     },
@@ -9272,6 +9654,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified.",
+      "claim_hash": "dcfdf209dd4e24da783a173560241633ed70e93792a2e3fd181760e34b6c00f4",
+      "claim_id": "claim:fec91855b52cecd12b40",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
+      "source_record_ids": [
+        "rock_youtube:37e05abc58cbce60"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=3211s",
+          "timestamp": "53:31",
+          "timestamp_seconds": 3211.0,
+          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
+          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When BI reports are embedded back into Rock, teams still need to honor external licensing and put report pages behind appropriate Rock security roles.",
       "claim_hash": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac",
@@ -9340,6 +9757,7 @@
     "claim:09c6a4834867ba6879d7": "edb3898f19f4f00207bab521cbae41152049de6f7cf562d6e3e0bac44652f03a",
     "claim:0a757095cbd919912a83": "4c15c80d940b2e96a340e4df2985071dc904d89cc6bed8b2ae54e892a68c42af",
     "claim:0b6f8c45033ed0228a3b": "7716e649ca88f258f5dbfb96f8e94759ffaaa9089ba305ddeb74222de4ecd5f2",
+    "claim:0ed16cad9954cfbf26ed": "814025556e8548ee211a65192def57e2af90ab2965fd9c01ea6af2d7365ca411",
     "claim:0faaaf6a3fe9f8d45377": "7e990f3bfb66448cbfbaddeba4e48454f6e11cf1595129fd3f568e68e6a53df6",
     "claim:1070e83b1cbcad5307cb": "a725348101678d48b3a023ca15e8c33612824ded2833fa56e009804c10ba4fd1",
     "claim:1194f2c19382f6f35cb8": "6b17f1c15d7850386d722848b1dbfd667555da5846640365fb074158be06fcbd",
@@ -9375,6 +9793,7 @@
     "claim:34c487dcf623b9fe2e4c": "6e0ebde5ae272f168cc090fe92a44f268b79feff7bcb085cf674473cc3f2190b",
     "claim:3524141bde0a8ff0b15e": "2d010b6e57129b7cb4b300ebf2f261c3fb34e1a93c872f4185f7fc129f1b2bfc",
     "claim:380a877a66e3e32597eb": "56056b5acb9a39d404e9f2af3b87ba6be1af5b6f56f0a3c905eef0bafbe2d424",
+    "claim:3840e502df599a6bf7a2": "f596d5dab860771d1f2f903759a78f3b3e5d7edba5dead214bfb6fe716b9efe2",
     "claim:39735f6a8684f32d8191": "332a4b9786c6153ab8b80646b50d2df2eb6698b526136c33d1172c0bc8d3f4af",
     "claim:3abfdaf9b365315db422": "a249035f450c8932bea0de456cf6738ce601f0ff157fcf953ef2e0241c49ac67",
     "claim:3c3bad8c2ee8b5063b17": "7d339ceedba28ebe6a54349ca10ef4124ec6c9e46b1a36f963ebdd1f13d21d5f",
@@ -9395,6 +9814,7 @@
     "claim:4ae403a81fd17c64a0c0": "6518c2a484ce6b9a5dadb3054781066f6c520a1559c015fb3ffeaa8448b5d973",
     "claim:4af68ce24b02ba52c44e": "78dfd615fc41e33d3d7d496e160e1b4499375ca11efae9d3baa5d803501b6fb4",
     "claim:4b2d5bef915c701721b2": "a6769cf5b368cf6e47d4638aa10f3709d9c7dbc16d5b4c8bc910fee0e367a5c5",
+    "claim:4b7b8d0b0379ceb7587f": "893e17f1ea7329f097da5de992b3be3a0c132f5db8b5ebefac94e59b43bb9763",
     "claim:4c058fdbfd336d171f33": "77426f54465dc1ccbdb6e7d2b149fe4e547515536b0824e35398a8861001577b",
     "claim:4c6c24811261384a0eb4": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
     "claim:50552387fb04537efce1": "837fff31bac722c9c2d77454708b055b6caf799d35a6ea4600768c06b52f9383",
@@ -9409,6 +9829,7 @@
     "claim:57606ecf9827bef8d128": "8acbc92732ff25cad6bc87217e70096388919a8be0c7d329d390c384385cb060",
     "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
     "claim:57de5a92bd50f1ec61fc": "a883f1b32f47c0b172b362151e19d6e5af53abf9380a737f4f9729b0569d5391",
+    "claim:57e32b4d554a759231a1": "dceff80dbfeb8ba26cca009d81907e01f550c0d81a8e212016fd230c4dfc84e7",
     "claim:5998f57c6b527aee9750": "3dbdb3b081c97a817e591a417c856927f96595b583076e7edf49fbf6a8bbb76a",
     "claim:59b88dd757cec22ab5ed": "885fea7495dfb0c7934f88e38b791215105357b6c023cd32b4a3f6d3f06d08f0",
     "claim:5aa2748e70047b547cb0": "e70bd166c14df13c853fd8e42dc5cb0e8a4cc7478c67eafc7465c230698e7fd9",
@@ -9418,6 +9839,7 @@
     "claim:5d265f24e3052b3530cc": "0cafd2c2ae4cd88e5e61fc3e95fcbd3230c4c9789098db278ba3cd70929e24a3",
     "claim:5d719446e3e8ba39e6a4": "eacc7c52ff788e14158700cffcc291ae888a10e6025bf0fd7186f6cfa2f7d81a",
     "claim:6064c53a1374b57a8179": "e2c829ed077e3021658f7301c365621a27b5be44e87468edbeb3467cf7caf374",
+    "claim:60c2bcd25e1cce4efef4": "94bcf476d05c2ba2e1d30b8a606d2298f4894353614a8ad6c7068979cc12a7a9",
     "claim:60da58cb5fe43dd8aecc": "67fd3699fa2c0b2cdfd2b6ede4213e6dfcf119879cb14d7d13d5bfcc2bf1c3b1",
     "claim:62df48ca73e521ef7ea6": "dabc1d22734bab46c564ddacbafdf29653faa5a8cde5c02562ca674653649972",
     "claim:64100db2b5d60396b9fd": "1321b57ae11d8c65743803bf0809a35915d373a0ffc15bdc6189e705618f4334",
@@ -9496,13 +9918,16 @@
     "claim:a4fa5f4fbbf78bf3c0bd": "d5cad7cd668c5e2449e862cf3f8a3c86bcd3996af29b1cb4f18266e19d6e13a3",
     "claim:a5f0a54f29d226cec5fc": "c18235cccdd432bc4ae1cb975a6b6083983a39f370bf785e8f84995f9dcdb982",
     "claim:a8588d83f55b13b80b22": "8f6a09363489fdae6f51e7e0bb084dc2eb8682655b3ad38fd034a63581f041e2",
+    "claim:aaa109fc541fff897e3f": "fdce653f4f95d47833a8b736d39ca0daa20f78b5cec1a173e0b75a849f7f26ab",
     "claim:aae8d1158cd69fd807b6": "8394fa8ff4079c3668c6a3a4d10cb7df306a49a43098b9a7b53c97055c796001",
+    "claim:ab59d559b804403dc4a0": "592ef5901499476b35f92579617ce37012bff24adaaa0ba329c0b5fff462ec62",
     "claim:ab7ebcde9247347cb5cb": "bf75e65a436869612f1526093ea3c968e0699a1f3fed961038a2037ecc7abfe2",
     "claim:ac649a081b181ed2d667": "6df64710c9ca88d61fcb7e16b201f271b92e06d6a7fb4d58dcba0e3c623ee1a0",
     "claim:acd9b4db35293fe83531": "fbcdf0a48c394e59d4a53838381c03e6a590a497657588e23eeb36ec36f585b1",
     "claim:ae0f45a75c4d9fe4c3eb": "96622904ada12d8a78a2b31e1ac591680577c96321a72db7fb17b05da6d3c37b",
     "claim:b087ce4df71acf906aaa": "f79c55ca32ad7c8ecba00c3915df61b6338160312ab0c157d691906d5f78d5ea",
     "claim:b19013b0a3322a8fd836": "9adcfcb7c76f6d8a516c06ed50a5552501931721ca9c1d631156c8b150903717",
+    "claim:b4fb38224ff8452078f3": "9f929ffc9c09c55f1a3ac5defa3a7e0904bc3bc8452266fd82e5964a5748eef7",
     "claim:b58e5bdfd1a5ac20fe56": "848d22c95598342b87da9f48d86267b768cc9fca840ec5a3719d48468db4380d",
     "claim:b6f95883978283d8b4bc": "7fe398b6030a28b4cb034b2e4c713644da875e014c0cf6bb95c4a4da2d5950be",
     "claim:b70ff909b2c3eb102800": "168748c6a4033d04eb60fa00138838d28169ebb664230af1ee6c4e1a25fd1a54",
@@ -9524,6 +9949,7 @@
     "claim:c1a7f7bc32654bb71e0e": "5337f8e244bd76431dd32a95504f013e1d29291241dd169242828cc9e19e1f4f",
     "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
     "claim:c3895fd632988c791c6b": "711a9a4ae654b51581f62fd73b2f0c5769d75779aefa9b5f4d0a8294d0edc0ba",
+    "claim:c3921cb1d8b61e06c713": "bb6a5eb5b0a147c952d10eb484ff3e264d3e78a2b63084ceb71ea30f1b5bce53",
     "claim:c423bac4933177c55003": "1423790df8eba87a02309238eb62f0d8a1f29f4245b434f9290fd5954359c6fa",
     "claim:c4469267522f272237b0": "dfb849fdf9014cd39754f598827aac9f54aa7856f8a494697aed3f2e8c4cd67f",
     "claim:c44d9bbfc0f729a8b998": "beeae3b890b0e071e4aa620cdd8145d74f6901837abd01ce95fe487314534b13",
@@ -9579,9 +10005,11 @@
     "claim:e8bce656f04090ed2e36": "13e215a9215b4e7f52c6805216881e87b5f29830c1945d1533ff59a916da77e4",
     "claim:e8e9edc1d80509f7f3dd": "452c8b7a64553bf21e4ab5aa9c06590bd0d19c500dfb6338d839d907924984e4",
     "claim:e99e5819de7c8faab186": "a20c72bbf5e6efadd8aa364001336c301e2e0bd8b2cf5fd95d47b9b2f5966431",
+    "claim:eb03c3644ee4b1ae217b": "5202be7270c1bf1b5fe0d63157341095d26a14a47201c7dc6dc6c25c16597cd2",
     "claim:eba37ea07f92db17372c": "54615bb22931668f7591d07290006a96565b0cab6824e480f1d8284720eb7278",
     "claim:ec30c26d993f380122a9": "3b2c23077e5adc27fd5af2c3a0035b89f0102f2362ac43aeb144fb2529d61578",
     "claim:ec8ce0c338a959809a8c": "755a5af3e3a6b84a1ddc0d616c94166501900a4c1a524491db2646509dfd913e",
+    "claim:ed0bfda39f5c0b664ef3": "ba73e597cb57051033fbbdb9154265d347b4352f54a6483601dfed189a0bef49",
     "claim:ef593b5bccb5e4c78cf5": "59021e6c34e198558bafa2da3228d7a2abde0a924d98ca7ad6cc93bc3f6c1151",
     "claim:f19474c68ac028bcc8fe": "78771304354bbf1970076dea2c16c3cf70fd2e3bfb5053ad51362e29cf8cee28",
     "claim:f26e56411751026f7084": "5ad0e8d96b7a0183242cf3679373e67e013e31a13e57cfa55dfc55f74317f50d",
@@ -9597,9 +10025,10 @@
     "claim:fa541bf79671c9fe6bc5": "73ce8cd0b5ebbdeb2ed9f7f5e3f0552c2ddadee7769a5db354880dbea05f7179",
     "claim:fb70f93886767d36b584": "55a02446eb4d26a935143cf3e79ac3d07fb4f9870b59989053b626fb36e8498c",
     "claim:fcd7a50446d90c1e2206": "d01200bb97658af70e0e049d8e0e4dd1d06c9d5a1d848fe1567731fe3462d932",
+    "claim:fec91855b52cecd12b40": "dcfdf209dd4e24da783a173560241633ed70e93792a2e3fd181760e34b6c00f4",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "418f448a8a0905305b173991888e5d9b26be23c13681c51a5de4ca5ec8093335",
+  "approved_claims_hash": "19435872c82c00e977692663f89b36277e1ee569fd882e139cfeb0a700e59ca6",
   "approved_claims_path": "knowledge/concepts/security-permissions/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -10534,6 +10963,25 @@
     },
     {
       "approved_concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "lava",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "content_hash": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
+      "key_insight_count": 11,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:d03a93f4e7ef8c02",
+      "public_promotion_id": "media-public-promotion:fbf4f0dfe8f25505",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:d03a93f4e7ef8c02",
+      "source_title": "AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "approved_concept_ids": [
         "security-permissions",
         "workflows"
       ],
@@ -10897,6 +11345,7 @@
     "media-insight:c2c19665d7147da4": "6412e15c3067982d7b1b9a02918dd60bed5cae70a7276d6dc9a6eeb51c1bc640",
     "media-insight:c44e84f71993048e": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
     "media-insight:c65e32288301b2cf": "be327d3f504a99edf75cb3918fc42992ce7f8af80551ab9dcc246e1f83f3aeb2",
+    "media-insight:d03a93f4e7ef8c02": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
     "media-insight:d361c226caa0b789": "88fe476551074af89a03e3e984e527c92e5cc16c9277d442539274507acf229a",
     "media-insight:dbd0014ddc1db671": "8113d0b1be489ccaf3994fa9880ffcebb1806b64e75251fe325bd57da25f0cc4",
     "media-insight:dc386f106ea69120": "4c039074622957c769f624cd17fe61dda3ff00a668cbcc57b4f9a33bda8246f1",
@@ -10911,14 +11360,14 @@
     "media-insight:f8861e78c8efae57": "a20dbae8d17491776559c2634e503f8de0a3a8bcd0134e7c69ac7a7248086a37",
     "media-insight:faa32c20c0f5f0c4": "4c52c1a08850c85f931c6e7d35a80a111f45d2a553aa5d27c3f3ce518624e800"
   },
-  "approved_media_hash": "3cfe7bffdc7cce8b5bd2407659bedfd028b4a9c61f68243f5bc4a12cf6436488",
+  "approved_media_hash": "971e5a271ed6c5378d66117bb192c3507f21539127d33d946719cb2b2c350f59",
   "approved_media_path": "knowledge/concepts/security-permissions/approved-media.md",
-  "built_at": "2026-06-29T20:43:51+00:00",
+  "built_at": "2026-07-09T20:59:19+00:00",
   "concept_id": "security-permissions",
-  "guide_hash": "50e77327add63bb97dadf4785ee36dba6c6ff6ec7f726299c3b9359238bf15b9",
+  "guide_hash": "ed696784d23445ff718c2d22a9fd95c839f2051f5a5129ebfcc0eda2783f1b72",
   "guide_line_count": 1863,
   "guide_path": "knowledge/concepts/security-permissions/guide.md",
-  "guide_word_count": 15831,
+  "guide_word_count": 16062,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -11353,76 +11802,13 @@
       "url": "https://community.rockrms.com/lava/lava-api"
     },
     {
-      "authority": "official-training",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "6c0184b4e7ec7558",
+      "source_id": "citation",
+      "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "a7e02a5142f7bd4b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "094493cd4f8f0313",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "303d884642f1666d",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "2c6dd9ebf7d3f598",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "b51b24ed7912d814",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-view"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "9ae5804fa3a0ac7d",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "11cdf9c3e9ac92ed",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/cms/personalization"
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
     },
     {
       "authority": "official-training",
@@ -11438,9 +11824,27 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "rock_rocku",
+      "source_key": "2c6dd9ebf7d3f598",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
       "source_key": "81443e95ffb4009a",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/engagement/adding-steps"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "9ae5804fa3a0ac7d",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
     },
     {
       "authority": "official-training",
@@ -11468,15 +11872,6 @@
       "source_key": "c48789f22dbf970d",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "4f7f4db582e9d83b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/background-checks"
     },
     {
       "authority": "official-developer",
@@ -13157,16 +13552,16 @@
       "source_keys": [
         "53ad1133e1cb2d0a",
         "dfd0cdc56d97fa7f",
-        "6c0184b4e7ec7558",
-        "a7e02a5142f7bd4b",
-        "094493cd4f8f0313",
-        "303d884642f1666d",
-        "2c6dd9ebf7d3f598",
-        "b51b24ed7912d814",
-        "9ae5804fa3a0ac7d",
-        "11cdf9c3e9ac92ed",
-        "11cdf9c3e9ac92ed",
-        "6c0184b4e7ec7558"
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75"
       ],
       "start_line": 1703
     },
@@ -13177,14 +13572,14 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "fe0b6d3b462f6c75",
         "942caf22e650ccfd",
         "2c6dd9ebf7d3f598",
         "81443e95ffb4009a",
         "9ae5804fa3a0ac7d",
         "f262666390b12ef3",
         "bef4da01164a18bd",
-        "c48789f22dbf970d",
-        "4f7f4db582e9d83b"
+        "c48789f22dbf970d"
       ],
       "start_line": 1729
     },
@@ -14540,84 +14935,14 @@
       "url": "https://community.rockrms.com/lava/lava-api"
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "unknown",
+      "authority_score": 0,
       "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "6c0184b4e7ec7558",
+      "source_id": "citation",
+      "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
-      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "a7e02a5142f7bd4b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "094493cd4f8f0313",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/core-concepts/note-types",
-      "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "303d884642f1666d",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/individuals-in-rock/person-profile",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "2c6dd9ebf7d3f598",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy",
-      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "b51b24ed7912d814",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-view"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "9ae5804fa3a0ac7d",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/cms/advanced-html-block",
-      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "11cdf9c3e9ac92ed",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/cms/personalization",
-      "url": "https://community.rockrms.com/rocku/cms/personalization"
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
     },
     {
       "authority": "official-training",
@@ -14634,10 +14959,30 @@
       "authority_score": 75,
       "kind": "citation_only",
       "source_id": "rock_rocku",
+      "source_key": "2c6dd9ebf7d3f598",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy",
+      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
       "source_key": "81443e95ffb4009a",
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/engagement/adding-steps",
       "url": "https://community.rockrms.com/rocku/engagement/adding-steps"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "9ae5804fa3a0ac7d",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/cms/advanced-html-block",
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
     },
     {
       "authority": "official-training",
@@ -14668,16 +15013,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "4f7f4db582e9d83b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/individuals-in-rock/background-checks",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/background-checks"
     },
     {
       "authority": "official-developer",

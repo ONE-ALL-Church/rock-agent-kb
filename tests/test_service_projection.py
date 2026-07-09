@@ -171,6 +171,53 @@ def test_lava_context_search_body_adds_natural_language_aliases():
     assert "Registration Registrant" in body
 
 
+def test_source_summary_search_rows_preserve_records_and_reviewed_insights(monkeypatch):
+    def fake_read_jsonl(path):
+        if path.name != "source-summaries.jsonl":
+            return []
+        return [
+            {
+                "id": "rock_youtube:video-one:public-summary",
+                "source_record_id": "rock_youtube:video-one",
+                "source_id": "rock_youtube",
+                "source_title": "First Rock Video",
+                "source_url": "https://www.youtube.com/watch?v=video-one",
+                "summary": "A product overview.",
+                "topics": ["ai"],
+                "key_insights": [
+                    {
+                        "topic": "runtime safety",
+                        "insight": "Do not expose arbitrary AI-generated SQL as a runtime tool.",
+                        "timestamp": "01:11:20",
+                    }
+                ],
+            },
+            {
+                "id": "rock_youtube:video-two:public-summary",
+                "source_record_id": "rock_youtube:video-two",
+                "source_id": "rock_youtube",
+                "source_title": "Second Rock Video",
+                "source_url": "https://www.youtube.com/watch?v=video-two",
+                "summary": "A separate product overview.",
+                "topics": ["ai"],
+            },
+        ]
+
+    monkeypatch.setattr(service_projection, "read_jsonl", fake_read_jsonl)
+
+    rows = service_projection.source_summary_search_rows()
+
+    assert [row["id"] for row in rows] == [
+        "source:rock_youtube:video-one",
+        "source:rock_youtube:video-two",
+    ]
+    assert rows[0]["title"] == "First Rock Video"
+    assert rows[0]["url"] == "https://www.youtube.com/watch?v=video-one"
+    assert "AI-generated SQL" in rows[0]["body"]
+    assert "01:11:20" in rows[0]["body"]
+    assert rows[0]["source_id"] == "rock_youtube"
+
+
 def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     projection = build_service_projection(destination=tmp_path / "dist")
 

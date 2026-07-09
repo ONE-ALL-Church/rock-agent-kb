@@ -19,6 +19,7 @@ FULL_TEXT_ALLOWED = {
 ALLOWED_DUPLICATE_SOURCE_URL_PAIRS = {
     ("public_rock_repos", "sparkdevnetwork_rock"),
     ("public_rock_repos", "sparkdevnetwork_slingshot"),
+    ("rock_community_blog", "rock_podcast_rss"),
 }
 
 ROCKUMENTATION_API_SOURCE_IDS = {"rock_documentation", "rock_developer", "rock_mobile_docs"}

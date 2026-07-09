@@ -28,6 +28,24 @@ uv run kb media understand-run --model gemma4:12b
 uv run kb build --stage index
 ```
 
+The official Rock YouTube feed is registered as `rock_youtube`. Target one
+known video by stable media ID so a higher-priority unrelated item cannot take
+its place:
+
+```bash
+uv run kb media discover --source rock_youtube
+uv run --extra media kb media batch --source rock_youtube --media-id media:<id> --limit 1 --tool mlx_whisper --model auto --dry-run
+uv run --extra media kb media batch --source rock_youtube --media-id media:<id> --limit 1 --tool mlx_whisper --model auto
+uv run kb media candidates --source rock_youtube
+```
+
+Official videos and Community Blog articles are useful for product direction,
+demonstrations, rollout lessons, and discovering claims that written docs may
+not yet cover. Reviewer distillations must label demonstrations and exploratory
+roadmap items explicitly. Current documentation, release notes, public source
+code, and live configuration remain the authority for implementation details
+and actual availability.
+
 Use the tiny model only for quick smoke tests:
 
 ```bash

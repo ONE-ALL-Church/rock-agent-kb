@@ -154,6 +154,12 @@ Use `community-unreviewed` rows only as leads. Say they are unreviewed.
 
 4. For version-sensitive answers, call out Rock version when the KB provides it. If version is missing or behavior can vary by instance, say so.
 
+Official Rock videos and Community Blog articles can establish product context,
+demonstrations, rollout experience, and stated direction. They are not by
+themselves proof that a demonstrated or exploratory feature is available in a
+particular release. For implementation answers, confirm against current written
+documentation, release notes, public source code, and live configuration.
+
 ## Manifest And Entry Points
 
 Use `uvx rock-kb manifest` or `kb_manifest` when an agent needs to understand

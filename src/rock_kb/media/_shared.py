@@ -58,6 +58,7 @@ MEDIA_PRIORITY_TERMS = {
 }
 MEDIA_SOURCE_PRIORITY = {
     "rock_rocku": 96,
+    "rock_youtube": 94,
     "rock_podcast_rss": 88,
     "rock_community_hubs": 84,
 }

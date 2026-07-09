@@ -6,13 +6,17 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 
 | Action | Count |
 | --- | ---: |
-| No actionable claim review rows | 0 |
+| `verify_live_before_operational_answer` | 12 |
 
 ## Concept Queue
 
 | Concept | Actions |
 | --- | --- |
-| No actionable concepts | 0 |
+| `ai-agents-automation` | `verify_live_before_operational_answer`: 12 |
+| `api-integrations` | `verify_live_before_operational_answer`: 12 |
+| `lava` | `verify_live_before_operational_answer`: 12 |
+| `platform-configuration` | `verify_live_before_operational_answer`: 12 |
+| `security-permissions` | `verify_live_before_operational_answer`: 12 |
 
 ## Distilled Claim Clusters
 

@@ -4,6 +4,7 @@ import json
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any, Iterable, Optional
 from urllib.parse import quote, urljoin, urlparse, urlunparse
 
@@ -48,6 +49,7 @@ KIND_PATH_PREFIXES = {
     "rock_developer": ["/developer", "/api-docs", "/lava"],
     "rock_mobile_docs": ["/developer/mobile-docs"],
     "rock_community_hubs": ["/community-hubs"],
+    "rock_community_blog": ["/connect"],
     "rock_community_site": [
         "/api-docs",
         "/ask",
@@ -638,6 +640,8 @@ def extract_structured_fields(source: Source, url: str, html: str, text: str, de
         fields.update(extract_developer_doc_fields(soup, url, text))
     elif detail_type == "community_hub":
         fields.update(extract_community_hub_fields(soup, url, text))
+    elif detail_type == "community_blog_article":
+        fields.update(extract_community_blog_fields(soup, url, text))
     elif detail_type == "rock_shop_plugin":
         fields.update(extract_rock_shop_plugin_fields(soup, url, text))
     if source.kind == "rock_lava_docs":
@@ -964,6 +968,8 @@ def infer_detail_type(source: Source, url: str) -> str:
         return "question"
     if "/community-hubs/" in path:
         return "community_hub"
+    if source.kind == "rock_community_blog" and path.startswith("/connect/"):
+        return "community_blog_article"
     if "/rockshop/plugin/" in path:
         return "rock_shop_plugin"
     if "/rocku/" in path:
@@ -971,6 +977,27 @@ def infer_detail_type(source: Source, url: str) -> str:
     if "/developer/" in path or "/api-docs" in path:
         return "developer_doc"
     return source.kind
+
+
+def extract_community_blog_fields(soup: BeautifulSoup, url: str, text: str) -> dict[str, Any]:
+    path_parts = [part for part in urlparse(url).path.split("/") if part]
+    published_match = re.search(
+        r"\bPublished\s+(?P<date>[A-Z][a-z]{2}\s+[0-9]{1,2},\s+[0-9]{4})\b",
+        text,
+    )
+    published_label = published_match.group("date") if published_match else None
+    published_at = None
+    if published_label:
+        try:
+            published_at = datetime.strptime(published_label, "%b %d, %Y").date().isoformat()
+        except ValueError:
+            published_at = None
+    return {
+        "blog_slug": path_parts[1] if len(path_parts) > 1 else None,
+        "blog_published_label": published_label,
+        "published_at": published_at,
+        "updated_at": published_at,
+    }
 
 
 def infer_topics_from_url(url: str, text: str) -> list[str]:

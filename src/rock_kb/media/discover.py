@@ -2,7 +2,7 @@ from ._shared import *  # noqa: F401,F403
 
 
 def discover_media(source: Source, limit: Optional[int] = None, include_empty: bool = False) -> list[dict[str, Any]]:
-    if source.kind == "podcast_rss":
+    if source.kind in {"podcast_rss", "rss"}:
         fetched = fetch_url(source.root_url)
         records = parse_rss(source, fetched["content"])
         return media_rows_from_normalized(source, records, include_empty=include_empty, limit=limit)

@@ -1,7 +1,7 @@
 import json
 
 import rock_kb.claims as claims_module
-from rock_kb.claims import build_approved_claims, claim_usefulness_metadata, validate_claim_file, validate_claim_rows
+from rock_kb.claims import authority_tier_for_promotion, build_approved_claims, claim_usefulness_metadata, validate_claim_file, validate_claim_rows
 from rock_kb.jsonl import read_jsonl
 
 
@@ -57,6 +57,10 @@ def test_build_approved_claims_from_media_public_promotions(monkeypatch, tmp_pat
     assert {row["claim_tier"] for row in rows} == {"source_backed", "routing_context_only"}
     assert all("primary_concept_id" in row for row in rows)
     assert rows[0]["primary_concept_id"] == "communications"
+
+
+def test_official_rock_youtube_promotions_use_official_authority():
+    assert authority_tier_for_promotion({"source_id": "rock_youtube", "source_kind": "rss"}) == "official"
 
 
 def test_validate_claim_rows_loads_known_concepts_once(monkeypatch):

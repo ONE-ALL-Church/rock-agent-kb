@@ -36,6 +36,7 @@ uv run kb extract markdown --tool cloudflare --url https://www.triumph.tech/reso
 
 ```bash
 uv run kb media discover --source rock_podcast_rss
+uv run kb media discover --source rock_youtube
 uv run kb media discover --source rock_rocku --include-empty
 uv run kb media discover --source rock_community_hubs --include-empty
 uv run kb media doctor
@@ -46,6 +47,8 @@ uv run kb media transcribe --source rock_podcast_rss --dry-run
 uv run --extra media kb media transcribe --source rock_podcast_rss --tool mlx_whisper --model auto
 uv run --extra media kb media batch --source rock_podcast_rss --limit 3 --tool mlx_whisper --model auto --dry-run
 uv run --extra media kb media batch --source rock_podcast_rss --limit 3 --tool mlx_whisper --model auto
+uv run --extra media kb media batch --source rock_youtube --media-id media:<id> --limit 1 --tool mlx_whisper --model auto --dry-run
+uv run --extra media kb media batch --source rock_youtube --media-id media:<id> --limit 1 --tool mlx_whisper --model auto
 uv run --extra media kb media transcribe --source rock_podcast_rss --tool parakeet --model auto
 uv run kb media transcribe --source rock_podcast_rss --tool cloudflare --model auto
 uv run kb media transcribe --source rock_podcast_rss --tool openai --model gpt-4o-mini-transcribe

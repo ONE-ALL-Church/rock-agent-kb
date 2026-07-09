@@ -176,6 +176,19 @@ sources:
     preferred_tooling: [static_http, rss_parser, media_discovery, local_transcription]
     topics: [podcast, releases, ai, operations]
 
+  - id: rock_youtube
+    name: Rock RMS YouTube
+    kind: rss
+    root_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCyr-uj6vtDnJBJnP1X0iHtg
+    description: Official Rock RMS YouTube channel video metadata and public recordings.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [static_http, rss_parser, media_discovery, local_transcription]
+    topics: [videos, releases, ai, operations, training]
+
   - id: rock_community_hubs
     name: Rock Community Hubs
     kind: rock_community_hubs
@@ -189,6 +202,22 @@ sources:
     preferred_tooling: [static_http, custom_parser, media_discovery, local_transcription]
     discover_children: true
     topics: [community, hubs]
+
+  - id: rock_community_blog
+    name: Rock Community Blog
+    kind: rock_community_blog
+    root_url: https://community.rockrms.com/connect
+    description: Official Rock Community announcements, product direction, case studies, and operational articles.
+    owner: Spark Development Network
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [static_http, custom_parser, crawl4ai]
+    path_prefixes:
+      - /connect
+    discover_children: true
+    topics: [community, announcements, releases, strategy, case-studies]
 
   - id: rock_community_site
     name: Rock Community Sitewide Public Pages

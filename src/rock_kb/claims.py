@@ -671,6 +671,8 @@ def authority_tier_for_promotion(row: dict[str, Any]) -> str:
     source_kind = str(row.get("source_kind") or "")
     if source_id == "rock_rocku" or source_kind == "rocku":
         return "rocku-confirmed"
+    if source_id == "rock_youtube":
+        return "official"
     if source_id.startswith("rock_core_release") or source_kind == "rock_release_notes":
         return "release-note-confirmed"
     if source_kind == "github_repo":

@@ -94,11 +94,15 @@ def ignored_private_artifact_report(include_artifacts: bool = False, sample_limi
     return report
 
 
-def sync_private_text_artifacts(corpus_path: Path, dry_run: bool = False) -> dict[str, Any]:
+def sync_private_text_artifacts(
+    corpus_path: Path,
+    dry_run: bool = False,
+    artifacts: Optional[list[dict[str, Any]]] = None,
+) -> dict[str, Any]:
     validation = validate_private_corpus(corpus_path)
     if validation["status"] != "ok":
         return {"schema": "rock-kb-private-corpus-sync-v1", "status": "fail", "errors": validation["errors"], "copied": 0}
-    artifacts = [row for row in private_artifacts() if row["sync_class"] == "text_json"]
+    artifacts = [row for row in (artifacts if artifacts is not None else private_artifacts()) if row["sync_class"] == "text_json"]
     copied = 0
     for artifact in artifacts:
         rel = artifact["path"]
@@ -159,10 +163,11 @@ def restore_private_text_artifacts(corpus_path: Path, dry_run: bool = False, ove
 
 
 def autosync_private_corpus(corpus_path: Path, dry_run: bool = False, commit: bool = False) -> dict[str, Any]:
-    sync_result = sync_private_text_artifacts(corpus_path, dry_run=dry_run)
+    artifacts = private_artifacts()
+    sync_result = sync_private_text_artifacts(corpus_path, dry_run=dry_run, artifacts=artifacts)
     if sync_result["status"] != "ok":
         return {"schema": "rock-kb-private-corpus-autosync-v1", "status": "fail", "sync": sync_result}
-    media_result = write_large_media_restore_manifest(corpus_path) if not dry_run else {"status": "dry_run"}
+    media_result = write_large_media_restore_manifest(corpus_path, artifacts=artifacts) if not dry_run else {"status": "dry_run"}
     commit_result: dict[str, Any] | None = None
     if commit and not dry_run:
         commit_result = commit_private_corpus_changes(corpus_path)
@@ -193,11 +198,18 @@ def commit_private_corpus_changes(corpus_path: Path) -> dict[str, Any]:
     }
 
 
-def write_large_media_restore_manifest(corpus_path: Path) -> dict[str, Any]:
+def write_large_media_restore_manifest(
+    corpus_path: Path,
+    artifacts: Optional[list[dict[str, Any]]] = None,
+) -> dict[str, Any]:
     validation = validate_private_corpus(corpus_path)
     if validation["status"] != "ok":
         return {"schema": "rock-kb-large-media-restore-v1", "status": "fail", "errors": validation["errors"]}
-    rows = [large_media_restore_row(row) for row in private_artifacts() if row["sync_class"] == "large_media"]
+    rows = [
+        large_media_restore_row(row)
+        for row in (artifacts if artifacts is not None else private_artifacts())
+        if row["sync_class"] == "large_media"
+    ]
     manifest = {
         "schema": "rock-kb-large-media-restore-v1",
         "generated_at": generated_at_iso(),
@@ -292,15 +304,30 @@ def audit_private_corpus_leaks(corpus_path: Optional[Path] = None) -> dict[str, 
 
 
 def private_artifacts() -> list[dict[str, Any]]:
-    rows = []
+    candidates: list[Path] = []
     for root in SYNCABLE_PRIVATE_ROOTS:
         if not root.exists():
             continue
         for path in sorted(root.rglob("*")):
-            if not path.is_file() or not is_git_ignored(path):
-                continue
-            rows.append(private_artifact_row(path))
-    return rows
+            if path.is_file():
+                candidates.append(path)
+    ignored = git_ignored_paths(candidates)
+    return [private_artifact_row(path) for path in candidates if relative_path(path) in ignored]
+
+
+def git_ignored_paths(paths: Iterable[Path]) -> set[str]:
+    relpaths = [relative_path(path) for path in paths]
+    if not relpaths:
+        return set()
+    payload = b"\0".join(path.encode("utf-8") for path in relpaths) + b"\0"
+    result = subprocess.run(
+        ["git", "check-ignore", "-z", "--stdin"],
+        cwd=REPO_ROOT,
+        input=payload,
+        capture_output=True,
+        check=False,
+    )
+    return {value.decode("utf-8") for value in result.stdout.split(b"\0") if value}
 
 
 def private_artifact_row(path: Path) -> dict[str, Any]:

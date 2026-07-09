@@ -413,6 +413,7 @@ REFRESH_STEPS = [
     RefreshStep("rock_api_docs", discover=True, max_pages=20),
     RefreshStep("rock_lava_docs", discover=True, max_pages=160),
     RefreshStep("rock_community_hubs", discover=True, max_pages=100),
+    RefreshStep("rock_community_blog", discover=True, max_pages=120),
     RefreshStep("rock_shop_plugins", discover=True, max_pages=180),
     RefreshStep("triumph_resources", discover=True, max_pages=180),
     RefreshStep("rock_community_site", discover=True, max_pages=40),
@@ -421,6 +422,7 @@ REFRESH_STEPS = [
     RefreshStep("rock_core_release_notes"),
     RefreshStep("rock_mobile_release_notes"),
     RefreshStep("rock_podcast_rss"),
+    RefreshStep("rock_youtube"),
     RefreshStep("rock_demo_api_docs_v1"),
     RefreshStep("rock_demo_api_docs_v2"),
     RefreshStep("sparkdevnetwork_rock"),
@@ -517,6 +519,7 @@ def _normalize_source(src) -> int:
         "rock_developer",
         "rock_mobile_docs",
         "rock_community_hubs",
+        "rock_community_blog",
         "rock_community_site",
         "rock_api_docs",
         "rock_lava_docs",
@@ -698,6 +701,7 @@ def media_discover(
 def media_transcribe(
     source: str = typer.Option(..., "--source", "-s"),
     limit: Optional[int] = typer.Option(None, "--limit"),
+    media_id: Optional[list[str]] = typer.Option(None, "--media-id", help="Limit processing to one or more stable media IDs."),
     tool: str = typer.Option("auto", "--tool", help="auto, cloudflare, openai, mlx_whisper, parakeet, whisper-cli, or whisper."),
     model: str = typer.Option("auto", "--model"),
     dry_run: bool = typer.Option(False, "--dry-run"),
@@ -708,7 +712,7 @@ def media_transcribe(
     if not media_manifest_path(src.id).exists():
         console.print(f"[red]No media manifest found for {src.id}. Run media-discover first.[/red]")
         raise typer.Exit(code=1)
-    rows = transcribe_media(src, limit=limit, tool=tool, model=model, dry_run=dry_run)
+    rows = transcribe_media(src, limit=limit, tool=tool, model=model, dry_run=dry_run, media_ids=media_id)
     statuses = {}
     for row in rows:
         statuses[row.get("transcript_status")] = statuses.get(row.get("transcript_status"), 0) + 1
@@ -718,6 +722,7 @@ def media_transcribe(
 def media_batch(
     source: str = typer.Option(..., "--source", "-s"),
     limit: int = typer.Option(1, "--limit", min=1, help="Number of pending media rows to process."),
+    media_id: Optional[list[str]] = typer.Option(None, "--media-id", help="Limit processing to one or more stable media IDs."),
     tool: str = typer.Option("auto", "--tool", help="auto, cloudflare, openai, mlx_whisper, parakeet, whisper-cli, or whisper."),
     model: str = typer.Option("auto", "--model"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Preview the next pending rows without writing transcripts or indexes."),
@@ -740,6 +745,7 @@ def media_batch(
         normalize=not skip_normalize,
         sidecars=not skip_sidecars,
         min_transcript_chars=min_transcript_chars,
+        media_ids=media_id,
     )
     console.print_json(json.dumps(result))
 

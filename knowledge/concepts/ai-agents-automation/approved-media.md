@@ -2,7 +2,7 @@
 concept_id: ai-agents-automation
 generated: true
 artifact_level: media_distillation
-approved_media_count: 12
+approved_media_count: 11
 ---
 
 # AI Agents And Automation Approved Media
@@ -11,8 +11,7 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
-| `media-insight:7f62014ede8ae0e5` | Automations Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/core-concepts/automations) |
-| `media-insight:e6af71f0b72106fc` | Connection Request Status Automation Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/engagement/connection-request-status-automation) |
+| `media-insight:d03a93f4e7ef8c02` | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | approved_for_public_distillation | 11 | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | `media-insight:e7c8cb97245bec8d` | Data Automation Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) |
 | `media-insight:1b335b58b0acc8b1` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) |
 | `media-insight:56972ff0f97e563a` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6) |
