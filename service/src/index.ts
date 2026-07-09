@@ -231,6 +231,9 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
   for (const row of await exactModelMapRows(env, query, minRank)) {
     rowsById.set(row.id, row);
   }
+  for (const row of await exactConceptRows(env, query, minRank)) {
+    rowsById.set(row.id, row);
+  }
   return Array.from(rowsById.values())
     .map((row) => ({ row, signals: searchSignals(row, terms, query) }))
     .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)))
@@ -269,6 +272,32 @@ async function getClaim(env: ServiceEnv, requestedId: string): Promise<JsonRecor
     claim: payload,
     result_ids: rows.map((row) => row.id),
   };
+}
+
+async function exactConceptRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+  const queryTerms = new Set(searchTerms(query));
+  if (!queryTerms.size) {
+    return [];
+  }
+  const result = await env.KB_DB.prepare(
+    `SELECT *
+     FROM search_rows
+     WHERE kind IN ('concept', 'answer') AND claim_tier_rank >= ?`
+  ).bind(minRank).all<SearchRow>();
+  const rows = result.results || [];
+  const matchedConcepts = new Set(
+    rows
+      .filter((row) => row.kind === "concept" && conceptRowMatchesQuery(row, queryTerms))
+      .map((row) => row.concept || row.id.replace(/^concept:/, ""))
+  );
+  return rows
+    .filter((row) => row.kind === "concept" ? conceptRowMatchesQuery(row, queryTerms) : matchedConcepts.has(row.concept || ""))
+    .map((row) => ({ ...row, rank: 0 }));
+}
+
+function conceptRowMatchesQuery(row: SearchRow, queryTerms: Set<string>): boolean {
+  const titleTerms = searchTerms(row.title || "");
+  return titleTerms.length > 0 && titleTerms.every((term) => queryTerms.has(term));
 }
 
 async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
