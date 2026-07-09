@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"
+      xmlns:media="http://search.yahoo.com/mrss/"
+      xmlns="http://www.w3.org/2005/Atom">
+  <id>yt:channel:yr-uj6vtDnJBJnP1X0iHtg</id>
+  <title>Rock RMS</title>
+  <entry>
+    <id>yt:video:UvW68dZBcJ8</id>
+    <yt:videoId>UvW68dZBcJ8</yt:videoId>
+    <yt:channelId>UCyr-uj6vtDnJBJnP1X0iHtg</yt:channelId>
+    <title>AI Summit: The Community's First Look at Rock's AI Agents</title>
+    <link rel="alternate" href="https://www.youtube.com/watch?v=UvW68dZBcJ8"/>
+    <published>2026-07-07T21:17:26+00:00</published>
+    <updated>2026-07-08T18:43:40+00:00</updated>
+    <media:group>
+      <media:title>AI Summit: The Community's First Look at Rock's AI Agents</media:title>
+      <media:content url="https://www.youtube.com/v/UvW68dZBcJ8?version=3" type="application/x-shockwave-flash"/>
+      <media:description>Jon Edmiston covers vision, strategy, application and the agent framework.</media:description>
+    </media:group>
+  </entry>
+</feed>

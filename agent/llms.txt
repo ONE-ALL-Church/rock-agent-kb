@@ -28,7 +28,9 @@ This file is generated for AI agents. It points to source registries, curated kn
 - [Rock Core Release Notes](https://www.rockrms.com/releasenotes) - Core Rock release notes, versions, module changes, issue links, and bulletins.
 - [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes) - Rock Mobile shell release notes, platform minimums, and module changes.
 - [ROCK Cast RSS](https://feeds.acast.com/public/shows/5ae332859da29d4b23f0c47e) - ROCK Cast episode metadata and show-note links.
+- [Rock RMS YouTube](https://www.youtube.com/feeds/videos.xml?channel_id=UCyr-uj6vtDnJBJnP1X0iHtg) - Official Rock RMS YouTube channel video metadata and public recordings.
 - [Rock Community Hubs](https://community.rockrms.com/community-hubs) - Public hub index and child pages.
+- [Rock Community Blog](https://community.rockrms.com/connect) - Official Rock Community announcements, product direction, case studies, and operational articles.
 - [Rock Community Sitewide Public Pages](https://community.rockrms.com) - Bounded sitewide discovery for public Rock Community pages not covered by a narrower source family.
 - [Rock Shop Plugin Metadata](https://www.rockrms.com/rockshop) - Public Rock Shop plugin listings and plugin metadata pages.
 - [Triumph Tech Resources](https://www.triumph.tech/resources) - High-authority Triumph Tech resource articles, GitHub Spotlight posts, AI resources, and Rock community implementation guidance.

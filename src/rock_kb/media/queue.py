@@ -1,11 +1,19 @@
 from ._shared import *  # noqa: F401,F403
 
 
-def pending_media_rows(source_id: str, limit: Optional[int] = None, source: Optional[Source] = None, prioritized: bool = True) -> list[dict[str, Any]]:
+def pending_media_rows(
+    source_id: str,
+    limit: Optional[int] = None,
+    source: Optional[Source] = None,
+    prioritized: bool = True,
+    media_ids: Optional[Iterable[str]] = None,
+) -> list[dict[str, Any]]:
+    selected_ids = {str(value) for value in media_ids or [] if value}
     rows = [
         row
         for row in read_jsonl(media_manifest_path(source_id))
         if row.get("media_url") and row.get("transcript_status") in {None, "", "pending", "queued_missing_tool"}
+        and (not selected_ids or str(row.get("id") or "") in selected_ids)
     ]
     if prioritized:
         rows = sorted(rows, key=lambda row: (-media_priority_score(row, source), duration_seconds(row.get("duration")) or 999999, str(row.get("source_title") or "")))

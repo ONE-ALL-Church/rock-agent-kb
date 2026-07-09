@@ -7,16 +7,16 @@ artifact_level: answer
 
 # What live Rock records should I inspect for Lava?
 
-For Lava, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters, Group, GroupType, Location, and Schedule records, Mobile shell version and mobile block settings.
+For Lava, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters, Financial transaction and gateway settings, Mobile shell version and mobile block settings.
 
 ## Top Claims
 
+- `claim:4b7b8d0b0379ceb7587f`
+- `claim:aaa109fc541fff897e3f`
+- `claim:c3921cb1d8b61e06c713`
 - `claim:410bf6750e90b7193262`
 - `claim:7e6e3979faad614f0b42`
-- `claim:4c6c24811261384a0eb4`
-- `claim:f34b7d439fac6c9062f0`
-- `claim:ffba67d8847c47e68ea6`
-- `claim:4bc0aee305fa6b1bd524`
+- `claim:eb03c3644ee4b1ae217b`
 
 ## Distilled Claims
 
@@ -25,7 +25,8 @@ For Lava, inspect these live surfaces before changing production behavior: Rock 
 
 ## Citations
 
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s) (`87:48`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=2328s) (`38:48`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s) (`71:20`)
 - [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
 - [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block) (`00:00`)
-- [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) (`07:12`)
-- [Media Watch](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) (`26:43`)

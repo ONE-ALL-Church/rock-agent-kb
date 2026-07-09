@@ -175,6 +175,8 @@ AUTHORITY_BY_SOURCE_ID = {
     "rock_api_docs": "official-api",
     "rock_lava_docs": "official-developer",
     "rock_rocku": "official-training",
+    "rock_youtube": "official-training",
+    "rock_community_blog": "official",
     "sparkdevnetwork_rock": "source-code",
     "sparkdevnetwork_slingshot": "source-code",
     "oneall_rock_sql_library": "community-code",

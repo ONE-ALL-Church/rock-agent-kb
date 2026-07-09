@@ -53,8 +53,9 @@ def transcribe_media(
     tool: str = "auto",
     model: str = "base",
     dry_run: bool = False,
+    media_ids: Optional[Iterable[str]] = None,
 ) -> list[dict[str, Any]]:
-    rows = pending_media_rows(source.id, limit=limit, source=source)
+    rows = pending_media_rows(source.id, limit=limit, source=source, media_ids=media_ids)
     selected_tool = choose_transcription_tool(tool)
     results: list[dict[str, Any]] = []
     existing_by_id: dict[Any, dict[str, Any]] = {}
@@ -92,9 +93,17 @@ def run_media_batch(
     normalize: bool = True,
     sidecars: bool = True,
     min_transcript_chars: int = 80,
+    media_ids: Optional[Iterable[str]] = None,
 ) -> dict[str, Any]:
-    pending_before = pending_media_rows(source.id, limit=limit, source=source)
-    transcript_rows = transcribe_media(source, limit=limit, tool=tool, model=model, dry_run=dry_run)
+    pending_before = pending_media_rows(source.id, limit=limit, source=source, media_ids=media_ids)
+    transcript_rows = transcribe_media(
+        source,
+        limit=limit,
+        tool=tool,
+        model=model,
+        dry_run=dry_run,
+        media_ids=media_ids,
+    )
     insight_rows: list[dict[str, Any]] = []
     sidecar_result: dict[str, Any] | None = None
     if not dry_run:

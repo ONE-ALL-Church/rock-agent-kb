@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13924 words; expected at least 7000.",
+      "message": "Guide has 14152 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 18 entity rows; expected at least 8.",
+      "message": "Guide has 17 entity rows; expected at least 8.",
       "passed": true
     },
     {
@@ -59,14 +59,14 @@
   ],
   "concept_id": "platform-configuration",
   "contribution_record_count": 0,
-  "entity_count": 18,
-  "generated_at": "2026-06-29T20:43:30+00:00",
+  "entity_count": 17,
+  "generated_at": "2026-07-09T20:58:57+00:00",
   "guide_line_count": 1570,
-  "guide_word_count": 13924,
+  "guide_word_count": 14152,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 116,
-  "source_count": 39,
+  "source_count": 35,
   "status": "pass",
   "task_card_count": 7
 }

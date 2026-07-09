@@ -74,6 +74,48 @@ def test_parse_rss_resolves_relative_links():
     assert records[0]["canonical_path"] == "knowledge/triumph/resources-github-spotlight.md"
 
 
+def test_parse_youtube_atom_feed_uses_stable_watch_url():
+    source = get_source("rock_youtube")
+    xml = (FIXTURES / "youtube_feed.xml").read_text()
+
+    records = parse_rss(source, xml)
+
+    assert len(records) == 1
+    assert records[0]["source_title"] == "AI Summit: The Community's First Look at Rock's AI Agents"
+    assert records[0]["source_url"] == "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    assert records[0]["media_url"] == "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    assert records[0]["media_type"] == "video/youtube"
+    assert records[0]["video_id"] == "UvW68dZBcJ8"
+    assert records[0]["channel_id"] == "UCyr-uj6vtDnJBJnP1X0iHtg"
+    assert records[0]["updated_at"] == "2026-07-08T18:43:40+00:00"
+    assert "agent framework" in records[0]["summary"]
+
+
+def test_community_blog_normalization_preserves_publication_metadata():
+    source = get_source("rock_community_blog")
+    url = "https://community.rockrms.com/connect/ai-agents-in-v19"
+    html = """
+    <html><head><title>Blog Article | Rock Community</title></head><body>
+      <main><h1>What You Should Know About AI Agents in v19</h1>
+      <p>Published May 12, 2026</p>
+      <p>Rock v19 introduces AI Agents in preview mode with a careful rollout.</p></main>
+    </body></html>
+    """
+
+    assert is_html_candidate(url, source)
+    assert not is_html_candidate("https://community.rockrms.com/recipes/543", source)
+    record = normalize_community_fetch(
+        source,
+        {"url": url, "status_code": 200, "content_hash": "abc", "content": html},
+    )
+
+    assert record is not None
+    assert record["detail_type"] == "community_blog_article"
+    assert record["blog_slug"] == "ai-agents-in-v19"
+    assert record["published_at"] == "2026-05-12"
+    assert record["updated_at"] == "2026-05-12"
+
+
 def test_github_repo_normalization():
     source = get_source("sparkdevnetwork_rock")
     record = normalize_github_repo_metadata(

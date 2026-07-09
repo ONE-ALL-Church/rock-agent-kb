@@ -20,8 +20,10 @@ artifact_level: live_checklist
 9. Inspect `WorkflowType and Workflow records` in the live instance when the question touches this surface.
 10. Inspect `DataView and report filters` in the live instance when the question touches this surface.
 11. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
-12. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
-13. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
+12. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
+13. Inspect `Financial transaction and gateway settings` in the live instance when the question touches this surface.
+14. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
+15. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
@@ -31,6 +33,8 @@ artifact_level: live_checklist
 - `WorkflowType and Workflow records`
 - `DataView and report filters`
 - `Group, GroupType, Location, and Schedule records`
+- `Communication recipient, medium, and send history`
+- `Financial transaction and gateway settings`
 - `Mobile shell version and mobile block settings`
 - `Person, family, alias, and attribute records`
 

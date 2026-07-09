@@ -259,26 +259,46 @@ def contribution_search_rows() -> list[dict[str, Any]]:
 def source_summary_search_rows() -> list[dict[str, Any]]:
     rows = []
     for source in read_jsonl(REPO_ROOT / "agent" / "source-summaries.jsonl"):
-        source_id = str(source.get("source_id") or source.get("id") or "")
-        title = str(source.get("title") or source.get("name") or source_id)
-        concepts = source.get("concept_ids") or source.get("topics") or [""]
-        for concept_id in concepts:
-            rows.append(
-                {
-                    "id": f"source:{source_id}:{concept_id}",
-                    "kind": "source_summary",
-                    "title": title,
-                    "body": source.get("summary") or source.get("description") or "",
-                    "path": "agent/source-summaries.jsonl",
-                    "url": source.get("url") or source.get("root_url") or "",
-                    "concept": concept_id,
-                    "authority_tier": source.get("authority_tier") or "official",
-                    "claim_tier": "routing_context_only",
-                    "source_id": source_id,
-                    "payload": source,
-                }
-            )
+        source_id = str(source.get("source_id") or "")
+        source_record_id = str(source.get("source_record_id") or source.get("id") or source_id)
+        title = str(source.get("source_title") or source.get("title") or source.get("name") or source_record_id)
+        concepts = list(source.get("concept_ids") or source.get("topics") or [""])
+        rows.append(
+            {
+                "id": f"source:{source_record_id}",
+                "kind": "source_summary",
+                "title": title,
+                "body": source_summary_search_body(source),
+                "path": "agent/source-summaries.jsonl",
+                "url": source.get("source_url") or source.get("url") or source.get("root_url") or "",
+                "concept": concepts[0] if concepts else "",
+                "authority_tier": source.get("authority_tier") or "official",
+                "claim_tier": "routing_context_only",
+                "source_id": source_id,
+                "payload": source,
+            }
+        )
     return rows
+
+
+def source_summary_search_body(source: dict[str, Any]) -> str:
+    parts = [
+        str(source.get("summary") or source.get("description") or ""),
+        " ".join(str(value) for value in source.get("concept_ids") or source.get("topics") or []),
+        str(source.get("documentation_path") or ""),
+        str(source.get("documentation_branch") or ""),
+    ]
+    for item in source.get("key_insights") or []:
+        if isinstance(item, dict):
+            parts.extend(str(item.get(key) or "") for key in ["topic", "insight", "timestamp"])
+        else:
+            parts.append(str(item or ""))
+    agent_use = source.get("agent_use")
+    if isinstance(agent_use, dict):
+        parts.extend(str(value or "") for value in agent_use.values())
+    elif agent_use:
+        parts.append(str(agent_use))
+    return " ".join(part for part in parts if part)
 
 
 def model_map_search_rows() -> list[dict[str, Any]]:

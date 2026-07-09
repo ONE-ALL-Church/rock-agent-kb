@@ -2,7 +2,7 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-06-29T20:42:42+00:00
+last_built: 2026-07-09T20:56:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -62,8 +62,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. *Extends* [*LayoutGroup*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/layoutgroup.md) ## Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: 1. Display views vertically/horizontally. 2.... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
 | 👋 Roku Docs | rock_developer | ## 👋Welcome *Extend your digital ministry to Roku TV.* When we introduced support for Apple TV applications in 2022, one question kept coming up: "What about Roku?" With Roku’s vast user base, we knew we had to meet this need. Staying true to our mission of empowering organizations to deliver content seamlessly across platforms, we’ve developed comprehensive Roku integration for Rock. Designed to expand the reach of... | [source](https://community.rockrms.com/developer/roku-docs) |
+| Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. *Extends* [*LayoutGroup*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/layoutgroup.md) ## Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: 1. Display views vertically/horizontally. 2.... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
 | Controls | rock_developer | Roku applications are built with an XML language named [SceneGraph](https://developer.roku.com/docs/developer-program/core-concepts/scenegraph-xml/overview.md). Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
 | Roku Resources | rock_developer | * [SceneGraph Reference](https://developer.roku.com/en-gb/docs/references/references-overview.md) - Roku documentation for all the built-in SceneGraph components. * [Roku Samples](https://github.com/rokudev/samples) - A repository of Roku sample applications/SceneGraph. | [source](https://community.rockrms.com/developer/roku-docs/resources/roku-resources) |
 | 📚 Resources | rock_developer | [Controls](/documentation/roku-docs/resources/controls) [Layout Nodes](/documentation/roku-docs/resources/layout-nodes) [Roku Resources](/documentation/roku-docs/resources/roku-resources) [Tips and Tricks](/documentation/roku-docs/resources/tips-and-tricks) [Useful Links](/documentation/roku-docs/resources/useful-links) | [source](https://community.rockrms.com/developer/roku-docs/resources) |

@@ -11,6 +11,7 @@ from rock_kb.media import (
     build_media_understanding_benchmark,
     choose_transcription_tool,
     duration_seconds,
+    discover_media,
     effective_transcription_model,
     extract_transcript_segments,
     format_timestamp,
@@ -74,6 +75,23 @@ def test_rss_media_rows_are_private_and_traceable():
     assert row["public_publish_mode"] == "private_only"
     assert row["source_record_id"].startswith("rock_podcast_rss:")
     assert row["citations"][0]["url"] == "https://shows.acast.com/rock-cast/episodes/episode-214"
+
+
+def test_youtube_rss_media_discovery_uses_structured_feed(monkeypatch):
+    source = get_source("rock_youtube")
+    xml = (FIXTURES / "youtube_feed.xml").read_text()
+    monkeypatch.setattr(
+        media_module,
+        "fetch_url",
+        lambda _url: {"content": xml},
+    )
+
+    rows = discover_media(source)
+
+    assert len(rows) == 1
+    assert rows[0]["source_title"] == "AI Summit: The Community's First Look at Rock's AI Agents"
+    assert rows[0]["media_url"] == "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    assert rows[0]["media_kind"] == "video"
 
 
 def test_extract_media_urls_from_html():
@@ -333,6 +351,23 @@ def test_pending_media_rows_skips_transcribed_items(monkeypatch, tmp_path):
     rows = pending_media_rows("rock_podcast_rss", limit=1)
 
     assert [row["id"] for row in rows] == ["media:next"]
+
+
+def test_pending_media_rows_can_target_stable_media_id(monkeypatch, tmp_path):
+    media_dir = tmp_path / "media"
+    media_dir.mkdir()
+    monkeypatch.setattr("rock_kb.media.MEDIA_DIR", media_dir)
+    write_jsonl(
+        media_dir / "rock_youtube.media.jsonl",
+        [
+            {"id": "media:first", "media_url": "https://youtube.com/watch?v=first", "transcript_status": "pending"},
+            {"id": "media:summit", "media_url": "https://youtube.com/watch?v=summit", "transcript_status": "pending"},
+        ],
+    )
+
+    rows = pending_media_rows("rock_youtube", media_ids=["media:summit"])
+
+    assert [row["id"] for row in rows] == ["media:summit"]
 
 
 def test_pending_media_rows_prioritizes_high_signal_items(monkeypatch, tmp_path):

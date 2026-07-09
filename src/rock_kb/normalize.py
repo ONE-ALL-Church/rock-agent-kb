@@ -285,9 +285,26 @@ def parse_rss(source: Source, xml: str) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for entry in parsed.entries:
         link = canonicalize_url(urljoin(source.root_url, entry.get("link", source.root_url)))
-        summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text(" ", strip=True)
+        summary = BeautifulSoup(
+            entry.get("summary") or entry.get("media_description") or "",
+            "html.parser",
+        ).get_text(" ", strip=True)
         enclosure = next((item for item in entry.get("enclosures", []) if item.get("href")), None)
-        media_url = canonicalize_url(enclosure.get("href")) if enclosure else None
+        media_content = next((item for item in entry.get("media_content", []) if item.get("url")), None)
+        video_id = entry.get("yt_videoid")
+        channel_id = entry.get("yt_channelid")
+        if video_id:
+            media_url = f"https://www.youtube.com/watch?v={video_id}"
+            media_type = "video/youtube"
+        elif enclosure:
+            media_url = canonicalize_url(enclosure.get("href"))
+            media_type = enclosure.get("type")
+        elif media_content:
+            media_url = canonicalize_url(media_content.get("url"))
+            media_type = media_content.get("type")
+        else:
+            media_url = None
+            media_type = None
         raw = {"source_url": link, "source_title": entry.get("title", "") or source.name}
         records.append(
             {
@@ -297,7 +314,7 @@ def parse_rss(source: Source, xml: str) -> list[dict[str, Any]]:
                 "source_title": entry.get("title", ""),
                 "source_kind": source.kind,
                 "retrieved_at": now_iso(),
-                "updated_at": entry.get("published"),
+                "updated_at": entry.get("updated") or entry.get("published"),
                 "license_status": source.license_status,
                 "allowed_extraction_mode": source.allowed_extraction_mode,
                 "content_hash": sha256_text(summary + link),
@@ -319,8 +336,10 @@ def parse_rss(source: Source, xml: str) -> list[dict[str, Any]]:
                 "published_at": entry.get("published"),
                 "duration": entry.get("itunes_duration"),
                 "media_url": media_url,
-                "media_type": enclosure.get("type") if enclosure else None,
+                "media_type": media_type,
                 "media_length": enclosure.get("length") if enclosure else None,
+                "video_id": video_id,
+                "channel_id": channel_id,
                 "needs_review": False,
             }
         )

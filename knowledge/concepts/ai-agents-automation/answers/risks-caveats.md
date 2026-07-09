@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for AI Agents And Automation?
 
-No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: community-reviewed: 37.
+No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: community-reviewed: 37, official: 12.
 
 ## Top Claims
 

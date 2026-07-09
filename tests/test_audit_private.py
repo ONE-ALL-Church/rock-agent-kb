@@ -82,6 +82,8 @@ def test_duplicate_source_url_audit_flags_unapproved_source_pairs(tmp_path):
             {"id": "b", "source_id": "rock_developer", "source_url": "https://community.rockrms.com/developer/helix/"},
             {"id": "c", "source_id": "public_rock_repos", "source_url": "https://github.com/SparkDevNetwork/Rock"},
             {"id": "d", "source_id": "sparkdevnetwork_rock", "source_url": "https://github.com/SparkDevNetwork/Rock"},
+            {"id": "e", "source_id": "rock_community_blog", "source_url": "https://community.rockrms.com/connect/episode-1"},
+            {"id": "f", "source_id": "rock_podcast_rss", "source_url": "https://community.rockrms.com/connect/episode-1"},
         ],
     )
 

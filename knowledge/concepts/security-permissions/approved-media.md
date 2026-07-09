@@ -2,7 +2,7 @@
 concept_id: security-permissions
 generated: true
 artifact_level: media_distillation
-approved_media_count: 73
+approved_media_count: 74
 ---
 
 # Security And Permissions Approved Media
@@ -11,6 +11,7 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:d03a93f4e7ef8c02` | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | approved_for_public_distillation | 11 | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | `media-insight:06f483c71c224790` | Account Protection Profiles Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/individuals-in-rock/account-protection-profiles) |
 | `media-insight:7848aa46e6ac3794` | Adding Pages and Blocks Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
 | `media-insight:3910dddf1fe8be0c` | Adding Steps Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/engagement/adding-steps) |

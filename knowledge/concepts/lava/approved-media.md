@@ -2,7 +2,7 @@
 concept_id: lava
 generated: true
 artifact_level: media_distillation
-approved_media_count: 21
+approved_media_count: 22
 ---
 
 # Lava Approved Media
@@ -11,6 +11,7 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:d03a93f4e7ef8c02` | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | approved_for_public_distillation | 11 | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | `media-insight:2cf056c2b84e6365` | Advanced HTML Block Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
 | `media-insight:446c751591a992b1` | Assign Statement Transcript Insight | approved_for_public_distillation | 1 | [source](https://community.rockrms.com/rocku/lava/assign-statement) |
 | `media-insight:22fb0ca5319b94a9` | BI Template Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-template) |

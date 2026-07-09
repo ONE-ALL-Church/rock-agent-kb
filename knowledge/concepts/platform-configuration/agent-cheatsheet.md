@@ -38,7 +38,6 @@ generated: true
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats
@@ -105,4 +104,5 @@ generated: true
 | `19-agent-task-recipes-recipe-safely-answer-can-we-delete-this` | structural | live verification |
 | `19-agent-task-recipes-recipe-build-a-source-backed-explanation` | normal | live verification |
 | `19-agent-task-recipes-recipe-diagnose-attribute-field-type-mismatch` | structural | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `20-source-map-and-dependency-notes` | high | live verification |

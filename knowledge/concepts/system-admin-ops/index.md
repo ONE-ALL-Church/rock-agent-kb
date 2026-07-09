@@ -2,7 +2,7 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-06-29T20:42:17+00:00
+last_built: 2026-07-09T20:56:11+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,7 +35,7 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 
 - `System Administration And Operations` spans security, workflows, data-views, reports, cache, jobs. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_community_hubs, rock_documentation, rock_community_site, rock_core_release_notes, triumph_resources, rock_developer.
-- Related tags found in source records: operations, usage, releases, development, admin, workflow, training, security.
+- Related tags found in source records: operations, usage, development, releases, workflow, admin, security, training.
 - Source detail types include: developer_doc, documentation_article, question, recipe, rock_community_site, rock_lava_docs, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -79,13 +79,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_community_hubs`: 2
 - `rock_community_site`: 1
-- `rock_core_release_notes`: 27
-- `rock_developer`: 1
+- `rock_core_release_notes`: 23
+- `rock_developer`: 3
 - `rock_documentation`: 22
 - `rock_lava_docs`: 1
 - `rock_model_map`: 12
 - `rock_qa`: 1
-- `rock_recipes`: 3
+- `rock_recipes`: 5
 - `rock_rocku`: 14
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 6
@@ -148,8 +148,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 18.1 | CRM | Added a new Defined Type called "Record Source" to help track where individuals are first introduced into Rock, such as through event registration, Check-in or Workflow entry forms. | [source](https://www.rockrms.com/releasenotes) |
 | 18.1 | Event | Fixed an issue in the Registrant Detail block where Categorized Defined Value fields with visibility filters would disappear during editing, preventing required values from being saved. This happened when the category or value was changed, even if visibility conditions were still met. Fixes: #6452 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | CMS | Fixed an issue where indexing a Content Collection threw an exception if a Content Channel Item contained an attribute value larger than Lucene's maximum field size, even when that attribute wasn’t selected for indexing. Fixes: #6385 | [source](https://www.rockrms.com/releasenotes) |
-| 17.5 | Core | Fixed an issue where saving new Workflow Types or Registration Templates could result in duplicate records if an error occurred mid-save. Now, the save operation must complete fully or it will be rolled back entirely to maintain data integrity. Fixes: #6238 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | Core | Removed the v17.2 change to the Database Maintenance job that set the default database index fill factor to 100%. The job now returns to its previous behavior while we take additional time to design a long-term solution that better balances index performance with minimizing unnecessary rebuilds. Fixes: #6414 | [source](https://www.rockrms.com/releasenotes) |
+| 17.5 | Core | Fixed an issue where saving new Workflow Types or Registration Templates could result in duplicate records if an error occurred mid-save. Now, the save operation must complete fully or it will be rolled back entirely to maintain data integrity. Fixes: #6238 | [source](https://www.rockrms.com/releasenotes) |
 | 17.2 | CMS | Updated ElasticSearch UniversalSearch Index and related components to include support for bulk indexing operations. | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
@@ -187,8 +187,10 @@ Keywords: `exception log, exceptionlog, diagnostics, error, health`
 | Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yesu Chum , Houston's First Baptist Church 4 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522) |
 | Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yesu Chum , Houston's First Baptist Church 4 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol) |
 | Azure Mobile App | triumph_resources | If you use Azure to host your Rock instance, the Azure Mobile App is a must have companion. The app allows you to quickly view your hosting resources and provides a view of resource graphs. The app also serves as a conduit for receiving alerts about service health. While the app isn’t meant for daily administrative tasks, like adding new services, it is an indispensable tool for keeping tabs on the health of your... | [source](https://www.triumph.tech/resources/azure-mobile-app) |
-| View the Exception List | rock_documentation | Despite all of our work to eliminate bugs, some will sneak by us. Exceptions, also known as errors, can occur as a result of software bugs or when blocks and pages are misconfigured. While you can set these errors to be emailed to you (see `Admin Tools > Settings > Global Attributes > Email Exceptions List`), you can also view the history of these errors here. Exceptions are sorted chronologically. Instead of... | [source](https://community.rockrms.com/documentation/supporting-rock/data/advanced/view-the-exception-list) |
+| View the Exception List | rock_documentation | Despite all of our work to eliminate bugs, some will sneak by us. Exceptions, also known as errors, can occur as a result of software bugs or when blocks and pages are misconfigured. While you can set these errors to be emailed to you (see `Admin Tools > Settings > Global Attributes > Email Exceptions List`), you can also view the history of these errors here. Exceptions are sorted chronologically. Instead of... | [source](https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list) |
 | Exception Log | rock_model_map | Exception Log is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
+| Introducing Imperator: Proactive Azure Monitoring and Alerting for Rock RMS | triumph_resources | When it comes to your Rock-hosted environment, visibility isn't a luxury—it's a necessity. That's why we're excited to announce Imperator, our new Azure Monitoring and Alerting service designed to keep your infrastructure running smoothly and securely. Rule Your Azure Environment with Confidence Imperator gives you real-time insight into the health and performance of your Rock environment in Microsoft Azure. It... | [source](https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms) |
+| From Chaos to Clarity: Why Structured Content Is the Rock Upgrade You Need | triumph_resources | We recently undertook a major content shift in our Rock RMS environment: moving from traditional HTML-based content channel items to structured content items. It might not sound flashy, but the results were transformative—for our team, our community, and the long-term health of our digital presence. Even better? We did it in a fraction of the time you’d expect. Thanks to our new structured content conversion service... | [source](https://www.triumph.tech/resources/structured-content-rock-upgrade) |
 
 ### Cache And Indexing
 
@@ -236,6 +238,8 @@ Keywords: `cleanup, data integrity, integrity, stale, orphaned`
 | Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yesu Chum , Houston's First Baptist Church 4 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol) |
 | Data Integrity Transcript Insight | rock_rocku | Data Integrity adds guidance for people and reporting work: prove the source of truth, understand cleanup ownership, and verify downstream reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | Data Integrity Transcript Insight | rock_rocku | Data Integrity adds operational guidance for cleanup and reporting quality: define correction rules, test known examples, and document ownership before data changes. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) |
+| Intro to Data Integrity | rock_documentation | With data coming into Rock from all directions, it can be a real challenge to keep it all clean, consistent and accurate. To help you out with that, we've built tools that find and fix issues as they arise. You'll find these tools under: `Tools > Data Integrity.` Only individuals in the *Data Integrity Worker* security role will have access to these tools. We will look at each part in detail in the following... | [source](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/intro-to-data-integrity) |
+| Use Duplicate Finder | rock_documentation | The duplicate finder routinely goes through your database looking for records that could be duplicates. When it finds possible matches, it scores them and lists them for you under: `Tools > Data Integrity > Duplicate Finder`. 1. **Confidence** - Indicates the likelihood that this is a duplicate record. 2. **Account Protection Profile** - The [Account Protection... | [source](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder) |
 
 ### Search
 

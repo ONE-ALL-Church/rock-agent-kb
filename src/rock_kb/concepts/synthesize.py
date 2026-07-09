@@ -314,6 +314,8 @@ def top_records(records: list[dict[str, Any]], limit: int = 12) -> list[dict[str
         "rock_mobile_docs": 10,
         "rock_api_docs": 10,
         "rock_rocku": 9,
+        "rock_youtube": 9,
+        "rock_community_blog": 9,
         "rock_developer": 8,
         "rock_model_map": 7,
         "rock_core_release_notes": 6,

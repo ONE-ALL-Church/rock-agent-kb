@@ -24,7 +24,11 @@ def test_private_corpus_syncs_text_artifacts_and_manifests_large_media(monkeypat
     corpus = tmp_path / "private-corpus"
     monkeypatch.setattr(private_corpus, "REPO_ROOT", repo)
     monkeypatch.setattr(private_corpus, "SYNCABLE_PRIVATE_ROOTS", [review, media])
-    monkeypatch.setattr(private_corpus, "is_git_ignored", lambda path: True)
+    monkeypatch.setattr(
+        private_corpus,
+        "git_ignored_paths",
+        lambda paths: {private_corpus.relative_path(path) for path in paths},
+    )
 
     init = initialize_private_corpus(corpus)
     report = ignored_private_artifact_report()
@@ -111,7 +115,11 @@ def test_autosync_refreshes_media_manifest(monkeypatch, tmp_path):
     corpus = tmp_path / "private-corpus"
     monkeypatch.setattr(private_corpus, "REPO_ROOT", repo)
     monkeypatch.setattr(private_corpus, "SYNCABLE_PRIVATE_ROOTS", [media])
-    monkeypatch.setattr(private_corpus, "is_git_ignored", lambda path: True)
+    monkeypatch.setattr(
+        private_corpus,
+        "git_ignored_paths",
+        lambda paths: {private_corpus.relative_path(path) for path in paths},
+    )
 
     initialize_private_corpus(corpus)
     result = autosync_private_corpus(corpus)

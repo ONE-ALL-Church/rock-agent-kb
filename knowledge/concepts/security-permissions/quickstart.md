@@ -39,7 +39,6 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the security-permissions guide.
 - `Block`: Rock concept/entity referenced by the security-permissions guide.
-- `Check-in Configuration`: Rock concept/entity referenced by the security-permissions guide.
 - `DataView`: Rock concept/entity referenced by the security-permissions guide.
 - `Family`: Rock concept/entity referenced by the security-permissions guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
@@ -48,6 +47,7 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 - `Label`: Rock concept/entity referenced by the security-permissions guide.
 - `Page`: Rock concept/entity referenced by the security-permissions guide.
 - `Person`: Rock concept/entity referenced by the security-permissions guide.
+- `Workflow`: Rock concept/entity referenced by the security-permissions guide.
 
 ## Version Caveats
 

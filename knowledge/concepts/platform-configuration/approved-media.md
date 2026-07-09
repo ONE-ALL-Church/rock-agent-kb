@@ -2,7 +2,7 @@
 concept_id: platform-configuration
 generated: true
 artifact_level: media_distillation
-approved_media_count: 17
+approved_media_count: 18
 ---
 
 # Platform Configuration Approved Media
@@ -11,6 +11,7 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:d03a93f4e7ef8c02` | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | approved_for_public_distillation | 11 | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | `media-insight:05f4fce834300a65` | Episode 111: Special Edition with Tim Dear Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear) |
 | `media-insight:6b5ce810e2795435` | Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) |
 | `media-insight:97a12ee26ba9575f` | Episode 37: Special Edition Garrett Johnson Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) |
