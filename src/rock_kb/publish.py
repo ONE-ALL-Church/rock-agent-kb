@@ -19,6 +19,7 @@ PUBLIC_PATHS = [
     "docs/runbooks/contributor-reviewer-workflow.md",
     "docs/decisions/public-export-policy.md",
     "docs/runbooks/public-publish-runbook.md",
+    "docs/templates/rock-kb-agent/SKILL.md",
     "sources/registry.yaml",
     "concepts/registry.yaml",
     "knowledge/README.md",

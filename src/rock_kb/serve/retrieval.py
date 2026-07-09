@@ -63,6 +63,56 @@ def search(query: str, limit: int = 10, root: Path | None = None) -> list[dict[s
     return rows
 
 
+def get_result(result_id: str, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    db_path = root / "data" / "index" / "kb.sqlite"
+    if not db_path.exists():
+        return {"schema": "rock-kb-result-v1", "status": "not_found", "result_id": result_id}
+    with sqlite3.connect(db_path) as connection:
+        connection.row_factory = sqlite3.Row
+        row = connection.execute(
+            """
+            SELECT id, source_id, source_url, source_title, topics, summary,
+                   excerpt, canonical_path, json
+            FROM records WHERE id = ? LIMIT 1
+            """,
+            (result_id,),
+        ).fetchone()
+    if not row or not is_public_artifact_path(str(row["canonical_path"] or "")):
+        return {"schema": "rock-kb-result-v1", "status": "not_found", "result_id": result_id}
+    item = dict(row)
+    return {
+        "schema": "rock-kb-result-v1",
+        "status": "ok",
+        "result": {
+            "id": item["id"],
+            "kind": "source_record",
+            "title": item["source_title"],
+            "body": item["summary"] or item["excerpt"] or "",
+            "path": item["canonical_path"],
+            "url": item["source_url"],
+            "concept": first_topic(item["topics"]),
+            "source_id": item["source_id"],
+            "payload": json.loads(item["json"] or "{}"),
+        },
+    }
+
+
+def get_claim(claim_id: str, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    normalized = claim_id if claim_id.startswith("claim:") else f"claim:{claim_id}"
+    row = next((item for item in read_jsonl(root / "claims" / "approved-claims.jsonl") if item.get("claim_id") == normalized), None)
+    if not row:
+        return {"schema": "rock-kb-claim-result-v1", "status": "not_found", "claim_id": normalized}
+    return {
+        "schema": "rock-kb-claim-result-v1",
+        "status": "ok",
+        "claim_id": normalized,
+        "concepts": sorted(set(row.get("concept_ids") or [])),
+        "claim": row,
+    }
+
+
 def get_manifest(root: Path | None = None) -> dict[str, Any]:
     root = root or REPO_ROOT
     path = root / "agent" / "rock-kb-manifest.json"

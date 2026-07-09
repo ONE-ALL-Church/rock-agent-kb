@@ -13,6 +13,8 @@ type SearchRow = {
   claim_tier_rank?: number;
   source_id?: string;
   payload_json?: string;
+  snippet?: string;
+  rank?: number;
 };
 
 type ContributionRow = {
@@ -144,9 +146,15 @@ export default {
         const query = url.searchParams.get("q") || "";
         const limit = boundedInt(url.searchParams.get("limit"), 10, 1, 50);
         const minTier = url.searchParams.get("min_tier") || "routing_context_only";
-        const rows = await search(env, query, limit, minTier);
+        const detail = url.searchParams.get("detail") === "full" ? "full" : "compact";
+        const rows = await search(env, query, limit, minTier, detail === "full");
         ctx.waitUntil(recordUsage(env, "search", query, rows.length));
-        return json({ schema: "rock-kb-search-result-v1", query, min_tier: minTier, results: rows });
+        return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, detail, results: rows });
+      }
+      if (url.pathname.startsWith("/results/")) {
+        const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
+        const result = await getResult(env, resultId);
+        return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname === "/model-map/models") {
         return json(await listModelMapModels(env));
@@ -164,6 +172,11 @@ export default {
           return text(renderModelMapMarkdown(result), "text/markdown; charset=utf-8");
         }
         return json(result);
+      }
+      if (url.pathname.startsWith("/claims/id/")) {
+        const claimId = decodeURIComponent(url.pathname.slice("/claims/id/".length));
+        const result = await getClaim(env, claimId);
+        return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/claims/")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/claims/".length));
@@ -194,7 +207,7 @@ export default {
   }
 };
 
-async function search(env: ServiceEnv, query: string, limit: number, minTier: string): Promise<JsonRecord[]> {
+async function search(env: ServiceEnv, query: string, limit: number, minTier: string, full = false): Promise<JsonRecord[]> {
   const fts = buildFtsQuery(query);
   if (!fts) {
     return [];
@@ -203,7 +216,8 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
   const terms = searchTerms(query);
   const candidateLimit = Math.max(limit * 25, 200);
   const result = await env.KB_DB.prepare(
-    `SELECT r.*, bm25(search_rows_fts) AS rank
+    `SELECT r.*, bm25(search_rows_fts) AS rank,
+            snippet(search_rows_fts, 2, '', '', '...', 28) AS snippet
      FROM search_rows_fts f
      JOIN search_rows r ON r.id = f.id
      WHERE search_rows_fts MATCH ? AND r.claim_tier_rank >= ?
@@ -218,10 +232,43 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
     rowsById.set(row.id, row);
   }
   return Array.from(rowsById.values())
-    .map((row) => ({ row, score: searchScore(row, terms, query) }))
-    .sort((left, right) => right.score - left.score || String(left.row.id).localeCompare(String(right.row.id)))
+    .map((row) => ({ row, signals: searchSignals(row, terms, query) }))
+    .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)))
     .slice(0, limit)
-    .map((item) => publicSearchRow(item.row));
+    .map((item) => full ? publicResultRow(item.row, item.signals) : publicSearchRow(item.row, item.signals));
+}
+
+async function getResult(env: ServiceEnv, resultId: string): Promise<JsonRecord> {
+  const result = await env.KB_DB.prepare("SELECT * FROM search_rows WHERE id = ? LIMIT 1").bind(resultId).first<SearchRow>();
+  if (!result) {
+    return { schema: "rock-kb-result-v1", status: "not_found", result_id: resultId };
+  }
+  return { schema: "rock-kb-result-v1", status: "ok", result: publicResultRow(result) };
+}
+
+async function getClaim(env: ServiceEnv, requestedId: string): Promise<JsonRecord> {
+  const bareId = requestedId.replace(/^claim:/, "");
+  const claimId = `claim:${bareId}`;
+  if (!/^[A-Za-z0-9._-]+$/.test(bareId)) {
+    return { schema: "rock-kb-claim-result-v1", status: "not_found", claim_id: claimId };
+  }
+  const rowPrefix = `claim:${claimId}:%`;
+  const result = await env.KB_DB.prepare(
+    "SELECT * FROM search_rows WHERE kind = 'claim' AND (id = ? OR id LIKE ?) ORDER BY id"
+  ).bind(requestedId, rowPrefix).all<SearchRow>();
+  const rows = result.results || [];
+  if (!rows.length) {
+    return { schema: "rock-kb-claim-result-v1", status: "not_found", claim_id: claimId };
+  }
+  const payload = parsePayload(rows[0]);
+  return {
+    schema: "rock-kb-claim-result-v1",
+    status: "ok",
+    claim_id: payload.claim_id || claimId,
+    concepts: Array.from(new Set(rows.map((row) => row.concept || "").filter(Boolean))).sort(),
+    claim: payload,
+    result_ids: rows.map((row) => row.id),
+  };
 }
 
 async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
@@ -275,9 +322,15 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     const query = String(args.query || "");
     const limit = boundedInt(args.limit, 10, 1, 50);
     const minTier = String(args.min_tier || "routing_context_only");
-    const rows = await search(env, query, limit, minTier);
+    const rows = await search(env, query, limit, minTier, args.full === true);
     ctx.waitUntil(recordUsage(env, "mcp_search", query, rows.length));
     return rows;
+  }
+  if (name === "kb_get_result") {
+    return getResult(env, String(args.id || args.result_id || ""));
+  }
+  if (name === "kb_get_claim") {
+    return getClaim(env, String(args.claim_id || ""));
   }
   if (name === "kb_list_models") {
     return listModelMapModels(env);
@@ -1076,20 +1129,34 @@ function countValues(values: string[]): JsonRecord {
   return Object.fromEntries(Object.entries(counts).sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])));
 }
 
-function publicSearchRow(row: SearchRow): JsonRecord {
+function publicSearchRow(row: SearchRow, signals: JsonRecord = {}): JsonRecord {
   return {
     id: row.id,
     kind: row.kind,
     title: row.title,
-    body: row.kind === "concept" ? "" : row.body || "",
+    snippet: row.snippet || compactSnippet(row.body || ""),
     path: row.path,
     url: row.url || "",
     concept: row.concept || "",
     authority_tier: row.authority_tier || "",
     claim_tier: row.claim_tier || "",
     source_id: row.source_id || "",
-    payload: parsePayload(row)
+    score: signals.score || 0,
+    signals,
   };
+}
+
+function publicResultRow(row: SearchRow, signals: JsonRecord = {}): JsonRecord {
+  return {
+    ...publicSearchRow(row, signals),
+    body: row.kind === "concept" ? "" : row.body || "",
+    payload: parsePayload(row),
+  };
+}
+
+function compactSnippet(value: string): string {
+  const compact = value.replace(/\s+/g, " ").trim();
+  return compact.length <= 280 ? compact : `${compact.slice(0, 277)}...`;
 }
 
 function parsePayload(row: SearchRow): JsonRecord {
@@ -1142,7 +1209,7 @@ function searchTerms(query: string): string[] {
   return Array.from(new Set(filteredTerms.length ? filteredTerms : rawTerms));
 }
 
-function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[], query: string): number {
+function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[], query: string): JsonRecord {
   const conceptTerms = new Set(searchTerms(`${row.concept || ""} ${row.title || ""}`));
   const titleTerms = new Set(searchTerms(row.title || ""));
   const bodyTerms = new Set(searchTerms(row.body || ""));
@@ -1156,7 +1223,17 @@ function searchScore(row: SearchRow & { rank?: number }, queryTerms: string[], q
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);
-  return conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + tierBoost - rankPenalty;
+  const score = conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + tierBoost - rankPenalty;
+  return {
+    score,
+    title_overlap: titleOverlap,
+    body_overlap: bodyOverlap,
+    concept_overlap: conceptOverlap,
+    phrase_boost: conceptPhraseBoost + titlePhraseBoost,
+    exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost,
+    authority_boost: tierBoost,
+    bm25_rank: Number(row.rank || 0),
+  };
 }
 
 function exactModelMapBoost(row: SearchRow, query: string): number {
@@ -1369,7 +1446,9 @@ function cors(response: Response): Response {
 
 function toolDefinitions(): JsonRecord[] {
   return [
-    { name: "kb_search", description: "Search public Rock KB rows with authority and claim tiers.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" } }, required: ["query"] } },
+    { name: "kb_search", description: "Start here for any Rock question. Returns compact ranked results; use kb_get_result or kb_get_claim for full detail.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
+    { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID.", inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] } },
+    { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },

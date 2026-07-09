@@ -10,6 +10,22 @@ Most testers should use one of two paths:
 - **CLI for terminal testing:** best when a person or terminal-based agent wants
   to run quick searches.
 
+### Recommended: Let The CLI Configure Your Agent
+
+For Codex, Claude Code, Cursor, or OpenCode, the published CLI can install the
+Rock KB skill and hosted MCP entry together. Preview the exact paths first:
+This requires `uvx`; installation steps are under Option 2 below.
+
+```bash
+uvx rock-kb install-agent --dry-run
+uvx rock-kb install-agent
+```
+
+The installer detects supported agents, verifies the hosted service, preserves
+unrelated configuration, and backs up existing files before changing them.
+Use `--agent <name>` to select one host or `--scope project --project-dir
+<path>` for a project-local install. Restart the agent after installation.
+
 ### Option 1: Connect An MCP-Capable Agent
 
 Use the hosted MCP endpoint when your agent supports HTTP MCP. This does not
@@ -60,11 +76,18 @@ After that, use the CLI for common lookups:
 
 ```bash
 uvx rock-kb get check-in
+uvx rock-kb result '<result-id>'
+uvx rock-kb claim '<claim-id>'
 uvx rock-kb claims security-permissions --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb dashboard
 ```
+
+Search is intentionally compact: it returns ranked IDs, titles, snippets,
+tiers, source URLs, and ranking signals. Open only the relevant hit with
+`result <result-id>`, or fetch an approved claim directly with `claim
+<claim-id>`. `search --full` remains available for older one-step workflows.
 
 For repeated use on a server or shared agent environment, install the CLI
 permanently instead:

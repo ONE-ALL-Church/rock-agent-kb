@@ -29,6 +29,20 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
         return retrieval.search(query, limit=limit)
 
     @mcp.tool(
+        name="kb_get_result",
+        description="Return the full public record for one exact kb_search result ID.",
+    )
+    def kb_get_result(id: str) -> dict[str, Any]:
+        return retrieval.get_result(id)
+
+    @mcp.tool(
+        name="kb_get_claim",
+        description="Return one exact approved claim by claim_id, including all concept routes.",
+    )
+    def kb_get_claim(claim_id: str) -> dict[str, Any]:
+        return retrieval.get_claim(claim_id)
+
+    @mcp.tool(
         name="kb_list_models",
         description="List stable Rock Model Map models with slugs, categories, versions, and counts.",
     )

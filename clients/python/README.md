@@ -34,10 +34,25 @@ Then run a smoke test:
 uvx rock-kb search "check-in labels not printing"
 ```
 
+To configure a detected Codex, Claude Code, Cursor, or OpenCode installation
+with both the hosted MCP server and the Rock KB skill:
+
+```bash
+uvx rock-kb install-agent --dry-run
+uvx rock-kb install-agent
+```
+
+The installer changes only the `rock-kb` MCP entry and the
+`rock-kb-agent/SKILL.md` path. It backs up existing files before writing and
+reports every path it touched. Use `--agent codex` (repeatable) to select hosts
+explicitly, or `--scope project --project-dir <path>` for project-local setup.
+
 Common commands:
 
 ```bash
 uvx rock-kb get check-in
+uvx rock-kb result '<result-id>'
+uvx rock-kb claim '<claim-id>'
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
@@ -55,6 +70,11 @@ rock-kb mcp-config
 
 `rock-kb mcp-config` prints the hosted HTTP MCP config. It does not start a
 local server.
+
+Search output is compact by default. It returns stable IDs, snippets, trust
+tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or
+`rock-kb claim <claim-id>` for full detail. Use `search --full` only for
+compatibility with workflows that still need full rows in one response.
 
 To test unreleased client changes directly from GitHub, use:
 

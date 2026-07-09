@@ -8,9 +8,10 @@ from pathlib import Path
 from urllib import error, request
 
 from .validator import validate_bundle
+from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-USER_AGENT = "rock-kb-client/0.1.2 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
+USER_AGENT = "rock-kb-client/0.2.0 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -22,6 +23,13 @@ def main(argv: list[str] | None = None) -> int:
     search.add_argument("query")
     search.add_argument("--limit", type=int, default=10)
     search.add_argument("--min-tier", default="routing_context_only")
+    search.add_argument("--full", action="store_true", help="Include full row bodies and payloads. Compact results are the default.")
+
+    result = subparsers.add_parser("result")
+    result.add_argument("result_id")
+
+    claim = subparsers.add_parser("claim")
+    claim.add_argument("claim_id")
 
     subparsers.add_parser("concepts")
     get = subparsers.add_parser("get")
@@ -65,11 +73,24 @@ def main(argv: list[str] | None = None) -> int:
 
     subparsers.add_parser("mcp-config")
 
+    install_agent = subparsers.add_parser("install-agent")
+    install_agent.add_argument("--agent", action="append", choices=[*SUPPORTED_AGENTS, "all"], help="Agent host to configure. Repeat for multiple hosts; defaults to detected hosts.")
+    install_agent.add_argument("--scope", choices=["user", "project"], default="user")
+    install_agent.add_argument("--project-dir", type=Path, default=Path.cwd())
+    install_agent.add_argument("--home", type=Path, default=Path.home(), help=argparse.SUPPRESS)
+    install_agent.add_argument("--dry-run", action="store_true")
+    install_agent.add_argument("--skip-verify", action="store_true", help="Skip the hosted health check.")
+
     args = parser.parse_args(argv)
     base_url = str(args.url).rstrip("/")
 
     if args.command == "search":
-        return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier={quote(args.min_tier)}"))
+        detail = "full" if args.full else "compact"
+        return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier={quote(args.min_tier)}&detail={detail}"))
+    if args.command == "result":
+        return print_json(get_json(f"{base_url}/results/{quote(args.result_id)}"))
+    if args.command == "claim":
+        return print_json(get_json(f"{base_url}/claims/id/{quote(args.claim_id)}"))
     if args.command == "concepts":
         return print_json(get_json(f"{base_url}/concepts"))
     if args.command == "get":
@@ -130,6 +151,21 @@ def main(argv: list[str] | None = None) -> int:
                 }
             }
         )
+    if args.command == "install-agent":
+        agents = selected_agents(args.agent, args.home)
+        report = install_agents(
+            base_url=base_url,
+            agents=agents,
+            scope=args.scope,
+            home=args.home.expanduser().resolve(),
+            project_dir=args.project_dir.expanduser().resolve(),
+            dry_run=bool(args.dry_run),
+            verify=not bool(args.skip_verify),
+            fetch_text=get_text,
+            fetch_json=get_json,
+        )
+        print_json(report)
+        return 0 if report.get("status") != "no_agents_detected" else 1
     return 1
 
 

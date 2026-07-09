@@ -17,6 +17,8 @@ Register the server with an MCP client:
 Available tools:
 
 - `kb_search`: full-text search across public KB artifacts. Start here for most Rock questions.
+- `kb_get_result`: full public record for one exact compact search result id.
+- `kb_get_claim`: one exact approved claim and all of its concept routes.
 - `kb_manifest`: public artifact manifest and entrypoints.
 - `kb_list_concepts`: available concept ids, titles, guide paths, and dependency metadata.
 - `kb_get_concept`: quickstart, answers, task cards, and release caveats for one concept.
@@ -121,7 +123,9 @@ The Worker exposes:
 - `GET /concepts`
 - `GET /concepts/<concept-id>.md`
 - `GET /claims/<concept-id>?min_tier=source_backed`
-- `GET /search?q=<query>&min_tier=routing_context_only`
+- `GET /claims/id/<claim-id>`
+- `GET /search?q=<query>&min_tier=routing_context_only` (compact by default; add `detail=full` for compatibility)
+- `GET /results/<result-id>`
 - `GET /operations/dashboard`
 - `POST /mcp`
 - `POST /submit`
