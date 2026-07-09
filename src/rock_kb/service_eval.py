@@ -57,7 +57,7 @@ def evaluate_service(
 def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float, max_allowed_rank: int = 2) -> dict[str, Any]:
     question = str(row.get("question") or "")
     expected_concept = str(row.get("concept_id") or "")
-    params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only"})
+    params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only", "detail": "full"})
     try:
         response = httpx.get(f"{base_url}/search?{params}", headers={"user-agent": "rock-kb-eval/1.0"}, timeout=timeout)
         response.raise_for_status()

@@ -33,7 +33,18 @@ The KB can help agents do more than plain text search:
 ## Install And Availability
 
 Use the hosted MCP endpoint when the current agent client supports HTTP MCP.
-The CLI prints the configuration block:
+The CLI can install this skill and the hosted MCP entry for detected Codex,
+Claude Code, Cursor, or OpenCode hosts:
+
+```bash
+uvx rock-kb install-agent --dry-run
+uvx rock-kb install-agent
+```
+
+Restart the host after installation. Use `--agent <name>` to select a host or
+`--scope project --project-dir <path>` for a project-local install. The
+installer backs up existing files before writing. For manual configuration,
+print the MCP block:
 
 ```bash
 uvx rock-kb mcp-config
@@ -46,6 +57,8 @@ without a manual install. If `uvx --version` fails, install `uv` first from
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
+uvx rock-kb result '<result-id>'
+uvx rock-kb claim '<claim-id>'
 uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
@@ -84,6 +97,8 @@ uv run --project clients/python rock-kb mcp-config
 Use these commands for specific jobs:
 
 - `search`: first stop for symptoms, errors, workflow questions, Lava behavior, API/security questions, and broad triage.
+- `result <result-id>`: expand one compact search hit into its full body and structured payload.
+- `claim <claim-id>`: fetch one exact approved claim with all concept routes.
 - `get <concept-id>`: open the concept guide after search identifies the right area.
 - `claims <concept-id>`: inspect structured claims and trust tiers before giving precise guidance.
 - `model-map list`: list stable Rock Model Map models when discovering the exact slug to inspect.
@@ -104,7 +119,12 @@ When connected through hosted HTTP MCP, use the same retrieval pattern with MCP
 tools instead of shell commands:
 
 - `kb_search`: start here for symptoms, errors, broad Rock questions, and Lava
-  context queries.
+  context queries. Results are compact and include stable IDs, snippets, trust
+  tiers, source URLs, scores, and ranking signals.
+- `kb_get_result`: expand one `kb_search` result ID into its full body and
+  structured payload.
+- `kb_get_claim`: fetch one approved claim directly by `claim_id`, including
+  all concept routes and result IDs.
 - `kb_manifest`: discover public agent entrypoints such as model-map digests,
   Lava contexts, source authority rules, live checklists, and troubleshooting
   trees.
@@ -150,7 +170,10 @@ uvx rock-kb mcp-config
 
 Use `community-unreviewed` rows only as leads. Say they are unreviewed.
 
-3. For broad questions, search first, then open the matching concept guide. For exact behavior, inspect approved claims and source citations before answering.
+3. For broad questions, search first, expand only the relevant result IDs, then
+open the matching concept guide. For exact behavior, inspect approved claims
+and source citations before answering. Avoid `search --full` or MCP `full: true`
+unless a compatibility workflow genuinely requires every result body.
 
 4. For version-sensitive answers, call out Rock version when the KB provides it. If version is missing or behavior can vary by instance, say so.
 

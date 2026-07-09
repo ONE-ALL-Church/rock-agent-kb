@@ -6,7 +6,7 @@
     "check": "tsc --noEmit",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "test:intake": "npm run wrangler:check && node --test tests/intake.test.mjs",
+    "test:intake": "npm run wrangler:check && node --test tests/*.test.mjs",
     "types": "wrangler types src/worker-configuration.d.ts",
     "wrangler:check": "wrangler deploy --dry-run --outdir dist/dry-run --env production"
   },

@@ -71,6 +71,40 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
     assert "rock-kb-operations-dashboard-v1" in capsys.readouterr().out
 
 
+def test_client_search_uses_compact_results_by_default(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"schema": "rock-kb-search-result-v2", "results": []}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    assert cli.main(["--url", "https://example.test", "search", "check in labels"]) == 0
+    assert urls == ["https://example.test/search?q=check%20in%20labels&limit=10&min_tier=routing_context_only&detail=compact"]
+    assert "rock-kb-search-result-v2" in capsys.readouterr().out
+
+
+def test_client_exact_result_and_claim_commands(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"status": "ok"}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    assert cli.main(["--url", "https://example.test", "result", "claim:claim:abc:check-in"]) == 0
+    assert cli.main(["--url", "https://example.test", "claim", "claim:abc"]) == 0
+    assert urls == [
+        "https://example.test/results/claim%3Aclaim%3Aabc%3Acheck-in",
+        "https://example.test/claims/id/claim%3Aabc",
+    ]
+    capsys.readouterr()
+
+
 def test_client_model_command_hits_exact_model_endpoint(monkeypatch, capsys):
     cli = load_client_cli()
     urls: list[str] = []
@@ -214,3 +248,74 @@ def test_client_auth_check_uses_token_file(monkeypatch, tmp_path, capsys):
         "token": "secret-token",
     }
     assert "ok" in capsys.readouterr().out
+
+
+def test_agent_installer_preserves_config_and_creates_backups(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    config = tmp_path / ".codex" / "config.toml"
+    config.parent.mkdir(parents=True)
+    config.write_text('# keep this comment\nmodel = "gpt-5"\n\n[mcp_servers.other]\nurl = "https://other.test/mcp"\n', encoding="utf-8")
+
+    monkeypatch.setattr(cli, "get_json", lambda url: {"status": "ok", "version": "test"})
+    monkeypatch.setattr(cli, "get_text", lambda url: "---\nname: rock-kb-agent\n---\n\n# Rock KB Agent\n")
+
+    exit_code = cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)])
+
+    assert exit_code == 0
+    updated = config.read_text(encoding="utf-8")
+    assert "# keep this comment" in updated
+    assert '[mcp_servers.rock-kb]\nurl = "https://example.test/mcp"' in updated
+    assert '[mcp_servers.other]\nurl = "https://other.test/mcp"' in updated
+    assert list(config.parent.glob("config.toml.rock-kb-backup-*"))
+    assert (tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md").exists()
+    assert '"status": "ok"' in capsys.readouterr().out
+
+
+def test_agent_installer_dry_run_is_non_mutating(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(cli, "get_json", lambda url: {"status": "ok"})
+    monkeypatch.setattr(cli, "get_text", lambda url: "---\nname: rock-kb-agent\n---\n")
+
+    exit_code = cli.main(["install-agent", "--agent", "cursor", "--home", str(tmp_path), "--dry-run"])
+
+    assert exit_code == 0
+    assert not (tmp_path / ".cursor" / "mcp.json").exists()
+    output = capsys.readouterr().out
+    assert '"status": "dry_run"' in output
+    assert '"config_action": "would_update"' in output
+
+
+def test_agent_installer_surgically_updates_json_config():
+    load_client_cli()
+    from rock_kb_client.installer import update_json_config
+
+    original = '{\n    "theme": {"font": "large"},\n    "mcpServers": {\n      "other": {"url": "https://other.test/mcp"}\n    }\n}\n'
+
+    updated = update_json_config(original, "mcpServers", "rock-kb", {"type": "http", "url": "https://kb.test/mcp"})
+
+    parsed = json.loads(updated)
+    assert parsed["theme"] == {"font": "large"}
+    assert parsed["mcpServers"]["other"] == {"url": "https://other.test/mcp"}
+    assert parsed["mcpServers"]["rock-kb"] == {"type": "http", "url": "https://kb.test/mcp"}
+    assert '    "theme": {"font": "large"}' in updated
+
+
+def test_agent_installer_preflights_all_hosts_before_writing(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    cursor_config = tmp_path / ".cursor" / "mcp.json"
+    cursor_config.parent.mkdir(parents=True)
+    cursor_config.write_text('{"mcpServers": {}}\n', encoding="utf-8")
+    (tmp_path / ".claude.json").write_text('{"mcpServers": ', encoding="utf-8")
+    monkeypatch.setattr(cli, "get_json", lambda url: {"status": "ok"})
+    monkeypatch.setattr(cli, "get_text", lambda url: "---\nname: rock-kb-agent\n---\n")
+
+    try:
+        cli.main(["install-agent", "--agent", "cursor", "--agent", "claude", "--home", str(tmp_path)])
+    except json.JSONDecodeError:
+        pass
+    else:
+        raise AssertionError("malformed second config should abort installation")
+
+    assert json.loads(cursor_config.read_text(encoding="utf-8")) == {"mcpServers": {}}
+    assert not list(cursor_config.parent.glob("mcp.json.rock-kb-backup-*"))
+    capsys.readouterr()

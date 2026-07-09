@@ -124,12 +124,13 @@ uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church --targe
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export
+uv run kb publish okf
 uv run kb report refresh
 uv run kb report dashboard
 uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 ```
 
-`kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output.
+`kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates a separate ignored typed-Markdown projection under `data/okf-export/` for Open Knowledge Format consumers; it does not replace or rewrite canonical KB files.
 
 ## Command Groups
 

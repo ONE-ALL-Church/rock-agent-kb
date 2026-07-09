@@ -5,7 +5,7 @@ import sqlite3
 from pathlib import Path
 
 from rock_kb.serve.server import build_server
-from rock_kb.serve import get_claims, get_concept, get_manifest, list_concepts, search
+from rock_kb.serve import get_claim, get_claims, get_concept, get_manifest, get_result, list_concepts, search
 
 
 def seed_root(root: Path) -> None:
@@ -134,6 +134,18 @@ def test_get_claims_filters_by_concept_and_tier(tmp_path):
     assert [row["claim_id"] for row in get_claims("workflows", tier="live_verified", root=tmp_path)] == ["claim:workflow-live"]
 
 
+def test_exact_result_and_claim_lookup(tmp_path):
+    seed_root(tmp_path)
+
+    result = get_result("public:workflow", root=tmp_path)
+    claim = get_claim("workflow-source", root=tmp_path)
+
+    assert result["status"] == "ok"
+    assert result["result"]["payload"]["id"] == "public:workflow"
+    assert claim["status"] == "ok"
+    assert claim["claim"]["claim_id"] == "claim:workflow-source"
+
+
 class FakeFastMCP:
     def __init__(self, name: str):
         self.name = name
@@ -153,6 +165,8 @@ def test_build_server_registers_expected_tools():
     assert server.name == "Rock KB"
     assert set(server.tools) == {
         "kb_search",
+        "kb_get_result",
+        "kb_get_claim",
         "kb_list_models",
         "kb_get_model",
         "kb_manifest",
