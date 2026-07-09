@@ -15,6 +15,7 @@ from rich.table import Table
 from ..agent_answer_pack import build_agent_answer_pack
 from ..audit import audit_duplicate_source_urls, audit_license_records, audit_rockumentation_api_coverage
 from ..cloudflare_markdown import cloudflare_markdown_env_ready, extract_cloudflare_markdown
+from ..claim_evaluation import build_claim_model_evaluation_sample, claim_provenance_report
 from ..claims import approved_claims_path, build_approved_claims, validate_claim_file
 from ..concepts import (
     build_all_concepts,
@@ -1003,6 +1004,10 @@ def media_public_promote(
         dir_okay=False,
         help="JSONL reviewer rewrite rows keyed by candidate_id. Required for placeholder candidates.",
     ),
+    review_model: Optional[str] = typer.Option(None, "--review-model", help="Exact model ID used for the rewrite."),
+    prompt_id: Optional[str] = typer.Option(None, "--prompt-id", help="Versioned prompt identifier used for the rewrite."),
+    prompt_version: Optional[str] = typer.Option(None, "--prompt-version", help="Prompt version used for the rewrite."),
+    review_method: Optional[str] = typer.Option(None, "--review-method", help="Review method, such as agent_reviewed_whole_source."),
 ) -> None:
     """Promote reviewed media transcript candidates into public-safe insight rows."""
     ensure_generated_dirs()
@@ -1014,6 +1019,19 @@ def media_public_promote(
         if not selected_candidate_ids:
             selected_candidate_ids = None
         rewrites = load_media_public_rewrites(rewrite_file) if rewrite_file else None
+        provenance_values = [review_model, prompt_id, prompt_version, review_method]
+        if any(provenance_values) and not all(provenance_values):
+            raise ValueError(
+                "--review-model, --prompt-id, --prompt-version, and --review-method must be provided together"
+            )
+        review_provenance = None
+        if all(provenance_values):
+            review_provenance = {
+                "model": str(review_model),
+                "prompt_id": str(prompt_id),
+                "prompt_version": str(prompt_version),
+                "method": str(review_method),
+            }
         result = promote_media_public_candidates(
             src,
             candidate_ids=selected_candidate_ids,
@@ -1022,6 +1040,7 @@ def media_public_promote(
             concept_ids=concept_id,
             promote_all=all_candidates,
             rewrites_by_candidate_id=rewrites,
+            review_provenance=review_provenance,
         )
     except (FileNotFoundError, ValueError) as exc:
         console.print(f"[red]{exc}[/red]")
@@ -1051,6 +1070,33 @@ def validate_claims_command(
             console.print(f"[red]ERROR[/red] {error}")
         raise typer.Exit(code=1)
     console.print_json(json.dumps({"schema": "rock-kb-claim-validation-result-v1", "status": "ok", "path": str(path)}))
+
+
+def claim_provenance_command(
+    path: Path = typer.Option(approved_claims_path(), "--path", exists=True, file_okay=True, dir_okay=False),
+) -> None:
+    """Report which models, prompts, and methods produced approved claims."""
+    console.print_json(json.dumps(claim_provenance_report(path)))
+
+
+def claim_evaluation_sample_command(
+    model: str = typer.Option(..., "--model", "-m"),
+    sample_size: int = typer.Option(48, "--sample-size", min=1),
+    output: Optional[Path] = typer.Option(None, "--output", file_okay=True, dir_okay=False),
+    include_provenance: bool = typer.Option(
+        False,
+        "--include-provenance",
+        help="Include claims that already record generation provenance.",
+    ),
+) -> None:
+    """Build a private, source-context-backed sample for cross-model claim review."""
+    result = build_claim_model_evaluation_sample(
+        model=model,
+        sample_size=sample_size,
+        output_path=output,
+        legacy_only=not include_provenance,
+    )
+    console.print_json(json.dumps(result))
 
 
 def live_verification_plan() -> None:

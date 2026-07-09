@@ -9,6 +9,7 @@ def promote_media_public_candidates(
     concept_ids: Optional[Iterable[str]] = None,
     promote_all: bool = False,
     rewrites_by_candidate_id: Optional[dict[str, dict[str, Any]]] = None,
+    review_provenance: Optional[dict[str, str]] = None,
 ) -> dict[str, Any]:
     if review_status not in PUBLIC_MEDIA_REVIEW_STATUSES:
         raise ValueError(
@@ -42,6 +43,16 @@ def promote_media_public_candidates(
     for candidate in selected:
         candidate_id = str(candidate.get("id") or "")
         rewrite = (rewrites_by_candidate_id or {}).get(candidate_id)
+        if rewrite is not None and review_provenance:
+            rewrite = {
+                **rewrite,
+                "generation_provenance": normalize_generation_provenance(
+                    {
+                        **review_provenance,
+                        "source_input_hash": candidate.get("transcript_hash"),
+                    }
+                ),
+            }
         if is_placeholder_media_candidate(candidate) and rewrite is None:
             raise ValueError(
                 f"{candidate_id} is a placeholder review candidate; provide --rewrite-file with a public-safe summary and key_insights"
@@ -57,12 +68,21 @@ def promote_media_public_candidates(
                 if value
             }
         )
+        candidate_reviewed_at = reviewed_at
+        existing = by_candidate_id.get(candidate_id)
+        if existing and media_promotion_content_unchanged(
+            existing,
+            promotion_candidate,
+            review_status=review_status,
+            concept_ids=promotion_concept_ids,
+        ):
+            candidate_reviewed_at = str(existing.get("reviewed_at") or reviewed_at)
         by_candidate_id[candidate_id] = media_public_promotion_record(
             source=source,
             candidate=promotion_candidate,
             review_status=review_status,
             reviewer=reviewer,
-            reviewed_at=reviewed_at,
+            reviewed_at=candidate_reviewed_at,
             concept_ids=promotion_concept_ids,
         )
 
@@ -77,6 +97,23 @@ def promote_media_public_candidates(
         "promotion_rows": len(promotion_rows),
         **apply_result,
     }
+
+
+def media_promotion_content_unchanged(
+    existing: dict[str, Any],
+    candidate: dict[str, Any],
+    review_status: str,
+    concept_ids: Iterable[str],
+) -> bool:
+    return all(
+        [
+            existing.get("summary") == candidate.get("summary"),
+            (existing.get("key_insights") or []) == (candidate.get("key_insights") or []),
+            existing.get("review_status") == review_status,
+            sorted(existing.get("concept_ids") or []) == sorted(concept_ids),
+        ]
+    )
+
 
 def media_public_promotion_record(
     source: Source,
@@ -126,6 +163,7 @@ def media_public_promotion_record(
         "contains_verbatim_transcript": False,
         "derived_from_private_transcript": True,
         "review_rewrite_applied": bool(candidate.get("review_rewrite_applied")),
+        "generation_provenance": candidate.get("generation_provenance"),
         "public_publish_mode": "public_cite_and_summarize_only",
         "publishability_status": "approved_public_distillation",
         "content_hash": sha256_text(json.dumps(safe_payload, sort_keys=True)),
@@ -157,10 +195,26 @@ def normalize_media_public_rewrite(row: dict[str, Any]) -> dict[str, Any]:
         "key_insights": key_insights,
         "concept_ids": concept_ids,
     }
+    if row.get("generation_provenance"):
+        normalized["generation_provenance"] = normalize_generation_provenance(row["generation_provenance"])
     for key in ["source_url", "source_timestamp_url", "source_title", "topics", "citations", "review_notes"]:
         if row.get(key):
             normalized[key] = row.get(key)
     return normalized
+
+
+def normalize_generation_provenance(value: Any) -> dict[str, str]:
+    if not isinstance(value, dict):
+        raise ValueError("generation_provenance must be an object")
+    required = ["model", "prompt_id", "prompt_version", "method", "source_input_hash"]
+    normalized = {key: str(value.get(key) or "").strip() for key in required}
+    missing = [key for key, item in normalized.items() if not item]
+    if missing:
+        raise ValueError("generation_provenance is missing: " + ", ".join(missing))
+    if not re.fullmatch(r"[0-9a-f]{64}", normalized["source_input_hash"]):
+        raise ValueError("generation_provenance.source_input_hash must be a lowercase SHA-256 hash")
+    return normalized
+
 
 def normalize_media_public_key_insights(value: Any) -> list[dict[str, Any]]:
     insights: list[dict[str, Any]] = []
@@ -193,7 +247,16 @@ def media_public_rewritten_candidate(candidate: dict[str, Any], rewrite: Optiona
             "review_rewrite_applied": True,
         }
     )
-    for key in ["source_url", "source_timestamp_url", "source_title", "topics", "citations", "concept_ids", "review_notes"]:
+    for key in [
+        "source_url",
+        "source_timestamp_url",
+        "source_title",
+        "topics",
+        "citations",
+        "concept_ids",
+        "review_notes",
+        "generation_provenance",
+    ]:
         if rewrite.get(key):
             rewritten[key] = rewrite[key]
     rewritten["contains_raw_transcript"] = False
@@ -206,6 +269,14 @@ def validate_media_public_promotion_candidate(candidate: dict[str, Any]) -> None
         raise ValueError(f"{candidate.get('id') or 'media candidate'} lacks canonical source_url traceability")
     if is_disallowed_public_media_url(source_url):
         raise ValueError(f"{candidate.get('id') or 'media candidate'} source_url is a direct, streaming, player, or tokenized media URL")
+    provenance = candidate.get("generation_provenance")
+    if provenance:
+        normalized_provenance = normalize_generation_provenance(provenance)
+        transcript_hash = str(candidate.get("transcript_hash") or "").strip()
+        if transcript_hash and normalized_provenance["source_input_hash"] != transcript_hash:
+            raise ValueError(
+                f"{candidate.get('id') or 'media candidate'} generation_provenance.source_input_hash does not match transcript_hash"
+            )
     if looks_like_raw_transcript_text(str(candidate.get("summary") or "")):
         raise ValueError(f"{candidate.get('id') or 'media candidate'} summary looks like raw transcript text")
     for url in urls_in_value(candidate.get("summary")):
@@ -329,6 +400,8 @@ def apply_media_public_promotions(source: Source) -> dict[str, Any]:
             row["review_status"] = promotion.get("review_status")
             row["reviewed_at"] = promotion.get("reviewed_at")
             row["reviewer"] = promotion.get("reviewer")
+            if promotion.get("generation_provenance"):
+                row["generation_provenance"] = promotion.get("generation_provenance")
             row["review_origin"] = "media_public_promotion"
             row["public_promotion_id"] = promotion.get("id")
             row["public_promotion_candidate_id"] = promotion.get("candidate_id")

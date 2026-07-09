@@ -34,6 +34,15 @@ ClaimTier = Literal[
     "live_verified",
     "routing_context_only",
 ]
+EvidenceClass = Literal[
+    "current_behavior",
+    "demonstration",
+    "partner_or_custom",
+    "historical",
+    "operational_recommendation",
+    "exploratory_roadmap",
+]
+TemporalStatus = Literal["current", "release_sensitive", "exploratory", "unknown"]
 ReviewStatus = Literal[
     "approved_for_public_distillation",
     "redaction_reviewed",
@@ -83,6 +92,14 @@ class LiveVerification(KBRecord):
         return self
 
 
+class ClaimGenerationProvenance(KBRecord):
+    model: str = Field(min_length=1)
+    prompt_id: str = Field(min_length=1)
+    prompt_version: str = Field(min_length=1)
+    method: str = Field(min_length=1)
+    source_input_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+
+
 class Claim(KBRecord):
     schema_: Literal["rock-kb-claim-v1"] = Field(alias="schema")
     claim_id: str
@@ -117,6 +134,9 @@ class Claim(KBRecord):
     source_timestamp_url: str | None = None
     live_verification: LiveVerification | None = None
     verification_notes: list[str] | None = None
+    generation_provenance: ClaimGenerationProvenance | None = None
+    evidence_class: EvidenceClass | None = None
+    temporal_status: TemporalStatus | None = None
 
     @model_validator(mode="after")
     def require_live_verification_for_live_verified(self) -> Claim:

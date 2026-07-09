@@ -337,6 +337,8 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
         },
         "community_derived": str(row.get("authority_tier") or "").startswith("community"),
     }
+    if row.get("generation_provenance"):
+        claim["generation_provenance"] = row["generation_provenance"]
     return claim_with_id(claim)
 
 
@@ -444,6 +446,8 @@ def media_promotion_to_claims(row: dict[str, Any]) -> list[dict[str, Any]]:
         },
         "community_derived": authority_tier_for_promotion(row).startswith("community"),
     }
+    if row.get("generation_provenance"):
+        base["generation_provenance"] = row["generation_provenance"]
     summary = str(row.get("summary") or "").strip()
     if summary:
         claims.append(claim_with_id({**base, "claim": summary}))
@@ -457,13 +461,16 @@ def media_promotion_to_claims(row: dict[str, Any]) -> list[dict[str, Any]]:
         claim = {
             **base,
             "claim": text,
-            "claim_type": claim_type_from_topic(str(item.get("topic") or "")),
+            "claim_type": claim_type_for_media_insight(item),
             "concept_ids": sorted({*base["concept_ids"], *[str(value) for value in item.get("concept_ids") or [] if value]}),
             "source_refs": item_refs,
             "timestamp": item.get("timestamp"),
             "timestamp_seconds": item.get("timestamp_seconds"),
             "source_timestamp_url": safe_timestamp_url(item.get("source_timestamp_url") or item.get("source_url")),
         }
+        for key in ["evidence_class", "temporal_status"]:
+            if item.get(key):
+                claim[key] = item[key]
         claims.append(claim_with_id(claim))
     return claims
 
@@ -695,6 +702,15 @@ def claim_type_from_topic(topic: str) -> str:
     return "operational_guidance"
 
 
+def claim_type_for_media_insight(item: dict[str, Any]) -> str:
+    if item.get("evidence_class") == "exploratory_roadmap" or item.get("temporal_status") in {
+        "release_sensitive",
+        "exploratory",
+    }:
+        return "release_caveat"
+    return claim_type_from_topic(str(item.get("topic") or ""))
+
+
 def private_corpus_pointer_for_promotion(row: dict[str, Any]) -> Optional[dict[str, str]]:
     source_id = str(row.get("source_id") or "")
     media_id = str(row.get("media_id") or "")
@@ -704,6 +720,7 @@ def private_corpus_pointer_for_promotion(row: dict[str, Any]) -> Optional[dict[s
 
 
 def claim_export_report(rows: list[dict[str, Any]], output: Path) -> dict[str, Any]:
+    provenance_rows = [row.get("generation_provenance") for row in rows if row.get("generation_provenance")]
     return {
         "schema": "rock-kb-claim-export-report-v1",
         "generated_at": generated_at_iso(),
@@ -714,6 +731,14 @@ def claim_export_report(rows: list[dict[str, Any]], output: Path) -> dict[str, A
         "claim_types": count_values(row.get("claim_type") for row in rows),
         "concept_ids": count_values(concept for row in rows for concept in row.get("concept_ids") or []),
         "review_statuses": count_values(row.get("review_status") for row in rows),
+        "generation_provenance": {
+            "recorded_claims": len(provenance_rows),
+            "legacy_claims_without_provenance": len(rows) - len(provenance_rows),
+            "models": count_values(row.get("model") for row in provenance_rows),
+            "prompt_ids": count_values(row.get("prompt_id") for row in provenance_rows),
+            "prompt_versions": count_values(row.get("prompt_version") for row in provenance_rows),
+            "methods": count_values(row.get("method") for row in provenance_rows),
+        },
     }
 
 

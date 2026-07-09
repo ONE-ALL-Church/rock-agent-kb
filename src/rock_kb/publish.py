@@ -17,6 +17,7 @@ PUBLIC_PATHS = [
     "claims/approved-claims.jsonl",
     "community-contributions",
     "docs/runbooks/contributor-reviewer-workflow.md",
+    "docs/prompts/media-claim-distillation-v1.md",
     "docs/decisions/public-export-policy.md",
     "docs/runbooks/public-publish-runbook.md",
     "docs/templates/rock-kb-agent/SKILL.md",

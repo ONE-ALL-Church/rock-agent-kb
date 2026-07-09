@@ -28,6 +28,13 @@ def test_build_approved_claims_from_media_public_promotions(monkeypatch, tmp_pat
         "transcript_hash": "hash123",
         "review_status": "approved_for_public_distillation",
         "reviewed_at": "2026-06-06T00:00:00+00:00",
+        "generation_provenance": {
+            "model": "gpt-test",
+            "prompt_id": "rock-kb-media-claim-distillation",
+            "prompt_version": "1.0.0",
+            "method": "agent_reviewed_whole_source",
+            "source_input_hash": "a" * 64,
+        },
         "concept_ids": ["communications"],
         "summary": "Reviewed community material recommends checking audience reach by communication medium before sending.",
         "key_insights": [
@@ -35,6 +42,8 @@ def test_build_approved_claims_from_media_public_promotions(monkeypatch, tmp_pat
                 "topic": "communications",
                 "insight": "The communication wizard material is useful for planning email and SMS sends, but it should be treated as community-derived guidance.",
                 "source_url": "https://community.rockrms.com/community-hubs/example",
+                "evidence_class": "exploratory_roadmap",
+                "temporal_status": "exploratory",
             }
         ],
         "citations": [{"source_id": "rock_community_hubs", "url": "https://community.rockrms.com/community-hubs/example"}],
@@ -54,9 +63,15 @@ def test_build_approved_claims_from_media_public_promotions(monkeypatch, tmp_pat
     assert all("operational_priority" in row for row in rows)
     assert all("answer_candidate" in row for row in rows)
     assert all("claim_tier" in row for row in rows)
-    assert {row["claim_tier"] for row in rows} == {"source_backed", "routing_context_only"}
+    assert {row["claim_tier"] for row in rows} == {"routing_context_only"}
     assert all("primary_concept_id" in row for row in rows)
     assert rows[0]["primary_concept_id"] == "communications"
+    assert {row["generation_provenance"]["model"] for row in rows} == {"gpt-test"}
+    assert any(row.get("evidence_class") == "exploratory_roadmap" for row in rows)
+    assert any(row["claim_type"] == "release_caveat" for row in rows)
+    report = json.loads((claims_dir / "claim-export-report.json").read_text())
+    assert report["generation_provenance"]["recorded_claims"] == 2
+    assert report["generation_provenance"]["legacy_claims_without_provenance"] == 0
 
 
 def test_official_rock_youtube_promotions_use_official_authority():
@@ -121,6 +136,13 @@ def test_build_approved_claims_from_source_claim_reviews(monkeypatch, tmp_path):
         "review_status": "approved_for_public_distillation",
         "reviewed_at": "2026-06-09T00:00:00+00:00",
         "reviewer": "test",
+        "generation_provenance": {
+            "model": "gpt-test",
+            "prompt_id": "rock-kb-source-claim-distillation",
+            "prompt_version": "1.0.0",
+            "method": "agent_reviewed_source",
+            "source_input_hash": "b" * 64,
+        },
     }
     (source_claims_dir / "thin-concepts.jsonl").write_text(json.dumps(review) + "\n", encoding="utf-8")
 
@@ -134,6 +156,7 @@ def test_build_approved_claims_from_source_claim_reviews(monkeypatch, tmp_path):
     assert rows[0]["source_record_ids"] == ["rock_developer:802567c280193bd0"]
     assert rows[0]["primary_concept_id"] == "helix"
     assert rows[0]["derived_from"]["type"] == "source_claim_review"
+    assert rows[0]["generation_provenance"]["prompt_id"] == "rock-kb-source-claim-distillation"
 
 
 def test_claim_usefulness_metadata_prioritizes_operational_claims():
