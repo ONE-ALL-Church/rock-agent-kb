@@ -60,6 +60,20 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
   }
 });
 
+test("exact concept routing injects authored answers outside the FTS candidate set", async () => {
+  const mf = await buildWorker();
+  try {
+    const response = await mf.dispatchFetch("https://kb.example.test/search?q=What%20should%20I%20check%20first%20when%20troubleshooting%20Workflows%3F&limit=5");
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, "answer:answer:workflows:first-checks");
+    assert.equal(payload.results[0].concept, "workflows");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 async function buildWorker() {
   const suffix = crypto.randomUUID();
   const mf = new Miniflare({
@@ -108,6 +122,42 @@ async function buildWorker() {
       .bind(...Object.values(row)).run();
     await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
       .bind(row.id, row.title, row.body, row.concept).run();
+    const conceptRows = [
+      {
+        id: "concept:workflows",
+        kind: "concept",
+        title: "Workflows",
+        body: "",
+        path: "knowledge/concepts/workflows/index.md",
+        url: "",
+        concept: "workflows",
+        authority_tier: "official",
+        claim_tier: "answer_pack_approved",
+        claim_tier_rank: 2,
+        source_id: "",
+        payload_json: "{}",
+      },
+      {
+        id: "answer:answer:workflows:first-checks",
+        kind: "answer",
+        title: "answer:workflows:first-checks",
+        body: "Inspect WorkflowType and form configuration first.",
+        path: "agent/answer-pack.jsonl",
+        url: "",
+        concept: "workflows",
+        authority_tier: "official",
+        claim_tier: "answer_pack_approved",
+        claim_tier_rank: 2,
+        source_id: "",
+        payload_json: JSON.stringify({ answer_id: "answer:workflows:first-checks" }),
+      },
+    ];
+    for (const conceptRow of conceptRows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+        .bind(...Object.values(conceptRow)).run();
+    }
     return mf;
   } catch (error) {
     await mf.dispose();
