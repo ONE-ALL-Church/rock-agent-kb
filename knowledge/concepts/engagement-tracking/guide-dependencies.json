@@ -2746,6 +2746,41 @@
     },
     {
       "authority_tier": "official",
+      "claim": "Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use.",
+      "claim_hash": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
+      "claim_id": "claim:e704f98991439e3e1576",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking",
+        "mobile",
+        "prayer-care",
+        "security-permissions",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
+      "source_record_ids": [
+        "rock_youtube:2b3b848223d53224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s",
+          "timestamp": "07:56",
+          "timestamp_seconds": 476.96,
+          "title": "Outreach Toolbox is Here in v19",
+          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "A user can follow someone from that person's profile, add or remove multiple followed people through bulk updates, and manage the resulting list under My Settings > Following.",
       "claim_hash": "c09440b11d6c83cb0181d87e4d4851629d008a9201ff35ec6e9b098ba568829a",
       "claim_id": "claim:e84230955a0bf4cb9244",
@@ -3068,6 +3103,7 @@
     "claim:dee05b4dfc147c269b13": "9cacf7e5e58b0b91fb94beff9d35d953945f1aef798f211488cfdbd9abefc3ee",
     "claim:e3719d0a61706305c5e1": "79ec638b3de48ba5a0c4ea0ce02e82d591e75bb28c0cf5b1d1b10132fdfd25ed",
     "claim:e4d44b263c1762df8c50": "c5ad20b19a5dd33bf442907bfa3dd8a36d3e5b2263e06f8a38a650dc0d076f1b",
+    "claim:e704f98991439e3e1576": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
     "claim:e84230955a0bf4cb9244": "c09440b11d6c83cb0181d87e4d4851629d008a9201ff35ec6e9b098ba568829a",
     "claim:e8dde4128eb44a218b67": "cc22d75e392931d3a29ed0578d7d75c21cf7d4dfde953eb2ac2cf0dce7183ffb",
     "claim:e9828ccece218caba61c": "2367c44050b7ece73389a1aaf2e0407fc84e475c89d4d79d06ad726ed04c6176",
@@ -3077,15 +3113,15 @@
     "claim:f4e1f9554af6bb1a3b67": "45e0640ccc98837b7d9c5e88d6a2d9350a5c4c21ff4e45d38f8e548975eb05b4",
     "claim:f66a872a6f5202769b6b": "fcf7de1f672fd3baf407e48e8b2d7e1f5ab70490e6643805c9dea0e2519b9e32"
   },
-  "approved_claims_hash": "04f8468e846a7bcff99df08d49ebc4e970b2264abfbe2d5770a99d5bb74b9cf9",
+  "approved_claims_hash": "12c0a76c22548139cb9c7dcdceba2ae91fe903edb76cd4c22ae3de38e2381836",
   "approved_claims_path": "knowledge/concepts/engagement-tracking/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "79b1615d8b90e2855f4085d8ae88b47af6695f86081fd6b99fc997596166a855",
   "approved_media_path": "knowledge/concepts/engagement-tracking/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "engagement-tracking",
-  "guide_hash": "d738c860dbd97c28eaa596a1b84083c72b8c0fd75b615e0e9b683a846a96b2af",
+  "guide_hash": "e857df5a04b9fd0f16860a0be4ef712c39e14ddf198a3a1f85f10591a8f017a7",
   "guide_line_count": 1614,
   "guide_path": "knowledge/concepts/engagement-tracking/guide.md",
   "guide_word_count": 14725,

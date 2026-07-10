@@ -2,7 +2,7 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -63,6 +63,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | community-reviewed | operational_guidance | Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | community-reviewed | operational_guidance | Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | community-reviewed | operational_guidance | Email logo branding should be treated as sender-trust work that makes messages easier to recognize, not as a guaranteed fix for spam-folder placement. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
@@ -258,7 +259,7 @@ Keywords: `search, universal search, indexing, index, search components`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `11`
+- Approved claims: `12`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

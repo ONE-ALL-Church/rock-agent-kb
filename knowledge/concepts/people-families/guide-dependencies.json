@@ -294,6 +294,38 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it.",
+      "claim_hash": "0877c91852fbbf53266f17654ccb482a4cec3dd5bba97c16963f079ed94a27e2",
+      "claim_id": "claim:23c173130e89f0eba735",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "people-families",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=963s",
+          "timestamp": "16:03",
+          "timestamp_seconds": 963.8,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Person Preferences and Auto Schedule RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
@@ -1109,6 +1141,38 @@
           "timestamp_seconds": 1200.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v19 can assign record sources on external person-entry blocks and show that source in duplicate detail, helping data-integrity staff trace where repeated records originated.",
+      "claim_hash": "6fac8a2dfdc46fb4612fd1a21f29a28899b4d56812a50b7e6c63f35cc32d36ca",
+      "claim_id": "claim:5d80cd1847429a0181d0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "people-families",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=790s",
+          "timestamp": "13:10",
+          "timestamp_seconds": 790.2,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -2194,6 +2258,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "A v19 person-merge requester who lacks merge permission can ask to be notified when the reviewed merge completes, keeping request submission separate from merge authorization.",
+      "claim_hash": "9abac694eb92505d72cb40ed5f541614abaf80ef99c69b3b8f727df738c1cd78",
+      "claim_id": "claim:b81391274ac89ca6c69f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "people-families",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=902s",
+          "timestamp": "15:02",
+          "timestamp_seconds": 902.0,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying staff training and operational readiness ideas from The Science of Finding Greatness in People, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "fc4bcc3e27e6e2368d0f1df346cb4cc888961d3ca0ca797396c3ceb4affbf6f7",
@@ -2987,6 +3084,38 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The v19 merge-person interface surfaces last-modified time and actor information so reviewers can compare record recency without separately reconstructing history. Treat recency as one merge signal, not proof that one record is correct.",
+      "claim_hash": "c2cc1099e2707d0f2298baa13f2e9a05c7fc1a8891f281ff29ea5e9d74b67e60",
+      "claim_id": "claim:f39e0cab003d876835c1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "people-families",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=845s",
+          "timestamp": "14:05",
+          "timestamp_seconds": 845.56,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Rock data quality work should be prioritized because dirty people, family, address, and duplicate data affects check-in, communication, reporting credibility, and leadership decisions.",
       "claim_hash": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
@@ -3185,6 +3314,7 @@
     "claim:10270a60fc64380cd39d": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
     "claim:1c9c3c9397fda34d3851": "1c34278a35b0c97451038780bea8b6a7a20a2c012320ee8b8fd83a362a8bfcb8",
     "claim:22176cf38ff41cb388f6": "6fae11ea06f5a28bea618b1ac21e27fe0b1a9a709bdeb5a7f9b13248fe788a4c",
+    "claim:23c173130e89f0eba735": "0877c91852fbbf53266f17654ccb482a4cec3dd5bba97c16963f079ed94a27e2",
     "claim:273569623174af9b2460": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
     "claim:297b44312bdcc4c81dfd": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
     "claim:2a687dbd43ece0d98a0b": "709dee955d7915c1f57eb3c2b87c2947e99c2e50fe842903d86bb04768d1c8c8",
@@ -3208,6 +3338,7 @@
     "claim:5aa2748e70047b547cb0": "e70bd166c14df13c853fd8e42dc5cb0e8a4cc7478c67eafc7465c230698e7fd9",
     "claim:5c53977793c7673b19e9": "a981e2adfcd030763a98fdf5795df2fcc8a877003cb8922ab40f354f68cbea33",
     "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
+    "claim:5d80cd1847429a0181d0": "6fac8a2dfdc46fb4612fd1a21f29a28899b4d56812a50b7e6c63f35cc32d36ca",
     "claim:64100db2b5d60396b9fd": "1321b57ae11d8c65743803bf0809a35915d373a0ffc15bdc6189e705618f4334",
     "claim:6c582edbd5e893707de9": "4a9e9c41abd95b63c142cf7eb66549b49360ddd7f8cf9dff5266650751b4d785",
     "claim:6ea0912f1e9a77889f5f": "5eac60a0f814af58054b346132a46244f6eb5730127b8a107f9e47b2bcea6f62",
@@ -3234,6 +3365,7 @@
     "claim:aa9bc11f94de611f2ce6": "7570ff3462df353103c0c5b8b7d904653b4d3bcd54b9bcb185ba81ff96a9ce42",
     "claim:b6025804c011523e291d": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
     "claim:b70ff909b2c3eb102800": "168748c6a4033d04eb60fa00138838d28169ebb664230af1ee6c4e1a25fd1a54",
+    "claim:b81391274ac89ca6c69f": "9abac694eb92505d72cb40ed5f541614abaf80ef99c69b3b8f727df738c1cd78",
     "claim:b8b80a9fc8b14aa1b81a": "fc4bcc3e27e6e2368d0f1df346cb4cc888961d3ca0ca797396c3ceb4affbf6f7",
     "claim:b9e56d68768b84160b2d": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
     "claim:ba15698ecadd55ce215a": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
@@ -3254,13 +3386,14 @@
     "claim:ea894b6fede30d2ad628": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
     "claim:eaf5339dcaba6881e50d": "bc4e4de91c762909005ac7f9e1cb3db72d6d72d521bf9781df2470800d1d945d",
     "claim:eec8ad7bdec855d0bfe5": "1a42f86d5ab0b9b894ad04b99c8d9f9abe3c46efb1940cb151cb8e32b5cb0f10",
+    "claim:f39e0cab003d876835c1": "c2cc1099e2707d0f2298baa13f2e9a05c7fc1a8891f281ff29ea5e9d74b67e60",
     "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
     "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
     "claim:fa541bf79671c9fe6bc5": "73ce8cd0b5ebbdeb2ed9f7f5e3f0552c2ddadee7769a5db354880dbea05f7179",
     "claim:fb836b0246af451e25b9": "6e0ab8ea8cacd54f08b2b86cdd6eefae1fdf21bfdb3d1fb46b1db0bbdb1c107b",
     "claim:ffa69d01f0fb1999048c": "545908aa56322e9d6ba18b20e9a4fac458e72a7c3227946035fbe82cfa14e195"
   },
-  "approved_claims_hash": "12d8346f39823ca3853dd50a17a760d0ad151ffb8df21cd4946f40d0bbb8b99d",
+  "approved_claims_hash": "1b17f1d34a410e6ff790996447c14c95737c12576145722812a54ca2758c7f22",
   "approved_claims_path": "knowledge/concepts/people-families/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3698,12 +3831,12 @@
   },
   "approved_media_hash": "20b69eadcc9511a5a54f8b14d28c7bb5347375a58c10492e985f420aadd8713c",
   "approved_media_path": "knowledge/concepts/people-families/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "people-families",
-  "guide_hash": "b992186886a151839b84beedecf49052d6f34bfe82bdf5821abe799604dd0241",
+  "guide_hash": "530ea44cbfd9b09a9fd0fb8541192feb3dc2cbb76abb296220bd0f75cb2829b9",
   "guide_line_count": 1826,
   "guide_path": "knowledge/concepts/people-families/guide.md",
-  "guide_word_count": 18816,
+  "guide_word_count": 18838,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4217,6 +4350,15 @@
       "source_key": "f100a7c66d47ef32",
       "source_record_id": "rock_rocku:f100a7c66d47ef32",
       "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",
@@ -6154,6 +6296,10 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "58a92984acbd2344",
+        "58a92984acbd2344",
+        "58a92984acbd2344",
+        "58a92984acbd2344",
         "a7cecea2cefec5f0",
         "028b35260711018b",
         "814a6258142c7eca",
@@ -6161,10 +6307,6 @@
         "303d884642f1666d",
         "11cdf9c3e9ac92ed",
         "cd4325ef232d11ad",
-        "cd4325ef232d11ad",
-        "11cdf9c3e9ac92ed",
-        "814a6258142c7eca",
-        "a7cecea2cefec5f0",
         "cd4325ef232d11ad"
       ],
       "start_line": 1702
@@ -7712,6 +7854,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",

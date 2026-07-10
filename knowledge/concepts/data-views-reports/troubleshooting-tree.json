@@ -47,7 +47,7 @@
         "https://community.rockrms.com/recipes/349",
         "https://community.rockrms.com/ModelMap",
         "https://www.triumph.tech/resources/what-is-maxdop",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report"
+        "https://community.rockrms.com/recipes/391"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -226,7 +226,7 @@
   ],
   "concept_id": "data-views-reports",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",

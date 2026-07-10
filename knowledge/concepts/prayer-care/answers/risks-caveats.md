@@ -7,17 +7,18 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Prayer And Care?
 
-No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: official: 19.
+The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.
 
 ## Top Claims
 
-- `claim:12090dba1003e35ce573`
-- `claim:3938564907eb4fab37f7`
-- `claim:496a8a34d83b9fdeab49`
-- `claim:5d8cf058b42faaa9b067`
+- `claim:54aeb223a9029e9f7707`
+- `claim:483a11b884e0e69ffd4d`
+- `claim:e704f98991439e3e1576`
+- `claim:9c8ce297c9c4a4cda982`
 
 ## Citations
 
-- [Intro to Prayer](https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/intro-to-prayer)
-- [Administer Prayer Requests](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/administer-prayer-requests)
-- [Prayer Request Comments Communication](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication)
+- [Your People are Ministers on the Ground with the Outreach Toolbox](https://www.youtube.com/shorts/c6T9Ha13jKE) (`00:00`)
+- [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s) (`00:00`)
+- [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s) (`07:56`)
+- [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s) (`01:04`)

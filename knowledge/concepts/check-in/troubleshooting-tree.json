@@ -67,8 +67,8 @@
         "https://community.rockrms.com/rocku/check-in",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
         "https://community.rockrms.com/recipes/116",
+        "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
         "https://community.rockrms.com/ask/using/2804",
         "https://community.rockrms.com/recipes/483",
@@ -201,7 +201,7 @@
   ],
   "concept_id": "check-in",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_sections": [
     "8-labels-deep-dive-label-troubleshooting-branches",
     "11-troubleshooting-deep-dive",

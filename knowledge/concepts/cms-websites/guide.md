@@ -1459,13 +1459,15 @@ RockU identifies Required Watching as part of the CMS/media learning path ([Rock
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `164`
+- Approved claims routed to this concept: `167`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
 | official | implementation_pattern | An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | operational_guidance | Adding pages and blocks changes both navigation and authorization; agents should inspect site, page hierarchy, route, block type, zone, and inherited security before publishing. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
 | rocku-confirmed | operational_guidance | Content Channel View pages should be reviewed as both CMS presentation and data exposure surfaces because channel item lists can reveal titles, dates, attributes, or detail links. | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
 | rocku-confirmed | operational_guidance | Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
@@ -1474,9 +1476,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | rocku-confirmed | operational_guidance | Personalization should be reviewed as conditional content delivery, not as a security substitute; hidden or targeted content still needs proper page, block, and entity authorization. | [source](https://community.rockrms.com/rocku/cms/personalization) |
 | rocku-confirmed | operational_guidance | Before editing a content component, identify where it is rendered, what content it owns, and whether the component is part of a public, staff, or theme-managed surface. | [source](https://community.rockrms.com/rocku/cms/content-component) |
 | rocku-confirmed | risk | When diagnosing a missing or exposed page, compare the page route, parent-page security, block security, and the specific user context instead of assuming the route alone controls access. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
-| rocku-confirmed | risk | When reviewing an Advanced HTML block, inspect page/block security, enabled Lava commands, query-string or context inputs, and whether the output exposes sensitive entity data. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
-| rocku-confirmed | risk | When troubleshooting content visibility, inspect channel, item, block, page, route, and Lava template settings instead of assuming the channel item itself is the only security boundary. | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
-| More |  | 152 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 155 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

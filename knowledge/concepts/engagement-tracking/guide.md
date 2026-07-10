@@ -1474,7 +1474,7 @@ Then ask for the operational decision they need to make. That determines the cor
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `106`
+- Approved claims routed to this concept: `107`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1491,7 +1491,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | behavior | On the external site's Sign-Ups Finder page, guests can filter opportunities by date and location, review opportunity details, and register themselves and additional people without using an event registration template. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/intro-to-sign-ups) |
 | official | behavior | Interactive Experiences accept anonymous or personalized answers through the Rock Mobile app and make submitted responses available to live question monitoring in Rock. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences) |
 | official | behavior | An individual streak rebuild recalculates current and longest streak values from attendance, cannot set enrollment earlier than the streak type start date, and includes only dates enabled by the streak type occurrence map. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually) |
-| More |  | 94 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 95 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

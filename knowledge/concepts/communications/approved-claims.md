@@ -2,7 +2,7 @@
 concept_id: communications
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 147
+approved_claim_count: 152
 ---
 
 # Communications Approved Claims
@@ -11,7 +11,12 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:147ee6dbc7db220dc7ba` | official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| `claim:5eedd5acf0194a87c5ce` | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| `claim:809519cf51bf3b32119f` | official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | `claim:903c8ff9b5d2590fd616` | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| `claim:c8435f854b9e7075ab76` | official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| `claim:f8380a3e786ab33df98f` | official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | `claim:142629c3a73eea99a448` | rocku-confirmed | operational_guidance | For staff training and operational readiness, Communication Lists & Segments should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-lists--segments) |
 | `claim:1b6e8bdd3ecb3c0cae1b` | rocku-confirmed | operational_guidance | The Communication Preferences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-preferences) |
 | `claim:1e8a4c84ec5bc7717590` | rocku-confirmed | operational_guidance | For ministry process design, Communication Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-templates) |

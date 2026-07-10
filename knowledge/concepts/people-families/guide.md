@@ -1703,11 +1703,15 @@ A community recipe demonstrates a staff-personalized panel showing groups the cu
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `82`
+- Approved claims routed to this concept: `86`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 can assign record sources on external person-entry blocks and show that source in duplicate detail, helping data-integrity staff trace where repeated records originated. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | A v19 person-merge requester who lacks merge permission can ask to be notified when the reviewed merge completes, keeping request submission separate from merge authorization. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | The v19 merge-person interface surfaces last-modified time and actor information so reviewers can compare record recency without separately reconstructing history. Treat recency as one merge signal, not proof that one record is correct. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | implementation_pattern | Agents should inspect connection types, opportunities, statuses, activities, workflows, and staff ownership together because a connection request is both a person record and a process state. | [source](https://community.rockrms.com/rocku/engagement/overview) |
 | rocku-confirmed | implementation_pattern | When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
 | rocku-confirmed | operational_guidance | Person Notes should be handled as structured staff context on a person record; note type, visibility, sensitivity, and lifecycle matter as much as the note text itself. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1) |
@@ -1716,11 +1720,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | rocku-confirmed | operational_guidance | When diagnosing personalization, inspect the audience rule, person data used by the rule, fallback content, cache behavior, and the exact logged-in or anonymous state being tested. | [source](https://community.rockrms.com/rocku/cms/personalization) |
 | rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | rocku-confirmed | operational_guidance | People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
-| rocku-confirmed | operational_guidance | Personalization should be reviewed as conditional content delivery, not as a security substitute; hidden or targeted content still needs proper page, block, and entity authorization. | [source](https://community.rockrms.com/rocku/cms/personalization) |
-| rocku-confirmed | operational_guidance | When troubleshooting notes, inspect the person profile surface, note type, permissions, author/date metadata, and any workflow or report that consumes note data. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1) |
-| rocku-confirmed | operational_guidance | Connections work should be modeled as a ministry follow-up process: define the person, opportunity, connector, status, and next action before automating or reporting on the flow. | [source](https://community.rockrms.com/rocku/engagement/overview) |
-| rocku-confirmed | operational_guidance | For reporting agents, data integrity issues should be surfaced as source-data problems, not hidden by report logic that masks duplicates, missing values, or stale attributes. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) |
-| More |  | 70 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 74 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

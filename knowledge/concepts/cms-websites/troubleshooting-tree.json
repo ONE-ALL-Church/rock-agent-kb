@@ -72,8 +72,8 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
         "https://www.triumph.tech/resources/github-spotlight-1242025"
       ],
@@ -100,8 +100,8 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
         "https://www.triumph.tech/resources/github-spotlight-1242025"
       ],
@@ -128,8 +128,8 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
         "https://www.triumph.tech/resources/github-spotlight-1242025"
       ],
@@ -192,7 +192,7 @@
   ],
   "concept_id": "cms-websites",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-the-page-returns-not-found",

@@ -1,83 +1,83 @@
 {
   "authority_tiers": {
-    "community-reviewed": 1027,
-    "official": 422,
+    "community-reviewed": 1039,
+    "official": 474,
     "release-note-confirmed": 1,
     "rocku-confirmed": 759
   },
-  "claim_count": 2209,
+  "claim_count": 2273,
   "claim_tiers": {
-    "answer_pack_approved": 412,
+    "answer_pack_approved": 456,
     "live_verified": 104,
-    "routing_context_only": 1693
+    "routing_context_only": 1713
   },
   "claim_types": {
     "behavior": 136,
     "configuration": 132,
     "implementation_pattern": 81,
-    "operational_guidance": 1122,
+    "operational_guidance": 1131,
     "recipe": 27,
-    "release_caveat": 122,
+    "release_caveat": 162,
     "risk": 83,
-    "source_summary": 506
+    "source_summary": 521
   },
   "concept_ids": {
-    "ai-agents-automation": 60,
-    "api-integrations": 46,
+    "ai-agents-automation": 76,
+    "api-integrations": 50,
     "apple-tv": 20,
-    "check-in": 109,
-    "cms-websites": 164,
-    "communications": 147,
-    "connections": 37,
+    "check-in": 120,
+    "cms-websites": 167,
+    "communications": 152,
+    "connections": 54,
     "content-personalization": 101,
-    "data-views-reports": 558,
+    "data-views-reports": 563,
     "developer-resources": 26,
     "documents-signatures": 26,
-    "engagement-tracking": 106,
-    "event-registration": 64,
+    "engagement-tracking": 107,
+    "event-registration": 66,
     "giving-finance": 108,
     "groups": 173,
     "helix": 15,
-    "hosting-infrastructure": 25,
-    "lava": 94,
-    "learning-lms-engagement": 23,
-    "mobile": 95,
+    "hosting-infrastructure": 32,
+    "lava": 97,
+    "learning-lms-engagement": 32,
+    "mobile": 101,
     "obsidian-development": 74,
-    "people-families": 82,
-    "platform-configuration": 95,
-    "prayer-care": 19,
+    "people-families": 86,
+    "platform-configuration": 138,
+    "prayer-care": 25,
     "roku": 16,
-    "scheduling-locations": 24,
-    "security-permissions": 290,
-    "serving-volunteer-ops": 41,
-    "system-admin-ops": 11,
+    "scheduling-locations": 35,
+    "security-permissions": 304,
+    "serving-volunteer-ops": 48,
+    "system-admin-ops": 12,
     "tv-apps": 14,
-    "workflows": 1340
+    "workflows": 1349
   },
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "generation_provenance": {
     "legacy_claims_without_provenance": 1803,
     "methods": {
       "agent_reviewed_full_article": 383,
-      "agent_reviewed_whole_source": 23
+      "agent_reviewed_whole_source": 87
     },
     "models": {
-      "gpt-5.6-sol": 406
+      "gpt-5.6-sol": 470
     },
     "prompt_ids": {
       "codex-whole-video-review": 12,
-      "rock-kb-media-claim-distillation": 11,
+      "rock-kb-media-claim-distillation": 75,
       "rock-kb-source-claim-distillation": 383
     },
     "prompt_versions": {
-      "1.0.0": 394,
+      "1.0.0": 458,
       "legacy-unversioned": 12
     },
-    "recorded_claims": 406
+    "recorded_claims": 470
   },
   "output": "claims/approved-claims.jsonl",
   "review_statuses": {
-    "approved_for_public_distillation": 2209
+    "approved_for_public_distillation": 2273
   },
   "schema": "rock-kb-claim-export-report-v1"
 }

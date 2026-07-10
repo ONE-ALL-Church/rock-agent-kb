@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Find Every Launch Path For A Workflow Type.
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs
 - https://community.rockrms.com/recipes/457
 - https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx
-- https://community.rockrms.com/rocku/workflows/form-builder
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts

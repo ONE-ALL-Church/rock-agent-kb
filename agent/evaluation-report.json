@@ -113,7 +113,7 @@
     "retrieval": 16
   },
   "fail_count": 0,
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "near_misses": [
     {
       "answer_id": "answer:ai-agents-automation:risks-caveats",
@@ -134,6 +134,76 @@
       ],
       "score": 0.833,
       "status": "pass"
+    },
+    {
+      "answer_id": "answer:connections:risks-caveats",
+      "concept_id": "connections",
+      "id": "eval:connections:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:event-registration:risks-caveats",
+      "concept_id": "event-registration",
+      "id": "eval:event-registration:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:learning-lms-engagement:risks-caveats",
+      "concept_id": "learning-lms-engagement",
+      "id": "eval:learning-lms-engagement:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:prayer-care:risks-caveats",
+      "concept_id": "prayer-care",
+      "id": "eval:prayer-care:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:scheduling-locations:risks-caveats",
+      "concept_id": "scheduling-locations",
+      "id": "eval:scheduling-locations:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:serving-volunteer-ops:risks-caveats",
+      "concept_id": "serving-volunteer-ops",
+      "id": "eval:serving-volunteer-ops:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:system-admin-ops:risks-caveats",
+      "concept_id": "system-admin-ops",
+      "id": "eval:system-admin-ops:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
     }
   ],
   "pass_count": 124,
@@ -147,5 +217,5 @@
   "result_count": 140,
   "schema": "rock-kb-evaluation-report-v1",
   "scored_count": 124,
-  "term_miss_count": 2
+  "term_miss_count": 9
 }

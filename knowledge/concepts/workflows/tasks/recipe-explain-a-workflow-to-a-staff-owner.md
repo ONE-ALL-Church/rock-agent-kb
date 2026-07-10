@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Explain A Workflow To A Staff Owner.
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs
 - https://community.rockrms.com/recipes/457
 - https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx
-- https://community.rockrms.com/rocku/workflows/form-builder
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts

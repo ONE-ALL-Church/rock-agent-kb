@@ -2,7 +2,7 @@
 concept_id: security-permissions
 generated: true
 artifact_level: media_distillation
-approved_media_count: 75
+approved_media_count: 76
 ---
 
 # Security And Permissions Approved Media
@@ -39,7 +39,6 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:6b5ce810e2795435` | Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) |
 | `media-insight:6e8d02135da566a7` | Episode 40: v8 and more team updates Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) |
 | `media-insight:aafa91736c1843d5` | Episode 45: Special Edition Robbin Dinbokowitz Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-45-special-edition-robbin-dinbokowitz) |
-| `media-insight:2dc293bdca844f5a` | Episode 65: Special Edition with Luke Taylor, a.k.a. The Smoked Brisket Guy Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-65-special-guest-luke-taylor) |
 | `media-insight:ac59080e6ff1591d` | Episode 79: End of The Year Rock Updates Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-79-end-of-the-year-updates) |
 | `media-insight:4be08e28c655be9c` | Episode 85: Architecture Series Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-85-architecture-series) |
 | `media-insight:5696d2af5b6df33b` | Escaping the Complexity Trap \| Ep 209 Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap) |
@@ -53,6 +52,8 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:14ce1fb394ae6c0b` | How to Delete a Person Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person) |
 | `media-insight:2df7825fd70283c0` | Impersonation Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/individuals-in-rock/impersonation) |
 | `media-insight:f0c688c9ed0d7ed7` | LMS - Administration Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/lms/lms-administration) |
+| `media-insight:0eaf921555a4c075` | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
+| `media-insight:70eec93ffcb16fc8` | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
 | `media-insight:f689bd9a39f18ea8` | Launch Workflow From Grid Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/workflows/launch-workflow-from-grid) |
 | `media-insight:21c296e1bd9698dc` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) |
 | `media-insight:574371376cd3e666` | Media Watch Transcript Insight | approved_for_public_distillation | 5 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |

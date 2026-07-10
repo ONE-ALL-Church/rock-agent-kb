@@ -1240,24 +1240,24 @@ Community recipe provides one real-world pattern for connector availability repo
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `37`
+- Approved claims routed to this concept: `54`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
-| community-reviewed | implementation_pattern | Before launching preregistration broadly, teams should test the full path from public form through family record creation, check-in eligibility, and staff follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | implementation_pattern | New-family preregistration should be connected to a clear follow-up workflow or connection process so the data captured before arrival leads to ministry action. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | Family preregistration is useful when it reduces first-visit friction and improves the quality of people, family, and child data before check-in. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | operational_guidance | A public preregistration page should explain the value to families and avoid creating duplicate or partial records that staff later need to clean manually. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | implementation_pattern | Rock connection work should use retention data to prioritize human follow-up, volunteer assignment, and next-step invitations rather than only reporting historical attendance. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) |
-| community-reviewed | operational_guidance | Long-form training or strategy material should be broken into actionable sections with a way to measure whether leaders and teams are adopting the recommendations. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE) |
-| community-reviewed | operational_guidance | Campus dashboards should help leaders compare current year-to-date values against both goals and prior-year context, while leaving deeper campus-specific measures available without crowding the organization-wide dashboard. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | Communication teams often feel siloed, so content and campaign strategy should be tied to ministry ownership, shared goals, and a visible next-step path in Rock. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE) |
-| community-reviewed | operational_guidance | A mature reporting suite can separate executive dashboards, campus or ministry dashboards, and functional operational dashboards so each audience sees the level of detail needed for its decisions. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | Functional dashboards such as connection-request views may justify live database connections when leaders need up-to-date queues, while slower-changing attendance or giving dashboards can usually use scheduled refreshes. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | When AI summaries are generated from person-profile data, the review should include data minimization, avoidance of direct identifiers, privacy-policy alignment, and vendor assurances about model training. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) |
-| More |  | 25 additional approved claims are tracked in `approved-claims.md`. |  |
+| official | release_caveat | Connection-request AI summaries and insights require a configured prompt on the connection type and a configured AI provider. Their output should be treated as generated assistance, not authoritative person data. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | When sequential status mode is enabled for a connection type, a request can advance only through adjacent configured status order rather than jumping arbitrarily. Completion becomes available after the final status. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | The v19 Connections list supports filtering by assignment, opportunity and campus; grouping, sorting and column selection; quick search; and an optional request-source field. Verify local block settings and source configuration when a field or grouping option is absent. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Connection request due and due-soon dates in v19 can be configured at the connection type, opportunity or status level. Inspect the selected calculation mode before interpreting overdue metrics. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | Rock v19 Connections navigation can expose list, board, grid and operational snapshot views with active, unassigned, due-soon and overdue metrics. Which views appear is configured on the connection type. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | source_summary | This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | source_summary | This official v19 Connections demonstration covers navigation metrics, due-date calculation, list configuration, bulk actions, optional AI summaries and sequential statuses. These are version- and configuration-sensitive behaviors; verify enabled views, prompts, providers, permissions and the installed v19 build. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| More |  | 42 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1266,20 +1266,20 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `10`
+- Approved media records routed to this concept: `13`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) | approved_for_public_distillation | 4 | media-insight:1996763c554953f9 |
+| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://www.youtube.com/watch?v=edanHiYSDIM) | approved_for_public_distillation | 4 | media-insight:e966cbaf8af14d10 |
 | [Connections Board Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-board) | approved_for_public_distillation | 2 | media-insight:91dd3aa03e47ae7c |
+| [Connections Helps Prevent Your People from Falling Through the Cracks Transcript Insight](https://www.youtube.com/watch?v=7rxTGLLhlrU) | approved_for_public_distillation | 6 | media-insight:cf25f281e61086ee |
 | [Connections List Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-list-1) | approved_for_public_distillation | 2 | media-insight:bdadc9c033c46aae |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) | approved_for_public_distillation | 4 | media-insight:1f90493258b0b21b |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) | approved_for_public_distillation | 6 | media-insight:392aedce4cf2d99c |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp) | approved_for_public_distillation | 3 | media-insight:4b01eb5056bab0e5 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE) | approved_for_public_distillation | 3 | media-insight:7e8c9d47198de3f9 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) | approved_for_public_distillation | 3 | media-insight:a0960ff639b6ffaf |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) | approved_for_public_distillation | 3 | media-insight:a8361b8714eb62ff |
-| More |  | 2 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 5 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

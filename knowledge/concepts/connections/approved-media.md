@@ -2,7 +2,7 @@
 concept_id: connections
 generated: true
 artifact_level: media_distillation
-approved_media_count: 10
+approved_media_count: 13
 ---
 
 # Connections Approved Media
@@ -11,7 +11,10 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:1996763c554953f9` | 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| `media-insight:e966cbaf8af14d10` | 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | approved_for_public_distillation | 4 | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | `media-insight:91dd3aa03e47ae7c` | Connections Board Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/engagement/connections-board) |
+| `media-insight:cf25f281e61086ee` | Connections Helps Prevent Your People from Falling Through the Cracks Transcript Insight | approved_for_public_distillation | 6 | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | `media-insight:bdadc9c033c46aae` | Connections List Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/engagement/connections-list-1) |
 | `media-insight:1f90493258b0b21b` | Media Watch Transcript Insight | approved_for_public_distillation | 4 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
 | `media-insight:392aedce4cf2d99c` | Media Watch Transcript Insight | approved_for_public_distillation | 6 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |

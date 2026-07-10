@@ -2,7 +2,7 @@
 concept_id: people-families
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 82
+approved_claim_count: 86
 ---
 
 # People And Families Approved Claims
@@ -11,6 +11,10 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:23c173130e89f0eba735` | official | release_caveat | When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| `claim:5d80cd1847429a0181d0` | official | release_caveat | Rock v19 can assign record sources on external person-entry blocks and show that source in duplicate detail, helping data-integrity staff trace where repeated records originated. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| `claim:b81391274ac89ca6c69f` | official | release_caveat | A v19 person-merge requester who lacks merge permission can ask to be notified when the reviewed merge completes, keeping request submission separate from merge authorization. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| `claim:f39e0cab003d876835c1` | official | release_caveat | The v19 merge-person interface surfaces last-modified time and actor information so reviewers can compare record recency without separately reconstructing history. Treat recency as one merge signal, not proof that one record is correct. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | `claim:90c918310ef30a92a729` | rocku-confirmed | implementation_pattern | Agents should inspect connection types, opportunities, statuses, activities, workflows, and staff ownership together because a connection request is both a person record and a process state. | [source](https://community.rockrms.com/rocku/engagement/overview) |
 | `claim:970086a35aa016eccb8d` | rocku-confirmed | implementation_pattern | When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
 | `claim:00300ae5ab574ad7c48b` | rocku-confirmed | operational_guidance | Person Notes should be handled as structured staff context on a person record; note type, visibility, sensitivity, and lifecycle matter as much as the note text itself. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1) |

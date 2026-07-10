@@ -85,6 +85,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
+      "claim_hash": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
+      "claim_id": "claim:07a75e5ff71510d708de",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=91s",
+          "timestamp": "01:31",
+          "timestamp_seconds": 91.26,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "This Digital Strategy Hub session adds practical LMS guidance from churches beginning to build training content in Rock. It treats LMS as a way to deliver volunteer and staff training, reuse existing teaching assets, and pair content with communications that invite people into structured learning rather than leaving training scattered across unrelated pages.",
       "claim_hash": "763c22d285c054bb2246e2a20a7c2a6c989c15fb14dd55fbee4c59fce1c5bb20",
@@ -220,6 +255,72 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Voice AI services may use provider-specific usage pricing rather than a fixed monthly fee. Churches should estimate realistic usage, compare cost with ministry value and verify current provider pricing before rollout.",
+      "claim_hash": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
+      "claim_id": "claim:49224f61275c9a1f8e96",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=372s",
+          "timestamp": "06:12",
+          "timestamp_seconds": 372.36,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record.",
+      "claim_hash": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
+      "claim_id": "claim:4b083dda9f0d9ccc4aff",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2042s",
+          "timestamp": "34:02",
+          "timestamp_seconds": 2042.36,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up.",
       "claim_hash": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
@@ -345,6 +446,41 @@
     },
     {
       "authority_tier": "community-reviewed",
+      "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
+      "claim_hash": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
+      "claim_id": "claim:66eb84b2b9cc466ce78b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "01:33",
+          "timestamp_seconds": 93.18,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
       "claim": "This Digital Strategy Hub session frames AI-assisted coaching and online learning as tools that still need ministry ownership. It connects LMS, dashboards, content, and mobile engagement to a discipleship path, while warning that AI should support reviewed coaching and resource routing rather than make ungoverned ministry decisions.",
       "claim_hash": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
       "claim_id": "claim:679a11bb5e644db4bfaa",
@@ -371,6 +507,39 @@
           "source_id": "rock_community_hubs",
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread.",
+      "claim_hash": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
+      "claim_id": "claim:679a38216f2b07097624",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=713s",
+          "timestamp": "11:53",
+          "timestamp_seconds": 713.22,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
       ]
     },
@@ -568,6 +737,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version.",
+      "claim_hash": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
+      "claim_id": "claim:91be2ad338eb6b1cdaed",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s",
+          "timestamp": "33:03",
+          "timestamp_seconds": 1983.08,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "This February 2025 Media Watch session is a high-value public-safe source for Rock LMS and the new communications wizard direction. It explains LMS programs, courses, classes, learning plans, participants, on-demand versus academic-calendar modes, activity types, facilitator grading, availability rules, and workflow hooks, then demonstrates communications beta features such as topics, reachable-audience counts, starter templates, global styles, reusable sections, drag-and-drop blocks, image/column controls, and Lava/code blocks.",
       "claim_hash": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
@@ -718,6 +921,103 @@
           "timestamp_seconds": 332.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast episode connects AI adoption with practical staff-training governance. It covers usage-based AI costs, durable agent artifacts, short change-training videos, role-based Rock LMS assignments, shadow-tool risk and staff-first training. Treat external AI pricing and preview product statements as release-sensitive, and verify current Rock behavior before implementation.",
+      "claim_hash": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
+      "claim_id": "claim:c803dbe27136969cf6e5",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality.",
+      "claim_hash": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
+      "claim_id": "claim:c8c3a60f71790dd3616d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s",
+          "timestamp": "40:09",
+          "timestamp_seconds": 2409.56,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan.",
+      "claim_hash": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
+      "claim_id": "claim:c9c1fa08cb0434d501e6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1714s",
+          "timestamp": "28:34",
+          "timestamp_seconds": 1714.04,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
       ]
     },
@@ -882,29 +1182,38 @@
   "approved_claim_hashes": {
     "claim:01d746f9a6bc23a6d503": "202ad783e181d408c46e938a607c2f913ecdd652ea29916720fe9bd82e390e55",
     "claim:03fa1cffb8ed10d2485f": "185a2092fd6f3d4c89cd5a3c2e2e40656f0fa4e2f94a7773e60d22647a36fd63",
+    "claim:07a75e5ff71510d708de": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
     "claim:0830c40b568944ecfd1a": "763c22d285c054bb2246e2a20a7c2a6c989c15fb14dd55fbee4c59fce1c5bb20",
     "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
     "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
     "claim:42ce1ba2afef374bebeb": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
+    "claim:49224f61275c9a1f8e96": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
+    "claim:4b083dda9f0d9ccc4aff": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
     "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
     "claim:5308f526e81645ec0648": "475b0194aca066403017295f12579b6b951e87945093c86536285e386e26c2be",
     "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
+    "claim:66eb84b2b9cc466ce78b": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
     "claim:679a11bb5e644db4bfaa": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
+    "claim:679a38216f2b07097624": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
     "claim:762d02ec5e1b9532d039": "2d7702e293746feaad73194efd82f0d6e61662a299a3db9822204f2ffda3d591",
     "claim:794a1e10cee85f1c6b78": "d6cb5599fad8e64eab6f6cbdb3aab73321dd8b36b7c8a630515034631b736ef5",
     "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
     "claim:7d612089a965482f7eed": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
     "claim:882208fdf2bb82703931": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
+    "claim:91be2ad338eb6b1cdaed": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
     "claim:9b6fa66cbcb39e42d811": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
     "claim:b14b4468388319eb2a34": "b59169633e8fe9f679ccde6cf28132463c8deb13b2dcef985f11ffc443172786",
     "claim:c538cf61594b1114dc41": "783c0fca252106154a0afff0d1287eb6003db96bec36931e2cbf7961e14963bd",
     "claim:c7ce2d177c5707d8635a": "8b7d22c7fb75fd461638028ad99b65fb89732b270a9ab072830eef9012987cfa",
+    "claim:c803dbe27136969cf6e5": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
+    "claim:c8c3a60f71790dd3616d": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
+    "claim:c9c1fa08cb0434d501e6": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
     "claim:d65eaa017f0b1ea39b33": "f53ba37ef9d9f599a45a60a40956b65fded536cb98d0554467848b61c7ead3a0",
     "claim:da22995bb2d271a00d5b": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
     "claim:dd3b03571388d00cc80b": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
     "claim:f52e305b2187f1ab53da": "88a10c355c42478c34d5f4a2c331fb5798714ba819275a3273b3255d37c48f53"
   },
-  "approved_claims_hash": "8fd4248f697ce617bd1eeb4404d4914219aa5f586381077351952954611e6b4b",
+  "approved_claims_hash": "1fceb012bc9d8dcff8cecde469b6cfcd55bd6d41a4ac498cef94c0a5b5ffb08f",
   "approved_claims_path": "knowledge/concepts/learning-lms-engagement/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -984,6 +1293,23 @@
     {
       "approved_concept_ids": [
         "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "content_hash": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
+      "key_insight_count": 6,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:1cb65e44984bb55c",
+      "public_promotion_id": "media-public-promotion:29cd703cc38909fd",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:1cb65e44984bb55c",
+      "source_title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
         "data-views-reports",
         "learning-lms-engagement",
         "mobile"
@@ -1001,20 +1327,21 @@
     }
   ],
   "approved_media_dependency_hashes": {
+    "media-insight:1cb65e44984bb55c": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
     "media-insight:51fb82169d3a4818": "1bf6bd15e7e3c885f14ee02abc44902cdb5c92ed60744ff3d01808739e23ba20",
     "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
     "media-insight:a5cb300eafd257ca": "a65ec527228a1535329b795f207f426d3705e3ff72c6f6b0da625e868f088d8c",
     "media-insight:d1eb1a265dd0762b": "9c51ff5dc858db6cd2cf959ad669f38d5941101f771da6e8e6fe1def3d203bc6",
     "media-insight:ee02b5c27faeaa28": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a"
   },
-  "approved_media_hash": "8ea40668916d01b45a95804a70dc5c112e50a8a98abccea0e9765559679dc8d6",
+  "approved_media_hash": "a0b57d334071cf790dbc08ce3846995364523241e8f5042bbc9fefde7c58459d",
   "approved_media_path": "knowledge/concepts/learning-lms-engagement/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "learning-lms-engagement",
-  "guide_hash": "278dab9d1cb23b4814ca1118e686e5ffaea05d5786908f936496165bf2dfd5e8",
-  "guide_line_count": 1256,
+  "guide_hash": "dcf693da5ae271e6aa584f2723ff599f48520249d3c51c8b70747c78ba59cab2",
+  "guide_line_count": 1257,
   "guide_path": "knowledge/concepts/learning-lms-engagement/guide.md",
-  "guide_word_count": 10925,
+  "guide_word_count": 10959,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1141,6 +1468,24 @@
       "source_key": "a1ed0fff68d780b1",
       "source_record_id": "rock_qa:a1ed0fff68d780b1",
       "url": "https://community.rockrms.com/ask/developing/2786"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "bd359c503b146774",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
     },
     {
       "authority": "unknown",
@@ -2231,31 +2576,32 @@
       "confidence": "citation-only",
       "end_line": 1191,
       "heading": "Approved Claim Coverage",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "5fa353d6f0648800",
+        "bd359c503b146774",
+        "bd359c503b146774",
         "892f43823742ae10",
         "95396b5eafd3b56c",
         "892f43823742ae10",
-        "b68311e84ce45057",
-        "892f43823742ae10",
-        "8540c4be8f5de2d1",
-        "95396b5eafd3b56c",
-        "95396b5eafd3b56c",
-        "b68311e84ce45057",
-        "8540c4be8f5de2d1",
-        "121d4215e1fc4edb",
-        "121d4215e1fc4edb"
+        "b68311e84ce45057"
       ],
       "start_line": 1166
     },
     {
       "confidence": "citation-only",
-      "end_line": 1208,
+      "end_line": 1209,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "bd359c503b146774",
         "95396b5eafd3b56c",
         "8540c4be8f5de2d1",
         "b68311e84ce45057",
@@ -2266,7 +2612,7 @@
     },
     {
       "confidence": "high",
-      "end_line": 1256,
+      "end_line": 1257,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2295,7 +2641,7 @@
         "a1ed0fff68d780b1",
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 1209
+      "start_line": 1210
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:55:32+00:00",
@@ -2620,6 +2966,26 @@
       ],
       "url": "https://community.rockrms.com/ask/developing/2786",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "bd359c503b146774",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
     },
     {
       "authority": "unknown",

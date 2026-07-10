@@ -32,6 +32,38 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Connection-request AI summaries and insights require a configured prompt on the connection type and a configured AI provider. Their output should be treated as generated assistance, not authoritative person data.",
+      "claim_hash": "2d242111b18fc3c14ed5f6348198b4920677daee13645200d56861f6ca3104f8",
+      "claim_id": "claim:069aa7a39db4563841a2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "connections"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "914743ce888dda0e9e6671ba6a8745dcf2f85a1a81846cbe2dc816cf7f06a854",
+      "source_record_ids": [
+        "rock_youtube:62320adf4b451da8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s",
+          "timestamp": "09:43",
+          "timestamp_seconds": 583.82,
+          "title": "Connections Helps Prevent Your People from Falling Through the Cracks",
+          "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Short-form video should be treated as ministry content with a clear next step, not only as entertainment or social promotion.",
       "claim_hash": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
@@ -128,6 +160,98 @@
           "timestamp_seconds": 1989.0,
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This official podcast edition carries the same RockIQ Q&A covered by the reviewed video edition. Use it as an alternate source route, while treating rollout, pricing and pre-release behavior as directional until current documentation and release notes confirm them.",
+      "claim_hash": "9e0d8aabff1a6de57ccf5a6ad42de0942cc134ca1dbb146cc95bc5e351c0501b",
+      "claim_id": "claim:112fa95d4dce5441ec91",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "32b78a65020b0be6993e25b2fe679ee3abf03ee818882c51604f1a6b52ad03d5",
+      "source_record_ids": [
+        "rock_podcast_rss:b122378049fdae19"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This official podcast edition supports the same managed-data-access guidance as the reviewed video edition. Product rollout, external model news and event statements are context only.",
+      "claim_hash": "e1f84495e7162a49207c136e987877e1a71975e92aaf0dd756188ea4867d6992",
+      "claim_id": "claim:17bb0634cc6ebe52d71b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35da668ad76e06ec3bca966c4b19b0ceee8d59e7ac53adc903f3984dbe537019",
+      "source_record_ids": [
+        "rock_podcast_rss:9ace837daaae3cd2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Use this short only as a route to the completed Rock AI Summit recording and its reviewed distillations; event timing and preview statements do not establish current product availability.",
+      "claim_hash": "45807e78cb49a06ccf1782b811afaeef53a925ee4508d266cf89c0b27d65cde2",
+      "claim_id": "claim:1a721dbf2c4cc03cada3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "93d6d43578cbe812c2dfb29186a887f02d58be57fccef759b9cf9c553c4e49d2",
+      "source_record_ids": [
+        "rock_youtube:3272c841f31e0d28"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/shorts/tW4104R1N_o",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Last Chance to Register for the AI Summit",
+          "url": "https://www.youtube.com/shorts/tW4104R1N_o"
         }
       ]
     },
@@ -501,6 +625,72 @@
     },
     {
       "authority_tier": "official",
+      "claim": "Voice AI services may use provider-specific usage pricing rather than a fixed monthly fee. Churches should estimate realistic usage, compare cost with ministry value and verify current provider pricing before rollout.",
+      "claim_hash": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
+      "claim_id": "claim:49224f61275c9a1f8e96",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=372s",
+          "timestamp": "06:12",
+          "timestamp_seconds": 372.36,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record.",
+      "claim_hash": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
+      "claim_id": "claim:4b083dda9f0d9ccc4aff",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2042s",
+          "timestamp": "34:02",
+          "timestamp_seconds": 2042.36,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging.",
       "claim_hash": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
       "claim_id": "claim:4b7b8d0b0379ceb7587f",
@@ -734,6 +924,39 @@
           "source_id": "rock_community_hubs",
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread.",
+      "claim_hash": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
+      "claim_id": "claim:679a38216f2b07097624",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=713s",
+          "timestamp": "11:53",
+          "timestamp_seconds": 713.22,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
       ]
     },
@@ -996,6 +1219,34 @@
           "timestamp_seconds": 487.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "This is the official podcast edition of the reviewed RockIQ rapid-fire Q&A. It is retained as an alternate canonical route to the same release-sensitive discussion; use the existing detailed Episode 218 distillation and current release evidence for operational answers.",
+      "claim_hash": "ce0d2ae30073b62960f5e89b3ec8a254d2e0877b88d32822116c2f5f1e34f690",
+      "claim_id": "claim:77871e1a7bb3793b3de1",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "32b78a65020b0be6993e25b2fe679ee3abf03ee818882c51604f1a6b52ad03d5",
+      "source_record_ids": [
+        "rock_podcast_rss:b122378049fdae19"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218"
         }
       ]
     },
@@ -1270,6 +1521,73 @@
     },
     {
       "authority_tier": "official",
+      "claim": "Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version.",
+      "claim_hash": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
+      "claim_id": "claim:91be2ad338eb6b1cdaed",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s",
+          "timestamp": "33:03",
+          "timestamp_seconds": 1983.08,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.",
+      "claim_hash": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
+      "claim_id": "claim:9cd70d19320375c27cb3",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35da668ad76e06ec3bca966c4b19b0ceee8d59e7ac53adc903f3984dbe537019",
+      "source_record_ids": [
+        "rock_podcast_rss:9ace837daaae3cd2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
+          "timestamp": "09:21",
+          "timestamp_seconds": 561.56,
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Configured agents are described as shared within one Rock instance according to permissions, while conversation sessions and their context remain isolated per person. Verify session visibility and retention in the released version and local security configuration.",
       "claim_hash": "7c12a0993da5a99d79b230341db14ec986eb715b88393ea4d641a9c4f074f47f",
       "claim_id": "claim:9e515c0c6af9c698b614",
@@ -1297,6 +1615,67 @@
           "timestamp_seconds": 1593.0,
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.",
+      "claim_hash": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
+      "claim_id": "claim:a181b9ddd5b0e689895b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "feefff1ae32ad16d3535b2fee3067ecb4105b5f760154090e3b3f465eb2900e0",
+      "source_record_ids": [
+        "rock_youtube:353743c048255f25"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s",
+          "timestamp": "09:17",
+          "timestamp_seconds": 557.3,
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "This official short promoted the July 2026 Rock AI Summit and points viewers to its recording. It is useful only for routing to the completed summit material; it does not establish current Rock IQ availability or configuration behavior.",
+      "claim_hash": "b1e5b639c142b29c27998ffa2820ac83d4ac125683eaa7b7e090898cc11d01a2",
+      "claim_id": "claim:a31ddeebe51e4e001067",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "93d6d43578cbe812c2dfb29186a887f02d58be57fccef759b9cf9c553c4e49d2",
+      "source_record_ids": [
+        "rock_youtube:3272c841f31e0d28"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Last Chance to Register for the AI Summit",
+          "url": "https://www.youtube.com/shorts/tW4104R1N_o"
         }
       ]
     },
@@ -1578,6 +1957,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast episode includes pre-release Rock IQ architecture, AI-vendor evaluation guidance and ministry systems discussion. Its most durable technical guidance is to keep AI behind managed Rock authorization and business logic rather than exposing direct database access. Product rollout and event statements remain release-sensitive.",
+      "claim_hash": "5b3fccb736167d706571d391a24ce14bccace8225a9a943d29c14c0e253a4766",
+      "claim_id": "claim:c161e57517e27fcc47e3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "feefff1ae32ad16d3535b2fee3067ecb4105b5f760154090e3b3f465eb2900e0",
+      "source_record_ids": [
+        "rock_youtube:353743c048255f25"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "The Data Analytics Hub launch frames community analytics as a shared practice space where churches compare dashboards, ministry processes, BI tooling, and Rock-based reporting patterns. The session also includes a Life.Church attendance-flow case study that uses Rock attendance and connection data to prioritize pastoral follow-up while treating AI profile summaries and privacy controls as governance concerns.",
       "claim_hash": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
@@ -1680,6 +2089,70 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast episode connects AI adoption with practical staff-training governance. It covers usage-based AI costs, durable agent artifacts, short change-training videos, role-based Rock LMS assignments, shadow-tool risk and staff-first training. Treat external AI pricing and preview product statements as release-sensitive, and verify current Rock behavior before implementation.",
+      "claim_hash": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
+      "claim_id": "claim:c803dbe27136969cf6e5",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality.",
+      "claim_hash": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
+      "claim_id": "claim:c8c3a60f71790dd3616d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s",
+          "timestamp": "40:09",
+          "timestamp_seconds": 2409.56,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "AI governance should include staff training, data-minimization rules, and a review path before AI-generated content or data summaries influence public communication or pastoral action.",
       "claim_hash": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
@@ -1709,6 +2182,39 @@
           "timestamp_seconds": 133.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan.",
+      "claim_hash": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
+      "claim_id": "claim:c9c1fa08cb0434d501e6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
+      "source_record_ids": [
+        "rock_youtube:1ea957f46e0460f1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1714s",
+          "timestamp": "28:34",
+          "timestamp_seconds": 1714.04,
+          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
+          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
       ]
     },
@@ -2010,9 +2516,13 @@
   ],
   "approved_claim_hashes": {
     "claim:019724f21243d61181e2": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
+    "claim:069aa7a39db4563841a2": "2d242111b18fc3c14ed5f6348198b4920677daee13645200d56861f6ca3104f8",
     "claim:07423eadba1a22784cc4": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
     "claim:080d393b5f32031d1eaa": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
     "claim:0ed16cad9954cfbf26ed": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
+    "claim:112fa95d4dce5441ec91": "9e0d8aabff1a6de57ccf5a6ad42de0942cc134ca1dbb146cc95bc5e351c0501b",
+    "claim:17bb0634cc6ebe52d71b": "e1f84495e7162a49207c136e987877e1a71975e92aaf0dd756188ea4867d6992",
+    "claim:1a721dbf2c4cc03cada3": "45807e78cb49a06ccf1782b811afaeef53a925ee4508d266cf89c0b27d65cde2",
     "claim:1d2211c90cee65515cac": "5db9a518f171204421a6842e55ea1766cda5c6183a798623cbe1ad9fc792f753",
     "claim:1ead6da71f9e978d17a2": "48028ed47be731d2accf055182ef3715fd70938d89d950520c7751d06a3f17b0",
     "claim:269534d094015b5c51b4": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
@@ -2024,6 +2534,8 @@
     "claim:41757e63aea1a926ff6d": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
     "claim:4560f75344e40a127605": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
     "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
+    "claim:49224f61275c9a1f8e96": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
+    "claim:4b083dda9f0d9ccc4aff": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
     "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
     "claim:538f1a4e0ad7c90f7c5a": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
     "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
@@ -2031,6 +2543,7 @@
     "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
     "claim:60c2bcd25e1cce4efef4": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
     "claim:679a11bb5e644db4bfaa": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
+    "claim:679a38216f2b07097624": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
     "claim:6a9cad93b4b24bb5caa7": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
     "claim:6b5701fd90c4e3e812d6": "e3441e23783f0cf75670d837ecaac346bbe7c525430d6838699ca61334046121",
     "claim:6cc8c3bca74b02773140": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
@@ -2039,6 +2552,7 @@
     "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
     "claim:72fde031881e443f8976": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
     "claim:777a543a16ec2b02c0c3": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
+    "claim:77871e1a7bb3793b3de1": "ce0d2ae30073b62960f5e89b3ec8a254d2e0877b88d32822116c2f5f1e34f690",
     "claim:78c58644cb6bf965fb20": "a763b0729fe7a6772c2d071394bf90a8d0f05100aa9c3d13395239cca2fa0e52",
     "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
     "claim:7fc20f1b607270dd550b": "9de369fdec1e9ab700e6b28f0bd4d715a52d4fd848a4413e710dce5d92235259",
@@ -2047,7 +2561,11 @@
     "claim:8a5b060de0516dbe344a": "ad014b77526a4f6d2d87caed6a51cf00bf7d406478455a65ba581479dae44d7a",
     "claim:8f8ca172069290ee944d": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
     "claim:903c8ff9b5d2590fd616": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
+    "claim:91be2ad338eb6b1cdaed": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
+    "claim:9cd70d19320375c27cb3": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
     "claim:9e515c0c6af9c698b614": "7c12a0993da5a99d79b230341db14ec986eb715b88393ea4d641a9c4f074f47f",
+    "claim:a181b9ddd5b0e689895b": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
+    "claim:a31ddeebe51e4e001067": "b1e5b639c142b29c27998ffa2820ac83d4ac125683eaa7b7e090898cc11d01a2",
     "claim:a3f69cd82ee97a4febbf": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
     "claim:aaa109fc541fff897e3f": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
     "claim:ab59d559b804403dc4a0": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
@@ -2056,10 +2574,14 @@
     "claim:bf4911c43f46def1cef1": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
     "claim:c0587c98a544740f9673": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
     "claim:c087efdb352a9b4d8c8c": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
+    "claim:c161e57517e27fcc47e3": "5b3fccb736167d706571d391a24ce14bccace8225a9a943d29c14c0e253a4766",
     "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
     "claim:c37961bab650b138a2d2": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
     "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
+    "claim:c803dbe27136969cf6e5": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
+    "claim:c8c3a60f71790dd3616d": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
     "claim:c983667edefd47bee832": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
+    "claim:c9c1fa08cb0434d501e6": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
     "claim:cd85431e0e3f1bb82125": "441937dd202b20cd45e8ec20ec335947df6cc1dbfde57d98b5bfcd3878fd87c0",
     "claim:d24890227d54fd22a155": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
     "claim:e338ee37078dec6a80d4": "ec084ccb12a4bf89eef95ad7ed6c8d8c23ee5897e1dcf37f0bc83fe99f87fa5e",
@@ -2070,7 +2592,7 @@
     "claim:f7b5a801b7e2d0fa6b39": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c",
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6"
   },
-  "approved_claims_hash": "52a76df483d07839a27af37e2ee039fbbdb6b9c3ea7f31466168b4d37d849ee6",
+  "approved_claims_hash": "c538179b6b95da35141effce0e2b36d0bb20690b94de588e051355332ff5ab34",
   "approved_claims_path": "knowledge/concepts/ai-agents-automation/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2110,6 +2632,23 @@
       "source_record_id": "media-insight:00a8a57d7db012dc",
       "source_title": "Rock's Future Anchored in Vision | Ep 202 Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "learning-lms-engagement",
+        "platform-configuration"
+      ],
+      "content_hash": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
+      "key_insight_count": 6,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:1cb65e44984bb55c",
+      "public_promotion_id": "media-public-promotion:29cd703cc38909fd",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:1cb65e44984bb55c",
+      "source_title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
     },
     {
       "approved_concept_ids": [
@@ -2268,14 +2807,83 @@
       "source_record_id": "media-insight:56972ff0f97e563a",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "content_hash": "e465475aba25d5206882f7c741c7fea6a5cd7fa6579a17aaaa88f7bb8d06b85f",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:0eaf921555a4c075",
+      "public_promotion_id": "media-public-promotion:e465475aba25d520",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:0eaf921555a4c075",
+      "source_title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "d642b52bd46bfca19e9972409b5f15c675acc16f1d551e8e774b1274d92b1c2a",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:5287d1b4b5bb8aaf",
+      "public_promotion_id": "media-public-promotion:d642b52bd46bfca1",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:5287d1b4b5bb8aaf",
+      "source_title": "Last Chance to Register for the AI Summit Transcript Insight",
+      "source_url": "https://www.youtube.com/shorts/tW4104R1N_o"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "c667c450d59ce26d5373f40ea25e824b3225a63f76d2b3e91053731e2758dd20",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:59f5bb8f9a0bfcf3",
+      "public_promotion_id": "media-public-promotion:c667c450d59ce26d",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:59f5bb8f9a0bfcf3",
+      "source_title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "content_hash": "4d3b5ca45b22b9082f043fcb5510dcada10f3c623833339ff1121ec5d0b5bf2a",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:70eec93ffcb16fc8",
+      "public_promotion_id": "media-public-promotion:4d3b5ca45b22b908",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:70eec93ffcb16fc8",
+      "source_title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
     }
   ],
   "approved_media_dependency_hashes": {
     "media-insight:00a8a57d7db012dc": "86e368cf6c9ef4e0c60b6d49c6040c7b34d78279ad15836ada768cee0f8ac345",
+    "media-insight:0eaf921555a4c075": "e465475aba25d5206882f7c741c7fea6a5cd7fa6579a17aaaa88f7bb8d06b85f",
     "media-insight:1b335b58b0acc8b1": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
+    "media-insight:1cb65e44984bb55c": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
+    "media-insight:5287d1b4b5bb8aaf": "d642b52bd46bfca19e9972409b5f15c675acc16f1d551e8e774b1274d92b1c2a",
     "media-insight:56972ff0f97e563a": "1ec1705a0b22a429010514b8c87070b149237b86d7e9fb31a779f8ddb17c4759",
+    "media-insight:59f5bb8f9a0bfcf3": "c667c450d59ce26d5373f40ea25e824b3225a63f76d2b3e91053731e2758dd20",
     "media-insight:5c9737a6d00c5149": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
     "media-insight:5dd64e1dc98b7742": "db6ac242a0713a98c8e469ab0ccc9d3b46f7565e95de388432a00d49436e1c3a",
+    "media-insight:70eec93ffcb16fc8": "4d3b5ca45b22b9082f043fcb5510dcada10f3c623833339ff1121ec5d0b5bf2a",
     "media-insight:71525fead483ddca": "f195092064e7188bdd93a51c563b621e366e5bee5eebe113e1c7c022e734333f",
     "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
     "media-insight:a437d9f5be13ad57": "7888545a0fcbfba57d5dce2fd735d24954c524745d882bdbc2ad9f42f6cf9b6a",
@@ -2283,14 +2891,14 @@
     "media-insight:d03a93f4e7ef8c02": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717"
   },
-  "approved_media_hash": "b381dfd76ea7d549509538bee55ec57c6733cb7bace969713ef13d832319338d",
+  "approved_media_hash": "5e1a8687aaf082a9b98152336963f462727a387de0bf0a74469e47cd2d6b7c20",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "ae2c1d1f43016d95cbb8a11f765a7fc789c357e0c69fc6125ec5dace339d0024",
+  "guide_hash": "f30d013a2c02bf4db74f29baf875d3b55af32c6fc91473496bac4324fb1289a6",
   "guide_line_count": 1269,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 11526,
+  "guide_word_count": 11489,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2423,9 +3031,45 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "bd359c503b146774",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "874c48c7aa36826b",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "9c54a75bab4e39e3",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "e9afd5bba3859930",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/shorts/tW4104R1N_o"
     },
     {
       "authority": "unknown",
@@ -2453,42 +3097,6 @@
       "source_key": "1fae67b5dc09e2b0",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "d593e234279cb690",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "87de570d7b164f63",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "8540c4be8f5de2d1",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "6ca31915e98eb031",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
     }
   ],
   "sections": [
@@ -3544,14 +4152,14 @@
       "source_keys": [
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
+        "bd359c503b146774",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
+        "bd359c503b146774",
         "dcc9c3b1df657d9f",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
+        "bd359c503b146774",
+        "874c48c7aa36826b",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75"
       ],
@@ -3565,13 +4173,13 @@
       "section_id": "approved-media-coverage",
       "source_keys": [
         "fe0b6d3b462f6c75",
+        "bd359c503b146774",
+        "874c48c7aa36826b",
+        "9c54a75bab4e39e3",
+        "e9afd5bba3859930",
         "d2890df9787aa1ae",
         "f325315718b03eb6",
-        "1fae67b5dc09e2b0",
-        "d593e234279cb690",
-        "87de570d7b164f63",
-        "8540c4be8f5de2d1",
-        "6ca31915e98eb031"
+        "1fae67b5dc09e2b0"
       ],
       "start_line": 1202
     },
@@ -3882,10 +4490,50 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "bd359c503b146774",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "874c48c7aa36826b",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=mYTaGxYMyyQ",
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "9c54a75bab4e39e3",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
+      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "e9afd5bba3859930",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/shorts/tW4104R1N_o",
+      "url": "https://www.youtube.com/shorts/tW4104R1N_o"
     },
     {
       "authority": "unknown",
@@ -3916,46 +4564,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "d593e234279cb690",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "87de570d7b164f63",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "8540c4be8f5de2d1",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "6ca31915e98eb031",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
     }
   ],
   "synthesis_profile": "comprehensive"

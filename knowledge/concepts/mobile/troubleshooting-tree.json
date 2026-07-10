@@ -125,13 +125,13 @@
         "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
         "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
         "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
-        "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
-        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
         "https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources",
         "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
         "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-        "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling"
+        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -143,7 +143,7 @@
   ],
   "concept_id": "mobile",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_sections": [
     "8-commands-deep-dive-operational-command-troubleshooting",
     "17-troubleshooting-decision-tree",

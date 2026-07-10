@@ -7,12 +7,13 @@
     "official-release",
     "official-training",
     "official-triumph",
-    "source-code"
+    "source-code",
+    "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13465 words; expected at least 7000.",
+      "message": "Guide has 13478 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,13 +60,13 @@
   "concept_id": "cms-websites",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_line_count": 1569,
-  "guide_word_count": 13465,
+  "guide_word_count": 13478,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 121,
-  "source_count": 17,
+  "source_count": 19,
   "status": "pass",
   "task_card_count": 7
 }

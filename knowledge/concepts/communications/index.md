@@ -2,7 +2,7 @@
 id: concept-communications
 title: Communications
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -153,7 +153,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | operational_guidance | For staff training and operational readiness, Communication Lists & Segments should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-lists--segments) |
 | rocku-confirmed | operational_guidance | The Communication Preferences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-preferences) |
 | rocku-confirmed | operational_guidance | For ministry process design, Communication Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-templates) |
@@ -166,12 +171,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Sending Email (Simple Mode) RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/sending-email-legacy) |
 | rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, SMS Pipeline should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/sms-pipeline) |
 | rocku-confirmed | operational_guidance | The Communication Overview RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-overview) |
-| rocku-confirmed | operational_guidance | For ministry process design, Communication Templates [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-templates-legacy) |
-| rocku-confirmed | operational_guidance | For ministry process design, Sending Email (Simple Mode) should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/sending-email-legacy) |
-| rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Communication Analytics should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-analytics) |
-| rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Communication Flows should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-flows) |
-| rocku-confirmed | operational_guidance | For ministry process design, Communication Flows should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-flows) |
-| More |  | 129 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 134 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -327,7 +327,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `145`
 - Lava capability source records: `53`
-- Approved claims: `147`
+- Approved claims: `152`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

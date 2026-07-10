@@ -43,6 +43,6 @@ Follow the guide section for Recipe: Build A Calendar Feed.
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs
-- https://community.rockrms.com/rocku/groups
 - https://community.rockrms.com/rocku/groups/group-location
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs

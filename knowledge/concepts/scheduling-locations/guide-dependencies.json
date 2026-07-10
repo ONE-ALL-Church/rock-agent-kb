@@ -68,6 +68,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
+      "claim_hash": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
+      "claim_id": "claim:07a75e5ff71510d708de",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=91s",
+          "timestamp": "01:31",
+          "timestamp_seconds": 91.26,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying reporting, analytics, and measurement ideas from Product Grooming & the Giving Landscape, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "7d2b2c0a599171716fadda39d5ab8804e88fcb3a607b88e8ec82cacb114732f0",
@@ -265,6 +300,42 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
+      "claim_hash": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
+      "claim_id": "claim:2a9844acce5ba6150dec",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "cms-websites",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=195s",
+          "timestamp": "03:15",
+          "timestamp_seconds": 195.8,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Product Grooming & the Giving Landscape is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, ministry process design, reporting, analytics, and measurement. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
       "claim_hash": "4a2331ee45c861660f82cf88b32108154cfbbd84c8ea81dc16c7e96425796e2a",
@@ -291,6 +362,109 @@
           "source_id": "rock_podcast_rss",
           "title": "Product Grooming & the Giving Landscape",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation.",
+      "claim_hash": "a30ba790b7792da9d25bd65f3703dedeeb2a26e84a03f18303437437314a5951",
+      "claim_id": "claim:3122ff168111783bf1b7",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
+      "claim_hash": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+      "claim_id": "claim:32f0173b23a7d2c356c0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "data-views-reports",
+        "lava",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "06:26",
+          "timestamp_seconds": 386.3,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
+      "claim_hash": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
+      "claim_id": "claim:3e398ac03167b9c52704",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "cms-websites",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "03:16",
+          "timestamp_seconds": 196.88,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
       ]
     },
@@ -324,6 +498,42 @@
           "timestamp_seconds": 0.0,
           "title": "Schedules",
           "url": "https://community.rockrms.com/rocku/check-in/schedules"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
+      "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
+      "claim_id": "claim:4c4098a035a5ca256bfe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "data-views-reports",
+        "lava",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s",
+          "timestamp": "06:26",
+          "timestamp_seconds": 386.28,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
       ]
     },
@@ -393,6 +603,72 @@
       ]
     },
     {
+      "authority_tier": "community-reviewed",
+      "claim": "This official podcast edition supports the same v19 rollout and operational feature guidance as the reviewed video edition: prepare Connections users, configure built-in CAPTCHA, expect real-time Check-In Manager updates and use materialized schedule dates. Verify exact behavior against the installed v19 build.",
+      "claim_hash": "e5605f992e3a53c0f6ad640386f70b8df00a3d6c165b4e381ad007605462e063",
+      "claim_id": "claim:5e95f49027f612b41532",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
+      "claim_hash": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
+      "claim_id": "claim:66eb84b2b9cc466ce78b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "learning-lms-engagement",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "01:33",
+          "timestamp_seconds": 93.18,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Campuses is approved as a public-safe RockU training distillation for staff training and operational readiness, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "74d46fc99cc84705bfcef728e1437eaab27a48c93f974e57fbe859de30b3e05c",
@@ -451,6 +727,74 @@
           "timestamp_seconds": 144.0,
           "title": "Group Scheduler and Status Board",
           "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
+      "claim_hash": "df06ba58e451cd575a40f967a82668ffc4b9ee0df9d07d7a6aa3ab415d989f27",
+      "claim_id": "claim:9ad17cb08b8955d0d3ec",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=268s",
+          "timestamp": "04:28",
+          "timestamp_seconds": 268.06,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
+      "claim_hash": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
+      "claim_id": "claim:9c8ce297c9c4a4cda982",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care",
+        "scheduling-locations",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
+      "source_record_ids": [
+        "rock_youtube:2b3b848223d53224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s",
+          "timestamp": "01:04",
+          "timestamp_seconds": 64.58,
+          "title": "Outreach Toolbox is Here in v19",
+          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
       ]
     },
@@ -647,6 +991,40 @@
     },
     {
       "authority_tier": "community-reviewed",
+      "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
+      "claim_hash": "be1b10911d83e98e5b0589ad9085800e09a24c3db0775a260a63cb24151e13ee",
+      "claim_id": "claim:dc7cb132c34cdde8cb4e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "04:28",
+          "timestamp_seconds": 268.1,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
       "claim": "the Product Grooming & the Giving Landscape episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
       "claim_hash": "12ddd3457799437d9a815d8ef89237bc4853c017cefa75c6a54a644152b0b353",
       "claim_id": "claim:e42b0edf071d6f51a5d2",
@@ -775,30 +1153,41 @@
   "approved_claim_hashes": {
     "claim:01ff9ed6a6b877b9f731": "23404f33688b9ffa28e1187bc8818f1141260d809fe313bbd8af24027d80d52f",
     "claim:0772c6dac6606362f1fc": "5d0a3b772329d3225ec849db095ce9e9d9cf2c06fad974e8b920985e39a50622",
+    "claim:07a75e5ff71510d708de": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
     "claim:0c31d43da1ea06728ca9": "7d2b2c0a599171716fadda39d5ab8804e88fcb3a607b88e8ec82cacb114732f0",
     "claim:10270a60fc64380cd39d": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
     "claim:162b50b245449650877f": "d9a8fb052a7393e5576a80b2a96f1ded2bc9585b3b6b48f0e5b9ba5e2e1624d1",
     "claim:20180d84d33561850701": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
     "claim:203bc3811bcc6f7af24f": "df406abf0766ea0e0999e2b9b6af62fccb6ec04a159f552f93846b8542163ac8",
     "claim:273569623174af9b2460": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
+    "claim:2a9844acce5ba6150dec": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
     "claim:2d57166dfa20c91564d0": "4a2331ee45c861660f82cf88b32108154cfbbd84c8ea81dc16c7e96425796e2a",
+    "claim:3122ff168111783bf1b7": "a30ba790b7792da9d25bd65f3703dedeeb2a26e84a03f18303437437314a5951",
+    "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+    "claim:3e398ac03167b9c52704": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
     "claim:478537db6c6c72a01a23": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
+    "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
     "claim:57298eb943d1acbad3ee": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
     "claim:5b59d0c1ed8cffb794c6": "d8ab8e3b22ffd0fbe667177bdb88f8478c7332f6c9040e945e505b56bea163d6",
+    "claim:5e95f49027f612b41532": "e5605f992e3a53c0f6ad640386f70b8df00a3d6c165b4e381ad007605462e063",
+    "claim:66eb84b2b9cc466ce78b": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
     "claim:765e97c1095c16a9a4bd": "74d46fc99cc84705bfcef728e1437eaab27a48c93f974e57fbe859de30b3e05c",
     "claim:96bf5b217e3ab42f1544": "d1a8b4362de69191a2d67330520b54d30e14c1ffa055dea56b83632f7a0d38c4",
+    "claim:9ad17cb08b8955d0d3ec": "df06ba58e451cd575a40f967a82668ffc4b9ee0df9d07d7a6aa3ab415d989f27",
+    "claim:9c8ce297c9c4a4cda982": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
     "claim:a252f6b9f779ae33781a": "2f3396337748f9a5c12c535a40c4b90262ff30aca432f701fc664fb946a56733",
     "claim:ae356a9d7df599b21ea2": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
     "claim:b2f31282c94920ff55aa": "6addb4c2840348f8a88775986ead1c2354f1c7704fb998e9f478edd09e10ffef",
     "claim:b37636e7ad6ebd09a089": "efcbfa582e7becbd38564b9ec5787bcaaddeeaecad34e1fdb08616b73a33850f",
     "claim:b626c6ef85b2988091af": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
     "claim:d8d346e564827b9ead2b": "b930c693d90d7d5582c9d0ad924e5ce1b44efa7b746325eeaeb76cae807da6b1",
+    "claim:dc7cb132c34cdde8cb4e": "be1b10911d83e98e5b0589ad9085800e09a24c3db0775a260a63cb24151e13ee",
     "claim:e42b0edf071d6f51a5d2": "12ddd3457799437d9a815d8ef89237bc4853c017cefa75c6a54a644152b0b353",
     "claim:e76ced6026d1e165795e": "925e6b7b449e8ea703758dbe3605d988384fdbc4f9fcafa9d3537b0bd75e253f",
     "claim:e8bfb77009f754c3faa1": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
     "claim:fc39b9c1c14db6752b48": "392b914d667f2f191862e5bebc2d5f9867e5b153b9d5a110e89e87c4ea91ba70"
   },
-  "approved_claims_hash": "ae8f87290f6c533faf80b2dd179e8a3c3140317c273469c89b8b68dfff1cf94c",
+  "approved_claims_hash": "de1f39f26197d17c1118cd7b0384ab62566db30a94c28a9eaeb611fab8e6dff7",
   "approved_claims_path": "knowledge/concepts/scheduling-locations/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -923,6 +1312,42 @@
     },
     {
       "approved_concept_ids": [
+        "check-in",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "content_hash": "5e6d1913a9840f94774201b934775faabc614dd1c7dd248f0a11bdbcbe32c1d0",
+      "key_insight_count": 4,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:e966cbaf8af14d10",
+      "public_promotion_id": "media-public-promotion:5e6d1913a9840f94",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:e966cbaf8af14d10",
+      "source_title": "3 Underrated Features Churches Are Overlooking | Ep 217 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "approved_concept_ids": [
+        "check-in",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "content_hash": "25944046af8d49f29a5628f47bfedf9406488c078fc57d404ca2c74a5ee19959",
+      "key_insight_count": 4,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:1996763c554953f9",
+      "public_promotion_id": "media-public-promotion:25944046af8d49f2",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:1996763c554953f9",
+      "source_title": "3 Underrated Features Churches Are Overlooking | Ep 217 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+    },
+    {
+      "approved_concept_ids": [
         "data-views-reports",
         "giving-finance",
         "scheduling-locations"
@@ -940,6 +1365,7 @@
     }
   ],
   "approved_media_dependency_hashes": {
+    "media-insight:1996763c554953f9": "25944046af8d49f29a5628f47bfedf9406488c078fc57d404ca2c74a5ee19959",
     "media-insight:3412bc01ca2880c8": "743d5e86ef84d29e0f50cd457be2a88b6b42906f97adba165c02e096a4fa7795",
     "media-insight:457020f0b7d8dd97": "82b439381e7f78a97be8f3f7b68a2d34d156a17ac6a037029bbd381898127812",
     "media-insight:61af1407e6153473": "0c10674ee5b24dc9e02e62ad6c1732c797776890df4076ca38e6121a8ef36a47",
@@ -947,16 +1373,17 @@
     "media-insight:97d2378d55d23ad1": "ab0503e5435211ad44c9408cddecc8e95149728de3da868f448b75747d5fd99c",
     "media-insight:bcba31d4beb5a53b": "bf1194b6a7e21f91b096ef26ba38bd5d703fa19839acf78363e220506b86277b",
     "media-insight:c28fc8fb8212eae5": "e95863480143e478a9f9a53d7e7248381c37f04efeade1ca696e5c2c2b87926b",
+    "media-insight:e966cbaf8af14d10": "5e6d1913a9840f94774201b934775faabc614dd1c7dd248f0a11bdbcbe32c1d0",
     "media-insight:f0ede8a57e3ed4ac": "4d044a4c4fbef97b1620715bc718f91ec1dccce92a77e832e4985c4c34bb7352"
   },
-  "approved_media_hash": "3b2b431c4f9cc02db500578c068efe5261b568eba0275fe44dd9b306b0eaa21b",
+  "approved_media_hash": "aebcaa061fb04d7cb10d9f129006a9537fe6b88c39fabbbed8010a7354aa6976",
   "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "scheduling-locations",
-  "guide_hash": "cb4975f6a12d6f17565b9d8e542494ecae2c7dc36951b92cb34bb1587f965fb1",
-  "guide_line_count": 1145,
+  "guide_hash": "8b9fa5719b7c2167b636b24d8f4da7721245be87d6c0a668cf73262b6c943eb6",
+  "guide_line_count": 1146,
   "guide_path": "knowledge/concepts/scheduling-locations/guide.md",
-  "guide_word_count": 11471,
+  "guide_word_count": 11469,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1481,6 +1908,24 @@
       "url": "https://community.rockrms.com/ask/developing/2710"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a56a73c5681795bd",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -1515,6 +1960,15 @@
       "source_key": "aa94e8b3d8886a7a",
       "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
       "url": "https://community.rockrms.com/rocku/check-in/schedules"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     },
     {
       "authority": "official-training",
@@ -2739,42 +3193,42 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "5fa353d6f0648800",
+        "5fa353d6f0648800",
+        "5fa353d6f0648800",
+        "5fa353d6f0648800",
+        "a56a73c5681795bd",
+        "5fa353d6f0648800",
         "cc6fb3df674b28c2",
         "2a863471e239f0b9",
         "90ed168a3283ccaa",
         "d0d7d71631f3f890",
         "2a863471e239f0b9",
-        "aa94e8b3d8886a7a",
-        "1cfd7942fe8e3344",
-        "f4d1879d32a182fe",
-        "aa94e8b3d8886a7a",
-        "f4d1879d32a182fe",
-        "1cfd7942fe8e3344",
-        "1cfd7942fe8e3344"
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1066
     },
     {
       "confidence": "citation-only",
-      "end_line": 1111,
+      "end_line": 1112,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "e3517fa274c4048c",
+        "5fa353d6f0648800",
         "f4d1879d32a182fe",
         "d0d7d71631f3f890",
         "1cfd7942fe8e3344",
         "90ed168a3283ccaa",
         "2a863471e239f0b9",
-        "3d0824ff41704b39",
-        "cc6fb3df674b28c2",
-        "aa94e8b3d8886a7a"
+        "3d0824ff41704b39"
       ],
       "start_line": 1092
     },
     {
       "confidence": "high",
-      "end_line": 1145,
+      "end_line": 1146,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -2822,7 +3276,7 @@
         "8e315d226b2c1474",
         "7a617924deb729b4"
       ],
-      "start_line": 1112
+      "start_line": 1113
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T20:25:44+00:00",
@@ -4184,6 +4638,26 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a56a73c5681795bd",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=LNcx8t0mlQ4",
+      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -4266,6 +4740,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/check-in/schedules",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     },
     {
       "authority": "official-training",

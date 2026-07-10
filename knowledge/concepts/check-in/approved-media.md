@@ -2,7 +2,7 @@
 concept_id: check-in
 generated: true
 artifact_level: media_distillation
-approved_media_count: 31
+approved_media_count: 33
 ---
 
 # Check-In Approved Media
@@ -11,6 +11,8 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:1996763c554953f9` | 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| `media-insight:e966cbaf8af14d10` | 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | approved_for_public_distillation | 4 | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | `media-insight:6177a74e098f3302` | Aero Check-in Theme Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/check-in/aero-check-in-theme) |
 | `media-insight:e066ef3153b2cc3d` | Attendance Analytics Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/check-in/attendance-analytics) |
 | `media-insight:1fb05cc8930bc9e2` | Attendance Self-Entry Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/check-in/attendance-self-entry) |

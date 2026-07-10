@@ -2,7 +2,7 @@
 concept_id: prayer-care
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 19
+approved_claim_count: 25
 ---
 
 # Prayer And Care Approved Claims
@@ -30,3 +30,9 @@ This generated artifact contains the full approved public claim coverage for the
 | `claim:3adb0c2e259a8595879b` | official | implementation_pattern | The Prayer Card View block is included with Rock but must be manually placed on an external-site page; it presents requests as cards and records a prayer when a team member selects the prayer action. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | `claim:b8239b164ebf31857a31` | official | implementation_pattern | The Prayer Request Entry block can launch a configured workflow after submission, and that workflow can access information from the submitted prayer request. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
 | `claim:3ad8495d7893123893fb` | official | operational_guidance | A typical prayer workflow assigns administrators to enter card-submitted requests and review flagged or unapproved requests, while prayer team members pray for requests and flag content that should not be publicly visible. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-team-roles) |
+| `claim:483a11b884e0e69ffd4d` | official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:54aeb223a9029e9f7707` | official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| `claim:9c8ce297c9c4a4cda982` | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:e704f98991439e3e1576` | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:35d327f4909c62921563` | official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:fce0fb74a46963faeb59` | official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |

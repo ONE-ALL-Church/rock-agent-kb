@@ -7,26 +7,26 @@ artifact_level: answer
 
 # What should I check first for Platform Configuration?
 
-Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers.
+Rock v19 begins the organization-wide Essentials and Trailblazer experience-mode rollout. The mode changes visible pages, settings and help content, while individual supported settings screens can preview both levels; not every block is necessarily mode-aware yet. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.
 
 ## Top Claims
 
+- `claim:1eb3f0a262c65737970a`
+- `claim:7df4b8c20f9419a30a5a`
+- `claim:91be2ad338eb6b1cdaed`
+- `claim:9ad17cb08b8955d0d3ec`
 - `claim:b4fb38224ff8452078f3`
-- `claim:4b7b8d0b0379ceb7587f`
-- `claim:538f1a4e0ad7c90f7c5a`
-- `claim:57e32b4d554a759231a1`
-- `claim:60c2bcd25e1cce4efef4`
-- `claim:6ae226ddf1e1e1df52ed`
-- `claim:c3921cb1d8b61e06c713`
-- `claim:60d40983fd53c0173dd9`
+- `claim:f8380a3e786ab33df98f`
+- `claim:07a75e5ff71510d708de`
+- `claim:091606bd3b8b0472392a`
 
 ## Citations
 
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=96s) (`01:36`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s) (`04:22`)
+- [AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s) (`33:03`)
+- [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s) (`04:28`)
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s) (`24:01`)
-- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s) (`87:48`)
-- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s) (`15:09`)
-- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s) (`76:13`)
-- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s) (`67:34`)
-- [Packaging Plugins and Themes](https://community.rockrms.com/developer/packaging-plugins-themes)
-- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s) (`71:20`)
-- [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) (`49:32`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s) (`17:36`)
+- [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=91s) (`01:31`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s) (`16:43`)

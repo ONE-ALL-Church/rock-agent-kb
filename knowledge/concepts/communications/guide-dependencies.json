@@ -347,6 +347,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause.",
+      "claim_hash": "3f0dfda24141c3bd127435fd12848cb757068642ea20ab3b1262130c262d1d73",
+      "claim_id": "claim:147ee6dbc7db220dc7ba",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "data-views-reports",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s",
+          "timestamp": "11:54",
+          "timestamp_seconds": 714.84,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Communication Preferences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "1d65a79b510bd381c7cf92e1b48183601e05c62aa327895e434476eafc9416bf",
@@ -1580,6 +1613,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions.",
+      "claim_hash": "9db403837f3f5bbc30c7a706fe0cbaba0cd6bacd8e0781214f37413fa3506257",
+      "claim_id": "claim:5eedd5acf0194a87c5ce",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "connections",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "914743ce888dda0e9e6671ba6a8745dcf2f85a1a81846cbe2dc816cf7f06a854",
+      "source_record_ids": [
+        "rock_youtube:62320adf4b451da8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s",
+          "timestamp": "07:46",
+          "timestamp_seconds": 466.84,
+          "title": "Connections Helps Prevent Your People from Falling Through the Cracks",
+          "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "This Digital Strategy Hub session provides a strategy frame for using web, mobile, and communication channels to build digital connections that move people toward real ministry engagement. It is useful context for KB guidance where Rock CMS, Rock Mobile, content channels, and communications support the same connection path rather than isolated digital projects.",
       "claim_hash": "3aab508df7790fe2d2c418ebaea6128f6820474c5fc4080539dfdf502794b604",
@@ -2355,6 +2422,38 @@
           "source_id": "rock_rocku",
           "title": "Communication Overview",
           "url": "https://community.rockrms.com/rocku/communication/communication-overview"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation.",
+      "claim_hash": "6a35a0001133237b3dfd46ead32c772d93fec3f7c27fc14ed4a2ad00771920fd",
+      "claim_id": "claim:809519cf51bf3b32119f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s",
+          "timestamp": "10:27",
+          "timestamp_seconds": 627.8,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -3520,6 +3619,39 @@
           "timestamp_seconds": 0.0,
           "title": "Communication Analytics [Legacy]",
           "url": "https://community.rockrms.com/rocku/communication/communication-analytics-legacy"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history.",
+      "claim_hash": "a56404e927083c9d5a963a17cfdd5d4d86d77e8162e7422961f5c81e88599d3b",
+      "claim_id": "claim:c8435f854b9e7075ab76",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=684s",
+          "timestamp": "11:24",
+          "timestamp_seconds": 684.04,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -4792,6 +4924,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use.",
+      "claim_hash": "abf68118b45226aabda4ab4f471284810669affb7b8d5e695ccb39bfa8ed447e",
+      "claim_id": "claim:f8380a3e786ab33df98f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s",
+          "timestamp": "17:36",
+          "timestamp_seconds": 1056.36,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For staff training and operational readiness, Group Scheduling Roster and Communications should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "0f2997883e339ed2a2ec1dec3aaedfe2e27a48bc5e80f02a7d526a4c06573dc5",
@@ -4953,6 +5118,7 @@
     "claim:115ee5c99f8da962aafd": "c5e107b2654d8d6630020d77c0593a09b0fc12b49f4a8a5108824877624b2e80",
     "claim:12c000e07e81024c2e54": "448f32aa71a5083f80b447e56e7afe486a8c98c99fc567e77d61f0b8c4d71eef",
     "claim:142629c3a73eea99a448": "d7a491508a77e09825042a194860761ed9dd102b38025a576096d6799d04bc4b",
+    "claim:147ee6dbc7db220dc7ba": "3f0dfda24141c3bd127435fd12848cb757068642ea20ab3b1262130c262d1d73",
     "claim:1b6e8bdd3ecb3c0cae1b": "1d65a79b510bd381c7cf92e1b48183601e05c62aa327895e434476eafc9416bf",
     "claim:1bfcc37e9004c2bf5e70": "b386b19beb71dc27dd6e05f8e0edf2e7ba2ca7a429eb2a5b52f959fc4ae20e8b",
     "claim:1e8a4c84ec5bc7717590": "20793f8458ac752b413e74f16e252bac80a1027171d701f356e3c929576a1334",
@@ -4989,6 +5155,7 @@
     "claim:5998f57c6b527aee9750": "3dbdb3b081c97a817e591a417c856927f96595b583076e7edf49fbf6a8bbb76a",
     "claim:5ab09beb0d59c2393a87": "5300c1fd02533fdafe8bdfdd91d9d4c99f3ddff36fd955c8148675e89b1cadc4",
     "claim:5c0c69c34357b31b8a53": "313f5fd3f0b81ca273cd1cfafd108cad7983ce6ac18c0933123934411be00541",
+    "claim:5eedd5acf0194a87c5ce": "9db403837f3f5bbc30c7a706fe0cbaba0cd6bacd8e0781214f37413fa3506257",
     "claim:5fe4532717d20ddfd3a1": "3aab508df7790fe2d2c418ebaea6128f6820474c5fc4080539dfdf502794b604",
     "claim:602bd14f9969a59e9fb0": "25de1dcb705dc63a410bc9d17dba21e9cc1f50b26197198ec4e67fa59dfacc7b",
     "claim:608894aed39edef21a14": "99f926852869ab8262ea407dfbb10cf965a25c56fcab4c07f3f0be90d4b69de0",
@@ -5013,6 +5180,7 @@
     "claim:7d612089a965482f7eed": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
     "claim:7e326f74fc42b21394e7": "6fccb120c0c8f84a995f2da429e0e43207501617f9ed30c072d0bdc4b5cb7bf4",
     "claim:7e487f680ded387af2c7": "dffbe43d1995f7ac0a7d5993c7e45bb046c7ada8dc82c81a0bad5a6fc0426905",
+    "claim:809519cf51bf3b32119f": "6a35a0001133237b3dfd46ead32c772d93fec3f7c27fc14ed4a2ad00771920fd",
     "claim:809a247b7e15e40205ab": "416af52ef5bbfffe67534b55b243261d4b4789ddde01b5210758763a5f355ddd",
     "claim:81c2313550d392abbda2": "0ca88d3dc40831360d061902d668a1bdb262ca80f54fc7d7936b3b8749987033",
     "claim:8313b7143d1f2de7f9e0": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
@@ -5048,6 +5216,7 @@
     "claim:c749f105511201e4dbee": "466fab0ae7905b5fa52e0508787e576527d86a4fb0efabfa3619e7996b453b25",
     "claim:c7fad68a55feb48db24c": "190d68a7d02c33fe6bfb878f91e168987686bd907bc858ec60515a8f8f8002f5",
     "claim:c81c5e870cb35fcb9cdc": "1b0cf3b037396b6f23f029419ce6e637390113eb13d93a2d73a4fc699ce610c7",
+    "claim:c8435f854b9e7075ab76": "a56404e927083c9d5a963a17cfdd5d4d86d77e8162e7422961f5c81e88599d3b",
     "claim:c8a8e73a4eece0d8a764": "8245ea94ea8e8d4081fb947bc2a84c0c133b34fb6d8a4dd54567df305d29ea80",
     "claim:c947c2718609f01e1369": "03ab7d6236b373004d25b5989b20957e5d1e8652afd2405d59db810d284e91db",
     "claim:cd52138ec6ca3848cae9": "a5cc4b27b1115aa0faf626e69a47f90d8188b80c0274e41423eb6703f1e38911",
@@ -5085,12 +5254,13 @@
     "claim:f30c866101088f2fd4ac": "2f2b030a4e9e313bc233e4bfb2194c1fef64e61109bca65b9c397de6fcc6e96d",
     "claim:f31c3f2729a8b9852c0d": "45d5dcd6c8f219ee824ddb1444684857fe69c5007af7e6b3e87840f2ca81af03",
     "claim:f52e305b2187f1ab53da": "88a10c355c42478c34d5f4a2c331fb5798714ba819275a3273b3255d37c48f53",
+    "claim:f8380a3e786ab33df98f": "abf68118b45226aabda4ab4f471284810669affb7b8d5e695ccb39bfa8ed447e",
     "claim:fae44c25319ae1e3440c": "0f2997883e339ed2a2ec1dec3aaedfe2e27a48bc5e80f02a7d526a4c06573dc5",
     "claim:fb85d514f4ed765acad4": "468643df34d10c2da2dbbbe27bec321fc5327979e65dcbc9c768c8ce69591eae",
     "claim:fbe1c1bc5b4f3088779b": "f42db649ebbd9208cdca76e21a05ba19d113dfe810aca2b3edcf3daaf17d0574",
     "claim:fc9111eeb3195e57927a": "d70d718613d9dfc40582c9d4e8f1d9d7d97a517e6ccf015362a210f993186659"
   },
-  "approved_claims_hash": "f794e693300f62625268dc85ab7da6dc6ecfedd57377bb6171d80ff7b2d8f1ca",
+  "approved_claims_hash": "969a624a79dcd303bf5e4a252c50a7c23e39573dca01892ee0a711b3233af7a3",
   "approved_claims_path": "knowledge/concepts/communications/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -5810,12 +5980,12 @@
   },
   "approved_media_hash": "837728495591af88c85f6d94796d6897a80f35b4f4510b6b734a81606591b343",
   "approved_media_path": "knowledge/concepts/communications/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "communications",
-  "guide_hash": "7ace84e387648a57e43bc8353fb10a0143ab3b16b2ceaff24d3549548f5853b2",
+  "guide_hash": "b96a4841c6c92c82d19f597292831de0904c24ffe16a91401968eed38689edd9",
   "guide_line_count": 1221,
   "guide_path": "knowledge/concepts/communications/guide.md",
-  "guide_word_count": 12256,
+  "guide_word_count": 12257,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6299,18 +6469,27 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a1bb90bc2fdee5ac",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "f25daaa8d7e00a2b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications"
     },
     {
       "authority": "community-example",
@@ -7620,18 +7799,18 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "58a92984acbd2344",
+        "a1bb90bc2fdee5ac",
+        "58a92984acbd2344",
         "dcc9c3b1df657d9f",
+        "58a92984acbd2344",
+        "58a92984acbd2344",
         "5be0469caeb64aba",
         "5be0469caeb64aba",
         "5be0469caeb64aba",
         "5be0469caeb64aba",
         "0de3abf0560c66c2",
-        "5be0469caeb64aba",
-        "5be0469caeb64aba",
-        "5be0469caeb64aba",
-        "f25daaa8d7e00a2b",
-        "5be0469caeb64aba",
-        "0de3abf0560c66c2"
+        "5be0469caeb64aba"
       ],
       "start_line": 1107
     },
@@ -8869,20 +9048,30 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a1bb90bc2fdee5ac",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=7rxTGLLhlrU",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "f25daaa8d7e00a2b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications",
-      "url": "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications"
     },
     {
       "authority": "community-example",

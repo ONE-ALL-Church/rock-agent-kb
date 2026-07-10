@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -33,20 +33,19 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 ## How To Think About This Area
 
 - `Hosting And Infrastructure` spans operations, security, jobs, cache, search, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_recipes, triumph_resources, rock_core_release_notes, rock_rocku, rock_qa.
-- Related tags found in source records: operations, sql, usage, workflow, admin, releases, lava, ai.
+- The strongest source families in this build are: rock_documentation, rock_youtube, rock_podcast_rss, rock_recipes, triumph_resources, rock_core_release_notes.
+- Related tags found in source records: operations, sql, usage, workflow, admin, lava, releases, integrations.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
 
 | Source | Topic | Timestamp | Distilled Claim | Citation |
 | --- | --- | --- | --- | --- |
+| The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | Rock security patch cadence | 06:36 | Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s) |
+| The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | solution-option discipline | 12:27 | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s) |
+| The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | Rock security patch cadence | 06:36 | Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. | [source](https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215) |
+| The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | solution-option discipline | 12:18 | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215) |
 | Workflow Performance Tips Transcript Insight | Rock operations | 00:00 | The Workflow Performance Tips RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
-| Text to Workflow Performance [Legacy] Transcript Insight | Rock operations | 00:00 | The Text to Workflow Performance [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
-| Text to Workflow Performance [Legacy] Transcript Insight | data and reporting | 07:24 | For reporting, analytics, and measurement, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
-| Text to Workflow Performance [Legacy] Transcript Insight | risk and governance | 00:54 | For risk, governance, permissions, and policy review, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
-| Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight | sql and customization | 00:00 | The SQL Server and customization episode is useful as operational context for database and customization tradeoffs, but agents should route concrete SQL or customization guidance through source code, live schema, and performance evidence. | [source](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) |
-| Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight | implementation governance | 00:00 | For reporting and CMS customization work, use podcast context to frame risk questions about maintainability, upgrades, SQL Server behavior, and local implementation boundaries rather than as direct build instructions. | [source](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) |
 
 
 ## Approved Claims
@@ -69,11 +68,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | implementation_pattern | Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
 | official | operational_guidance | Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting) |
 | official | operational_guidance | For a Rock 19.0 internal-hosting installation, use SQL Server's default instance unless the administrator is experienced with named instances, because the default instance simplifies subsequent Rock configuration. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server) |
+| official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | official | operational_guidance | Azure capacity planning should treat attendance-based tiers as starting points; organizations that also host their public website in Rock should select the next larger tier, while accounting for feature usage and workload intensity. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options) |
 | official | operational_guidance | An organization that already has an Azure account should ask Microsoft Support to merge it with the nonprofit account so the nonprofit credit can be applied to the existing Azure setup. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit) |
 | official | recipe | Before launching a SaaS-hosted Rock instance publicly, an organization should select a hosting partner, inventory its current system, arrange a kickoff, prepare a migration plan, and reserve a test period. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting) |
-| official | recipe | For Azure SQL Database, create Rock's SQL-authenticated login and master-database user with the dbmanager and loginmanager roles; after Rock creates its database, add the corresponding user in that database to the db_owner role. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server) |
-| More |  | 7 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 14 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -83,7 +82,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_podcast_rss`: 1
 - `rock_qa`: 2
 - `rock_recipes`: 12
-- `rock_rocku`: 4
+- `rock_rocku`: 3
+- `rock_youtube`: 1
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 11
 
@@ -192,9 +192,6 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 | Source | Topic | Timestamp | Distilled Claim | Citation |
 | --- | --- | --- | --- | --- |
 | Workflow Performance Tips Transcript Insight | Rock operations | 00:00 | The Workflow Performance Tips RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
-| Text to Workflow Performance [Legacy] Transcript Insight | Rock operations | 00:00 | The Text to Workflow Performance [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
-| Text to Workflow Performance [Legacy] Transcript Insight | data and reporting | 07:24 | For reporting, analytics, and measurement, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
-| Text to Workflow Performance [Legacy] Transcript Insight | risk and governance | 00:54 | For risk, governance, permissions, and policy review, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
 
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
@@ -212,7 +209,7 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 ## Rebuild Dependencies
 
 - Source records: `72`
-- Approved claims: `25`
+- Approved claims: `32`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

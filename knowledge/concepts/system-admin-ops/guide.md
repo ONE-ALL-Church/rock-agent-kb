@@ -1608,11 +1608,12 @@ Use [release notes](https://www.rockrms.com/releasenotes) as primary authority.
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `11`
+- Approved claims routed to this concept: `12`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | community-reviewed | operational_guidance | Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | community-reviewed | operational_guidance | Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | community-reviewed | operational_guidance | Email logo branding should be treated as sender-trust work that makes messages easier to recognize, not as a guaranteed fix for spam-folder placement. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |

@@ -2,7 +2,7 @@
 concept_id: scheduling-locations
 generated: true
 artifact_level: media_distillation
-approved_media_count: 8
+approved_media_count: 10
 ---
 
 # Scheduling And Locations Approved Media
@@ -11,6 +11,8 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:1996763c554953f9` | 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| `media-insight:e966cbaf8af14d10` | 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | approved_for_public_distillation | 4 | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | `media-insight:3412bc01ca2880c8` | Campuses Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
 | `media-insight:bcba31d4beb5a53b` | Group Location Transcript Insight | approved_for_public_distillation | 1 | [source](https://community.rockrms.com/rocku/groups/group-location) |
 | `media-insight:f0ede8a57e3ed4ac` | Group Scheduler and Status Board Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board) |

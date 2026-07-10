@@ -2,7 +2,7 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -33,8 +33,8 @@ Attendance, kiosks, labels, families, schedules, locations, mobile check-in, and
 ## How To Think About This Area
 
 - `Check-In` spans attendance, groups, locations, schedules, labels, mobile. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_recipes.
-- Related tags found in source records: usage, check-in, training, workflow, mobile, operations, api, admin.
+- The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_community_hubs, rock_youtube, rock_documentation, rock_mobile_docs.
+- Related tags found in source records: usage, check-in, training, workflow, mobile, operations, api, media.
 - Source detail types include: developer_doc, documentation_article, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -115,6 +115,14 @@ Attendance, kiosks, labels, families, schedules, locations, mobile check-in, and
 | Episode 129: Check-Ins Transcript Insight | Rock operations | 00:00 | the Episode 129: Check-Ins episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance. | [source](https://shows.acast.com/rock-cast/episodes/episode-129-check-ins) |
 | Episode 129: Check-Ins Transcript Insight | ministry process | 04:29 | When applying ministry process design ideas from Episode 129: Check-Ins, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting. | [source](https://shows.acast.com/rock-cast/episodes/episode-129-check-ins) |
 | Episode 129: Check-Ins Transcript Insight | staff training | 01:19 | When applying staff training and operational readiness ideas from Episode 129: Check-Ins, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting. | [source](https://shows.acast.com/rock-cast/episodes/episode-129-check-ins) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | Connections upgrade preparation | 01:31 | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://www.youtube.com/watch?v=edanHiYSDIM&t=91s) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | built-in proof-of-work CAPTCHA | 03:15 | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM&t=195s) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | real-time Check-In Manager roster | 04:28 | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | materialized schedule dates | 06:26 | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | Connections upgrade preparation | 01:33 | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | built-in proof-of-work CAPTCHA | 03:16 | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | real-time Check-In Manager roster | 04:28 | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| 3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight | materialized schedule dates | 06:26 | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
 | Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight | release validation | 01:10 | Large Rock releases can carry accumulated change and post-release fixes, so upgrade planning should distinguish major-version validation from routine patch-release validation and verify current release notes before action. | [source](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) |
 | Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight | permission-aware testing | 02:27 | Alpha and beta testing should include non-administrator staff personas, because admin-only testing can hide authorization and role-specific defects that normal staff encounter. | [source](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) |
 | Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight | family pre-registration | 03:22 | Family pre-registration was discussed as roadmap and consulting context for website or kiosk entry points; treat it as a prompt to verify the current block, check-in, and kiosk capabilities before designing an intake flow. | [source](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) |
@@ -127,6 +135,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | source_summary | This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
@@ -139,23 +153,18 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | When a check-in problem appears only during service, agents should verify current schedule windows, location/group availability, label printer state, and manager-side edits before changing permanent configuration. | [source](https://community.rockrms.com/rocku/check-in/check-in-manager-1) |
 | rocku-confirmed | operational_guidance | Check-In Manager should be treated as an operational control surface for live check-in sessions; troubleshoot rooms, schedules, attendance, labels, and manager actions from the exact active configuration. | [source](https://community.rockrms.com/rocku/check-in/check-in-manager-1) |
 | rocku-confirmed | operational_guidance | The participant-facing flow can show fallback screens when a person is outside the configured geofence, outside the valid check-in time window, or has no eligible check-in option available. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | source_summary | Mobile check-in configuration depends on creating virtual check-in kiosk devices, assigning geofenced campus boundaries, and pointing the Mobile Check-in Launcher block at the correct devices, check-in configuration, theme, and areas. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
-| rocku-confirmed | source_summary | The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | source_summary | Rapid Attendance Entry can be used as a fast attendance-entry surface and can also collect related ministry information, such as family updates, notes, prayer requests, and workflow launches, when the block settings enable those actions. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | source_summary | Check-In Manager adds check-in guidance for live operations: diagnose active-session behavior from schedule, room, label, and manager-state evidence before changing configuration. | [source](https://community.rockrms.com/rocku/check-in/check-in-manager-1) |
-| rocku-confirmed | source_summary | Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
-| rocku-confirmed | source_summary | Next-Gen Labels adds check-in guidance for label troubleshooting: validate template, merge data, routing, and active check-in context before treating failures as printer-only issues. | [source](https://community.rockrms.com/rocku/check-in/next-gen-labels) |
-| More |  | 91 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 102 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 2
-- `rock_documentation`: 23
+- `rock_documentation`: 22
 - `rock_mobile_docs`: 2
 - `rock_model_map`: 8
-- `rock_podcast_rss`: 7
-- `rock_recipes`: 2
+- `rock_podcast_rss`: 8
+- `rock_recipes`: 1
 - `rock_rocku`: 43
+- `rock_youtube`: 1
 - `triumph_resources`: 1
 
 ## Highest Signal Sources
@@ -172,8 +181,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Entering Attendance | rock_documentation | ## Internal Attendance Features There are several ways to collect group attendance. The first is to use the internal attendance features built into the Group Viewer under `People > Group Viewer`. You'll notice an attendance button on the group details block for groups that are configured to take attendance. Selecting this option will bring up the group attendance grid. This grid lists the previously entered... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance) |
 | Group Attendance | rock_documentation | [Intro to Group Attendance](/documentation/engagement/groups/group-attendance/intro-to-group-attendance?Version=v19.0) [Configure Group Attendance](/documentation/engagement/groups/group-attendance/configure-group-attendance?Version=v19.0) [Entering Attendance](/documentation/engagement/groups/group-attendance/entering-attendance?Version=v19.0) [Configure Attendance... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance) |
 | Group Attendance Entry | rock_mobile_docs | This block displays a list of group members that can be selected to mark attendance for a specified date. You can read more about group attendance here in the [Rock Your Groups manual](https://community.rockrms.com/Rock/BookContent/7#groupattendance). Important Unlike the web, groups must have a schedule configured in order to use this block. ## Parameters \| Name \| Type \| Description \| \| --- \| --- \| --- \| \|... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry) |
-| Individual vs. Family Check-in | rock_documentation | Before we get into the more technical aspects of configuration, let’s step back and take a general look at how individual and family check-in works in Rock. The specific screens the guest will be guided through are based on whether they’re checking in an individual or a family, as well as the check-in system settings set up by the administrator. But as you can see, the process is similar for both. Now let’s take a... | [source](https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/individual-vs-family-check-in) |
 | Intro to Group Attendance | rock_documentation | Knowing who showed up tells you a lot about how a group is doing. Group Attendance makes recording that simple, so you can spot a thriving group or one that needs a little care. This is where leaders mark who attended each meeting and where you review participation over time. A few seconds of entry gives you a clear picture of engagement across your groups. The articles that follow show how to capture attendance and... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/intro-to-group-attendance) |
+| Intro to Labels | rock_documentation | Out-of-the-box, Rock comes with a sample set of labels for use with check-in: Child Label, Note Label, Parent Label and Name Tag. There are five different types of labels, each suited to different scenarios: *Family*, *Person*, *Attendance*, *Checkout*, and *Person Location*-based. To learn more about label types, see the [Label Types](/documentation/church-management/check-in/labels/label-types) **Child Label**:... | [source](https://community.rockrms.com/documentation/church-management/check-in/labels/intro-to-labels) |
 
 ## Data Model Landmarks
 
@@ -333,7 +342,7 @@ Keywords: `troubleshooting, error, printer, issue, failed`
 ## Rebuild Dependencies
 
 - Source records: `88`
-- Approved claims: `109`
+- Approved claims: `120`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

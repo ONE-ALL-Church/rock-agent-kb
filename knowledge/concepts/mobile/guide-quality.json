@@ -11,7 +11,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12903 words; expected at least 7000.",
+      "message": "Guide has 12906 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -58,9 +58,9 @@
   "concept_id": "mobile",
   "contribution_record_count": 0,
   "entity_count": 15,
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_line_count": 1505,
-  "guide_word_count": 12903,
+  "guide_word_count": 12906,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 112,

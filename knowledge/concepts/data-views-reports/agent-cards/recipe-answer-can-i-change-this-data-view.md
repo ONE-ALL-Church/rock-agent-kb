@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Answer "Can I Change This Data View?".
 - https://community.rockrms.com/recipes/349
 - https://community.rockrms.com/ModelMap
 - https://www.triumph.tech/resources/what-is-maxdop
-- https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report
+- https://community.rockrms.com/recipes/391

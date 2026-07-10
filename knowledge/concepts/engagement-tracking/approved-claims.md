@@ -2,7 +2,7 @@
 concept_id: engagement-tracking
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 106
+approved_claim_count: 107
 ---
 
 # Engagement Tracking Approved Claims
@@ -113,6 +113,7 @@ This generated artifact contains the full approved public claim coverage for the
 | `claim:5f531f14723ae3910005` | official | recipe | Conflict Engagement Assessment results are stored as person attributes that can be filtered in Data Views, such as finding people whose Solving theme is ranked High. | [source](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile) |
 | `claim:e84230955a0bf4cb9244` | official | recipe | A user can follow someone from that person's profile, add or remove multiple followed people through bulk updates, and manage the resulting list under My Settings > Following. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow) |
 | `claim:9219761372bdb3dc8f46` | official | release_caveat | The Step Flow chart's maximum-level setting truncates the displayed sequence, so a person's absence after the final displayed level does not establish that they stopped progressing through the program. | [source](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types) |
+| `claim:e704f98991439e3e1576` | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `claim:4ed8764f55729b51aba1` | official | risk | Rebuilding an individual's streak deletes that person's existing engagement map, recreates it from attendance records, and discards manual engagement-map changes. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually) |
 | `claim:63e4f946e8a379ed935e` | official | risk | Rebuilding a streak type deletes and regenerates its occurrence and enrollment map data from attendance records, so manual changes to either map are lost. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type) |
 | `claim:a819bc1eb251037bd4b1` | official | risk | Following Event evaluation does not enforce the security of related notes or groups, so sensitive events should be secured consistently with the records they represent. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events) |

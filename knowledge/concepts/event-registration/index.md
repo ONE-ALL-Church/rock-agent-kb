@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -87,6 +87,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | When multiple v19 registrant-eligibility rules are enabled, a registrant must satisfy all selected criteria. Test combined age, gender, grade and Data View rules with representative people before opening registration. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | The v19 Prevent Duplicate Registrants option blocks a matched person from being registered twice, but the warning can reveal that a person is already registered to someone who knows matching identity details. Evaluate that disclosure risk before enabling it for sensitive events. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | operational_guidance | The Wait Lists RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/wait-lists) |
 | rocku-confirmed | operational_guidance | The Calendars and Events RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/calendars-and-events) |
 | rocku-confirmed | operational_guidance | The Additional Registration Fees RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) |
@@ -103,9 +105,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Event Registration Attributes RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/event-registration-attributes) |
 | rocku-confirmed | operational_guidance | For Rock operations and administration, Registration Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/registration-templates) |
 | rocku-confirmed | operational_guidance | The Family Pre-Registration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/family-pre-registration) |
-| rocku-confirmed | operational_guidance | The Linkages RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/linkages) |
-| rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Group Placement should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/group-placement) |
-| More |  | 46 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 48 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -260,7 +260,7 @@ Keywords: `event calendar, calendar, event item, event occurrence, occurrence`
 ## Rebuild Dependencies
 
 - Source records: `92`
-- Approved claims: `64`
+- Approved claims: `66`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

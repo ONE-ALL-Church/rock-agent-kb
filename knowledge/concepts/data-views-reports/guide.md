@@ -1901,24 +1901,24 @@ Community lapsed giver and giving age-band recipes show this category often requ
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `558`
+- Approved claims routed to this concept: `563`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 Connections navigation can expose list, board, grid and operational snapshot views with active, unassigned, due-soon and overdue metrics. Which views appear is configured on the connection type. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | rocku-confirmed | operational_guidance | Data Views should be treated as reusable record-set definitions: they answer which records qualify before a Report, Dynamic Report block, workflow, or other consumer decides how to display or act on those records. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | rocku-confirmed | operational_guidance | People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | rocku-confirmed | operational_guidance | Before changing a Data View, identify its entity type, filter tree, category, persistence behavior, and downstream consumers so a reporting fix does not break reports, syncs, or automations. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | rocku-confirmed | operational_guidance | For reporting agents, data integrity issues should be surfaced as source-data problems, not hidden by report logic that masks duplicates, missing values, or stale attributes. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) |
 | rocku-confirmed | source_summary | Data View Overview strengthens the reporting guide by reinforcing Data Views as reusable qualifying-record definitions whose filters, persistence, and consumers must be checked before edits. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
-| rocku-confirmed | source_summary | Data Integrity adds operational guidance for cleanup and reporting quality: define correction rules, test known examples, and document ownership before data changes. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) |
-| rocku-confirmed | source_summary | Data Integrity adds guidance for people and reporting work: prove the source of truth, understand cleanup ownership, and verify downstream reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
-| rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) |
-| rocku-confirmed | operational_guidance | The Extending Groups RockU lesson provides training context for ministry process design; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/extending-groups) |
-| More |  | 546 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 551 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

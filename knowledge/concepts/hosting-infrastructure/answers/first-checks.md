@@ -15,10 +15,10 @@ With SaaS-hosted Rock, the hosting provider operates and monitors the cloud envi
 - `claim:68698a0c2c178f98cb2f`
 - `claim:867da60eac2e0656c815`
 - `claim:89bb09e36da247e182b1`
+- `claim:091606bd3b8b0472392a`
+- `claim:d64ec12bd44248ad3db0`
 - `claim:3800f13989d805462464`
 - `claim:dba9f8a7413cfd92b396`
-- `claim:b6d0c03e3e8239dd60fa`
-- `claim:0ac39c6f9dbf72e1b72a`
 
 ## Citations
 
@@ -26,5 +26,6 @@ With SaaS-hosted Rock, the hosting provider operates and monitors the cloud envi
 - [Intro to Azure Hosting](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting)
 - [Intro to Internal Hosting](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting)
 - [Configure a Rock Web Farm](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s) (`16:43`)
+- [The Vatican on AI and Grandmasters on Ministry | Ep 215](https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215) (`12:18`)
 - [Compare Sizing and Service Options](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options)
-- [Architect a Server Cluster](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster)

@@ -24,6 +24,7 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Check-in Configuration` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -31,7 +32,6 @@ generated: true
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
-| `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats

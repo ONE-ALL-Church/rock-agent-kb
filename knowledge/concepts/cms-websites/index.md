@@ -2,7 +2,7 @@
 id: concept-cms-websites
 title: CMS And Websites
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -166,6 +166,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
 | official | implementation_pattern | An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | operational_guidance | Adding pages and blocks changes both navigation and authorization; agents should inspect site, page hierarchy, route, block type, zone, and inherited security before publishing. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
 | rocku-confirmed | operational_guidance | Content Channel View pages should be reviewed as both CMS presentation and data exposure surfaces because channel item lists can reveal titles, dates, attributes, or detail links. | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
 | rocku-confirmed | operational_guidance | Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
@@ -180,9 +182,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | source_summary | Personalization adds CMS/security guidance: targeted content should be tested with real actor state and must not be treated as a replacement for authorization. | [source](https://community.rockrms.com/rocku/cms/personalization) |
 | rocku-confirmed | source_summary | Content Component adds CMS guidance for reusable content surfaces: locate all render points and ownership boundaries before changing a shared component. | [source](https://community.rockrms.com/rocku/cms/content-component) |
 | rocku-confirmed | source_summary | Adding Pages and Blocks adds CMS guidance: page and block changes require route, hierarchy, zone, and inherited-security review. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
-| rocku-confirmed | source_summary | Advanced HTML Block adds public-safe guidance for CMS security and Lava review: block authorship is privileged, and agents should inspect enabled commands, context inputs, and page/block authorization. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
-| rocku-confirmed | operational_guidance | The Content Channel Types and Content Channels RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels) |
-| More |  | 146 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 149 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -356,7 +356,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `144`
 - Lava capability source records: `53`
-- Approved claims: `164`
+- Approved claims: `167`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

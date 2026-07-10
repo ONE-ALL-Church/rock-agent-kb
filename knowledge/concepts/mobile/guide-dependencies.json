@@ -635,6 +635,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout.",
+      "claim_hash": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
+      "claim_id": "claim:35d327f4909c62921563",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
+      "source_record_ids": [
+        "rock_youtube:2b3b848223d53224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Outreach Toolbox is Here in v19",
+          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying version, roadmap, and release-caveat awareness ideas from Episode 102: Rock Mobile, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "d20dda0dc3abc829614918aca0f6059419931a1c9d11c643a164b5d6438c645c",
@@ -832,6 +862,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout.",
+      "claim_hash": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
+      "claim_id": "claim:483a11b884e0e69ffd4d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
+      "source_record_ids": [
+        "rock_youtube:2b3b848223d53224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Outreach Toolbox is Here in v19",
+          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized.",
       "claim_hash": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
@@ -905,6 +968,39 @@
           "timestamp_seconds": 0.0,
           "title": "Episode 102: Rock Mobile",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally.",
+      "claim_hash": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
+      "claim_id": "claim:54aeb223a9029e9f7707",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
+      "source_record_ids": [
+        "rock_youtube:6e6bececa520aca2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/shorts/c6T9Ha13jKE",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
+          "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
         }
       ]
     },
@@ -1783,6 +1879,40 @@
           "timestamp_seconds": 89.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
+      "claim_hash": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
+      "claim_id": "claim:9c8ce297c9c4a4cda982",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care",
+        "scheduling-locations",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
+      "source_record_ids": [
+        "rock_youtube:2b3b848223d53224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s",
+          "timestamp": "01:04",
+          "timestamp_seconds": 64.58,
+          "title": "Outreach Toolbox is Here in v19",
+          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
       ]
     },
@@ -2991,6 +3121,41 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use.",
+      "claim_hash": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
+      "claim_id": "claim:e704f98991439e3e1576",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking",
+        "mobile",
+        "prayer-care",
+        "security-permissions",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
+      "source_record_ids": [
+        "rock_youtube:2b3b848223d53224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s",
+          "timestamp": "07:56",
+          "timestamp_seconds": 476.96,
+          "title": "Outreach Toolbox is Here in v19",
+          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Profile-page redesign work is a core platform surface, so guidance about people records should consider both data-model behavior and the user experience that staff see every day.",
       "claim_hash": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
@@ -3188,6 +3353,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details.",
+      "claim_hash": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb",
+      "claim_id": "claim:fce0fb74a46963faeb59",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care",
+        "serving-volunteer-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
+      "source_record_ids": [
+        "rock_youtube:6e6bececa520aca2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
+          "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "The LMS, mobile chat, and engagement-tools episode is useful as roadmap and operations context for cross-channel engagement, but feature availability must be checked against current Rock release notes and local configuration.",
       "claim_hash": "763b5e3585dc05f6b37bab91fc3d8f7b3167cdab755e716fab59fbb0b723ed91",
@@ -3291,14 +3486,17 @@
     "claim:2f63d6d7dbb4d8378696": "056999e55a079053c65f94b2f663d58afd3ae43fee1b6a9d550e4ce42f0a0ea9",
     "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
     "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
+    "claim:35d327f4909c62921563": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
     "claim:3a149ac551e256b71820": "d20dda0dc3abc829614918aca0f6059419931a1c9d11c643a164b5d6438c645c",
     "claim:3c8760faa5fa7063cd79": "3cf790e851304220d708732e0225de2b5001c4ff149bf7e6b57e2b4755bfa0a3",
     "claim:3d32a2c3e36e71683eb0": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
     "claim:3f435889ccd4aaee353c": "16c372b01ebbb6f6efc60221a326d3344f66416702bcdfc2b5a8f8c0bfac2ba7",
     "claim:3f6d76486d42c908559d": "63d8778b8757c92cf1e3e3976b1159ea28683c26d9841a738f29c56ffd27db76",
     "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
+    "claim:483a11b884e0e69ffd4d": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
     "claim:520ba5f389698ad4894c": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
     "claim:545217d0d8afa0fd8b18": "53a2e9c4b4b8fd273afdf4b20b682ebfa727e55db55019c0567d18066fa49839",
+    "claim:54aeb223a9029e9f7707": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
     "claim:58c7cf5b06ab88de06ac": "7c2b421885cc10404e88ec7a67930aaf25c60982c2828e4ec8654eddaa2d3422",
     "claim:5b41ac5624ffd2e446f8": "ec112d9df5b475b4e5a204f2de52bd6134f62bd910aea62e135c55463f9a74cc",
     "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
@@ -3325,6 +3523,7 @@
     "claim:9590957a9e57d03c3b07": "b9fdd6a0ead37b29754f37bfc5ff46d49e1c17ca2e7085299aae4c76c39aab81",
     "claim:98aeedbbadb50affa418": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
     "claim:9bd26962a822608836a4": "c0e2f3b7b1fd287d99e30dc5760a6a40ad4ff2a049c55d8c28a3935e7544ee61",
+    "claim:9c8ce297c9c4a4cda982": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
     "claim:9d02b0c2b2eae36ab103": "3e88e4fb3f96f046eecd83411b35af87e3396b050473bb40f430aa79a9f0647c",
     "claim:9f505350705f22d88caf": "e83847cdbac01bf39bc15bb09c76b151624c90cb9848ad83b821257d6eb5d06d",
     "claim:a5c497a69f1a8269eb53": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
@@ -3360,16 +3559,18 @@
     "claim:e1c74d25df35a0613cd3": "731aadae1f1ac685d4c87a07e707ab57251a28942fc67148710b63af39c65aa0",
     "claim:e54943b3e738c396727f": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
     "claim:e6fb0c87376c2008b601": "78bc71731f87a7a9620cbdc464704ee27ff79067401ab11d00e81c9998cd72d6",
+    "claim:e704f98991439e3e1576": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
     "claim:ea894b6fede30d2ad628": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
     "claim:ef0c80dba866bcba20a8": "ec16270e6dba4d5b6d685a3d2aa711fba360a7a00b5c45387993a1f77d0054ca",
     "claim:ef6e6da192c7155bf0bb": "00be3d0caa39198dbd5f296cf83ecc7af5ee2ed37d448647e9270d433383a16b",
     "claim:efa08a96509f0c9f3b81": "f5eff0f80232063e76d04528294df8d2f4413533bf8d1c5fcc9f9da0bcec2f2a",
     "claim:f31c3f2729a8b9852c0d": "45d5dcd6c8f219ee824ddb1444684857fe69c5007af7e6b3e87840f2ca81af03",
     "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad",
+    "claim:fce0fb74a46963faeb59": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb",
     "claim:fea1198e8836e37c0e4a": "763b5e3585dc05f6b37bab91fc3d8f7b3167cdab755e716fab59fbb0b723ed91",
     "claim:ff136cde6aa716bfc87c": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381"
   },
-  "approved_claims_hash": "3d160faca4d3a3180db71f0e7476b0340588bfbc00b446b13e4e10eb98106a33",
+  "approved_claims_hash": "a5a07de2fe9313d7364dcbe5bcba25a151c7d9ee0ad69805a6aaecc9ba0442dd",
   "approved_claims_path": "knowledge/concepts/mobile/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3475,6 +3676,23 @@
       "source_record_id": "media-insight:c664b64e781d5fbb",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
+    },
+    {
+      "approved_concept_ids": [
+        "mobile",
+        "prayer-care",
+        "serving-volunteer-ops"
+      ],
+      "content_hash": "1f20fbf0a5aa002046203e40e6f2dea319195a49c87be36c75cb376c61eda718",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:de21ecd38cde9a0c",
+      "public_promotion_id": "media-public-promotion:1f20fbf0a5aa0020",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:de21ecd38cde9a0c",
+      "source_title": "Outreach Toolbox is Here in v19 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
     },
     {
       "approved_concept_ids": [
@@ -3739,6 +3957,23 @@
     },
     {
       "approved_concept_ids": [
+        "mobile",
+        "prayer-care",
+        "serving-volunteer-ops"
+      ],
+      "content_hash": "c30b786a73658c0455c7ed7b672d5153f4b4d8168ce6a3c33ba8012a9d13e26f",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:4eb69bc5dde5cacb",
+      "public_promotion_id": "media-public-promotion:c30b786a73658c04",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:4eb69bc5dde5cacb",
+      "source_title": "Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight",
+      "source_url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
+    },
+    {
+      "approved_concept_ids": [
         "cms-websites",
         "mobile",
         "workflows"
@@ -3814,6 +4049,7 @@
     "media-insight:39eceac3f8fbe5f8": "7089fbe2cc9729fa45e3edd515be4a1166bc59c0782b94d4694b3d3c6aae2582",
     "media-insight:42dce3602ea3f7ef": "cefa2e335758b4854eec51956540166e09122e35573c98a0c1f43ac1c65bb84c",
     "media-insight:4b01eb5056bab0e5": "dea5e0adaecdab638b939daaa082c0bc6bc10ff206fea4e72d4defb3d8291b23",
+    "media-insight:4eb69bc5dde5cacb": "c30b786a73658c0455c7ed7b672d5153f4b4d8168ce6a3c33ba8012a9d13e26f",
     "media-insight:5c9737a6d00c5149": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
     "media-insight:673bab29cee6e6ec": "cd09985f8a27afc73ae100d1ae6203ea9050e94e38a7b5a046f90a9a24705733",
     "media-insight:694645f85060752a": "bbcf795eb113b486aa4f64216b1f41f799c617c73c80518d6086f4f889cd9d7b",
@@ -3828,16 +4064,17 @@
     "media-insight:c44e84f71993048e": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
     "media-insight:c664b64e781d5fbb": "0e650c28997f503ffd3f75c3ef76d0e53774bcadede36ac65495358482847696",
     "media-insight:d19aff0e845956ae": "bf4686d6f8384e9d94a62455ff0ac88d7a48a749cc0647680a4675595bca2c6e",
+    "media-insight:de21ecd38cde9a0c": "1f20fbf0a5aa002046203e40e6f2dea319195a49c87be36c75cb376c61eda718",
     "media-insight:ef7ab51588dcb077": "ca28ed5787cc7a907b55073b50d846fe553573a5f1f4f075a71203cbebc07a16"
   },
-  "approved_media_hash": "1316caaeda7cfcc6a9d5848969f37bf9a95027603a09842e7d1f7b64e0de7ee1",
+  "approved_media_hash": "ba766c03874beab8dd851924e4f492cefcb5432af5d57b84225418735587d50c",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "mobile",
-  "guide_hash": "aa94c1541781687aa83da9fd0fef252f3c428f84c781a87eb3033a00818b5e79",
+  "guide_hash": "f49f373451f4615e4fc43abf3041190a7d22cf2c52dca15c63e3082dfb2fa3a2",
   "guide_line_count": 1505,
   "guide_path": "knowledge/concepts/mobile/guide.md",
-  "guide_word_count": 12903,
+  "guide_word_count": 12906,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4146,6 +4383,24 @@
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a56a73c5681795bd",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "1c59cd336e8baae0",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -4162,24 +4417,6 @@
       "source_key": "d7a4121f91c3b42b",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "281ea075e1d0d1ab",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "2029a4e6583189c0",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration"
     },
     {
       "authority": "unknown",
@@ -5587,16 +5824,16 @@
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "dcc9c3b1df657d9f",
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0",
+        "a56a73c5681795bd",
+        "a56a73c5681795bd",
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0",
         "6c0184b4e7ec7558",
         "d7a4121f91c3b42b",
         "6c0184b4e7ec7558",
         "6c0184b4e7ec7558",
-        "d7a4121f91c3b42b",
-        "6c0184b4e7ec7558",
-        "d7a4121f91c3b42b",
-        "281ea075e1d0d1ab",
-        "2029a4e6583189c0",
-        "281ea075e1d0d1ab",
         "d7a4121f91c3b42b"
       ],
       "start_line": 1377
@@ -6550,6 +6787,26 @@
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a56a73c5681795bd",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=LNcx8t0mlQ4",
+      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "1c59cd336e8baae0",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/shorts/c6T9Ha13jKE",
+      "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -6568,26 +6825,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
       "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "281ea075e1d0d1ab",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview",
-      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "2029a4e6583189c0",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration",
-      "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration"
     },
     {
       "authority": "unknown",

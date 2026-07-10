@@ -130,6 +130,36 @@
     },
     {
       "authority_tier": "community-reviewed",
+      "claim": "This official podcast edition supports the same managed-data-access guidance as the reviewed video edition. Product rollout, external model news and event statements are context only.",
+      "claim_hash": "e1f84495e7162a49207c136e987877e1a71975e92aaf0dd756188ea4867d6992",
+      "claim_id": "claim:17bb0634cc6ebe52d71b",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35da668ad76e06ec3bca966c4b19b0ceee8d59e7ac53adc903f3984dbe537019",
+      "source_record_ids": [
+        "rock_podcast_rss:9ace837daaae3cd2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
       "claim": "This Digital Strategy Hub session adds public-safe technical context for email-status and webhook workflows. It discusses Mailgun calling back into Rock through a webhook, using delivery or engagement data to update Rock-side communication context, and treating external provider callbacks as integration points that need authentication, logging, and operational reporting.",
       "claim_hash": "b386b19beb71dc27dd6e05f8e0edf2e7ba2ca7a429eb2a5b52f959fc4ae20e8b",
       "claim_id": "claim:1bfcc37e9004c2bf5e70",
@@ -761,6 +791,72 @@
     },
     {
       "authority_tier": "community-reviewed",
+      "claim": "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.",
+      "claim_hash": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
+      "claim_id": "claim:9cd70d19320375c27cb3",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "35da668ad76e06ec3bca966c4b19b0ceee8d59e7ac53adc903f3984dbe537019",
+      "source_record_ids": [
+        "rock_podcast_rss:9ace837daaae3cd2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
+          "timestamp": "09:21",
+          "timestamp_seconds": 561.56,
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.",
+      "claim_hash": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
+      "claim_id": "claim:a181b9ddd5b0e689895b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "feefff1ae32ad16d3535b2fee3067ecb4105b5f760154090e3b3f465eb2900e0",
+      "source_record_ids": [
+        "rock_youtube:353743c048255f25"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s",
+          "timestamp": "09:17",
+          "timestamp_seconds": 557.3,
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
       "claim": "When applying AI, automation, and responsible tool use ideas from Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "e45ca07fb703f56497b2b6949b8819fe9b578a495e1630dca117bdf5c5bbbe1c",
       "claim_id": "claim:a51f4d67c8794281d960",
@@ -1119,6 +1215,36 @@
           "timestamp_seconds": 1769.0,
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast episode includes pre-release Rock IQ architecture, AI-vendor evaluation guidance and ministry systems discussion. Its most durable technical guidance is to keep AI behind managed Rock authorization and business logic rather than exposing direct database access. Product rollout and event statements remain release-sensitive.",
+      "claim_hash": "5b3fccb736167d706571d391a24ce14bccace8225a9a943d29c14c0e253a4766",
+      "claim_id": "claim:c161e57517e27fcc47e3",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "feefff1ae32ad16d3535b2fee3067ecb4105b5f760154090e3b3f465eb2900e0",
+      "source_record_ids": [
+        "rock_youtube:353743c048255f25"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+          "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
         }
       ]
     },
@@ -1581,6 +1707,7 @@
     "claim:0be71853c9e637fbf48e": "655f4b817d3d236ba08dbd2b11558903aaee0bfe6e93bfa10655cec5e1b0b2a5",
     "claim:0cb2f6a528ebdae994e2": "438ad18b6cb68aac6e734758703c2b625c7d00b877ece8ee9a2f80cfb982c27b",
     "claim:0ed16cad9954cfbf26ed": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
+    "claim:17bb0634cc6ebe52d71b": "e1f84495e7162a49207c136e987877e1a71975e92aaf0dd756188ea4867d6992",
     "claim:1bfcc37e9004c2bf5e70": "b386b19beb71dc27dd6e05f8e0edf2e7ba2ca7a429eb2a5b52f959fc4ae20e8b",
     "claim:2327759c232854091458": "eb7ef8f01271676a23028dad2c565ba2116362714cdf840b52de655780ceb095",
     "claim:2a2a9fc94666d58b0e4f": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
@@ -1600,6 +1727,8 @@
     "claim:6bf761df7cecd90ce621": "829b3a7c2684367937e6f91799a03fdef54381488d45f5d883471c8edc43acdb",
     "claim:70e2d29e7a2dd7137818": "344784dd5733d7ec813b02fbb7a441d4c81cef7aa526a653207d62b06eb6385f",
     "claim:902cf967093bf25638d8": "ea0cd317da53a9917fb566e53bd94b0e39e804be3231d5a91cf2a7266af251dd",
+    "claim:9cd70d19320375c27cb3": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
+    "claim:a181b9ddd5b0e689895b": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
     "claim:a51f4d67c8794281d960": "e45ca07fb703f56497b2b6949b8819fe9b578a495e1630dca117bdf5c5bbbe1c",
     "claim:a6dc04ee9bf9871187d6": "f6f5e01a554059aa9dbac264be202f641ad81d0cf15151425888213257477cbe",
     "claim:a9b62d7cbc1f63a8cbca": "8dac4d011abcc85d2713af8c060f50602095e58a0a0634813bcf4c702be52a6e",
@@ -1611,6 +1740,7 @@
     "claim:b4fb38224ff8452078f3": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
     "claim:bfd413a4fae23e864553": "1db2d8ea9861d7f9e029b60a2368695265030eceb6f42a4cae86d3478a87114d",
     "claim:c087efdb352a9b4d8c8c": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
+    "claim:c161e57517e27fcc47e3": "5b3fccb736167d706571d391a24ce14bccace8225a9a943d29c14c0e253a4766",
     "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
     "claim:c923415dabd8ee837073": "058e02b9ecf6715ab5aa5cd9c2a53bc07e15dd95dfcc3368f0aaf9dab24a5cb4",
     "claim:cd52138ec6ca3848cae9": "a5cc4b27b1115aa0faf626e69a47f90d8188b80c0274e41423eb6703f1e38911",
@@ -1624,7 +1754,7 @@
     "claim:fb85d514f4ed765acad4": "468643df34d10c2da2dbbbe27bec321fc5327979e65dcbc9c768c8ce69591eae",
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6"
   },
-  "approved_claims_hash": "b5cafe07ffa45eefbcdd7f6e9437404c9d119916986987ef75d99eaec3231e0f",
+  "approved_claims_hash": "ad20fb5f559f70ece57703eccccd64309a99688924fce6c2e89b74446b70ce03",
   "approved_claims_path": "knowledge/concepts/api-integrations/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1761,26 +1891,62 @@
       "source_record_id": "media-insight:3c8731057b505d28",
       "source_title": "Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team Transcript Insight",
       "source_url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "content_hash": "e465475aba25d5206882f7c741c7fea6a5cd7fa6579a17aaaa88f7bb8d06b85f",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:0eaf921555a4c075",
+      "public_promotion_id": "media-public-promotion:e465475aba25d520",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:0eaf921555a4c075",
+      "source_title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "content_hash": "4d3b5ca45b22b9082f043fcb5510dcada10f3c623833339ff1121ec5d0b5bf2a",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:70eec93ffcb16fc8",
+      "public_promotion_id": "media-public-promotion:4d3b5ca45b22b908",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:70eec93ffcb16fc8",
+      "source_title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216 Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
     }
   ],
   "approved_media_dependency_hashes": {
+    "media-insight:0eaf921555a4c075": "e465475aba25d5206882f7c741c7fea6a5cd7fa6579a17aaaa88f7bb8d06b85f",
     "media-insight:3c8731057b505d28": "24c28d4de280f167ac1de13b6ef124b1406e0e029658d33d57e87748400e5964",
     "media-insight:5696d2af5b6df33b": "1b09a5cc830ef6f1bcf8e891ded44c7f58ee125dff531bb6088fd90420746a0e",
     "media-insight:6671826b3cf1f7de": "931738e307e5462b97c4ff02bd85959d60bbc3d9e13f407dd51fe7fb6c538dfd",
+    "media-insight:70eec93ffcb16fc8": "4d3b5ca45b22b9082f043fcb5510dcada10f3c623833339ff1121ec5d0b5bf2a",
     "media-insight:72c3c82fab79c57b": "cea4c3918bc64be96b57c5c21484741fd6bea4d3c5e493c7216a644e83ab6c0a",
     "media-insight:73ec0ec8f79d120c": "a3bbb94a342a3e4371ca92de5fa3d9a90cd1f5cd30a3df2325c52cbb810f4f5e",
     "media-insight:8a313536a2a7f5bf": "9545935e58682499691fe430d8b9de7128574215b0e96c54335747a90e026351",
     "media-insight:d03a93f4e7ef8c02": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
     "media-insight:efa1de0c74bcd9f0": "0f278f57f811cb696f86dc6a7b35ed3f63a2a44f59aefba31c7f25c60ac28875"
   },
-  "approved_media_hash": "3b4070b1085768546a938c81b8be76d6ebe1d3d7ac3837d245877fb7cac031b4",
+  "approved_media_hash": "ec35b8de14526a2c289432c0f16466114551322d087df88c30bf64aab1c26c0f",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "api-integrations",
-  "guide_hash": "85d8abc1f15a766f7f53ff9220d0ad8b5a361a21d020f66fc68027d2560fad0a",
-  "guide_line_count": 1560,
+  "guide_hash": "f61c607951c2218b61667e93a11261ca7fe1c119294afc9e944c259c09e51e10",
+  "guide_line_count": 1561,
   "guide_path": "knowledge/concepts/api-integrations/guide.md",
-  "guide_word_count": 14315,
+  "guide_word_count": 14312,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2345,6 +2511,15 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "874c48c7aa36826b",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "2ef33162dc02363b",
       "source_record_id": "",
       "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
@@ -2372,6 +2547,15 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "9c54a75bab4e39e3",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "61505a876029525c",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
@@ -2384,24 +2568,6 @@
       "source_key": "2cf11aac4d7e5e09",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "7b2dd6a6b528a9f3",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "e49179e5511d18c4",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
     }
   ],
   "sections": [
@@ -3978,7 +4144,7 @@
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
+        "874c48c7aa36826b",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -3989,7 +4155,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1513,
+      "end_line": 1514,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3998,16 +4164,16 @@
         "2ef33162dc02363b",
         "f0a736080e3ea89c",
         "cea805e5b904fc2d",
+        "874c48c7aa36826b",
+        "9c54a75bab4e39e3",
         "61505a876029525c",
-        "2cf11aac4d7e5e09",
-        "7b2dd6a6b528a9f3",
-        "e49179e5511d18c4"
+        "2cf11aac4d7e5e09"
       ],
       "start_line": 1494
     },
     {
       "confidence": "normal",
-      "end_line": 1560,
+      "end_line": 1561,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -4048,7 +4214,7 @@
         "7c71a22de1006d62",
         "027cede393b38974"
       ],
-      "start_line": 1514
+      "start_line": 1515
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:01:30+00:00",
@@ -5436,6 +5602,16 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "874c48c7aa36826b",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=mYTaGxYMyyQ",
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "2ef33162dc02363b",
       "source_record_id": "",
       "title": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi",
@@ -5466,6 +5642,16 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "9c54a75bab4e39e3",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
+      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "61505a876029525c",
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
@@ -5480,26 +5666,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "7b2dd6a6b528a9f3",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/ai-in-digital-ministry",
-      "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "e49179e5511d18c4",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-206-v19-updates-and-shaping-ministry-culture-in-2026"
     }
   ],
   "synthesis_profile": "comprehensive"

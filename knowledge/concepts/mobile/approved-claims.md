@@ -2,7 +2,7 @@
 concept_id: mobile
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 95
+approved_claim_count: 101
 ---
 
 # Rock Mobile Approved Claims
@@ -12,6 +12,12 @@ This generated artifact contains the full approved public claim coverage for the
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
 | `claim:47b657cb5b577d54ad54` | official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| `claim:483a11b884e0e69ffd4d` | official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:54aeb223a9029e9f7707` | official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| `claim:9c8ce297c9c4a4cda982` | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:e704f98991439e3e1576` | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:35d327f4909c62921563` | official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:fce0fb74a46963faeb59` | official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | `claim:72dd1841cd10ed6d5a30` | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | `claim:0b388b0e4afdabbc9903` | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | `claim:c04a3055801d1b1a9fa4` | rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |

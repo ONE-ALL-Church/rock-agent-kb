@@ -7,16 +7,16 @@ artifact_level: answer
 
 # What live Rock records should I inspect for Workflows?
 
-For Workflows, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters, Communication recipient, medium, and send history, Person, family, alias, and attribute records.
+For Workflows, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters, Communication recipient, medium, and send history, Mobile shell version and mobile block settings, Person, family, alias, and attribute records.
 
 ## Top Claims
 
 - `claim:88127b6743d0f17c20fa`
 - `claim:950778b2bf929ab8e061`
+- `claim:9f3fc654783d47c63bb4`
 - `claim:2647ffb0bd354b3e600b`
 - `claim:970086a35aa016eccb8d`
 - `claim:7d8c6a6a0ad52432e9f0`
-- `claim:c6cb9f412bcbf24fb970`
 
 ## Distilled Claims
 
@@ -26,6 +26,6 @@ For Workflows, inspect these live surfaces before changing production behavior: 
 ## Citations
 
 - [Form Builder](https://community.rockrms.com/rocku/workflows/form-builder) (`00:00`)
+- [The Vatican on AI and Grandmasters on Ministry | Ep 215](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s) (`12:27`)
 - [Connections Overview](https://community.rockrms.com/rocku/engagement/connections-overview) (`00:00`)
 - [Connections Types](https://community.rockrms.com/rocku/engagement/connections-types) (`00:00`)
-- [Connections Opportunities](https://community.rockrms.com/rocku/engagement/connections-opportunities) (`00:00`)
