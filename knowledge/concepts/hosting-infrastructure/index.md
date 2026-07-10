@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-07-09T20:56:20+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -36,6 +36,32 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 - The strongest source families in this build are: rock_documentation, triumph_resources, rock_recipes, rock_core_release_notes, rock_rocku, rock_qa.
 - Related tags found in source records: operations, usage, releases, sql, admin, ai, github, implementation.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | configuration | In Rock 19.0, Giving Analytics, Attendance Analytics, and Pledge Analytics use the RockContextAnalytics connection, which can be configured in web.ConnectionStrings.config to target a separate read-only database. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context) |
+| official | configuration | For a Rock 19.0 internal-hosting installation, configure SQL Server with Mixed Mode authentication and retain the SQL Server password securely because it is required when setting up the Rock database. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server) |
+| official | configuration | A Rock web farm requires a Spark web-farm license and an active message-bus transport; Rock 19.0 supports Azure Service Bus or RabbitMQ, with only one transport active. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm) |
+| official | configuration | With SaaS-hosted Rock, the hosting provider operates and monitors the cloud environment and database and manages infrastructure concerns such as maintenance, backups, certificates, domains, and incidents according to the selected plan; the organization remains responsible for its data, content, Rock configuration, users, security, workflows, and routine administration. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting) |
+| official | configuration | For an internally hosted Rock web server, install the IIS Web Server role with the Windows ASP.NET 4.x role service appropriate to the server OS, WebSocket Protocol, Application Initialization, and .NET Framework 3.5 Features. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features) |
+| official | configuration | A Rock web-farm gateway should enable session affinity so each client continues reaching the same web node, because check-in relies on session state. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster) |
+| official | configuration | In Rock 19.0, adding a RockContextReadOnly connection string to web.ConnectionStrings.config allows Data Views and Reports to use a read-only database; an administrator can disable that context for an individual Data View when its filters or plugins need to write to the database. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context) |
+| official | configuration | For Rock 19.0 on IIS, configure the application pool to use .NET Framework v4.0, start automatically, run as LocalSystem, disable idle timeout, and preload the website; schedule recycling for a specific low-traffic time instead of using regular recycling intervals. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis) |
+| official | configuration | For Azure hosting, Rock recommends running the web and application server on a Windows virtual machine using IaaS and using Azure SQL as a managed PaaS database. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options) |
+| official | configuration | Rock recommends enabling snapshot isolation on its SQL Server database so that database writes do not block reads; the setting may already be enabled depending on the SQL Server edition and version. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock) |
+| official | configuration | Enable IIS dynamic-content compression when the option is available; if it is disabled because the required compression module is not installed, the step may be skipped. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis) |
+| official | implementation_pattern | Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
+| official | operational_guidance | Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting) |
+| official | operational_guidance | For a Rock 19.0 internal-hosting installation, use SQL Server's default instance unless the administrator is experienced with named instances, because the default instance simplifies subsequent Rock configuration. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server) |
+| official | operational_guidance | Azure capacity planning should treat attendance-based tiers as starting points; organizations that also host their public website in Rock should select the next larger tier, while accounting for feature usage and workload intensity. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options) |
+| official | recipe | Before launching a SaaS-hosted Rock instance publicly, an organization should select a hosting partner, inventory its current system, arrange a kickoff, prepare a migration plan, and reserve a test period. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting) |
+| official | recipe | For Azure SQL Database, create Rock's SQL-authenticated login and master-database user with the dbmanager and loginmanager roles; after Rock creates its database, add the corresponding user in that database to the db_owner role. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server) |
+| official | recipe | When adding the required Windows server features, an unavailable-source error can be resolved by mounting matching Windows installation media and supplying its sources\sxs directory as the alternate source path. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features) |
+| More |  | 7 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -163,7 +189,7 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 ## Rebuild Dependencies
 
 - Source records: `72`
-- Approved claims: `0`
+- Approved claims: `25`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

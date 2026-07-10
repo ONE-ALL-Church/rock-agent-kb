@@ -10,7 +10,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 14157 words; expected at least 7000.",
+      "message": "Guide has 14648 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -52,9 +52,9 @@
   "concept_id": "obsidian-development",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-09T20:59:12+00:00",
-  "guide_line_count": 1378,
-  "guide_word_count": 14157,
+  "generated_at": "2026-07-09T23:50:00+00:00",
+  "guide_line_count": 1396,
+  "guide_word_count": 14648,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 106,

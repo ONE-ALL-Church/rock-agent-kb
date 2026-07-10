@@ -143,6 +143,27 @@ uv run kb claims evaluation-sample --model <model-id> --sample-size 48
 
 The evaluation sample is ignored/private because it may contain bounded transcript or normalized-source context. Score source fidelity, specificity, agent actionability, concept routing, temporal precision, and duplication risk before deciding whether to replace legacy claims. Do not regenerate the entire claim graph solely because a newer model is available.
 
+## Official Document Claim Distillation
+
+Use the versioned [Source Claim Distillation Prompt](../prompts/source-claim-distillation-v1.md) when converting API-backed Rockumentation articles into canonical claims. Generate a private candidate queue first; the command hydrates full article text from the public API and hashes the exact context reviewed by the model.
+
+```bash
+uv run kb claims document-candidates \
+  --concept <concept-id> \
+  --limit-per-concept 8
+
+uv run kb claims document-promote \
+  --candidate-path data/review/source-claim-candidates/official-docs.jsonl \
+  --rewrite-path data/review/source-claim-rewrites/official-docs-sol-v1.jsonl \
+  --output data/review/source-claim-reviews/official-docs-sol-v1.jsonl \
+  --reviewer <reviewer-id> \
+  --model <exact-model-id>
+
+uv run kb build --stage claims --force
+```
+
+Start with the bounded eight-article pilot for each concept. After its claims and answer routing pass review, use a higher `--limit-per-concept` to cover the remaining eligible articles in resumable batches. Keep candidate full text and reviewer rewrite files private. A completed rewrite may use an empty `claims` array to record that a fully reviewed article added no durable, non-duplicate knowledge. The claims stage reports `private-stale` after a promotion that produces public review rows and requires the explicit `--force` rebuild shown above before those rows enter public artifacts. Public claims retain the canonical article URL, normalized source-record ID, article version, concept routing, model/prompt provenance, and source-input hash. Prefer leaf articles with operational detail; skip table-of-contents pages and duplicate knowledge.
+
 ## Source Conflict Review
 
 `agent/source-conflicts.jsonl` is an authority-alignment report, not automatic proof that two sources contradict each other. Review these rows when they change materially or before a readiness pass:

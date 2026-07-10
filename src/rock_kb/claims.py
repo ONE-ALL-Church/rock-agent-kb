@@ -332,6 +332,7 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
         "derived_from": {
             "type": "source_claim_review",
             "id": row.get("id"),
+            "candidate_id": row.get("candidate_id"),
             "schema": row.get("schema") or SOURCE_CLAIM_REVIEW_SCHEMA,
             "reviewer": row.get("reviewer"),
         },
@@ -339,6 +340,9 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
     }
     if row.get("generation_provenance"):
         claim["generation_provenance"] = row["generation_provenance"]
+    for key in ["evidence_class", "temporal_status"]:
+        if row.get(key):
+            claim[key] = row[key]
     return claim_with_id(claim)
 
 
@@ -493,7 +497,9 @@ def claim_with_id(row: dict[str, Any]) -> dict[str, Any]:
 def claim_tier_for_claim(row: dict[str, Any]) -> str:
     if not row.get("answer_candidate"):
         return "routing_context_only"
-    if row.get("needs_live_verification") or row.get("requires_live_instance"):
+    if row.get("needs_live_verification"):
+        return "source_backed"
+    if row.get("requires_live_instance") and row.get("authority_tier") != "official":
         return "source_backed"
     return "answer_pack_approved"
 

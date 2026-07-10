@@ -31,6 +31,7 @@ generated: true
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
+| `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats

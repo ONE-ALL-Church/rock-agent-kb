@@ -7,14 +7,12 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Documents And Signatures?
 
-No approved claims are currently routed to Documents And Signatures; inspect source summaries and live records before acting. Use community material as examples only, and verify local behavior in the live Rock instance.
+Rock recommends typed signatures because a drawn signature is personally identifiable information that can create additional legal obligations when stored in Rock.
 
 ## Top Claims
 
+- `claim:a7ed47f88067603d5f1c`
 
 ## Citations
 
-- [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation:article:1008](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents)
-- [rock_documentation:article:852](https://community.rockrms.com/documentation/core-concepts/documents)
-- [rock_core_release_notes:fd91665df6fc5388](https://www.rockrms.com/releasenotes)
+- [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures)

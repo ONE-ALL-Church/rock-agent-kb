@@ -45,6 +45,7 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 - `Page`: Rock concept/entity referenced by the hosting-infrastructure guide.
 - `Person`: Rock concept/entity referenced by the hosting-infrastructure guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the hosting-infrastructure guide.
 
 ## Version Caveats

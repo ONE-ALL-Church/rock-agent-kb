@@ -1,7 +1,763 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "ea36d5bc0e8c66163b2b405f0c004692054fe62b39a5b6075c8c441ccd4ce7e6",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "The Entity Document block supports per-document security when that feature is enabled in the block settings, while deleting a listed document is irreversible.",
+      "claim_hash": "abf9d45e24f482a4da8b7b52da73b055b07a8065a7240d784c2fc2ccb477ab47",
+      "claim_id": "claim:10c8aa9843cf753763cc",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bfda53e054ffbaa8523e9303257e987f17324b153667e3dfcd58080f9093c1a6",
+      "source_record_ids": [
+        "rock_documentation:article:1791"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Entity Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Users can manage merge templates intended for their own use from My Settings, and the page can also expose global templates when its block settings are configured accordingly.",
+      "claim_hash": "2d8b30c423b813f08882b6a2a47f3e9de1ce3479ad9115b1d75506b282ae5557",
+      "claim_id": "claim:17397f243e9c57c1da98",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "77468a7e9909b000ba2e78004dd40ecc80d500058343270b5cbd9bb12549ebb5",
+      "source_record_ids": [
+        "rock_documentation:article:999"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Administrate Merge Templates",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Cloudflare Scrape Shield must be disabled for HTML merge documents that need to display email addresses because the feature blocks those addresses in the generated document.",
+      "claim_hash": "5da602bed4d1177745a3a0a52bb2a358c3f6d157d65662d0849f8fff0a805eab",
+      "claim_id": "claim:28713f47d11b1c86ff81",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "25ea2d1d1f0b4fbf67937fb49f1237cccaf262104383f77f282510c536b3f620",
+      "source_record_ids": [
+        "rock_documentation:article:1000"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Create a Merge Document",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock merge documents support Word and HTML formats, with Lava used to supply templated content in either format.",
+      "claim_hash": "02a1913a2827aebf74b2a3168c66075a680f59c89505a9a3665ea69bd60ca489",
+      "claim_id": "claim:2abf8337ec2f0b4bc2e3",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5ad1d0a1a590784235fbb35be51f4497b13cb4b99e90eda2947b7a41a89d8aef",
+      "source_record_ids": [
+        "rock_documentation:article:2067"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Merge Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied.",
+      "claim_hash": "6e5de64e884ca2d0c214d20610f72cec67daebd1ea0abc156c117877b59b0a66",
+      "claim_id": "claim:2b12292de387462d2016",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "342a9ba6eff14fa9ff534f0e2240160d37563e035c45f35b1fc4b1ee6e04473e",
+      "source_record_ids": [
+        "rock_documentation:article:1004"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Electronic Signatures in a Workflow",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, administrators can manage documents for a signature template from Admin Tools > Settings > Signature Documents, where a document record can be opened to inspect its details, view the signed file, or resend the completion email.",
+      "claim_hash": "bf2e4833ddfbf12c52c4132abc279a14b2cc66aa573a205c55a75e8832f7306a",
+      "claim_id": "claim:31bdfab553235652cf1b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cbf765557df3917cfd8ac4203f2a88298faacdea7d63696b482129bda6ca13a4",
+      "source_record_ids": [
+        "rock_documentation:article:1008"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Signature Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Entity Document Add workflow action fails when the workflow entity type does not match the entity type configured for the selected document type; the uploaded file must also satisfy any required preferred-file settings of that document type's associated file type.",
+      "claim_hash": "b696c53df2b5a5559c225131ba0301b848dd4c22dc21b18963707b270c7ddbcb",
+      "claim_id": "claim:3a7bae16d70a16e93d11",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cdb03b6aeb90a805fc5b8ffade16d49b30bfb5c7a10c2adf04259438aad1415e",
+      "source_record_ids": [
+        "rock_documentation:article:1793"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Documents Using Workflows",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For an event registration signature document, Applies To is each registrant; Assigned To is the registrant when the registrant is an adult, but the person completing the registration when the registrant is a child.",
+      "claim_hash": "19b5604b5fe3b361ba0db04b994a95e1572fde9a980b11552f2dad3630ef2684",
+      "claim_id": "claim:53cbe19962af145cd83f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c3210aa09a680f00a564e8159d75a24509f7cee5e565191a2ecfde26784c2590",
+      "source_record_ids": [
+        "rock_documentation:article:1005"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Electronic Signatures in Event Registrations",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To manage documents for an entity type other than Person, add a Documents block to a page that has that entity in context and configure the block's Entity Type to match; otherwise, the block warns that it lacks a valid context entity.",
+      "claim_hash": "3c13a62e5d4ac7d0a7a7ce3250ab3ac0136cc03747b77914a18d819408e9b58a",
+      "claim_id": "claim:55df3e5f0c447683a234",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4a5ee98769ef5405e51ebd438a8857d336720229bd4a09a42d6426b0f58d95ee",
+      "source_record_ids": [
+        "rock_documentation:article:1792"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add the Block",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature.",
+      "claim_hash": "ce40b4ef1ff8cf2242c9f4c2af5c3c00672971af7f9e1e72b81d358682ed0f00",
+      "claim_id": "claim:5c97f1be7d89dfd42760",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "13477c6ec2c34bb4464e304ba047381006ff65a33119b39792cadb5205564c0e",
+      "source_record_ids": [
+        "rock_documentation:article:2068"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Electronic Signatures",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0 event registration, electronic signatures require the Obsidian Registration Entry block; using that block with a legacy signature document can break the registration flow.",
+      "claim_hash": "e1a90acc29af1c7dba50c0d93f7a005f1f0cedfc1d418734aefb02a488ced4cc",
+      "claim_id": "claim:63b4ae7f9cdb042b4538",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c3210aa09a680f00a564e8159d75a24509f7cee5e565191a2ecfde26784c2590",
+      "source_record_ids": [
+        "rock_documentation:article:1005"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Electronic Signatures in Event Registrations",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When preparing grid data for a merge document, Rock can preview the first 15 source records and display the available merge fields before the merge is run.",
+      "claim_hash": "42d0203e47f9bed31351aff78cc4d3b0b6c5dc8ad665102072e0a94c5ef8f2fe",
+      "claim_id": "claim:74ba47afc0b64625eb80",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4bde410a13338b975d08ff95c99994238f6abc9c359f8c79e0d6d489dd1b958f",
+      "source_record_ids": [
+        "rock_documentation:article:1794"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Merge Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Uploading a document for a person requires Edit permission for both the applicable Person document type and its associated Person Document file type.",
+      "claim_hash": "93aa4d055efcfefada59d0d23f66a33fbed23062115fd5b6546773a3d1042bc7",
+      "claim_id": "claim:7cc469c66d9a91e3932d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cdb03b6aeb90a805fc5b8ffade16d49b30bfb5c7a10c2adf04259438aad1415e",
+      "source_record_ids": [
+        "rock_documentation:article:1793"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Documents Using Workflows",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An entity document type binds stored documents to both a Rock entity type and a file type, and optional qualifier column and value settings can restrict it to a subset such as one Group Type.",
+      "claim_hash": "1e38c3db2724a2c6f82c6421d9610c9a42639794187d2c77452b2eb3491ff254",
+      "claim_id": "claim:7fee8717706249e18e19",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0104d9433debf9dfefe695695f14d978a864d4b462a1d102edf8f30c350be20d",
+      "source_record_ids": [
+        "rock_documentation:article:1002"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Entity Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Entity Document block can manage documents for any Rock entity; the document types available for adding are determined by entity document type configuration and the block's settings.",
+      "claim_hash": "6a6cddaeb6a062f062b4f2b167cc7d50bf452e4646618a55ff8f8dfb4098e6a6",
+      "claim_id": "claim:8aab065b7e51dad0ae92",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bfda53e054ffbaa8523e9303257e987f17324b153667e3dfcd58080f9093c1a6",
+      "source_record_ids": [
+        "rock_documentation:article:1791"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Entity Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Documents block can be limited to selected document types, and enabling its security button allows access security to be managed separately for each document.",
+      "claim_hash": "779be28ff3effdffdc8eba3d3f2b047e7a0b5c90a5032457c7eab058910baf42",
+      "claim_id": "claim:969ba59ee587e4957a43",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4a5ee98769ef5405e51ebd438a8857d336720229bd4a09a42d6426b0f58d95ee",
+      "source_record_ids": [
+        "rock_documentation:article:1792"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add the Block",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Entity Documents can associate multiple documents of the same document type with a single Rock entity, including a person or group.",
+      "claim_hash": "ad0d96d4136700d649f43e1e2fdfc7d9a16e3c311bd22a277ed77df29b335233",
+      "claim_id": "claim:a1cee76185fc88a9a1b0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "eea234c167b34d6a3e54e818e553b95a990f2b21f4b3d8b1be96be4b9f93bb7b",
+      "source_record_ids": [
+        "rock_documentation:article:2066"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Entity Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Word merge templates support Lava variables, filters, and most tags, but not the if, raw, or lava tags, Lava commands, or Lava shortcodes; using a Next tag creates multi-record layouts such as mailing labels, while templates without it repeat the whole document for each record.",
+      "claim_hash": "fe180404cbf76095417a55540ef213fb4c3bf5226f9f2cef3c35a2b034161f19",
+      "claim_id": "claim:a623a7db9128f48a1845",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "25ea2d1d1f0b4fbf67937fb49f1237cccaf262104383f77f282510c536b3f620",
+      "source_record_ids": [
+        "rock_documentation:article:1000"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Create a Merge Document",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock recommends typed signatures because a drawn signature is personally identifiable information that can create additional legal obligations when stored in Rock.",
+      "claim_hash": "3e000f7855234d3e496ac36e9ac2aaa03f4a6c9560e48fa45b034599cbb8f142",
+      "claim_id": "claim:a7ed47f88067603d5f1c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5608066635d7adb7b47f51bd417d6af96df0ee0ecbb9cd2126a863b82222538f",
+      "source_record_ids": [
+        "rock_documentation:article:1006"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up Electronic Signatures",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When a merge document receives GroupMember rows, Rock exposes each row as a person and makes the original membership data available through the person's GroupMember property, including group member attributes.",
+      "claim_hash": "ebbd96330f4c09f188717d3cce8fc30b8edc40d331df6c99981e36027802f887",
+      "claim_id": "claim:b4a945aa5e82b85fc7a1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7a185abba183c0d4d2be3396ca5930191bdbf03142a4106e07bf7140dfc5d588",
+      "source_record_ids": [
+        "rock_documentation:article:1001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Using Lava with Merge Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Lava expressions in merge templates should use straight quotation marks because curved or stylized quotation marks can cause parsing errors.",
+      "claim_hash": "46e5a27ee282d90f050ad66287c343c5f18bae5b12d2c02dcc01b7645399e1cd",
+      "claim_id": "claim:c049d6e2c7ba52960a7b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7a185abba183c0d4d2be3396ca5930191bdbf03142a4106e07bf7140dfc5d588",
+      "source_record_ids": [
+        "rock_documentation:article:1001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Using Lava with Merge Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "After an electronic signature is completed, Rock normally generates a PDF containing the document content and signature so a copy can be sent to the signer.",
+      "claim_hash": "12a122923dca4d1e234eb3b3ab91f093f38ae1b58711081719f012c5930e0a05",
+      "claim_id": "claim:db20954a86191f0c451a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1f10f4d8f2851c31165edce498df8dbbe39fd4cdbfec265213eb463b1233ac54",
+      "source_record_ids": [
+        "rock_documentation:article:1007"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Generate PDFs for Electronic Signature Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Global merge templates are available database-wide, but administrators can restrict individual templates on the Merge Template Detail block; Rock enforces those security settings whenever a merge document is created.",
+      "claim_hash": "cf7250e036cffff411078d10a16f060db07d55d745a9e10a6aec9a3189ed49cb",
+      "claim_id": "claim:e384c69e25028ab6072e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "77468a7e9909b000ba2e78004dd40ecc80d500058343270b5cbd9bb12549ebb5",
+      "source_record_ids": [
+        "rock_documentation:article:999"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Administrate Merge Templates",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Organizations should configure a third-party PDF service through the PDF External Render Endpoint system setting when local PDF rendering would create excessive server load; an external service is required when the Rock environment cannot run Puppeteer or Chrome, including applicable Azure Web Services deployments.",
+      "claim_hash": "7a04d9aa06a52f26ca1918c94cf216db5be6f6d209ae2cca7530d6f93dc7852a",
+      "claim_id": "claim:ed0a1b359645f423053a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1f10f4d8f2851c31165edce498df8dbbe39fd4cdbfec265213eb463b1233ac54",
+      "source_record_ids": [
+        "rock_documentation:article:1007"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Generate PDFs for Electronic Signature Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, access to view a completed electronic signature document is controlled by the security permissions of its associated binary file type, rather than by the document template's security settings.",
+      "claim_hash": "dfd8fe83d57c813a8cf79d1aeaecf5a18fa3e7f2cae011c2d6b18fa4c14c5927",
+      "claim_id": "claim:ee557cad58f629774200",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cbf765557df3917cfd8ac4203f2a88298faacdea7d63696b482129bda6ca13a4",
+      "source_record_ids": [
+        "rock_documentation:article:1008"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Signature Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The merge document option to combine family members produces one row per family instead of one row per person and combines member values such as nicknames within that row.",
+      "claim_hash": "0c032fc651b616c59294e0364f6e30014c70b35445e940cd554e2cd293d598a8",
+      "claim_id": "claim:f0b0e192f8862ea35516",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4bde410a13338b975d08ff95c99994238f6abc9c359f8c79e0d6d489dd1b958f",
+      "source_record_ids": [
+        "rock_documentation:article:1794"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Merge Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:10c8aa9843cf753763cc": "abf9d45e24f482a4da8b7b52da73b055b07a8065a7240d784c2fc2ccb477ab47",
+    "claim:17397f243e9c57c1da98": "2d8b30c423b813f08882b6a2a47f3e9de1ce3479ad9115b1d75506b282ae5557",
+    "claim:28713f47d11b1c86ff81": "5da602bed4d1177745a3a0a52bb2a358c3f6d157d65662d0849f8fff0a805eab",
+    "claim:2abf8337ec2f0b4bc2e3": "02a1913a2827aebf74b2a3168c66075a680f59c89505a9a3665ea69bd60ca489",
+    "claim:2b12292de387462d2016": "6e5de64e884ca2d0c214d20610f72cec67daebd1ea0abc156c117877b59b0a66",
+    "claim:31bdfab553235652cf1b": "bf2e4833ddfbf12c52c4132abc279a14b2cc66aa573a205c55a75e8832f7306a",
+    "claim:3a7bae16d70a16e93d11": "b696c53df2b5a5559c225131ba0301b848dd4c22dc21b18963707b270c7ddbcb",
+    "claim:53cbe19962af145cd83f": "19b5604b5fe3b361ba0db04b994a95e1572fde9a980b11552f2dad3630ef2684",
+    "claim:55df3e5f0c447683a234": "3c13a62e5d4ac7d0a7a7ce3250ab3ac0136cc03747b77914a18d819408e9b58a",
+    "claim:5c97f1be7d89dfd42760": "ce40b4ef1ff8cf2242c9f4c2af5c3c00672971af7f9e1e72b81d358682ed0f00",
+    "claim:63b4ae7f9cdb042b4538": "e1a90acc29af1c7dba50c0d93f7a005f1f0cedfc1d418734aefb02a488ced4cc",
+    "claim:74ba47afc0b64625eb80": "42d0203e47f9bed31351aff78cc4d3b0b6c5dc8ad665102072e0a94c5ef8f2fe",
+    "claim:7cc469c66d9a91e3932d": "93aa4d055efcfefada59d0d23f66a33fbed23062115fd5b6546773a3d1042bc7",
+    "claim:7fee8717706249e18e19": "1e38c3db2724a2c6f82c6421d9610c9a42639794187d2c77452b2eb3491ff254",
+    "claim:8aab065b7e51dad0ae92": "6a6cddaeb6a062f062b4f2b167cc7d50bf452e4646618a55ff8f8dfb4098e6a6",
+    "claim:969ba59ee587e4957a43": "779be28ff3effdffdc8eba3d3f2b047e7a0b5c90a5032457c7eab058910baf42",
+    "claim:a1cee76185fc88a9a1b0": "ad0d96d4136700d649f43e1e2fdfc7d9a16e3c311bd22a277ed77df29b335233",
+    "claim:a623a7db9128f48a1845": "fe180404cbf76095417a55540ef213fb4c3bf5226f9f2cef3c35a2b034161f19",
+    "claim:a7ed47f88067603d5f1c": "3e000f7855234d3e496ac36e9ac2aaa03f4a6c9560e48fa45b034599cbb8f142",
+    "claim:b4a945aa5e82b85fc7a1": "ebbd96330f4c09f188717d3cce8fc30b8edc40d331df6c99981e36027802f887",
+    "claim:c049d6e2c7ba52960a7b": "46e5a27ee282d90f050ad66287c343c5f18bae5b12d2c02dcc01b7645399e1cd",
+    "claim:db20954a86191f0c451a": "12a122923dca4d1e234eb3b3ab91f093f38ae1b58711081719f012c5930e0a05",
+    "claim:e384c69e25028ab6072e": "cf7250e036cffff411078d10a16f060db07d55d745a9e10a6aec9a3189ed49cb",
+    "claim:ed0a1b359645f423053a": "7a04d9aa06a52f26ca1918c94cf216db5be6f6d209ae2cca7530d6f93dc7852a",
+    "claim:ee557cad58f629774200": "dfd8fe83d57c813a8cf79d1aeaecf5a18fa3e7f2cae011c2d6b18fa4c14c5927",
+    "claim:f0b0e192f8862ea35516": "0c032fc651b616c59294e0364f6e30014c70b35445e940cd554e2cd293d598a8"
+  },
+  "approved_claims_hash": "4e256263c0d5ceda3b2544b3606e54964ad29b6080a4ef729e52ea90a0367520",
   "approved_claims_path": "knowledge/concepts/documents-signatures/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -42,12 +798,12 @@
   },
   "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
   "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
-  "built_at": "2026-07-09T20:59:04+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "documents-signatures",
-  "guide_hash": "a9f141b1e8fe33914138db1c98c9c16f081efdd9943a67cc78c839509c57fb9a",
-  "guide_line_count": 1349,
+  "guide_hash": "5c76237055047e163397ec0a8658a72ffc4e54b00bd5bdc1711734df1e20922c",
+  "guide_line_count": 1367,
   "guide_path": "knowledge/concepts/documents-signatures/guide.md",
-  "guide_word_count": 11145,
+  "guide_word_count": 11628,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1252,21 +2008,30 @@
       "start_line": 1257
     },
     {
-      "confidence": "structural",
-      "end_line": 1280,
+      "confidence": "normal",
+      "end_line": 1298,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "ba453d3167752790",
-        "badab030c195b30e",
-        "9af162570ab9ac58"
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286"
       ],
       "start_line": 1273
     },
     {
       "confidence": "citation-only",
-      "end_line": 1294,
+      "end_line": 1312,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1274,11 +2039,11 @@
         "99161b788cad1f6e",
         "9ca73fb85a7d51b9"
       ],
-      "start_line": 1281
+      "start_line": 1299
     },
     {
       "confidence": "high",
-      "end_line": 1349,
+      "end_line": 1367,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -1312,7 +2077,7 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1295
+      "start_line": 1313
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:39:56+00:00",

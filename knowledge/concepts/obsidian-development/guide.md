@@ -1337,7 +1337,25 @@ The browser bus is page-local only ([Browser Bus](https://community.rockrms.com/
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `74`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | An Obsidian grid CopyColumn renders a button that copies text to the browser clipboard; it uses the row value identified by the column's field setting unless valueToCopy is supplied to compute the text from the row, column definition, and grid state. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/copycolumn) |
+| official | behavior | In an Obsidian grid, SelectColumn renders row-selection checkboxes that allow grid actions to operate on multiple selected rows. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/selectcolumn) |
+| official | behavior | In an Obsidian grid, DateColumn renders the value of its configured field as a short-form date and supplies defaults for formatting, skeleton display, quick-filter values, and exported values; it adds no column-specific properties. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/datecolumn) |
+| official | behavior | The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser. | [source](https://community.rockrms.com/developer/obsidian/browser-bus) |
+| official | behavior | For an Obsidian plugin, `npm run build` performs TypeScript type checking before compiling and copying assets to RockWeb, whereas `npm run watch` continuously recompiles changed files without type checking. | [source](https://community.rockrms.com/developer/obsidian/plugin-development) |
+| official | behavior | Obsidian block clients exchange JSON data with their C# server component and invoke block actions through endpoints that retain the block's settings and normal security enforcement. | [source](https://community.rockrms.com/developer/obsidian/blocks) |
+| official | behavior | When NumberBadgeColumn ranges overlap, the effective precedence from highest to lowest is danger, warning, success, info, then hidden; therefore a matching color range can override a configured hide range. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/numberbadgecolumn) |
+| official | behavior | The Obsidian grid SecurityColumn displays a per-row control that opens Rock's standard security editor for the corresponding item. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn) |
+| official | behavior | The Obsidian grid EditColumn invokes its optional click callback with the row key; the callback may be synchronous or return a Promise, in which case the edit button stays disabled until that Promise settles. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/editcolumn) |
+| official | behavior | In an Obsidian grid, HighlightDetailColumn renders its primary field in bold and can render a secondary row-property value beneath it when detailField names that property; omitting detailField or setting it to false leaves the secondary area empty. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/highlightdetailcolumn) |
+| official | behavior | In an Obsidian grid, BooleanColumn renders a checkmark when its bound value is true and leaves the cell empty otherwise. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/booleancolumn) |
+| official | behavior | DeleteColumn can disable deletion per row through rowDisabled, and when its onClick callback returns a Promise, the delete button stays disabled until that Promise resolves. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/deletecolumn) |
+| More |  | 62 additional approved claims are tracked in `approved-claims.md`. |  |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

@@ -1205,7 +1205,25 @@ Check:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `19`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock can require administrator approval before prayer requests enter team sessions, and it prioritizes urgent requests ahead of requests ordered from least prayed-for to most prayed-for. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/intro-to-prayer) |
+| official | behavior | When a prayer category uses an active AI provider and public-appropriateness checking is enabled, a request judged unsuitable for public display is made non-public and its flag count is increased by one. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations) |
+| official | behavior | Prayer requests configured for automatic approval become available to the prayer team immediately; otherwise an administrator must approve them before they appear in prayer sessions. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/administer-prayer-requests) |
+| official | behavior | The Prayer Request Comments Digest communication includes the original request and comments added since the job last ran; on its first run, it includes all existing comments. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication) |
+| official | behavior | The Prayer Request Comments Digest job sends to the email address recorded on the prayer request, which can differ from the requestor's current profile email address. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication) |
+| official | behavior | The Prayer Session and Prayer Card View blocks restrict results to prayer requests associated with the group identified by the URL's GroupGuid parameter; without that parameter, they exclude group-associated requests. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests) |
+| official | behavior | After a prayer request has been associated with a group, the association cannot be changed or removed; administrators can view it in the prayer request details. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests) |
+| official | behavior | The Send Prayer Comments job sends prayer-team comments to the person who submitted a prayer request, but it ignores requests for which Allow Comments is disabled. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest) |
+| official | behavior | Administrators can locate prayer requests by filtering for flagged or unapproved requests, then edit, delete, or re-approve them. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/work-with-flagged-requests) |
+| official | behavior | A prayer session records another prayer count when a team member views a request, and enabled team flagging can unapprove a request once the block's configured flag threshold is reached. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session) |
+| official | configuration | Prayer-category AI settings can pass from a parent category to its direct children, but the inherited settings do not cascade from those children to grandchildren. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations) |
+| official | configuration | The Prayer Request Entry block's expiration period controls how long an approved request stays active, but this setting applies only when automatic approval is enabled. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
+| More |  | 7 additional approved claims are tracked in `approved-claims.md`. |  |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

@@ -2,7 +2,7 @@
 id: concept-content-personalization
 title: Content And Personalization
 generated: true
-last_built: 2026-07-09T20:56:23+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -36,6 +36,32 @@ Content channels, assets, structured content, adaptive messages, personalization
 - The strongest source families in this build are: rock_documentation, rock_rocku, triumph_resources, rock_lava_docs, rock_recipes, rock_core_release_notes.
 - Related tags found in source records: operations, usage, admin, lava, workflow, api, development, sql.
 - Source detail types include: documentation_article, recipe, rock_lava_docs, training, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | The Tools > Content screen can limit the channel list to channels with pending items, while a selected channel's items can be filtered by status, date range, or title. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/manage-content-items) |
+| official | behavior | A church can selectively publish content to the Content Library, where it is stored in a Spark-hosted cloud environment and can be downloaded into another church's Rock instance. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/intro-to-the-content-library) |
+| official | behavior | In Rock 19.0, the Asset Manager under Admin Tools > CMS Configuration manages files and folders in configured storage providers, including cloud storage and the Rock server. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager) |
+| official | behavior | Rock can personalize website content for visitors who are not logged in by using available browsing-session and visitor signals. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/overview/intro-to-personalization) |
+| official | behavior | The Content Channel Item Self Update job evaluates Lava stored in a content channel item attribute and writes the result to another item attribute; the Lava output must be compatible with the target attribute's field type. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/self-update-content-channel-items) |
+| official | behavior | With view tracking enabled on the adaptivemessage Lava command, an adaptation stops displaying to a viewer after its configured saturation count is reached within the configured day range. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages) |
+| official | behavior | Rock includes a File Manager block under Admin Tools > CMS Configuration > File Manager that supports uploading and deleting files and managing directories. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/file-manager) |
+| official | behavior | Request Filters can personalize content without identifying the visitor by evaluating request context such as site, new-or-returning status, device type, query parameters, cookies, browser version, IP range, IP-derived location, and visit day or time. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/use-request-filters) |
+| official | behavior | Changing a Content Channel's Content Library license affects only later uploads; items already uploaded retain the license assigned when they were uploaded. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/set-up-the-content-library) |
+| official | behavior | A required Media Watch attribute can prevent submission of a workflow form until the participant has watched the configured percentage of its single assigned video; progress counts unique watched seconds, so seeking ahead does not satisfy the requirement. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-digital-media-in-workflows) |
+| official | behavior | A content channel item can use items from other channels as children; each child can belong to multiple parents and can have child items of its own. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-content-channel-child-items) |
+| official | behavior | A person must satisfy every configured filter area in a personalization segment, while conditions within an individual area can use either Any or All matching logic. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/intro-to-personalization-segments) |
+| official | behavior | A Content Channel Item is displayed no earlier than its Start date and can be automatically removed from display by assigning an Expire date. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-a-content-channel-item) |
+| official | behavior | Rock can automatically create a Content Channel Item for a video uploaded to a video service provider, allowing the video to be published and its engagement tracked within Rock. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/intro-to-digital-media) |
+| official | behavior | Rock ranks trending content collection items by dividing each item's interactions during the configured Trending Window by the item's age in days, with the age divisor capped at the window length. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/trending-content) |
+| official | behavior | A channel feed uses the default RSS Lava template unless TemplateId selects another Lava Templates defined value; Count limits returned items and defaults to 10, while EnableDebug exposes the template's available merge fields. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/publish-content-through-feeds) |
+| official | behavior | Adaptive Messages centralize multiple message adaptations behind one Lava command and can select variants using personalization data, date windows, view counts, and optional saturation limits. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages) |
+| official | behavior | When a content channel uses approvals, only users with Approval permission can set a content item's approval status. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/add-content-items) |
+| More |  | 83 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -131,7 +157,11 @@ Keywords: `asset manager, asset, file, image`
 
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
-| No matched records |  |  |  |
+| Asset Manager System | rock_documentation | [Intro to the Asset Manager](/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager?Version=v19.0) [Set Up Storage Provider](/documentation/digital-publishing/content-management/asset-manager-system/set-up-storage-provider?Version=v19.0) [View Asset Manager](/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager?Version=v19.0) [Add... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system) |
+| Add Content | rock_documentation | You might be wondering, when should I use the asset manager and when should I use a file attribute? The difference is subtle. File attributes are best used to attach files to content channel items or people where you don't care about the details of where the file is stored (this is all handled for you in the file type setup). Using the asset manager gives you much more control of where and how the file will be... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content) |
+| Intro to the Asset Manager | rock_documentation | The Asset Management system gives you first class integration between your Rock system and a remote cloud storage system (such as Azure or Amazon S3). With the Asset field type, you can add an attribute to existing things (such as a Content Channel, Person, Group, etc.) and give your content editors the ability to select files and images stored in your cloud accounts. ## Suggested Videos *... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager) |
+| View Asset Manager | rock_documentation | You can view and manage the files in the Asset Manager under `Admin tools > CMS Configuration > Asset Manager`. This block allows you to view and manage documents in the providers you have configured. Think of this as your file manager for your cloud storage and Rock server. 1. **Add and delete folders**- From here you can add or delete folders in the asset manager. 2. **Folder tree** - The folder tree shows parent... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager) |
+| Set Up Storage Provider | rock_documentation | Note **Access**Before you get started, you'll need to set up your Asset Storage Provider. Amazon S3, Google Cloud Storage, Azure Cloud Storage and your local Server File System are currently supported out of the box. More asset storage providers may be available in the Rock Shop. The asset provider is configured under `Admin tools > System Settings > Asset Storage Providers.` This page is where you will configure... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/set-up-storage-provider) |
 
 ### Adaptive Messages
 
@@ -164,7 +194,7 @@ Keywords: `personalization, segment, segments, audience`
 ## Rebuild Dependencies
 
 - Source records: `92`
-- Approved claims: `0`
+- Approved claims: `101`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

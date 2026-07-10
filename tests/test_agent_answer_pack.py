@@ -6,6 +6,105 @@ from rock_kb.concepts import Concept
 from rock_kb.jsonl import read_jsonl
 
 
+def test_first_check_ranking_prefers_introductory_official_source_when_priorities_tie():
+    concept = Concept(
+        id="engagement-tracking",
+        title="Engagement Tracking",
+        description="Engagement behavior.",
+        keywords=["engagement", "streak"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="weekly",
+        guide_status="generated_needs_review",
+        max_records=5,
+        raw={},
+    )
+    intro = {
+        "claim_id": "claim:intro",
+        "claim": "A streak type defines the engagement source and time pattern used for tracking.",
+        "claim_type": "behavior",
+        "operational_priority": 100,
+        "primary_concept_id": concept.id,
+        "source_refs": [{"title": "Intro to Streak Types", "url": "https://example.com/intro"}],
+    }
+    specialized = {
+        "claim_id": "claim:specialized",
+        "claim": "A specialized streak map operation rebuilds one internal map.",
+        "claim_type": "configuration",
+        "operational_priority": 100,
+        "primary_concept_id": concept.id,
+        "source_refs": [{"title": "Rebuild Streak Type", "url": "https://example.com/rebuild"}],
+    }
+
+    ranked = sorted([specialized, intro], key=lambda row: answer_module.first_check_claim_sort_key(concept, row))
+
+    assert ranked[0]["claim_id"] == "claim:intro"
+
+
+def test_first_check_selection_reserves_distinct_documentation_branches():
+    rows = [
+        {"claim_id": claim_id, "source_refs": [{"url": url}]}
+        for claim_id, url in [
+            ("claim:step-one", "https://community.rockrms.com/documentation/engagement/steps/intro"),
+            ("claim:step-two", "https://community.rockrms.com/documentation/engagement/steps/configure"),
+            ("claim:streak", "https://community.rockrms.com/documentation/engagement/streaks/intro"),
+            ("claim:assessment", "https://community.rockrms.com/documentation/engagement/assessments/intro"),
+            (
+                "claim:achievement",
+                "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro",
+            ),
+        ]
+    ]
+
+    selected = answer_module.diverse_claim_selection(rows, 4)
+
+    assert [row["claim_id"] for row in selected] == [
+        "claim:step-one",
+        "claim:streak",
+        "claim:assessment",
+        "claim:achievement",
+    ]
+    assert answer_module.claim_source_branch_key(
+        {
+            "source_refs": [
+                {"url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro"}
+            ]
+        }
+    ) == "documentation/supporting-rock/hosting/azure-hosting"
+    assert answer_module.claim_source_branch_key(
+        {
+            "source_refs": [
+                {"url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro"}
+            ]
+        }
+    ) == "documentation/supporting-rock/hosting/internal-hosting"
+
+
+def test_first_check_selection_keeps_existing_order_for_other_concepts():
+    concept = Concept(
+        id="workflows",
+        title="Workflows",
+        description="Workflow automation.",
+        keywords=["workflow"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="weekly",
+        guide_status="generated_needs_review",
+        max_records=5,
+        raw={},
+    )
+    rows = [
+        {"claim_id": "claim:lower", "operational_priority": 80},
+        {"claim_id": "claim:higher", "operational_priority": 90},
+    ]
+
+    selected = answer_module.first_check_claims_for_concept(concept, rows, 2)
+
+    assert [row["claim_id"] for row in selected] == ["claim:higher", "claim:lower"]
+
+
 def test_build_agent_answer_pack_writes_answers_checklists_review_and_conflicts(monkeypatch, tmp_path):
     agent_dir = tmp_path / "agent"
     knowledge_dir = tmp_path / "knowledge"

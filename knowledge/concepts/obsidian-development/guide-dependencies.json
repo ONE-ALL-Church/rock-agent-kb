@@ -1,18 +1,2166 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "527fe633ce2e2ee16e43a1304c6c8910971d31e16c008bd79ea10b850f605e29",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "Public field-type configuration keys and their meanings form a compatibility contract with remote consumers such as Rock Mobile, so changing them can break existing clients.",
+      "claim_hash": "6e6600b3d364294536e8237f20da268948f6c62d85157b22a38476440a989432",
+      "claim_id": "claim:018d0b4c3314bed2719c",
+      "claim_tier": "source_backed",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fd4c8694f9d2bd5c99ed9faf284cef576b6a7917722146665f3ed083e758b4e4",
+      "source_record_ids": [
+        "rock_developer:article:369"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating Field Types",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian grid CopyColumn renders a button that copies text to the browser clipboard; it uses the row value identified by the column's field setting unless valueToCopy is supplied to compute the text from the row, column definition, and grid state.",
+      "claim_hash": "b84caf88d6f9e5ad958961fecc48285b9ebd3fee29d0755026e0973f64fd0e9e",
+      "claim_id": "claim:0968c36e7240abc05a8f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f9258e71dd2ea2629e101e66220287b9e3ba91e32d53ab92c92eb95b86f384a0",
+      "source_record_ids": [
+        "rock_developer:article:391"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "CopyColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/copycolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "BooleanColumn uses defaults for the standard formatComponent and exportValue properties and does not introduce any column-specific properties.",
+      "claim_hash": "c40cc389a764150920e11bbfe2f794e80ba00de884db7ec48ce051fa91962ef7",
+      "claim_id": "claim:1427ee3726ec26b4d8f9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "34aaa26b078791064315a181483e676bc493f548b84abec49ed41b8db8c2feaa",
+      "source_record_ids": [
+        "rock_developer:article:388"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "BooleanColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/booleancolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, SelectColumn renders row-selection checkboxes that allow grid actions to operate on multiple selected rows.",
+      "claim_hash": "f75d821892d8babd1f8a22fe6796f3672b34a74418bcc9843c473321d5ee0b10",
+      "claim_id": "claim:1773691f110fe8565302",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ce6c0381bdd1a4ba80555a00e43a1931b1340b00fc8fc4e3349fcaeb1602cacb",
+      "source_record_ids": [
+        "rock_developer:article:404"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "SelectColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/selectcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian block requires a C# server component for its logic, while its client component supplies the user interface and may be omitted for a web block that only returns static HTML without interactions.",
+      "claim_hash": "70c6f3431a8b8cc39a351e6e3d0ba569dbce260df6b45667c50f5b98c1752f0b",
+      "claim_id": "claim:1a59cecfce904ebbaab9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "41a085b33d727401cfcaeb28ea44305e7d99a2d5083b9662c75461ea29355069",
+      "source_record_ids": [
+        "rock_developer:article:367"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, DateColumn renders the value of its configured field as a short-form date and supplies defaults for formatting, skeleton display, quick-filter values, and exported values; it adds no column-specific properties.",
+      "claim_hash": "09f52f0aef2b628aae7b56c70c5e7802931c02cd4e3601bcca718681759acbfa",
+      "claim_id": "claim:1b5b2e7f1d9391e1ddde",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8a673886c799edd71cf29af92657460f9da338d3d5e7429c6ef237e678d75147",
+      "source_record_ids": [
+        "rock_developer:article:393"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "DateColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/datecolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser.",
+      "claim_hash": "c49590b4faf1e6c6ff4c472466a9c3c4539af744a5410a766cfc274c866ffd3d",
+      "claim_id": "claim:200236163eb04b5ba086",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c0a1624427cb0424bab70dccd6acee06a3c422f1e8f8df781e7a754fd6c7db6b",
+      "source_record_ids": [
+        "rock_developer:article:370"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Browser Bus",
+          "url": "https://community.rockrms.com/developer/obsidian/browser-bus"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When an Obsidian field type uses different public display and edit representations, its client-side value-formatting methods must accept either representation because an unsaved edit component value can be supplied where the display representation is normally expected.",
+      "claim_hash": "74de36c5b164f5d468bfe43d3c25a246f812043e839f8822611bf88b2e8fe6fe",
+      "claim_id": "claim:20744671aaaa67e12057",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "834b5e1b72ed8bff5578db39b52b71c2f2de0d58785c72e6b2d6a4b6ee2c4a87",
+      "source_record_ids": [
+        "rock_developer:article:380"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Converting Core Field Types",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For an Obsidian plugin, `npm run build` performs TypeScript type checking before compiling and copying assets to RockWeb, whereas `npm run watch` continuously recompiles changed files without type checking.",
+      "claim_hash": "0f5edb5214cbe9f837d347b9c80a1ea979101248d83c83353a8496e5640bab4f",
+      "claim_id": "claim:2435a526d1ed1eaebbe7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fd80e0f66233031f8759582ffec80132cf5617163f277a2056581bef290b552a",
+      "source_record_ids": [
+        "rock_developer:article:363"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Plugin Development",
+          "url": "https://community.rockrms.com/developer/obsidian/plugin-development"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian block actions are stateless server calls, so every action must revalidate client data and recheck authorization rather than relying on TypeScript visibility or a previous C# instance.",
+      "claim_hash": "8bc81596655d8baa5078d6ab4e7d3a36d90be5362fef7fc8cf9f54d4fc168da0",
+      "claim_id": "claim:2502ae4f58523612e4a1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "97e06de5dfbe3e1e94efb99fc83d8ad027bc717baf7ec1a174521c2177ca9367",
+      "source_record_ids": [
+        "rock_developer:article:377"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Generated detail-block save handlers initially treat every selected property as writable, so properties included only to control the UI, such as IsSystem, must be removed from the saveable-property list to prevent unintended database updates.",
+      "claim_hash": "16aa48577258ed292fdfa4b965b3241919c73a07cf0c1e02e00b8c4d6d293ec4",
+      "claim_id": "claim:25c0ae257b7f419ae7bd",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e5e75e5afca4f25bb7ff34c5987118685fc52a1bbf8eccb2a540b308e72ee4c8",
+      "source_record_ids": [
+        "rock_developer:article:378"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating Detail Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Set an Obsidian Grid's key field to the data property that uniquely identifies each row when using advanced grid features that depend on row identity.",
+      "claim_hash": "e7f174d6b22b98868a5029ebf1ed8025bcba3e09a69cfc5376960aeca41e4e11",
+      "claim_id": "claim:30ce7860abc40c35af31",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "2eb2f78c910eaa4b0c492f454660ab2a61b8e01a626d104ac96882ae598dadb1",
+      "source_record_ids": [
+        "rock_developer:article:383"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Grid",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/grid"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian block clients exchange JSON data with their C# server component and invoke block actions through endpoints that retain the block's settings and normal security enforcement.",
+      "claim_hash": "3aaba55134806c60d6b43e1a9daa41442387c74ca6214bb536f6a3e9fb0af5cd",
+      "claim_id": "claim:37c037a5f6bb3602efeb",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "41a085b33d727401cfcaeb28ea44305e7d99a2d5083b9662c75461ea29355069",
+      "source_record_ids": [
+        "rock_developer:article:367"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian grid LabelColumn can translate raw field values into display text with textSource, then use that translated text as the lookup key for classSource or colorSource styling.",
+      "claim_hash": "177bdeb14d5934ee3d3a646f498f3299b4db26ccd00455983399e2e5cb2fa288",
+      "claim_id": "claim:3c3283b164f08786fd3d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29aca60ba2d59ff108e7fec43520fc4d1e45771bad06b4b40e1c3df144f65216",
+      "source_record_ids": [
+        "rock_developer:article:397"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "LabelColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/labelcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Universal Field Type keeps UI code outside its C# field-type implementation and supplies structured data for the client framework to render; item, tree, and search picker implementations using this pattern also receive Data View filtering support.",
+      "claim_hash": "371b4d6a174dc81b3684c8b64913807ab4501e748faac3f6602244a98bd69a12",
+      "claim_id": "claim:3cfc6f1ae39b7aee62fe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "83e3e0060338a1be69102d15699459bce7303875e64c846911ce66238488ccab",
+      "source_record_ids": [
+        "rock_developer:article:382"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Universal Field Types",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When NumberBadgeColumn ranges overlap, the effective precedence from highest to lowest is danger, warning, success, info, then hidden; therefore a matching color range can override a configured hide range.",
+      "claim_hash": "a021a66d8a34af6f92287f60264024595149fdba6d80cfdf202fcaf1ade60112",
+      "claim_id": "claim:3f155e757971fe08256c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9e1cf9f13806e49c4c0061c62d51ab526c6e75963f831b4c0f020b645c9f4c72",
+      "source_record_ids": [
+        "rock_developer:article:398"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "NumberBadgeColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numberbadgecolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian grid SecurityColumn displays a per-row control that opens Rock's standard security editor for the corresponding item.",
+      "claim_hash": "79e8853a88928923bebea25c518e453a63a572a86a8bee8fba7cf6e5bd5e0614",
+      "claim_id": "claim:4023071181efb471e64f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "be6b7714f5ea39507a7633c3b21a71f4b19ad4af7cc31eadfb9db095a26824fc",
+      "source_record_ids": [
+        "rock_developer:article:403"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "SecurityColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Attaching the VS Code debugger to an existing Chrome session requires Chrome to be launched with remote debugging enabled on port 9222.",
+      "claim_hash": "a5dc4fcac08934bfd7ba218924a6ad62b3bdac17cf263608af293b90167cf0fd",
+      "claim_id": "claim:4144b3f05f764b091a11",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f1ebdb1f638cb0c1c097339b439f9dba6f59aca7afa6d7ad8454516b2aec6ce6",
+      "source_record_ids": [
+        "rock_developer:article:376"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Debugging Obsidian in VS Code",
+          "url": "https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian's NumberBadgeColumn displays a number in a badge and selects its color by testing the value against configured inclusive minimum and maximum ranges.",
+      "claim_hash": "324a545bcb63ebf9d95a58d632742948a9a4d6d58e12a6ddd921a07cfd353bd9",
+      "claim_id": "claim:454ede835c96cb595346",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9e1cf9f13806e49c4c0061c62d51ab526c6e75963f831b4c0f020b645c9f4c72",
+      "source_record_ids": [
+        "rock_developer:article:398"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "NumberBadgeColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numberbadgecolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "PersonColumn can link a displayed person to the person detail page, but it does not verify that the viewer is authorized to access that page; the documented showAsLink behavior is scoped to Rock 17.",
+      "claim_hash": "722655c86e3fc1d898b403a437b19430918e19e4dc788b5adab7cb8089b8f5f7",
+      "claim_id": "claim:485b886cc73703d3f339",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "526b5d0108ba9e9dffded9861f70aa3934c86a9c883fcc9e8cf04195ac9e384f",
+      "source_record_ids": [
+        "rock_developer:article:399"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "PersonColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "After ReorderColumn updates the grid's row order, its optional onOrderChanged callback receives the moved row and the row now following it, or null when moved to the end; the callback can persist the change, return false to cancel it, or return a promise that blocks further reordering until completion.",
+      "claim_hash": "cad049e55e735e824c71b4bce5386e681b19f24bb047e784c3830110def8f41a",
+      "claim_id": "claim:499563b0c79ad9d2dc0a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d2fb7eb9474dd4f7d392b24c4301d4063e3495b6e876d385aae14cb8e8b929a4",
+      "source_record_ids": [
+        "rock_developer:article:401"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "ReorderColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/reordercolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Every Obsidian detail block should enforce either entity security, which authorizes against the displayed entity, or CMS security, which uses the block's permissions; when replacing an unsecured WebForms detail block, start with CMS security and review the effective page permissions.",
+      "claim_hash": "69bf1301d415c43a992485111fed93d604202256f8b52c91eba723657dc8ca50",
+      "claim_id": "claim:4b5ea0770a8c958c31d6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e5e75e5afca4f25bb7ff34c5987118685fc52a1bbf8eccb2a540b308e72ee4c8",
+      "source_record_ids": [
+        "rock_developer:article:378"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating Detail Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, a generic Column can display custom cell content by defining the format template and using its row value to render the desired markup.",
+      "claim_hash": "249462d824f63f73c773cfe808640ea64413245b2cf92a2ffdeef10f147e83dc",
+      "claim_id": "claim:4db40d0c8f360d6c5f9a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "879d4c6537ac86f0b97702528f354d0f360fa71811789bebe8215503a6137d66",
+      "source_record_ids": [
+        "rock_developer:article:390"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Column",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/column"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "AttributeColumns does not support the standard grid column properties, but it can be configured with an attribute filter and a skeleton component shown while grid data is loading.",
+      "claim_hash": "1a6272c5bc4f2e5d40c8b30e2164287b03bb6b619aaa95ac7f6e1374943379fd",
+      "claim_id": "claim:4f071310938c1132bce5",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "de1783e440dfc7dda88c470bbc33a40f7d084fcb6f05410d108911f7aa15e84c",
+      "source_record_ids": [
+        "rock_developer:article:387"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "AttributeColumns",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian field type must convert private field and configuration data into transmission-safe public representations; identifiers may also be expanded into client-friendly objects when the client needs additional display data, with a corresponding conversion back to the stored representation.",
+      "claim_hash": "ae2952c9572a07a0acc1726b24408e21dc7b0c7bf4528f75f2cace5acc896be6",
+      "claim_id": "claim:52771e519fc707c78615",
+      "claim_tier": "source_backed",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fd4c8694f9d2bd5c99ed9faf284cef576b6a7917722146665f3ed083e758b4e4",
+      "source_record_ids": [
+        "rock_developer:article:369"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating Field Types",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Rock VS Code workspace provides separate debugger configurations for the Obsidian Framework and Obsidian Blocks projects, with options to launch a new browser or attach to an existing one.",
+      "claim_hash": "a72afead4ae44afb4e8c6f7ceca9c252971fc7dbc90350be2322752231de7849",
+      "claim_id": "claim:54961886c0805fdc0ed4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f1ebdb1f638cb0c1c097339b439f9dba6f59aca7afa6d7ad8454516b2aec6ce6",
+      "source_record_ids": [
+        "rock_developer:article:376"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Debugging Obsidian in VS Code",
+          "url": "https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In a rock-dev-tool setup, the development environment owns the runnable Rock installation and selected Rock version, while each plugin remains a separate source repository that can be attached to multiple environments for testing against different Rock versions.",
+      "claim_hash": "721cff700d54bf9f6d132f10355d553bc3bb23fcf2715ebe7f5ea472102471b4",
+      "claim_id": "claim:54ebe89df221536919d7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fd80e0f66233031f8759582ffec80132cf5617163f277a2056581bef290b552a",
+      "source_record_ids": [
+        "rock_developer:article:363"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Plugin Development",
+          "url": "https://community.rockrms.com/developer/obsidian/plugin-development"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Values whose changes must update an Obsidian component's template should use reactive ref or computed values; changing an ordinary variable does not notify the template to render again.",
+      "claim_hash": "e90805dc2786af3ffd319b89ce4c11057dd7902b3d02f3782533c7071c3ab422",
+      "claim_id": "claim:557707f55f6a39c01012",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "79f5cac7e8606a30b7f73f2300f1bea32162dead422c7599b91ac54430a92286",
+      "source_record_ids": [
+        "rock_developer:article:365"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Obsidian Component Structure",
+          "url": "https://community.rockrms.com/developer/obsidian/obsidian-component-structure"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian grid EditColumn invokes its optional click callback with the row key; the callback may be synchronous or return a Promise, in which case the edit button stays disabled until that Promise settles.",
+      "claim_hash": "89adf44dc6b9ff4b2d179cc37e6982ba6a17149a499abaf4dcb91a2088530511",
+      "claim_id": "claim:5b6d69d9c5e4a70ad179",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "167cbcd6a14be29da2101d7e1e4b41ceb1e88be0cbb28091144d7b807c82c8ef",
+      "source_record_ids": [
+        "rock_developer:article:396"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "EditColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/editcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian grid ButtonColumn renders one icon button and requires both an icon CSS class and a click handler; the handler receives the row key and current grid state and may complete synchronously or asynchronously.",
+      "claim_hash": "acbaf1275800ab95987b42b82493909e65e28e4f458c3cd19d98fe8b364cf68f",
+      "claim_id": "claim:5c6be7bb6077cd98d55d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1cdf7b23614f1762acbc380bbcfdc6678c230284ec683bdfe422e3eaeabcde61",
+      "source_record_ids": [
+        "rock_developer:article:389"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "ButtonColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/buttoncolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "SecurityColumn uses the row's \"isSecurityDisabled\" field by default to disable its security control when that field is true; a different row field can be selected through disabledField.",
+      "claim_hash": "ed2be1d939f63394425a206a3e3aa6204a04c6c7b027aea1a4674cba29980552",
+      "claim_id": "claim:5ff76b6a19d44ce51e9a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "be6b7714f5ea39507a7633c3b21a71f4b19ad4af7cc31eadfb9db095a26824fc",
+      "source_record_ids": [
+        "rock_developer:article:403"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "SecurityColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "RockFieldColumn requires an attribute definition, which it uses to format the field value for display.",
+      "claim_hash": "e944ed1a8eb6249da4b7a6cb9c75d31873b37f1c288e7503ac6b8b5e99799f84",
+      "claim_id": "claim:735d7af9ff0d557750f1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "456c2ef9d2bfba1c10f1863245d4636fd2ce95363d869b3c0540ae7ed54fd5e1",
+      "source_record_ids": [
+        "rock_developer:article:402"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "RockFieldColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian grid custom column filter combines a popup component that constructs the filter value with a predicate function that receives each row and that value to decide whether the row matches.",
+      "claim_hash": "0c2c835d7db522484afb13eb377556e59fa08504c43db7b04109705f02f182a0",
+      "claim_id": "claim:77637865abbfa40b535e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f5458be87ad714893e6df42badb2cdbd7b86233327f81471dea0d9255926afe3",
+      "source_record_ids": [
+        "rock_developer:article:385"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Filters",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/filters"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian block can grant child controls scoped API access by creating a server-side security grant, sending its token in block configuration, providing that grant in the client component tree, and including the injected token in control API requests; the block should expose token renewal because these tokens expire after one hour by default.",
+      "claim_hash": "da347ddd225657416c73bec50c4da4f2ee462c9782c4bd5b327d9b2fc2ef1fa8",
+      "claim_id": "claim:78428dfda89499f150b2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "aad180a2dd319171bd592709d123b11e08a43c6289cc6c71d1c116a1e747c237",
+      "source_record_ids": [
+        "rock_developer:article:368"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating UI Controls",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian grid DateTimeColumn formats a cell as a short date and time, showing the date, hour, and minutes by default; setting showSeconds to true adds seconds.",
+      "claim_hash": "06ba8fba5b690950d95cc4d826cef6fe1537509198f908f8e528cfed5426bc54",
+      "claim_id": "claim:799a4394bf091f83bde9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "afa7f67ab231d2f9bf7b5448bbfdab6cef4f667b7f2cc36b078b8312938f6cfb",
+      "source_record_ids": [
+        "rock_developer:article:394"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "DateTimeColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/datetimecolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, HighlightDetailColumn renders its primary field in bold and can render a secondary row-property value beneath it when detailField names that property; omitting detailField or setting it to false leaves the secondary area empty.",
+      "claim_hash": "745f51363e830aa10945914d3a4f8d6993bac9ce839d94d839c3aaaf5df2c85e",
+      "claim_id": "claim:7a22f6064eaa9ec66ab0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c80f623deba6d626164244e0326229eaf7f92edc0c33787a6d6f1fc4ddc53c4f",
+      "source_record_ids": [
+        "rock_developer:article:1024"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "HighlightDetailColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/highlightdetailcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For most Obsidian pickers, `showBlankItem` controls whether a selected value can be cleared, while the `required` validation rule independently controls whether the form can be submitted without a value.",
+      "claim_hash": "f1cc87ffda6929de7f76ddb94892bfc7eed8305e3408cc0ab03b2eae74b5d968",
+      "claim_id": "claim:81bba5d18b08567edbfe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "79e6d19059daf383c86892aa3e01cb5fdbc5c0838712b89a744fd5d162fb62f2",
+      "source_record_ids": [
+        "rock_developer:article:374"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Misc Notes",
+          "url": "https://community.rockrms.com/developer/obsidian/misc-notes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, BooleanColumn renders a checkmark when its bound value is true and leaves the cell empty otherwise.",
+      "claim_hash": "f22edbcff165f8bd93de543b7c71565ee9be236f5a888fdb6ac88850af1b4622",
+      "claim_id": "claim:85ea78cdb333843aeec7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "34aaa26b078791064315a181483e676bc493f548b84abec49ed41b8db8c2feaa",
+      "source_record_ids": [
+        "rock_developer:article:388"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "BooleanColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/booleancolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian developer documentation may describe core-only patterns; plugin developers should apply a documented pattern only after determining that it also applies to plugins.",
+      "claim_hash": "73d36c29685b235d023c1a332c2871b0b22912eb77377b5e4a877bc10583d8d0",
+      "claim_id": "claim:863abcab25a5fe56db35",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0310177210e9a8f5f10790d9b383ecda8c044f44f0161f58cdddef3cb374448f",
+      "source_record_ids": [
+        "rock_developer:article:185"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Obsidian",
+          "url": "https://community.rockrms.com/developer/obsidian"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Plugin endpoints that supply Universal Tree Item Picker or Search Picker data should accept POST input from the request body and use an `api/v2/plugins/{organization-code}/...` route; the `api/v2` prefix produces the camel-cased response properties expected by Obsidian clients, while the organization segment avoids plugin route collisions.",
+      "claim_hash": "ea183ff08202049ebac6392cb0c36d9932419d81bb673cc986217e5d1fad92b4",
+      "claim_id": "claim:8aa714c51d0d24d709a3",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "83e3e0060338a1be69102d15699459bce7303875e64c846911ce66238488ccab",
+      "source_record_ids": [
+        "rock_developer:article:382"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Universal Field Types",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian's `cachePromise` utility wraps a Promise-returning operation so concurrent calls with the same wrapper reuse the in-flight Promise, and later calls reuse the serialized result until its expiration time; the default expiration is one minute.",
+      "claim_hash": "b66bc2ed7f48ca888cc96b4c116f14249089adbbbc5366dc55aaa2b9df223c09",
+      "claim_id": "claim:8af30c159ed86b4569ed",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ba17ad62555c507020dd76a961ea97377d841dc9ce5a5ffd886249c797c3dc5d",
+      "source_record_ids": [
+        "rock_developer:article:371"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Caching API Calls",
+          "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "DeleteColumn can disable deletion per row through rowDisabled, and when its onClick callback returns a Promise, the delete button stays disabled until that Promise resolves.",
+      "claim_hash": "3760fd310314d9e0aa96a1a84bea93dcd2183e681beac36d0b7ffae0e52ecbf4",
+      "claim_id": "claim:8e6a0d847f20ca08693e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c3c5bc2d98caa24cc07494005b1c0e943216515485dcd7e3250cdf57c34422a1",
+      "source_record_ids": [
+        "rock_developer:article:395"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "DeleteColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/deletecolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For core Obsidian development, the Code Generator can scaffold a basic list block that can then be customized; this generator is not available for plugin blocks.",
+      "claim_hash": "aa1d684db48671d33f0024936dbade7bca649fa4dacfe1bd0ef1868b63af9a3b",
+      "claim_id": "claim:90c4f3284ee43c9e0e9e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "02e3523aa422831f77993095e4eca092425773ded9a3794875bf617f1a40c239",
+      "source_record_ids": [
+        "rock_developer:article:379"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating List Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian grids provide standard column filters for boolean, date, numeric, and text values, plus a filter that lets a person select one or more values from the column's unique existing values; the text filter uses substring matching.",
+      "claim_hash": "e3e4c8f1c5f3cff6b1a34eee1bc2e8419a2dbaabe66b13cdc85efaa710260842",
+      "claim_id": "claim:9183fd0fe89e7c3a6509",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f5458be87ad714893e6df42badb2cdbd7b86233327f81471dea0d9255926afe3",
+      "source_record_ids": [
+        "rock_developer:article:385"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Filters",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/filters"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian TypeScript model for JSON data, declare a property as optional when the server may omit it, and include `null` in its type when the server may also send an explicit null value; for example, a nullable string that may be omitted should use `property?: string | null`.",
+      "claim_hash": "e5e77fff7f2f97228e940f60505d312de4fe65171e186bec38ca340bc799a6e3",
+      "claim_id": "claim:92fc3e39e7763d1e2bc1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5aa16c23aa130fe7a050e69d65d0d6fce18287023a2b6aaa5655392b8849daf1",
+      "source_record_ids": [
+        "rock_developer:article:364"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Null vs Undefined",
+          "url": "https://community.rockrms.com/developer/obsidian/null-vs-undefined"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian developer documentation is a work in progress, so described behavior may change or may not yet be implemented as documented.",
+      "claim_hash": "9476dbbf25ff6940fdf24318599e6308950d6d7d84546ad9bcc26a521fc4c1c5",
+      "claim_id": "claim:93e0a70a12a20cd668de",
+      "claim_tier": "source_backed",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0310177210e9a8f5f10790d9b383ecda8c044f44f0161f58cdddef3cb374448f",
+      "source_record_ids": [
+        "rock_developer:article:185"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Obsidian",
+          "url": "https://community.rockrms.com/developer/obsidian"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid column, the format, condensed, header, and skeleton templates take precedence over their corresponding rendering component properties; condensedComponent falls back to formatComponent when no condensed component is specified.",
+      "claim_hash": "996a9946aa468aea89722803bee55bc3a301fa6d97fd14bcf176cdd2edad4d87",
+      "claim_id": "claim:9f1d3fd749de265a01b1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c41b261817064497a964fcc874cbe0202f13c63ccb50d0e5dca9f5b0d3e04968",
+      "source_record_ids": [
+        "rock_developer:article:386"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Standard Columns",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/standard-columns"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian TypeScript code should import across packages with aliases such as `@Obsidian/...`; relative imports are reserved for files in the same package or directory.",
+      "claim_hash": "ffcac9678854133914c71bf46dcb7b8d840e5969c4ce73b5d30cc6d461b4a5dd",
+      "claim_id": "claim:a42b7d81a72eccfcfccf",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7f5a3dca9d0fdfccba40b25f4651b14f139a0d510e80a51dc9900a042375ca02",
+      "source_record_ids": [
+        "rock_developer:article:375"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "App Laws",
+          "url": "https://community.rockrms.com/developer/obsidian/app-laws"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian grids perform filtering, sorting, and paging in the browser, so the complete row set must be transferred before rendering; configuring a smaller page size does not reduce the amount of data sent to the client.",
+      "claim_hash": "b551a72fa972c5bb4935f887fed2c69f04ffdd5f212a7209792c3424f6b29e16",
+      "claim_id": "claim:a6acc3c9a866ce162193",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "44de6d85efef849d7c0b45f402094bf3c3902ab2a190553d644bc4f8408d5630",
+      "source_record_ids": [
+        "rock_developer:article:372"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Grids",
+          "url": "https://community.rockrms.com/developer/obsidian/grids"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, the AttributeColumns placeholder determines where dynamically generated columns for entity attribute values are inserted; its attributes property accepts the attribute definitions to display.",
+      "claim_hash": "7d9c045e409416b87c408b1a4a71c42bc8f7e51b10bab06a712312c10bcde8df",
+      "claim_id": "claim:a70f494f36d9ed29a326",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "de1783e440dfc7dda88c470bbc33a40f7d084fcb6f05410d108911f7aa15e84c",
+      "source_record_ids": [
+        "rock_developer:article:387"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "AttributeColumns",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Person grid that does not inherit from RockListBlockType must provide block actions for creating entity sets and communications, and its grid definition must identify a Person key field using an IdKey or GUID, for the corresponding default grid actions to work.",
+      "claim_hash": "b83e6649348305da616e61cd038b3bf766fa1aed2d463a7e3178d9097f199e62",
+      "claim_id": "claim:ae0f619200c74a164630",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "44de6d85efef849d7c0b45f402094bf3c3902ab2a190553d644bc4f8408d5630",
+      "source_record_ids": [
+        "rock_developer:article:372"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Grids",
+          "url": "https://community.rockrms.com/developer/obsidian/grids"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian Grid can receive its required data directly or through a function; if that function returns a promise, the grid waits asynchronously for the result.",
+      "claim_hash": "dfe225c88fdb4a11d9c3a77a428d05dbd13f24689fd33c2c8e4d80c648fd0ceb",
+      "claim_id": "claim:aea3863e01654c925b3a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "2eb2f78c910eaa4b0c492f454660ab2a61b8e01a626d104ac96882ae598dadb1",
+      "source_record_ids": [
+        "rock_developer:article:383"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Grid",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/grid"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian's ReorderColumn renders a drag handle that lets a user move a row to a different position in the grid.",
+      "claim_hash": "1cc3ba09a5682dc2b6a83976406934ff10bf5ff88c2a7924d25d9782c26b15ab",
+      "claim_id": "claim:b4e605954b6e7505db5e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d2fb7eb9474dd4f7d392b24c4301d4063e3495b6e876d385aae14cb8e8b929a4",
+      "source_record_ids": [
+        "rock_developer:article:401"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "ReorderColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/reordercolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, CurrencyColumn formats the cell value as currency and supplies default formatting, loading-skeleton, and export-value behavior without adding column-specific properties.",
+      "claim_hash": "8d3317ace5275de9394567a3a2b85264ca73d8c0fb2f31d4b3b47f63e1ac989e",
+      "claim_id": "claim:bacc9b1b10fffd8c8396",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5a570ec9ae6287f18ba7ad907a1fe64aeabaeab28ed66efdb3840c9207d065e3",
+      "source_record_ids": [
+        "rock_developer:article:392"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "CurrencyColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/currencycolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian grid using PersonColumn must add its person field through AddPersonField() so the column receives all values required to render the person.",
+      "claim_hash": "a3432dc9009321227563ed466bddc38e47b9c2d7b61fcf1b1ed074c5e9a61931",
+      "claim_id": "claim:bbaeba4e6afd5c1d72ad",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "526b5d0108ba9e9dffded9861f70aa3934c86a9c883fcc9e8cf04195ac9e384f",
+      "source_record_ids": [
+        "rock_developer:article:399"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "PersonColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Core Obsidian additions must respect the package dependency hierarchy: a package may depend on packages above it in the hierarchy, but dependencies must not create direct or indirect cycles; block developers may import from any of the documented Obsidian packages.",
+      "claim_hash": "34e0680b72bc0b6c9fb8fcff3e206e0a550577a0a1b5fa8f540e10d3390454fd",
+      "claim_id": "claim:bc87f90bc1c439dcfde2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7f5a3dca9d0fdfccba40b25f4651b14f139a0d510e80a51dc9900a042375ca02",
+      "source_record_ids": [
+        "rock_developer:article:375"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "App Laws",
+          "url": "https://community.rockrms.com/developer/obsidian/app-laws"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In older Obsidian `.ts` files, a Vue compiler error reported only as `SyntaxError 15` indicates that whitespace is missing between attributes; this numeric-error troubleshooting issue is not expected for newer `.obs` files.",
+      "claim_hash": "f15ce2cc6105f2c605c48d24c15d811f5bee2fb79b003fa2e6092202cb77d2d0",
+      "claim_id": "claim:bce03aef2f9b3dfe063b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "79e6d19059daf383c86892aa3e01cb5fdbc5c0838712b89a744fd5d162fb62f2",
+      "source_record_ids": [
+        "rock_developer:article:374"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Misc Notes",
+          "url": "https://community.rockrms.com/developer/obsidian/misc-notes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To make a core field type available in Obsidian, declare Obsidian platform support on its C# field type, expose its GUID through the generated field-type system GUIDs, and import and register its TypeScript implementation in the Obsidian field-type index.",
+      "claim_hash": "071297f5eb3fdf5b4305439d5aa1d2b661d808cf7125506d9a2333408731ea78",
+      "claim_id": "claim:c129f3cd12206e1e425b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "834b5e1b72ed8bff5578db39b52b71c2f2de0d58785c72e6b2d6a4b6ee2c4a87",
+      "source_record_ids": [
+        "rock_developer:article:380"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Converting Core Field Types",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To cache an Obsidian API request, import the cache utility from `@Obsidian/Utility/cache`, call `cachePromise` with a unique cache key, a function that returns the request Promise, and optionally an expiration time, then invoke the returned function instead of issuing the request directly.",
+      "claim_hash": "f18c1a3f99ca5b5bd8d6c88f4db12d28e734b21c5db07e2252e0afeb380c0951",
+      "claim_id": "claim:c14c05dbe4d10080c3ff",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ba17ad62555c507020dd76a961ea97377d841dc9ce5a5ffd886249c797c3dc5d",
+      "source_record_ids": [
+        "rock_developer:article:371"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Caching API Calls",
+          "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A control API endpoint that accepts a security-grant token must reconstruct and evaluate the grant alongside the current person's normal authorization; unauthorized single-entity operations should return an unauthorized response, while list operations should omit entities the caller cannot access, using the authorization action appropriate to the operation.",
+      "claim_hash": "db2d630a00bd6f0a065e48d1959b51e15934a3eda8c05d91acd8b17b19304fc5",
+      "claim_id": "claim:cb762f2b897dc1586af1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "aad180a2dd319171bd592709d123b11e08a43c6289cc6c71d1c116a1e747c237",
+      "source_record_ids": [
+        "rock_developer:article:368"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating UI Controls",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian grid, TextColumn renders the field value as plain text and introduces no properties beyond the standard column properties.",
+      "claim_hash": "1b488dbd998cd7be0996db703c28a94b1f906447aef3dcc761936ad69fd48767",
+      "claim_id": "claim:ccff9dee805d74228e88",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "15a54e5e855f25b1d4ffb5ece60203d94a3980ea6336c335a71c4ba3ffc771e4",
+      "source_record_ids": [
+        "rock_developer:article:405"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "TextColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/textcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian block can provide a custom configuration screen by implementing `IHasCustomActions`, returning an administrate-only action whose component URL points to a separate `.obs` template, and exposing block actions to load and save the custom settings.",
+      "claim_hash": "1bf9daffa5f971c08b60fa03d0902bf0718d06b5c94899de6bf82700309549dc",
+      "claim_id": "claim:cdfc08e914a0b0864876",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0b4feae2d848b3224370b6bbafe2534ea12c5d250366d617196460ec0b22eeda",
+      "source_record_ids": [
+        "rock_developer:article:2658"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Implementing IHasCustomActions",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian component, a property's default is used only when the parent omits that property; explicitly passing null preserves null instead of substituting the default.",
+      "claim_hash": "764d47da8457de489a77d9780c630e16b80ea0a8f7eb59c65e3fca899041c7d2",
+      "claim_id": "claim:d47c176d4f0a533613aa",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "79f5cac7e8606a30b7f73f2300f1bea32162dead422c7599b91ac54430a92286",
+      "source_record_ids": [
+        "rock_developer:article:365"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Obsidian Component Structure",
+          "url": "https://community.rockrms.com/developer/obsidian/obsidian-component-structure"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian RockForm can be submitted by binding its submit prop and setting the bound value to true; after validation completes, the form resets that value to false and emits the submit event only when submission may proceed.",
+      "claim_hash": "c9cc071e8ce878a709323464775b534a25185b35e4a5656d07c1a53a7e988e3e",
+      "claim_id": "claim:d58b2de693052f28654d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e3b95e671cfcd4767e2f3f68bc948b0e6eb674fba5643bb5f1f51d3606b2eac1",
+      "source_record_ids": [
+        "rock_developer:article:366"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Form Validation",
+          "url": "https://community.rockrms.com/developer/obsidian/form-validation"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A JavaScript truthiness check rejects `undefined`, `null`, and an empty string together; use explicit comparisons instead when an Obsidian component must distinguish among those states.",
+      "claim_hash": "dd2c4aa273bd2d4d927446ce70d88565c3c925e5ba580db6a92180be9709dc4f",
+      "claim_id": "claim:e4cfb3d8e4561d51521e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5aa16c23aa130fe7a050e69d65d0d6fce18287023a2b6aaa5655392b8849daf1",
+      "source_record_ids": [
+        "rock_developer:article:364"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Null vs Undefined",
+          "url": "https://community.rockrms.com/developer/obsidian/null-vs-undefined"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian grid DeleteColumn asks for confirmation before invoking its click handler by default; setting disableConfirmation to true bypasses that prompt.",
+      "claim_hash": "68a67cfde77176699f18f21adc57e513aa0deda83c59954c49749cf0244f68ee",
+      "claim_id": "claim:e7207f8370b348b6a2f4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c3c5bc2d98caa24cc07494005b1c0e943216515485dcd7e3250cdf57c34422a1",
+      "source_record_ids": [
+        "rock_developer:article:395"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "DeleteColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/deletecolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Core `.obs` development is supported in Visual Studio Code rather than the Visual Studio editor, and the repository workspace supplies the expected settings and watch tasks for Obsidian controls and blocks.",
+      "claim_hash": "a698d8223d7f2b0b405cbfba5edc16d1f0e17eeced9bb053d10b1cfa4d769b72",
+      "claim_id": "claim:e92f0b8e130c396de463",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fbdc47fdbb1294d37fe205f68332b11f49e250ee5d621e0d3d5ba01cfc622529",
+      "source_record_ids": [
+        "rock_developer:article:362"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Core Development Environment",
+          "url": "https://community.rockrms.com/developer/obsidian/core-development-environment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Add an EditColumn to an Obsidian grid and assign its click handler to provide a per-row edit action; the column supplies defaults for its name, formatter component, header and item classes, and width.",
+      "claim_hash": "eb84e6f92cd2adaab1d4a2d91899ed69c9d0b612f067ccd591369936ca9e008c",
+      "claim_id": "claim:ea03d00807c93b775441",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "167cbcd6a14be29da2101d7e1e4b41ceb1e88be0cbb28091144d7b807c82c8ef",
+      "source_record_ids": [
+        "rock_developer:article:396"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "EditColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/editcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "LabelColumn styling can be configured either with classSource values that identify standard label suffixes or with colorSource values that specify CSS background colors.",
+      "claim_hash": "246166a0c0ce313025c2153b6dacdbb8c48fa6b4590145277568a4d7af9276b5",
+      "claim_id": "claim:ef8438158b8c67179442",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29aca60ba2d59ff108e7fec43520fc4d1e45771bad06b4b40e1c3df144f65216",
+      "source_record_ids": [
+        "rock_developer:article:397"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "LabelColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/labelcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In an Obsidian RockForm, input components report rule-validation results through their internal RockFormField; when the nearest form is submitted, RockForm blocks submission and displays its standard validation notice if any field is invalid, otherwise it emits the submit event.",
+      "claim_hash": "5d09f99a667d1f255f47c2cf4bce954ae5eaebe44bcfe39ba6ad6d1ca7ae482f",
+      "claim_id": "claim:f16ec4311aff7ba7ce75",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e3b95e671cfcd4767e2f3f68bc948b0e6eb674fba5643bb5f1f51d3606b2eac1",
+      "source_record_ids": [
+        "rock_developer:article:366"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Form Validation",
+          "url": "https://community.rockrms.com/developer/obsidian/form-validation"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian grid NumberColumn formats numeric cell values using the browser's current locale, including its thousands and decimal separators.",
+      "claim_hash": "4b18ee09571972746a5738fa8d87d0152b0fab636e2e2df5f7cb58042c2e13d9",
+      "claim_id": "claim:f372152b3250e946bf2e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cfa976a8bb927729e50b7a2b04d485f46dd2048319de45341b95099a99b2561b",
+      "source_record_ids": [
+        "rock_developer:article:400"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "NumberColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numbercolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "RockFieldColumn is an internal Rock grid column for displaying one Rock field value and should not be used by plugins.",
+      "claim_hash": "c6d2e835d4186570f4e51266c65dabfce28c4db968dbbf24241344403a118a1f",
+      "claim_id": "claim:f38b9271a5be14ac08c2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "456c2ef9d2bfba1c10f1863245d4636fd2ce95363d869b3c0540ae7ed54fd5e1",
+      "source_record_ids": [
+        "rock_developer:article:402"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "RockFieldColumn",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian grid column can remain available to exports or other processing while hidden on screen with hideOnScreen, whereas excludeFromExport removes the column from export output.",
+      "claim_hash": "00d82d058f4dfee716fa200ece436a5c7e9a37215831333760343f3d2b0cb55c",
+      "claim_id": "claim:f5756f592aada5bfb5bb",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c41b261817064497a964fcc874cbe0202f13c63ccb50d0e5dca9f5b0d3e04968",
+      "source_record_ids": [
+        "rock_developer:article:386"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Standard Columns",
+          "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/standard-columns"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian field configuration change handled entirely in the client should emit an updated model value, while a change that requires refreshed server-derived options should additionally request a configuration update.",
+      "claim_hash": "9568c16b3da1a5b21b7da2ddb4b9ed72f80b295cb95dfc36f26fee51caada019",
+      "claim_id": "claim:fea01b9e6403198166d2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b95d33ec9f3fcd7de97e83117cd5d2704031187e8d668972beef10976034bacd",
+      "source_record_ids": [
+        "rock_developer:article:381"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Core Field Type Patterns",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:018d0b4c3314bed2719c": "6e6600b3d364294536e8237f20da268948f6c62d85157b22a38476440a989432",
+    "claim:0968c36e7240abc05a8f": "b84caf88d6f9e5ad958961fecc48285b9ebd3fee29d0755026e0973f64fd0e9e",
+    "claim:1427ee3726ec26b4d8f9": "c40cc389a764150920e11bbfe2f794e80ba00de884db7ec48ce051fa91962ef7",
+    "claim:1773691f110fe8565302": "f75d821892d8babd1f8a22fe6796f3672b34a74418bcc9843c473321d5ee0b10",
+    "claim:1a59cecfce904ebbaab9": "70c6f3431a8b8cc39a351e6e3d0ba569dbce260df6b45667c50f5b98c1752f0b",
+    "claim:1b5b2e7f1d9391e1ddde": "09f52f0aef2b628aae7b56c70c5e7802931c02cd4e3601bcca718681759acbfa",
+    "claim:200236163eb04b5ba086": "c49590b4faf1e6c6ff4c472466a9c3c4539af744a5410a766cfc274c866ffd3d",
+    "claim:20744671aaaa67e12057": "74de36c5b164f5d468bfe43d3c25a246f812043e839f8822611bf88b2e8fe6fe",
+    "claim:2435a526d1ed1eaebbe7": "0f5edb5214cbe9f837d347b9c80a1ea979101248d83c83353a8496e5640bab4f",
+    "claim:2502ae4f58523612e4a1": "8bc81596655d8baa5078d6ab4e7d3a36d90be5362fef7fc8cf9f54d4fc168da0",
+    "claim:25c0ae257b7f419ae7bd": "16aa48577258ed292fdfa4b965b3241919c73a07cf0c1e02e00b8c4d6d293ec4",
+    "claim:30ce7860abc40c35af31": "e7f174d6b22b98868a5029ebf1ed8025bcba3e09a69cfc5376960aeca41e4e11",
+    "claim:37c037a5f6bb3602efeb": "3aaba55134806c60d6b43e1a9daa41442387c74ca6214bb536f6a3e9fb0af5cd",
+    "claim:3c3283b164f08786fd3d": "177bdeb14d5934ee3d3a646f498f3299b4db26ccd00455983399e2e5cb2fa288",
+    "claim:3cfc6f1ae39b7aee62fe": "371b4d6a174dc81b3684c8b64913807ab4501e748faac3f6602244a98bd69a12",
+    "claim:3f155e757971fe08256c": "a021a66d8a34af6f92287f60264024595149fdba6d80cfdf202fcaf1ade60112",
+    "claim:4023071181efb471e64f": "79e8853a88928923bebea25c518e453a63a572a86a8bee8fba7cf6e5bd5e0614",
+    "claim:4144b3f05f764b091a11": "a5dc4fcac08934bfd7ba218924a6ad62b3bdac17cf263608af293b90167cf0fd",
+    "claim:454ede835c96cb595346": "324a545bcb63ebf9d95a58d632742948a9a4d6d58e12a6ddd921a07cfd353bd9",
+    "claim:485b886cc73703d3f339": "722655c86e3fc1d898b403a437b19430918e19e4dc788b5adab7cb8089b8f5f7",
+    "claim:499563b0c79ad9d2dc0a": "cad049e55e735e824c71b4bce5386e681b19f24bb047e784c3830110def8f41a",
+    "claim:4b5ea0770a8c958c31d6": "69bf1301d415c43a992485111fed93d604202256f8b52c91eba723657dc8ca50",
+    "claim:4db40d0c8f360d6c5f9a": "249462d824f63f73c773cfe808640ea64413245b2cf92a2ffdeef10f147e83dc",
+    "claim:4f071310938c1132bce5": "1a6272c5bc4f2e5d40c8b30e2164287b03bb6b619aaa95ac7f6e1374943379fd",
+    "claim:52771e519fc707c78615": "ae2952c9572a07a0acc1726b24408e21dc7b0c7bf4528f75f2cace5acc896be6",
+    "claim:54961886c0805fdc0ed4": "a72afead4ae44afb4e8c6f7ceca9c252971fc7dbc90350be2322752231de7849",
+    "claim:54ebe89df221536919d7": "721cff700d54bf9f6d132f10355d553bc3bb23fcf2715ebe7f5ea472102471b4",
+    "claim:557707f55f6a39c01012": "e90805dc2786af3ffd319b89ce4c11057dd7902b3d02f3782533c7071c3ab422",
+    "claim:5b6d69d9c5e4a70ad179": "89adf44dc6b9ff4b2d179cc37e6982ba6a17149a499abaf4dcb91a2088530511",
+    "claim:5c6be7bb6077cd98d55d": "acbaf1275800ab95987b42b82493909e65e28e4f458c3cd19d98fe8b364cf68f",
+    "claim:5ff76b6a19d44ce51e9a": "ed2be1d939f63394425a206a3e3aa6204a04c6c7b027aea1a4674cba29980552",
+    "claim:735d7af9ff0d557750f1": "e944ed1a8eb6249da4b7a6cb9c75d31873b37f1c288e7503ac6b8b5e99799f84",
+    "claim:77637865abbfa40b535e": "0c2c835d7db522484afb13eb377556e59fa08504c43db7b04109705f02f182a0",
+    "claim:78428dfda89499f150b2": "da347ddd225657416c73bec50c4da4f2ee462c9782c4bd5b327d9b2fc2ef1fa8",
+    "claim:799a4394bf091f83bde9": "06ba8fba5b690950d95cc4d826cef6fe1537509198f908f8e528cfed5426bc54",
+    "claim:7a22f6064eaa9ec66ab0": "745f51363e830aa10945914d3a4f8d6993bac9ce839d94d839c3aaaf5df2c85e",
+    "claim:81bba5d18b08567edbfe": "f1cc87ffda6929de7f76ddb94892bfc7eed8305e3408cc0ab03b2eae74b5d968",
+    "claim:85ea78cdb333843aeec7": "f22edbcff165f8bd93de543b7c71565ee9be236f5a888fdb6ac88850af1b4622",
+    "claim:863abcab25a5fe56db35": "73d36c29685b235d023c1a332c2871b0b22912eb77377b5e4a877bc10583d8d0",
+    "claim:8aa714c51d0d24d709a3": "ea183ff08202049ebac6392cb0c36d9932419d81bb673cc986217e5d1fad92b4",
+    "claim:8af30c159ed86b4569ed": "b66bc2ed7f48ca888cc96b4c116f14249089adbbbc5366dc55aaa2b9df223c09",
+    "claim:8e6a0d847f20ca08693e": "3760fd310314d9e0aa96a1a84bea93dcd2183e681beac36d0b7ffae0e52ecbf4",
+    "claim:90c4f3284ee43c9e0e9e": "aa1d684db48671d33f0024936dbade7bca649fa4dacfe1bd0ef1868b63af9a3b",
+    "claim:9183fd0fe89e7c3a6509": "e3e4c8f1c5f3cff6b1a34eee1bc2e8419a2dbaabe66b13cdc85efaa710260842",
+    "claim:92fc3e39e7763d1e2bc1": "e5e77fff7f2f97228e940f60505d312de4fe65171e186bec38ca340bc799a6e3",
+    "claim:93e0a70a12a20cd668de": "9476dbbf25ff6940fdf24318599e6308950d6d7d84546ad9bcc26a521fc4c1c5",
+    "claim:9f1d3fd749de265a01b1": "996a9946aa468aea89722803bee55bc3a301fa6d97fd14bcf176cdd2edad4d87",
+    "claim:a42b7d81a72eccfcfccf": "ffcac9678854133914c71bf46dcb7b8d840e5969c4ce73b5d30cc6d461b4a5dd",
+    "claim:a6acc3c9a866ce162193": "b551a72fa972c5bb4935f887fed2c69f04ffdd5f212a7209792c3424f6b29e16",
+    "claim:a70f494f36d9ed29a326": "7d9c045e409416b87c408b1a4a71c42bc8f7e51b10bab06a712312c10bcde8df",
+    "claim:ae0f619200c74a164630": "b83e6649348305da616e61cd038b3bf766fa1aed2d463a7e3178d9097f199e62",
+    "claim:aea3863e01654c925b3a": "dfe225c88fdb4a11d9c3a77a428d05dbd13f24689fd33c2c8e4d80c648fd0ceb",
+    "claim:b4e605954b6e7505db5e": "1cc3ba09a5682dc2b6a83976406934ff10bf5ff88c2a7924d25d9782c26b15ab",
+    "claim:bacc9b1b10fffd8c8396": "8d3317ace5275de9394567a3a2b85264ca73d8c0fb2f31d4b3b47f63e1ac989e",
+    "claim:bbaeba4e6afd5c1d72ad": "a3432dc9009321227563ed466bddc38e47b9c2d7b61fcf1b1ed074c5e9a61931",
+    "claim:bc87f90bc1c439dcfde2": "34e0680b72bc0b6c9fb8fcff3e206e0a550577a0a1b5fa8f540e10d3390454fd",
+    "claim:bce03aef2f9b3dfe063b": "f15ce2cc6105f2c605c48d24c15d811f5bee2fb79b003fa2e6092202cb77d2d0",
+    "claim:c129f3cd12206e1e425b": "071297f5eb3fdf5b4305439d5aa1d2b661d808cf7125506d9a2333408731ea78",
+    "claim:c14c05dbe4d10080c3ff": "f18c1a3f99ca5b5bd8d6c88f4db12d28e734b21c5db07e2252e0afeb380c0951",
+    "claim:cb762f2b897dc1586af1": "db2d630a00bd6f0a065e48d1959b51e15934a3eda8c05d91acd8b17b19304fc5",
+    "claim:ccff9dee805d74228e88": "1b488dbd998cd7be0996db703c28a94b1f906447aef3dcc761936ad69fd48767",
+    "claim:cdfc08e914a0b0864876": "1bf9daffa5f971c08b60fa03d0902bf0718d06b5c94899de6bf82700309549dc",
+    "claim:d47c176d4f0a533613aa": "764d47da8457de489a77d9780c630e16b80ea0a8f7eb59c65e3fca899041c7d2",
+    "claim:d58b2de693052f28654d": "c9cc071e8ce878a709323464775b534a25185b35e4a5656d07c1a53a7e988e3e",
+    "claim:e4cfb3d8e4561d51521e": "dd2c4aa273bd2d4d927446ce70d88565c3c925e5ba580db6a92180be9709dc4f",
+    "claim:e7207f8370b348b6a2f4": "68a67cfde77176699f18f21adc57e513aa0deda83c59954c49749cf0244f68ee",
+    "claim:e92f0b8e130c396de463": "a698d8223d7f2b0b405cbfba5edc16d1f0e17eeced9bb053d10b1cfa4d769b72",
+    "claim:ea03d00807c93b775441": "eb84e6f92cd2adaab1d4a2d91899ed69c9d0b612f067ccd591369936ca9e008c",
+    "claim:ef8438158b8c67179442": "246166a0c0ce313025c2153b6dacdbb8c48fa6b4590145277568a4d7af9276b5",
+    "claim:f16ec4311aff7ba7ce75": "5d09f99a667d1f255f47c2cf4bce954ae5eaebe44bcfe39ba6ad6d1ca7ae482f",
+    "claim:f372152b3250e946bf2e": "4b18ee09571972746a5738fa8d87d0152b0fab636e2e2df5f7cb58042c2e13d9",
+    "claim:f38b9271a5be14ac08c2": "c6d2e835d4186570f4e51266c65dabfce28c4db968dbbf24241344403a118a1f",
+    "claim:f5756f592aada5bfb5bb": "00d82d058f4dfee716fa200ece436a5c7e9a37215831333760343f3d2b0cb55c",
+    "claim:fea01b9e6403198166d2": "9568c16b3da1a5b21b7da2ddb4b9ed72f80b295cb95dfc36f26fee51caada019"
+  },
+  "approved_claims_hash": "7855bec9ca2463d67f743a2c4d6e092fcdf45b38ce7f64d7de5401ca1843f9bd",
   "approved_claims_path": "knowledge/concepts/obsidian-development/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "f768e9a71799adfa685a6d1e9f212cff4a00b0eef2b1cd554f5c1fa1a1b517cd",
   "approved_media_path": "knowledge/concepts/obsidian-development/approved-media.md",
-  "built_at": "2026-07-09T20:59:12+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "obsidian-development",
-  "guide_hash": "c99c0aff61ec2d8829a6594f4a87b6613dd8095c9b5c7267539fd1ff535c0501",
-  "guide_line_count": 1378,
+  "guide_hash": "c05893fd72f95d07198af92620ea14dbddd85c89c8a7d85b8f72b4c92c663dbb",
+  "guide_line_count": 1396,
   "guide_path": "knowledge/concepts/obsidian-development/guide.md",
-  "guide_word_count": 14157,
+  "guide_word_count": 14648,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1613,30 +3761,52 @@
       "start_line": 1316
     },
     {
-      "confidence": "structural",
-      "end_line": 1343,
+      "confidence": "normal",
+      "end_line": 1361,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "e39ba57a3615907c"
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "e39ba57a3615907c",
+        "8b36a3bb6cf452c1",
+        "688f7051e9eaa0b1",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
       ],
       "start_line": 1336
     },
     {
       "confidence": "structural",
-      "end_line": 1350,
+      "end_line": 1368,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "e39ba57a3615907c"
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "e39ba57a3615907c",
+        "8b36a3bb6cf452c1",
+        "688f7051e9eaa0b1",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592",
+        "9eb572eefcc91592"
       ],
-      "start_line": 1344
+      "start_line": 1362
     },
     {
       "confidence": "normal",
-      "end_line": 1378,
+      "end_line": 1396,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1659,7 +3829,7 @@
         "8b36a3bb6cf452c1",
         "776256c424368312"
       ],
-      "start_line": 1351
+      "start_line": 1369
     }
   ],
   "source_pack_hydrated_at": "2026-06-19T00:07:23+00:00",

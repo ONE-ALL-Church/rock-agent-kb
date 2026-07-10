@@ -1274,7 +1274,25 @@ Community examples such as [Recipe 434](https://community.rockrms.com/recipes/43
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `26`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock merge documents support Word and HTML formats, with Lava used to supply templated content in either format. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents) |
+| official | behavior | For an event registration signature document, Applies To is each registrant; Assigned To is the registrant when the registrant is an adult, but the person completing the registration when the registrant is a child. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) |
+| official | behavior | In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures) |
+| official | behavior | When preparing grid data for a merge document, Rock can preview the first 15 source records and display the available merge fields before the merge is run. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents) |
+| official | behavior | The Entity Document block can manage documents for any Rock entity; the document types available for adding are determined by entity document type configuration and the block's settings. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) |
+| official | behavior | Entity Documents can associate multiple documents of the same document type with a single Rock entity, including a person or group. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents) |
+| official | behavior | When a merge document receives GroupMember rows, Rock exposes each row as a person and makes the original membership data available through the person's GroupMember property, including group member attributes. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents) |
+| official | behavior | After an electronic signature is completed, Rock normally generates a PDF containing the document content and signature so a copy can be sent to the signer. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume) |
+| official | configuration | The Entity Document block supports per-document security when that feature is enabled in the block settings, while deleting a listed document is irreversible. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) |
+| official | configuration | Users can manage merge templates intended for their own use from My Settings, and the page can also expose global templates when its block settings are configured accordingly. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates) |
+| official | configuration | Cloudflare Scrape Shield must be disabled for HTML merge documents that need to display email addresses because the feature blocks those addresses in the generated document. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document) |
+| official | configuration | A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow) |
+| More |  | 14 additional approved claims are tracked in `approved-claims.md`. |  |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

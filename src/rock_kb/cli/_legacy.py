@@ -39,6 +39,12 @@ from ..contributions import (
     report_private_staleness,
     validate_contribution_paths,
 )
+from ..document_claims import (
+    DEFAULT_CANDIDATE_PATH as DEFAULT_DOCUMENT_CLAIM_CANDIDATE_PATH,
+    DEFAULT_REVIEW_PATH as DEFAULT_DOCUMENT_CLAIM_REVIEW_PATH,
+    build_document_claim_candidates,
+    promote_document_claim_rewrites,
+)
 from ..community import discover_community_urls, fetch_community_pages, normalize_community_fetch, probe_endpoints
 from ..extract import build_raw_manifest, fetch_url, main_markdown, now_iso, optional_command
 from ..github_sources import discover_github_repositories, normalize_github_search_records
@@ -1096,6 +1102,58 @@ def claim_evaluation_sample_command(
         output_path=output,
         legacy_only=not include_provenance,
     )
+    console.print_json(json.dumps(result))
+
+
+def document_claim_candidates_command(
+    concept: Optional[list[str]] = typer.Option(None, "--concept", "-c"),
+    limit_per_concept: int = typer.Option(8, "--limit-per-concept", min=1),
+    output: Path = typer.Option(DEFAULT_DOCUMENT_CLAIM_CANDIDATE_PATH, "--output", file_okay=True, dir_okay=False),
+    allow_summary_fallback: bool = typer.Option(
+        False,
+        "--allow-summary-fallback",
+        help="Allow normalized summaries when Rockumentation full text is unavailable.",
+    ),
+) -> None:
+    """Build a private queue of API-backed official documents for claim review."""
+    try:
+        result = build_document_claim_candidates(
+            concept_ids=concept,
+            limit_per_concept=limit_per_concept,
+            output_path=output,
+            require_full_text=not allow_summary_fallback,
+        )
+    except ValueError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+    console.print_json(json.dumps(result))
+
+
+def document_claim_promote_command(
+    candidate_path: Path = typer.Option(..., "--candidate-path", exists=True, file_okay=True, dir_okay=False),
+    rewrite_path: Path = typer.Option(..., "--rewrite-path", exists=True, file_okay=True, dir_okay=False),
+    output: Path = typer.Option(DEFAULT_DOCUMENT_CLAIM_REVIEW_PATH, "--output", file_okay=True, dir_okay=False),
+    reviewer: str = typer.Option("local-review", "--reviewer"),
+    model: str = typer.Option(..., "--model"),
+    prompt_id: str = typer.Option("rock-kb-source-claim-distillation", "--prompt-id"),
+    prompt_version: str = typer.Option("1.0.0", "--prompt-version"),
+    review_method: str = typer.Option("agent_reviewed_full_article", "--review-method"),
+) -> None:
+    """Validate and promote reviewed official-document claims into the private review layer."""
+    try:
+        result = promote_document_claim_rewrites(
+            candidate_path=candidate_path,
+            rewrite_path=rewrite_path,
+            output_path=output,
+            reviewer=reviewer,
+            model=model,
+            prompt_id=prompt_id,
+            prompt_version=prompt_version,
+            method=review_method,
+        )
+    except ValueError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
     console.print_json(json.dumps(result))
 
 

@@ -1,24 +1,25 @@
 {
   "authority_tiers": {
     "community-reviewed": 1027,
-    "official": 28,
+    "official": 379,
     "release-note-confirmed": 1,
     "rocku-confirmed": 759
   },
-  "claim_count": 1815,
+  "claim_count": 2166,
   "claim_tiers": {
-    "answer_pack_approved": 20,
+    "answer_pack_approved": 367,
     "live_verified": 104,
     "routing_context_only": 1679,
-    "source_backed": 12
+    "source_backed": 16
   },
   "claim_types": {
-    "behavior": 3,
-    "configuration": 7,
-    "implementation_pattern": 29,
-    "operational_guidance": 1101,
-    "release_caveat": 107,
-    "risk": 63,
+    "behavior": 130,
+    "configuration": 126,
+    "implementation_pattern": 72,
+    "operational_guidance": 1116,
+    "recipe": 25,
+    "release_caveat": 111,
+    "risk": 81,
     "source_summary": 505
   },
   "concept_ids": {
@@ -29,17 +30,23 @@
     "cms-websites": 164,
     "communications": 146,
     "connections": 37,
+    "content-personalization": 101,
     "data-views-reports": 556,
     "developer-resources": 26,
+    "documents-signatures": 26,
+    "engagement-tracking": 106,
     "event-registration": 64,
     "giving-finance": 108,
     "groups": 173,
     "helix": 4,
+    "hosting-infrastructure": 25,
     "lava": 93,
     "learning-lms-engagement": 23,
     "mobile": 94,
+    "obsidian-development": 74,
     "people-families": 82,
     "platform-configuration": 90,
+    "prayer-care": 19,
     "roku": 6,
     "scheduling-locations": 24,
     "security-permissions": 284,
@@ -48,26 +55,29 @@
     "tv-apps": 14,
     "workflows": 1340
   },
-  "generated_at": "2026-07-09T23:01:12+00:00",
+  "generated_at": "2026-07-09T23:50:00+00:00",
   "generation_provenance": {
     "legacy_claims_without_provenance": 1803,
     "methods": {
+      "agent_reviewed_full_article": 351,
       "agent_reviewed_whole_source": 12
     },
     "models": {
-      "gpt-5.6-sol": 12
+      "gpt-5.6-sol": 363
     },
     "prompt_ids": {
-      "codex-whole-video-review": 12
+      "codex-whole-video-review": 12,
+      "rock-kb-source-claim-distillation": 351
     },
     "prompt_versions": {
+      "1.0.0": 351,
       "legacy-unversioned": 12
     },
-    "recorded_claims": 12
+    "recorded_claims": 363
   },
   "output": "claims/approved-claims.jsonl",
   "review_statuses": {
-    "approved_for_public_distillation": 1815
+    "approved_for_public_distillation": 2166
   },
   "schema": "rock-kb-claim-export-report-v1"
 }

@@ -189,6 +189,20 @@ def test_claim_usefulness_metadata_deprioritizes_source_routing_claims():
     assert metadata["operational_priority"] < 70
 
 
+def test_official_claim_can_feed_answers_while_requiring_live_instance():
+    row = {
+        "answer_candidate": True,
+        "authority_tier": "official",
+        "requires_live_instance": True,
+        "needs_live_verification": False,
+    }
+
+    assert claims_module.claim_tier_for_claim(row) == "answer_pack_approved"
+
+    row["needs_live_verification"] = True
+    assert claims_module.claim_tier_for_claim(row) == "source_backed"
+
+
 def test_live_claim_verification_overlay_promotes_claim_to_live_verified(monkeypatch, tmp_path):
     review_dir = tmp_path / "review"
     claims_dir = tmp_path / "claims"

@@ -2,7 +2,7 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-07-09T20:56:31+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -236,8 +236,8 @@ Keywords: `webhook, integration`
 | Lava Webhook to Create an iCal (.ics) File | rock_recipes | 0 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 23 days ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540) |
 | Step 1: Create OpenAI Account | rock_recipes | 6 ChatGPT Shortcode Shared by Brian Davis , ONE&ALL Church 3 years ago 10.0 General Intermediate In this recipe we'll walk through the steps to build a basic integration in Rock RMS to communicate with ChatGPT to ask questions via the ChatGPT API. I'll also provide some examples of how this integration might be used. The recipe might look alarmingly long, but I'll have you chatting with an AI in a couple minutes and... | [source](https://community.rockrms.com/recipes/362) |
 | New Resi Media Sync Plugin for Rock | triumph_resources | Seamless Video Integration at Your Fingertips We’re excited to announce the Resi Media Sync plugin for Rock! This integration lets you effortlessly import metadata from videos from your Resi account into Rock media files. Once connected, any new video added in Resi automatically appears in your Rock instance, ready for embedding and detailed tracking. Whether it’s a sermon, event, or announcement, this sync ensures... | [source](https://www.triumph.tech/resources/new-resi-media-sync-plugin-for-rock) |
-| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
 | Extending Communication Transports | rock_developer | ## SMS Transports In Rock v12.1, we’ve added the `ISmsPipelineWebhook` interface that will let you identify the location of any corresponding webhook. The `SmsPipelineWebhookPath` property will be used by the SMS Pipeline block to display the full URL to the webhook which is useful when administrators are setting up the interface with the remote service. | [source](https://community.rockrms.com/developer/303---blast-off/extending-communication-transports) |
+| Docker Desktop | rock_developer | We use Docker Desktop to provide a clean database for each suite of integration tests. This makes sure the database is 1) in a known clean state and 2) does not require any specific steps to prepare the database for tests. To run the integration tests you just need to make sure Docker Desktop is installed and running. Everything else will be automatic. The first time you run the tests for that specific version of... | [source](https://community.rockrms.com/developer/developer-codex/coding-standards/testing/unit-testing/docker-desktop) |
 
 
 ## Lava Capability References
