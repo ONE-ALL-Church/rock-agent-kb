@@ -212,6 +212,55 @@ def test_promote_document_claim_rewrite_accepts_reviewed_candidate_with_no_claim
     assert list(read_jsonl(output_path)) == []
 
 
+def test_promote_document_claim_rewrite_is_idempotent_for_same_candidate(monkeypatch, tmp_path: Path):
+    candidate_path = tmp_path / "candidates.jsonl"
+    rewrite_path = tmp_path / "rewrites.jsonl"
+    output_path = tmp_path / "reviews.jsonl"
+    source_context = "The source describes a reusable operational behavior in sufficient detail."
+    source_hash = document_claims.sha256_text(source_context)
+    candidate = {
+        "id": "document-claim-candidate:idempotent",
+        "source_input_hash": source_hash,
+        "source_context": source_context,
+        "concept_ids": ["documents-signatures"],
+        "source_id": "rock_documentation",
+        "source_record_id": "rock_documentation:test-idempotent",
+        "source_url": "https://community.rockrms.com/documentation/core-concepts/documents/idempotent",
+        "source_title": "Idempotent Promotion",
+        "documentation_current_version": "v19.0",
+    }
+    claim_text = "This sufficiently detailed claim can be safely promoted again for the exact same reviewed candidate."
+    write_jsonl(candidate_path, [candidate])
+    write_jsonl(
+        rewrite_path,
+        [
+            {
+                "candidate_id": candidate["id"],
+                "source_input_hash": source_hash,
+                "claims": [{"claim": claim_text, "claim_type": "behavior"}],
+            }
+        ],
+    )
+    monkeypatch.setattr(
+        document_claims,
+        "approved_claim_rows",
+        lambda: [
+            {
+                "claim": claim_text,
+                "derived_from": {"candidate_id": candidate["id"]},
+            }
+        ],
+    )
+
+    result = document_claims.promote_document_claim_rewrites(
+        candidate_path,
+        rewrite_path,
+        output_path=output_path,
+    )
+
+    assert result["promoted_claim_count"] == 1
+
+
 def test_candidate_selection_reserves_subguide_coverage():
     concept = document_claims.get_concept("engagement-tracking")
     eligible = [

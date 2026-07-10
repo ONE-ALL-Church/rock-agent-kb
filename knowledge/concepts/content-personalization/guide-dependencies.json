@@ -2,6 +2,1294 @@
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
+      "claim": "In Rock 19.0, Content Collections depend on Universal Search and require an active Universal Search index component.",
+      "claim_hash": "96687b478e45499947e9647358d2d76546b7b54df5d4643168391dc439b037c2",
+      "claim_id": "claim:00f621e7f69a8f36553a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "be9f9e1aa39660cea305274966c13515537fb3aba76738805a43391cbe90f78d",
+      "source_record_ids": [
+        "rock_documentation:article:2210"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Troubleshoot Content Collections",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/troubleshoot-content-collections"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Tools > Content screen can limit the channel list to channels with pending items, while a selected channel's items can be filtered by status, date range, or title.",
+      "claim_hash": "effcee1a3e0c51b770d3f40c70ba7ad8fad50be14e9d7a4fa11829551db800d0",
+      "claim_id": "claim:014f56fef6ae9a71b62d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e10e0e713b798d489b5b8d5b718fb9047dea6b9136a88abec5107891bf2dedee",
+      "source_record_ids": [
+        "rock_documentation:article:2212"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Content Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/manage-content-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A church can selectively publish content to the Content Library, where it is stored in a Spark-hosted cloud environment and can be downloaded into another church's Rock instance.",
+      "claim_hash": "44683cdaba4f63582a168d27221a764ea836a6ff24904a532c5225a1d3bf89c2",
+      "claim_id": "claim:04adb98a5699e88413c7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f60efb08911467b14aac2e46b4e3517168d1b11983fa2748616f1375353661dd",
+      "source_record_ids": [
+        "rock_documentation:article:2220"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to the Content Library",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/intro-to-the-content-library"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, the Asset Manager under Admin Tools > CMS Configuration manages files and folders in configured storage providers, including cloud storage and the Rock server.",
+      "claim_hash": "b7408c422ed8f0df1e1e69ae5d6704997c536c020cc6a76a21600f65a6adc242",
+      "claim_id": "claim:04b5be86d9debc45747f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b45105ca0c05e2af64a36b3299370721d17f8b6b17ad4f4ea9de6749f3ff5b4b",
+      "source_record_ids": [
+        "rock_documentation:article:2239"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "View Asset Manager",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Avoid output caching on a Content Channel View block when its rendered content is personalized, because cached output can expose one visitor's personalized values to another visitor.",
+      "claim_hash": "16b7256d2ef267073b67bbbee5e70b3b09122086fd7e8f245998d3277c5667d6",
+      "claim_id": "claim:051140ce759488e58b44",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5c311f90c10a49e15764385c8291f5e0ddc6aba52b5749162f682648f06f2358",
+      "source_record_ids": [
+        "rock_documentation:article:2202"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Content Channel View Block",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/content-channel-view-block"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock can personalize website content for visitors who are not logged in by using available browsing-session and visitor signals.",
+      "claim_hash": "e01d6c3f5a68676a98ce5f8c8256db71b4e2080753d2dbedba0080f966c75eec",
+      "claim_id": "claim:07c07232c7d094ddd61a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "07c7b030f755d8ca243b84f9466749c25b0ab68a7e74bfdcd8826d5c9cf304dd",
+      "source_record_ids": [
+        "rock_documentation:article:2249"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Personalization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/overview/intro-to-personalization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Content Channel Item Self Update job evaluates Lava stored in a content channel item attribute and writes the result to another item attribute; the Lava output must be compatible with the target attribute's field type.",
+      "claim_hash": "00e27450b25bd9c511ac29d4480d9d6e14f25e047096e665fb520ccdcdb36ac3",
+      "claim_id": "claim:086aadc3952eec884cf9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "275908f36fc7c650667b752d77c4766af742b1517113a3c9d49fcf9fd956f433",
+      "source_record_ids": [
+        "rock_documentation:article:2205"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Self Update Content Channel Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/self-update-content-channel-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "After configuring a page's Open Graph metadata, use Facebook's Share Validator to preview the resulting share and inspect debugging information.",
+      "claim_hash": "796b6e0406a5e0cab5e8077b930411124251ce9effb0d17b2b8adbb0daaa6cc7",
+      "claim_id": "claim:0ed3d149c7a51ed6c8e6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e90fdc9830dd3584b1d3418b5fb0dc7a0737131ae1d40e41ac28c4ec3adf5c6e",
+      "source_record_ids": [
+        "rock_documentation:article:2231"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Facebook",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/facebook"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "With view tracking enabled on the adaptivemessage Lava command, an adaptation stops displaying to a viewer after its configured saturation count is reached within the configured day range.",
+      "claim_hash": "d520dab177807adbe4a762f1f0f03d8afc2fcd09c819c19c10aa5e29d72ef677",
+      "claim_id": "claim:1135a3be8b4f8f8c6d4e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a12a1ad4ac993262e38583237446b14d042ce845a89778a53e809a79f81d317a",
+      "source_record_ids": [
+        "rock_documentation:article:2259"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up Adaptive Messages",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock includes a File Manager block under Admin Tools > CMS Configuration > File Manager that supports uploading and deleting files and managing directories.",
+      "claim_hash": "841cefde365f81a36fc957f29745f9220c47f99675bad032bdd0e62372afe3c2",
+      "claim_id": "claim:1631b2327231f164fd38",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9fb79dd529ec4089a4794f6c27c731c6f5a14a0e55c119b89c7f35d412e5309e",
+      "source_record_ids": [
+        "rock_documentation:article:2243"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "File Manager",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/file-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Request Filters can personalize content without identifying the visitor by evaluating request context such as site, new-or-returning status, device type, query parameters, cookies, browser version, IP range, IP-derived location, and visit day or time.",
+      "claim_hash": "d330424c79cebf6a6c19745b2818d58f36bfa2766abad2b7cb2deded75be1ba8",
+      "claim_id": "claim:1a581761e31fb1ec147a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5e4eaa0b99db753664e5464f67aeb25e4d5087a5778b4415aeb318cbf4e107a4",
+      "source_record_ids": [
+        "rock_documentation:article:2251"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Request Filters",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/use-request-filters"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock, the Organization Currency Code controls the currency symbol shown with numeric amounts but does not convert values or configure payment processing; payment gateways must use the matching currency to avoid incorrect account crediting.",
+      "claim_hash": "c6c92bc2efa2206975ee3d4f2cb58b5fd69e91ab243f95c37d6adfc423308f80",
+      "claim_id": "claim:1aa434b1824e5f88e7a5",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "117b95b73ee93768d0c1bba872c6504bbe92fcf5fc78a03978eb427737126c98",
+      "source_record_ids": [
+        "rock_documentation:article:2263"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Localize Currency",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/localize-currency"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To enable international address entry and display, set the Support International Addresses global attribute to Yes under Admin Tools > Settings > Global Attributes.",
+      "claim_hash": "3a60ca25054a1bbe9a72aa92569adde9f2b90e2b5de883c2ad3960d529997697",
+      "claim_id": "claim:2106305923f8b618a4ae",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8ce5b949584d82da9bef1c3e8b27959d85f60a9867d8800d52c680c65e9ae6bd",
+      "source_record_ids": [
+        "rock_documentation:article:2264"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure International Addresses",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/configure-international-addresses"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Changing a localization display setting does not necessarily change the underlying processing behavior; for example, selecting a different currency symbol does not reconfigure the payment gateway.",
+      "claim_hash": "08dbdf096b023318154b7d8310d94bbaf617b6b1866c934cf68871a4441517c6",
+      "claim_id": "claim:23bace1163888fbe0dee",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8c3c095116345afcfead00e7c1fac0f4fa39b8af2074ab7082b288a8a6221f2c",
+      "source_record_ids": [
+        "rock_documentation:article:2260"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Localization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/intro-to-localization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To use personalization on a Rock site, enable the site's Enable Personalization setting under Admin Tools > Websites.",
+      "claim_hash": "0c0bdcdd48b252ab9f192d59ceb9770febe08c6fa7afb95d0c76edaf6af76540",
+      "claim_id": "claim:24c95c6ea1aac918f194",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cb81fbfc5f02d48d8fb59b76850c65076495d0aa16fbdecca2e4889cd72e60c6",
+      "source_record_ids": [
+        "rock_documentation:article:2252"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Site for Personalization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/configure-site-for-personalization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Content Library functionality is enabled per Content Channel and applies to every item in that channel; uploading an individual item to the library requires both an Experience Level and a Topic.",
+      "claim_hash": "44f9c5fa616e3da3216a0af12b30d4795cab3113bd68e2c3b0254bacac518fd4",
+      "claim_id": "claim:292dfac117ff09103031",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "342399396a3978ff4ed4ff911f2d1622f1df9752d3c5e66edad3dea5f9638bf3",
+      "source_record_ids": [
+        "rock_documentation:article:2222"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up The Content Library",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/set-up-the-content-library"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Public calendar event templates can use social metadata through Lava, and event attributes provide separately formatted images for Facebook and Twitter sharing.",
+      "claim_hash": "079b5074b81c41bd9d006c02dc6c8f6756642953f46b9ae09acc58ca41be34ee",
+      "claim_id": "claim:2a41e700777e0d107236",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b12e85618af32d80303be26ca28f7c5c3fa3e82fc2e2b98358843154417674a6",
+      "source_record_ids": [
+        "rock_documentation:article:2235"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Calendar Events",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/calendar-events"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For a Rock Media element with multiple generated files, such as HLS, HD, or SD variants, the desired file's URL can be copied from the element's Media Files page and used as the Media Player shortcode source.",
+      "claim_hash": "16e7b5e5cfd7801297e3bd0b76463260fedc028d1be3a28a74ac98fae56aa9a8",
+      "claim_id": "claim:2b745ebcd24484aab174",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cba99526af377b6e3b898894d4cc5749766a3caba22ca85cda8cec8f20adcbb5",
+      "source_record_ids": [
+        "rock_documentation:article:2228"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Media Player Lava Shortcode",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Changing a Content Channel's Content Library license affects only later uploads; items already uploaded retain the license assigned when they were uploaded.",
+      "claim_hash": "55ce5f81072b2f6155332eeb3c5786c7b040cc5092ee0f8bee5112d324052632",
+      "claim_id": "claim:2bc477ef1f6efc197264",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "342399396a3978ff4ed4ff911f2d1622f1df9752d3c5e66edad3dea5f9638bf3",
+      "source_record_ids": [
+        "rock_documentation:article:2222"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up The Content Library",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/set-up-the-content-library"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A required Media Watch attribute can prevent submission of a workflow form until the participant has watched the configured percentage of its single assigned video; progress counts unique watched seconds, so seeking ahead does not satisfy the requirement.",
+      "claim_hash": "92fe68ddb1b4157b039563c5ba5be41798c064f1ae0034e668823aa83d44f9c9",
+      "claim_id": "claim:32ef02ed1aa2456cba7d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c5b186c9897466266d5d66d87aa5b617bb80977be4d7f8a0b16df47e5c520940",
+      "source_record_ids": [
+        "rock_documentation:article:2227"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Digital Media in Workflows",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-digital-media-in-workflows"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Universal Channel Types provide attribute-free starting points for one-off content channels, allowing each channel to define all of its required item attributes without creating a dedicated channel type.",
+      "claim_hash": "a1740a8f93605d9a94bc8cae01da1ca778dcea9219d38d7b393a218d0cfd14dd",
+      "claim_id": "claim:342566d2d286f8f3661f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fe2b410299fa772beb99f8af9f9ea6141d2f360dc30a324a1f5a5afeba09310a",
+      "source_record_ids": [
+        "rock_documentation:article:2201"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Universal Channel Types",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-universal-channel-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Content Channel Types define the attributes available on channels and their content items; Content Channels instantiate those types for a particular publishing purpose, and Content Items hold the individual entries within each channel.",
+      "claim_hash": "3f8edc88ecdaabad004bda649dcea498035ea803b52eb4d0ac687cace7cba710",
+      "claim_id": "claim:3641e44aad90819d81f6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c7a8d03d40083c8613fac5c0db3b2c47b7ac054b6fe0aaa172089bdb5477ba99",
+      "source_record_ids": [
+        "rock_documentation:article:2195"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Content Channels",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/intro-to-content-channels"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To render a Content Channel Item's Media Element with watch interactions and analytics, read the raw value of a Media Element item attribute and pass its GUID to the Media Player shortcode's media parameter rather than using src.",
+      "claim_hash": "c1063f170901279dba0d6906bd450ec796a5b24bb19b517c7a60f1d3e53b177d",
+      "claim_id": "claim:3b056c89bf8f82b2e3cd",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f63bb7f8a0f739003a660b239afac122fa7b41cde7c8732467d8dd5979b9b38c",
+      "source_record_ids": [
+        "rock_documentation:article:2229"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use With Content Channel Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-with-content-channel-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Content Component output caching can improve page speed, but it should be avoided for personalized output because a cached response can expose content intended for a different visitor.",
+      "claim_hash": "d9de8c57bd1c60a8087df00b6fd5c4c7271d014c2e037a3d189b458a72e0c2b5",
+      "claim_id": "claim:3c0d27ef7958968d9019",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "89837b853c96eedea45e2f99fffd437ec9f43650f42c75266178600f37450007",
+      "source_record_ids": [
+        "rock_documentation:article:2216"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Content Components",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/configure-content-components"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's dynamic content model uses content channel types to define available channel and item attributes, content channels to instantiate those types for a particular purpose, and content items to store the individual entries within each channel.",
+      "claim_hash": "ae2cc56e1fe9784ef44931d0349b055374652c1d8fd9171a9928a209717baec9",
+      "claim_id": "claim:3c9cfae7558a24b3786c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "100703b9724c5dd7988882472969f77008b45a77447604feb4f05de1d3f5fa08",
+      "source_record_ids": [
+        "rock_documentation:article:2211"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Dynamic Content",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/intro-to-dynamic-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Set a page description in Page Settings for pages likely to be shared on social media; otherwise, social platforms may derive the share description from page content instead.",
+      "claim_hash": "b2d716be0c173aa3706e74476b489dcb810edca20d55d7488d8f70d7e75fbc1e",
+      "claim_id": "claim:3d2e21e3f5e41fdbcb3a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "be3bdaf10b5f12d1584b9c84bcd65cb5a40d6021ccde6d8486a7a38f715f9740",
+      "source_record_ids": [
+        "rock_documentation:article:2236"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Social Networks",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/intro-to-social-networks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When displaying a numeric currency value in Lava, use the FormatAsCurrency filter to apply the symbol associated with the configured Organization Currency Code.",
+      "claim_hash": "f81e33296da1abc304829a057e27d881df5d88274121b6c19f72853be7566f74",
+      "claim_id": "claim:3d2f6d91b0ade0de2139",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "117b95b73ee93768d0c1bba872c6504bbe92fcf5fc78a03978eb427737126c98",
+      "source_record_ids": [
+        "rock_documentation:article:2263"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Localize Currency",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/localize-currency"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Enable Visitor Tracking in the site settings when the site's personalization should use visitor activity data.",
+      "claim_hash": "f933dc0d3028b9a7b8010dd5ad6cd95356b487424d55937c5c44b9345c6b5473",
+      "claim_id": "claim:3e0a9998af7899851020",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cb81fbfc5f02d48d8fb59b76850c65076495d0aa16fbdecca2e4889cd72e60c6",
+      "source_record_ids": [
+        "rock_documentation:article:2252"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Site for Personalization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/configure-site-for-personalization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A content channel item can use items from other channels as children; each child can belong to multiple parents and can have child items of its own.",
+      "claim_hash": "3afd50c33f6f8f2504040e8ccf712d6aacef4986c5e8098921b016790944a01c",
+      "claim_id": "claim:3e50ca37e4cdfbb91572",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f7f043a8fdf4fce173cdd82f29bfe05fb3333ae808558ae7d6f5ec9ee8639da8",
+      "source_record_ids": [
+        "rock_documentation:article:2203"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content Channel Child Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-content-channel-child-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Podcast series graphics use the Unsecured file type by default, which stores them in the database; configure a file type backed by the file system or an external storage provider to avoid consuming database space.",
+      "claim_hash": "baa2c5c9273739813af71c1e7edf41901b74a489987518ac74f727f80308b774",
+      "claim_id": "claim:3e794e7ad99460843ccb",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ce5169abf8c65896d43cbb9597e892b5ed0285275c436b415409933c9afc22e6",
+      "source_record_ids": [
+        "rock_documentation:article:2230"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Podcasts",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/podcasts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When a viewer qualifies for multiple Adaptive Message adaptations, their configured order determines which message is selected.",
+      "claim_hash": "73e6af88ea090971c155a590ff50a80812762dbbd89884c83f473e91f27f10ac",
+      "claim_id": "claim:43b8693e6cafb7741b9c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a12a1ad4ac993262e38583237446b14d042ce845a89778a53e809a79f81d317a",
+      "source_record_ids": [
+        "rock_documentation:article:2259"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up Adaptive Messages",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A person must satisfy every configured filter area in a personalization segment, while conditions within an individual area can use either Any or All matching logic.",
+      "claim_hash": "cebd0c769deb74c1d0895cdfb06a9ca3dbf247d964deeae310fa858715f5fec9",
+      "claim_id": "claim:48edfafa0d47e7e2eba3",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "42bb0e66da60cb0b512c60c343df16a5c798eb30b2aad5ed14b5f900fd7e1e82",
+      "source_record_ids": [
+        "rock_documentation:article:2250"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Personalization Segments",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/intro-to-personalization-segments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Library Viewer must be opened from a Content Channel's Download from Library action so Rock knows which channel should receive the downloaded content.",
+      "claim_hash": "2664e9aa8566576a0bbd2785c78d02c58fa8e5de6f37d8bb7bd99a61150a7471",
+      "claim_id": "claim:52158a95bbe15d7daa83",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "afc55c34bb08fd51c43f9312eab4006d0363c3332a5308f9143592438eaff3d4",
+      "source_record_ids": [
+        "rock_documentation:article:2221"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Library Viewer",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/library-viewer"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Content Channel Item is displayed no earlier than its Start date and can be automatically removed from display by assigning an Expire date.",
+      "claim_hash": "f5af25abae3b540322fae79b23d6069b70ff93005c828b561f9bddfa0ab1c24e",
+      "claim_id": "claim:5542676f09ad289679a4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "452637c8795f8566c47948fee83b07084ad25ba005341d1375d0b0c261efcad4",
+      "source_record_ids": [
+        "rock_documentation:article:2199"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add a Content Channel Item",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-a-content-channel-item"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When Content Collection changes are not reflected during the day, manually running the Index Content Collections system job can refresh the collection before its automatic overnight run.",
+      "claim_hash": "43ee4712376d39199da915b8f560c1fec32e031e435c213dccf25d810929077a",
+      "claim_id": "claim:55a47cca14738e740a99",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "be9f9e1aa39660cea305274966c13515537fb3aba76738805a43391cbe90f78d",
+      "source_record_ids": [
+        "rock_documentation:article:2210"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Troubleshoot Content Collections",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/troubleshoot-content-collections"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock can automatically create a Content Channel Item for a video uploaded to a video service provider, allowing the video to be published and its engagement tracked within Rock.",
+      "claim_hash": "2520ca977d3a90e1069e4bc594428a8ff9fe0cd9ee484f3794bd101f0084cabd",
+      "claim_id": "claim:58356bb2c85ac5076502",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "70e5d8c2aab7b288b3845d4a858327654c80bc45fbb84290a5c84899e9d2a78e",
+      "source_record_ids": [
+        "rock_documentation:article:2223"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Digital Media",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/intro-to-digital-media"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Using website personalization requires configuring Personalization Segments for person data or browsing behavior, Request Filters for session characteristics such as device or IP address, and the relevant site settings.",
+      "claim_hash": "8140fccce9d14a6f909c56c3aabc1e17c18525c7c07ffe891bb9f4a781124eac",
+      "claim_id": "claim:5a5b8cdd8dc28df3e69e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "07c7b030f755d8ca243b84f9466749c25b0ab68a7e74bfdcd8826d5c9cf304dd",
+      "source_record_ids": [
+        "rock_documentation:article:2249"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Personalization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/overview/intro-to-personalization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock ranks trending content collection items by dividing each item's interactions during the configured Trending Window by the item's age in days, with the age divisor capped at the window length.",
+      "claim_hash": "86cc21756cd3ba85f91a3f728b6d2a90b7d3284117a1a0801a90d8cc7616f2be",
+      "claim_id": "claim:5cc2db624fb8bf7bb1b2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0899fb510878fa74774c9d9a44a097a6923280981e9ef54e801c64c4ab5a3621",
+      "source_record_ids": [
+        "rock_documentation:article:2209"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Trending Content",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/trending-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To use a Media Watch attribute on a workflow entry form, configure it as both visible and editable; auto-resume is disabled when its lookback period is blank or zero days.",
+      "claim_hash": "afbf4a0342fbd75a5346084a318bc41c4bad3b14155d82745cb530d8d31ac570",
+      "claim_id": "claim:5f08d8afadc18390ecdf",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c5b186c9897466266d5d66d87aa5b617bb80977be4d7f8a0b16df47e5c520940",
+      "source_record_ids": [
+        "rock_documentation:article:2227"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Digital Media in Workflows",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-digital-media-in-workflows"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, a content component template's Display Lava can use both the component's related content channel items and its configuration settings.",
+      "claim_hash": "290cf7ec6bae5207c7a46ece30ca5d644c1f52d97070eb3ee112012f9a7d58fe",
+      "claim_id": "claim:5f2f20e02db204bdaa82",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "748dc597b94bc85a524e543fa995adcdf337f252b8c49b034cb0f221e3e482c4",
+      "source_record_ids": [
+        "rock_documentation:article:2217"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Create Content Component Templates",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/create-content-component-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Content collections do not enforce the individual security settings of indexed items, so displaying a collection can expose restricted content to people who could not access it elsewhere in Rock.",
+      "claim_hash": "21744c61af071c04ab7573a00331573739f9808a06c9fce0469696357cc65b86",
+      "claim_id": "claim:61a34b59f2e4454facc7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6160ad643be8d41a776f1803c2dc3fa1c77e388faac8fb58f5d34050b3134768",
+      "source_record_ids": [
+        "rock_documentation:article:2207"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Content Collection View",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/content-collection-view"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's basic podcast implementation uses the Podcast Series and Podcast Messages content channels, which can be extended with additional attributes.",
+      "claim_hash": "d0d999eb3cb7e637c2ba25413c7307c6baeb8f2aeb8eade06596e4005c5c696e",
+      "claim_id": "claim:623f61af3dd804a927a4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ce5169abf8c65896d43cbb9597e892b5ed0285275c436b415409933c9afc22e6",
+      "source_record_ids": [
+        "rock_documentation:article:2230"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Podcasts",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/podcasts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Channel attributes store information shared by a channel, while item attributes store additional structured values separately for each content item.",
+      "claim_hash": "b6918048a86f1018df306183aea1c05d2fcef8c9b11f94575dee0602d1545b30",
+      "claim_id": "claim:65ae282de224801b2f10",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f86137b63cf19cd37f83e8dc554d8a847304780562d1a16361ebd128fec5ab9d",
+      "source_record_ids": [
+        "rock_documentation:article:2196"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Channel Types",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/channel-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Media Player shortcode defaults autoresumeindays and combineplaystatisticsindays to 7 days; setting both to 14 means a viewer returning after more than 14 days starts from the beginning and the watch is recorded as a new Individual Play.",
+      "claim_hash": "9d12fd9ace7c5295982bdfc4a52d2996c2ed4b51ec58370b53d074a8cd1bde46",
+      "claim_id": "claim:66d1d85f7fdc45769853",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f63bb7f8a0f739003a660b239afac122fa7b41cde7c8732467d8dd5979b9b38c",
+      "source_record_ids": [
+        "rock_documentation:article:2229"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use With Content Channel Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-with-content-channel-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A channel feed uses the default RSS Lava template unless TemplateId selects another Lava Templates defined value; Count limits returned items and defaults to 10, while EnableDebug exposes the template's available merge fields.",
+      "claim_hash": "ae24ca586717a69d01908f4de7eb0468494770ecb2e959b6858353141c4a7615",
+      "claim_id": "claim:6ade417cbf15e7cebb50",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f6826287b1d60fc28632831e1d8ca5ed322992df0cfb52e841ea6673997a4aec",
+      "source_record_ids": [
+        "rock_documentation:article:2204"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Publish Content Through Feeds",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/publish-content-through-feeds"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Personalization segment membership is stored in PersonAliasPersonalization, where PersonAliasId identifies the person alias, PersonalizationType is 0 for segment records, and PersonalizationEntityId identifies the matched segment.",
+      "claim_hash": "059827bb9c0d27d91eda3ad82d061591c28c4087c1ef87ee50da141c1c9f8beb",
+      "claim_id": "claim:6d1aa9baf89f73e4d23f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29d3793df13649dcaf00ce4456a041a28b8d182406a3aab7320a7e966a3c0af6",
+      "source_record_ids": [
+        "rock_documentation:article:2256"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Update Personalization Job",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/update-personalization-job"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Adaptive Messages centralize multiple message adaptations behind one Lava command and can select variants using personalization data, date windows, view counts, and optional saturation limits.",
       "claim_hash": "323cf93521442da20afaf29e1bed110183b0189a67cbd6010f261afd29195707",
       "claim_id": "claim:765885794aed878fce64",
@@ -25,6 +1313,398 @@
           "source_id": "rock_documentation",
           "title": "Intro to Adaptive Messages",
           "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When a content channel uses approvals, only users with Approval permission can set a content item's approval status.",
+      "claim_hash": "ad8100e1f182fc2f5c0a823d3a4ea0781df48f2f0185f86ba59a5c068448a3c2",
+      "claim_id": "claim:76d206157f94d9ea0ffe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8bd63bcca7528e2fd5a668fdb823c250db1b2caf8e1abe3f46aa530d45c82c5",
+      "source_record_ids": [
+        "rock_documentation:article:2213"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/add-content-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Under Tools > Content, staff can access channels for which they have View permission, see each channel's pending-item count, and open a channel to manage its content items.",
+      "claim_hash": "fcde84faf420bb726f6fef1ced6074647c8ccfa288b8feb400d4289a92d6c5ff",
+      "claim_id": "claim:7753994f280423554917",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e10e0e713b798d489b5b8d5b718fb9047dea6b9136a88abec5107891bf2dedee",
+      "source_record_ids": [
+        "rock_documentation:article:2212"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Content Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/manage-content-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Update Personalization Data job reevaluates personalization segment conditions and adds or removes people from each segment's current membership list accordingly.",
+      "claim_hash": "01cd6237a160e44141158aebf0322ed17825b8d4814161c7c88cc75aa268f7f2",
+      "claim_id": "claim:77ea0c3f0b1a094af1dc",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "29d3793df13649dcaf00ce4456a041a28b8d182406a3aab7320a7e966a3c0af6",
+      "source_record_ids": [
+        "rock_documentation:article:2256"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Update Personalization Job",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/update-personalization-job"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Media can preserve a person's playback progress when they move between mobile and web, and the Media Player shortcode configuration controls whether those viewing sessions appear in analytics as one combined watch or separate watches.",
+      "claim_hash": "a1eefd369ec2c955bc5307faef34d7e30620b4f11db69d75b80beab6ce0e4a80",
+      "claim_id": "claim:791afd7cc2f24aef4a90",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "936c92a276f47c0a0fbb4cd969c9d012416b9f28d06e137edd29c05e7d92e4c9",
+      "source_record_ids": [
+        "rock_documentation:article:2224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Media Analytics",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-media-analytics"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Leaving a Content Component item attribute's Categories field empty makes that attribute available to every Content Component template.",
+      "claim_hash": "905373f73a36f70367964545e23f68c083a7879a719f38d770761efb76f9ce4e",
+      "claim_id": "claim:7967969b536dfcc82534",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4f65fe2c44c4b3249c45fa96f0e9a680ac7a45462dfdf5e3b6bed4adc258e9b3",
+      "source_record_ids": [
+        "rock_documentation:article:2218"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content Component Item Attributes",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To let a security role approve Content Channel Items, grant the role the Approve permission on the Rock.Model.ContentChannelType entity through Entity Administration.",
+      "claim_hash": "cdd4a21ee916e988fedbdd818e91c6ccf90f087d8c5d5b4ca1023c5e355f5805",
+      "claim_id": "claim:79db99470841e0483c3a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "aa2ee305bf6929f24283bf7f5396b61bb1eba3821c7e2958e3e21677bdc58449",
+      "source_record_ids": [
+        "rock_documentation:article:2200"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Secure Content",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/secure-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Media Element analytics page reports aggregate engagement, rewatches, play counts, cumulative viewing time, and daily plays, while individual play records can show the viewer, viewing time, portions watched or repeated, device category, ISP, operating system, and browser.",
+      "claim_hash": "a20593b3f2015590ce6c2250dc941862d7dc6831cdab042f6bc25ac9aaa1ad09",
+      "claim_id": "claim:8292831cd9fbce6336a1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "936c92a276f47c0a0fbb4cd969c9d012416b9f28d06e137edd29c05e7d92e4c9",
+      "source_record_ids": [
+        "rock_documentation:article:2224"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Media Analytics",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-media-analytics"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Configure a separate Content Channel Item Self Update job for each content channel, setting Template Key to the item attribute that contains the Lava and Target Key to the item attribute the evaluated result should update.",
+      "claim_hash": "2f4071718d4b470be8abc71edcad28cb01158e4a34b5e7b08462bffcce0b41b6",
+      "claim_id": "claim:83459b733cfe2e968e10",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "275908f36fc7c650667b752d77c4766af742b1517113a3c9d49fcf9fd956f433",
+      "source_record_ids": [
+        "rock_documentation:article:2205"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Self Update Content Channel Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/self-update-content-channel-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock stores a person's matching personalization segments in the ROCK_SEGMENT_FILTERS browser cookie and refreshes it every five minutes by default; administrators can change that interval with the Personalization Segment Cookie Affinity Duration system setting.",
+      "claim_hash": "a4fc8661ebdad131e8822ce083263c6fdfb907783ecfaa22c2ea344852612b51",
+      "claim_id": "claim:85e00687e5de4375a80d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "871f2ea30bb65e48943cca0247554c5511a829c06f773b92af09aa9e1d3888d8",
+      "source_record_ids": [
+        "rock_documentation:article:2257"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Troubleshoot Personalization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To control a page's Facebook share preview, use Lava's AddMetaTagToHead filter in an HTML block to add Open Graph title, description, and image metadata.",
+      "claim_hash": "9557bc69a375b983fb30b7ba88eb9b2b017f5ba69479a263dc7f0e36e974eceb",
+      "claim_id": "claim:8673d9dcf9abbd11e4d8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e90fdc9830dd3584b1d3418b5fb0dc7a0737131ae1d40e41ac28c4ec3adf5c6e",
+      "source_record_ids": [
+        "rock_documentation:article:2231"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Facebook",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/facebook"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "GetImage.ashx can resize an image from its file GUID using width and height query parameters; its max, pad, stretch, and crop options determine how the image fits the requested dimensions.",
+      "claim_hash": "b9ce0287afd00194475458fbfe8b30c40d14f698446c6f829c3f4e1b022adccb",
+      "claim_id": "claim:884cb71bbb2fd9732219",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "2841072016cba85191a1c53227ff6bb82033f2a48f7c48856196a4ff564d3b3d",
+      "source_record_ids": [
+        "rock_documentation:article:2244"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Understand File Types",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/understand-file-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When troubleshooting dates or times displayed in a US format, first inspect the server culture shown in the System Information dialog, which is available from the Admin Toolbar.",
+      "claim_hash": "dd7ce111e52adaad7ad6cfd6b255db7b4f7e6a64a2a2d9c3a432e987b139eec7",
+      "claim_id": "claim:89b74a9e1687cf206110",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "24e41e085d0bf5d6b53b2c6eb5a0607d7d986c9332829beaee882ed56cb4707b",
+      "source_record_ids": [
+        "rock_documentation:article:2262"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Localize Dates & Times",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/localize-dates-times"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A content item's available date fields are determined by its content channel type, which can configure items for a single date, a date range, or no dates.",
+      "claim_hash": "cd4b44caadc9fe12f7bee7d03eda9cb5af1af1474fbf712947d060687b7aa6e5",
+      "claim_id": "claim:8d6bcf9de6978ffd1c1a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c8bd63bcca7528e2fd5a668fdb823c250db1b2caf8e1abe3f46aa530d45c82c5",
+      "source_record_ids": [
+        "rock_documentation:article:2213"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/add-content-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Asset field type can be used as an attribute on entities such as content channels, people, and groups, allowing editors to choose files or images stored through an integrated remote cloud storage provider such as Azure or Amazon S3.",
+      "claim_hash": "df79d4a66e380fbc542c38d485865bc04254fce3ffddc4ccfcc0efad6b0efd78",
+      "claim_id": "claim:91917eb82c975cc52a8a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "63523fd25fb51f1ee392ff59ba29fa5cb5d77754bee54f334b00793b19979f9b",
+      "source_record_ids": [
+        "rock_documentation:article:2237"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to the Asset Manager",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager"
         }
       ]
     },
@@ -58,6 +1738,62 @@
     },
     {
       "authority_tier": "official",
+      "claim": "The Lava Personalize command conditionally renders content when the current person or request matches the segment key or request-filter key supplied to the command, and it can be used in both page content and communications.",
+      "claim_hash": "75612694ee55075740074fdce0c1a3eaa9d4bfd0a121cb3da21b478976aa7e90",
+      "claim_id": "claim:92fe09e76f295dfcfc0e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "698fee777fbdfb777ff53f0d9d484a12db89ef69af007b88005a5b29127f46b1",
+      "source_record_ids": [
+        "rock_documentation:article:2255"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Personalize Using Lava",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To scope a Content Component item attribute to particular templates, create a Content Channel Item attribute category whose name exactly matches each target template, then assign the attribute to the applicable category or categories.",
+      "claim_hash": "90ba15a2ce1269b83065618a1d2e78d9c4cbf0d6e63995ee1e246eee6b5117e3",
+      "claim_id": "claim:94160ba88f5a5e1164a9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4f65fe2c44c4b3249c45fa96f0e9a680ac7a45462dfdf5e3b6bed4adc258e9b3",
+      "source_record_ids": [
+        "rock_documentation:article:2218"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content Component Item Attributes",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "A content component lets a designer define markup and Lava behavior while giving editors structured values to change, reducing the need for editors to modify fragile HTML directly.",
       "claim_hash": "e74909ea6e64d20088c6b8156b581b22e40bd82f7bbb2dc705620565418e3dc9",
       "claim_id": "claim:95befc8568f322b3e09e",
@@ -81,6 +1817,342 @@
           "source_id": "rock_documentation",
           "title": "Intro to Content Components",
           "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/intro-to-content-components"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock initially associates an anonymous visitor's tracked page views with a Person Alias record, then links that alias to the identified Person record when the visitor logs in so the prior activity is attributed to that person.",
+      "claim_hash": "e5c3fb8e3ae85ce46bfc2038e87b8decefefc4961c79152a23dab16271a41ac2",
+      "claim_id": "claim:9a1a0d5ec2f510113950",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "046c0541da12121e4149d2e9196decafe7f425ddd11eecf4f933453a18a9f231",
+      "source_record_ids": [
+        "rock_documentation:article:2253"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Personalize for Anonymous Visitors",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-for-anonymous-visitors"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock localization is configured through independent settings for areas such as phone numbers, regional date and time display, currency symbols, addresses, and school grades; organizations can adjust only the areas they need.",
+      "claim_hash": "44e83191c5d42102501aaa5da023b5112db8cd71260d215a57bc2755fb03f1bd",
+      "claim_id": "claim:9b831561d141239a0fc8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8c3c095116345afcfead00e7c1fac0f4fa39b8af2074ab7082b288a8a6221f2c",
+      "source_record_ids": [
+        "rock_documentation:article:2260"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Localization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/intro-to-localization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A content collection's Trending Gravity setting adjusts trending scores to favor newer items relative to older items.",
+      "claim_hash": "78d73c746655c61f2580a02d36728210312184d6b0e4783535e564eca538967f",
+      "claim_id": "claim:9c1a2ec51a4623c11f5b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0899fb510878fa74774c9d9a44a097a6923280981e9ef54e801c64c4ab5a3621",
+      "source_record_ids": [
+        "rock_documentation:article:2209"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Trending Content",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/trending-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To execute Lava stored in a Content Channel Item's Content field on a Content Channel Item View block, configure the block's Lava Template to process Item.Content with the RunLava filter.",
+      "claim_hash": "45f65bd69c69ae3f3c0fd738710a436eb90ebbf81f4712b2d78681e1d8bbdd0e",
+      "claim_id": "claim:9e84b8f1d2fd648b652f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "452637c8795f8566c47948fee83b07084ad25ba005341d1375d0b0c261efcad4",
+      "source_record_ids": [
+        "rock_documentation:article:2199"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add a Content Channel Item",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-a-content-channel-item"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Set the twitter:card metadata to summary_large_image for a large-image share card or summary for a small-image share card.",
+      "claim_hash": "67b8f527009c6412ccfc7b832b46e47718fa6acc86e2f0b1b31e4f20608cf75a",
+      "claim_id": "claim:9f560ee74fce005c9aa9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e2ef90fdef14fb5c800acdf0151bd1a0e01c5844775dbc8e3c868c2988810721",
+      "source_record_ids": [
+        "rock_documentation:article:2232"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Twitter/X",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/twitterx"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock can automatically create a Content Channel Item when a media element is added to a folder, provided the target Content Channel has a Media Element item attribute for storing the video.",
+      "claim_hash": "a859a52f8cfeeda36c38bd5d77fbd6ddddd0c9b16c69a8cfefb580f2f8cf2c44",
+      "claim_id": "claim:a39c2558bef1c9308ca6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a493fcbd34e541e498ff1d3a3a9952eb31b674c0889f5b25d1b5262a9673c7f7",
+      "source_record_ids": [
+        "rock_documentation:article:2226"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Publishing Media",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/publishing-media"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The GetChannelFeed.ashx endpoint publishes items from the content channel identified by the required ChannelId query parameter, provided that RSS is enabled for that channel.",
+      "claim_hash": "db1e7d5ea5662d6ee0273dcbfeab49dddbc7dce40574114b7a2ddc6997ddecba",
+      "claim_id": "claim:a7ee79867a7d095b1438",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f6826287b1d60fc28632831e1d8ca5ed322992df0cfb52e841ea6673997a4aec",
+      "source_record_ids": [
+        "rock_documentation:article:2204"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Publish Content Through Feeds",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/publish-content-through-feeds"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Content Component block can restrict displayed content using one or more Content Channel Item fields or attributes as filters.",
+      "claim_hash": "066378ad324a7525c9a7914b50766ac39fa9f0315936510ed2d2e6a1f81a9ca1",
+      "claim_id": "claim:ab1ee6ac1545afecb39a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "89837b853c96eedea45e2f99fffd437ec9f43650f42c75266178600f37450007",
+      "source_record_ids": [
+        "rock_documentation:article:2216"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Content Components",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/configure-content-components"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Each external media source requires its own Media Account and a provider plugin, while Rock's built-in Local Media Account requires folders, media elements, and metadata to be maintained manually.",
+      "claim_hash": "edde1ee57d09ba6909a5da04db41fd8a5edced67d445b42c999ead64f01a4426",
+      "claim_id": "claim:ab9f752ee489a6e89971",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9193458cb2e26cd5023843d34e28342715709b53ac866f25bd6940cc0211dcfb",
+      "source_record_ids": [
+        "rock_documentation:article:2225"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Media Accounts",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/configure-media-accounts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Lava, use AddMetaTagToHead to set the twitter:title, twitter:description, and twitter:image metadata that controls a page's Twitter/X share presentation; the image value must be a URL for an image uploaded to the website.",
+      "claim_hash": "a43c9404712c71b473a5d97448f28d30842a718b8c79200ee6ee7998bfcb868a",
+      "claim_id": "claim:ac0f32517aff9ed3db4c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e2ef90fdef14fb5c800acdf0151bd1a0e01c5844775dbc8e3c868c2988810721",
+      "source_record_ids": [
+        "rock_documentation:article:2232"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Twitter/X",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/twitterx"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Configure each supported country with its abbreviation, localized City, State, and Postal Code labels, and display format; for commonly used countries, add Address States linked to the country with both an abbreviation in Value and a full name in Description.",
+      "claim_hash": "28067e3b672128fa989c25ef8b9c5de903c13d53900e1cdd38c7d27db0f36542",
+      "claim_id": "claim:adf31f4982815b831c3b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8ce5b949584d82da9bef1c3e8b27959d85f60a9867d8800d52c680c65e9ae6bd",
+      "source_record_ids": [
+        "rock_documentation:article:2264"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure International Addresses",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/configure-international-addresses"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Personalization features for content channel items must be enabled in the configuration of their content channel.",
+      "claim_hash": "9b8478f788e3ba5989660d94440c4249eac093f119df52496f12fec4148f1e7e",
+      "claim_id": "claim:b3278494410e2c62b7f4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3a38c04435e56c1767e73a4fbaf844e57439534e2fa8b3e074cd0b5b727ce15e",
+      "source_record_ids": [
+        "rock_documentation:article:2198"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Content Channels",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-content-channels"
         }
       ]
     },
@@ -111,15 +2183,756 @@
           "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items"
         }
       ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To support phone formats for additional countries, add entries under Admin Tools > Settings > Defined Types > Phone Country Code with the dialing code, a description, a regular expression that matches the entered number, and a formatting expression that maps captured number groups to placeholders.",
+      "claim_hash": "8e34d337f2db4b287dab93d3e5aa38f391f5039766a32ba8911780e7c0208bb7",
+      "claim_id": "claim:bf3ab5875263e57009aa",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6f02c03351eea3c982c9300866f9c8168a397b3990232e6ce63d76dd7225b392",
+      "source_record_ids": [
+        "rock_documentation:article:2261"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Localize Phone Numbers",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/localize-phone-numbers"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When multiple phone countries are configured, phone inputs include a country-code selector and default to the first entry in the Phone Country Code defined type; administrators can reorder those entries to change the default.",
+      "claim_hash": "f3fe334e480df175a4144c33b1a5a4b7bb59bacee8ebf850cd0d6938126cd1eb",
+      "claim_id": "claim:c3fa58a3b896dce5afcd",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6f02c03351eea3c982c9300866f9c8168a397b3990232e6ce63d76dd7225b392",
+      "source_record_ids": [
+        "rock_documentation:article:2261"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Localize Phone Numbers",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/localize-phone-numbers"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Content Channel Items have an Interact permission that can let everyone see that an item exists while restricting access to its full content to people with that permission.",
+      "claim_hash": "a5ba2ba08ad94c50306741a1ecef03c7f4559c370599da4f4d1089e707cd9855",
+      "claim_id": "claim:c5e9040176b4f10aaeea",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "aa2ee305bf6929f24283bf7f5396b61bb1eba3821c7e2958e3e21677bdc58449",
+      "source_record_ids": [
+        "rock_documentation:article:2200"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Secure Content",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/secure-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For personalization logic that requires explicit conditional handling, the Lava PersonalizationItems filter can determine whether the current person belongs to a specified personalization segment or matches a request filter.",
+      "claim_hash": "85d4204abc8957470994518fca51b12773d02f309cda9eeb23273558dbe1e4b2",
+      "claim_id": "claim:c8609b6eeaa85ec1bcd1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "698fee777fbdfb777ff53f0d9d484a12db89ef69af007b88005a5b29127f46b1",
+      "source_record_ids": [
+        "rock_documentation:article:2255"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Personalize Using Lava",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Personalization segments require persisted data views, so their membership is not updated in real time; after refreshing an underlying data view, run the Update Personalization Data job to bring the segment's person list up to date.",
+      "claim_hash": "b8397dbdf63e26c1c83dfcbdc27173a989f8584615c52a7ab8dab74ce592f370",
+      "claim_id": "claim:ceba987cc91bb10427b8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "871f2ea30bb65e48943cca0247554c5511a829c06f773b92af09aa9e1d3888d8",
+      "source_record_ids": [
+        "rock_documentation:article:2257"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Troubleshoot Personalization",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Anonymous visitor personalization requires Enable Visitor Tracking on each applicable site; Rock uses a browser cookie to recognize returning visitors, with a default persistence of 365 days that can be changed using Visitor Cookie Persistence Length in System Configuration.",
+      "claim_hash": "73a915b1ff045b40055cf01b7a1a5d81ac62d5f7fb0c597957e8b5b9dd5ee09d",
+      "claim_id": "claim:d2b94b0487c508b3bfd7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "046c0541da12121e4149d2e9196decafe7f425ddd11eecf4f933453a18a9f231",
+      "source_record_ids": [
+        "rock_documentation:article:2253"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Personalize for Anonymous Visitors",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-for-anonymous-visitors"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Content Collection can combine any number of content channels and calendars so their content can be searched together from one collection.",
+      "claim_hash": "44dbc4e4c7867088a88d0546f70fcc2d695d1f9edab5a0500eaef5e54f88d2ed",
+      "claim_id": "claim:d3e4880247c6b14913f0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0c764cc9e45dddec6a3fa03767ba9880829e1d3dca98263dfe74a638c5a87cdf",
+      "source_record_ids": [
+        "rock_documentation:article:2206"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Content Collections",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/intro-to-content-collections"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Request Filter's key should omit spaces and special characters because it is used to reference the filter from Lava's PersonalizationItems filter or Personalize command; leaving the Site setting blank allows the Request Filter to apply across all sites.",
+      "claim_hash": "e23c4d9ff0846c3d2f6d2b5937fd48956e689ae8ca811d5021fc063eee4225d3",
+      "claim_id": "claim:d4767d1f140b82f3f055",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5e4eaa0b99db753664e5464f67aeb25e4d5087a5778b4415aeb318cbf4e107a4",
+      "source_record_ids": [
+        "rock_documentation:article:2251"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Request Filters",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/use-request-filters"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Media Player Lava shortcode can embed a video by passing its URL in the shortcode's src parameter; supported sources include YouTube URLs and URLs for files managed through Rock Media.",
+      "claim_hash": "7f0c643e9c06eaf38036d94a157d758cf6f035328a4ccb285ea94d20920e60bb",
+      "claim_id": "claim:d8a1384adfa0f0bcfc2f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cba99526af377b6e3b898894d4cc5749766a3caba22ca85cda8cec8f20adcbb5",
+      "source_record_ids": [
+        "rock_documentation:article:2228"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Media Player Lava Shortcode",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A content collection can evaluate personalization segments, request filters, or both; the Content Collection View block can then be configured to rank matching content channel items higher in its results.",
+      "claim_hash": "421a73af192b3a20fd6cc447cc5c5d60f67967b3cddb77691770d7dc57729d56",
+      "claim_id": "claim:dce2a70fad58feb79515",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4ff355bd0161942e0e8d7fee0cbf879ea2f9d11c5d8c7ea325d97911559d8df0",
+      "source_record_ids": [
+        "rock_documentation:article:2208"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up Content Collections",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/set-up-content-collections"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Social-sharing metadata can be customized by placing the network-specific meta tags, generated with Lava when needed, in an HTML block on the page.",
+      "claim_hash": "f641f9dc6a181f085393d8d33d9813b6700a925c6ca042016275216c42da7677",
+      "claim_id": "claim:e1b508ccfc43eead9694",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "be3bdaf10b5f12d1584b9c84bcd65cb5a40d6021ccde6d8486a7a38f715f9740",
+      "source_record_ids": [
+        "rock_documentation:article:2236"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Social Networks",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/intro-to-social-networks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When personalization is configured on the Content Collection View block, content channel items matching the current person or visit are promoted in search results by the configured boost amount.",
+      "claim_hash": "30fc59c08075b45a955ee658900beacd2b009aff92a51a434ed1f25fedab1227",
+      "claim_id": "claim:e80f380a9bef4c226684",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6160ad643be8d41a776f1803c2dc3fa1c77e388faac8fb58f5d34050b3134768",
+      "source_record_ids": [
+        "rock_documentation:article:2207"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Content Collection View",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/content-collection-view"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When an external CDN or image optimization service should perform image resizing, add disableoptimizations=true to the GetImage.ashx query to prevent Rock and the external service from both resizing or optimizing the image.",
+      "claim_hash": "cd188f97c86468fca6c645e6cb8ff6c0677118725645969d4c7fce288aa77500",
+      "claim_id": "claim:ecf173cc5e7379aab04f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "2841072016cba85191a1c53227ff6bb82033f2a48f7c48856196a4ff564d3b3d",
+      "source_record_ids": [
+        "rock_documentation:article:2244"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Understand File Types",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/understand-file-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, administrators can create content component templates under Admin Tools > CMS Configuration > Content Component Templates and can inspect the Lava context by placing the Lava Debug expression in the Display Lava field.",
+      "claim_hash": "a66b408b2931edffc203552a7df206bcc036f0266ed42508b4ecc633387c2476",
+      "claim_id": "claim:eeb8fdc699e71ef754eb",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "748dc597b94bc85a524e543fa995adcdf337f252b8c49b034cb0f221e3e482c4",
+      "source_record_ids": [
+        "rock_documentation:article:2217"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Create Content Component Templates",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/create-content-component-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When adding a child to a content channel item, an editor can either link an existing content item or create a new one during the same workflow.",
+      "claim_hash": "01234807a0e4158e1e91da050a2a135433d2cfe5f3cc73bd0179e36b86eefc95",
+      "claim_id": "claim:ef3bd652877902d55d6b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f7f043a8fdf4fce173cdd82f29bfe05fb3333ae808558ae7d6f5ec9ee8639da8",
+      "source_record_ids": [
+        "rock_documentation:article:2203"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content Channel Child Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-content-channel-child-items"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When content items contain Lava that depends on the current person or other contextual merge values, provide fallback behavior because those values may be unavailable when the same content is rendered through the channel's RSS feed.",
+      "claim_hash": "b269a1c9d7e562193f8989119749f0ebc41d25ac1ba87119f40a66ee6fb3adec",
+      "claim_id": "claim:f2c5dfac9a5cab351927",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5c311f90c10a49e15764385c8291f5e0ddc6aba52b5749162f682648f06f2358",
+      "source_record_ids": [
+        "rock_documentation:article:2202"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Content Channel View Block",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/content-channel-view-block"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Enabling content-channel synchronization on a Media Folder creates a Content Channel Item for each newly added media element; the selected channel must have a Media Element item attribute to store the associated media.",
+      "claim_hash": "14bc69aaf3cc46a9e0712748a68a4faadff95b7fe0a89f2098b7ab53c4d49776",
+      "claim_id": "claim:f41b3e0c4e7b2a4c9664",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9193458cb2e26cd5023843d34e28342715709b53ac866f25bd6940cc0211dcfb",
+      "source_record_ids": [
+        "rock_documentation:article:2225"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Media Accounts",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/configure-media-accounts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "If externally uploaded files do not appear in an Asset Manager folder in Rock 19.0, refresh that folder to update its displayed file list.",
+      "claim_hash": "c9bd81b0b78f4ec1582febe2a15ba5813a515f26240af228a531b96e2692e3ac",
+      "claim_id": "claim:f44dba4667acd83ba36c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b45105ca0c05e2af64a36b3299370721d17f8b6b17ad4f4ea9de6749f3ff5b4b",
+      "source_record_ids": [
+        "rock_documentation:article:2239"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "View Asset Manager",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A personalization segment's Person Filter requires a persisted data view, so its membership is not evaluated in real time and cannot include anonymous visitors.",
+      "claim_hash": "bc8d94b8086ad1e185cf1fb6546c19a2abf87483a2df867ab1ade9ab25fbaa2e",
+      "claim_id": "claim:f4e336aedfe729b45e1c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "42bb0e66da60cb0b512c60c343df16a5c798eb30b2aad5ed14b5f900fd7e1e82",
+      "source_record_ids": [
+        "rock_documentation:article:2250"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Personalization Segments",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/intro-to-personalization-segments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The available Universal Channel Types differ only in which date fields they expose, including an option for channels that do not use dates.",
+      "claim_hash": "64ef4ab40a8a4e0fa4aec2698f5f6b66b4608108dcc88b743c05d46b6585d3a5",
+      "claim_id": "claim:f708d5ce71b3c4307e79",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fe2b410299fa772beb99f8af9f9ea6141d2f360dc30a324a1f5a5afeba09310a",
+      "source_record_ids": [
+        "rock_documentation:article:2201"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Universal Channel Types",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-universal-channel-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Configure a File Manager block's root folder and permissions to let a user or security role manage only a designated portion of the file hierarchy without providing FTP credentials.",
+      "claim_hash": "3bca7c2551cd1f29ffc31706b43e980a810d726cd133d7fc79253c7485b6ba1c",
+      "claim_id": "claim:fe176c5982ffc06ee4d8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9fb79dd529ec4089a4794f6c27c731c6f5a14a0e55c119b89c7f35d412e5309e",
+      "source_record_ids": [
+        "rock_documentation:article:2243"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "File Manager",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/file-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A content channel type defines whether its items use a single date, a date range, or no date, and can remove priority, content, or approval-status fields when those concepts do not apply.",
+      "claim_hash": "d49dd86e08b942486a305507a7e242f27541764d74e70ba136689c513de604a7",
+      "claim_id": "claim:fed1db356a4ff4330b41",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f86137b63cf19cd37f83e8dc554d8a847304780562d1a16361ebd128fec5ab9d",
+      "source_record_ids": [
+        "rock_documentation:article:2196"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Channel Types",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/channel-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Content downloaded through a Content Channel's Library Viewer is created as a new item in that channel; downloading it again refreshes the existing item and overwrites any local changes made since the prior download.",
+      "claim_hash": "de467dbd698beba53fa3178d80a9bea1c3d847a59e2839655a6b939614d2e22e",
+      "claim_id": "claim:ff5fb5ca7dcddbe1307a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "afc55c34bb08fd51c43f9312eab4006d0363c3332a5308f9143592438eaff3d4",
+      "source_record_ids": [
+        "rock_documentation:article:2221"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Library Viewer",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/library-viewer"
+        }
+      ]
     }
   ],
   "approved_claim_hashes": {
+    "claim:00f621e7f69a8f36553a": "96687b478e45499947e9647358d2d76546b7b54df5d4643168391dc439b037c2",
+    "claim:014f56fef6ae9a71b62d": "effcee1a3e0c51b770d3f40c70ba7ad8fad50be14e9d7a4fa11829551db800d0",
+    "claim:04adb98a5699e88413c7": "44683cdaba4f63582a168d27221a764ea836a6ff24904a532c5225a1d3bf89c2",
+    "claim:04b5be86d9debc45747f": "b7408c422ed8f0df1e1e69ae5d6704997c536c020cc6a76a21600f65a6adc242",
+    "claim:051140ce759488e58b44": "16b7256d2ef267073b67bbbee5e70b3b09122086fd7e8f245998d3277c5667d6",
+    "claim:07c07232c7d094ddd61a": "e01d6c3f5a68676a98ce5f8c8256db71b4e2080753d2dbedba0080f966c75eec",
+    "claim:086aadc3952eec884cf9": "00e27450b25bd9c511ac29d4480d9d6e14f25e047096e665fb520ccdcdb36ac3",
+    "claim:0ed3d149c7a51ed6c8e6": "796b6e0406a5e0cab5e8077b930411124251ce9effb0d17b2b8adbb0daaa6cc7",
+    "claim:1135a3be8b4f8f8c6d4e": "d520dab177807adbe4a762f1f0f03d8afc2fcd09c819c19c10aa5e29d72ef677",
+    "claim:1631b2327231f164fd38": "841cefde365f81a36fc957f29745f9220c47f99675bad032bdd0e62372afe3c2",
+    "claim:1a581761e31fb1ec147a": "d330424c79cebf6a6c19745b2818d58f36bfa2766abad2b7cb2deded75be1ba8",
+    "claim:1aa434b1824e5f88e7a5": "c6c92bc2efa2206975ee3d4f2cb58b5fd69e91ab243f95c37d6adfc423308f80",
+    "claim:2106305923f8b618a4ae": "3a60ca25054a1bbe9a72aa92569adde9f2b90e2b5de883c2ad3960d529997697",
+    "claim:23bace1163888fbe0dee": "08dbdf096b023318154b7d8310d94bbaf617b6b1866c934cf68871a4441517c6",
+    "claim:24c95c6ea1aac918f194": "0c0bdcdd48b252ab9f192d59ceb9770febe08c6fa7afb95d0c76edaf6af76540",
+    "claim:292dfac117ff09103031": "44f9c5fa616e3da3216a0af12b30d4795cab3113bd68e2c3b0254bacac518fd4",
+    "claim:2a41e700777e0d107236": "079b5074b81c41bd9d006c02dc6c8f6756642953f46b9ae09acc58ca41be34ee",
+    "claim:2b745ebcd24484aab174": "16e7b5e5cfd7801297e3bd0b76463260fedc028d1be3a28a74ac98fae56aa9a8",
+    "claim:2bc477ef1f6efc197264": "55ce5f81072b2f6155332eeb3c5786c7b040cc5092ee0f8bee5112d324052632",
+    "claim:32ef02ed1aa2456cba7d": "92fe68ddb1b4157b039563c5ba5be41798c064f1ae0034e668823aa83d44f9c9",
+    "claim:342566d2d286f8f3661f": "a1740a8f93605d9a94bc8cae01da1ca778dcea9219d38d7b393a218d0cfd14dd",
+    "claim:3641e44aad90819d81f6": "3f8edc88ecdaabad004bda649dcea498035ea803b52eb4d0ac687cace7cba710",
+    "claim:3b056c89bf8f82b2e3cd": "c1063f170901279dba0d6906bd450ec796a5b24bb19b517c7a60f1d3e53b177d",
+    "claim:3c0d27ef7958968d9019": "d9de8c57bd1c60a8087df00b6fd5c4c7271d014c2e037a3d189b458a72e0c2b5",
+    "claim:3c9cfae7558a24b3786c": "ae2cc56e1fe9784ef44931d0349b055374652c1d8fd9171a9928a209717baec9",
+    "claim:3d2e21e3f5e41fdbcb3a": "b2d716be0c173aa3706e74476b489dcb810edca20d55d7488d8f70d7e75fbc1e",
+    "claim:3d2f6d91b0ade0de2139": "f81e33296da1abc304829a057e27d881df5d88274121b6c19f72853be7566f74",
+    "claim:3e0a9998af7899851020": "f933dc0d3028b9a7b8010dd5ad6cd95356b487424d55937c5c44b9345c6b5473",
+    "claim:3e50ca37e4cdfbb91572": "3afd50c33f6f8f2504040e8ccf712d6aacef4986c5e8098921b016790944a01c",
+    "claim:3e794e7ad99460843ccb": "baa2c5c9273739813af71c1e7edf41901b74a489987518ac74f727f80308b774",
+    "claim:43b8693e6cafb7741b9c": "73e6af88ea090971c155a590ff50a80812762dbbd89884c83f473e91f27f10ac",
+    "claim:48edfafa0d47e7e2eba3": "cebd0c769deb74c1d0895cdfb06a9ca3dbf247d964deeae310fa858715f5fec9",
+    "claim:52158a95bbe15d7daa83": "2664e9aa8566576a0bbd2785c78d02c58fa8e5de6f37d8bb7bd99a61150a7471",
+    "claim:5542676f09ad289679a4": "f5af25abae3b540322fae79b23d6069b70ff93005c828b561f9bddfa0ab1c24e",
+    "claim:55a47cca14738e740a99": "43ee4712376d39199da915b8f560c1fec32e031e435c213dccf25d810929077a",
+    "claim:58356bb2c85ac5076502": "2520ca977d3a90e1069e4bc594428a8ff9fe0cd9ee484f3794bd101f0084cabd",
+    "claim:5a5b8cdd8dc28df3e69e": "8140fccce9d14a6f909c56c3aabc1e17c18525c7c07ffe891bb9f4a781124eac",
+    "claim:5cc2db624fb8bf7bb1b2": "86cc21756cd3ba85f91a3f728b6d2a90b7d3284117a1a0801a90d8cc7616f2be",
+    "claim:5f08d8afadc18390ecdf": "afbf4a0342fbd75a5346084a318bc41c4bad3b14155d82745cb530d8d31ac570",
+    "claim:5f2f20e02db204bdaa82": "290cf7ec6bae5207c7a46ece30ca5d644c1f52d97070eb3ee112012f9a7d58fe",
+    "claim:61a34b59f2e4454facc7": "21744c61af071c04ab7573a00331573739f9808a06c9fce0469696357cc65b86",
+    "claim:623f61af3dd804a927a4": "d0d999eb3cb7e637c2ba25413c7307c6baeb8f2aeb8eade06596e4005c5c696e",
+    "claim:65ae282de224801b2f10": "b6918048a86f1018df306183aea1c05d2fcef8c9b11f94575dee0602d1545b30",
+    "claim:66d1d85f7fdc45769853": "9d12fd9ace7c5295982bdfc4a52d2996c2ed4b51ec58370b53d074a8cd1bde46",
+    "claim:6ade417cbf15e7cebb50": "ae24ca586717a69d01908f4de7eb0468494770ecb2e959b6858353141c4a7615",
+    "claim:6d1aa9baf89f73e4d23f": "059827bb9c0d27d91eda3ad82d061591c28c4087c1ef87ee50da141c1c9f8beb",
     "claim:765885794aed878fce64": "323cf93521442da20afaf29e1bed110183b0189a67cbd6010f261afd29195707",
+    "claim:76d206157f94d9ea0ffe": "ad8100e1f182fc2f5c0a823d3a4ea0781df48f2f0185f86ba59a5c068448a3c2",
+    "claim:7753994f280423554917": "fcde84faf420bb726f6fef1ced6074647c8ccfa288b8feb400d4289a92d6c5ff",
+    "claim:77ea0c3f0b1a094af1dc": "01cd6237a160e44141158aebf0322ed17825b8d4814161c7c88cc75aa268f7f2",
+    "claim:791afd7cc2f24aef4a90": "a1eefd369ec2c955bc5307faef34d7e30620b4f11db69d75b80beab6ce0e4a80",
+    "claim:7967969b536dfcc82534": "905373f73a36f70367964545e23f68c083a7879a719f38d770761efb76f9ce4e",
+    "claim:79db99470841e0483c3a": "cdd4a21ee916e988fedbdd818e91c6ccf90f087d8c5d5b4ca1023c5e355f5805",
+    "claim:8292831cd9fbce6336a1": "a20593b3f2015590ce6c2250dc941862d7dc6831cdab042f6bc25ac9aaa1ad09",
+    "claim:83459b733cfe2e968e10": "2f4071718d4b470be8abc71edcad28cb01158e4a34b5e7b08462bffcce0b41b6",
+    "claim:85e00687e5de4375a80d": "a4fc8661ebdad131e8822ce083263c6fdfb907783ecfaa22c2ea344852612b51",
+    "claim:8673d9dcf9abbd11e4d8": "9557bc69a375b983fb30b7ba88eb9b2b017f5ba69479a263dc7f0e36e974eceb",
+    "claim:884cb71bbb2fd9732219": "b9ce0287afd00194475458fbfe8b30c40d14f698446c6f829c3f4e1b022adccb",
+    "claim:89b74a9e1687cf206110": "dd7ce111e52adaad7ad6cfd6b255db7b4f7e6a64a2a2d9c3a432e987b139eec7",
+    "claim:8d6bcf9de6978ffd1c1a": "cd4b44caadc9fe12f7bee7d03eda9cb5af1af1474fbf712947d060687b7aa6e5",
+    "claim:91917eb82c975cc52a8a": "df79d4a66e380fbc542c38d485865bc04254fce3ffddc4ccfcc0efad6b0efd78",
     "claim:925692f440513452b79c": "f10dc390d400e15f8c0fc6841bc54e294eb8b9efc7d5d5c83cbf776ef202e4e6",
+    "claim:92fe09e76f295dfcfc0e": "75612694ee55075740074fdce0c1a3eaa9d4bfd0a121cb3da21b478976aa7e90",
+    "claim:94160ba88f5a5e1164a9": "90ba15a2ce1269b83065618a1d2e78d9c4cbf0d6e63995ee1e246eee6b5117e3",
     "claim:95befc8568f322b3e09e": "e74909ea6e64d20088c6b8156b581b22e40bd82f7bbb2dc705620565418e3dc9",
-    "claim:bb470914686ed36a122d": "54abface79301593c30f416b4585c832a843819ff20a38cbf85bbaf67ea95c6f"
+    "claim:9a1a0d5ec2f510113950": "e5c3fb8e3ae85ce46bfc2038e87b8decefefc4961c79152a23dab16271a41ac2",
+    "claim:9b831561d141239a0fc8": "44e83191c5d42102501aaa5da023b5112db8cd71260d215a57bc2755fb03f1bd",
+    "claim:9c1a2ec51a4623c11f5b": "78d73c746655c61f2580a02d36728210312184d6b0e4783535e564eca538967f",
+    "claim:9e84b8f1d2fd648b652f": "45f65bd69c69ae3f3c0fd738710a436eb90ebbf81f4712b2d78681e1d8bbdd0e",
+    "claim:9f560ee74fce005c9aa9": "67b8f527009c6412ccfc7b832b46e47718fa6acc86e2f0b1b31e4f20608cf75a",
+    "claim:a39c2558bef1c9308ca6": "a859a52f8cfeeda36c38bd5d77fbd6ddddd0c9b16c69a8cfefb580f2f8cf2c44",
+    "claim:a7ee79867a7d095b1438": "db1e7d5ea5662d6ee0273dcbfeab49dddbc7dce40574114b7a2ddc6997ddecba",
+    "claim:ab1ee6ac1545afecb39a": "066378ad324a7525c9a7914b50766ac39fa9f0315936510ed2d2e6a1f81a9ca1",
+    "claim:ab9f752ee489a6e89971": "edde1ee57d09ba6909a5da04db41fd8a5edced67d445b42c999ead64f01a4426",
+    "claim:ac0f32517aff9ed3db4c": "a43c9404712c71b473a5d97448f28d30842a718b8c79200ee6ee7998bfcb868a",
+    "claim:adf31f4982815b831c3b": "28067e3b672128fa989c25ef8b9c5de903c13d53900e1cdd38c7d27db0f36542",
+    "claim:b3278494410e2c62b7f4": "9b8478f788e3ba5989660d94440c4249eac093f119df52496f12fec4148f1e7e",
+    "claim:bb470914686ed36a122d": "54abface79301593c30f416b4585c832a843819ff20a38cbf85bbaf67ea95c6f",
+    "claim:bf3ab5875263e57009aa": "8e34d337f2db4b287dab93d3e5aa38f391f5039766a32ba8911780e7c0208bb7",
+    "claim:c3fa58a3b896dce5afcd": "f3fe334e480df175a4144c33b1a5a4b7bb59bacee8ebf850cd0d6938126cd1eb",
+    "claim:c5e9040176b4f10aaeea": "a5ba2ba08ad94c50306741a1ecef03c7f4559c370599da4f4d1089e707cd9855",
+    "claim:c8609b6eeaa85ec1bcd1": "85d4204abc8957470994518fca51b12773d02f309cda9eeb23273558dbe1e4b2",
+    "claim:ceba987cc91bb10427b8": "b8397dbdf63e26c1c83dfcbdc27173a989f8584615c52a7ab8dab74ce592f370",
+    "claim:d2b94b0487c508b3bfd7": "73a915b1ff045b40055cf01b7a1a5d81ac62d5f7fb0c597957e8b5b9dd5ee09d",
+    "claim:d3e4880247c6b14913f0": "44dbc4e4c7867088a88d0546f70fcc2d695d1f9edab5a0500eaef5e54f88d2ed",
+    "claim:d4767d1f140b82f3f055": "e23c4d9ff0846c3d2f6d2b5937fd48956e689ae8ca811d5021fc063eee4225d3",
+    "claim:d8a1384adfa0f0bcfc2f": "7f0c643e9c06eaf38036d94a157d758cf6f035328a4ccb285ea94d20920e60bb",
+    "claim:dce2a70fad58feb79515": "421a73af192b3a20fd6cc447cc5c5d60f67967b3cddb77691770d7dc57729d56",
+    "claim:e1b508ccfc43eead9694": "f641f9dc6a181f085393d8d33d9813b6700a925c6ca042016275216c42da7677",
+    "claim:e80f380a9bef4c226684": "30fc59c08075b45a955ee658900beacd2b009aff92a51a434ed1f25fedab1227",
+    "claim:ecf173cc5e7379aab04f": "cd188f97c86468fca6c645e6cb8ff6c0677118725645969d4c7fce288aa77500",
+    "claim:eeb8fdc699e71ef754eb": "a66b408b2931edffc203552a7df206bcc036f0266ed42508b4ecc633387c2476",
+    "claim:ef3bd652877902d55d6b": "01234807a0e4158e1e91da050a2a135433d2cfe5f3cc73bd0179e36b86eefc95",
+    "claim:f2c5dfac9a5cab351927": "b269a1c9d7e562193f8989119749f0ebc41d25ac1ba87119f40a66ee6fb3adec",
+    "claim:f41b3e0c4e7b2a4c9664": "14bc69aaf3cc46a9e0712748a68a4faadff95b7fe0a89f2098b7ab53c4d49776",
+    "claim:f44dba4667acd83ba36c": "c9bd81b0b78f4ec1582febe2a15ba5813a515f26240af228a531b96e2692e3ac",
+    "claim:f4e336aedfe729b45e1c": "bc8d94b8086ad1e185cf1fb6546c19a2abf87483a2df867ab1ade9ab25fbaa2e",
+    "claim:f708d5ce71b3c4307e79": "64ef4ab40a8a4e0fa4aec2698f5f6b66b4608108dcc88b743c05d46b6585d3a5",
+    "claim:fe176c5982ffc06ee4d8": "3bca7c2551cd1f29ffc31706b43e980a810d726cd133d7fc79253c7485b6ba1c",
+    "claim:fed1db356a4ff4330b41": "d49dd86e08b942486a305507a7e242f27541764d74e70ba136689c513de604a7",
+    "claim:ff5fb5ca7dcddbe1307a": "de467dbd698beba53fa3178d80a9bea1c3d847a59e2839655a6b939614d2e22e"
   },
-  "approved_claims_hash": "7fd6e7bf9fa0eec2139314136533c069f9a3bde360977ac04cf3965270b63568",
+  "approved_claims_hash": "6fdd81e525ca12c775973843a43aa804d055edbf4f035ea45356c8910e97e38a",
   "approved_claims_path": "knowledge/concepts/content-personalization/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
@@ -127,10 +2940,10 @@
   "approved_media_path": "knowledge/concepts/content-personalization/approved-media.md",
   "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "content-personalization",
-  "guide_hash": "b3d465cc6b7d71207754ee3b7bdbca8fc85d517218ef5befca0c4b6b8552e81c",
-  "guide_line_count": 1004,
+  "guide_hash": "3765e539662f20e70f31125caa59aceba27c6f1f183a1b3313b2a7dc13bc0cfc",
+  "guide_line_count": 1013,
   "guide_path": "knowledge/concepts/content-personalization/guide.md",
-  "guide_word_count": 12980,
+  "guide_word_count": 13305,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1370,35 +4183,51 @@
     },
     {
       "confidence": "normal",
-      "end_line": 946,
+      "end_line": 955,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
         "64fbac29d223ecdd",
+        "3374a116f8eca98f",
+        "64fbac29d223ecdd",
+        "ed70438a6c00a8f2",
         "34c9290486f4732f",
-        "2a8b39905fc2970a",
-        "ed70438a6c00a8f2"
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f",
+        "34c9290486f4732f"
       ],
       "start_line": 930
     },
     {
       "confidence": "structural",
-      "end_line": 953,
+      "end_line": 962,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
         "64fbac29d223ecdd",
+        "3374a116f8eca98f",
+        "64fbac29d223ecdd",
+        "ed70438a6c00a8f2",
         "34c9290486f4732f",
-        "2a8b39905fc2970a",
-        "ed70438a6c00a8f2"
+        "ed70438a6c00a8f2",
+        "ed70438a6c00a8f2",
+        "3374a116f8eca98f",
+        "34c9290486f4732f"
       ],
-      "start_line": 947
+      "start_line": 956
     },
     {
       "confidence": "high",
-      "end_line": 1004,
+      "end_line": 1013,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1458,7 +4287,7 @@
         "6ad836de36757aea",
         "776256c424368312"
       ],
-      "start_line": 954
+      "start_line": 963
     }
   ],
   "source_pack_hydrated_at": "2026-06-19T00:00:28+00:00",

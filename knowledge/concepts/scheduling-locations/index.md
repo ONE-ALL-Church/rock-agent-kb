@@ -2,7 +2,7 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-07-09T20:56:38+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -30,8 +30,8 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 
 - `Scheduling And Locations` spans check-in, groups, events, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_documentation, rock_recipes, rock_qa, rock_core_release_notes.
-- Related tags found in source records: usage, operations, admin, workflow, lava, sql, integrations, recipes.
-- Source detail types include: developer_doc, documentation_article, question, recipe, training, triumph_resources.
+- Related tags found in source records: usage, operations, admin, workflow, lava, sql, check-in, integrations.
+- Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
 
@@ -84,8 +84,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 43
-- `rock_mobile_docs`: 1
+- `rock_documentation`: 44
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `rock_qa`: 1
@@ -102,13 +101,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Add a Schedule Exception | rock_documentation | Of course, there will be times when your regularly-scheduled programming is interrupted by special events or holidays. For example, let's say there are no Saturday services on Easter weekend. You can tell Rock to ignore your regular schedule for that date. This is called an exclusion, and there are two ways to set it up. Let's check them out. The first way to set up an exclusion is at the schedule parent category... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/add-a-schedule-exception) |
 | Add an Event | rock_documentation | Once you've created your calendar, you're ready to place events on them. `Tools > Calendars > Calendar` Shows a list of the current events for a calendar on the *Calendar Details Page*. As you get more and more events, you'll want to start using the filters on this grid to help you manage the events that are displayed. The event add/edit screen below shows you how to manage the events on the calendar. 1. **Name** -... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-an-event) |
 | Advanced Events | rock_documentation | [Secure Events and Calendars](/documentation/church-management/event-calendar/advanced-events/secure-events-and-calendars?Version=v19.0) [Explore Different Event Blocks](/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks?Version=v19.0) | [source](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events) |
-| Calendar Event List | rock_mobile_docs | Displays a list of events from a calendar. ## Parameters \| Name \| Type \| Description \| \| --- \| --- \| --- \| \| CampusGuid \| Guid \| An optional Guid of the campus to filter the events list to. \| ## Settings ### Calendar The calendar to pull events from. ### Detail Page The mobile page to push onto the navigation stack when viewing details of an event. This will not work with an external web page. ### Event Template The... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list) |
 | Calendar Events | rock_documentation | Of all the content on your site calendar, events are probably one of the most shared types of content. To assist you in making this easy we've added the social attributes Lava in the Lava templates for calendar events. We've also added two new event attributes on the public calendar to help you upload specifically formatted images for both Facebook and Twitter. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/calendar-events) |
 | Calendars | rock_documentation | [Intro to Calendars](/documentation/church-management/event-calendar/calendars/intro-to-calendars?Version=v19.0) [Add an Event](/documentation/church-management/event-calendar/calendars/add-an-event?Version=v19.0) [Add Event Occurrences](/documentation/church-management/event-calendar/calendars/add-event-occurrences?Version=v19.0) [Configure the iCalendar... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/calendars) |
 | Clone a Schedule | rock_documentation | For many organizations, creating schedules for special events often requires duplicating the complex setup of regular services. Manually verifying that every location is correctly included in a new schedule can be a cumbersome and stressful process, especially for larger organizations managing hundreds of locations where the risk of manual error is high. To streamline this workflow and ensure accuracy, Rock allows... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule) |
 | Configure Academic Calendar | rock_documentation | We walked through the *On-Demand Learning* configuration mode. Now, let's take a brief detour to explore the differences with the *Academic Calendar* mode. # Academic Calendar Creating an *Academic Calendar* program is very similar to setting up an *On-Demand Learning* program. The key difference is the addition of semesters. Semesters have a start date, an end date, and an enrollment close date, which prevents new... | [source](https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar) |
 | Configure Check-in | rock_documentation | [Set up a Service Time](/documentation/church-management/check-in/configure-check-in/set-up-a-service-time?Version=v19.0) [Clone a Schedule](/documentation/church-management/check-in/configure-check-in/clone-a-schedule?Version=v19.0) [Add a Schedule Exception](/documentation/church-management/check-in/configure-check-in/add-a-schedule-exception?Version=v19.0) [Configure... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in) |
 | Configure Group Schedule | rock_documentation | This article delves into the administrative setup and management capabilities of the Group Scheduling feature. We’ll show you how that all gets set up, and what Group Scheduling looks like on the administrative side. Before starting to scheduling volunteers, you’ll need to configure things like locations and schedules. Locations ensure volunteers know where they're needed, while Schedules pinpoint when their help is... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) |
+| Configure Groups for Scheduling | rock_documentation | We're almost to the fun part. The *Group Scheduler* requires some information from the group before it’s ready. In the *Group Viewer*, add *Meeting Details* for every location that needs assigned people. This might be a pretty long list for some groups like the list we see in the screenshot below. At the end of the day, the goal for this page is to have separation and customization for each group. You can break your... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-groups-for-scheduling) |
 
 ## Data Model Landmarks
 

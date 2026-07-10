@@ -2,10 +2,290 @@
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
+      "claim": "An achievement attempt's progress is stored as a decimal fraction: 0.5 represents 50 percent, while 1 represents full completion and makes the attempt successful.",
+      "claim_hash": "16857bda5dbe9bdf6184cdb5fdc79e478e43606064f650582c539d530ec38a31",
+      "claim_id": "claim:04832823249033025424",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86af3b0dc168bbf3163248f3e4652d76ffd92ae984b8cf54716d8321f6e04878",
+      "source_record_ids": [
+        "rock_documentation:article:1694"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Achievement Attempts",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For a reminder type using Workflow notifications, Rock launches the workflow on the reminder date and supplies the reminder, reminder type, person, entity type and entity to workflow attributes whose keys match those item names.",
+      "claim_hash": "50f4899144fae10046d28b0f78ed11c1505702398ac8ca11e0db8d634c71c42f",
+      "claim_id": "claim:08d83cb213b187436543",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed06083b69174eda21890f016c45b5c354ce84851c00830ca96227ebda859cd2",
+      "source_record_ids": [
+        "rock_documentation:article:1699"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Notification Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Changes to a person's step record are included in Person History on the History tab of that person's profile.",
+      "claim_hash": "4f7209491d3b7ab886e9c1e2fb654d5a03b62cbca15ed5defbe199384e280aea",
+      "claim_id": "claim:122baee91abbba9d976d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ccc9543ca1fb0dc81975872d8469f488cfe08ea60eaf45456c419a04ea800a35",
+      "source_record_ids": [
+        "rock_documentation:article:1670"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Step Entry",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "From a person's profile, the Request Assessment action can send one or more assessment requests with a custom message.",
+      "claim_hash": "37239f98dfc89eea0cdd28fab28c2c19dcfa307324e4ef5baabfa1413a783576",
+      "claim_id": "claim:139a33bdbb23e1789813",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9d576ad20e04cfdd13fb3205dba3cbe7447f8c26ab590db9f06cf1057a0c7417",
+      "source_record_ids": [
+        "rock_documentation:article:1718"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Send Requests",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock stores Emotional Intelligence assessment measurements as searchable person attributes, allowing a person Data View to filter for a specific measurement and rating, such as a High Others-Awareness result.",
+      "claim_hash": "b6721c202e501bf0738291a79dcbdc8e1070c202589839c38f8cca9ebcb28758",
+      "claim_id": "claim:146d532b3dfa871b096e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "95ade64c86b7836a4dd0d1f60f704b6b443f1730801f987e1db048b189527ae4",
+      "source_record_ids": [
+        "rock_documentation:article:2035"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Emotional Intelligence",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock calculates streaks using an occurrence map for participation opportunities, an engagement map for an individual's participation, and an exclusion map for excused absences.",
+      "claim_hash": "307970054bdb2754d9ab063aca75c7a2c495dde84eafef238c4d846e212f183d",
+      "claim_id": "claim:1798857f46122e2d1390",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e4f491265d1c99f1da38d17c888d47b593909f007738fdf8610b6500cce49673",
+      "source_record_ids": [
+        "rock_documentation:article:2026"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Streaks Maps",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock permits an individual achievement attempt to be added or edited manually, including its start date, end date, and progress, even though achievement processing is normally automated.",
+      "claim_hash": "2b42a762a84ba5a937e9399467fa1fa4f51bff53f00ccf359c514fc5d1ab897f",
+      "claim_id": "claim:200377eb72b57bd86215",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86af3b0dc168bbf3163248f3e4652d76ffd92ae984b8cf54716d8321f6e04878",
+      "source_record_ids": [
+        "rock_documentation:article:1694"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Achievement Attempts",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Experience Visualizer can display answers to experience questions as graphical results or as a word cloud, where a word's size reflects how many responses it received.",
+      "claim_hash": "572a5e37d8a5988fbad85a7a3c3c204329ec440f421567da7904e8829cfd5f1d",
+      "claim_id": "claim:2011120405d288e9f349",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "30d249a8c6784d2b68ae197a27b75874e48c25fe972f42a6127db0f245c653b8",
+      "source_record_ids": [
+        "rock_documentation:article:1706"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use the Experience Visualizer",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-visualizer"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A streak enrollment ignores engagements and absences before the participant's enrollment date, and that date cannot be manually changed after the enrollment is saved.",
+      "claim_hash": "6086d08a96d0f318c6f705adad0cf2ca6f29098c3fd6ab08ec768962a2ee394d",
+      "claim_id": "claim:24224409f32b3f24345c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c19c164a1493a10420b68e983c59192446fa88f1f7601929f885f5faec16f54a",
+      "source_record_ids": [
+        "rock_documentation:article:1686"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Streak Type Detail",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An event registration that places registrants into a group can be configured to notify every person following that group.",
+      "claim_hash": "804dbe6f4ecc94711ee79bebe91e84248c7dddcc8569c61660b5cb73b50c1ad3",
+      "claim_id": "claim:2810df67d7ebc6786494",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6e4e4258c94303fcbef8797d850ec34fda1a72ed8f685ad93ee749253dd72e26",
+      "source_record_ids": [
+        "rock_documentation:article:2040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Follow a Group",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Whether a person can retake an assessment is controlled by the assessment type's minimum-days interval and, when enabled, its requirement that an assessment request exist.",
-      "claim_hash": "e816d96dacc89a32d250a77fa03d09e4267e99e48e9621b405bb4d7a948a0454",
+      "claim_hash": "7d591e59b5f3d8b11a8fc2b048caacc21c9af502a64647e0b7dd3eee1472a947",
       "claim_id": "claim:2b7393300aa9580a5b79",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -30,10 +310,1270 @@
     },
     {
       "authority_tier": "official",
+      "claim": "Users select which events should trigger following notifications under My Settings > Following Settings; Rock checks followed people daily for matching events and emails personalized results, and administrators can define additional event types.",
+      "claim_hash": "fd0fcd1528043dd11067abff3624c61826677ac76d6954345b1252d1f019caaa",
+      "claim_id": "claim:2d42fecb4b586683e9ce",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8b0f5c630dbcea37aafd3af1319eb32ef20d271dac256d07c78004269671fafc",
+      "source_record_ids": [
+        "rock_documentation:article:1701"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "How to Follow",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Process Reminders job can process selected reminder types through its include and exclude settings, while Max Reminders Per Entity Type limits how many reminders for each entity type appear in its notification communication.",
+      "claim_hash": "5297969d7b75536d9279de1f5029228406c08577cd305bb3d6a03b9f8bcc2411",
+      "claim_id": "claim:2e6e247b032f7f7bf68c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e9ebb3244665d283e442546462ede097fd478bc875a2fc2b998881338a9d2de8",
+      "source_record_ids": [
+        "rock_documentation:article:1700"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use the Process Reminders System Job",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When Sync Linked Activity is enabled, qualifying attendance or interaction records update the person's engagement map, and engagement-map additions create corresponding attendance or interaction records.",
+      "claim_hash": "c9e93214f76181997d5f56c8d9b7cca6411cb923f9124c8a30d4dfa5d49250eb",
+      "claim_id": "claim:2f370710733795ebb98c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d0b8c514ae97b1165f6eddf36d50fe1257ee97fd2354045580d380f7f4b86aa4",
+      "source_record_ids": [
+        "rock_documentation:article:1685"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add a New Streak Type",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An achievement type can launch distinct workflows when a person starts the achievement, completes it successfully, or fails to complete it.",
+      "claim_hash": "f3a9fa94a57e429487e5fd9119d209246f9f087b7af19d029ca1890febb7e03e",
+      "claim_id": "claim:2f4881a37abce9146ebc",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "076e2a6e3a358d94d403c43a24d7562d0ba9276db6088cbf60891308f6beabb5",
+      "source_record_ids": [
+        "rock_documentation:article:1696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Achievement Type Advanced Settings",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To display a step program's progress as a badge, configure one Person badge of type Steps for the entire program, then add that badge to the Person Profile page's badge container.",
+      "claim_hash": "dd23f4407c175ed1cab656215bf7cfd910d240944b3b57d5b235d26c40f1fc0d",
+      "claim_id": "claim:30589b4db05897378814",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "179ef9bfd4dcbbe4a195d24b0066f84a12da99f2694e9c11031fc7b0bcd16c90",
+      "source_record_ids": [
+        "rock_documentation:article:2023"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Steps Badges",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Sign-Ups can enforce participation thresholds for short-term opportunities while supporting uses beyond serving projects.",
+      "claim_hash": "a884bcc178397f5054c73b57f8e335f0b70c7b6e3fab9f314bb124a8277c4057",
+      "claim_id": "claim:3231f2db2da8335b02e6",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "af20294ca74ccbf330d188fddb56450b11316d79bebe6e3fd6e654f365aa13c1",
+      "source_record_ids": [
+        "rock_documentation:article:2043"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/intro-to-sign-ups"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When an achievement badge has no Lava template, Rock uses the achievement icon, except that Step Program Completion uses the step program icon; if no applicable icon is configured, Rock uses the default achievement badge icon.",
+      "claim_hash": "46b35108763c53da5c5bc2a70dc7ad151986443f08e563c1726375ad96d04501",
+      "claim_id": "claim:32c7de7f218c8234abea",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "076e2a6e3a358d94d403c43a24d7562d0ba9276db6088cbf60891308f6beabb5",
+      "source_record_ids": [
+        "rock_documentation:article:1696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Achievement Type Advanced Settings",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A sign-up attendance page using the Sign-Up Attendance Detail block identifies the project, location and schedule by IdKey and the occurrence by an attendance date formatted as yyyy-MM-dd; attendance reminder links can be generated through the Group Attendance Reminder system communication.",
+      "claim_hash": "792e72637be844f5d59e409d7a2da66018e5e5840913149fd1359005672642f7",
+      "claim_id": "claim:3331e4a7d06bd3ee7b3e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9ddac404a6e589b7a8fec5f010d73c79f2ae7511d1d063c399b05b8d431f5552",
+      "source_record_ids": [
+        "rock_documentation:article:1710"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Group Registration and Attendance for Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/group-registration-and-attendance-for-sign-up"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To register members of an existing group for a sign-up, configure a Sign-Up Register block in Group mode and route the request with the sign-up project's, location's, schedule's and group's IdKey values; the project parameter represents the sign-up group.",
+      "claim_hash": "ae670388a8556a179cde9de91c00943c4b86824c7bb2b2802df16c1af602a539",
+      "claim_id": "claim:33da1fa39f7320d6daf4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9ddac404a6e589b7a8fec5f010d73c79f2ae7511d1d063c399b05b8d431f5552",
+      "source_record_ids": [
+        "rock_documentation:article:1710"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Group Registration and Attendance for Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/group-registration-and-attendance-for-sign-up"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Process Reminders job triggers each processed reminder type's configured communication or workflow, may complete reminders when the type is configured to do so, and refreshes the active-reminder count displayed in page headers.",
+      "claim_hash": "ce02db9e342d2f97599305700b1340e001d949de255dd349db2ef1158d5e36bc",
+      "claim_id": "claim:341d9b83a869a37736dc",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e9ebb3244665d283e442546462ede097fd478bc875a2fc2b998881338a9d2de8",
+      "source_record_ids": [
+        "rock_documentation:article:1700"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use the Process Reminders System Job",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "On the external site's Sign-Ups Finder page, guests can filter opportunities by date and location, review opportunity details, and register themselves and additional people without using an event registration template.",
+      "claim_hash": "36eb9d791d757f1949a36a1860c62e4e5cd5c8832d9f991e1996e9cca5b6d682",
+      "claim_id": "claim:3595e5234594c30f7968",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "af20294ca74ccbf330d188fddb56450b11316d79bebe6e3fd6e654f365aa13c1",
+      "source_record_ids": [
+        "rock_documentation:article:2043"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/intro-to-sign-ups"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step type's Show Count on Badge setting affects Steps badges only when their display mode is Normal.",
+      "claim_hash": "6e569aaf12168495e149c41bafd29ff15aa563f309d054f05cfb727007ba794a",
+      "claim_id": "claim:3716e30482a0210293fe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "179ef9bfd4dcbbe4a195d24b0066f84a12da99f2694e9c11031fc7b0bcd16c90",
+      "source_record_ids": [
+        "rock_documentation:article:2023"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Steps Badges",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Interactive Experiences accept anonymous or personalized answers through the Rock Mobile app and make submitted responses available to live question monitoring in Rock.",
+      "claim_hash": "ca550613495c26a6d2559c6963c926ad023be75a782ff04752b9c062ae35d3bd",
+      "claim_id": "claim:372bccdc8c694cdeb713",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d96b36062c764de9b8a9ee9d086fbed254c3c8b51015e0eb2552137681aa68c4",
+      "source_record_ids": [
+        "rock_documentation:article:2042"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Interactive Experiences",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step attribute appears in the step type participant grid when its Show in Grid option is enabled.",
+      "claim_hash": "90295748382f8e89c304d4af1909f2e8fcf5753dde51ef5fb79b3bfd19951029",
+      "claim_id": "claim:38f13ffb3ac1ac379b0a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "146fa395395d0ed6cbdbd5f778272b224f9023c68919191518643caabc68b3f9",
+      "source_record_ids": [
+        "rock_documentation:article:1669"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Step Types",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A person's engagement exclusion map defines individual dates on which absences are ignored and therefore do not break that person's streak; those exclusions do not affect other enrollees in the streak type.",
+      "claim_hash": "fe93be0ace1db2580b5a1247458e84c8c6b7d962a9dd80bbcb18beca408213fe",
+      "claim_id": "claim:3ac99f752aa9149fb09e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6c3bb2a4813c1a6461b10a016b241fce0d8a05ea11515b67c4b11bd975516786",
+      "source_record_ids": [
+        "rock_documentation:article:2028"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Streak Enrollment",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An individual streak rebuild recalculates current and longest streak values from attendance, cannot set enrollment earlier than the streak type start date, and includes only dates enabled by the streak type occurrence map.",
+      "claim_hash": "68baae11a96ac8da6f7c5619babb79016fb690e6fb91132a268066ded2c3e6e3",
+      "claim_id": "claim:3e045e273b98f4655670",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3eac0d96b6c189b4b2416795fea100bb9de2fa95209329d980fbcd2492dcef9a",
+      "source_record_ids": [
+        "rock_documentation:article:1689"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Rebuild Streaks Individually",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The presenter view for an interactive experience can display incoming question responses in real time, with controls to select a question and optionally filter responses by campus.",
+      "claim_hash": "4a10b464ad46af849ae8e6680b66e5043ec582904c922e069cba353a647e96e8",
+      "claim_id": "claim:3efad14915a500b405c4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9148044c1a9955c1daa475d98f6b5797eecf5396701a303e1ef844fa34ca2c77",
+      "source_record_ids": [
+        "rock_documentation:article:1705"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Handle Experience Questions",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/handle-experience-questions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A streak date exclusion does not alter the underlying attendance data, so the engagement graph and map can still show an absence while the calculated streak spans the excluded date.",
+      "claim_hash": "7e575c7d8e80f7eea934875182f1564c5c92b05c12bfe0b12b610ceaf04da61b",
+      "claim_id": "claim:40e249eea8235d2870d8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0ca6a2c790ea9b9ec7de8471544f3b719a4fb87eaef2bb6147943d357db4554a",
+      "source_record_ids": [
+        "rock_documentation:article:1690"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Exclude a Date",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock can send a daily email summarizing tracked events for people the recipient follows, including events selected by the organization such as anniversaries or group joins.",
+      "claim_hash": "b7e332c255cf59de2d6c6b5bfc48a100306ff5945e00b49318ebeb80d55682e3",
+      "claim_id": "claim:46835c086d9ce455a270",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7d6850d45281ba51961de09e9ad58eb029e4ef3205f4d95bd0880b0ba4bdabc7",
+      "source_record_ids": [
+        "rock_documentation:article:3622"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Following",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/intro-to-following"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step is considered completed only when it has both a completion date and a status configured as complete; a completion date alone does not indicate completion.",
+      "claim_hash": "d1ee5a98c75caa2a632d6fc489fe9300c24adf2682c080e4a24f05d6e172a2dd",
+      "claim_id": "claim:47a57101d22b5634486d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "53c382248fa32c27da60ca13253a6f07972c6ffe7e34f303a4f3774a2ee700ff",
+      "source_record_ids": [
+        "rock_documentation:article:1672"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Edit Step Programs",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A communication can request assessments from many people by generating each assessment's external URL with the public application root and the recipient's URL-encoded person key; recipients can also find assessment requests on the external site's My Account page.",
+      "claim_hash": "60c5bd9b1cab80e3e5a26302e0ed49fe7231e478c251ecaee19e19fb7192e7e7",
+      "claim_id": "claim:49356533d51225faa0f0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9d576ad20e04cfdd13fb3205dba3cbe7447f8c26ab590db9f06cf1057a0c7417",
+      "source_record_ids": [
+        "rock_documentation:article:1718"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Send Requests",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Interactive Experience administrator controls when a question is shown and closed; if answer moderation is enabled, the real-time visualizer displays only approved responses.",
+      "claim_hash": "d51123a6c413cc8799e4cd407899a516f7e0f6746ba8a577e8d68ed72c9acf75",
+      "claim_id": "claim:4db644e831dd1a8d4c71",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d96b36062c764de9b8a9ee9d086fbed254c3c8b51015e0eb2552137681aa68c4",
+      "source_record_ids": [
+        "rock_documentation:article:2042"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Interactive Experiences",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rebuilding an individual's streak deletes that person's existing engagement map, recreates it from attendance records, and discards manual engagement-map changes.",
+      "claim_hash": "d6df3eb2025e711352c174d14c4ffd2209d6a49df3242066ee4ec662691b866c",
+      "claim_id": "claim:4ed8764f55729b51aba1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3eac0d96b6c189b4b2416795fea100bb9de2fa95209329d980fbcd2492dcef9a",
+      "source_record_ids": [
+        "rock_documentation:article:1689"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Rebuild Streaks Individually",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "After editing an engagement or exclusion map, save the changes and refresh the page to confirm that the updated streak data is displayed.",
+      "claim_hash": "11b06c257b43806756cda6cb2fe4e81fed000f7914f551ed77d29c32f76abe04",
+      "claim_id": "claim:4fc67e3684dc186dd394",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "955ee659baa20aa71a5e34423948816850f739db827367eb4042a3204d9b7eda",
+      "source_record_ids": [
+        "rock_documentation:article:1688"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manually Track Streaks",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, users can open Reminders from the page header, filter the list by status, reminder type, date, or entity, and mark a reminder complete after taking action.",
+      "claim_hash": "d885d9d83f1ab40a273f1d7167c542fde5efabd74f6e34ac5c9edceb784f48b4",
+      "claim_id": "claim:50ce1210fa8bc14a6265",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ca6207560d1f5df69d5b99a17e9607e2dc8e5566c31700229cf1fb4bb2bda6b8",
+      "source_record_ids": [
+        "rock_documentation:article:2038"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Reminders",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/intro-to-reminders"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Following a group makes it accessible from the follower's My Dashboard page.",
+      "claim_hash": "a956429fc94a80ba33165e56f244a16b22494996d9552175501582564ecb5a24",
+      "claim_id": "claim:55a1831ff83c3bfe80ea",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6e4e4258c94303fcbef8797d850ec34fda1a72ed8f685ad93ee749253dd72e26",
+      "source_record_ids": [
+        "rock_documentation:article:2040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Follow a Group",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A reminder type can notify through a communication or workflow; its settings can include the reminder note in notification email and automatically complete the reminder after notification, while reminders otherwise remain active.",
+      "claim_hash": "46c700ea033e36fc7c6920f04b639440959c0295a17452d822e09956013ee27c",
+      "claim_id": "claim:56fdeef663fdecfce13c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "62b55c3d330636af224418ac00818c7fdce2411f3ced80943ef60be1ed3558cc",
+      "source_record_ids": [
+        "rock_documentation:article:1698"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Reminder Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-reminder-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock can bulk-update Step data either for selected people in a list grid or through bulk entry mode from a Step Program or Step Type page.",
+      "claim_hash": "9faac9e0dfbad553410510bb55ff78331c33e6eb1aa233e56b45d013286d2bd0",
+      "claim_id": "claim:58cd9e203d104b651c51",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed5d37bdfe0f73ce178359af12bc49b261e3ac9322dd33a2736a49eafc86b392",
+      "source_record_ids": [
+        "rock_documentation:article:1671"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Bulk Entry With Steps",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Interactive Experience Manager lets operators monitor participation, control which actions appear on participants’ mobile devices in real time, and preview the participant view.",
+      "claim_hash": "efd71faff908343daf31c312c7708385a88c365fa32f279e1722ca3a6234c308",
+      "claim_id": "claim:5960599698a26a7aa2fb",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "18e2e98dc388f7279cbb832af64a06a762fbb6994fa4510fb9a0ba2c404f1a72",
+      "source_record_ids": [
+        "rock_documentation:article:1704"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use the Experience Manager",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Streaks uses attendance or other engagement data to identify consecutive instances of a person's engagement.",
+      "claim_hash": "7df6f1a6ff454cbbb9dd7199304d2e797d8fd4172e53e35f2399976be4596c3a",
+      "claim_id": "claim:5c7f3aa95bd82b440db1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "2f974c77c59b32c017f42ac1795547b31ff3a5200ae6bd0bf352cf992d4c194b",
+      "source_record_ids": [
+        "rock_documentation:article:2025"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Streaks",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/overview/intro-to-streaks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When an achievement attempt fails its configured conditions, Rock closes it unsuccessfully and can start a new attempt when the entity next performs the activity that begins the goal.",
+      "claim_hash": "6d3dd7a1d00a76900167fa28cb35d05d53c6f5e187675800f70ccad791cb43dc",
+      "claim_id": "claim:5e5abcd59b99b5d76c9d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e45445a2eab53d6ebfeefebfa58eb696f463abd057cc16f5a49e74e8a93a836e",
+      "source_record_ids": [
+        "rock_documentation:article:2037"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Achievements",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Conflict Engagement Assessment results are stored as person attributes that can be filtered in Data Views, such as finding people whose Solving theme is ranked High.",
+      "claim_hash": "81a76c2516e54670f263515d74e152c04eccbb57594a4e5b73a70570537b10b8",
+      "claim_id": "claim:5f531f14723ae3910005",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cdebbeee7e4b6abfacee339ccca7eb047ed1785ac6a53642f0bf254320418a57",
+      "source_record_ids": [
+        "rock_documentation:article:2036"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Conflict Profile",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0 Sign-Ups, a project is the underlying group, so people registered for any opportunities within the same project are added to that shared group.",
+      "claim_hash": "5b3230d2d9cc9ed9c9543d3be50663d9c2e23dba1e68bea23c8ff8e5579ec624",
+      "claim_id": "claim:629e48c58c56a9a33726",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "562f29358c20a165c07df2553939e42ff23ea0c3b90ab05f537b94ba06bd7285",
+      "source_record_ids": [
+        "rock_documentation:article:1708"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/manage-sign-ups"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rebuilding a streak type deletes and regenerates its occurrence and enrollment map data from attendance records, so manual changes to either map are lost.",
+      "claim_hash": "f8e3fc84161945b3249076193a8af29234573d36d5373ddffe80ce6c77d8f422",
+      "claim_id": "claim:63e4f946e8a379ed935e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e86a15ada301e467ddef4c803c7351a58cf489b5aa9b546cb90e12a6d792ce70",
+      "source_record_ids": [
+        "rock_documentation:article:1691"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Rebuild Streak Type",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Sign-Ups, Manage Members, Edit, or Schedule permission at the project or group-type level allows a person to add and remove attendees.",
+      "claim_hash": "efe3554022b17c9663defe325a868bb12f4a8a3143efc03e56591c5cf5720332",
+      "claim_id": "claim:680d13d60bbfb39ff041",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "188843d2e9e8772a9518ba71b9eacbf1157df698ecfcaee89daf3c2329f19368",
+      "source_record_ids": [
+        "rock_documentation:article:1711"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Sign-Up Permissions",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An assessment request can be deleted or canceled from a person's assessment history only before the assessment is completed.",
+      "claim_hash": "d58394e7b892092e79f45cb937705fe797886aab51457fa7f1e503683b4f44ce",
+      "claim_id": "claim:693722cab132c30c4521",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5e1ebef28330d3228bf54ac1f9038219161e53e4dc2152bed229f4743dd20dd6",
+      "source_record_ids": [
+        "rock_documentation:article:1721"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "View Assessment History",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's DISC assessment asks the participant to select the statement that is most like them and the statement that is least like them from each four-statement set, then presents the completed result as a personality-type bar graph with supporting details.",
+      "claim_hash": "0deeccb1b2adfd6a91191793a34ac13fde32a46e3dd8c2379a8721ed03d9e96b",
+      "claim_id": "claim:6def9c078de2994d5319",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d0977a6b9ede0d405db3a05e60fbd9b50da011dbcff901926c0c3a550dfa879d",
+      "source_record_ids": [
+        "rock_documentation:article:2032"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "DISC Personality Assessment",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step program's Completion Flow controls ordering and prerequisites: Linear (Required) enforces sequence and removes custom prerequisites, Linear (Preferred) favors sequence while retaining prerequisites, and Non-Linear uses sequence only for display while retaining prerequisites.",
+      "claim_hash": "ac4c342e6881b5ea5d1114090909d36059d43626463409b21c654e96937040a5",
+      "claim_id": "claim:7524a35f5562d0641a9f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c38493a4e095f1ca09233e91febef63d8e18b0649c5cd3029f7548aa85ee6c35",
+      "source_record_ids": [
+        "rock_documentation:article:2018"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Steps",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A streak exclusion can apply to an individual or a location; it causes an absence to be ignored without preventing recorded participation from contributing positively to the streak.",
+      "claim_hash": "11897ed023b7eaff813018fa314653a8b347823f4919b42bf44f9e9ad5c5673b",
+      "claim_id": "claim:755b9faff6a6a780e1ec",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e4f491265d1c99f1da38d17c888d47b593909f007738fdf8610b6500cce49673",
+      "source_record_ids": [
+        "rock_documentation:article:2026"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Streaks Maps",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Conflict Engagement Assessment assigns high, medium or low rankings to five conflict modes and three conflict themes, and displays the results in mode and theme graphs.",
+      "claim_hash": "6e8354ed10d24b0060859c7f1662df2070fc48cc22cfd4a4bc62ada534e07ef7",
+      "claim_id": "claim:761408dd8f4e0b564b59",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cdebbeee7e4b6abfacee339ccca7eb047ed1785ac6a53642f0bf254320418a57",
+      "source_record_ids": [
+        "rock_documentation:article:2036"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Conflict Profile",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Emotional Intelligence assessment permits one of five frequency responses per question and reports results across six measurements: Self-Awareness, Self-Regulating, Others-Awareness, Others-Regulating, EQ in Problem Solving and EQ Under Stress.",
+      "claim_hash": "fb1373b59b12dc391bebc2102118e9ae3b94e59fee8fddb86cca1cd719e89f21",
+      "claim_id": "claim:7b2fad13f169e1a6554f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "95ade64c86b7836a4dd0d1f60f704b6b443f1730801f987e1db048b189527ae4",
+      "source_record_ids": [
+        "rock_documentation:article:2035"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Emotional Intelligence",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Impact-adjusted step measures require an impact weight on each applicable step type and calculate impact by multiplying step counts by that weight.",
+      "claim_hash": "eef8ee986a947966dc37eefbf236d1a1d2814b779769b3b8d1b1c8924e5b8b8f",
+      "claim_id": "claim:7b349002ae9ae42ada47",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bdbdfda6f53c9cd49c55b68d14fb69a12ea918b4ba22009d0b5bd1435a92f1e6",
+      "source_record_ids": [
+        "rock_documentation:article:2021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Step Charts",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock 19.0, an active reminder is due when its reminder date is reached and a communication or workflow has issued the reminder; active reminders with future reminder dates are not due.",
+      "claim_hash": "e73f6e4313210dcd5ed5982f708df42aab2d2ca62706e091921585b71b4fb117",
+      "claim_id": "claim:801ccf092de2b478a4da",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ca6207560d1f5df69d5b99a17e9607e2dc8e5566c31700229cf1fb4bb2bda6b8",
+      "source_record_ids": [
+        "rock_documentation:article:2038"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Reminders",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/intro-to-reminders"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A reminder type defines the Rock entity that can receive its reminders, can be secured to selected roles or people, and requires a context-enabled page for users to create reminders of that type.",
+      "claim_hash": "f2716eafc8225c2e00d21a6708537662cb8b57739382ca0805c53d3337fef7da",
+      "claim_id": "claim:802eab817960fbcdcac5",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "62b55c3d330636af224418ac00818c7fdce2411f3ced80943ef60be1ed3558cc",
+      "source_record_ids": [
+        "rock_documentation:article:1698"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Reminder Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-reminder-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "After a streak type is saved, its start date and frequency cannot be manually changed; correcting either setting generally requires creating a new streak type.",
+      "claim_hash": "c18ca97fdd6628d30b74e01ad1fa082dce25aaabf7271a83099968a78f30be55",
+      "claim_id": "claim:807ff384e48b55278316",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d0b8c514ae97b1165f6eddf36d50fe1257ee97fd2354045580d380f7f4b86aa4",
+      "source_record_ids": [
+        "rock_documentation:article:1685"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add a New Streak Type",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "An achievement type cannot simultaneously track overachievement and cap the number of accomplishments because Rock must decide whether excess events extend progress or start another accomplishment.",
-      "claim_hash": "d8ef7423fed3c0d5afdeefca2e5d4b141267e7a0f31ec2f3d077557f3b3c7a26",
+      "claim_hash": "b9176c6bc8d2750edd58785d37e38d0399df702f9a711b02cbd1c62dea6e375c",
       "claim_id": "claim:83326a2a72594778d5db",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -58,10 +1598,402 @@
     },
     {
       "authority_tier": "official",
+      "claim": "For Person History value filters, Match Both requires the old and new values to match together; otherwise either value may match, and a blank old or new value acts as a wildcard for that side of the change.",
+      "claim_hash": "f0f1b9975128ec09874c8615337a6f8eb25f039131cf4c22cfa43e582361e6c6",
+      "claim_id": "claim:83af9678090b9cc65680",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4f518ddfd158d7a7f75788e6595e8c1e16bf2382d98ee0b67ff02f597c1a5a31",
+      "source_record_ids": [
+        "rock_documentation:article:2284"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Person History Following Event",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/person-history-following-event"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A person needs View permission for a Following Event to subscribe to it, and an event is omitted from notifications if the subscriber no longer has that permission when the notification is generated.",
+      "claim_hash": "2e3cdf7ef2ad89709d6457f224ed31948fc875016523b5f9beb4db97529cdbcd",
+      "claim_id": "claim:84d74f245b75456f6410",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1227630ff8b9f96a9a87db8d6075aaef47951eb4c3a49dbd24b7ea9189848015",
+      "source_record_ids": [
+        "rock_documentation:article:1702"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Follow Events",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step program's average completion time is calculated from the earliest step start date through the latest step end date in the program.",
+      "claim_hash": "e97e8584dadebdf22c90a49c9cfe5bda9e10fcbd78f618793ad8e1dc69130b27",
+      "claim_id": "claim:85a62c4d4ea480d85f37",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "88bd0f90877110b191ac1bd52cf4716f77c18b71262bf11af3a9a4423d1222c2",
+      "source_record_ids": [
+        "rock_documentation:article:1668"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Step Programs",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-programs"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Manually adding a week to an enrolled person's engagement map updates the person's streak metrics after the change is saved.",
+      "claim_hash": "62edd46b9159ccd62efe6be1680e424ff26587446c1d3ab2ef0985495c543565",
+      "claim_id": "claim:879a8db91d3aaac66fd3",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "955ee659baa20aa71a5e34423948816850f739db827367eb4042a3204d9b7eda",
+      "source_record_ids": [
+        "rock_documentation:article:1688"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manually Track Streaks",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Step program Started and Completed totals count step occurrences rather than distinct people, so a person can contribute more than once when a step type permits multiple completions.",
+      "claim_hash": "c7d4911db4b02ae76fe6a0dcea390d27cae176290bbebbba0008f7447b59b117",
+      "claim_id": "claim:8b0b2a744134ed2e4959",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "88bd0f90877110b191ac1bd52cf4716f77c18b71262bf11af3a9a4423d1222c2",
+      "source_record_ids": [
+        "rock_documentation:article:1668"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Step Programs",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-programs"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For a reminder type using Communication notifications, Rock sends the assigned person the system communication selected by the Process Reminders job when the reminder date arrives; the default template is Reminder Notification.",
+      "claim_hash": "51ed365793cda41f51385e7c8f29a9952b70f32823acf0f003e5a77bacf63816",
+      "claim_id": "claim:8bdc0824cb8175e81160",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed06083b69174eda21890f016c45b5c354ce84851c00830ca96227ebda859cd2",
+      "source_record_ids": [
+        "rock_documentation:article:1699"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Notification Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For a step that spans time, Step Entry provides separate start and end dates; for a step that does not span time, it provides one date that Rock treats as the completion date.",
+      "claim_hash": "6279e795f56d1d0c428587040121c47bde38119f5ce29f320400259c29226240",
+      "claim_id": "claim:8ec5119878c4737ef41f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ccc9543ca1fb0dc81975872d8469f488cfe08ea60eaf45456c419a04ea800a35",
+      "source_record_ids": [
+        "rock_documentation:article:1670"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Step Entry",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Manually excluding a date from a person's streak causes Rock to skip that date when calculating the streak, so the date neither contributes to nor interrupts the streak.",
+      "claim_hash": "135be7ed7c752374fe94fb0d60210286cd9e12218f315c7a8edc1928c0b798e3",
+      "claim_id": "claim:8faa8bdce2892ad3cbcd",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0ca6a2c790ea9b9ec7de8471544f3b719a4fb87eaef2bb6147943d357db4554a",
+      "source_record_ids": [
+        "rock_documentation:article:1690"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Exclude a Date",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Step Flow chart's maximum-level setting truncates the displayed sequence, so a person's absence after the final displayed level does not establish that they stopped progressing through the program.",
+      "claim_hash": "e22301ea9f4399baefe667be797379fee1ec26d916af31211539c6745c23dc52",
+      "claim_id": "claim:9219761372bdb3dc8f46",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5ea1b9deac0c22a38306600c02866e61616b6192989e0a261bbd3bc27ba5a450",
+      "source_record_ids": [
+        "rock_documentation:article:2022"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Chart Types",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When using Motivators results to guide service placement, consider roles that draw on the person's five to seven highest motivators and avoid roles centered on their five to seven lowest motivators when practical.",
+      "claim_hash": "865cedc512803f6781b26a51d6f1a7d75296d01ed2e2187908ef02ce072222c2",
+      "claim_id": "claim:976ef6f156eb1009dbec",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cd6d333cb33ef3f9a42163c2d416c4219b2bd6f23b244946a46d8515465d0f2a",
+      "source_record_ids": [
+        "rock_documentation:article:2034"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Motivators",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/motivators"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Interactive Experience schedule can limit who sees the experience by applying a data view or requiring membership in a group.",
+      "claim_hash": "8314586a0a558645327d3a2c8a12f71b1af4b8be4477562ddb3ce9e18ed0ca56",
+      "claim_id": "claim:97ff136324c7db91f9ed",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b8eb3a41a826e9400cf05661be68bfc7c32f96c97d46a9deb1f445492e2f1e2d",
+      "source_record_ids": [
+        "rock_documentation:article:1707"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Administer Experiences",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/administer-experiences"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Manually enrolling a person in a streak type does not automatically populate their streak from existing attendance; rebuilding the individual streak updates the engagement map from the configured engagement data.",
+      "claim_hash": "3b01afdf52f0e32ff8b6edf9e53a0c60485617cfe6ad6eb0dd6ef82eab3a3983",
+      "claim_id": "claim:9899d20f62125390eb26",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6c3bb2a4813c1a6461b10a016b241fce0d8a05ea11515b67c4b11bd975516786",
+      "source_record_ids": [
+        "rock_documentation:article:2028"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Streak Enrollment",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Step bulk entry, an attribute with Show on Bulk enabled can be assigned once to multiple people; otherwise, the attribute remains available but must be set separately for each person.",
+      "claim_hash": "6266e3edaf0916a23a4a32ca34a5d7021930cf00b75b260140bf47a7f727ed15",
+      "claim_id": "claim:9c4fc0cfe116e2d1b48c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ed5d37bdfe0f73ce178359af12bc49b261e3ac9322dd33a2736a49eafc86b392",
+      "source_record_ids": [
+        "rock_documentation:article:1671"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Bulk Entry With Steps",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Person History following event can notify subscribers about demographic-history changes matching configured fields, old and new values, the person who made the change, and a maximum lookback period.",
+      "claim_hash": "65e1003a0297aa7577b44154a6df2f6e083fdecfb448c6f394e88ec1df443487",
+      "claim_id": "claim:9f81178e7996d150d2ed",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4f518ddfd158d7a7f75788e6595e8c1e16bf2382d98ee0b67ff02f597c1a5a31",
+      "source_record_ids": [
+        "rock_documentation:article:2284"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Person History Following Event",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/person-history-following-event"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "When the Steps Automation job processes a step type's Auto-Complete Data View, it honors prerequisite steps and the Allow Multiple setting before creating or completing step records.",
-      "claim_hash": "05c7975649afb2229b6b5a6f093e183a4e49a25335ea28535df4cfd2d50cce14",
+      "claim_hash": "b482b2cda382cbdeb6219059a2b8e038f3c838dc9738da09eb3ada5f40cccb5c",
       "claim_id": "claim:a61facc4f0ea3c967a62",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -81,6 +2013,790 @@
           "source_id": "rock_documentation",
           "title": "Edit Step Types",
           "url": "https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Following Event evaluation does not enforce the security of related notes or groups, so sensitive events should be secured consistently with the records they represent.",
+      "claim_hash": "0a837f7347f79170a586013026e15f31f947618a2022a26989bff601a2ade060",
+      "claim_id": "claim:a819bc1eb251037bd4b1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "1227630ff8b9f96a9a87db8d6075aaef47951eb4c3a49dbd24b7ea9189848015",
+      "source_record_ids": [
+        "rock_documentation:article:1702"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Follow Events",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The default Sign-Up registration and reminder communications use SMS as well as email; an organization phone number must be configured on those system communications to prevent errors when they are sent.",
+      "claim_hash": "2d50351baf0daf7498fd30bb67fe4e4aa69f13a056ef358c3db7c8cdcf5c7ebd",
+      "claim_id": "claim:ab0719002f065036bef4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "546dcc6f1628c470f7276c4a607f876b78039a094ea81efb7aa4688282ffd5df",
+      "source_record_ids": [
+        "rock_documentation:article:1709"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Sign-Up Overview communication sends each selected recipient only one message even when that person is registered for multiple selected opportunities; the Opportunities Lava collection can be iterated to include details for each registration.",
+      "claim_hash": "93cdf3cfd87cb11192a5aa2f977563bd1139092d264cf00fe32b98d0ca04cf56",
+      "claim_id": "claim:ab29a8da0bf650ef9c58",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "562f29358c20a165c07df2553939e42ff23ea0c3b90ab05f537b94ba06bd7285",
+      "source_record_ids": [
+        "rock_documentation:article:1708"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/manage-sign-ups"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The questions and available answer formats in Rock's built-in assessments cannot be configured.",
+      "claim_hash": "3e4496bd73a8aad4a6e9919cab0e35e293e64634163b7284c6b7ca7e079869f4",
+      "claim_id": "claim:acb4abc1bb4d53f2ade0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f0e27b487e681b558523cd6ab8fdf86643954dd13efa5286c95a3b16df32d7a8",
+      "source_record_ids": [
+        "rock_documentation:article:1719"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Take Assessments",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/take-assessments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To use a custom group type for Sign-Ups, inherit it from the Sign-Up Group type, allow it as a child of the original type, configure at least one group schedule option and location selection mode, and include it in the Sign-Up Finder block's Project Types setting.",
+      "claim_hash": "4c656b544f819ced61a89bf63eaf9455e3a55a977b72b06d02a5b11a9b28456a",
+      "claim_id": "claim:b018d763b7c4138fa13f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "546dcc6f1628c470f7276c4a607f876b78039a094ea81efb7aa4688282ffd5df",
+      "source_record_ids": [
+        "rock_documentation:article:1709"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Sign-Ups",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Interactive Experience can associate interactions with a campus using schedule filtering by nearby campus geofences, the person's current geofence, or the campus stored on the person's record; either geofence-based mode requires geofences configured for the campuses.",
+      "claim_hash": "a12833835765639261ed6a7de3591292cbc39d4294309f3751a4de1aad068064",
+      "claim_id": "claim:b075a5bc13ccc014561f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b8eb3a41a826e9400cf05661be68bfc7c32f96c97d46a9deb1f445492e2f1e2d",
+      "source_record_ids": [
+        "rock_documentation:article:1707"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Administer Experiences",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/administer-experiences"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The occurrence map defines which eligible days or weeks count as possible meetings for a streak type; changes to the map are not reflected in participants' displayed streak data until the nightly cleanup job runs.",
+      "claim_hash": "06e263f312e236aa87f484768df4ff9a64338896afd9e19dbe34695b5dd131a5",
+      "claim_id": "claim:b8d696ec43cce2a097f2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c19c164a1493a10420b68e983c59192446fa88f1f7601929f885f5faec16f54a",
+      "source_record_ids": [
+        "rock_documentation:article:1686"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Streak Type Detail",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step program's completion flow controls ordering and prerequisites: Linear (Required) enforces sequence and removes custom prerequisites, Linear (Preferred) allows out-of-order completion while enforcing prerequisites, and Non-Linear uses ordering only for display while enforcing prerequisites.",
+      "claim_hash": "b7b5b172563097b5ab6d00bb1f67c2975a4cc0a2d97d2c5485637e613b51e45a",
+      "claim_id": "claim:baa4ef55acde17ae1815",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "53c382248fa32c27da60ca13253a6f07972c6ffe7e34f303a4f3774a2ee700ff",
+      "source_record_ids": [
+        "rock_documentation:article:1672"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Edit Step Programs",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An achievement attempt closes when it succeeds or fails; if Allow Overachievement is enabled, its displayed progress can exceed 100 percent.",
+      "claim_hash": "4f2f2a0ee8dfa44411671f19d00b83f4102ac069386d162251c71a49881ea49e",
+      "claim_id": "claim:c1a49c5a3df209541140",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e5d8f7b70d6fec2e16c8777bf22955141f0d4dbb8ec24ebe03d2635781f53838",
+      "source_record_ids": [
+        "rock_documentation:article:1692"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Achievement Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Spiritual Gifts Assessment classifies a person's results as dominant, supportive, and other gifts, and those result attributes can be queried with person Data Views.",
+      "claim_hash": "4d346fa11345244bbce8971b70475650a5c5cf7e32ca4a0e308326904a3c57cf",
+      "claim_id": "claim:c24f6c9fe57ce352dcd8",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5948575e1da1255722e209eee3d4fcb9906de00eee0dbc6a839981e6bf6b7b1b",
+      "source_record_ids": [
+        "rock_documentation:article:2033"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Spiritual Gifts",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rebuilding an achievement type deletes and recalculates each person's attempt data occurring after that person's latest successful attempt.",
+      "claim_hash": "e280dabcb164231975c818ab8f65d99f5eb1a4b40be43a73ed0b75ef37dfad7c",
+      "claim_id": "claim:c3d39ed06eaed0b8ee07",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e5d8f7b70d6fec2e16c8777bf22955141f0d4dbb8ec24ebe03d2635781f53838",
+      "source_record_ids": [
+        "rock_documentation:article:1692"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Achievement Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Experience Manager supports approving or rejecting moderated responses; its campus-filterable Live Questions view excludes responses that require approval until they have been approved.",
+      "claim_hash": "f1efaecf7c67c55e83559155da4b9b9600bac8c1a6b2bed0c538599225fafcf7",
+      "claim_id": "claim:c4089cabe900bf32292d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "18e2e98dc388f7279cbb832af64a06a762fbb6994fa4510fb9a0ba2c404f1a72",
+      "source_record_ids": [
+        "rock_documentation:article:1704"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use the Experience Manager",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When Rock rebuilds an attendance-based streak type, it derives the streak start date, enrolled people, individual enrollment dates, engagement counts and applicable occurrence weeks from attendance data; weeks recorded as \"Didn’t Meet\" are excluded from the occurrence map and do not count as attendance gaps.",
+      "claim_hash": "31346acd33224e1a28d6cd4e1ba0e08eb71a8446bf72af07a2a06b324713b1e2",
+      "claim_id": "claim:c502a475c111791fd4c0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e86a15ada301e467ddef4c803c7351a58cf489b5aa9b546cb90e12a6d792ce70",
+      "source_record_ids": [
+        "rock_documentation:article:1691"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Rebuild Streak Type",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For a Rhythm engagement type, Rock does not automatically change a person's step status; In Progress represents an active rhythm, while Completed indicates that the rhythm has ended.",
+      "claim_hash": "d37a751047b296defbca9f44189aca91be7222cec320279d93bca4b4df684d1c",
+      "claim_id": "claim:c5536685f84fe41f4980",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c38493a4e095f1ca09233e91febef63d8e18b0649c5cd3029f7548aa85ee6c35",
+      "source_record_ids": [
+        "rock_documentation:article:2018"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Steps",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A following suggestion must be active to run; its Reminded Days value controls how long Rock waits before presenting an unfollowed suggestion again, while a blank value prevents reminders.",
+      "claim_hash": "08080072b5dc66726941c58687f961f0e3784acb55486eae92bd8f4c0ddf4a46",
+      "claim_id": "claim:c68a547e52d15d06e244",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "10e420ea12242bc4f41fc8dbd296c9d92aff57037f7f0eb6798a29fb04803ea1",
+      "source_record_ids": [
+        "rock_documentation:article:1703"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Following Suggestions",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/following-suggestions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Transferring a Step Type between programs does not recalculate or relocate existing Program Completions; historical completions remain associated with the programs in which they were originally recorded.",
+      "claim_hash": "254292888a9342e0cbe9cba1339e687cd37dda6ad8288cebeb4919eaf8e6efad",
+      "claim_id": "claim:c8323371120e7eddec49",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8bbb8a502f68aad71025017a607d41c52ba7d7461995580a69b4bcb8bd944bd4",
+      "source_record_ids": [
+        "rock_documentation:article:2020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Move a Step Type",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When Add Step on Success is enabled for an achievement type, successfully completing the achievement can add a step to the configured step program and step type with the selected status.",
+      "claim_hash": "2bc5dbe12bd6d63a009131e228e30562bf11c638a48160ecc6e7dc490b0096c9",
+      "claim_id": "claim:d0a09110337cc52c95f1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "78aec3afb0862e3d640e3f35aa08c074dd5ff5b7ee4147d3fe98189bd5f31572",
+      "source_record_ids": [
+        "rock_documentation:article:1695"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Steps in Achievement Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A repeating reminder schedules its next occurrence from the date the current occurrence is completed, rather than from its original due date; leaving the repeat-count field empty makes the recurrence indefinite.",
+      "claim_hash": "c2111bde33dd73c76a64fa094e3099322ed829d2494645e18db7b080329867ad",
+      "claim_id": "claim:d493a5eea3ce63d56a02",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "90f887f6f119c80693aeed2dae7462b690c95014e0571933ca43cbd28ef6f90b",
+      "source_record_ids": [
+        "rock_documentation:article:1697"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add a Reminder",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/add-a-reminder"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock simplifies DISC reporting to four levels on each DISC scale and maps the results to 16 single-letter or two-letter personality types for use in group and team contexts.",
+      "claim_hash": "a6d25542fadd507a102f586e8076bb5c58c7bcc18132e0114afdd13777eab5e6",
+      "claim_id": "claim:d91082f028008258fb8b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d0977a6b9ede0d405db3a05e60fbd9b50da011dbcff901926c0c3a550dfa879d",
+      "source_record_ids": [
+        "rock_documentation:article:2032"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "DISC Personality Assessment",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Step Program Trends chart includes only completed step types, while a Step Type chart can show activity for either started or completed steps.",
+      "claim_hash": "b78b154d4aaedcfde7165c17e9de520674b182cb9863d206f03a5c05145c2e5e",
+      "claim_id": "claim:dabcb7e2ef5dbe6be772",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5ea1b9deac0c22a38306600c02866e61616b6192989e0a261bbd3bc27ba5a450",
+      "source_record_ids": [
+        "rock_documentation:article:2022"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Chart Types",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The History tab on a person's profile lists both requested and self-initiated assessments; self-initiated entries have no request date or requester.",
+      "claim_hash": "869df18664654fe3fdef1b9dd5676a5d38fbf2cbee22dfdfee8b00405c4acfa3",
+      "claim_id": "claim:dbce0b8933b6137e6684",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5e1ebef28330d3228bf54ac1f9038219161e53e4dc2152bed229f4743dd20dd6",
+      "source_record_ids": [
+        "rock_documentation:article:1721"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "View Assessment History",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An achievement type defines a goal that Rock can automatically evaluate from engagement or interaction data while tracking each entity's progress toward completion.",
+      "claim_hash": "d32a050aefdcbbde86c1175d8ba2b84cd88af02c136f713f1eb3888cdd3baca8",
+      "claim_id": "claim:dc196813e71b8194a6e0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e45445a2eab53d6ebfeefebfa58eb696f463abd057cc16f5a49e74e8a93a836e",
+      "source_record_ids": [
+        "rock_documentation:article:2037"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Achievements",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Creating a sign-up group requires Edit permission for the Project Type group attribute; creating one at the top level additionally requires Edit permission on the Sign-Up Groups block.",
+      "claim_hash": "02ecdf35a3ffb66244e5eb2c19d348189403bd32a0c70bd218c4b85614e40a53",
+      "claim_id": "claim:dd251248a3e81609898d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "188843d2e9e8772a9518ba71b9eacbf1157df698ecfcaee89daf3c2329f19368",
+      "source_record_ids": [
+        "rock_documentation:article:1711"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Sign-Up Permissions",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For more consistent assessment results, respondents should answer according to their present characteristics and use the same environmental context throughout the assessment.",
+      "claim_hash": "9cacf7e5e58b0b91fb94beff9d35d953945f1aef798f211488cfdbd9abefc3ee",
+      "claim_id": "claim:dee05b4dfc147c269b13",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f0e27b487e681b558523cd6ab8fdf86643954dd13efa5286c95a3b16df32d7a8",
+      "source_record_ids": [
+        "rock_documentation:article:1719"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Take Assessments",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/take-assessments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The built-in In Group Together and In Followed Group suggestion types can restrict eligible followers and suggested people by group type, group, group role, or security role, depending on the configured limiter.",
+      "claim_hash": "79ec638b3de48ba5a0c4ea0ce02e82d591e75bb28c0cf5b1d1b10132fdfd25ed",
+      "claim_id": "claim:e3719d0a61706305c5e1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "10e420ea12242bc4f41fc8dbd296c9d92aff57037f7f0eb6798a29fb04803ea1",
+      "source_record_ids": [
+        "rock_documentation:article:1703"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Following Suggestions",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/following-suggestions"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Data views can filter people by results from any assessment available in Rock, enabling organizations to group those people and report on their assessment responses.",
+      "claim_hash": "c5ad20b19a5dd33bf442907bfa3dd8a36d3e5b2263e06f8a38a650dc0d076f1b",
+      "claim_id": "claim:e4d44b263c1762df8c50",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5900b6297fde007e9ab17ecb37b51b36a03f04a94a607ca79476a0620c71b712",
+      "source_record_ids": [
+        "rock_documentation:article:2031"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Assessments",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/overview/intro-to-assessments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A user can follow someone from that person's profile, add or remove multiple followed people through bulk updates, and manage the resulting list under My Settings > Following.",
+      "claim_hash": "c09440b11d6c83cb0181d87e4d4851629d008a9201ff35ec6e9b098ba568829a",
+      "claim_id": "claim:e84230955a0bf4cb9244",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8b0f5c630dbcea37aafd3af1319eb32ef20d271dac256d07c78004269671fafc",
+      "source_record_ids": [
+        "rock_documentation:article:1701"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "How to Follow",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Motivators assessment results include a growth-propensity measure, a composite score, ranked motivators, and the person's leading motivator themes, with detailed descriptions focused on the highest scores.",
+      "claim_hash": "cc22d75e392931d3a29ed0578d7d75c21cf7d4dfde953eb2ac2cf0dce7183ffb",
+      "claim_id": "claim:e8dde4128eb44a218b67",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "cd6d333cb33ef3f9a42163c2d416c4219b2bd6f23b244946a46d8515465d0f2a",
+      "source_record_ids": [
+        "rock_documentation:article:2034"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Motivators",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/motivators"
         }
       ]
     },
@@ -111,15 +2827,257 @@
           "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types"
         }
       ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A step generated from an achievement uses the achievement completion date as its configured start or end date, respects step prerequisites, and is created repeatedly for recurring achievements only when the step type permits multiple completions.",
+      "claim_hash": "38fb291bb589e781f85150722cf49ec557ad35a945ce580e084036c2fa6487d3",
+      "claim_id": "claim:ebb5042cea30493f416d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "78aec3afb0862e3d640e3f35aa08c074dd5ff5b7ee4147d3fe98189bd5f31572",
+      "source_record_ids": [
+        "rock_documentation:article:1695"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Steps in Achievement Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "On a step type's participant list, the start-date column is shown only when the step type spans time; for a step type that does not span time, its single step date is displayed as the completion date.",
+      "claim_hash": "632d3c0188ec61e572059a2427c42569617f58b5d2230ca93c06231430fad5f5",
+      "claim_id": "claim:ec6daa94fedc427a1724",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "146fa395395d0ed6cbdbd5f778272b224f9023c68919191518643caabc68b3f9",
+      "source_record_ids": [
+        "rock_documentation:article:1669"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Step Types",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Moving a Step Type to another Step Program preserves its step data but removes its prerequisites and Step Attributes, which must be configured again after the transfer.",
+      "claim_hash": "9a4d2b578a5b191d61d856deaa6f1f55e583c36ac68cca023ba51f83c2e82778",
+      "claim_id": "claim:eccb54e75a2afd378bd1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8bbb8a502f68aad71025017a607d41c52ba7d7461995580a69b4bcb8bd944bd4",
+      "source_record_ids": [
+        "rock_documentation:article:2020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Move a Step Type",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Step chart status filters determine which event date is plotted: completed statuses use each step's completion date, while other statuses use its start date.",
+      "claim_hash": "45e0640ccc98837b7d9c5e88d6a2d9350a5c4c21ff4e45d38f8e548975eb05b4",
+      "claim_id": "claim:f4e1f9554af6bb1a3b67",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bdbdfda6f53c9cd49c55b68d14fb69a12ea918b4ba22009d0b5bd1435a92f1e6",
+      "source_record_ids": [
+        "rock_documentation:article:2021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Step Charts",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A reminder can be added manually only when the current page provides context for the target entity and a reminder type exists for that entity type; reminders can also be created automatically with a workflow action.",
+      "claim_hash": "fcf7de1f672fd3baf407e48e8b2d7e1f5ab70490e6643805c9dea0e2519b9e32",
+      "claim_id": "claim:f66a872a6f5202769b6b",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "90f887f6f119c80693aeed2dae7462b690c95014e0571933ca43cbd28ef6f90b",
+      "source_record_ids": [
+        "rock_documentation:article:1697"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add a Reminder",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/add-a-reminder"
+        }
+      ]
     }
   ],
   "approved_claim_hashes": {
-    "claim:2b7393300aa9580a5b79": "e816d96dacc89a32d250a77fa03d09e4267e99e48e9621b405bb4d7a948a0454",
-    "claim:83326a2a72594778d5db": "d8ef7423fed3c0d5afdeefca2e5d4b141267e7a0f31ec2f3d077557f3b3c7a26",
-    "claim:a61facc4f0ea3c967a62": "05c7975649afb2229b6b5a6f093e183a4e49a25335ea28535df4cfd2d50cce14",
-    "claim:e9828ccece218caba61c": "2367c44050b7ece73389a1aaf2e0407fc84e475c89d4d79d06ad726ed04c6176"
+    "claim:04832823249033025424": "16857bda5dbe9bdf6184cdb5fdc79e478e43606064f650582c539d530ec38a31",
+    "claim:08d83cb213b187436543": "50f4899144fae10046d28b0f78ed11c1505702398ac8ca11e0db8d634c71c42f",
+    "claim:122baee91abbba9d976d": "4f7209491d3b7ab886e9c1e2fb654d5a03b62cbca15ed5defbe199384e280aea",
+    "claim:139a33bdbb23e1789813": "37239f98dfc89eea0cdd28fab28c2c19dcfa307324e4ef5baabfa1413a783576",
+    "claim:146d532b3dfa871b096e": "b6721c202e501bf0738291a79dcbdc8e1070c202589839c38f8cca9ebcb28758",
+    "claim:1798857f46122e2d1390": "307970054bdb2754d9ab063aca75c7a2c495dde84eafef238c4d846e212f183d",
+    "claim:200377eb72b57bd86215": "2b42a762a84ba5a937e9399467fa1fa4f51bff53f00ccf359c514fc5d1ab897f",
+    "claim:2011120405d288e9f349": "572a5e37d8a5988fbad85a7a3c3c204329ec440f421567da7904e8829cfd5f1d",
+    "claim:24224409f32b3f24345c": "6086d08a96d0f318c6f705adad0cf2ca6f29098c3fd6ab08ec768962a2ee394d",
+    "claim:2810df67d7ebc6786494": "804dbe6f4ecc94711ee79bebe91e84248c7dddcc8569c61660b5cb73b50c1ad3",
+    "claim:2b7393300aa9580a5b79": "7d591e59b5f3d8b11a8fc2b048caacc21c9af502a64647e0b7dd3eee1472a947",
+    "claim:2d42fecb4b586683e9ce": "fd0fcd1528043dd11067abff3624c61826677ac76d6954345b1252d1f019caaa",
+    "claim:2e6e247b032f7f7bf68c": "5297969d7b75536d9279de1f5029228406c08577cd305bb3d6a03b9f8bcc2411",
+    "claim:2f370710733795ebb98c": "c9e93214f76181997d5f56c8d9b7cca6411cb923f9124c8a30d4dfa5d49250eb",
+    "claim:2f4881a37abce9146ebc": "f3a9fa94a57e429487e5fd9119d209246f9f087b7af19d029ca1890febb7e03e",
+    "claim:30589b4db05897378814": "dd23f4407c175ed1cab656215bf7cfd910d240944b3b57d5b235d26c40f1fc0d",
+    "claim:3231f2db2da8335b02e6": "a884bcc178397f5054c73b57f8e335f0b70c7b6e3fab9f314bb124a8277c4057",
+    "claim:32c7de7f218c8234abea": "46b35108763c53da5c5bc2a70dc7ad151986443f08e563c1726375ad96d04501",
+    "claim:3331e4a7d06bd3ee7b3e": "792e72637be844f5d59e409d7a2da66018e5e5840913149fd1359005672642f7",
+    "claim:33da1fa39f7320d6daf4": "ae670388a8556a179cde9de91c00943c4b86824c7bb2b2802df16c1af602a539",
+    "claim:341d9b83a869a37736dc": "ce02db9e342d2f97599305700b1340e001d949de255dd349db2ef1158d5e36bc",
+    "claim:3595e5234594c30f7968": "36eb9d791d757f1949a36a1860c62e4e5cd5c8832d9f991e1996e9cca5b6d682",
+    "claim:3716e30482a0210293fe": "6e569aaf12168495e149c41bafd29ff15aa563f309d054f05cfb727007ba794a",
+    "claim:372bccdc8c694cdeb713": "ca550613495c26a6d2559c6963c926ad023be75a782ff04752b9c062ae35d3bd",
+    "claim:38f13ffb3ac1ac379b0a": "90295748382f8e89c304d4af1909f2e8fcf5753dde51ef5fb79b3bfd19951029",
+    "claim:3ac99f752aa9149fb09e": "fe93be0ace1db2580b5a1247458e84c8c6b7d962a9dd80bbcb18beca408213fe",
+    "claim:3e045e273b98f4655670": "68baae11a96ac8da6f7c5619babb79016fb690e6fb91132a268066ded2c3e6e3",
+    "claim:3efad14915a500b405c4": "4a10b464ad46af849ae8e6680b66e5043ec582904c922e069cba353a647e96e8",
+    "claim:40e249eea8235d2870d8": "7e575c7d8e80f7eea934875182f1564c5c92b05c12bfe0b12b610ceaf04da61b",
+    "claim:46835c086d9ce455a270": "b7e332c255cf59de2d6c6b5bfc48a100306ff5945e00b49318ebeb80d55682e3",
+    "claim:47a57101d22b5634486d": "d1ee5a98c75caa2a632d6fc489fe9300c24adf2682c080e4a24f05d6e172a2dd",
+    "claim:49356533d51225faa0f0": "60c5bd9b1cab80e3e5a26302e0ed49fe7231e478c251ecaee19e19fb7192e7e7",
+    "claim:4db644e831dd1a8d4c71": "d51123a6c413cc8799e4cd407899a516f7e0f6746ba8a577e8d68ed72c9acf75",
+    "claim:4ed8764f55729b51aba1": "d6df3eb2025e711352c174d14c4ffd2209d6a49df3242066ee4ec662691b866c",
+    "claim:4fc67e3684dc186dd394": "11b06c257b43806756cda6cb2fe4e81fed000f7914f551ed77d29c32f76abe04",
+    "claim:50ce1210fa8bc14a6265": "d885d9d83f1ab40a273f1d7167c542fde5efabd74f6e34ac5c9edceb784f48b4",
+    "claim:55a1831ff83c3bfe80ea": "a956429fc94a80ba33165e56f244a16b22494996d9552175501582564ecb5a24",
+    "claim:56fdeef663fdecfce13c": "46c700ea033e36fc7c6920f04b639440959c0295a17452d822e09956013ee27c",
+    "claim:58cd9e203d104b651c51": "9faac9e0dfbad553410510bb55ff78331c33e6eb1aa233e56b45d013286d2bd0",
+    "claim:5960599698a26a7aa2fb": "efd71faff908343daf31c312c7708385a88c365fa32f279e1722ca3a6234c308",
+    "claim:5c7f3aa95bd82b440db1": "7df6f1a6ff454cbbb9dd7199304d2e797d8fd4172e53e35f2399976be4596c3a",
+    "claim:5e5abcd59b99b5d76c9d": "6d3dd7a1d00a76900167fa28cb35d05d53c6f5e187675800f70ccad791cb43dc",
+    "claim:5f531f14723ae3910005": "81a76c2516e54670f263515d74e152c04eccbb57594a4e5b73a70570537b10b8",
+    "claim:629e48c58c56a9a33726": "5b3230d2d9cc9ed9c9543d3be50663d9c2e23dba1e68bea23c8ff8e5579ec624",
+    "claim:63e4f946e8a379ed935e": "f8e3fc84161945b3249076193a8af29234573d36d5373ddffe80ce6c77d8f422",
+    "claim:680d13d60bbfb39ff041": "efe3554022b17c9663defe325a868bb12f4a8a3143efc03e56591c5cf5720332",
+    "claim:693722cab132c30c4521": "d58394e7b892092e79f45cb937705fe797886aab51457fa7f1e503683b4f44ce",
+    "claim:6def9c078de2994d5319": "0deeccb1b2adfd6a91191793a34ac13fde32a46e3dd8c2379a8721ed03d9e96b",
+    "claim:7524a35f5562d0641a9f": "ac4c342e6881b5ea5d1114090909d36059d43626463409b21c654e96937040a5",
+    "claim:755b9faff6a6a780e1ec": "11897ed023b7eaff813018fa314653a8b347823f4919b42bf44f9e9ad5c5673b",
+    "claim:761408dd8f4e0b564b59": "6e8354ed10d24b0060859c7f1662df2070fc48cc22cfd4a4bc62ada534e07ef7",
+    "claim:7b2fad13f169e1a6554f": "fb1373b59b12dc391bebc2102118e9ae3b94e59fee8fddb86cca1cd719e89f21",
+    "claim:7b349002ae9ae42ada47": "eef8ee986a947966dc37eefbf236d1a1d2814b779769b3b8d1b1c8924e5b8b8f",
+    "claim:801ccf092de2b478a4da": "e73f6e4313210dcd5ed5982f708df42aab2d2ca62706e091921585b71b4fb117",
+    "claim:802eab817960fbcdcac5": "f2716eafc8225c2e00d21a6708537662cb8b57739382ca0805c53d3337fef7da",
+    "claim:807ff384e48b55278316": "c18ca97fdd6628d30b74e01ad1fa082dce25aaabf7271a83099968a78f30be55",
+    "claim:83326a2a72594778d5db": "b9176c6bc8d2750edd58785d37e38d0399df702f9a711b02cbd1c62dea6e375c",
+    "claim:83af9678090b9cc65680": "f0f1b9975128ec09874c8615337a6f8eb25f039131cf4c22cfa43e582361e6c6",
+    "claim:84d74f245b75456f6410": "2e3cdf7ef2ad89709d6457f224ed31948fc875016523b5f9beb4db97529cdbcd",
+    "claim:85a62c4d4ea480d85f37": "e97e8584dadebdf22c90a49c9cfe5bda9e10fcbd78f618793ad8e1dc69130b27",
+    "claim:879a8db91d3aaac66fd3": "62edd46b9159ccd62efe6be1680e424ff26587446c1d3ab2ef0985495c543565",
+    "claim:8b0b2a744134ed2e4959": "c7d4911db4b02ae76fe6a0dcea390d27cae176290bbebbba0008f7447b59b117",
+    "claim:8bdc0824cb8175e81160": "51ed365793cda41f51385e7c8f29a9952b70f32823acf0f003e5a77bacf63816",
+    "claim:8ec5119878c4737ef41f": "6279e795f56d1d0c428587040121c47bde38119f5ce29f320400259c29226240",
+    "claim:8faa8bdce2892ad3cbcd": "135be7ed7c752374fe94fb0d60210286cd9e12218f315c7a8edc1928c0b798e3",
+    "claim:9219761372bdb3dc8f46": "e22301ea9f4399baefe667be797379fee1ec26d916af31211539c6745c23dc52",
+    "claim:976ef6f156eb1009dbec": "865cedc512803f6781b26a51d6f1a7d75296d01ed2e2187908ef02ce072222c2",
+    "claim:97ff136324c7db91f9ed": "8314586a0a558645327d3a2c8a12f71b1af4b8be4477562ddb3ce9e18ed0ca56",
+    "claim:9899d20f62125390eb26": "3b01afdf52f0e32ff8b6edf9e53a0c60485617cfe6ad6eb0dd6ef82eab3a3983",
+    "claim:9c4fc0cfe116e2d1b48c": "6266e3edaf0916a23a4a32ca34a5d7021930cf00b75b260140bf47a7f727ed15",
+    "claim:9f81178e7996d150d2ed": "65e1003a0297aa7577b44154a6df2f6e083fdecfb448c6f394e88ec1df443487",
+    "claim:a61facc4f0ea3c967a62": "b482b2cda382cbdeb6219059a2b8e038f3c838dc9738da09eb3ada5f40cccb5c",
+    "claim:a819bc1eb251037bd4b1": "0a837f7347f79170a586013026e15f31f947618a2022a26989bff601a2ade060",
+    "claim:ab0719002f065036bef4": "2d50351baf0daf7498fd30bb67fe4e4aa69f13a056ef358c3db7c8cdcf5c7ebd",
+    "claim:ab29a8da0bf650ef9c58": "93cdf3cfd87cb11192a5aa2f977563bd1139092d264cf00fe32b98d0ca04cf56",
+    "claim:acb4abc1bb4d53f2ade0": "3e4496bd73a8aad4a6e9919cab0e35e293e64634163b7284c6b7ca7e079869f4",
+    "claim:b018d763b7c4138fa13f": "4c656b544f819ced61a89bf63eaf9455e3a55a977b72b06d02a5b11a9b28456a",
+    "claim:b075a5bc13ccc014561f": "a12833835765639261ed6a7de3591292cbc39d4294309f3751a4de1aad068064",
+    "claim:b8d696ec43cce2a097f2": "06e263f312e236aa87f484768df4ff9a64338896afd9e19dbe34695b5dd131a5",
+    "claim:baa4ef55acde17ae1815": "b7b5b172563097b5ab6d00bb1f67c2975a4cc0a2d97d2c5485637e613b51e45a",
+    "claim:c1a49c5a3df209541140": "4f2f2a0ee8dfa44411671f19d00b83f4102ac069386d162251c71a49881ea49e",
+    "claim:c24f6c9fe57ce352dcd8": "4d346fa11345244bbce8971b70475650a5c5cf7e32ca4a0e308326904a3c57cf",
+    "claim:c3d39ed06eaed0b8ee07": "e280dabcb164231975c818ab8f65d99f5eb1a4b40be43a73ed0b75ef37dfad7c",
+    "claim:c4089cabe900bf32292d": "f1efaecf7c67c55e83559155da4b9b9600bac8c1a6b2bed0c538599225fafcf7",
+    "claim:c502a475c111791fd4c0": "31346acd33224e1a28d6cd4e1ba0e08eb71a8446bf72af07a2a06b324713b1e2",
+    "claim:c5536685f84fe41f4980": "d37a751047b296defbca9f44189aca91be7222cec320279d93bca4b4df684d1c",
+    "claim:c68a547e52d15d06e244": "08080072b5dc66726941c58687f961f0e3784acb55486eae92bd8f4c0ddf4a46",
+    "claim:c8323371120e7eddec49": "254292888a9342e0cbe9cba1339e687cd37dda6ad8288cebeb4919eaf8e6efad",
+    "claim:d0a09110337cc52c95f1": "2bc5dbe12bd6d63a009131e228e30562bf11c638a48160ecc6e7dc490b0096c9",
+    "claim:d493a5eea3ce63d56a02": "c2111bde33dd73c76a64fa094e3099322ed829d2494645e18db7b080329867ad",
+    "claim:d91082f028008258fb8b": "a6d25542fadd507a102f586e8076bb5c58c7bcc18132e0114afdd13777eab5e6",
+    "claim:dabcb7e2ef5dbe6be772": "b78b154d4aaedcfde7165c17e9de520674b182cb9863d206f03a5c05145c2e5e",
+    "claim:dbce0b8933b6137e6684": "869df18664654fe3fdef1b9dd5676a5d38fbf2cbee22dfdfee8b00405c4acfa3",
+    "claim:dc196813e71b8194a6e0": "d32a050aefdcbbde86c1175d8ba2b84cd88af02c136f713f1eb3888cdd3baca8",
+    "claim:dd251248a3e81609898d": "02ecdf35a3ffb66244e5eb2c19d348189403bd32a0c70bd218c4b85614e40a53",
+    "claim:dee05b4dfc147c269b13": "9cacf7e5e58b0b91fb94beff9d35d953945f1aef798f211488cfdbd9abefc3ee",
+    "claim:e3719d0a61706305c5e1": "79ec638b3de48ba5a0c4ea0ce02e82d591e75bb28c0cf5b1d1b10132fdfd25ed",
+    "claim:e4d44b263c1762df8c50": "c5ad20b19a5dd33bf442907bfa3dd8a36d3e5b2263e06f8a38a650dc0d076f1b",
+    "claim:e84230955a0bf4cb9244": "c09440b11d6c83cb0181d87e4d4851629d008a9201ff35ec6e9b098ba568829a",
+    "claim:e8dde4128eb44a218b67": "cc22d75e392931d3a29ed0578d7d75c21cf7d4dfde953eb2ac2cf0dce7183ffb",
+    "claim:e9828ccece218caba61c": "2367c44050b7ece73389a1aaf2e0407fc84e475c89d4d79d06ad726ed04c6176",
+    "claim:ebb5042cea30493f416d": "38fb291bb589e781f85150722cf49ec557ad35a945ce580e084036c2fa6487d3",
+    "claim:ec6daa94fedc427a1724": "632d3c0188ec61e572059a2427c42569617f58b5d2230ca93c06231430fad5f5",
+    "claim:eccb54e75a2afd378bd1": "9a4d2b578a5b191d61d856deaa6f1f55e583c36ac68cca023ba51f83c2e82778",
+    "claim:f4e1f9554af6bb1a3b67": "45e0640ccc98837b7d9c5e88d6a2d9350a5c4c21ff4e45d38f8e548975eb05b4",
+    "claim:f66a872a6f5202769b6b": "fcf7de1f672fd3baf407e48e8b2d7e1f5ab70490e6643805c9dea0e2519b9e32"
   },
-  "approved_claims_hash": "c69bd47b989b762a30d654b2fdd9177bf8f87819d02edec8d84b7f899b42a153",
+  "approved_claims_hash": "04f8468e846a7bcff99df08d49ebc4e970b2264abfbe2d5770a99d5bb74b9cf9",
   "approved_claims_path": "knowledge/concepts/engagement-tracking/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
@@ -127,10 +3085,10 @@
   "approved_media_path": "knowledge/concepts/engagement-tracking/approved-media.md",
   "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "engagement-tracking",
-  "guide_hash": "f58aac2721e9abd2ba656a9c33c5066e34a47cbf0ce55a2051e7355d690cff74",
-  "guide_line_count": 1605,
+  "guide_hash": "d738c860dbd97c28eaa596a1b84083c72b8c0fd75b615e0e9b683a846a96b2af",
+  "guide_line_count": 1614,
   "guide_path": "knowledge/concepts/engagement-tracking/guide.md",
-  "guide_word_count": 14396,
+  "guide_word_count": 14725,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1766,35 +4724,51 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1489,
+      "end_line": 1498,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "e261a62bd0cdb7e8",
+        "62c8e250fa83c52b",
+        "374e3d98f260df41",
         "9f7f2404ad9395cf",
-        "f973a3ffb115a8ad",
-        "8dc32f58a61e137e"
+        "8dc32f58a61e137e",
+        "62c8e250fa83c52b",
+        "9f7f2404ad9395cf",
+        "62c8e250fa83c52b",
+        "8dc32f58a61e137e",
+        "62c8e250fa83c52b",
+        "62c8e250fa83c52b",
+        "62c8e250fa83c52b",
+        "9f7f2404ad9395cf"
       ],
       "start_line": 1473
     },
     {
       "confidence": "structural",
-      "end_line": 1496,
+      "end_line": 1505,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "e261a62bd0cdb7e8",
+        "62c8e250fa83c52b",
+        "374e3d98f260df41",
         "9f7f2404ad9395cf",
-        "f973a3ffb115a8ad",
-        "8dc32f58a61e137e"
+        "8dc32f58a61e137e",
+        "62c8e250fa83c52b",
+        "9f7f2404ad9395cf",
+        "62c8e250fa83c52b",
+        "8dc32f58a61e137e",
+        "62c8e250fa83c52b",
+        "62c8e250fa83c52b",
+        "62c8e250fa83c52b",
+        "9f7f2404ad9395cf"
       ],
-      "start_line": 1490
+      "start_line": 1499
     },
     {
       "confidence": "structural",
-      "end_line": 1498,
+      "end_line": 1507,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1814,11 +4788,11 @@
         "a9b81d5c581f1d75",
         "d275b5b94a9da833"
       ],
-      "start_line": 1497
+      "start_line": 1506
     },
     {
       "confidence": "normal",
-      "end_line": 1514,
+      "end_line": 1523,
       "heading": "Primary Official Documentation",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-primary-official-documentation",
@@ -1837,11 +4811,11 @@
         "e261a62bd0cdb7e8",
         "e261a62bd0cdb7e8"
       ],
-      "start_line": 1499
+      "start_line": 1508
     },
     {
       "confidence": "normal",
-      "end_line": 1528,
+      "end_line": 1537,
       "heading": "Streak Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-streak-sources",
@@ -1858,11 +4832,11 @@
         "9f7f2404ad9395cf",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1515
+      "start_line": 1524
     },
     {
       "confidence": "normal",
-      "end_line": 1543,
+      "end_line": 1552,
       "heading": "Assessment Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-assessment-sources",
@@ -1880,11 +4854,11 @@
         "433c95686237aa43",
         "433c95686237aa43"
       ],
-      "start_line": 1529
+      "start_line": 1538
     },
     {
       "confidence": "normal",
-      "end_line": 1553,
+      "end_line": 1562,
       "heading": "Achievement Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-achievement-sources",
@@ -1897,11 +4871,11 @@
         "8dc32f58a61e137e",
         "8dc32f58a61e137e"
       ],
-      "start_line": 1544
+      "start_line": 1553
     },
     {
       "confidence": "normal",
-      "end_line": 1567,
+      "end_line": 1576,
       "heading": "Related Engagement Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-related-engagement-sources",
@@ -1918,11 +4892,11 @@
         "62c8e250fa83c52b",
         "62c8e250fa83c52b"
       ],
-      "start_line": 1554
+      "start_line": 1563
     },
     {
       "confidence": "normal",
-      "end_line": 1576,
+      "end_line": 1585,
       "heading": "Training, Release, Model, And Community Sources",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-training-release-model-and-community-sources",
@@ -1934,11 +4908,11 @@
         "14f39743f237079d",
         "a9b81d5c581f1d75"
       ],
-      "start_line": 1568
+      "start_line": 1577
     },
     {
       "confidence": "normal",
-      "end_line": 1591,
+      "end_line": 1600,
       "heading": "Source-Code Sources",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-source-code-sources",
@@ -1956,11 +4930,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1577
+      "start_line": 1586
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1605,
+      "end_line": 1614,
       "heading": "Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-dependency-notes",
@@ -1978,7 +4952,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1592
+      "start_line": 1601
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:52:32+00:00",

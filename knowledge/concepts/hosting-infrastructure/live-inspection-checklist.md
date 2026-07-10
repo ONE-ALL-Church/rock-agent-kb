@@ -16,15 +16,23 @@ artifact_level: live_checklist
 5. Verify current data rows and recent history before changing production behavior or recommending writes.
 6. Inspect `Rock version` in the live instance when the question touches this surface.
 7. Inspect `Security roles and permissions` in the live instance when the question touches this surface.
-8. Inspect `DataView and report filters` in the live instance when the question touches this surface.
-9. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
+8. Inspect `WorkflowType and Workflow records` in the live instance when the question touches this surface.
+9. Inspect `DataView and report filters` in the live instance when the question touches this surface.
+10. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
+11. Inspect `Financial transaction and gateway settings` in the live instance when the question touches this surface.
+12. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
+13. Inspect `Registration instance and registrant records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
 - `Rock version`
 - `Security roles and permissions`
+- `WorkflowType and Workflow records`
 - `DataView and report filters`
 - `Group, GroupType, Location, and Schedule records`
+- `Financial transaction and gateway settings`
+- `Mobile shell version and mobile block settings`
+- `Registration instance and registrant records`
 
 ## Read-Only Probes
 

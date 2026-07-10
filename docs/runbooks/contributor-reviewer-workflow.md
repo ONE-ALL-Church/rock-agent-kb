@@ -162,7 +162,7 @@ uv run kb claims document-promote \
 uv run kb build --stage claims --force
 ```
 
-Keep candidate full text and reviewer rewrite files private. A completed rewrite may use an empty `claims` array to record that a fully reviewed article added no durable, non-duplicate knowledge. The claims stage reports `private-stale` after a promotion that produces public review rows and requires the explicit `--force` rebuild shown above before those rows enter public artifacts. Public claims retain the canonical article URL, normalized source-record ID, article version, concept routing, model/prompt provenance, and source-input hash. Prefer leaf articles with operational detail; skip table-of-contents pages and duplicate knowledge.
+Start with the bounded eight-article pilot for each concept. After its claims and answer routing pass review, use a higher `--limit-per-concept` to cover the remaining eligible articles in resumable batches. Keep candidate full text and reviewer rewrite files private. A completed rewrite may use an empty `claims` array to record that a fully reviewed article added no durable, non-duplicate knowledge. The claims stage reports `private-stale` after a promotion that produces public review rows and requires the explicit `--force` rebuild shown above before those rows enter public artifacts. Public claims retain the canonical article URL, normalized source-record ID, article version, concept routing, model/prompt provenance, and source-input hash. Prefer leaf articles with operational detail; skip table-of-contents pages and duplicate knowledge.
 
 ## Source Conflict Review
 

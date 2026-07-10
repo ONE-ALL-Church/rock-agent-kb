@@ -34,15 +34,15 @@ Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns
+- https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
-- https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
 - https://community.rockrms.com/developer/obsidian/grid-reference
+- https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
 - https://community.rockrms.com/lava/obsidian
 - https://community.rockrms.com/developer/obsidian/grids
-- https://community.rockrms.com/developer/obsidian/form-validation
 - https://community.rockrms.com/developer/obsidian
+- https://community.rockrms.com/developer/obsidian/form-validation
 - https://community.rockrms.com/developer/obsidian/browser-bus
 - https://community.rockrms.com/developer/obsidian/creating-ui-controls

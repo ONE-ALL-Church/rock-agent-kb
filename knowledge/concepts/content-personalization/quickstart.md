@@ -38,6 +38,7 @@ Content channels, assets, structured content, adaptive messages, personalization
 - `Attribute`: Rock concept/entity referenced by the content-personalization guide.
 - `Block`: Rock concept/entity referenced by the content-personalization guide.
 - `Campus`: Rock concept/entity referenced by the content-personalization guide.
+- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the content-personalization guide.

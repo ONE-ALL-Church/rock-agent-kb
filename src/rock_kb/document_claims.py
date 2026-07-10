@@ -295,7 +295,10 @@ def promote_document_claim_rewrites(
     if not candidates:
         raise ValueError(f"No document claim candidates found at {candidate_path}")
     known_concepts = {concept.id for concept in load_concepts()}
-    existing_claim_texts = {normalize_claim_text(str(row.get("claim") or "")) for row in approved_claim_rows()}
+    existing_claims_by_text: dict[str, list[dict[str, Any]]] = {}
+    for row in approved_claim_rows():
+        existing_claims_by_text.setdefault(normalize_claim_text(str(row.get("claim") or "")), []).append(row)
+    promoted_claim_texts: set[str] = set()
     reviewed_at = now_iso()
     promoted: list[dict[str, Any]] = []
     promoted_candidates: set[str] = set()
@@ -325,7 +328,13 @@ def promote_document_claim_rewrites(
             if claim_text in str(candidate.get("source_context") or ""):
                 raise ValueError(f"{rewrite_path}:{line_number} claim {item_index} appears to copy source text verbatim")
             normalized_claim = normalize_claim_text(claim_text)
-            if normalized_claim in existing_claim_texts:
+            if normalized_claim in promoted_claim_texts:
+                raise ValueError(f"{rewrite_path}:{line_number} claim {item_index} duplicates another promoted claim")
+            existing_matches = existing_claims_by_text.get(normalized_claim) or []
+            if existing_matches and not any(
+                str((row.get("derived_from") or {}).get("candidate_id") or "") == candidate_id
+                for row in existing_matches
+            ):
                 raise ValueError(f"{rewrite_path}:{line_number} claim {item_index} duplicates an approved claim")
             claim_type = str(item.get("claim_type") or "operational_guidance")
             if claim_type not in CLAIM_TYPES:
@@ -389,7 +398,7 @@ def promote_document_claim_rewrites(
                 if item.get(key):
                     review[key] = item[key]
             promoted.append(review)
-            existing_claim_texts.add(normalized_claim)
+            promoted_claim_texts.add(normalized_claim)
             claimful_candidates.add(candidate_id)
         promoted_candidates.add(candidate_id)
 

@@ -53,10 +53,25 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | behavior | Rock merge documents support Word and HTML formats, with Lava used to supply templated content in either format. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents) |
+| official | behavior | For an event registration signature document, Applies To is each registrant; Assigned To is the registrant when the registrant is an adult, but the person completing the registration when the registrant is a child. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) |
 | official | behavior | In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures) |
+| official | behavior | When preparing grid data for a merge document, Rock can preview the first 15 source records and display the available merge fields before the merge is run. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents) |
+| official | behavior | The Entity Document block can manage documents for any Rock entity; the document types available for adding are determined by entity document type configuration and the block's settings. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) |
+| official | behavior | Entity Documents can associate multiple documents of the same document type with a single Rock entity, including a person or group. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents) |
+| official | behavior | When a merge document receives GroupMember rows, Rock exposes each row as a person and makes the original membership data available through the person's GroupMember property, including group member attributes. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents) |
+| official | behavior | After an electronic signature is completed, Rock normally generates a PDF containing the document content and signature so a copy can be sent to the signer. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume) |
+| official | configuration | The Entity Document block supports per-document security when that feature is enabled in the block settings, while deleting a listed document is irreversible. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) |
+| official | configuration | Users can manage merge templates intended for their own use from My Settings, and the page can also expose global templates when its block settings are configured accordingly. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates) |
+| official | configuration | Cloudflare Scrape Shield must be disabled for HTML merge documents that need to display email addresses because the feature blocks those addresses in the generated document. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document) |
 | official | configuration | A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow) |
+| official | configuration | The Entity Document Add workflow action fails when the workflow entity type does not match the entity type configured for the selected document type; the uploaded file must also satisfy any required preferred-file settings of that document type's associated file type. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows) |
+| official | configuration | To manage documents for an entity type other than Person, add a Documents block to a page that has that entity in context and configure the block's Entity Type to match; otherwise, the block warns that it lacks a valid context entity. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block) |
+| official | configuration | In Rock 19.0 event registration, electronic signatures require the Obsidian Registration Entry block; using that block with a legacy signature document can break the registration flow. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) |
+| official | configuration | Uploading a document for a person requires Edit permission for both the applicable Person document type and its associated Person Document file type. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows) |
 | official | configuration | An entity document type binds stored documents to both a Rock entity type and a file type, and optional qualifier column and value settings can restrict it to a subset such as one Group Type. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents) |
-| official | risk | Rock recommends typed signatures because a drawn signature is personally identifiable information that can create additional legal obligations when stored in Rock. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) |
+| official | configuration | A Documents block can be limited to selected document types, and enabling its security button allows access security to be managed separately for each document. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block) |
+| More |  | 8 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -185,7 +200,7 @@ Keywords: `pdf, generated pdf, document pdf`
 ## Rebuild Dependencies
 
 - Source records: `71`
-- Approved claims: `4`
+- Approved claims: `26`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

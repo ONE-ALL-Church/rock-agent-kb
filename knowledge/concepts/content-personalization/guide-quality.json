@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12980 words; expected at least 7000.",
+      "message": "Guide has 13305 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -42,7 +42,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 10 entity rows; expected at least 8.",
+      "message": "Guide has 11 entity rows; expected at least 8.",
       "passed": true
     },
     {
@@ -58,10 +58,10 @@
   ],
   "concept_id": "content-personalization",
   "contribution_record_count": 0,
-  "entity_count": 10,
+  "entity_count": 11,
   "generated_at": "2026-07-09T23:50:00+00:00",
-  "guide_line_count": 1004,
-  "guide_word_count": 12980,
+  "guide_line_count": 1013,
+  "guide_word_count": 13305,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 90,

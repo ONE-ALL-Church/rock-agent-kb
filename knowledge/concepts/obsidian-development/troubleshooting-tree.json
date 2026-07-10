@@ -8,18 +8,18 @@
       "id": "recipe-identify-the-source-files-behind-a-visible-obsidian-block",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://www.rockrms.com/releasenotes",
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian",
         "https://community.rockrms.com/developer/obsidian/grids",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
         "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+        "https://community.rockrms.com/developer/obsidian/form-validation"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -36,16 +36,16 @@
       "id": "recipe-determine-whether-a-bug-is-version-related",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://www.rockrms.com/releasenotes",
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
         "https://community.rockrms.com/developer/obsidian",
+        "https://community.rockrms.com/developer/obsidian/form-validation",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
         "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
       ],
@@ -92,18 +92,18 @@
       "id": "recipe-audit-a-block-for-security",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://www.rockrms.com/releasenotes",
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian",
         "https://community.rockrms.com/developer/obsidian/grids",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
         "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+        "https://community.rockrms.com/developer/obsidian/form-validation"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -128,10 +128,10 @@
         "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
         "https://community.rockrms.com/developer/obsidian/grids",
         "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
         "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
       ],
       "start_with": [
         "Read the linked guide section.",

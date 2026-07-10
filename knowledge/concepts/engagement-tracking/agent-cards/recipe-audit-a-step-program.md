@@ -40,9 +40,9 @@ Follow the guide section for Recipe: Audit A Step Program.
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals
 - https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
 - https://community.rockrms.com/documentation/engagement/assessments
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
 - https://community.rockrms.com/documentation/engagement/steps
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
 - https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/recipes/233
 - https://www.triumph.tech/resources/sparks-top-8-personality-assessments

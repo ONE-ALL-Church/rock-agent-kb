@@ -21,6 +21,7 @@ artifact_level: live_checklist
 10. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
 11. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
 12. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
+13. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
@@ -31,6 +32,7 @@ artifact_level: live_checklist
 - `Group, GroupType, Location, and Schedule records`
 - `Communication recipient, medium, and send history`
 - `Mobile shell version and mobile block settings`
+- `Person, family, alias, and attribute records`
 
 ## Read-Only Probes
 

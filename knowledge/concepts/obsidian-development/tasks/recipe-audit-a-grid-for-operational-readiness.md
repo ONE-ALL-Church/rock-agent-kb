@@ -42,7 +42,7 @@ Follow the guide section for Recipe: Audit A Grid For Operational Readiness.
 - https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
 - https://community.rockrms.com/developer/obsidian/grids
 - https://community.rockrms.com/lava/obsidian
+- https://community.rockrms.com/developer/obsidian
 - https://community.rockrms.com/developer/obsidian/browser-bus
 - https://community.rockrms.com/developer/obsidian/form-validation
 - https://community.rockrms.com/developer/obsidian/creating-ui-controls
-- https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types

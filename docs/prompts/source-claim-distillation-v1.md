@@ -27,6 +27,7 @@ For each retained claim:
 6. Split unrelated assertions into separate claims. Keep closely coupled cause-and-effect behavior together.
 7. Compare against `existing_claims`; reject duplicates unless this article supplies materially stronger authority or a missing caveat.
 8. Use only concept IDs present in the candidate or the current concept registry.
+9. Prefer the single strongest durable claim. Return a second claim only when it is independently useful and materially distinct; never return more than two claims from one article.
 
 Before returning output, check:
 

@@ -5,6 +5,7 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from .claims import approved_claim_rows
 from .extract import generated_at_iso, now_iso, sha256_text
@@ -30,6 +31,14 @@ APPROVED_DISTILLATION_STATUSES = {"reviewer_approved", "approved_for_answer_pack
 REJECTED_DISTILLATION_STATUSES = {"rejected", "rejected_for_answer_pack", "rejected_for_public_distillation"}
 DISTILLED_CLAIM_REVIEW_STATUSES = APPROVED_DISTILLATION_STATUSES | REJECTED_DISTILLATION_STATUSES
 ANSWER_CLAIM_TIERS = {"answer_pack_approved", "live_verified"}
+DOCUMENT_BRANCH_DIVERSITY_CONCEPTS = {
+    "content-personalization",
+    "documents-signatures",
+    "engagement-tracking",
+    "hosting-infrastructure",
+    "obsidian-development",
+    "prayer-care",
+}
 
 BEST_ANSWER_OVERRIDES = {
     "workflows": {
@@ -298,6 +307,110 @@ def concept_claim_sort_key(concept: Any, row: dict[str, Any]) -> tuple[int, str]
     return (-(priority + concept_relevance_score(concept, row)), str(row.get("claim_id") or ""))
 
 
+def first_check_claim_sort_key(concept: Any, row: dict[str, Any]) -> tuple[int, str]:
+    priority = int(row.get("operational_priority") or 0)
+    return (
+        -(priority + concept_relevance_score(concept, row) + first_check_source_score(row)),
+        str(row.get("claim_id") or ""),
+    )
+
+
+def first_check_source_score(row: dict[str, Any]) -> int:
+    titles = [
+        str(ref.get("title") or "").strip().lower()
+        for ref in row.get("source_refs") or []
+        if isinstance(ref, dict)
+    ]
+    score = 0
+    if any(title.startswith("intro to ") for title in titles):
+        score += 28
+    elif any("overview" in title or "fundamentals" in title for title in titles):
+        score += 18
+    engagement_overviews = {
+        "intro to steps",
+        "intro to streaks",
+        "intro to assessments",
+        "intro to achievements",
+    }
+    if any(title in engagement_overviews for title in titles):
+        score += 20
+    urls = [
+        str(ref.get("url") or "").lower()
+        for ref in row.get("source_refs") or []
+        if isinstance(ref, dict)
+    ]
+    if any("/documentation/engagement/assessments/" in url for url in urls):
+        score += 24
+    claim_type = str(row.get("claim_type") or "")
+    if claim_type == "behavior":
+        score += 8
+    elif claim_type in {"configuration", "operational_guidance"}:
+        score += 4
+    elif claim_type in {"risk", "release_caveat"}:
+        score -= 8
+    if row.get("evidence_class") == "exploratory_roadmap":
+        score -= 12
+    return score
+
+
+def diverse_claim_selection(rows: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
+    selected: list[dict[str, Any]] = []
+    selected_ids: set[str] = set()
+    branch_keys: set[str] = set()
+    for row in rows:
+        branch_key = claim_source_branch_key(row)
+        if not branch_key or branch_key in branch_keys:
+            continue
+        selected.append(row)
+        selected_ids.add(str(row.get("claim_id") or ""))
+        branch_keys.add(branch_key)
+        if len(selected) == limit:
+            return selected
+    for row in rows:
+        claim_id = str(row.get("claim_id") or "")
+        if claim_id in selected_ids:
+            continue
+        selected.append(row)
+        selected_ids.add(claim_id)
+        if len(selected) == limit:
+            break
+    return selected
+
+
+def first_check_claims_for_concept(concept: Any, rows: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
+    if concept.id not in DOCUMENT_BRANCH_DIVERSITY_CONCEPTS:
+        return sorted(rows, key=lambda row: concept_claim_sort_key(concept, row))[:limit]
+    ranked = sorted(rows, key=lambda row: first_check_claim_sort_key(concept, row))
+    return diverse_claim_selection(ranked, limit)
+
+
+def claim_source_branch_key(row: dict[str, Any]) -> str:
+    urls = [
+        str(ref.get("url") or "")
+        for ref in row.get("source_refs") or []
+        if isinstance(ref, dict) and ref.get("url")
+    ]
+    if not urls:
+        return ""
+    parts = [part for part in urlparse(urls[0]).path.split("/") if part]
+    if len(parts) >= 4 and parts[:3] == ["documentation", "engagement", "additional-engagement-tools"]:
+        return "/".join(parts[:4])
+    detailed_documentation_prefixes = {
+        ("documentation", "core-concepts", "documents"),
+        ("documentation", "supporting-rock", "hosting"),
+        ("documentation", "digital-publishing", "content-management"),
+        ("documentation", "digital-publishing", "personalization"),
+        ("documentation", "engagement", "prayer"),
+    }
+    if len(parts) >= 4 and tuple(parts[:3]) in detailed_documentation_prefixes:
+        return "/".join(parts[:4])
+    if len(parts) >= 3 and parts[0] == "documentation":
+        return "/".join(parts[:3])
+    if len(parts) >= 3 and parts[:2] == ["developer", "obsidian"]:
+        return "/".join(parts[:3])
+    return "/".join(parts[: min(3, len(parts))])
+
+
 def concept_relevance_score(concept: Any, row: dict[str, Any]) -> int:
     score = 0
     if row.get("primary_concept_id") == concept.id:
@@ -338,12 +451,17 @@ def answer_rows_for_concept(concept: Any, claims: list[dict[str, Any]], distille
     distilled_claims = distilled_claims or []
     actionable_claims = [row for row in claims if not is_generic_source_routing_claim(row) and row.get("claim_tier") != "routing_context_only"]
     answer_claims = [row for row in actionable_claims if claim_can_feed_answer_pack(row)]
-    top_claims = sorted(
+    top_claims = first_check_claims_for_concept(
+        concept,
         [row for row in answer_claims if row.get("answer_candidate")],
-        key=lambda row: concept_claim_sort_key(concept, row),
-    )[:8]
+        8,
+    )
     if not top_claims:
-        top_claims = sorted(answer_claims, key=lambda row: concept_claim_sort_key(concept, row))[:5]
+        top_claims = first_check_claims_for_concept(
+            concept,
+            answer_claims,
+            5,
+        )
     risk_claims = sorted(
         [row for row in actionable_claims if row.get("claim_type") in {"risk", "release_caveat"}],
         key=lambda row: concept_claim_sort_key(concept, row),

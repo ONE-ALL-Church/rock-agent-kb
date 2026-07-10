@@ -497,7 +497,9 @@ def claim_with_id(row: dict[str, Any]) -> dict[str, Any]:
 def claim_tier_for_claim(row: dict[str, Any]) -> str:
     if not row.get("answer_candidate"):
         return "routing_context_only"
-    if row.get("needs_live_verification") or row.get("requires_live_instance"):
+    if row.get("needs_live_verification"):
+        return "source_backed"
+    if row.get("requires_live_instance") and row.get("authority_tier") != "official":
         return "source_backed"
     return "answer_pack_approved"
 
