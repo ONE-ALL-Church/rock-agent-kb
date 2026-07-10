@@ -121,6 +121,7 @@ uv run kb audit readiness
 uv run kb audit all
 uv run kb deploy-service
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church --target-rank 2
+uv run kb quality-gate
 uv run kb hybrid-shadow
 uv run kb hybrid-shadow --apply
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
@@ -141,7 +142,7 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 | Group | Purpose |
 |---|---|
 | `kb status` / `kb build` | Pipeline freshness, dry-run planning, and deterministic rebuild execution. |
-| `kb deploy-service` / `kb eval-service` / `kb hybrid-shadow` / `kb network-readiness` | Hosted Worker projection, Cloudflare deploy, deployed-service regression checks, isolated hybrid retrieval evaluation, and live Agent Knowledge Network milestone gates. |
+| `kb deploy-service` / `kb eval-service` / `kb quality-gate` / `kb hybrid-shadow` / `kb network-readiness` | Hosted Worker projection, Cloudflare deploy, local and deployed-service regression checks, isolated hybrid retrieval evaluation, and live Agent Knowledge Network milestone gates. |
 | `kb sources ...` | Source registry, discovery, fetch, normalize, summarize, refresh, endpoint probing, and source scans. |
 | `kb extract ...` | Targeted Markdown extraction and extractor diagnostics. |
 | `kb media ...` | Private media discovery, transcription, sidecars, review candidates, promotion, and Gemma enrichment. |

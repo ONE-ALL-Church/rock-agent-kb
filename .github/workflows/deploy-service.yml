@@ -70,6 +70,8 @@ jobs:
         run: uv run kb audit all --public-only
       - name: Build service projection
         run: uv run kb deploy-service
+      - name: Run lexical retrieval quality gate
+        run: uv run kb quality-gate
       - name: Sync Worker runtime secrets
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
         working-directory: service

@@ -39,3 +39,5 @@ jobs:
       - name: Test service intake gates
         working-directory: service
         run: npm run test:intake
+      - name: Run lexical retrieval quality gate
+        run: uv run kb quality-gate

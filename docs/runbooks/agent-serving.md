@@ -140,6 +140,19 @@ Run the hosted evaluation gate after deployment:
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
 ```
 
+Before merge or deployment, run the same evaluation set against an isolated
+local Worker and production-size D1 projection:
+
+```bash
+uv run kb quality-gate
+```
+
+The gate requires zero failed questions, MRR of at least `0.99`, recall at the
+target rank of `1.0`, duplicate rate of `0`, and authority correctness of
+`1.0`. It writes the ignored report to
+`service/dist/lexical-quality-gate.json`. Pull-request and production-deploy
+workflows run this gate before changes can reach the hosted Worker.
+
 To evaluate semantic retrieval without changing production routing, build the
 stratified contextual payload first, then apply it to the isolated AI Search
 shadow instance:

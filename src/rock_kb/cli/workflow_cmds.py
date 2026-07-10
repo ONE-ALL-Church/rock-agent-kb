@@ -10,6 +10,7 @@ def register(app: typer.Typer) -> None:
     app.command("build")(legacy.build_command)
     app.command("deploy-service")(deploy_service_command)
     app.command("eval-service")(eval_service_command)
+    app.command("quality-gate")(quality_gate_command)
     app.command("hybrid-shadow")(hybrid_shadow_command)
     app.command("network-readiness")(network_readiness_command)
     app.command("serve")(serve_command)
@@ -53,6 +54,32 @@ def eval_service_command(
     from ..service_eval import evaluate_service
 
     result = evaluate_service(base_url=base_url, limit=limit, target_rank=target_rank, concurrency=concurrency).as_dict()
+    print_json(data=result)
+    if result["status"] != "ok":
+        raise typer.Exit(code=1)
+
+
+def quality_gate_command(
+    minimum_mrr: float = typer.Option(0.99, "--minimum-mrr", min=0, max=1),
+    minimum_recall: float = typer.Option(1.0, "--minimum-recall", min=0, max=1),
+    maximum_duplicate_rate: float = typer.Option(0.0, "--maximum-duplicate-rate", min=0, max=1),
+    minimum_authority_pass_rate: float = typer.Option(1.0, "--minimum-authority-pass-rate", min=0, max=1),
+    concurrency: int = typer.Option(6, "--concurrency", min=1, max=12),
+) -> None:
+    """Run the full lexical retrieval gate against an isolated local Worker and D1 database."""
+    from rich import print_json
+
+    from ..service_quality_gate import QualityThresholds, run_service_quality_gate
+
+    result = run_service_quality_gate(
+        thresholds=QualityThresholds(
+            minimum_mrr=minimum_mrr,
+            minimum_recall=minimum_recall,
+            maximum_duplicate_rate=maximum_duplicate_rate,
+            minimum_authority_pass_rate=minimum_authority_pass_rate,
+        ),
+        concurrency=concurrency,
+    )
     print_json(data=result)
     if result["status"] != "ok":
         raise typer.Exit(code=1)
