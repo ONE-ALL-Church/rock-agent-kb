@@ -53,7 +53,7 @@ def test_build_recipes_writes_agent_and_human_artifacts(monkeypatch, tmp_path):
         "check-in-status-dashboard.md": "d8ea54fa67ef",
         "communication-history-active-search.md": "066de269c307",
         "registration-to-connection-request.md": "03efbb093c02",
-        "workflow-backed-sms-verification.md": "066de269c307",
+        "workflow-backed-sms-verification.md": "7211f1d5a024",
     }
     for filename, commit_prefix in expected_artifacts.items():
         rendered = (tmp_path / "knowledge" / "recipes" / "oneall" / filename).read_text(encoding="utf-8")
@@ -129,3 +129,43 @@ def test_verify_recipe_rejects_unsupported_target_version(monkeypatch):
 
     assert report["status"] == "fail"
     assert report["compatibility"]["status"] == "fail"
+
+
+def test_check_upstream_uses_resolved_default_branch_commit(monkeypatch):
+    row = recipes.load_recipes()[0]
+    default_commit = "a" * 40
+    requested_urls = []
+
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def read(self):
+            return b"test"
+
+    monkeypatch.setattr(recipes, "load_recipes", lambda: [row])
+    monkeypatch.setattr(
+        recipes.subprocess,
+        "run",
+        lambda *args, **kwargs: recipes.subprocess.CompletedProcess(
+            args=args[0],
+            returncode=0,
+            stdout=f"ref: refs/heads/main\tHEAD\n{default_commit}\tHEAD\n",
+            stderr="",
+        ),
+    )
+
+    def fake_urlopen(request, timeout):
+        requested_urls.append(request.full_url)
+        return Response()
+
+    monkeypatch.setattr(recipes, "urlopen", fake_urlopen)
+
+    report = recipes.check_recipe_upstreams()
+
+    assert report["results"][0]["default_branch"] == "main"
+    assert requested_urls
+    assert all(f"/{default_commit}/" in url for url in requested_urls)
