@@ -150,9 +150,10 @@ export default {
         const limit = boundedInt(url.searchParams.get("limit"), 10, 1, 50);
         const minTier = url.searchParams.get("min_tier") || "routing_context_only";
         const detail = url.searchParams.get("detail") === "full" ? "full" : "compact";
-        const rows = await search(env, query, limit, minTier, detail === "full");
+        const kind = url.searchParams.get("kind") || "";
+        const rows = await search(env, query, limit, minTier, detail === "full", kind);
         ctx.waitUntil(recordUsage(env, "search", query, rows.length));
-        return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, detail, results: rows });
+        return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, kind: kind || null, detail, results: rows });
       }
       if (url.pathname.startsWith("/results/")) {
         const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
@@ -218,7 +219,7 @@ export default {
   }
 };
 
-async function search(env: ServiceEnv, query: string, limit: number, minTier: string, full = false): Promise<JsonRecord[]> {
+async function search(env: ServiceEnv, query: string, limit: number, minTier: string, full = false, kind = ""): Promise<JsonRecord[]> {
   const fts = buildFtsQuery(query);
   if (!fts) {
     return [];
@@ -232,18 +233,21 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
      FROM search_rows_fts f
      JOIN search_rows r ON r.id = f.id
      WHERE search_rows_fts MATCH ? AND r.claim_tier_rank >= ?
+       AND (? = '' OR r.kind = ?)
      ORDER BY rank
      LIMIT ?`
-  ).bind(fts, minRank, candidateLimit).all<SearchRow & { rank?: number }>();
+  ).bind(fts, minRank, kind, kind, candidateLimit).all<SearchRow & { rank?: number }>();
   const rowsById = new Map<string, SearchRow & { rank?: number }>();
   for (const row of result.results || []) {
     rowsById.set(row.id, row);
   }
-  for (const row of await exactModelMapRows(env, query, minRank)) {
-    rowsById.set(row.id, row);
-  }
-  for (const row of await exactConceptRows(env, query, minRank)) {
-    rowsById.set(row.id, row);
+  if (!kind) {
+    for (const row of await exactModelMapRows(env, query, minRank)) {
+      rowsById.set(row.id, row);
+    }
+    for (const row of await exactConceptRows(env, query, minRank)) {
+      rowsById.set(row.id, row);
+    }
   }
   return Array.from(rowsById.values())
     .map((row) => ({ row, signals: searchSignals(row, terms, query) }))
@@ -362,7 +366,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     const query = String(args.query || "");
     const limit = boundedInt(args.limit, 10, 1, 50);
     const minTier = String(args.min_tier || "routing_context_only");
-    const rows = await search(env, query, limit, minTier, args.full === true);
+    const rows = await search(env, query, limit, minTier, args.full === true, String(args.kind || ""));
     ctx.waitUntil(recordUsage(env, "mcp_search", query, rows.length));
     return rows;
   }
@@ -1540,7 +1544,7 @@ function cors(response: Response): Response {
 
 function toolDefinitions(): JsonRecord[] {
   return [
-    { name: "kb_search", description: "Start here for any Rock question. Returns compact ranked results; use kb_get_result or kb_get_claim for full detail.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
+    { name: "kb_search", description: "Start here for any Rock question. Returns compact ranked results; use kb_get_result or kb_get_claim for full detail.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" }, kind: { type: "string", description: "Optional exact result-kind filter, such as recipe." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
     { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID.", inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] } },
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },

@@ -89,6 +89,13 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     assert.equal(result.recipe.security.data_access, "read_only");
     assert.equal(result.recipe.implementation.commit_sha.length, 40);
 
+    const searchResponse = await mf.dispatchFetch("https://kb.example.test/search?q=registration%20attendance%20dashboard&kind=recipe");
+    const search = await searchResponse.json();
+    assert.equal(search.kind, "recipe");
+    assert.equal(search.results.length, 1);
+    assert.equal(search.results[0].kind, "recipe");
+    assert.equal(search.results[0].id, "recipe:oneall:check-in-status-dashboard:check-in");
+
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
     assert.equal(toolNames.includes("kb_list_recipes"), true);
@@ -203,6 +210,26 @@ async function buildWorker() {
     };
     const shard = crypto.createHash("sha256").update(recipePath).digest("hex").slice(0, 2);
     await bucket.put(`versions/test-version/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));
+    const recipeSearchRow = {
+      id: "recipe:oneall:check-in-status-dashboard:check-in",
+      kind: "recipe",
+      title: "Check-In Status Dashboard",
+      body: "Reusable registration roster and latest attendance dashboard implementation.",
+      path: "knowledge/recipes/oneall/check-in-status-dashboard.md",
+      url: "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+      concept: "check-in",
+      authority_tier: "community-reviewed",
+      claim_tier: "answer_pack_approved",
+      claim_tier_rank: 2,
+      source_id: "oneall",
+      payload_json: JSON.stringify(recipe),
+    };
+    await db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+      .bind(...Object.values(recipeSearchRow)).run();
+    await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+      .bind(recipeSearchRow.id, recipeSearchRow.title, recipeSearchRow.body, recipeSearchRow.concept).run();
     return mf;
   } catch (error) {
     await mf.dispose();
