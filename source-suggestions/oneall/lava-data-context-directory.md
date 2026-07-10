@@ -1,5 +1,14 @@
 # Lava Data Context Directory Source Suggestion
 
+## Status
+
+Implemented. The generated source-code-backed directory is published as
+`agent/lava-contexts.jsonl` and
+`knowledge/concepts/lava/lava-context-directory.md`, linked to Model Map rows,
+indexed as `lava_context` search results, and covered by parser and public-export
+tests. Keep this suggestion as provenance for the original community idea, not
+as open implementation backlog.
+
 ## Source URLs
 
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/LavaHelper.cs

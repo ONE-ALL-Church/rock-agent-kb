@@ -8,7 +8,7 @@ const WORKER_BUNDLE = "dist/dry-run/index.js";
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
   try {
-    const searchResponse = await mf.dispatchFetch("https://kb.example.test/search?q=check-in%20labels&limit=1");
+    const searchResponse = await mf.dispatchFetch("https://kb.example.test/search?q=labels%20printing&limit=1");
     const search = await searchResponse.json();
 
     assert.equal(searchResponse.status, 200);
@@ -74,6 +74,22 @@ test("exact concept routing injects authored answers outside the FTS candidate s
   }
 });
 
+test("search normalizes model intent, plurals, and common check-in misspellings", async () => {
+  const mf = await buildWorker();
+  try {
+    const modelResponse = await mf.dispatchFetch("https://kb.example.test/search?q=In%20the%20Group%20model%20show%20the%20Members%20property&limit=3");
+    const modelPayload = await modelResponse.json();
+    assert.equal(modelPayload.results[0].id, "model_map:stable:group");
+
+    const typoResponse = await mf.dispatchFetch("https://kb.example.test/search?q=child%20eligable%20but%20not%20avalable%20at%20checkin&limit=3");
+    const typoPayload = await typoResponse.json();
+    assert.equal(typoPayload.results[0].concept, "check-in");
+    assert.match(typoPayload.results[0].snippet, /eligibility/i);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("search uses the declared default limit when the parameter is omitted", async () => {
   const mf = await buildWorker();
   try {
@@ -124,10 +140,48 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
     assert.equal(toolNames.includes("kb_list_recipes"), true);
     assert.equal(toolNames.includes("kb_get_recipe"), true);
+    assert.equal(toolNames.includes("kb_verify_recipe"), true);
 
     const callResponse = await mcp(mf, "tools/call", { name: "kb_get_recipe", arguments: { recipe_id: "oneall:check-in-status-dashboard" } });
     const callResult = JSON.parse(callResponse.result.content[0].text);
     assert.equal(callResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
+
+    const missingVerifyResponse = await mf.dispatchFetch("https://kb.example.test/recipes/missing%3Arecipe/verify?rock_version=18");
+    assert.equal(missingVerifyResponse.status, 404);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("telemetry separates evaluation traffic and records structured feedback without query text", async () => {
+  const mf = await buildWorker();
+  try {
+    await mf.dispatchFetch("https://kb.example.test/search?q=labels", {
+      headers: { "x-rock-kb-client": "cli" },
+    });
+    await mf.dispatchFetch("https://kb.example.test/search?q=prayerzz", {
+      headers: { "user-agent": "rock-kb-eval/1.0" },
+    });
+    await mf.dispatchFetch("https://kb.example.test/search?q=prayerzz", {
+      headers: { "x-rock-kb-client": "browser" },
+    });
+    const feedbackResponse = await mf.dispatchFetch("https://kb.example.test/feedback", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-rock-kb-client": "cli" },
+      body: JSON.stringify({ result_id: "claim:claim:abc123:check-in", rating: -1, reason: "outdated" }),
+    });
+    assert.equal(feedbackResponse.status, 201);
+
+    const telemetryResponse = await mf.dispatchFetch("https://kb.example.test/telemetry/summary");
+    const telemetry = await telemetryResponse.json();
+
+    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v2");
+    assert.equal(telemetry.adoption_rows.some((row) => row.client_class === "cli"), true);
+    assert.equal(telemetry.evaluation_rows.some((row) => row.client_class === "eval"), true);
+    assert.equal(telemetry.zero_result_topics.some((row) => row.topic_hint === "prayer-care"), true);
+    assert.equal(telemetry.feedback.some((row) => row.reason === "outdated" && row.rating === -1), true);
+    assert.match(telemetry.privacy, /No raw query text/);
+    assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
   } finally {
     await mf.dispose();
   }
@@ -183,6 +237,34 @@ async function buildWorker() {
       .bind(row.id, row.title, row.body, row.concept).run();
     const conceptRows = [
       {
+        id: "concept:check-in",
+        kind: "concept",
+        title: "Check-In",
+        body: "Check-in eligibility and availability troubleshooting.",
+        path: "knowledge/concepts/check-in/index.md",
+        url: "",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "answer_pack_approved",
+        claim_tier_rank: 2,
+        source_id: "",
+        payload_json: "{}",
+      },
+      {
+        id: "answer:answer:check-in:first-checks",
+        kind: "answer",
+        title: "answer:check-in:first-checks",
+        body: "Separate child eligibility from room and schedule availability at check-in.",
+        path: "agent/answer-pack.jsonl",
+        url: "",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "answer_pack_approved",
+        claim_tier_rank: 2,
+        source_id: "",
+        payload_json: JSON.stringify({ answer_id: "answer:check-in:first-checks" }),
+      },
+      {
         id: "concept:workflows",
         kind: "concept",
         title: "Workflows",
@@ -217,6 +299,26 @@ async function buildWorker() {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
         .bind(...Object.values(conceptRow)).run();
     }
+    const groupModelRow = {
+      id: "model_map:stable:group",
+      kind: "model_map",
+      title: "Group Model Map",
+      body: "Group model Members property relationship to GroupMember.",
+      path: "knowledge/model-map/models/group.md",
+      url: "",
+      concept: "model-map",
+      authority_tier: "source-code-confirmed",
+      claim_tier: "source_backed",
+      claim_tier_rank: 1,
+      source_id: "rock_model_map",
+      payload_json: JSON.stringify({ identity: { model_slug: "group", model_name: "Group", model_title: "Group" } }),
+    };
+    await db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+      .bind(...Object.values(groupModelRow)).run();
+    await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+      .bind(groupModelRow.id, groupModelRow.title, groupModelRow.body, groupModelRow.concept).run();
     const bucket = await mf.getR2Bucket("KB_ARTIFACTS");
     const recipePath = "agent/recipes.jsonl";
     const recipe = {

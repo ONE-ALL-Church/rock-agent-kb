@@ -63,9 +63,16 @@ Create a Connection Request for each selected registration registrant, preserve 
 
 - Tested Rock versions: 17, 18
 - Last verified: 2026-07-09
+- Rock `17`: `verified`
+- Rock `18`: `verified`
 - The pattern is based on multiple production registration workflows and a corrected end-to-end implementation, but the sanitized package has not been deployed unchanged in a generic Rock instance.
 - Verify system action classes, action-setting keys, field types, and registration trigger behavior against the target release.
 - The public deploy dynamically resolves system entity, field type, and action-setting IDs rather than copying local numeric IDs.
+
+## Community Verification
+
+- No consumer verification attestations have been submitted yet.
+- Feedback and issues: https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues
 
 ## Reusable Learnings
 

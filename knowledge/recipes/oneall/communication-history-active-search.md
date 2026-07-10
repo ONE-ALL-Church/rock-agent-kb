@@ -58,9 +58,16 @@ Build a secured read-only Helix communication browser with allowlisted filters, 
 
 - Tested Rock versions: 17, 18
 - Last verified: 2026-07-09
+- Rock `17`: `verified`
+- Rock `18`: `verified`
 - Verify the Communication and CommunicationRecipient enum and field behavior against the target Rock release.
 - Performance depends on communication volume, database indexes, search selectivity, and recipient counts.
 - The model map identifies communication status 3 as Approved; it must not be relabeled as Sent.
+
+## Community Verification
+
+- No consumer verification attestations have been submitted yet.
+- Feedback and issues: https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues
 
 ## Reusable Learnings
 

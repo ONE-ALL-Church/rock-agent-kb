@@ -21,6 +21,8 @@ def test_canonical_recipes_validate_and_use_immutable_source_pins():
         assert len(row["implementation"]["commit_sha"]) == 40
         assert row["implementation"]["commit_sha"] in row["implementation"]["manifest_url"]
         assert all(len(item["sha256"]) == 64 for item in row["implementation"]["files"])
+        assert row["feedback_url"].endswith("/issues")
+        assert row["compatibility"]["version_matrix"]
 
 
 def test_recipe_validation_rejects_unknown_concept(tmp_path):
@@ -92,3 +94,38 @@ def test_promote_recipe_contribution_extracts_reviewed_canonical_record(monkeypa
     assert report["status"] == "ok"
     assert promoted["review_status"] == "community_reviewed"
     assert promoted["authority_tier"] == "community-reviewed"
+
+
+def test_verify_recipe_checks_pinned_hashes_compatibility_and_verifier_files(monkeypatch):
+    monkeypatch.setattr(
+        recipes,
+        "fetch_url_digest",
+        lambda url: next(
+            item["sha256"]
+            for row in recipes.load_recipes()
+            for item in row["implementation"]["files"]
+            if f"/{row['implementation']['source_path'].rstrip('/')}/{item['path']}" in url
+        ),
+    )
+
+    report = recipes.verify_recipe("oneall:registration-to-connection-request", rock_version="18")
+
+    assert report["status"] == "pass"
+    assert report["compatibility"]["status"] == "pass"
+    assert "tests/static_contract.py" in report["verifier_files"]
+    assert all(item["status"] == "pass" for item in report["file_checks"])
+    assert "does not execute" in report["safety"]
+
+
+def test_verify_recipe_rejects_unsupported_target_version(monkeypatch):
+    monkeypatch.setattr(recipes, "fetch_url_digest", lambda url: "0" * 64)
+    row = json.loads(recipes.recipe_paths()[0].read_text(encoding="utf-8"))
+    row["compatibility"]["version_matrix"] = [
+        {"rock_version": "16", "status": "unsupported", "notes": []}
+    ]
+    monkeypatch.setattr(recipes, "load_recipes", lambda: [row])
+
+    report = recipes.verify_recipe(row["recipe_id"], rock_version="16")
+
+    assert report["status"] == "fail"
+    assert report["compatibility"]["status"] == "fail"

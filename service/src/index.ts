@@ -115,6 +115,26 @@ const DIRECT_MEDIA_HINTS = [
   "signature="
 ];
 
+const FEEDBACK_REASONS = new Set(["helpful", "outdated", "missing", "incorrect", "wrong_route"]);
+const TOPIC_HINTS: Array<[string, string[]]> = [
+  ["check-in", ["checkin", "check-in", "check in", "kiosk", "label", "attendance"]],
+  ["workflows", ["workflow", "actiontype", "trigger"]],
+  ["lava", ["lava", "mergefield", "merge", "liquid"]],
+  ["mobile", ["mobile", "maui", "shell", "selector"]],
+  ["event-registration", ["registration", "registrant", "waitlist"]],
+  ["connections", ["connection", "opportunity", "connector"]],
+  ["communications", ["communication", "email", "sms", "push"]],
+  ["groups", ["group", "groupmember", "grouptype"]],
+  ["security-permissions", ["security", "permission", "authorization", "auth"]],
+  ["data-views-reports", ["dataview", "report", "sql", "analytics"]],
+  ["documents-signatures", ["document", "signature", "esign"]],
+  ["hosting-infrastructure", ["hosting", "infrastructure", "server", "database"]],
+  ["prayer-care", ["prayer", "care"]],
+  ["content-personalization", ["personalize", "personalization", "adaptive message"]],
+  ["obsidian-development", ["obsidian", "block action"]],
+  ["model-map", ["modelmap", "model", "property", "relationship"]],
+];
+
 export default {
   async fetch(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
@@ -152,7 +172,7 @@ export default {
         const detail = url.searchParams.get("detail") === "full" ? "full" : "compact";
         const kind = url.searchParams.get("kind") || "";
         const rows = await search(env, query, limit, minTier, detail === "full", kind);
-        ctx.waitUntil(recordUsage(env, "search", query, rows.length));
+        ctx.waitUntil(recordUsage(env, "search", query, rows.length, classifyClient(request)));
         return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, kind: kind || null, detail, results: rows });
       }
       if (url.pathname.startsWith("/results/")) {
@@ -165,6 +185,11 @@ export default {
       }
       if (url.pathname === "/recipes") {
         return json(await listRecipes(env, url.searchParams.get("concept")));
+      }
+      if (url.pathname.startsWith("/recipes/") && url.pathname.endsWith("/verify")) {
+        const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length, -"/verify".length));
+        const result = await verifyRecipe(env, recipeId, url.searchParams.get("rock_version"));
+        return json(result, result.status === "not_found" ? 404 : result.status === "fail" ? 409 : 200);
       }
       if (url.pathname.startsWith("/recipes/")) {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length));
@@ -198,6 +223,9 @@ export default {
       }
       if (url.pathname === "/telemetry/summary") {
         return json(await telemetrySummary(env));
+      }
+      if (url.pathname === "/feedback" && request.method === "POST") {
+        return json(await submitFeedback(request, env), 201);
       }
       if (url.pathname === "/operations/dashboard") {
         return json(await operationsDashboard(env));
@@ -312,7 +340,8 @@ async function exactConceptRows(env: ServiceEnv, query: string, minRank: number)
 
 function conceptRowMatchesQuery(row: SearchRow, queryTerms: Set<string>): boolean {
   const titleTerms = searchTerms(row.title || "");
-  return titleTerms.length > 0 && titleTerms.every((term) => queryTerms.has(term));
+  const overlap = titleTerms.filter((term) => queryTerms.has(term)).length;
+  return titleTerms.length > 0 && overlap >= Math.max(1, Math.ceil(titleTerms.length / 2));
 }
 
 async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
@@ -367,7 +396,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     const limit = boundedInt(args.limit, 10, 1, 50);
     const minTier = String(args.min_tier || "routing_context_only");
     const rows = await search(env, query, limit, minTier, args.full === true, String(args.kind || ""));
-    ctx.waitUntil(recordUsage(env, "mcp_search", query, rows.length));
+    ctx.waitUntil(recordUsage(env, "search", query, rows.length, "mcp"));
     return rows;
   }
   if (name === "kb_get_result") {
@@ -395,6 +424,9 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_get_recipe") {
     return getRecipe(env, String(args.recipe_id || ""));
   }
+  if (name === "kb_verify_recipe") {
+    return verifyRecipe(env, String(args.recipe_id || ""), stringOrNull(args.rock_version));
+  }
   if (name === "kb_manifest") {
     return artifactJsonValue(env, "agent/rock-kb-manifest.json");
   }
@@ -410,6 +442,9 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_review_dashboard") {
     return operationsDashboard(env);
+  }
+  if (name === "kb_feedback") {
+    return submitFeedback(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env, "mcp");
   }
   if (name === "kb_submit") {
     return submitContribution(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env);
@@ -491,6 +526,86 @@ async function getRecipe(env: ServiceEnv, recipeId: string): Promise<JsonRecord>
     return { schema: "rock-kb-recipe-result-v1", status: "not_found", recipe_id: normalized };
   }
   return { schema: "rock-kb-recipe-result-v1", status: "ok", recipe };
+}
+
+async function verifyRecipe(env: ServiceEnv, recipeId: string, rockVersion: string | null): Promise<JsonRecord> {
+  const normalized = recipeId.startsWith("recipe:") ? recipeId.slice("recipe:".length) : recipeId;
+  const recipes = await artifactJsonlValue(env, "agent/recipes.jsonl");
+  const recipe = recipes.find((row) => String(row.recipe_id || "") === normalized);
+  if (!recipe) {
+    return { schema: "rock-kb-recipe-verification-v1", status: "not_found", recipe_id: normalized };
+  }
+  const implementation = asRecord(recipe.implementation);
+  const repositoryUrl = String(implementation.repository_url || "");
+  const repositoryMatch = repositoryUrl.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?$/);
+  if (!repositoryMatch) {
+    return { schema: "rock-kb-recipe-verification-v1", status: "fail", recipe_id: normalized, error: "unsupported repository URL" };
+  }
+  const [, owner, repository] = repositoryMatch;
+  const commit = String(implementation.commit_sha || "");
+  const sourcePath = String(implementation.source_path || "").replace(/^\/+|\/+$/g, "");
+  const files = Array.isArray(implementation.files) ? implementation.files.map(asRecord) : [];
+  const fileChecks = await Promise.all(files.map(async (file) => {
+    const path = String(file.path || "");
+    const expected = String(file.sha256 || "");
+    const sourceUrl = `https://raw.githubusercontent.com/${owner}/${repository}/${commit}/${sourcePath}/${path}`;
+    try {
+      const response = await fetchRecipeSource(sourceUrl);
+      if (!response.ok) {
+        return { path, status: "unavailable", expected_sha256: expected, http_status: response.status };
+      }
+      const actual = await sha256HexBytes(await response.arrayBuffer());
+      return { path, status: actual === expected ? "pass" : "fail", expected_sha256: expected, actual_sha256: actual };
+    } catch (error) {
+      return { path, status: "unavailable", expected_sha256: expected, error: String(error) };
+    }
+  }));
+  const compatibility = recipeCompatibility(recipe, rockVersion);
+  const failed = fileChecks.some((row) => row.status === "fail") || compatibility.status === "fail";
+  const unavailable = fileChecks.some((row) => row.status === "unavailable");
+  return {
+    schema: "rock-kb-recipe-verification-v1",
+    status: failed ? "fail" : unavailable ? "unavailable" : "pass",
+    recipe_id: normalized,
+    recipe_version: recipe.version || "",
+    pinned_commit: commit,
+    compatibility,
+    file_checks: fileChecks,
+    verifier_files: files.map((file) => String(file.path || "")).filter((path) => path.startsWith("tests/") || path.endsWith(".sql")),
+    attestation_count: Array.isArray(recipe.verification_attestations) ? recipe.verification_attestations.length : 0,
+    safety: "Verification is read-only and does not execute community recipe code or modify a Rock instance.",
+  };
+}
+
+async function fetchRecipeSource(sourceUrl: string): Promise<Response> {
+  let lastResponse: Response | null = null;
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const response = await fetch(sourceUrl, { headers: { "user-agent": "rock-kb-recipe-verify/1.0" } });
+      lastResponse = response;
+      if (response.ok || (response.status !== 429 && response.status < 500)) return response;
+    } catch (error) {
+      lastError = error;
+    }
+    if (attempt < 2) await new Promise((resolve) => setTimeout(resolve, 100 * (attempt + 1)));
+  }
+  if (lastResponse) return lastResponse;
+  throw lastError instanceof Error ? lastError : new Error("Recipe source request failed");
+}
+
+function recipeCompatibility(recipe: JsonRecord, rockVersion: string | null): JsonRecord {
+  const compatibility = asRecord(recipe.compatibility);
+  if (!rockVersion) return { status: "not_checked", rock_version: null, declared: compatibility };
+  const matrix = Array.isArray(compatibility.version_matrix) ? compatibility.version_matrix.map(asRecord) : [];
+  const declaration = matrix.find((row) => String(row.rock_version || "") === rockVersion);
+  if (declaration) {
+    const declaredStatus = String(declaration.status || "");
+    return { status: declaredStatus === "unsupported" ? "fail" : declaredStatus === "verified" ? "pass" : "warn", rock_version: rockVersion, declaration };
+  }
+  const tested = Array.isArray(compatibility.tested_rock_versions) ? compatibility.tested_rock_versions.map(String) : [];
+  if (tested.includes(rockVersion)) return { status: "pass", rock_version: rockVersion, declaration: { status: "verified" } };
+  return { status: "warn", rock_version: rockVersion, reason: "version lacks a verification declaration" };
 }
 
 async function getModelMapModel(env: ServiceEnv, query: string, options: { fields?: string | null; property?: string | null } = {}): Promise<JsonRecord | null> {
@@ -1042,41 +1157,128 @@ async function artifactJsonl(env: ServiceEnv, path: string): Promise<Response> {
   return json({ rows: await artifactJsonlValue(env, path) });
 }
 
-async function recordUsage(env: ServiceEnv, event: string, query: string, resultCount: number): Promise<void> {
-  await ensureUsageEventsTable(env);
+async function recordUsage(env: ServiceEnv, event: string, query: string, resultCount: number, clientClass: string): Promise<void> {
+  await ensureTelemetryTables(env);
   const hash = query ? await sha256Hex(normalizeQuery(query)) : "";
   const day = new Date().toISOString().slice(0, 10);
+  const topicHint = queryTopicHint(query);
   await env.KB_DB.prepare(
-    `INSERT INTO usage_events (day, event, query_hash, result_count, count)
-     VALUES (?, ?, ?, ?, 1)
-     ON CONFLICT(day, event, query_hash, result_count)
+    `INSERT INTO usage_events_v2 (day, event, client_class, query_hash, topic_hint, result_count, count)
+     VALUES (?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, event, client_class, query_hash, topic_hint, result_count)
      DO UPDATE SET count = count + 1`
-  ).bind(day, event, hash, resultCount).run();
+  ).bind(day, event, clientClass, hash, topicHint, resultCount).run();
 }
 
 async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
-  await ensureUsageEventsTable(env);
-  const result = await env.KB_DB.prepare(
-    `SELECT day, event, result_count, SUM(count) AS count
-     FROM usage_events
-     GROUP BY day, event, result_count
+  await ensureTelemetryTables(env);
+  const [result, zeroResults, feedback] = await Promise.all([
+    env.KB_DB.prepare(
+    `SELECT day, event, client_class, result_count, SUM(count) AS count
+     FROM usage_events_v2
+     GROUP BY day, event, client_class, result_count
      ORDER BY day DESC, count DESC
      LIMIT 100`
-  ).all<JsonRecord>();
-  return { schema: "rock-kb-telemetry-summary-v1", rows: result.results || [] };
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, topic_hint, SUM(count) AS count
+     FROM usage_events_v2
+     WHERE result_count = 0 AND client_class <> 'eval' AND topic_hint <> 'unclassified'
+     GROUP BY day, topic_hint
+     ORDER BY day DESC, count DESC
+     LIMIT 50`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, client_class, rating, reason, SUM(count) AS count
+     FROM feedback_events
+     GROUP BY day, client_class, rating, reason
+     ORDER BY day DESC, count DESC
+     LIMIT 100`
+    ).all<JsonRecord>(),
+  ]);
+  const rows = result.results || [];
+  return {
+    schema: "rock-kb-telemetry-summary-v2",
+    rows,
+    adoption_rows: rows.filter((row) => row.client_class !== "eval"),
+    evaluation_rows: rows.filter((row) => row.client_class === "eval"),
+    zero_result_topics: zeroResults.results || [],
+    feedback: feedback.results || [],
+    privacy: "No raw query text or free-text feedback is retained. Query hashes are non-reversible aggregate keys.",
+  };
 }
 
-async function ensureUsageEventsTable(env: ServiceEnv): Promise<void> {
+async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
   await env.KB_DB.prepare(
-    `CREATE TABLE IF NOT EXISTS usage_events (
+    `CREATE TABLE IF NOT EXISTS usage_events_v2 (
       day TEXT NOT NULL,
       event TEXT NOT NULL,
-      query_hash TEXT,
+      client_class TEXT NOT NULL,
+      query_hash TEXT NOT NULL,
+      topic_hint TEXT NOT NULL,
       result_count INTEGER NOT NULL,
       count INTEGER NOT NULL,
-      PRIMARY KEY(day, event, query_hash, result_count)
+      PRIMARY KEY(day, event, client_class, query_hash, topic_hint, result_count)
     )`
   ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS feedback_events (
+      day TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      result_id_hash TEXT NOT NULL,
+      rating INTEGER NOT NULL,
+      reason TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, client_class, result_id_hash, rating, reason)
+    )`
+  ).run();
+}
+
+async function submitFeedback(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const body = await request.json<JsonRecord>();
+  const resultId = String(body.result_id || "").trim();
+  const rating = Number(body.rating);
+  const reason = String(body.reason || "").trim().toLowerCase();
+  if (!resultId || ![-1, 1].includes(rating) || !FEEDBACK_REASONS.has(reason)) {
+    throw new Error("feedback requires result_id, rating -1 or 1, and a supported reason");
+  }
+  const exists = await env.KB_DB.prepare("SELECT id FROM search_rows WHERE id = ? LIMIT 1").bind(resultId).first<SearchRow>();
+  if (!exists) {
+    throw new Error("feedback result_id was not found");
+  }
+  await ensureTelemetryTables(env);
+  const day = new Date().toISOString().slice(0, 10);
+  const clientClass = forcedClientClass || classifyClient(request);
+  const resultIdHash = await sha256Hex(resultId);
+  await env.KB_DB.prepare(
+    `INSERT INTO feedback_events (day, client_class, result_id_hash, rating, reason, count)
+     VALUES (?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, client_class, result_id_hash, rating, reason)
+     DO UPDATE SET count = count + 1`
+  ).bind(day, clientClass, resultIdHash, rating, reason).run();
+  return { schema: "rock-kb-feedback-result-v1", status: "recorded", rating, reason };
+}
+
+function classifyClient(request: Request): string {
+  const declared = String(request.headers.get("x-rock-kb-client") || "").trim().toLowerCase();
+  if (["cli", "mcp", "browser", "eval"].includes(declared)) {
+    return declared;
+  }
+  const userAgent = String(request.headers.get("user-agent") || "").toLowerCase();
+  if (userAgent.includes("rock-kb-eval")) return "eval";
+  if (userAgent.includes("rock-kb-cli") || userAgent.includes("rock-kb-client")) return "cli";
+  if (userAgent.includes("mozilla/")) return "browser";
+  return "unknown";
+}
+
+function queryTopicHint(query: string): string {
+  const normalized = normalizeSearchText(query).replace(/\s+/g, " ");
+  for (const [topic, hints] of TOPIC_HINTS) {
+    if (hints.some((hint) => normalized.includes(hint))) {
+      return topic;
+    }
+  }
+  return "unclassified";
 }
 
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
@@ -1193,7 +1395,7 @@ function summarizeEvaluationResults(rows: JsonRecord[]): JsonRecord {
     by_status: countByField(rows, "status"),
     by_concept: countByField(rows, "concept_id"),
     failed_items: rows
-      .filter((row) => row.status !== "pass")
+      .filter((row) => row.status === "fail")
       .slice(0, 20)
       .map((row) => ({
         id: row.id || "",
@@ -1301,10 +1503,30 @@ function buildFtsQuery(query: string): string {
 
 function searchTerms(query: string): string[] {
   const rawTerms = (query.match(/[A-Za-z0-9_]+/g) || [])
-    .map((term) => term.toLowerCase())
+    .map(normalizeSearchTerm)
     .filter((term) => term.length >= 3 || term === "ai" || term === "tv");
   const filteredTerms = rawTerms.filter((term) => !SEARCH_STOP_WORDS.has(term));
   return Array.from(new Set(filteredTerms.length ? filteredTerms : rawTerms));
+}
+
+function normalizeSearchTerm(value: string): string {
+  const term = value.toLowerCase();
+  const aliases: Record<string, string> = {
+    avalable: "availability",
+    available: "availability",
+    eligable: "eligibility",
+    eligible: "eligibility",
+    personalize: "personalization",
+    personalized: "personalization",
+    developer: "develop",
+    development: "develop",
+    workflows: "workflow",
+    requests: "request",
+    checkin: "check",
+  };
+  if (aliases[term]) return aliases[term];
+  if (term.length > 4 && term.endsWith("s") && !term.endsWith("ss")) return term.slice(0, -1);
+  return term;
 }
 
 function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[], query: string): JsonRecord {
@@ -1316,22 +1538,32 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   const bodyOverlap = overlapCount(queryTerms, bodyTerms);
   const conceptPhraseBoost = phraseMatchBoost(query, row.concept || "", 48);
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
-  const kindBoost = row.kind === "answer" ? 28 : row.kind === "lava_context" ? 20 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
+  const kindBoost = row.kind === "recipe" ? 52 : row.kind === "answer" ? 28 : row.kind === "lava_context" ? 20 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
   const modelMapExactBoost = exactModelMapBoost(row, query);
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
+  const conceptIntent = conceptIntentBoost(row, queryTerms);
+  const routeIntent = row.concept === queryTopicHint(query) ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);
-  const score = conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + tierBoost - rankPenalty;
+  const score = conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent + tierBoost - rankPenalty;
   return {
     score,
     title_overlap: titleOverlap,
     body_overlap: bodyOverlap,
     concept_overlap: conceptOverlap,
     phrase_boost: conceptPhraseBoost + titlePhraseBoost,
-    exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost,
+    exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
   };
+}
+
+function conceptIntentBoost(row: SearchRow, queryTerms: string[]): number {
+  if (!["concept", "answer"].includes(row.kind)) return 0;
+  const terms = new Set(queryTerms);
+  const conceptTerms = searchTerms(row.kind === "answer" ? row.concept || "" : `${row.concept || ""} ${row.title || ""}`);
+  const overlap = conceptTerms.filter((term) => terms.has(term)).length;
+  return overlap >= Math.max(1, Math.ceil(conceptTerms.length / 2)) ? 90 + overlap * 12 : 0;
 }
 
 function exactModelMapBoost(row: SearchRow, query: string): number {
@@ -1340,8 +1572,8 @@ function exactModelMapBoost(row: SearchRow, query: string): number {
   }
   const payload = parsePayload(row);
   const identity = asRecord(payload.identity || payload);
-  const reducedQuery = normalizeModelLookup(query);
-  if (!reducedQuery) {
+  const lookupQueries = modelLookupQueries(query);
+  if (!lookupQueries.length) {
     return 0;
   }
   const candidates = [
@@ -1353,7 +1585,7 @@ function exactModelMapBoost(row: SearchRow, query: string): number {
     row.title,
     row.path.split("/").pop()?.replace(/\.md$/, ""),
   ].map((value) => normalizeModelLookup(String(value || ""))).filter(Boolean);
-  return candidates.includes(reducedQuery) ? 500 : 0;
+  return lookupQueries.some((lookup) => candidates.includes(lookup)) ? 500 : 0;
 }
 
 function exactLavaContextRootBoost(row: SearchRow, queryTerms: string[], query: string): number {
@@ -1418,9 +1650,20 @@ function normalizeQuery(query: string): string {
 
 function normalizeModelLookup(value: string): string {
   const words = (value.match(/[A-Za-z0-9_]+/g) || [])
-    .map((term) => term.toLowerCase())
+    .map(normalizeSearchTerm)
     .filter((term) => term !== "model" && term !== "map" && term !== "modelmap");
   return words.join(" ").trim();
+}
+
+function modelLookupQueries(value: string): string[] {
+  const queries = new Set<string>();
+  const full = normalizeModelLookup(value);
+  if (full) queries.add(full);
+  for (const match of value.matchAll(/\b([A-Za-z][A-Za-z0-9_-]*)\s+model(?:\s+map)?\b/gi)) {
+    const captured = normalizeModelLookup(match[1]);
+    if (captured) queries.add(captured);
+  }
+  return Array.from(queries);
 }
 
 function parseCsv(value?: string | null): string[] {
@@ -1509,6 +1752,11 @@ async function sha256Hex(value: string): Promise<string> {
   return Array.from(new Uint8Array(digest)).map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
+async function sha256HexBytes(value: ArrayBuffer): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", value);
+  return Array.from(new Uint8Array(digest)).map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
 function constantTimeEqual(a: string, b: string): boolean {
   const left = new TextEncoder().encode(a);
   const right = new TextEncoder().encode(b);
@@ -1541,7 +1789,7 @@ function cors(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
   headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
-  headers.set("access-control-allow-headers", "authorization,content-type");
+  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
 
@@ -1554,11 +1802,13 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
     { name: "kb_list_recipes", description: "List reusable community Rock recipes, optionally filtered by concept.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } } } },
     { name: "kb_get_recipe", description: "Return one exact recipe with its pinned source, adaptation points, security, compatibility, validation, and reusable learnings.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" } }, required: ["recipe_id"] } },
+    { name: "kb_verify_recipe", description: "Verify a recipe's immutable source hashes and optional target Rock version without executing its code.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" }, rock_version: { type: "string" } }, required: ["recipe_id"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }
   ];
 }

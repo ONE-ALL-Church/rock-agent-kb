@@ -530,7 +530,7 @@ def list_names(command: list[str], run_command: RunCommand) -> list[str]:
 
 
 def default_run_command(command: list[str]) -> subprocess.CompletedProcess[str]:
-    timeout_seconds = int(os.environ.get("ROCK_KB_NETWORK_READINESS_TIMEOUT", "45"))
+    timeout_seconds = int(os.environ.get("ROCK_KB_NETWORK_READINESS_TIMEOUT", "120"))
     try:
         return subprocess.run(command, text=True, capture_output=True, check=False, timeout=timeout_seconds)
     except subprocess.TimeoutExpired as exc:

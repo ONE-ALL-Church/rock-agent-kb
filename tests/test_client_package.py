@@ -71,6 +71,40 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
     assert "rock-kb-operations-dashboard-v1" in capsys.readouterr().out
 
 
+def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
+    cli = load_client_cli()
+    calls = []
+
+    def fake_post(url, payload, token=""):
+        calls.append((url, payload, token))
+        return {"schema": "rock-kb-feedback-result-v1", "status": "recorded"}
+
+    monkeypatch.setattr(cli, "post_json", fake_post)
+
+    exit_code = cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "feedback",
+            "claim:example",
+            "--rating",
+            "-1",
+            "--reason",
+            "outdated",
+        ]
+    )
+
+    assert exit_code == 0
+    assert calls == [
+        (
+            "https://example.test/feedback",
+            {"result_id": "claim:example", "rating": -1, "reason": "outdated"},
+            "",
+        )
+    ]
+    assert "recorded" in capsys.readouterr().out
+
+
 def test_client_search_uses_compact_results_by_default(monkeypatch, capsys):
     cli = load_client_cli()
     urls: list[str] = []
@@ -166,6 +200,33 @@ def test_client_recipe_commands_hit_recipe_endpoints(monkeypatch, capsys):
         "https://example.test/recipes?concept=check-in",
         "https://example.test/search?q=attendance%20roster&limit=10&min_tier=routing_context_only&kind=recipe&detail=compact",
     ]
+
+
+def test_client_recipe_verify_uses_hosted_read_only_verifier(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls = []
+
+    def fake_get(url):
+        urls.append(url)
+        return {"schema": "rock-kb-recipe-verification-v1", "status": "pass"}
+
+    monkeypatch.setattr(cli, "get_json", fake_get)
+
+    assert cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "recipe",
+            "verify",
+            "oneall:check-in-status-dashboard",
+            "--rock-version",
+            "18",
+        ]
+    ) == 0
+    assert urls == [
+        "https://example.test/recipes/oneall%3Acheck-in-status-dashboard/verify?rock_version=18"
+    ]
+    assert "rock-kb-recipe-verification-v1" in capsys.readouterr().out
     capsys.readouterr()
 
 

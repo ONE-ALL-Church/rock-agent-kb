@@ -10,19 +10,22 @@
       "pass": 4
     },
     "check-in": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 3
     },
     "cms-websites": {
       "pass": 4
     },
     "communications": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "connections": {
       "pass": 4
     },
     "content-personalization": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "data-views-reports": {
       "pass": 4
@@ -31,13 +34,16 @@
       "pass": 4
     },
     "documents-signatures": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "engagement-tracking": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "event-registration": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "giving-finance": {
       "pass": 4
@@ -49,7 +55,8 @@
       "pass": 4
     },
     "hosting-infrastructure": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "lava": {
       "pass": 4
@@ -58,10 +65,15 @@
       "pass": 4
     },
     "mobile": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
+    },
+    "model-map": {
+      "pending_service": 2
     },
     "obsidian-development": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "people-families": {
       "pass": 4
@@ -70,7 +82,8 @@
       "pass": 4
     },
     "prayer-care": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "roku": {
       "pass": 4
@@ -91,16 +104,27 @@
       "pass": 4
     },
     "workflows": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 2
     }
   },
+  "evaluation_modes": {
+    "answer_structure": 124,
+    "retrieval": 16
+  },
   "fail_count": 0,
-  "generated_at": "2026-07-09T23:50:00+00:00",
+  "generated_at": "2026-07-10T08:20:00+00:00",
   "near_misses": [],
   "pass_count": 124,
   "pass_rate": 1.0,
-  "question_count": 124,
-  "result_count": 124,
+  "pending_service_count": 16,
+  "question_count": 140,
+  "question_sources": {
+    "curated_real_world_question_set": 16,
+    "generated_realistic_question_set": 124
+  },
+  "result_count": 140,
   "schema": "rock-kb-evaluation-report-v1",
+  "scored_count": 124,
   "term_miss_count": 0
 }

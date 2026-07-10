@@ -11,7 +11,7 @@ from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-USER_AGENT = "rock-kb-client/0.3.0 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
+USER_AGENT = "rock-kb-client/0.4.0 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -56,7 +56,8 @@ def main(argv: list[str] | None = None) -> int:
     model_map_get.add_argument("--format", choices=["json", "markdown"], default="json")
 
     recipe = subparsers.add_parser("recipe")
-    recipe.add_argument("recipe_id")
+    recipe.add_argument("recipe_args", nargs="+")
+    recipe.add_argument("--rock-version")
 
     recipes = subparsers.add_parser("recipes")
     recipes_subparsers = recipes.add_subparsers(dest="recipes_command", required=True)
@@ -68,6 +69,11 @@ def main(argv: list[str] | None = None) -> int:
 
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
+
+    feedback = subparsers.add_parser("feedback")
+    feedback.add_argument("result_id")
+    feedback.add_argument("--rating", type=int, choices=[-1, 1], required=True)
+    feedback.add_argument("--reason", choices=["helpful", "outdated", "missing", "incorrect", "wrong_route"], required=True)
 
     validate = subparsers.add_parser("validate")
     validate.add_argument("bundle", type=Path)
@@ -119,7 +125,14 @@ def main(argv: list[str] | None = None) -> int:
         if args.model_map_command == "get":
             return print_model(base_url, args.model, args.fields, args.property, args.format)
     if args.command == "recipe":
-        return print_json(get_json(f"{base_url}/recipes/{quote(args.recipe_id)}"))
+        if args.recipe_args[0] == "verify":
+            if len(args.recipe_args) != 2:
+                parser.error("recipe verify requires a recipe_id")
+            suffix = f"?rock_version={quote(args.rock_version)}" if args.rock_version else ""
+            return print_json(get_json(f"{base_url}/recipes/{quote(args.recipe_args[1])}/verify{suffix}"))
+        if len(args.recipe_args) != 1:
+            parser.error("recipe requires one recipe_id, or use recipe verify <recipe_id>")
+        return print_json(get_json(f"{base_url}/recipes/{quote(args.recipe_args[0])}"))
     if args.command == "recipes":
         if args.recipes_command == "list":
             suffix = f"?concept={quote(args.concept)}" if args.concept else ""
@@ -130,6 +143,8 @@ def main(argv: list[str] | None = None) -> int:
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":
         return print_json(get_json(f"{base_url}/operations/dashboard"))
+    if args.command == "feedback":
+        return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
     if args.command == "validate":
         errors = validate_bundle(args.bundle)
         if errors:
@@ -237,12 +252,12 @@ def get_json(url: str):
 
 
 def get_text(url: str) -> str:
-    req = request.Request(url, headers={"user-agent": USER_AGENT})
+    req = request.Request(url, headers={"user-agent": USER_AGENT, "x-rock-kb-client": "cli"})
     with request.urlopen(req) as response:
         return response.read().decode("utf-8")
 
 
-def post_json(url: str, payload: dict, token: str):
+def post_json(url: str, payload: dict, token: str = ""):
     body = json.dumps(payload).encode("utf-8")
     req = request.Request(
         url,
@@ -250,11 +265,13 @@ def post_json(url: str, payload: dict, token: str):
         method="POST",
         headers={
             "content-type": "application/json",
-            "authorization": f"Bearer {token}",
             "user-agent": USER_AGENT,
+            "x-rock-kb-client": "cli",
             "accept": "application/json",
         },
     )
+    if token:
+        req.add_header("authorization", f"Bearer {token}")
     try:
         with request.urlopen(req) as response:
             return json.loads(response.read().decode("utf-8"))

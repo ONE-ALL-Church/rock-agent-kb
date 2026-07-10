@@ -121,6 +121,7 @@ def test_build_agent_answer_pack_writes_answers_checklists_review_and_conflicts(
     monkeypatch.setattr(answer_module, "EVALUATION_SET_PATH", agent_dir / "evaluation-set.jsonl")
     monkeypatch.setattr(answer_module, "EVALUATION_RESULTS_PATH", agent_dir / "evaluation-results.jsonl")
     monkeypatch.setattr(answer_module, "EVALUATION_REPORT_PATH", agent_dir / "evaluation-report.json")
+    monkeypatch.setattr(answer_module, "CURATED_EVALUATION_PATH", tmp_path / "empty-curated.jsonl")
     monkeypatch.setattr(answer_module, "REVIEW_DASHBOARD_PATH", agent_dir / "claim-review-dashboard.md")
 
     concept = Concept(
@@ -524,6 +525,7 @@ def test_build_agent_answer_pack_preserves_distilled_claims_on_repeat_run(monkey
     monkeypatch.setattr(answer_module, "EVALUATION_SET_PATH", agent_dir / "evaluation-set.jsonl")
     monkeypatch.setattr(answer_module, "EVALUATION_RESULTS_PATH", agent_dir / "evaluation-results.jsonl")
     monkeypatch.setattr(answer_module, "EVALUATION_REPORT_PATH", agent_dir / "evaluation-report.json")
+    monkeypatch.setattr(answer_module, "CURATED_EVALUATION_PATH", tmp_path / "empty-curated.jsonl")
     monkeypatch.setattr(answer_module, "REVIEW_DASHBOARD_PATH", agent_dir / "claim-review-dashboard.md")
     concept = Concept(
         id="test-concept",

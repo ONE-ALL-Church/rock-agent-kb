@@ -2,7 +2,7 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-07-09T23:50:00+00:00
+last_built: 2026-07-10T08:20:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -46,7 +46,18 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
+| official | behavior | In Rock 19 and later, Helix Lava endpoints expose request content through Body and RawBody merge fields; Body converts JSON or XML into objects, RawBody preserves the original string, and neither field supplies a body for GET requests. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
+| official | behavior | Each Helix Lava Endpoint call creates an observability activity whose name identifies both the endpoint and its Lava Application; the root activity also records their names as attributes, while the HTTP method is available through an existing activity attribute. | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
+| official | configuration | In Rock 18 or later, Helix loading indicators can reference spinner assets under `/Assets/Images/Spinners/`; installations using the Helix plugin instead use `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/`. | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
 | official | configuration | Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
+| official | implementation_pattern | The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code, allowing linked front-end content blocks and back-end endpoints to be managed together during application development. | [source](https://community.rockrms.com/developer/helix/lava-applications/magnus) |
+| official | implementation_pattern | A Helix form can display a form-level HTMX loading indicator by placing an element with the `htmx-indicator` class inside the form and setting the submitting control's `hx-indicator` attribute to target that form. | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
+| official | implementation_pattern | A Helix Lava Application groups server-side endpoints that return HTML fragments, and each endpoint is addressed by a route composed from the application slug and endpoint slug; endpoints may share that route when they use different HTTP methods. | [source](https://community.rockrms.com/developer/helix/lava-applications) |
+| official | operational_guidance | When developing Helix Lava Applications, monitor endpoint observability data to identify inefficient execution and excessive database calls. | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
+| official | operational_guidance | Consider replacing a Helix Lava Application with a purpose-built custom solution if it would require custom models, at least 50 endpoints, or has become difficult and fragile to develop. | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
+| official | operational_guidance | For readable Helix HTMX markup, place each HTML attribute on its own line and list the CSS class attribute first. | [source](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides) |
+| official | release_caveat | Lava javascript and stylesheet commands do not function in Helix endpoint templates because endpoint output is injected into the page by JavaScript, which prevents reliable detection of resources already present on the page. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
+| official | release_caveat | Helix does not support the Lava javascript and stylesheet commands because they depend on RockPage, which is unavailable when Helix dynamically replaces page regions. | [source](https://community.rockrms.com/developer/helix/strategies/limitations) |
 | official | risk | Helix applications require explicit security and data-integrity review because endpoint-backed application surfaces can expose data or perform work beyond static content rendering. | [source](https://community.rockrms.com/developer/helix/overview/security) |
 | official | source_summary | Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development. | [source](https://community.rockrms.com/developer/helix/overview) |
 
@@ -223,7 +234,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `118`
 - Lava capability source records: `53`
-- Approved claims: `4`
+- Approved claims: `15`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

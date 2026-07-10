@@ -84,6 +84,10 @@
     "notes": [
       "Verify table, field, Lava command, and Helix endpoint behavior against the target Rock release.",
       "Local registration and check-in workflows may encode status differently."
+    ],
+    "version_matrix": [
+      {"rock_version": "17", "status": "verified", "notes": []},
+      {"rock_version": "18", "status": "verified", "notes": []}
     ]
   },
   "implementation": {
@@ -153,6 +157,7 @@
     "https://community.rockrms.com/documentation/BookContent/11",
     "https://community.rockrms.com/documentation/BookContent/25"
   ],
+  "feedback_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues",
   "needs_live_verification": true,
   "review_status": "community_reviewed",
   "authority_tier": "community-reviewed",

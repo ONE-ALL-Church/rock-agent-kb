@@ -20,7 +20,8 @@ artifact_level: live_checklist
 9. Inspect `WorkflowType and Workflow records` in the live instance when the question touches this surface.
 10. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
 11. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
-12. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
+12. Inspect `Registration instance and registrant records` in the live instance when the question touches this surface.
+13. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
@@ -30,6 +31,7 @@ artifact_level: live_checklist
 - `WorkflowType and Workflow records`
 - `Group, GroupType, Location, and Schedule records`
 - `Mobile shell version and mobile block settings`
+- `Registration instance and registrant records`
 - `Person, family, alias, and attribute records`
 
 ## Read-Only Probes
