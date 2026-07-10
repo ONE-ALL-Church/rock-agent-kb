@@ -7,14 +7,20 @@ artifact_level: answer
 
 # What should I check first for AI Agents And Automation?
 
-Start with the highest-priority reviewed claims for this concept.
+Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability.
 
 ## Top Claims
 
+- `claim:57e32b4d554a759231a1`
+- `claim:60c2bcd25e1cce4efef4`
+- `claim:b4fb38224ff8452078f3`
+- `claim:c3921cb1d8b61e06c713`
+- `claim:4b7b8d0b0379ceb7587f`
 
 ## Citations
 
-- [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_developer:790df48a4843d338](https://community.rockrms.com/developer/ai-agents)
-- [sparkdevnetwork_rock:d275b5b94a9da833](https://github.com/SparkDevNetwork/Rock)
-- [rock_documentation:1007e337f89a52b2](https://community.rockrms.com/documentation/BookContent/9)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s) (`76:13`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s) (`67:34`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s) (`24:01`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s) (`71:20`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s) (`87:48`)

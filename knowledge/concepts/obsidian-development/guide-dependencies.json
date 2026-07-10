@@ -3,9 +3,9 @@
     {
       "authority_tier": "official",
       "claim": "Public field-type configuration keys and their meanings form a compatibility contract with remote consumers such as Rock Mobile, so changing them can break existing clients.",
-      "claim_hash": "6e6600b3d364294536e8237f20da268948f6c62d85157b22a38476440a989432",
+      "claim_hash": "9b17381f11767bb062050b73a4f7a138cbcc032055fa084cd6a0e2ed6dcd5d36",
       "claim_id": "claim:018d0b4c3314bed2719c",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -14,7 +14,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "fd4c8694f9d2bd5c99ed9faf284cef576b6a7917722146665f3ed083e758b4e4",
       "source_record_ids": [
@@ -675,9 +675,9 @@
     {
       "authority_tier": "official",
       "claim": "An Obsidian field type must convert private field and configuration data into transmission-safe public representations; identifiers may also be expanded into client-friendly objects when the client needs additional display data, with a corresponding conversion back to the stored representation.",
-      "claim_hash": "ae2952c9572a07a0acc1726b24408e21dc7b0c7bf4528f75f2cace5acc896be6",
+      "claim_hash": "873e3d220ddb077bdfa7a0d63a805ab134a618e77bc4d9a292c9c2db0f662009",
       "claim_id": "claim:52771e519fc707c78615",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
       "community_derived": false,
       "concept_ids": [
@@ -686,7 +686,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "fd4c8694f9d2bd5c99ed9faf284cef576b6a7917722146665f3ed083e758b4e4",
       "source_record_ids": [
@@ -1263,9 +1263,9 @@
     {
       "authority_tier": "official",
       "claim": "The Obsidian developer documentation is a work in progress, so described behavior may change or may not yet be implemented as documented.",
-      "claim_hash": "9476dbbf25ff6940fdf24318599e6308950d6d7d84546ad9bcc26a521fc4c1c5",
+      "claim_hash": "13279c48043afafce09c9e9ed686749a20c567b98195f6416dbada61c4d04335",
       "claim_id": "claim:93e0a70a12a20cd668de",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
       "community_derived": false,
       "concept_ids": [
@@ -1274,7 +1274,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "0310177210e9a8f5f10790d9b383ecda8c044f44f0161f58cdddef3cb374448f",
       "source_record_ids": [
@@ -2074,7 +2074,7 @@
     }
   ],
   "approved_claim_hashes": {
-    "claim:018d0b4c3314bed2719c": "6e6600b3d364294536e8237f20da268948f6c62d85157b22a38476440a989432",
+    "claim:018d0b4c3314bed2719c": "9b17381f11767bb062050b73a4f7a138cbcc032055fa084cd6a0e2ed6dcd5d36",
     "claim:0968c36e7240abc05a8f": "b84caf88d6f9e5ad958961fecc48285b9ebd3fee29d0755026e0973f64fd0e9e",
     "claim:1427ee3726ec26b4d8f9": "c40cc389a764150920e11bbfe2f794e80ba00de884db7ec48ce051fa91962ef7",
     "claim:1773691f110fe8565302": "f75d821892d8babd1f8a22fe6796f3672b34a74418bcc9843c473321d5ee0b10",
@@ -2098,7 +2098,7 @@
     "claim:4b5ea0770a8c958c31d6": "69bf1301d415c43a992485111fed93d604202256f8b52c91eba723657dc8ca50",
     "claim:4db40d0c8f360d6c5f9a": "249462d824f63f73c773cfe808640ea64413245b2cf92a2ffdeef10f147e83dc",
     "claim:4f071310938c1132bce5": "1a6272c5bc4f2e5d40c8b30e2164287b03bb6b619aaa95ac7f6e1374943379fd",
-    "claim:52771e519fc707c78615": "ae2952c9572a07a0acc1726b24408e21dc7b0c7bf4528f75f2cace5acc896be6",
+    "claim:52771e519fc707c78615": "873e3d220ddb077bdfa7a0d63a805ab134a618e77bc4d9a292c9c2db0f662009",
     "claim:54961886c0805fdc0ed4": "a72afead4ae44afb4e8c6f7ceca9c252971fc7dbc90350be2322752231de7849",
     "claim:54ebe89df221536919d7": "721cff700d54bf9f6d132f10355d553bc3bb23fcf2715ebe7f5ea472102471b4",
     "claim:557707f55f6a39c01012": "e90805dc2786af3ffd319b89ce4c11057dd7902b3d02f3782533c7071c3ab422",
@@ -2119,7 +2119,7 @@
     "claim:90c4f3284ee43c9e0e9e": "aa1d684db48671d33f0024936dbade7bca649fa4dacfe1bd0ef1868b63af9a3b",
     "claim:9183fd0fe89e7c3a6509": "e3e4c8f1c5f3cff6b1a34eee1bc2e8419a2dbaabe66b13cdc85efaa710260842",
     "claim:92fc3e39e7763d1e2bc1": "e5e77fff7f2f97228e940f60505d312de4fe65171e186bec38ca340bc799a6e3",
-    "claim:93e0a70a12a20cd668de": "9476dbbf25ff6940fdf24318599e6308950d6d7d84546ad9bcc26a521fc4c1c5",
+    "claim:93e0a70a12a20cd668de": "13279c48043afafce09c9e9ed686749a20c567b98195f6416dbada61c4d04335",
     "claim:9f1d3fd749de265a01b1": "996a9946aa468aea89722803bee55bc3a301fa6d97fd14bcf176cdd2edad4d87",
     "claim:a42b7d81a72eccfcfccf": "ffcac9678854133914c71bf46dcb7b8d840e5969c4ce73b5d30cc6d461b4a5dd",
     "claim:a6acc3c9a866ce162193": "b551a72fa972c5bb4935f887fed2c69f04ffdd5f212a7209792c3424f6b29e16",
@@ -2149,13 +2149,13 @@
     "claim:f5756f592aada5bfb5bb": "00d82d058f4dfee716fa200ece436a5c7e9a37215831333760343f3d2b0cb55c",
     "claim:fea01b9e6403198166d2": "9568c16b3da1a5b21b7da2ddb4b9ed72f80b295cb95dfc36f26fee51caada019"
   },
-  "approved_claims_hash": "7855bec9ca2463d67f743a2c4d6e092fcdf45b38ce7f64d7de5401ca1843f9bd",
+  "approved_claims_hash": "20e44703f29c2b5bafd5111b8b5a84e506a114ad7314efe7250ae4e53a8d6c07",
   "approved_claims_path": "knowledge/concepts/obsidian-development/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "f768e9a71799adfa685a6d1e9f212cff4a00b0eef2b1cd554f5c1fa1a1b517cd",
   "approved_media_path": "knowledge/concepts/obsidian-development/approved-media.md",
-  "built_at": "2026-07-10T08:20:00+00:00",
+  "built_at": "2026-07-10T14:38:09+00:00",
   "concept_id": "obsidian-development",
   "guide_hash": "c05893fd72f95d07198af92620ea14dbddd85c89c8a7d85b8f72b4c92c663dbb",
   "guide_line_count": 1396,

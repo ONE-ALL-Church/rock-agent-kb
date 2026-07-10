@@ -260,7 +260,7 @@ def test_build_agent_answer_pack_writes_answers_checklists_review_and_conflicts(
     rocku_review = next(row for row in review_rows if row["claim_id"] == "claim:rocku")
     assert rocku_review["recommended_action"] == "verify_live_before_operational_answer"
     assert all(row["claim_id"] != "claim:generic" for row in review_rows)
-    assert conflicts
+    assert conflicts == []
     assert distilled
     assert authority_rules[0]["preferred_sources"]
     assert len(eval_set) == 4
@@ -308,6 +308,54 @@ def test_claim_review_queue_excludes_answer_pack_usable_and_singleton_routing_cl
     )
 
     assert rows == []
+
+
+def test_source_conflicts_require_topic_overlap_and_opposing_claim_polarity():
+    concept = Concept(
+        id="workflows",
+        title="Workflows",
+        description="Workflow automation.",
+        keywords=["workflow"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="",
+        guide_status="",
+        max_records=5,
+        raw={},
+    )
+    claims = {
+        "workflows": [
+            {
+                "claim_id": "claim:official",
+                "claim": "Workflow launches must not run with unrestricted administrator permissions.",
+                "claim_type": "risk",
+                "authority_tier": "official",
+                "source_refs": [{"source_id": "rock_documentation", "url": "https://example.com/official"}],
+            },
+            {
+                "claim_id": "claim:community-conflict",
+                "claim": "Workflow launches must run with unrestricted administrator permissions.",
+                "claim_type": "risk",
+                "authority_tier": "community-reviewed",
+                "source_refs": [{"source_id": "community", "url": "https://example.com/community"}],
+            },
+            {
+                "claim_id": "claim:community-unrelated",
+                "claim": "Workflow forms should use concise field labels for staff.",
+                "claim_type": "risk",
+                "authority_tier": "community-reviewed",
+                "source_refs": [{"source_id": "community", "url": "https://example.com/labels"}],
+            },
+        ]
+    }
+
+    rows = answer_module.source_conflict_rows([concept], claims)
+
+    assert len(rows) == 1
+    assert rows[0]["status"] == "potential_contradiction"
+    assert rows[0]["claim_ids"] == ["claim:community-conflict", "claim:official"]
+    assert rows[0]["conflict_signals"]["opposing_axes"] == ["directive"]
 
 
 def test_groups_first_checks_uses_reviewer_authored_override():

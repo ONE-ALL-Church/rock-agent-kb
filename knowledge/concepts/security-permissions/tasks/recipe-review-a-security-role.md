@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Review A Security Role.
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools
 - https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://community.rockrms.com/developer/helix/overview/security
+- https://community.rockrms.com/recipes/441

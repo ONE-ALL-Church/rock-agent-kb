@@ -12,26 +12,26 @@ Start from the exact secured object: page, block, entity, REST key, group role, 
 ## Top Claims
 
 - `claim:5c53977793c7673b19e9`
+- `claim:b4fb38224ff8452078f3`
 - `claim:82a64d99bfa7fdab38bc`
 - `claim:ced0968707b2a7a9d6a1`
 - `claim:9a75fb2b9c38be765e70`
 - `claim:39735f6a8684f32d8191`
 - `claim:95e015e3407ed10e9e7c`
 - `claim:09bc1e14a8ad2c40145e`
-- `claim:09c6a4834867ba6879d7`
 
 ## Distilled Claims
 
 - `distilled-claim:1444283a684196cee6b2`
+- `distilled-claim:3cf7117ecf4dc2e14579`
 - `distilled-claim:3826908691dcad54cbbf`
 - `distilled-claim:eab3fe52b431b6b88e9c`
-- `distilled-claim:5e4bdda61ab8a12915db`
 
 ## Citations
 
 - [Person Profile](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) (`00:00`)
+- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s) (`24:01`)
 - [Person Note](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1) (`00:00`)
 - [Personalization](https://community.rockrms.com/rocku/cms/personalization)
 - [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) (`00:00`)
 - [Personalization](https://community.rockrms.com/rocku/cms/personalization) (`00:00`)
-- [Note Types](https://community.rockrms.com/rocku/core-concepts/note-types) (`00:00`)

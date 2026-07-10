@@ -128,7 +128,7 @@ generated: true
 | `17-agent-task-recipes-recipe-review-a-permission-change-request` | structural | live verification |
 | `17-agent-task-recipes-recipe-review-a-public-route` | normal | live verification |
 | `17-agent-task-recipes-recipe-review-a-security-role` | community-supported | live verification |
-| `approved-claim-coverage` | normal | live verification |
+| `approved-claim-coverage` | citation-only | live verification |
 | `18-source-map-and-dependency-notes-primary-source-map` | normal | live verification |
 | `18-source-map-and-dependency-notes-dependency-notes-people` | structural | live verification |
 | `18-source-map-and-dependency-notes-dependency-notes-groups` | structural | live verification |

@@ -82,8 +82,10 @@ tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or
 compatibility with workflows that still need full rows in one response.
 
 `recipe verify` checks immutable source hashes and declared compatibility. It
-does not execute recipe code or change Rock. `feedback` accepts only a fixed
-rating and reason; it does not send free-text comments or query text.
+uses the hosted service's immutable-byte cache and GitHub Contents API fallback
+when needed; it does not execute recipe code or change Rock. `feedback` accepts
+only a fixed rating and reason; it does not send free-text comments or query
+text.
 
 To test unreleased client changes directly from GitHub, use:
 

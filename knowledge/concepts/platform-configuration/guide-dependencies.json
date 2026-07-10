@@ -369,9 +369,9 @@
     {
       "authority_tier": "official",
       "claim": "The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it.",
-      "claim_hash": "814025556e8548ee211a65192def57e2af90ab2965fd9c01ea6af2d7365ca411",
+      "claim_hash": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
       "claim_id": "claim:0ed16cad9954cfbf26ed",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -384,7 +384,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -704,9 +704,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance.",
-      "claim_hash": "f596d5dab860771d1f2f903759a78f3b3e5d7edba5dead214bfb6fe716b9efe2",
+      "claim_hash": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
       "claim_id": "claim:3840e502df599a6bf7a2",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -719,7 +719,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -881,9 +881,9 @@
     {
       "authority_tier": "official",
       "claim": "Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging.",
-      "claim_hash": "893e17f1ea7329f097da5de992b3be3a0c132f5db8b5ebefac94e59b43bb9763",
+      "claim_hash": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
       "claim_id": "claim:4b7b8d0b0379ceb7587f",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -896,7 +896,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -987,9 +987,9 @@
     {
       "authority_tier": "official",
       "claim": "Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers.",
-      "claim_hash": "dceff80dbfeb8ba26cca009d81907e01f550c0d81a8e212016fd230c4dfc84e7",
+      "claim_hash": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
       "claim_id": "claim:57e32b4d554a759231a1",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -1002,7 +1002,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -1058,9 +1058,9 @@
     {
       "authority_tier": "official",
       "claim": "Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data.",
-      "claim_hash": "94bcf476d05c2ba2e1d30b8a606d2298f4894353614a8ad6c7068979cc12a7a9",
+      "claim_hash": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
       "claim_id": "claim:60c2bcd25e1cce4efef4",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -1073,7 +1073,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -1986,9 +1986,9 @@
     {
       "authority_tier": "official",
       "claim": "LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article.",
-      "claim_hash": "fdce653f4f95d47833a8b736d39ca0daa20f78b5cec1a173e0b75a849f7f26ab",
+      "claim_hash": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
       "claim_id": "claim:aaa109fc541fff897e3f",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -2001,7 +2001,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -2021,9 +2021,9 @@
     {
       "authority_tier": "official",
       "claim": "The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent.",
-      "claim_hash": "592ef5901499476b35f92579617ce37012bff24adaaa0ba329c0b5fff462ec62",
+      "claim_hash": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
       "claim_id": "claim:ab59d559b804403dc4a0",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -2036,7 +2036,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -2089,9 +2089,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent.",
-      "claim_hash": "9f929ffc9c09c55f1a3ac5defa3a7e0904bc3bc8452266fd82e5964a5748eef7",
+      "claim_hash": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
       "claim_id": "claim:b4fb38224ff8452078f3",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -2104,7 +2104,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -2390,9 +2390,9 @@
     {
       "authority_tier": "official",
       "claim": "The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability.",
-      "claim_hash": "bb6a5eb5b0a147c952d10eb484ff3e264d3e78a2b63084ceb71ea30f1b5bce53",
+      "claim_hash": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
       "claim_id": "claim:c3921cb1d8b61e06c713",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -2405,7 +2405,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -2791,9 +2791,9 @@
     {
       "authority_tier": "official",
       "claim": "This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability.",
-      "claim_hash": "5202be7270c1bf1b5fe0d63157341095d26a14a47201c7dc6dc6c25c16597cd2",
+      "claim_hash": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
       "claim_id": "claim:eb03c3644ee4b1ae217b",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "source_summary",
       "community_derived": false,
       "concept_ids": [
@@ -2806,7 +2806,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -2859,9 +2859,9 @@
     {
       "authority_tier": "official",
       "claim": "MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence.",
-      "claim_hash": "ba73e597cb57051033fbbdb9154265d347b4352f54a6483601dfed189a0bef49",
+      "claim_hash": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
       "claim_id": "claim:ed0bfda39f5c0b664ef3",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -2874,7 +2874,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -3033,9 +3033,9 @@
     {
       "authority_tier": "official",
       "claim": "MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified.",
-      "claim_hash": "dcfdf209dd4e24da783a173560241633ed70e93792a2e3fd181760e34b6c00f4",
+      "claim_hash": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
       "claim_id": "claim:fec91855b52cecd12b40",
-      "claim_tier": "source_backed",
+      "claim_tier": "routing_context_only",
       "claim_type": "operational_guidance",
       "community_derived": false,
       "concept_ids": [
@@ -3048,7 +3048,7 @@
       "confidence": "medium",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
@@ -3130,7 +3130,7 @@
     "claim:099854af8936902615d7": "bb4308c2be15bf273b2f4c2ff810912ec3ede720c3896e72ba0003f03d73fbd8",
     "claim:0a757095cbd919912a83": "4c15c80d940b2e96a340e4df2985071dc904d89cc6bed8b2ae54e892a68c42af",
     "claim:0da68b1d61b229269520": "09d6b05cb7c63733addb3cbb7dccdc879563af372363f7d9431e8534b7c0d3ce",
-    "claim:0ed16cad9954cfbf26ed": "814025556e8548ee211a65192def57e2af90ab2965fd9c01ea6af2d7365ca411",
+    "claim:0ed16cad9954cfbf26ed": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
     "claim:158c76d4f5305a8d7c9a": "f1f44060570d0184c047d84cd632908aed541a982518d2d46e6ec2deac262200",
     "claim:1d226da49f2e53690ab1": "50a01cdb73274267b7b40fe7d511e570b2da0d13651a93b36a42d3e197e2df61",
     "claim:1ed694954b3d4cbe0315": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
@@ -3140,17 +3140,17 @@
     "claim:31a58d58dbab5739b4f5": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
     "claim:3524141bde0a8ff0b15e": "2d010b6e57129b7cb4b300ebf2f261c3fb34e1a93c872f4185f7fc129f1b2bfc",
     "claim:37c56553b4e1f7e72932": "cdcf9b7f6cf1288359789340d38544ad69dd22e3833b215b7b8576dcee7d0bc2",
-    "claim:3840e502df599a6bf7a2": "f596d5dab860771d1f2f903759a78f3b3e5d7edba5dead214bfb6fe716b9efe2",
+    "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
     "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
     "claim:42ce1ba2afef374bebeb": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
     "claim:43581184f63c0a294c58": "97c0e2c666b182b85f2422943baf148d4bcb572c2fa1a03c24207b4ffe7e0a7f",
     "claim:4a928b186c3643be8160": "6d9cf5296016c957e0548994c96a82079dcf8dea19ef5c0432c5cda2dea2ed82",
-    "claim:4b7b8d0b0379ceb7587f": "893e17f1ea7329f097da5de992b3be3a0c132f5db8b5ebefac94e59b43bb9763",
+    "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
     "claim:5106f5e9af12a3a83a57": "466243bff5a8189d4808802b49ba7e1755ef135f2af478c4263705df1463bde9",
     "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
-    "claim:57e32b4d554a759231a1": "dceff80dbfeb8ba26cca009d81907e01f550c0d81a8e212016fd230c4dfc84e7",
+    "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
     "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-    "claim:60c2bcd25e1cce4efef4": "94bcf476d05c2ba2e1d30b8a606d2298f4894353614a8ad6c7068979cc12a7a9",
+    "claim:60c2bcd25e1cce4efef4": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
     "claim:60d40983fd53c0173dd9": "253ac52b63b806f536d05719bf140e4ef3a771420be540c54ba5a26c8f15ea1c",
     "claim:696b196b4db5d683d857": "9f641a7bcbbd7862c6ebc3a08b26645c60af5a1b3c3efd9a06774830fb537106",
     "claim:6ae226ddf1e1e1df52ed": "87f5d050a2fc13f9e8e6e994842df383c47e76776e43db4a34092a7e00c6ad6f",
@@ -3177,10 +3177,10 @@
     "claim:a5820b2c9e1499ebe406": "3a832eb6c1df0a45f796562819a0e95480017ce9b721100d90b2293df4abd11a",
     "claim:a5f0a54f29d226cec5fc": "c18235cccdd432bc4ae1cb975a6b6083983a39f370bf785e8f84995f9dcdb982",
     "claim:a6fe41ec449004caa398": "54a675c68a2240c6cfe04d84b0748f28bf54838072aba39ce8f7354fec156731",
-    "claim:aaa109fc541fff897e3f": "fdce653f4f95d47833a8b736d39ca0daa20f78b5cec1a173e0b75a849f7f26ab",
-    "claim:ab59d559b804403dc4a0": "592ef5901499476b35f92579617ce37012bff24adaaa0ba329c0b5fff462ec62",
+    "claim:aaa109fc541fff897e3f": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
+    "claim:ab59d559b804403dc4a0": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
     "claim:acd9b4db35293fe83531": "fbcdf0a48c394e59d4a53838381c03e6a590a497657588e23eeb36ec36f585b1",
-    "claim:b4fb38224ff8452078f3": "9f929ffc9c09c55f1a3ac5defa3a7e0904bc3bc8452266fd82e5964a5748eef7",
+    "claim:b4fb38224ff8452078f3": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
     "claim:b9e56d68768b84160b2d": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
     "claim:ba0aa81d3b0a4d47b530": "6cc4ad4741afe746867b55390b022d230834f3c376dc0ead512c70d29dc330ed",
     "claim:bcd25b334f61749a0936": "45f292a22b741080f68e656494a56d4c61279683f4c2cbb85d39e8ef74c6d004",
@@ -3189,7 +3189,7 @@
     "claim:c0587c98a544740f9673": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
     "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
     "claim:c37961bab650b138a2d2": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
-    "claim:c3921cb1d8b61e06c713": "bb6a5eb5b0a147c952d10eb484ff3e264d3e78a2b63084ceb71ea30f1b5bce53",
+    "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
     "claim:c6253a151e0fc940fb36": "90465d0d3e9058f059402ed03842895788529615d3d0a9a0c99e36e126ae4969",
     "claim:c7ad8608083bb51c3061": "86b1e7ec6ce91254a01b8b4a8055d86ee592cabb092d15ce5d566a7a04679cf4",
     "claim:c7ce2d177c5707d8635a": "8b7d22c7fb75fd461638028ad99b65fb89732b270a9ab072830eef9012987cfa",
@@ -3201,17 +3201,17 @@
     "claim:d24890227d54fd22a155": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
     "claim:dc0db04945d46116865c": "fb11878dde51fca7c06b834c5d15ba07db997bcb8938a4d87922f96cf8553e5d",
     "claim:dc56d43b1a46195f8bf8": "7afe5894bdd492acd1767bca9bd7e5024b646e75b332b58de96b1574bb00b69b",
-    "claim:eb03c3644ee4b1ae217b": "5202be7270c1bf1b5fe0d63157341095d26a14a47201c7dc6dc6c25c16597cd2",
+    "claim:eb03c3644ee4b1ae217b": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
     "claim:ec89e47bfc8824abdeff": "c8f88352c02e901f1eb3eacd72b759f6cbb12b628649e90069f231612537d194",
-    "claim:ed0bfda39f5c0b664ef3": "ba73e597cb57051033fbbdb9154265d347b4352f54a6483601dfed189a0bef49",
+    "claim:ed0bfda39f5c0b664ef3": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
     "claim:f30e067d617b5791888d": "829d4694205cdf7d834b0e718d026cbfb3d6c3d9963d894a8e7df3f8a289f48f",
     "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
     "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
     "claim:f757fd751fb7c1ea8c43": "9bc12ce4a856d37411521769bfcdc3fd38062199c870aef734255ee64ad201c6",
-    "claim:fec91855b52cecd12b40": "dcfdf209dd4e24da783a173560241633ed70e93792a2e3fd181760e34b6c00f4",
+    "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "ab644b57fe162ca8cf3990ac2ef5cc9b4b62742d69d0f25024e56bf9ef18f2e3",
+  "approved_claims_hash": "d4d9e4675c4dfb58ae47241f22ce272b4336eff21bfb2addcbcd56b539bb8991",
   "approved_claims_path": "knowledge/concepts/platform-configuration/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3562,12 +3562,12 @@
   },
   "approved_media_hash": "9b6e6d8bcff61cbe2e2741fe693a3c2842e5f5d3c34cf552f2eec3fbe079eccd",
   "approved_media_path": "knowledge/concepts/platform-configuration/approved-media.md",
-  "built_at": "2026-07-10T08:20:00+00:00",
+  "built_at": "2026-07-10T14:37:54+00:00",
   "concept_id": "platform-configuration",
-  "guide_hash": "9fb019e98f64f646380e34365b4e6e43cbca0e448042a5326f18e3d2941bc189",
+  "guide_hash": "7f0b9e9b8a1122c0e78c88cbdf3a93cdceac5c501937408c4905d4637630a07c",
   "guide_line_count": 1570,
   "guide_path": "knowledge/concepts/platform-configuration/guide.md",
-  "guide_word_count": 14152,
+  "guide_word_count": 14097,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3804,15 +3804,6 @@
       "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools"
     },
     {
-      "authority": "official-developer",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_developer",
-      "source_key": "87808d737d70437b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/developer/packaging-plugins-themes"
-    },
-    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -3820,6 +3811,15 @@
       "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "87808d737d70437b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/packaging-plugins-themes"
     },
     {
       "authority": "unknown",
@@ -5310,12 +5310,12 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
         "87808d737d70437b",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -5975,16 +5975,6 @@
       "version": null
     },
     {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "kind": "citation_only",
-      "source_id": "rock_developer",
-      "source_key": "87808d737d70437b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/developer/packaging-plugins-themes",
-      "url": "https://community.rockrms.com/developer/packaging-plugins-themes"
-    },
-    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -5993,6 +5983,16 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "87808d737d70437b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/packaging-plugins-themes",
+      "url": "https://community.rockrms.com/developer/packaging-plugins-themes"
     },
     {
       "authority": "unknown",

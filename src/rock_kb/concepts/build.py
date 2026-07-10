@@ -357,6 +357,7 @@ def model_map_lava_non_database_notes(model_crosswalk: dict[str, dict[str, Any]]
         return []
     model_names = set(model_crosswalk)
     model_name_keys = {normalize_model_map_name(model_name) for model_name in model_names}
+    models_by_normalized_name = {normalize_model_map_name(name): row for name, row in model_crosswalk.items()}
     path = KNOWLEDGE_DIR / "model-map" / "stable-properties.jsonl"
     if not path.exists():
         return []
@@ -368,12 +369,15 @@ def model_map_lava_non_database_notes(model_crosswalk: dict[str, dict[str, Any]]
             continue
         if not row.get("is_lava_supported_non_database"):
             continue
+        model = model_crosswalk.get(str(row.get("model_name") or "")) or models_by_normalized_name.get(
+            normalize_model_map_name(row.get("model_name"))
+        ) or {}
         notes.append(
             "- `{model}.{property}` is Lava-marked but not database-marked in the generated Model Map"
             " (Rock {rock_version}; source {source_url}).".format(
                 model=row.get("model_name"),
                 property=row.get("property_name"),
-                rock_version=row.get("rock_version") or "unknown",
+                rock_version=model.get("rock_version") or "unknown",
                 source_url=row.get("source_url") or "Model Map",
             )
         )

@@ -12,6 +12,12 @@ The KB separates public-source review from live-operational verification. A clai
 ## Promotion Rules
 
 - Do not promote `source_backed` claims to `live_verified` from source text alone.
+- Reviewer dispositions under `claims/claim-review-dispositions.jsonl` may move
+  a source-backed claim to `answer_pack_approved` when the cited public source
+  directly supports bounded, non-instance-specific guidance, or to
+  `routing_context_only` when the claim is preview, partner, roadmap, or
+  external-policy context. These dispositions never create `live_verified`
+  evidence.
 - A read-only SQL probe can verify structural inspection claims, such as the existence of `Auth`, `Page`, `Block`, `DataView`, `Report`, `ConnectionRequest`, `NoteType`, or related columns.
 - A schema probe cannot verify that a specific page, workflow, Data View, API key, check-in area, security role, or ministry process is configured correctly. Those claims need a named live object and object-specific evidence.
 - Generated answer-pack prose may use only `answer_pack_approved` and `live_verified` claims. Reviewed distilled claims are built only from those same tiers.

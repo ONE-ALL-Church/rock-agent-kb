@@ -344,7 +344,6 @@ def test_concept_guide_references_generated_model_map_crosswalk(monkeypatch, tmp
             {
                 "model_name": "Person",
                 "property_name": "FullName",
-                "rock_version": "18.2.4",
                 "source_url": "https://stable.example/admin/power-tools/model-map",
                 "is_lava_supported_non_database": True,
             }
@@ -396,7 +395,7 @@ def test_concept_guide_references_generated_model_map_crosswalk(monkeypatch, tmp
     text = render_concept_guide(concept, selected, selected, dependency)
 
     assert "| [Person](../../model-map/models/person.md) | CRM | 18.2.4 | 72 | 33 | 101 | 39 | 1 |" in text
-    assert "`Person.FullName` is Lava-marked but not database-marked in the generated Model Map" in text
+    assert "`Person.FullName` is Lava-marked but not database-marked in the generated Model Map (Rock 18.2.4" in text
 
 
 def test_refresh_long_form_model_map_pointers_updates_existing_guides(monkeypatch, tmp_path):
