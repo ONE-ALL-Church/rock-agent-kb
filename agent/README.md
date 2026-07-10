@@ -8,6 +8,7 @@ This directory contains generated public files for AI agents:
 - `model-map-*.jsonl`, `model-map-digests.jsonl`, and `model-map-summary.json` - stable-first public Rock model-map details, exact model digests, and version differences.
 - `lava-capabilities.jsonl`, `lava-capability-summary.json`, `lava-contexts.jsonl`, and `lava-context-summary.json` - public Lava capability and data-context reference data.
 - `live-inspection-checklists.jsonl` and `live-probe-recipes.jsonl` - generic read-only verification patterns for local Rock instances.
+- `recipes.jsonl` and `recipe-summary.json` - reusable community implementation patterns with immutable code pins, adaptation points, security, compatibility, and validation guidance.
 - `source-summaries.jsonl`, `source-citations.jsonl`, and `source-summary-report.json` - source coverage and citation metadata.
 - `distilled-claims.jsonl`, `source-authority-rules.jsonl`, and `claims/approved-claims.jsonl` - public distilled claim data and authority rules.
 - `llms.txt` - AI-readable source and repo map.

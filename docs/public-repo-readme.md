@@ -10,6 +10,7 @@ This public tree is the canonical public workspace. Generated files should be up
 - `knowledge/README.md` explains the generated concept guides and model-map pages.
 - `sources/registry.yaml` lists public source families and their publish policy.
 - `community-contributions/README.md` explains how outside organizations and agents can submit reviewed public-safe contribution bundles.
+- `docs/community-recipes.md` explains how code owners publish reusable recipes while the KB tracks immutable source, compatibility, security, and learnings.
 - `docs/decisions/public-export-policy.md` explains what is allowed in the public export.
 - `docs/runbooks/pipeline-overview.md` explains the rebuild and audit flow.
 

@@ -56,6 +56,9 @@ uvx rock-kb claim '<claim-id>'
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
+uvx rock-kb recipes list
+uvx rock-kb recipes search "registration attendance dashboard"
+uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```

@@ -70,3 +70,16 @@ def test_worker_gates_lava_context_root_boost_to_lava_intent_queries():
 
     for snippet in expected_snippets:
         assert snippet in source
+
+
+def test_worker_exposes_recipe_routes_and_tools():
+    source = WORKER.read_text(encoding="utf-8")
+
+    for snippet in [
+        'url.pathname === "/recipes"',
+        'url.pathname.startsWith("/recipes/")',
+        "kb_list_recipes",
+        "kb_get_recipe",
+        "agent/recipes.jsonl",
+    ]:
+        assert snippet in source

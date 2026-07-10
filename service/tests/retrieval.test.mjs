@@ -74,6 +74,34 @@ test("exact concept routing injects authored answers outside the FTS candidate s
   }
 });
 
+test("recipe routes and MCP tools return the structured recipe", async () => {
+  const mf = await buildWorker();
+  try {
+    const listResponse = await mf.dispatchFetch("https://kb.example.test/recipes?concept=check-in");
+    const list = await listResponse.json();
+    assert.equal(listResponse.status, 200);
+    assert.equal(list.count, 1);
+    assert.equal(list.recipes[0].recipe_id, "oneall:check-in-status-dashboard");
+
+    const getResponse = await mf.dispatchFetch("https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard");
+    const result = await getResponse.json();
+    assert.equal(result.status, "ok");
+    assert.equal(result.recipe.security.data_access, "read_only");
+    assert.equal(result.recipe.implementation.commit_sha.length, 40);
+
+    const toolsResponse = await mcp(mf, "tools/list", {});
+    const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
+    assert.equal(toolNames.includes("kb_list_recipes"), true);
+    assert.equal(toolNames.includes("kb_get_recipe"), true);
+
+    const callResponse = await mcp(mf, "tools/call", { name: "kb_get_recipe", arguments: { recipe_id: "oneall:check-in-status-dashboard" } });
+    const callResult = JSON.parse(callResponse.result.content[0].text);
+    assert.equal(callResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 async function buildWorker() {
   const suffix = crypto.randomUUID();
   const mf = new Miniflare({
@@ -158,6 +186,23 @@ async function buildWorker() {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
         .bind(...Object.values(conceptRow)).run();
     }
+    const bucket = await mf.getR2Bucket("KB_ARTIFACTS");
+    const recipePath = "agent/recipes.jsonl";
+    const recipe = {
+      schema: "rock-kb-recipe-v1",
+      recipe_id: "oneall:check-in-status-dashboard",
+      org_id: "oneall",
+      title: "Check-In Status Dashboard",
+      summary: "Combine registration, placement, and attendance.",
+      version: "1.0.0",
+      recipe_kind: "lava_application",
+      concept_ids: ["check-in", "event-registration", "lava"],
+      authority_tier: "community-reviewed",
+      security: { data_access: "read_only" },
+      implementation: { commit_sha: "d8ea54fa67efe40692689fb009561ff96e88bf42" },
+    };
+    const shard = crypto.createHash("sha256").update(recipePath).digest("hex").slice(0, 2);
+    await bucket.put(`versions/test-version/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));
     return mf;
   } catch (error) {
     await mf.dispose();

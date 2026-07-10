@@ -81,6 +81,8 @@ uvx rock-kb claim '<claim-id>'
 uvx rock-kb claims security-permissions --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
+uvx rock-kb recipes list
+uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb dashboard
 ```
 
@@ -151,6 +153,12 @@ uvx --from 'git+https://github.com/ONE-ALL-Church/rock-agent-kb#subdirectory=cli
 ```
 
 Valid rows must be newly written public-safe summaries. They cannot contain raw transcripts, private source paths, direct media URLs, copied proprietary text, secrets, or instance-specific private details.
+
+Reusable implementations can be submitted as community recipes. Keep the code
+in your organization's licensed public repository, then submit a `recipe`
+contribution with an immutable commit pin, file hashes, adaptation points,
+security, compatibility, validation, and learnings. See
+`docs/community-recipes.md`.
 
 On success, the hosted service opens a PR under:
 

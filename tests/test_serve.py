@@ -83,6 +83,24 @@ def seed_root(root: Path) -> None:
     write_jsonl(root / "agent" / "concept-task-cards.jsonl", [{"task_id": "task:workflow", "concept_id": "workflows", "title": "Inspect trigger"}])
     write_jsonl(root / "agent" / "concept-release-caveats.jsonl", [{"concept_id": "workflows", "summary": "Version-specific workflow caveat."}])
     write_jsonl(
+        root / "agent" / "recipes.jsonl",
+        [
+            {
+                "recipe_id": "test-org:check-in-dashboard",
+                "org_id": "test-org",
+                "title": "Check-In Dashboard",
+                "summary": "Combine a registration roster with latest attendance.",
+                "concept_ids": ["check-in"],
+                "authority_tier": "community-reviewed",
+                "implementation": {
+                    "repository_url": "https://github.com/test-org/recipes",
+                    "commit_sha": "a" * 40,
+                    "source_path": "check-in-dashboard",
+                },
+            }
+        ],
+    )
+    write_jsonl(
         root / "claims" / "approved-claims.jsonl",
         [
             {"claim_id": "claim:workflow-source", "concept_ids": ["workflows"], "claim_tier": "source_backed", "claim": "Workflow claim."},
@@ -106,6 +124,17 @@ def test_search_uses_existing_fts_and_filters_private_paths(tmp_path):
     assert [row["id"] for row in results] == ["public:workflow"]
     assert results[0]["path"] == "knowledge/concepts/workflows/index.md"
     assert results[0]["concept"] == "workflows"
+
+
+def test_search_and_concept_package_include_recipes(tmp_path):
+    seed_root(tmp_path)
+
+    results = search("registration attendance dashboard", root=tmp_path)
+    concept = get_concept("check-in", root=tmp_path)
+
+    assert results[0]["id"] == "recipe:test-org:check-in-dashboard"
+    assert results[0]["authority_tier"] == "community-reviewed"
+    assert concept["recipes"][0]["recipe_id"] == "test-org:check-in-dashboard"
 
 
 def test_manifest_and_concepts_load_from_public_agent_artifacts(tmp_path):
@@ -173,5 +202,7 @@ def test_build_server_registers_expected_tools():
         "kb_list_concepts",
         "kb_get_concept",
         "kb_get_claims",
+        "kb_list_recipes",
+        "kb_get_recipe",
     }
     assert "Start here for any Rock question" in server.tools["kb_search"]["description"]

@@ -30,6 +30,7 @@ Contribution types:
 - `guide_section`
 - `source_link`
 - `open_question`
+- `recipe` (requires a nested `rock-kb-recipe-v1` record; substantial code stays in its owner's public repository)
 
 Review statuses:
 
@@ -52,6 +53,12 @@ Confidence values:
 - `needs_review`
 
 Required public bundle fields are enforced in `src/rock_kb/contributions.py`: `schema`, `contribution_id`, `org_id`, `concept_ids`, `contribution_type`, `title`, `distilled_summary`, `source_urls`, `source_record_ids`, `redaction_attestation`, `review_status`, `license_attestation`, `confidence`, and `needs_live_verification`.
+
+Recipe rows additionally require `recipe`. Maintainers promote a reviewed
+recipe with `uv run kb recipes promote <bundle> <recipe-id>`, then rebuild the
+`recipes` and `agent-pack` stages. The canonical record lives under
+`recipes/<org-id>/`; generated lookup surfaces live under `agent/recipes.jsonl`
+and `knowledge/recipes/`. See `docs/community-recipes.md`.
 
 ## End-To-End Example
 

@@ -55,6 +55,17 @@ def test_build_search_rows_includes_public_community_contributions(monkeypatch):
     assert row["payload"]["concept_ids"] == ["workflows"]
 
 
+def test_recipe_search_rows_include_reusable_learnings():
+    rows = service_projection.recipe_search_rows()
+    row = next(row for row in rows if row["id"] == "recipe:oneall:check-in-status-dashboard:check-in")
+
+    assert row["kind"] == "recipe"
+    assert row["authority_tier"] == "community-reviewed"
+    assert row["claim_tier"] == "answer_pack_approved"
+    assert "AttendanceOccurrence" in row["body"]
+    assert row["payload"]["implementation"]["commit_sha"] == "d8ea54fa67efe40692689fb009561ff96e88bf42"
+
+
 def test_answer_search_rows_include_live_inspection_checklist(monkeypatch):
     def fake_read_jsonl(path):
         if path.name == "answer-pack.jsonl":

@@ -15,13 +15,15 @@ PRIVATE_PATH_PREFIXES = ("data/review/", "data/media/", "data/normalized/", "dat
 
 def search(query: str, limit: int = 10, root: Path | None = None) -> list[dict[str, Any]]:
     root = root or REPO_ROOT
+    rows = search_recipes(query, root)
     db_path = root / "data" / "index" / "kb.sqlite"
     if not db_path.exists():
-        return []
+        return rows[:limit]
+    if len(rows) >= limit:
+        return rows[:limit]
     fts_query = build_fts_query(query)
     if not fts_query:
         return []
-    rows: list[dict[str, Any]] = []
     with sqlite3.connect(db_path) as connection:
         connection.row_factory = sqlite3.Row
         for row in connection.execute(
@@ -60,7 +62,39 @@ def search(query: str, limit: int = 10, root: Path | None = None) -> list[dict[s
             )
             if len(rows) >= limit:
                 break
-    return rows
+    return rows[:limit]
+
+
+def search_recipes(query: str, root: Path) -> list[dict[str, Any]]:
+    terms = {term.lower() for term in re.findall(r"[A-Za-z0-9_-]+", query) if len(term) > 2}
+    if not terms:
+        return []
+    matches = []
+    for recipe in read_jsonl(root / "agent" / "recipes.jsonl"):
+        haystack = json.dumps(recipe, ensure_ascii=False).lower()
+        score = sum(1 for term in terms if term in haystack)
+        if score == 0:
+            continue
+        implementation = recipe.get("implementation") or {}
+        recipe_id = str(recipe.get("recipe_id") or "")
+        matches.append(
+            (
+                score,
+                {
+                    "id": f"recipe:{recipe_id}",
+                    "kind": "recipe",
+                    "title": recipe.get("title"),
+                    "path": f"knowledge/recipes/{recipe.get('org_id')}/{recipe_id.split(':', 1)[-1]}.md",
+                    "url": f"{implementation.get('repository_url', '')}/tree/{implementation.get('commit_sha', '')}/{implementation.get('source_path', '')}",
+                    "concept": (recipe.get("concept_ids") or [None])[0],
+                    "topics": recipe.get("concept_ids") or [],
+                    "snippet": recipe.get("summary"),
+                    "source_id": recipe.get("org_id"),
+                    "authority_tier": recipe.get("authority_tier"),
+                },
+            )
+        )
+    return [row for _, row in sorted(matches, key=lambda item: (-item[0], str(item[1].get("id") or "")))]
 
 
 def get_result(result_id: str, root: Path | None = None) -> dict[str, Any]:
@@ -137,6 +171,7 @@ def get_concept(concept_id: str, root: Path | None = None) -> dict[str, Any]:
         "answers": [row for row in read_jsonl(root / "agent" / "answer-pack.jsonl") if row.get("concept_id") == concept_id],
         "task_cards": [row for row in read_jsonl(root / "agent" / "concept-task-cards.jsonl") if row.get("concept_id") == concept_id],
         "release_caveats": [row for row in read_jsonl(root / "agent" / "concept-release-caveats.jsonl") if row.get("concept_id") == concept_id],
+        "recipes": [row for row in read_jsonl(root / "agent" / "recipes.jsonl") if concept_id in (row.get("concept_ids") or [])],
     }
 
 
@@ -150,6 +185,38 @@ def get_claims(concept_id: str, tier: str | None = None, root: Path | None = Non
             continue
         rows.append(row)
     return rows
+
+
+def list_recipes(concept_id: str | None = None, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    rows = list(read_jsonl(root / "agent" / "recipes.jsonl"))
+    if concept_id:
+        rows = [row for row in rows if concept_id in (row.get("concept_ids") or [])]
+    return {
+        "schema": "rock-kb-recipe-list-v1",
+        "count": len(rows),
+        "recipes": [
+            {
+                "recipe_id": row.get("recipe_id"),
+                "title": row.get("title"),
+                "summary": row.get("summary"),
+                "version": row.get("version"),
+                "recipe_kind": row.get("recipe_kind"),
+                "concept_ids": row.get("concept_ids") or [],
+                "authority_tier": row.get("authority_tier"),
+            }
+            for row in rows
+        ],
+    }
+
+
+def get_recipe(recipe_id: str, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    normalized = recipe_id.removeprefix("recipe:")
+    row = next((row for row in read_jsonl(root / "agent" / "recipes.jsonl") if row.get("recipe_id") == normalized), None)
+    if row is None:
+        return {"schema": "rock-kb-recipe-result-v1", "status": "not_found", "recipe_id": normalized}
+    return {"schema": "rock-kb-recipe-result-v1", "status": "ok", "recipe": row}
 
 
 def list_models(root: Path | None = None) -> dict[str, Any]:
