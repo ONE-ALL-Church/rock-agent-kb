@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import sys
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 from urllib import error, request
 
@@ -11,7 +12,16 @@ from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-USER_AGENT = "rock-kb-client/0.4.0 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
+
+
+def package_version() -> str:
+    try:
+        return version("rock-kb")
+    except PackageNotFoundError:
+        return "dev"
+
+
+USER_AGENT = f"rock-kb-client/{package_version()} (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:

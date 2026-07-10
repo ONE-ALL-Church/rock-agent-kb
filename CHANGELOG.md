@@ -6,6 +6,20 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-07-10
+
+### Changed
+
+- Prefer concise claims containing exact multi-word query phrases, including the
+  observed short direct-database-access paraphrase.
+- Collapse Lava context search hits that share a context and root key while
+  preserving their exact nested-path result IDs.
+- Count successful claim, concept, model-map, recipe, and exact-result access by
+  aggregate event, client class, result kind, and count without retaining IDs or
+  query text.
+- Include failed evaluation rows in lexical quality-gate reports for actionable
+  CI diagnosis.
+
 ## [0.5.0] - 2026-07-10
 
 ### Added

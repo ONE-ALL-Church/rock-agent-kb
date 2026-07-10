@@ -176,7 +176,9 @@ export default {
       }
       if (url.pathname.startsWith("/concepts/") && url.pathname.endsWith(".md")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/concepts/".length, -".md".length));
-        return artifactText(env, `knowledge/concepts/${conceptId}/index.md`, "text/markdown; charset=utf-8");
+        const response = await artifactText(env, `knowledge/concepts/${conceptId}/index.md`, "text/markdown; charset=utf-8");
+        ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, classifyClient(request)));
+        return response;
       }
       if (url.pathname === "/search") {
         const query = url.searchParams.get("q") || "";
@@ -191,22 +193,35 @@ export default {
       if (url.pathname.startsWith("/results/")) {
         const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
         const result = await getResult(env, resultId);
+        if (result.status === "ok") {
+          ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, classifyClient(request)));
+        }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname === "/model-map/models") {
-        return json(await listModelMapModels(env));
+        const result = await listModelMapModels(env);
+        ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), classifyClient(request)));
+        return json(result);
       }
       if (url.pathname === "/recipes") {
-        return json(await listRecipes(env, url.searchParams.get("concept")));
+        const result = await listRecipes(env, url.searchParams.get("concept"));
+        ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), classifyClient(request)));
+        return json(result);
       }
       if (url.pathname.startsWith("/recipes/") && url.pathname.endsWith("/verify")) {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length, -"/verify".length));
         const result = await verifyRecipe(env, recipeId, url.searchParams.get("rock_version"));
+        if (result.status !== "not_found") {
+          ctx.waitUntil(recordAccessUsage(env, "recipe_verify", "recipe", 1, classifyClient(request)));
+        }
         return json(result, result.status === "not_found" ? 404 : result.status === "fail" ? 409 : 200);
       }
       if (url.pathname.startsWith("/recipes/")) {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length));
         const result = await getRecipe(env, recipeId);
+        if (result.status === "ok") {
+          ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, classifyClient(request)));
+        }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/model-map/models/")) {
@@ -218,6 +233,7 @@ export default {
         if (!result) {
           return json({ schema: "rock-kb-model-map-model-result-v1", status: "not_found", model }, 404);
         }
+        ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, classifyClient(request)));
         if ((url.searchParams.get("format") || "json") === "markdown") {
           return text(renderModelMapMarkdown(result), "text/markdown; charset=utf-8");
         }
@@ -226,13 +242,18 @@ export default {
       if (url.pathname.startsWith("/claims/id/")) {
         const claimId = decodeURIComponent(url.pathname.slice("/claims/id/".length));
         const result = await getClaim(env, claimId);
+        if (result.status === "ok") {
+          ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, classifyClient(request)));
+        }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/claims/")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/claims/".length));
         const minTier = url.searchParams.get("min_tier") || "routing_context_only";
         const tier = url.searchParams.get("tier");
-        return json({ schema: "rock-kb-claims-result-v1", concept_id: conceptId, claims: await claims(env, conceptId, minTier, tier) });
+        const claimRows = await claims(env, conceptId, minTier, tier);
+        ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", claimRows.length, classifyClient(request)));
+        return json({ schema: "rock-kb-claims-result-v1", concept_id: conceptId, claims: claimRows });
       }
       if (url.pathname === "/telemetry/summary") {
         return json(await telemetrySummary(env));
@@ -293,24 +314,35 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
   const ranked = Array.from(rowsById.values())
     .map((row) => ({ row, signals: searchSignals(row, terms, query) }))
     .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)));
-  const seenRecipes = new Set<string>();
+  const seenResultGroups = new Set<string>();
   const collapsed = ranked.filter(({ row }) => {
-    if (row.kind !== "recipe") {
+    const group = searchResultGroup(row);
+    if (!group) {
       return true;
     }
-    const recipeId = String(parsePayload(row).recipe_id || "");
-    if (!recipeId) {
-      return true;
-    }
-    if (seenRecipes.has(recipeId)) {
+    if (seenResultGroups.has(group)) {
       return false;
     }
-    seenRecipes.add(recipeId);
+    seenResultGroups.add(group);
     return true;
   });
   return collapsed
     .slice(0, limit)
     .map((item) => full ? publicResultRow(item.row, item.signals) : publicSearchRow(item.row, item.signals));
+}
+
+function searchResultGroup(row: SearchRow): string {
+  const payload = parsePayload(row);
+  if (row.kind === "recipe") {
+    const recipeId = String(payload.recipe_id || "");
+    return recipeId ? `recipe:${recipeId}` : "";
+  }
+  if (row.kind === "lava_context") {
+    const contextId = String(payload.context_id || "");
+    const rootKey = String(payload.root_key || "").toLowerCase();
+    return contextId && rootKey ? `lava_context:${contextId}:${rootKey}` : "";
+  }
+  return "";
 }
 
 async function getResult(env: ServiceEnv, resultId: string): Promise<JsonRecord> {
@@ -445,13 +477,21 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     return rows;
   }
   if (name === "kb_get_result") {
-    return getResult(env, String(args.id || args.result_id || ""));
+    const result = await getResult(env, String(args.id || args.result_id || ""));
+    if (result.status === "ok") {
+      ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, "mcp"));
+    }
+    return result;
   }
   if (name === "kb_get_claim") {
-    return getClaim(env, String(args.claim_id || ""));
+    const result = await getClaim(env, String(args.claim_id || ""));
+    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, "mcp"));
+    return result;
   }
   if (name === "kb_list_models") {
-    return listModelMapModels(env);
+    const result = await listModelMapModels(env);
+    ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), "mcp"));
+    return result;
   }
   if (name === "kb_get_model") {
     const result = await getModelMapModel(env, String(args.model || args.model_slug || ""), {
@@ -461,16 +501,23 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     if (!result) {
       return { schema: "rock-kb-model-map-model-result-v1", status: "not_found", model: String(args.model || args.model_slug || "") };
     }
+    ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, "mcp"));
     return result;
   }
   if (name === "kb_list_recipes") {
-    return listRecipes(env, stringOrNull(args.concept_id));
+    const result = await listRecipes(env, stringOrNull(args.concept_id));
+    ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), "mcp"));
+    return result;
   }
   if (name === "kb_get_recipe") {
-    return getRecipe(env, String(args.recipe_id || ""));
+    const result = await getRecipe(env, String(args.recipe_id || ""));
+    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, "mcp"));
+    return result;
   }
   if (name === "kb_verify_recipe") {
-    return verifyRecipe(env, String(args.recipe_id || ""), stringOrNull(args.rock_version));
+    const result = await verifyRecipe(env, String(args.recipe_id || ""), stringOrNull(args.rock_version));
+    if (result.status !== "not_found") ctx.waitUntil(recordAccessUsage(env, "recipe_verify", "recipe", 1, "mcp"));
+    return result;
   }
   if (name === "kb_manifest") {
     return artifactJsonValue(env, "agent/rock-kb-manifest.json");
@@ -480,10 +527,14 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_get_concept") {
     const conceptId = String(args.concept_id || "");
-    return conceptPackage(env, conceptId);
+    const result = await conceptPackage(env, conceptId);
+    ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, "mcp"));
+    return result;
   }
   if (name === "kb_get_claims") {
-    return claims(env, String(args.concept_id || ""), String(args.min_tier || "routing_context_only"), stringOrNull(args.tier));
+    const result = await claims(env, String(args.concept_id || ""), String(args.min_tier || "routing_context_only"), stringOrNull(args.tier));
+    ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", result.length, "mcp"));
+    return result;
   }
   if (name === "kb_review_dashboard") {
     return operationsDashboard(env);
@@ -1297,25 +1348,49 @@ async function artifactJsonl(env: ServiceEnv, path: string): Promise<Response> {
 }
 
 async function recordUsage(env: ServiceEnv, event: string, query: string, results: JsonRecord[], clientClass: string): Promise<void> {
-  await ensureTelemetryTables(env);
-  const day = new Date().toISOString().slice(0, 10);
-  const topicHint = queryTopicHint(query);
   const resultCount = results.length;
   const primaryResultKind = String(results[0]?.kind || "none");
+  const kindCounts = countValues(results.map((row) => String(row.kind || "unknown")));
+  await recordUsageSummary(env, event, clientClass, queryTopicHint(query), resultCount, primaryResultKind, kindCounts);
+}
+
+async function recordAccessUsage(env: ServiceEnv, event: string, resultKind: string, resultCount: number, clientClass: string): Promise<void> {
+  const count = Math.max(0, Math.floor(resultCount));
+  await recordUsageSummary(
+    env,
+    event,
+    clientClass,
+    "unclassified",
+    count,
+    count > 0 ? resultKind : "none",
+    count > 0 ? { [resultKind]: count } : {},
+  );
+}
+
+async function recordUsageSummary(
+  env: ServiceEnv,
+  event: string,
+  clientClass: string,
+  topicHint: string,
+  resultCount: number,
+  primaryResultKind: string,
+  kindCounts: JsonRecord,
+): Promise<void> {
+  await ensureTelemetryTables(env);
+  const day = new Date().toISOString().slice(0, 10);
   await env.KB_DB.prepare(
     `INSERT INTO usage_events_v3 (day, event, client_class, topic_hint, result_count, primary_result_kind, count)
      VALUES (?, ?, ?, ?, ?, ?, 1)
      ON CONFLICT(day, event, client_class, topic_hint, result_count, primary_result_kind)
      DO UPDATE SET count = count + 1`
   ).bind(day, event, clientClass, topicHint, resultCount, primaryResultKind).run();
-  const kindCounts = countValues(results.map((row) => String(row.kind || "unknown")));
   for (const [resultKind, count] of Object.entries(kindCounts)) {
     await env.KB_DB.prepare(
       `INSERT INTO usage_result_kinds (day, event, client_class, result_kind, count)
        VALUES (?, ?, ?, ?, ?)
        ON CONFLICT(day, event, client_class, result_kind)
        DO UPDATE SET count = count + excluded.count`
-    ).bind(day, event, clientClass, resultKind, count).run();
+    ).bind(day, event, clientClass, resultKind, Number(count)).run();
   }
 }
 
@@ -1711,6 +1786,7 @@ const SEARCH_STOP_WORDS = new Set([
   "should",
   "the",
   "troubleshooting",
+  "use",
   "what",
   "when",
   "with"
@@ -1755,6 +1831,8 @@ function searchTerms(query: string): string[] {
 function normalizeSearchTerm(value: string): string {
   const term = value.toLowerCase();
   const aliases: Record<string, string> = {
+    agent: "ai",
+    agents: "ai",
     avalable: "availability",
     available: "availability",
     eligable: "eligibility",
@@ -1785,6 +1863,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   const bodyOverlap = overlapCount(queryTerms, bodyTerms);
   const conceptPhraseBoost = Math.max(0, ...concepts.map((concept) => phraseMatchBoost(query, concept, 48)));
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
+  const bodyExactPhraseBoost = bodyPhraseBoost(row, queryTerms);
   const kindBoost = kindIntentBoost(row, queryTerms);
   const modelMapExactBoost = exactModelMapBoost(row, query);
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
@@ -1795,7 +1874,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
   // FTS5 negates BM25 so stronger matches have numerically lower values.
   const bm25Relevance = Math.min(Math.max(-Number(row.rank || 0), 0), 60);
-  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
+  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
   return {
     score,
     title_overlap: titleOverlap,
@@ -1804,7 +1883,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
     topic_overlap: topicOverlap,
     lexical_coverage: Number(lexicalCoverage.toFixed(4)),
     lexical_coverage_boost: lexicalCoverageBoost,
-    phrase_boost: conceptPhraseBoost + titlePhraseBoost,
+    phrase_boost: conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost,
     exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
@@ -1895,6 +1974,21 @@ function phraseMatchBoost(query: string, candidate: string, boost: number): numb
     return boost;
   }
   return candidateWords.every((term) => queryText.split(" ").includes(term)) ? Math.floor(boost * 0.75) : 0;
+}
+
+function bodyPhraseBoost(row: SearchRow, queryTerms: string[]): number {
+  if (queryTerms.length < 2 || !row.body) {
+    return 0;
+  }
+  const body = normalizeSearchText(row.body);
+  for (let size = Math.min(4, queryTerms.length); size >= 2; size -= 1) {
+    for (let index = 0; index <= queryTerms.length - size; index += 1) {
+      if (body.includes(queryTerms.slice(index, index + size).join(" "))) {
+        return row.kind === "claim" ? 72 : 18;
+      }
+    }
+  }
+  return 0;
 }
 
 function normalizeSearchText(value: string): string {
