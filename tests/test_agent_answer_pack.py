@@ -310,6 +310,24 @@ def test_claim_review_queue_excludes_answer_pack_usable_and_singleton_routing_cl
     assert rows == []
 
 
+def test_claim_review_queue_keeps_reviewed_duplicate_sources_closed():
+    shared = {
+        "claim": "Supported patch releases can carry security fixes.",
+        "claim_type": "release_caveat",
+        "concept_ids": ["hosting-infrastructure"],
+        "claim_tier": "answer_pack_approved",
+        "answer_candidate": True,
+    }
+    rows = answer_module.claim_review_queue_rows(
+        [
+            {**shared, "claim_id": "claim:video", "authority_tier": "official"},
+            {**shared, "claim_id": "claim:podcast", "authority_tier": "community-reviewed"},
+        ]
+    )
+
+    assert rows == []
+
+
 def test_source_conflicts_require_topic_overlap_and_opposing_claim_polarity():
     concept = Concept(
         id="workflows",
@@ -356,6 +374,17 @@ def test_source_conflicts_require_topic_overlap_and_opposing_claim_polarity():
     assert rows[0]["status"] == "potential_contradiction"
     assert rows[0]["claim_ids"] == ["claim:community-conflict", "claim:official"]
     assert rows[0]["conflict_signals"]["opposing_axes"] == ["directive"]
+
+
+def test_source_conflicts_do_not_invert_required_patch_language():
+    older = {
+        "claim": "Large releases can carry accumulated fixes, so upgrade planning should distinguish major and patch release validation.",
+    }
+    current = {
+        "claim": "Supported dot releases can carry security fixes that should not be treated as optional. Review current release notes before upgrading.",
+    }
+
+    assert answer_module.potential_claim_contradiction(older, current) is None
 
 
 def test_groups_first_checks_uses_reviewer_authored_override():

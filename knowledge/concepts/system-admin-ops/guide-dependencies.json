@@ -1,6 +1,39 @@
 {
   "approved_claim_dependencies": [
     {
+      "authority_tier": "official",
+      "claim": "The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide.",
+      "claim_hash": "7e9b7b829260c49105d457c1c6e68829c45dc55a74a9ccee40a24b4195defebe",
+      "claim_id": "claim:091606bd3b8b0472392a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "system-admin-ops"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s",
+          "timestamp": "16:43",
+          "timestamp_seconds": 1003.64,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds.",
       "claim_hash": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
@@ -377,6 +410,7 @@
     }
   ],
   "approved_claim_hashes": {
+    "claim:091606bd3b8b0472392a": "7e9b7b829260c49105d457c1c6e68829c45dc55a74a9ccee40a24b4195defebe",
     "claim:297b44312bdcc4c81dfd": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
     "claim:2fedca54c255f13d1e3d": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
     "claim:44dc45407531eeac6d7c": "eddb26ce52cd198f0ca6b2eb85e2c038546736539d3e01b47090b338f5bb1a14",
@@ -389,7 +423,7 @@
     "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
     "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae"
   },
-  "approved_claims_hash": "a750cb9062ade62db864c1095d6c58f98840d4e4f4803ca98a1bc2aa5de16b9b",
+  "approved_claims_hash": "958410e5e5584a396d6fd81a37622135e89a6335c274b0a4767a7106a911055e",
   "approved_claims_path": "knowledge/concepts/system-admin-ops/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -470,12 +504,12 @@
   },
   "approved_media_hash": "5fd933eab172803898a1a75a73c19cc38b9d98089a117a358ec5912c3af06486",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "system-admin-ops",
-  "guide_hash": "b793ad2482d47727651a86cd90b7c9c5c36071048c63c5026aa0933b83a4121c",
-  "guide_line_count": 1675,
+  "guide_hash": "e0c2edeaa6cc4f0e2abe48ba18ea09c8321682361252da61dba9b7f8f8db838b",
+  "guide_line_count": 1676,
   "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
-  "guide_word_count": 12495,
+  "guide_word_count": 12543,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -647,6 +681,15 @@
       "source_key": "42ae97c8913020ff",
       "source_record_id": "triumph_resources:42ae97c8913020ff",
       "url": "https://www.triumph.tech/resources/github-spotlight-12202024"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "unknown",
@@ -2229,11 +2272,12 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1630,
+      "end_line": 1631,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "58a92984acbd2344",
         "2a835fe90be9f475",
         "2a835fe90be9f475",
         "65a454a45e1b631f",
@@ -2250,7 +2294,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1646,
+      "end_line": 1647,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2260,11 +2304,11 @@
         "2a835fe90be9f475",
         "65a454a45e1b631f"
       ],
-      "start_line": 1631
+      "start_line": 1632
     },
     {
       "confidence": "high",
-      "end_line": 1675,
+      "end_line": 1676,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2288,7 +2332,7 @@
         "e8988031b9975c3b",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 1647
+      "start_line": 1648
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",
@@ -2708,6 +2752,16 @@
       ],
       "url": "https://www.triumph.tech/resources/github-spotlight-12202024",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "unknown",

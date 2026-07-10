@@ -1378,24 +1378,24 @@ Use App Store Product Page, Rock Logins, Developer Accounts, and Android Keystor
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `95`
+- Approved claims routed to this concept: `101`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | operational_guidance | Treat each mobile check-in device record like a virtual kiosk: use the check-in kiosk device type, configure the campus geofence, associate the relevant campus locations, and create separate devices when campuses need distinct boundaries. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | operational_guidance | The participant-facing flow can show fallback screens when a person is outside the configured geofence, outside the valid check-in time window, or has no eligible check-in option available. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | source_summary | Mobile check-in configuration depends on creating virtual check-in kiosk devices, assigning geofenced campus boundaries, and pointing the Mobile Check-in Launcher block at the correct devices, check-in configuration, theme, and areas. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
-| rocku-confirmed | source_summary | The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | source_summary | Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
-| rocku-confirmed | operational_guidance | The Phone Number Lookup Configuration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration) |
-| rocku-confirmed | operational_guidance | Before enabling mobile check-in, confirm the site is served over HTTPS, a Google API key is configured for geofencing, and the underlying check-in groups, locations, schedules, and check-in configuration already work through normal check-in. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
-| rocku-confirmed | operational_guidance | After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| More |  | 83 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 89 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1404,7 +1404,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `25`
+- Approved media records routed to this concept: `27`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1417,7 +1417,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) | approved_for_public_distillation | 3 | media-insight:0a89bf5f60ad43fb |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo) | approved_for_public_distillation | 3 | media-insight:0d561355ebc38d5b |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) | approved_for_public_distillation | 3 | media-insight:1b335b58b0acc8b1 |
-| More |  | 17 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 19 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

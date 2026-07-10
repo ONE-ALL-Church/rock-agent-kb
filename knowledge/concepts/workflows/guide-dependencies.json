@@ -8401,6 +8401,36 @@
       ]
     },
     {
+      "authority_tier": "community-reviewed",
+      "claim": "This official podcast edition supports the same Rock operating practices as the reviewed video edition: maintain supported security patches and separate ministry requirements from the first proposed technical solution. External AI commentary and conference material are context only.",
+      "claim_hash": "aa0952ba05df7797b5a7e22fe1eeb5854baefd4bd60aa402aec46c18aacbea40",
+      "claim_id": "claim:36da04a44a538e1c8e5e",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": true,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bb1d3626a75c102c20592a0a7545229a4fb5b09d704eb4e727971674e2e4d492",
+      "source_record_ids": [
+        "rock_podcast_rss:aa14f5be5cae2d59"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
+          "url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For Rock operations and administration, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "11ea1f36cbe07fd73f88baef2b8c9b45e030c6f593ef652944692f4c5bbf0613",
@@ -13021,6 +13051,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast episode mixes broad AI and leadership discussion with two durable Rock operating practices: treat supported dot releases as security maintenance, and separate a ministry problem's requirements from the first proposed technical solution. External AI commentary and conference material are context only.",
+      "claim_hash": "2819fb77cc3abe66957fd9088187f11a92f21c42aeed59639a111b3fc6f71f10",
+      "claim_id": "claim:521feeb20751ee59149f",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b90a6e4b80b52d009392ff9a8a1b01b5a76988a92f290d93892be88eb7ec3cd3",
+      "source_record_ids": [
+        "rock_youtube:5c6ca9ff317ae001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
+          "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "A church SEO strategy should start with the questions and needs of people the church can serve, then map content to clear next steps.",
       "claim_hash": "da1d421a76f4d014166a0e0535c880b5de08f52aab94ef5932af9d61817975ea",
@@ -15266,6 +15326,40 @@
           "timestamp_seconds": 4.92,
           "title": "Episode 83: Walking Through The Rock Roadmap",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-83"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions.",
+      "claim_hash": "9db403837f3f5bbc30c7a706fe0cbaba0cd6bacd8e0781214f37413fa3506257",
+      "claim_id": "claim:5eedd5acf0194a87c5ce",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "connections",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "914743ce888dda0e9e6671ba6a8745dcf2f85a1a81846cbe2dc816cf7f06a854",
+      "source_record_ids": [
+        "rock_youtube:62320adf4b451da8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s",
+          "timestamp": "07:46",
+          "timestamp_seconds": 466.84,
+          "title": "Connections Helps Prevent Your People from Falling Through the Cracks",
+          "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
         }
       ]
     },
@@ -25547,6 +25641,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation.",
+      "claim_hash": "246397f581f46e71d278fb60a0c55f502b743da574d22337a13183dc862e14e2",
+      "claim_id": "claim:9f3fc654783d47c63bb4",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b90a6e4b80b52d009392ff9a8a1b01b5a76988a92f290d93892be88eb7ec3cd3",
+      "source_record_ids": [
+        "rock_youtube:5c6ca9ff317ae001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s",
+          "timestamp": "12:27",
+          "timestamp_seconds": 747.86,
+          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
+          "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Steps Overview RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "e772ac3b97d15fc0eb96fc9368cc0dfc69ddb70f1dd72ac3c9a111ee77e4bb93",
@@ -32786,6 +32913,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history.",
+      "claim_hash": "a56404e927083c9d5a963a17cfdd5d4d86d77e8162e7422961f5c81e88599d3b",
+      "claim_id": "claim:c8435f854b9e7075ab76",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=684s",
+          "timestamp": "11:24",
+          "timestamp_seconds": 684.04,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Step Programs [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
       "claim_hash": "644c960a67180a248565f60be2d25ce22a17f428422d1d5bf0090e2be4cc1781",
@@ -35005,6 +35165,39 @@
           "source_id": "rock_podcast_rss",
           "title": "Beta Release",
           "url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5fe"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation.",
+      "claim_hash": "d1aba6983b97ff01a132319fea5ba4d8be8d6b068da3654aacf5efdaf736037b",
+      "claim_id": "claim:d64ec12bd44248ad3db0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bb1d3626a75c102c20592a0a7545229a4fb5b09d704eb4e727971674e2e4d492",
+      "source_record_ids": [
+        "rock_podcast_rss:aa14f5be5cae2d59"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215",
+          "timestamp": "12:18",
+          "timestamp_seconds": 738.44,
+          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
+          "url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215"
         }
       ]
     },
@@ -37602,6 +37795,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading.",
+      "claim_hash": "19c4f4aa7ac4a4e9a332c02c09bbed893ed698adea69e1a57c9c0e110cb8a796",
+      "claim_id": "claim:e78d41d7fefc84b6e9e7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b90a6e4b80b52d009392ff9a8a1b01b5a76988a92f290d93892be88eb7ec3cd3",
+      "source_record_ids": [
+        "rock_youtube:5c6ca9ff317ae001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s",
+          "timestamp": "06:36",
+          "timestamp_seconds": 396.54,
+          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
+          "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Steps Badges is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "341bee5cefb3814e88a94960c34e777e3268383075875699e5214546b1780c90",
@@ -37859,6 +38086,40 @@
           "timestamp_seconds": 124.0,
           "title": "Check-in Settings",
           "url": "https://community.rockrms.com/rocku/check-in/settings"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading.",
+      "claim_hash": "36b13f86207c57023a5e56c0cba24985fbb8524d972b9e88a6d170e93633d76f",
+      "claim_id": "claim:e85569aadbc37d16c9cc",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "hosting-infrastructure",
+        "platform-configuration",
+        "security-permissions",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "bb1d3626a75c102c20592a0a7545229a4fb5b09d704eb4e727971674e2e4d492",
+      "source_record_ids": [
+        "rock_podcast_rss:aa14f5be5cae2d59"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215",
+          "timestamp": "06:36",
+          "timestamp_seconds": 396.56,
+          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
+          "url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215"
         }
       ]
     },
@@ -40879,6 +41140,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use.",
+      "claim_hash": "abf68118b45226aabda4ab4f471284810669affb7b8d5e695ccb39bfa8ed447e",
+      "claim_id": "claim:f8380a3e786ab33df98f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "platform-configuration",
+        "workflows"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s",
+          "timestamp": "17:36",
+          "timestamp_seconds": 1056.36,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For reporting, analytics, and measurement, Deconstructing a Sample Workflow should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "dcbd267fe731cc089e0021c65e9855a0f58ab04b27c038e0f6b2cf3f9178366f",
@@ -42453,6 +42747,7 @@
     "claim:3689864d48a6f8263676": "3583613d94109fa8d778ac5966e5d61b970db29d708689c2b7b6e399fe3b7b87",
     "claim:36bbc4d0dcdbc11f6535": "d8e1cb5b8833e43fae6eb4b90639eae1f1f96d59903a290162aabf5e51a31fd8",
     "claim:36d2000a6fe59a7fe2e8": "033b4062b21888cbdec6cf4824167cc1789512ec02044dd239f5812fb06548b4",
+    "claim:36da04a44a538e1c8e5e": "aa0952ba05df7797b5a7e22fe1eeb5854baefd4bd60aa402aec46c18aacbea40",
     "claim:36e0a74621b35ba4a318": "11ea1f36cbe07fd73f88baef2b8c9b45e030c6f593ef652944692f4c5bbf0613",
     "claim:36efa56ac9dcd5e1867a": "6c7d04ef1499ab4863b9058de6c1ae9b726922bfefeb0c3b693f885b34d5835d",
     "claim:36f52e8c009a9642a851": "e64733e9e455d1bf46d0a3230527f5a70ba55f7bc1d8ba773f5b8da1c2a25433",
@@ -42599,6 +42894,7 @@
     "claim:51c5f99d2a97683b0950": "5bb9c06652ff08798495b7a409ece423e07eb58f73e49548acdb72411dd08a93",
     "claim:51d0e2e4baab71612228": "4e05ab235cc9b2e930304272f88b6867b298a96586d02e394b1403af5cf1ea59",
     "claim:5205c40b5abbbfd11e93": "0578f934aa47c7cc916b66d16e77f6e13b55d27f67fe5d895a172174268116c7",
+    "claim:521feeb20751ee59149f": "2819fb77cc3abe66957fd9088187f11a92f21c42aeed59639a111b3fc6f71f10",
     "claim:52a0b1fa6cd1b223a980": "da1d421a76f4d014166a0e0535c880b5de08f52aab94ef5932af9d61817975ea",
     "claim:52c3c584d0cebc6429cd": "c64088e169d22241836db61201f222b02010385dc158bae8ab6fe53051c73549",
     "claim:52cd07770ca56560154b": "67e5fb3233c7101fff409036944b1e705ecb57285c1eafba8b3ece577d818b39",
@@ -42670,6 +42966,7 @@
     "claim:5ebc1df7eb76ed560097": "e3cc9227607334ef86a42c2475bb665a7ba838150a7d57f3525fa689c892adc2",
     "claim:5ec71399d09a7ff643a9": "244185e0e0f8718679fa9df9826ae2f371232b40c622dd4cf53d23e86572495e",
     "claim:5ed1b3b52926ee533fb5": "78a3277797ed76793542d12acc985b99cec2faa7b8850d9370c90501f41e6de4",
+    "claim:5eedd5acf0194a87c5ce": "9db403837f3f5bbc30c7a706fe0cbaba0cd6bacd8e0781214f37413fa3506257",
     "claim:5f99a872d7d0efa65537": "aad3037c10b48f7ece196596816ce44603d33616108e2d8d0b0f0e877c605ea4",
     "claim:5fa84a331ea83dcef0a0": "5f3e0fda24393330eee5cf06bdbda763a28205c2f73e60d98257f10fb90e3584",
     "claim:5fca91ee51006b93b93c": "3a60292a405e5229e279ea255058f72b10d7d0ba13805e6292294dd0d22632f7",
@@ -42994,6 +43291,7 @@
     "claim:9ea2cbd13ec6ecf4c818": "85f0a079f3cc4b40951e203a19e0403f18fc4152a78da214f784702e7dc1ff94",
     "claim:9eba9611c89ba7361b43": "b6dc9c569efce505c223bffed9411f48d32b7c343b34c7c39860a2d0b3503f3d",
     "claim:9ee4af886b8b149e6948": "18f3bf4abc9f702bbab578f718e0fe6ea113ca13c63457efefd334a7b21d8a5c",
+    "claim:9f3fc654783d47c63bb4": "246397f581f46e71d278fb60a0c55f502b743da574d22337a13183dc862e14e2",
     "claim:9f600bf81191f50bf71e": "e772ac3b97d15fc0eb96fc9368cc0dfc69ddb70f1dd72ac3c9a111ee77e4bb93",
     "claim:9f734626a68bb3c018da": "201ce6014c043005d0d046ac21e723c26222b4b4f44b7a1d5f660b90a5ecf755",
     "claim:9f96aaa6a64369a908a3": "3457f6cd68e50fa6b50f7e2db3ef6ce04ab9ec1566d226a0cfc2d659a0325cfa",
@@ -43224,6 +43522,7 @@
     "claim:c7fe59b1419e3003ae62": "3f4b0e9f88beb0fc2c593c8cccf68331f6b2cdc612fdfdfa648d78693c94867d",
     "claim:c81c5e870cb35fcb9cdc": "1b0cf3b037396b6f23f029419ce6e637390113eb13d93a2d73a4fc699ce610c7",
     "claim:c83c7c0967c5a09904f5": "b20dea574216b76d7c9642cef4dac55bac30b460e1b0f89fca3bb8aec3ff3d9e",
+    "claim:c8435f854b9e7075ab76": "a56404e927083c9d5a963a17cfdd5d4d86d77e8162e7422961f5c81e88599d3b",
     "claim:c8f60664cdd0de31790b": "644c960a67180a248565f60be2d25ce22a17f428422d1d5bf0090e2be4cc1781",
     "claim:c8fb69d6311ca1a1243e": "250f9a959dd84a0fc25fee30d8e5d44bdd68443fb55b2c943e0f4750917a9f4a",
     "claim:c923415dabd8ee837073": "058e02b9ecf6715ab5aa5cd9c2a53bc07e15dd95dfcc3368f0aaf9dab24a5cb4",
@@ -43295,6 +43594,7 @@
     "claim:d5ab6b6206d4167c92b8": "02b18e88103cba9a25ada2ece68245eb0589cbb13d42c9366f6fb711b4e0cfd9",
     "claim:d625104f654a98a7c79e": "dd321754e49d7da8fe242f2be305b68bd7cbb8d001dffc2a88caf1aa014f7dba",
     "claim:d626dbc4c30e1cc0b022": "086d87d07decef965bbe732fcb5e1170fb722869ccc6daad06be8a60b4e1ffed",
+    "claim:d64ec12bd44248ad3db0": "d1aba6983b97ff01a132319fea5ba4d8be8d6b068da3654aacf5efdaf736037b",
     "claim:d698800e0481b0e80573": "a31cb5e8cfa5f69eee6b419d970d4cfd0a5059a5a1d0cdbcc768f9ecbe818683",
     "claim:d6bb9b0343c81f2a1a3a": "d545a32f23fb81a905b5d15e8020bf44a49238ef6222e45890209cba1874523b",
     "claim:d70df0857b284b3173d3": "b23aec1e2696992b98acc69fa0de84a5a7dc82e2a6c7130293db65f3bcffee5c",
@@ -43377,6 +43677,7 @@
     "claim:e714ac3fc850561e6337": "73c9637dfae3361d27305fe59fc4fe8a79e1afb232ca636d7fa690793e4cb80a",
     "claim:e722dee1e2a6a4a8e702": "26f7f8a8ed80ee652f70c52e362ba9e089b6a3f87a1a05d57cd3c1fb46ed137a",
     "claim:e76ced6026d1e165795e": "925e6b7b449e8ea703758dbe3605d988384fdbc4f9fcafa9d3537b0bd75e253f",
+    "claim:e78d41d7fefc84b6e9e7": "19c4f4aa7ac4a4e9a332c02c09bbed893ed698adea69e1a57c9c0e110cb8a796",
     "claim:e7998c9208eb2cd27654": "341bee5cefb3814e88a94960c34e777e3268383075875699e5214546b1780c90",
     "claim:e7b7144df980503b13a7": "b9200b16d4f8ef7d363eaa1394fabe6e044468db62676c23634639535ebba9e8",
     "claim:e7bf4b1a523af0a57b94": "1b3555e961e9ed5d5233df50a0ec679d64e90c564b83bdf2f9cc65be6018ca49",
@@ -43385,6 +43686,7 @@
     "claim:e814ba6fcba54db95c66": "c9fd49fd2acc89b13a14783318ca4736d8ac62063d4470023cedf828a6f02e9b",
     "claim:e82a0a7b8e0d782a4a04": "54d6a49fcdde2876c7dc71014570a2e61ebe81d22dc7dde1e94b4df0ccebbdea",
     "claim:e82f6d953b1c58a70658": "48e4791ef0e7d04a01cdeda8a21dd030135f00dd6c1a488232806263832310d4",
+    "claim:e85569aadbc37d16c9cc": "36b13f86207c57023a5e56c0cba24985fbb8524d972b9e88a6d170e93633d76f",
     "claim:e86d656c8d5aeb340aa2": "15e68146fd5af4c8592b230335adfbcdc49476e073df0dbd951668b00862c960",
     "claim:e891913c89b35600ffb6": "89b8243c7528f64cfdb964fc0f5afdf67c09175d92a6e1d87b207c38053e1454",
     "claim:e89dc2c84c8caae5ac05": "1a8f3a0da84ec58f88477c6650db726bdab4bfb3afbdb559b1079214c10f4636",
@@ -43482,6 +43784,7 @@
     "claim:f7b5a801b7e2d0fa6b39": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c",
     "claim:f7df40feee92b60c2597": "9c4ca6634e6c220f31e79344a98ed23aded639eb12797f8375e0c2203a25661d",
     "claim:f8213e17ef6b431715c2": "bcc1ec712271b3e1c50d8a921c9c58207bad47bbe35aecc941d792995d6420ef",
+    "claim:f8380a3e786ab33df98f": "abf68118b45226aabda4ab4f471284810669affb7b8d5e695ccb39bfa8ed447e",
     "claim:f89c8cd547cec29e654d": "dcbd267fe731cc089e0021c65e9855a0f58ab04b27c038e0f6b2cf3f9178366f",
     "claim:f8b8b60ebd2b59e9b0b9": "3d27446d6ec7d3e8591a525f5f34b071188af0da6d0e656e99644f89295dae44",
     "claim:f8f3d5816361d8e51fa2": "95250146e5ba33d509ff68d91b0a5755e4a9fde14a3778453aec402c814c9665",
@@ -43524,7 +43827,7 @@
     "claim:ffa69d01f0fb1999048c": "545908aa56322e9d6ba18b20e9a4fac458e72a7c3227946035fbe82cfa14e195",
     "claim:ffac12157c4f33b2cadf": "1180deed823035dfbf989f4b2a73d8701a4af41194ae374797df82f603aad8b1"
   },
-  "approved_claims_hash": "972b8991cb6754f70ee3bf49486417c320d01f49fd1c58e4d9093fb8d6da7e4e",
+  "approved_claims_hash": "1ad8460f89204bb85b56e467ddfe9b5e5794ba19d0d75b4d9ee4592f9fe5a55b",
   "approved_claims_path": "knowledge/concepts/workflows/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -44884,12 +45187,12 @@
   },
   "approved_media_hash": "34facef638c10e2ea5f5cded427018fbaaa76e63569ce6cbcf5c327a1431bc02",
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "workflows",
-  "guide_hash": "14de623a863198341141fb3061c3b91e01752f73319eb15355d1b9417dbd6973",
+  "guide_hash": "80ad68f0747399fe0eaf3a5dee5f833f0775f604655c5c27e9c9db40442bf0c2",
   "guide_line_count": 1656,
   "guide_path": "knowledge/concepts/workflows/guide.md",
-  "guide_word_count": 14227,
+  "guide_word_count": 14303,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -45315,6 +45618,33 @@
       "url": "https://community.rockrms.com/rocku/workflows/text-to-workflow-performance"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "daff0d4b551e7c44",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a1bb90bc2fdee5ac",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -45358,24 +45688,6 @@
       "source_key": "a520db9e9adc1368",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/engagement/connections-board"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "a7cecea2cefec5f0",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/engagement/overview"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "028b35260711018b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/engagement/connections-overview"
     },
     {
       "authority": "official-training",
@@ -46770,18 +47082,18 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "daff0d4b551e7c44",
+        "a1bb90bc2fdee5ac",
+        "58a92984acbd2344",
+        "daff0d4b551e7c44",
+        "58a92984acbd2344",
+        "daff0d4b551e7c44",
         "b0ff1ff79427421a",
         "78f1e8bbd9d351ff",
         "9ac0699e8486beee",
         "a19faf4c8934cc5e",
         "a520db9e9adc1368",
-        "b0ff1ff79427421a",
-        "c7e64b58d0d67e94",
-        "a7cecea2cefec5f0",
-        "c7e64b58d0d67e94",
-        "028b35260711018b",
-        "9ac0699e8486beee",
-        "a520db9e9adc1368"
+        "b0ff1ff79427421a"
       ],
       "start_line": 1565
     },
@@ -47884,6 +48196,36 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "daff0d4b551e7c44",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=pvgZLvcfmFQ",
+      "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a1bb90bc2fdee5ac",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=7rxTGLLhlrU",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -47932,26 +48274,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/engagement/connections-board",
       "url": "https://community.rockrms.com/rocku/engagement/connections-board"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "a7cecea2cefec5f0",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/engagement/overview",
-      "url": "https://community.rockrms.com/rocku/engagement/overview"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "028b35260711018b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/engagement/connections-overview",
-      "url": "https://community.rockrms.com/rocku/engagement/connections-overview"
     },
     {
       "authority": "official-training",

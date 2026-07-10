@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -251,7 +251,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 Connections navigation can expose list, board, grid and operational snapshot views with active, unassigned, due-soon and overdue metrics. Which views appear is configured on the connection type. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | rocku-confirmed | operational_guidance | Data Views should be treated as reusable record-set definitions: they answer which records qualify before a Report, Dynamic Report block, workflow, or other consumer decides how to display or act on those records. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | rocku-confirmed | operational_guidance | People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
@@ -264,11 +268,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Extending Groups RockU lesson provides training context for ministry process design; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/extending-groups) |
 | rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Rock Media Analytics should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/rock-media-analytics) |
 | rocku-confirmed | operational_guidance | The Pledges RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/pledges) |
-| rocku-confirmed | operational_guidance | The BI Job RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-job) |
-| rocku-confirmed | operational_guidance | The Merging Duplicate Records RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/individuals-in-rock/merging-duplicate-records) |
-| rocku-confirmed | operational_guidance | The BI Family Report RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report) |
-| rocku-confirmed | operational_guidance | For ministry process design, Giving Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-overview) |
-| More |  | 540 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 545 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -456,7 +456,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `144`
 - Lava capability source records: `53`
-- Approved claims: `558`
+- Approved claims: `563`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

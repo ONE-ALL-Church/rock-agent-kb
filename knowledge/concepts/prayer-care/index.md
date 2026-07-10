@@ -2,7 +2,7 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
@@ -33,7 +33,7 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 ## How To Think About This Area
 
 - `Prayer And Care` spans people, groups, communications, workflows, security, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_recipes, rock_rocku, rock_core_release_notes, rock_model_map, rock_community_hubs.
+- The strongest source families in this build are: rock_documentation, rock_youtube, rock_recipes, rock_rocku, rock_core_release_notes, rock_model_map.
 - Related tags found in source records: operations, usage, admin, development, releases, workflow, lava, sql.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
@@ -41,6 +41,10 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 
 | Source | Topic | Timestamp | Distilled Claim | Citation |
 | --- | --- | --- | --- | --- |
+| Outreach Toolbox is Here in v19 Transcript Insight | Outreach Toolbox availability | 00:00 | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s) |
+| Outreach Toolbox is Here in v19 Transcript Insight | outreach schedules and reminders | 01:04 | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s) |
+| Outreach Toolbox is Here in v19 Transcript Insight | outreach touchpoint lifecycle | 07:56 | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s) |
+| Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | Outreach Toolbox dashboard | 00:00 | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | Rapid Attendance Entry Transcript Insight | rapid attendance setup | 00:32 | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Rapid Attendance Entry Transcript Insight | attendance and care capture | 02:17 | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Rapid Attendance Entry Transcript Insight | block configuration | 03:14 | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
@@ -75,17 +79,18 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | configuration | A Prayer Card View block can launch a workflow after a request is prayed for or flagged; the workflow receives the prayer request as an entity and identifies the acting person through the PrayerOfferedByPersonId or FlaggedByPersonId workflow attribute, respectively. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Card View block is included with Rock but must be manually placed on an external-site page; it presents requests as cards and records a prayer when a team member selects the prayer action. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Request Entry block can launch a configured workflow after submission, and that workflow can access information from the submitted prayer request. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
-| More |  | 1 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 7 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 1
-- `rock_core_release_notes`: 16
+- `rock_core_release_notes`: 14
 - `rock_documentation`: 17
 - `rock_model_map`: 12
 - `rock_qa`: 1
 - `rock_recipes`: 8
 - `rock_rocku`: 5
+- `rock_youtube`: 2
 - `triumph_resources`: 1
 
 ## Highest Signal Sources
@@ -212,18 +217,18 @@ Keywords: `follow-up, communication, notification, pastoral care`
 | Prayer Team Power Tools | rock_documentation | [Start a Prayer Session](/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session?Version=v19.0) [Prayer Card View Block](/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block?Version=v19.0) [Prayer Request Comment Digest](/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest?Version=v19.0) [Prayer Request Comments... | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools) |
 | Prayer Request Comment Digest | rock_documentation | The importance of prayer and the impact it has can’t be overstated. In times of trouble, it helps just simply knowing that people are out there praying for you. Using the *Send Prayer Comments* job, you can ensure that those who submit prayer requests will know that they have the power of prayer behind them. # Setting up the Job As the prayer team comments on requests, you can enable a job to send those comments to... | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest) |
 | Prayer Request Comments Communication | rock_documentation | The example email pictured below is generated from the “Prayer Request Comments Digest” system communications template. 1. **Greeting**- The greeting at the top of the email includes the person’s name and references the date on which the person submitted the prayer request. 2. **Request** - The original prayer request that was submitted is copied here for reference. 3. **Comments** - Any comments that have been... | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication) |
+| Outreach Toolbox is Here in v19 Transcript Insight | rock_youtube | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | Automatic Pastoral Care Summary Email | rock_recipes | 5 Automatic Pastoral Care Summary Email Shared by Leah Jennings , Northside Christian Church 6 years ago 8.10 Communications, Serving Intermediate PURPOSE We use Southeast's Pastoral Care plugin to manage our hospitalizations, nursing home residents, and homebound attendees. We have a hospital team that volunteers on rotation to visit those people, and our staff also need the list to be praying over them and... | [source](https://community.rockrms.com/recipes/121) |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session gives public-safe guidance for online groups and digital community workflows. It emphasizes that Rock-backed digital ministry can connect group participation, communication, data, and follow-up when teams intentionally design the path from online engagement to pastoral care or in-person connection. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
 | Outreach Toolbox is Here in v19 | rock_youtube | The Outreach Toolbox provides a mobile centric experience designed to help your church stay connected with the people who matter most. - Personal Ministry Onboarding walks individuals through a setup wizard to establish their care targets and personal outreach rhythms. This gives ministry leaders a clear, actionable starting point for discipleship from day... | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | Rock Core Release Notes | rock_core_release_notes | Fixed an issue where Connection Request workflows using a "Future Follow-up Date Reached" trigger would throw exceptions and fail to add the "Follow-Up Date Reached" activity. Fixes: #6310 | [source](https://www.rockrms.com/releasenotes) |
 | All This to Increase a Metric? | rock_recipes | 5 Using Workflows, Data Views, and Group Sync to Engage Church Online Shared by Sonja Waltman , LCBC Church 6 years ago 9.0 Operations, Communications Beginner Have you ever attended a church and received a card in the mail that week from the pastor thanking you for joining the church that weekend? Have you ever received a call from the worship leader inviting you back for the following weekend? What about a warm... | [source](https://community.rockrms.com/recipes/158) |
-| Connections Notification - Future Follow-Up | rock_recipes | 6 Connections Notification - Future Follow-Up Shared by Tiffany Bunney , Fellowship Greenville 6 years ago General Intermediate The RockRMS Connection Request system includes a powerful feature which allows the Connector to set the state of a request to Future Follow Up. This removes the request from the listing of requests until the Follow-up Date. The only negative of this system is that the Connector would need... | [source](https://community.rockrms.com/recipes/166) |
 
 
 ## Rebuild Dependencies
 
 - Source records: `61`
-- Approved claims: `19`
+- Approved claims: `25`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

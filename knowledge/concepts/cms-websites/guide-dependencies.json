@@ -818,6 +818,42 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
+      "claim_hash": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
+      "claim_id": "claim:2a9844acce5ba6150dec",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "cms-websites",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=195s",
+          "timestamp": "03:15",
+          "timestamp_seconds": 195.8,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Using Phone Number Lookup is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
@@ -1094,6 +1130,42 @@
           "timestamp_seconds": 185.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
+      "claim_hash": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
+      "claim_id": "claim:3e398ac03167b9c52704",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "cms-websites",
+        "connections",
+        "platform-configuration",
+        "scheduling-locations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "03:16",
+          "timestamp_seconds": 196.88,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
       ]
     },
@@ -1492,6 +1564,39 @@
           "source_id": "rock_community_hubs",
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
+      "claim_hash": "4e87af9319df8cce268ef023f5c48e7c0aa345e85e5e2ce6caf5a8d7c5d83da3",
+      "claim_id": "claim:5073aebf878a8fbe7c63",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=155s",
+          "timestamp": "02:35",
+          "timestamp_seconds": 155.52,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -5662,6 +5767,7 @@
     "claim:290d114501ff91b965a5": "9cd1b00b337889b66a842592c2b6e70f5943b428019b4badf3b5eec869028c8a",
     "claim:2a687dbd43ece0d98a0b": "709dee955d7915c1f57eb3c2b87c2947e99c2e50fe842903d86bb04768d1c8c8",
     "claim:2a7f5e6781a2d2fa30a4": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
+    "claim:2a9844acce5ba6150dec": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
     "claim:2bf0abb68edd34bd41b5": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
     "claim:2fed0aac2c5693503a5d": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
     "claim:339cf8a1fe741cd4572d": "ff12369033de12242a21745313efe8ad58ffa04e597fcfb85d1009986100b604",
@@ -5670,6 +5776,7 @@
     "claim:39735f6a8684f32d8191": "332a4b9786c6153ab8b80646b50d2df2eb6698b526136c33d1172c0bc8d3f4af",
     "claim:3abfdaf9b365315db422": "a249035f450c8932bea0de456cf6738ce601f0ff157fcf953ef2e0241c49ac67",
     "claim:3c8760faa5fa7063cd79": "3cf790e851304220d708732e0225de2b5001c4ff149bf7e6b57e2b4755bfa0a3",
+    "claim:3e398ac03167b9c52704": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
     "claim:40761d05ccf927bb597f": "d8a2e237e5861ceb5d97eb8e0383ea64daf157ee92e759a607998837f4852a64",
     "claim:42a75a1b8fa81b064517": "798e0876b54a915284ccc8063e7cd2d3cf50c3b0de2e3fbe12316946f6dd087b",
     "claim:435af2eba1634b82612e": "8d5d591f42c0b57ec9566fb27bd08dda97a7f45fdd961718445dd639fedbc208",
@@ -5681,6 +5788,7 @@
     "claim:4c6c24811261384a0eb4": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
     "claim:4d190facc0946a16e469": "bff2e752f025bf74fd9929e6c84710c6d64861afe220abfe390ffbcf3ee93e99",
     "claim:4ec2358a0d3b3694c88a": "f7212adcf85c4320598289bf9a8499b622b2b3777959d30402adcc07d2070cf0",
+    "claim:5073aebf878a8fbe7c63": "4e87af9319df8cce268ef023f5c48e7c0aa345e85e5e2ce6caf5a8d7c5d83da3",
     "claim:5126c656db81bf92e194": "843a9518e1d87552ad7b4cac6240f554cb5d8e2a1cded259c72918df2507579d",
     "claim:52a0b1fa6cd1b223a980": "da1d421a76f4d014166a0e0535c880b5de08f52aab94ef5932af9d61817975ea",
     "claim:57606ecf9827bef8d128": "8acbc92732ff25cad6bc87217e70096388919a8be0c7d329d390c384385cb060",
@@ -5803,7 +5911,7 @@
     "claim:fae5af20e55b69944eed": "1dd4e1a7afa226397047f8e2cbb4bcec4530d8c4423cd3a12a0a7311cdca4d34",
     "claim:fcd7a50446d90c1e2206": "d01200bb97658af70e0e049d8e0e4dd1d06c9d5a1d848fe1567731fe3462d932"
   },
-  "approved_claims_hash": "b5bbac74271f83676e8096f8695e093b21527bc67b72a949416a01ae6c51b789",
+  "approved_claims_hash": "feed2497dd73fb6612ef8ea47a0938fbb4d06d52e3c7ddddd0c8dfe2fcf9ccb9",
   "approved_claims_path": "knowledge/concepts/cms-websites/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -6691,12 +6799,12 @@
   },
   "approved_media_hash": "d6da57910a72706609eab86d6481e182b0937e64ce5accc3600af37e22fbc8e6",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "1063291be128540365c2abd252bc48261556b03fdd404c3a09b9873895004d14",
+  "guide_hash": "44ef202a7a9f5a27d4c35cf8f52a06afeab7ef289595a80135458465a536abbf",
   "guide_line_count": 1569,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
-  "guide_word_count": 13465,
+  "guide_word_count": 13478,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6823,6 +6931,24 @@
       "source_key": "c877aeede8d53f3d",
       "source_record_id": "",
       "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",
@@ -8255,6 +8381,8 @@
       "source_keys": [
         "c877aeede8d53f3d",
         "688f7051e9eaa0b1",
+        "5fa353d6f0648800",
+        "58a92984acbd2344",
         "35633587d4819f55",
         "b51b24ed7912d814",
         "35633587d4819f55",
@@ -8262,9 +8390,7 @@
         "35633587d4819f55",
         "35633587d4819f55",
         "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "b51b24ed7912d814"
+        "35633587d4819f55"
       ],
       "start_line": 1458
     },
@@ -8666,6 +8792,26 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
       "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",

@@ -44,8 +44,8 @@
   },
   "approved_claims": {
     "authority_tiers": {
-      "community-reviewed": 1027,
-      "official": 422,
+      "community-reviewed": 1039,
+      "official": 474,
       "release-note-confirmed": 1,
       "rocku-confirmed": 759
     },
@@ -53,17 +53,17 @@
       "behavior": 136,
       "configuration": 132,
       "implementation_pattern": 81,
-      "operational_guidance": 1122,
+      "operational_guidance": 1131,
       "recipe": 27,
-      "release_caveat": 122,
+      "release_caveat": 162,
       "risk": 83,
-      "source_summary": 506
+      "source_summary": 521
     },
     "notes": "Approved claims are the durable public knowledge unit. Each row must trace to source refs or source record IDs and pass public/private leak checks.",
     "path": "claims/approved-claims.jsonl",
     "public_publish_mode": "public_cite_and_summarize_only",
     "publishability_status": "approved_public_claim_graph",
-    "record_count": 2209,
+    "record_count": 2273,
     "report": "claims/claim-export-report.json"
   },
   "concepts": [
@@ -813,7 +813,7 @@
     }
   ],
   "entity_count": 448,
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -822,7 +822,7 @@
     "private_storage": true,
     "public_publish_mode": "private_only",
     "publishability_status": "private_media_routing_index_only",
-    "record_count": 516,
+    "record_count": 520,
     "source_indexes": [
       {
         "path": "data/media/index/rock_community_hubs.media-index.jsonl",
@@ -830,7 +830,7 @@
       },
       {
         "path": "data/media/index/rock_podcast_rss.media-index.jsonl",
-        "record_count": 214
+        "record_count": 218
       },
       {
         "path": "data/media/index/rock_rocku.media-index.jsonl",
@@ -850,12 +850,12 @@
   "release_caveat_count": 166,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {
-    "eligible_record_count": 5551,
+    "eligible_record_count": 5566,
     "notes": "Public source summaries are citation-first routing notes. They are not full source mirrors and exclude scanner-positive rows.",
     "path": "agent/source-summaries.jsonl",
     "public_publish_mode": "public_cite_and_summarize_only",
     "publishability_status": "public_distilled_source_routing_index",
-    "record_count": 5549,
+    "record_count": 5564,
     "report": "agent/source-summary-report.json",
     "skipped_sensitive_count": 2
   },

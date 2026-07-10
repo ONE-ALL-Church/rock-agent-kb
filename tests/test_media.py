@@ -1063,6 +1063,8 @@ def test_build_media_sidecars_writes_private_sidecar_and_textless_index(monkeypa
     assert transcript not in index_text
     assert '"has_private_transcript": true' in index_text
     assert global_index.exists()
+    manifest_rows = list(read_jsonl(media_dir / "rock_podcast_rss.media.jsonl"))
+    assert manifest_rows[0]["transcript_status"] == "transcribed"
 
 
 def test_build_media_sidecars_ignores_dry_run_transcript_rows(monkeypatch, tmp_path):

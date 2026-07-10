@@ -2,7 +2,7 @@
 id: concept-mobile
 title: Rock Mobile
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -29,8 +29,8 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 ## How To Think About This Area
 
 - `Rock Mobile` spans api, check-in, cms, security. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_mobile_docs, rock_developer, rock_mobile_release_notes.
-- Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, api, media.
+- The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_youtube, rock_mobile_docs, rock_developer.
+- Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, media, podcast.
 - Source detail types include: developer_doc, triumph_resources.
 
 ## Reviewed Media Insights
@@ -54,6 +54,9 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 | Media Watch Transcript Insight | daily engagement | 02:23 | A daily mobile experience can make the app valuable beyond weekend utility by giving people a simple reason to return for scripture, prayer, or ministry stories. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
 | Media Watch Transcript Insight | missions and prayer | 02:14 | Prayer or missions content can be designed as a lightweight daily action that connects app users to people and ministry work they may not otherwise see. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
 | Media Watch Transcript Insight | mobile app open | 01:41 | The first screen after app open should be intentionally chosen because it can shape whether users treat the app as a ministry companion or only a transactional tool. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
+| Outreach Toolbox is Here in v19 Transcript Insight | Outreach Toolbox availability | 00:00 | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s) |
+| Outreach Toolbox is Here in v19 Transcript Insight | outreach schedules and reminders | 01:04 | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s) |
+| Outreach Toolbox is Here in v19 Transcript Insight | outreach touchpoint lifecycle | 07:56 | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s) |
 | Using Mobile Check-in Transcript Insight | mobile check-in identity | 01:16 | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | Using Mobile Check-in Transcript Insight | mobile check-in eligibility | 01:51 | The participant-facing flow can show fallback screens when a person is outside the configured geofence, outside the valid check-in time window, or has no eligible check-in option available. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | Using Mobile Check-in Transcript Insight | mobile check-in labels | 04:37 | After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
@@ -94,6 +97,7 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 | Media Watch Transcript Insight | short-form content | 04:46 | Short-form video should be treated as ministry content with a clear next step, not only as entertainment or social promotion. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) |
 | Media Watch Transcript Insight | topic routing | 08:07 | Urgent or culturally timely topics can become good candidates for curated content paths when they are connected to trusted ministry resources and follow-up actions. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) |
 | Media Watch Transcript Insight | digital engagement | 09:27 | Digital content libraries work best when they connect messages, topics, and practical next steps instead of leaving users to browse isolated videos. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) |
+| Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | Outreach Toolbox dashboard | 00:00 | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | Media Watch Transcript Insight | workflow orchestration | 02:45 | When a content process depends on slow background work, a Rock workflow can own the orchestration and communicate status instead of blocking the user interface. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | Media Watch Transcript Insight | video rendering | 03:15 | Video rendering or similar background tasks should be modeled with explicit workflow states, retries, and completion checks before linking the output into public pages or apps. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | Media Watch Transcript Insight | wait states | 03:20 | Wait-state design is useful when the system needs to pause while an external or long-running process finishes, but the workflow should still surface failure and timeout conditions. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
@@ -115,6 +119,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
@@ -126,23 +136,18 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Phone Number Lookup Configuration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration) |
 | rocku-confirmed | operational_guidance | Before enabling mobile check-in, confirm the site is served over HTTPS, a Google API key is configured for geofencing, and the underlying check-in groups, locations, schedules, and check-in configuration already work through normal check-in. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
 | rocku-confirmed | operational_guidance | After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | operational_guidance | The mobile flow still follows the familiar check-in pattern: identify the person, choose who is checking in, complete the check-in, then use the generated QR code only for label-printing handoff when labels are needed. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
-| rocku-confirmed | operational_guidance | The Phone Number Lookup Overview RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-overview) |
-| rocku-confirmed | operational_guidance | The Using Phone Number Lookup RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/using-phone-number-lookup) |
-| rocku-confirmed | risk | For risk, governance, permissions, and policy review, Using Phone Number Lookup should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/using-phone-number-lookup) |
-| rocku-confirmed | risk | For risk, governance, permissions, and policy review, Phone Number Lookup Configuration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration) |
-| rocku-confirmed | risk | For risk, governance, permissions, and policy review, Phone Number Lookup Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-overview) |
-| More |  | 77 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 83 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 13
-- `rock_developer`: 4
+- `rock_developer`: 2
 - `rock_mobile_docs`: 47
 - `rock_mobile_release_notes`: 2
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 6
 - `rock_rocku`: 6
+- `rock_youtube`: 2
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -256,6 +261,7 @@ Keywords: `release, ios, android, minimum`
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Episode 143: Special Edition- Braden Cohen Transcript Insight | rock_podcast_rss | This RockCast episode adds public-safe context for the Rock Mobile transition from Xamarin Forms toward .NET MAUI. It describes MAUI as a close successor with compatibility support, newer styling and animation options, performance improvements, and a release path that lets existing apps test compatibility before fully moving new content blocks to MAUI-native behavior. | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
+| Outreach Toolbox is Here in v19 Transcript Insight | rock_youtube | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | Episode 102: Rock Mobile Transcript Insight | rock_podcast_rss | Episode 102: Rock Mobile is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, version, roadmap, and release-caveat awareness, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification. | [source](https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile) |
 | Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries Transcript Insight | rock_podcast_rss | Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries is approved as a public-safe Rock Cast episode distillation for ministry process design, Rock operations and administration, staff training and operational readiness. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification. | [source](https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to) |
 | Episode 166: Wrapping Up 2023 Transcript Insight | rock_podcast_rss | Episode 166: Wrapping Up 2023 is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, staff training and operational readiness, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification. | [source](https://shows.acast.com/rock-cast/episodes/episode-166) |
@@ -264,7 +270,6 @@ Keywords: `release, ios, android, minimum`
 | On Device Platform | rock_mobile_docs | M v1.0 Warning This is deprecated in Rock Mobile V6 and later. There is a built-in XAML extension for .NET MAUI. In some cases, it can be useful to customize content or appearance across platforms—for example, applying one style on Android and a different one on iOS to match each platform's native aesthetic. This extension provides a way to set content or property values depending on the device's OS platform. ###... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform) |
 | Android Keystore | rock_mobile_docs | Java Keystores (.jks or .keystore) are binary files that serve as repositories of certificates and private keys. In the context of Android, these are used to digitally sign and secure an app. This provides a layer of security that prevents, among other things, remote attackers from pushing malicious updates to your application to market (all updates must be signed with the same key). The keystore is generated and... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore) |
 | Store Graphics & Icons | rock_mobile_docs | ### Launch Image The launch screen, commonly referred to as the splash screen, is the static visual that appears instantly when a user opens an app, filling the gap while the app loads in the background. App Factory utilizes a **2048x2048** graphic resolution with a safe area of **720x1440.** ### App Icons Your app icon is a crucial aspect of your app’s branding. It appears on the Home Screen and in key locations... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons) |
-| Migrating to .NET MAUI (V6) | rock_mobile_docs | A helpful guide to follow when upgrading your Rock Mobile Xamarin Forms application (V5 and lower) to .NET MAUI (V6 and later). ## What? Why? In May of 2024, [Xamarin Forms](https://dotnet.microsoft.com/en-us/apps/xamarin/xamarin-forms), the foundation of Rock Mobile, will [lose support](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin) from Microsoft. This is why, in Rock Mobile V6, we will be... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
 
 ### App Publishing
 
@@ -297,7 +302,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `145`
 - Lava capability source records: `53`
-- Approved claims: `95`
+- Approved claims: `101`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

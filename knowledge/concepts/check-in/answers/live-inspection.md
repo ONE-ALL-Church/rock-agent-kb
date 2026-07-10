@@ -16,7 +16,7 @@ For Check-In, inspect these live surfaces before changing production behavior: R
 - `claim:3b96546de8e62931465b`
 - `claim:c78fd6f074218814ab14`
 - `claim:ce1480ce2324122b7616`
-- `claim:44c7dd8911e8b6703262`
+- `claim:7df4b8c20f9419a30a5a`
 
 ## Distilled Claims
 
@@ -30,4 +30,4 @@ For Check-In, inspect these live surfaces before changing production behavior: R
 - [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) (`02:17`)
 - [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) (`00:44`)
 - [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview)
-- [Next-Gen Labels](https://community.rockrms.com/rocku/check-in/next-gen-labels) (`00:00`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s) (`04:22`)

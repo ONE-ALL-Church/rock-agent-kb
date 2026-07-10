@@ -2,7 +2,7 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -216,6 +216,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
+| official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
+| official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | source_summary | This official Rock Cast episode mixes broad AI and leadership discussion with two durable Rock operating practices: treat supported dot releases as security maintenance, and separate a ministry problem's requirements from the first proposed technical solution. External AI commentary and conference material are context only. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | rocku-confirmed | configuration | Connection Types are high-level containers for related connection opportunities; they should match ministry process boundaries rather than arbitrary reporting groupings. | [source](https://community.rockrms.com/rocku/engagement/connections-types) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | configuration | Connection Opportunities define the specific follow-up paths available inside a connection type; changing an opportunity can affect request routing, staff ownership, and reporting. | [source](https://community.rockrms.com/rocku/engagement/connections-opportunities) |
@@ -228,13 +234,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | implementation_pattern | When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
 | rocku-confirmed | implementation_pattern | Before adding or retiring a connection opportunity, inspect active requests, workflows, staff roles, connector assignments, and reporting dependencies. | [source](https://community.rockrms.com/rocku/engagement/connections-opportunities) |
 | rocku-confirmed | operational_guidance | Connections Board should be treated as a staff work queue for connection requests; board behavior depends on request status, opportunity, assignment, and follow-up ownership. | [source](https://community.rockrms.com/rocku/engagement/connections-board) |
-| rocku-confirmed | operational_guidance | Connections List provides a tabular operational view of connection requests; use it when staff need filtering, scanning, and review across multiple requests rather than board-style movement. | [source](https://community.rockrms.com/rocku/engagement/connections-list-1) |
-| rocku-confirmed | operational_guidance | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | operational_guidance | Connections work should be modeled as a ministry follow-up process: define the person, opportunity, connector, status, and next action before automating or reporting on the flow. | [source](https://community.rockrms.com/rocku/engagement/overview) |
-| rocku-confirmed | operational_guidance | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | operational_guidance | Connections Overview should frame connection requests as person-centered ministry workflows with defined types, opportunities, statuses, activities, and staff follow-up responsibilities. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
-| rocku-confirmed | source_summary | Form Builder adds workflow guidance: treat form fields as structured process inputs with validation, visibility, and downstream action implications. | [source](https://community.rockrms.com/rocku/workflows/form-builder) |
-| More |  | 1322 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 1331 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -374,7 +374,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `145`
 - Lava capability source records: `53`
-- Approved claims: `1340`
+- Approved claims: `1349`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

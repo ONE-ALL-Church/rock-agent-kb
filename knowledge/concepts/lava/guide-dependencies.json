@@ -493,6 +493,42 @@
       ]
     },
     {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
+      "claim_hash": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+      "claim_id": "claim:32f0173b23a7d2c356c0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "data-views-reports",
+        "lava",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "06:26",
+          "timestamp_seconds": 386.3,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+        }
+      ]
+    },
+    {
       "authority_tier": "official",
       "claim": "Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance.",
       "claim_hash": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
@@ -874,6 +910,42 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
+      "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
+      "claim_id": "claim:4c4098a035a5ca256bfe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "data-views-reports",
+        "lava",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s",
+          "timestamp": "06:26",
+          "timestamp_seconds": 386.28,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged.",
       "claim_hash": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
@@ -952,6 +1024,39 @@
           "source_id": "rock_rocku",
           "title": "For Statement",
           "url": "https://community.rockrms.com/rocku/lava/for-statement"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries.",
+      "claim_hash": "0efd5c87a9f6e7817ae2fb5cdc49b8db2728260a3473cb957af283ee7238ded8",
+      "claim_id": "claim:524be15ef7a48290a72a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "lava",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s",
+          "timestamp": "18:00",
+          "timestamp_seconds": 1080.84,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -3311,6 +3416,7 @@
     "claim:1e8a4c84ec5bc7717590": "20793f8458ac752b413e74f16e252bac80a1027171d701f356e3c929576a1334",
     "claim:247c7587ce58a8bf28b9": "d8003625c2fe80604b537a511b6ef5d235820e9f52fb0fc5358219b366f9718a",
     "claim:31a58d58dbab5739b4f5": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
+    "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
     "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
     "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
     "claim:3c80fa4e2099bb5416de": "4b2441e58f703c12d6d407dc50a804db8c8a55c60c9c862c24d9d85a8dbb04f0",
@@ -3321,8 +3427,10 @@
     "claim:47b08e30f6cae81c8691": "ed84693cadcddd3331341bc4ff385390ecad320c6d7caef61e5fa7bb281e8257",
     "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
     "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
+    "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
     "claim:4c6c24811261384a0eb4": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
     "claim:5115289c5053e77e072a": "16da9da08f614c0e36d395816ba95fc25b68c71fea22a9472d0252efd3fab871",
+    "claim:524be15ef7a48290a72a": "0efd5c87a9f6e7817ae2fb5cdc49b8db2728260a3473cb957af283ee7238ded8",
     "claim:563e520ec15928e19628": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
     "claim:57aac8a437e63c44a713": "5a8ec16d43128b94149cba2dc0611c072796f9965e02eeb1dcb4caa8b7e0bc3b",
     "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
@@ -3392,7 +3500,7 @@
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "391cfd85f3919f9480aef3b17afb0362b8c13424e9332ba4c8abeb2267b8ed9c",
+  "approved_claims_hash": "b639145483b26f598feb04cdc11bc818907a8569b59dab532594867187c9691c",
   "approved_claims_path": "knowledge/concepts/lava/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3803,9 +3911,9 @@
   },
   "approved_media_hash": "9c8278212f8defa3d3ee4edae7ce1933a921d342680724923364d46db88032b9",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "lava",
-  "guide_hash": "3d0724b5609c741f1d939cb688481f39636b06f17e1c0c1022933af7a60acf13",
+  "guide_hash": "28ed5dd01b7564872834496fef33a28ab2df33bed392f33683df9030be856460",
   "guide_line_count": 2021,
   "guide_path": "knowledge/concepts/lava/guide.md",
   "guide_word_count": 14942,

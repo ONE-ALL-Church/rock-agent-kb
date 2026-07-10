@@ -1214,7 +1214,7 @@ Return pass/fail for:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `25`
+- Approved claims routed to this concept: `32`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1231,7 +1231,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | configuration | Rock recommends enabling snapshot isolation on its SQL Server database so that database writes do not block reads; the setting may already be enabled depending on the SQL Server edition and version. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock) |
 | official | configuration | Enable IIS dynamic-content compression when the option is available; if it is disabled because the required compression module is not installed, the step may be skipped. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis) |
 | official | implementation_pattern | Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
-| More |  | 13 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 20 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1245,8 +1245,8 @@ This generated summary links the long-form guide to reviewed media distillations
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) | approved_for_public_distillation | 2 | media-insight:cff330eb0f953f16 |
-| [Text to Workflow Performance [Legacy] Transcript Insight](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) | approved_for_public_distillation | 3 | media-insight:04a99f4c31219b5b |
+| [The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight](https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215) | approved_for_public_distillation | 2 | media-insight:254ba808b7a44201 |
+| [The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight](https://www.youtube.com/watch?v=pvgZLvcfmFQ) | approved_for_public_distillation | 2 | media-insight:86f52ad904debace |
 | [Workflow Performance Tips Transcript Insight](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) | approved_for_public_distillation | 1 | media-insight:259fe8c97d469180 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->

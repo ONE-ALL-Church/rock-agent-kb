@@ -2039,24 +2039,24 @@ Cite reporting model landmarks where appropriate: [Model Map](https://community.
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `41`
+- Approved claims routed to this concept: `48`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
 | community-reviewed | operational_guidance | An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | community-reviewed | operational_guidance | Existing training videos can become Rock LMS activities, but completion, sequencing, and facilitator review should be configured intentionally around the desired learner outcome. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
 | community-reviewed | operational_guidance | Rock LMS organizes training into programs, courses, class instances, learning plans, activities, and learning participants, with the program deciding whether the experience is on-demand or academic-calendar based. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | implementation_pattern | Rock connection work should use retention data to prioritize human follow-up, volunteer assignment, and next-step invitations rather than only reporting historical attendance. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) |
-| community-reviewed | operational_guidance | A leadership-facing Rock dashboard should make metric definitions explicit so teams know which values are current-state snapshots, historical trends, or ministry-specific targets. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2) |
-| community-reviewed | operational_guidance | Campus dashboards should help leaders compare current year-to-date values against both goals and prior-year context, while leaving deeper campus-specific measures available without crowding the organization-wide dashboard. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | A mature reporting suite can separate executive dashboards, campus or ministry dashboards, and functional operational dashboards so each audience sees the level of detail needed for its decisions. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | Functional dashboards such as connection-request views may justify live database connections when leaders need up-to-date queues, while slower-changing attendance or giving dashboards can usually use scheduled refreshes. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | When moving from another LMS into Rock, plan for differences in platform logic instead of assuming videos and lessons can be imported without redesign. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
-| community-reviewed | operational_guidance | Lessons from youth digital ministry can inform adult services and broader church mobile strategy when they are translated into repeatable Rock-backed workflows. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) |
-| More |  | 29 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 36 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -2065,7 +2065,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `9`
+- Approved media records routed to this concept: `11`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -2078,7 +2078,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) | approved_for_public_distillation | 3 | media-insight:a8361b8714eb62ff |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) | approved_for_public_distillation | 3 | media-insight:c664b64e781d5fbb |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) | approved_for_public_distillation | 5 | media-insight:d1eb1a265dd0762b |
-| More |  | 1 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 3 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

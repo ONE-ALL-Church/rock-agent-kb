@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11409 words; expected at least 7000.",
+      "message": "Guide has 11416 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,13 +60,13 @@
   "concept_id": "hosting-infrastructure",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_line_count": 1319,
-  "guide_word_count": 11409,
+  "guide_word_count": 11416,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 100,
-  "source_count": 33,
+  "source_count": 34,
   "status": "pass",
   "task_card_count": 6
 }

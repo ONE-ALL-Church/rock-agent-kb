@@ -129,6 +129,7 @@ generated: true
 | `19-agent-task-recipes-recipe-verify-schedule-confirmation-send-health` | normal | live verification |
 | `19-agent-task-recipes-recipe-safely-customize-a-volunteer-facing-page` | community-supported | live verification |
 | `19-agent-task-recipes-recipe-investigate-family-serving-response-request` | community-supported | live verification |
+| `approved-claim-coverage` | citation-only | live verification |
 | `20-source-map-and-dependency-notes-community-example-sources` | community-supported | community-supported |
 | `20-source-map-and-dependency-notes-dependency-notes` | needs-citation | needs-citation |
 | `20-source-map-and-dependency-notes-live-verification-required` | needs-citation | live verification |

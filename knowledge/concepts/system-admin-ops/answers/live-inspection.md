@@ -7,14 +7,12 @@ artifact_level: answer
 
 # What live Rock records should I inspect for System Administration And Operations?
 
-For System Administration And Operations, inspect these live surfaces before changing production behavior: Rock version, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters.
+For System Administration And Operations, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters.
 
 ## Top Claims
 
+- `claim:091606bd3b8b0472392a`
 
 ## Citations
 
-- [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_rocku:6612b451bd0ae178](https://community.rockrms.com/rocku/core-concepts/automations)
-- [rock_rocku:19a30b51edaa7382](https://community.rockrms.com/rocku/core-concepts)
-- [rock_developer:62524909bcc2f18b](https://community.rockrms.com/developer/developer-codex/coding-standards)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s) (`16:43`)

@@ -1167,24 +1167,24 @@ Produce:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `23`
+- Approved claims routed to this concept: `32`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | operational_guidance | When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | operational_guidance | Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | operational_guidance | Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Voice AI services may use provider-specific usage pricing rather than a fixed monthly fee. Churches should estimate realistic usage, compare cost with ministry value and verify current provider pricing before rollout. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | source_summary | This official Rock Cast episode connects AI adoption with practical staff-training governance. It covers usage-based AI costs, durable agent artifacts, short change-training videos, role-based Rock LMS assignments, shadow-tool risk and staff-first training. Treat external AI pricing and preview product statements as release-sensitive, and verify current Rock behavior before implementation. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
 | community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | community-reviewed | operational_guidance | For dashboard speed, expensive journey analytics can be calculated into a persisted dataset on a schedule rather than recalculating all historical engagement data on each page load. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) |
 | community-reviewed | operational_guidance | An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | community-reviewed | operational_guidance | Existing training videos can become Rock LMS activities, but completion, sequencing, and facilitator review should be configured intentionally around the desired learner outcome. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
-| community-reviewed | operational_guidance | Rock LMS organizes training into programs, courses, class instances, learning plans, activities, and learning participants, with the program deciding whether the experience is on-demand or academic-calendar based. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | operational_guidance | AI coaching should be framed as an assisted resource-routing layer with reviewable prompts, ministry-approved categories, and clear human oversight. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) |
-| community-reviewed | operational_guidance | Publishing a ministry dashboard can change behavior when it exposes underused content or completion gaps; teams can then adjust marketing, launch timing, content length, and follow-up strategy based on observed engagement. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) |
-| community-reviewed | operational_guidance | Journey reporting may need to join content-channel items, generated groups, group members, notes/comments, and attendance-style completion events because the ministry experience spans both content and group participation models. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) |
-| community-reviewed | operational_guidance | When moving from another LMS into Rock, plan for differences in platform logic instead of assuming videos and lessons can be imported without redesign. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
-| community-reviewed | operational_guidance | Online next-step pathways can combine dashboards, content, and LMS when the church defines the discipleship path being supported. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) |
-| community-reviewed | operational_guidance | A binge-style content idea can become a structured learning path when the church defines sequence, purpose, and completion signals rather than only embedding videos. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
-| community-reviewed | operational_guidance | Early LMS work should start with a few clear training use cases, such as volunteer or staff onboarding, before attempting a large content migration. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
-| More |  | 11 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 20 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1193,11 +1193,12 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `5`
+- Approved media records routed to this concept: `6`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight](https://www.youtube.com/watch?v=bu5nPeAVCAo) | approved_for_public_distillation | 6 | media-insight:1cb65e44984bb55c |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) | approved_for_public_distillation | 4 | media-insight:51fb82169d3a4818 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) | approved_for_public_distillation | 3 | media-insight:927b060aba73b666 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) | approved_for_public_distillation | 3 | media-insight:a5cb300eafd257ca |

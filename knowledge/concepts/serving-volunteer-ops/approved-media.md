@@ -2,7 +2,7 @@
 concept_id: serving-volunteer-ops
 generated: true
 artifact_level: media_distillation
-approved_media_count: 9
+approved_media_count: 11
 ---
 
 # Serving And Volunteer Operations Approved Media
@@ -20,3 +20,5 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:c664b64e781d5fbb` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
 | `media-insight:d1eb1a265dd0762b` | Media Watch Transcript Insight | approved_for_public_distillation | 5 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | `media-insight:ee02b5c27faeaa28` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
+| `media-insight:de21ecd38cde9a0c` | Outreach Toolbox is Here in v19 Transcript Insight | approved_for_public_distillation | 3 | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `media-insight:4eb69bc5dde5cacb` | Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |

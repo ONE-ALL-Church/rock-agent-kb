@@ -2,7 +2,7 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -71,6 +71,8 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 | Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team Transcript Insight | ministry process | 00:21 | the Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team episode gives public operational perspective on ministry process design; use it to frame questions for staff process review rather than as authoritative configuration guidance. | [source](https://community.rockrms.com/connect/rock-cast-episode-197) |
 | Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team Transcript Insight | staff training | 03:35 | When applying staff training and operational readiness ideas from Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting. | [source](https://community.rockrms.com/connect/rock-cast-episode-197) |
 | Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team Transcript Insight | data and reporting | 03:43 | When applying reporting, analytics, and measurement ideas from Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting. | [source](https://community.rockrms.com/connect/rock-cast-episode-197) |
+| Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | managed AI data access | 09:17 | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s) |
+| Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | managed AI data access | 09:21 | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
 
 
 ## Approved Claims
@@ -85,6 +87,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
 | official | operational_guidance | LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
@@ -96,8 +99,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
-| official | source_summary | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| More |  | 28 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 32 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -106,15 +108,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_core_release_notes`: 7
 - `rock_demo_api_docs_v1`: 1
 - `rock_demo_api_docs_v2`: 1
-- `rock_developer`: 30
+- `rock_developer`: 28
 - `rock_documentation`: 8
 - `rock_lava_docs`: 3
 - `rock_mobile_docs`: 6
 - `rock_model_map`: 12
-- `rock_podcast_rss`: 4
+- `rock_podcast_rss`: 5
 - `rock_qa`: 4
 - `rock_recipes`: 6
-- `rock_youtube`: 1
+- `rock_youtube`: 2
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -256,7 +258,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `138`
 - Lava capability source records: `53`
-- Approved claims: `46`
+- Approved claims: `50`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

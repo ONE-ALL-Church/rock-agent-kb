@@ -1694,6 +1694,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause.",
+      "claim_hash": "3f0dfda24141c3bd127435fd12848cb757068642ea20ab3b1262130c262d1d73",
+      "claim_id": "claim:147ee6dbc7db220dc7ba",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "data-views-reports",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s",
+          "timestamp": "11:54",
+          "timestamp_seconds": 714.84,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Data Views should be treated as reusable record-set definitions: they answer which records qualify before a Report, Dynamic Report block, workflow, or other consumer decides how to display or act on those records.",
       "claim_hash": "577e147dbacedaa9f6216a073db9f97dd0c82fd3dae5fa153673d34e4b0389f9",
@@ -3471,6 +3504,42 @@
           "timestamp_seconds": 433.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+        }
+      ]
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
+      "claim_hash": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+      "claim_id": "claim:32f0173b23a7d2c356c0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": true,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "data-views-reports",
+        "lava",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
+      "source_record_ids": [
+        "rock_podcast_rss:c599eeb5406e175c"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+          "timestamp": "06:26",
+          "timestamp_seconds": 386.3,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
       ]
     },
@@ -5423,6 +5492,42 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
+      "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
+      "claim_id": "claim:4c4098a035a5ca256bfe",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "check-in",
+        "connections",
+        "data-views-reports",
+        "lava",
+        "platform-configuration",
+        "scheduling-locations"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
+      "source_record_ids": [
+        "rock_youtube:ada1b1391c0864f3"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s",
+          "timestamp": "06:26",
+          "timestamp_seconds": 386.28,
+          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
+          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For staff training and operational readiness, BI Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "90ef0cf58d0f69ea6c2332bd4a396598a32722479363b4a28333ea8a69af8ae2",
@@ -5888,6 +5993,39 @@
           "timestamp_seconds": 33.0,
           "title": "Connection Request Status Automation",
           "url": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries.",
+      "claim_hash": "0efd5c87a9f6e7817ae2fb5cdc49b8db2728260a3473cb957af283ee7238ded8",
+      "claim_id": "claim:524be15ef7a48290a72a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "lava",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s",
+          "timestamp": "18:00",
+          "timestamp_seconds": 1080.84,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -10499,6 +10637,38 @@
           "source_id": "rock_rocku",
           "title": "Reporting Security",
           "url": "https://community.rockrms.com/rocku/reporting/reporting-security"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v19 Connections navigation can expose list, board, grid and operational snapshot views with active, unassigned, due-soon and overdue metrics. Which views appear is configured on the connection type.",
+      "claim_hash": "503fb634b316e301751f3f6c659fe36ad8a2c39ed6d3bcc5d5820c735eb72450",
+      "claim_id": "claim:9851e6f9beb234b9ae44",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "connections",
+        "data-views-reports"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "914743ce888dda0e9e6671ba6a8745dcf2f85a1a81846cbe2dc816cf7f06a854",
+      "source_record_ids": [
+        "rock_youtube:62320adf4b451da8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=50s",
+          "timestamp": "00:50",
+          "timestamp_seconds": 50.2,
+          "title": "Connections Helps Prevent Your People from Falling Through the Cracks",
+          "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
         }
       ]
     },
@@ -18166,6 +18336,7 @@
     "claim:12c000e07e81024c2e54": "448f32aa71a5083f80b447e56e7afe486a8c98c99fc567e77d61f0b8c4d71eef",
     "claim:13d9a9677d60dda57752": "ad5e858a190d3d250dbf28d7be31ae74aede6978a2b54f0cc812a6b1c9fb0d4b",
     "claim:142629c3a73eea99a448": "d7a491508a77e09825042a194860761ed9dd102b38025a576096d6799d04bc4b",
+    "claim:147ee6dbc7db220dc7ba": "3f0dfda24141c3bd127435fd12848cb757068642ea20ab3b1262130c262d1d73",
     "claim:14b494b5978509441220": "577e147dbacedaa9f6216a073db9f97dd0c82fd3dae5fa153673d34e4b0389f9",
     "claim:15f3d6cce5749c02786a": "34764cbdd25cff0a885cf16a1e6ff311f4bedde16f1079327cd1a1e9219d3ee7",
     "claim:160cef9e90bd67639b34": "2ad996fab3d59b070ac23d2a5254a5d5a6c59762a1e8bdb51435eee1bf87a2b4",
@@ -18222,6 +18393,7 @@
     "claim:3031bdbf6234d08a5f3d": "ca20c77d4dec6af55b2bc4a37b41cb95c635335e968c9705e8c0bd5616d27aec",
     "claim:31a58d58dbab5739b4f5": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
     "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
+    "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
     "claim:339cf8a1fe741cd4572d": "ff12369033de12242a21745313efe8ad58ffa04e597fcfb85d1009986100b604",
     "claim:34c487dcf623b9fe2e4c": "6e0ebde5ae272f168cc090fe92a44f268b79feff7bcb085cf674473cc3f2190b",
     "claim:3524141bde0a8ff0b15e": "2d010b6e57129b7cb4b300ebf2f261c3fb34e1a93c872f4185f7fc129f1b2bfc",
@@ -18282,6 +18454,7 @@
     "claim:4bb8144925035005a128": "d42893ad3a0ff23a488b7be2a29a7d849b470a51f3875ad8bd8509ed61d0a36e",
     "claim:4bd06d952e9a889782a6": "a7917b37bc396b8092606ff89664a3086136769baaab36c241070f1ea82e702e",
     "claim:4c04bf673d9a350ed122": "0d29e84c14fd390c37830828a580c7a63f2296f2fbc4994e9484e5b4522e2a28",
+    "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
     "claim:4c7b906ef16dfc9b828a": "90ef0cf58d0f69ea6c2332bd4a396598a32722479363b4a28333ea8a69af8ae2",
     "claim:4cb20c9c850579bd28b5": "23ce8400533750decd22a44537c5c234255680f1350eaeca0cc6be4f1204ecfc",
     "claim:4ccbececc1c30ce62894": "a008c43fdf23bccfbd9a8e04f7acb87716e63cd830ab807e9588131c630b17c9",
@@ -18297,6 +18470,7 @@
     "claim:5126c656db81bf92e194": "843a9518e1d87552ad7b4cac6240f554cb5d8e2a1cded259c72918df2507579d",
     "claim:513437f6c94739da2dc0": "a1b613d6998e4b9d22e209fe4881a5a59d3ff2a7caca14b383821f7d1602ff8c",
     "claim:5205c40b5abbbfd11e93": "0578f934aa47c7cc916b66d16e77f6e13b55d27f67fe5d895a172174268116c7",
+    "claim:524be15ef7a48290a72a": "0efd5c87a9f6e7817ae2fb5cdc49b8db2728260a3473cb957af283ee7238ded8",
     "claim:52784bf98a40c81796d3": "e901cc3d61d44b761b22736f68e5206fd6f3e23bf878d053700618c97cf4656e",
     "claim:52a0b1fa6cd1b223a980": "da1d421a76f4d014166a0e0535c880b5de08f52aab94ef5932af9d61817975ea",
     "claim:52cd07770ca56560154b": "67e5fb3233c7101fff409036944b1e705ecb57285c1eafba8b3ece577d818b39",
@@ -18439,6 +18613,7 @@
     "claim:97ba94576546cf5bed35": "61dcf8071434c562b3f1cf39f8e9573f5c264e0da68bf778bb6ca83e5e81c493",
     "claim:97c1eca3bb9ce1ecafcc": "d4d4566029f88371a3819f3d13d8bbc3c9db5e26b3ead89f8defb16b6a20d8b0",
     "claim:97e5249b1854a4421ceb": "280cc67e36d5f1ac920bb9d20fa663fe43c8b8e3aa72b00ac0edadba77204333",
+    "claim:9851e6f9beb234b9ae44": "503fb634b316e301751f3f6c659fe36ad8a2c39ed6d3bcc5d5820c735eb72450",
     "claim:9890bf9e4fd4a7ac1104": "c7456ba6b41f0579607f9b5baf8b04ff7a91bce0539007263d19cac771e16f8e",
     "claim:98f655c09799ff79ac82": "f09c4a90199d85ae7672847a4df2a966ce015bfce313bbda7e4d297091b3750f",
     "claim:9a034b921673b77040a0": "ebf9d05e602429c64af8aa38069e7d3ffdaf7f5894cc46b8e964ba4683682f49",
@@ -18673,7 +18848,7 @@
     "claim:ffa743908a261a4a6d6b": "3131d5e1d000790d3d36f2a8545561d7c02c4388f204f2c2a57a636bf9012949",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "479aa9f65ead2037dbffd13b6a7db3aa091165275906b468c24a249da6be9f6e",
+  "approved_claims_hash": "c7afb7cdcdeac2bedbb4f6391e1e0094a68c1d5cd788cbd1ee39ebfff5d9ec59",
   "approved_claims_path": "knowledge/concepts/data-views-reports/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -20042,12 +20217,12 @@
   },
   "approved_media_hash": "769cc094468363bd078ac0249d0b422ad321eb17fed862c76bf53b87eb652057",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "50fc27e208ff53c213bfd7e3607f1700e0a2036cf0cc5e86e2ccd97fd2f9e64a",
+  "guide_hash": "9bc33d3a4684247affbf39c17a091dcae3f3b1872603350a9d3ae7b5e56402dd",
   "guide_line_count": 2005,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
-  "guide_word_count": 16110,
+  "guide_word_count": 16122,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -20455,6 +20630,33 @@
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a1bb90bc2fdee5ac",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -20471,15 +20673,6 @@
       "source_key": "c680a16482a4af12",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "7054a521db6d0806",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/groups/extending-groups"
     },
     {
       "authority": "official-training",
@@ -22164,21 +22357,21 @@
       "confidence": "citation-only",
       "end_line": 1925,
       "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "dcc9c3b1df657d9f",
+        "58a92984acbd2344",
         "dcc9c3b1df657d9f",
+        "5fa353d6f0648800",
+        "58a92984acbd2344",
+        "a1bb90bc2fdee5ac",
         "fa937a53da06e8f9",
         "8d8c28f726e09218",
         "8d8c28f726e09218",
         "fa937a53da06e8f9",
         "c680a16482a4af12",
-        "fa937a53da06e8f9",
-        "c680a16482a4af12",
-        "8d8c28f726e09218",
-        "d26a070ba9bc8cae",
-        "7054a521db6d0806"
+        "fa937a53da06e8f9"
       ],
       "start_line": 1900
     },
@@ -23320,6 +23513,36 @@
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a1bb90bc2fdee5ac",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=7rxTGLLhlrU",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -23338,16 +23561,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "7054a521db6d0806",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/groups/extending-groups",
-      "url": "https://community.rockrms.com/rocku/groups/extending-groups"
     },
     {
       "authority": "official-training",

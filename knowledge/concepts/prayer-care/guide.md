@@ -1205,7 +1205,7 @@ Check:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `19`
+- Approved claims routed to this concept: `25`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1222,7 +1222,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | behavior | A prayer session records another prayer count when a team member views a request, and enabled team flagging can unapprove a request once the block's configured flag threshold is reached. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session) |
 | official | configuration | Prayer-category AI settings can pass from a parent category to its direct children, but the inherited settings do not cascade from those children to grandchildren. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations) |
 | official | configuration | The Prayer Request Entry block's expiration period controls how long an approved request stays active, but this setting applies only when automatic approval is enabled. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
-| More |  | 7 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 13 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1231,14 +1231,16 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `3`
+- Approved media records routed to this concept: `5`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) | approved_for_public_distillation | 3 | media-insight:a0960ff639b6ffaf |
+| [Outreach Toolbox is Here in v19 Transcript Insight](https://www.youtube.com/watch?v=LNcx8t0mlQ4) | approved_for_public_distillation | 3 | media-insight:de21ecd38cde9a0c |
 | [Prayer Requests Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests) | approved_for_public_distillation | 2 | media-insight:762111bd5a9d1218 |
 | [Rapid Attendance Entry Transcript Insight](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) | approved_for_public_distillation | 3 | media-insight:f131f156d62b7d38 |
+| [Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight](https://www.youtube.com/shorts/c6T9Ha13jKE) | approved_for_public_distillation | 1 | media-insight:4eb69bc5dde5cacb |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

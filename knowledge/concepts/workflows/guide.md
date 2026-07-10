@@ -1566,24 +1566,24 @@ Official Lava docs and source both describe the command's parameters and exposed
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `1340`
+- Approved claims routed to this concept: `1349`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
+| official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
+| official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | source_summary | This official Rock Cast episode mixes broad AI and leadership discussion with two durable Rock operating practices: treat supported dot releases as security maintenance, and separate a ministry problem's requirements from the first proposed technical solution. External AI commentary and conference material are context only. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | rocku-confirmed | configuration | Connection Types are high-level containers for related connection opportunities; they should match ministry process boundaries rather than arbitrary reporting groupings. | [source](https://community.rockrms.com/rocku/engagement/connections-types) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | configuration | Connection Opportunities define the specific follow-up paths available inside a connection type; changing an opportunity can affect request routing, staff ownership, and reporting. | [source](https://community.rockrms.com/rocku/engagement/connections-opportunities) |
 | rocku-confirmed | implementation_pattern | For list discrepancies, compare the list filters, connection type/opportunity, status, assignee, campus, and current user security against the expected request set. | [source](https://community.rockrms.com/rocku/engagement/connections-list-1) |
 | rocku-confirmed | implementation_pattern | When a connection request appears missing from a board, inspect opportunity filters, status, campus or connector assignment, and security before changing the request itself. | [source](https://community.rockrms.com/rocku/engagement/connections-board) |
 | rocku-confirmed | implementation_pattern | Before restructuring connection types, review existing opportunities, request history, workflows, security, and staff ownership because type changes can alter process visibility and reporting. | [source](https://community.rockrms.com/rocku/engagement/connections-types) |
-| rocku-confirmed | implementation_pattern | Before changing a workflow form, inspect which actions consume the submitted values and whether staff, public users, or workflow logic can see sensitive fields. | [source](https://community.rockrms.com/rocku/workflows/form-builder) |
-| rocku-confirmed | implementation_pattern | Agents should inspect connection types, opportunities, statuses, activities, workflows, and staff ownership together because a connection request is both a person record and a process state. | [source](https://community.rockrms.com/rocku/engagement/overview) |
-| rocku-confirmed | implementation_pattern | Form Builder should be used to collect structured workflow input intentionally: name each field by its downstream purpose, validation needs, visibility, and storage sensitivity. | [source](https://community.rockrms.com/rocku/workflows/form-builder) |
-| rocku-confirmed | implementation_pattern | When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
-| rocku-confirmed | implementation_pattern | Before adding or retiring a connection opportunity, inspect active requests, workflows, staff roles, connector assignments, and reporting dependencies. | [source](https://community.rockrms.com/rocku/engagement/connections-opportunities) |
-| rocku-confirmed | operational_guidance | Connections Board should be treated as a staff work queue for connection requests; board behavior depends on request status, opportunity, assignment, and follow-up ownership. | [source](https://community.rockrms.com/rocku/engagement/connections-board) |
-| More |  | 1328 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 1337 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

@@ -30,8 +30,9 @@ def sync_media_manifest_transcript_status(source_id: str, transcript_rows: Itera
     return updated
 
 def build_media_sidecars(source: Source) -> dict[str, Any]:
-    media_rows = list(read_jsonl(media_manifest_path(source.id)))
     transcript_rows = list(read_jsonl(transcript_index_path(source.id)))
+    sync_media_manifest_transcript_status(source.id, transcript_rows)
+    media_rows = list(read_jsonl(media_manifest_path(source.id)))
     transcripts_by_media_id = {
         str(row.get("media_id") or ""): row
         for row in transcript_rows

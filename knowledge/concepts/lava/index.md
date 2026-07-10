@@ -2,7 +2,7 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -127,11 +127,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
 | official | source_summary | Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development. | [source](https://community.rockrms.com/developer/helix/overview) |
-| official | source_summary | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| rocku-confirmed | operational_guidance | Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
-| More |  | 76 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 79 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -279,7 +279,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `118`
 - Lava capability source records: `53`
-- Approved claims: `94`
+- Approved claims: `97`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

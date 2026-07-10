@@ -7,14 +7,20 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Platform Configuration?
 
-Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. Large Rock releases can carry accumulated change and post-release fixes, so upgrade planning should distinguish major-version validation from routine patch-release validation and verify current release notes before action. For platform configuration, treat community examples as non-authoritative until the live setting, plugin, and Rock version are verified.
+Rock v19 begins the organization-wide Essentials and Trailblazer experience-mode rollout. The mode changes visible pages, settings and help content, while individual supported settings screens can preview both levels; not every block is necessarily mode-aware yet. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. For platform configuration, treat community examples as non-authoritative until the live setting, plugin, and Rock version are verified.
 
 ## Top Claims
 
-- `claim:538f1a4e0ad7c90f7c5a`
-- `claim:900a195ee6880a693f27`
+- `claim:1eb3f0a262c65737970a`
+- `claim:7df4b8c20f9419a30a5a`
+- `claim:9ad17cb08b8955d0d3ec`
+- `claim:f8380a3e786ab33df98f`
+- `claim:07a75e5ff71510d708de`
 
 ## Citations
 
-- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s) (`15:09`)
-- [Episode 33: Rock 7.3 and New RX2018 Tracks](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) (`01:10`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=96s) (`01:36`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s) (`04:22`)
+- [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s) (`04:28`)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s) (`17:36`)
+- [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=91s) (`01:31`)

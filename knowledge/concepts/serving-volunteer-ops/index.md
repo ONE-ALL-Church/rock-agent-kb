@@ -2,7 +2,7 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,7 +35,7 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 ## How To Think About This Area
 
 - `Serving And Volunteer Operations` spans groups, scheduling, locations, check-in, communications, workflows. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_podcast_rss, rock_community_hubs, rock_documentation, rock_recipes, rock_rocku, rock_mobile_docs.
+- The strongest source families in this build are: rock_podcast_rss, rock_community_hubs, rock_youtube, rock_documentation, rock_recipes, rock_rocku.
 - Related tags found in source records: usage, check-in, workflow, operations, admin, security, training, sql.
 - Source detail types include: developer_doc, documentation_article, question, recipe, training, triumph_resources.
 
@@ -75,6 +75,10 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 | Media Watch Transcript Insight | workflow integration | 26:43 | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | Media Watch Transcript Insight | communications beta | 42:38 | The communications beta wizard introduces topic tagging and reachable-audience counts by medium, helping senders choose email, SMS, or push based on actual contactability rather than only the size of a communication list. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | Media Watch Transcript Insight | email editor | 51:40 | Reusable communication sections and global style controls can reduce template drift when churches standardize common layouts, buttons, text styles, columns, and Lava/code blocks. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
+| Outreach Toolbox is Here in v19 Transcript Insight | Outreach Toolbox availability | 00:00 | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s) |
+| Outreach Toolbox is Here in v19 Transcript Insight | outreach schedules and reminders | 01:04 | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s) |
+| Outreach Toolbox is Here in v19 Transcript Insight | outreach touchpoint lifecycle | 07:56 | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s) |
+| Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | Outreach Toolbox dashboard | 00:00 | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 
 
 ## Approved Claims
@@ -83,6 +87,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
 | community-reviewed | operational_guidance | An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
@@ -94,26 +105,20 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | community-reviewed | operational_guidance | A mature reporting suite can separate executive dashboards, campus or ministry dashboards, and functional operational dashboards so each audience sees the level of detail needed for its decisions. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
 | community-reviewed | operational_guidance | Functional dashboards such as connection-request views may justify live database connections when leaders need up-to-date queues, while slower-changing attendance or giving dashboards can usually use scheduled refreshes. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
 | community-reviewed | operational_guidance | When moving from another LMS into Rock, plan for differences in platform logic instead of assuming videos and lessons can be imported without redesign. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
-| community-reviewed | operational_guidance | Lessons from youth digital ministry can inform adult services and broader church mobile strategy when they are translated into repeatable Rock-backed workflows. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) |
-| community-reviewed | operational_guidance | A binge-style content idea can become a structured learning path when the church defines sequence, purpose, and completion signals rather than only embedding videos. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
-| community-reviewed | operational_guidance | Early LMS work should start with a few clear training use cases, such as volunteer or staff onboarding, before attempting a large content migration. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
-| community-reviewed | operational_guidance | Reusable communication sections and global style controls can reduce template drift when churches standardize common layouts, buttons, text styles, columns, and Lava/code blocks. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | operational_guidance | Volunteer scheduling was framed as a major roadmap item, so serving and group-scheduling guides should route scheduling questions through both release history and current model/feature documentation. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) |
-| community-reviewed | operational_guidance | A daily mobile experience can make the app valuable beyond weekend utility by giving people a simple reason to return for scripture, prayer, or ministry stories. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
-| community-reviewed | operational_guidance | Informal peer review is valuable for youth digital work because teams can compare what is actually creating connection rather than relying on assumptions about student behavior. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) |
-| More |  | 23 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 30 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 8
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 30
+- `rock_documentation`: 29
 - `rock_mobile_docs`: 1
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `rock_qa`: 1
 - `rock_recipes`: 8
-- `rock_rocku`: 26
+- `rock_rocku`: 25
+- `rock_youtube`: 2
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -228,6 +233,7 @@ Keywords: `schedule, scheduling, confirmation, decline, RSVP, reminder, serving 
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Episode 40: v8 and more team updates Transcript Insight | rock_podcast_rss | This RockCast update is useful public roadmap context: v8 was discussed as moving toward alpha testing, v9 was framed around volunteer scheduling, and Wi-Fi presence was described as an integration that maps campus Wi-Fi signals into Rock attendance-style insight. The episode also highlights privacy and data-ownership concerns when external services participate in presence tracking. | [source](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) |
+| Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | rock_youtube | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | Group RSVP | rock_documentation | [Intro to Group RSVP](/documentation/engagement/groups/group-rsvp/intro-to-group-rsvp?Version=v19.0) [Enable Group RSVP](/documentation/engagement/groups/group-rsvp/enable-group-rsvp?Version=v19.0) [Use the Group Viewer with RSVP](/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp?Version=v19.0) [View RSVP Lists](/documentation/engagement/groups/group-rsvp/view-rsvp-lists?Version=v19.0) [Add... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp) |
 | Configure Group Attendance | rock_documentation | Before a group can take attendance, its group type must first be configured to enable attendance tracking under `Admin Tools > Settings > General > Group Types`. From here you should select the group type you'd like to configure check-in for. Under the *Attendance / Check-in* tab enable the setting *Takes Attendance*. While this one setting is all you need to enable the attendance features, there are a couple of... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance) |
 | Managing Schedule Coordinator Notifications | rock_documentation | Ever been caught off guard by a last-minute volunteer change? Picture this: It’s Sunday morning, the next service is starting soon, and a crucial volunteer has dropped out. As the *Schedule Coordinator* for your serving team, you'll be the first to know, giving you time to adjust and ensure everything runs smoothly. The Schedule Coordinator can be notified when a volunteer accepts or declines a serving opportunity,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications) |
@@ -236,7 +242,6 @@ Keywords: `schedule, scheduling, confirmation, decline, RSVP, reminder, serving 
 | Use the Group Viewer with RSVP | rock_documentation | After you’ve enabled RSVP for a group type, you’ll see a couple of changes when viewing groups of that type from the *Group Viewer* page. First, you’ll notice the addition of a new icon that will take you to the *Group RSVP List* page, where you can view or add occurrences. We’ll talk more about occurrences in the [RSVP Occurrences](/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) article. Second,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp) |
 | Group Member Schedule Templates - adding 5th week and using Auto Schedule | rock_recipes | 1 Group Member Schedule Templates - adding 5th week and using Auto Schedule Shared by Cecillia Fountain , Centerpoint Church 3 years ago 9.0 Serving, Group Beginner The main reason to create Group Member Schedule Templates is to use the "Auto-Schedule" button in the Group Scheduler . The solutions below are designed to work with Auto-Scheduling and (for the most part) will not need to be maintained. Rock Core does... | [source](https://community.rockrms.com/recipes/356) |
 | Add RSVP Occurrences | rock_documentation | Let’s look at how to add an occurrence to the RSVP List. You'll need to have at least one occurrence set up for the group before you can start sending your RSVP emails. 1. **Name** - You can optionally set a unique name for an occurrence. This applies only to the occurrence being viewed. Invitees will see the name you provide on the external website when they *Accept* or *Decline*. 2. **Date** - Set the date of the... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) |
-| Use Group Scheduling Communications | rock_documentation | There are different ways to send group scheduling communications from Rock. You can send scheduling confirmation requests from the *Group Scheduler* page as described above, or you can wait for a job to run to send them for you. You can also send custom one-time communications if you need to. ## Send Group Schedule Notifications Job Rock will automatically send out confirmation and schedule communications based on... | [source](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications) |
 
 ### Volunteer Requirements
 
@@ -297,7 +302,7 @@ Keywords: `attendance, check-in, follow-up, no show, serving attendance`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `41`
+- Approved claims: `48`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

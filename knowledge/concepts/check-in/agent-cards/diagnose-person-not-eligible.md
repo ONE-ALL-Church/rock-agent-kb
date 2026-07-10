@@ -51,8 +51,8 @@ Trace eligibility from person/family search through configuration, group type, g
 - https://community.rockrms.com/rocku/check-in
 - https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx
 - https://community.rockrms.com/documentation/bookcontent/10/266
-- https://community.rockrms.com/rocku/check-in/rapid-attendance-entry
 - https://community.rockrms.com/recipes/116
+- https://community.rockrms.com/rocku/check-in/rapid-attendance-entry
 - https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
 - https://community.rockrms.com/ask/using/2804
 - https://community.rockrms.com/recipes/483

@@ -321,6 +321,38 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "When multiple v19 registrant-eligibility rules are enabled, a registrant must satisfy all selected criteria. Test combined age, gender, grade and Data View rules with representative people before opening registration.",
+      "claim_hash": "057855d25c31881d4cee933b9dda77d1d5d46054b54d141b857acbc84d263671",
+      "claim_id": "claim:1d4e4b914d16049aee7c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s",
+          "timestamp": "07:25",
+          "timestamp_seconds": 445.12,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Caching and cache clearing are developer-support surfaces because content changes may not appear immediately unless the right cache path is refreshed.",
       "claim_hash": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
@@ -571,6 +603,39 @@
           "source_id": "rock_rocku",
           "title": "Registration Structure",
           "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The v19 Prevent Duplicate Registrants option blocks a matched person from being registered twice, but the warning can reveal that a person is already registered to someone who knows matching identity details. Evaluate that disclosure risk before enabling it for sensitive events.",
+      "claim_hash": "234c76898308ff798a46bf8cd11ce813213984c45be61b58362d04a0510ac95e",
+      "claim_id": "claim:33a7cc3b7e0626ec5cc1",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "event-registration",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
+      "source_record_ids": [
+        "rock_youtube:e4cbfa7d0630af26"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s",
+          "timestamp": "05:57",
+          "timestamp_seconds": 357.56,
+          "title": "New Features & Enhancements Coming to v19",
+          "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
       ]
     },
@@ -2137,6 +2202,7 @@
     "claim:12d15d3fc2d5d5d4a42f": "22cd15001272c0297d0b2d65d7c9630e0f7f216655a3eb5e9469ea82159fc8cd",
     "claim:158c76d4f5305a8d7c9a": "f1f44060570d0184c047d84cd632908aed541a982518d2d46e6ec2deac262200",
     "claim:18d97b8bf3a112cc29c2": "b3580ed84feefe7b6cf8cb87d18616d652dd291dd6102d3ea530189c86e335e2",
+    "claim:1d4e4b914d16049aee7c": "057855d25c31881d4cee933b9dda77d1d5d46054b54d141b857acbc84d263671",
     "claim:1ed694954b3d4cbe0315": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
     "claim:1fcc991853d27e54f773": "37f0b5303accecd4ce0364168b5c7d563aa90deae3050dcab4822f42cc6f85e6",
     "claim:23536eadfcabcd4037ca": "120e3da5b731364838b263062a5d80320b8c93ccca9895951b8010b6b08af8c4",
@@ -2145,6 +2211,7 @@
     "claim:2fed0aac2c5693503a5d": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
     "claim:319f8eb62da0f9d4a0e8": "3930733a0014985937bbd4c05da780b4af0d1e902f361d151938eedbed31ec34",
     "claim:31c4c1938b5372bf7152": "2c0889470e8ebdc2bdd3e802d0182166ae199a90f2cfdc117c40413c600b1c1a",
+    "claim:33a7cc3b7e0626ec5cc1": "234c76898308ff798a46bf8cd11ce813213984c45be61b58362d04a0510ac95e",
     "claim:3a63a5a8b217e1164e63": "a1b14bab6f5135c0822373a506d5a68d79127596800ced96314154f317db1863",
     "claim:3a93cc8a72b4dae1e666": "ab057ea24aa6ddbc3872fc1c1377e19ecc396c598c8f0ccc387b0bb44205d256",
     "claim:3a9f7cd348eb104d1921": "ed582a5950bf5c39dfe63a3bb309f8a64f92f9ab692b0fe1151beaf3d351246c",
@@ -2192,7 +2259,7 @@
     "claim:f46815f798db808e36ff": "a94026fcac828a168235e1e8083c7e6cbe5756fd0127915af7f17fc70966de2a",
     "claim:f9726f1e8453e453b3ba": "502d6d1ee557605166eaf0e49a2c42c1087590ea7bc403293e52010cf8ce4908"
   },
-  "approved_claims_hash": "d014e1acfd29a86fb95a87cd42a42481ed39d1d314364be3f194a3cd3896460f",
+  "approved_claims_hash": "30380539eb7b33135c592adf3a59f4c4e2294a779ea1834b8f0cb70d9488892e",
   "approved_claims_path": "knowledge/concepts/event-registration/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2610,12 +2677,12 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-07-10T17:26:08+00:00",
+  "built_at": "2026-07-10T19:52:36+00:00",
   "concept_id": "event-registration",
-  "guide_hash": "3eaae75ce2b9bc17c4a8fd2f3d0e39e05117438dce73b35d5d3490f8b92e5d03",
+  "guide_hash": "65df45291c346604350e929d608eb4de11a6be5d7a57af91cb60250d845b057a",
   "guide_line_count": 1384,
   "guide_path": "knowledge/concepts/event-registration/guide.md",
-  "guide_word_count": 11173,
+  "guide_word_count": 11183,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2798,6 +2865,15 @@
       "url": "https://community.rockrms.com/developer/ai-agents/skills"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
       "authority": "official-training",
       "content_hash": "bc7c556ed114b2a2817aa0ae5f6f15b48c55cb2d0902ef0aab39af9cfb4102c6",
       "excerpt_hash": "0f1aac0a94ca1dd88fb0cd38e4b038f98cce9cdfbff27dbc7330ba387ab7a306",
@@ -2825,15 +2901,6 @@
       "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
     },
     {
-      "authority": "official-training",
-      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
-      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
-      "source_id": "rock_rocku",
-      "source_key": "e4f10f35a86cedbd",
-      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
-      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
-    },
-    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -2850,6 +2917,15 @@
       "source_key": "53507aa08e9095dd",
       "source_record_id": "",
       "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
+      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
+      "source_id": "rock_rocku",
+      "source_key": "e4f10f35a86cedbd",
+      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
     },
     {
       "authority": "official-training",
@@ -3997,6 +4073,8 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "58a92984acbd2344",
+        "58a92984acbd2344",
         "f88b0748151b17a6",
         "f88b0748151b17a6",
         "cdbd7089fd2af521",
@@ -4006,9 +4084,7 @@
         "f100a7c66d47ef32",
         "f88b0748151b17a6",
         "3ac2b7b2e39e37f3",
-        "3ac2b7b2e39e37f3",
-        "e4f10f35a86cedbd",
-        "5ecfe350fe307663"
+        "3ac2b7b2e39e37f3"
       ],
       "start_line": 1282
     },
@@ -4539,6 +4615,16 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
@@ -4593,6 +4679,26 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "094c98456e80eca2",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
+      "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "53507aa08e9095dd",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
@@ -4613,26 +4719,6 @@
       ],
       "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through",
       "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "094c98456e80eca2",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
-      "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "53507aa08e9095dd",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
     },
     {
       "authority": "official-training",

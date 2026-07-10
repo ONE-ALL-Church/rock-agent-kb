@@ -2,7 +2,7 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -63,7 +63,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | behavior | A step is considered completed only when it has both a completion date and a status configured as complete; a completion date alone does not indicate completion. | [source](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs) |
 | official | behavior | Following a group makes it accessible from the follower's My Dashboard page. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group) |
 | official | behavior | A reminder type can notify through a communication or workflow; its settings can include the reminder note in notification email and automatically complete the reminder after notification, while reminders otherwise remain active. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-reminder-types) |
-| More |  | 88 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 89 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -208,7 +208,7 @@ Keywords: `achievement, achievements, badge, achievement type`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `106`
+- Approved claims: `107`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

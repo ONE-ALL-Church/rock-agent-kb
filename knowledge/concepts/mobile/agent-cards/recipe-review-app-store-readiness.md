@@ -39,10 +39,10 @@ Follow the guide section for Recipe: Review App Store Readiness.
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
 - https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
 - https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
-- https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration
-- https://community.rockrms.com/rocku/check-in/using-mobile-check-in
 - https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
-- https://community.rockrms.com/rocku/check-in/mobile-check-in-overview
+- https://community.rockrms.com/rocku/check-in/using-mobile-check-in
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
+- https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv

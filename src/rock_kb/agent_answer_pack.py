@@ -666,7 +666,7 @@ def claim_review_queue_rows(claims: list[dict[str, Any]]) -> list[dict[str, Any]
         fingerprint = review_fingerprint(claim)
         claim_tier = str(claim.get("claim_tier") or "")
         action = "use_in_answer_pack" if claim_can_feed_answer_pack(claim) else "keep_as_supporting_claim"
-        if fingerprints[fingerprint] > 1:
+        if fingerprints[fingerprint] > 1 and claim_tier not in ANSWER_CLAIM_TIERS and claim_tier != "routing_context_only":
             action = "review_for_merge"
         if (claim_tier == "source_backed" or not claim_tier) and claim.get("requires_live_instance"):
             action = "verify_live_before_operational_answer"
@@ -819,11 +819,13 @@ def conflict_topic_terms(text: str) -> set[str]:
 
 
 def conflict_polarity(text: str) -> dict[str, int]:
+    directive_text = re.sub(r"\b(?:must|should)\s+not\s+be\s+treated\s+as\s+optional\b", "required", text)
     result: dict[str, int] = {}
     for axis, (positive_patterns, negative_patterns) in CONFLICT_POLARITY_PATTERNS.items():
-        if any(re.search(pattern, text) for pattern in negative_patterns):
+        axis_text = directive_text if axis == "directive" else text
+        if any(re.search(pattern, axis_text) for pattern in negative_patterns):
             result[axis] = -1
-        elif any(re.search(pattern, text) for pattern in positive_patterns):
+        elif any(re.search(pattern, axis_text) for pattern in positive_patterns):
             result[axis] = 1
     return result
 

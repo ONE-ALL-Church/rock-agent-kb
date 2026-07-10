@@ -1896,7 +1896,7 @@ If a tool writes data, require explicit user intent and return the created/updat
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `94`
+- Approved claims routed to this concept: `97`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1913,7 +1913,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | operational_guidance | The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| More |  | 82 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 85 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

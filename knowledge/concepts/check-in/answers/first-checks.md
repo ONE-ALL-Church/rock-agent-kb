@@ -16,9 +16,9 @@ Start by separating eligibility, availability, label printing, and device behavi
 - `claim:3b96546de8e62931465b`
 - `claim:c78fd6f074218814ab14`
 - `claim:ce1480ce2324122b7616`
+- `claim:7df4b8c20f9419a30a5a`
+- `claim:9ad17cb08b8955d0d3ec`
 - `claim:44c7dd8911e8b6703262`
-- `claim:9f505350705f22d88caf`
-- `claim:aa549ff122698db9c8a1`
 
 ## Distilled Claims
 
@@ -34,6 +34,6 @@ Start by separating eligibility, availability, label printing, and device behavi
 - [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) (`02:17`)
 - [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) (`00:44`)
 - [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview)
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s) (`04:22`)
+- [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s) (`04:28`)
 - [Next-Gen Labels](https://community.rockrms.com/rocku/check-in/next-gen-labels) (`00:00`)
-- [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) (`04:37`)
-- [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) (`01:22`)

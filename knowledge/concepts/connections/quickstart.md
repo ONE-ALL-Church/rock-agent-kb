@@ -38,6 +38,7 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 - `Attribute`: Rock concept/entity referenced by the connections guide.
 - `Block`: Rock concept/entity referenced by the connections guide.
 - `Campus`: Rock concept/entity referenced by the connections guide.
+- `Check-in Configuration`: Rock concept/entity referenced by the connections guide.
 - `Family`: Rock concept/entity referenced by the connections guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the connections guide.
@@ -45,7 +46,6 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 - `Person`: Rock concept/entity referenced by the connections guide.
 - `PersonAlias`: Rock concept/entity referenced by the connections guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
-- `Step`: Person-specific engagement milestone instance.
 
 ## Version Caveats
 

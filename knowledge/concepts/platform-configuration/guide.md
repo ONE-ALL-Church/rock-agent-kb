@@ -1478,24 +1478,24 @@ Use the v17/v17.5 Lava docs as the version anchor ([Attribute Lava Filters](http
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `95`
+- Approved claims routed to this concept: `138`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | operational_guidance | The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
 | official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
 | official | operational_guidance | Rock plugin and theme packaging guidance frames the Rock Shop as the distribution path for community extensions, so plugin work should include packaging, review, and uninstall behavior rather than only local code changes. | [source](https://community.rockrms.com/developer/packaging-plugins-themes) |
+| official | operational_guidance | Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | official | operational_guidance | LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| More |  | 83 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 126 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1504,20 +1504,20 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `19`
+- Approved media records routed to this concept: `27`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) | approved_for_public_distillation | 4 | media-insight:1996763c554953f9 |
+| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://www.youtube.com/watch?v=edanHiYSDIM) | approved_for_public_distillation | 4 | media-insight:e966cbaf8af14d10 |
+| [A Powerful Open-Source Platform for Your Digital Ministry \| Rock RMS Transcript Insight](https://www.youtube.com/watch?v=dyhO4XiyDDc) | approved_for_public_distillation | 1 | media-insight:2d7a38c6eb5eff96 |
 | [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
+| [AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight](https://www.youtube.com/watch?v=bu5nPeAVCAo) | approved_for_public_distillation | 6 | media-insight:1cb65e44984bb55c |
 | [Episode 111: Special Edition with Tim Dear Transcript Insight](https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear) | approved_for_public_distillation | 3 | media-insight:05f4fce834300a65 |
 | [Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) | approved_for_public_distillation | 4 | media-insight:6b5ce810e2795435 |
 | [Episode 37: Special Edition Garrett Johnson Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) | approved_for_public_distillation | 3 | media-insight:97a12ee26ba9575f |
-| [Episode 40: v8 and more team updates Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) | approved_for_public_distillation | 3 | media-insight:6e8d02135da566a7 |
-| [Episode 47: Special Edition Lee Peterson Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson) | approved_for_public_distillation | 2 | media-insight:a11e091aa9800728 |
-| [Episode 84: Special Edition with Red Rocks Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-84-special-edition-with-red-rocks) | approved_for_public_distillation | 3 | media-insight:40920b5275ce640a |
-| [Episode 91: Special Edition with Cullen McCoy Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy) | approved_for_public_distillation | 2 | media-insight:f609e5067739f62b |
-| More |  | 11 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 19 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

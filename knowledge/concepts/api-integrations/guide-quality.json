@@ -6,14 +6,13 @@
     "official-developer",
     "official-model-map",
     "official-release",
-    "official-triumph",
     "source-code",
     "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 14315 words; expected at least 7000.",
+      "message": "Guide has 14312 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,9 +59,9 @@
   "concept_id": "api-integrations",
   "contribution_record_count": 0,
   "entity_count": 10,
-  "generated_at": "2026-07-10T17:26:08+00:00",
-  "guide_line_count": 1560,
-  "guide_word_count": 14315,
+  "generated_at": "2026-07-10T19:52:36+00:00",
+  "guide_line_count": 1561,
+  "guide_word_count": 14312,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 118,

@@ -136,7 +136,6 @@ generated: true
 | `18-agent-task-recipes-recipe-build-where-are-our-reporting-tools` | community-supported | community-supported |
 | `18-agent-task-recipes-recipe-audit-reporting-security` | structural | live verification |
 | `18-agent-task-recipes-recipe-diagnose-slow-reporting` | structural | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
 | `19-source-map-and-dependency-notes-official-and-training-sources` | normal | live verification |
 | `19-source-map-and-dependency-notes-source-code-landmarks` | normal | live verification |
 | `19-source-map-and-dependency-notes-community-and-partner-pattern-sources` | normal | live verification |

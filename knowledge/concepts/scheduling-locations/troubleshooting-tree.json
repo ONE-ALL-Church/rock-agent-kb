@@ -73,9 +73,9 @@
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/rocku/groups",
         "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -101,9 +101,9 @@
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/rocku/groups",
         "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -129,9 +129,9 @@
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/rocku/groups",
         "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -171,7 +171,7 @@
   ],
   "concept_id": "scheduling-locations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-10T17:26:08+00:00",
+  "generated_at": "2026-07-10T19:52:36+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",

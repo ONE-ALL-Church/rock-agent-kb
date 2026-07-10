@@ -2,7 +2,7 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-07-10T17:26:08+00:00
+last_built: 2026-07-10T19:52:36+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -104,6 +104,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 can assign record sources on external person-entry blocks and show that source in duplicate detail, helping data-integrity staff trace where repeated records originated. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | A v19 person-merge requester who lacks merge permission can ask to be notified when the reviewed merge completes, keeping request submission separate from merge authorization. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | The v19 merge-person interface surfaces last-modified time and actor information so reviewers can compare record recency without separately reconstructing history. Treat recency as one merge signal, not proof that one record is correct. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | implementation_pattern | Agents should inspect connection types, opportunities, statuses, activities, workflows, and staff ownership together because a connection request is both a person record and a process state. | [source](https://community.rockrms.com/rocku/engagement/overview) |
 | rocku-confirmed | implementation_pattern | When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
 | rocku-confirmed | operational_guidance | Person Notes should be handled as structured staff context on a person record; note type, visibility, sensitivity, and lifecycle matter as much as the note text itself. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1) |
@@ -118,11 +122,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | For reporting agents, data integrity issues should be surfaced as source-data problems, not hidden by report logic that masks duplicates, missing values, or stale attributes. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) |
 | rocku-confirmed | operational_guidance | Connections Overview should frame connection requests as person-centered ministry workflows with defined types, opportunities, statuses, activities, and staff follow-up responsibilities. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
 | rocku-confirmed | risk | Person Profile security should be reviewed at the page, block, entity, action, and data-field level because profile visibility does not imply permission to edit every person-related record. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) |
-| rocku-confirmed | risk | When auditing notes, inspect both note-type configuration and entity context because visibility and workflow meaning can vary by note type and target entity. | [source](https://community.rockrms.com/rocku/core-concepts/note-types) |
-| rocku-confirmed | source_summary | Person Profile adds people/security guidance: profile work should identify the exact tab, block, action, and data surface before troubleshooting visibility or edit access. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) |
-| rocku-confirmed | source_summary | Connections Overview adds workflow guidance for connection ministries: separate person context, request status, opportunity setup, assignment, and automation when diagnosing issues. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
-| rocku-confirmed | source_summary | Personalization adds CMS/security guidance: targeted content should be tested with real actor state and must not be treated as a replacement for authorization. | [source](https://community.rockrms.com/rocku/cms/personalization) |
-| More |  | 64 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 68 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -299,7 +299,7 @@ Keywords: `attribute, person attribute`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `82`
+- Approved claims: `86`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

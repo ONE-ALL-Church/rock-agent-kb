@@ -2,7 +2,7 @@
 concept_id: mobile
 generated: true
 artifact_level: media_distillation
-approved_media_count: 25
+approved_media_count: 27
 ---
 
 # Rock Mobile Approved Media
@@ -31,8 +31,10 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:d19aff0e845956ae` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | `media-insight:c44e84f71993048e` | Mobile Check-in Configuration Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | `media-insight:0176383f60385125` | Mobile Check-in Overview Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
+| `media-insight:de21ecd38cde9a0c` | Outreach Toolbox is Here in v19 Transcript Insight | approved_for_public_distillation | 3 | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `media-insight:ef7ab51588dcb077` | Phone Number Lookup Configuration Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration) |
 | `media-insight:694645f85060752a` | Phone Number Lookup Overview Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-overview) |
 | `media-insight:0f70ac3531032ba8` | Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to) |
 | `media-insight:42dce3602ea3f7ef` | Using Mobile Check-in Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | `media-insight:a935187d244806c3` | Using Phone Number Lookup Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/using-phone-number-lookup) |
+| `media-insight:4eb69bc5dde5cacb` | Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |

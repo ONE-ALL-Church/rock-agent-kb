@@ -120,4 +120,5 @@ generated: true
 | `19-agent-task-recipes-recipe-prepare-a-course-for-launch` | structural | live verification |
 | `19-agent-task-recipes-recipe-build-a-step-journey-from-training` | structural | live verification |
 | `19-agent-task-recipes-recipe-review-upgrade-risk` | structural | live verification |
+| `approved-claim-coverage` | citation-only | live verification |
 | `20-source-map-and-dependency-notes` | high | live verification |
