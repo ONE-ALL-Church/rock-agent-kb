@@ -63,6 +63,8 @@ def build_rock_kb_manifest() -> dict[str, Any]:
             "lava_reference_index": "knowledge/concepts/lava/lava-reference-index.md",
             "lava_safety_matrix": "knowledge/concepts/lava/lava-safety-matrix.md",
             "lava_agent_usage_examples": "knowledge/concepts/lava/lava-agent-usage-examples.md",
+            "recipes": "agent/recipes.jsonl",
+            "recipe_directory": "knowledge/recipes/*/*.md",
             "approved_claims": "claims/approved-claims.jsonl",
             "answer_pack": "agent/answer-pack.jsonl",
             "live_checklists": "agent/live-inspection-checklists.jsonl",
@@ -86,6 +88,7 @@ def build_rock_kb_manifest() -> dict[str, Any]:
         "task_count": count_jsonl(AGENT_DIR / "concept-task-cards.jsonl"),
         "entity_count": count_jsonl(AGENT_DIR / "entity-index.jsonl"),
         "release_caveat_count": count_jsonl(AGENT_DIR / "concept-release-caveats.jsonl"),
+        "recipe_count": count_jsonl(AGENT_DIR / "recipes.jsonl"),
 }
 
 def approved_claims_manifest_entry() -> dict[str, Any]:

@@ -32,6 +32,7 @@ type ContributionRow = {
   license_attestation?: unknown;
   confidence?: unknown;
   needs_live_verification?: unknown;
+  recipe?: unknown;
 };
 
 type ServiceEnv = Omit<Env, "AUTO_MERGE_INTAKE"> & {
@@ -54,7 +55,8 @@ const CONTRIBUTION_TYPES = new Set([
   "entity_note",
   "guide_section",
   "source_link",
-  "open_question"
+  "open_question",
+  "recipe"
 ]);
 
 const PUBLIC_REVIEW_STATUSES = new Set(["redaction_reviewed", "approved_for_public_distillation"]);
@@ -78,7 +80,8 @@ const ALLOWED_CONTRIBUTION_FIELDS = new Set([
   "created_at",
   "publishability_status",
   "source_review_origin",
-  "reviewer_notes"
+  "reviewer_notes",
+  "recipe"
 ]);
 const PRIVATE_FIELD_NAMES = new Set([
   "raw_text",
@@ -158,6 +161,14 @@ export default {
       }
       if (url.pathname === "/model-map/models") {
         return json(await listModelMapModels(env));
+      }
+      if (url.pathname === "/recipes") {
+        return json(await listRecipes(env, url.searchParams.get("concept")));
+      }
+      if (url.pathname.startsWith("/recipes/")) {
+        const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length));
+        const result = await getRecipe(env, recipeId);
+        return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/model-map/models/")) {
         const model = decodeURIComponent(url.pathname.slice("/model-map/models/".length));
@@ -374,6 +385,12 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     }
     return result;
   }
+  if (name === "kb_list_recipes") {
+    return listRecipes(env, stringOrNull(args.concept_id));
+  }
+  if (name === "kb_get_recipe") {
+    return getRecipe(env, String(args.recipe_id || ""));
+  }
   if (name === "kb_manifest") {
     return artifactJsonValue(env, "agent/rock-kb-manifest.json");
   }
@@ -397,13 +414,14 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
 }
 
 async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonRecord> {
-  const [index, quickstart, guide, answers, tasks, caveats, claimRows] = await Promise.all([
+  const [index, quickstart, guide, answers, tasks, caveats, recipeRows, claimRows] = await Promise.all([
     artifactJsonlValue(env, "agent/concept-index.jsonl"),
     artifactTextValue(env, `knowledge/concepts/${conceptId}/quickstart.md`),
     artifactTextValue(env, `knowledge/concepts/${conceptId}/index.md`),
     artifactJsonlValue(env, "agent/answer-pack.jsonl"),
     artifactJsonlValue(env, "agent/concept-task-cards.jsonl"),
     artifactJsonlValue(env, "agent/concept-release-caveats.jsonl"),
+    artifactJsonlValue(env, "agent/recipes.jsonl"),
     claims(env, conceptId, "routing_context_only", null)
   ]);
   return {
@@ -414,6 +432,7 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
     answers: answers.filter((row) => row.concept_id === conceptId),
     task_cards: tasks.filter((row) => row.concept_id === conceptId),
     release_caveats: caveats.filter((row) => row.concept_id === conceptId),
+    recipes: recipeRows.filter((row) => Array.isArray(row.concept_ids) && row.concept_ids.includes(conceptId)),
     claims: claimRows
   };
 }
@@ -438,6 +457,36 @@ async function listModelMapModels(env: ServiceEnv): Promise<JsonRecord> {
       };
     }).sort((left, right) => String(left.model_name).localeCompare(String(right.model_name)))
   };
+}
+
+async function listRecipes(env: ServiceEnv, conceptId: string | null = null): Promise<JsonRecord> {
+  let recipes = await artifactJsonlValue(env, "agent/recipes.jsonl");
+  if (conceptId) {
+    recipes = recipes.filter((recipe) => Array.isArray(recipe.concept_ids) && recipe.concept_ids.includes(conceptId));
+  }
+  return {
+    schema: "rock-kb-recipe-list-v1",
+    count: recipes.length,
+    recipes: recipes.map((recipe) => ({
+      recipe_id: recipe.recipe_id || "",
+      title: recipe.title || "",
+      summary: recipe.summary || "",
+      version: recipe.version || "",
+      recipe_kind: recipe.recipe_kind || "",
+      concept_ids: recipe.concept_ids || [],
+      authority_tier: recipe.authority_tier || "community-unreviewed",
+    })),
+  };
+}
+
+async function getRecipe(env: ServiceEnv, recipeId: string): Promise<JsonRecord> {
+  const normalized = recipeId.startsWith("recipe:") ? recipeId.slice("recipe:".length) : recipeId;
+  const recipes = await artifactJsonlValue(env, "agent/recipes.jsonl");
+  const recipe = recipes.find((row) => String(row.recipe_id || "") === normalized);
+  if (!recipe) {
+    return { schema: "rock-kb-recipe-result-v1", status: "not_found", recipe_id: normalized };
+  }
+  return { schema: "rock-kb-recipe-result-v1", status: "ok", recipe };
 }
 
 async function getModelMapModel(env: ServiceEnv, query: string, options: { fields?: string | null; property?: string | null } = {}): Promise<JsonRecord | null> {
@@ -841,6 +890,22 @@ function validateBundle(bundle: unknown[], orgId: string): string[] {
       }
     }
     if (!CONTRIBUTION_TYPES.has(String(row.contribution_type))) errors.push(`${label} invalid contribution_type`);
+    if (row.contribution_type === "recipe") {
+      const recipe = asRecord(row.recipe);
+      if (!row.recipe || Object.keys(recipe).length === 0) {
+        errors.push(`${label} recipe contribution requires a recipe object`);
+      } else {
+        if (recipe.schema !== "rock-kb-recipe-v1") errors.push(`${label} recipe.schema must be rock-kb-recipe-v1`);
+        if (recipe.recipe_id !== row.contribution_id) errors.push(`${label} recipe.recipe_id must match contribution_id`);
+        if (recipe.org_id !== row.org_id) errors.push(`${label} recipe.org_id must match org_id`);
+        if (!Array.isArray(recipe.concept_ids) || recipe.concept_ids.length === 0) errors.push(`${label} recipe.concept_ids must be a non-empty list`);
+        const implementation = asRecord(recipe.implementation);
+        if (!/^[0-9a-f]{40}$/.test(String(implementation.commit_sha || ""))) errors.push(`${label} recipe implementation requires a 40-character commit_sha`);
+        if (!String(implementation.repository_url || "").startsWith("https://github.com/")) errors.push(`${label} recipe repository_url must be an HTTPS GitHub repository`);
+      }
+    } else if (row.recipe !== undefined) {
+      errors.push(`${label} recipe object is only valid for recipe contributions`);
+    }
     if (!PUBLIC_REVIEW_STATUSES.has(String(row.review_status))) errors.push(`${label} public contribution must be redaction reviewed or approved`);
     if (!CONFIDENCE_VALUES.has(String(row.confidence))) errors.push(`${label} invalid confidence`);
     if (typeof row.needs_live_verification !== "boolean") errors.push(`${label} needs_live_verification must be true or false`);
@@ -1480,6 +1545,8 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
+    { name: "kb_list_recipes", description: "List reusable community Rock recipes, optionally filtered by concept.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } } } },
+    { name: "kb_get_recipe", description: "Return one exact recipe with its pinned source, adaptation points, security, compatibility, validation, and reusable learnings.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" } }, required: ["recipe_id"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },

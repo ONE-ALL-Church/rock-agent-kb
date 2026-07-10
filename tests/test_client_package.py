@@ -148,6 +148,27 @@ def test_client_model_map_list_command_hits_model_list_endpoint(monkeypatch, cap
     assert "rock-kb-model-map-model-list-v1" in capsys.readouterr().out
 
 
+def test_client_recipe_commands_hit_recipe_endpoints(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"status": "ok"}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    assert cli.main(["--url", "https://example.test", "recipe", "oneall:check-in-status-dashboard"]) == 0
+    assert cli.main(["--url", "https://example.test", "recipes", "list", "--concept", "check-in"]) == 0
+    assert cli.main(["--url", "https://example.test", "recipes", "search", "attendance roster"]) == 0
+    assert urls == [
+        "https://example.test/recipes/oneall%3Acheck-in-status-dashboard",
+        "https://example.test/recipes?concept=check-in",
+        "https://example.test/search?q=attendance%20roster%20recipe&limit=10&min_tier=routing_context_only&detail=compact",
+    ]
+    capsys.readouterr()
+
+
 def test_client_get_text_sends_user_agent(monkeypatch):
     cli = load_client_cli()
     captured = {}

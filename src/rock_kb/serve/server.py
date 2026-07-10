@@ -84,6 +84,20 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
     def kb_get_claims(concept_id: str, tier: str | None = None) -> list[dict[str, Any]]:
         return retrieval.get_claims(concept_id, tier=tier)
 
+    @mcp.tool(
+        name="kb_list_recipes",
+        description="List reusable community Rock recipes, optionally filtered by concept.",
+    )
+    def kb_list_recipes(concept_id: str | None = None) -> dict[str, Any]:
+        return retrieval.list_recipes(concept_id=concept_id)
+
+    @mcp.tool(
+        name="kb_get_recipe",
+        description="Return one exact recipe with source pin, adaptation points, security, compatibility, validation, and reusable learnings.",
+    )
+    def kb_get_recipe(recipe_id: str) -> dict[str, Any]:
+        return retrieval.get_recipe(recipe_id)
+
     return mcp
 
 

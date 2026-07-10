@@ -18,6 +18,7 @@ CONTRIBUTION_TYPES = {
     "guide_section",
     "source_link",
     "open_question",
+    "recipe",
 }
 REVIEW_STATUSES = {
     "draft_private",
@@ -50,6 +51,7 @@ ALLOWED_FIELDS = REQUIRED_FIELDS | {
     "publishability_status",
     "source_review_origin",
     "reviewer_notes",
+    "recipe",
 }
 
 # Source of truth: src/rock_kb/private_leakage.py
@@ -184,6 +186,22 @@ def validate_row(row: dict, label: str) -> list[str]:
         errors.append(f"{label} schema must be {SCHEMA}")
     if row.get("contribution_type") not in CONTRIBUTION_TYPES:
         errors.append(f"{label} invalid contribution_type; allowed: {', '.join(sorted(CONTRIBUTION_TYPES))}")
+    if row.get("contribution_type") == "recipe":
+        recipe = row.get("recipe")
+        if not isinstance(recipe, dict):
+            errors.append(f"{label} recipe contribution requires a recipe object")
+        else:
+            if recipe.get("schema") != "rock-kb-recipe-v1":
+                errors.append(f"{label} recipe.schema must be rock-kb-recipe-v1")
+            if recipe.get("recipe_id") != row.get("contribution_id"):
+                errors.append(f"{label} recipe.recipe_id must match contribution_id")
+            if recipe.get("org_id") != row.get("org_id"):
+                errors.append(f"{label} recipe.org_id must match org_id")
+            implementation = recipe.get("implementation") if isinstance(recipe.get("implementation"), dict) else {}
+            if not re.fullmatch(r"[0-9a-f]{40}", str(implementation.get("commit_sha") or "")):
+                errors.append(f"{label} recipe implementation requires a 40-character commit_sha")
+    elif "recipe" in row:
+        errors.append(f"{label} recipe object is only valid for recipe contributions")
     if row.get("review_status") not in REVIEW_STATUSES:
         errors.append(f"{label} invalid review_status; allowed: {', '.join(sorted(REVIEW_STATUSES))}")
     if row.get("review_status") not in PUBLIC_REVIEW_STATUSES:

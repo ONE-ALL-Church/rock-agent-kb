@@ -11,7 +11,7 @@ from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-USER_AGENT = "rock-kb-client/0.2.0 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
+USER_AGENT = "rock-kb-client/0.3.0 (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -54,6 +54,17 @@ def main(argv: list[str] | None = None) -> int:
     model_map_get.add_argument("--fields")
     model_map_get.add_argument("--property")
     model_map_get.add_argument("--format", choices=["json", "markdown"], default="json")
+
+    recipe = subparsers.add_parser("recipe")
+    recipe.add_argument("recipe_id")
+
+    recipes = subparsers.add_parser("recipes")
+    recipes_subparsers = recipes.add_subparsers(dest="recipes_command", required=True)
+    recipes_list = recipes_subparsers.add_parser("list")
+    recipes_list.add_argument("--concept")
+    recipes_search = recipes_subparsers.add_parser("search")
+    recipes_search.add_argument("query")
+    recipes_search.add_argument("--limit", type=int, default=10)
 
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
@@ -107,6 +118,14 @@ def main(argv: list[str] | None = None) -> int:
             return print_json(get_json(f"{base_url}/model-map/models"))
         if args.model_map_command == "get":
             return print_model(base_url, args.model, args.fields, args.property, args.format)
+    if args.command == "recipe":
+        return print_json(get_json(f"{base_url}/recipes/{quote(args.recipe_id)}"))
+    if args.command == "recipes":
+        if args.recipes_command == "list":
+            suffix = f"?concept={quote(args.concept)}" if args.concept else ""
+            return print_json(get_json(f"{base_url}/recipes{suffix}"))
+        if args.recipes_command == "search":
+            return print_json(get_json(f"{base_url}/search?q={quote(args.query + ' recipe')}&limit={args.limit}&min_tier=routing_context_only&detail=compact"))
     if args.command == "manifest":
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":

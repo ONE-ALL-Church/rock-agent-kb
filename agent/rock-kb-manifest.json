@@ -30,6 +30,8 @@
     "model_map_version_diff": "agent/model-map-version-diff.jsonl",
     "open_questions": "knowledge/concepts/*/open-questions.md",
     "private_media": "data/media/index/media-index.jsonl",
+    "recipe_directory": "knowledge/recipes/*/*.md",
+    "recipes": "agent/recipes.jsonl",
     "release_caveats": "agent/concept-release-caveats.jsonl",
     "section_status": "agent/section-status.jsonl",
     "sections": "agent/section-source-map.jsonl",
@@ -844,6 +846,7 @@
       }
     ]
   },
+  "recipe_count": 1,
   "release_caveat_count": 166,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {

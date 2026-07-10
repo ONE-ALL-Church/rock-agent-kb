@@ -26,6 +26,8 @@ The KB can help agents do more than plain text search:
   and one property at a time.
 - Find Lava context roots for specific rendering surfaces before guessing which
   merge fields exist.
+- Find reusable community recipes with pinned code, adaptation points,
+  security boundaries, compatibility, validation steps, and learnings.
 - Use Rockumentation API metadata and branch paths as routing signals.
 - Validate and submit public-safe community contribution bundles.
 - Connect through hosted HTTP MCP when the current agent client supports tools.
@@ -63,6 +65,8 @@ uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
+uvx rock-kb recipes list
+uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -103,6 +107,9 @@ Use these commands for specific jobs:
 - `claims <concept-id>`: inspect structured claims and trust tiers before giving precise guidance.
 - `model-map list`: list stable Rock Model Map models when discovering the exact slug to inspect.
 - `model <slug-or-name>`: fetch an exact stable Model Map digest for a known model, such as `group` or `Group Member`.
+- `recipes list [--concept <id>]`: discover reusable community implementation patterns.
+- `recipes search <query>`: search recipe use cases and learnings.
+- `recipe <recipe-id>`: fetch the full structured recipe before adapting code.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
 - `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
@@ -137,6 +144,9 @@ tools instead of shell commands:
   versions, and property/method counts.
 - `kb_get_model`: fetch an exact stable Model Map digest by slug or model name,
   optionally filtered by fields or one property.
+- `kb_list_recipes`: list community recipes, optionally filtered by concept.
+- `kb_get_recipe`: fetch one recipe with its immutable source pin, adaptation
+  points, security, compatibility, validation, and reusable learnings.
 - `kb_review_dashboard`: check public review queues, conflicts, community
   intake, hosted evaluation, and telemetry counts.
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
@@ -202,10 +212,40 @@ what the KB can expose. Important manifest entrypoints include:
 - `lava_contexts`, `lava_context_directory`, `lava_capabilities`,
   `lava_safety_matrix`, and `lava_agent_usage_examples`: Lava-specific context,
   syntax, safety, and usage surfaces.
+- `recipes` and `recipe_directory`: reusable community implementation patterns
+  and their human-readable generated pages.
 
 Prefer the higher-level CLI or MCP tools first. Use manifest entrypoints when
 the task needs a specific generated artifact or when direct tool output is not
 specific enough.
+
+## Community Recipes
+
+Use recipes when the question asks how another organization implemented a
+specific Rock workflow, report, Lava Application, integration, or automation.
+Search first, then fetch the exact recipe:
+
+```bash
+uvx rock-kb recipes search "check-in registration attendance dashboard"
+uvx rock-kb recipe oneall:check-in-status-dashboard
+```
+
+Before adapting a recipe:
+
+1. Confirm its community trust tier and `needs_live_verification` status.
+2. Open the immutable source commit, not the repository's moving default branch.
+3. Apply every required adaptation point and verify the target Rock version.
+4. Preserve authentication, authorization, data-access, sensitive-data, and
+   CSRF boundaries. A read-only recipe is not permission-free.
+5. Run the listed validation and rollback steps in the target instance.
+6. Cite the recipe and its authority tier; do not present it as official Rock
+   behavior.
+
+When contributing a reusable implementation, keep substantial code in the code
+owner's licensed public repository. Submit a `recipe` contribution containing
+the structured digest, exact commit, file hashes, adaptation points, security,
+compatibility, validation, and learnings. Never submit production IDs, private
+routes, people, secrets, or private source paths.
 
 ## Rockumentation API Full Text
 

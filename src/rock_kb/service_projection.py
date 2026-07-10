@@ -114,6 +114,7 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows.extend(contribution_search_rows())
     rows.extend(model_map_search_rows())
     rows.extend(lava_context_search_rows())
+    rows.extend(recipe_search_rows())
     rows.extend(source_summary_search_rows())
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -251,6 +252,40 @@ def contribution_search_rows() -> list[dict[str, Any]]:
                     "claim_tier": contribution.get("claim_tier") or "routing_context_only",
                     "source_id": contribution.get("org_id") or contribution.get("source_id") or "",
                     "payload": payload,
+                }
+            )
+    return rows
+
+
+def recipe_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    for recipe in read_jsonl(REPO_ROOT / "agent" / "recipes.jsonl"):
+        recipe_id = str(recipe.get("recipe_id") or "")
+        if not recipe_id:
+            continue
+        implementation = recipe.get("implementation") or {}
+        parts = [
+            recipe.get("summary") or "",
+            " ".join(recipe.get("use_cases") or []),
+            " ".join(recipe.get("outcomes") or []),
+            " ".join(recipe.get("learnings") or []),
+            " ".join(recipe.get("known_limitations") or []),
+            " ".join(item.get("description") or "" for item in recipe.get("adaptation_points") or [] if isinstance(item, dict)),
+        ]
+        for concept_id in recipe.get("concept_ids") or [""]:
+            rows.append(
+                {
+                    "id": f"recipe:{recipe_id}:{concept_id}",
+                    "kind": "recipe",
+                    "title": recipe.get("title") or recipe_id,
+                    "body": " ".join(str(part) for part in parts if part),
+                    "path": f"knowledge/recipes/{recipe.get('org_id')}/{recipe_id.split(':', 1)[-1]}.md",
+                    "url": f"{implementation.get('repository_url', '')}/tree/{implementation.get('commit_sha', '')}/{implementation.get('source_path', '')}",
+                    "concept": concept_id,
+                    "authority_tier": recipe.get("authority_tier") or "community-unreviewed",
+                    "claim_tier": "answer_pack_approved" if recipe.get("review_status") == "community_reviewed" else "routing_context_only",
+                    "source_id": recipe.get("org_id") or "",
+                    "payload": recipe,
                 }
             )
     return rows

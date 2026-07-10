@@ -14,6 +14,7 @@ from . import (
     modelmap_cmds,
     private_cmds,
     publish_cmds,
+    recipe_cmds,
     report_cmds,
     sources_cmds,
     tools_cmds,
@@ -33,6 +34,7 @@ app.add_typer(private_cmds.app, name="private")
 app.add_typer(contribution_cmds.app, name="contributions")
 app.add_typer(concepts_cmds.app, name="concepts")
 app.add_typer(modelmap_cmds.app, name="modelmap")
+app.add_typer(recipe_cmds.app, name="recipes")
 app.add_typer(audit_cmds.app, name="audit")
 app.add_typer(publish_cmds.app, name="publish")
 app.add_typer(report_cmds.app, name="report")

@@ -2,9 +2,10 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from .base import KBRecord
+from .recipe import RecipeRow
 
 
 ContributionType = Literal[
@@ -15,6 +16,7 @@ ContributionType = Literal[
     "guide_section",
     "source_link",
     "open_question",
+    "recipe",
 ]
 ReviewStatus = Literal[
     "draft_private",
@@ -60,3 +62,14 @@ class ContributionRow(KBRecord):
     source_id: str | None = None
     source_private_contribution_id: str | None = None
     reviewer_notes: str | list[str] | None = None
+    recipe: RecipeRow | None = None
+
+    @model_validator(mode="after")
+    def validate_recipe_payload(self) -> "ContributionRow":
+        if self.contribution_type == "recipe" and self.recipe is None:
+            raise ValueError("recipe contribution requires a recipe payload")
+        if self.contribution_type != "recipe" and self.recipe is not None:
+            raise ValueError("recipe payload is only valid for recipe contributions")
+        if self.recipe and (self.recipe.org_id != self.org_id or self.recipe.recipe_id != self.contribution_id):
+            raise ValueError("recipe org_id and recipe_id must match the contribution")
+        return self

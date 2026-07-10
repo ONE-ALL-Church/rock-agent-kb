@@ -14,6 +14,7 @@ CONTRIBUTION_TYPES = {
     "guide_section",
     "source_link",
     "open_question",
+    "recipe",
 }
 PUBLIC_REVIEW_STATUSES = {"redaction_reviewed", "approved_for_public_distillation"}
 CONFIDENCE_VALUES = {"low", "medium", "high", "needs_review"}
@@ -103,6 +104,10 @@ def validate_row(row: dict, label: str) -> list[str]:
         errors.append(f"{label} schema must be {SCHEMA}")
     if row.get("contribution_type") not in CONTRIBUTION_TYPES:
         errors.append(f"{label} invalid contribution_type")
+    if row.get("contribution_type") == "recipe" and not isinstance(row.get("recipe"), dict):
+        errors.append(f"{label} recipe contribution requires a recipe object")
+    if row.get("contribution_type") != "recipe" and "recipe" in row:
+        errors.append(f"{label} recipe object is only valid for recipe contributions")
     if row.get("review_status") not in PUBLIC_REVIEW_STATUSES:
         errors.append(f"{label} public contribution must be redaction_reviewed or approved_for_public_distillation")
     if row.get("confidence") not in CONFIDENCE_VALUES:

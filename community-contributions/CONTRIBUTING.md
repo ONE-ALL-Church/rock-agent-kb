@@ -52,7 +52,7 @@ Each line in `bundle.jsonl` is one JSON object with:
 - `contribution_id`: stable id such as `example-org:workflow-timeout-pattern`
 - `org_id`: must match the folder name; `community-contributions/test-org/bundle.jsonl` may contain only rows with `org_id: test-org`
 - `org_display_name`: public display name or `Anonymous Organization`
-- `contribution_type`: one of `task_card`, `troubleshooting_pattern`, `release_caveat`, `entity_note`, `guide_section`, `source_link`, `open_question`
+- `contribution_type`: one of `task_card`, `troubleshooting_pattern`, `release_caveat`, `entity_note`, `guide_section`, `source_link`, `open_question`, `recipe`
 - `concept_ids`: one or more existing KB concept ids from `concepts/registry.yaml`
 - `title`: short public-safe title
 - `distilled_summary`: newly written public-safe guidance
@@ -64,6 +64,12 @@ Each line in `bundle.jsonl` is one JSON object with:
 - `redaction_attestation`: `true` after private details are removed
 - `license_attestation`: `true` only if you have rights to submit the summary and sources
 
+For `contribution_type: recipe`, add a `recipe` object using
+`schema: rock-kb-recipe-v1`. Its `recipe_id` must equal `contribution_id`, and
+its `org_id` must match the bundle. Keep substantial code in the code owner's
+licensed public repository and pin an exact commit. See
+`docs/community-recipes.md` for the full contract.
+
 ## Rules
 
 - Write original summaries; do not copy private docs, transcripts, SQL exports, chat logs, staff notes, screenshots, or vendor material.
@@ -72,6 +78,7 @@ Each line in `bundle.jsonl` is one JSON object with:
 - Do not include private paths, direct media file URLs, HLS manifests, tokenized player URLs, secrets, staff/person data, internal Rock ids, or organization-only operational details.
 - Submissions remain community-tier evidence after acceptance unless maintainers later verify the claim against stronger sources.
 - Do not assume auto-merge. Automated acceptance is allowed only after org registration, server-side path restrictions, and required checks are active.
+- Do not paste substantial recipe code into a bundle. Submit the structured digest and immutable public source links.
 
 ## Agent Submission Flow
 

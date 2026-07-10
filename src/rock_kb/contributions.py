@@ -26,6 +26,7 @@ ALLOWED_CONTRIBUTION_TYPES = {
     "guide_section",
     "source_link",
     "open_question",
+    "recipe",
 }
 ALLOWED_REVIEW_STATUSES = {
     "draft_private",

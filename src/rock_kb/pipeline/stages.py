@@ -12,6 +12,7 @@ from ..mobile_selector_audit import build_mobile_selector_audit
 from ..model_map import build_model_map
 from ..paths import PUBLIC_EXPORT_DIR
 from ..publish import build_public_export
+from ..recipes import build_recipes
 
 
 @dataclasses.dataclass(frozen=True)
@@ -200,6 +201,13 @@ STAGES: list[Stage] = [
         private=True,
     ),
     Stage(
+        name="recipes",
+        description="Validate community recipe records and build public recipe lookup artifacts.",
+        inputs=["recipes/**/*.json", "concepts/registry.yaml", "src/rock_kb/recipes.py", "src/rock_kb/schemas/recipe.py"],
+        outputs=["agent/recipes.jsonl", "agent/recipe-summary.json", "knowledge/recipes/*/*.md"],
+        run=build_recipes,
+    ),
+    Stage(
         name="agent-pack",
         description="Build agent navigation, source summaries, model-map/Lava summaries, and manifest files.",
         inputs=[
@@ -211,6 +219,7 @@ STAGES: list[Stage] = [
             "knowledge/model-map/**/*.jsonl",
             "data/review/lava-context-source/**/*",
             "src/rock_kb/lava_contexts.py",
+            "agent/recipes.jsonl",
         ],
         outputs=[
             "agent/llms.txt",
@@ -224,7 +233,7 @@ STAGES: list[Stage] = [
             "knowledge/concepts/lava/lava-context-dependencies.json",
         ],
         run=build_agent_pack,
-        depends_on=["answers", "guide-intel"],
+        depends_on=["answers", "guide-intel", "recipes"],
         private=True,
     ),
     Stage(
