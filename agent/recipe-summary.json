@@ -1,15 +1,16 @@
 {
   "artifact": "agent/recipes.jsonl",
-  "generated_at": "2026-07-10T06:00:58+00:00",
+  "generated_at": "2026-07-10T07:08:51+00:00",
   "org_ids": {
-    "oneall": 3
+    "oneall": 4
   },
-  "recipe_count": 3,
+  "recipe_count": 4,
   "recipe_kinds": {
-    "lava_application": 3
+    "lava_application": 3,
+    "workflow": 1
   },
   "review_statuses": {
-    "community_reviewed": 3
+    "community_reviewed": 4
   },
   "schema": "rock-kb-recipe-summary-v1"
 }
