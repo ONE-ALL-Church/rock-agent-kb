@@ -1,0 +1,208 @@
+{
+  "adaptation_points": [
+    {
+      "description": "Set the GUID of the dedicated verification workflow type after creating and reviewing its attributes and actions.",
+      "example": "Use a local workflow type GUID; the recipe provides no default.",
+      "key": "verificationWorkflowTypeGuid",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Choose a stable local action key that prevents a verified challenge from being reused on another form or operation.",
+      "example": "Use a non-secret application-specific key such as volunteer-application-submit.",
+      "key": "intendedAction",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Set the local DefinedValue ID used for mobile phone numbers and verify that messaging-enabled semantics match the target instance.",
+      "example": "Use the target instance value; the recipe intentionally uses zero as an invalid placeholder.",
+      "key": "mobilePhoneTypeValueId",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Review first/nickname, last name, email, mobile number, messaging-enabled state, and birthdate as an exact-match policy appropriate for the form risk.",
+      "key": "matchFields",
+      "required": true,
+      "sensitive": true
+    },
+    {
+      "description": "Set expiration, verification attempts, per-person sends, per-source sends, and upstream anonymous traffic controls.",
+      "example": "The public defaults cap expiration at ten minutes and page-level attempts at five, but local risk may require stricter controls.",
+      "key": "limits",
+      "required": true,
+      "sensitive": true
+    },
+    {
+      "description": "Configure POST-only endpoint security, anti-CSRF behavior, TLS, monitoring, and staff-only access to workflow or communication review surfaces.",
+      "key": "authorizationAndCsrf",
+      "required": true,
+      "sensitive": true
+    }
+  ],
+  "audience": [
+    "Rock administrators",
+    "Lava developers",
+    "security reviewers",
+    "form and registration teams"
+  ],
+  "authority_tier": "community-reviewed",
+  "compatibility": {
+    "last_verified_at": "2026-07-09",
+    "minimum_rock_version": "17",
+    "notes": [
+      "The originating implementation informed this rewrite, but the hardened public package requires live verification in each target instance.",
+      "Verify Lava transaction behavior, WorkflowActivate attribute keys, SQL Server CRYPT_GEN_RANDOM support, endpoint CSRF behavior, proxy-aware client IP handling, and SMS retention before launch.",
+      "The package was reviewed against the Rock 17/18 model family."
+    ],
+    "tested_rock_versions": []
+  },
+  "concept_ids": [
+    "security-permissions",
+    "workflows",
+    "event-registration",
+    "people-families",
+    "communications",
+    "lava"
+  ],
+  "created_at": "2026-07-09",
+  "difficulty": "advanced",
+  "evidence_urls": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "https://pages.nist.gov/800-63-4/sp800-63b/authenticators/",
+    "https://community.rockrms.com/modelmap"
+  ],
+  "implementation": {
+    "commit_sha": "066de269c3071461f8da3702dab917d4d16a07c4",
+    "files": [
+      {
+        "path": "README.md",
+        "purpose": "Adaptation, security boundary, validation, and compatibility guidance",
+        "sha256": "9da2aac8874cee71c47a7dddbc610b47245697098892462d71e5d7d5221195a1"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "License for this recipe package",
+        "sha256": "4d9831307793402495e74078f32f56ea55ff2e837dee7317d14c2eb51617f85e"
+      },
+      {
+        "path": "config/configuration.example.json",
+        "purpose": "Public-safe application rigging with invalid placeholders and bounded defaults",
+        "sha256": "4883bc2e511b33443273518114a02f34a7c8a5e074246e40222f77417f7ac2f9"
+      },
+      {
+        "path": "config/workflow-attributes.md",
+        "purpose": "Persisted workflow attribute and activation-action contract",
+        "sha256": "f4ab4420d51c3e338a9a5c8539c7f223c6e7dadfb32638722d95d82120d9402e"
+      },
+      {
+        "path": "src/verify-start.lava",
+        "purpose": "Exact unique match, rate limiting, random code, and challenge activation reference",
+        "sha256": "bb86a39261295edb7f04ef4ba3bd70b752da084346f567b91fb72a6582624b1f"
+      },
+      {
+        "path": "src/verify-check.lava",
+        "purpose": "Atomic attempt counting and server-side code verification reference",
+        "sha256": "08177e51f4aa4809b622a63e817143a1ddebad8e84f46bd9593e4007b39259e8"
+      },
+      {
+        "path": "src/final-submit-recheck.lava",
+        "purpose": "Single-use final challenge consumption and server-only person resolution reference",
+        "sha256": "44b33ab51865befbcf8dcf2e13f793e16c1febf9f557d7362e6e7916e9ee184f"
+      },
+      {
+        "path": "tests/static_contract.py",
+        "purpose": "Executable public-safety and security-invariant checks",
+        "sha256": "f92a2876f166645dea4c8c036595a06bf2bae7dfff32075c3d4580a45c3688c5"
+      }
+    ],
+    "ingestion_mode": "index_documentation",
+    "license": "MIT",
+    "license_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification/LICENSE",
+    "manifest_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification/recipe.json",
+    "owner": "ONE-ALL-Church",
+    "repository_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+    "source_path": "Recipes/workflow-backed-sms-verification"
+  },
+  "instructions": [
+    "Review the immutable README, workflow contract, source, and static test before adapting the recipe.",
+    "Create a dedicated verification workflow and configure its SMS action to clear the plain Code attribute immediately after delivery.",
+    "Create POST-only start, check, and final-submit endpoints with only the required Lava commands and anti-CSRF behavior.",
+    "Supply every local configuration value without introducing fallback production IDs or routes.",
+    "Integrate the final-submit recheck immediately before the protected form action and use only its server-resolved alias context.",
+    "Add anonymous traffic controls, monitoring, retention decisions, privacy review, and an accessible non-SMS path before launch."
+  ],
+  "known_limitations": [
+    "SMS possession is not complete identity proofing, account authentication, or phishing-resistant MFA.",
+    "The public package is a reference integration and has not been live-tested unchanged in a generic Rock instance.",
+    "Exact match fields can exclude legitimate people with stale or shared data and require an accessible fallback.",
+    "Context.Request.UserHostAddress may identify a reverse proxy unless the target environment provides a trusted client-address mechanism.",
+    "Consuming before a downstream action means a downstream failure requires a new challenge; combine operations transactionally if the local implementation can do so safely."
+  ],
+  "learnings": [
+    "Treat anonymous recognition as a persisted, bounded server challenge rather than as a browser state transition.",
+    "Fail closed on ambiguous person matches instead of selecting the oldest or lowest-ID candidate.",
+    "Return an opaque session for every start request so browser response structure does not reveal whether a person exists.",
+    "Never let a browser-supplied person or alias identifier establish verified applicant context.",
+    "Bind each challenge to an intended action, enforce expiration and attempt limits, and consume it exactly once at final submission.",
+    "Separate the short-lived delivery code from durable audit state and make communication retention an explicit decision."
+  ],
+  "needs_live_verification": true,
+  "org_id": "oneall",
+  "outcomes": [
+    "Only one exact eligible person match can receive a challenge.",
+    "The browser receives an opaque challenge session but no person or alias identifier.",
+    "A verified challenge is bound to one intended action, expires, counts attempts, and can be consumed only once."
+  ],
+  "prerequisites": [
+    "A dedicated Rock workflow type with the attributes and SMS delivery actions documented by the package.",
+    "A configured SMS transport and an explicit communication-history retention decision.",
+    "Permission to create secured Helix Lava Application POST endpoints and anonymous abuse controls.",
+    "A privacy and risk review for the form data used in exact matching."
+  ],
+  "recipe_id": "oneall:workflow-backed-sms-verification",
+  "recipe_kind": "lava_application",
+  "review_status": "community_reviewed",
+  "rollback_steps": [
+    "Disable the three Lava Application endpoints and remove their page/form integration.",
+    "Deactivate the verification workflow type or its SMS action to stop new messages.",
+    "Revert the protected form to its non-verified anonymous path; existing verification workflow rows can expire under the approved retention policy."
+  ],
+  "schema": "rock-kb-recipe-v1",
+  "security": {
+    "authentication": "Anonymous form request plus possession of the SMS destination; this is not account authentication or identity proofing.",
+    "authorization": "The challenge may authorize only its configured intended form action; workflow and communication administration remain restricted to appropriate staff roles.",
+    "csrf_required": true,
+    "data_access": "writes",
+    "handles_sensitive_data": true,
+    "notes": [
+      "Zero or multiple person matches fail closed, and every start response uses the same browser-visible shape.",
+      "The browser never receives the matched person ID, alias ID, or alias GUID.",
+      "The final endpoint rechecks expiration, verification, intended action, and single-use consumption on the server.",
+      "A six-digit code hash reduces accidental exposure but does not resist an attacker who can read the database; database controls, rate limits, expiration, and retention remain required.",
+      "SMS is vulnerable to interception and redirection and must not be described as strong identity proofing or phishing-resistant MFA."
+    ]
+  },
+  "status": "experimental",
+  "summary": "Optionally recognize an existing person during an anonymous Rock form using an exact unique match, persisted workflow challenge, bounded SMS code, and single-use server-side final recheck.",
+  "title": "Workflow-Backed SMS Verification for Anonymous Rock Forms",
+  "updated_at": "2026-07-09",
+  "use_cases": [
+    "Optionally recognize a returning person during an anonymous registration or request form.",
+    "Prefill or associate a final form action only after phone-possession verification.",
+    "Keep short-lived verification state server-side without trusting browser-provided person identifiers."
+  ],
+  "validation_steps": [
+    "Run python3 tests/static_contract.py from the recipe directory.",
+    "Confirm one exact eligible match sends one code while zero or multiple matches send none.",
+    "Confirm all start responses have the same status, message, timing envelope where practical, and field shape.",
+    "Confirm invalid, expired, over-attempt, wrong-action, already-verified, and consumed challenges fail safely.",
+    "Race two final submissions and confirm only one can consume the challenge.",
+    "Inspect browser responses and confirm no person ID, alias ID, or alias GUID is present.",
+    "Confirm per-person, per-source, resend, and upstream anonymous traffic limits work through the real proxy path.",
+    "Confirm the plain Code workflow value is cleared and review any rendered SMS retained in communication history.",
+    "Confirm the protected final action cannot run by submitting only browser fields without a valid server-side challenge."
+  ],
+  "version": "1.0.0"
+}

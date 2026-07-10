@@ -1,0 +1,189 @@
+{
+  "adaptation_points": [
+    {
+      "description": "Choose all, draft, pending approval, approved, or denied for the initial view.",
+      "example": "all",
+      "key": "defaultStatus",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Choose a bounded initial page size of 25, 50, or 100.",
+      "example": "25",
+      "key": "defaultPageSize",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Set a locally authorized communication detail page or leave zero to render no record links.",
+      "example": "Use a local numeric page ID; the public recipe provides no working default.",
+      "key": "communicationDetailPageId",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Update both relative Helix endpoint routes if the application slug differs from the recipe default.",
+      "example": "communication-history-active-search",
+      "key": "applicationSlug",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Restrict the Rock page and both endpoints to authenticated staff roles permitted to view communication activity and outcomes.",
+      "key": "authorization",
+      "required": true,
+      "sensitive": true
+    }
+  ],
+  "audience": [
+    "Rock administrators",
+    "Lava developers",
+    "communications teams"
+  ],
+  "authority_tier": "community-reviewed",
+  "compatibility": {
+    "last_verified_at": "2026-07-09",
+    "minimum_rock_version": "17",
+    "notes": [
+      "Verify the Communication and CommunicationRecipient enum and field behavior against the target Rock release.",
+      "Performance depends on communication volume, database indexes, search selectivity, and recipient counts.",
+      "The model map identifies communication status 3 as Approved; it must not be relabeled as Sent."
+    ],
+    "tested_rock_versions": [
+      "17",
+      "18"
+    ]
+  },
+  "concept_ids": [
+    "communications",
+    "helix",
+    "lava",
+    "security-permissions"
+  ],
+  "created_at": "2026-07-09",
+  "difficulty": "intermediate",
+  "evidence_urls": [
+    "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics",
+    "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+    "https://community.rockrms.com/modelmap"
+  ],
+  "implementation": {
+    "commit_sha": "066de269c3071461f8da3702dab917d4d16a07c4",
+    "files": [
+      {
+        "path": "README.md",
+        "purpose": "Deployment, security, validation, and compatibility guidance",
+        "sha256": "8290e792ded4c3b8f33fe219297d6614ef75bbe45c5777f03267f5a183d50eb6"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "License for this recipe package",
+        "sha256": "4d9831307793402495e74078f32f56ea55ff2e837dee7317d14c2eb51617f85e"
+      },
+      {
+        "path": "config/configuration.example.json",
+        "purpose": "Public-safe defaults and invalid local detail-page placeholder",
+        "sha256": "a9bd11fdccb11e1d2a8953e8277b4e9efdf0b28e7b59eb0adb5efbc70574edb3"
+      },
+      {
+        "path": "src/list.lava",
+        "purpose": "Filter shell, HTMX state, and initial endpoint rendering",
+        "sha256": "da75ba07f33cffa74879c598bca1130a04f29ecc6375eee4c341f74481f41807"
+      },
+      {
+        "path": "src/results.lava",
+        "purpose": "Parameterized query, bounded pagination, status mapping, and aggregate result rendering",
+        "sha256": "2b14b57fed656d72be2ed856e53e4f9240263fe398f5e211bfd0e34976b58586"
+      },
+      {
+        "path": "tests/static_contract.py",
+        "purpose": "Executable query-safety and public-boundary checks",
+        "sha256": "888429d2b7ce5f3a8cb0ca5ebfa167346146e3ec6698aa714a3c859a1a43cde5"
+      }
+    ],
+    "ingestion_mode": "index_documentation",
+    "license": "MIT",
+    "license_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search/LICENSE",
+    "manifest_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search/recipe.json",
+    "owner": "ONE-ALL-Church",
+    "repository_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+    "source_path": "Recipes/communication-history-active-search"
+  },
+  "instructions": [
+    "Review the pinned README, source, configuration, and static test at the immutable commit.",
+    "Create secured GET list and results endpoints and enable Sql only on the results endpoint.",
+    "Set local default filters, page size, optional detail page, and relative endpoint routes without introducing production defaults.",
+    "Render the list endpoint inside a Lava Application Content block on a staff-only Rock page.",
+    "Preserve parameterized text search, enum allowlists, the 100-row cap, and the exclusion of message and recipient details.",
+    "Test query plans and response times with realistic communication and recipient volume."
+  ],
+  "known_limitations": [
+    "Subject and name search uses SQL LIKE and may require a different index or search strategy on very large datasets.",
+    "The result count and page query are separate reads and may differ briefly while communications change concurrently.",
+    "The recipe reports aggregate recipient statuses but does not reproduce every official communication analytics feature.",
+    "The reference UI is intentionally minimal and should be adapted to the organization's design system without weakening filter or authorization boundaries."
+  ],
+  "learnings": [
+    "Separate the filter shell from the results endpoint so HTMX updates only the changing region.",
+    "Allowlist status, type, and page-size values and bind free text as SQL parameters instead of interpolating sanitized strings.",
+    "Page communication rows before running correlated recipient aggregates so cost scales with the visible page.",
+    "Use the Rock enum name Approved for status 3 and show send and delivery evidence separately.",
+    "Keep the initial operational view narrow and require explicit review before adding message bodies or recipient-level data.",
+    "A read-only endpoint still needs application and page authorization because communication activity is sensitive."
+  ],
+  "needs_live_verification": true,
+  "org_id": "oneall",
+  "outcomes": [
+    "Filter changes replace only the result table and pager through HTMX.",
+    "All user text reaches SQL through parameters and enum values are allowlisted.",
+    "Recipient aggregation is bounded to the selected page of communications."
+  ],
+  "prerequisites": [
+    "Permission to create and secure a Helix Lava Application and Rock page.",
+    "A staff role authorized to view communication history.",
+    "A local communication detail page if record links are enabled.",
+    "A representative communication dataset for query-plan and aggregate validation."
+  ],
+  "recipe_id": "oneall:communication-history-active-search",
+  "recipe_kind": "lava_application",
+  "review_status": "community_reviewed",
+  "rollback_steps": [
+    "Disable or remove the Lava Application endpoints and page block.",
+    "Restore the previous communication-history page configuration; no data rollback is required because the recipe performs only reads."
+  ],
+  "schema": "rock-kb-recipe-v1",
+  "security": {
+    "authentication": "Rock-authenticated staff session",
+    "authorization": "ApplicationView and page permissions limited to approved communication-history roles",
+    "csrf_required": false,
+    "data_access": "read_only",
+    "handles_sensitive_data": true,
+    "notes": [
+      "The public reference excludes message bodies, SMS text, recipient names, addresses, phone numbers, and recipient-level errors.",
+      "Communication names, schedules, senders, and delivery aggregates remain sensitive staff data.",
+      "The results endpoint uses GET only for read behavior and caps requests at 100 rows.",
+      "Approval, resend, cancel, delete, and other writes require separate endpoints, authorization, CSRF protection, validation, auditing, and rollback."
+    ]
+  },
+  "status": "active",
+  "summary": "Build a secured read-only Helix communication browser with allowlisted filters, parameterized search, bounded pagination, and aggregate recipient outcomes.",
+  "title": "Communication History Active Search",
+  "updated_at": "2026-07-09",
+  "use_cases": [
+    "Give authorized staff a responsive communication history browser without loading a full page after every filter change.",
+    "Filter communications by Rock status, communication type, subject or name, and bounded pages.",
+    "Review aggregate delivery outcomes without exposing message bodies or recipient-level contact information."
+  ],
+  "validation_steps": [
+    "Run python3 tests/static_contract.py from the recipe directory.",
+    "Confirm unauthenticated and unauthorized users cannot load the page or either endpoint.",
+    "Confirm status 3 displays Approved rather than Sent.",
+    "Confirm status, type, text, and page-size changes reset pagination to page one.",
+    "Submit quotes, percent characters, underscores, and brackets as search text and confirm they cannot change SQL statement structure.",
+    "Confirm invalid status and type values fall back to all and invalid page sizes fall back to 25.",
+    "Confirm no request can return more than 100 rows.",
+    "Compare aggregate recipient counts with known communications and confirm transient rows and message bodies are absent.",
+    "Confirm empty results and first, middle, and last pagination states render correctly."
+  ],
+  "version": "1.0.0"
+}
