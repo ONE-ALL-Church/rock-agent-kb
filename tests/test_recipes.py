@@ -9,13 +9,17 @@ from rock_kb import recipes
 
 def test_canonical_recipes_validate_and_use_immutable_source_pins():
     rows = recipes.load_recipes()
+    expected_ids = {
+        "oneall:check-in-status-dashboard",
+        "oneall:communication-history-active-search",
+        "oneall:workflow-backed-sms-verification",
+    }
 
-    assert len(rows) == 1
-    row = rows[0]
-    assert row["recipe_id"] == "oneall:check-in-status-dashboard"
-    assert len(row["implementation"]["commit_sha"]) == 40
-    assert row["implementation"]["commit_sha"] in row["implementation"]["manifest_url"]
-    assert all(len(item["sha256"]) == 64 for item in row["implementation"]["files"])
+    assert {row["recipe_id"] for row in rows} == expected_ids
+    for row in rows:
+        assert len(row["implementation"]["commit_sha"]) == 40
+        assert row["implementation"]["commit_sha"] in row["implementation"]["manifest_url"]
+        assert all(len(item["sha256"]) == 64 for item in row["implementation"]["files"])
 
 
 def test_recipe_validation_rejects_unknown_concept(tmp_path):
@@ -40,11 +44,17 @@ def test_build_recipes_writes_agent_and_human_artifacts(monkeypatch, tmp_path):
 
     report = recipes.build_recipes()
 
-    assert report["recipe_count"] == 1
+    assert report["recipe_count"] == 3
     assert (tmp_path / "agent" / "recipes.jsonl").exists()
-    rendered = (tmp_path / "knowledge" / "recipes" / "oneall" / "check-in-status-dashboard.md").read_text(encoding="utf-8")
-    assert "Reusable Learnings" in rendered
-    assert "d8ea54fa67ef" in rendered
+    expected_artifacts = {
+        "check-in-status-dashboard.md": "d8ea54fa67ef",
+        "communication-history-active-search.md": "066de269c307",
+        "workflow-backed-sms-verification.md": "066de269c307",
+    }
+    for filename, commit_prefix in expected_artifacts.items():
+        rendered = (tmp_path / "knowledge" / "recipes" / "oneall" / filename).read_text(encoding="utf-8")
+        assert "Reusable Learnings" in rendered
+        assert commit_prefix in rendered
 
 
 def test_promote_recipe_contribution_extracts_reviewed_canonical_record(monkeypatch, tmp_path):

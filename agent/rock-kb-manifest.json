@@ -813,7 +813,7 @@
     }
   ],
   "entity_count": 448,
-  "generated_at": "2026-07-09T23:50:00+00:00",
+  "generated_at": "2026-07-10T06:01:25+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -846,7 +846,7 @@
       }
     ]
   },
-  "recipe_count": 1,
+  "recipe_count": 3,
   "release_caveat_count": 166,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {
