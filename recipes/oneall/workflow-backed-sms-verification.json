@@ -49,11 +49,11 @@
   ],
   "authority_tier": "community-reviewed",
   "compatibility": {
-    "last_verified_at": "2026-07-09",
+    "last_verified_at": "2026-07-10",
     "minimum_rock_version": "17",
     "notes": [
       "The originating implementation informed this rewrite, but the hardened public package requires live verification in each target instance.",
-      "Verify Lava transaction behavior, WorkflowActivate attribute keys, SQL Server CRYPT_GEN_RANDOM support, endpoint CSRF behavior, proxy-aware client IP handling, and SMS retention before launch.",
+      "Verify WorkflowActivate and ModifyWorkflow command access, query-only SQL behavior, SQL Server CRYPT_GEN_RANDOM support, endpoint CSRF behavior, proxy-aware client IP handling, protected-action idempotency, and SMS retention before launch.",
       "The package was reviewed against the Rock 17/18 model family."
     ],
     "tested_rock_versions": [],
@@ -79,12 +79,12 @@
   ],
   "feedback_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues",
   "implementation": {
-    "commit_sha": "066de269c3071461f8da3702dab917d4d16a07c4",
+    "commit_sha": "7211f1d5a024a164fdf883575585fb23b6a79f5d",
     "files": [
       {
         "path": "README.md",
         "purpose": "Adaptation, security boundary, validation, and compatibility guidance",
-        "sha256": "9da2aac8874cee71c47a7dddbc610b47245697098892462d71e5d7d5221195a1"
+        "sha256": "2b46f095ca5aaec91b9e768222cf804b1bd66c330d46bdf56bac573161cf5962"
       },
       {
         "path": "LICENSE",
@@ -99,7 +99,7 @@
       {
         "path": "config/workflow-attributes.md",
         "purpose": "Persisted workflow attribute and activation-action contract",
-        "sha256": "f4ab4420d51c3e338a9a5c8539c7f223c6e7dadfb32638722d95d82120d9402e"
+        "sha256": "b42c9e0c9fdd5d0accfdfdfc09cac493e3613c40ebfb06937ad5167dc3a94c16"
       },
       {
         "path": "src/verify-start.lava",
@@ -108,24 +108,24 @@
       },
       {
         "path": "src/verify-check.lava",
-        "purpose": "Atomic attempt counting and server-side code verification reference",
-        "sha256": "08177e51f4aa4809b622a63e817143a1ddebad8e84f46bd9593e4007b39259e8"
+        "purpose": "Query-only code verification and ModifyWorkflow state-write reference",
+        "sha256": "b2e1e12839edfc0b9c31ff5b4edadf2783fdee701f4afdf7a076f866f70399f6"
       },
       {
         "path": "src/final-submit-recheck.lava",
-        "purpose": "Single-use final challenge consumption and server-only person resolution reference",
-        "sha256": "44b33ab51865befbcf8dcf2e13f793e16c1febf9f557d7362e6e7916e9ee184f"
+        "purpose": "Final challenge recheck, ModifyWorkflow audit marker, server-only person resolution, and idempotency-key reference",
+        "sha256": "297de8aa6edd6dfc4364bd300b10f374787426e753b240deb337cc76428b5c7b"
       },
       {
         "path": "tests/static_contract.py",
         "purpose": "Executable public-safety and security-invariant checks",
-        "sha256": "f92a2876f166645dea4c8c036595a06bf2bae7dfff32075c3d4580a45c3688c5"
+        "sha256": "10407387351fb4ce50c52d133129a053691c5b0ce9ffa4c242713615ed567ba3"
       }
     ],
     "ingestion_mode": "index_documentation",
     "license": "MIT",
-    "license_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification/LICENSE",
-    "manifest_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification/recipe.json",
+    "license_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/7211f1d5a024a164fdf883575585fb23b6a79f5d/Recipes/workflow-backed-sms-verification/LICENSE",
+    "manifest_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/7211f1d5a024a164fdf883575585fb23b6a79f5d/Recipes/workflow-backed-sms-verification/recipe.json",
     "owner": "ONE-ALL-Church",
     "repository_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
     "source_path": "Recipes/workflow-backed-sms-verification"
@@ -133,9 +133,10 @@
   "instructions": [
     "Review the immutable README, workflow contract, source, and static test before adapting the recipe.",
     "Create a dedicated verification workflow and configure its SMS action to clear the plain Code attribute immediately after delivery.",
-    "Create POST-only start, check, and final-submit endpoints with only the required Lava commands and anti-CSRF behavior.",
+    "Create POST-only start, check, and final-submit endpoints with only the required Lava commands and anti-CSRF behavior; enable Sql and WorkflowActivate for start, then Sql and ModifyWorkflow for check and final submission.",
+    "Keep endpoint SQL query-only and use ModifyWorkflow for Attempts, Verified, and ConsumedAt state changes.",
     "Supply every local configuration value without introducing fallback production IDs or routes.",
-    "Integrate the final-submit recheck immediately before the protected form action and use only its server-resolved alias context.",
+    "Integrate the final-submit recheck immediately before the protected form action, use only its server-resolved alias context, and make the protected operation idempotent with protectedActionIdempotencyKey.",
     "Add anonymous traffic controls, monitoring, retention decisions, privacy review, and an accessible non-SMS path before launch."
   ],
   "known_limitations": [
@@ -143,14 +144,16 @@
     "The public package is a reference integration and has not been live-tested unchanged in a generic Rock instance.",
     "Exact match fields can exclude legitimate people with stale or shared data and require an accessible fallback.",
     "Context.Request.UserHostAddress may identify a reverse proxy unless the target environment provides a trusted client-address mechanism.",
-    "Consuming before a downstream action means a downstream failure requires a new challenge; combine operations transactionally if the local implementation can do so safely."
+    "ModifyWorkflow does not provide atomic compare-and-set behavior; concurrent final requests can both pass the recheck, so the protected operation must reject a repeated protectedActionIdempotencyKey or return the first result.",
+    "A strict exactly-once requirement needs a purpose-built Rock action or API with an application-layer transaction; this reference intentionally contains no SQL writes."
   ],
   "learnings": [
     "Treat anonymous recognition as a persisted, bounded server challenge rather than as a browser state transition.",
     "Fail closed on ambiguous person matches instead of selecting the oldest or lowest-ID candidate.",
     "Return an opaque session for every start request so browser response structure does not reveal whether a person exists.",
     "Never let a browser-supplied person or alias identifier establish verified applicant context.",
-    "Bind each challenge to an intended action, enforce expiration and attempt limits, and consume it exactly once at final submission.",
+    "Bind each challenge to an intended action, enforce expiration and attempt limits, and make the final protected operation idempotent with the challenge session.",
+    "Use query-only SQL for complex challenge lookup and hashing while routing workflow state changes through ModifyWorkflow.",
     "Separate the short-lived delivery code from durable audit state and make communication retention an explicit decision."
   ],
   "needs_live_verification": true,
@@ -158,12 +161,14 @@
   "outcomes": [
     "Only one exact eligible person match can receive a challenge.",
     "The browser receives an opaque challenge session but no person or alias identifier.",
-    "A verified challenge is bound to one intended action, expires, counts attempts, and can be consumed only once."
+    "A verified challenge is bound to one intended action, expires, counts attempts, and supplies a stable idempotency key for the final protected operation.",
+    "The reference performs no SQL writes; workflow state changes use Rock's ModifyWorkflow command."
   ],
   "prerequisites": [
     "A dedicated Rock workflow type with the attributes and SMS delivery actions documented by the package.",
     "A configured SMS transport and an explicit communication-history retention decision.",
     "Permission to create secured Helix Lava Application POST endpoints and anonymous abuse controls.",
+    "A protected final operation that enforces idempotency using the supplied intended-action and session key.",
     "A privacy and risk review for the form data used in exact matching."
   ],
   "recipe_id": "oneall:workflow-backed-sms-verification",
@@ -184,15 +189,16 @@
     "notes": [
       "Zero or multiple person matches fail closed, and every start response uses the same browser-visible shape.",
       "The browser never receives the matched person ID, alias ID, or alias GUID.",
-      "The final endpoint rechecks expiration, verification, intended action, and single-use consumption on the server.",
+      "The final endpoint rechecks expiration, verification, intended action, and the best-effort consumed marker on the server, then supplies an idempotency key to the protected operation.",
+      "All SQL in the reference endpoints is query-only; Attempts, Verified, and ConsumedAt are written through ModifyWorkflow.",
       "A six-digit code hash reduces accidental exposure but does not resist an attacker who can read the database; database controls, rate limits, expiration, and retention remain required.",
       "SMS is vulnerable to interception and redirection and must not be described as strong identity proofing or phishing-resistant MFA."
     ]
   },
   "status": "experimental",
-  "summary": "Optionally recognize an existing person during an anonymous Rock form using an exact unique match, persisted workflow challenge, bounded SMS code, and single-use server-side final recheck.",
+  "summary": "Optionally recognize an existing person during an anonymous Rock form using an exact unique match, persisted workflow challenge, bounded SMS code, Rock modify-command state writes, and an idempotent final action.",
   "title": "Workflow-Backed SMS Verification for Anonymous Rock Forms",
-  "updated_at": "2026-07-09",
+  "updated_at": "2026-07-10",
   "use_cases": [
     "Optionally recognize a returning person during an anonymous registration or request form.",
     "Prefill or associate a final form action only after phone-possession verification.",
@@ -203,11 +209,12 @@
     "Confirm one exact eligible match sends one code while zero or multiple matches send none.",
     "Confirm all start responses have the same status, message, timing envelope where practical, and field shape.",
     "Confirm invalid, expired, over-attempt, wrong-action, already-verified, and consumed challenges fail safely.",
-    "Race two final submissions and confirm only one can consume the challenge.",
+    "Race two final submissions and confirm both receive the same protectedActionIdempotencyKey while the protected operation produces only one business result.",
+    "Scan every Lava source file and confirm no SQL UPDATE, INSERT, DELETE, or MERGE statement is present.",
     "Inspect browser responses and confirm no person ID, alias ID, or alias GUID is present.",
     "Confirm per-person, per-source, resend, and upstream anonymous traffic limits work through the real proxy path.",
     "Confirm the plain Code workflow value is cleared and review any rendered SMS retained in communication history.",
     "Confirm the protected final action cannot run by submitting only browser fields without a valid server-side challenge."
   ],
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

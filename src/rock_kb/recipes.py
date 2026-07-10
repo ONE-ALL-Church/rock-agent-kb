@@ -175,18 +175,23 @@ def check_recipe_upstreams() -> dict[str, Any]:
             capture_output=True, text=True, check=False, timeout=30,
         )
         default_branch = ""
+        default_commit = ""
         for line in process.stdout.splitlines():
             match = re.match(r"ref: refs/heads/(\S+)\s+HEAD$", line)
             if match:
                 default_branch = match.group(1)
-                break
+                continue
+            match = re.match(r"([0-9a-f]{40})\s+HEAD$", line)
+            if match:
+                default_commit = match.group(1)
         owner, repository = repository_parts(implementation["repository_url"])
         changed_files: list[str] = []
         unavailable_files: list[str] = []
         if default_branch and owner and repository:
             for item in implementation["files"]:
                 source_path = f"{implementation['source_path'].rstrip('/')}/{item['path']}"
-                url = f"https://raw.githubusercontent.com/{owner}/{repository}/{default_branch}/{source_path}"
+                source_ref = default_commit or f"refs/heads/{default_branch}"
+                url = f"https://raw.githubusercontent.com/{owner}/{repository}/{source_ref}/{source_path}"
                 try:
                     request = Request(url, headers={"User-Agent": "rock-agent-kb-recipe-check/1.0"})
                     with urlopen(request, timeout=30) as response:
