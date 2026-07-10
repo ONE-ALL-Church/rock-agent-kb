@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-07-10T08:20:00+00:00
+last_built: 2026-07-10T14:36:52+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -58,9 +58,9 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting) |
 | official | operational_guidance | For a Rock 19.0 internal-hosting installation, use SQL Server's default instance unless the administrator is experienced with named instances, because the default instance simplifies subsequent Rock configuration. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server) |
 | official | operational_guidance | Azure capacity planning should treat attendance-based tiers as starting points; organizations that also host their public website in Rock should select the next larger tier, while accounting for feature usage and workload intensity. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options) |
+| official | operational_guidance | An organization that already has an Azure account should ask Microsoft Support to merge it with the nonprofit account so the nonprofit credit can be applied to the existing Azure setup. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit) |
 | official | recipe | Before launching a SaaS-hosted Rock instance publicly, an organization should select a hosting partner, inventory its current system, arrange a kickoff, prepare a migration plan, and reserve a test period. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting) |
 | official | recipe | For Azure SQL Database, create Rock's SQL-authenticated login and master-database user with the dbmanager and loginmanager roles; after Rock creates its database, add the corresponding user in that database to the db_owner role. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server) |
-| official | recipe | When adding the required Windows server features, an unavailable-source error can be resolved by mounting matching Windows installation media and supplying its sources\sxs directory as the alternate source path. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features) |
 | More |  | 7 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage

@@ -16,7 +16,7 @@ Current checked-in tracks from the last accepted scrape:
 | Track | Source | Checked-in Rock Version | Raw Artifact |
 | --- | --- | --- | --- |
 | Stable | `https://rocksolidchurchdemo.com/admin/power-tools/model-map` | `19.1.8` | `data/review/model-map-scrape/demo-model-map-full-scrape.json` |
-| Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.4` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
+| Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.5` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
 
 Do not assume those versions are still live. `uv run kb status` probes the stable and latest Rock version endpoints and reports `model-map versions` as stale when either site has advanced.
 
@@ -96,6 +96,13 @@ Expected generated outputs include:
 - `agent/model-map-version-diff.jsonl`
 - `agent/model-map-digests.jsonl`
 
+Property and method rows use stable `model_slug + property_slug/signature`
+identities. Release-wide Rock versions remain in the summary and model rows;
+transient Obsidian row IDs, row indexes, and repeated member-level version
+values are intentionally excluded. A routine refresh should therefore show
+added, removed, or semantically changed members instead of rewriting every row
+when the demo version or block response ordering changes.
+
 ## Rebuild Dependent Layers
 
 After the model-map layer changes, rebuild dependent concept and agent artifacts:
@@ -137,7 +144,7 @@ rg -n "Generated Model Map Pointer|Data Model Landmarks|Pre-alpha" knowledge/con
 
 ## Review Notes
 
-- A large generated diff is normal because `knowledge/model-map/`, concept indexes, long-form guide pointer blocks, and agent rows all depend on the same generated model-map layer. If you regenerate the ignored scratch export, review it as a local audit artifact only.
+- The one-time stable-identity migration can produce a large diff. Later refreshes should not rewrite unchanged property or method rows; investigate broad churn before publishing it.
 - Review generated model pages for obvious collection noise before publishing. Pay attention to rows that look like enum option values or action payload artifacts rather than model properties.
 - If latest/pre-alpha differs from stable, the stable row should remain the default reference and the latest difference should be a callout, not a replacement.
 - If the stable demo version changes, update the expected version table in this runbook and review the generated diff as a version upgrade.

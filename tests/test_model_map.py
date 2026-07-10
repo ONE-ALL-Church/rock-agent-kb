@@ -550,3 +550,70 @@ def test_build_model_map_version_diff_tracks_added_and_changed_properties(tmp_pa
     assert changed["changed_fields"] == ["description"]
     summary = json.loads(output_path.read_text(encoding="utf-8"))
     assert summary["changed_field_counts"] == {"description": 1}
+
+
+def test_property_and_method_rows_ignore_volatile_release_and_obsidian_row_metadata(tmp_path):
+    base = {
+        "source_url": "https://example.test/model-map",
+        "collection_method": "obsidian_block_action",
+        "rock_version": "20.0.4",
+        "models": [
+            {
+                "model_link_name": "Group",
+                "model_title": "Group",
+                "category_name": "Groups",
+                "rock_version": "20.0.4",
+                "properties": [
+                    {
+                        "name": "Members",
+                        "property_id": "volatile-property-1",
+                        "row_index": 8,
+                        "rock_version": "20.0.4",
+                        "is_lava": True,
+                    }
+                ],
+                "methods": [
+                    {
+                        "signature": "GetMembers()",
+                        "method_id": "volatile-method-1",
+                        "row_index": 3,
+                        "rock_version": "20.0.4",
+                    }
+                ],
+            }
+        ],
+    }
+    refreshed = json.loads(json.dumps(base))
+    refreshed["rock_version"] = "20.0.5"
+    refreshed["models"][0]["rock_version"] = "20.0.5"
+    refreshed["models"][0]["properties"][0].update(
+        {"property_id": "volatile-property-99", "row_index": 1, "rock_version": "20.0.5"}
+    )
+    refreshed["models"][0]["methods"][0].update(
+        {"method_id": "volatile-method-99", "row_index": 12, "rock_version": "20.0.5"}
+    )
+
+    first_properties = model_map.scraped_property_rows(base, tmp_path / "first.json", track="pre-alpha")
+    next_properties = model_map.scraped_property_rows(refreshed, tmp_path / "first.json", track="pre-alpha")
+    first_methods = model_map.scraped_method_rows(base, tmp_path / "first.json", track="pre-alpha")
+    next_methods = model_map.scraped_method_rows(refreshed, tmp_path / "first.json", track="pre-alpha")
+
+    assert first_properties == next_properties
+    assert first_methods == next_methods
+    assert first_properties[0]["property_key"] == "group:members"
+    assert first_methods[0]["method_key"] == "group:GetMembers()"
+    assert "rock_version" not in first_properties[0]
+    assert "property_id" not in first_properties[0]
+    assert "method_id" not in first_methods[0]
+
+
+def test_model_map_generated_at_uses_latest_source_completion_time(monkeypatch):
+    monkeypatch.delenv("ROCK_KB_GENERATED_AT", raising=False)
+    monkeypatch.delenv("SOURCE_DATE_EPOCH", raising=False)
+
+    generated_at = model_map.model_map_generated_at(
+        {"finished_at": "2026-07-10T08:06:51.569Z"},
+        {"finished_at": "2026-07-10T08:07:07.953Z"},
+    )
+
+    assert generated_at == "2026-07-10T08:07:07.953+00:00"

@@ -16,9 +16,9 @@ Apple TV TVML text can be styled with predefined tv-text-style values, font weig
 - `claim:5bd2b6b4cac279be5e13`
 - `claim:90bc57ced4d3600ea70a`
 - `claim:c63b64b38fbb8b997213`
+- `claim:d46bd13bb8523b527394`
 - `claim:1a9395b309ce05370bc9`
 - `claim:47d0054183b6a3c9d5bf`
-- `claim:5e31410fc17f56275552`
 
 ## Citations
 

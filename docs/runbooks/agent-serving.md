@@ -194,7 +194,7 @@ public contribution evidence under `community-contributions/<org-id>/` or
 
 Operational review artifacts remain in the public repo and are deployed as normal artifacts:
 
-- `agent/source-conflicts.jsonl`: community/higher-authority alignment prompts.
+- `agent/source-conflicts.jsonl`: claim pairs with shared topic terms and opposing operational language.
 - `agent/claim-review-queue.jsonl`: promotion, merge, and live-verification review queue.
 - `agent/section-status.jsonl`: section-level citation, confidence, and staleness hints.
 - `agent/evaluation-set.jsonl`: hosted-service regression questions.

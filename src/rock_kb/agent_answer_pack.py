@@ -711,30 +711,121 @@ def source_conflict_rows(concepts: list[Any], claims_by_concept: dict[str, list[
                 continue
             by_type[claim_type].append(claim)
         for claim_type, group in sorted(by_type.items()):
-            tiers = sorted({str(row.get("authority_tier") or "unknown") for row in group})
-            community_count = sum(1 for row in group if str(row.get("authority_tier") or "").startswith("community"))
-            high_count = sum(1 for row in group if row.get("authority_tier") in {"official", "rocku-confirmed", "release-note-confirmed", "source-code-confirmed"})
-            live_count = sum(1 for row in group if row.get("needs_live_verification") or row.get("requires_live_instance"))
-            if not (community_count and high_count):
-                continue
-            rows.append(
-                {
-                    "schema": "rock-kb-source-conflict-v1",
-                    "id": "source-conflict:" + sha256_text(f"{concept.id}:{claim_type}:{','.join(tiers)}")[:16],
-                    "concept_id": concept.id,
-                    "claim_type": claim_type,
-                    "status": "authority_alignment_review_recommended",
-                    "source_a": source_label(group[0]),
-                    "source_b": source_label(group[-1]),
-                    "authority_tiers": tiers,
-                    "community_claim_count": community_count,
-                    "higher_authority_claim_count": high_count,
-                    "live_verification_claim_count": live_count,
-                    "authority_resolution": "Prefer official, source-code, release-note, or RockU-confirmed claims over community patterns. Use community-reviewed claims as implementation examples unless live verification confirms local behavior.",
-                    "claim_ids": [str(row.get("claim_id")) for row in sorted(group, key=claim_sort_key)[:12] if row.get("claim_id")],
-                }
-            )
+            community = [row for row in group if str(row.get("authority_tier") or "").startswith("community")]
+            higher_authority = [
+                row
+                for row in group
+                if row.get("authority_tier") in {"official", "rocku-confirmed", "release-note-confirmed", "source-code-confirmed"}
+            ]
+            for community_claim in community:
+                for authority_claim in higher_authority:
+                    conflict = potential_claim_contradiction(community_claim, authority_claim)
+                    if not conflict:
+                        continue
+                    claim_ids = sorted([str(community_claim.get("claim_id") or ""), str(authority_claim.get("claim_id") or "")])
+                    tiers = sorted({str(community_claim.get("authority_tier")), str(authority_claim.get("authority_tier"))})
+                    rows.append(
+                        {
+                            "schema": "rock-kb-source-conflict-v1",
+                            "id": "source-conflict:" + sha256_text(f"{concept.id}:{claim_type}:{':'.join(claim_ids)}")[:16],
+                            "concept_id": concept.id,
+                            "claim_type": claim_type,
+                            "status": "potential_contradiction",
+                            "source_a": source_label(authority_claim),
+                            "source_b": source_label(community_claim),
+                            "authority_tiers": tiers,
+                            "community_claim_count": 1,
+                            "higher_authority_claim_count": 1,
+                            "live_verification_claim_count": sum(
+                                1
+                                for claim in [community_claim, authority_claim]
+                                if claim.get("needs_live_verification") or claim.get("requires_live_instance")
+                            ),
+                            "authority_resolution": "Prefer the higher-authority claim until a reviewer checks the cited passages and any required live evidence.",
+                            "conflict_signals": conflict,
+                            "claim_ids": claim_ids,
+                        }
+                    )
     return rows
+
+
+CONFLICT_STOP_WORDS = {
+    "about", "after", "again", "also", "and", "before", "being", "between", "both", "from", "have",
+    "into", "only", "other", "rock", "should", "that", "their", "them", "then", "there", "these", "they",
+    "this", "those", "through", "using", "when", "where", "which", "with", "without", "would",
+}
+CONFLICT_POLARITY_PATTERNS = {
+    "directive": (
+        [r"\bmust\b", r"\bshould\b", r"\brecommended\b"],
+        [r"\bmust\s+not\b", r"\bshould\s+not\b", r"\bnot\s+recommended\b"],
+    ),
+    "requirement": (
+        [r"\brequired\b", r"\brequires\b"],
+        [r"\bnot\s+required\b", r"\boptional\b"],
+    ),
+    "capability": (
+        [r"\bcan\b", r"\bmay\b", r"\ballowed\b", r"\bsupported\b"],
+        [r"\bcannot\b", r"\bcan\s+not\b", r"\bmust\s+not\b", r"\bnot\s+allowed\b", r"\bnot\s+supported\b", r"\bunsupported\b"],
+    ),
+    "availability": (
+        [r"\bavailable\b"],
+        [r"\bnot\s+available\b", r"\bunavailable\b"],
+    ),
+    "enablement": (
+        [r"\benabled\b", r"\benable\b"],
+        [r"\bdisabled\b", r"\bdisable\b"],
+    ),
+    "safety": (
+        [r"\bsafe\b", r"\bsecure\b"],
+        [r"\bunsafe\b", r"\binsecure\b"],
+    ),
+}
+
+
+def potential_claim_contradiction(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any] | None:
+    left_text = str(left.get("claim") or "").lower()
+    right_text = str(right.get("claim") or "").lower()
+    left_terms = conflict_topic_terms(left_text)
+    right_terms = conflict_topic_terms(right_text)
+    shared_terms = sorted(left_terms & right_terms)
+    if len(shared_terms) < 3:
+        return None
+    overlap = len(shared_terms) / max(1, min(len(left_terms), len(right_terms)))
+    if overlap < 0.3:
+        return None
+    left_polarity = conflict_polarity(left_text)
+    right_polarity = conflict_polarity(right_text)
+    opposing_axes = sorted(
+        axis
+        for axis in set(left_polarity) & set(right_polarity)
+        if left_polarity[axis] != right_polarity[axis]
+    )
+    if not opposing_axes:
+        return None
+    return {"opposing_axes": opposing_axes, "shared_terms": shared_terms[:12], "topic_overlap": round(overlap, 3)}
+
+
+def conflict_topic_terms(text: str) -> set[str]:
+    terms = {
+        token
+        for token in re.findall(r"[a-z0-9]+", text)
+        if len(token) > 2 and token not in CONFLICT_STOP_WORDS
+    }
+    polarity_words = {
+        "allowed", "available", "cannot", "disabled", "enabled", "insecure", "must", "optional", "recommended",
+        "required", "requires", "safe", "secure", "should", "supported", "unavailable", "unsupported", "unsafe",
+    }
+    return terms - polarity_words
+
+
+def conflict_polarity(text: str) -> dict[str, int]:
+    result: dict[str, int] = {}
+    for axis, (positive_patterns, negative_patterns) in CONFLICT_POLARITY_PATTERNS.items():
+        if any(re.search(pattern, text) for pattern in negative_patterns):
+            result[axis] = -1
+        elif any(re.search(pattern, text) for pattern in positive_patterns):
+            result[axis] = 1
+    return result
 
 
 def distilled_claim_rows(concepts: list[Any], claims_by_concept: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
@@ -1463,7 +1554,7 @@ def write_answer_pack_report(
             "High-value concept first-check answers may use reviewer-authored override text while retaining generated claim IDs and citations.",
             "Distilled claim rows are generated clusters for reviewer approval before promotion to public prose.",
             "Evaluation rows are deterministic quality gates for answer body, citations, live-check steps, probes, and caveats.",
-            "Conflict rows are authority-alignment review prompts, not proof that sources contradict each other.",
+            "Conflict rows require shared topic terms plus opposing directive, requirement, capability, availability, enablement, or safety language.",
             "Review queue rows are prioritized maintenance prompts for approved public claims.",
         ],
     }

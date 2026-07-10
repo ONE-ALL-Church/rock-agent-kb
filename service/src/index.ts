@@ -35,6 +35,17 @@ type ContributionRow = {
   recipe?: unknown;
 };
 
+type RecipeSourceFetch = {
+  bytes: ArrayBuffer | null;
+  actualSha256?: string;
+  source: "cache" | "raw_github" | "github_contents_api" | "unavailable";
+  cacheStatus: "hit" | "miss";
+  attempts: number;
+  rawHttpStatus?: number;
+  apiHttpStatus?: number;
+  error?: string;
+};
+
 type ServiceEnv = Omit<Env, "AUTO_MERGE_INTAKE"> & {
   GITHUB_TOKEN?: string;
   ORG_TOKEN_SHA256_JSON?: string;
@@ -548,17 +559,30 @@ async function verifyRecipe(env: ServiceEnv, recipeId: string, rockVersion: stri
   const fileChecks = await Promise.all(files.map(async (file) => {
     const path = String(file.path || "");
     const expected = String(file.sha256 || "");
-    const sourceUrl = `https://raw.githubusercontent.com/${owner}/${repository}/${commit}/${sourcePath}/${path}`;
-    try {
-      const response = await fetchRecipeSource(sourceUrl);
-      if (!response.ok) {
-        return { path, status: "unavailable", expected_sha256: expected, http_status: response.status };
-      }
-      const actual = await sha256HexBytes(await response.arrayBuffer());
-      return { path, status: actual === expected ? "pass" : "fail", expected_sha256: expected, actual_sha256: actual };
-    } catch (error) {
-      return { path, status: "unavailable", expected_sha256: expected, error: String(error) };
+    const source = await fetchRecipeSource(owner, repository, commit, [sourcePath, path].filter(Boolean).join("/"), expected);
+    if (!source.bytes) {
+      return {
+        path,
+        status: "unavailable",
+        expected_sha256: expected,
+        source: source.source,
+        cache_status: source.cacheStatus,
+        attempts: source.attempts,
+        raw_http_status: source.rawHttpStatus,
+        api_http_status: source.apiHttpStatus,
+        error: source.error,
+      };
     }
+    const actual = source.actualSha256 || await sha256HexBytes(source.bytes);
+    return {
+      path,
+      status: actual === expected ? "pass" : "fail",
+      expected_sha256: expected,
+      actual_sha256: actual,
+      source: source.source,
+      cache_status: source.cacheStatus,
+      attempts: source.attempts,
+    };
   }));
   const compatibility = recipeCompatibility(recipe, rockVersion);
   const failed = fileChecks.some((row) => row.status === "fail") || compatibility.status === "fail";
@@ -577,21 +601,102 @@ async function verifyRecipe(env: ServiceEnv, recipeId: string, rockVersion: stri
   };
 }
 
-async function fetchRecipeSource(sourceUrl: string): Promise<Response> {
+async function fetchRecipeSource(owner: string, repository: string, commit: string, path: string, expectedSha256: string): Promise<RecipeSourceFetch> {
+  const cacheKey = new Request(
+    `https://rock-agent-kb.oneandall.church/__recipe-source-cache/${[owner, repository, commit, ...path.split("/")].map(encodeURIComponent).join("/")}`
+  );
+  try {
+    const cached = await caches.default.match(cacheKey);
+    if (cached?.ok) {
+      const bytes = await cached.arrayBuffer();
+      const actualSha256 = await sha256HexBytes(bytes);
+      if (actualSha256 === expectedSha256) {
+        return { bytes, actualSha256, source: "cache", cacheStatus: "hit", attempts: 0 };
+      }
+      await caches.default.delete(cacheKey);
+    }
+  } catch {
+    // Cache availability must not determine whether an immutable recipe can be verified.
+  }
+
+  const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+  const rawUrl = `https://raw.githubusercontent.com/${owner}/${repository}/${commit}/${encodedPath}`;
+  const raw = await fetchRecipeUrl(rawUrl, { "user-agent": "rock-kb-recipe-verify/1.0" });
+  let selected = raw;
+  let source: RecipeSourceFetch["source"] = "raw_github";
+  let attempts = raw.attempts;
+  let apiHttpStatus: number | undefined;
+  let lastError = raw.error;
+  if (!raw.response?.ok) {
+    const apiUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repository)}/contents/${encodedPath}?ref=${encodeURIComponent(commit)}`;
+    const api = await fetchRecipeUrl(apiUrl, {
+      accept: "application/vnd.github.raw+json",
+      "user-agent": "rock-kb-recipe-verify/1.0",
+      "x-github-api-version": "2022-11-28",
+    });
+    selected = api;
+    source = "github_contents_api";
+    attempts += api.attempts;
+    apiHttpStatus = api.response?.status;
+    lastError = api.error || lastError;
+  }
+  if (!selected.response?.ok) {
+    return {
+      bytes: null,
+      source: "unavailable",
+      cacheStatus: "miss",
+      attempts,
+      rawHttpStatus: raw.response?.status,
+      apiHttpStatus,
+      error: lastError,
+    };
+  }
+  const bytes = await selected.response.arrayBuffer();
+  const actualSha256 = await sha256HexBytes(bytes);
+  if (actualSha256 === expectedSha256) {
+    try {
+      await caches.default.put(
+        cacheKey,
+        new Response(bytes.slice(0), {
+          status: 200,
+          headers: { "cache-control": "public, max-age=2592000", "content-type": "application/octet-stream" },
+        })
+      );
+    } catch {
+      // Verification remains valid when the cache is unavailable.
+    }
+  }
+  return {
+    bytes,
+    actualSha256,
+    source,
+    cacheStatus: "miss",
+    attempts,
+    rawHttpStatus: raw.response?.status,
+    apiHttpStatus,
+  };
+}
+
+async function fetchRecipeUrl(sourceUrl: string, headers: Record<string, string>): Promise<{ response: Response | null; attempts: number; error?: string }> {
   let lastResponse: Response | null = null;
   let lastError: unknown = null;
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
-      const response = await fetch(sourceUrl, { headers: { "user-agent": "rock-kb-recipe-verify/1.0" } });
+      const response = await fetch(sourceUrl, { headers });
       lastResponse = response;
-      if (response.ok || (response.status !== 429 && response.status < 500)) return response;
+      if (response.ok || (response.status !== 429 && response.status < 500)) {
+        return { response, attempts: attempt + 1 };
+      }
     } catch (error) {
       lastError = error;
     }
     if (attempt < 2) await new Promise((resolve) => setTimeout(resolve, 100 * (attempt + 1)));
   }
-  if (lastResponse) return lastResponse;
-  throw lastError instanceof Error ? lastError : new Error("Recipe source request failed");
+  return {
+    response: lastResponse,
+    attempts: 3,
+    error: lastError instanceof Error ? lastError.message : lastError ? String(lastError) : undefined,
+  };
 }
 
 function recipeCompatibility(recipe: JsonRecord, rockVersion: string | null): JsonRecord {

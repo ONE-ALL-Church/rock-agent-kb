@@ -166,7 +166,10 @@ Start with the bounded eight-article pilot for each concept. After its claims an
 
 ## Source Conflict Review
 
-`agent/source-conflicts.jsonl` is an authority-alignment report, not automatic proof that two sources contradict each other. Review these rows when they change materially or before a readiness pass:
+`agent/source-conflicts.jsonl` is a conservative potential-contradiction report.
+Rows require shared topic terms and opposing operational language, but still need
+human review before changing or rejecting a claim. Review these rows when they
+change materially or before a readiness pass:
 
 - Prefer official docs, source code, release notes, RockU, stable public model-map evidence, and live verification for canonical behavior.
 - Keep community-reviewed claims as implementation examples or discovery context unless they have been promoted through review and supported by stronger evidence.

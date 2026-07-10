@@ -2,8 +2,12 @@ import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import test from "node:test";
 import { Miniflare } from "miniflare";
+import { MockAgent } from "undici";
 
 const WORKER_BUNDLE = "dist/dry-run/index.js";
+const RECIPE_FIXTURE_CONTENT = "verified recipe fixture\n";
+const RECIPE_FIXTURE_SHA = crypto.createHash("sha256").update(RECIPE_FIXTURE_CONTENT).digest("hex");
+const RECIPE_FIXTURE_COMMIT = "d8ea54fa67efe40692689fb009561ff96e88bf42";
 
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
@@ -187,7 +191,76 @@ test("telemetry separates evaluation traffic and records structured feedback wit
   }
 });
 
-async function buildWorker() {
+test("recipe verification falls back to GitHub contents API and caches immutable bytes", async () => {
+  const fetchMock = new MockAgent();
+  fetchMock.disableNetConnect();
+  fetchMock.get("https://raw.githubusercontent.com")
+    .intercept({
+      path: `/ONE-ALL-Church/RockRMS-OA-Public/${RECIPE_FIXTURE_COMMIT}/Recipes/check-in-status-dashboard/README.md`,
+      method: "GET",
+    })
+    .reply(503, "temporary failure")
+    .times(3);
+  fetchMock.get("https://api.github.com")
+    .intercept({
+      path: `/repos/ONE-ALL-Church/RockRMS-OA-Public/contents/Recipes/check-in-status-dashboard/README.md?ref=${RECIPE_FIXTURE_COMMIT}`,
+      method: "GET",
+    })
+    .reply(200, RECIPE_FIXTURE_CONTENT, { headers: { "content-type": "application/octet-stream" } });
+  const mf = await buildWorker({ fetchMock });
+  try {
+    const firstResponse = await mf.dispatchFetch(
+      "https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard/verify?rock_version=18"
+    );
+    const first = await firstResponse.json();
+    assert.equal(first.status, "pass");
+    assert.equal(first.file_checks[0].source, "github_contents_api");
+    assert.equal(first.file_checks[0].cache_status, "miss");
+    assert.equal(first.file_checks[0].attempts, 4);
+
+    const cachedResponse = await mf.dispatchFetch(
+      "https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard/verify?rock_version=18"
+    );
+    const cached = await cachedResponse.json();
+    assert.equal(cached.status, "pass");
+    assert.equal(cached.file_checks[0].source, "cache");
+    assert.equal(cached.file_checks[0].cache_status, "hit");
+    assert.equal(cached.file_checks[0].attempts, 0);
+  } finally {
+    await mf.dispose();
+    await fetchMock.close();
+  }
+});
+
+test("recipe verification never caches bytes that fail the pinned hash", async () => {
+  const fetchMock = new MockAgent();
+  fetchMock.disableNetConnect();
+  fetchMock.get("https://raw.githubusercontent.com")
+    .intercept({
+      path: `/ONE-ALL-Church/RockRMS-OA-Public/${RECIPE_FIXTURE_COMMIT}/Recipes/check-in-status-dashboard/README.md`,
+      method: "GET",
+    })
+    .reply(200, "wrong bytes")
+    .times(2);
+  const mf = await buildWorker({ fetchMock });
+  try {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const response = await mf.dispatchFetch(
+        "https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard/verify?rock_version=18"
+      );
+      const result = await response.json();
+      assert.equal(result.status, "fail");
+      assert.equal(result.file_checks[0].source, "raw_github");
+      assert.equal(result.file_checks[0].cache_status, "miss");
+      assert.equal(result.file_checks[0].status, "fail");
+    }
+  } finally {
+    await mf.dispose();
+    await fetchMock.close();
+  }
+});
+
+async function buildWorker(options = {}) {
   const suffix = crypto.randomUUID();
   const mf = new Miniflare({
     modules: true,
@@ -195,6 +268,7 @@ async function buildWorker() {
     d1Databases: { KB_DB: `kb-retrieval-${suffix}` },
     r2Buckets: { KB_ARTIFACTS: `kb-artifacts-${suffix}` },
     bindings: { PUBLIC_BASE_URL: "https://kb.example.test" },
+    fetchMock: options.fetchMock,
   });
   try {
     const db = await mf.getD1Database("KB_DB");
@@ -332,7 +406,16 @@ async function buildWorker() {
       concept_ids: ["check-in", "event-registration", "lava"],
       authority_tier: "community-reviewed",
       security: { data_access: "read_only" },
-      implementation: { commit_sha: "d8ea54fa67efe40692689fb009561ff96e88bf42" },
+      compatibility: {
+        tested_rock_versions: ["18"],
+        version_matrix: [{ rock_version: "18", status: "verified", notes: [] }],
+      },
+      implementation: {
+        repository_url: "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+        commit_sha: RECIPE_FIXTURE_COMMIT,
+        source_path: "Recipes/check-in-status-dashboard",
+        files: [{ path: "README.md", sha256: RECIPE_FIXTURE_SHA }],
+      },
     };
     const shard = crypto.createHash("sha256").update(recipePath).digest("hex").slice(0, 2);
     await bucket.put(`versions/test-version/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));

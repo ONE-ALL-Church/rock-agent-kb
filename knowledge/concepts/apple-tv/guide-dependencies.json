@@ -593,9 +593,9 @@
     {
       "authority_tier": "official",
       "claim": "Prepare layered Rock Apple TV app icons at 400×240 pixels for @1x display, 800×480 pixels for @2x display, and 1280×768 pixels for the App Store.",
-      "claim_hash": "fba02287f1beebb345a6110219646ca71ddfc40f055a258231bad4dd6b7f8b2e",
+      "claim_hash": "487b47daa1985dfcaf6d8372d7b88fd2157713a92c246d30ba3354d41647a8a8",
       "claim_id": "claim:d46bd13bb8523b527394",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "recipe",
       "community_derived": false,
       "concept_ids": [
@@ -604,7 +604,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "safe_evidence_hash": "5e3feb94b33c7d789ec059490603971e850aeca292f6d8d33f98d3ef13dba6b9",
       "source_record_ids": [
@@ -669,10 +669,10 @@
     "claim:b3c6d9a97e88ab0a3bbb": "50f7e34bdc6599fa7e784139bf51319f19373e4776d1fb03e3e7eb3eedaff0dd",
     "claim:b83b4c10285c00974e57": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
     "claim:c63b64b38fbb8b997213": "d6a23a4247a93a7b6c09754199be4b48c0973e6e04ab4a99b01d970d69fbbb0b",
-    "claim:d46bd13bb8523b527394": "fba02287f1beebb345a6110219646ca71ddfc40f055a258231bad4dd6b7f8b2e",
+    "claim:d46bd13bb8523b527394": "487b47daa1985dfcaf6d8372d7b88fd2157713a92c246d30ba3354d41647a8a8",
     "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad"
   },
-  "approved_claims_hash": "9e4331ed174087a9164a4a2fa608aa5d17921222ca1c8544a600a9e09bf53df9",
+  "approved_claims_hash": "2f8d67ea3e3a9e76955fa0415ee498ab51e9230791ac99b2b79bf6f8606cc62e",
   "approved_claims_path": "knowledge/concepts/apple-tv/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -699,7 +699,7 @@
   },
   "approved_media_hash": "2bebf3831a4916b42badb896e3af36fda58d52a936405d6bf77af38246768f60",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-07-10T08:20:00+00:00",
+  "built_at": "2026-07-10T14:38:27+00:00",
   "concept_id": "apple-tv",
   "guide_hash": "db544ce7221e8d731706beac166abc72a3d5e0faeda1fd639c259c669313db0f",
   "guide_line_count": 1380,

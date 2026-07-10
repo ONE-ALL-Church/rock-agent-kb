@@ -7,10 +7,9 @@
   },
   "claim_count": 2198,
   "claim_tiers": {
-    "answer_pack_approved": 398,
+    "answer_pack_approved": 407,
     "live_verified": 104,
-    "routing_context_only": 1679,
-    "source_backed": 17
+    "routing_context_only": 1687
   },
   "claim_types": {
     "behavior": 136,
@@ -55,7 +54,7 @@
     "tv-apps": 14,
     "workflows": 1340
   },
-  "generated_at": "2026-07-10T08:20:00+00:00",
+  "generated_at": "2026-07-10T14:22:04+00:00",
   "generation_provenance": {
     "legacy_claims_without_provenance": 1803,
     "methods": {

@@ -1,5 +1,7 @@
 import json
 
+import pytest
+
 import rock_kb.claims as claims_module
 from rock_kb.claims import authority_tier_for_promotion, build_approved_claims, claim_usefulness_metadata, validate_claim_file, validate_claim_rows
 from rock_kb.jsonl import read_jsonl
@@ -14,6 +16,7 @@ def test_build_approved_claims_from_media_public_promotions(monkeypatch, tmp_pat
     monkeypatch.setattr(claims_module, "SOURCE_CLAIM_REVIEWS_DIR", review_dir / "source-claim-reviews")
     monkeypatch.setattr(claims_module, "APPROVED_CLAIMS_PATH", claims_dir / "approved-claims.jsonl")
     monkeypatch.setattr(claims_module, "CLAIM_EXPORT_REPORT_PATH", claims_dir / "claim-export-report.json")
+    monkeypatch.setattr(claims_module, "CLAIM_REVIEW_DISPOSITIONS_PATH", claims_dir / "claim-review-dispositions.jsonl")
 
     promotion = {
         "id": "media-public-promotion:abc",
@@ -116,6 +119,7 @@ def test_build_approved_claims_from_source_claim_reviews(monkeypatch, tmp_path):
     monkeypatch.setattr(claims_module, "SOURCE_CLAIM_REVIEWS_DIR", source_claims_dir)
     monkeypatch.setattr(claims_module, "APPROVED_CLAIMS_PATH", claims_dir / "approved-claims.jsonl")
     monkeypatch.setattr(claims_module, "CLAIM_EXPORT_REPORT_PATH", claims_dir / "claim-export-report.json")
+    monkeypatch.setattr(claims_module, "CLAIM_REVIEW_DISPOSITIONS_PATH", claims_dir / "claim-review-dispositions.jsonl")
 
     review = {
         "schema": "rock-kb-source-claim-review-v1",
@@ -213,6 +217,7 @@ def test_live_claim_verification_overlay_promotes_claim_to_live_verified(monkeyp
     monkeypatch.setattr(claims_module, "SOURCE_CLAIM_REVIEWS_DIR", review_dir / "source-claim-reviews")
     monkeypatch.setattr(claims_module, "APPROVED_CLAIMS_PATH", claims_dir / "approved-claims.jsonl")
     monkeypatch.setattr(claims_module, "CLAIM_EXPORT_REPORT_PATH", claims_dir / "claim-export-report.json")
+    monkeypatch.setattr(claims_module, "CLAIM_REVIEW_DISPOSITIONS_PATH", claims_dir / "claim-review-dispositions.jsonl")
 
     promotion = {
         "id": "media-public-promotion:abc",
@@ -311,3 +316,46 @@ def test_live_claim_verification_supplements_override_base_rows(monkeypatch, tmp
 
     assert rows["claim:changed"]["claim_tier"] == "routing_context_only"
     assert rows["claim:changed"]["verified_by"] == "codex-review"
+
+
+def test_claim_review_dispositions_resolve_answer_and_routing_tiers():
+    claims = [
+        {
+            "claim_id": "claim:answer",
+            "claim_tier": "source_backed",
+            "needs_live_verification": True,
+            "answer_candidate": True,
+        },
+        {
+            "claim_id": "claim:context",
+            "claim_tier": "source_backed",
+            "needs_live_verification": True,
+            "answer_candidate": True,
+        },
+    ]
+    dispositions = {
+        "claim:answer": {
+            "claim_tier": "answer_pack_approved",
+            "rationale": "Official design guidance is answer-safe.",
+        },
+        "claim:context": {
+            "claim_tier": "routing_context_only",
+            "rationale": "Preview behavior is context only.",
+        },
+    }
+
+    rows = claims_module.apply_claim_review_dispositions(claims, dispositions)
+
+    assert rows[0]["claim_tier"] == "answer_pack_approved"
+    assert rows[0]["needs_live_verification"] is False
+    assert rows[1]["claim_tier"] == "routing_context_only"
+    assert rows[1]["answer_candidate"] is False
+    assert rows[1]["verification_notes"] == ["Preview behavior is context only."]
+
+
+def test_claim_review_dispositions_reject_unknown_claim_ids():
+    with pytest.raises(ValueError, match="unknown claims"):
+        claims_module.apply_claim_review_dispositions(
+            [{"claim_id": "claim:known"}],
+            {"claim:missing": {"claim_tier": "routing_context_only", "rationale": "stale"}},
+        )

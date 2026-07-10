@@ -86,6 +86,12 @@ Approved claims are the durable public unit of knowledge. `kb build --stage clai
 
 Claim tiers are defined in [Claim Tier Policy](../decisions/claim-tier-policy.md): `routing_context_only` claims route agents to sources, `source_backed` claims are guide-safe but not operational proof, `answer_pack_approved` claims may feed generated answers, and `live_verified` claims include concrete read-only evidence. `kb claims live-plan` batches `source_backed` live-verification rows into read-only probe groups; promote rows through `data/review/live-claim-verifications.jsonl` only when evidence directly verifies the claim. `kb claims validate` enforces traceability and blocks direct media URLs, transcript fields, secrets, and other private-only data from the public claim graph.
 
+Public reviewer adjudications live in
+`claims/claim-review-dispositions.jsonl`. They resolve bounded source-backed
+rows into answer-approved or routing-only tiers with a public rationale. The
+live-verification overlay is applied afterward and remains the only path to
+`live_verified`.
+
 Approved media promotions update generated public layers after:
 
 ```bash

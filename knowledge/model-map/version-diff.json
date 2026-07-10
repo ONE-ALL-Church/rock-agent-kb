@@ -1,6 +1,6 @@
 {
   "schema": "rock-kb-model-map-version-diff-v1",
-  "generated_at": "2026-07-10T08:17:39+00:00",
+  "generated_at": "2026-07-10T08:07:07.953+00:00",
   "stable": {
     "path": "data/review/model-map-scrape/demo-model-map-full-scrape.json",
     "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map",

@@ -15,6 +15,7 @@ from .schemas import Claim
 CLAIM_SCHEMA = "rock-kb-claim-v1"
 APPROVED_CLAIMS_PATH = CLAIMS_DIR / "approved-claims.jsonl"
 CLAIM_EXPORT_REPORT_PATH = CLAIMS_DIR / "claim-export-report.json"
+CLAIM_REVIEW_DISPOSITIONS_PATH = CLAIMS_DIR / "claim-review-dispositions.jsonl"
 LIVE_CLAIM_VERIFICATIONS_PATH = REVIEW_DIR / "live-claim-verifications.jsonl"
 LIVE_CLAIM_VERIFICATION_SUPPLEMENTAL_PATTERN = "live-claim-verifications-*.jsonl"
 SOURCE_CLAIM_REVIEWS_DIR = REVIEW_DIR / "source-claim-reviews"
@@ -66,10 +67,12 @@ def approved_claims_path() -> Path:
 def build_approved_claims(output_path: Optional[Path] = None) -> dict[str, Any]:
     raw_claims = sorted(
         apply_live_claim_verifications(
-            [
-                *claims_from_media_public_promotions(),
-                *claims_from_source_claim_reviews(),
-            ]
+            apply_claim_review_dispositions(
+                [
+                    *claims_from_media_public_promotions(),
+                    *claims_from_source_claim_reviews(),
+                ]
+            )
         ),
         key=lambda row: row["claim_id"],
     )
@@ -374,6 +377,58 @@ def live_claim_verification_paths(path: Path | None = None) -> list[Path]:
             if candidate != verification_path and candidate.exists():
                 paths.append(candidate)
     return paths
+
+
+def load_claim_review_dispositions(path: Path | None = None) -> dict[str, dict[str, Any]]:
+    rows: dict[str, dict[str, Any]] = {}
+    path = path or CLAIM_REVIEW_DISPOSITIONS_PATH
+    if not path.exists():
+        return rows
+    for line_number, row in enumerate(read_jsonl(path), start=1):
+        label = f"{path}:{line_number}"
+        if row.get("schema") != "rock-kb-claim-review-disposition-v1":
+            raise ValueError(f"{label} must use schema rock-kb-claim-review-disposition-v1")
+        claim_id = str(row.get("claim_id") or "").strip()
+        if not claim_id:
+            raise ValueError(f"{label} is missing claim_id")
+        if claim_id in rows:
+            raise ValueError(f"{label} duplicates claim_id {claim_id}")
+        claim_tier = str(row.get("claim_tier") or "").strip()
+        if claim_tier not in {"answer_pack_approved", "routing_context_only", "source_backed"}:
+            raise ValueError(f"{label} claim_tier must be answer_pack_approved, routing_context_only, or source_backed")
+        if not row.get("reviewed_at") or not row.get("reviewed_by") or not row.get("rationale"):
+            raise ValueError(f"{label} must include reviewed_at, reviewed_by, and rationale")
+        rows[claim_id] = row
+    return rows
+
+
+def apply_claim_review_dispositions(
+    claims: list[dict[str, Any]],
+    dispositions_by_claim_id: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    dispositions = dispositions_by_claim_id if dispositions_by_claim_id is not None else load_claim_review_dispositions()
+    if not dispositions:
+        return claims
+    known_claim_ids = {str(claim.get("claim_id") or "") for claim in claims}
+    unknown_claim_ids = sorted(set(dispositions) - known_claim_ids)
+    if unknown_claim_ids:
+        raise ValueError(f"claim review dispositions reference unknown claims: {', '.join(unknown_claim_ids)}")
+    updated_claims = []
+    for claim in claims:
+        disposition = dispositions.get(str(claim.get("claim_id") or ""))
+        if not disposition:
+            updated_claims.append(claim)
+            continue
+        updated = dict(claim)
+        claim_tier = str(disposition["claim_tier"])
+        updated["claim_tier"] = claim_tier
+        updated["verification_notes"] = [str(disposition["rationale"])]
+        if claim_tier in {"answer_pack_approved", "routing_context_only"}:
+            updated["needs_live_verification"] = False
+        if claim_tier == "routing_context_only":
+            updated["answer_candidate"] = False
+        updated_claims.append(updated)
+    return updated_claims
 
 
 def load_live_claim_verifications(path: Path | None = None) -> dict[str, dict[str, Any]]:

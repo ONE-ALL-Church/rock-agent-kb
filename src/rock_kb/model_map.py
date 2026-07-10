@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import urllib.error
@@ -59,6 +60,18 @@ MODEL_MAP_VERSION_TRACKS = {
         "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
     },
 }
+
+
+def model_map_generated_at(*scrapes: dict[str, Any]) -> str:
+    if os.environ.get("ROCK_KB_GENERATED_AT") or os.environ.get("SOURCE_DATE_EPOCH"):
+        return generated_at_iso()
+    candidates = [
+        str(scrape.get(field))
+        for scrape in scrapes
+        for field in ("finished_at", "rock_version_probed_at", "started_at")
+        if scrape.get(field)
+    ]
+    return max(candidates).replace("Z", "+00:00") if candidates else generated_at_iso()
 
 
 def build_model_map(
@@ -237,7 +250,6 @@ def scraped_property_rows(scrape: dict[str, Any], scrape_path: Path, track: str)
                 {
                     "schema": "rock-kb-scraped-model-map-property-v1",
                     "track": track,
-                    "rock_version": prop.get("rock_version") or model.get("rock_version") or scrape.get("rock_version"),
                     "source_url": scrape.get("source_url"),
                     "source_path": source_path,
                     "model_name": model_name,
@@ -246,8 +258,7 @@ def scraped_property_rows(scrape: dict[str, Any], scrape_path: Path, track: str)
                     "model_category": model.get("category_name") or "Other",
                     "property_name": property_name,
                     "property_slug": slugify(property_name),
-                    "property_id": prop.get("property_id"),
-                    "row_index": prop.get("row_index"),
+                    "property_key": f"{model_slug}:{slugify(property_name)}",
                     "collection_method": scrape.get("collection_method") or "page_script_scrape",
                     "inherited": bool(prop.get("inherited")),
                     "is_database": bool(prop.get("is_database")),
@@ -287,7 +298,6 @@ def scraped_method_rows(scrape: dict[str, Any], scrape_path: Path, track: str) -
                 {
                     "schema": "rock-kb-scraped-model-map-method-v1",
                     "track": track,
-                    "rock_version": method.get("rock_version") or model.get("rock_version") or scrape.get("rock_version"),
                     "source_url": scrape.get("source_url"),
                     "source_path": source_path,
                     "collection_method": scrape.get("collection_method") or "page_script_scrape",
@@ -295,8 +305,7 @@ def scraped_method_rows(scrape: dict[str, Any], scrape_path: Path, track: str) -
                     "model_title": model.get("model_title"),
                     "model_slug": model_slug,
                     "model_category": model.get("category_name") or "Other",
-                    "method_id": method.get("method_id"),
-                    "row_index": method.get("row_index"),
+                    "method_key": f"{model_slug}:{signature}",
                     "signature": signature,
                     "inherited": bool(method.get("inherited")),
                     "is_obsolete": bool(method.get("is_obsolete")),
@@ -593,7 +602,7 @@ def build_scraped_summary(
     category_counts = Counter(row["model_category"] for row in stable_models)
     return {
         "schema": "rock-kb-model-map-summary-v2",
-        "generated_at": generated_at_iso(),
+        "generated_at": model_map_generated_at(stable, latest),
         "source": model_map_summary_source(stable, latest),
         "generation_method": [
             "Stable and pre-alpha model/property data come from authenticated Obsidian block-action calls against generic Rock demo Model Map pages.",
@@ -1256,7 +1265,7 @@ def build_model_map_version_diff(
 
     summary = {
         "schema": "rock-kb-model-map-version-diff-v1",
-        "generated_at": generated_at_iso(),
+        "generated_at": model_map_generated_at(stable, latest),
         "stable": scrape_summary(stable, stable_path),
         "latest": scrape_summary(latest, latest_path),
         "change_count": len(change_rows),

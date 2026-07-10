@@ -62,7 +62,11 @@ boundary, and cite the community trust tier.
 
 Recipe verification is deliberately read-only. It confirms the immutable
 source hashes, declared target-version compatibility, and available verifier
-files. It does not execute community code or modify a Rock instance.
+files. The hosted verifier caches successful immutable commit bytes and falls
+back from `raw.githubusercontent.com` to GitHub's Contents API when the raw
+endpoint is temporarily unavailable. Verification output names the retrieval
+source and cache status. It does not execute community code or modify a Rock
+instance.
 
 ## Contributing A Recipe
 
