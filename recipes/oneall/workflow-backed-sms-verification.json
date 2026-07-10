@@ -197,6 +197,9 @@
   },
   "status": "experimental",
   "summary": "Optionally recognize an existing person during an anonymous Rock form using an exact unique match, persisted workflow challenge, bounded SMS code, Rock modify-command state writes, and an idempotent final action.",
+  "supersedes_contribution_ids": [
+    "oneall:anonymous-sms-verification-strict-match-and-session-recheck"
+  ],
   "title": "Workflow-Backed SMS Verification for Anonymous Rock Forms",
   "updated_at": "2026-07-10",
   "use_cases": [

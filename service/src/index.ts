@@ -288,9 +288,25 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
       rowsById.set(row.id, row);
     }
   }
-  return Array.from(rowsById.values())
+  const ranked = Array.from(rowsById.values())
     .map((row) => ({ row, signals: searchSignals(row, terms, query) }))
-    .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)))
+    .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)));
+  const seenRecipes = new Set<string>();
+  const collapsed = ranked.filter(({ row }) => {
+    if (row.kind !== "recipe") {
+      return true;
+    }
+    const recipeId = String(parsePayload(row).recipe_id || "");
+    if (!recipeId) {
+      return true;
+    }
+    if (seenRecipes.has(recipeId)) {
+      return false;
+    }
+    seenRecipes.add(recipeId);
+    return true;
+  });
+  return collapsed
     .slice(0, limit)
     .map((item) => full ? publicResultRow(item.row, item.signals) : publicSearchRow(item.row, item.signals));
 }

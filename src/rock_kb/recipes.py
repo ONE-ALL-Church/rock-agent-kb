@@ -65,6 +65,21 @@ def validate_recipe(row: dict[str, Any], path: Path) -> list[str]:
     unknown = sorted(set(row.get("concept_ids") or []) - known_concepts)
     if unknown:
         errors.append(f"{relative(path)}: unknown concept_ids: {', '.join(unknown)}")
+    superseded_ids = [str(value) for value in row.get("supersedes_contribution_ids") or []]
+    if len(superseded_ids) != len(set(superseded_ids)):
+        errors.append(f"{relative(path)}: duplicate supersedes_contribution_ids")
+    for contribution_id in superseded_ids:
+        superseded_org, separator, superseded_slug = contribution_id.partition(":")
+        if (
+            not separator
+            or not SAFE_SEGMENT.fullmatch(superseded_org)
+            or not SAFE_SEGMENT.fullmatch(superseded_slug)
+        ):
+            errors.append(
+                f"{relative(path)}: invalid supersedes_contribution_id {contribution_id!r}; expected <org-id>:<slug>"
+            )
+        if contribution_id == recipe_id:
+            errors.append(f"{relative(path)}: recipe cannot explicitly supersede itself")
     implementation = row.get("implementation") or {}
     repository_url = str(implementation.get("repository_url") or "")
     parsed = urlparse(repository_url)
@@ -133,6 +148,7 @@ def render_recipe(row: dict[str, Any]) -> str:
         f"- Version: `{row['version']}`",
         f"- Source commit: [`{implementation['commit_sha'][:12]}`]({implementation['repository_url']}/tree/{implementation['commit_sha']}/{implementation['source_path']})",
         f"- License: [{implementation['license']}]({implementation['license_url']})", "",
+        *render_superseded_contributions(row.get("supersedes_contribution_ids") or []),
         "## Use Cases", "", *[f"- {value}" for value in row["use_cases"]], "",
         "## Adaptation Points", "", *[f"- `{item['key']}`: {item['description']}" for item in row["adaptation_points"]], "",
         "## Implementation", "", *[f"{index}. {value}" for index, value in enumerate(row["instructions"], 1)], "",
@@ -155,6 +171,15 @@ def render_recipe(row: dict[str, Any]) -> str:
         "## Limitations", "", *[f"- {value}" for value in row["known_limitations"]], "",
     ]
     return "\n".join(lines).rstrip() + "\n"
+
+
+def render_superseded_contributions(contribution_ids: list[str]) -> list[str]:
+    if not contribution_ids:
+        return []
+    return [
+        "## Superseded Contribution Patterns", "",
+        *[f"- `{contribution_id}`" for contribution_id in contribution_ids], "",
+    ]
 
 
 def render_attestations(rows: list[dict[str, Any]]) -> list[str]:

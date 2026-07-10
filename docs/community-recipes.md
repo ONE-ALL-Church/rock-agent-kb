@@ -28,6 +28,8 @@ Every recipe must declare:
   releases, plus a public feedback or issue URL when one exists;
 - optional release history and consumer verification attestations recording the
   organization, Rock version, date, outcome, and verification scope;
+- optional exact `supersedes_contribution_ids` for older contribution patterns
+  that the canonical recipe fully replaces;
 - reusable learnings that explain why the implementation is structured this
   way, not only what files to copy.
 
@@ -55,6 +57,9 @@ uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 With MCP, use `kb_list_recipes`, `kb_get_recipe`, and `kb_verify_recipe`. A recipe result includes
 the source pin, file inventory, adaptation points, security boundary,
 compatibility, instructions, validation steps, limitations, and learnings.
+Search returns one result per canonical `recipe_id` even when the recipe is
+routed through several concepts. The returned row keeps the highest-scoring
+concept route for that query.
 
 Agents should use a recipe as a starting pattern, not deploy it blindly. Verify
 the target Rock version and local configuration, preserve its security
@@ -98,6 +103,11 @@ uv run kb audit public-export
 
 The generated public surfaces are `agent/recipes.jsonl` and
 `knowledge/recipes/<org-id>/<recipe-slug>.md`.
+
+When a canonical recipe fully replaces an older non-recipe contribution, list
+that exact contribution ID in `supersedes_contribution_ids`. Serving omits only
+those named rows. Do not use title similarity or broad topic matching because
+related contribution patterns may contain distinct knowledge worth preserving.
 
 ## Staleness
 
