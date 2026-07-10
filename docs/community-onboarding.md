@@ -161,6 +161,11 @@ contribution with an immutable commit pin, file hashes, adaptation points,
 security, compatibility, validation, and learnings. See
 `docs/community-recipes.md`.
 
+Prioritize reusable recipes, difficult troubleshooting paths, failure modes,
+version caveats, and verified workflows over broad documentation summaries.
+Use `docs/community-content-priorities.md` and its candidate review template to
+score prospective knowledge before spending time preparing a bundle.
+
 On success, the hosted service opens a PR under:
 
 ```text

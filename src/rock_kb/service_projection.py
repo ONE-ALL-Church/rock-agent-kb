@@ -28,6 +28,8 @@ SERVICE_ARTIFACT_SHARDS_DIR = SERVICE_DIST_DIR / "artifact-shards"
 SERVICE_SQL_PATH = SERVICE_DIST_DIR / "d1-seed.sql"
 SERVICE_PROJECTION_PATH = SERVICE_DIST_DIR / "projection.json"
 SERVICE_SEARCH_ROWS_PATH = SERVICE_DIST_DIR / "search-rows.jsonl"
+SERVICE_RETRIEVAL_DOCUMENTS_PATH = SERVICE_DIST_DIR / "retrieval-documents.jsonl"
+SERVICE_RETRIEVAL_CHANGE_REPORT_PATH = SERVICE_DIST_DIR / "retrieval-change-report.json"
 ORG_REGISTRY_PATH = SERVICE_DIST_DIR / "org-registry.json"
 D1_SEARCH_BODY_CHAR_LIMIT = 75_000
 ARTIFACT_SHARD_PREFIX_LENGTH = 2
@@ -40,6 +42,16 @@ CLAIM_TIER_RANK = {
     "live_verified": 3,
 }
 
+AUTHORITY_TIER_RANK = {
+    "community-unreviewed": 0,
+    "community-reviewed": 1,
+    "official": 2,
+    "rocku-confirmed": 2,
+    "release-note-confirmed": 3,
+    "source-code-confirmed": 3,
+    "live-verified": 4,
+}
+
 
 @dataclass(frozen=True)
 class ServiceProjection:
@@ -47,6 +59,7 @@ class ServiceProjection:
     generated_at: str
     artifact_count: int
     search_row_count: int
+    retrieval_document_count: int
     org_count: int
     dist: Path
     sql_path: Path
@@ -58,6 +71,7 @@ class ServiceProjection:
             "generated_at": self.generated_at,
             "artifact_count": self.artifact_count,
             "search_row_count": self.search_row_count,
+            "retrieval_document_count": self.retrieval_document_count,
             "org_count": self.org_count,
             "dist": str(self.dist),
             "sql_path": str(self.sql_path),
@@ -67,14 +81,19 @@ class ServiceProjection:
 def build_service_projection(destination: Path | None = None) -> ServiceProjection:
     dist = destination or SERVICE_DIST_DIR
     artifacts_dir = dist / "artifacts"
+    previous_retrieval_documents = list(read_jsonl(dist / "retrieval-documents.jsonl")) if (dist / "retrieval-documents.jsonl").exists() else []
     if dist.exists():
         shutil.rmtree(dist)
     artifacts_dir.mkdir(parents=True, exist_ok=True)
 
     generated_at = generated_at_iso()
     manifest = public_export_manifest()
+    search_rows = build_search_rows()
+    retrieval_documents = build_retrieval_documents(search_rows)
     version_manifest = dict(manifest)
     version_manifest.pop("generated_at", None)
+    version_manifest["search_projection_hash"] = rows_content_hash(search_rows)
+    version_manifest["retrieval_projection_hash"] = rows_content_hash(retrieval_documents)
     version = sha256_text(json.dumps(version_manifest, sort_keys=True, ensure_ascii=False))[:16]
     files = manifest.get("files") or []
     for row in files:
@@ -84,8 +103,18 @@ def build_service_projection(destination: Path | None = None) -> ServiceProjecti
         target.write_text(public_export_text_for_public_path(public_path), encoding="utf-8")
     write_artifact_shards(artifacts_dir=artifacts_dir, shards_dir=dist / "artifact-shards")
 
-    search_rows = build_search_rows()
     write_jsonl_text(dist / "search-rows.jsonl", search_rows)
+    write_jsonl_text(dist / "retrieval-documents.jsonl", retrieval_documents)
+    (dist / "retrieval-change-report.json").write_text(
+        json.dumps(
+            retrieval_projection_diff(previous_retrieval_documents, retrieval_documents),
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     org_rows = load_org_registry()
     (dist / "org-registry.json").write_text(
         json.dumps({"schema": "rock-kb-org-registry-v1", "orgs": org_rows}, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
@@ -98,6 +127,7 @@ def build_service_projection(destination: Path | None = None) -> ServiceProjecti
         generated_at=generated_at,
         artifact_count=len(files),
         search_row_count=len(search_rows),
+        retrieval_document_count=len(retrieval_documents),
         org_count=len(org_rows),
         dist=dist,
         sql_path=dist / "d1-seed.sql",
@@ -118,8 +148,169 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows.extend(source_summary_search_rows())
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
+        concepts = normalize_concept_ids(row.get("concepts") or [row.get("concept") or ""])
+        topics = normalize_concept_ids(row.get("topics") or [])
+        row["concepts"] = concepts
+        row["topics"] = topics
+        row["concept"] = first_concept(concepts)
+        row["legacy_ids"] = sorted(
+            {
+                str(value).strip()
+                for value in row.get("legacy_ids") or []
+                if str(value).strip() and str(value).strip() != str(row["id"])
+            }
+        )
         deduped[str(row["id"])] = row
     return sorted(deduped.values(), key=lambda row: str(row.get("id") or ""))
+
+
+def build_retrieval_documents(search_rows: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
+    documents = [retrieval_document(row) for row in search_rows]
+    return sorted(documents, key=lambda row: str(row.get("id") or ""))
+
+
+def retrieval_document(row: dict[str, Any]) -> dict[str, Any]:
+    concepts = normalize_concept_ids(row.get("concepts") or [row.get("concept") or ""])
+    topics = normalize_concept_ids(row.get("topics") or [])
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    kind = str(row.get("kind") or "")
+    authority_tier = str(row.get("authority_tier") or "")
+    claim_tier = str(row.get("claim_tier") or "")
+    rock_versions = retrieval_rock_versions(payload)
+    index_policy = retrieval_index_policy(row)
+    text = contextual_retrieval_text(row, concepts=concepts, topics=topics, rock_versions=rock_versions)
+    metadata = {
+        "kind": kind,
+        "namespace": index_policy,
+        "authority_rank": AUTHORITY_TIER_RANK.get(authority_tier, 0),
+        "claim_tier_rank": CLAIM_TIER_RANK.get(claim_tier, 0),
+        "concepts": "|".join(concepts)[:500],
+    }
+    return {
+        "schema": "rock-kb-retrieval-document-v1",
+        "id": str(row.get("id") or ""),
+        "kind": kind,
+        "title": str(row.get("title") or ""),
+        "text": text,
+        "concepts": concepts,
+        "topics": topics,
+        "authority_tier": authority_tier,
+        "authority_rank": metadata["authority_rank"],
+        "claim_tier": claim_tier,
+        "claim_tier_rank": metadata["claim_tier_rank"],
+        "source_id": str(row.get("source_id") or ""),
+        "source_url": str(row.get("url") or ""),
+        "source_path": str(row.get("path") or ""),
+        "source_content_hash": str(payload.get("content_hash") or payload.get("source_content_hash") or ""),
+        "content_hash": sha256_text(text),
+        "rock_versions": rock_versions,
+        "temporal_status": str(payload.get("temporal_status") or "unspecified"),
+        "needs_review": bool(payload.get("needs_review") or payload.get("needs_live_verification")),
+        "index_policy": index_policy,
+        "metadata": metadata,
+    }
+
+
+def contextual_retrieval_text(
+    row: dict[str, Any], *, concepts: list[str], topics: list[str], rock_versions: list[str]
+) -> str:
+    lines = [f"Rock KB {str(row.get('kind') or 'knowledge').replace('_', ' ')}: {row.get('title') or row.get('id') or ''}."]
+    if concepts:
+        lines.append(f"Concepts: {', '.join(concepts)}.")
+    if topics:
+        lines.append(f"Topics: {', '.join(topics)}.")
+    authority = str(row.get("authority_tier") or "")
+    claim_tier = str(row.get("claim_tier") or "")
+    if authority or claim_tier:
+        lines.append(f"Authority: {authority or 'unspecified'}; claim tier: {claim_tier or 'unspecified'}.")
+    if rock_versions:
+        lines.append(f"Rock versions: {', '.join(rock_versions)}.")
+    source_id = str(row.get("source_id") or "")
+    if source_id:
+        lines.append(f"Evidence source: {source_id}.")
+    body = d1_search_body(row.get("body") or "").strip()
+    if body:
+        lines.extend(["Content:", body])
+    return "\n".join(lines).strip()
+
+
+def retrieval_index_policy(row: dict[str, Any]) -> str:
+    kind = str(row.get("kind") or "")
+    if kind == "model_map":
+        return "exact_lexical_only"
+    if kind in {"source_summary", "community_contribution"}:
+        return "semantic_secondary"
+    return "hybrid_primary"
+
+
+def retrieval_rock_versions(payload: dict[str, Any]) -> list[str]:
+    values: list[Any] = []
+    for key in ["rock_versions", "versions", "tested_rock_versions"]:
+        value = payload.get(key)
+        values.extend(value if isinstance(value, list) else [value] if value else [])
+    for key in ["rock_version", "version"]:
+        if payload.get(key):
+            values.append(payload[key])
+    compatibility = payload.get("compatibility")
+    if isinstance(compatibility, dict):
+        tested = compatibility.get("tested_rock_versions")
+        values.extend(tested if isinstance(tested, list) else [tested] if tested else [])
+    return normalize_concept_ids(values)
+
+
+def rows_content_hash(rows: Iterable[dict[str, Any]]) -> str:
+    text = "".join(json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n" for row in rows)
+    return sha256_text(text)
+
+
+def retrieval_projection_diff(
+    previous: Iterable[dict[str, Any]], current: Iterable[dict[str, Any]]
+) -> dict[str, Any]:
+    previous_by_id = {str(row.get("id") or ""): row for row in previous if row.get("id")}
+    current_by_id = {str(row.get("id") or ""): row for row in current if row.get("id")}
+    previous_ids = set(previous_by_id)
+    current_ids = set(current_by_id)
+    changed_source = sorted(
+        row_id
+        for row_id in previous_ids & current_ids
+        if str(previous_by_id[row_id].get("source_content_hash") or "")
+        != str(current_by_id[row_id].get("source_content_hash") or "")
+    )
+    changed_content = sorted(
+        row_id
+        for row_id in previous_ids & current_ids
+        if str(previous_by_id[row_id].get("content_hash") or "") != str(current_by_id[row_id].get("content_hash") or "")
+    )
+    changed_policy = sorted(
+        row_id
+        for row_id in previous_ids & current_ids
+        if str(previous_by_id[row_id].get("index_policy") or "") != str(current_by_id[row_id].get("index_policy") or "")
+    )
+    review_required = sorted(
+        set(changed_source)
+        | set(changed_policy)
+        | {row_id for row_id in current_ids if current_by_id[row_id].get("needs_review")}
+    )
+    return {
+        "schema": "rock-kb-retrieval-change-report-v1",
+        "baseline_available": bool(previous_by_id),
+        "counts": {
+            "previous": len(previous_by_id),
+            "current": len(current_by_id),
+            "new": len(current_ids - previous_ids),
+            "removed": len(previous_ids - current_ids),
+            "changed_source": len(changed_source),
+            "changed_content": len(changed_content),
+            "changed_policy": len(changed_policy),
+            "review_required": len(review_required),
+        },
+        "new_ids": sorted(current_ids - previous_ids),
+        "removed_ids": sorted(previous_ids - current_ids),
+        "changed_source_ids": changed_source,
+        "changed_content_ids": changed_content,
+        "changed_policy_ids": changed_policy,
+        "review_required_ids": review_required,
+    }
 
 
 def concept_search_rows() -> list[dict[str, Any]]:
@@ -204,22 +395,25 @@ def claim_search_rows() -> list[dict[str, Any]]:
         claim_id = str(claim.get("claim_id") or "")
         if not claim_id:
             continue
-        for concept_id in claim.get("concept_ids") or []:
-            rows.append(
-                {
-                    "id": f"claim:{claim_id}:{concept_id}",
-                    "kind": "claim",
-                    "title": claim.get("claim_type") or claim_id,
-                    "body": claim.get("claim") or "",
-                    "path": "claims/approved-claims.jsonl",
-                    "url": first_source_url(claim),
-                    "concept": concept_id,
-                    "authority_tier": claim.get("authority_tier") or "",
-                    "claim_tier": claim.get("claim_tier") or "",
-                    "source_id": ",".join(str(value) for value in claim.get("source_record_ids") or []),
-                    "payload": claim,
-                }
-            )
+        concepts = normalize_concept_ids(claim.get("concept_ids") or [])
+        row_id = f"claim:{claim_id}"
+        rows.append(
+            {
+                "id": row_id,
+                "kind": "claim",
+                "title": claim.get("claim_type") or claim_id,
+                "body": claim.get("claim") or "",
+                "path": "claims/approved-claims.jsonl",
+                "url": first_source_url(claim),
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "legacy_ids": [f"{row_id}:{concept_id}" for concept_id in concepts],
+                "authority_tier": claim.get("authority_tier") or "",
+                "claim_tier": claim.get("claim_tier") or "",
+                "source_id": ",".join(str(value) for value in claim.get("source_record_ids") or []),
+                "payload": claim,
+            }
+        )
     return rows
 
 
@@ -245,31 +439,33 @@ def contribution_search_rows() -> list[dict[str, Any]]:
             continue
         if contribution.get("contribution_type") == "recipe" and contribution_id in canonical_recipe_ids:
             continue
-        for concept_id in contribution.get("topics") or []:
-            row_id = f"community_contribution:{contribution_id}:{concept_id}"
-            payload = {
-                **contribution,
-                "claim_id": row_id,
-                "claim": contribution.get("summary") or "",
-                "concept_ids": [concept_id],
+        concepts = normalize_concept_ids(contribution.get("topics") or contribution.get("concept_ids") or [])
+        row_id = f"community_contribution:{contribution_id}"
+        payload = {
+            **contribution,
+            "claim_id": row_id,
+            "claim": contribution.get("summary") or "",
+            "concept_ids": concepts,
+            "authority_tier": contribution.get("authority_tier") or "community-unreviewed",
+            "claim_tier": contribution.get("claim_tier") or "routing_context_only",
+        }
+        rows.append(
+            {
+                "id": row_id,
+                "kind": "community_contribution",
+                "title": contribution.get("source_title") or contribution_id,
+                "body": contribution.get("summary") or "",
+                "path": contribution.get("bundle_path") or "",
+                "url": contribution.get("source_url") or "",
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "legacy_ids": [f"{row_id}:{concept_id}" for concept_id in concepts],
                 "authority_tier": contribution.get("authority_tier") or "community-unreviewed",
                 "claim_tier": contribution.get("claim_tier") or "routing_context_only",
+                "source_id": contribution.get("org_id") or contribution.get("source_id") or "",
+                "payload": payload,
             }
-            rows.append(
-                {
-                    "id": row_id,
-                    "kind": "community_contribution",
-                    "title": contribution.get("source_title") or contribution_id,
-                    "body": contribution.get("summary") or "",
-                    "path": contribution.get("bundle_path") or "",
-                    "url": contribution.get("source_url") or "",
-                    "concept": concept_id,
-                    "authority_tier": contribution.get("authority_tier") or "community-unreviewed",
-                    "claim_tier": contribution.get("claim_tier") or "routing_context_only",
-                    "source_id": contribution.get("org_id") or contribution.get("source_id") or "",
-                    "payload": payload,
-                }
-            )
+        )
     return rows
 
 
@@ -288,22 +484,25 @@ def recipe_search_rows() -> list[dict[str, Any]]:
             " ".join(recipe.get("known_limitations") or []),
             " ".join(item.get("description") or "" for item in recipe.get("adaptation_points") or [] if isinstance(item, dict)),
         ]
-        for concept_id in recipe.get("concept_ids") or [""]:
-            rows.append(
-                {
-                    "id": f"recipe:{recipe_id}:{concept_id}",
-                    "kind": "recipe",
-                    "title": recipe.get("title") or recipe_id,
-                    "body": " ".join(str(part) for part in parts if part),
-                    "path": f"knowledge/recipes/{recipe.get('org_id')}/{recipe_id.split(':', 1)[-1]}.md",
-                    "url": f"{implementation.get('repository_url', '')}/tree/{implementation.get('commit_sha', '')}/{implementation.get('source_path', '')}",
-                    "concept": concept_id,
-                    "authority_tier": recipe.get("authority_tier") or "community-unreviewed",
-                    "claim_tier": "answer_pack_approved" if recipe.get("review_status") == "community_reviewed" else "routing_context_only",
-                    "source_id": recipe.get("org_id") or "",
-                    "payload": recipe,
-                }
-            )
+        concepts = normalize_concept_ids(recipe.get("concept_ids") or [])
+        row_id = f"recipe:{recipe_id}"
+        rows.append(
+            {
+                "id": row_id,
+                "kind": "recipe",
+                "title": recipe.get("title") or recipe_id,
+                "body": " ".join(str(part) for part in parts if part),
+                "path": f"knowledge/recipes/{recipe.get('org_id')}/{recipe_id.split(':', 1)[-1]}.md",
+                "url": f"{implementation.get('repository_url', '')}/tree/{implementation.get('commit_sha', '')}/{implementation.get('source_path', '')}",
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "legacy_ids": [f"{row_id}:{concept_id}" for concept_id in concepts],
+                "authority_tier": recipe.get("authority_tier") or "community-unreviewed",
+                "claim_tier": "answer_pack_approved" if recipe.get("review_status") == "community_reviewed" else "routing_context_only",
+                "source_id": recipe.get("org_id") or "",
+                "payload": recipe,
+            }
+        )
     return rows
 
 
@@ -313,7 +512,8 @@ def source_summary_search_rows() -> list[dict[str, Any]]:
         source_id = str(source.get("source_id") or "")
         source_record_id = str(source.get("source_record_id") or source.get("id") or source_id)
         title = str(source.get("source_title") or source.get("title") or source.get("name") or source_record_id)
-        concepts = list(source.get("concept_ids") or source.get("topics") or [""])
+        concepts = normalize_concept_ids(source.get("concept_ids") or [])
+        topics = normalize_concept_ids(source.get("topics") or [])
         rows.append(
             {
                 "id": f"source:{source_record_id}",
@@ -322,7 +522,9 @@ def source_summary_search_rows() -> list[dict[str, Any]]:
                 "body": source_summary_search_body(source),
                 "path": "agent/source-summaries.jsonl",
                 "url": source.get("source_url") or source.get("url") or source.get("root_url") or "",
-                "concept": concepts[0] if concepts else "",
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "topics": topics,
                 "authority_tier": source.get("authority_tier") or "official",
                 "claim_tier": "routing_context_only",
                 "source_id": source_id,
@@ -396,24 +598,25 @@ def lava_context_search_rows() -> list[dict[str, Any]]:
         context_id = str(context.get("id") or context.get("context_id") or "")
         if not context_id:
             continue
-        concepts = context.get("concept_ids") or ["lava"]
+        concepts = normalize_concept_ids(context.get("concept_ids") or ["lava"])
         body = lava_context_search_body(context)
-        for concept_id in concepts:
-            rows.append(
-                {
-                    "id": f"{context_id}:{concept_id}",
-                    "kind": "lava_context",
-                    "title": f"{context.get('surface_name') or context.get('context_id')} - {context.get('root_key')}",
-                    "body": body,
-                    "path": "agent/lava-contexts.jsonl",
-                    "url": context.get("source_url") or "",
-                    "concept": concept_id,
-                    "authority_tier": "source-code-confirmed",
-                    "claim_tier": "source_backed",
-                    "source_id": context.get("source_id") or "sparkdevnetwork_rock",
-                    "payload": compact_lava_context_search_payload(context),
-                }
-            )
+        rows.append(
+            {
+                "id": context_id,
+                "kind": "lava_context",
+                "title": f"{context.get('surface_name') or context.get('context_id')} - {context.get('root_key')}",
+                "body": body,
+                "path": "agent/lava-contexts.jsonl",
+                "url": context.get("source_url") or "",
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "legacy_ids": [f"{context_id}:{concept_id}" for concept_id in concepts],
+                "authority_tier": "source-code-confirmed",
+                "claim_tier": "source_backed",
+                "source_id": context.get("source_id") or "sparkdevnetwork_rock",
+                "payload": compact_lava_context_search_payload(context),
+            }
+        )
     return rows
 
 
@@ -536,8 +739,15 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
   claim_tier TEXT,
   claim_tier_rank INTEGER NOT NULL,
   source_id TEXT,
+  concepts_json TEXT NOT NULL DEFAULT '[]',
+  topics_json TEXT NOT NULL DEFAULT '[]',
   payload_json TEXT NOT NULL
 );""",
+        "DROP TABLE IF EXISTS search_row_concepts;",
+        "CREATE TABLE search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept));",
+        "CREATE INDEX search_row_concepts_concept_idx ON search_row_concepts (concept, row_id);",
+        "DROP TABLE IF EXISTS search_row_aliases;",
+        "CREATE TABLE search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL);",
         "DROP TABLE IF EXISTS search_rows_fts;",
         "CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept, tokenize='porter');",
         "DROP TABLE IF EXISTS org_registry;",
@@ -546,8 +756,13 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
     for row in search_rows:
         tier = str(row.get("claim_tier") or "")
         body = d1_search_body(row.get("body") or "")
+        concepts = normalize_concept_ids(row.get("concepts") or [row.get("concept") or ""])
+        topics = normalize_concept_ids(row.get("topics") or [])
+        concepts_json = json.dumps(concepts, ensure_ascii=False, separators=(",", ":"))
+        topics_json = json.dumps(topics, ensure_ascii=False, separators=(",", ":"))
+        concept_search_text = " ".join([*concepts, *topics])
         lines.append(
-            "INSERT INTO search_rows VALUES ("
+            "INSERT INTO search_rows (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, concepts_json, topics_json, payload_json) VALUES ("
             + ", ".join(
                 [
                     sql_string(row["id"]),
@@ -561,6 +776,8 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
                     sql_string(tier),
                     str(CLAIM_TIER_RANK.get(tier, 0)),
                     sql_string(row.get("source_id") or ""),
+                    sql_string(concepts_json),
+                    sql_string(topics_json),
                     sql_string(json.dumps(row.get("payload") or {}, ensure_ascii=False, sort_keys=True)),
                 ]
             )
@@ -573,11 +790,23 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
                     sql_string(row["id"]),
                     sql_string(row["title"]),
                     sql_string(body),
-                    sql_string(row.get("concept") or ""),
+                    sql_string(concept_search_text),
                 ]
             )
             + ");"
         )
+        for concept_id in concepts:
+            lines.append(
+                "INSERT INTO search_row_concepts (row_id, concept) VALUES ("
+                + ", ".join([sql_string(row["id"]), sql_string(concept_id)])
+                + ");"
+            )
+        for alias_id in row.get("legacy_ids") or []:
+            lines.append(
+                "INSERT INTO search_row_aliases (alias_id, canonical_id) VALUES ("
+                + ", ".join([sql_string(alias_id), sql_string(row["id"])])
+                + ");"
+            )
     for row in org_rows:
         org_id = str(row.get("org_id") or "")
         if not org_id:
@@ -724,6 +953,22 @@ def first_source_url(claim: dict[str, Any]) -> str:
         if isinstance(ref, dict) and ref.get("url"):
             return str(ref["url"])
     return ""
+
+
+def normalize_concept_ids(values: Iterable[Any]) -> list[str]:
+    concepts: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        concept_id = str(value or "").strip()
+        if not concept_id or concept_id in seen:
+            continue
+        seen.add(concept_id)
+        concepts.append(concept_id)
+    return concepts
+
+
+def first_concept(concepts: list[str]) -> str:
+    return concepts[0] if concepts else ""
 
 
 def read_text(path: Path) -> str:

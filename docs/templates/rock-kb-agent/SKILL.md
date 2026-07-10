@@ -439,4 +439,11 @@ For CI, hosted agents, or app connectors, save the token as a secret named `ROCK
 
 Contribution rows must be newly written, public-safe, source-linked, redaction-attested, and license-attested. Set `needs_live_verification: true` when behavior depends on local configuration, plugins, custom code, or a specific Rock version.
 
+Before preparing a contribution, use `docs/community-content-priorities.md`.
+Prefer reusable recipes, difficult troubleshooting paths, failure modes,
+precise version caveats, and verified workflows. Broad summaries of official
+manuals or material already returned by the KB are low priority. Relate the
+candidate to exact concept IDs and, when available, model slugs, recipe IDs, or
+Lava-context IDs.
+
 Never submit private person data, staff notes, live IDs, internal URLs, private repo links, database names, SQL exports, raw logs, raw transcripts, copied proprietary text, screenshots with private state, secrets, tokens, signed media URLs, or direct private media links.

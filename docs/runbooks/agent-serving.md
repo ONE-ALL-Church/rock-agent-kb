@@ -130,15 +130,55 @@ The Worker exposes:
 - `POST /mcp`
 - `POST /submit`
 
-When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Search keeps concept-specific recipe rows for routing but collapses them by `recipe_id` after ranking, so one canonical recipe appears once with its best query-specific concept route.
+When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 
-`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, section status, answer evaluation results, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; zero-result reporting uses public Rock topic categories rather than query text. Structured feedback stores only a hashed result ID, rating, and fixed reason. It does not expose private corpus files, raw query text, or free-text feedback.
+`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, section status, answer evaluation results, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; records aggregate primary/result-kind counts; and reports zero-result public Rock topic categories rather than query text. Current telemetry stores neither raw nor hashed query text. Structured feedback stores only the public canonical result ID, result kind, projection version, rating, and fixed reason so maintainers can identify the affected public artifact. It does not expose private corpus files or free-text feedback.
 
 Run the hosted evaluation gate after deployment:
 
 ```bash
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
 ```
+
+Before merge or deployment, run the same evaluation set against an isolated
+local Worker and production-size D1 projection:
+
+```bash
+uv run kb quality-gate
+```
+
+The gate requires zero failed questions, MRR of at least `0.99`, recall at the
+target rank of `1.0`, duplicate rate of `0`, and authority correctness of
+`1.0`. It writes the ignored report to
+`service/dist/lexical-quality-gate.json`. Pull-request and production-deploy
+workflows run this gate before changes can reach the hosted Worker.
+
+To evaluate semantic retrieval without changing production routing, build the
+stratified contextual payload first, then apply it to the isolated AI Search
+shadow instance:
+
+```bash
+uv run kb hybrid-shadow
+uv run kb hybrid-shadow --apply
+```
+
+The full report is ignored at `service/dist/hybrid-shadow-results.json`. Keep
+the D1 lexical path primary unless the curated shadow cohort improves on lexical
+MRR and recall without regressing authority correctness, duplicate rate,
+latency, or cost. Exact model-map lookup remains lexical-only by design.
+
+Every managed shadow instance must be listed in
+`service/shadow-lifecycle.yaml` with a public-safe purpose, owner, review date,
+expiration date, deletion action, and `production_routing: false`. Check the
+policy with:
+
+```bash
+uv run kb shadow-lifecycle --strict
+```
+
+Scheduled network operations and production deployment enforce the policy.
+An expired instance blocks those workflows until it is deleted or a documented
+active experiment extends both lifecycle dates.
 
 The evaluation set combines generated answer-structure checks with authored
 real-world retrieval cases from `evaluations/real-world.jsonl`. Curated cases

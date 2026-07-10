@@ -15,6 +15,7 @@ def test_okf_export_is_typed_linked_and_conformant(tmp_path: Path, monkeypatch):
     assert report["counts"]["concepts"] > 0
     assert report["counts"]["claims"] > 0
     assert report["counts"]["references"] > 0
+    assert report["counts"]["relationships"] > report["counts"]["claims"]
     assert audit_okf_export(destination) == []
     assert not (destination / "index.md").read_text(encoding="utf-8").startswith("---")
     assert not (destination / "log.md").read_text(encoding="utf-8").startswith("---")
@@ -22,14 +23,24 @@ def test_okf_export_is_typed_linked_and_conformant(tmp_path: Path, monkeypatch):
     concept = destination / "concepts" / "check-in.md"
     concept_text = concept.read_text(encoding="utf-8")
     assert read_frontmatter(concept_text)["type"] == "Concept"
+    assert read_frontmatter(concept_text)["relationships"]
     assert "../claims/" in concept_text
     assert "../references/" in concept_text
 
     claim = next((destination / "claims").glob("*.md"))
     claim_text = claim.read_text(encoding="utf-8")
     assert read_frontmatter(claim_text)["type"] == "Claim"
+    assert {row["type"] for row in read_frontmatter(claim_text)["relationships"]} >= {"about", "supported_by"}
     assert "../concepts/" in claim_text
     assert "../references/" in claim_text
+
+    relationship_rows = [
+        __import__("json").loads(line)
+        for line in (destination / "relationships.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    assert {row["type"] for row in relationship_rows} >= {"about", "supported_by"}
+    assert all(row["schema"] == "rock-kb-okf-relationship-v1" for row in relationship_rows)
 
 
 def test_okf_audit_rejects_untyped_and_broken_graph_nodes(tmp_path: Path):

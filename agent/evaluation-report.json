@@ -11,7 +11,7 @@
     },
     "check-in": {
       "pass": 4,
-      "pending_service": 3
+      "pending_service": 5
     },
     "cms-websites": {
       "pass": 4
@@ -89,10 +89,12 @@
       "pass": 4
     },
     "scheduling-locations": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "security-permissions": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "serving-volunteer-ops": {
       "pass": 4
@@ -110,7 +112,7 @@
   },
   "evaluation_modes": {
     "answer_structure": 124,
-    "retrieval": 16
+    "retrieval": 20
   },
   "fail_count": 0,
   "generated_at": "2026-07-10T19:52:36+00:00",
@@ -208,13 +210,14 @@
   ],
   "pass_count": 124,
   "pass_rate": 1.0,
-  "pending_service_count": 16,
-  "question_count": 140,
+  "pending_service_count": 20,
+  "question_count": 144,
   "question_sources": {
+    "curated_adversarial_question_set": 4,
     "curated_real_world_question_set": 16,
     "generated_realistic_question_set": 124
   },
-  "result_count": 140,
+  "result_count": 144,
   "schema": "rock-kb-evaluation-report-v1",
   "scored_count": 124,
   "term_miss_count": 9

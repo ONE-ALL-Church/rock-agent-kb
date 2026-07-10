@@ -34,3 +34,5 @@ jobs:
           curl --fail --silent "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/rock-kb-operations-dashboard.json
       - name: Run network operations smoke test
         run: uv run python scripts/network_operations_smoke.py --base-url "${ROCK_KB_BASE_URL}" --limit 5
+      - name: Enforce shadow service lifecycle
+        run: uv run kb shadow-lifecycle --strict

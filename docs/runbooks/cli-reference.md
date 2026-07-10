@@ -108,6 +108,7 @@ uv run kb contributions check --path contributions/<org-key>
 uv run kb contributions validate
 uv run kb contributions validate --path contributions/<org-key>/bundle.jsonl
 uv run kb contributions promote --draft-path data/review/private-distill/rockproduction_docs_private_candidates-workflows.jsonl --org-id oneall --rewrite-file data/review/rewrites/oneall-workflows.jsonl --reviewed --redaction-attestation --license-attestation --output contributions/oneall/bundle.jsonl
+uv run kb sources freshness --strict
 ```
 
 ## Audit, Publish, Report, And Tools
@@ -121,6 +122,10 @@ uv run kb audit readiness
 uv run kb audit all
 uv run kb deploy-service
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church --target-rank 2
+uv run kb quality-gate
+uv run kb hybrid-shadow
+uv run kb hybrid-shadow --apply
+uv run kb shadow-lifecycle --strict
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export
@@ -132,12 +137,14 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 
 `kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates a separate ignored typed-Markdown projection under `data/okf-export/` for Open Knowledge Format consumers; it does not replace or rewrite canonical KB files.
 
+`kb hybrid-shadow` builds the ignored, stratified contextual retrieval payload and reports its estimated embedding cost. Add `--apply` only from an authenticated maintainer environment to create or resume the isolated Cloudflare AI Search pilot, wait for indexing, and write the full evaluation to `service/dist/hybrid-shadow-results.json`. This command does not alter production Worker routing; promote hybrid retrieval only after its curated MRR, recall, authority, duplicate, latency, and cost results beat the corrected lexical baseline.
+
 ## Command Groups
 
 | Group | Purpose |
 |---|---|
 | `kb status` / `kb build` | Pipeline freshness, dry-run planning, and deterministic rebuild execution. |
-| `kb deploy-service` / `kb eval-service` / `kb network-readiness` | Hosted Worker projection, Cloudflare deploy, deployed-service regression checks, and live Agent Knowledge Network milestone gates. |
+| `kb deploy-service` / `kb eval-service` / `kb quality-gate` / `kb hybrid-shadow` / `kb network-readiness` | Hosted Worker projection, Cloudflare deploy, local and deployed-service regression checks, isolated hybrid retrieval evaluation, and live Agent Knowledge Network milestone gates. |
 | `kb sources ...` | Source registry, discovery, fetch, normalize, summarize, refresh, endpoint probing, and source scans. |
 | `kb extract ...` | Targeted Markdown extraction and extractor diagnostics. |
 | `kb media ...` | Private media discovery, transcription, sidecars, review candidates, promotion, and Gemma enrichment. |

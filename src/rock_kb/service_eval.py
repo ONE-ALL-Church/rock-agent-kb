@@ -21,6 +21,7 @@ class ServiceEvalResult:
     pass_count: int
     fail_count: int
     results: list[dict[str, Any]]
+    metrics: dict[str, Any]
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -28,6 +29,7 @@ class ServiceEvalResult:
             "status": self.status,
             "pass_count": self.pass_count,
             "fail_count": self.fail_count,
+            "metrics": self.metrics,
             "results": self.results,
         }
 
@@ -51,6 +53,7 @@ def evaluate_service(
         pass_count=len(results) - fail_count,
         fail_count=fail_count,
         results=results,
+        metrics=evaluation_metrics(results),
     )
 
 
@@ -65,6 +68,7 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         payload = response.json()
         hits = payload.get("results") or []
     except Exception as exc:
+        has_relevance_expectation = bool(expected_concept or row.get("expected_result_ids") or row.get("expected_result_kinds"))
         return {
             "id": row.get("id"),
             "question": question,
@@ -74,26 +78,53 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
             "hit_count": 0,
             "concepts": [],
             "missing_terms": [],
+            "duplicate_count": 0,
+            "has_relevance_expectation": has_relevance_expectation,
+            "relevant_rank": None,
+            "reciprocal_rank": 0.0,
+            "required_authority_tiers": row.get("required_authority_tiers") or [],
+            "authority_passed": False,
             "status": "fail",
             "error": str(exc),
         }
-    ordered_concepts = [str(hit.get("concept") or "") for hit in hits if isinstance(hit, dict)]
-    concepts = set(ordered_concepts)
-    expected_rank = next((index + 1 for index, concept in enumerate(ordered_concepts) if concept == expected_concept), None)
+    ordered_concept_sets = [hit_concepts(hit) for hit in hits if isinstance(hit, dict)]
+    concepts = {concept for values in ordered_concept_sets for concept in values}
+    expected_rank = next((index + 1 for index, values in enumerate(ordered_concept_sets) if expected_concept in values), None)
     ordered_ids = [str(hit.get("id") or "") for hit in hits if isinstance(hit, dict)]
     ordered_kinds = [str(hit.get("kind") or "") for hit in hits if isinstance(hit, dict)]
+    ordered_authorities = [str(hit.get("authority_tier") or "") for hit in hits if isinstance(hit, dict)]
     expected_ids = [str(value) for value in row.get("expected_result_ids") or []]
     expected_kinds = [str(value) for value in row.get("expected_result_kinds") or []]
+    forbidden_ids = [str(value) for value in row.get("forbidden_result_ids") or []]
+    required_authorities = [str(value) for value in row.get("required_authority_tiers") or []]
     expected_id_rank = next((index + 1 for index, result_id in enumerate(ordered_ids) if result_id in expected_ids), None)
     expected_kind_rank = next((index + 1 for index, kind in enumerate(ordered_kinds) if kind in expected_kinds), None)
+    forbidden_id_rank = next((index + 1 for index, result_id in enumerate(ordered_ids) if result_id in forbidden_ids), None)
+    duplicate_ids = sorted({result_id for result_id in ordered_ids if result_id and ordered_ids.count(result_id) > 1})
     required_terms = [str(term).lower() for term in row.get("required_terms") or []]
     serialized = json.dumps(hits, ensure_ascii=False).lower()
     missing_terms = [term for term in required_terms if term.lower() not in serialized]
     rank_passed = not expected_concept or (expected_rank is not None and expected_rank <= row_max_rank)
     id_passed = not expected_ids or (expected_id_rank is not None and expected_id_rank <= row_max_rank)
     kind_passed = not expected_kinds or (expected_kind_rank is not None and expected_kind_rank <= row_max_rank)
+    forbidden_max_rank = max(1, min(int(row.get("forbidden_max_rank") or row_max_rank), limit))
+    forbidden_passed = not forbidden_ids or forbidden_id_rank is None or forbidden_id_rank > forbidden_max_rank
+    relevant_indexes = [
+        index
+        for index, hit in enumerate(hits)
+        if isinstance(hit, dict)
+        and (
+            (expected_ids and str(hit.get("id") or "") in expected_ids)
+            or (not expected_ids and expected_kinds and str(hit.get("kind") or "") in expected_kinds)
+            or (not expected_ids and not expected_kinds and expected_concept in hit_concepts(hit))
+        )
+    ]
+    authority_passed = not required_authorities or any(ordered_authorities[index] in required_authorities for index in relevant_indexes if index < row_max_rank)
     min_hits_passed = len(hits) >= int(row.get("min_hits") or 1)
-    passed = bool(hits) and rank_passed and id_passed and kind_passed and min_hits_passed and not missing_terms
+    relevant_rank = expected_id_rank if expected_ids else expected_kind_rank if expected_kinds else expected_rank
+    has_relevance_expectation = bool(expected_ids or expected_kinds or expected_concept)
+    reciprocal_rank = round(1 / relevant_rank, 6) if relevant_rank else 0.0
+    passed = bool(hits) and rank_passed and id_passed and kind_passed and forbidden_passed and authority_passed and min_hits_passed and not missing_terms and not duplicate_ids
     return {
         "id": row.get("id"),
         "question": question,
@@ -104,12 +135,56 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         "concepts": sorted(concepts),
         "result_ids": ordered_ids,
         "result_kinds": ordered_kinds,
+        "authority_tiers": ordered_authorities,
+        "duplicate_result_ids": duplicate_ids,
+        "duplicate_count": len(ordered_ids) - len(set(ordered_ids)),
         "expected_result_ids": expected_ids,
         "expected_result_kinds": expected_kinds,
         "expected_result_id_rank": expected_id_rank,
         "expected_result_kind_rank": expected_kind_rank,
+        "forbidden_result_ids": forbidden_ids,
+        "forbidden_result_id_rank": forbidden_id_rank,
+        "forbidden_max_rank": forbidden_max_rank,
+        "required_authority_tiers": required_authorities,
+        "authority_passed": authority_passed,
+        "has_relevance_expectation": has_relevance_expectation,
+        "relevant_rank": relevant_rank,
+        "reciprocal_rank": reciprocal_rank,
         "missing_terms": missing_terms,
         "source": row.get("source"),
         "evaluation_mode": row.get("evaluation_mode"),
         "status": "pass" if passed else "fail",
+    }
+
+
+def hit_concepts(hit: dict[str, Any]) -> list[str]:
+    values = hit.get("concepts")
+    if isinstance(values, list):
+        concepts = [str(value or "").strip() for value in values]
+        concepts = [value for value in concepts if value]
+        if concepts:
+            return list(dict.fromkeys(concepts))
+    concept = str(hit.get("concept") or "").strip()
+    return [concept] if concept else []
+
+
+def evaluation_metrics(results: list[dict[str, Any]]) -> dict[str, Any]:
+    relevance_rows = [row for row in results if row.get("has_relevance_expectation")]
+    authority_rows = [row for row in results if row.get("required_authority_tiers")]
+    duplicate_count = sum(int(row.get("duplicate_count") or 0) for row in results)
+    retrieved_count = sum(int(row.get("hit_count") or 0) for row in results)
+    recall_count = sum(
+        1
+        for row in relevance_rows
+        if row.get("relevant_rank") is not None and int(row["relevant_rank"]) <= int(row.get("max_allowed_rank") or 1)
+    )
+    return {
+        "question_count": len(results),
+        "relevance_question_count": len(relevance_rows),
+        "mean_reciprocal_rank": round(sum(float(row.get("reciprocal_rank") or 0) for row in relevance_rows) / max(1, len(relevance_rows)), 6),
+        "recall_at_target_rank": round(recall_count / max(1, len(relevance_rows)), 6),
+        "duplicate_result_count": duplicate_count,
+        "duplicate_result_rate": round(duplicate_count / max(1, retrieved_count), 6),
+        "authority_question_count": len(authority_rows),
+        "authority_pass_rate": round(sum(1 for row in authority_rows if row.get("authority_passed")) / max(1, len(authority_rows)), 6),
     }
