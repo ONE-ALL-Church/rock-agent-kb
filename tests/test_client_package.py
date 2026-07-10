@@ -164,7 +164,7 @@ def test_client_recipe_commands_hit_recipe_endpoints(monkeypatch, capsys):
     assert urls == [
         "https://example.test/recipes/oneall%3Acheck-in-status-dashboard",
         "https://example.test/recipes?concept=check-in",
-        "https://example.test/search?q=attendance%20roster%20recipe&limit=10&min_tier=routing_context_only&detail=compact",
+        "https://example.test/search?q=attendance%20roster&limit=10&min_tier=routing_context_only&kind=recipe&detail=compact",
     ]
     capsys.readouterr()
 

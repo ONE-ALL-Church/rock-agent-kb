@@ -125,7 +125,7 @@ def main(argv: list[str] | None = None) -> int:
             suffix = f"?concept={quote(args.concept)}" if args.concept else ""
             return print_json(get_json(f"{base_url}/recipes{suffix}"))
         if args.recipes_command == "search":
-            return print_json(get_json(f"{base_url}/search?q={quote(args.query + ' recipe')}&limit={args.limit}&min_tier=routing_context_only&detail=compact"))
+            return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier=routing_context_only&kind=recipe&detail=compact"))
     if args.command == "manifest":
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":
