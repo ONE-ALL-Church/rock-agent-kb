@@ -201,6 +201,53 @@ test("search collapses concept-specific rows for one canonical recipe", async ()
   }
 });
 
+test("search collapses nested Lava paths for the same context root", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const contexts = [
+      ["c845dbbf", "", "List<LabelAttendanceDetail>"],
+      ["4c7b56b3", "PersonAttendance.SecurityCode", "LabelAttendanceDetail"],
+      ["b8109564", "PersonAttendance.IsFirstTime", "LabelAttendanceDetail"],
+    ];
+    for (const [suffix, nestedPath, rootType] of contexts) {
+      const row = {
+        id: `lava_context:check-in-label-person-dynamic-text:personattendance:${suffix}`,
+        kind: "lava_context",
+        title: "Check-In Label Designer Person Dynamic Text - PersonAttendance",
+        body: `Check-In Label Designer Lava root PersonAttendance ${nestedPath}`,
+        path: "agent/lava-contexts.jsonl",
+        url: "https://example.test/lava-context",
+        concept: "lava",
+        authority_tier: "source-code-confirmed",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "sparkdevnetwork_rock",
+        payload_json: JSON.stringify({
+          context_id: "check-in-label-person-dynamic-text",
+          root_key: "PersonAttendance",
+          nested_path: nestedPath,
+          root_type: rootType,
+        }),
+      };
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(row)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(row.id, row.title, row.body, row.concept).run();
+    }
+
+    const response = await mf.dispatchFetch("https://kb.example.test/search?q=Check-In%20Label%20Designer%20PersonAttendance%20Lava%20roots&limit=5");
+    const payload = await response.json();
+    const personAttendanceRows = payload.results.filter((row) => row.id.includes(":personattendance:"));
+
+    assert.equal(response.status, 200);
+    assert.equal(personAttendanceRows.length, 1);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("strong lexical claims outrank incidental recipe matches", async () => {
   const mf = await buildWorker();
   try {
@@ -255,6 +302,11 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
       assert.ok(payload.results[0].score > recipeResult.score);
       assert.ok(payload.results[0].signals.bm25_relevance > recipeResult.signals.bm25_relevance);
     }
+
+    const paraphrase = encodeURIComponent("Can Rock agents use direct database access?");
+    const paraphraseResponse = await mf.dispatchFetch(`https://kb.example.test/search?q=${paraphrase}&min_tier=answer_pack_approved&limit=3`);
+    const paraphrasePayload = await paraphraseResponse.json();
+    assert.equal(paraphrasePayload.results[0].id, "claim:claim:direct-access:security-permissions");
   } finally {
     await mf.dispose();
   }
@@ -272,6 +324,13 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     await mf.dispatchFetch("https://kb.example.test/search?q=prayerzz", {
       headers: { "x-rock-kb-client": "browser" },
     });
+    await mf.dispatchFetch("https://kb.example.test/results/claim%3Aclaim%3Aabc123", {
+      headers: { "x-rock-kb-client": "cli" },
+    });
+    await mf.dispatchFetch("https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard", {
+      headers: { "x-rock-kb-client": "cli" },
+    });
+    await mcp(mf, "tools/call", { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } });
     const feedbackResponse = await mf.dispatchFetch("https://kb.example.test/feedback", {
       method: "POST",
       headers: { "content-type": "application/json", "x-rock-kb-client": "cli" },
@@ -293,6 +352,9 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     assert.equal(telemetry.feedback.some((row) => row.reason === "outdated" && row.rating === -1), true);
     assert.equal(telemetry.feedback.some((row) => row.result_id === "claim:claim:abc123"), true);
     assert.equal(telemetry.result_kinds.some((row) => row.result_kind === "claim" && row.client_class === "cli"), true);
+    assert.equal(telemetry.adoption_rows.some((row) => row.event === "result_get" && row.client_class === "cli" && row.primary_result_kind === "claim"), true);
+    assert.equal(telemetry.adoption_rows.some((row) => row.event === "recipe_get" && row.client_class === "cli" && row.primary_result_kind === "recipe"), true);
+    assert.equal(telemetry.adoption_rows.some((row) => row.event === "claim_get" && row.client_class === "mcp" && row.primary_result_kind === "claim"), true);
     assert.match(telemetry.privacy, /No raw or hashed query text/);
     assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
   } finally {

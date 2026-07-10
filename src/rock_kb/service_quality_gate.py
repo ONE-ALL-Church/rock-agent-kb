@@ -105,6 +105,7 @@ def run_service_quality_gate(
         "pass_count": evaluation["pass_count"],
         "fail_count": evaluation["fail_count"],
         "failures": failures,
+        "failed_questions": [row for row in evaluation.get("results") or [] if row.get("status") == "fail"],
     }
     destination = SERVICE_DIR / "dist" / "lexical-quality-gate.json"
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
