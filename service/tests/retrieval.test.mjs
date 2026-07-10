@@ -8,7 +8,7 @@ const WORKER_BUNDLE = "dist/dry-run/index.js";
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
   try {
-    const searchResponse = await mf.dispatchFetch("https://kb.example.test/search?q=check-in%20labels");
+    const searchResponse = await mf.dispatchFetch("https://kb.example.test/search?q=check-in%20labels&limit=1");
     const search = await searchResponse.json();
 
     assert.equal(searchResponse.status, 200);
@@ -69,6 +69,30 @@ test("exact concept routing injects authored answers outside the FTS candidate s
     assert.equal(response.status, 200);
     assert.equal(payload.results[0].id, "answer:answer:workflows:first-checks");
     assert.equal(payload.results[0].concept, "workflows");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("search uses the declared default limit when the parameter is omitted", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    for (let index = 0; index < 2; index += 1) {
+      const id = `claim:limit-probe-${index}:check-in`;
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, 'claim', 'Limit probe', 'Limit probe result', 'claims/approved-claims.jsonl', '', 'check-in', 'official', 'source_backed', 1, '', '{}')`)
+        .bind(id).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, 'Limit probe', 'Limit probe result', 'check-in')")
+        .bind(id).run();
+    }
+
+    const response = await mf.dispatchFetch("https://kb.example.test/search?q=limit%20probe&kind=claim");
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results.length, 2);
   } finally {
     await mf.dispose();
   }
