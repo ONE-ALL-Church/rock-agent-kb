@@ -5,7 +5,7 @@ from pathlib import Path
 
 import typer
 
-from ..recipes import build_recipes, check_recipe_upstreams, load_recipes, promote_recipe_contribution
+from ..recipes import build_recipes, check_recipe_upstreams, load_recipes, promote_recipe_contribution, verify_recipe
 
 
 app = typer.Typer(help="Validate, build, inspect, and check community recipes.")
@@ -39,6 +39,20 @@ def get_recipe(recipe_id: str) -> None:
 @app.command("check-upstream")
 def check_upstream() -> None:
     typer.echo(json.dumps(check_recipe_upstreams(), indent=2, sort_keys=True))
+
+
+@app.command("verify")
+def verify_recipe_command(
+    recipe_id: str,
+    rock_version: str | None = typer.Option(None, "--rock-version", help="Target Rock version to compare with the compatibility matrix."),
+) -> None:
+    try:
+        report = verify_recipe(recipe_id, rock_version=rock_version)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if report["status"] == "fail":
+        raise typer.Exit(code=1)
 
 
 @app.command("promote")

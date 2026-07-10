@@ -35,8 +35,8 @@ Follow the guide section for Recipe: Diagnose A Broken Button.
 ## Source Links
 
 - https://community.rockrms.com/developer/apple-tv-docs
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/apple-tv-docs/javascript
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images
 - https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
 - https://www.triumph.tech/resources/github-spotlight-1042024

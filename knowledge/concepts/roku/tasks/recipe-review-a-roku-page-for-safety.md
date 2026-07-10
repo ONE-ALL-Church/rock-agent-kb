@@ -40,9 +40,9 @@ Follow the guide section for Recipe: Review A Roku Page For Safety.
 - https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/lava
-- https://www.triumph.tech/resources/github-spotlight-1042024
 - https://community.rockrms.com/api-docs
 - https://community.rockrms.com/lava/remote-lava
+- https://www.triumph.tech/resources/github-spotlight-1042024
 - https://www.rockrms.com/releasenotes
 - https://rocksolidchurchdemo.com/admin/power-tools/model-map
 - https://community.rockrms.com/ask/developing

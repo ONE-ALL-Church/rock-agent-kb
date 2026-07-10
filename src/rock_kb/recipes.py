@@ -146,11 +146,24 @@ def render_recipe(row: dict[str, Any]) -> str:
         "## Compatibility", "",
         f"- Tested Rock versions: {', '.join(compatibility['tested_rock_versions']) or 'Not declared'}",
         f"- Last verified: {compatibility.get('last_verified_at') or 'Not declared'}",
+        *[f"- Rock `{item['rock_version']}`: `{item['status']}`" + (f" - {' '.join(item['notes'])}" if item['notes'] else "") for item in compatibility.get("version_matrix") or []],
         *[f"- {value}" for value in compatibility["notes"]], "",
+        "## Community Verification", "",
+        *render_attestations(row.get("verification_attestations") or []),
+        *( [f"- Feedback and issues: {row['feedback_url']}"] if row.get("feedback_url") else []), "",
         "## Reusable Learnings", "", *[f"- {value}" for value in row["learnings"]], "",
         "## Limitations", "", *[f"- {value}" for value in row["known_limitations"]], "",
     ]
     return "\n".join(lines).rstrip() + "\n"
+
+
+def render_attestations(rows: list[dict[str, Any]]) -> list[str]:
+    if not rows:
+        return ["- No consumer verification attestations have been submitted yet."]
+    return [
+        f"- `{row['org_id']}` on Rock `{row['rock_version']}`: `{row['outcome']}` ({row['scope']}, {row['verified_at']})"
+        for row in rows
+    ]
 
 
 def check_recipe_upstreams() -> dict[str, Any]:
@@ -201,6 +214,86 @@ def check_recipe_upstreams() -> dict[str, Any]:
             "unavailable_files": unavailable_files,
         })
     return {"schema": "rock-kb-recipe-upstream-check-v1", "results": results}
+
+
+def verify_recipe(recipe_id: str, rock_version: str | None = None) -> dict[str, Any]:
+    row = next((item for item in load_recipes() if item["recipe_id"] == recipe_id), None)
+    if row is None:
+        raise ValueError(f"unknown recipe_id: {recipe_id}")
+    implementation = row["implementation"]
+    owner, repository = repository_parts(implementation["repository_url"])
+    file_checks = []
+    for item in implementation["files"]:
+        source_path = f"{implementation['source_path'].rstrip('/')}/{item['path']}"
+        url = f"https://raw.githubusercontent.com/{owner}/{repository}/{implementation['commit_sha']}/{source_path}"
+        try:
+            actual = fetch_url_digest(url)
+            status = "pass" if actual == item["sha256"] else "fail"
+        except (HTTPError, URLError, TimeoutError):
+            actual = None
+            status = "unavailable"
+        file_checks.append(
+            {
+                "path": item["path"],
+                "status": status,
+                "expected_sha256": item["sha256"],
+                "actual_sha256": actual,
+            }
+        )
+    compatibility = recipe_compatibility_check(row, rock_version)
+    failed = any(item["status"] == "fail" for item in file_checks) or compatibility["status"] == "fail"
+    unavailable = any(item["status"] == "unavailable" for item in file_checks)
+    status = "fail" if failed else "unavailable" if unavailable else "pass"
+    verifier_files = [
+        item["path"]
+        for item in implementation["files"]
+        if item["path"].startswith("tests/") or item["path"].endswith(".sql")
+    ]
+    return {
+        "schema": "rock-kb-recipe-verification-v1",
+        "status": status,
+        "recipe_id": recipe_id,
+        "recipe_version": row["version"],
+        "pinned_commit": implementation["commit_sha"],
+        "compatibility": compatibility,
+        "file_checks": file_checks,
+        "verifier_files": verifier_files,
+        "prerequisite_count": len(row.get("prerequisites") or []),
+        "validation_step_count": len(row.get("validation_steps") or []),
+        "attestation_count": len(row.get("verification_attestations") or []),
+        "safety": "Verification is read-only and does not execute community recipe code or modify a Rock instance.",
+    }
+
+
+def fetch_url_digest(url: str) -> str:
+    request = Request(url, headers={"User-Agent": "rock-agent-kb-recipe-verify/1.0"})
+    with urlopen(request, timeout=30) as response:
+        return hashlib.sha256(response.read()).hexdigest()
+
+
+def recipe_compatibility_check(row: dict[str, Any], rock_version: str | None) -> dict[str, Any]:
+    if not rock_version:
+        return {"status": "not_checked", "rock_version": None, "declared": row["compatibility"]}
+    compatibility = row["compatibility"]
+    matrix = {str(item["rock_version"]): item for item in compatibility.get("version_matrix") or []}
+    matrix_row = matrix.get(str(rock_version))
+    if matrix_row:
+        status = "fail" if matrix_row["status"] == "unsupported" else "pass" if matrix_row["status"] == "verified" else "warn"
+        return {"status": status, "rock_version": rock_version, "declaration": matrix_row}
+    if str(rock_version) in {str(value) for value in compatibility.get("tested_rock_versions") or []}:
+        return {"status": "pass", "rock_version": rock_version, "declaration": {"status": "verified"}}
+    minimum = compatibility.get("minimum_rock_version")
+    maximum = compatibility.get("maximum_rock_version")
+    if minimum and version_key(rock_version) < version_key(str(minimum)):
+        return {"status": "fail", "rock_version": rock_version, "reason": f"below minimum Rock version {minimum}"}
+    if maximum and version_key(rock_version) > version_key(str(maximum)):
+        return {"status": "fail", "rock_version": rock_version, "reason": f"above maximum Rock version {maximum}"}
+    return {"status": "warn", "rock_version": rock_version, "reason": "version is in the declared range but lacks a verification attestation"}
+
+
+def version_key(value: str) -> tuple[int, ...]:
+    parts = [int(part) for part in re.findall(r"\d+", value)]
+    return tuple(parts or [0])
 
 
 def promote_recipe_contribution(bundle_path: Path, recipe_id: str, overwrite: bool = False) -> dict[str, Any]:

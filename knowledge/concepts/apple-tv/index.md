@@ -2,7 +2,7 @@
 id: concept-apple-tv
 title: Apple TV Apps
 generated: true
-last_built: 2026-07-09T23:50:00+00:00
+last_built: 2026-07-10T08:20:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -50,15 +50,25 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | behavior | Rock Apple TV media commands can play video from MP4 or HLS sources and audio from MP3 sources, but they cannot play YouTube content. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) |
 | official | behavior | Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
+| official | behavior | Apple TV page Lava can inspect the current person's edit and administration access, page parameters, TV shell version, device details, application theme, and whether the client shell is in demo mode. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
 | official | configuration | A Rock Apple TV app is created as a Rock-managed TV application record under CMS configuration, with Rock-side settings that are distinct from the App Store name. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) |
+| official | configuration | To support sign-in for a Rock Apple TV app without using the TV keyboard, place a Remote Authentication block on an external Rock page, associate the block with the TV application's site, and set that page as the application's authentication page. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) |
+| official | configuration | A Rock Apple TV page has a cacheability setting: Public permits shared-cache storage, Private limits caching to the client, No-Cache requires revalidation before a local copy is reused, and No-Store prevents local storage for sensitive content. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content) |
+| official | configuration | A Rock Apple TV app icon uses three separate image layers for the tvOS parallax effect; foreground layers must be PNG files and the background layer must be a JPG file. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons) |
+| official | implementation_pattern | Apple TV TVML text can be styled with predefined tv-text-style values, font weights and families, and inline bold, italic, or strikethrough tags. | [source](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style) |
 | official | implementation_pattern | Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
+| official | implementation_pattern | An Apple TV login menu item can use the login command with page GUIDs for the login, timeout, and success destinations; the login TVML receives single-brace authQrCodeUrl and authCode fields for presenting QR-code or manual-code authentication. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) |
+| official | implementation_pattern | For Apple TV media playback, supplying an existing watch map sets the resume position; pairing that map with an interaction GUID appends viewing progress to the existing interaction, while omitting the interaction GUID creates a new interaction and watch map beginning from the prior stopping point. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) |
+| official | operational_guidance | When building a Rock-linked Apple TV app, use Apple’s TVML documentation for the underlying markup and Rock’s documentation for Rock-specific extensions; modifying the application’s JavaScript is discouraged. | [source](https://community.rockrms.com/developer/apple-tv-docs) |
 | official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
+| official | risk | A TVML text shadow can be specified with horizontal offset, vertical offset, blur radius, and color, but its surrounding element may clip the shadow vertically; keeping the shadow near the text reduces that risk. | [source](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style) |
 | official | source_summary | Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater. | [source](https://community.rockrms.com/developer/apple-tv-docs) |
+| official | recipe | Prepare layered Rock Apple TV app icons at 400×240 pixels for @1x display, 800×480 pixels for @2x display, and 1280×768 pixels for the App Store. _(live verification recommended)_ | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons) |
 | community-reviewed | operational_guidance | MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
 | community-reviewed | operational_guidance | Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
-| community-reviewed | operational_guidance | Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
-| community-reviewed | source_summary | This RockCast episode adds public-safe context for the Rock Mobile transition from Xamarin Forms toward .NET MAUI. It describes MAUI as a close successor with compatibility support, newer styling and animation options, performance improvements, and a release path that lets existing apps test compatibility before fully moving new content blocks to MAUI-native behavior. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
+| More |  | 2 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -204,7 +214,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `130`
 - Lava capability source records: `53`
-- Approved claims: `9`
+- Approved claims: `20`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

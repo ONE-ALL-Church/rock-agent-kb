@@ -60,9 +60,16 @@ Optionally recognize an existing person during an anonymous Rock form using an e
 
 - Tested Rock versions: Not declared
 - Last verified: 2026-07-09
+- Rock `17`: `expected` - Reviewed against the Rock 17 model family; verify in the target instance.
+- Rock `18`: `expected` - Reviewed against the Rock 18 model family; verify in the target instance.
 - The originating implementation informed this rewrite, but the hardened public package requires live verification in each target instance.
 - Verify Lava transaction behavior, WorkflowActivate attribute keys, SQL Server CRYPT_GEN_RANDOM support, endpoint CSRF behavior, proxy-aware client IP handling, and SMS retention before launch.
 - The package was reviewed against the Rock 17/18 model family.
+
+## Community Verification
+
+- No consumer verification attestations have been submitted yet.
+- Feedback and issues: https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues
 
 ## Reusable Learnings
 

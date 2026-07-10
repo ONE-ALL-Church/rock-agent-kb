@@ -1,6 +1,6 @@
 {
   "schema": "rock-kb-model-map-version-diff-v1",
-  "generated_at": "2026-06-19T08:36:47+00:00",
+  "generated_at": "2026-07-10T08:17:39+00:00",
   "stable": {
     "path": "data/review/model-map-scrape/demo-model-map-full-scrape.json",
     "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
@@ -31,22 +31,22 @@
     "block_type_guid": "da2aad13-209b-4885-8739-b7be99f6510d",
     "initialization_endpoint": "https://rockrmslatest.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/RefreshObsidianBlockInitialization",
     "detail_endpoint": "https://rockrmslatest.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/GetModelDetails",
-    "rock_version": "20.0.4",
+    "rock_version": "20.0.5",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
-    "listed_model_count": 325,
-    "category_count": 17,
+    "listed_model_count": 326,
+    "category_count": 18,
     "failure_count": 0,
-    "model_count": 325,
-    "property_count": 16100,
-    "method_count": 9739,
-    "table_name_model_count": 1,
+    "model_count": 326,
+    "property_count": 16254,
+    "method_count": 9800,
+    "table_name_model_count": 2,
     "missing_table_name_count": 324,
     "obsolete_model_count": 1
   },
-  "change_count": 84,
-  "model_added_count": 0,
+  "change_count": 89,
+  "model_added_count": 1,
   "model_removed_count": 1,
-  "property_added_count": 9,
+  "property_added_count": 13,
   "property_removed_count": 17,
   "property_changed_count": 57,
   "changed_field_counts": {
@@ -54,6 +54,19 @@
     "is_qualifier": 2
   },
   "changes": [
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "model_added",
+      "model_name": "Merge Template Combined Person",
+      "model_title": "MergeTemplateCombinedPerson",
+      "model_category": "Other",
+      "entity_type_guid": "b0044a9f-4701-4b65-bedb-df6bb6f3f878",
+      "entity_type_id": "",
+      "property_count": 150,
+      "rock_version": "20.0.5",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.5"
+    },
     {
       "schema": "rock-kb-model-map-version-change-v1",
       "change_type": "model_removed",
@@ -65,7 +78,7 @@
       "property_count": 3,
       "rock_version": "19.1.8",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4"
+      "latest_version": "20.0.5"
     },
     {
       "schema": "rock-kb-model-map-version-change-v1",
@@ -76,7 +89,7 @@
       "model_category": "Reporting",
       "property_name": "MaritalStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -150,7 +163,7 @@
       "model_category": "Reporting",
       "property_name": "RecordStatusReasonValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -232,7 +245,7 @@
       "model_category": "Reporting",
       "property_name": "RecordTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -314,7 +327,7 @@
       "model_category": "Reporting",
       "property_name": "MaritalStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -388,7 +401,7 @@
       "model_category": "Reporting",
       "property_name": "RecordStatusReasonValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -470,7 +483,7 @@
       "model_category": "Reporting",
       "property_name": "RecordTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -552,7 +565,7 @@
       "model_category": "Reporting",
       "property_name": "MaritalStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -626,7 +639,7 @@
       "model_category": "Reporting",
       "property_name": "RecordStatusReasonValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -708,7 +721,7 @@
       "model_category": "Reporting",
       "property_name": "RecordTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -790,7 +803,7 @@
       "model_category": "Reporting",
       "property_name": "CurrencyTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -904,7 +917,7 @@
       "model_category": "Reporting",
       "property_name": "SourceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -994,7 +1007,7 @@
       "model_category": "Reporting",
       "property_name": "CalendarMonthNameAbbrevated",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthecalendarinmonthnameabbreviatedformatmmm",
@@ -1020,7 +1033,7 @@
       "model_category": "Reporting",
       "property_name": "FiscalMonthAbbrevated",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthefiscalmonthabbreviated",
@@ -1046,7 +1059,7 @@
       "model_category": "Reporting",
       "property_name": "CurrencyTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1160,7 +1173,7 @@
       "model_category": "Reporting",
       "property_name": "SourceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1250,7 +1263,7 @@
       "model_category": "Reporting",
       "property_name": "MaritalStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1324,7 +1337,7 @@
       "model_category": "Reporting",
       "property_name": "RecordStatusReasonValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1406,7 +1419,7 @@
       "model_category": "Reporting",
       "property_name": "RecordTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1488,7 +1501,7 @@
       "model_category": "Event",
       "property_name": "DeclineReasonValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1562,7 +1575,7 @@
       "model_category": "Event",
       "property_name": "SourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1652,7 +1665,7 @@
       "model_category": "Event",
       "property_name": "AttendanceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1710,7 +1723,7 @@
       "model_category": "Core",
       "property_name": "CampusStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1776,7 +1789,7 @@
       "model_category": "Core",
       "property_name": "CampusTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1834,7 +1847,7 @@
       "model_category": "Core",
       "property_name": "ScheduleTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -1898,7 +1911,7 @@
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValue",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromdefinedvalue",
@@ -1924,7 +1937,7 @@
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromnumber",
@@ -1950,7 +1963,7 @@
       "model_category": "Communication",
       "property_name": "RelatedSmsFromDefinedValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetstherelatedsmsfromdefinedvalueidentifier",
@@ -1976,7 +1989,7 @@
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValue",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromdefinedvalue",
@@ -2002,7 +2015,7 @@
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsfromnumber",
@@ -2028,7 +2041,7 @@
       "model_category": "CMS",
       "property_name": "StructuredContentToolValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -2086,7 +2099,7 @@
       "model_category": "Core",
       "property_name": "DeviceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -2168,7 +2181,7 @@
       "model_category": "Core",
       "property_name": "DocumentTypeId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "is_qualifier"
       ],
@@ -2216,7 +2229,7 @@
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychanges",
@@ -2242,7 +2255,7 @@
       "model_category": "Finance",
       "property_name": "CurrencyTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -2364,7 +2377,7 @@
       "model_category": "Finance",
       "property_name": "PreferredForeignCurrencyCodeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -3486,7 +3499,7 @@
       "model_category": "Finance",
       "property_name": "PledgeFrequencyValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -3608,7 +3621,7 @@
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -3634,7 +3647,7 @@
       "model_category": "Finance",
       "property_name": "ForeignCurrencyCodeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -4756,7 +4769,7 @@
       "model_category": "Finance",
       "property_name": "SourceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -4846,7 +4859,7 @@
       "model_category": "Finance",
       "property_name": "TransactionFrequencyValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -4968,7 +4981,7 @@
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -4994,7 +5007,7 @@
       "model_category": "Finance",
       "property_name": "BatchHistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthebatchhistorychangelist",
@@ -5020,7 +5033,7 @@
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -5046,7 +5059,7 @@
       "model_category": "Finance",
       "property_name": "ForeignCurrencyCodeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -6168,7 +6181,7 @@
       "model_category": "Finance",
       "property_name": "NonCashAssetTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -6250,7 +6263,7 @@
       "model_category": "Finance",
       "property_name": "SourceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -6348,7 +6361,7 @@
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -6374,7 +6387,7 @@
       "model_category": "Group",
       "property_name": "Photo",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -6404,7 +6417,7 @@
       "model_category": "Group",
       "property_name": "PhotoId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -6434,7 +6447,7 @@
       "model_category": "Group",
       "property_name": "PhotoUrl",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -6460,7 +6473,7 @@
       "model_category": "Group",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -6486,7 +6499,7 @@
       "model_category": "Group",
       "property_name": "GroupMemberRecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -6660,7 +6673,7 @@
       "model_category": "Group",
       "property_name": "GroupMemberRecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -6827,6 +6840,32 @@
     },
     {
       "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
+      "model_name": "Interaction Channel",
+      "stable_model_title": "InteractionChannel",
+      "latest_model_title": "InteractionChannel",
+      "model_category": "Core",
+      "property_name": "EnableComponentDailyCounts",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.5",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetsavalueindicatingwhethertherockcleanupjobshouldpopulatepercomponentdailyaggregaterowsininteractioncomponentdailycountforcomponentsbelongingtothischannel",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": true,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": []
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
       "change_type": "property_changed",
       "model_name": "Interaction Channel",
       "stable_model_title": "InteractionChannel",
@@ -6834,7 +6873,7 @@
       "model_category": "Core",
       "property_name": "ChannelTypeMediumValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -6972,7 +7011,7 @@
       "model_category": "CMS",
       "property_name": "LavaApplicationId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "is_qualifier"
       ],
@@ -7020,7 +7059,7 @@
       "model_category": "LMS",
       "property_name": "Photo",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -7050,7 +7089,7 @@
       "model_category": "LMS",
       "property_name": "PhotoId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -7080,7 +7119,7 @@
       "model_category": "LMS",
       "property_name": "PhotoUrl",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -7106,7 +7145,7 @@
       "model_category": "LMS",
       "property_name": "HistoryChangeList",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -7132,7 +7171,7 @@
       "model_category": "LMS",
       "property_name": "GroupMemberRecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7300,13 +7339,39 @@
     {
       "schema": "rock-kb-model-map-version-change-v1",
       "change_type": "property_added",
+      "model_name": "Learning Class Activity",
+      "stable_model_title": "LearningClassActivity",
+      "latest_model_title": "LearningClassActivity",
+      "model_category": "LMS",
+      "property_name": "RetakeThreshold",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.5",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetstheminimumscoreastudentmustearnonthisactivitytoavoidbeingassignedaretakeanullvaluedisablesretakesfortheactivity",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": []
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
       "model_name": "Persisted Dataset",
       "stable_model_title": "PersistedDataset",
       "latest_model_title": "PersistedDataset",
       "model_category": "CMS",
       "property_name": "Status",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -7338,6 +7403,66 @@
     },
     {
       "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
+      "model_name": "Person",
+      "stable_model_title": "Person",
+      "latest_model_title": "Person",
+      "model_category": "CRM",
+      "property_name": "PreferredServiceTimeSchedule",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.5",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetstheschedulethepersonpreferstoattendtheirpreferredservicetime",
+        "is_database": false,
+        "is_lava": true,
+        "is_not_mapped": true,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": [
+          {
+            "text": "schedule"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
+      "model_name": "Person",
+      "stable_model_title": "Person",
+      "latest_model_title": "Person",
+      "model_category": "CRM",
+      "property_name": "PreferredServiceTimeScheduleId",
+      "stable_version": "19.1.8",
+      "latest_version": "20.0.5",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetstheidentifieroftheschedulethepersonpreferstoattendtheirpreferredservicetime",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": [
+          {
+            "text": "schedule"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
       "change_type": "property_changed",
       "model_name": "Person",
       "stable_model_title": "Person",
@@ -7345,7 +7470,7 @@
       "model_category": "CRM",
       "property_name": "EthnicityValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7411,7 +7536,7 @@
       "model_category": "CRM",
       "property_name": "MaritalStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7493,7 +7618,7 @@
       "model_category": "CRM",
       "property_name": "RaceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7591,7 +7716,7 @@
       "model_category": "CRM",
       "property_name": "RecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7753,7 +7878,7 @@
       "model_category": "CRM",
       "property_name": "RecordStatusReasonValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7843,7 +7968,7 @@
       "model_category": "CRM",
       "property_name": "RecordTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -7933,7 +8058,7 @@
       "model_category": "CRM",
       "property_name": "PersonalDeviceTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8007,7 +8132,7 @@
       "model_category": "CRM",
       "property_name": "PlatformValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8089,7 +8214,7 @@
       "model_category": "CRM",
       "property_name": "SearchTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8155,7 +8280,7 @@
       "model_category": "Event",
       "property_name": "RegistrantRecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8329,7 +8454,7 @@
       "model_category": "Event",
       "property_name": "FullPaymentOrPaymentPlanRequiredMessage",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -8359,7 +8484,7 @@
       "model_category": "Event",
       "property_name": "IsFullPaymentOrPaymentPlanRequired",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -8385,7 +8510,7 @@
       "model_category": "Event",
       "property_name": "RegistrantRecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8559,7 +8684,7 @@
       "model_category": "Engagement",
       "property_name": "OrganizationalObjectiveValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8625,7 +8750,7 @@
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValue",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromdefinedvalue",
@@ -8651,7 +8776,7 @@
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromnumber",
@@ -8677,7 +8802,7 @@
       "model_category": "CMS",
       "property_name": "PurposeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8751,7 +8876,7 @@
       "model_category": "Workflow",
       "property_name": "PersonEntryCampusStatusValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8817,7 +8942,7 @@
       "model_category": "Workflow",
       "property_name": "PersonEntryCampusTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -8875,7 +9000,7 @@
       "model_category": "Workflow",
       "property_name": "PersonEntryRecordSourceValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -9029,7 +9154,7 @@
       "model_category": "Workflow",
       "property_name": "PersonEntrySectionTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -9075,8 +9200,8 @@
             "label": "No additional styling"
           },
           {
-            "value": "1010 = Well",
-            "label": "This will apply a 'well' with a muted background color and some padding."
+            "value": "1010 = Card",
+            "label": "This will apply a 'card' with a muted background color and some padding."
           }
         ],
         "related_entity_links": [
@@ -9095,7 +9220,7 @@
       "model_category": "Workflow",
       "property_name": "SectionTypeValueId",
       "stable_version": "19.1.8",
-      "latest_version": "20.0.4",
+      "latest_version": "20.0.5",
       "changed_fields": [
         "enum_values"
       ],
@@ -9141,8 +9266,8 @@
             "label": "No additional styling"
           },
           {
-            "value": "1010 = Well",
-            "label": "This will apply a 'well' with a muted background color and some padding."
+            "value": "1010 = Card",
+            "label": "This will apply a 'card' with a muted background color and some padding."
           }
         ],
         "related_entity_links": [

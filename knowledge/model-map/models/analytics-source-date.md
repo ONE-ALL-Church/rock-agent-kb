@@ -8,7 +8,7 @@
 - Obsolete: `no`
 - Method signatures: `5`
 - Obsolete methods: `0`
-- EntityType GUID: `dd0346c0-82fd-4ba2-acf1-768b14b9a480`
+- EntityType GUID: `5c0f989c-cc31-4e25-954d-83986c02cf4d`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
 ## Summary

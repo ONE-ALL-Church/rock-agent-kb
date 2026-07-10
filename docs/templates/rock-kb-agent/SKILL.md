@@ -68,6 +68,7 @@ uvx rock-kb model group
 uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe oneall:registration-to-connection-request
+uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -111,6 +112,8 @@ Use these commands for specific jobs:
 - `recipes list [--concept <id>]`: discover reusable community implementation patterns.
 - `recipes search <query>`: search recipe use cases and learnings.
 - `recipe <recipe-id>`: fetch the full structured recipe before adapting code.
+- `recipe verify <recipe-id> [--rock-version <version>]`: check immutable file hashes and declared compatibility without executing recipe code.
+- `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
 - `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
@@ -148,6 +151,10 @@ tools instead of shell commands:
 - `kb_list_recipes`: list community recipes, optionally filtered by concept.
 - `kb_get_recipe`: fetch one recipe with its immutable source pin, adaptation
   points, security, compatibility, validation, and reusable learnings.
+- `kb_verify_recipe`: verify immutable recipe hashes and optional target Rock
+  version without executing community code.
+- `kb_feedback`: record a fixed rating and reason for an exact result. Never put
+  private data into feedback.
 - `kb_review_dashboard`: check public review queues, conflicts, community
   intake, hosted evaluation, and telemetry counts.
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
@@ -231,6 +238,7 @@ uvx rock-kb recipes search "check-in registration attendance dashboard"
 uvx rock-kb recipes search "registration to connection request workflow"
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe oneall:registration-to-connection-request
+uvx rock-kb recipe verify oneall:registration-to-connection-request --rock-version 18
 ```
 
 Before adapting a recipe:
@@ -243,6 +251,9 @@ Before adapting a recipe:
 5. Run the listed validation and rollback steps in the target instance.
 6. Cite the recipe and its authority tier; do not present it as official Rock
    behavior.
+7. Use `recipe verify` before adaptation. Treat `expected` compatibility and
+   missing consumer attestations as prompts for local testing, not as proof of
+   failure.
 
 When contributing a reusable implementation, keep substantial code in the code
 owner's licensed public repository. Submit a `recipe` contribution containing

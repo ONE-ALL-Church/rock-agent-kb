@@ -31,6 +31,30 @@ class RecipeCompatibility(KBRecord):
     maximum_rock_version: str | None = None
     last_verified_at: str | None = None
     notes: list[str] = Field(default_factory=list)
+    version_matrix: list["RecipeVersionCompatibility"] = Field(default_factory=list)
+
+
+class RecipeVersionCompatibility(KBRecord):
+    rock_version: str
+    status: Literal["verified", "expected", "unsupported"]
+    notes: list[str] = Field(default_factory=list)
+
+
+class RecipeVerificationAttestation(KBRecord):
+    org_id: str
+    rock_version: str
+    verified_at: str
+    outcome: Literal["pass", "partial", "fail"]
+    scope: Literal["source_pattern_review", "package_static_validation", "nonproduction_test", "production_adaptation"]
+    evidence_url: str | None = None
+    notes: list[str] = Field(default_factory=list)
+
+
+class RecipeRelease(KBRecord):
+    version: str
+    commit_sha: str = Field(pattern=r"^[0-9a-f]{40}$")
+    released_at: str
+    notes: list[str] = Field(default_factory=list)
 
 
 class RecipeSecurity(KBRecord):
@@ -83,6 +107,9 @@ class RecipeRow(KBRecord):
     known_limitations: list[str] = Field(default_factory=list)
     learnings: list[str] = Field(min_length=1)
     evidence_urls: list[str] = Field(default_factory=list)
+    feedback_url: str | None = None
+    release_history: list[RecipeRelease] = Field(default_factory=list)
+    verification_attestations: list[RecipeVerificationAttestation] = Field(default_factory=list)
     needs_live_verification: bool = True
     review_status: Literal["community_unreviewed", "community_reviewed"]
     authority_tier: Literal["community-unreviewed", "community-reviewed"]

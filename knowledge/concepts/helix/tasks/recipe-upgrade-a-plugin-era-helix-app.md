@@ -35,14 +35,14 @@ Follow the guide section for Recipe: Upgrade A Plugin-Era Helix App.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/helix/overview
 - https://community.rockrms.com/developer/helix/lava-applications
+- https://community.rockrms.com/developer/helix/overview
+- https://community.rockrms.com/developer/helix/lava-applications/observability
 - https://community.rockrms.com/developer/helix/forms-controls
 - https://community.rockrms.com/lava/tags/observe
-- https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/helix/forms-controls/loading-indicator
-- https://community.rockrms.com/lava/filters/attribute-filters
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/helix/htmx
+- https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/developer/helix/strategies
 - https://community.rockrms.com/lava/commands

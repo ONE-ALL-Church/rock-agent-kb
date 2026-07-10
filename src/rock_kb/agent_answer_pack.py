@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 from .claims import approved_claim_rows
 from .extract import generated_at_iso, now_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
-from .paths import AGENT_DIR, KNOWLEDGE_DIR, REVIEW_DIR
+from .paths import AGENT_DIR, KNOWLEDGE_DIR, REPO_ROOT, REVIEW_DIR
 
 ANSWER_PACK_PATH = AGENT_DIR / "answer-pack.jsonl"
 LIVE_CHECKLISTS_PATH = AGENT_DIR / "live-inspection-checklists.jsonl"
@@ -24,6 +24,7 @@ AUTHORITY_RULES_PATH = AGENT_DIR / "source-authority-rules.jsonl"
 EVALUATION_SET_PATH = AGENT_DIR / "evaluation-set.jsonl"
 EVALUATION_RESULTS_PATH = AGENT_DIR / "evaluation-results.jsonl"
 EVALUATION_REPORT_PATH = AGENT_DIR / "evaluation-report.json"
+CURATED_EVALUATION_PATH = REPO_ROOT / "evaluations" / "real-world.jsonl"
 REVIEW_DASHBOARD_PATH = AGENT_DIR / "claim-review-dashboard.md"
 
 HIGH_VALUE_CONCEPTS = {"workflows", "security-permissions", "data-views-reports", "mobile", "check-in", "groups"}
@@ -905,8 +906,29 @@ def evaluation_set_rows(concepts: list[Any]) -> list[dict[str, Any]]:
                     "required_terms": sorted(set(required_terms)),
                     "min_score": 0.75,
                     "source": "generated_realistic_question_set",
+                    "evaluation_mode": "answer_structure",
                 }
             )
+    known_concepts = {concept.id for concept in concepts}
+    seen_ids = {str(row["id"]) for row in rows}
+    for row in read_jsonl(CURATED_EVALUATION_PATH):
+        row_id = str(row.get("id") or "")
+        concept_id = str(row.get("concept_id") or "")
+        if not row_id.startswith("eval:curated:"):
+            raise ValueError(f"curated evaluation id must start with eval:curated:: {row_id!r}")
+        if row_id in seen_ids:
+            raise ValueError(f"duplicate evaluation id: {row_id}")
+        if concept_id not in known_concepts and concept_id != "model-map":
+            raise ValueError(f"curated evaluation has unknown concept_id: {concept_id}")
+        normalized = dict(row)
+        normalized.setdefault("schema", "rock-kb-evaluation-question-v1")
+        normalized.setdefault("source", "curated_real_world_question_set")
+        normalized["evaluation_mode"] = "retrieval"
+        normalized.setdefault("required_facets", [])
+        normalized.setdefault("required_terms", [])
+        normalized.setdefault("min_score", 1.0)
+        rows.append(normalized)
+        seen_ids.add(row_id)
     return rows
 
 
@@ -957,6 +979,23 @@ def score_evaluation_rows(evaluation_rows: list[dict[str, Any]], answer_rows: li
     checklists = {row["id"]: row for row in checklist_rows}
     results = []
     for row in evaluation_rows:
+        if row.get("evaluation_mode") == "retrieval":
+            results.append(
+                {
+                    "schema": "rock-kb-evaluation-result-v1",
+                    "id": row["id"],
+                    "concept_id": row["concept_id"],
+                    "answer_id": row.get("answer_id"),
+                    "score": None,
+                    "status": "pending_service",
+                    "evaluation_mode": "retrieval",
+                    "facet_results": {},
+                    "term_results": [],
+                    "missing_terms": [],
+                    "answer_status": None,
+                }
+            )
+            continue
         answer = answers.get(row["answer_id"], {})
         checklist = checklists.get(str(answer.get("live_checklist_id") or ""))
         text = evaluation_text(answer, checklist)
@@ -982,9 +1021,13 @@ def score_evaluation_rows(evaluation_rows: list[dict[str, Any]], answer_rows: li
                 "score": score,
                 "status": "pass" if score >= float(row.get("min_score", 0.75)) else "fail",
                 "facet_results": facet_results,
-                "term_results": term_results,
+                "term_results": [
+                    {"term": term, "matched": matched}
+                    for term, matched in term_results.items()
+                ],
                 "missing_terms": missing_terms,
                 "answer_status": answer.get("answer_status"),
+                "evaluation_mode": row.get("evaluation_mode", "answer_structure"),
             }
         )
     return results
@@ -1008,7 +1051,7 @@ def write_evaluation_report(evaluation_rows: list[dict[str, Any]], result_rows: 
     near_misses = []
     for row in result_rows:
         by_concept[str(row["concept_id"])][str(row["status"])] += 1
-        missing_terms = row.get("missing_terms") or [term for term, ok in (row.get("term_results") or {}).items() if not ok]
+        missing_terms = list(row.get("missing_terms") or [])
         if missing_terms:
             near_misses.append(
                 {
@@ -1020,6 +1063,9 @@ def write_evaluation_report(evaluation_rows: list[dict[str, Any]], result_rows: 
                     "missing_terms": missing_terms,
                 }
             )
+    scored_count = by_status.get("pass", 0) + by_status.get("fail", 0)
+    source_counts = Counter(str(row.get("source") or "unknown") for row in evaluation_rows)
+    mode_counts = Counter(str(row.get("evaluation_mode") or "answer_structure") for row in evaluation_rows)
     report = {
         "schema": "rock-kb-evaluation-report-v1",
         "generated_at": generated_at_iso(),
@@ -1027,7 +1073,11 @@ def write_evaluation_report(evaluation_rows: list[dict[str, Any]], result_rows: 
         "result_count": len(result_rows),
         "pass_count": by_status.get("pass", 0),
         "fail_count": by_status.get("fail", 0),
-        "pass_rate": round(by_status.get("pass", 0) / max(1, len(result_rows)), 3),
+        "pending_service_count": by_status.get("pending_service", 0),
+        "scored_count": scored_count,
+        "pass_rate": round(by_status.get("pass", 0) / max(1, scored_count), 3),
+        "question_sources": dict(sorted(source_counts.items())),
+        "evaluation_modes": dict(sorted(mode_counts.items())),
         "term_miss_count": len(near_misses),
         "near_misses": sorted(near_misses, key=lambda row: (float(row.get("score") or 0), str(row.get("id") or "")))[:50],
         "concepts": {concept: dict(counter) for concept, counter in sorted(by_concept.items())},
@@ -1041,11 +1091,12 @@ def write_review_dashboard(review_rows: list[dict[str, Any]], distilled_rows: li
     for row in review_rows:
         for concept_id in row.get("concept_ids") or ["unknown"]:
             by_concept[str(concept_id)][str(row.get("recommended_action") or "unknown")] += 1
-    failed_evals = [row for row in evaluation_rows if row.get("status") != "pass"]
+    failed_evals = [row for row in evaluation_rows if row.get("status") == "fail"]
+    pending_evals = [row for row in evaluation_rows if row.get("status") == "pending_service"]
     near_misses = [
         row
         for row in evaluation_rows
-        if row.get("status") == "pass" and any(not ok for ok in (row.get("term_results") or {}).values())
+        if row.get("status") == "pass" and bool(row.get("missing_terms"))
     ]
     lines = [
         "# Claim Review Dashboard",
@@ -1076,14 +1127,19 @@ def write_review_dashboard(review_rows: list[dict[str, Any]], distilled_rows: li
         lines.append("No evaluation failures.")
     else:
         for row in failed_evals[:50]:
-            missing = row.get("missing_terms") or [term for term, ok in (row.get("term_results") or {}).items() if not ok]
+            missing = list(row.get("missing_terms") or [])
             lines.append(f"- `{row['id']}` score `{row['score']}` missing terms: {', '.join(missing)}")
+    lines.extend(["", "## Hosted Retrieval Evaluations", ""])
+    if not pending_evals:
+        lines.append("No evaluations are waiting for the hosted service gate.")
+    else:
+        lines.append(f"{len(pending_evals)} curated retrieval evaluations are validated by `kb eval-service` after deployment.")
     lines.extend(["", "## Evaluation Term Misses", ""])
     if not near_misses:
         lines.append("No passing evaluations have missing required terms.")
     else:
         for row in sorted(near_misses, key=lambda item: (float(item.get("score") or 0), str(item.get("id") or "")))[:50]:
-            missing = row.get("missing_terms") or [term for term, ok in (row.get("term_results") or {}).items() if not ok]
+            missing = list(row.get("missing_terms") or [])
             lines.append(f"- `{row['id']}` score `{row['score']}` missing terms: {', '.join(missing)}")
     lines.append("")
     REVIEW_DASHBOARD_PATH.write_text("\n".join(lines), encoding="utf-8")

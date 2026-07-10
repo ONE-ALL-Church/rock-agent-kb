@@ -41,8 +41,8 @@ Follow the guide section for Recipe: Diagnose A Cache Leak.
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/lava
 - https://community.rockrms.com/api-docs
-- https://www.triumph.tech/resources/github-spotlight-1042024
 - https://community.rockrms.com/lava/remote-lava
+- https://www.triumph.tech/resources/github-spotlight-1042024
 - https://www.rockrms.com/releasenotes
 - https://rocksolidchurchdemo.com/admin/power-tools/model-map
 - https://community.rockrms.com/ask/developing

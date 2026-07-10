@@ -929,19 +929,22 @@ def test_public_export_surface_stays_community_focused():
         "agent/evaluation-set.jsonl",
         "agent/source-conflicts.jsonl",
     ]:
-        assert path not in exported
+        assert path in exported
 
     manifest = json.loads(public_export_text_for_path(REPO_ROOT / "agent" / "rock-kb-manifest.json"))
+    for key in [
+        "private_media",
+    ]:
+        assert key not in manifest["agent_entrypoints"]
     for key in [
         "claim_review_dashboard",
         "claim_review_queue",
         "evaluation_report",
         "evaluation_results",
         "evaluation_set",
-        "private_media",
         "source_conflicts",
     ]:
-        assert key not in manifest["agent_entrypoints"]
+        assert key in manifest["agent_entrypoints"]
 
 
 def test_public_claim_sanitizer_removes_private_live_probe_details():

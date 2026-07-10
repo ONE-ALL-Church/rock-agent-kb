@@ -56,7 +56,11 @@
       "Verify Lava transaction behavior, WorkflowActivate attribute keys, SQL Server CRYPT_GEN_RANDOM support, endpoint CSRF behavior, proxy-aware client IP handling, and SMS retention before launch.",
       "The package was reviewed against the Rock 17/18 model family."
     ],
-    "tested_rock_versions": []
+    "tested_rock_versions": [],
+    "version_matrix": [
+      {"rock_version": "17", "status": "expected", "notes": ["Reviewed against the Rock 17 model family; verify in the target instance."]},
+      {"rock_version": "18", "status": "expected", "notes": ["Reviewed against the Rock 18 model family; verify in the target instance."]}
+    ]
   },
   "concept_ids": [
     "security-permissions",
@@ -73,6 +77,7 @@
     "https://pages.nist.gov/800-63-4/sp800-63b/authenticators/",
     "https://community.rockrms.com/modelmap"
   ],
+  "feedback_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues",
   "implementation": {
     "commit_sha": "066de269c3071461f8da3702dab917d4d16a07c4",
     "files": [

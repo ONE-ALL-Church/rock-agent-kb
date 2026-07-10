@@ -2,7 +2,7 @@
 id: concept-learning-lms-engagement
 title: Learning, LMS, And Engagement
 generated: true
-last_built: 2026-07-09T23:50:00+00:00
+last_built: 2026-07-10T08:20:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 38
@@ -126,7 +126,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Learning Class Activity Completion](../../model-map/models/learning-class-activity-completion.md) | LMS | 19.1.8 | 65 | 32 | 42 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Learning Course Requirement](../../model-map/models/learning-course-requirement.md) | LMS | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Learning Class](../../model-map/models/learning-class.md) | LMS | 19.1.8 | 126 | 64 | 99 | 35 | 5 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Class Activity](../../model-map/models/learning-class-activity.md) | LMS | 19.1.8 | 62 | 31 | 40 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Class Activity](../../model-map/models/learning-class-activity.md) | LMS | 19.1.8 | 62 | 31 | 40 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
 | [Learning Class Announcement](../../model-map/models/learning-class-announcement.md) | LMS | 19.1.8 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Learning Class Content Page](../../model-map/models/learning-class-content-page.md) | LMS | 19.1.8 | 41 | 13 | 26 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Learning Course](../../model-map/models/learning-course.md) | LMS | 19.1.8 | 58 | 25 | 40 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |

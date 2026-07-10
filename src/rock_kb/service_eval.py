@@ -57,6 +57,7 @@ def evaluate_service(
 def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float, max_allowed_rank: int = 2) -> dict[str, Any]:
     question = str(row.get("question") or "")
     expected_concept = str(row.get("concept_id") or "")
+    row_max_rank = max(1, min(int(row.get("max_rank") or max_allowed_rank), limit))
     params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only", "detail": "full"})
     try:
         response = httpx.get(f"{base_url}/search?{params}", headers={"user-agent": "rock-kb-eval/1.0"}, timeout=timeout)
@@ -69,7 +70,7 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
             "question": question,
             "expected_concept": expected_concept,
             "expected_concept_rank": None,
-            "max_allowed_rank": max_allowed_rank,
+            "max_allowed_rank": row_max_rank,
             "hit_count": 0,
             "concepts": [],
             "missing_terms": [],
@@ -79,19 +80,36 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
     ordered_concepts = [str(hit.get("concept") or "") for hit in hits if isinstance(hit, dict)]
     concepts = set(ordered_concepts)
     expected_rank = next((index + 1 for index, concept in enumerate(ordered_concepts) if concept == expected_concept), None)
+    ordered_ids = [str(hit.get("id") or "") for hit in hits if isinstance(hit, dict)]
+    ordered_kinds = [str(hit.get("kind") or "") for hit in hits if isinstance(hit, dict)]
+    expected_ids = [str(value) for value in row.get("expected_result_ids") or []]
+    expected_kinds = [str(value) for value in row.get("expected_result_kinds") or []]
+    expected_id_rank = next((index + 1 for index, result_id in enumerate(ordered_ids) if result_id in expected_ids), None)
+    expected_kind_rank = next((index + 1 for index, kind in enumerate(ordered_kinds) if kind in expected_kinds), None)
     required_terms = [str(term).lower() for term in row.get("required_terms") or []]
     serialized = json.dumps(hits, ensure_ascii=False).lower()
     missing_terms = [term for term in required_terms if term.lower() not in serialized]
-    rank_passed = not expected_concept or (expected_rank is not None and expected_rank <= max_allowed_rank)
-    passed = bool(hits) and rank_passed and not missing_terms
+    rank_passed = not expected_concept or (expected_rank is not None and expected_rank <= row_max_rank)
+    id_passed = not expected_ids or (expected_id_rank is not None and expected_id_rank <= row_max_rank)
+    kind_passed = not expected_kinds or (expected_kind_rank is not None and expected_kind_rank <= row_max_rank)
+    min_hits_passed = len(hits) >= int(row.get("min_hits") or 1)
+    passed = bool(hits) and rank_passed and id_passed and kind_passed and min_hits_passed and not missing_terms
     return {
         "id": row.get("id"),
         "question": question,
         "expected_concept": expected_concept,
         "expected_concept_rank": expected_rank,
-        "max_allowed_rank": max_allowed_rank,
+        "max_allowed_rank": row_max_rank,
         "hit_count": len(hits),
         "concepts": sorted(concepts),
+        "result_ids": ordered_ids,
+        "result_kinds": ordered_kinds,
+        "expected_result_ids": expected_ids,
+        "expected_result_kinds": expected_kinds,
+        "expected_result_id_rank": expected_id_rank,
+        "expected_result_kind_rank": expected_kind_rank,
         "missing_terms": missing_terms,
+        "source": row.get("source"),
+        "evaluation_mode": row.get("evaluation_mode"),
         "status": "pass" if passed else "fail",
     }

@@ -132,13 +132,19 @@ The Worker exposes:
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only.
 
-`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, section status, answer evaluation results, and aggregate telemetry. It summarizes already-public artifacts plus D1 row metadata; it does not expose private corpus files or raw query text.
+`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, section status, answer evaluation results, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; zero-result reporting uses public Rock topic categories rather than query text. Structured feedback stores only a hashed result ID, rating, and fixed reason. It does not expose private corpus files, raw query text, or free-text feedback.
 
 Run the hosted evaluation gate after deployment:
 
 ```bash
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
 ```
+
+The evaluation set combines generated answer-structure checks with authored
+real-world retrieval cases from `evaluations/real-world.jsonl`. Curated cases
+can require an exact result ID, result kind, concept rank, and source-supported
+terms. Add cases when a real agent query routes poorly; do not weaken a case to
+preserve a perfect score.
 
 The evaluator requests five search results per question and, by default,
 requires the expected concept to appear in the top two results
@@ -175,8 +181,8 @@ uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2 --private
 
 Use `--strict` in automation when incomplete live gates should fail the run. The command checks the repo-side implementation, PR approval state, deploy secrets/variables, auto-merge policy, reviewed-org count, and private-corpus restore artifacts.
 Set `ROCK_KB_NETWORK_READINESS_TIMEOUT` to tune the per-command timeout. The
-default is 45 seconds so a stalled hosted probe fails with evidence instead of
-hanging the readiness job indefinitely.
+default is 120 seconds so the full hosted evaluation suite can complete while a
+stalled probe still fails instead of hanging the readiness job indefinitely.
 The private-corpus restore check intentionally redacts the mounted checkout path
 in its JSON evidence so readiness output can be pasted into public PRs without
 leaking local or private repo paths.

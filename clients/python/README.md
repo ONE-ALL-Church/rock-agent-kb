@@ -59,6 +59,8 @@ uvx rock-kb model group
 uvx rock-kb recipes list
 uvx rock-kb recipes search "registration attendance dashboard"
 uvx rock-kb recipe oneall:check-in-status-dashboard
+uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
+uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -78,6 +80,10 @@ Search output is compact by default. It returns stable IDs, snippets, trust
 tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or
 `rock-kb claim <claim-id>` for full detail. Use `search --full` only for
 compatibility with workflows that still need full rows in one response.
+
+`recipe verify` checks immutable source hashes and declared compatibility. It
+does not execute recipe code or change Rock. `feedback` accepts only a fixed
+rating and reason; it does not send free-text comments or query text.
 
 To test unreleased client changes directly from GitHub, use:
 

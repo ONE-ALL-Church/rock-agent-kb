@@ -2,6 +2,62 @@
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
+      "claim": "Apple TV TVML text can be styled with predefined tv-text-style values, font weights and families, and inline bold, italic, or strikethrough tags.",
+      "claim_hash": "7dd49c3fa1a1cad115d9510bbb50cf789261e0656ec155ea3c53b13ddb2633f1",
+      "claim_id": "claim:04ea8a3340efad3b9001",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fbc5daac9451700e967039b55d9871760fe6a76db0cc56df17f8c72057c9971f",
+      "source_record_ids": [
+        "rock_developer:article:139"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "TV Text Style",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Apple TV media commands can play video from MP4 or HLS sources and audio from MP3 sources, but they cannot play YouTube content.",
+      "claim_hash": "8c7e6968cd8d2bec4567da42ecc5da1e061c61a3d222270c4400cb0fbbf33644",
+      "claim_id": "claim:1a9395b309ce05370bc9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b37bdede06168636ba65609ddb68b8ba5156da46f078c3346852f9a9bfea6524",
+      "source_record_ids": [
+        "rock_developer:article:173"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Media Commands",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows.",
       "claim_hash": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
       "claim_id": "claim:29f4e0bbc81c08861367",
@@ -151,6 +207,34 @@
     },
     {
       "authority_tier": "official",
+      "claim": "An Apple TV login menu item can use the login command with page GUIDs for the login, timeout, and success destinations; the login TVML receives single-brace authQrCodeUrl and authCode fields for presenting QR-code or manual-code authentication.",
+      "claim_hash": "bf0c67bfd1d415dca9de892cf8953c5f1537bcbf7986edde8b084cbfc5035c46",
+      "claim_id": "claim:47d0054183b6a3c9d5bf",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "127065bff9824c8826666d86cb77fcac44185f04c9884395ce5d40d9dce6f2f9",
+      "source_record_ids": [
+        "rock_developer:article:128"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating a Sign-in Page",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater.",
       "claim_hash": "88263d519605030fa592ae701ea569ae3ae1d7bfd6c498c213f5a7454d427285",
       "claim_id": "claim:49b86c70fc03c6969d42",
@@ -209,6 +293,90 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Apple TV page Lava can inspect the current person's edit and administration access, page parameters, TV shell version, device details, application theme, and whether the client shell is in demo mode.",
+      "claim_hash": "763cd41c13110eba24a34a27826d1e4750ac34b4dc93e7b862465f2b773dcdb0",
+      "claim_id": "claim:5e31410fc17f56275552",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "48abb55bf2dddcb546502af81544da16f75902e5a31e1a237a9d4dbfa8dc462c",
+      "source_record_ids": [
+        "rock_developer:article:130"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "TV Pages",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For Apple TV media playback, supplying an existing watch map sets the resume position; pairing that map with an interaction GUID appends viewing progress to the existing interaction, while omitting the interaction GUID creates a new interaction and watch map beginning from the prior stopping point.",
+      "claim_hash": "8c2db24fcaf2cce1418974683a6f8802a86e5612b0e0bfe67d4b262e50171ddf",
+      "claim_id": "claim:7c1dbe225fa4deb7dd95",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b37bdede06168636ba65609ddb68b8ba5156da46f078c3346852f9a9bfea6524",
+      "source_record_ids": [
+        "rock_developer:article:173"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Media Commands",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "To support sign-in for a Rock Apple TV app without using the TV keyboard, place a Remote Authentication block on an external Rock page, associate the block with the TV application's site, and set that page as the application's authentication page.",
+      "claim_hash": "dd8fc6e2b1d3182de5a64902b4ea79593f61d6abf81ccde1780d43af04eda1a3",
+      "claim_id": "claim:7ccac1bf95c7087cf399",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "127065bff9824c8826666d86cb77fcac44185f04c9884395ce5d40d9dce6f2f9",
+      "source_record_ids": [
+        "rock_developer:article:128"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating a Sign-in Page",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns.",
       "claim_hash": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
@@ -239,6 +407,34 @@
           "timestamp_seconds": 183.66,
           "title": "Episode 143: Special Edition- Braden Cohen",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When building a Rock-linked Apple TV app, use Apple’s TVML documentation for the underlying markup and Rock’s documentation for Rock-specific extensions; modifying the application’s JavaScript is discouraged.",
+      "claim_hash": "c60ec0ac2b3761c0d1f9c2eabd4fdbd8cb4cf1af6801d3355c52546856bf7ac0",
+      "claim_id": "claim:90bc57ced4d3600ea70a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "34520bc4e7057fa37e33a099aa918a293204125fc9b181429bfc91b8b51308b6",
+      "source_record_ids": [
+        "rock_developer:article:120"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Apple TV Docs",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs"
         }
       ]
     },
@@ -277,6 +473,62 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "A Rock Apple TV page has a cacheability setting: Public permits shared-cache storage, Private limits caching to the client, No-Cache requires revalidation before a local copy is reused, and No-Store prevents local storage for sensitive content.",
+      "claim_hash": "d16de99e8b638a907e9af62a74cce16b569c32eaa52cc06d61afae582a501bb7",
+      "claim_id": "claim:a09101e748f770a8b521",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4a0b5abfd7e4ff63812ac3c39aaec5ea4546270813c002d1a96851cb0012079b",
+      "source_record_ids": [
+        "rock_developer:article:127"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Adding Content",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A TVML text shadow can be specified with horizontal offset, vertical offset, blur radius, and color, but its surrounding element may clip the shadow vertically; keeping the shadow near the text reduces that risk.",
+      "claim_hash": "50f7e34bdc6599fa7e784139bf51319f19373e4776d1fb03e3e7eb3eedaff0dd",
+      "claim_id": "claim:b3c6d9a97e88ab0a3bbb",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fbc5daac9451700e967039b55d9871760fe6a76db0cc56df17f8c72057c9971f",
+      "source_record_ids": [
+        "rock_developer:article:139"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "TV Text Style",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform.",
       "claim_hash": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
@@ -307,6 +559,62 @@
           "timestamp_seconds": 86.92,
           "title": "Episode 143: Special Edition- Braden Cohen",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Rock Apple TV app icon uses three separate image layers for the tvOS parallax effect; foreground layers must be PNG files and the background layer must be a JPG file.",
+      "claim_hash": "d6a23a4247a93a7b6c09754199be4b48c0973e6e04ab4a99b01d970d69fbbb0b",
+      "claim_id": "claim:c63b64b38fbb8b997213",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5e3feb94b33c7d789ec059490603971e850aeca292f6d8d33f98d3ef13dba6b9",
+      "source_record_ids": [
+        "rock_developer:article:146"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "App Icons",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Prepare layered Rock Apple TV app icons at 400×240 pixels for @1x display, 800×480 pixels for @2x display, and 1280×768 pixels for the App Store.",
+      "claim_hash": "fba02287f1beebb345a6110219646ca71ddfc40f055a258231bad4dd6b7f8b2e",
+      "claim_id": "claim:d46bd13bb8523b527394",
+      "claim_tier": "source_backed",
+      "claim_type": "recipe",
+      "community_derived": false,
+      "concept_ids": [
+        "apple-tv"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5e3feb94b33c7d789ec059490603971e850aeca292f6d8d33f98d3ef13dba6b9",
+      "source_record_ids": [
+        "rock_developer:article:146"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "App Icons",
+          "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons"
         }
       ]
     },
@@ -343,17 +651,28 @@
     }
   ],
   "approved_claim_hashes": {
+    "claim:04ea8a3340efad3b9001": "7dd49c3fa1a1cad115d9510bbb50cf789261e0656ec155ea3c53b13ddb2633f1",
+    "claim:1a9395b309ce05370bc9": "8c7e6968cd8d2bec4567da42ecc5da1e061c61a3d222270c4400cb0fbbf33644",
     "claim:29f4e0bbc81c08861367": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
     "claim:30ff6291c1d3a92fea69": "66c75fd11843ce29cb4dd2c99c095687532fd45f0b44d50af6aa9f6bd1f0a648",
     "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+    "claim:47d0054183b6a3c9d5bf": "bf0c67bfd1d415dca9de892cf8953c5f1537bcbf7986edde8b084cbfc5035c46",
     "claim:49b86c70fc03c6969d42": "88263d519605030fa592ae701ea569ae3ae1d7bfd6c498c213f5a7454d427285",
     "claim:5bd2b6b4cac279be5e13": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
+    "claim:5e31410fc17f56275552": "763cd41c13110eba24a34a27826d1e4750ac34b4dc93e7b862465f2b773dcdb0",
+    "claim:7c1dbe225fa4deb7dd95": "8c2db24fcaf2cce1418974683a6f8802a86e5612b0e0bfe67d4b262e50171ddf",
+    "claim:7ccac1bf95c7087cf399": "dd8fc6e2b1d3182de5a64902b4ea79593f61d6abf81ccde1780d43af04eda1a3",
     "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
+    "claim:90bc57ced4d3600ea70a": "c60ec0ac2b3761c0d1f9c2eabd4fdbd8cb4cf1af6801d3355c52546856bf7ac0",
     "claim:98aeedbbadb50affa418": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
+    "claim:a09101e748f770a8b521": "d16de99e8b638a907e9af62a74cce16b569c32eaa52cc06d61afae582a501bb7",
+    "claim:b3c6d9a97e88ab0a3bbb": "50f7e34bdc6599fa7e784139bf51319f19373e4776d1fb03e3e7eb3eedaff0dd",
     "claim:b83b4c10285c00974e57": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
+    "claim:c63b64b38fbb8b997213": "d6a23a4247a93a7b6c09754199be4b48c0973e6e04ab4a99b01d970d69fbbb0b",
+    "claim:d46bd13bb8523b527394": "fba02287f1beebb345a6110219646ca71ddfc40f055a258231bad4dd6b7f8b2e",
     "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad"
   },
-  "approved_claims_hash": "5f539f5f347197ff609164fe66fb3aa6bc42178d0410e57c64d14876acf416dd",
+  "approved_claims_hash": "9e4331ed174087a9164a4a2fa608aa5d17921222ca1c8544a600a9e09bf53df9",
   "approved_claims_path": "knowledge/concepts/apple-tv/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -380,12 +699,12 @@
   },
   "approved_media_hash": "2bebf3831a4916b42badb896e3af36fda58d52a936405d6bf77af38246768f60",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-07-09T23:50:00+00:00",
+  "built_at": "2026-07-10T08:20:00+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "797cd4d64e861eedc07e35139283f4309af3cc2ddafa9065a3d73350e135627b",
-  "guide_line_count": 1376,
+  "guide_hash": "db544ce7221e8d731706beac166abc72a3d5e0faeda1fd639c259c669313db0f",
+  "guide_line_count": 1380,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
-  "guide_word_count": 13445,
+  "guide_word_count": 13590,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1700,37 +2019,40 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1266,
+      "end_line": 1270,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "80679876651d7dc7",
         "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "74ac83f99a50c012",
+        "4155cc8ec235808f",
         "74ac83f99a50c012",
         "80679876651d7dc7",
-        "53ad1133e1cb2d0a",
-        "0c49f1da7a50e9ad",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5"
+        "74ac83f99a50c012",
+        "80679876651d7dc7",
+        "0c49f1da7a50e9ad"
       ],
       "start_line": 1245
     },
     {
       "confidence": "citation-only",
-      "end_line": 1279,
+      "end_line": 1283,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1267
+      "start_line": 1271
     },
     {
       "confidence": "structural",
-      "end_line": 1281,
+      "end_line": 1285,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1747,11 +2069,11 @@
         "d275b5b94a9da833",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1280
+      "start_line": 1284
     },
     {
       "confidence": "normal",
-      "end_line": 1376,
+      "end_line": 1380,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1819,7 +2141,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1282
+      "start_line": 1286
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",

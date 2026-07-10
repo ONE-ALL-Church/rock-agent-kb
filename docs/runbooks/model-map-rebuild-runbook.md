@@ -34,9 +34,10 @@ freshness and routing can be checked from generated artifacts.
 
 ```bash
 npm install --prefix /tmp/rock-model-map-scrape playwright
+npx --prefix /tmp/rock-model-map-scrape playwright install chromium
 ```
 
-`uv run kb modelmap fetch` automatically adds `/tmp/rock-model-map-scrape/node_modules` to `NODE_PATH` when that directory exists.
+`uv run kb modelmap fetch` automatically adds `/tmp/rock-model-map-scrape/node_modules` to `NODE_PATH` when that directory exists. Both the Node package and its Chromium runtime are required on a fresh machine.
 
 The public demo credentials used for the generic demo sites are `admin` / `admin`.
 

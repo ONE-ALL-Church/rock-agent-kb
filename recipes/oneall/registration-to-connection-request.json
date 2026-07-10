@@ -75,6 +75,10 @@
     "tested_rock_versions": [
       "17",
       "18"
+    ],
+    "version_matrix": [
+      {"rock_version": "17", "status": "verified", "notes": []},
+      {"rock_version": "18", "status": "verified", "notes": []}
     ]
   },
   "concept_ids": [
@@ -92,6 +96,7 @@
     "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/Connections/CreateConnectionRequest.cs",
     "https://community.rockrms.com/modelmap"
   ],
+  "feedback_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues",
   "implementation": {
     "commit_sha": "03efbb093c024d31ae4df3b6e6af56bdbbcafe00",
     "files": [

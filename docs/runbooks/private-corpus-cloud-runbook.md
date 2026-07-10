@@ -41,6 +41,24 @@ uv run kb corpus verify-rebuild --path ../private-corpus --public-export-destina
 
 Use `--overwrite` only when intentionally replacing local ignored artifacts from the private corpus.
 
+For a real restore drill, clone the private corpus into a new temporary
+directory rather than validating the maintainer's existing checkout. A passing
+`corpus validate` plus `corpus verify-rebuild` proves the git-backed text,
+review, normalized, transcript, and media-index layers are portable. Confirm a
+recent successful private ingest workflow separately to prove the cloud and R2
+path.
+
+Run the full readiness report with explicit private inputs so an unset shell
+does not produce a false infrastructure failure:
+
+```bash
+ROCK_KB_PRIVATE_CORPUS_REPO=<owner/private-corpus-repo> \
+ROCK_KB_PRIVATE_CORPUS_PATH=../private-corpus \
+uv run kb network-readiness \
+  --repo ONE-ALL-Church/rock-agent-kb \
+  --private-corpus-path ../private-corpus
+```
+
 ## Write-Once Transcript Rule
 
 Transcript rows are keyed by media id in `data/media/<source>.transcripts.jsonl`. `kb media transcribe` reuses an existing `transcribed` transcript row instead of re-running ASR when a restored transcript exists. Re-transcription should require an explicit future force path and should preserve the old transcript row or raw payload for audit.

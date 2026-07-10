@@ -52,8 +52,15 @@ A reusable read-only Helix Lava Application pattern that combines an event regis
 
 - Tested Rock versions: 17, 18
 - Last verified: 2026-06-24
+- Rock `17`: `verified`
+- Rock `18`: `verified`
 - Verify table, field, Lava command, and Helix endpoint behavior against the target Rock release.
 - Local registration and check-in workflows may encode status differently.
+
+## Community Verification
+
+- No consumer verification attestations have been submitted yet.
+- Feedback and issues: https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues
 
 ## Reusable Learnings
 

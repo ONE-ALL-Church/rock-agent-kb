@@ -83,6 +83,7 @@ uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
+uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb dashboard
 ```
 
@@ -174,7 +175,13 @@ flag allows it, the org registry sets `intake.auto_merge_allowed: true`, and the
 PR changes exactly the expected bundle path for that org. Otherwise the PR stays
 review-required.
 
-Use `rock-kb dashboard` to see public operational counts for community-unreviewed intake rows, review queues, source-conflict prompts, evaluation status, and aggregate telemetry. It does not expose private corpus data or raw query text.
+Use `rock-kb dashboard` to see public operational counts for community-unreviewed intake rows, review queues, source-conflict prompts, evaluation status, and aggregate telemetry. Evaluation traffic is reported separately from CLI, MCP, browser, and unknown clients. It does not expose private corpus data, raw query text, or free-text feedback.
+
+After opening a search result, agents can report structured quality feedback:
+
+```bash
+uvx rock-kb feedback '<result-id>' --rating -1 --reason wrong_route
+```
 
 ## Agent Prompt Starter
 

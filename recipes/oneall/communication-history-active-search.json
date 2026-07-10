@@ -52,6 +52,10 @@
     "tested_rock_versions": [
       "17",
       "18"
+    ],
+    "version_matrix": [
+      {"rock_version": "17", "status": "verified", "notes": []},
+      {"rock_version": "18", "status": "verified", "notes": []}
     ]
   },
   "concept_ids": [
@@ -67,6 +71,7 @@
     "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
     "https://community.rockrms.com/modelmap"
   ],
+  "feedback_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues",
   "implementation": {
     "commit_sha": "066de269c3071461f8da3702dab917d4d16a07c4",
     "files": [

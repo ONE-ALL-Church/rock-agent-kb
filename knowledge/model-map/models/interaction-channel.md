@@ -22,7 +22,7 @@
 | Related model links | 21 |
 | Method signatures | 36 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 2 |
 
 ## Properties
 
@@ -145,4 +145,5 @@
 
 | Change | Property | Fields |
 | --- | --- | --- |
+| property_added | EnableComponentDailyCounts |  |
 | property_changed | ChannelTypeMediumValueId | enum_values |

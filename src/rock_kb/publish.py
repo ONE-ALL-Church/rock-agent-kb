@@ -61,6 +61,12 @@ PUBLIC_PATHS = [
     "agent/live-probe-recipes.jsonl",
     "agent/distilled-claims.jsonl",
     "agent/source-authority-rules.jsonl",
+    "agent/claim-review-dashboard.md",
+    "agent/claim-review-queue.jsonl",
+    "agent/source-conflicts.jsonl",
+    "agent/evaluation-report.json",
+    "agent/evaluation-results.jsonl",
+    "agent/evaluation-set.jsonl",
     "contributions",
 ]
 
@@ -69,13 +75,7 @@ PUBLIC_VIRTUAL_FILES = {
 }
 
 PUBLIC_INTERNAL_AGENT_ENTRYPOINTS = {
-    "claim_review_dashboard",
-    "claim_review_queue",
-    "evaluation_report",
-    "evaluation_results",
-    "evaluation_set",
     "private_media",
-    "source_conflicts",
 }
 
 PRIVATE_PATH_PREFIXES = [
