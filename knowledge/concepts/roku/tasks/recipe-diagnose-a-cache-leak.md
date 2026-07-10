@@ -44,5 +44,5 @@ Follow the guide section for Recipe: Diagnose A Cache Leak.
 - https://community.rockrms.com/lava/remote-lava
 - https://www.triumph.tech/resources/github-spotlight-1042024
 - https://www.rockrms.com/releasenotes
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://community.rockrms.com/ask/developing
+- https://www.triumph.tech/resources/dashboard-design-part-1
+- https://www.triumph.tech/resources/ai-in-digital-ministry

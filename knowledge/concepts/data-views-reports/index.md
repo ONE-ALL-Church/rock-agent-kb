@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-07-10T14:36:59+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -250,6 +250,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | rocku-confirmed | operational_guidance | Data Views should be treated as reusable record-set definitions: they answer which records qualify before a Report, Dynamic Report block, workflow, or other consumer decides how to display or act on those records. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | rocku-confirmed | operational_guidance | People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
@@ -266,9 +268,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Merging Duplicate Records RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/individuals-in-rock/merging-duplicate-records) |
 | rocku-confirmed | operational_guidance | The BI Family Report RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report) |
 | rocku-confirmed | operational_guidance | For ministry process design, Giving Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-overview) |
-| rocku-confirmed | operational_guidance | For Rock operations and administration, Properties and Attributes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
-| rocku-confirmed | operational_guidance | The BI Embed Report RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report) |
-| More |  | 538 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 540 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -360,10 +360,10 @@ Keywords: `data view, filter`
 | Data View Filter Groups Transcript Insight | rock_rocku | Data View Filter Groups is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/reporting/data-view-filter-groups) |
 | Data View Overview Transcript Insight | rock_rocku | Data View Overview strengthens the reporting guide by reinforcing Data Views as reusable qualifying-record definitions whose filters, persistence, and consumers must be checked before edits. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | Post Filter Transformation Transcript Insight | rock_rocku | Post Filter Transformation is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/reporting/post-filter-transformation) |
-| Background | rock_recipes | 6 Reporting Dashboard Shared by Missie Dawes , ABWE International 2 years ago 14.1 Administration / Finance, Leadership Intermediate Background Our organization relies heavily upon four main types of reports within Rock: 1) Reports, 2) Data Views, 3) pages with dynamic Rock report functionality (e.g., dynamic report blocks, dynamic data blocks), and 4) pages with embedded Power BI reports. Although staff can only... | [source](https://community.rockrms.com/recipes/397) |
-| Create a Report | rock_documentation | Let's jump right in and take a look at a report. For our example, we'll look at a report that gives the name and phone numbers of individuals with duplicate phone numbers. The figure below shows what this report would look like. The callouts for the figure explain the various steps used in the creation of our report. 1. **Name / Description** - First, we give our report a name and description. We highly recommend... | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report) |
-| Intro to Reports | rock_documentation | Now that we've selected the records we need, we're ready to define how we want our report to display. Usually this means adding fields to our report. Let’s see how this is done. Note **Reuse Is Good**Separating the filtering from the display also has the added benefit that reports with separate display features can use the same filtering logic. In many systems you would have to redefine the same filters twice. This... | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports) |
-| Use Attendance Analytics | rock_documentation | While there are a number of ways to access attendance data using Data Views and SQL reports, Rock also provides powerful analytics capabilities that you can access from `Tools > Reporting > Attendance Analytics`. This powerful tool should be able to answer any question you throw at it. Let's see what's possible. This block operates in two modes: *Chart*and *Attendees*. # Chart Mode When in chart mode, the analytics... | [source](https://community.rockrms.com/documentation/church-management/check-in/attendance/use-attendance-analytics) |
+| BI Embed Report Training | rock_rocku | BI Embed Report Jon Edmiston Note The licensing for embedding reports does have a cost. Refer to the Rock BI manual for details on how to correctly license Power BI. Experience Mode Trailblazer Essentials Trailblazer BI Overview 8:52 BI Models 13:20 BI Template 6:34 BI Job 3:33 BI Financial Transaction Report 10:34 BI Attendance Report 7:05 BI Family Report 16:27 BI Embed Report 7:14 Reporting Strategy 2:11 Data... | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report) |
+| BI Embed Report Training | rock_rocku | BI Embed Report Jon Edmiston Note The licensing for embedding reports does have a cost. Refer to the Rock BI manual for details on how to correctly license Power BI. Experience Mode Trailblazer Essentials Trailblazer BI Overview 8:52 BI Models 13:20 BI Template 6:34 BI Job 3:33 BI Financial Transaction Report 10:34 BI Attendance Report 7:05 BI Family Report 16:27 BI Embed Report 7:14 Reporting Strategy 2:11 Data... | [source](https://community.rockrms.com/rocku/reporting/bi-embed-report) |
+| BI Attendance Report Training | rock_rocku | BI Attendance Report Jon Edmiston Here's a link to the BI Template Jon references in this video: https://rockrms.blob.core.windows.net/externalapplications/powerbi/Rock%20RMS%20v7.pbit Experience Mode Trailblazer Essentials Trailblazer BI Overview 8:52 BI Models 13:20 BI Template 6:34 BI Job 3:33 BI Financial Transaction Report 10:34 BI Attendance Report 7:05 BI Family Report 16:27 BI Embed Report 7:14 Reporting... | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report) |
+| BI Family Report Training | rock_rocku | BI Family Report Jon Edmiston Here's a link to our BI Template: https://rockrms.blob.core.windows.net/externalapplications/powerbi/Rock%20RMS%20v7.pbit Experience Mode Trailblazer Essentials Trailblazer BI Overview 8:52 BI Models 13:20 BI Template 6:34 BI Job 3:33 BI Financial Transaction Report 10:34 BI Attendance Report 7:05 BI Family Report 16:27 BI Embed Report 7:14 Reporting Strategy 2:11 Data View Overview... | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report) |
 
 ### Reports
 
@@ -456,7 +456,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `144`
 - Lava capability source records: `53`
-- Approved claims: `556`
+- Approved claims: `558`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

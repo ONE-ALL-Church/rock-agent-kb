@@ -2,7 +2,7 @@
 id: concept-learning-lms-engagement
 title: Learning, LMS, And Engagement
 generated: true
-last_built: 2026-07-10T14:36:49+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 38
@@ -36,8 +36,8 @@ Learning programs, LMS courses, lessons, requirements, completion tracking, enga
 ## How To Think About This Area
 
 - `Learning, LMS, And Engagement` spans people, groups, communications, workflows, event-registration, data-views. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_community_hubs, rock_documentation, rock_rocku, rock_model_map, triumph_resources, rock_recipes.
-- Related tags found in source records: operations, usage, admin, lava, workflow, development, releases, LMS.
+- The strongest source families in this build are: rock_community_hubs, rock_documentation, rock_rocku, rock_model_map, rock_recipes, rock_core_release_notes.
+- Related tags found in source records: operations, usage, admin, development, lava, workflow, releases, LMS.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -106,7 +106,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| GitHub Spotlight: 11/14/2025 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release 19.0.1, released on 11/12/2025. 18.0 Highlights Updated the LMS Activity Completion workflow so that it now uses the Learning Class Activity Completion entity instead of the Student (Group Member) entity. Fixed an issue in the Family Preregistration block where editing security on child attributes was being enforced, preventing new guests from entering a... | [source](https://www.triumph.tech/resources/github-spotlight-11142025) |
+| A Small Church, A Big Leap: Nesconset Christian Church’s Journey | triumph_resources | June 01, 2026 Skip the Trial and Error: Borrow Our AI Playbook Introducing the AI Agentic Cohort with Claude. The AI skills, tools, and strategy our team uses every day are no... Read Article | [source](https://www.triumph.tech/resources/a-small-church-a-big-leap-nesconset-christian-church-journey) |
 | Academic Calendar Class Workspace Example | rock_documentation | The workspace for a class under a program using the Academic Calendar mode looks slightly different. It includes a tab bar at the top that shows an overview of the class and class progress, along with tabs for Activities/Assignments and the class Syllabus. 1. **Communication Preferences** - This option appears for students when *Send Notification Communications* is turned on for any class activity. It lets them... | [source](https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example) |
 | Achievements | rock_documentation | [Intro to Achievements](/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements?Version=v19.0) [Achievement Types](/documentation/engagement/additional-engagement-tools/achievements/achievement-types?Version=v19.0) [Add Achievement Types](/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types?Version=v19.0) [Add Achievement... | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements) |
 | Add Achievement Types | rock_documentation | To get started with achievements, navigate to `People > Engagement > Achievements`. You’ll be brought to the *Achievement Types* page pictured below. From here you can add as many achievement types as you want or look at the attempts for an existing achievement type, as described in the prior section. Let’s look at what makes an achievement type work. 1. **Name** - Provide a name for the new achievement type. 2.... | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types) |

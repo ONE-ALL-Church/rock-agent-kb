@@ -2,7 +2,7 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-07-10T14:37:06+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -31,9 +31,30 @@ Roku developer documentation for Rock-powered SceneGraph applications, pages, co
 ## How To Think About This Area
 
 - `Roku Apps` spans api-integrations, lava, cms, security, media, tv-apps. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_mobile_release_notes, rock_api_docs, sparkdevnetwork_rock.
-- Related tags found in source records: lava, development, workflow, cms, api, obsidian, security, mobile.
-- Source detail types include: developer_doc, rock_lava_docs, triumph_resources.
+- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_api_docs, sparkdevnetwork_rock.
+- Related tags found in source records: development, lava, cms, workflow, api, obsidian, security, sql.
+- Source detail types include: developer_doc, rock_lava_docs.
+
+## Reviewed Media Insights
+
+| Source | Topic | Timestamp | Distilled Claim | Citation |
+| --- | --- | --- | --- | --- |
+| Dashboard Design Part 1 Transcript Insight | data and reporting | 00:12 | Start dashboard work by naming the decision or story the dashboard should support, then choose charts that make that comparison legible instead of simply placing available Rock data on screen. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| Dashboard Design Part 1 Transcript Insight | giving and reporting | 00:31 | For giving dashboards that compare connection status, bar-style comparisons are usually easier to read than pie or donut charts because small categories and relative sizes stay visible. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| Dashboard Design Part 1 Transcript Insight | implementation workflow | 09:47 | Prototype dashboards in a fast visual tool before writing Lava or blocks so the team can validate the story, chart type, and audience insight before implementation friction narrows the design. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| SQL Window Functions Transcript Insight | data and reporting | 01:18 | Window functions are useful in Rock SQL reporting when each detail row needs aggregate context, such as total transaction amount, detail count, or percent-of-gift alongside the original transaction-detail row. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| SQL Window Functions Transcript Insight | SQL patterns | 03:30 | Use OVER with PARTITION BY as a row-preserving alternative to GROUP BY when a report needs grouped calculations without collapsing the result set. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| SQL Window Functions Transcript Insight | SQL patterns | 07:40 | Ranking window functions such as row number, rank, dense rank, and n-tile can add ordering, per-person sequence, or bucket analysis to Rock reports without procedural post-processing. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | AI and automation | 00:00 | AI should be treated as an assistive ministry operations layer: useful for drafting, summarizing, classifying, and routing work, but still requiring human judgment and local policy before action. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
+| Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | staff training | 03:12 | Public guidance should frame AI adoption around responsible enablement, including data boundaries, staff training, review expectations, and clear ownership of final decisions. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
+| Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | data and reporting | 03:36 | For Rock-adjacent automation, agents should verify source data and system state rather than treating generated AI output as an authoritative record. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
+| Grouping Sets Transcript Insight | data and reporting | 00:00 | Grouping sets can simplify Rock SQL reports that need multiple aggregation levels, such as detail totals plus higher-level rollups, without maintaining separate queries for each level. | [source](https://www.triumph.tech/resources/grouping-sets) |
+| Grouping Sets Transcript Insight | report design | 00:45 | Use grouping-set style reporting when staff need both granular rows and summary rows in one report surface, but label rollup rows clearly so agents and users do not confuse them with ordinary records. | [source](https://www.triumph.tech/resources/grouping-sets) |
+| Grouping Sets Transcript Insight | implementation workflow | 01:33 | Because grouping sets are a SQL-level technique, public KB guidance should route users to validation against the local schema and SQL dialect before copying a community pattern into production. | [source](https://www.triumph.tech/resources/grouping-sets) |
+| Pivot Pattern Transcript Insight | data and reporting | 00:00 | Pivot-style SQL patterns help Rock reports turn repeated row values into comparison columns when staff need a cross-tab view rather than a long list of records. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+| Pivot Pattern Transcript Insight | report design | 03:32 | Before using a pivot pattern, confirm the report audience needs side-by-side category comparison; if the categories are unstable or too numerous, a normal grouped result may be easier to maintain. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+| Pivot Pattern Transcript Insight | implementation workflow | 03:32 | Treat community pivot examples as patterns to adapt, not final production SQL, because Rock field names, entity relationships, and reporting requirements vary by instance. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+
 
 ## Approved Claims
 
@@ -63,17 +84,16 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_api_docs`: 1
 - `rock_developer`: 20
 - `rock_lava_docs`: 53
-- `rock_mobile_release_notes`: 1
 - `rock_model_map`: 12
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 4
+- `triumph_resources`: 5
 
 ## Highest Signal Sources
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| 👋 Roku Docs | rock_developer | ## 👋Welcome *Extend your digital ministry to Roku TV.* When we introduced support for Apple TV applications in 2022, one question kept coming up: "What about Roku?" With Roku’s vast user base, we knew we had to meet this need. Staying true to our mission of empowering organizations to deliver content seamlessly across platforms, we’ve developed comprehensive Roku integration for Rock. Designed to expand the reach of... | [source](https://community.rockrms.com/developer/roku-docs) |
 | Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. *Extends* [*LayoutGroup*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/layoutgroup.md) ## Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: 1. Display views vertically/horizontally. 2.... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
+| 👋 Roku Docs | rock_developer | ## 👋Welcome *Extend your digital ministry to Roku TV.* When we introduced support for Apple TV applications in 2022, one question kept coming up: "What about Roku?" With Roku’s vast user base, we knew we had to meet this need. Staying true to our mission of empowering organizations to deliver content seamlessly across platforms, we’ve developed comprehensive Roku integration for Rock. Designed to expand the reach of... | [source](https://community.rockrms.com/developer/roku-docs) |
 | Controls | rock_developer | Roku applications are built with an XML language named [SceneGraph](https://developer.roku.com/docs/developer-program/core-concepts/scenegraph-xml/overview.md). Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
 | Roku Resources | rock_developer | * [SceneGraph Reference](https://developer.roku.com/en-gb/docs/references/references-overview.md) - Roku documentation for all the built-in SceneGraph components. * [Roku Samples](https://github.com/rokudev/samples) - A repository of Roku sample applications/SceneGraph. | [source](https://community.rockrms.com/developer/roku-docs/resources/roku-resources) |
 | 📚 Resources | rock_developer | [Controls](/documentation/roku-docs/resources/controls) [Layout Nodes](/documentation/roku-docs/resources/layout-nodes) [Roku Resources](/documentation/roku-docs/resources/roku-resources) [Tips and Tricks](/documentation/roku-docs/resources/tips-and-tricks) [Useful Links](/documentation/roku-docs/resources/useful-links) | [source](https://community.rockrms.com/developer/roku-docs/resources) |
@@ -113,12 +133,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 - `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 - `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
-## Version And Release Watch
-
-| Version | Module | Change | Citation |
-| --- | --- | --- | --- |
-| 7.0 | CMS | Fixed an issue where the PlayAudio and PlayVideo media commands could cause the application to crash. Fixes: #35 | [source](https://www.rockrms.com/mobilereleasenotes) |
-
 ## Repository Landmarks
 
 | Repository | Language | Inclusion Reason | Citation |
@@ -140,6 +154,27 @@ Keywords: `getting started, applications, pages, scenegraph, lava`
 ### Roku Commands
 
 Keywords: `commands, navigation, media, utility, personal`
+
+
+#### Reviewed distilled media insights
+
+| Source | Topic | Timestamp | Distilled Claim | Citation |
+| --- | --- | --- | --- | --- |
+| Dashboard Design Part 1 Transcript Insight | data and reporting | 00:12 | Start dashboard work by naming the decision or story the dashboard should support, then choose charts that make that comparison legible instead of simply placing available Rock data on screen. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| Dashboard Design Part 1 Transcript Insight | giving and reporting | 00:31 | For giving dashboards that compare connection status, bar-style comparisons are usually easier to read than pie or donut charts because small categories and relative sizes stay visible. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| Dashboard Design Part 1 Transcript Insight | implementation workflow | 09:47 | Prototype dashboards in a fast visual tool before writing Lava or blocks so the team can validate the story, chart type, and audience insight before implementation friction narrows the design. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| SQL Window Functions Transcript Insight | data and reporting | 01:18 | Window functions are useful in Rock SQL reporting when each detail row needs aggregate context, such as total transaction amount, detail count, or percent-of-gift alongside the original transaction-detail row. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| SQL Window Functions Transcript Insight | SQL patterns | 03:30 | Use OVER with PARTITION BY as a row-preserving alternative to GROUP BY when a report needs grouped calculations without collapsing the result set. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| SQL Window Functions Transcript Insight | SQL patterns | 07:40 | Ranking window functions such as row number, rank, dense rank, and n-tile can add ordering, per-person sequence, or bucket analysis to Rock reports without procedural post-processing. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | AI and automation | 00:00 | AI should be treated as an assistive ministry operations layer: useful for drafting, summarizing, classifying, and routing work, but still requiring human judgment and local policy before action. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
+| Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | staff training | 03:12 | Public guidance should frame AI adoption around responsible enablement, including data boundaries, staff training, review expectations, and clear ownership of final decisions. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
+| Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | data and reporting | 03:36 | For Rock-adjacent automation, agents should verify source data and system state rather than treating generated AI output as an authoritative record. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
+| Grouping Sets Transcript Insight | data and reporting | 00:00 | Grouping sets can simplify Rock SQL reports that need multiple aggregation levels, such as detail totals plus higher-level rollups, without maintaining separate queries for each level. | [source](https://www.triumph.tech/resources/grouping-sets) |
+| Grouping Sets Transcript Insight | report design | 00:45 | Use grouping-set style reporting when staff need both granular rows and summary rows in one report surface, but label rollup rows clearly so agents and users do not confuse them with ordinary records. | [source](https://www.triumph.tech/resources/grouping-sets) |
+| Grouping Sets Transcript Insight | implementation workflow | 01:33 | Because grouping sets are a SQL-level technique, public KB guidance should route users to validation against the local schema and SQL dialect before copying a community pattern into production. | [source](https://www.triumph.tech/resources/grouping-sets) |
+| Pivot Pattern Transcript Insight | data and reporting | 00:00 | Pivot-style SQL patterns help Rock reports turn repeated row values into comparison columns when staff need a cross-tab view rather than a long list of records. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+| Pivot Pattern Transcript Insight | report design | 03:32 | Before using a pivot pattern, confirm the report audience needs side-by-side category comparison; if the categories are unstable or too numerous, a normal grouped result may be easier to maintain. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+| Pivot Pattern Transcript Insight | implementation workflow | 03:32 | Treat community pivot examples as patterns to adapt, not final production SQL, because Rock field names, entity relationships, and reporting requirements vary by instance. | [source](https://www.triumph.tech/resources/pivot-patterns) |
 
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |

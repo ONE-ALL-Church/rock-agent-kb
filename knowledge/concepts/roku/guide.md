@@ -1177,7 +1177,17 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-No approved media distillations are currently routed to this concept.
+- Approved media records routed to this concept: `5`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Dashboard Design Part 1 Transcript Insight](https://www.triumph.tech/resources/dashboard-design-part-1) | approved_for_public_distillation | 3 | media-insight:22ee135c5240caf2 |
+| [Grouping Sets Transcript Insight](https://www.triumph.tech/resources/grouping-sets) | approved_for_public_distillation | 3 | media-insight:03736b23b68b6bc1 |
+| [Pivot Pattern Transcript Insight](https://www.triumph.tech/resources/pivot-patterns) | approved_for_public_distillation | 3 | media-insight:ae072db145e9b46e |
+| [SQL Window Functions Transcript Insight](https://www.triumph.tech/resources/sql-window-functions) | approved_for_public_distillation | 3 | media-insight:9ce23feb117cb755 |
+| [Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight](https://www.triumph.tech/resources/ai-in-digital-ministry) | approved_for_public_distillation | 3 | media-insight:8a313536a2a7f5bf |
+
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 
 ## 20. Source Map And Dependency Notes

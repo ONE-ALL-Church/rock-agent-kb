@@ -2,7 +2,7 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-07-10T14:37:07+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -30,8 +30,8 @@ Person records, families, aliases, attributes, relationships, and data hygiene.
 ## How To Think About This Area
 
 - `People And Families` spans groups, security, communications, check-in. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_rocku, rock_community_hubs, rock_podcast_rss, rock_documentation, triumph_resources, rock_model_map.
-- Related tags found in source records: usage, operations, admin, workflow, training, media, podcast, timestamped-insights.
+- The strongest source families in this build are: rock_rocku, rock_community_hubs, rock_podcast_rss, rock_documentation, rock_model_map, rock_core_release_notes.
+- Related tags found in source records: usage, workflow, training, operations, admin, security, media, podcast.
 - Source detail types include: documentation_article, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -128,10 +128,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_community_hubs`: 2
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 40
+- `rock_documentation`: 32
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 2
-- `rock_rocku`: 31
+- `rock_rocku`: 39
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -139,18 +139,18 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| Person Photos in Rock | triumph_resources | Person photos in your Rock system literally change the way you see ministry. Records become individuals. Rock has several tools to make the collection of photos simple. We'd recommend that you consider some of the available core Rock tools ( https://community.rockrms.com/documentation/bookcontent/5#photorequests ) and plan to implement them. You might want to keep an eye on how many people in your database have... | [source](https://www.triumph.tech/resources/person-photos-in-rock) |
+| Person Photos in Rock | triumph_resources | June 01, 2026 Skip the Trial and Error: Borrow Our AI Playbook Introducing the AI Agentic Cohort with Claude. The AI skills, tools, and strategy our team uses every day are no... Read Article | [source](https://www.triumph.tech/resources/person-photos-in-rock) |
 | Add a Family | rock_documentation | Warning Before adding a new family be sure to search the database first. No matter how certain you are that they are new, you should always double check. To add a family to the database, click `People > New Family` from the main menu. Rock will display the *New Family* screen. # Family Members First, add the individuals to the family. Completing this section should be fairly easy, but remember these points: * Only... | [source](https://community.rockrms.com/documentation/church-management/people/families/add-a-family) |
 | Add a Person | rock_documentation | As you’re getting started, one of the first things you’ll want to do is add someone (perhaps yourself) to the database. While it might be intuitive to look for a menu item labeled "Add Person", you won’t find one. Because people are members of families, you must start with adding a family. You’ll find that under: `People > New Family`. | [source](https://community.rockrms.com/documentation/church-management/people/people-basics/add-a-person) |
 | Blended Families | rock_documentation | Families come in all shapes and sizes. Managing the complexities of relationships, whether in real life or a database, can be complicated. Luckily, Rock is very flexible. Below we discuss some of the options for entering blended families. # Dual Family Approach When parents have dual custody and both parents are involved with your organization, you may wish to use the dual family approach. In our example below Ben... | [source](https://community.rockrms.com/documentation/church-management/people/families/blended-families) |
 | Calculate Analytics | rock_documentation | All these measures rely on the *Family Analytics* job to be enabled and scheduled to run regularly. This job is available for you out of the box but isn’t automatically enabled. To enable it, simply go to `Admin Tools > Settings > System > Jobs Administration`. From there you can select the Family Analytics job and activate it. You'll also want to consider when and how often it's set to run. The job can also be... | [source](https://community.rockrms.com/documentation/church-management/people/person-family-analytics/calculate-analytics) |
-| Check-in Relationships | rock_documentation | There will be times when you'll want to allow individuals outside of a family to check in children. To make this easy, Rock allows you to add relationships between individuals. # Known Relationships From a *Person Profile* page, you can define *Known Relationships*. The *Allow Check In* relationship allows you to grant check-in rights to a person outside of a child's immediate family. To add a known relationship to... | [source](https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/check-in-relationships) |
 | Church Management | rock_documentation | ### People Articles [Overview](/documentation/church-management/people/overview?Version=v19.0) [People Basics](/documentation/church-management/people/people-basics?Version=v19.0) [Person Profile Page](/documentation/church-management/people/person-profile-page?Version=v19.0) [Families](/documentation/church-management/people/families?Version=v19.0) [Person... | [source](https://community.rockrms.com/documentation/church-management) |
 | Configure Family Attributes | rock_documentation | We've just looked at how to add person attributes to records, so now let's consider how you can add the same functionality to families. As you consider your data needs, you'll want to evaluate whether the data attribute best describes an individual (person attribute) or the entire family (family attribute). Say, for instance, your organization is involved in the foster care movement. You might want to note which... | [source](https://community.rockrms.com/documentation/church-management/people/families/configure-family-attributes) |
 | Configure Person Tokens | rock_documentation | Person tokens come preconfigured in Rock and can be found in the Global Attributes screen (`Admin Tools > Settings > Global Attributes`).There are three Person Token attributes: Person Token Expire Minutes, Person Token Usage Limit, and Person Token Use Legacy Fallback. Click on an attribute to open its configuration settings. The Person Token Expire Minutes attribute is the length of time the person token is valid,... | [source](https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens) |
-| Contributions Tab | rock_documentation | This subsection shows the contributions made by the individual (or family, if combined as a family) and any repeating giving profiles that they have. Staff members can be granted access to create new recurring giving profiles or edit existing ones from this page. The [Giving Overview](/documentation/church-management/finance/track-giving/view-giving-on-person-profile) section provides details and analysis of the... | [source](https://community.rockrms.com/documentation/church-management/people/person-profile-page/contributions-tab) |
-| Convert a Person to a Business | rock_documentation | While working with transactions, you may realize it would be best for Rock to consider a particular person a business or vice versa. Rock allows you to do this, though you'll rarely need to. The process of converting a person to a business or a business to a person is simple. Access the *Business Conversion* screen by clicking the Convert Person/Business button at the top of the Business List screen, located at... | [source](https://community.rockrms.com/documentation/church-management/finance/businesses/convert-a-person-to-a-business) |
 | Delete a Person | rock_documentation | While it might seem like a natural thing to do, deleting a person is not allowed in Rock. Why? The history of a person must be maintained for historical records to be accurate. Think about giving and check-in. If a person was deleted, you would lose their contributions and attendance information. Instead of deleting people, you can inactivate them in the database (more on how to do this later). Let's look at some... | [source](https://community.rockrms.com/documentation/church-management/people/people-basics/delete-a-person) |
+| Display Person Attributes | rock_documentation | Person attributes can be viewed and edited from any tab on the Person Profile page. This is done by adding the Attribute Values block to a zone and setting it to display a specific category of person attributes. This is very flexible because a person attribute can belong to more than one category. To add a new block to a zone, use the *Admin Toolbar* at the bottom of the page. There you'll use the to bring up the... | [source](https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes) |
+| Edit Families | rock_documentation | Did Maddie bring her friend Alex to church with her? No problem. Adding guests of a family is a breeze with the 'Can check in' relationship. Just select the new 'Edit Family' button, then 'Add Individual', then and add Alex with that relationship. We've even enabled some duplicate detection so you're less likely to end up with another Alex Decker in your system. There are a few things to note regarding duplicate... | [source](https://community.rockrms.com/documentation/church-management/check-in/registration/edit-families) |
+| Edit a Family | rock_documentation | To edit a family, click the button in the upper-right corner of the *Family*section of the *Person Profile*. This will take you to the screen pictured below. 1. **Overview Section** - You can edit high-level information about the family here. 2. **Family Members** - From here you can add people to the family (e.g., a new child is born) or maintain each person’s Role (Adult or Child) in the family. You can also click... | [source](https://community.rockrms.com/documentation/church-management/people/families/edit-a-family) |
 
 ## Data Model Landmarks
 

@@ -2740,6 +2740,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls.",
+      "claim_hash": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
+      "claim_id": "claim:903c8ff9b5d2590fd616",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "communications",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s",
+          "timestamp": "06:25",
+          "timestamp_seconds": 385.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For reporting, analytics, and measurement, Sending Email (Simple Mode) should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "51f4cc2e5de71500ceacdb514179eeb3a84cd0e9970f822e4ffb00f881285070",
@@ -4991,6 +5024,7 @@
     "claim:89f1d7d856994b6aabf2": "1ffbd68592b69ef25c526b843f03da4dc4ac3bef647f0484554553e1334d9a34",
     "claim:8a605c2aa9ae467efd8d": "4e12824cdc6ff6d504d68d76568b999337835cd0c96a15d1f2d162916aa5f2bf",
     "claim:8c58e84d80e30386bcd6": "a6687b45891aeecdd42cc5297df2d644ed7a87618787ae32cc16c98ddf097fc8",
+    "claim:903c8ff9b5d2590fd616": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
     "claim:912594401fe69125deae": "51f4cc2e5de71500ceacdb514179eeb3a84cd0e9970f822e4ffb00f881285070",
     "claim:9590957a9e57d03c3b07": "b9fdd6a0ead37b29754f37bfc5ff46d49e1c17ca2e7085299aae4c76c39aab81",
     "claim:9b15de4cb8cd62ae75a1": "a75752bc8c896f9c66d0afd3eab3ed0db1ffde3ef536f40b768c4a4bdae4c6c2",
@@ -5056,7 +5090,7 @@
     "claim:fbe1c1bc5b4f3088779b": "f42db649ebbd9208cdca76e21a05ba19d113dfe810aca2b3edcf3daaf17d0574",
     "claim:fc9111eeb3195e57927a": "d70d718613d9dfc40582c9d4e8f1d9d7d97a517e6ccf015362a210f993186659"
   },
-  "approved_claims_hash": "05bed3255fd75fd0091a398b9eaefa4b48e051817d0545fdd7fda25d33ec4bde",
+  "approved_claims_hash": "f794e693300f62625268dc85ab7da6dc6ecfedd57377bb6171d80ff7b2d8f1ca",
   "approved_claims_path": "knowledge/concepts/communications/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -5776,12 +5810,12 @@
   },
   "approved_media_hash": "837728495591af88c85f6d94796d6897a80f35b4f4510b6b734a81606591b343",
   "approved_media_path": "knowledge/concepts/communications/approved-media.md",
-  "built_at": "2026-07-10T14:38:13+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "communications",
-  "guide_hash": "c561fa58606e287c9f93a5ad01c488e430e8022d256b7fefa8428b6fe7d51e3f",
+  "guide_hash": "7ace84e387648a57e43bc8353fb10a0143ab3b16b2ceaff24d3549548f5853b2",
   "guide_line_count": 1221,
   "guide_path": "knowledge/concepts/communications/guide.md",
-  "guide_word_count": 12246,
+  "guide_word_count": 12256,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6259,6 +6293,15 @@
       "source_key": "2617ec7030df84be",
       "source_record_id": "rock_rocku:2617ec7030df84be",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",
@@ -7577,6 +7620,7 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "dcc9c3b1df657d9f",
         "5be0469caeb64aba",
         "5be0469caeb64aba",
         "5be0469caeb64aba",
@@ -7587,8 +7631,7 @@
         "5be0469caeb64aba",
         "f25daaa8d7e00a2b",
         "5be0469caeb64aba",
-        "0de3abf0560c66c2",
-        "5be0469caeb64aba"
+        "0de3abf0560c66c2"
       ],
       "start_line": 1107
     },
@@ -8820,6 +8863,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",

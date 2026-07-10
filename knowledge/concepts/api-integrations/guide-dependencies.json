@@ -190,6 +190,72 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation.",
+      "claim_hash": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
+      "claim_id": "claim:2a2a9fc94666d58b0e4f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s",
+          "timestamp": "05:40",
+          "timestamp_seconds": 340.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use.",
+      "claim_hash": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
+      "claim_id": "claim:2a7ef23854b5dd315c7d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s",
+          "timestamp": "01:53",
+          "timestamp_seconds": 113.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying risk, governance, permissions, and policy review ideas from Escaping the Complexity Trap, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "bf49858dcb9e13211899221feae68aaae29fb451228c2a28b4f7023db5c58cc9",
@@ -429,6 +495,39 @@
           "timestamp_seconds": 145.01999999999998,
           "title": "Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy.",
+      "claim_hash": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
+      "claim_id": "claim:538f1a4e0ad7c90f7c5a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s",
+          "timestamp": "15:09",
+          "timestamp_seconds": 909.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
       ]
     },
@@ -991,6 +1090,40 @@
     },
     {
       "authority_tier": "official",
+      "claim": "The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details.",
+      "claim_hash": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
+      "claim_id": "claim:c087efdb352a9b4d8c8c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1769s",
+          "timestamp": "29:29",
+          "timestamp_seconds": 1769.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability.",
       "claim_hash": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
       "claim_id": "claim:c3921cb1d8b61e06c713",
@@ -1450,6 +1583,8 @@
     "claim:0ed16cad9954cfbf26ed": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
     "claim:1bfcc37e9004c2bf5e70": "b386b19beb71dc27dd6e05f8e0edf2e7ba2ca7a429eb2a5b52f959fc4ae20e8b",
     "claim:2327759c232854091458": "eb7ef8f01271676a23028dad2c565ba2116362714cdf840b52de655780ceb095",
+    "claim:2a2a9fc94666d58b0e4f": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
+    "claim:2a7ef23854b5dd315c7d": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
     "claim:2fb4567b271d2165a9d8": "bf49858dcb9e13211899221feae68aaae29fb451228c2a28b4f7023db5c58cc9",
     "claim:2fbcf285fa7d556d3410": "029ac7b7665e05e8d2ec07ac9422752b8a3d8a327cad732841f900e27dbc6b8d",
     "claim:35c076edbcb25d79946e": "b064f5a43147c6db8645f961ff68714c48675d7bc87394b7c6b61348cf05e6f6",
@@ -1457,6 +1592,7 @@
     "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
     "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
     "claim:4bc48e3f174b8dfe593d": "dd9f4371260c7636482e9b47b432083a5c471338025b1a3275ccef8686dc7f60",
+    "claim:538f1a4e0ad7c90f7c5a": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
     "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
     "claim:5cb461ed93a21137da32": "215f26bd577cac63938fe37573615c9cc9e03b31c75211cd7f7a0a07f977dd92",
     "claim:60c2bcd25e1cce4efef4": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
@@ -1474,6 +1610,7 @@
     "claim:b1695925513a30f8b35d": "5a60b568fd49e1afbfb0c3be25377955fdf39ef0b7d693bd040c1846cff3c5c3",
     "claim:b4fb38224ff8452078f3": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
     "claim:bfd413a4fae23e864553": "1db2d8ea9861d7f9e029b60a2368695265030eceb6f42a4cae86d3478a87114d",
+    "claim:c087efdb352a9b4d8c8c": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
     "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
     "claim:c923415dabd8ee837073": "058e02b9ecf6715ab5aa5cd9c2a53bc07e15dd95dfcc3368f0aaf9dab24a5cb4",
     "claim:cd52138ec6ca3848cae9": "a5cc4b27b1115aa0faf626e69a47f90d8188b80c0274e41423eb6703f1e38911",
@@ -1487,7 +1624,7 @@
     "claim:fb85d514f4ed765acad4": "468643df34d10c2da2dbbbe27bec321fc5327979e65dcbc9c768c8ce69591eae",
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6"
   },
-  "approved_claims_hash": "7e8f77ca27ba1c5b5c5d3eb52039665faa2b5a18ad1cf07fc1cab59e6ead5718",
+  "approved_claims_hash": "b5cafe07ffa45eefbcdd7f6e9437404c9d119916986987ef75d99eaec3231e0f",
   "approved_claims_path": "knowledge/concepts/api-integrations/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1638,9 +1775,9 @@
   },
   "approved_media_hash": "3b4070b1085768546a938c81b8be76d6ebe1d3d7ac3837d245877fb7cac031b4",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-07-10T14:38:20+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "api-integrations",
-  "guide_hash": "47b7e482a2445a1668c7e97a650f1ec73b82e52dbcae7919c1815cec7821d450",
+  "guide_hash": "85d8abc1f15a766f7f53ff9220d0ad8b5a361a21d020f66fc68027d2560fad0a",
   "guide_line_count": 1560,
   "guide_path": "knowledge/concepts/api-integrations/guide.md",
   "guide_word_count": 14315,

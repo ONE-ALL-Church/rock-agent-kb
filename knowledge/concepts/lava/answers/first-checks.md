@@ -16,9 +16,9 @@ When using Lava to expose API-style endpoints, treat Lava webhooks as custom int
 - `claim:410bf6750e90b7193262`
 - `claim:563e520ec15928e19628`
 - `claim:5bd2b6b4cac279be5e13`
+- `claim:725a3342f3dc657cc546`
 - `claim:7e6e3979faad614f0b42`
 - `claim:940f299b268510da61d8`
-- `claim:4c6c24811261384a0eb4`
 
 ## Distilled Claims
 
@@ -33,5 +33,6 @@ When using Lava to expose API-style endpoints, treat Lava webhooks as custom int
 - [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
 - [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 - [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s) (`24:50`)
 - [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block) (`00:00`)
 - [Helix Overview](https://community.rockrms.com/developer/helix/overview)

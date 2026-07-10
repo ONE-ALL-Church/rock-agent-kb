@@ -38,9 +38,9 @@ Follow the guide section for Recipe: “Create A Connection Request”.
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/BookContent/9
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
 - https://community.rockrms.com/rocku/engagement/connection-request-status-automation
 - https://community.rockrms.com/rocku/core-concepts/automations
+- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
 - https://community.rockrms.com/ask/developing/2708
 - https://community.rockrms.com/ModelMap

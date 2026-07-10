@@ -1231,11 +1231,12 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `2`
+- Approved media records routed to this concept: `3`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) | approved_for_public_distillation | 3 | media-insight:a0960ff639b6ffaf |
 | [Prayer Requests Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests) | approved_for_public_distillation | 2 | media-insight:762111bd5a9d1218 |
 | [Rapid Attendance Entry Transcript Insight](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) | approved_for_public_distillation | 3 | media-insight:f131f156d62b7d38 |
 

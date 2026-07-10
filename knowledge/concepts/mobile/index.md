@@ -2,7 +2,7 @@
 id: concept-mobile
 title: Rock Mobile
 generated: true
-last_built: 2026-07-10T14:37:01+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -29,7 +29,7 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 ## How To Think About This Area
 
 - `Rock Mobile` spans api, check-in, cms, security. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_mobile_docs, rock_developer, triumph_resources.
+- The strongest source families in this build are: rock_community_hubs, rock_rocku, rock_podcast_rss, rock_mobile_docs, rock_developer, rock_mobile_release_notes.
 - Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, api, media.
 - Source detail types include: developer_doc, triumph_resources.
 
@@ -114,6 +114,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
@@ -131,8 +132,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | risk | For risk, governance, permissions, and policy review, Using Phone Number Lookup should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/using-phone-number-lookup) |
 | rocku-confirmed | risk | For risk, governance, permissions, and policy review, Phone Number Lookup Configuration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration) |
 | rocku-confirmed | risk | For risk, governance, permissions, and policy review, Phone Number Lookup Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-overview) |
-| rocku-confirmed | source_summary | Phone Number Lookup Overview is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-overview) |
-| More |  | 76 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 77 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -150,7 +150,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| A Mobile Experience Every Church Deserves with the Refreshed Starter App | triumph_resources | A Mobile Experience Every Church Deserves with the Refreshed Starter App Churches today are navigating an increasingly technological world, and a strong mobile strategy is essential for any digital ministry plan. That’s where a Rock Mobile app makes all the difference. By extending your ministry into the mobile space, you create a presence in your church’s lives that goes far beyond Sunday mornings. Developed by the... | [source](https://www.triumph.tech/resources/triumph-starter-app) |
+| Azure Mobile App | triumph_resources | June 01, 2026 Skip the Trial and Error: Borrow Our AI Playbook Introducing the AI Agentic Cohort with Claude. The AI skills, tools, and strategy our team uses every day are no... Read Article | [source](https://www.triumph.tech/resources/azure-mobile-app) |
 | Adding Content | rock_mobile_docs | When saving a new app, or selecting an existing one from the list, you'll be taken to the **Application** page. The title bar will show the name of your app on the left and the Site/App Id on the right, as well as the deployment status. Underneath you'll find tabbed navigation for the different areas of your app and some of the configuration values you previously selected. To begin adding content to our app we need... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/adding-content) |
 | Android Keystore | rock_mobile_docs | Java Keystores (.jks or .keystore) are binary files that serve as repositories of certificates and private keys. In the context of Android, these are used to digitally sign and secure an app. This provides a layer of security that prevents, among other things, remote attackers from pushing malicious updates to your application to market (all updates must be signed with the same key). The keystore is generated and... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore) |
 | App Configuration | rock_mobile_docs | Now it's time to configure your app. There are some options that are not covered below; they are beyond the scope of this walkthrough. Start by filling in the **Application Name** and optional **Description**. Note Don't worry too much about the name you enter. It will be used to identify your application in Rock but has no effect on the official app name once deployed to the app stores. ## Application Type You have... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) |
@@ -167,8 +167,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| App Factory App | Other |  |  |  |  |  | 0 | [source](https://community.rockrms.com/ModelMap) |
-| App Factory App Font | Other |  |  |  |  |  | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.1.8 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.1.8 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
@@ -179,6 +177,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.1.8 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.1.8 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.1.8 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.1.8 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
@@ -195,8 +195,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
-| 7.0 | Mobile | Fixed an issue where the ShowPopUp command displayed the popup on a white screen instead of overlaying the triggering page when running in MAUI. Fixes: #38 | [source](https://www.rockrms.com/mobilereleasenotes) |
-| 7.0 | CMS | Added the ExecuteCommand control, enabling command execution with configurable timing and repetition. | [source](https://www.rockrms.com/mobilereleasenotes) |
+| 19.1 | Mobile | Fixed external links silently failing on Android when the address belonged to a site that also has an installed app handler (for example, opening a YouTube link on a device with the YouTube app installed). The link now falls back to the device's default browser handling so it opens correctly. Fixes: #123 | [source](https://www.rockrms.com/mobilereleasenotes) |
+| 19.1 | Mobile | Fixed Android media playback so audio from other apps now lowers in volume when Rock Mobile starts playing audio. | [source](https://www.rockrms.com/mobilereleasenotes) |
 
 ## Repository Landmarks
 
@@ -281,7 +281,7 @@ Keywords: `app factory, app store, google play, publish, publishing, store listi
 | Store Graphics & Icons | rock_mobile_docs | ### Launch Image The launch screen, commonly referred to as the splash screen, is the static visual that appears instantly when a user opens an app, filling the gap while the app loads in the background. App Factory utilizes a **2048x2048** graphic resolution with a safe area of **720x1440.** ### App Icons Your app icon is a crucial aspect of your app’s branding. It appears on the Home Screen and in key locations... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons) |
 | Deploying Your App | rock_mobile_docs | ## Deployment Navigating to the **Application** page for your app shows the deployment status in the top right. New apps start as Not Deployed, so you'll need to click the **Deploy** button in the bottom right corner to test your app. The first deploy may take a few moments, but generally this process happens quickly. Note that making changes to the app (like adding new pages and blocks or changing block settings... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app) |
 | Image Resources | rock_mobile_docs | When publishing a Rock Mobile app with App Factory, additional image resources can be provided and compiled into the shell that goes into the app stores. The advantage of this feature is that the images are not loaded over the network, improving performance in load time and avoiding pop-ins. This also means that the images are not processed on the server (or if using a CDN), so desired optimizations must be applied... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources) |
-| App Configuration | rock_mobile_docs | Now it's time to configure your app. There are some options that are not covered below; they are beyond the scope of this walkthrough. Start by filling in the **Application Name** and optional **Description**. Note Don't worry too much about the name you enter. It will be used to identify your application in Rock but has no effect on the official app name once deployed to the app stores. ## Application Type You have... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) |
+| 🏭 App Factory | rock_mobile_docs | Compiling the shell and publishing apps to the stores is a complicated process that requires a good deal of technical proficiency. Because most churches aren't equipped to do this on their own, Spark has partnered with Triumph Tech to provide the [App Factory service plan](https://www.triumph.tech/app-factory) to make this process easy for you. Whether the apps are hosted under your developer store accounts or under... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory) |
 
 
 ## Lava Capability References
@@ -297,7 +297,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `145`
 - Lava capability source records: `53`
-- Approved claims: `94`
+- Approved claims: `95`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

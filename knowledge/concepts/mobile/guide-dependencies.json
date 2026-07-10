@@ -799,6 +799,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions.",
+      "claim_hash": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
+      "claim_id": "claim:47b657cb5b577d54ad54",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "mobile",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1294s",
+          "timestamp": "21:34",
+          "timestamp_seconds": 1294.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized.",
       "claim_hash": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
@@ -3263,6 +3296,7 @@
     "claim:3d32a2c3e36e71683eb0": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
     "claim:3f435889ccd4aaee353c": "16c372b01ebbb6f6efc60221a326d3344f66416702bcdfc2b5a8f8c0bfac2ba7",
     "claim:3f6d76486d42c908559d": "63d8778b8757c92cf1e3e3976b1159ea28683c26d9841a738f29c56ffd27db76",
+    "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
     "claim:520ba5f389698ad4894c": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
     "claim:545217d0d8afa0fd8b18": "53a2e9c4b4b8fd273afdf4b20b682ebfa727e55db55019c0567d18066fa49839",
     "claim:58c7cf5b06ab88de06ac": "7c2b421885cc10404e88ec7a67930aaf25c60982c2828e4ec8654eddaa2d3422",
@@ -3335,7 +3369,7 @@
     "claim:fea1198e8836e37c0e4a": "763b5e3585dc05f6b37bab91fc3d8f7b3167cdab755e716fab59fbb0b723ed91",
     "claim:ff136cde6aa716bfc87c": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381"
   },
-  "approved_claims_hash": "052390ca45567c66616bb65163e8499578e683dc13e6a01e53541db8029f22cb",
+  "approved_claims_hash": "3d160faca4d3a3180db71f0e7476b0340588bfbc00b446b13e4e10eb98106a33",
   "approved_claims_path": "knowledge/concepts/mobile/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3798,12 +3832,12 @@
   },
   "approved_media_hash": "1316caaeda7cfcc6a9d5848969f37bf9a95027603a09842e7d1f7b64e0de7ee1",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-07-10T14:38:18+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "mobile",
-  "guide_hash": "4b99ed19a7642cb0f9753b0042556dec4e7e0052ecc602c7e3d0626a48026a15",
+  "guide_hash": "aa94c1541781687aa83da9fd0fef252f3c428f84c781a87eb3033a00818b5e79",
   "guide_line_count": 1505,
   "guide_path": "knowledge/concepts/mobile/guide.md",
-  "guide_word_count": 12898,
+  "guide_word_count": 12903,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4101,6 +4135,15 @@
       "source_key": "d5e9714b4651f295",
       "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",
@@ -5543,6 +5586,7 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "dcc9c3b1df657d9f",
         "6c0184b4e7ec7558",
         "d7a4121f91c3b42b",
         "6c0184b4e7ec7558",
@@ -5553,8 +5597,7 @@
         "281ea075e1d0d1ab",
         "2029a4e6583189c0",
         "281ea075e1d0d1ab",
-        "d7a4121f91c3b42b",
-        "281ea075e1d0d1ab"
+        "d7a4121f91c3b42b"
       ],
       "start_line": 1377
     },
@@ -6495,6 +6538,16 @@
       "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs",
       "title": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",

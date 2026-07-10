@@ -2,7 +2,7 @@
 concept_id: security-permissions
 generated: true
 artifact_level: media_distillation
-approved_media_count: 74
+approved_media_count: 75
 ---
 
 # Security And Permissions Approved Media
@@ -85,3 +85,4 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:9c20ed79c35bbebb` | Tag Security Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/individuals-in-rock/tag-security) |
 | `media-insight:04a99f4c31219b5b` | Text to Workflow Performance [Legacy] Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
 | `media-insight:a935187d244806c3` | Using Phone Number Lookup Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/using-phone-number-lookup) |
+| `media-insight:8a313536a2a7f5bf` | Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | approved_for_public_distillation | 3 | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |

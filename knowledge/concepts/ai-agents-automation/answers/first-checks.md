@@ -15,7 +15,10 @@ Prompt context is layered across Rock's core prompt, organization prompt, agent 
 - `claim:60c2bcd25e1cce4efef4`
 - `claim:b4fb38224ff8452078f3`
 - `claim:c3921cb1d8b61e06c713`
+- `claim:2a7ef23854b5dd315c7d`
 - `claim:4b7b8d0b0379ceb7587f`
+- `claim:903c8ff9b5d2590fd616`
+- `claim:2a2a9fc94666d58b0e4f`
 
 ## Citations
 
@@ -23,4 +26,7 @@ Prompt context is layered across Rock's core prompt, organization prompt, agent 
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s) (`67:34`)
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s) (`24:01`)
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s) (`71:20`)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s) (`01:53`)
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s) (`87:48`)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s) (`06:25`)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s) (`05:40`)

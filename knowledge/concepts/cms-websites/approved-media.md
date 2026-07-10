@@ -2,7 +2,7 @@
 concept_id: cms-websites
 generated: true
 artifact_level: media_distillation
-approved_media_count: 48
+approved_media_count: 49
 ---
 
 # CMS And Websites Approved Media
@@ -21,6 +21,7 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:7b84e33ae0a6eee9` | Content Channel View Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
 | `media-insight:fef5b88f7cee68c9` | Content Component Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/content-component) |
 | `media-insight:957eaae21f2dd12a` | Content Library Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/content-channels/content-library) |
+| `media-insight:22ee135c5240caf2` | Dashboard Design Part 1 Transcript Insight | approved_for_public_distillation | 3 | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
 | `media-insight:fed4057bf059b6fe` | Entity Documents Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/cms/entity-documents) |
 | `media-insight:31b301e9a51aa676` | Episode 112: The Power of a Rock Website Transcript Insight | approved_for_public_distillation | 3 | [source](https://shows.acast.com/rock-cast/episodes/episode-112-the-power-of-a-rock-website) |
 | `media-insight:cff330eb0f953f16` | Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight | approved_for_public_distillation | 2 | [source](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) |

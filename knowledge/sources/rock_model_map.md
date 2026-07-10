@@ -5,7 +5,7 @@ generated: true
 
 # rock_model_map
 
-Records: 383
+Records: 377
 
 | Title | Summary | Citation |
 | --- | --- | --- |
@@ -43,8 +43,6 @@ Records: 383
 | Analytics Source Postal Code | Analytics Source Postal Code is a Rock model in the Reporting category. | [source](https://community.rockrms.com/ModelMap) |
 | Answer | Answer is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
 | Answer Vote | Answer Vote is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
-| App Factory App | App Factory App is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
-| App Factory App Font | App Factory App Font is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
 | Assessment | Assessment is a Rock model in the CRM category. | [source](https://community.rockrms.com/ModelMap) |
 | Assessment Type | Assessment Type is a Rock model in the CRM category. | [source](https://community.rockrms.com/ModelMap) |
 | Asset Storage Provider | Asset Storage Provider is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
@@ -92,8 +90,6 @@ Records: 383
 | Chapter | Chapter is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
 | Check In Label | Check In Label is a Rock model in the Check-in category. | [source](https://community.rockrms.com/ModelMap) |
 | Checkr Integrated Account | Checkr Integrated Account is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
-| Cloud Database Server | Cloud Database Server is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
-| Cloud Site | Cloud Site is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
 | Communication | Communication is a Rock model in the Communication category. | [source](https://community.rockrms.com/ModelMap) |
 | Communication Attachment | Communication Attachment is a Rock model in the Communication category. | [source](https://community.rockrms.com/ModelMap) |
 | Communication Flow | Communication Flow is a Rock model in the Communication category. | [source](https://community.rockrms.com/ModelMap) |
@@ -208,9 +204,6 @@ Records: 383
 | Group Type Role | Group Type Role is a Rock model in the Group category. | [source](https://community.rockrms.com/ModelMap) |
 | History | History is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
 | History Login | History Login is a Rock model in the Security category. | [source](https://community.rockrms.com/ModelMap) |
-| Hit Item | Hit Item is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
-| Hit Result | Hit Result is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
-| Hit Type | Hit Type is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
 | Html Content | Html Content is a Rock model in the CMS category. | [source](https://community.rockrms.com/ModelMap) |
 | Identity Verification | Identity Verification is a Rock model in the CRM category. | [source](https://community.rockrms.com/ModelMap) |
 | Identity Verification Code | Identity Verification Code is a Rock model in the CRM category. | [source](https://community.rockrms.com/ModelMap) |
@@ -250,6 +243,7 @@ Records: 383
 | Media Element | Media Element is a Rock model in the CMS category. | [source](https://community.rockrms.com/ModelMap) |
 | Media Folder | Media Folder is a Rock model in the CMS category. | [source](https://community.rockrms.com/ModelMap) |
 | Merge Template | Merge Template is a Rock model in the Reporting category. | [source](https://community.rockrms.com/ModelMap) |
+| Merge Template Combined Person | Merge Template Combined Person is a Rock model in the Other category. | [source](https://community.rockrms.com/ModelMap) |
 | Meta First Name Gender Lookup | Meta First Name Gender Lookup is a Rock model in the Meta category. | [source](https://community.rockrms.com/ModelMap) |
 | Meta Last Name Lookup | Meta Last Name Lookup is a Rock model in the Meta category. | [source](https://community.rockrms.com/ModelMap) |
 | Meta Nick Name Lookup | Meta Nick Name Lookup is a Rock model in the Meta category. | [source](https://community.rockrms.com/ModelMap) |

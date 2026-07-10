@@ -772,6 +772,38 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The episode describes Rock 19.4 as the team's target for initial Rock IQ availability, not as a committed release, and advises churches to complete their Rock 19 upgrade work first. Confirm the final version and timing in current release notes before planning a rollout.",
+      "claim_hash": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
+      "claim_id": "claim:41757e63aea1a926ff6d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=43s",
+          "timestamp": "00:43",
+          "timestamp_seconds": 43.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Journey reporting may need to join content-channel items, generated groups, group members, notes/comments, and attendance-style completion events because the ministry experience spans both content and group participation models.",
       "claim_hash": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
@@ -839,6 +871,72 @@
           "timestamp_seconds": 864.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added.",
+      "claim_hash": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
+      "claim_id": "claim:4560f75344e40a127605",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=771s",
+          "timestamp": "12:51",
+          "timestamp_seconds": 771.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions.",
+      "claim_hash": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
+      "claim_id": "claim:47b657cb5b577d54ad54",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "mobile",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1294s",
+          "timestamp": "21:34",
+          "timestamp_seconds": 1294.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
       ]
     },
@@ -946,6 +1044,39 @@
           "timestamp_seconds": 2391.0,
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy.",
+      "claim_hash": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
+      "claim_id": "claim:538f1a4e0ad7c90f7c5a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s",
+          "timestamp": "15:09",
+          "timestamp_seconds": 909.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
       ]
     },
@@ -2321,6 +2452,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details.",
+      "claim_hash": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
+      "claim_id": "claim:c087efdb352a9b4d8c8c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1769s",
+          "timestamp": "29:29",
+          "timestamp_seconds": 1769.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "The Data Analytics Hub launch frames community analytics as a shared practice space where churches compare dashboards, ministry processes, BI tooling, and Rock-based reporting patterns. The session also includes a Life.Church attendance-flow case study that uses Rock attendance and connection data to prioritize pastoral follow-up while treating AI profile summaries and privacy controls as governance concerns.",
       "claim_hash": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
@@ -3142,11 +3307,15 @@
     "claim:37c56553b4e1f7e72932": "cdcf9b7f6cf1288359789340d38544ad69dd22e3833b215b7b8576dcee7d0bc2",
     "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
     "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
+    "claim:41757e63aea1a926ff6d": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
     "claim:42ce1ba2afef374bebeb": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
     "claim:43581184f63c0a294c58": "97c0e2c666b182b85f2422943baf148d4bcb572c2fa1a03c24207b4ffe7e0a7f",
+    "claim:4560f75344e40a127605": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
+    "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
     "claim:4a928b186c3643be8160": "6d9cf5296016c957e0548994c96a82079dcf8dea19ef5c0432c5cda2dea2ed82",
     "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
     "claim:5106f5e9af12a3a83a57": "466243bff5a8189d4808802b49ba7e1755ef135f2af478c4263705df1463bde9",
+    "claim:538f1a4e0ad7c90f7c5a": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
     "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
     "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
     "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
@@ -3187,6 +3356,7 @@
     "claim:beab420038306bfe0922": "44f5cc702af6fcb75250d5f749a30df9e8f2396e3e8db3f039eccd1e87a812b5",
     "claim:bf4911c43f46def1cef1": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
     "claim:c0587c98a544740f9673": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
+    "claim:c087efdb352a9b4d8c8c": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
     "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
     "claim:c37961bab650b138a2d2": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
     "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
@@ -3211,7 +3381,7 @@
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "d4d9e4675c4dfb58ae47241f22ce272b4336eff21bfb2addcbcd56b539bb8991",
+  "approved_claims_hash": "2ed1b2b37342218174206bf718bae31a7f6678603a4e4a96a6c6cd47b41619d1",
   "approved_claims_path": "knowledge/concepts/platform-configuration/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3538,6 +3708,21 @@
       "source_record_id": "media-insight:97a12ee26ba9575f",
       "source_title": "Episode 37: Special Edition Garrett Johnson Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports"
+      ],
+      "content_hash": "16687973dc41b3aaa45047b30b15af0c554e32ddfbf5752d605acfe8035d647f",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:ae072db145e9b46e",
+      "public_promotion_id": "media-public-promotion:16687973dc41b3aa",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "triumph_resources",
+      "source_record_id": "media-insight:ae072db145e9b46e",
+      "source_title": "Pivot Pattern Transcript Insight",
+      "source_url": "https://www.triumph.tech/resources/pivot-patterns"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -3555,16 +3740,17 @@
     "media-insight:82641c154ebfd018": "7846512372e92f2e70804b43a14da57774c474d724e04ba09f0b4b76ad6a5d7c",
     "media-insight:97a12ee26ba9575f": "3261d99ef95297865c9aae3bfedfaceb6feb26ffdcf46e6f53a51f7ed56989de",
     "media-insight:a11e091aa9800728": "c28fedc8f70ee4ede99d6eaf11af5393690da6e2e01c752732a48859d82ed243",
+    "media-insight:ae072db145e9b46e": "16687973dc41b3aaa45047b30b15af0c554e32ddfbf5752d605acfe8035d647f",
     "media-insight:b68b16ee29ac1067": "82dd15e55759f16a2433ce9c91fcba38d5dc7c70a2808e2cbfedb22dd83e3d9f",
     "media-insight:d03a93f4e7ef8c02": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717",
     "media-insight:f609e5067739f62b": "963a4d284a9509efc6682d2facfc5b6bbddf99f7eea910c9f3f1c3197eb37de6"
   },
-  "approved_media_hash": "9b6e6d8bcff61cbe2e2741fe693a3c2842e5f5d3c34cf552f2eec3fbe079eccd",
+  "approved_media_hash": "11123e307859ffdf932e78c9dfe0cc2b495f4bca8313e8ceabba076fc8b8e645",
   "approved_media_path": "knowledge/concepts/platform-configuration/approved-media.md",
-  "built_at": "2026-07-10T14:37:54+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "platform-configuration",
-  "guide_hash": "7f0b9e9b8a1122c0e78c88cbdf3a93cdceac5c501937408c4905d4637630a07c",
+  "guide_hash": "cae7ee900271b62efb1d6f077653a818fa4fa3eeb291f17cf8fa83fa406d881a",
   "guide_line_count": 1570,
   "guide_path": "knowledge/concepts/platform-configuration/guide.md",
   "guide_word_count": 14097,

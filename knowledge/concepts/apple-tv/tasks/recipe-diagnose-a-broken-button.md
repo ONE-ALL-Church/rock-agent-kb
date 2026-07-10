@@ -44,5 +44,5 @@ Follow the guide section for Recipe: Diagnose A Broken Button.
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
 - https://community.rockrms.com/lava/lava-api
 - https://www.rockrms.com/releasenotes
+- https://www.triumph.tech/resources/dashboard-design-part-1
 - https://community.rockrms.com/developer/apple-tv-docs/developer
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map

@@ -2,7 +2,7 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-07-10T14:36:54+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -32,8 +32,8 @@ Obsidian block development, grid reference, custom actions, field types, browser
 ## How To Think About This Area
 
 - `Obsidian Development` spans developer-resources, api-integrations, security, cms, platform-configuration, workflows. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_core_release_notes, rock_model_map, sparkdevnetwork_rock.
-- Related tags found in source records: development, api, lava, obsidian, operations, releases, ai, github.
+- The strongest source families in this build are: rock_developer, rock_lava_docs, rock_core_release_notes, rock_model_map, triumph_resources, sparkdevnetwork_rock.
+- Related tags found in source records: development, api, lava, obsidian, operations, releases, sql, model-map.
 - Source detail types include: developer_doc, rock_lava_docs, triumph_resources.
 
 ## Approved Claims
@@ -65,12 +65,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_api_docs`: 1
-- `rock_core_release_notes`: 22
+- `rock_core_release_notes`: 28
 - `rock_developer`: 47
 - `rock_lava_docs`: 1
 - `rock_model_map`: 12
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 7
+- `triumph_resources`: 1
 
 ## Highest Signal Sources
 
@@ -83,11 +83,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Grid Reference | rock_developer | [Grid](/documentation/obsidian/grid-reference/grid) [Columns](/documentation/obsidian/grid-reference/columns) [Filters](/documentation/obsidian/grid-reference/filters) | [source](https://community.rockrms.com/developer/obsidian/grid-reference) |
 | HighlightDetailColumn | rock_developer | A general column that displays a value in bold, with a description below it. ## Example This is an example from the checkInLabelList block. ``` <HighlightDetailColumn name="name" title="Name" field="name" detailField="description" :filter="textValueFilter" visiblePriority="xs" /> ``` ## Properties Example of standard PersonColumn This column provides default values for the following standard properties: *... | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/highlightdetailcolumn) |
 | Browser Bus | rock_developer | ## Overview The browser bus is a basic pub-sub interface within a single page. If you publish a message to one instance of the bus it will be available to any other instance on the same page. The browser bus will not communicate with other browsers on the same page or even other tabs within the same browser. This uses `document.addEventListener()` and `document.dispatchEvent()` with a single custom event name of... | [source](https://community.rockrms.com/developer/obsidian/browser-bus) |
-| Core Field Type Patterns | rock_developer | *Some of the common patterns utilized in Obsidian Field Types* Note This section is only relevant for the core team when creating a new custom field type. Plugins and, whenever possible, new core field types should use the new Universal Field Type pattern. ## Obsidian Edit Component For the most part, the Edit Component is usually the simple one. It takes the current value and configuration values in via the... | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns) |
 | Debugging Obsidian in VS Code | rock_developer | *Using VS Code's debugger with Obsidian, and setting up to attach it to an existing Chrome instance.* ## Running VS Code's Debugger Visual Studio Code (VS Code) has some debugging tools built into it that are very similar to some of the developer tools built into your browser. By using these debugging tools, you gain access to breakpoints within the editor, making debugging that little bit easier. To run the debug... | [source](https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code) |
+| Core Field Type Patterns | rock_developer | *Some of the common patterns utilized in Obsidian Field Types* Note This section is only relevant for the core team when creating a new custom field type. Plugins and, whenever possible, new core field types should use the new Universal Field Type pattern. ## Obsidian Edit Component For the most part, the Edit Component is usually the simple one. It takes the current value and configuration values in via the... | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns) |
 | Converting Core Field Types | rock_developer | *Step-by-Step guide to Building an Obsidian Field Type* Here we'll be going over the practical steps of building a field type because it involves multiple files and it can be difficult to remember some of the steps or where some of the files reside. We will not be diving much into concepts or patterns that you need to implement. For those, you can find you can look at the [Creating Field... | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types) |
 | Universal Field Types | rock_developer | The current (legacy) field types are all tightly integrated with WebForms. This has made converting them to Obsidian a real chore. So we knew we needed to come up with a new pattern so that we don't have to go through this again in the future. What we have landed on is a concept called "Universal Field Types". We call then "universal" because they are meant to work on any UI framework or platform without requiring... | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types) |
-| SecurityColumn | rock_developer | Displays a security button that will open the standard Security editor modal for the item. ## Example ``` <SecurityColumn /> ``` ## Properties This column provides default values for the following standard properties: * name * formatComponent * headerClass * itemClass * width Type: string \| ((row: Record<string, unknown>, grid: IGridState) => string) Optional ### itemTitle Type: string \| ((row: Record<string,... | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn) |
+| Obsidian Component Structure | rock_developer | ## Overview ### File Format An Obsidian component is essentially an HTML file with some sugar sprinkled into the <script> tag for you. The HTML markup used as the template is, conveniently, stored in a <template> tag at the root level. There are 4 major parts that make up the component. 1. HTML Template (🟥) 2. Imports (🟦) 3. Properties and Events (🟧) 4. Logic (🟩) The HTML markup used as the template is,... | [source](https://community.rockrms.com/developer/obsidian/obsidian-component-structure) |
 
 ## Data Model Landmarks
 
@@ -123,16 +123,16 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | --- | --- | --- | --- |
 | 18.1 | Core | Fixed editing configuration settings of Universal field types from inside an Obsidian block. This only affected some configuration setting types which might cause the raw value to be stored as JSON. | [source](https://www.rockrms.com/releasenotes) |
 | 16.1 | Core | Fixed issue of Note Type Field Type not showing up in Following Event Type Detail Obsidian block. Fixes: #5605 | [source](https://www.rockrms.com/releasenotes) |
+| 19.3 | Event | Fixed inline attribute editors (such as adding a new Defined Value) on the Event Detail block returning an HTTP 401 by adding the Event Calendar Item attribute field type rules to the security grant. Fixes: #6881 | [source](https://www.rockrms.com/releasenotes) |
 | 17.1 | Communication | Added the obsidian Communication Template Detail block for viewing and editing communication templates using the Obsidian UI. This lays the foundation for managing versioned templates with a cleaner interface. | [source](https://www.rockrms.com/releasenotes) |
+| 19.3 | Core | Fixed an issue where Obsidian blocks like the Page Menu could disappear after a full WebForms postback. Fixes: #6871 | [source](https://www.rockrms.com/releasenotes) |
+| 19.3 | Core | Fixed File and Binary File attributes not showing a View link when displayed read-only in Obsidian blocks, such as the new Connections Request docked panel. Fixes: #6883 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Workflow | Fixed an issue where the Obsidian Workflow List block would time out when loading workflows assigned to groups with many members. | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Core | Fixed an issue in Obsidian blocks where Memo Fields configured to allow HTML displayed the HTML tags as encoded text instead of rendering the formatted content within the block. Fixes: #6718 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Core | Fixed an issue in the Defined Value picker component where Single-Select Defined Value attributes configured with "Enhanced for Long Lists" did not display the searchable enhanced experience in Obsidian blocks (e.g., Workflow Entry and Event Registration), requiring manual scrolling through values. Fixes: #6658 #6705 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Core | Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Group | Fixed an issue where the Obsidian Group Attendance Detail Block did not function correctly when Predictive Ids were disabled. The block now correctly resolves the selected group using either the Group Guid or IdKey and prevents an unintended group from loading when Disable Predictive Ids is checked in Site settings. Fixes: #6687 | [source](https://www.rockrms.com/releasenotes) |
+| 18.3 | Core | Fixed an issue in the Defined Value picker component where Single-Select Defined Value attributes configured with "Enhanced for Long Lists" did not display the searchable enhanced experience in Obsidian blocks (e.g., Workflow Entry and Event Registration), requiring manual scrolling through values. Fixes: #6658 #6705 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Group | Fixed an issue in the Obsidian Group Requirement Type Detail block that caused Attribute Values to not load or save correctly when editing a requirement type. This prevented individuals from configuring or updating Group Requirement Types as expected. Fixes: #6642 | [source](https://www.rockrms.com/releasenotes) |
-| 18.2 | CMS | Fixed a display issue in the Obsidian Signature Document List block, affecting the Document column. Fixes: #6552 | [source](https://www.rockrms.com/releasenotes) |
-| 18.2 | Core | Fixed an issue where newly added Obsidian block types could fail to appear in the Page Zone Editor after initial startup. | [source](https://www.rockrms.com/releasenotes) |
-| 18.1 | Communication | Added an Obsidian Communication List block with enhanced status display and optimized data loading, making it easier for administrators to quickly identify message progress and issues. | [source](https://www.rockrms.com/releasenotes) |
+| 18.3 | Group | Fixed an issue where the Obsidian Group Attendance Detail Block did not function correctly when Predictive Ids were disabled. The block now correctly resolves the selected group using either the Group Guid or IdKey and prevents an unintended group from loading when Disable Predictive Ids is checked in Site settings. Fixes: #6687 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 

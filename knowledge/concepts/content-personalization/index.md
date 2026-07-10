@@ -2,7 +2,7 @@
 id: concept-content-personalization
 title: Content And Personalization
 generated: true
-last_built: 2026-07-10T14:36:54+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -33,7 +33,7 @@ Content channels, assets, structured content, adaptive messages, personalization
 ## How To Think About This Area
 
 - `Content And Personalization` spans cms, lava, security, communications, media, workflows. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_rocku, triumph_resources, rock_lava_docs, rock_recipes, rock_core_release_notes.
+- The strongest source families in this build are: rock_documentation, rock_rocku, rock_lava_docs, rock_recipes, rock_core_release_notes, triumph_resources.
 - Related tags found in source records: operations, usage, admin, lava, workflow, api, development, sql.
 - Source detail types include: documentation_article, recipe, rock_lava_docs, training, triumph_resources.
 
@@ -123,8 +123,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
+| 19.3 | CMS | Fixed the Content Channel Item List block to show the add and delete options for individuals with Edit access to the content channel, rather than requiring Edit access on the Content Channel Item entity itself. Fixes: #6914 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | CMS | Fixed an issue where the Content Channel Item View block and the InteractionContentChannelItemWrite Lava command logged interactions using the Content Channel entity type instead of the Content Channel Item entity type. This caused interactions to be misclassified and not tracked correctly. Fixes: #6263 | [source](https://www.rockrms.com/releasenotes) |
-| 18.2 | CMS | Fixed a security issue affecting multiple blocks that interact with Content Channels, where individuals with only View permissions could delete content items. The delete option is now correctly limited to those with Edit access. Fixes: #6538 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 

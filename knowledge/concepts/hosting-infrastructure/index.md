@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-07-10T14:36:52+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -33,9 +33,21 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 ## How To Think About This Area
 
 - `Hosting And Infrastructure` spans operations, security, jobs, cache, search, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, triumph_resources, rock_recipes, rock_core_release_notes, rock_rocku, rock_qa.
-- Related tags found in source records: operations, usage, releases, sql, admin, ai, github, implementation.
+- The strongest source families in this build are: rock_documentation, rock_recipes, triumph_resources, rock_core_release_notes, rock_rocku, rock_qa.
+- Related tags found in source records: operations, sql, usage, workflow, admin, releases, lava, ai.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
+
+## Reviewed Media Insights
+
+| Source | Topic | Timestamp | Distilled Claim | Citation |
+| --- | --- | --- | --- | --- |
+| Workflow Performance Tips Transcript Insight | Rock operations | 00:00 | The Workflow Performance Tips RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
+| Text to Workflow Performance [Legacy] Transcript Insight | Rock operations | 00:00 | The Text to Workflow Performance [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
+| Text to Workflow Performance [Legacy] Transcript Insight | data and reporting | 07:24 | For reporting, analytics, and measurement, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
+| Text to Workflow Performance [Legacy] Transcript Insight | risk and governance | 00:54 | For risk, governance, permissions, and policy review, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
+| Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight | sql and customization | 00:00 | The SQL Server and customization episode is useful as operational context for database and customization tradeoffs, but agents should route concrete SQL or customization guidance through source code, live schema, and performance evidence. | [source](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) |
+| Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight | implementation governance | 00:00 | For reporting and CMS customization work, use podcast context to frame risk questions about maintainability, upgrades, SQL Server behavior, and local implementation boundaries rather than as direct build instructions. | [source](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) |
+
 
 ## Approved Claims
 
@@ -65,14 +77,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 7
+- `rock_core_release_notes`: 8
 - `rock_documentation`: 21
 - `rock_model_map`: 12
+- `rock_podcast_rss`: 1
 - `rock_qa`: 2
-- `rock_recipes`: 10
-- `rock_rocku`: 2
+- `rock_recipes`: 12
+- `rock_rocku`: 4
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 17
+- `triumph_resources`: 11
 
 ## Highest Signal Sources
 
@@ -96,7 +109,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Asset Storage Provider](../../model-map/models/asset-storage-provider.md) | Core | 19.1.8 | 42 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| Cloud Database Server | Other |  |  |  |  |  | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Web Farm Node](../../model-map/models/web-farm-node.md) | WebFarm | 19.1.8 | 50 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Web Farm Node Log](../../model-map/models/web-farm-node-log.md) | WebFarm | 19.1.8 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Web Farm Node Metric](../../model-map/models/web-farm-node-metric.md) | WebFarm | 19.1.8 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
@@ -107,6 +119,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Block Type](../../model-map/models/block-type.md) | CMS | 19.1.8 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.1.8 | 65 | 29 | 47 | 18 | 1 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.1.8 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
@@ -130,6 +143,7 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 17.5 | Check-in | Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prevents loading attendance data when context is missing. Fixes: #6409 | [source](https://www.rockrms.com/releasenotes) |
 | 17.1 | Check-in | Fixed a performance issue in Next-Gen Check-in that caused delays when printing to Bluetooth printers. The slowdown was due to how label image data was encoded, which has now been optimized. Printing performance should now be smooth and immediate. Fixes: #6260 | [source](https://www.rockrms.com/releasenotes) |
 | 16.3 | Communication | Fixed issue where Communication Entry Wizard block becomes unusable when an SMS image attachment is auto-resized and uploaded to Azure Blob Storage. Fixes: #5719 | [source](https://www.rockrms.com/releasenotes) |
+| 17.2 | Core | Improved the database index fill factor from 80% to 100% to reduce table size and improve maintenance performance. In the past, this was changed due to a common practice of reserving space to reduce page splits in the tables but, upon further research, it is an industry recommendation to fill the pages to 100% to reduce database footprint and improve... | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -172,18 +186,27 @@ Keywords: `azure, app service, sql database, storage account`
 
 Keywords: `backup, ssl, smtp, storage, performance, readiness`
 
+
+#### Reviewed distilled media insights
+
+| Source | Topic | Timestamp | Distilled Claim | Citation |
+| --- | --- | --- | --- | --- |
+| Workflow Performance Tips Transcript Insight | Rock operations | 00:00 | The Workflow Performance Tips RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
+| Text to Workflow Performance [Legacy] Transcript Insight | Rock operations | 00:00 | The Text to Workflow Performance [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
+| Text to Workflow Performance [Legacy] Transcript Insight | data and reporting | 07:24 | For reporting, analytics, and measurement, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
+| Text to Workflow Performance [Legacy] Transcript Insight | risk and governance | 00:54 | For risk, governance, permissions, and policy review, Text to Workflow Performance [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
+
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Configure a Two-Server Environment | rock_documentation | If you were looking at the [system requirements](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting) in this guide's introduction, you might have noticed that there is a two-server configuration for larger installations. Even for smaller installations, we recommend two servers for the following reasons: * **Performance:** Having your Rock Database and Web Environment on separate... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment) |
 | Intro to Internal Hosting | rock_documentation | Looking for information on how to host Rock internally? Well look no further. In this step-by-step guide we'll walk through the process of getting Rock up and running. Before we jump in, let's cover a few things to make sure we get started off on the right foot. In this section we will cover what you need for Rock to perform at its best. # System Requirements Rock was developed on Microsoft's ASP.Net platform so it... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting) |
 | Configure Your Rock Context | rock_documentation | Some organizations may find that it's worthwhile to maintain a separate database for Rock that's only used for reading (and not writing) data. A read-only database gives people a place to go besides your primary database, helping to lighten the load on that database. You may already have a database for this purpose. Any Azure customer using a Business Critical or Premium SQL tier is automatically provided with a... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context) |
-| Introducing Imperator: Proactive Azure Monitoring and Alerting for Rock RMS | triumph_resources | When it comes to your Rock-hosted environment, visibility isn't a luxury—it's a necessity. That's why we're excited to announce Imperator, our new Azure Monitoring and Alerting service designed to keep your infrastructure running smoothly and securely. Rule Your Azure Environment with Confidence Imperator gives you real-time insight into the health and performance of your Rock environment in Microsoft Azure. It... | [source](https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms) |
+| How to get a Free SSL Certificate on your Windows Server | rock_recipes | 0 How to get a Free SSL Certificate on your Windows Server Shared by Nathan Parikh , Hallmark Church 6 years ago 7.0 General, Web Advanced SSL certificates are a necessity, and if you take a few minutes you can have one for free thanks to LetsEncrypt and CertifyTheWeb . Note: We use an Azure VM for our Rock server, and Cloudflare for our DNS, but these steps should still apply to most setups where you have an admin... | [source](https://community.rockrms.com/recipes/66) |
+| Skills Rubric | triumph_resources | Level 1: Foundational Awareness Basic understanding and vocabulary; competently follows guidance of experienced team members. Understands the core components of Azure (VMs, SQL, Resource Groups, Networking). Can follow step-by-step documentation to create or configure basic Azure resources (e.g., create VM, attach disk). Follows all Triumph’s Azure naming conventions and resource group structure. Can navigate the... | [source](https://www.triumph.tech/resources/skills-rubric) |
 | AWS SES Email SMTP Transport for RockRMS | rock_recipes | 1 AWS SES Email SMTP Transport for RockRMS Shared by Ben Murphy , Harvest Bible Chapel Pittsburgh North 6 years ago Communications, General Intermediate Setting up Customer Engagement: Amazon Simple Email Service (SES) with the RockRMS SMTP Transport Amazon Simple Email Service (SES) is a free SMTP mail delivery service that also falls into the free tier if you are hosting your RockRMS environment on Amazon's AWS... | [source](https://community.rockrms.com/recipes/171) |
 | Rock Core Release Notes | rock_core_release_notes | Added an automatic data migration that moves File Storage Provider settings from any existing legacy Azure Blob Storage provider plugin (Pillars) to the core Azure Blob Storage provider. This is required because the legacy provider can no longer upload large files due to library updates in v19. All settings are carried over, related File Types are updated,... | [source](https://www.rockrms.com/releasenotes) |
 | How to Maintain your Azure SQL Database | rock_recipes | 5 How to Maintain your Azure SQL Database Shared by Brent Pirolli , CedarCreek Church 4 years ago Administration / Finance, General Intermediate How to Maintain your Azure SQL Database Maintaining your SQL database can be crucial to the performance of your Rock install. Rock's "Database Maintenance" job runs nightly and is set to cover most of what you need. But, there are further times you can and should take... | [source](https://community.rockrms.com/recipes/259) |
 | Get Notified of ACME SSL Certificate Renewal | rock_recipes | 4 Get Notified of ACME SSL Certificate Renewal Shared by Victor Garcia , Pillars 4 years ago 11.0 Operations Beginner If you are using Protect My Ministry or Active Screening, this will be a helpful tool in automatically notifying them when your SSL certificate gets renewed! Get set up to receive a notification whenever an SSL certificate is automatically renewed with these few steps: 1. First, run the following SQL... | [source](https://community.rockrms.com/recipes/263) |
-| Text to Workflow Performance [Legacy] | rock_rocku | Text to Workflow Performance [Legacy] Presenter: Jon Edmiston Length: 12:02 Text to Workflow functionality has been replaced by SMS Pipeline features. " What is a Workflow 4m 26s Components of a Workflow 5m 02s Workflow Entry 5m 01s Persisted Workflows 2m 50s Workflow Performance Tips 3m 30s Form Styling 8m 51s Deconstructing a Sample Workflow 18m 58s Text to Workflow [Legacy] 6m 06s Text to Workflow Performance... | [source](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) |
-| Workflow Performance Tips | rock_rocku | Workflow Performance Tips Presenter: Jon Edmiston Length: 3:30 " What is a Workflow 4m 26s Components of a Workflow 5m 02s Workflow Entry 5m 01s Persisted Workflows 2m 50s Workflow Performance Tips 3m 30s Form Styling 8m 51s Deconstructing a Sample Workflow 18m 58s Text to Workflow [Legacy] 6m 06s Text to Workflow Performance [Legacy] 12m 02s Custom Grid Actions 6m 00s Launch Workflow From Grid 5m 58s Workflow... | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
 
 
 ## Rebuild Dependencies

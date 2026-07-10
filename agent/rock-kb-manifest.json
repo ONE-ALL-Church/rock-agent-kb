@@ -45,7 +45,7 @@
   "approved_claims": {
     "authority_tiers": {
       "community-reviewed": 1027,
-      "official": 411,
+      "official": 422,
       "release-note-confirmed": 1,
       "rocku-confirmed": 759
     },
@@ -53,17 +53,17 @@
       "behavior": 136,
       "configuration": 132,
       "implementation_pattern": 81,
-      "operational_guidance": 1121,
+      "operational_guidance": 1122,
       "recipe": 27,
-      "release_caveat": 113,
+      "release_caveat": 122,
       "risk": 83,
-      "source_summary": 505
+      "source_summary": 506
     },
     "notes": "Approved claims are the durable public knowledge unit. Each row must trace to source refs or source record IDs and pass public/private leak checks.",
     "path": "claims/approved-claims.jsonl",
     "public_publish_mode": "public_cite_and_summarize_only",
     "publishability_status": "approved_public_claim_graph",
-    "record_count": 2198,
+    "record_count": 2209,
     "report": "claims/claim-export-report.json"
   },
   "concepts": [
@@ -813,7 +813,7 @@
     }
   ],
   "entity_count": 448,
-  "generated_at": "2026-07-10T15:14:18+00:00",
+  "generated_at": "2026-07-10T17:26:08+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -850,12 +850,12 @@
   "release_caveat_count": 166,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {
-    "eligible_record_count": 5209,
+    "eligible_record_count": 5551,
     "notes": "Public source summaries are citation-first routing notes. They are not full source mirrors and exclude scanner-positive rows.",
     "path": "agent/source-summaries.jsonl",
     "public_publish_mode": "public_cite_and_summarize_only",
     "publishability_status": "public_distilled_source_routing_index",
-    "record_count": 5207,
+    "record_count": 5549,
     "report": "agent/source-summary-report.json",
     "skipped_sensitive_count": 2
   },

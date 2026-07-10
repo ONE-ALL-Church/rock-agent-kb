@@ -730,16 +730,69 @@
   },
   "approved_claims_hash": "8a8733af9c911e7ae1fdced0014f1484f81a4759ccc3e5b2382d2f1d9c342532",
   "approved_claims_path": "knowledge/concepts/hosting-infrastructure/approved-claims.md",
-  "approved_media_dependencies": [],
-  "approved_media_dependency_hashes": {},
-  "approved_media_hash": "c70dd7bd17fb56c9f07afc729d49f78385973d53f04dfd2fd29ee7a06e1f4f0a",
+  "approved_media_dependencies": [
+    {
+      "approved_concept_ids": [
+        "workflows"
+      ],
+      "content_hash": "4d8e13816df0866642012d8822944f4edbcb98d603fa41dfce8169311e4cc6fe",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:259fe8c97d469180",
+      "public_promotion_id": "media-public-promotion:4d8e13816df08666",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:259fe8c97d469180",
+      "source_title": "Workflow Performance Tips Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/workflows/workflow-performance-tips"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "security-permissions",
+        "workflows"
+      ],
+      "content_hash": "23cfbc78ec42ac4eab063589244ea571fcbac570706b452de19b3595caab7a44",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:04a99f4c31219b5b",
+      "public_promotion_id": "media-public-promotion:23cfbc78ec42ac4e",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:04a99f4c31219b5b",
+      "source_title": "Text to Workflow Performance [Legacy] Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/workflows/text-to-workflow-performance"
+    },
+    {
+      "approved_concept_ids": [
+        "cms-websites",
+        "data-views-reports"
+      ],
+      "content_hash": "cbd0749993a86623a216d8c52a23b769ad2e450f500f303dc5bdbb19d0b9451b",
+      "key_insight_count": 2,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:cff330eb0f953f16",
+      "public_promotion_id": "media-public-promotion:cbd0749993a86623",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_podcast_rss",
+      "source_record_id": "media-insight:cff330eb0f953f16",
+      "source_title": "Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight",
+      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights"
+    }
+  ],
+  "approved_media_dependency_hashes": {
+    "media-insight:04a99f4c31219b5b": "23cfbc78ec42ac4eab063589244ea571fcbac570706b452de19b3595caab7a44",
+    "media-insight:259fe8c97d469180": "4d8e13816df0866642012d8822944f4edbcb98d603fa41dfce8169311e4cc6fe",
+    "media-insight:cff330eb0f953f16": "cbd0749993a86623a216d8c52a23b769ad2e450f500f303dc5bdbb19d0b9451b"
+  },
+  "approved_media_hash": "61035c9cf8e6fd5529155b51c9fe584355959c2513ddfda5e3ad6cf3175a2d07",
   "approved_media_path": "knowledge/concepts/hosting-infrastructure/approved-media.md",
-  "built_at": "2026-07-10T14:38:03+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "hosting-infrastructure",
-  "guide_hash": "02ad1d3bb41f40f6bfdb396c3ea02f3d09a9b610f7fef7c67da031d5b3dbe96a",
-  "guide_line_count": 1311,
+  "guide_hash": "669e69a2eeccc2785764e5e3e0d617ad54a281def9feb234cbff9d58c9b6da9f",
+  "guide_line_count": 1319,
   "guide_path": "knowledge/concepts/hosting-infrastructure/guide.md",
-  "guide_word_count": 11345,
+  "guide_word_count": 11409,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1010,6 +1063,15 @@
       "source_key": "ef6c59be30105708",
       "source_record_id": "triumph_resources:ef6c59be30105708",
       "url": "https://www.triumph.tech/resources/check-in-for-very-large-ministries"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "d86e03ab7451ad1d",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights"
     },
     {
       "authority": "official-triumph",
@@ -2247,30 +2309,20 @@
       "start_line": 1213
     },
     {
-      "confidence": "structural",
-      "end_line": 1245,
+      "confidence": "citation-only",
+      "end_line": 1253,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "41282deb68221b2f",
-        "9a56101f501ad2b0",
-        "41282deb68221b2f",
-        "67d6aea706833a8c",
-        "9a56101f501ad2b0",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "9a56101f501ad2b0",
-        "e60d5759c6472cc6",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "e60d5759c6472cc6"
+        "d86e03ab7451ad1d",
+        "2ba569f45e9e56e6"
       ],
       "start_line": 1239
     },
     {
       "confidence": "high",
-      "end_line": 1311,
+      "end_line": 1319,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -2318,7 +2370,7 @@
         "9987fbde44f24f8a",
         "04cd045d09d8c6fd"
       ],
-      "start_line": 1246
+      "start_line": 1254
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:34:02+00:00",
@@ -3050,6 +3102,16 @@
       ],
       "url": "https://www.triumph.tech/resources/check-in-for-very-large-ministries",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "d86e03ab7451ad1d",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights"
     },
     {
       "authority": "official-triumph",

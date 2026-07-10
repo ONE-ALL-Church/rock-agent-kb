@@ -12,7 +12,6 @@ This generated artifact contains reviewed public media distillations routed to t
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
 | `media-insight:d03a93f4e7ef8c02` | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | approved_for_public_distillation | 11 | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| `media-insight:e7c8cb97245bec8d` | Data Automation Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) |
 | `media-insight:1b335b58b0acc8b1` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) |
 | `media-insight:56972ff0f97e563a` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6) |
 | `media-insight:5c9737a6d00c5149` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz) |
@@ -22,3 +21,4 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:b4cdf69722ad5d13` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz) |
 | `media-insight:e81a9f6b5e5e2f8a` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) |
 | `media-insight:00a8a57d7db012dc` | Rock's Future Anchored in Vision \| Ep 202 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision) |
+| `media-insight:a437d9f5be13ad57` | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | approved_for_public_distillation | 10 | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |

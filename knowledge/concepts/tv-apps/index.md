@@ -2,7 +2,7 @@
 id: concept-tv-apps
 title: TV Apps
 generated: true
-last_built: 2026-07-10T14:37:05+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -32,7 +32,7 @@ Apple TV and Roku developer documentation for Rock-powered TV applications, page
 
 - `TV Apps` spans api-integrations, lava, cms, security, media, mobile. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_api_docs.
-- Related tags found in source records: api, development, lava, obsidian, security, mobile, ai, cms.
+- Related tags found in source records: lava, api, development, obsidian, security, mobile, sql, workflow.
 - Source detail types include: developer_doc, rock_lava_docs, triumph_resources.
 
 ## Approved Claims
