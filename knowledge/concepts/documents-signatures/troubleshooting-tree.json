@@ -16,9 +16,9 @@
         "https://community.rockrms.com/rocku/cms/entity-documents",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://community.rockrms.com/recipes/482",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/recipes/482",
         "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
       ],
       "start_with": [
@@ -44,9 +44,9 @@
         "https://community.rockrms.com/rocku/cms/entity-documents",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://community.rockrms.com/recipes/482",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/recipes/482",
         "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
       ],
       "start_with": [
@@ -72,9 +72,9 @@
         "https://community.rockrms.com/rocku/cms/entity-documents",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://community.rockrms.com/recipes/482",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/recipes/482",
         "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
       ],
       "start_with": [
@@ -121,9 +121,9 @@
         "https://community.rockrms.com/rocku/cms/entity-documents",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://community.rockrms.com/recipes/482",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+        "https://community.rockrms.com/recipes/482",
         "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
       ],
       "start_with": [
@@ -136,7 +136,7 @@
   ],
   "concept_id": "documents-signatures",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-09T20:59:04+00:00",
+  "generated_at": "2026-07-09T23:50:00+00:00",
   "guide_sections": [
     "10-generated-pdfs-deep-dive-pdf-troubleshooting",
     "17-troubleshooting-decision-tree",

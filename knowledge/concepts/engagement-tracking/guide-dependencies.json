@@ -1,18 +1,136 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "a63ae3b543194adb41aebd6e9600222f075591f6b09edafb9fb9db2745181c86",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "Whether a person can retake an assessment is controlled by the assessment type's minimum-days interval and, when enabled, its requirement that an assessment request exist.",
+      "claim_hash": "e816d96dacc89a32d250a77fa03d09e4267e99e48e9621b405bb4d7a948a0454",
+      "claim_id": "claim:2b7393300aa9580a5b79",
+      "claim_tier": "source_backed",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "63b6b5f4f68ce0824118b1c827d1ad4c23d3ea3aa11372e19b99c384ae7acc8c",
+      "source_record_ids": [
+        "rock_documentation:article:1720"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Retake Assessments",
+          "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An achievement type cannot simultaneously track overachievement and cap the number of accomplishments because Rock must decide whether excess events extend progress or start another accomplishment.",
+      "claim_hash": "d8ef7423fed3c0d5afdeefca2e5d4b141267e7a0f31ec2f3d077557f3b3c7a26",
+      "claim_id": "claim:83326a2a72594778d5db",
+      "claim_tier": "source_backed",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9492fe4471b78e8266534eeecde007431bbfbc9da2a742462d7acb2391570825",
+      "source_record_ids": [
+        "rock_documentation:article:1693"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Achievement Types",
+          "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "When the Steps Automation job processes a step type's Auto-Complete Data View, it honors prerequisite steps and the Allow Multiple setting before creating or completing step records.",
+      "claim_hash": "05c7975649afb2229b6b5a6f093e183a4e49a25335ea28535df4cfd2d50cce14",
+      "claim_id": "claim:a61facc4f0ea3c967a62",
+      "claim_tier": "source_backed",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3039036c2d7bd9607e4fa823a81752de63fa774bb55af393001f4d35b34067dc",
+      "source_record_ids": [
+        "rock_documentation:article:1673"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Edit Step Types",
+          "url": "https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A streak type defines the engagement source, time pattern and start date Rock uses to calculate streaks, as well as the population enrolled for tracking.",
+      "claim_hash": "2367c44050b7ece73389a1aaf2e0407fc84e475c89d4d79d06ad726ed04c6176",
+      "claim_id": "claim:e9828ccece218caba61c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "engagement-tracking"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "d6cbe459f2dce48cc50fd0660e3ccb6da56c2f9187417880028e0b4d1972b889",
+      "source_record_ids": [
+        "rock_documentation:article:2027"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Streak Types",
+          "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:2b7393300aa9580a5b79": "e816d96dacc89a32d250a77fa03d09e4267e99e48e9621b405bb4d7a948a0454",
+    "claim:83326a2a72594778d5db": "d8ef7423fed3c0d5afdeefca2e5d4b141267e7a0f31ec2f3d077557f3b3c7a26",
+    "claim:a61facc4f0ea3c967a62": "05c7975649afb2229b6b5a6f093e183a4e49a25335ea28535df4cfd2d50cce14",
+    "claim:e9828ccece218caba61c": "2367c44050b7ece73389a1aaf2e0407fc84e475c89d4d79d06ad726ed04c6176"
+  },
+  "approved_claims_hash": "c69bd47b989b762a30d654b2fdd9177bf8f87819d02edec8d84b7f899b42a153",
   "approved_claims_path": "knowledge/concepts/engagement-tracking/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "79b1615d8b90e2855f4085d8ae88b47af6695f86081fd6b99fc997596166a855",
   "approved_media_path": "knowledge/concepts/engagement-tracking/approved-media.md",
-  "built_at": "2026-07-09T20:59:09+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "engagement-tracking",
-  "guide_hash": "2dc6aa4cc01cf2a3a18abeb25506eafe69c4f3b5b7505000a67ce9be1ab52193",
-  "guide_line_count": 1596,
+  "guide_hash": "f58aac2721e9abd2ba656a9c33c5066e34a47cbf0ce55a2051e7355d690cff74",
+  "guide_line_count": 1605,
   "guide_path": "knowledge/concepts/engagement-tracking/guide.md",
-  "guide_word_count": 14237,
+  "guide_word_count": 14396,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1647,34 +1765,36 @@
       "start_line": 1460
     },
     {
-      "confidence": "structural",
-      "end_line": 1480,
+      "confidence": "normal",
+      "end_line": 1489,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "8dc32f58a61e137e",
-        "8dc32f58a61e137e",
-        "d275b5b94a9da833"
+        "e261a62bd0cdb7e8",
+        "9f7f2404ad9395cf",
+        "f973a3ffb115a8ad",
+        "8dc32f58a61e137e"
       ],
       "start_line": 1473
     },
     {
       "confidence": "structural",
-      "end_line": 1487,
+      "end_line": 1496,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "8dc32f58a61e137e",
-        "8dc32f58a61e137e",
-        "d275b5b94a9da833"
+        "e261a62bd0cdb7e8",
+        "9f7f2404ad9395cf",
+        "f973a3ffb115a8ad",
+        "8dc32f58a61e137e"
       ],
-      "start_line": 1481
+      "start_line": 1490
     },
     {
       "confidence": "structural",
-      "end_line": 1489,
+      "end_line": 1498,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1694,11 +1814,11 @@
         "a9b81d5c581f1d75",
         "d275b5b94a9da833"
       ],
-      "start_line": 1488
+      "start_line": 1497
     },
     {
       "confidence": "normal",
-      "end_line": 1505,
+      "end_line": 1514,
       "heading": "Primary Official Documentation",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-primary-official-documentation",
@@ -1717,11 +1837,11 @@
         "e261a62bd0cdb7e8",
         "e261a62bd0cdb7e8"
       ],
-      "start_line": 1490
+      "start_line": 1499
     },
     {
       "confidence": "normal",
-      "end_line": 1519,
+      "end_line": 1528,
       "heading": "Streak Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-streak-sources",
@@ -1738,11 +1858,11 @@
         "9f7f2404ad9395cf",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1506
+      "start_line": 1515
     },
     {
       "confidence": "normal",
-      "end_line": 1534,
+      "end_line": 1543,
       "heading": "Assessment Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-assessment-sources",
@@ -1760,11 +1880,11 @@
         "433c95686237aa43",
         "433c95686237aa43"
       ],
-      "start_line": 1520
+      "start_line": 1529
     },
     {
       "confidence": "normal",
-      "end_line": 1544,
+      "end_line": 1553,
       "heading": "Achievement Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-achievement-sources",
@@ -1777,11 +1897,11 @@
         "8dc32f58a61e137e",
         "8dc32f58a61e137e"
       ],
-      "start_line": 1535
+      "start_line": 1544
     },
     {
       "confidence": "normal",
-      "end_line": 1558,
+      "end_line": 1567,
       "heading": "Related Engagement Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-related-engagement-sources",
@@ -1798,11 +1918,11 @@
         "62c8e250fa83c52b",
         "62c8e250fa83c52b"
       ],
-      "start_line": 1545
+      "start_line": 1554
     },
     {
       "confidence": "normal",
-      "end_line": 1567,
+      "end_line": 1576,
       "heading": "Training, Release, Model, And Community Sources",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-training-release-model-and-community-sources",
@@ -1814,11 +1934,11 @@
         "14f39743f237079d",
         "a9b81d5c581f1d75"
       ],
-      "start_line": 1559
+      "start_line": 1568
     },
     {
       "confidence": "normal",
-      "end_line": 1582,
+      "end_line": 1591,
       "heading": "Source-Code Sources",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-source-code-sources",
@@ -1836,11 +1956,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1568
+      "start_line": 1577
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1596,
+      "end_line": 1605,
       "heading": "Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-dependency-notes",
@@ -1858,7 +1978,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1583
+      "start_line": 1592
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:52:32+00:00",

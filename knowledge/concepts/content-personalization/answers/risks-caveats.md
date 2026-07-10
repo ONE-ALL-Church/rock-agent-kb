@@ -7,14 +7,18 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Content And Personalization?
 
-No approved claims are currently routed to Content And Personalization; inspect source summaries and live records before acting. Use community material as examples only, and verify local behavior in the live Rock instance.
+No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: official: 4.
 
 ## Top Claims
 
+- `claim:bb470914686ed36a122d`
+- `claim:765885794aed878fce64`
+- `claim:925692f440513452b79c`
+- `claim:95befc8568f322b3e09e`
 
 ## Citations
 
-- [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation:article:2185](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels)
-- [rock_documentation:article:2246](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments)
-- [rock_documentation:article:1381](https://community.rockrms.com/documentation/digital-publishing/personalization)
+- [Personalize Content Channel Items](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items)
+- [Intro to Adaptive Messages](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages)
+- [Add Content](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content)
+- [Intro to Content Components](https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/intro-to-content-components)

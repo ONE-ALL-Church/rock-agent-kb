@@ -20,6 +20,8 @@ artifact_level: live_checklist
 9. Inspect `DataView and report filters` in the live instance when the question touches this surface.
 10. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
 11. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
+12. Inspect `Registration instance and registrant records` in the live instance when the question touches this surface.
+13. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
@@ -29,6 +31,8 @@ artifact_level: live_checklist
 - `DataView and report filters`
 - `Group, GroupType, Location, and Schedule records`
 - `Communication recipient, medium, and send history`
+- `Registration instance and registrant records`
+- `Person, family, alias, and attribute records`
 
 ## Read-Only Probes
 

@@ -2,7 +2,7 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-07-09T20:56:22+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -38,6 +38,17 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 - The strongest source families in this build are: rock_documentation, rock_rocku, triumph_resources, rock_model_map, rock_core_release_notes, rock_recipes.
 - Related tags found in source records: operations, usage, admin, check-in, workflow, sql, development, lava.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | When the Steps Automation job processes a step type's Auto-Complete Data View, it honors prerequisite steps and the Allow Multiple setting before creating or completing step records. | [source](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types) |
+| official | behavior | A streak type defines the engagement source, time pattern and start date Rock uses to calculate streaks, as well as the population enrolled for tracking. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types) |
+| official | configuration | Whether a person can retake an assessment is controlled by the assessment type's minimum-days interval and, when enabled, its requirement that an assessment request exist. | [source](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments) |
+| official | configuration | An achievement type cannot simultaneously track overachievement and cap the number of accomplishments because Rock must decide whether excess events extend progress or start another accomplishment. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types) |
 
 ## Source Coverage
 
@@ -182,7 +193,7 @@ Keywords: `achievement, achievements, badge, achievement type`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `0`
+- Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

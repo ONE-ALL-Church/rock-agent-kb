@@ -1474,7 +1474,16 @@ Then ask for the operational decision they need to make. That determines the cor
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `4`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | When the Steps Automation job processes a step type's Auto-Complete Data View, it honors prerequisite steps and the Allow Multiple setting before creating or completing step records. | [source](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types) |
+| official | behavior | A streak type defines the engagement source, time pattern and start date Rock uses to calculate streaks, as well as the population enrolled for tracking. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types) |
+| official | configuration | Whether a person can retake an assessment is controlled by the assessment type's minimum-days interval and, when enabled, its requirement that an assessment request exist. | [source](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments) |
+| official | configuration | An achievement type cannot simultaneously track overachievement and cap the number of accomplishments because Rock must decide whether excess events extend progress or start another accomplishment. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types) |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

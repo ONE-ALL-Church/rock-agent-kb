@@ -38,8 +38,8 @@ Follow the guide section for Recipe: Identify The Source Files Behind A Visible 
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
-- https://community.rockrms.com/developer/obsidian/grid-reference
 - https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
+- https://community.rockrms.com/developer/obsidian/grid-reference
 - https://community.rockrms.com/lava/obsidian
 - https://community.rockrms.com/developer/obsidian/grids
 - https://community.rockrms.com/developer/obsidian/browser-bus

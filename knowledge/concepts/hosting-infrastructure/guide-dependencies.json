@@ -1,18 +1,136 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "9b3f74022221dc34d422a3bd02cb44890131a4ae980db42ab4514d47aec2a544",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "In a self-hosted two-server Rock deployment, SQL Server should remain private and TCP 1433 should be limited to the Rock web server and any explicitly authorized development host.",
+      "claim_hash": "34daeb66a62633aa894d0e9f76477c8cf7360c499af29e5ad992d11b8ba1074a",
+      "claim_id": "claim:249814408c9c8842ef96",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "58e3d97dce103707b3016a73528bc224fe8fcf4bf0f803c75cc77847e147c398",
+      "source_record_ids": [
+        "rock_documentation:article:1049"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure a Two-Server Environment",
+          "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs.",
+      "claim_hash": "09d72beebdf77c609f3b815fb0e87ae2aa6e3cf33ca3a373f0abac84dce464a7",
+      "claim_id": "claim:68698a0c2c178f98cb2f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "33bf45b337a648ab0351e49eb73d91e26a028010cc98d612ac11ffebbc3b5527",
+      "source_record_ids": [
+        "rock_documentation:article:2124"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Azure Hosting",
+          "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock v18 and later require SQL Server 2022 or newer according to the internal-hosting system requirements, including installations whose other sizing guidance still lists older SQL editions.",
+      "claim_hash": "c9e13845f72ca8343439091900b3f2a11ad210c1cdfc9dd67ca7fc83b9d7b71c",
+      "claim_id": "claim:867da60eac2e0656c815",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "9903c07f46cd16fdcefb444e9ef459e55c74b7ded3987557f99590325b0a0fa9",
+      "source_record_ids": [
+        "rock_documentation:article:2123"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Internal Hosting",
+          "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM.",
+      "claim_hash": "b67ed2737a969d01bf5264975842099071367ec9b93f5c2a3ce08f564d5e85a1",
+      "claim_id": "claim:bed80224adc3fdd6cdd5",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "hosting-infrastructure"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "842df7cb297c26acb57b568f5d0c789c43c907fbd00c9e47ba45779c8489dddb",
+      "source_record_ids": [
+        "rock_documentation:article:1052"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Next Steps for Azure Hosting",
+          "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:249814408c9c8842ef96": "34daeb66a62633aa894d0e9f76477c8cf7360c499af29e5ad992d11b8ba1074a",
+    "claim:68698a0c2c178f98cb2f": "09d72beebdf77c609f3b815fb0e87ae2aa6e3cf33ca3a373f0abac84dce464a7",
+    "claim:867da60eac2e0656c815": "c9e13845f72ca8343439091900b3f2a11ad210c1cdfc9dd67ca7fc83b9d7b71c",
+    "claim:bed80224adc3fdd6cdd5": "b67ed2737a969d01bf5264975842099071367ec9b93f5c2a3ce08f564d5e85a1"
+  },
+  "approved_claims_hash": "7641dd0d875f02245d79e095d9a614786bc2ed3691a1b4a4957aa96d71cffd37",
   "approved_claims_path": "knowledge/concepts/hosting-infrastructure/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "c70dd7bd17fb56c9f07afc729d49f78385973d53f04dfd2fd29ee7a06e1f4f0a",
   "approved_media_path": "knowledge/concepts/hosting-infrastructure/approved-media.md",
-  "built_at": "2026-07-09T20:59:06+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "hosting-infrastructure",
-  "guide_hash": "d0db1811a3d9270c9d0583f0f018bc957f5598ef659731fe7fae51f876119333",
-  "guide_line_count": 1293,
+  "guide_hash": "d213c92f79dfb2239ddd160a6c601bc970a883f9e0306b3b041f758e38a5cc6c",
+  "guide_line_count": 1302,
   "guide_path": "knowledge/concepts/hosting-infrastructure/guide.md",
-  "guide_word_count": 10789,
+  "guide_word_count": 10956,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1498,32 +1616,36 @@
       "start_line": 1193
     },
     {
-      "confidence": "structural",
-      "end_line": 1220,
+      "confidence": "normal",
+      "end_line": 1229,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "41282deb68221b2f",
-        "41282deb68221b2f"
+        "e60d5759c6472cc6",
+        "e60d5759c6472cc6",
+        "9a56101f501ad2b0",
+        "9a56101f501ad2b0"
       ],
       "start_line": 1213
     },
     {
       "confidence": "structural",
-      "end_line": 1227,
+      "end_line": 1236,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "41282deb68221b2f",
-        "41282deb68221b2f"
+        "e60d5759c6472cc6",
+        "e60d5759c6472cc6",
+        "9a56101f501ad2b0",
+        "9a56101f501ad2b0"
       ],
-      "start_line": 1221
+      "start_line": 1230
     },
     {
       "confidence": "high",
-      "end_line": 1293,
+      "end_line": 1302,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -1571,7 +1693,7 @@
         "9987fbde44f24f8a",
         "04cd045d09d8c6fd"
       ],
-      "start_line": 1228
+      "start_line": 1237
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:34:02+00:00",

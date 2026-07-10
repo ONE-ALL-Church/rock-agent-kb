@@ -1,7 +1,125 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "ea36d5bc0e8c66163b2b405f0c004692054fe62b39a5b6075c8c441ccd4ce7e6",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied.",
+      "claim_hash": "0b1240d4a57dd715b31ca5587c4b1fe976c01cb39f6c653addbdcc3ab95655dc",
+      "claim_id": "claim:2b12292de387462d2016",
+      "claim_tier": "source_backed",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "342a9ba6eff14fa9ff534f0e2240160d37563e035c45f35b1fc4b1ee6e04473e",
+      "source_record_ids": [
+        "rock_documentation:article:1004"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Use Electronic Signatures in a Workflow",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature.",
+      "claim_hash": "ce40b4ef1ff8cf2242c9f4c2af5c3c00672971af7f9e1e72b81d358682ed0f00",
+      "claim_id": "claim:5c97f1be7d89dfd42760",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "13477c6ec2c34bb4464e304ba047381006ff65a33119b39792cadb5205564c0e",
+      "source_record_ids": [
+        "rock_documentation:article:2068"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Electronic Signatures",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An entity document type binds stored documents to both a Rock entity type and a file type, and optional qualifier column and value settings can restrict it to a subset such as one Group Type.",
+      "claim_hash": "ac16b49cb7bee983eaa59df5cab7daa6c65515c1190276b98e3f96876499ac85",
+      "claim_id": "claim:7fee8717706249e18e19",
+      "claim_tier": "source_backed",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0104d9433debf9dfefe695695f14d978a864d4b462a1d102edf8f30c350be20d",
+      "source_record_ids": [
+        "rock_documentation:article:1002"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Configure Entity Documents",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock recommends typed signatures because a drawn signature is personally identifiable information that can create additional legal obligations when stored in Rock.",
+      "claim_hash": "3e000f7855234d3e496ac36e9ac2aaa03f4a6c9560e48fa45b034599cbb8f142",
+      "claim_id": "claim:a7ed47f88067603d5f1c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "documents-signatures"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "5608066635d7adb7b47f51bd417d6af96df0ee0ecbb9cd2126a863b82222538f",
+      "source_record_ids": [
+        "rock_documentation:article:1006"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Set Up Electronic Signatures",
+          "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:2b12292de387462d2016": "0b1240d4a57dd715b31ca5587c4b1fe976c01cb39f6c653addbdcc3ab95655dc",
+    "claim:5c97f1be7d89dfd42760": "ce40b4ef1ff8cf2242c9f4c2af5c3c00672971af7f9e1e72b81d358682ed0f00",
+    "claim:7fee8717706249e18e19": "ac16b49cb7bee983eaa59df5cab7daa6c65515c1190276b98e3f96876499ac85",
+    "claim:a7ed47f88067603d5f1c": "3e000f7855234d3e496ac36e9ac2aaa03f4a6c9560e48fa45b034599cbb8f142"
+  },
+  "approved_claims_hash": "85a5615abcab22130d05c1470417199a391e62be6ef0f8684611d70f2ba48f54",
   "approved_claims_path": "knowledge/concepts/documents-signatures/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -42,12 +160,12 @@
   },
   "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
   "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
-  "built_at": "2026-07-09T20:59:04+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "documents-signatures",
-  "guide_hash": "a9f141b1e8fe33914138db1c98c9c16f081efdd9943a67cc78c839509c57fb9a",
-  "guide_line_count": 1349,
+  "guide_hash": "994c6b42f0020c68cf5c3e1c58dc69913962a2626632492dd23f4e0cb33e33cf",
+  "guide_line_count": 1358,
   "guide_path": "knowledge/concepts/documents-signatures/guide.md",
-  "guide_word_count": 11145,
+  "guide_word_count": 11318,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1252,21 +1370,22 @@
       "start_line": 1257
     },
     {
-      "confidence": "structural",
-      "end_line": 1280,
+      "confidence": "normal",
+      "end_line": 1289,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "ba453d3167752790",
-        "badab030c195b30e",
-        "9af162570ab9ac58"
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286",
+        "44c48fbb00fd6286"
       ],
       "start_line": 1273
     },
     {
       "confidence": "citation-only",
-      "end_line": 1294,
+      "end_line": 1303,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1274,11 +1393,11 @@
         "99161b788cad1f6e",
         "9ca73fb85a7d51b9"
       ],
-      "start_line": 1281
+      "start_line": 1290
     },
     {
       "confidence": "high",
-      "end_line": 1349,
+      "end_line": 1358,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -1312,7 +1431,7 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1295
+      "start_line": 1304
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:39:56+00:00",

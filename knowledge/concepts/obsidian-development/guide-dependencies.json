@@ -1,18 +1,136 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "527fe633ce2e2ee16e43a1304c6c8910971d31e16c008bd79ea10b850f605e29",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser.",
+      "claim_hash": "c49590b4faf1e6c6ff4c472466a9c3c4539af744a5410a766cfc274c866ffd3d",
+      "claim_id": "claim:200236163eb04b5ba086",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "c0a1624427cb0424bab70dccd6acee06a3c422f1e8f8df781e7a754fd6c7db6b",
+      "source_record_ids": [
+        "rock_developer:article:370"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Browser Bus",
+          "url": "https://community.rockrms.com/developer/obsidian/browser-bus"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Obsidian block actions are stateless server calls, so every action must revalidate client data and recheck authorization rather than relying on TypeScript visibility or a previous C# instance.",
+      "claim_hash": "f155156ab58fbffbb68322f6a1ea503f5d6354bbf45d6e85720c8d2f36a1d3d5",
+      "claim_id": "claim:2502ae4f58523612e4a1",
+      "claim_tier": "source_backed",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "97e06de5dfbe3e1e94efb99fc83d8ad027bc717baf7ec1a174521c2177ca9367",
+      "source_record_ids": [
+        "rock_developer:article:377"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Creating Blocks",
+          "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Core `.obs` development is supported in Visual Studio Code rather than the Visual Studio editor, and the repository workspace supplies the expected settings and watch tasks for Obsidian controls and blocks.",
+      "claim_hash": "abd1b9644595bde02929d43d7e405373bfe1aeef4ad9df7aaad8dcb817a9c4ff",
+      "claim_id": "claim:e92f0b8e130c396de463",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "fbdc47fdbb1294d37fe205f68332b11f49e250ee5d621e0d3d5ba01cfc622529",
+      "source_record_ids": [
+        "rock_developer:article:362"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Core Development Environment",
+          "url": "https://community.rockrms.com/developer/obsidian/core-development-environment"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "An Obsidian field configuration change handled entirely in the client should emit an updated model value, while a change that requires refreshed server-derived options should additionally request a configuration update.",
+      "claim_hash": "d57e8faf8e509affa246b0efa4025ea1a68a514792c90a058b084d6fee4a08c6",
+      "claim_id": "claim:fea01b9e6403198166d2",
+      "claim_tier": "source_backed",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "obsidian-development"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b95d33ec9f3fcd7de97e83117cd5d2704031187e8d668972beef10976034bacd",
+      "source_record_ids": [
+        "rock_developer:article:381"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Core Field Type Patterns",
+          "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:200236163eb04b5ba086": "c49590b4faf1e6c6ff4c472466a9c3c4539af744a5410a766cfc274c866ffd3d",
+    "claim:2502ae4f58523612e4a1": "f155156ab58fbffbb68322f6a1ea503f5d6354bbf45d6e85720c8d2f36a1d3d5",
+    "claim:e92f0b8e130c396de463": "abd1b9644595bde02929d43d7e405373bfe1aeef4ad9df7aaad8dcb817a9c4ff",
+    "claim:fea01b9e6403198166d2": "d57e8faf8e509affa246b0efa4025ea1a68a514792c90a058b084d6fee4a08c6"
+  },
+  "approved_claims_hash": "d8927b8aa33782f8e556976b582361506b5f4a09e2c4a2264a101e82419510b0",
   "approved_claims_path": "knowledge/concepts/obsidian-development/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "f768e9a71799adfa685a6d1e9f212cff4a00b0eef2b1cd554f5c1fa1a1b517cd",
   "approved_media_path": "knowledge/concepts/obsidian-development/approved-media.md",
-  "built_at": "2026-07-09T20:59:12+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "obsidian-development",
-  "guide_hash": "c99c0aff61ec2d8829a6594f4a87b6613dd8095c9b5c7267539fd1ff535c0501",
-  "guide_line_count": 1378,
+  "guide_hash": "fa9804f9517e87d02afe50967ef86ad424e39bc7c662456afa3a2a1ae44b18ab",
+  "guide_line_count": 1387,
   "guide_path": "knowledge/concepts/obsidian-development/guide.md",
-  "guide_word_count": 14157,
+  "guide_word_count": 14321,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1613,30 +1731,36 @@
       "start_line": 1316
     },
     {
-      "confidence": "structural",
-      "end_line": 1343,
+      "confidence": "normal",
+      "end_line": 1352,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "e39ba57a3615907c"
+        "e39ba57a3615907c",
+        "688f7051e9eaa0b1",
+        "d126ee444c6d1662",
+        "5966214bad72bdf7"
       ],
       "start_line": 1336
     },
     {
       "confidence": "structural",
-      "end_line": 1350,
+      "end_line": 1359,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "e39ba57a3615907c"
+        "e39ba57a3615907c",
+        "688f7051e9eaa0b1",
+        "d126ee444c6d1662",
+        "5966214bad72bdf7"
       ],
-      "start_line": 1344
+      "start_line": 1353
     },
     {
       "confidence": "normal",
-      "end_line": 1378,
+      "end_line": 1387,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1659,7 +1783,7 @@
         "8b36a3bb6cf452c1",
         "776256c424368312"
       ],
-      "start_line": 1351
+      "start_line": 1360
     }
   ],
   "source_pack_hydrated_at": "2026-06-19T00:07:23+00:00",

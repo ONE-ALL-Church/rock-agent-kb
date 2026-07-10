@@ -1337,7 +1337,16 @@ The browser bus is page-local only ([Browser Bus](https://community.rockrms.com/
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `4`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser. | [source](https://community.rockrms.com/developer/obsidian/browser-bus) |
+| official | implementation_pattern | Obsidian block actions are stateless server calls, so every action must revalidate client data and recheck authorization rather than relying on TypeScript visibility or a previous C# instance. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
+| official | implementation_pattern | An Obsidian field configuration change handled entirely in the client should emit an updated model value, while a change that requires refreshed server-derived options should additionally request a configuration update. | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns) |
+| official | operational_guidance | Core `.obs` development is supported in Visual Studio Code rather than the Visual Studio editor, and the repository workspace supplies the expected settings and watch tasks for Obsidian controls and blocks. | [source](https://community.rockrms.com/developer/obsidian/core-development-environment) |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

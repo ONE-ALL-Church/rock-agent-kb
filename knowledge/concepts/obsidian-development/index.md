@@ -2,7 +2,7 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-07-09T20:56:23+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,6 +35,17 @@ Obsidian block development, grid reference, custom actions, field types, browser
 - The strongest source families in this build are: rock_developer, rock_lava_docs, triumph_resources, rock_core_release_notes, rock_model_map, sparkdevnetwork_rock.
 - Related tags found in source records: development, api, lava, obsidian, operations, releases, ai, github.
 - Source detail types include: developer_doc, rock_lava_docs, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser. | [source](https://community.rockrms.com/developer/obsidian/browser-bus) |
+| official | implementation_pattern | Obsidian block actions are stateless server calls, so every action must revalidate client data and recheck authorization rather than relying on TypeScript visibility or a previous C# instance. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
+| official | implementation_pattern | An Obsidian field configuration change handled entirely in the client should emit an updated model value, while a change that requires refreshed server-derived options should additionally request a configuration update. | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns) |
+| official | operational_guidance | Core `.obs` development is supported in Visual Studio Code rather than the Visual Studio editor, and the repository workspace supplies the expected settings and watch tasks for Obsidian controls and blocks. | [source](https://community.rockrms.com/developer/obsidian/core-development-environment) |
 
 ## Source Coverage
 
@@ -169,7 +180,7 @@ Keywords: `development environment, debugging, vscode, typescript`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `0`
+- Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

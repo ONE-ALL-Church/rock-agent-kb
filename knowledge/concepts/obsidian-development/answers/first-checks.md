@@ -7,14 +7,12 @@ artifact_level: answer
 
 # What should I check first for Obsidian Development?
 
-Start with the highest-priority reviewed claims for this concept.
+The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser.
 
 ## Top Claims
 
+- `claim:200236163eb04b5ba086`
 
 ## Citations
 
-- [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_developer:article:384](https://community.rockrms.com/developer/obsidian/grid-reference/columns)
-- [rock_developer:article:377](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks)
-- [rock_developer:article:365](https://community.rockrms.com/developer/obsidian/obsidian-component-structure)
+- [Browser Bus](https://community.rockrms.com/developer/obsidian/browser-bus)

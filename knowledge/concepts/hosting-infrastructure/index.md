@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-07-09T20:56:20+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -36,6 +36,17 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 - The strongest source families in this build are: rock_documentation, triumph_resources, rock_recipes, rock_core_release_notes, rock_rocku, rock_qa.
 - Related tags found in source records: operations, usage, releases, sql, admin, ai, github, implementation.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | implementation_pattern | Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
+| official | operational_guidance | Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting) |
+| official | release_caveat | Rock v18 and later require SQL Server 2022 or newer according to the internal-hosting system requirements, including installations whose other sizing guidance still lists older SQL editions. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting) |
+| official | risk | In a self-hosted two-server Rock deployment, SQL Server should remain private and TCP 1433 should be limited to the Rock web server and any explicitly authorized development host. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment) |
 
 ## Source Coverage
 
@@ -163,7 +174,7 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 ## Rebuild Dependencies
 
 - Source records: `72`
-- Approved claims: `0`
+- Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

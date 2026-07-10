@@ -7,14 +7,12 @@ artifact_level: answer
 
 # What should I check first for Engagement Tracking?
 
-Start with the highest-priority reviewed claims for this concept.
+A streak type defines the engagement source, time pattern and start date Rock uses to calculate streaks, as well as the population enrolled for tracking.
 
 ## Top Claims
 
+- `claim:e9828ccece218caba61c`
 
 ## Citations
 
-- [rock_model_map:stable-demo-scrape](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
-- [rock_documentation:article:1666](https://community.rockrms.com/documentation/engagement/steps/fundamentals)
-- [rock_documentation:article:1516](https://community.rockrms.com/documentation/engagement/streaks)
-- [rock_documentation:article:1712](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments)
+- [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types)

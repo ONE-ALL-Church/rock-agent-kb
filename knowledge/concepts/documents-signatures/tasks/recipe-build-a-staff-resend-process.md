@@ -42,7 +42,7 @@ Follow the guide section for Recipe: Build A Staff Resend Process.
 - https://community.rockrms.com/rocku/cms/entity-documents
 - https://community.rockrms.com/rocku/workflows/electronic-signatures-1
 - https://www.triumph.tech/resources/github-spotlight-182025
-- https://community.rockrms.com/recipes/482
 - https://www.triumph.tech/resources/github-spotlight-1042024
 - https://community.rockrms.com/rocku/event-registration/electronic-signatures
+- https://community.rockrms.com/recipes/482
 - https://community.rockrms.com/rocku/individuals-in-rock/merge-documents

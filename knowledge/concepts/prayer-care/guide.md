@@ -1205,7 +1205,16 @@ Check:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `4`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock can require administrator approval before prayer requests enter team sessions, and it prioritizes urgent requests ahead of requests ordered from least prayed-for to most prayed-for. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/intro-to-prayer) |
+| official | behavior | Prayer requests configured for automatic approval become available to the prayer team immediately; otherwise an administrator must approve them before they appear in prayer sessions. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/administer-prayer-requests) |
+| official | behavior | A prayer session records another prayer count when a team member views a request, and enabled team flagging can unapprove a request once the block's configured flag threshold is reached. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session) |
+| official | configuration | The Prayer Request Entry block can expose child categories beneath a configured parent; when category selection is hidden, submitted requests receive the block's configured default category. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-categories) |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

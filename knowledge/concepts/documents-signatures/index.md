@@ -2,7 +2,7 @@
 id: concept-documents-signatures
 title: Documents And Signatures
 generated: true
-last_built: 2026-07-09T20:56:20+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -46,6 +46,17 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 | Electronic Signatures Transcript Insight | Rock operations | 00:00 | The Electronic Signatures RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/electronic-signatures-1) |
 | Electronic Signatures Transcript Insight | release and roadmap awareness | 00:44 | For version, roadmap, and release-caveat awareness, Electronic Signatures should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. | [source](https://community.rockrms.com/rocku/workflows/electronic-signatures-1) |
 
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures) |
+| official | configuration | A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow) |
+| official | configuration | An entity document type binds stored documents to both a Rock entity type and a file type, and optional qualifier column and value settings can restrict it to a subset such as one Group Type. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents) |
+| official | risk | Rock recommends typed signatures because a drawn signature is personally identifiable information that can create additional legal obligations when stored in Rock. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) |
 
 ## Source Coverage
 
@@ -174,7 +185,7 @@ Keywords: `pdf, generated pdf, document pdf`
 ## Rebuild Dependencies
 
 - Source records: `71`
-- Approved claims: `0`
+- Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

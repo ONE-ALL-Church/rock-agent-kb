@@ -2,7 +2,7 @@
 id: concept-content-personalization
 title: Content And Personalization
 generated: true
-last_built: 2026-07-09T20:56:23+00:00
+last_built: 2026-07-09T23:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -36,6 +36,17 @@ Content channels, assets, structured content, adaptive messages, personalization
 - The strongest source families in this build are: rock_documentation, rock_rocku, triumph_resources, rock_lava_docs, rock_recipes, rock_core_release_notes.
 - Related tags found in source records: operations, usage, admin, lava, workflow, api, development, sql.
 - Source detail types include: documentation_article, recipe, rock_lava_docs, training, triumph_resources.
+
+## Approved Claims
+
+These are reviewed, source-backed public claims routed to this concept. Community-derived claims are labeled by authority tier and should not be treated as official behavior.
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Adaptive Messages centralize multiple message adaptations behind one Lava command and can select variants using personalization data, date windows, view counts, and optional saturation limits. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages) |
+| official | behavior | For a personalized Content Channel Item, matching any configured segment and any configured request filter is sufficient within each group, but an item that uses both groups requires a match in both groups. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items) |
+| official | implementation_pattern | A content component lets a designer define markup and Lava behavior while giving editors structured values to change, reducing the need for editors to modify fragile HTML directly. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/intro-to-content-components) |
+| official | operational_guidance | Use an Asset attribute or the HTML editor's asset picker when editors need explicit control over file storage or need to reuse files already present in a configured cloud provider. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content) |
 
 ## Source Coverage
 
@@ -131,7 +142,11 @@ Keywords: `asset manager, asset, file, image`
 
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
-| No matched records |  |  |  |
+| Asset Manager System | rock_documentation | [Intro to the Asset Manager](/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager?Version=v19.0) [Set Up Storage Provider](/documentation/digital-publishing/content-management/asset-manager-system/set-up-storage-provider?Version=v19.0) [View Asset Manager](/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager?Version=v19.0) [Add... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system) |
+| Add Content | rock_documentation | You might be wondering, when should I use the asset manager and when should I use a file attribute? The difference is subtle. File attributes are best used to attach files to content channel items or people where you don't care about the details of where the file is stored (this is all handled for you in the file type setup). Using the asset manager gives you much more control of where and how the file will be... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content) |
+| Intro to the Asset Manager | rock_documentation | The Asset Management system gives you first class integration between your Rock system and a remote cloud storage system (such as Azure or Amazon S3). With the Asset field type, you can add an attribute to existing things (such as a Content Channel, Person, Group, etc.) and give your content editors the ability to select files and images stored in your cloud accounts. ## Suggested Videos *... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager) |
+| View Asset Manager | rock_documentation | You can view and manage the files in the Asset Manager under `Admin tools > CMS Configuration > Asset Manager`. This block allows you to view and manage documents in the providers you have configured. Think of this as your file manager for your cloud storage and Rock server. 1. **Add and delete folders**- From here you can add or delete folders in the asset manager. 2. **Folder tree** - The folder tree shows parent... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager) |
+| Set Up Storage Provider | rock_documentation | Note **Access**Before you get started, you'll need to set up your Asset Storage Provider. Amazon S3, Google Cloud Storage, Azure Cloud Storage and your local Server File System are currently supported out of the box. More asset storage providers may be available in the Rock Shop. The asset provider is configured under `Admin tools > System Settings > Asset Storage Providers.` This page is where you will configure... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/set-up-storage-provider) |
 
 ### Adaptive Messages
 
@@ -164,7 +179,7 @@ Keywords: `personalization, segment, segments, audience`
 ## Rebuild Dependencies
 
 - Source records: `92`
-- Approved claims: `0`
+- Approved claims: `4`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

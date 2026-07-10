@@ -488,6 +488,7 @@ concepts:
         title: Asset Manager
         keywords: [asset manager, asset, file, image]
         documentation_path_prefixes:
+          - documentation/digital-publishing/content-management/asset-manager-system
           - documentation/digital-publishing/content-management/asset-manager
       - id: adaptive-messages
         title: Adaptive Messages

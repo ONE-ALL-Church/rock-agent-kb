@@ -332,6 +332,7 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
         "derived_from": {
             "type": "source_claim_review",
             "id": row.get("id"),
+            "candidate_id": row.get("candidate_id"),
             "schema": row.get("schema") or SOURCE_CLAIM_REVIEW_SCHEMA,
             "reviewer": row.get("reviewer"),
         },
@@ -339,6 +340,9 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
     }
     if row.get("generation_provenance"):
         claim["generation_provenance"] = row["generation_provenance"]
+    for key in ["evidence_class", "temporal_status"]:
+        if row.get(key):
+            claim[key] = row[key]
     return claim_with_id(claim)
 
 

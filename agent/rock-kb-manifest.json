@@ -43,24 +43,24 @@
   "approved_claims": {
     "authority_tiers": {
       "community-reviewed": 1027,
-      "official": 28,
+      "official": 52,
       "release-note-confirmed": 1,
       "rocku-confirmed": 759
     },
     "claim_types": {
-      "behavior": 3,
-      "configuration": 7,
-      "implementation_pattern": 29,
-      "operational_guidance": 1101,
-      "release_caveat": 107,
-      "risk": 63,
+      "behavior": 12,
+      "configuration": 12,
+      "implementation_pattern": 33,
+      "operational_guidance": 1104,
+      "release_caveat": 108,
+      "risk": 65,
       "source_summary": 505
     },
     "notes": "Approved claims are the durable public knowledge unit. Each row must trace to source refs or source record IDs and pass public/private leak checks.",
     "path": "claims/approved-claims.jsonl",
     "public_publish_mode": "public_cite_and_summarize_only",
     "publishability_status": "approved_public_claim_graph",
-    "record_count": 1815,
+    "record_count": 1839,
     "report": "claims/claim-export-report.json"
   },
   "concepts": [
@@ -810,7 +810,7 @@
     }
   ],
   "entity_count": 446,
-  "generated_at": "2026-07-09T21:01:15+00:00",
+  "generated_at": "2026-07-09T23:50:00+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",

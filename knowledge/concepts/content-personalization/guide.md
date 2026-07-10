@@ -931,7 +931,16 @@ Before launch:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-No approved claims are currently routed to this concept.
+- Approved claims routed to this concept: `4`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Adaptive Messages centralize multiple message adaptations behind one Lava command and can select variants using personalization data, date windows, view counts, and optional saturation limits. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages) |
+| official | behavior | For a personalized Content Channel Item, matching any configured segment and any configured request filter is sufficient within each group, but an item that uses both groups requires a match in both groups. | [source](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items) |
+| official | implementation_pattern | A content component lets a designer define markup and Lava behavior while giving editors structured values to change, reducing the need for editors to modify fragile HTML directly. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/intro-to-content-components) |
+| official | operational_guidance | Use an Asset attribute or the HTML editor's asset picker when editors need explicit control over file storage or need to reuse files already present in a configured cloud provider. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content) |
+
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
 <!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->

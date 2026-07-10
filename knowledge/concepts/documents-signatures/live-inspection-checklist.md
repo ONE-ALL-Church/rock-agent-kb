@@ -17,14 +17,20 @@ artifact_level: live_checklist
 6. Inspect `Rock version` in the live instance when the question touches this surface.
 7. Inspect `Security roles and permissions` in the live instance when the question touches this surface.
 8. Inspect `WorkflowType and Workflow records` in the live instance when the question touches this surface.
-9. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
+9. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
+10. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
+11. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
+12. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
 - `Rock version`
 - `Security roles and permissions`
 - `WorkflowType and Workflow records`
+- `Group, GroupType, Location, and Schedule records`
 - `Communication recipient, medium, and send history`
+- `Mobile shell version and mobile block settings`
+- `Person, family, alias, and attribute records`
 
 ## Read-Only Probes
 

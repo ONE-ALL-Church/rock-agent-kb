@@ -1,18 +1,136 @@
 {
-  "approved_claim_dependencies": [],
-  "approved_claim_hashes": {},
-  "approved_claims_hash": "e9ceb7f06d17b19e30bd5a43fc71e4b14782fcfb8611fad3ed3909cf0c7e23af",
+  "approved_claim_dependencies": [
+    {
+      "authority_tier": "official",
+      "claim": "Adaptive Messages centralize multiple message adaptations behind one Lava command and can select variants using personalization data, date windows, view counts, and optional saturation limits.",
+      "claim_hash": "323cf93521442da20afaf29e1bed110183b0189a67cbd6010f261afd29195707",
+      "claim_id": "claim:765885794aed878fce64",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "ea6ef50e9814fd9c75d49b6c6897ac27a257ecd2e275672fc09f628616f6c136",
+      "source_record_ids": [
+        "rock_documentation:article:2258"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Adaptive Messages",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Use an Asset attribute or the HTML editor's asset picker when editors need explicit control over file storage or need to reuse files already present in a configured cloud provider.",
+      "claim_hash": "f10dc390d400e15f8c0fc6841bc54e294eb8b9efc7d5d5c83cbf776ef202e4e6",
+      "claim_id": "claim:925692f440513452b79c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "3a31a8e4378f0cf0b5d02f48c0f7d3bd149a994c17bd25b5e4b8c01d25904312",
+      "source_record_ids": [
+        "rock_documentation:article:2240"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Add Content",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A content component lets a designer define markup and Lava behavior while giving editors structured values to change, reducing the need for editors to modify fragile HTML directly.",
+      "claim_hash": "e74909ea6e64d20088c6b8156b581b22e40bd82f7bbb2dc705620565418e3dc9",
+      "claim_id": "claim:95befc8568f322b3e09e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "7ac6beec5624e99ca016ce8cee91b3131b4a034caa6aa884fe2ec57cf4b4293c",
+      "source_record_ids": [
+        "rock_documentation:article:2214"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Intro to Content Components",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/intro-to-content-components"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "For a personalized Content Channel Item, matching any configured segment and any configured request filter is sufficient within each group, but an item that uses both groups requires a match in both groups.",
+      "claim_hash": "54abface79301593c30f416b4585c832a843819ff20a38cbf85bbaf67ea95c6f",
+      "claim_id": "claim:bb470914686ed36a122d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "content-personalization"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "854d11bc89387df36a2aa471f793c1d96123bc4e0078f01e96d4e991dbb7c8cf",
+      "source_record_ids": [
+        "rock_documentation:article:2254"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Personalize Content Channel Items",
+          "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items"
+        }
+      ]
+    }
+  ],
+  "approved_claim_hashes": {
+    "claim:765885794aed878fce64": "323cf93521442da20afaf29e1bed110183b0189a67cbd6010f261afd29195707",
+    "claim:925692f440513452b79c": "f10dc390d400e15f8c0fc6841bc54e294eb8b9efc7d5d5c83cbf776ef202e4e6",
+    "claim:95befc8568f322b3e09e": "e74909ea6e64d20088c6b8156b581b22e40bd82f7bbb2dc705620565418e3dc9",
+    "claim:bb470914686ed36a122d": "54abface79301593c30f416b4585c832a843819ff20a38cbf85bbaf67ea95c6f"
+  },
+  "approved_claims_hash": "7fd6e7bf9fa0eec2139314136533c069f9a3bde360977ac04cf3965270b63568",
   "approved_claims_path": "knowledge/concepts/content-personalization/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "091daab68bfb7615d3320351590e4b1504a046279d7a3e43d5984a4430af548e",
   "approved_media_path": "knowledge/concepts/content-personalization/approved-media.md",
-  "built_at": "2026-07-09T20:59:11+00:00",
+  "built_at": "2026-07-09T23:50:00+00:00",
   "concept_id": "content-personalization",
-  "guide_hash": "09c8dd7928ec4183fcf3862eda796a3bef17b5355cfa3ea745e6b10107022ed2",
-  "guide_line_count": 995,
+  "guide_hash": "b3d465cc6b7d71207754ee3b7bdbca8fc85d517218ef5befca0c4b6b8552e81c",
+  "guide_line_count": 1004,
   "guide_path": "knowledge/concepts/content-personalization/guide.md",
-  "guide_word_count": 12808,
+  "guide_word_count": 12980,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1251,32 +1369,36 @@
       "start_line": 912
     },
     {
-      "confidence": "structural",
-      "end_line": 937,
+      "confidence": "normal",
+      "end_line": 946,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "6ad836de36757aea",
-        "776256c424368312"
+        "64fbac29d223ecdd",
+        "34c9290486f4732f",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2"
       ],
       "start_line": 930
     },
     {
       "confidence": "structural",
-      "end_line": 944,
+      "end_line": 953,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "6ad836de36757aea",
-        "776256c424368312"
+        "64fbac29d223ecdd",
+        "34c9290486f4732f",
+        "2a8b39905fc2970a",
+        "ed70438a6c00a8f2"
       ],
-      "start_line": 938
+      "start_line": 947
     },
     {
       "confidence": "high",
-      "end_line": 995,
+      "end_line": 1004,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1336,7 +1458,7 @@
         "6ad836de36757aea",
         "776256c424368312"
       ],
-      "start_line": 945
+      "start_line": 954
     }
   ],
   "source_pack_hydrated_at": "2026-06-19T00:00:28+00:00",
