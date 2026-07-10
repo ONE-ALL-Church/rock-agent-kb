@@ -286,13 +286,14 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     const telemetryResponse = await mf.dispatchFetch("https://kb.example.test/telemetry/summary");
     const telemetry = await telemetryResponse.json();
 
-    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v2");
+    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v3");
     assert.equal(telemetry.adoption_rows.some((row) => row.client_class === "cli"), true);
     assert.equal(telemetry.evaluation_rows.some((row) => row.client_class === "eval"), true);
     assert.equal(telemetry.zero_result_topics.some((row) => row.topic_hint === "prayer-care"), true);
     assert.equal(telemetry.feedback.some((row) => row.reason === "outdated" && row.rating === -1), true);
     assert.equal(telemetry.feedback.some((row) => row.result_id === "claim:claim:abc123"), true);
-    assert.match(telemetry.privacy, /No raw query text/);
+    assert.equal(telemetry.result_kinds.some((row) => row.result_kind === "claim" && row.client_class === "cli"), true);
+    assert.match(telemetry.privacy, /No raw or hashed query text/);
     assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
   } finally {
     await mf.dispose();

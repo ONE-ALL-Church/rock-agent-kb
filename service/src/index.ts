@@ -185,7 +185,7 @@ export default {
         const detail = url.searchParams.get("detail") === "full" ? "full" : "compact";
         const kind = url.searchParams.get("kind") || "";
         const rows = await search(env, query, limit, minTier, detail === "full", kind);
-        ctx.waitUntil(recordUsage(env, "search", query, rows.length, classifyClient(request)));
+        ctx.waitUntil(recordUsage(env, "search", query, rows, classifyClient(request)));
         return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, kind: kind || null, detail, results: rows });
       }
       if (url.pathname.startsWith("/results/")) {
@@ -441,7 +441,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     const limit = boundedInt(args.limit, 10, 1, 50);
     const minTier = String(args.min_tier || "routing_context_only");
     const rows = await search(env, query, limit, minTier, args.full === true, String(args.kind || ""));
-    ctx.waitUntil(recordUsage(env, "search", query, rows.length, "mcp"));
+    ctx.waitUntil(recordUsage(env, "search", query, rows, "mcp"));
     return rows;
   }
   if (name === "kb_get_result") {
@@ -1296,36 +1296,53 @@ async function artifactJsonl(env: ServiceEnv, path: string): Promise<Response> {
   return json({ rows: await artifactJsonlValue(env, path) });
 }
 
-async function recordUsage(env: ServiceEnv, event: string, query: string, resultCount: number, clientClass: string): Promise<void> {
+async function recordUsage(env: ServiceEnv, event: string, query: string, results: JsonRecord[], clientClass: string): Promise<void> {
   await ensureTelemetryTables(env);
-  const hash = query ? await sha256Hex(normalizeQuery(query)) : "";
   const day = new Date().toISOString().slice(0, 10);
   const topicHint = queryTopicHint(query);
+  const resultCount = results.length;
+  const primaryResultKind = String(results[0]?.kind || "none");
   await env.KB_DB.prepare(
-    `INSERT INTO usage_events_v2 (day, event, client_class, query_hash, topic_hint, result_count, count)
+    `INSERT INTO usage_events_v3 (day, event, client_class, topic_hint, result_count, primary_result_kind, count)
      VALUES (?, ?, ?, ?, ?, ?, 1)
-     ON CONFLICT(day, event, client_class, query_hash, topic_hint, result_count)
+     ON CONFLICT(day, event, client_class, topic_hint, result_count, primary_result_kind)
      DO UPDATE SET count = count + 1`
-  ).bind(day, event, clientClass, hash, topicHint, resultCount).run();
+  ).bind(day, event, clientClass, topicHint, resultCount, primaryResultKind).run();
+  const kindCounts = countValues(results.map((row) => String(row.kind || "unknown")));
+  for (const [resultKind, count] of Object.entries(kindCounts)) {
+    await env.KB_DB.prepare(
+      `INSERT INTO usage_result_kinds (day, event, client_class, result_kind, count)
+       VALUES (?, ?, ?, ?, ?)
+       ON CONFLICT(day, event, client_class, result_kind)
+       DO UPDATE SET count = count + excluded.count`
+    ).bind(day, event, clientClass, resultKind, count).run();
+  }
 }
 
 async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
   await ensureTelemetryTables(env);
-  const [result, zeroResults, feedback] = await Promise.all([
+  const [result, zeroResults, resultKinds, feedback] = await Promise.all([
     env.KB_DB.prepare(
-    `SELECT day, event, client_class, result_count, SUM(count) AS count
-     FROM usage_events_v2
-     GROUP BY day, event, client_class, result_count
+    `SELECT day, event, client_class, result_count, primary_result_kind, SUM(count) AS count
+     FROM usage_events_v3
+     GROUP BY day, event, client_class, result_count, primary_result_kind
      ORDER BY day DESC, count DESC
      LIMIT 100`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
     `SELECT day, topic_hint, SUM(count) AS count
-     FROM usage_events_v2
+     FROM usage_events_v3
      WHERE result_count = 0 AND client_class <> 'eval' AND topic_hint <> 'unclassified'
      GROUP BY day, topic_hint
      ORDER BY day DESC, count DESC
      LIMIT 50`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, event, client_class, result_kind, SUM(count) AS count
+     FROM usage_result_kinds
+     GROUP BY day, event, client_class, result_kind
+     ORDER BY day DESC, count DESC
+     LIMIT 100`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
     `SELECT day, client_class, result_id, result_kind, projection_version, rating, reason, SUM(count) AS count
@@ -1337,17 +1354,40 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
   ]);
   const rows = result.results || [];
   return {
-    schema: "rock-kb-telemetry-summary-v2",
+    schema: "rock-kb-telemetry-summary-v3",
     rows,
     adoption_rows: rows.filter((row) => row.client_class !== "eval"),
     evaluation_rows: rows.filter((row) => row.client_class === "eval"),
     zero_result_topics: zeroResults.results || [],
+    result_kinds: resultKinds.results || [],
     feedback: feedback.results || [],
-    privacy: "No raw query text or free-text feedback is retained. Feedback identifies only public canonical result IDs and aggregate structured reasons.",
+    privacy: "No raw or hashed query text and no free-text feedback are retained in current telemetry. Adoption uses aggregate client classes, topic categories, result kinds, counts, and fixed feedback reasons.",
   };
 }
 
 async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS usage_events_v3 (
+      day TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      topic_hint TEXT NOT NULL,
+      result_count INTEGER NOT NULL,
+      primary_result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, event, client_class, topic_hint, result_count, primary_result_kind)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS usage_result_kinds (
+      day TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, event, client_class, result_kind)
+    )`
+  ).run();
   await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS usage_events_v2 (
       day TEXT NOT NULL,

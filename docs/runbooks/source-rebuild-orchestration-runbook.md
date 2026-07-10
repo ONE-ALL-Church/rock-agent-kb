@@ -41,6 +41,23 @@ This writes:
 - `data/review/source-scan/source-scan-summary.md`
 - `data/review/source-scan/source-snapshot.json`
 
+Classify every registered source against the cadence in
+`sources/registry.yaml` and the age limits in
+`sources/freshness-policy.yaml`:
+
+```bash
+uv run kb sources freshness \
+  --source-status data/review/source-scan/source-refresh-status.json \
+  --strict
+```
+
+The report classifies sources as `current`, `due_soon`, `overdue`, `failed`,
+`missing`, or `manual`. Daily sources may be at most 48 hours old, weekly
+sources 216 hours, and monthly sources 840 hours. Manual sources are reported
+without blocking refresh. The scheduled workflow uploads the JSON and Markdown
+reports as the `source-freshness` artifact and fails when a required source is
+failed, missing, or overdue.
+
 4. Inspect the current build status and dry-run action plan.
 
 ```bash

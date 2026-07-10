@@ -2,6 +2,10 @@ name: Release Client
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag matching the package and changelog, for example rock-kb-v0.5.0.
+        required: true
   push:
     tags:
       - "rock-kb-v*"
@@ -11,16 +15,37 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     permissions:
-      contents: read
+      contents: write
       id-token: write
     env:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     defaults:
       run:
         working-directory: clients/python
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: service/package-lock.json
+      - name: Validate release version
+        working-directory: .
+        run: uv run python scripts/validate_release_version.py --tag "${RELEASE_TAG}"
+      - name: Install service dependencies
+        working-directory: service
+        run: npm ci
+      - name: Run public audits
+        working-directory: .
+        run: |
+          python3 scripts/audit_tracked_tree.py
+          python3 scripts/validate_bundle.py
+          uv run kb audit public-export
+      - name: Run lexical retrieval quality gate
+        working-directory: .
+        run: uv run kb quality-gate
       - name: Build package
         run: uv build
       - name: Smoke test wheel
@@ -35,3 +60,9 @@ jobs:
       - name: Publish package with trusted publishing
         if: ${{ env.PYPI_TOKEN == '' }}
         run: uv publish
+      - name: Create GitHub release
+        if: ${{ startsWith(github.ref, 'refs/tags/rock-kb-v') }}
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" --verify-tag --generate-notes --title "${GITHUB_REF_NAME}"

@@ -1,0 +1,11 @@
+schema: rock-kb-source-freshness-policy-v1
+due_soon_fraction: 0.75
+cadences:
+  daily:
+    maximum_age_hours: 48
+  weekly:
+    maximum_age_hours: 216
+  monthly:
+    maximum_age_hours: 840
+  manual:
+    maximum_age_hours: null

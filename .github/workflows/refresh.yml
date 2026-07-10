@@ -42,6 +42,17 @@ jobs:
       - name: Scan source changes
         if: always()
         run: uv run kb sources scan --baseline-snapshot data/review/source-scan-pre/source-snapshot.json --source-status data/review/source-scan/source-refresh-status.json --output-dir data/review/source-scan
+      - name: Check source freshness expectations
+        id: source_freshness
+        if: always()
+        continue-on-error: true
+        run: uv run kb sources freshness --source-status data/review/source-scan/source-refresh-status.json --strict
+      - name: Upload source freshness report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-freshness
+          path: data/review/source-freshness/
       - name: Build status and dry-run plan
         if: always()
         run: |
@@ -170,5 +181,5 @@ jobs:
         if: steps.refresh_sources.outcome == 'success' && github.ref_name != github.event.repository.default_branch
         run: echo "Skipping automated refresh pull request creation for non-default branch '${{ github.ref_name }}'."
       - name: Fail if source refresh failed
-        if: steps.refresh_sources.outcome != 'success'
+        if: steps.refresh_sources.outcome != 'success' || steps.source_freshness.outcome != 'success'
         run: exit 1

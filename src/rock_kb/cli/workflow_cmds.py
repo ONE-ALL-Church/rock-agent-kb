@@ -12,6 +12,7 @@ def register(app: typer.Typer) -> None:
     app.command("eval-service")(eval_service_command)
     app.command("quality-gate")(quality_gate_command)
     app.command("hybrid-shadow")(hybrid_shadow_command)
+    app.command("shadow-lifecycle")(shadow_lifecycle_command)
     app.command("network-readiness")(network_readiness_command)
     app.command("serve")(serve_command)
 
@@ -114,6 +115,20 @@ def hybrid_shadow_command(
         result["evaluation"] = {key: value for key, value in evaluation.items() if key != "results"}
         result["evaluation"]["results_path"] = "service/dist/hybrid-shadow-results.json"
     print_json(data=result)
+
+
+def shadow_lifecycle_command(
+    strict: bool = typer.Option(False, "--strict", help="Exit non-zero for expired instances or production routing."),
+) -> None:
+    """Audit the owner, review date, expiration, and routing boundary of shadow services."""
+    from rich import print_json
+
+    from ..shadow_lifecycle import shadow_lifecycle_report
+
+    report = shadow_lifecycle_report()
+    print_json(data=report)
+    if strict and report["status"] != "ok":
+        raise typer.Exit(code=1)
 
 
 def network_readiness_command(

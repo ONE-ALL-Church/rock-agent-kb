@@ -43,6 +43,8 @@ ALLOWED_PUBLIC_PUBLISH_MODES = {
     "manual_review_required",
 }
 
+ALLOWED_REFRESH_CADENCES = {"daily", "weekly", "monthly", "manual"}
+
 
 @dataclass(frozen=True)
 class Source:
@@ -152,6 +154,8 @@ def validate_registry(path: Optional[Path] = None) -> list[str]:
             errors.append(f"{source_id} has invalid allowed_extraction_mode.")
         if merged["public_publish_mode"] not in ALLOWED_PUBLIC_PUBLISH_MODES:
             errors.append(f"{source_id} has invalid public_publish_mode.")
+        if merged["refresh_cadence"] not in ALLOWED_REFRESH_CADENCES:
+            errors.append(f"{source_id} has invalid refresh_cadence.")
         try:
             excerpt_chars = int(merged["allowed_excerpt_chars"])
         except (TypeError, ValueError):

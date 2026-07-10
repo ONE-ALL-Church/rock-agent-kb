@@ -108,6 +108,7 @@ uv run kb contributions check --path contributions/<org-key>
 uv run kb contributions validate
 uv run kb contributions validate --path contributions/<org-key>/bundle.jsonl
 uv run kb contributions promote --draft-path data/review/private-distill/rockproduction_docs_private_candidates-workflows.jsonl --org-id oneall --rewrite-file data/review/rewrites/oneall-workflows.jsonl --reviewed --redaction-attestation --license-attestation --output contributions/oneall/bundle.jsonl
+uv run kb sources freshness --strict
 ```
 
 ## Audit, Publish, Report, And Tools
@@ -124,6 +125,7 @@ uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church --targe
 uv run kb quality-gate
 uv run kb hybrid-shadow
 uv run kb hybrid-shadow --apply
+uv run kb shadow-lifecycle --strict
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export

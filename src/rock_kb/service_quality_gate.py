@@ -163,4 +163,15 @@ def terminate_process(process: subprocess.Popen[str]) -> None:
 
 
 def run_checked(command: list[str], cwd: Path) -> None:
-    subprocess.run(command, cwd=cwd, check=True)
+    result = subprocess.run(
+        command,
+        cwd=cwd,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+    )
+    if result.returncode:
+        output = (result.stdout or "").splitlines()
+        diagnostic = "\n".join(output[-200:])
+        raise RuntimeError(f"Command failed with exit code {result.returncode}: {' '.join(command)}\n{diagnostic}")
