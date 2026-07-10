@@ -1485,7 +1485,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `48`
+- Approved media records routed to this concept: `49`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1498,7 +1498,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Cache Tags Transcript Insight](https://community.rockrms.com/rocku/cms/cache-tags) | approved_for_public_distillation | 1 | media-insight:5c0dae456ef72854 |
 | [Content Channel Types and Content Channels Transcript Insight](https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels) | approved_for_public_distillation | 2 | media-insight:6d0e9b93da800c18 |
 | [Content Channel View Transcript Insight](https://community.rockrms.com/rocku/content-channels/content-channel-view) | approved_for_public_distillation | 2 | media-insight:7b84e33ae0a6eee9 |
-| More |  | 40 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 41 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

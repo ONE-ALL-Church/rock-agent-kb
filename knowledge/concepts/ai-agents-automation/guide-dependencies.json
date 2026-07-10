@@ -233,6 +233,72 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation.",
+      "claim_hash": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
+      "claim_id": "claim:2a2a9fc94666d58b0e4f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s",
+          "timestamp": "05:40",
+          "timestamp_seconds": 340.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use.",
+      "claim_hash": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
+      "claim_id": "claim:2a7ef23854b5dd315c7d",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s",
+          "timestamp": "01:53",
+          "timestamp_seconds": 113.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "AI coaching should be framed as an assisted resource-routing layer with reviewable prompts, ministry-approved categories, and clear human oversight.",
       "claim_hash": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
@@ -337,6 +403,104 @@
     },
     {
       "authority_tier": "official",
+      "claim": "The episode describes Rock 19.4 as the team's target for initial Rock IQ availability, not as a committed release, and advises churches to complete their Rock 19 upgrade work first. Confirm the final version and timing in current release notes before planning a rollout.",
+      "claim_hash": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
+      "claim_id": "claim:41757e63aea1a926ff6d",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=43s",
+          "timestamp": "00:43",
+          "timestamp_seconds": 43.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added.",
+      "claim_hash": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
+      "claim_id": "claim:4560f75344e40a127605",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=771s",
+          "timestamp": "12:51",
+          "timestamp_seconds": 771.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions.",
+      "claim_hash": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
+      "claim_id": "claim:47b657cb5b577d54ad54",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "mobile",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1294s",
+          "timestamp": "21:34",
+          "timestamp_seconds": 1294.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging.",
       "claim_hash": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
       "claim_id": "claim:4b7b8d0b0379ceb7587f",
@@ -367,6 +531,39 @@
           "timestamp_seconds": 5268.0,
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy.",
+      "claim_hash": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
+      "claim_id": "claim:538f1a4e0ad7c90f7c5a",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s",
+          "timestamp": "15:09",
+          "timestamp_seconds": 909.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
       ]
     },
@@ -703,6 +900,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL.",
+      "claim_hash": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
+      "claim_id": "claim:725a3342f3dc657cc546",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "lava",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s",
+          "timestamp": "24:50",
+          "timestamp_seconds": 1490.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Episode 202 adds public-safe operational context for Rock release awareness, community-shaped priorities, AI-assisted group matching, and documentation currency; concrete implementation guidance remains tied to official docs, release notes, source code, or live-instance verification.",
       "claim_hash": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
@@ -1005,6 +1236,71 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls.",
+      "claim_hash": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
+      "claim_id": "claim:903c8ff9b5d2590fd616",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "communications",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s",
+          "timestamp": "06:25",
+          "timestamp_seconds": 385.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Configured agents are described as shared within one Rock instance according to permissions, while conversation sessions and their context remain isolated per person. Verify session visibility and retention in the released version and local security configuration.",
+      "claim_hash": "7c12a0993da5a99d79b230341db14ec986eb715b88393ea4d641a9c4f074f47f",
+      "claim_id": "claim:9e515c0c6af9c698b614",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1593s",
+          "timestamp": "26:33",
+          "timestamp_seconds": 1593.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "AI can help draft sermon titles, category ideas, and reuse plans, but churches should keep human review over doctrinal wording, audience fit, and final publication.",
       "claim_hash": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
@@ -1248,6 +1544,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details.",
+      "claim_hash": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
+      "claim_id": "claim:c087efdb352a9b4d8c8c",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1769s",
+          "timestamp": "29:29",
+          "timestamp_seconds": 1769.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "The Data Analytics Hub launch frames community analytics as a shared practice space where churches compare dashboards, ministry processes, BI tooling, and Rock-based reporting patterns. The session also includes a Life.Church attendance-flow case study that uses Rock attendance and connection data to prioritize pastoral follow-up while treating AI profile summaries and privacy controls as governance concerns.",
       "claim_hash": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
@@ -1447,6 +1777,34 @@
           "timestamp_seconds": 114.3,
           "title": "Rock's Future Anchored in Vision | Ep 202",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "This official Rock Cast follow-up answers implementation and governance questions raised by the Rock AI Summit. It adds release-sensitive detail about the planned Rock IQ rollout, authenticated-user permissions, MCP security, per-tool controls, chat and token governance, skill placement, platform support, caching, custom-tool data access, agent scope and model selection. Treat roadmap and pre-release statements as directional until confirmed in current release notes, documentation and a live Rock instance.",
+      "claim_hash": "ec084ccb12a4bf89eef95ad7ed6c8d8c23ee5897e1dcf37f0bc83fe99f87fa5e",
+      "claim_id": "claim:e338ee37078dec6a80d4",
+      "claim_tier": "routing_context_only",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
       ]
     },
@@ -1658,10 +2016,16 @@
     "claim:1d2211c90cee65515cac": "5db9a518f171204421a6842e55ea1766cda5c6183a798623cbe1ad9fc792f753",
     "claim:1ead6da71f9e978d17a2": "48028ed47be731d2accf055182ef3715fd70938d89d950520c7751d06a3f17b0",
     "claim:269534d094015b5c51b4": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
+    "claim:2a2a9fc94666d58b0e4f": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
+    "claim:2a7ef23854b5dd315c7d": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
     "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
     "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
     "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
+    "claim:41757e63aea1a926ff6d": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
+    "claim:4560f75344e40a127605": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
+    "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
     "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
+    "claim:538f1a4e0ad7c90f7c5a": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
     "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
     "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
     "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
@@ -1672,6 +2036,7 @@
     "claim:6cc8c3bca74b02773140": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
     "claim:6e7bf075edacd7a79fa4": "2f03112bf7b15655bbc4d5c3302e7035664ce5410e58de7c269454c8d70af883",
     "claim:6e906a393a56e78661aa": "4360a374d7feb7464711d9c31fe2839b4e66a6d586e3d492b3078c4c76a8bd26",
+    "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
     "claim:72fde031881e443f8976": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
     "claim:777a543a16ec2b02c0c3": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
     "claim:78c58644cb6bf965fb20": "a763b0729fe7a6772c2d071394bf90a8d0f05100aa9c3d13395239cca2fa0e52",
@@ -1681,6 +2046,8 @@
     "claim:88a7d1c389832a0630dc": "d14ceaf63698b983e45dd7198bccfe046ad158ed0d7fa113f64476d6dcd781a4",
     "claim:8a5b060de0516dbe344a": "ad014b77526a4f6d2d87caed6a51cf00bf7d406478455a65ba581479dae44d7a",
     "claim:8f8ca172069290ee944d": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
+    "claim:903c8ff9b5d2590fd616": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
+    "claim:9e515c0c6af9c698b614": "7c12a0993da5a99d79b230341db14ec986eb715b88393ea4d641a9c4f074f47f",
     "claim:a3f69cd82ee97a4febbf": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
     "claim:aaa109fc541fff897e3f": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
     "claim:ab59d559b804403dc4a0": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
@@ -1688,12 +2055,14 @@
     "claim:b98a76d45b1860593427": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
     "claim:bf4911c43f46def1cef1": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
     "claim:c0587c98a544740f9673": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
+    "claim:c087efdb352a9b4d8c8c": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
     "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
     "claim:c37961bab650b138a2d2": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
     "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
     "claim:c983667edefd47bee832": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
     "claim:cd85431e0e3f1bb82125": "441937dd202b20cd45e8ec20ec335947df6cc1dbfde57d98b5bfcd3878fd87c0",
     "claim:d24890227d54fd22a155": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
+    "claim:e338ee37078dec6a80d4": "ec084ccb12a4bf89eef95ad7ed6c8d8c23ee5897e1dcf37f0bc83fe99f87fa5e",
     "claim:e4edc56bcd9681f01c98": "181d1fcdc674b83dd949f86aee45428d61ae6210fbe66620ec01a05c2a464afe",
     "claim:e54943b3e738c396727f": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
     "claim:eb03c3644ee4b1ae217b": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
@@ -1701,7 +2070,7 @@
     "claim:f7b5a801b7e2d0fa6b39": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c",
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6"
   },
-  "approved_claims_hash": "98e5786d4f04dcc1dcea4eda6ca170d6f300fd39611030f21cead2de3c9f26a2",
+  "approved_claims_hash": "52a76df483d07839a27af37e2ee039fbbdb6b9c3ea7f31466168b4d37d849ee6",
   "approved_claims_path": "knowledge/concepts/ai-agents-automation/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1741,6 +2110,21 @@
       "source_record_id": "media-insight:00a8a57d7db012dc",
       "source_title": "Rock's Future Anchored in Vision | Ep 202 Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "7888545a0fcbfba57d5dce2fd735d24954c524745d882bdbc2ad9f42f6cf9b6a",
+      "key_insight_count": 10,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:a437d9f5be13ad57",
+      "public_promotion_id": "media-public-promotion:7888545a0fcbfba5",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:a437d9f5be13ad57",
+      "source_title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "approved_concept_ids": [
@@ -1884,22 +2268,6 @@
       "source_record_id": "media-insight:56972ff0f97e563a",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports",
-        "workflows"
-      ],
-      "content_hash": "24d8e082da3236f7ba0bb7f439d362e58f8996fa16d4ad3695b95865f20e044e",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:e7c8cb97245bec8d",
-      "public_promotion_id": "media-public-promotion:24d8e082da3236f7",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:e7c8cb97245bec8d",
-      "source_title": "Data Automation Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -1910,19 +2278,19 @@
     "media-insight:5dd64e1dc98b7742": "db6ac242a0713a98c8e469ab0ccc9d3b46f7565e95de388432a00d49436e1c3a",
     "media-insight:71525fead483ddca": "f195092064e7188bdd93a51c563b621e366e5bee5eebe113e1c7c022e734333f",
     "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
+    "media-insight:a437d9f5be13ad57": "7888545a0fcbfba57d5dce2fd735d24954c524745d882bdbc2ad9f42f6cf9b6a",
     "media-insight:b4cdf69722ad5d13": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
     "media-insight:d03a93f4e7ef8c02": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
-    "media-insight:e7c8cb97245bec8d": "24d8e082da3236f7ba0bb7f439d362e58f8996fa16d4ad3695b95865f20e044e",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717"
   },
-  "approved_media_hash": "b9aca2d893ea1a47f4270e5250ab420b3382b863767c3ac553a4662ba1cceabc",
+  "approved_media_hash": "b381dfd76ea7d549509538bee55ec57c6733cb7bace969713ef13d832319338d",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-07-10T14:37:58+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "205c58cc2cac9a3f66d5269f86c602cb92ec9ddec68234b588fa83a9cc6416c2",
+  "guide_hash": "ae2c1d1f43016d95cbb8a11f765a7fc789c357e0c69fc6125ec5dace339d0024",
   "guide_line_count": 1269,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 11562,
+  "guide_word_count": 11526,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2055,6 +2423,15 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "d2890df9787aa1ae",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
@@ -2103,6 +2480,15 @@
       "source_key": "8540c4be8f5de2d1",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "6ca31915e98eb031",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
     }
   ],
   "sections": [
@@ -3161,7 +3547,7 @@
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
+        "dcc9c3b1df657d9f",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -3179,13 +3565,13 @@
       "section_id": "approved-media-coverage",
       "source_keys": [
         "fe0b6d3b462f6c75",
-        "bc1ab3f2dff77e89",
         "d2890df9787aa1ae",
         "f325315718b03eb6",
         "1fae67b5dc09e2b0",
         "d593e234279cb690",
         "87de570d7b164f63",
-        "8540c4be8f5de2d1"
+        "8540c4be8f5de2d1",
+        "6ca31915e98eb031"
       ],
       "start_line": 1202
     },
@@ -3496,6 +3882,16 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "d2890df9787aa1ae",
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
@@ -3550,6 +3946,16 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "6ca31915e98eb031",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
     }
   ],
   "synthesis_profile": "comprehensive"

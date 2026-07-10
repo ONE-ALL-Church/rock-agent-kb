@@ -692,19 +692,36 @@
       "source_record_id": "media-insight:241f05754042fbc9",
       "source_title": "Episode 143: Special Edition- Braden Cohen Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "giving-finance"
+      ],
+      "content_hash": "3b2cce191f38ec131564798398dc3237029cf7700d3278ae89e7040e7b9dc60b",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:22ee135c5240caf2",
+      "public_promotion_id": "media-public-promotion:3b2cce191f38ec13",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "triumph_resources",
+      "source_record_id": "media-insight:22ee135c5240caf2",
+      "source_title": "Dashboard Design Part 1 Transcript Insight",
+      "source_url": "https://www.triumph.tech/resources/dashboard-design-part-1"
     }
   ],
   "approved_media_dependency_hashes": {
+    "media-insight:22ee135c5240caf2": "3b2cce191f38ec131564798398dc3237029cf7700d3278ae89e7040e7b9dc60b",
     "media-insight:241f05754042fbc9": "9e35e221842326efc33fea82912797c311684a7ce295ca6a3cb6b42f1080c7bd"
   },
-  "approved_media_hash": "2bebf3831a4916b42badb896e3af36fda58d52a936405d6bf77af38246768f60",
+  "approved_media_hash": "7fc1276035689e0bc28de6fa9192a1f6b6e43c65b5e505ca6b8cf94e52f6c4f6",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-07-10T14:38:27+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "db544ce7221e8d731706beac166abc72a3d5e0faeda1fd639c259c669313db0f",
-  "guide_line_count": 1380,
+  "guide_hash": "6da73261e6f03d9555a8e1163a31ec36cc5f44d05c121e2e967f51c881d0688a",
+  "guide_line_count": 1381,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
-  "guide_word_count": 13590,
+  "guide_word_count": 13606,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -804,6 +821,15 @@
       "source_key": "0137078fdb6164bb",
       "source_record_id": "rock_developer:0137078fdb6164bb",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "triumph_resources",
+      "source_key": "4c0fe1130f878c66",
+      "source_record_id": "",
+      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
     },
     {
       "authority": "unknown",
@@ -2041,18 +2067,19 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1283,
+      "end_line": 1284,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "4c0fe1130f878c66",
         "7cf9c01c97ba95d5"
       ],
       "start_line": 1271
     },
     {
       "confidence": "structural",
-      "end_line": 1285,
+      "end_line": 1286,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2069,11 +2096,11 @@
         "d275b5b94a9da833",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1284
+      "start_line": 1285
     },
     {
       "confidence": "normal",
-      "end_line": 1380,
+      "end_line": 1381,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -2141,7 +2168,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1286
+      "start_line": 1287
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",
@@ -2393,6 +2420,16 @@
       ],
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
       "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "kind": "citation_only",
+      "source_id": "triumph_resources",
+      "source_key": "4c0fe1130f878c66",
+      "source_record_id": "",
+      "title": "https://www.triumph.tech/resources/dashboard-design-part-1",
+      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
     },
     {
       "authority": "unknown",

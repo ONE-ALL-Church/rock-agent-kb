@@ -1,36 +1,36 @@
 {
   "authority_tiers": {
     "community-reviewed": 1027,
-    "official": 411,
+    "official": 422,
     "release-note-confirmed": 1,
     "rocku-confirmed": 759
   },
-  "claim_count": 2198,
+  "claim_count": 2209,
   "claim_tiers": {
-    "answer_pack_approved": 407,
+    "answer_pack_approved": 412,
     "live_verified": 104,
-    "routing_context_only": 1687
+    "routing_context_only": 1693
   },
   "claim_types": {
     "behavior": 136,
     "configuration": 132,
     "implementation_pattern": 81,
-    "operational_guidance": 1121,
+    "operational_guidance": 1122,
     "recipe": 27,
-    "release_caveat": 113,
+    "release_caveat": 122,
     "risk": 83,
-    "source_summary": 505
+    "source_summary": 506
   },
   "concept_ids": {
-    "ai-agents-automation": 49,
-    "api-integrations": 42,
+    "ai-agents-automation": 60,
+    "api-integrations": 46,
     "apple-tv": 20,
     "check-in": 109,
     "cms-websites": 164,
-    "communications": 146,
+    "communications": 147,
     "connections": 37,
     "content-personalization": 101,
-    "data-views-reports": 556,
+    "data-views-reports": 558,
     "developer-resources": 26,
     "documents-signatures": 26,
     "engagement-tracking": 106,
@@ -39,44 +39,45 @@
     "groups": 173,
     "helix": 15,
     "hosting-infrastructure": 25,
-    "lava": 93,
+    "lava": 94,
     "learning-lms-engagement": 23,
-    "mobile": 94,
+    "mobile": 95,
     "obsidian-development": 74,
     "people-families": 82,
-    "platform-configuration": 90,
+    "platform-configuration": 95,
     "prayer-care": 19,
     "roku": 16,
     "scheduling-locations": 24,
-    "security-permissions": 284,
+    "security-permissions": 290,
     "serving-volunteer-ops": 41,
     "system-admin-ops": 11,
     "tv-apps": 14,
     "workflows": 1340
   },
-  "generated_at": "2026-07-10T14:22:04+00:00",
+  "generated_at": "2026-07-10T17:26:08+00:00",
   "generation_provenance": {
     "legacy_claims_without_provenance": 1803,
     "methods": {
       "agent_reviewed_full_article": 383,
-      "agent_reviewed_whole_source": 12
+      "agent_reviewed_whole_source": 23
     },
     "models": {
-      "gpt-5.6-sol": 395
+      "gpt-5.6-sol": 406
     },
     "prompt_ids": {
       "codex-whole-video-review": 12,
+      "rock-kb-media-claim-distillation": 11,
       "rock-kb-source-claim-distillation": 383
     },
     "prompt_versions": {
-      "1.0.0": 383,
+      "1.0.0": 394,
       "legacy-unversioned": 12
     },
-    "recorded_claims": 395
+    "recorded_claims": 406
   },
   "output": "claims/approved-claims.jsonl",
   "review_statuses": {
-    "approved_for_public_distillation": 2198
+    "approved_for_public_distillation": 2209
   },
   "schema": "rock-kb-claim-export-report-v1"
 }

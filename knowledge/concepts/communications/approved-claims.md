@@ -2,7 +2,7 @@
 concept_id: communications
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 146
+approved_claim_count: 147
 ---
 
 # Communications Approved Claims
@@ -11,6 +11,7 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:903c8ff9b5d2590fd616` | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | `claim:142629c3a73eea99a448` | rocku-confirmed | operational_guidance | For staff training and operational readiness, Communication Lists & Segments should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-lists--segments) |
 | `claim:1b6e8bdd3ecb3c0cae1b` | rocku-confirmed | operational_guidance | The Communication Preferences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-preferences) |
 | `claim:1e8a4c84ec5bc7717590` | rocku-confirmed | operational_guidance | For ministry process design, Communication Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-templates) |

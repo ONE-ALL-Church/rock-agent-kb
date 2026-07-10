@@ -15,8 +15,15 @@ uv run kb sources scan \
 2. Refresh source data without rebuilding public artifacts yet.
 
 ```bash
-uv run kb sources refresh --skip-indexes
+uv run kb sources refresh \
+  --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+  --skip-indexes
 ```
+
+The refresh also seeds bounded discovery from the current normalized records.
+Passing the pre-refresh snapshot protects older valid pages when a changed site
+navigation tree no longer reaches them within the crawl limit. The fetch stage
+still removes URLs that no longer return usable source pages.
 
 3. Compare refreshed source state to the pre-refresh snapshot.
 

@@ -2,7 +2,7 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-07-10T14:36:53+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
@@ -33,8 +33,8 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 ## How To Think About This Area
 
 - `Prayer And Care` spans people, groups, communications, workflows, security, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_recipes, rock_rocku, rock_core_release_notes, rock_model_map, triumph_resources.
-- Related tags found in source records: usage, operations, workflow, security, admin, training, lava, development.
+- The strongest source families in this build are: rock_documentation, rock_recipes, rock_rocku, rock_core_release_notes, rock_model_map, rock_community_hubs.
+- Related tags found in source records: operations, usage, admin, development, releases, workflow, lava, sql.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -46,6 +46,9 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 | Rapid Attendance Entry Transcript Insight | block configuration | 03:14 | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Prayer Requests Transcript Insight | staff training | 00:11 | The Prayer Requests RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests) |
 | Prayer Requests Transcript Insight | Rock operations | 02:07 | For Rock operations and administration, Prayer Requests should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. | [source](https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests) |
+| Media Watch Transcript Insight | Rock data | 01:56 | Digital group strategy is stronger when it remains tied to Rock data instead of creating disconnected community records outside the ministry system. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
+| Media Watch Transcript Insight | online groups | 03:24 | Online groups should be treated as real group ministry with ownership, communication expectations, and connection follow-up, not only as a digital convenience. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
+| Media Watch Transcript Insight | communication | 02:00 | Communication planning should be part of the digital-group design from the start so members know what action to take next and leaders can follow engagement. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
 
 
 ## Approved Claims
@@ -76,12 +79,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 7
+- `rock_community_hubs`: 1
+- `rock_core_release_notes`: 16
 - `rock_documentation`: 17
 - `rock_model_map`: 12
 - `rock_qa`: 1
-- `rock_recipes`: 7
-- `rock_rocku`: 16
+- `rock_recipes`: 8
+- `rock_rocku`: 5
 - `triumph_resources`: 1
 
 ## Highest Signal Sources
@@ -134,12 +138,17 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 17.0 | Prayer | Fixed an issue where Prayer Request Attributes not marked as "Public" were incorrectly displaying in the Obsidian version of the Prayer Request Entry block. These Attributes are now properly hidden on the Prayer Request Entry block. Fixes: #6253 | [source](https://www.rockrms.com/releasenotes) |
+| 19.3 | Prayer | Fixed the Prayer Comment List block: custom grid columns can now access the prayer request and requester via the Row Lava merge field, the From-column and date-range filters work, and several performance and dead-code issues were resolved. Fixes: #6896 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Prayer | Improved the Prayer Request List block to display prayer request text at a wider width for better readability. Fixes: #6824 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | Prayer | Fixed an issue where approving a Prayer Request in the Obsidian Prayer Request Detail block did not update the ApprovedOnDateTime and ApprovedByPersonAliasId fields. Fixes: #6403 | [source](https://www.rockrms.com/releasenotes) |
 | 17.2 | Prayer | Fixed an issue where the Prayer Request Detail block in Obsidian did not recognize the PersonId URL parameter, which prevented person data from being pre-filled when creating a new prayer request. Fixes: #6357 | [source](https://www.rockrms.com/releasenotes) |
 | 17.0 | Prayer | Added support for editing custom attributes within the Mobile Prayer Request block. This enhancement allows individuals to update custom attributes when submitting or managing prayer requests from a mobile device. Be aware that Rock Mobile doesn't support all Attribute Types but it does support the most common ones. | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Mobile | Added a Campus Type filter to the campus picker on the Prayer Request Detail block. This allows individuals to narrow the list of selectable campuses when adding a new prayer request. | [source](https://www.rockrms.com/releasenotes) |
 | 17.0 | CRM | Added a new feature to Prayer which will optionally run several pre-configured AI completions on saved prayer requests. If you plan on using this feature, read the Tech Bulletin item on this topic. | [source](https://www.rockrms.com/releasenotes) |
+| 19.3 | Prayer | Fixed an issue on the Prayer Request List block that would cause the grid to not properly update when scrolling vertically on small devices. Fixes: #6839 | [source](https://www.rockrms.com/releasenotes) |
+| 19.1 | Prayer | Added a server-side date range filter to the Prayer Request List block. Fixes: #6852 | [source](https://www.rockrms.com/releasenotes) |
+| 18.1 | Prayer | Fixed an issue where the Campus field on the Prayer Request Entry (Obsidian) block automatically selected the first campus in the list when the individual was not signed in. The field now remains blank until a campus is intentionally selected, ensuring accurate submissions. Fixes: #6520 | [source](https://www.rockrms.com/releasenotes) |
+| 17.5 | Prayer | Fixed an issue where the Expiration Date field in the Prayer Request Detail block would not appear on smaller screen sizes. Fixes: #6402 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Subguides
 
@@ -189,6 +198,15 @@ Keywords: `prayer team, moderation, approval, confidential, visibility`
 
 Keywords: `follow-up, communication, notification, pastoral care`
 
+
+#### Reviewed distilled media insights
+
+| Source | Topic | Timestamp | Distilled Claim | Citation |
+| --- | --- | --- | --- | --- |
+| Media Watch Transcript Insight | Rock data | 01:56 | Digital group strategy is stronger when it remains tied to Rock data instead of creating disconnected community records outside the ministry system. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
+| Media Watch Transcript Insight | online groups | 03:24 | Online groups should be treated as real group ministry with ownership, communication expectations, and connection follow-up, not only as a digital convenience. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
+| Media Watch Transcript Insight | communication | 02:00 | Communication planning should be part of the digital-group design from the start so members know what action to take next and leaders can follow engagement. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
+
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Prayer Team Power Tools | rock_documentation | [Start a Prayer Session](/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session?Version=v19.0) [Prayer Card View Block](/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block?Version=v19.0) [Prayer Request Comment Digest](/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest?Version=v19.0) [Prayer Request Comments... | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools) |
@@ -196,11 +214,10 @@ Keywords: `follow-up, communication, notification, pastoral care`
 | Prayer Request Comments Communication | rock_documentation | The example email pictured below is generated from the “Prayer Request Comments Digest” system communications template. 1. **Greeting**- The greeting at the top of the email includes the person’s name and references the date on which the person submitted the prayer request. 2. **Request** - The original prayer request that was submitted is copied here for reference. 3. **Comments** - Any comments that have been... | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication) |
 | Automatic Pastoral Care Summary Email | rock_recipes | 5 Automatic Pastoral Care Summary Email Shared by Leah Jennings , Northside Christian Church 6 years ago 8.10 Communications, Serving Intermediate PURPOSE We use Southeast's Pastoral Care plugin to manage our hospitalizations, nursing home residents, and homebound attendees. We have a hospital team that volunteers on rotation to visit those people, and our staff also need the list to be praying over them and... | [source](https://community.rockrms.com/recipes/121) |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session gives public-safe guidance for online groups and digital community workflows. It emphasizes that Rock-backed digital ministry can connect group participation, communication, data, and follow-up when teams intentionally design the path from online engagement to pastoral care or in-person connection. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
+| Outreach Toolbox is Here in v19 | rock_youtube | The Outreach Toolbox provides a mobile centric experience designed to help your church stay connected with the people who matter most. - Personal Ministry Onboarding walks individuals through a setup wizard to establish their care targets and personal outreach rhythms. This gives ministry leaders a clear, actionable starting point for discipleship from day... | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| Rock Core Release Notes | rock_core_release_notes | Fixed an issue where Connection Request workflows using a "Future Follow-up Date Reached" trigger would throw exceptions and fail to add the "Follow-Up Date Reached" activity. Fixes: #6310 | [source](https://www.rockrms.com/releasenotes) |
 | All This to Increase a Metric? | rock_recipes | 5 Using Workflows, Data Views, and Group Sync to Engage Church Online Shared by Sonja Waltman , LCBC Church 6 years ago 9.0 Operations, Communications Beginner Have you ever attended a church and received a card in the mail that week from the pastor thanking you for joining the church that weekend? Have you ever received a call from the worship leader inviting you back for the following weekend? What about a warm... | [source](https://community.rockrms.com/recipes/158) |
 | Connections Notification - Future Follow-Up | rock_recipes | 6 Connections Notification - Future Follow-Up Shared by Tiffany Bunney , Fellowship Greenville 6 years ago General Intermediate The RockRMS Connection Request system includes a powerful feature which allows the Connector to set the state of a request to Future Follow Up. This removes the request from the listing of requests until the Follow-up Date. The only negative of this system is that the Connector would need... | [source](https://community.rockrms.com/recipes/166) |
-| Rock Shop Preview | rock_shop_plugins | This plugin is only available on the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Pastoral Care by Southeast Christian Church Free Note: plugin details are provided here only as a reference for what is available in the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Required Rock Version 14.0 Documentation... | [source](https://www.rockrms.com/rockshop/plugin/84) |
-| The Problem | rock_recipes | 6 Automated Follow Up Shared by Randy Aufrecht , ONE&ALL Church 4 years ago 11.0 Communications Advanced MOVE FROM PAPERWORK TO RELATIONSHIPS Stop clicking your screen and start clicking with people by creating a custom automated system in Rock. All of the details from the RX2021 presentation are located at https://oneandall.church/rx2021takeaway The Problem How do we connect new guests effectively? Lost physical... | [source](https://community.rockrms.com/recipes/244) |
-| Outreach Toolbox is Here in v19 | rock_youtube | The Outreach Toolbox provides a mobile centric experience designed to help your church stay connected with the people who matter most. - Personal Ministry Onboarding walks individuals through a setup wizard to establish their care targets and personal outreach rhythms. This gives ministry leaders a clear, actionable starting point for discipleship from day... | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 
 
 ## Rebuild Dependencies

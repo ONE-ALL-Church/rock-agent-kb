@@ -2,7 +2,7 @@
 id: concept-apple-tv
 title: Apple TV Apps
 generated: true
-last_built: 2026-07-10T14:37:06+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -31,9 +31,9 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 ## How To Think About This Area
 
 - `Apple TV Apps` spans api-integrations, lava, cms, security, media, tv-apps. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_podcast_rss, rock_documentation, triumph_resources, rock_lava_docs, rock_api_docs.
-- Related tags found in source records: lava, development, api, obsidian, workflow, cms, security, operations.
-- Source detail types include: developer_doc, documentation_article, rock_lava_docs, triumph_resources.
+- The strongest source families in this build are: rock_developer, rock_podcast_rss, rock_documentation, rock_lava_docs, triumph_resources, rock_api_docs.
+- Related tags found in source records: development, lava, api, obsidian, cms, workflow, security, sql.
+- Source detail types include: developer_doc, documentation_article, rock_lava_docs.
 
 ## Reviewed Media Insights
 
@@ -42,6 +42,9 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 | Episode 143: Special Edition- Braden Cohen Transcript Insight | MAUI migration | 01:26 | Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform. | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
 | Episode 143: Special Edition- Braden Cohen Transcript Insight | compatibility layer | 03:33 | Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior. | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
 | Episode 143: Special Edition- Braden Cohen Transcript Insight | mobile styling | 03:03 | MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns. | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
+| Dashboard Design Part 1 Transcript Insight | data and reporting | 00:12 | Start dashboard work by naming the decision or story the dashboard should support, then choose charts that make that comparison legible instead of simply placing available Rock data on screen. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| Dashboard Design Part 1 Transcript Insight | giving and reporting | 00:31 | For giving dashboards that compare connection status, bar-style comparisons are usually easier to read than pie or donut charts because small categories and relative sizes stay visible. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
+| Dashboard Design Part 1 Transcript Insight | implementation workflow | 09:47 | Prototype dashboards in a fast visual tool before writing Lava or blocks so the team can validate the story, chart type, and audience insight before implementation friction narrows the design. | [source](https://www.triumph.tech/resources/dashboard-design-part-1) |
 
 
 ## Approved Claims
@@ -75,11 +78,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_api_docs`: 1
 - `rock_developer`: 57
 - `rock_documentation`: 1
-- `rock_lava_docs`: 15
+- `rock_lava_docs`: 18
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 4
+- `triumph_resources`: 1
 
 ## Highest Signal Sources
 
@@ -170,9 +173,9 @@ Keywords: `javascript, media commands, personal commands, demo commands, command
 | Demo Commands | rock_developer | There are a set of commands that allow a TV app to change the configuration of the server and application that it points to. For these commands to work the application has to be compiled with support for demo mode. ## Show Demo This command brings up the demo mode screen. This screen allows you to enter a code to retrieve the demo settings from the Triumph server. ``` <menuItem rockCommand="showDemo">... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands) |
 | Personal Commands | rock_developer | ## Login *This allow for an individual to login to the TV Application.* Important Be sure that your application has defined a Login page before using this command. That setting is used to configure the QR code. ``` <menuItem rockCommand="login" rockLoginPageGuid="0C64D387-0A87-ECAA-48A5-B38A62CC704C" rockLoginTimeoutPageGuid="E6F3553B-6270-04AD-4882-F6A99FB3875D"... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands) |
 | Commands | rock_developer | ## Multiple Commands Typically, commands will be fired one at a time. There may be cases where you'll want to fire two commands at once. For instance you may want to set a context value and also navigate to a different page. Below is a sample ``` <buttonLockup rockCommand="setContext, pushPage" rockPageGuid="0406785c-2c00-4553-931f-cbca5c338796?GroupId=12" rockContextKey="Campus"... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands) |
-| 💻 Javascript | rock_developer | [Commands](/documentation/apple-tv-docs/javascript/commands) | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
 | Navigation Commands | rock_developer | The commands below are used to show and hides pages on the screen. ## Push Page Pushes a new page onto the navigation stack. ``` <menuItem rockCommand="pushPage" rockPageGuid="0406785c-2c00-4553-931f-cbca5c338796?GroupId=12"> <title>Product Page</title> </menuItem> ``` Additional options include the following parameters. \| Parameter \| Type \| Description \| \| --- \| --- \| --- \| \| rockPageGuid \| String \| The GUID of the... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/navigation-commands) |
 | Utility Commands | rock_developer | ## Set Context Sets the application context using the give key/value. ``` <buttonLockup rockCommand="setContext" rockContextKey="Campus" rockContextValue="FC0001DF-4F5E-45F3-B0EA-A780AF75E7E9"> <title>Glendale Campus</title> </buttonLockup> ``` Parameters for this command include: \| Parameter \| Type \| Description \| \| --- \| --- \| --- \| \| rockContextKey \| string \| The key for the context. \| \| rockContextValue \| string... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/utility-commands) |
+| 💻 Javascript | rock_developer | [Commands](/documentation/apple-tv-docs/javascript/commands) | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
 
 ### Apple TV Styling
 
@@ -212,7 +215,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `130`
+- Source records: `127`
 - Lava capability source records: `53`
 - Approved claims: `20`
 - Dependency file: `agent/concept-dependencies.jsonl`

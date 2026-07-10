@@ -2,7 +2,7 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-07-10T14:36:53+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,8 +35,8 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 ## How To Think About This Area
 
 - `Engagement Tracking` spans people, groups, workflows, communications, data-views, reports. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_rocku, triumph_resources, rock_model_map, rock_core_release_notes, rock_recipes.
-- Related tags found in source records: operations, usage, admin, check-in, workflow, sql, development, lava.
+- The strongest source families in this build are: rock_documentation, rock_rocku, rock_core_release_notes, rock_model_map, rock_recipes, rock_qa.
+- Related tags found in source records: operations, usage, admin, check-in, sql, workflow, development, lava.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Approved Claims

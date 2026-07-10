@@ -7,16 +7,16 @@ artifact_level: answer
 
 # What live Rock records should I inspect for Lava?
 
-For Lava, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters, Financial transaction and gateway settings, Mobile shell version and mobile block settings, Person, family, alias, and attribute records.
+For Lava, inspect these live surfaces before changing production behavior: Rock version, Block settings, Security roles and permissions, WorkflowType and Workflow records, DataView and report filters, Financial transaction and gateway settings, Mobile shell version and mobile block settings.
 
 ## Top Claims
 
 - `claim:4b7b8d0b0379ceb7587f`
 - `claim:c3921cb1d8b61e06c713`
 - `claim:410bf6750e90b7193262`
+- `claim:725a3342f3dc657cc546`
 - `claim:7e6e3979faad614f0b42`
 - `claim:4c6c24811261384a0eb4`
-- `claim:57e32b4d554a759231a1`
 
 ## Distilled Claims
 
@@ -28,5 +28,5 @@ For Lava, inspect these live surfaces before changing production behavior: Rock 
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s) (`87:48`)
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s) (`71:20`)
 - [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s) (`24:50`)
 - [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block) (`00:00`)
-- [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s) (`76:13`)

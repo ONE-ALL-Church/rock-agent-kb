@@ -1272,11 +1272,12 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `1`
+- Approved media records routed to this concept: `2`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
+| [Dashboard Design Part 1 Transcript Insight](https://www.triumph.tech/resources/dashboard-design-part-1) | approved_for_public_distillation | 3 | media-insight:22ee135c5240caf2 |
 | [Episode 143: Special Edition- Braden Cohen Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) | approved_for_public_distillation | 3 | media-insight:241f05754042fbc9 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->

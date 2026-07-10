@@ -7,15 +7,15 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Security And Permissions?
 
-Person Profile security should be reviewed at the page, block, entity, action, and data-field level because profile visibility does not imply permission to edit every person-related record. When diagnosing a missing or exposed page, compare the page route, parent-page security, block security, and the specific user context instead of assuming the route alone controls access. Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. When reviewing an Advanced HTML block, inspect page/block security, enabled Lava commands, query-string or context inputs, and whether the output exposes sensitive entity data.
+Person Profile security should be reviewed at the page, block, entity, action, and data-field level because profile visibility does not imply permission to edit every person-related record. The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation.
 
 ## Top Claims
 
 - `claim:5c53977793c7673b19e9`
+- `claim:2a7ef23854b5dd315c7d`
+- `claim:903c8ff9b5d2590fd616`
+- `claim:2a2a9fc94666d58b0e4f`
 - `claim:09bc1e14a8ad2c40145e`
-- `claim:410bf6750e90b7193262`
-- `claim:7e6e3979faad614f0b42`
-- `claim:d5d56ebc6176db44cbc7`
 
 ## Distilled Claims
 
@@ -24,7 +24,7 @@ Person Profile security should be reviewed at the page, block, entity, action, a
 ## Citations
 
 - [Person Profile](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) (`00:00`)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s) (`01:53`)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s) (`06:25`)
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s) (`05:40`)
 - [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) (`00:00`)
-- [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
-- [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block) (`00:00`)
-- [Content Channel View](https://community.rockrms.com/rocku/content-channels/content-channel-view) (`00:00`)

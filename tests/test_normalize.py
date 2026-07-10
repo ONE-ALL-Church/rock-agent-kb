@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from rock_kb.community import (
+    discover_community_urls,
     developer_slug_from_url,
     fetch_rockumentation_payload,
     documentation_slug_from_url,
@@ -18,6 +19,39 @@ from rock_kb.normalize import (
 from rock_kb.sources import get_source
 
 FIXTURES = Path(__file__).parent / "fixtures"
+
+
+def test_discovery_retains_known_source_urls_outside_current_crawl(monkeypatch):
+    source = get_source("rock_recipes")
+
+    class Response:
+        status_code = 200
+        headers = {"content-type": "text/html"}
+        text = "<html><main>No child links</main></html>"
+        url = source.root_url
+
+    class Client:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def get(self, url):
+            return Response()
+
+    monkeypatch.setattr("rock_kb.community.httpx.Client", Client)
+
+    urls = discover_community_urls(
+        source,
+        max_pages=1,
+        known_urls=["https://community.rockrms.com/recipes/107/older-recipe"],
+    )
+
+    assert "https://community.rockrms.com/recipes/107/older-recipe" in urls
 
 
 def test_parse_core_release_notes():

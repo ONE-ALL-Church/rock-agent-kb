@@ -1240,7 +1240,15 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-No approved media distillations are currently routed to this concept.
+- Approved media records routed to this concept: `3`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Episode 195: Rock Updates, SQL Server, & Customization Insights Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-195-rock-updates-sql-server-customization-insights) | approved_for_public_distillation | 2 | media-insight:cff330eb0f953f16 |
+| [Text to Workflow Performance [Legacy] Transcript Insight](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance) | approved_for_public_distillation | 3 | media-insight:04a99f4c31219b5b |
+| [Workflow Performance Tips Transcript Insight](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) | approved_for_public_distillation | 1 | media-insight:259fe8c97d469180 |
+
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 
 ## 19. Source Map And Dependency Notes

@@ -136,10 +136,15 @@ def discover_community_urls(
     max_pages: int = 250,
     id_sweep: bool = False,
     sweep_window: int = 75,
+    known_urls: Optional[Iterable[str]] = None,
 ) -> list[str]:
     seen: set[str] = set()
     queue: list[str] = [clean_url_for_fetch(source.root_url)]
     discovered: set[str] = set(queue)
+    for known_url in known_urls or []:
+        cleaned = clean_url_for_fetch(str(known_url))
+        if is_html_candidate(cleaned, source):
+            discovered.add(cleaned)
 
     with httpx.Client(follow_redirects=True, timeout=20, headers={"User-Agent": USER_AGENT}) as client:
         while queue and len(seen) < max_pages:

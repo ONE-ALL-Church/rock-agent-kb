@@ -2,7 +2,7 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-07-10T14:36:44+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,9 +35,9 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 ## How To Think About This Area
 
 - `Platform Configuration` spans people, groups, workflows, cms, security, data-views. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_podcast_rss, rock_youtube, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_developer.
+- The strongest source families in this build are: rock_podcast_rss, rock_youtube, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_core_release_notes.
 - Related tags found in source records: usage, operations, admin, workflow, training, lava, api, development.
-- Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training, triumph_resources.
+- Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training.
 
 ## Reviewed Media Insights
 
@@ -114,6 +114,9 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 | Episode 37: Special Edition Garrett Johnson Transcript Insight | UI and UX | 00:40 | Core Rock UI and UX work affects the components staff use daily, so developer guidance should consider usability and feedback loops, not just backend behavior. | [source](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) |
 | Episode 37: Special Edition Garrett Johnson Transcript Insight | caching | 04:44 | Caching and cache clearing are developer-support surfaces because content changes may not appear immediately unless the right cache path is refreshed. | [source](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) |
 | Episode 37: Special Edition Garrett Johnson Transcript Insight | developer education | 06:37 | Entity Framework is an important developer-track topic for understanding how Rock code works with data models and should be routed with developer resources. | [source](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) |
+| Pivot Pattern Transcript Insight | data and reporting | 00:00 | Pivot-style SQL patterns help Rock reports turn repeated row values into comparison columns when staff need a cross-tab view rather than a long list of records. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+| Pivot Pattern Transcript Insight | report design | 03:32 | Before using a pivot pattern, confirm the report audience needs side-by-side category comparison; if the categories are unstable or too numerous, a normal grouped result may be easier to maintain. | [source](https://www.triumph.tech/resources/pivot-patterns) |
+| Pivot Pattern Transcript Insight | implementation workflow | 03:32 | Treat community pivot examples as patterns to adapt, not final production SQL, because Rock field names, entity relationships, and reporting requirements vary by instance. | [source](https://www.triumph.tech/resources/pivot-patterns) |
 
 
 ## Approved Claims
@@ -134,26 +137,26 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | release_caveat | The episode describes Rock 19.4 as the team's target for initial Rock IQ availability, not as a committed release, and advises churches to complete their Rock 19 upgrade work first. Confirm the final version and timing in current release notes before planning a rollout. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | source_summary | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| community-reviewed | operational_guidance | Rock metrics are a useful capture layer for dashboard history because they can run off-hours, store repeatable values, and support later visualization without repeatedly recalculating expensive operational queries. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp) |
-| community-reviewed | operational_guidance | For dashboard speed, expensive journey analytics can be calculated into a persisted dataset on a schedule rather than recalculating all historical engagement data on each page load. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) |
-| community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | Rock's analytics-enabled tables can be used as a snapshot layer for engagement-style metrics, allowing external reporting tools to query daily counts or trends without repeatedly reconstructing every operational detail. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdREmjz) |
-| community-reviewed | operational_guidance | When BI reports are embedded back into Rock, teams still need to honor external licensing and put report pages behind appropriate Rock security roles. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) |
-| More |  | 72 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 77 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 9
-- `rock_core_release_notes`: 3
-- `rock_developer`: 4
-- `rock_documentation`: 34
+- `rock_core_release_notes`: 2
+- `rock_developer`: 2
+- `rock_documentation`: 31
 - `rock_lava_docs`: 1
 - `rock_mobile_docs`: 2
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 8
 - `rock_recipes`: 1
-- `rock_rocku`: 14
+- `rock_rocku`: 20
 - `rock_youtube`: 1
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
@@ -162,7 +165,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| GitHub Spotlight: 12/20/2024 | triumph_resources | Here’s what’s new in Rock’s GitHub for Pre-Alpha Release v17.0.34 released on 12/19/2024. v16.10 Highlights Added a new setting named ‘AutoFocus’ to the Obsidian Content Collection View block which automatically selects the search bar, so individuals can start typing in the search bar immediately after the page loads without needing to select the search bar first. Added a new setting called 'Enable Default Address... | [source](https://www.triumph.tech/resources/github-spotlight-12202024) |
+| Pivot Pattern Transcript Insight | triumph_resources | Pivot Pattern adds public-safe guidance for Rock reporting: use pivot or cross-tab techniques when side-by-side category comparison is the desired output, and validate the approach against local data shape before implementation. | [source](https://www.triumph.tech/resources/pivot-patterns) |
 | Add Attributes to Campuses | rock_documentation | You can add attributes to your campuses to track information about them beyond the other settings described in this section. To do that, just follow these steps: 1. Go to `Admin Tools > Settings > Entity Attributes`. 2. Click the button to add a new attribute. 3. Select the *Entity Type* of "Campus" and set up the attribute information. You don't need to add a value for the *Qualifier Field* or *Qualifier Value*... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/add-attributes-to-campuses) |
 | Add Content Component Item Attributes | rock_documentation | Content Components allow you to add attributes flexibly. You can make attributes available to an individual content component, to content components that use a specific template or to all content components. ## Adding Attributes to Content Component Templates Typically, you'll be adding content component item attributes to a content component template. This allows you to use the attributes in a content component... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes) |
 | Add Custom Attributes | rock_documentation | Adding custom attributes to benevolence requests is simple using the steps below. 1. Head to the *Entity Attributes* page under `Admin Tools > Settings > Entity Attributes`. 2. Click the add button to add a new attribute. 3. The first thing you'll want to do is set the 'Entity Type' field to 'Benevolence Request'. You can leave the qualifier fields blank as they are not needed. 4. Complete the attribute setup as you... | [source](https://community.rockrms.com/documentation/church-management/finance/benevolence/add-custom-attributes) |
@@ -173,7 +176,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Campuses | rock_documentation | [Intro to Campuses](/documentation/core-concepts/rock-fundamentals/campuses/intro-to-campuses?Version=v19.0) [Manage Campuses](/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses?Version=v19.0) [Handle Campus Teams](/documentation/core-concepts/rock-fundamentals/campuses/handle-campus-teams?Version=v19.0) [Add Attributes to... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses) |
 | Configure Family Attributes | rock_documentation | We've just looked at how to add person attributes to records, so now let's consider how you can add the same functionality to families. As you consider your data needs, you'll want to evaluate whether the data attribute best describes an individual (person attribute) or the entire family (family attribute). Say, for instance, your organization is involved in the foster care movement. You might want to note which... | [source](https://community.rockrms.com/documentation/church-management/people/families/configure-family-attributes) |
 | Configure Person Tokens | rock_documentation | Person tokens come preconfigured in Rock and can be found in the Global Attributes screen (`Admin Tools > Settings > Global Attributes`).There are three Person Token attributes: Person Token Expire Minutes, Person Token Usage Limit, and Person Token Use Legacy Fallback. Click on an attribute to open its configuration settings. The Person Token Expire Minutes attribute is the length of time the person token is valid,... | [source](https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens) |
-| Core Concepts | rock_documentation | ### Rock Fundamentals Articles [Entities](/documentation/core-concepts/rock-fundamentals/entities?Version=v19.0) [Attributes](/documentation/core-concepts/rock-fundamentals/attributes?Version=v19.0) [Defined Types](/documentation/core-concepts/rock-fundamentals/defined-types?Version=v19.0) [Blocks](/documentation/core-concepts/rock-fundamentals/blocks?Version=v19.0)... | [source](https://community.rockrms.com/documentation/core-concepts) |
+| Custom Site Attributes | rock_mobile_docs | C v16.8 ### Overview Ever wanted to add a custom attribute to your mobile application that you can access and utilize in your XAML? Look no further! As of Rock v16.8, you can now configure custom entity attributes for your mobile site to utilize in any fashion you desire. ### Example Configuration Navigate to `System Settings > Entity Attributes` In the below example, we are configuring custom Start Gradient Color... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes) |
 
 ## Data Model Landmarks
 
@@ -209,7 +212,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | --- | --- | --- | --- |
 | 19.1 | Core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 | [source](https://www.rockrms.com/releasenotes) |
 | 17.2 | CMS | Fixed an issue where the list of attribute categories shown when editing a Content Channel Item attribute from the Content Channel Type Detail block included incorrect or unrelated categories. This made it difficult to assign attributes to the appropriate category during configuration. | [source](https://www.rockrms.com/releasenotes) |
-| 18.2 | Core | Fixed an issue where the Attribute Editor did not correctly save configuration changes when creating an Attribute designed to store other Attributes (e.g., an Attribute of type Attribute). This affected scenarios such as defining filters in the Page Parameter Filter block. Fixes: #6485 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -244,14 +246,14 @@ Keywords: `defined type, defined value, defined types, defined values`
 | --- | --- | --- | --- |
 | Workflow Attribute Values | rock_documentation | When working with workflows and attributes, it's helpful (actually it's pretty much essential) to know how those attributes store their values. Below is a list of a few commonly used attribute field types, with a description of how the value is stored internally. \| Field Type \| Stored Value \| \| --- \| --- \| \| Boolean \| 'True' or 'False' \| \| Campus \| A campus's GUID \| \| Defined Value \| A comma-delimited list of... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/workflow-attribute-values) |
 | Technical Details | rock_documentation | # Attribute Values When working with workflows and attributes, it's helpful (actually it's pretty much essential) to know how those attributes store their values. Below is a list of a few commonly used attribute field types, with a description of how the value is stored internally. \| Field Type \| Stored Value \| \| --- \| --- \| \| Boolean \| 'True' or 'False' \| \| Campus \| A campus's GUID \| \| Defined Value \| A... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/technical-details) |
-| Campuses | rock_rocku | Campuses Presenter: Cullen McCoy Length: 5:33 " What is an Entity 1m 05s Properties and Attributes 3m 08s Custom Attributes 4m 56s Defined Types 4m 18s Campuses 5m 33s Note Types 10m 10s Jobs 2m 31s CSS Icons 1m 05s Categorize Defined Values 6m 22s Automations 4m 58s | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
-| Custom Attributes | rock_rocku | Custom Attributes Presenter: Cullen McCoy Length: 4:56 " What is an Entity 1m 05s Properties and Attributes 3m 08s Custom Attributes 4m 56s Defined Types 4m 18s Campuses 5m 33s Note Types 10m 10s Jobs 2m 31s CSS Icons 1m 05s Categorize Defined Values 6m 22s Automations 4m 58s | [source](https://community.rockrms.com/rocku/core-concepts/custom-attributes) |
-| Properties and Attributes | rock_rocku | Properties and Attributes Presenter: Jon Edmiston Length: 3:08 " What is an Entity 1m 05s Properties and Attributes 3m 08s Custom Attributes 4m 56s Defined Types 4m 18s Campuses 5m 33s Note Types 10m 10s Jobs 2m 31s CSS Icons 1m 05s Categorize Defined Values 6m 22s Automations 4m 58s | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
 | Defined Values | rock_documentation | Each *[Defined Type](/documentation/core-concepts/rock-fundamentals/defined-types/intro-to-defined-types)* has an option that allows you to categorize its *Defined Values*. For instance, if you're using a person attribute of type *Categorized Defined Value* then this lets you find and select a *Defined Value* based on its category, without having to go through the full list of all available *Defined Values*. The... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/defined-types/defined-values) |
+| Campuses Training | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
+| Custom Attributes Training | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/custom-attributes) |
+| Properties and Attributes Training | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
+| Campuses Training | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/campuses) |
+| Custom Attributes Training | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/custom-attributes) |
+| Properties and Attributes Training | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/properties-and-attributes) |
 | Rock Fundamentals | rock_documentation | SECTIONS [Entities](?Version=v19.0#entities) [Attributes](?Version=v19.0#attributes) [Defined Types](?Version=v19.0#defined-types) [Blocks](?Version=v19.0#blocks) [AI](?Version=v19.0#ai) [Jobs](?Version=v19.0#jobs) [Locations](?Version=v19.0#locations) [Campuses](?Version=v19.0#campuses) [Note Types](?Version=v19.0#note-types) [Navigate Rock](?Version=v19.0#navigate-rock) [Other... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals) |
-| Automations | rock_rocku | Automations Presenter: Blake Byers Length: 4:58 " What is an Entity 1m 05s Properties and Attributes 3m 08s Custom Attributes 4m 56s Defined Types 4m 18s Campuses 5m 33s Note Types 10m 10s Jobs 2m 31s CSS Icons 1m 05s Categorize Defined Values 6m 22s Automations 4m 58s | [source](https://community.rockrms.com/rocku/core-concepts/automations) |
-| CSS Icons | rock_rocku | CSS Icons Presenter: Jon Edmiston Length: 1:05 " What is an Entity 1m 05s Properties and Attributes 3m 08s Custom Attributes 4m 56s Defined Types 4m 18s Campuses 5m 33s Note Types 10m 10s Jobs 2m 31s CSS Icons 1m 05s Categorize Defined Values 6m 22s Automations 4m 58s | [source](https://community.rockrms.com/rocku/core-concepts/css-icons) |
-| Categorize Defined Values | rock_rocku | Categorize Defined Values Presenter: Cullen McCoy Length: 6:22 " What is an Entity 1m 05s Properties and Attributes 3m 08s Custom Attributes 4m 56s Defined Types 4m 18s Campuses 5m 33s Note Types 10m 10s Jobs 2m 31s CSS Icons 1m 05s Categorize Defined Values 6m 22s Automations 4m 58s | [source](https://community.rockrms.com/rocku/core-concepts/categorize-defined-values) |
 
 ### Categories And Entity Types
 
@@ -303,7 +305,7 @@ Keywords: `campus, campuses, global attribute, system setting, configuration`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `90`
+- Approved claims: `95`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

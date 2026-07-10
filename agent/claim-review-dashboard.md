@@ -46,4 +46,5 @@ No evaluation failures.
 
 ## Evaluation Term Misses
 
-No passing evaluations have missing required terms.
+- `eval:ai-agents-automation:3` score `0.833` missing terms: community
+- `eval:communications:3` score `0.833` missing terms: community

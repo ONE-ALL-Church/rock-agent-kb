@@ -113,8 +113,29 @@
     "retrieval": 16
   },
   "fail_count": 0,
-  "generated_at": "2026-07-10T15:14:18+00:00",
-  "near_misses": [],
+  "generated_at": "2026-07-10T17:26:08+00:00",
+  "near_misses": [
+    {
+      "answer_id": "answer:ai-agents-automation:risks-caveats",
+      "concept_id": "ai-agents-automation",
+      "id": "eval:ai-agents-automation:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    },
+    {
+      "answer_id": "answer:communications:risks-caveats",
+      "concept_id": "communications",
+      "id": "eval:communications:3",
+      "missing_terms": [
+        "community"
+      ],
+      "score": 0.833,
+      "status": "pass"
+    }
+  ],
   "pass_count": 124,
   "pass_rate": 1.0,
   "pending_service_count": 16,
@@ -126,5 +147,5 @@
   "result_count": 140,
   "schema": "rock-kb-evaluation-report-v1",
   "scored_count": 124,
-  "term_miss_count": 0
+  "term_miss_count": 2
 }

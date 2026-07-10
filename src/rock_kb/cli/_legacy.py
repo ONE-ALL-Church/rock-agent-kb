@@ -441,6 +441,14 @@ REFRESH_STEPS = [
 
 def refresh(
     source: Optional[list[str]] = typer.Option(None, "--source", "-s", help="Limit refresh to one or more source IDs."),
+    baseline_snapshot: Optional[Path] = typer.Option(
+        None,
+        "--baseline-snapshot",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Retain known source URLs from a pre-refresh source snapshot.",
+    ),
     skip_discovery: bool = typer.Option(False, "--skip-discovery"),
     skip_probe: bool = typer.Option(False, "--skip-probe"),
     skip_indexes: bool = typer.Option(False, "--skip-indexes"),
@@ -460,14 +468,23 @@ def refresh(
         write_jsonl(REVIEW_DIR / "endpoint-probes.jsonl", rows)
         console.print(f"Probed {len(rows)} endpoints.")
 
+    baseline_urls = source_urls_from_snapshot(baseline_snapshot)
+
     for step in steps:
         src = get_source(step.source_id)
         if step.discover and not skip_discovery:
+            known_urls = {
+                str(row.get("source_url") or "")
+                for row in read_jsonl(source_output_path(src.id, "normalized"))
+                if row.get("source_url")
+            }
+            known_urls.update(baseline_urls.get(src.id, set()))
             urls = discover_community_urls(
                 src,
                 max_pages=step.max_pages,
                 id_sweep=step.id_sweep,
                 sweep_window=step.sweep_window,
+                known_urls=known_urls,
             )
             write_jsonl(
                 source_output_path(src.id, "raw"),
@@ -509,6 +526,23 @@ def refresh(
         index_path = build_sqlite_index()
         console.print_json(json.dumps(counts))
         console.print(f"Built SQLite index at {index_path}")
+
+
+def source_urls_from_snapshot(path: Optional[Path]) -> dict[str, set[str]]:
+    if path is None:
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    records = payload.get("source_records") or {}
+    rows = records.values() if isinstance(records, dict) else records
+    result: dict[str, set[str]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        source_id = str(row.get("source_id") or "")
+        source_url = str(row.get("source_url") or "")
+        if source_id and source_url:
+            result.setdefault(source_id, set()).add(source_url)
+    return result
 
 
 def _normalize_source(src) -> int:

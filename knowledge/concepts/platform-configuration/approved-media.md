@@ -2,7 +2,7 @@
 concept_id: platform-configuration
 generated: true
 artifact_level: media_distillation
-approved_media_count: 18
+approved_media_count: 19
 ---
 
 # Platform Configuration Approved Media
@@ -28,4 +28,5 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:82641c154ebfd018` | Media Watch Transcript Insight | approved_for_public_distillation | 4 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp) |
 | `media-insight:b68b16ee29ac1067` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Rl3KLqlj4) |
 | `media-insight:e81a9f6b5e5e2f8a` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) |
+| `media-insight:ae072db145e9b46e` | Pivot Pattern Transcript Insight | approved_for_public_distillation | 3 | [source](https://www.triumph.tech/resources/pivot-patterns) |
 | `media-insight:00a8a57d7db012dc` | Rock's Future Anchored in Vision \| Ep 202 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision) |

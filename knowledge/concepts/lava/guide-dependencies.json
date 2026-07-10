@@ -1374,6 +1374,40 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL.",
+      "claim_hash": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
+      "claim_id": "claim:725a3342f3dc657cc546",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "lava",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s",
+          "timestamp": "24:50",
+          "timestamp_seconds": 1490.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Historical Rock data should be used selectively: event, finance, and reliable attendance history are often safer than demographic or group-member history, which may reflect current-state changes rather than past reality.",
       "claim_hash": "cc4586e8790dee810f86466f1d53ffe13c0ded25c826f4d2e9e0747a3dd6c106",
@@ -3302,6 +3336,7 @@
     "claim:6c40bb89e82cf23d7c6d": "9b3f7e422b2d7cfef53625b56f4089a7fc8b69bffb377b9d4ee20322be5a2cb0",
     "claim:6f4ef4f5e2aa084d67f5": "42ee5579ea034a942872f08255ba01b925516c788f8e24fc7510598f3d69dae9",
     "claim:716957e28f4febca02ed": "4d306c02231db1db5be41ef3efffcaac2661bba23884a238b6ef1b8bbeb65ed0",
+    "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
     "claim:73ec340279cac1218fdf": "cc4586e8790dee810f86466f1d53ffe13c0ded25c826f4d2e9e0747a3dd6c106",
     "claim:76e9f9f5d841f006cbb5": "7efc094151583888c9db25936812c60919860950dfbf79016071cbe33f52056c",
     "claim:7a169605c60795748120": "3f8ee733ea8b9527c6febab7e8e3b467648d1420ee5bddaa196d34a3dbfc3fe9",
@@ -3357,7 +3392,7 @@
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "ed771bc19d357de587425c7f69a125e8dfd63107a23282bcb6355c373bb27800",
+  "approved_claims_hash": "391cfd85f3919f9480aef3b17afb0362b8c13424e9332ba4c8abeb2267b8ed9c",
   "approved_claims_path": "knowledge/concepts/lava/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3768,12 +3803,12 @@
   },
   "approved_media_hash": "9c8278212f8defa3d3ee4edae7ce1933a921d342680724923364d46db88032b9",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-07-10T14:37:49+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "lava",
-  "guide_hash": "d28833bbeecb2df4b032803ca8cbe04ba102b238852d266448b515558858f4f8",
+  "guide_hash": "3d0724b5609c741f1d939cb688481f39636b06f17e1c0c1022933af7a60acf13",
   "guide_line_count": 2021,
   "guide_path": "knowledge/concepts/lava/guide.md",
-  "guide_word_count": 14950,
+  "guide_word_count": 14942,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4161,6 +4196,15 @@
       "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",
@@ -5906,7 +5950,7 @@
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
+        "dcc9c3b1df657d9f",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -7022,6 +7066,16 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",

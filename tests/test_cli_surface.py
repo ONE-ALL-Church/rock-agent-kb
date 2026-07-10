@@ -4,6 +4,7 @@ import pytest
 from typer.testing import CliRunner
 
 from rock_kb.cli import app
+from rock_kb.cli import audit_cmds
 
 
 FINAL_COMMANDS = [
@@ -110,3 +111,24 @@ def test_dead_flat_cli_names_fail(command):
     result = CliRunner().invoke(app, [*command, "--help"])
 
     assert result.exit_code != 0
+
+
+def test_audit_all_passes_concrete_rockumentation_options(monkeypatch):
+    calls = []
+    monkeypatch.setattr(audit_cmds.legacy, "audit_licenses", lambda: None)
+    monkeypatch.setattr(audit_cmds.legacy, "audit_source_url_duplicates_command", lambda: None)
+    monkeypatch.setattr(
+        audit_cmds.legacy,
+        "audit_rockumentation_api_coverage_command",
+        lambda **options: calls.append(options),
+    )
+    monkeypatch.setattr(audit_cmds.legacy, "audit_source_policy_command", lambda: None)
+    monkeypatch.setattr(audit_cmds.legacy, "audit_public_export_command", lambda: None)
+    monkeypatch.setattr(audit_cmds.legacy, "audit_readiness", lambda **options: calls.append(options))
+
+    audit_cmds.audit_all(public_only=True)
+
+    assert calls == [
+        {"probe_static": False, "max_static_probes": None},
+        {"public_only": True},
+    ]

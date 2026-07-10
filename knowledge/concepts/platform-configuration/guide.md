@@ -1478,7 +1478,7 @@ Use the v17/v17.5 Lava docs as the version anchor ([Attribute Lava Filters](http
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `90`
+- Approved claims routed to this concept: `95`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1495,7 +1495,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| More |  | 78 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 83 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1504,7 +1504,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `18`
+- Approved media records routed to this concept: `19`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1517,7 +1517,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Episode 47: Special Edition Lee Peterson Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson) | approved_for_public_distillation | 2 | media-insight:a11e091aa9800728 |
 | [Episode 84: Special Edition with Red Rocks Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-84-special-edition-with-red-rocks) | approved_for_public_distillation | 3 | media-insight:40920b5275ce640a |
 | [Episode 91: Special Edition with Cullen McCoy Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy) | approved_for_public_distillation | 2 | media-insight:f609e5067739f62b |
-| More |  | 10 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 11 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

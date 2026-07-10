@@ -4635,6 +4635,39 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added.",
+      "claim_hash": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
+      "claim_id": "claim:4560f75344e40a127605",
+      "claim_tier": "routing_context_only",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "platform-configuration"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=771s",
+          "timestamp": "12:51",
+          "timestamp_seconds": 771.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Custom Badges is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "8dc2f607d999e6dd62084b8203222ec111727058c07600386ded03b3e45f6aa0",
@@ -8196,6 +8229,40 @@
           "source_id": "rock_rocku",
           "title": "What is Lava",
           "url": "https://community.rockrms.com/rocku/lava/what-is-lava"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL.",
+      "claim_hash": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
+      "claim_id": "claim:725a3342f3dc657cc546",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation",
+        "data-views-reports",
+        "lava",
+        "security-permissions"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
+      "source_record_ids": [
+        "rock_youtube:5702760f57d03696"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s",
+          "timestamp": "24:50",
+          "timestamp_seconds": 1490.0,
+          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
+          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
       ]
     },
@@ -18191,6 +18258,7 @@
     "claim:4494d524eb17eb990533": "ac826dfd0b519286e6b429432d5ac6323c90cca009ed13f9d8d3d554b1594fe6",
     "claim:44be8d2c614db1eb61cf": "9a4ce8717b5accdfb6b04ea1902f295f9fed272c4f033b2405fd12998e46a5bd",
     "claim:4539edae7340c1d97c81": "f5a3057fd38084ae32dc832595d783bb5274690017832d90c2567e7815dc1124",
+    "claim:4560f75344e40a127605": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
     "claim:45a2de62e1d6ec9d0b33": "8dc2f607d999e6dd62084b8203222ec111727058c07600386ded03b3e45f6aa0",
     "claim:45eacad5c4f1ad263f8c": "ebfe75209c26c981a0852354ffc04b1f6ba5e1c2c4fed32a3c564f92736d2ee1",
     "claim:464d353d82045cacc7b9": "621b2526e8cdc1b84a2eff9c3fc4ddcca9c6960cd674e91d5509f5b8be3627a1",
@@ -18302,6 +18370,7 @@
     "claim:7091937d2d5e8346ef3f": "39ed9bcc6a5df08c0399856add67b77760c804ac111c8214fa7aeffc339d3950",
     "claim:70e2d29e7a2dd7137818": "344784dd5733d7ec813b02fbb7a441d4c81cef7aa526a653207d62b06eb6385f",
     "claim:716957e28f4febca02ed": "4d306c02231db1db5be41ef3efffcaac2661bba23884a238b6ef1b8bbeb65ed0",
+    "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
     "claim:735b8c0d6948065cf79e": "d911b6e40ec01e6763643c0a65c694d19035a3bcbdceebdb206237c165bb96c8",
     "claim:73ec340279cac1218fdf": "cc4586e8790dee810f86466f1d53ffe13c0ded25c826f4d2e9e0747a3dd6c106",
     "claim:73fd018f28fa1c9abdb7": "67852d8a9f07c05c57e7c8d0b1f30a32c5a881680983e8e7bc31bf6c700027c9",
@@ -18604,7 +18673,7 @@
     "claim:ffa743908a261a4a6d6b": "3131d5e1d000790d3d36f2a8545561d7c02c4388f204f2c2a57a636bf9012949",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "1c8c733588e736b1c80f5b96759cc68cb1a9460554fb5a3ef3053a5e0ee2f0a3",
+  "approved_claims_hash": "479aa9f65ead2037dbffd13b6a7db3aa091165275906b468c24a249da6be9f6e",
   "approved_claims_path": "knowledge/concepts/data-views-reports/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -19973,12 +20042,12 @@
   },
   "approved_media_hash": "769cc094468363bd078ac0249d0b422ad321eb17fed862c76bf53b87eb652057",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-07-10T14:38:17+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "968a053a91a6776429f61893f6964f60409a7b747c4ca3329b49fdb5707a31e3",
+  "guide_hash": "50fc27e208ff53c213bfd7e3607f1700e0a2036cf0cc5e86e2ccd97fd2f9e64a",
   "guide_line_count": 2005,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
-  "guide_word_count": 16098,
+  "guide_word_count": 16110,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -20377,6 +20446,15 @@
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Reporting/DataViewFilterBag.cs"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -20402,24 +20480,6 @@
       "source_key": "7054a521db6d0806",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/groups/extending-groups"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "0343f1e6031032b4",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/cms/rock-media-analytics"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "6dca8c5215eee229",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/finance/pledges"
     },
     {
       "authority": "official-training",
@@ -22107,6 +22167,8 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "dcc9c3b1df657d9f",
+        "dcc9c3b1df657d9f",
         "fa937a53da06e8f9",
         "8d8c28f726e09218",
         "8d8c28f726e09218",
@@ -22116,9 +22178,7 @@
         "c680a16482a4af12",
         "8d8c28f726e09218",
         "d26a070ba9bc8cae",
-        "7054a521db6d0806",
-        "0343f1e6031032b4",
-        "6dca8c5215eee229"
+        "7054a521db6d0806"
       ],
       "start_line": 1900
     },
@@ -23250,6 +23310,16 @@
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Reporting/DataViewFilterBag.cs"
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -23278,26 +23348,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/groups/extending-groups",
       "url": "https://community.rockrms.com/rocku/groups/extending-groups"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "0343f1e6031032b4",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/cms/rock-media-analytics",
-      "url": "https://community.rockrms.com/rocku/cms/rock-media-analytics"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "6dca8c5215eee229",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/finance/pledges",
-      "url": "https://community.rockrms.com/rocku/finance/pledges"
     },
     {
       "authority": "official-training",

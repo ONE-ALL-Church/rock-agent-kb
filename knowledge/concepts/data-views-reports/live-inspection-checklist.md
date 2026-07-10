@@ -23,7 +23,7 @@ artifact_level: live_checklist
 12. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
 13. Inspect `Financial transaction and gateway settings` in the live instance when the question touches this surface.
 14. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
-15. Inspect `Person, family, alias, and attribute records` in the live instance when the question touches this surface.
+15. Inspect `Registration instance and registrant records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
@@ -36,6 +36,7 @@ artifact_level: live_checklist
 - `Communication recipient, medium, and send history`
 - `Financial transaction and gateway settings`
 - `Mobile shell version and mobile block settings`
+- `Registration instance and registrant records`
 - `Person, family, alias, and attribute records`
 
 ## Read-Only Probes

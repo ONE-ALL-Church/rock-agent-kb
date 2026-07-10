@@ -2,7 +2,7 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-07-10T14:37:03+00:00
+last_built: 2026-07-10T17:26:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,8 +35,8 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 ## How To Think About This Area
 
 - `Helix` spans lava, api-integrations, security, cms, workflows, forms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_documentation, rock_recipes, rock_core_release_notes, rock_model_map, rock_lava_docs.
-- Related tags found in source records: development, lava, api, workflow, cms, obsidian, operations, releases.
+- The strongest source families in this build are: rock_developer, rock_documentation, rock_core_release_notes, rock_recipes, rock_model_map, rock_lava_docs.
+- Related tags found in source records: development, lava, api, cms, workflow, obsidian, operations, security.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_community_site, rock_lava_docs, triumph_resources.
 
 ## Approved Claims
@@ -64,15 +64,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `public_rock_repos`: 1
-- `rock_community_site`: 2
+- `rock_community_site`: 1
 - `rock_core_release_notes`: 10
 - `rock_developer`: 27
 - `rock_documentation`: 4
-- `rock_lava_docs`: 25
+- `rock_lava_docs`: 32
 - `rock_model_map`: 12
 - `rock_recipes`: 1
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 7
+- `triumph_resources`: 1
 
 ## Highest Signal Sources
 
@@ -232,7 +232,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `118`
+- Source records: `111`
 - Lava capability source records: `53`
 - Approved claims: `15`
 - Dependency file: `agent/concept-dependencies.jsonl`

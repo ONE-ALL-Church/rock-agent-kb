@@ -6620,6 +6620,22 @@
       "source_record_id": "media-insight:97a12ee26ba9575f",
       "source_title": "Episode 37: Special Edition Garrett Johnson Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
+    },
+    {
+      "approved_concept_ids": [
+        "data-views-reports",
+        "giving-finance"
+      ],
+      "content_hash": "3b2cce191f38ec131564798398dc3237029cf7700d3278ae89e7040e7b9dc60b",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:22ee135c5240caf2",
+      "public_promotion_id": "media-public-promotion:3b2cce191f38ec13",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "triumph_resources",
+      "source_record_id": "media-insight:22ee135c5240caf2",
+      "source_title": "Dashboard Design Part 1 Transcript Insight",
+      "source_url": "https://www.triumph.tech/resources/dashboard-design-part-1"
     }
   ],
   "approved_media_dependency_hashes": {
@@ -6630,6 +6646,7 @@
     "media-insight:1b335b58b0acc8b1": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
     "media-insight:1e948c0e5934abe5": "0270387e1b66fbdeb598a24b509a090c7180dfe9bccdf3694b9fca65c456900d",
     "media-insight:2291e8656b34ff85": "743ed81746759df1351c7fe0030435109158578d89d73af4a01f7f5a3ccfedfc",
+    "media-insight:22ee135c5240caf2": "3b2cce191f38ec131564798398dc3237029cf7700d3278ae89e7040e7b9dc60b",
     "media-insight:284b6d5445c1b357": "c916dea095e626033e941476e6ed01ce5b8f847e5febc1bd7e714a60c431c2ba",
     "media-insight:2cf056c2b84e6365": "aff1f49c97d7d6b0d247c3480372a544e9e28e64abf0f86400b7dac7efa7cab8",
     "media-insight:313e84f7d769f286": "e2339ef22004482d7b5cff223bbf414802e509eb5a5770f92ea84fc881198652",
@@ -6672,11 +6689,11 @@
     "media-insight:fed4057bf059b6fe": "81ffff8c0970168880034e0b6836e38c2df5b1192c1def44836d16741faf5081",
     "media-insight:fef5b88f7cee68c9": "7a052e8e672505ff26969694db6d58ff5fed8a4fce19881148f4bcc6fa21da22"
   },
-  "approved_media_hash": "dfde6c74630fa2f1b16822af134a0b23723606580f478425c4b157fc7e7ba49b",
+  "approved_media_hash": "d6da57910a72706609eab86d6481e182b0937e64ce5accc3600af37e22fbc8e6",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-07-10T14:38:12+00:00",
+  "built_at": "2026-07-10T17:26:08+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "1762031ab3f556ec60254db443cfed6574ca227a0f54d09c519e2d7e460817d0",
+  "guide_hash": "1063291be128540365c2abd252bc48261556b03fdd404c3a09b9873895004d14",
   "guide_line_count": 1569,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
   "guide_word_count": 13465,

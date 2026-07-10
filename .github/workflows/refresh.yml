@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         run: |
           set +e
-          uv run kb sources refresh --skip-indexes
+          uv run kb sources refresh --baseline-snapshot data/review/source-scan-pre/source-snapshot.json --skip-indexes
           status=$?
           mkdir -p data/review/source-scan
           if [ "$status" -eq 0 ]; then

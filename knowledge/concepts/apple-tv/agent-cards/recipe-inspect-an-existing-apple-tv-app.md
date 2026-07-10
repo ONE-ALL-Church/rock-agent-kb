@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Inspect An Existing Apple TV App.
 - https://community.rockrms.com/lava/lava-api
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/apple-tv-docs/developer
-- https://community.rockrms.com/ask/developing
+- https://www.triumph.tech/resources/dashboard-design-part-1

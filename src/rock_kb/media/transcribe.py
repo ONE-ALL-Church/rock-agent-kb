@@ -1,8 +1,10 @@
+from pathlib import Path as _Path
+
 from ._shared import *  # noqa: F401,F403
 
 
-def transcribe_skill_script() -> Path:
-    codex_home = Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex")
+def transcribe_skill_script() -> _Path:
+    codex_home = _Path(os.environ.get("CODEX_HOME") or _Path.home() / ".codex")
     return codex_home / "skills" / "transcribe" / "scripts" / "transcribe_diarize.py"
 
 def media_tool_status() -> dict[str, Any]:

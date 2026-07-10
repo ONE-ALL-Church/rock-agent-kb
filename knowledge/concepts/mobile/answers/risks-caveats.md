@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Rock Mobile?
 
-No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: community-reviewed: 74, rocku-confirmed: 20.
+No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: community-reviewed: 74, official: 1, rocku-confirmed: 20.
 
 ## Top Claims
 

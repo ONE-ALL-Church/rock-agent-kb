@@ -11,6 +11,7 @@ Start by identifying the reporting surface and the DataView, report, Lava, dynam
 
 ## Top Claims
 
+- `claim:725a3342f3dc657cc546`
 - `claim:14b494b5978509441220`
 - `claim:bf7a6f9ccaefc113cb5d`
 - `claim:d40bfdc2c3879d0290a3`
@@ -18,7 +19,6 @@ Start by identifying the reporting surface and the DataView, report, Lava, dynam
 - `claim:ffba67d8847c47e68ea6`
 - `claim:8ffba8d5adf492765f21`
 - `claim:7bad875a0505e0b744ef`
-- `claim:7e9a4bdea4ebdb5d77a4`
 
 ## Distilled Claims
 
@@ -28,6 +28,7 @@ Start by identifying the reporting surface and the DataView, report, Lava, dynam
 
 ## Citations
 
+- [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s) (`24:50`)
 - [Data View Overview](https://community.rockrms.com/rocku/reporting/data-view-overview) (`00:00`)
 - [Data Integrity](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) (`00:00`)
 - [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) (`49:32`)
