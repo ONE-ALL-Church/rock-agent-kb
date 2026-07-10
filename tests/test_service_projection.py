@@ -55,6 +55,39 @@ def test_build_search_rows_includes_public_community_contributions(monkeypatch):
     assert row["payload"]["concept_ids"] == ["workflows"]
 
 
+def test_promoted_recipe_contribution_is_not_indexed_as_duplicate_guidance(monkeypatch):
+    monkeypatch.setattr(
+        service_projection,
+        "public_contribution_records",
+        lambda: [
+            {
+                "contribution_id": "test-org:workflow-recipe",
+                "contribution_type": "recipe",
+                "org_id": "test-org",
+                "source_title": "Old workflow recipe",
+                "summary": "Obsolete recipe guidance.",
+                "topics": ["workflows"],
+                "authority_tier": "community-unreviewed",
+                "claim_tier": "routing_context_only",
+                "bundle_path": "community-contributions/test-org/bundle.jsonl",
+            }
+        ],
+    )
+
+    original_read_jsonl = service_projection.read_jsonl
+
+    def fake_read_jsonl(path):
+        if path.name == "recipes.jsonl":
+            return [{"recipe_id": "test-org:workflow-recipe"}]
+        return original_read_jsonl(path)
+
+    monkeypatch.setattr(service_projection, "read_jsonl", fake_read_jsonl)
+
+    rows = service_projection.contribution_search_rows()
+
+    assert rows == []
+
+
 def test_recipe_search_rows_include_reusable_learnings():
     rows = service_projection.recipe_search_rows()
     row = next(row for row in rows if row["id"] == "recipe:oneall:check-in-status-dashboard:check-in")
