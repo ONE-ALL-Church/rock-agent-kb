@@ -23,6 +23,19 @@ def test_canonical_recipes_validate_and_use_immutable_source_pins():
         assert all(len(item["sha256"]) == 64 for item in row["implementation"]["files"])
         assert row["feedback_url"].endswith("/issues")
         assert row["compatibility"]["version_matrix"]
+    superseded = {
+        row["recipe_id"]: row["supersedes_contribution_ids"]
+        for row in rows
+        if row["supersedes_contribution_ids"]
+    }
+    assert superseded == {
+        "oneall:check-in-status-dashboard": [
+            "oneall:read-only-check-in-status-dashboard-data-pattern"
+        ],
+        "oneall:workflow-backed-sms-verification": [
+            "oneall:anonymous-sms-verification-strict-match-and-session-recheck"
+        ],
+    }
 
 
 def test_recipe_validation_rejects_unknown_concept(tmp_path):
@@ -36,6 +49,20 @@ def test_recipe_validation_rejects_unknown_concept(tmp_path):
     target.write_text(json.dumps(source), encoding="utf-8")
 
     with pytest.raises(ValueError, match="unknown concept_ids"):
+        recipes.load_recipes(tmp_path)
+
+
+def test_recipe_validation_rejects_invalid_superseded_contribution_id(tmp_path):
+    source = json.loads(recipes.recipe_paths()[0].read_text(encoding="utf-8"))
+    source["org_id"] = "test-org"
+    source["recipe_id"] = "test-org:example"
+    source["supersedes_contribution_ids"] = ["invalid-id"]
+    source["implementation"]["owner"] = "ONE-ALL-Church"
+    target = tmp_path / "test-org" / "example.json"
+    target.parent.mkdir()
+    target.write_text(json.dumps(source), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invalid supersedes_contribution_id"):
         recipes.load_recipes(tmp_path)
 
 
@@ -59,6 +86,9 @@ def test_build_recipes_writes_agent_and_human_artifacts(monkeypatch, tmp_path):
         rendered = (tmp_path / "knowledge" / "recipes" / "oneall" / filename).read_text(encoding="utf-8")
         assert "Reusable Learnings" in rendered
         assert commit_prefix in rendered
+    check_in = (tmp_path / "knowledge" / "recipes" / "oneall" / "check-in-status-dashboard.md").read_text(encoding="utf-8")
+    assert "Superseded Contribution Patterns" in check_in
+    assert "oneall:read-only-check-in-status-dashboard-data-pattern" in check_in
 
 
 def test_promote_recipe_contribution_extracts_reviewed_canonical_record(monkeypatch, tmp_path):

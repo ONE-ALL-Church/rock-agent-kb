@@ -88,6 +88,53 @@ def test_promoted_recipe_contribution_is_not_indexed_as_duplicate_guidance(monke
     assert rows == []
 
 
+def test_recipe_explicitly_supersedes_only_named_contribution_patterns(monkeypatch):
+    monkeypatch.setattr(
+        service_projection,
+        "public_contribution_records",
+        lambda: [
+            {
+                "contribution_id": "test-org:older-dashboard-pattern",
+                "contribution_type": "guide_section",
+                "org_id": "test-org",
+                "source_title": "Older dashboard pattern",
+                "summary": "Guidance now incorporated into the canonical recipe.",
+                "topics": ["check-in"],
+            },
+            {
+                "contribution_id": "test-org:distinct-check-in-pattern",
+                "contribution_type": "guide_section",
+                "org_id": "test-org",
+                "source_title": "Distinct check-in pattern",
+                "summary": "Separate guidance that remains useful.",
+                "topics": ["check-in"],
+            },
+        ],
+    )
+
+    original_read_jsonl = service_projection.read_jsonl
+
+    def fake_read_jsonl(path):
+        if path.name == "recipes.jsonl":
+            return iter(
+                [
+                    {
+                        "recipe_id": "test-org:canonical-dashboard",
+                        "supersedes_contribution_ids": ["test-org:older-dashboard-pattern"],
+                    }
+                ]
+            )
+        return original_read_jsonl(path)
+
+    monkeypatch.setattr(service_projection, "read_jsonl", fake_read_jsonl)
+
+    rows = service_projection.contribution_search_rows()
+
+    assert [row["id"] for row in rows] == [
+        "community_contribution:test-org:distinct-check-in-pattern:check-in"
+    ]
+
+
 def test_recipe_search_rows_include_reusable_learnings():
     rows = service_projection.recipe_search_rows()
     row = next(row for row in rows if row["id"] == "recipe:oneall:check-in-status-dashboard:check-in")
@@ -97,6 +144,9 @@ def test_recipe_search_rows_include_reusable_learnings():
     assert row["claim_tier"] == "answer_pack_approved"
     assert "AttendanceOccurrence" in row["body"]
     assert row["payload"]["implementation"]["commit_sha"] == "d8ea54fa67efe40692689fb009561ff96e88bf42"
+    assert row["payload"]["supersedes_contribution_ids"] == [
+        "oneall:read-only-check-in-status-dashboard-data-pattern"
+    ]
 
 
 def test_answer_search_rows_include_live_inspection_checklist(monkeypatch):

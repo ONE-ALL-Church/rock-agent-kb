@@ -225,14 +225,23 @@ def claim_search_rows() -> list[dict[str, Any]]:
 
 def contribution_search_rows() -> list[dict[str, Any]]:
     rows = []
+    recipes = list(read_jsonl(REPO_ROOT / "agent" / "recipes.jsonl"))
     canonical_recipe_ids = {
         str(recipe.get("recipe_id") or "")
-        for recipe in read_jsonl(REPO_ROOT / "agent" / "recipes.jsonl")
+        for recipe in recipes
         if recipe.get("recipe_id")
+    }
+    superseded_contribution_ids = {
+        str(contribution_id)
+        for recipe in recipes
+        for contribution_id in recipe.get("supersedes_contribution_ids") or []
+        if contribution_id
     }
     for contribution in public_contribution_records():
         contribution_id = str(contribution.get("contribution_id") or "")
         if not contribution_id:
+            continue
+        if contribution_id in superseded_contribution_ids:
             continue
         if contribution.get("contribution_type") == "recipe" and contribution_id in canonical_recipe_ids:
             continue

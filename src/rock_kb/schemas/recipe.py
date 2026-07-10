@@ -94,6 +94,7 @@ class RecipeRow(KBRecord):
     difficulty: Literal["beginner", "intermediate", "advanced"]
     audience: list[str] = Field(min_length=1)
     concept_ids: list[str] = Field(min_length=1)
+    supersedes_contribution_ids: list[str] = Field(default_factory=list)
     use_cases: list[str] = Field(min_length=1)
     outcomes: list[str] = Field(min_length=1)
     prerequisites: list[str] = Field(default_factory=list)

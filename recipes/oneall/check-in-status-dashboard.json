@@ -4,6 +4,9 @@
   "org_id": "oneall",
   "title": "Check-In Status Dashboard",
   "summary": "A reusable read-only Helix Lava Application pattern that combines an event registration roster, active group-only placements, and the latest qualifying check-in attendance for an operating date.",
+  "supersedes_contribution_ids": [
+    "oneall:read-only-check-in-status-dashboard-data-pattern"
+  ],
   "version": "1.0.0",
   "status": "active",
   "recipe_kind": "lava_application",

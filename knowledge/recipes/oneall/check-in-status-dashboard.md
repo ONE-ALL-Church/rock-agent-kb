@@ -8,6 +8,10 @@ A reusable read-only Helix Lava Application pattern that combines an event regis
 - Source commit: [`d8ea54fa67ef`](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/d8ea54fa67efe40692689fb009561ff96e88bf42/Recipes/check-in-status-dashboard)
 - License: [MIT](https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/d8ea54fa67efe40692689fb009561ff96e88bf42/Recipes/check-in-status-dashboard/LICENSE)
 
+## Superseded Contribution Patterns
+
+- `oneall:read-only-check-in-status-dashboard-data-pattern`
+
 ## Use Cases
 
 - Create an operational roster showing registration, placement, and check-in state in one view.

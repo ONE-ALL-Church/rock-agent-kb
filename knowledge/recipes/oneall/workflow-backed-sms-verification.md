@@ -8,6 +8,10 @@ Optionally recognize an existing person during an anonymous Rock form using an e
 - Source commit: [`7211f1d5a024`](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/7211f1d5a024a164fdf883575585fb23b6a79f5d/Recipes/workflow-backed-sms-verification)
 - License: [MIT](https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/7211f1d5a024a164fdf883575585fb23b6a79f5d/Recipes/workflow-backed-sms-verification/LICENSE)
 
+## Superseded Contribution Patterns
+
+- `oneall:anonymous-sms-verification-strict-match-and-session-recheck`
+
 ## Use Cases
 
 - Optionally recognize a returning person during an anonymous registration or request form.

@@ -157,6 +157,47 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
   }
 });
 
+test("search collapses concept-specific rows for one canonical recipe", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const recipe = {
+      recipe_id: "oneall:check-in-status-dashboard",
+      title: "Check-In Status Dashboard",
+    };
+    const duplicate = {
+      id: "recipe:oneall:check-in-status-dashboard:event-registration",
+      kind: "recipe",
+      title: "Check-In Status Dashboard",
+      body: "Reusable registration roster and latest attendance dashboard implementation.",
+      path: "knowledge/recipes/oneall/check-in-status-dashboard.md",
+      url: "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+      concept: "event-registration",
+      authority_tier: "community-reviewed",
+      claim_tier: "answer_pack_approved",
+      claim_tier_rank: 2,
+      source_id: "oneall",
+      payload_json: JSON.stringify(recipe),
+    };
+    await db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(duplicate)).run();
+    await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+      .bind(duplicate.id, duplicate.title, duplicate.body, duplicate.concept).run();
+
+    const response = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=registration%20attendance%20dashboard&kind=recipe&limit=10"
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results.length, 1);
+    assert.match(payload.results[0].id, /^recipe:oneall:check-in-status-dashboard:/);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("telemetry separates evaluation traffic and records structured feedback without query text", async () => {
   const mf = await buildWorker();
   try {
