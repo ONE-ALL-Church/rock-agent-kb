@@ -1,0 +1,222 @@
+{
+  "adaptation_points": [
+    {
+      "description": "Choose a stable workflow name and organization-owned ForeignKey prefix; preserve the prefix across reruns and upgrades.",
+      "example": "example:intake-registration-to-connection",
+      "key": "workflowIdentity",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Set local Connection Opportunity and Status GUIDs after reviewing board behavior and permissions.",
+      "example": "The public package leaves both GUIDs blank.",
+      "key": "connectionOpportunityAndStatus",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Create and configure an Integer Connection Request attribute used to store Registration.Id.",
+      "example": "SourceRegistrationId",
+      "key": "sourceRegistrationTargetAttributeKey",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Keep explicit Registration.Campus propagation or replace it only after documenting another authoritative campus source.",
+      "example": "RegistrationRegistrant.Registration.Campus.Guid",
+      "key": "registrationCampus",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Choose the registrant attribute that may populate Connection Request comments, or remove the mapping when comments are inappropriate.",
+      "example": "FollowUpNotes",
+      "key": "commentsSourceAttribute",
+      "required": false,
+      "sensitive": true
+    },
+    {
+      "description": "Map only reviewed registration registrant attributes to compatible Connection Request attributes and add normalization where field types differ.",
+      "example": "IntakeSummary to IntakeSummary",
+      "key": "attributeMappings",
+      "required": false,
+      "sensitive": true
+    },
+    {
+      "description": "Choose skip, reviewed update, or intentional additional request behavior before any retry or backfill.",
+      "example": "stop_and_review",
+      "key": "duplicatePolicy",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Restrict the deploy surface and resulting Connection data, then set retention and reporting access appropriate to copied answers.",
+      "key": "authorizationAndRetention",
+      "required": true,
+      "sensitive": true
+    }
+  ],
+  "audience": [
+    "Rock administrators",
+    "workflow builders",
+    "registration teams",
+    "Connections teams",
+    "security reviewers"
+  ],
+  "authority_tier": "community-reviewed",
+  "compatibility": {
+    "last_verified_at": "2026-07-09",
+    "minimum_rock_version": "17",
+    "notes": [
+      "The pattern is based on multiple production registration workflows and a corrected end-to-end implementation, but the sanitized package has not been deployed unchanged in a generic Rock instance.",
+      "Verify system action classes, action-setting keys, field types, and registration trigger behavior against the target release.",
+      "The public deploy dynamically resolves system entity, field type, and action-setting IDs rather than copying local numeric IDs."
+    ],
+    "tested_rock_versions": [
+      "17",
+      "18"
+    ]
+  },
+  "concept_ids": [
+    "workflows",
+    "event-registration",
+    "connections",
+    "lava",
+    "security-permissions",
+    "people-families"
+  ],
+  "created_at": "2026-07-09",
+  "difficulty": "advanced",
+  "evidence_urls": [
+    "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Event/RegistrationTemplate/RegistrationTemplate.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/Connections/CreateConnectionRequest.cs",
+    "https://community.rockrms.com/modelmap"
+  ],
+  "implementation": {
+    "commit_sha": "03efbb093c024d31ae4df3b6e6af56bdbbcafe00",
+    "files": [
+      {
+        "path": "README.md",
+        "purpose": "Adaptation, deployment, duplicate-policy, security, validation, and rollback guidance",
+        "sha256": "26e6546d3f6980d9b5cc6562a4c227b680677fede73498761666e9f6a284cf0b"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "License for the public recipe package",
+        "sha256": "45d2f217cfc6301ddffa9b8fca6647432bbfe73860fdbcb029a79a24c51b38e1"
+      },
+      {
+        "path": "config/mapping.example.json",
+        "purpose": "Public-safe mapping contract with blank local GUIDs and explicit adaptation points",
+        "sha256": "46d093b63b7c81e904284630b749df246071b25fab1a6b76e4eb81178dd84246"
+      },
+      {
+        "path": "src/workflowtype-deploy.lava",
+        "purpose": "Rerunnable stable-key WorkflowType, attribute, activity, action, and setting deployment",
+        "sha256": "e5e907d2fe38896602eb91cba23158851b3ab905d4f9347b5914cdd7c060cddf"
+      },
+      {
+        "path": "tests/verify-transfer.sql",
+        "purpose": "Bounded read-only verification of request uniqueness, campus, source registration, and mapped output",
+        "sha256": "506bf179d217cc80b2b1a0be82e8ccf845b8516f1e87d7c0927bf52665d9c569"
+      },
+      {
+        "path": "tests/static_contract.py",
+        "purpose": "Executable public-boundary, no-SQL-write, and workflow-contract checks",
+        "sha256": "544c4b0a32130e84c20fefaaa630cbaabff03d32cbb3f8f31c7ff2b995859ef1"
+      }
+    ],
+    "ingestion_mode": "index_documentation",
+    "license": "MIT",
+    "license_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request/LICENSE",
+    "manifest_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request/recipe.json",
+    "owner": "ONE-ALL-Church",
+    "repository_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+    "source_path": "Recipes/registration-to-connection-request"
+  },
+  "instructions": [
+    "Review the immutable README, mapping contract, Lava deploy, SQL verifier, and static test before adaptation.",
+    "Create the target Connection Request attributes and complete every required value in the deploy's ADAPTATION REQUIRED block.",
+    "Run the deploy from a temporary administrator-only Lava Application endpoint with only RockEntity, RockEntityModify, and read-only Sql enabled.",
+    "Run the deploy twice and require stable reuse plus zero invalid Create Connection Request references.",
+    "Review the workflow in Rock, then assign it manually as the registration template's Registrant Workflow.",
+    "Submit a marked test registration through the real registration experience and run the read-only verifier.",
+    "Document retry and backfill duplicate behavior before processing any existing registrants."
+  ],
+  "known_limitations": [
+    "The sanitized deployment has not been executed unchanged against every supported Rock release or plugin combination.",
+    "The native registration trigger is expected to launch once per new registrant; manual reruns and backfills require an explicit duplicate policy.",
+    "The example includes one generic mapped value and must be extended carefully for additional fields and field-type normalization.",
+    "Connection Request attribute qualifiers vary by local Connection configuration and must be created and permissioned before deployment.",
+    "An empty registration campus remains empty; the recipe intentionally does not substitute the person's primary campus."
+  ],
+  "learnings": [
+    "Registrant-scoped automation should use the template's Registrant Workflow and consume RegistrationRegistrantId rather than guessing from registrar or person context.",
+    "Create Connection Request falls back to the person's primary campus when no Campus Attribute is configured, so registration campus must be wired explicitly when it is authoritative.",
+    "Capture the created request in a workflow attribute before later native actions copy request attributes.",
+    "Store the source Registration ID and construct local links when rendering instead of persisting environment-specific URLs.",
+    "Use stable ForeignKeys and re-query canonical IDs after every modify operation so rerunnable deploys do not depend on transient return objects.",
+    "Validate that all action-setting attribute GUIDs belong to the same WorkflowType; stale cross-workflow references can survive copied configuration.",
+    "Keep deployment SQL read-only and use native Rock actions for runtime writes.",
+    "Treat retries and backfills as a separate reviewed workflow because unconditionally rerunning Create Connection Request can create duplicates."
+  ],
+  "needs_live_verification": true,
+  "org_id": "oneall",
+  "outcomes": [
+    "Each newly submitted registrant can launch a workflow that creates a native Connection Request.",
+    "The request records the source Registration ID without persisting an environment-specific admin URL.",
+    "Registration campus, comments, and explicitly mapped values are available to authorized Connections staff."
+  ],
+  "prerequisites": [
+    "A target Connection Type, Opportunity, and Status reviewed for the intended follow-up process.",
+    "A registration template with the required registrant attributes and permission to assign a Registrant Workflow.",
+    "Pre-created Connection Request attributes for source registration traceability and every mapped value.",
+    "A temporary admin-only Lava Application deployment endpoint with RockEntity, RockEntityModify, and read-only Sql commands.",
+    "A nonproduction environment and marked test registration for end-to-end validation."
+  ],
+  "recipe_id": "oneall:registration-to-connection-request",
+  "recipe_kind": "workflow",
+  "review_status": "community_reviewed",
+  "rollback_steps": [
+    "Remove the workflow from the registration template's Registrant Workflow setting so new submissions stop launching it.",
+    "Deactivate the deployed WorkflowType and restore any prior template workflow assignment.",
+    "Review marked test Connection Requests manually; do not bulk-delete requests or AttributeValues through this recipe.",
+    "Disable or remove the temporary admin deployment endpoint after rollback verification."
+  ],
+  "schema": "rock-kb-recipe-v1",
+  "security": {
+    "authentication": "Rock-authenticated administrator for deployment; runtime launch follows the registration submission and workflow context configured by Rock.",
+    "authorization": "Deployment is limited to trusted administrators, while Connection Type, page, attribute, workflow, and reporting permissions limit resulting data to approved staff.",
+    "csrf_required": true,
+    "data_access": "writes",
+    "handles_sensitive_data": true,
+    "notes": [
+      "The deployment endpoint changes Rock configuration and should be disabled or removed after use.",
+      "Runtime writes use native Create Connection Request and Set Entity Attribute actions; SQL in the package is read-only lookup and verification.",
+      "Registration answers can contain pastoral, contact, care, or other sensitive information; copy only fields staff need.",
+      "Do not persist a full admin URL because it leaks environment routing and becomes stale across hosts.",
+      "The reference does not delete or merge existing requests and must not be used as a bulk cleanup tool."
+    ]
+  },
+  "status": "experimental",
+  "summary": "Create a Connection Request for each selected registration registrant, preserve source traceability, copy registration campus explicitly, and transfer reviewed attributes through native Rock workflow actions.",
+  "title": "Registration-to-Connection Request Transfer Workflow",
+  "updated_at": "2026-07-09",
+  "use_cases": [
+    "Move application or intake registration data into a Connection Board for staff follow-up.",
+    "Create one Connection Request per registrant while preserving a traceable source Registration ID.",
+    "Carry the registration's selected campus and reviewed registrant attributes into the follow-up process."
+  ],
+  "validation_steps": [
+    "Run python3 tests/static_contract.py from the recipe directory.",
+    "Confirm the deploy stops while local opportunity, status, or target attribute configuration is missing.",
+    "Run the deploy twice and confirm exactly one managed WorkflowType, one Start activity, nine workflow attributes, and stable managed actions remain.",
+    "Confirm every Create Connection Request setting GUID resolves to an attribute qualified to the deployed WorkflowType.",
+    "Submit one marked test registrant and confirm exactly one Connection Request has the expected person, opportunity, status, and comments.",
+    "Confirm ConnectionRequest.CampusId equals Registration.CampusId, including a deliberate null-campus case.",
+    "Confirm the source registration attribute stores RegistrationRegistrant.RegistrationId and the mapped target value matches its source.",
+    "Run tests/verify-transfer.sql with a read-only principal and confirm MatchingRequestCount is one and CampusMatches is true.",
+    "Manually retry only under the documented duplicate policy and verify no unintended duplicate is created."
+  ],
+  "version": "1.0.0"
+}

@@ -67,6 +67,7 @@ uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
+uvx rock-kb recipe oneall:registration-to-connection-request
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -227,7 +228,9 @@ Search first, then fetch the exact recipe:
 
 ```bash
 uvx rock-kb recipes search "check-in registration attendance dashboard"
+uvx rock-kb recipes search "registration to connection request workflow"
 uvx rock-kb recipe oneall:check-in-status-dashboard
+uvx rock-kb recipe oneall:registration-to-connection-request
 ```
 
 Before adapting a recipe:

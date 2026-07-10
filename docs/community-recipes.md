@@ -44,6 +44,7 @@ uvx rock-kb recipes list
 uvx rock-kb recipes list --concept check-in
 uvx rock-kb recipes search "registration attendance dashboard"
 uvx rock-kb recipe oneall:check-in-status-dashboard
+uvx rock-kb recipe oneall:registration-to-connection-request
 ```
 
 With MCP, use `kb_list_recipes` and `kb_get_recipe`. A recipe result includes
