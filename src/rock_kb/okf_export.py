@@ -35,7 +35,9 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
     claims = list(read_jsonl(CLAIMS_DIR / "approved-claims.jsonl"))
     source_registry = {source.id: source for source in load_sources()}
     claims_by_concept: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    claims_by_source: dict[str, list[str]] = defaultdict(list)
     source_meta: dict[str, dict[str, Any]] = {}
+    relationships: list[dict[str, str]] = []
 
     for claim in claims:
         for concept_id in claim.get("concept_ids") or []:
@@ -44,6 +46,7 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
         for ref in claim.get("source_refs") or []:
             source_id = str(ref.get("source_id") or "").strip()
             if source_id:
+                claims_by_source[source_id].append(str(claim.get("claim_id") or ""))
                 meta = source_meta.setdefault(
                     source_id,
                     {"title": str(ref.get("title") or source_id), "url": str(ref.get("url") or ""), "citations": []},
@@ -72,6 +75,10 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
                 "title": title,
                 "source_url": url,
                 "source_path": "sources/registry.yaml",
+                "relationships": compact_relationships(
+                    "supports",
+                    [f"Claim:{claim_id}" for claim_id in sorted(set(claims_by_source[source_id])) if claim_id],
+                ),
             },
             body,
         )
@@ -86,12 +93,18 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
         ]
         source_links = []
         seen_sources: set[str] = set()
+        claim_relationships: list[dict[str, str]] = []
+        for concept_id in claim.get("concept_ids") or []:
+            if concept_id in concept_ids:
+                claim_relationships.append(relationship("about", f"Claim:{claim_id}", f"Concept:{concept_id}"))
         for ref in claim.get("source_refs") or []:
             source_id = str(ref.get("source_id") or "").strip()
             if not source_id or source_id in seen_sources:
                 continue
             seen_sources.add(source_id)
             source_links.append(f"- [{markdown_label(source_id)}](../references/{safe_slug(source_id)}.md)")
+            claim_relationships.append(relationship("supported_by", f"Claim:{claim_id}", f"Reference:{source_id}"))
+        relationships.extend(claim_relationships)
         body = [claim_text, "", "## Concepts", *(concept_links or ["No concept route recorded."]), "", "## Evidence", *(source_links or ["No source reference recorded."])]
         write_typed_markdown(
             destination / "claims" / f"{claim_filename(claim_id)}.md",
@@ -103,6 +116,7 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
                 "claim_tier": str(claim.get("claim_tier") or ""),
                 "concept_ids": list(claim.get("concept_ids") or []),
                 "source_path": "claims/approved-claims.jsonl",
+                "relationships": [{"type": row["type"], "target": row["target"]} for row in claim_relationships],
             },
             body,
         )
@@ -140,6 +154,10 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
                 "title": concept.title,
                 "description": concept.description,
                 "source_path": f"knowledge/concepts/{concept.id}/index.md",
+                "relationships": compact_relationships(
+                    "has_claim",
+                    [f"Claim:{claim.get('claim_id')}" for claim in claims_by_concept.get(concept.id, []) if claim.get("claim_id")],
+                ),
             },
             body,
         )
@@ -157,6 +175,11 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
     ]
     (destination / "index.md").write_text("\n".join(index_lines).rstrip() + "\n", encoding="utf-8")
     (destination / "log.md").write_text(f"# Log\n\n## {generated_at}\n\nGenerated from the public Rock KB projection.\n", encoding="utf-8")
+    relationship_rows = sorted(relationships, key=lambda row: (row["source"], row["type"], row["target"]))
+    (destination / "relationships.jsonl").write_text(
+        "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in relationship_rows),
+        encoding="utf-8",
+    )
 
     errors = audit_okf_export(destination)
     report = {
@@ -169,6 +192,7 @@ def build_okf_export(destination: Path | None = None) -> dict[str, Any]:
             "claims": len(claims),
             "references": len(source_meta),
             "markdown_files": len(list(destination.rglob("*.md"))),
+            "relationships": len(relationship_rows),
         },
         "errors": errors,
     }
@@ -244,3 +268,16 @@ def compact_title(value: str, limit: int = 96) -> str:
 
 def markdown_label(value: str) -> str:
     return value.replace("[", "(").replace("]", ")")
+
+
+def relationship(relation_type: str, source: str, target: str) -> dict[str, str]:
+    return {
+        "schema": "rock-kb-okf-relationship-v1",
+        "type": relation_type,
+        "source": source,
+        "target": target,
+    }
+
+
+def compact_relationships(relation_type: str, targets: Iterable[str]) -> list[dict[str, str]]:
+    return [{"type": relation_type, "target": target} for target in sorted(set(targets))]

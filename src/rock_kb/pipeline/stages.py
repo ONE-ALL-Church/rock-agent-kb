@@ -187,6 +187,7 @@ STAGES: list[Stage] = [
         inputs=[
             "claims/approved-claims.jsonl",
             "concepts/registry.yaml",
+            "evaluations/real-world.jsonl",
             "knowledge/concepts/*/guide-dependencies.json",
             "data/review/distilled-claim-reviews*.jsonl",
         ],
@@ -195,6 +196,9 @@ STAGES: list[Stage] = [
             "agent/live-inspection-checklists.jsonl",
             "agent/claim-review-queue.jsonl",
             "agent/source-conflicts.jsonl",
+            "agent/evaluation-set.jsonl",
+            "agent/evaluation-results.jsonl",
+            "agent/evaluation-report.json",
         ],
         run=build_agent_answer_pack,
         depends_on=["claims", "concepts"],

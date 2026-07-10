@@ -19,7 +19,8 @@ test("search is compact by default and exact result expands the row", async () =
     assert.equal(search.schema, "rock-kb-search-result-v2");
     assert.equal(search.detail, "compact");
     assert.equal(search.results.length, 1);
-    assert.equal(search.results[0].id, "claim:claim:abc123:check-in");
+    assert.equal(search.results[0].id, "claim:claim:abc123");
+    assert.deepEqual(search.results[0].concepts, ["check-in"]);
     assert.equal(typeof search.results[0].snippet, "string");
     assert.equal(typeof search.results[0].score, "number");
     assert.equal(typeof search.results[0].signals.title_overlap, "number");
@@ -29,6 +30,8 @@ test("search is compact by default and exact result expands the row", async () =
     const resultResponse = await mf.dispatchFetch("https://kb.example.test/results/claim%3Aclaim%3Aabc123%3Acheck-in");
     const result = await resultResponse.json();
     assert.equal(result.status, "ok");
+    assert.equal(result.requested_result_id, "claim:claim:abc123:check-in");
+    assert.equal(result.canonical_result_id, "claim:claim:abc123");
     assert.match(result.result.body, /printing/);
     assert.equal(result.result.payload.claim_id, "claim:abc123");
   } finally {
@@ -138,7 +141,7 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     assert.equal(search.kind, "recipe");
     assert.equal(search.results.length, 1);
     assert.equal(search.results[0].kind, "recipe");
-    assert.equal(search.results[0].id, "recipe:oneall:check-in-status-dashboard:check-in");
+    assert.equal(search.results[0].id, "recipe:oneall:check-in-status-dashboard");
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
@@ -192,7 +195,66 @@ test("search collapses concept-specific rows for one canonical recipe", async ()
 
     assert.equal(response.status, 200);
     assert.equal(payload.results.length, 1);
-    assert.match(payload.results[0].id, /^recipe:oneall:check-in-status-dashboard:/);
+    assert.equal(payload.results[0].id, "recipe:oneall:check-in-status-dashboard");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("strong lexical claims outrank incidental recipe matches", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "claim:claim:direct-access:security-permissions",
+        kind: "claim",
+        title: "operational guidance",
+        body: "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/direct-access",
+        concept: "security-permissions",
+        authority_tier: "official",
+        claim_tier: "answer_pack_approved",
+        claim_tier_rank: 2,
+        source_id: "rock_official",
+        payload_json: JSON.stringify({ claim_id: "claim:direct-access" }),
+      },
+      {
+        id: "recipe:oneall:registration-transfer:security-permissions",
+        kind: "recipe",
+        title: "Registration Transfer Workflow",
+        body: "Registration values are available to authorized Connections staff.",
+        path: "knowledge/recipes/oneall/registration-transfer.md",
+        url: "https://example.test/registration-transfer",
+        concept: "security-permissions",
+        authority_tier: "community-reviewed",
+        claim_tier: "answer_pack_approved",
+        claim_tier_rank: 2,
+        source_id: "oneall",
+        payload_json: JSON.stringify({ recipe_id: "oneall:registration-transfer" }),
+      },
+    ];
+    for (const row of rows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(row)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(row.id, row.title, row.body, row.concept).run();
+    }
+
+    const query = encodeURIComponent("AI direct database access managed Rock authorization business rules");
+    const response = await mf.dispatchFetch(`https://kb.example.test/search?q=${query}&min_tier=answer_pack_approved&limit=5`);
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, "claim:claim:direct-access:security-permissions");
+    assert.ok(payload.results[0].signals.bm25_relevance > 0);
+    const recipeResult = payload.results.find((row) => row.id === "recipe:oneall:registration-transfer:security-permissions");
+    if (recipeResult) {
+      assert.ok(payload.results[0].score > recipeResult.score);
+      assert.ok(payload.results[0].signals.bm25_relevance > recipeResult.signals.bm25_relevance);
+    }
   } finally {
     await mf.dispose();
   }
@@ -216,6 +278,10 @@ test("telemetry separates evaluation traffic and records structured feedback wit
       body: JSON.stringify({ result_id: "claim:claim:abc123:check-in", rating: -1, reason: "outdated" }),
     });
     assert.equal(feedbackResponse.status, 201);
+    const feedbackResult = await feedbackResponse.json();
+    assert.equal(feedbackResult.schema, "rock-kb-feedback-result-v2");
+    assert.equal(feedbackResult.result_id, "claim:claim:abc123");
+    assert.equal(feedbackResult.projection_version, "test-version");
 
     const telemetryResponse = await mf.dispatchFetch("https://kb.example.test/telemetry/summary");
     const telemetry = await telemetryResponse.json();
@@ -225,6 +291,7 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     assert.equal(telemetry.evaluation_rows.some((row) => row.client_class === "eval"), true);
     assert.equal(telemetry.zero_result_topics.some((row) => row.topic_hint === "prayer-care"), true);
     assert.equal(telemetry.feedback.some((row) => row.reason === "outdated" && row.rating === -1), true);
+    assert.equal(telemetry.feedback.some((row) => row.result_id === "claim:claim:abc123"), true);
     assert.match(telemetry.privacy, /No raw query text/);
     assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
   } finally {
@@ -327,11 +394,15 @@ async function buildWorker(options = {}) {
       claim_tier TEXT,
       claim_tier_rank INTEGER,
       source_id TEXT,
+      concepts_json TEXT NOT NULL DEFAULT '[]',
+      topics_json TEXT NOT NULL DEFAULT '[]',
       payload_json TEXT
     )`).run();
+    await db.prepare("CREATE TABLE search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept))").run();
+    await db.prepare("CREATE TABLE search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL)").run();
     await db.prepare("CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept)").run();
     const row = {
-    id: "claim:claim:abc123:check-in",
+    id: "claim:claim:abc123",
     kind: "claim",
     title: "Check-in labels",
     body: "Check-in label printing uses the configured label surface.",
@@ -350,6 +421,10 @@ async function buildWorker(options = {}) {
       .bind(...Object.values(row)).run();
     await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
       .bind(row.id, row.title, row.body, row.concept).run();
+    await db.prepare("INSERT INTO search_row_concepts (row_id, concept) VALUES (?, ?)")
+      .bind(row.id, row.concept).run();
+    await db.prepare("INSERT INTO search_row_aliases (alias_id, canonical_id) VALUES (?, ?)")
+      .bind("claim:claim:abc123:check-in", row.id).run();
     const conceptRows = [
       {
         id: "concept:check-in",
@@ -413,6 +488,8 @@ async function buildWorker(options = {}) {
         (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
         .bind(...Object.values(conceptRow)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(conceptRow.id, conceptRow.title, conceptRow.body, conceptRow.concept).run();
     }
     const groupModelRow = {
       id: "model_map:stable:group",
@@ -461,7 +538,7 @@ async function buildWorker(options = {}) {
     const shard = crypto.createHash("sha256").update(recipePath).digest("hex").slice(0, 2);
     await bucket.put(`versions/test-version/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));
     const recipeSearchRow = {
-      id: "recipe:oneall:check-in-status-dashboard:check-in",
+      id: "recipe:oneall:check-in-status-dashboard",
       kind: "recipe",
       title: "Check-In Status Dashboard",
       body: "Reusable registration roster and latest attendance dashboard implementation.",
@@ -480,6 +557,12 @@ async function buildWorker(options = {}) {
       .bind(...Object.values(recipeSearchRow)).run();
     await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
       .bind(recipeSearchRow.id, recipeSearchRow.title, recipeSearchRow.body, recipeSearchRow.concept).run();
+    for (const concept of recipe.concept_ids) {
+      await db.prepare("INSERT INTO search_row_concepts (row_id, concept) VALUES (?, ?)")
+        .bind(recipeSearchRow.id, concept).run();
+    }
+    await db.prepare("INSERT INTO search_row_aliases (alias_id, canonical_id) VALUES (?, ?)")
+      .bind("recipe:oneall:check-in-status-dashboard:check-in", recipeSearchRow.id).run();
     return mf;
   } catch (error) {
     await mf.dispose();

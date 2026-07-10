@@ -12,6 +12,8 @@ type SearchRow = {
   claim_tier?: string;
   claim_tier_rank?: number;
   source_id?: string;
+  concepts_json?: string;
+  topics_json?: string;
   payload_json?: string;
   snippet?: string;
   rank?: number;
@@ -312,11 +314,17 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
 }
 
 async function getResult(env: ServiceEnv, resultId: string): Promise<JsonRecord> {
-  const result = await env.KB_DB.prepare("SELECT * FROM search_rows WHERE id = ? LIMIT 1").bind(resultId).first<SearchRow>();
+  const result = await resolveSearchRow(env, resultId);
   if (!result) {
     return { schema: "rock-kb-result-v1", status: "not_found", result_id: resultId };
   }
-  return { schema: "rock-kb-result-v1", status: "ok", result: publicResultRow(result) };
+  return {
+    schema: "rock-kb-result-v1",
+    status: "ok",
+    requested_result_id: resultId,
+    canonical_result_id: result.id,
+    result: publicResultRow(result),
+  };
 }
 
 async function getClaim(env: ServiceEnv, requestedId: string): Promise<JsonRecord> {
@@ -325,28 +333,24 @@ async function getClaim(env: ServiceEnv, requestedId: string): Promise<JsonRecor
   if (!/^[A-Za-z0-9._-]+$/.test(bareId)) {
     return { schema: "rock-kb-claim-result-v1", status: "not_found", claim_id: claimId };
   }
-  const rowPrefix = `claim:${claimId}:%`;
-  const result = await env.KB_DB.prepare(
-    "SELECT * FROM search_rows WHERE kind = 'claim' AND (id = ? OR id LIKE ?) ORDER BY id"
-  ).bind(requestedId, rowPrefix).all<SearchRow>();
-  const rows = result.results || [];
-  if (!rows.length) {
+  const row = await resolveSearchRow(env, `claim:${claimId}`);
+  if (!row || row.kind !== "claim") {
     return { schema: "rock-kb-claim-result-v1", status: "not_found", claim_id: claimId };
   }
-  const payload = parsePayload(rows[0]);
+  const payload = parsePayload(row);
   return {
     schema: "rock-kb-claim-result-v1",
     status: "ok",
     claim_id: payload.claim_id || claimId,
-    concepts: Array.from(new Set(rows.map((row) => row.concept || "").filter(Boolean))).sort(),
+    concepts: rowConcepts(row),
     claim: payload,
-    result_ids: rows.map((row) => row.id),
+    result_ids: [row.id],
   };
 }
 
 async function exactConceptRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
   const queryTerms = new Set(searchTerms(query));
-  if (!queryTerms.size) {
+  if (!queryTerms.size || !hasConceptNavigationIntent(query)) {
     return [];
   }
   const result = await env.KB_DB.prepare(
@@ -361,7 +365,7 @@ async function exactConceptRows(env: ServiceEnv, query: string, minRank: number)
       .map((row) => row.concept || row.id.replace(/^concept:/, ""))
   );
   return rows
-    .filter((row) => row.kind === "concept" ? conceptRowMatchesQuery(row, queryTerms) : matchedConcepts.has(row.concept || ""))
+    .filter((row) => row.kind === "concept" ? conceptRowMatchesQuery(row, queryTerms) : rowConcepts(row).some((concept) => matchedConcepts.has(concept)))
     .map((row) => ({ ...row, rank: 0 }));
 }
 
@@ -369,6 +373,19 @@ function conceptRowMatchesQuery(row: SearchRow, queryTerms: Set<string>): boolea
   const titleTerms = searchTerms(row.title || "");
   const overlap = titleTerms.filter((term) => queryTerms.has(term)).length;
   return titleTerms.length > 0 && overlap >= Math.max(1, Math.ceil(titleTerms.length / 2));
+}
+
+function hasConceptNavigationIntent(query: string): boolean {
+  const normalized = normalizeSearchText(query);
+  return normalized.includes("check first")
+    || normalized.includes("start with")
+    || normalized.includes("live records")
+    || normalized.includes("source authority")
+    || normalized.includes("caveats")
+    || normalized.includes("risks matter")
+    || normalized.includes("troubleshoot")
+    || normalized.includes("troubleshooting")
+    || normalized.includes("answer about");
 }
 
 async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
@@ -388,9 +405,10 @@ async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number
 async function claims(env: ServiceEnv, conceptId: string, minTier: string, tier: string | null): Promise<JsonRecord[]> {
   const minRank = CLAIM_TIER_RANK[minTier] ?? 0;
   const result = await env.KB_DB.prepare(
-    `SELECT * FROM search_rows
-     WHERE kind IN ('claim', 'community_contribution') AND concept = ? AND claim_tier_rank >= ?
-     ORDER BY id`
+    `SELECT r.* FROM search_rows r
+     JOIN search_row_concepts c ON c.row_id = r.id
+     WHERE r.kind IN ('claim', 'community_contribution') AND c.concept = ? AND r.claim_tier_rank >= ?
+     ORDER BY r.id`
   ).bind(conceptId, minRank).all<SearchRow>();
   return (result.results || [])
     .filter((row: SearchRow) => !tier || row.claim_tier === tier)
@@ -1310,9 +1328,9 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
      LIMIT 50`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
-    `SELECT day, client_class, rating, reason, SUM(count) AS count
-     FROM feedback_events
-     GROUP BY day, client_class, rating, reason
+    `SELECT day, client_class, result_id, result_kind, projection_version, rating, reason, SUM(count) AS count
+     FROM feedback_events_v2
+     GROUP BY day, client_class, result_id, result_kind, projection_version, rating, reason
      ORDER BY day DESC, count DESC
      LIMIT 100`
     ).all<JsonRecord>(),
@@ -1325,7 +1343,7 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     evaluation_rows: rows.filter((row) => row.client_class === "eval"),
     zero_result_topics: zeroResults.results || [],
     feedback: feedback.results || [],
-    privacy: "No raw query text or free-text feedback is retained. Query hashes are non-reversible aggregate keys.",
+    privacy: "No raw query text or free-text feedback is retained. Feedback identifies only public canonical result IDs and aggregate structured reasons.",
   };
 }
 
@@ -1340,6 +1358,19 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
       result_count INTEGER NOT NULL,
       count INTEGER NOT NULL,
       PRIMARY KEY(day, event, client_class, query_hash, topic_hint, result_count)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS feedback_events_v2 (
+      day TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      result_id TEXT NOT NULL,
+      result_kind TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      rating INTEGER NOT NULL,
+      reason TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, client_class, result_id, projection_version, rating, reason)
     )`
   ).run();
   await env.KB_DB.prepare(
@@ -1363,21 +1394,21 @@ async function submitFeedback(request: Request, env: ServiceEnv, forcedClientCla
   if (!resultId || ![-1, 1].includes(rating) || !FEEDBACK_REASONS.has(reason)) {
     throw new Error("feedback requires result_id, rating -1 or 1, and a supported reason");
   }
-  const exists = await env.KB_DB.prepare("SELECT id FROM search_rows WHERE id = ? LIMIT 1").bind(resultId).first<SearchRow>();
-  if (!exists) {
+  const result = await resolveSearchRow(env, resultId);
+  if (!result) {
     throw new Error("feedback result_id was not found");
   }
   await ensureTelemetryTables(env);
   const day = new Date().toISOString().slice(0, 10);
   const clientClass = forcedClientClass || classifyClient(request);
-  const resultIdHash = await sha256Hex(resultId);
+  const projectionVersion = await currentVersion(env);
   await env.KB_DB.prepare(
-    `INSERT INTO feedback_events (day, client_class, result_id_hash, rating, reason, count)
-     VALUES (?, ?, ?, ?, ?, 1)
-     ON CONFLICT(day, client_class, result_id_hash, rating, reason)
+    `INSERT INTO feedback_events_v2 (day, client_class, result_id, result_kind, projection_version, rating, reason, count)
+     VALUES (?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, client_class, result_id, projection_version, rating, reason)
      DO UPDATE SET count = count + 1`
-  ).bind(day, clientClass, resultIdHash, rating, reason).run();
-  return { schema: "rock-kb-feedback-result-v1", status: "recorded", rating, reason };
+  ).bind(day, clientClass, result.id, result.kind, projectionVersion, rating, reason).run();
+  return { schema: "rock-kb-feedback-result-v2", status: "recorded", result_id: result.id, projection_version: projectionVersion, rating, reason };
 }
 
 function classifyClient(request: Request): string {
@@ -1434,7 +1465,7 @@ async function artifactJsonlOptional(env: ServiceEnv, path: string): Promise<Jso
 
 async function communityContributionRows(env: ServiceEnv): Promise<SearchRow[]> {
   const result = await env.KB_DB.prepare(
-    `SELECT id, kind, title, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json
+    `SELECT id, kind, title, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, concepts_json, topics_json, payload_json
      FROM search_rows
      WHERE kind = 'community_contribution'
      ORDER BY id
@@ -1464,13 +1495,14 @@ function summarizeCommunityContributions(rows: SearchRow[]): JsonRecord {
   return {
     row_count: rows.length,
     by_org: countValues(payloads.map(({ row, payload }) => String(payload.org_id || row.source_id || "unknown"))),
-    by_concept: countValues(rows.map((row) => row.concept || "unknown")),
+    by_concept: countValues(rows.flatMap((row) => rowConcepts(row).length ? rowConcepts(row) : ["unknown"])),
     by_authority_tier: countValues(rows.map((row) => row.authority_tier || "unknown")),
     top_items: payloads.slice(0, 20).map(({ row, payload }) => ({
       id: row.id,
       org_id: payload.org_id || row.source_id || "",
       contribution_id: payload.contribution_id || "",
       concept: row.concept || "",
+      concepts: rowConcepts(row),
       authority_tier: row.authority_tier || "",
       claim_tier: row.claim_tier || "",
       path: row.path
@@ -1559,6 +1591,8 @@ function publicSearchRow(row: SearchRow, signals: JsonRecord = {}): JsonRecord {
     path: row.path,
     url: row.url || "",
     concept: row.concept || "",
+    concepts: rowConcepts(row),
+    topics: rowTopics(row),
     authority_tier: row.authority_tier || "",
     claim_tier: row.claim_tier || "",
     source_id: row.source_id || "",
@@ -1585,6 +1619,44 @@ function parsePayload(row: SearchRow): JsonRecord {
     return {};
   }
   return JSON.parse(row.payload_json) as JsonRecord;
+}
+
+function rowConcepts(row: SearchRow): string[] {
+  if (row.concepts_json) {
+    try {
+      const parsed = JSON.parse(row.concepts_json);
+      if (Array.isArray(parsed)) {
+        const concepts = Array.from(new Set(parsed.map((value) => String(value || "").trim()).filter(Boolean)));
+        if (concepts.length) return concepts;
+      }
+    } catch {
+      // Fall through to the legacy primary concept.
+    }
+  }
+  return row.concept ? [row.concept] : [];
+}
+
+function rowTopics(row: SearchRow): string[] {
+  if (!row.topics_json) return [];
+  try {
+    const parsed = JSON.parse(row.topics_json);
+    if (Array.isArray(parsed)) {
+      return Array.from(new Set(parsed.map((value) => String(value || "").trim()).filter(Boolean)));
+    }
+  } catch {
+    return [];
+  }
+  return [];
+}
+
+async function resolveSearchRow(env: ServiceEnv, resultId: string): Promise<SearchRow | null> {
+  const direct = await env.KB_DB.prepare("SELECT * FROM search_rows WHERE id = ? LIMIT 1").bind(resultId).first<SearchRow>();
+  if (direct) return direct;
+  return env.KB_DB.prepare(
+    `SELECT r.* FROM search_row_aliases a
+     JOIN search_rows r ON r.id = a.canonical_id
+     WHERE a.alias_id = ? LIMIT 1`
+  ).bind(resultId).first<SearchRow>();
 }
 
 const SEARCH_STOP_WORDS = new Set([
@@ -1616,6 +1688,16 @@ const LAVA_CONTEXT_QUERY_INTENT_TERMS = new Set([
   "syntax",
   "template",
   "templates",
+]);
+
+const RECIPE_QUERY_INTENT_TERMS = new Set([
+  "build",
+  "code",
+  "create",
+  "example",
+  "implement",
+  "implementation",
+  "recipe",
 ]);
 
 function buildFtsQuery(query: string): string {
@@ -1651,38 +1733,63 @@ function normalizeSearchTerm(value: string): string {
 }
 
 function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[], query: string): JsonRecord {
-  const conceptTerms = new Set(searchTerms(`${row.concept || ""} ${row.title || ""}`));
+  const concepts = rowConcepts(row);
+  const topics = rowTopics(row);
+  const conceptTerms = new Set(searchTerms(`${concepts.join(" ")} ${row.title || ""}`));
+  const topicTerms = new Set(searchTerms(topics.join(" ")));
   const titleTerms = new Set(searchTerms(row.title || ""));
   const bodyTerms = new Set(searchTerms(row.body || ""));
   const conceptOverlap = overlapCount(queryTerms, conceptTerms);
+  const topicOverlap = overlapCount(queryTerms, topicTerms);
   const titleOverlap = overlapCount(queryTerms, titleTerms);
   const bodyOverlap = overlapCount(queryTerms, bodyTerms);
-  const conceptPhraseBoost = phraseMatchBoost(query, row.concept || "", 48);
+  const conceptPhraseBoost = Math.max(0, ...concepts.map((concept) => phraseMatchBoost(query, concept, 48)));
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
-  const kindBoost = row.kind === "recipe" ? 52 : row.kind === "answer" ? 28 : row.kind === "lava_context" ? 20 : row.kind === "concept" ? 16 : row.kind === "claim" ? 6 : 2;
+  const kindBoost = kindIntentBoost(row, queryTerms);
   const modelMapExactBoost = exactModelMapBoost(row, query);
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
-  const conceptIntent = conceptIntentBoost(row, queryTerms);
-  const routeIntent = row.concept === queryTopicHint(query) ? 80 : 0;
+  const conceptIntent = conceptIntentBoost(row, queryTerms, query);
+  const routeIntent = concepts.includes(queryTopicHint(query)) ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
-  const rankPenalty = Math.min(Math.max(Number(row.rank || 0), 0), 100);
-  const score = conceptOverlap * 40 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent + tierBoost - rankPenalty;
+  const lexicalCoverage = bodyOverlap / Math.max(1, queryTerms.length);
+  const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
+  // FTS5 negates BM25 so stronger matches have numerically lower values.
+  const bm25Relevance = Math.min(Math.max(-Number(row.rank || 0), 0), 60);
+  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
   return {
     score,
     title_overlap: titleOverlap,
     body_overlap: bodyOverlap,
     concept_overlap: conceptOverlap,
+    topic_overlap: topicOverlap,
+    lexical_coverage: Number(lexicalCoverage.toFixed(4)),
+    lexical_coverage_boost: lexicalCoverageBoost,
     phrase_boost: conceptPhraseBoost + titlePhraseBoost,
     exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost + conceptIntent + routeIntent,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
+    bm25_relevance: bm25Relevance,
   };
 }
 
-function conceptIntentBoost(row: SearchRow, queryTerms: string[]): number {
-  if (!["concept", "answer"].includes(row.kind)) return 0;
+function kindIntentBoost(row: SearchRow, queryTerms: string[]): number {
+  if (row.kind === "recipe") {
+    return queryTerms.some((term) => RECIPE_QUERY_INTENT_TERMS.has(term)) ? 30 : 4;
+  }
+  if (row.kind === "lava_context") {
+    return queryTerms.some((term) => LAVA_CONTEXT_QUERY_INTENT_TERMS.has(term)) ? 20 : 4;
+  }
+  if (row.kind === "answer") return 14;
+  if (row.kind === "concept") return 10;
+  if (row.kind === "claim") return 6;
+  return 2;
+}
+
+function conceptIntentBoost(row: SearchRow, queryTerms: string[], query: string): number {
+  if (!["concept", "answer"].includes(row.kind) || !hasConceptNavigationIntent(query)) return 0;
   const terms = new Set(queryTerms);
-  const conceptTerms = searchTerms(row.kind === "answer" ? row.concept || "" : `${row.concept || ""} ${row.title || ""}`);
+  const concepts = rowConcepts(row).join(" ");
+  const conceptTerms = searchTerms(row.kind === "answer" ? concepts : `${concepts} ${row.title || ""}`);
   const overlap = conceptTerms.filter((term) => terms.has(term)).length;
   return overlap >= Math.max(1, Math.ceil(conceptTerms.length / 2)) ? 90 + overlap * 12 : 0;
 }

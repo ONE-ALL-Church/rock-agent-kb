@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from rock_kb import service_projection
-from rock_kb.service_projection import build_d1_seed_sql, build_search_rows, build_service_projection
+from rock_kb.service_projection import build_d1_seed_sql, build_retrieval_documents, build_search_rows, build_service_projection, retrieval_projection_diff
 
 
 def load_update_bindings():
@@ -46,13 +46,15 @@ def test_build_search_rows_includes_public_community_contributions(monkeypatch):
     )
 
     rows = build_search_rows()
-    row = next(row for row in rows if row["id"] == "community_contribution:test-org:workflow-pattern:workflows")
+    row = next(row for row in rows if row["id"] == "community_contribution:test-org:workflow-pattern")
 
     assert row["kind"] == "community_contribution"
     assert row["authority_tier"] == "community-unreviewed"
     assert row["claim_tier"] == "routing_context_only"
     assert row["payload"]["claim"] == row["body"]
     assert row["payload"]["concept_ids"] == ["workflows"]
+    assert row["concepts"] == ["workflows"]
+    assert row["legacy_ids"] == ["community_contribution:test-org:workflow-pattern:workflows"]
 
 
 def test_promoted_recipe_contribution_is_not_indexed_as_duplicate_guidance(monkeypatch):
@@ -131,13 +133,13 @@ def test_recipe_explicitly_supersedes_only_named_contribution_patterns(monkeypat
     rows = service_projection.contribution_search_rows()
 
     assert [row["id"] for row in rows] == [
-        "community_contribution:test-org:distinct-check-in-pattern:check-in"
+        "community_contribution:test-org:distinct-check-in-pattern"
     ]
 
 
 def test_recipe_search_rows_include_reusable_learnings():
     rows = service_projection.recipe_search_rows()
-    row = next(row for row in rows if row["id"] == "recipe:oneall:check-in-status-dashboard:check-in")
+    row = next(row for row in rows if row["id"] == "recipe:oneall:check-in-status-dashboard")
 
     assert row["kind"] == "recipe"
     assert row["authority_tier"] == "community-reviewed"
@@ -147,6 +149,8 @@ def test_recipe_search_rows_include_reusable_learnings():
     assert row["payload"]["supersedes_contribution_ids"] == [
         "oneall:read-only-check-in-status-dashboard-data-pattern"
     ]
+    assert set(row["concepts"]) >= {"check-in", "event-registration", "lava"}
+    assert "recipe:oneall:check-in-status-dashboard:check-in" in row["legacy_ids"]
 
 
 def test_answer_search_rows_include_live_inspection_checklist(monkeypatch):
@@ -232,7 +236,13 @@ def test_lava_context_search_rows_include_source_backed_roots(monkeypatch):
 
     rows = service_projection.lava_context_search_rows()
 
-    assert {row["concept"] for row in rows} == {"lava", "check-in"}
+    assert len(rows) == 1
+    assert rows[0]["concept"] == "lava"
+    assert set(rows[0]["concepts"]) == {"lava", "check-in"}
+    assert set(rows[0]["legacy_ids"]) == {
+        "lava_context:check-in-label-person-dynamic-text:personattendance:abc12345:lava",
+        "lava_context:check-in-label-person-dynamic-text:personattendance:abc12345:check-in",
+    }
     assert all(row["kind"] == "lava_context" for row in rows)
     assert all(row["authority_tier"] == "source-code-confirmed" for row in rows)
     assert all(row["claim_tier"] == "source_backed" for row in rows)
@@ -312,6 +322,84 @@ def test_source_summary_search_rows_preserve_records_and_reviewed_insights(monke
     assert rows[0]["source_id"] == "rock_youtube"
 
 
+def test_build_search_rows_uses_one_row_per_canonical_multi_concept_artifact():
+    rows = build_search_rows()
+    claim_count = sum(1 for row in read_jsonl_for_test("claims/approved-claims.jsonl") if row.get("claim_id"))
+    recipe_count = sum(1 for row in read_jsonl_for_test("agent/recipes.jsonl") if row.get("recipe_id"))
+    lava_count = sum(1 for row in read_jsonl_for_test("agent/lava-contexts.jsonl") if row.get("id") or row.get("context_id"))
+
+    assert len([row for row in rows if row["kind"] == "claim"]) == claim_count
+    assert len([row for row in rows if row["kind"] == "recipe"]) == recipe_count
+    assert len([row for row in rows if row["kind"] == "lava_context"]) == lava_count
+    assert len({row["id"] for row in rows}) == len(rows)
+    assert all(isinstance(row["concepts"], list) for row in rows)
+
+
+def test_retrieval_documents_are_contextual_stable_and_policy_scoped():
+    documents = build_retrieval_documents(
+        [
+            {
+                "id": "claim:claim:abc",
+                "kind": "claim",
+                "title": "operational guidance",
+                "body": "Use managed Rock authorization for data access.",
+                "path": "claims/approved-claims.jsonl",
+                "url": "https://example.test/source",
+                "concept": "security-permissions",
+                "concepts": ["security-permissions", "api-integrations"],
+                "topics": ["authorization"],
+                "authority_tier": "official",
+                "claim_tier": "answer_pack_approved",
+                "source_id": "rock_official",
+                "payload": {"rock_versions": ["19.1"], "content_hash": "source-hash"},
+            },
+            {
+                "id": "model_map:stable:group",
+                "kind": "model_map",
+                "title": "Group Model Map",
+                "body": "Group properties and relationships.",
+                "path": "knowledge/model-map/models/group.md",
+                "concept": "model-map",
+                "concepts": ["model-map"],
+                "authority_tier": "source-code-confirmed",
+                "claim_tier": "source_backed",
+                "source_id": "rock_model_map",
+                "payload": {},
+            },
+        ]
+    )
+
+    claim = next(row for row in documents if row["kind"] == "claim")
+    model = next(row for row in documents if row["kind"] == "model_map")
+    assert claim["schema"] == "rock-kb-retrieval-document-v1"
+    assert "Concepts: security-permissions, api-integrations" in claim["text"]
+    assert claim["rock_versions"] == ["19.1"]
+    assert claim["source_content_hash"] == "source-hash"
+    assert len(claim["content_hash"]) == 64
+    assert claim["index_policy"] == "hybrid_primary"
+    assert set(claim["metadata"]) == {"kind", "namespace", "authority_rank", "claim_tier_rank", "concepts"}
+    assert model["index_policy"] == "exact_lexical_only"
+
+
+def test_retrieval_projection_diff_queues_source_and_policy_changes():
+    previous = [
+        {"id": "claim:a", "content_hash": "old", "source_content_hash": "source-old", "index_policy": "hybrid_primary"},
+        {"id": "claim:removed", "content_hash": "same", "source_content_hash": "same", "index_policy": "hybrid_primary"},
+    ]
+    current = [
+        {"id": "claim:a", "content_hash": "new", "source_content_hash": "source-new", "index_policy": "semantic_secondary"},
+        {"id": "claim:new", "content_hash": "new", "source_content_hash": "new", "index_policy": "hybrid_primary", "needs_review": True},
+    ]
+
+    report = retrieval_projection_diff(previous, current)
+
+    assert report["counts"]["new"] == 1
+    assert report["counts"]["removed"] == 1
+    assert report["changed_source_ids"] == ["claim:a"]
+    assert report["changed_policy_ids"] == ["claim:a"]
+    assert report["review_required_ids"] == ["claim:a", "claim:new"]
+
+
 def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     projection = build_service_projection(destination=tmp_path / "dist")
 
@@ -319,6 +407,11 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert projection.artifact_count > 100
     assert projection.search_row_count > 100
     assert "CREATE VIRTUAL TABLE search_rows_fts" in sql
+    assert "CREATE TABLE search_row_concepts" in sql
+    assert "CREATE TABLE search_row_aliases" in sql
+    assert projection.retrieval_document_count == projection.search_row_count
+    assert (projection.dist / "retrieval-documents.jsonl").exists()
+    assert (projection.dist / "retrieval-change-report.json").exists()
     assert (projection.dist / "artifacts" / "agent" / "rock-kb-manifest.json").exists()
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert shard_files
@@ -373,6 +466,11 @@ def test_build_d1_seed_sql_bounds_large_search_bodies():
     assert "Search body truncated" in sql
 
 
+def read_jsonl_for_test(relative_path: str):
+    path = Path(__file__).resolve().parents[1] / relative_path
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
 def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, tmp_path):
     dist = tmp_path / "dist"
     shards = dist / "artifact-shards"
@@ -384,6 +482,7 @@ def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, t
         generated_at="2026-06-12T00:00:00Z",
         artifact_count=1,
         search_row_count=1,
+        retrieval_document_count=1,
         org_count=1,
         dist=dist,
         sql_path=dist / "d1-seed.sql",

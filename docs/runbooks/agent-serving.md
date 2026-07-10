@@ -140,6 +140,20 @@ Run the hosted evaluation gate after deployment:
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
 ```
 
+To evaluate semantic retrieval without changing production routing, build the
+stratified contextual payload first, then apply it to the isolated AI Search
+shadow instance:
+
+```bash
+uv run kb hybrid-shadow
+uv run kb hybrid-shadow --apply
+```
+
+The full report is ignored at `service/dist/hybrid-shadow-results.json`. Keep
+the D1 lexical path primary unless the curated shadow cohort improves on lexical
+MRR and recall without regressing authority correctness, duplicate rate,
+latency, or cost. Exact model-map lookup remains lexical-only by design.
+
 The evaluation set combines generated answer-structure checks with authored
 real-world retrieval cases from `evaluations/real-world.jsonl`. Curated cases
 can require an exact result ID, result kind, concept rank, and source-supported

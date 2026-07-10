@@ -48,7 +48,7 @@ No evaluation failures.
 
 ## Hosted Retrieval Evaluations
 
-16 curated retrieval evaluations are validated by `kb eval-service` after deployment.
+20 curated retrieval evaluations are validated by `kb eval-service` after deployment.
 
 ## Evaluation Term Misses
 

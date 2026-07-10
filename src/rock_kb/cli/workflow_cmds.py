@@ -10,6 +10,7 @@ def register(app: typer.Typer) -> None:
     app.command("build")(legacy.build_command)
     app.command("deploy-service")(deploy_service_command)
     app.command("eval-service")(eval_service_command)
+    app.command("hybrid-shadow")(hybrid_shadow_command)
     app.command("network-readiness")(network_readiness_command)
     app.command("serve")(serve_command)
 
@@ -55,6 +56,37 @@ def eval_service_command(
     print_json(data=result)
     if result["status"] != "ok":
         raise typer.Exit(code=1)
+
+
+def hybrid_shadow_command(
+    apply: bool = typer.Option(False, "--apply", help="Create the isolated AI Search instance, upload documents, and evaluate it."),
+    instance: str = typer.Option("rock-kb-retrieval-shadow-stratified-dev", "--instance", help="Cloudflare AI Search instance name."),
+    concurrency: int = typer.Option(8, "--concurrency", min=1, max=20, help="Concurrent upload requests."),
+) -> None:
+    """Build or run the isolated Cloudflare hybrid-search shadow pilot."""
+    from rich import print_json
+
+    from ..hybrid_shadow import (
+        ensure_shadow_instance,
+        ensure_shadow_projection,
+        evaluate_shadow,
+        shadow_cost_estimate,
+        upload_shadow_documents,
+        wait_for_shadow_index,
+        wrangler_credentials,
+    )
+
+    rows = ensure_shadow_projection()
+    result: dict[str, object] = {"schema": "rock-kb-hybrid-shadow-run-v1", "instance": instance, "document_count": len(rows), "estimated_embedding_cost": shadow_cost_estimate(rows), "applied": apply}
+    if apply:
+        credentials = wrangler_credentials()
+        ensure_shadow_instance(credentials, instance=instance)
+        result["upload"] = upload_shadow_documents(rows, credentials, instance=instance, concurrency=concurrency)
+        result["stats"] = wait_for_shadow_index(credentials, expected_count=len(rows), instance=instance)
+        evaluation = evaluate_shadow(rows, credentials, instance=instance, concurrency=min(concurrency, 10))
+        result["evaluation"] = {key: value for key, value in evaluation.items() if key != "results"}
+        result["evaluation"]["results_path"] = "service/dist/hybrid-shadow-results.json"
+    print_json(data=result)
 
 
 def network_readiness_command(
