@@ -225,9 +225,16 @@ def claim_search_rows() -> list[dict[str, Any]]:
 
 def contribution_search_rows() -> list[dict[str, Any]]:
     rows = []
+    canonical_recipe_ids = {
+        str(recipe.get("recipe_id") or "")
+        for recipe in read_jsonl(REPO_ROOT / "agent" / "recipes.jsonl")
+        if recipe.get("recipe_id")
+    }
     for contribution in public_contribution_records():
         contribution_id = str(contribution.get("contribution_id") or "")
         if not contribution_id:
+            continue
+        if contribution.get("contribution_type") == "recipe" and contribution_id in canonical_recipe_ids:
             continue
         for concept_id in contribution.get("topics") or []:
             row_id = f"community_contribution:{contribution_id}:{concept_id}"
