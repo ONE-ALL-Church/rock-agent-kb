@@ -38,6 +38,7 @@ from rock_kb.publish import (
     audit_source_policy,
     iter_public_file_entries,
     iter_public_files,
+    is_public_export_file,
     is_public_source,
     is_private_path,
     public_export_text_for_path,
@@ -910,6 +911,10 @@ def test_public_export_is_distilled_artifacts_only():
     assert "agent/topic-index.jsonl" not in exported
     assert "knowledge/sources/rock_documentation.md" not in exported
     assert "knowledge/topics/api.md" not in exported
+
+
+def test_public_export_excludes_macos_metadata_files():
+    assert not is_public_export_file(REPO_ROOT / "knowledge" / "concepts" / ".DS_Store")
 
 
 def test_public_export_surface_stays_community_focused():
