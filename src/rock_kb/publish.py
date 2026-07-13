@@ -112,6 +112,7 @@ FORBIDDEN_PUBLIC_TEXT_PATTERNS = {
 }
 
 PUBLIC_EXCLUDED_FILENAMES = {
+    ".DS_Store",
     "guide-dependencies.json",
     "guide-quality.json",
 }
