@@ -48,11 +48,24 @@ type RecipeSourceFetch = {
   error?: string;
 };
 
-type ServiceEnv = Omit<Env, "AUTO_MERGE_INTAKE"> & {
+type ServiceEnv = Omit<Env, "AUTO_MERGE_INTAKE" | "ISSUE_REPORT_RATE_LIMITER"> & {
   GITHUB_TOKEN?: string;
   ORG_TOKEN_SHA256_JSON?: string;
   AUTO_MERGE_INTAKE?: string;
+  ISSUE_REPORT_RATE_LIMITER?: RateLimit;
 };
+
+class PublicRequestError extends Error {
+  status: number;
+  code: string;
+
+  constructor(status: number, code: string, message: string) {
+    super(message);
+    this.name = "PublicRequestError";
+    this.status = status;
+    this.code = code;
+  }
+}
 
 const CLAIM_TIER_RANK: Record<string, number> = {
   routing_context_only: 0,
@@ -129,6 +142,20 @@ const DIRECT_MEDIA_HINTS = [
 ];
 
 const FEEDBACK_REASONS = new Set(["helpful", "outdated", "missing", "incorrect", "wrong_route"]);
+const ISSUE_FAILURE_TYPES = new Set(["service", "mcp", "cli", "schema", "authentication", "retrieval"]);
+const ISSUE_REPORT_FIELDS = new Set([
+  "failure_type",
+  "operation",
+  "result_id",
+  "http_status",
+  "error_code",
+  "description",
+  "redaction_attested",
+]);
+const ISSUE_DESCRIPTION_MAX_BYTES = 280;
+const ISSUE_REQUEST_MAX_BYTES = 4096;
+const ISSUE_FINGERPRINT_LIMIT_PER_MINUTE = 10;
+const ISSUE_GLOBAL_LIMIT_PER_MINUTE = 120;
 const TOPIC_HINTS: Array<[string, string[]]> = [
   ["check-in", ["checkin", "check-in", "check in", "kiosk", "label", "attendance"]],
   ["workflows", ["workflow", "actiontype", "trigger"]],
@@ -260,6 +287,16 @@ export default {
       }
       if (url.pathname === "/feedback" && request.method === "POST") {
         return json(await submitFeedback(request, env), 201);
+      }
+      if (url.pathname === "/issues/report" && request.method === "POST") {
+        try {
+          return json(await submitIssueReport(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json(issueReportError(error), error.status);
+          }
+          throw error;
+        }
       }
       if (url.pathname === "/operations/dashboard") {
         return json(await operationsDashboard(env));
@@ -541,6 +578,18 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_feedback") {
     return submitFeedback(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env, "mcp");
+  }
+  if (name === "kb_report_issue") {
+    try {
+      return await submitIssueReport(
+        new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }),
+        env,
+        "mcp",
+      );
+    } catch (error) {
+      if (error instanceof PublicRequestError) return issueReportError(error);
+      throw error;
+    }
   }
   if (name === "kb_submit") {
     return submitContribution(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env);
@@ -1526,6 +1575,252 @@ async function submitFeedback(request: Request, env: ServiceEnv, forcedClientCla
   return { schema: "rock-kb-feedback-result-v2", status: "recorded", result_id: result.id, projection_version: projectionVersion, rating, reason };
 }
 
+async function submitIssueReport(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  await enforceNativeIssueRateLimit(request, env);
+  const body = await readBoundedJson(request, ISSUE_REQUEST_MAX_BYTES);
+  const report = validateIssueReport(body);
+  const projectionVersion = await currentVersion(env);
+  const fingerprint = await sha256Hex(JSON.stringify([
+    report.failure_type,
+    report.operation,
+    projectionVersion,
+    report.result_id,
+    report.http_status,
+    report.error_code,
+  ]));
+  await ensureIssueReportTables(env);
+  await enforceStoredIssueRateLimit(env, fingerprint);
+
+  const reportId = `kbir_${fingerprint.slice(0, 24)}`;
+  const now = new Date().toISOString();
+  const clientClass = forcedClientClass || classifyClient(request);
+  const clientVersion = classifyClientVersion(request);
+  await env.KB_DB.prepare(
+    `INSERT INTO issue_reports_v1 (
+       report_id, fingerprint, failure_type, operation, projection_version, result_id,
+       http_status, error_code, description, redaction_attested, first_client_class,
+       first_client_version, last_client_class, last_client_version, first_reported_at,
+       last_reported_at, occurrence_count, review_status, github_issue_url
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?, ?, 1, 'pending_review', '')
+     ON CONFLICT(fingerprint) DO UPDATE SET
+       last_client_class = excluded.last_client_class,
+       last_client_version = excluded.last_client_version,
+       last_reported_at = excluded.last_reported_at,
+       occurrence_count = occurrence_count + 1`
+  ).bind(
+    reportId,
+    fingerprint,
+    report.failure_type,
+    report.operation,
+    projectionVersion,
+    report.result_id,
+    report.http_status,
+    report.error_code,
+    report.description,
+    clientClass,
+    clientVersion,
+    clientClass,
+    clientVersion,
+    now,
+    now,
+  ).run();
+
+  const stored = await env.KB_DB.prepare(
+    `SELECT report_id, occurrence_count, review_status
+     FROM issue_reports_v1
+     WHERE fingerprint = ?`
+  ).bind(fingerprint).first<JsonRecord>();
+  const occurrenceCount = Number(stored?.occurrence_count || 1);
+  return {
+    schema: "rock-kb-issue-report-result-v1",
+    status: occurrenceCount === 1 ? "pending_review" : "deduplicated",
+    report_id: String(stored?.report_id || reportId),
+    review_status: String(stored?.review_status || "pending_review"),
+    occurrence_count: occurrenceCount,
+    github_issue_created: false,
+    captured: {
+      failure_type: report.failure_type,
+      operation: report.operation,
+      projection_version: projectionVersion,
+      client_class: clientClass,
+      client_version: clientVersion,
+      result_id: report.result_id || null,
+      http_status: report.http_status,
+      error_code: report.error_code,
+    },
+  };
+}
+
+function validateIssueReport(body: JsonRecord): {
+  failure_type: string;
+  operation: string;
+  result_id: string;
+  http_status: number | null;
+  error_code: string;
+  description: string;
+} {
+  const unknownFields = Object.keys(body).filter((field) => !ISSUE_REPORT_FIELDS.has(field)).sort();
+  if (unknownFields.length) {
+    throw new PublicRequestError(400, "unsupported_fields", "Issue reports may contain only the documented structured fields");
+  }
+  if (typeof body.failure_type !== "string" || typeof body.operation !== "string" || typeof body.error_code !== "string" || typeof body.description !== "string") {
+    throw new PublicRequestError(400, "invalid_field_types", "failure_type, operation, error_code, and description must be strings");
+  }
+  if (body.result_id !== undefined && typeof body.result_id !== "string") {
+    throw new PublicRequestError(400, "invalid_field_types", "result_id must be a string when provided");
+  }
+  if (body.http_status !== undefined && body.http_status !== null && typeof body.http_status !== "number") {
+    throw new PublicRequestError(400, "invalid_field_types", "http_status must be a number when provided");
+  }
+  const failureType = String(body.failure_type || "").trim().toLowerCase();
+  const operation = String(body.operation || "").trim().toLowerCase();
+  const resultId = String(body.result_id || "").trim();
+  const errorCode = String(body.error_code || "").trim().toLowerCase();
+  const description = String(body.description || "").trim();
+  const httpStatus = body.http_status === undefined || body.http_status === null ? null : Number(body.http_status);
+
+  if (!ISSUE_FAILURE_TYPES.has(failureType)) {
+    throw new PublicRequestError(400, "invalid_failure_type", "failure_type must be service, mcp, cli, schema, authentication, or retrieval");
+  }
+  if (!/^[a-z][a-z0-9_.:-]{0,63}$/.test(operation)) {
+    throw new PublicRequestError(400, "invalid_operation", "operation must be a short structured identifier");
+  }
+  if (!/^[a-z][a-z0-9_.:-]{0,63}$/.test(errorCode)) {
+    throw new PublicRequestError(400, "invalid_error_code", "error_code must be a short structured identifier");
+  }
+  if (resultId && !/^[A-Za-z0-9][A-Za-z0-9:._-]{0,199}$/.test(resultId)) {
+    throw new PublicRequestError(400, "invalid_result_id", "result_id must be a public Rock KB result identifier");
+  }
+  if (httpStatus !== null && (!Number.isInteger(httpStatus) || httpStatus < 100 || httpStatus > 599)) {
+    throw new PublicRequestError(400, "invalid_http_status", "http_status must be an integer from 100 through 599");
+  }
+  if (body.redaction_attested !== true) {
+    throw new PublicRequestError(400, "redaction_attestation_required", "redaction_attested must be true");
+  }
+  validateIssueDescription(description);
+  return { failure_type: failureType, operation, result_id: resultId, http_status: httpStatus, error_code: errorCode, description };
+}
+
+function validateIssueDescription(description: string): void {
+  const byteLength = new TextEncoder().encode(description).byteLength;
+  if (description.length < 12 || byteLength > ISSUE_DESCRIPTION_MAX_BYTES) {
+    throw new PublicRequestError(400, "invalid_description_length", `description must be 12 to ${ISSUE_DESCRIPTION_MAX_BYTES} bytes`);
+  }
+  const unsafe = [
+    /[\r\n\t]/,
+    /https?:\/\/|www\./i,
+    /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
+    /(?:^|[\s"'])(?:\/Users\/|\/home\/|\/var\/|\/tmp\/|[A-Za-z]:\\)/i,
+    /\b(?:authorization|password|secret|api[_ -]?key|access[_ -]?token|cookie|connection[_ -]?string)\s*[:=]/i,
+    /\bbearer\s+[A-Za-z0-9._~+\/-]{8,}/i,
+    /\b(?:traceback|stack trace|exception stack)\b/i,
+    /\b(?:query|request|response|log)\s*[:=]/i,
+    /[{}\[\]]/,
+    /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/i,
+    /\b\d{7,}\b/,
+  ];
+  if (unsafe.some((pattern) => pattern.test(description))) {
+    throw new PublicRequestError(400, "unsafe_description", "description must not contain logs, queries, secrets, URLs, private paths, or private Rock data");
+  }
+}
+
+async function readBoundedJson(request: Request, maxBytes: number): Promise<JsonRecord> {
+  const declaredLength = Number(request.headers.get("content-length") || 0);
+  if (Number.isFinite(declaredLength) && declaredLength > maxBytes) {
+    throw new PublicRequestError(413, "report_too_large", `Issue reports are limited to ${maxBytes} bytes`);
+  }
+  const raw = await request.text();
+  if (new TextEncoder().encode(raw).byteLength > maxBytes) {
+    throw new PublicRequestError(413, "report_too_large", `Issue reports are limited to ${maxBytes} bytes`);
+  }
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || Array.isArray(parsed) || typeof parsed !== "object") {
+      throw new PublicRequestError(400, "invalid_json_object", "Issue report body must be a JSON object");
+    }
+    return parsed as JsonRecord;
+  } catch (error) {
+    if (error instanceof PublicRequestError) throw error;
+    throw new PublicRequestError(400, "invalid_json", "Issue report body must be valid JSON");
+  }
+}
+
+async function enforceNativeIssueRateLimit(request: Request, env: ServiceEnv): Promise<void> {
+  if (!env.ISSUE_REPORT_RATE_LIMITER) return;
+  const source = request.headers.get("cf-connecting-ip") || `${classifyClient(request)}:${classifyClientVersion(request)}`;
+  try {
+    const result = await env.ISSUE_REPORT_RATE_LIMITER.limit({ key: await sha256Hex(`issue-report:${source}`) });
+    if (!result.success) throw new PublicRequestError(429, "rate_limited", "Issue report rate limit exceeded; retry later");
+  } catch (error) {
+    if (error instanceof PublicRequestError) throw error;
+    throw new PublicRequestError(503, "rate_limit_unavailable", "Issue reporting is temporarily unavailable");
+  }
+}
+
+async function ensureIssueReportTables(env: ServiceEnv): Promise<void> {
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS issue_reports_v1 (
+      report_id TEXT PRIMARY KEY,
+      fingerprint TEXT NOT NULL UNIQUE,
+      failure_type TEXT NOT NULL,
+      operation TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      result_id TEXT NOT NULL,
+      http_status INTEGER,
+      error_code TEXT NOT NULL,
+      description TEXT NOT NULL,
+      redaction_attested INTEGER NOT NULL,
+      first_client_class TEXT NOT NULL,
+      first_client_version TEXT NOT NULL,
+      last_client_class TEXT NOT NULL,
+      last_client_version TEXT NOT NULL,
+      first_reported_at TEXT NOT NULL,
+      last_reported_at TEXT NOT NULL,
+      occurrence_count INTEGER NOT NULL,
+      review_status TEXT NOT NULL,
+      github_issue_url TEXT NOT NULL
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS issue_report_rate_v1 (
+      bucket TEXT PRIMARY KEY,
+      window_start TEXT NOT NULL,
+      count INTEGER NOT NULL
+    )`
+  ).run();
+}
+
+async function enforceStoredIssueRateLimit(env: ServiceEnv, fingerprint: string): Promise<void> {
+  const now = new Date();
+  const windowStart = `${now.toISOString().slice(0, 16)}:00.000Z`;
+  const buckets: Array<[string, number]> = [
+    [`global:${windowStart}`, ISSUE_GLOBAL_LIMIT_PER_MINUTE],
+    [`fingerprint:${fingerprint.slice(0, 24)}:${windowStart}`, ISSUE_FINGERPRINT_LIMIT_PER_MINUTE],
+  ];
+  for (const [bucket, limit] of buckets) {
+    await env.KB_DB.prepare(
+      `INSERT INTO issue_report_rate_v1 (bucket, window_start, count) VALUES (?, ?, 1)
+       ON CONFLICT(bucket) DO UPDATE SET count = count + 1`
+    ).bind(bucket, windowStart).run();
+    const row = await env.KB_DB.prepare("SELECT count FROM issue_report_rate_v1 WHERE bucket = ?").bind(bucket).first<{ count: number }>();
+    if (Number(row?.count || 0) > limit) {
+      throw new PublicRequestError(429, "rate_limited", "Issue report rate limit exceeded; retry later");
+    }
+  }
+  const cutoff = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000).toISOString();
+  await env.KB_DB.prepare("DELETE FROM issue_report_rate_v1 WHERE window_start < ?").bind(cutoff).run();
+}
+
+function issueReportError(error: PublicRequestError): JsonRecord {
+  return {
+    schema: "rock-kb-issue-report-result-v1",
+    status: "rejected",
+    error_code: error.code,
+    message: error.message,
+    github_issue_created: false,
+  };
+}
+
 function classifyClient(request: Request): string {
   const declared = String(request.headers.get("x-rock-kb-client") || "").trim().toLowerCase();
   if (["cli", "mcp", "browser", "eval"].includes(declared)) {
@@ -1536,6 +1831,13 @@ function classifyClient(request: Request): string {
   if (userAgent.includes("rock-kb-cli") || userAgent.includes("rock-kb-client")) return "cli";
   if (userAgent.includes("mozilla/")) return "browser";
   return "unknown";
+}
+
+function classifyClientVersion(request: Request): string {
+  const declared = String(request.headers.get("x-rock-kb-client-version") || "").trim();
+  if (/^[0-9A-Za-z][0-9A-Za-z.+-]{0,31}$/.test(declared)) return declared;
+  const match = String(request.headers.get("user-agent") || "").match(/rock-kb-(?:client|cli|eval)\/([0-9A-Za-z][0-9A-Za-z.+-]{0,31})/i);
+  return match?.[1] || "unknown";
 }
 
 function queryTopicHint(query: string): string {
@@ -1549,23 +1851,56 @@ function queryTopicHint(query: string): string {
 }
 
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
-  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows] = await Promise.all([
+  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports] = await Promise.all([
     artifactJsonlOptional(env, "agent/claim-review-queue.jsonl"),
     artifactJsonlOptional(env, "agent/source-conflicts.jsonl"),
     artifactJsonlOptional(env, "agent/section-status.jsonl"),
     artifactJsonlOptional(env, "agent/evaluation-results.jsonl"),
     telemetrySummary(env),
-    communityContributionRows(env)
+    communityContributionRows(env),
+    issueReportDashboard(env),
   ]);
   return {
-    schema: "rock-kb-operations-dashboard-v1",
+    schema: "rock-kb-operations-dashboard-v2",
     version: await currentVersion(env),
     review_queue: summarizeReviewQueue(reviewQueue),
     community_contributions: summarizeCommunityContributions(communityRows),
     source_conflicts: summarizeSourceConflicts(conflicts),
     section_status: summarizeSectionStatus(sectionStatus),
     evaluation: summarizeEvaluationResults(evaluationResults),
-    telemetry
+    telemetry,
+    issue_reports: issueReports,
+  };
+}
+
+async function issueReportDashboard(env: ServiceEnv): Promise<JsonRecord> {
+  await ensureIssueReportTables(env);
+  const result = await env.KB_DB.prepare(
+    `SELECT report_id, failure_type, operation, projection_version, result_id, http_status,
+            error_code, description, first_client_class, first_client_version,
+            last_client_class, last_client_version, first_reported_at, last_reported_at,
+            occurrence_count, review_status, github_issue_url
+     FROM issue_reports_v1
+     ORDER BY CASE review_status WHEN 'pending_review' THEN 0 ELSE 1 END,
+              occurrence_count DESC, last_reported_at DESC
+     LIMIT 100`
+  ).all<JsonRecord>();
+  const rows = result.results || [];
+  return {
+    schema: "rock-kb-issue-review-dashboard-v1",
+    unique_report_count: rows.length,
+    total_occurrences: rows.reduce((total, row) => total + Number(row.occurrence_count || 0), 0),
+    pending_review_count: rows.filter((row) => row.review_status === "pending_review").length,
+    by_failure_type: countByField(rows, "failure_type"),
+    reports: rows.map((row) => ({
+      ...row,
+      result_id: row.result_id || null,
+      http_status: row.http_status === null ? null : Number(row.http_status),
+      occurrence_count: Number(row.occurrence_count || 0),
+      redaction_attested: true,
+      github_issue_status: row.github_issue_url ? "created_after_review" : "review_required",
+      github_issue_url: row.github_issue_url || null,
+    })),
   };
 }
 
@@ -2151,7 +2486,7 @@ function cors(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
   headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
-  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client");
+  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client,x-rock-kb-client-version");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
 
@@ -2169,8 +2504,9 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
-    { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
+    { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }
   ];
 }

@@ -75,6 +75,7 @@ uvx rock-kb recipes search "registration attendance dashboard"
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
+uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -99,7 +100,11 @@ compatibility with workflows that still need full rows in one response.
 uses the hosted service's immutable-byte cache and GitHub Contents API fallback
 when needed; it does not execute recipe code or change Rock. `feedback` accepts
 only a fixed rating and reason; it does not send free-text comments or query
-text.
+text. `report-issue` is for failures in the KB service, MCP, CLI, schema,
+authentication, or retrieval path. Its description is limited and must be
+redaction-attested; never include logs, queries, secrets, private paths, or
+private Rock data. It returns a stable report ID and does not create a GitHub
+issue automatically.
 
 To test unreleased client changes directly from GitHub, use:
 

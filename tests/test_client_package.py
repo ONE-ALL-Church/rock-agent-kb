@@ -63,7 +63,7 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
 
     def fake_get_json(url: str):
         urls.append(url)
-        return {"schema": "rock-kb-operations-dashboard-v1"}
+        return {"schema": "rock-kb-operations-dashboard-v2"}
 
     monkeypatch.setattr(cli, "get_json", fake_get_json)
 
@@ -71,7 +71,7 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
 
     assert exit_code == 0
     assert urls == ["https://example.test/operations/dashboard"]
-    assert "rock-kb-operations-dashboard-v1" in capsys.readouterr().out
+    assert "rock-kb-operations-dashboard-v2" in capsys.readouterr().out
 
 
 def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
@@ -106,6 +106,56 @@ def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
         )
     ]
     assert "recorded" in capsys.readouterr().out
+
+
+def test_client_report_issue_posts_only_structured_attested_fields(monkeypatch, capsys):
+    cli = load_client_cli()
+    calls = []
+
+    def fake_post(url, payload, token=""):
+        calls.append((url, payload, token))
+        return {"schema": "rock-kb-issue-report-result-v1", "status": "pending_review", "report_id": "kbir_example"}
+
+    monkeypatch.setattr(cli, "post_json", fake_post)
+
+    exit_code = cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "report-issue",
+            "--failure-type",
+            "retrieval",
+            "--operation",
+            "search",
+            "--error-code",
+            "search_unavailable",
+            "--description",
+            "Search returned a temporary service failure.",
+            "--result-id",
+            "claim:example",
+            "--http-status",
+            "503",
+            "--redaction-attested",
+        ]
+    )
+
+    assert exit_code == 0
+    assert calls == [
+        (
+            "https://example.test/issues/report",
+            {
+                "failure_type": "retrieval",
+                "operation": "search",
+                "error_code": "search_unavailable",
+                "description": "Search returned a temporary service failure.",
+                "redaction_attested": True,
+                "result_id": "claim:example",
+                "http_status": 503,
+            },
+            "",
+        )
+    ]
+    assert "kbir_example" in capsys.readouterr().out
 
 
 def test_client_search_uses_compact_results_by_default(monkeypatch, capsys):
@@ -507,12 +557,14 @@ def test_client_get_text_sends_user_agent(monkeypatch):
 
     def fake_urlopen(req):
         captured["user_agent"] = req.headers.get("User-agent")
+        captured["client_version"] = req.headers.get("X-rock-kb-client-version")
         return FakeResponse()
 
     monkeypatch.setattr(cli.request, "urlopen", fake_urlopen)
 
     assert cli.get_text("https://example.test/manifest.json") == "ok"
     assert captured["user_agent"] == cli.USER_AGENT
+    assert captured["client_version"] == cli.package_version()
 
 
 def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
@@ -532,6 +584,7 @@ def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
     def fake_urlopen(req):
         captured["user_agent"] = req.headers.get("User-agent")
         captured["accept"] = req.headers.get("Accept")
+        captured["client_version"] = req.headers.get("X-rock-kb-client-version")
         return FakeResponse()
 
     monkeypatch.setattr(cli.request, "urlopen", fake_urlopen)
@@ -539,6 +592,7 @@ def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
     assert cli.post_json("https://example.test/submit", {"ok": True}, token="secret") == {"status": "ok"}
     assert captured["user_agent"] == cli.USER_AGENT
     assert captured["accept"] == "application/json"
+    assert captured["client_version"] == cli.package_version()
 
 
 def test_client_submit_infers_org_and_reads_token_file(monkeypatch, tmp_path, capsys):

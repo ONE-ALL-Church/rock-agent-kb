@@ -188,6 +188,17 @@ After opening a search result, agents can report structured quality feedback:
 uvx rock-kb feedback '<result-id>' --rating -1 --reason wrong_route
 ```
 
+If the KB service, MCP tool, CLI, schema, authentication, or retrieval path
+itself fails, use the separate structured issue reporter:
+
+```bash
+uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
+```
+
+Never include logs, queries, secrets, private paths, or private Rock data. The
+report is deduplicated, returns a stable report ID, and waits for maintainer
+review rather than opening a GitHub issue automatically.
+
 ## Agent Prompt Starter
 
 Use this in your local agent instructions:

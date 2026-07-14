@@ -58,6 +58,7 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
     assert.equal(toolNames.includes("kb_get_result"), true);
     assert.equal(toolNames.includes("kb_get_claim"), true);
+    assert.equal(toolNames.includes("kb_report_issue"), true);
 
     const callResponse = await mcp(mf, "tools/call", { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } });
     const callResult = JSON.parse(callResponse.result.content[0].text);
@@ -357,6 +358,171 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "claim_get" && row.client_class === "mcp" && row.primary_result_kind === "claim"), true);
     assert.match(telemetry.privacy, /No raw or hashed query text/);
     assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("structured issue reports capture context, deduplicate, and remain pending review", async () => {
+  const mf = await buildWorker();
+  try {
+    const report = {
+      failure_type: "retrieval",
+      operation: "search",
+      result_id: "claim:claim:abc123",
+      http_status: 503,
+      error_code: "search_unavailable",
+      description: "Search returned a temporary service failure.",
+      redaction_attested: true,
+    };
+    const headers = {
+      "content-type": "application/json",
+      "x-rock-kb-client": "cli",
+      "x-rock-kb-client-version": "0.8.0",
+    };
+    const firstResponse = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+      method: "POST",
+      headers,
+      body: JSON.stringify(report),
+    });
+    const first = await firstResponse.json();
+    assert.equal(firstResponse.status, 201);
+    assert.equal(first.schema, "rock-kb-issue-report-result-v1");
+    assert.equal(first.status, "pending_review");
+    assert.match(first.report_id, /^kbir_[0-9a-f]{24}$/);
+    assert.equal(first.occurrence_count, 1);
+    assert.equal(first.github_issue_created, false);
+    assert.deepEqual(first.captured, {
+      failure_type: "retrieval",
+      operation: "search",
+      projection_version: "test-version",
+      client_class: "cli",
+      client_version: "0.8.0",
+      result_id: "claim:claim:abc123",
+      http_status: 503,
+      error_code: "search_unavailable",
+    });
+
+    const secondResponse = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+      method: "POST",
+      headers: { ...headers, "x-rock-kb-client-version": "0.8.1" },
+      body: JSON.stringify({ ...report, description: "Search failed again without returning results." }),
+    });
+    const second = await secondResponse.json();
+    assert.equal(second.status, "deduplicated");
+    assert.equal(second.report_id, first.report_id);
+    assert.equal(second.occurrence_count, 2);
+
+    const dashboardResponse = await mf.dispatchFetch("https://kb.example.test/operations/dashboard");
+    const dashboard = await dashboardResponse.json();
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v2");
+    assert.equal(dashboard.issue_reports.schema, "rock-kb-issue-review-dashboard-v1");
+    assert.equal(dashboard.issue_reports.unique_report_count, 1);
+    assert.equal(dashboard.issue_reports.total_occurrences, 2);
+    assert.equal(dashboard.issue_reports.pending_review_count, 1);
+    assert.equal(dashboard.issue_reports.reports[0].description, report.description);
+    assert.equal(dashboard.issue_reports.reports[0].first_client_version, "0.8.0");
+    assert.equal(dashboard.issue_reports.reports[0].last_client_version, "0.8.1");
+    assert.equal(dashboard.issue_reports.reports[0].github_issue_status, "review_required");
+    assert.equal(dashboard.issue_reports.reports[0].github_issue_url, null);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("MCP issue reporting uses the same structured review path", async () => {
+  const mf = await buildWorker();
+  try {
+    const response = await mcp(mf, "tools/call", {
+      name: "kb_report_issue",
+      arguments: {
+        failure_type: "mcp",
+        operation: "mcp_tool_call",
+        error_code: "tool_result_invalid",
+        description: "The tool returned an invalid structured result.",
+        redaction_attested: true,
+      },
+    });
+    const result = JSON.parse(response.result.content[0].text);
+    assert.equal(result.status, "pending_review");
+    assert.equal(result.captured.client_class, "mcp");
+    assert.equal(result.captured.projection_version, "test-version");
+    assert.equal(result.github_issue_created, false);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("issue reports reject unsafe, unstructured, unattested, and oversized content", async () => {
+  const mf = await buildWorker();
+  try {
+    const base = {
+      failure_type: "service",
+      operation: "service_request",
+      error_code: "unexpected_failure",
+      description: "The service returned an unexpected failure.",
+      redaction_attested: true,
+    };
+    const cases = [
+      [{ ...base, redaction_attested: false }, "redaction_attestation_required"],
+      [{ ...base, description: "Stack trace: token=private-value" }, "unsafe_description"],
+      [{ ...base, query: "private search text" }, "unsupported_fields"],
+      [{ ...base, result_id: "/Users/example/private" }, "invalid_result_id"],
+      [{ ...base, http_status: "503" }, "invalid_field_types"],
+    ];
+    for (const [payload, expectedCode] of cases) {
+      const response = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      assert.equal(response.status, 400);
+      assert.equal(result.status, "rejected");
+      assert.equal(result.error_code, expectedCode);
+      assert.equal(result.github_issue_created, false);
+    }
+
+    const oversizedResponse = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ ...base, description: "x".repeat(5000) }),
+    });
+    assert.equal(oversizedResponse.status, 413);
+    assert.equal((await oversizedResponse.json()).error_code, "report_too_large");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("issue report duplicates are rate limited without creating extra occurrences", async () => {
+  const mf = await buildWorker();
+  try {
+    const report = {
+      failure_type: "cli",
+      operation: "cli_startup",
+      error_code: "startup_failed",
+      description: "The command could not start in the client.",
+      redaction_attested: true,
+    };
+    for (let attempt = 1; attempt <= 10; attempt += 1) {
+      const response = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(report),
+      });
+      assert.equal(response.status, 201);
+    }
+    const limitedResponse = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(report),
+    });
+    assert.equal(limitedResponse.status, 429);
+    assert.equal((await limitedResponse.json()).error_code, "rate_limited");
+
+    const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(dashboard.issue_reports.total_occurrences, 10);
   } finally {
     await mf.dispose();
   }

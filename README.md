@@ -32,6 +32,10 @@ stricter Rock release integrity, profile, licensing, and public-safety checks.
 
 See the [OKF Distribution Runbook](docs/runbooks/okf-distribution.md) for contents, local builds, release assets, and the reviewed-import policy.
 
+Agents can report a malfunction in the KB service, MCP, CLI, schema,
+authentication, or retrieval path through the bounded structured reporter. See
+the [Structured Issue Reporting Runbook](docs/runbooks/issue-reporting.md).
+
 ## Contribute
 
 The easiest path is a source suggestion: copy `source-suggestions/SUGGESTION_TEMPLATE.md` to `source-suggestions/<org-id>/<topic>.md`, fill it in, and open a PR that only changes that folder.
