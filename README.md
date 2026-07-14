@@ -18,14 +18,17 @@ Generated content is meant to be reproducible from the registries, normalized re
 
 ## Portable OKF Distribution
 
-Each tagged release includes a complete, read-only Open Knowledge Format v0.1 distribution of the canonical public KB. It packages concept guides, claims, answers, recipes, Lava contexts, Rock model digests, task cards, source summaries, contribution provenance, and evidence-source policy as typed Markdown with links and checksums.
+Each tagged release includes complete `full` and compact `core` read-only Open Knowledge Format v0.1 distributions of the canonical public KB. They package typed Markdown, normal links, lossless structured records, checksums, explicit licensing, and source/version metadata. The core profile omits routing-only claims, source summaries, and contribution provenance for smaller agent contexts.
 
 Give an agent this command to download and validate the latest release:
 
 ```bash
 uvx rock-kb okf download
-uvx rock-kb okf validate rock-agent-kb-okf-vX.Y.Z.zip
+uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
 ```
+
+Use `okf conformance` for any third-party OKF bundle. Use `okf verify` for the
+stricter Rock release integrity, profile, licensing, and public-safety checks.
 
 See the [OKF Distribution Runbook](docs/runbooks/okf-distribution.md) for contents, local builds, release assets, and the reviewed-import policy.
 

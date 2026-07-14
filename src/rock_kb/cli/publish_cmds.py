@@ -19,13 +19,17 @@ def okf_export(
     archive_dir: Path | None = typer.Option(None, "--archive-dir", file_okay=False, dir_okay=True),
     distribution_version: str | None = typer.Option(None, "--version"),
     source_commit: str | None = typer.Option(None, "--source-commit"),
+    profile: str = typer.Option("full", "--profile", help="Distribution profile: full or core."),
+    previous_bundle: Path | None = typer.Option(None, "--previous-bundle", exists=True),
 ) -> None:
-    """Build the complete read-only Open Knowledge Format distribution."""
+    """Build a read-only Open Knowledge Format distribution."""
     result = build_okf_export(
         destination,
         distribution_version=distribution_version,
         source_commit=source_commit,
         archive_dir=archive_dir,
+        profile=profile,
+        previous_bundle=previous_bundle,
     )
     legacy.console.print_json(json.dumps(result))
     if result["status"] != "ok":

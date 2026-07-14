@@ -6,6 +6,27 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-07-14
+
+### Added
+
+- Synchronized lossless `full` and compact `core` OKF profiles with stable
+  canonical IDs, sharded indexes, and lossless JSON structured records.
+- Explicit MIT and CC BY 4.0 licensing, third-party notices, a versioned Rock
+  OKF extension profile, release deltas, and reproducible archive metadata.
+- Generic `okf conformance` and strict `okf verify` client commands, plus exact
+  profile downloads backed by SHA-256 release evidence.
+- Official Google reference-parser interoperability checks, weekly upstream
+  specification monitoring, and GitHub release artifact attestations.
+
+### Changed
+
+- Archive readers now reject duplicate or unsafe paths, symlinks, encrypted
+  ZIP entries, oversized files/bundles, and suspicious compression ratios.
+- Strict verification requires complete checksum coverage, licensing,
+  structured-record links, profile metadata, and public-safety checks across
+  all readable bundle files. `okf validate` remains a compatibility alias.
+
 ## [0.6.0] - 2026-07-13
 
 ### Added

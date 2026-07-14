@@ -10,7 +10,7 @@ from urllib import error, request
 
 from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
-from .okf import download_okf, inspect_okf, validate_okf
+from .okf import conform_okf, download_okf, inspect_okf, verify_okf
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
 
@@ -106,10 +106,15 @@ def main(argv: list[str] | None = None) -> int:
     okf_download = okf_subparsers.add_parser("download")
     okf_download.add_argument("--version", default="latest", help="Release version or 'latest'.")
     okf_download.add_argument("--format", choices=["zip", "tar.gz"], default="zip")
+    okf_download.add_argument("--profile", choices=["full", "core"], default="full")
     okf_download.add_argument("--destination", type=Path)
     okf_download.add_argument("--force", action="store_true")
     okf_inspect = okf_subparsers.add_parser("inspect")
     okf_inspect.add_argument("bundle", type=Path)
+    okf_conformance = okf_subparsers.add_parser("conformance")
+    okf_conformance.add_argument("bundle", type=Path)
+    okf_verify = okf_subparsers.add_parser("verify")
+    okf_verify.add_argument("bundle", type=Path)
     okf_validate = okf_subparsers.add_parser("validate")
     okf_validate.add_argument("bundle", type=Path)
 
@@ -214,6 +219,7 @@ def main(argv: list[str] | None = None) -> int:
                 download_okf(
                     version=args.version,
                     archive_format=args.format,
+                    profile=args.profile,
                     destination=args.destination,
                     force=bool(args.force),
                     user_agent=USER_AGENT,
@@ -221,8 +227,12 @@ def main(argv: list[str] | None = None) -> int:
             )
         if args.okf_command == "inspect":
             return print_json(inspect_okf(args.bundle))
-        if args.okf_command == "validate":
-            report = validate_okf(args.bundle)
+        if args.okf_command == "conformance":
+            report = conform_okf(args.bundle)
+            print_json(report)
+            return 0 if report["status"] == "ok" else 1
+        if args.okf_command in {"verify", "validate"}:
+            report = verify_okf(args.bundle)
             print_json(report)
             return 0 if report["status"] == "ok" else 1
     if args.command == "install-agent":

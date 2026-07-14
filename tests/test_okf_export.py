@@ -1,12 +1,21 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import zipfile
 from pathlib import Path
 
 from rock_kb.contribution_sources import public_contribution_records
 from rock_kb.jsonl import read_jsonl
-from rock_kb.okf_export import audit_okf_export, build_okf_export, create_okf_archives, read_frontmatter
+from rock_kb.okf_export import (
+    MAX_INDEX_BYTES,
+    MAX_INDEX_ENTRIES,
+    audit_okf_export,
+    build_okf_export,
+    create_okf_archives,
+    read_frontmatter,
+    write_update_log,
+)
 
 
 def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monkeypatch):
@@ -36,6 +45,9 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     )
     assert report["relationships"] > report["counts"]["claims"]
     assert audit_okf_export(destination) == []
+    assert (destination / "LICENSE.txt").exists()
+    assert (destination / "NOTICE.txt").exists()
+    assert (destination / "profile.md").exists()
 
     root_index = (destination / "index.md").read_text(encoding="utf-8")
     assert read_frontmatter(root_index)["okf_version"] == "0.1"
@@ -67,20 +79,51 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
             seen_ids.add(str(metadata["id"]))
     assert expected_types <= seen_types
 
+    for path in destination.rglob("index.md"):
+        text = path.read_text(encoding="utf-8")
+        assert len(text.encode("utf-8")) <= MAX_INDEX_BYTES
+        assert sum(1 for line in text.splitlines() if line.startswith("- [")) <= MAX_INDEX_ENTRIES
+
     recipe = find_document(destination, "recipe:oneall:check-in-status-dashboard")
     recipe_metadata = read_frontmatter(recipe.read_text(encoding="utf-8"))
     assert recipe_metadata["type"] == "Community Recipe"
+    assert recipe_metadata["canonical_id"] == "recipe:oneall:check-in-status-dashboard"
+    assert recipe_metadata["source_path"]
+    assert (destination / str(recipe_metadata["structured_record"]).lstrip("/")).exists()
     assert {row["type"] for row in recipe_metadata["relationships"]} >= {"about", "supersedes"}
 
     lava = find_document(destination, "lava_context:conflict-profile-template:person:989c0c46")
     assert "uses_model" in {row["type"] for row in read_frontmatter(lava.read_text(encoding="utf-8"))["relationships"]}
     group = find_document(destination, "model_map:stable:group")
-    assert "property_groups" in group.read_text(encoding="utf-8")
+    group_metadata = read_frontmatter(group.read_text(encoding="utf-8"))
+    group_record = json.loads((destination / str(group_metadata["structured_record"]).lstrip("/")).read_text())
+    assert "property_groups" in group_record["payload"]
 
     relationship_rows = [json.loads(line) for line in (destination / "relationships.jsonl").read_text(encoding="utf-8").splitlines()]
     assert {row["type"] for row in relationship_rows} >= {"about", "supported_by", "uses_model", "related_model", "supersedes"}
     assert all(row["schema"] == "rock-kb-okf-relationship-v1" for row in relationship_rows)
     assert all(not row["source"].startswith("Claim:claim:") for row in relationship_rows)
+    assert all(row["source"] != row["target"] for row in relationship_rows)
+
+    claim_paths = list((destination / "claims").glob("*/*/*.md"))
+    assert claim_paths, "claims must be sharded below concept and hash-prefix directories"
+
+
+def test_okf_core_profile_is_smaller_and_keeps_canonical_agent_knowledge(tmp_path: Path, monkeypatch):
+    monkeypatch.setenv("ROCK_KB_GENERATED_AT", "2026-07-14T12:00:00+00:00")
+    monkeypatch.setenv("SOURCE_DATE_EPOCH", "1784030400")
+    destination = tmp_path / "core"
+
+    report = build_okf_export(destination, distribution_version="9.8.7", source_commit="abc", profile="core")
+
+    assert report["status"] == "ok"
+    assert report["profile"] == "core"
+    assert report["counts"].get("source_summaries", 0) == 0
+    assert report["counts"].get("contributions", 0) == 0
+    assert report["counts"]["claims"] < len(list(read_jsonl(Path("claims/approved-claims.jsonl"))))
+    assert report["counts"]["recipes"] == len(list(read_jsonl(Path("agent/recipes.jsonl"))))
+    assert find_document(destination, "model_map:stable:group")
+    assert audit_okf_export(destination) == []
 
 
 
@@ -100,6 +143,45 @@ def test_okf_archive_packaging_is_versioned_and_rooted(tmp_path: Path, monkeypat
     assert tmp_path / "archives" / "rock-agent-kb-okf-v9.8.7.sha256" in archive_paths
     with zipfile.ZipFile(zip_path) as archive:
         assert "rock-agent-kb-okf-v9.8.7/okf-manifest.json" in archive.namelist()
+
+    first_hashes = {row["name"]: row["sha256"] for row in rows}
+    repeated = create_okf_archives(bundle, tmp_path / "archives-repeated", "9.8.7")
+    assert first_hashes == {row["name"]: row["sha256"] for row in repeated}
+
+    core_rows = create_okf_archives(bundle, tmp_path / "core-archives", "9.8.7", profile="core")
+    assert {row["name"] for row in core_rows} == {
+        "rock-agent-kb-okf-core-v9.8.7.zip",
+        "rock-agent-kb-okf-core-v9.8.7.tar.gz",
+        "rock-agent-kb-okf-core-v9.8.7.sha256",
+    }
+
+
+def test_okf_update_log_reports_real_snapshot_delta(tmp_path: Path):
+    previous = tmp_path / "previous"
+    current = tmp_path / "current"
+    previous.mkdir()
+    current.mkdir()
+    (previous / "okf-manifest.json").write_text('{"distribution_version":"1.0.0"}\n', encoding="utf-8")
+    old_hash = hashlib.sha256(b"old\n").hexdigest()
+    (previous / "file-manifest.jsonl").write_text(
+        json.dumps({"path": "same.md", "sha256": old_hash, "bytes": 4}) + "\n"
+        + json.dumps({"path": "removed.md", "sha256": old_hash, "bytes": 4}) + "\n",
+        encoding="utf-8",
+    )
+    (current / "same.md").write_text("new\n", encoding="utf-8")
+    (current / "added.md").write_text("added\n", encoding="utf-8")
+
+    changes = write_update_log(
+        current,
+        generated_at="2026-07-14T12:00:00+00:00",
+        version="1.1.0",
+        previous_bundle=previous,
+    )
+
+    assert changes == {"previous_version": "1.0.0", "added": 1, "changed": 1, "removed": 1}
+    log = (current / "log.md").read_text(encoding="utf-8")
+    assert "## 2026-07-14" in log
+    assert "### Added" in log and "### Changed" in log and "### Removed" in log
 
 
 def test_okf_audit_rejects_untyped_broken_private_and_bad_log_nodes(tmp_path: Path):

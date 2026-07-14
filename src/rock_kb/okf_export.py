@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import gzip
 import hashlib
+import io
 import json
 import os
 import posixpath
 import re
+import shutil
 import subprocess
 import tarfile
 import tomllib
@@ -28,6 +30,9 @@ from .timestamps import generated_at_iso
 
 
 OKF_VERSION = "0.1"
+OKF_SPEC_COMMIT = "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a"
+OKF_PROFILE_SCHEMA = "rock-kb-okf-profile-v1"
+OKF_PROFILES = {"full", "core"}
 DEFAULT_OKF_EXPORT_DIR = DATA_DIR / "okf-export"
 MANIFEST_NAME = "okf-manifest.json"
 FILE_MANIFEST_NAME = "file-manifest.jsonl"
@@ -44,6 +49,8 @@ PRIVATE_MARKERS = (
     "private_rock_repo_candidates",
     "outside_org_contribution_candidates",
 )
+MAX_INDEX_ENTRIES = 200
+MAX_INDEX_BYTES = 64 * 1024
 KIND_CONFIG = {
     "concept": ("Concept", "concepts"),
     "answer": ("Agent Answer", "answers"),
@@ -61,12 +68,14 @@ def build_okf_export(
     distribution_version: str | None = None,
     source_commit: str | None = None,
     archive_dir: Path | None = None,
+    profile: str = "full",
+    previous_bundle: Path | None = None,
 ) -> dict[str, Any]:
+    if profile not in OKF_PROFILES:
+        raise ValueError(f"Unknown OKF profile: {profile}")
     destination = (destination or DEFAULT_OKF_EXPORT_DIR).resolve()
     ensure_safe_destination(destination)
     if destination.exists():
-        import shutil
-
         shutil.rmtree(destination)
     destination.mkdir(parents=True, exist_ok=True)
 
@@ -84,6 +93,11 @@ def build_okf_export(
     }
 
     search_rows = [row for row in build_search_rows() if row.get("kind") != "community_contribution"]
+    concept_descriptions = {concept.id: concept.description for concept in concepts}
+    for row in search_rows:
+        if row.get("kind") == "concept":
+            row["okf_description"] = concept_descriptions.get(first_concept_id(row), "")
+    search_rows = rows_for_profile(search_rows, profile)
     full_models = {
         str((row.get("identity") or {}).get("model_slug") or ""): row
         for row in read_jsonl(REPO_ROOT / "agent" / "model-map-digests.jsonl")
@@ -93,13 +107,13 @@ def build_okf_export(
         for row in read_jsonl(REPO_ROOT / "agent" / "lava-contexts.jsonl")
     }
     for row in search_rows:
-        if row.get("kind") == "model_map":
+        if profile == "full" and row.get("kind") == "model_map":
             slug = str((row.get("payload") or {}).get("identity", {}).get("model_slug") or "")
             if slug in full_models:
                 row["payload"] = full_models[slug]
         elif row.get("kind") == "lava_context" and str(row.get("id") or "") in full_lava_contexts:
             row["payload"] = full_lava_contexts[str(row["id"])]
-    contribution_rows = contribution_okf_rows(public_contribution_records())
+    contribution_rows = contribution_okf_rows(public_contribution_records()) if profile == "full" else []
     task_rows = task_card_okf_rows(read_jsonl(REPO_ROOT / "agent" / "concept-task-cards.jsonl"))
     rows = sorted([*search_rows, *contribution_rows, *task_rows], key=lambda row: str(row.get("id") or ""))
     duplicate_ids = sorted(row_id for row_id, count in Counter(str(row.get("id") or "") for row in rows).items() if row_id and count > 1)
@@ -107,12 +121,14 @@ def build_okf_export(
         raise ValueError(f"Duplicate canonical OKF record ids: {', '.join(duplicate_ids[:10])}")
 
     path_by_id = {str(row["id"]): row_path(row) for row in rows}
+    assert_unique_paths(path_by_id, "knowledge records")
     model_path_by_slug = {
         str((row.get("payload") or {}).get("identity", {}).get("model_slug") or ""): path_by_id[str(row["id"])]
         for row in rows
         if row.get("kind") == "model_map"
     }
     reference_paths = {source_id: PurePosixPath("references") / f"{safe_slug(source_id)}.md" for source_id in public_sources}
+    assert_unique_paths(reference_paths, "references")
     concept_paths = {
         concept.id: PurePosixPath("concepts") / f"{safe_slug(concept.id)}.md" for concept in concepts
     }
@@ -143,7 +159,7 @@ def build_okf_export(
             "",
             "## Related Knowledge",
             "",
-            *related_link_lines(path, related[:500], path_by_id),
+            *related_link_lines(path, related[:50], path_by_id),
         ]
         frontmatter = compact_frontmatter(
             {
@@ -184,26 +200,36 @@ def build_okf_export(
         title = row_title(row)
         description = row_description(row)
         kind_type = kind_type_for_row(row)
-        body = render_row_body(
+        body, rendered_source_path = render_row_body(
             row,
             current_path=path,
             related=related,
             commit=commit,
+            profile=profile,
         )
         payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+        canonical_id = canonical_record_id(row)
+        record_path = write_structured_record(destination, row, profile=profile)
         frontmatter = compact_frontmatter(
             {
                 "type": kind_type,
-                "id": row_id,
+                "id": canonical_id,
+                "canonical_id": canonical_id,
+                "result_id": row_id if row_id != canonical_id else "",
                 "title": title,
                 "description": description,
                 "resource": primary_resource_url(row),
                 "tags": row_tags(row, concept_ids),
                 "timestamp": row_timestamp(row),
+                "retrieved_at": payload.get("retrieved_at"),
+                "content_hash": row_content_hash(row),
+                "source_content_hash": payload.get("source_content_hash") or payload.get("safe_evidence_hash"),
                 "authority_tier": row.get("authority_tier") or payload.get("authority_tier"),
                 "claim_tier": row.get("claim_tier") or payload.get("claim_tier"),
                 "rock_versions": rock_versions_for_row(row),
-                "source_path": row.get("path") or payload.get("path") or payload.get("source_file"),
+                "source_path": rendered_source_path,
+                "structured_record": f"/{record_path.as_posix()}",
+                "okf_profile": OKF_PROFILE_SCHEMA,
                 "relationships": row_relationships,
             }
         )
@@ -211,17 +237,27 @@ def build_okf_export(
         index_entries[path.parent].append((path, title, description))
 
     write_directory_indexes(destination, index_entries)
-    write_root_index(destination, generated_at=generated_at, version=version, commit=commit, rows=rows)
-    (destination / "log.md").write_text(
-        f"# Directory Update Log\n\n## {generated_at[:10]}\n\n* **Creation**: Generated Rock KB OKF distribution v{version}.\n",
-        encoding="utf-8",
+    copy_distribution_licenses(destination)
+    write_profile_document(destination, generated_at=generated_at)
+    write_root_index(
+        destination,
+        generated_at=generated_at,
+        version=version,
+        commit=commit,
+        rows=rows,
+        profile=profile,
     )
-
     relationship_rows = sorted(
         {json.dumps(row, ensure_ascii=False, sort_keys=True) for row in relationships}
     )
     (destination / "relationships.jsonl").write_text(
         "".join(line + "\n" for line in relationship_rows), encoding="utf-8"
+    )
+    changes = write_update_log(
+        destination,
+        generated_at=generated_at,
+        version=version,
+        previous_bundle=previous_bundle,
     )
 
     counts = Counter(row_kind_count_key(row) for row in rows)
@@ -230,10 +266,18 @@ def build_okf_export(
     report = {
         "schema": "rock-kb-okf-distribution-v1",
         "okf_version": OKF_VERSION,
+        "okf_spec_commit": OKF_SPEC_COMMIT,
+        "okf_profile": OKF_PROFILE_SCHEMA,
+        "profile": profile,
         "distribution_version": version,
         "generated_at": generated_at,
         "source_commit": commit,
         "read_only": True,
+        "license": {
+            "code": "MIT",
+            "original_content": "CC-BY-4.0",
+            "notice": "NOTICE.txt",
+        },
         "canonical_scope": [
             "concept guides",
             "agent answers",
@@ -254,6 +298,7 @@ def build_okf_export(
             "redundant generated indexes",
         ],
         "counts": dict(sorted(counts.items())),
+        "changes": changes,
         "markdown_files": len(list(destination.rglob("*.md"))),
         "relationships": len(relationship_rows),
         "file_manifest": FILE_MANIFEST_NAME,
@@ -274,7 +319,7 @@ def build_okf_export(
 
     result = dict(report)
     if archive_dir and not errors:
-        result["archives"] = create_okf_archives(destination, archive_dir.resolve(), version)
+        result["archives"] = create_okf_archives(destination, archive_dir.resolve(), version, profile=profile)
     return result
 
 
@@ -314,6 +359,98 @@ def contribution_okf_rows(records: Iterable[dict[str, Any]]) -> list[dict[str, A
             }
         )
     return rows
+
+
+def rows_for_profile(rows: Iterable[dict[str, Any]], profile: str) -> list[dict[str, Any]]:
+    if profile == "full":
+        return list(rows)
+    selected = []
+    for row in rows:
+        kind = str(row.get("kind") or "")
+        if kind in {"source_summary", "community_contribution"}:
+            continue
+        if kind == "claim" and str(row.get("claim_tier") or "") == "routing_context_only":
+            continue
+        selected.append(row)
+    return selected
+
+
+def canonical_record_id(row: dict[str, Any]) -> str:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    kind = str(row.get("kind") or "")
+    candidates = {
+        "answer": payload.get("id"),
+        "claim": payload.get("claim_id"),
+        "concept": payload.get("concept_id") or first_concept_id(row),
+        "contribution": payload.get("contribution_id"),
+        "lava_context": payload.get("id") or payload.get("context_id"),
+        "recipe": payload.get("recipe_id"),
+        "source_summary": payload.get("id"),
+        "task_card": f"{payload.get('concept_id')}:{payload.get('task_id')}"
+        if payload.get("concept_id") and payload.get("task_id")
+        else "",
+    }
+    value = str(candidates.get(kind) or row.get("id") or "unknown")
+    prefixes = {
+        "concept": "concept:",
+        "contribution": "contribution:",
+        "recipe": "recipe:",
+        "source_summary": "source_summary:",
+        "task_card": "task_card:",
+    }
+    prefix = prefixes.get(kind, "")
+    return value if not prefix or value.startswith(prefix) else f"{prefix}{value}"
+
+
+def row_content_hash(row: dict[str, Any]) -> str:
+    value = {
+        "body": row.get("body") or "",
+        "payload": row.get("payload") if isinstance(row.get("payload"), dict) else {},
+    }
+    return hashlib.sha256(
+        json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
+
+
+def stable_document_name(row: dict[str, Any]) -> str:
+    canonical_id = canonical_record_id(row)
+    digest = hashlib.sha256(canonical_id.encode("utf-8")).hexdigest()[:10]
+    slug = safe_slug(canonical_id)[:160].rstrip("-.") or "record"
+    return f"{slug}-{digest}.md"
+
+
+def structured_record_path(row: dict[str, Any]) -> PurePosixPath:
+    kind = safe_slug(str(row.get("kind") or "knowledge"))
+    canonical_id = canonical_record_id(row)
+    digest = hashlib.sha256(canonical_id.encode("utf-8")).hexdigest()
+    return PurePosixPath("records") / kind / digest[:2] / stable_document_name(row).replace(".md", ".json")
+
+
+def write_structured_record(destination: Path, row: dict[str, Any], *, profile: str) -> PurePosixPath:
+    path = structured_record_path(row)
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    value = {
+        "schema": "rock-kb-okf-structured-record-v1",
+        "profile": profile,
+        "kind": row.get("kind") or "knowledge",
+        "canonical_id": canonical_record_id(row),
+        "result_id": row.get("id") or "",
+        "payload": payload,
+    }
+    target = destination / path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return path
+
+
+def assert_unique_paths(mapping: dict[str, PurePosixPath], label: str) -> None:
+    by_path: dict[PurePosixPath, list[str]] = defaultdict(list)
+    for key, path in mapping.items():
+        by_path[path].append(key)
+    collisions = {path: keys for path, keys in by_path.items() if len(keys) > 1}
+    if collisions:
+        path, keys = sorted(collisions.items(), key=lambda item: item[0].as_posix())[0]
+        raise ValueError(f"Colliding OKF {label} path {path}: {', '.join(sorted(keys))}")
 
 
 def task_card_okf_rows(records: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -368,13 +505,16 @@ def current_source_commit() -> str:
 
 def row_path(row: dict[str, Any]) -> PurePosixPath:
     kind = str(row.get("kind") or "")
-    row_id = str(row.get("id") or "unknown")
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
-    filename = f"{safe_slug(row_id)}.md"
+    canonical_id = canonical_record_id(row)
+    digest = hashlib.sha256(canonical_id.encode("utf-8")).hexdigest()
+    filename = stable_document_name(row)
     if kind == "claim":
-        return PurePosixPath("claims") / safe_slug(row_id)[0:2] / filename
+        concept = safe_slug(str(payload.get("primary_concept_id") or first_concept_id(row) or "unrouted"))
+        return PurePosixPath("claims") / concept / digest[:1] / filename
     if kind == "source_summary":
-        return PurePosixPath("source-summaries") / safe_slug(str(payload.get("source_id") or "unknown")) / filename
+        source_id = safe_slug(str(payload.get("source_id") or "unknown"))
+        return PurePosixPath("source-summaries") / source_id / digest[:1] / filename
     if kind in {"answer", "task_card"}:
         return PurePosixPath("answers" if kind == "answer" else "task-cards") / safe_slug(first_concept_id(row) or "unrouted") / filename
     if kind == "lava_context":
@@ -385,7 +525,7 @@ def row_path(row: dict[str, Any]) -> PurePosixPath:
         category = safe_slug(str(payload.get("identity", {}).get("model_category") or "other"))
         return PurePosixPath("models") / category / filename
     if kind == "concept":
-        return PurePosixPath("concepts") / f"{safe_slug(first_concept_id(row) or row_id)}.md"
+        return PurePosixPath("concepts") / f"{safe_slug(first_concept_id(row) or canonical_id)}.md"
     return PurePosixPath(safe_slug(kind or "knowledge")) / filename
 
 
@@ -408,18 +548,34 @@ def row_kind_count_key(row: dict[str, Any]) -> str:
 
 
 def row_title(row: dict[str, Any]) -> str:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    if row.get("kind") == "claim":
+        return compact_text(str(payload.get("title") or payload.get("claim") or row.get("title") or "Claim"), 120)
     return compact_text(str(row.get("title") or row.get("id") or "Untitled"), 140)
 
 
 def row_description(row: dict[str, Any]) -> str:
-    body = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", str(row.get("body") or ""))
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    candidates = (
+        row.get("okf_description"),
+        payload.get("description"),
+        payload.get("distilled_summary"),
+        payload.get("summary"),
+        payload.get("claim"),
+        payload.get("answer"),
+        payload.get("goal"),
+        row.get("body"),
+    )
+    body = next((str(value) for value in candidates if value), "")
+    body = strip_frontmatter(body)
+    body = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", body)
     body = re.sub(r"[#*_`>|\[\]]", " ", body)
     return compact_text(body, 240)
 
 
 def row_timestamp(row: dict[str, Any]) -> str:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
-    for key in ("updated_at", "retrieved_at", "created_at", "timestamp", "last_built"):
+    for key in ("updated_at", "created_at", "timestamp", "last_built", "retrieved_at"):
         if payload.get(key):
             return str(payload[key])
     return ""
@@ -513,8 +669,10 @@ def related_paths_for_row(
     path_by_id: dict[str, PurePosixPath],
 ) -> list[tuple[str, PurePosixPath]]:
     related: list[tuple[str, PurePosixPath]] = []
+    current_path = path_by_id.get(str(row.get("id") or ""))
     for concept_id in concept_ids_for_row(row, concept_ids):
-        related.append(("about", concept_paths[concept_id]))
+        if concept_paths[concept_id] != current_path:
+            related.append(("about", concept_paths[concept_id]))
     for source_id in sorted(source_ids_for_row(row)):
         if source_id in reference_paths:
             related.append(("supported_by", reference_paths[source_id]))
@@ -536,9 +694,11 @@ def render_row_body(
     current_path: PurePosixPath,
     related: list[tuple[str, PurePosixPath]],
     commit: str,
-) -> list[str]:
+    profile: str,
+) -> tuple[list[str], str]:
     title = row_title(row)
-    source_path = str(row.get("path") or "")
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    source_path = str(row.get("path") or payload.get("path") or payload.get("source_file") or "")
     if row.get("kind") == "concept":
         concept_id = first_concept_id(row)
         guide_path = REPO_ROOT / "knowledge" / "concepts" / concept_id / "guide.md"
@@ -547,19 +707,26 @@ def render_row_body(
             source_path = guide_path.relative_to(REPO_ROOT).as_posix()
         else:
             body_text = str(row.get("body") or "")
+    elif row.get("kind") == "model_map":
+        detail_path = str((payload.get("identity") or {}).get("model_detail_path") or "")
+        if profile == "full" and detail_path and (REPO_ROOT / detail_path).exists():
+            body_text = strip_frontmatter((REPO_ROOT / detail_path).read_text(encoding="utf-8"))
+            source_path = detail_path
+        else:
+            body_text = render_compact_model_body(payload)
     else:
         body_text = narrative_body(row)
     if row.get("kind") == "concept":
         body_text = rewrite_repo_relative_links(body_text, source_path, commit)
     else:
         body_text = rewrite_source_relative_links(body_text, primary_resource_url(row))
+    body_text = strip_duplicate_title(body_text, title)
     lines = [f"# {title}", "", body_text.strip() or "No narrative summary is available."]
 
     if related:
         lines.extend(["", "## Related Knowledge", ""])
         for relation_type, target in related:
-            relative = posixpath.relpath(target.as_posix(), current_path.parent.as_posix())
-            lines.append(f"- `{relation_type}`: [{target.stem}]({relative})")
+            lines.append(f"- `{relation_type}`: [{target.stem}](/{target.as_posix()})")
 
     citations = citations_for_row(row)
     if citations:
@@ -567,19 +734,59 @@ def render_row_body(
         for index, citation in enumerate(citations, 1):
             lines.append(f"[{index}] [{markdown_label(citation['title'])}](<{citation['url']}>)")
 
-    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
-    if payload:
-        lines.extend(
-            [
-                "",
-                "## Structured Record",
-                "",
-                "~~~~json",
-                json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True),
-                "~~~~",
-            ]
-        )
-    return lines
+    return lines, source_path
+
+
+def strip_duplicate_title(body: str, title: str) -> str:
+    lines = body.lstrip().splitlines()
+    if lines and lines[0].strip().lstrip("#").strip().casefold() == title.strip().casefold():
+        lines = lines[1:]
+        while lines and not lines[0].strip():
+            lines.pop(0)
+    return "\n".join(lines)
+
+
+def render_compact_model_body(payload: dict[str, Any]) -> str:
+    identity = payload.get("identity") if isinstance(payload.get("identity"), dict) else {}
+    counts = payload.get("counts") if isinstance(payload.get("counts"), dict) else {}
+    lines = [
+        str(identity.get("description") or payload.get("description") or "Rock model reference."),
+        "",
+        "## Identity",
+        "",
+        f"- Model: `{identity.get('model_title') or identity.get('model_name') or 'unknown'}`",
+        f"- Slug: `{identity.get('model_slug') or 'unknown'}`",
+        f"- Category: `{identity.get('model_category') or 'unknown'}`",
+        f"- Rock version: `{identity.get('rock_version') or 'unknown'}`",
+        f"- Table: `{identity.get('table_name') or 'not provided'}`",
+        "",
+        "## Counts",
+        "",
+        *[f"- {str(key).replace('_', ' ').title()}: {value}" for key, value in sorted(counts.items())],
+    ]
+    required = payload.get("required_fields") or []
+    if required:
+        lines.extend(["", "## Required Fields", ""])
+        for item in required:
+            if isinstance(item, dict):
+                lines.append(f"- `{item.get('name') or item.get('property_name') or 'unknown'}`: {item.get('description') or ''}")
+    notes = payload.get("operational_notes") or []
+    if notes:
+        lines.extend(["", "## Operational Notes", "", *[f"- {note}" for note in notes]])
+    relationships = payload.get("relationships") or []
+    if relationships:
+        lines.extend(["", "## Relationships", ""])
+        for item in relationships:
+            if isinstance(item, dict):
+                target = item.get("target_model_name") or item.get("target_model_slug") or item.get("name") or "unknown"
+                prop = item.get("property_name") or item.get("name") or "relationship"
+                lines.append(f"- `{prop}` -> `{target}`")
+    diffs = payload.get("version_diffs") or []
+    if diffs:
+        lines.extend(["", "## Version Diffs", ""])
+        for item in diffs:
+            lines.append(f"- {item if isinstance(item, str) else json.dumps(item, sort_keys=True)}")
+    return "\n".join(lines).strip()
 
 
 def narrative_body(row: dict[str, Any]) -> str:
@@ -598,14 +805,21 @@ def narrative_body(row: dict[str, Any]) -> str:
 def citations_for_row(row: dict[str, Any]) -> list[dict[str, str]]:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
     citations: list[dict[str, str]] = []
+    by_url: dict[str, int] = {}
 
     def add(title: Any, url: Any) -> None:
         clean_url = str(url or "").strip()
         if not clean_url or not re.match(r"^https?://", clean_url):
             return
         candidate = {"title": str(title or clean_url).strip(), "url": clean_url}
-        if candidate not in citations:
-            citations.append(candidate)
+        if clean_url in by_url:
+            index = by_url[clean_url]
+            current_title = citations[index]["title"]
+            if current_title in {clean_url, str(row.get("title") or "")} and candidate["title"] != clean_url:
+                citations[index] = candidate
+            return
+        by_url[clean_url] = len(citations)
+        citations.append(candidate)
 
     add(row.get("title"), row.get("url"))
     for key in ("citations", "source_refs"):
@@ -637,8 +851,7 @@ def related_link_lines(
     lines = []
     for row in rows:
         target = path_by_id[str(row["id"])]
-        relative = posixpath.relpath(target.as_posix(), current_path.parent.as_posix())
-        lines.append(f"- [{markdown_label(row_title(row))}]({relative})")
+        lines.append(f"- [{markdown_label(row_title(row))}](/{target.as_posix()})")
     return lines or ["No related canonical records."]
 
 
@@ -668,12 +881,130 @@ def write_directory_indexes(
                 lines.append(f"- [{child.name.replace('-', ' ').title()}]({child.name}/)")
             lines.append("")
         if rows:
+            if len(rows) > MAX_INDEX_ENTRIES:
+                raise ValueError(f"OKF index {relative_dir}/index.md has {len(rows)} entries; maximum is {MAX_INDEX_ENTRIES}")
             lines.extend(["## Documents", ""])
             for path, row_title_value, description in rows:
                 relative = posixpath.relpath(path.as_posix(), relative_dir.as_posix())
                 suffix = f" - {description}" if description else ""
                 lines.append(f"- [{markdown_label(row_title_value)}]({relative}){suffix}")
-        (directory / "index.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+        content = "\n".join(lines).rstrip() + "\n"
+        if len(content.encode("utf-8")) > MAX_INDEX_BYTES:
+            raise ValueError(f"OKF index {relative_dir}/index.md exceeds {MAX_INDEX_BYTES} bytes")
+        (directory / "index.md").write_text(content, encoding="utf-8")
+
+
+def copy_distribution_licenses(destination: Path) -> None:
+    for source_name, target_name in (("LICENSE", "LICENSE.txt"), ("NOTICE", "NOTICE.txt")):
+        source = REPO_ROOT / source_name
+        if not source.exists():
+            raise ValueError(f"Missing repository licensing file required for OKF export: {source_name}")
+        shutil.copyfile(source, destination / target_name)
+
+
+def write_profile_document(destination: Path, *, generated_at: str) -> None:
+    source = REPO_ROOT / "docs" / "specs" / "rock-kb-okf-profile-v1.md"
+    if not source.exists():
+        raise ValueError(f"Missing Rock OKF extension profile: {source.relative_to(REPO_ROOT)}")
+    text = source.read_text(encoding="utf-8")
+    metadata = read_frontmatter(text)
+    metadata["timestamp"] = generated_at
+    write_typed_markdown(destination / "profile.md", metadata, strip_frontmatter(text).strip().splitlines())
+
+
+def snapshot_hashes(destination: Path) -> dict[str, str]:
+    excluded = {MANIFEST_NAME, FILE_MANIFEST_NAME, CHECKSUMS_NAME, "log.md"}
+    return {
+        path.relative_to(destination).as_posix(): sha256_file(path)
+        for path in sorted(path for path in destination.rglob("*") if path.is_file())
+        if path.relative_to(destination).as_posix() not in excluded
+    }
+
+
+def previous_snapshot(bundle: Path | None) -> tuple[str, dict[str, str]]:
+    if bundle is None or not bundle.exists():
+        return "", {}
+    files: dict[str, bytes]
+    if bundle.is_dir():
+        files = {
+            path.relative_to(bundle).as_posix(): path.read_bytes()
+            for path in bundle.rglob("*")
+            if path.is_file()
+        }
+    elif zipfile.is_zipfile(bundle):
+        with zipfile.ZipFile(bundle) as archive:
+            files = {name: archive.read(name) for name in archive.namelist() if not name.endswith("/")}
+    elif tarfile.is_tarfile(bundle):
+        files = {}
+        with tarfile.open(bundle, "r:*") as archive:
+            for member in archive.getmembers():
+                if not member.isfile():
+                    continue
+                extracted = archive.extractfile(member)
+                if extracted is not None:
+                    files[member.name] = extracted.read()
+    else:
+        return "", {}
+
+    manifest_name = next((name for name in files if PurePosixPath(name).name == MANIFEST_NAME), "")
+    file_manifest_name = next((name for name in files if PurePosixPath(name).name == FILE_MANIFEST_NAME), "")
+    if not manifest_name or not file_manifest_name:
+        return "", {}
+    root = PurePosixPath(manifest_name).parent
+    manifest = json.loads(files[manifest_name].decode("utf-8"))
+    hashes: dict[str, str] = {}
+    excluded = {MANIFEST_NAME, FILE_MANIFEST_NAME, CHECKSUMS_NAME, "log.md"}
+    for line in files[file_manifest_name].decode("utf-8").splitlines():
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        relative = PurePosixPath(str(row.get("path") or ""))
+        try:
+            normalized = relative.relative_to(root).as_posix() if root.parts else relative.as_posix()
+        except ValueError:
+            normalized = relative.as_posix()
+        if normalized not in excluded:
+            hashes[normalized] = str(row.get("sha256") or "")
+    return str(manifest.get("distribution_version") or ""), hashes
+
+
+def write_update_log(
+    destination: Path,
+    *,
+    generated_at: str,
+    version: str,
+    previous_bundle: Path | None,
+) -> dict[str, Any]:
+    previous_version, old_hashes = previous_snapshot(previous_bundle)
+    new_hashes = snapshot_hashes(destination)
+    added = sorted(set(new_hashes) - set(old_hashes))
+    removed = sorted(set(old_hashes) - set(new_hashes))
+    changed = sorted(path for path in set(new_hashes) & set(old_hashes) if new_hashes[path] != old_hashes[path])
+    change_type = "Update" if old_hashes else "Creation"
+    lines = [
+        "# Directory Update Log",
+        "",
+        f"## {generated_at[:10]}",
+        "",
+        f"* **{change_type}**: Generated Rock KB OKF distribution v{version}.",
+        f"* **Profile delta**: {len(added)} added, {len(changed)} changed, and {len(removed)} removed files.",
+    ]
+    if previous_version:
+        lines.append(f"* **Previous version**: v{previous_version}.")
+    for heading, paths in (("Added", added), ("Changed", changed), ("Removed", removed)):
+        if not paths:
+            continue
+        lines.extend(["", f"### {heading}", ""])
+        lines.extend(f"- `{path}`" for path in paths[:50])
+        if len(paths) > 50:
+            lines.append(f"- ...and {len(paths) - 50} more; see `{FILE_MANIFEST_NAME}` for the complete snapshot.")
+    (destination / "log.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    return {
+        "previous_version": previous_version,
+        "added": len(added),
+        "changed": len(changed),
+        "removed": len(removed),
+    }
 
 
 def write_root_index(
@@ -683,8 +1014,23 @@ def write_root_index(
     version: str,
     commit: str,
     rows: list[dict[str, Any]],
+    profile: str,
 ) -> None:
     counts = Counter(row_kind_count_key(row) for row in rows)
+    browse_lines = [
+        "- [Concept guides](concepts/)",
+        "- [Agent answers](answers/)",
+        "- [Approved claims](claims/)",
+        "- [Community recipes](recipes/)",
+        "- [Lava contexts](lava-contexts/)",
+        "- [Rock models](models/)",
+        "- [Agent task cards](task-cards/)",
+        "- [Evidence sources](references/)",
+        "- [Rock OKF extension profile](profile.md)",
+    ]
+    if profile == "full":
+        browse_lines[3:3] = ["- [Community contribution provenance](contributions/)"]
+        browse_lines[7:7] = ["- [Source summaries](source-summaries/)"]
     frontmatter = yaml.safe_dump(
         {
             "okf_version": OKF_VERSION,
@@ -693,6 +1039,8 @@ def write_root_index(
             "timestamp": generated_at,
             "distribution_version": version,
             "source_commit": commit,
+            "profile": profile,
+            "okf_profile": OKF_PROFILE_SCHEMA,
         },
         allow_unicode=False,
         sort_keys=False,
@@ -704,20 +1052,11 @@ def write_root_index(
         "",
         "# Rock RMS Agent Knowledge Base",
         "",
-        "This is the complete read-only Open Knowledge Format distribution of the canonical public Rock KB. The source registries, JSONL records, hosted search service, and MCP server remain canonical.",
+        f"This is the complete read-only Open Knowledge Format distribution ({profile} profile) of the canonical public Rock KB. The source registries, JSONL records, hosted search service, and MCP server remain canonical.",
         "",
         "## Browse",
         "",
-        "- [Concept guides](concepts/)",
-        "- [Agent answers](answers/)",
-        "- [Approved claims](claims/)",
-        "- [Community contribution provenance](contributions/)",
-        "- [Community recipes](recipes/)",
-        "- [Lava contexts](lava-contexts/)",
-        "- [Rock models](models/)",
-        "- [Source summaries](source-summaries/)",
-        "- [Agent task cards](task-cards/)",
-        "- [Evidence sources](references/)",
+        *browse_lines,
         "",
         "## Counts",
         "",
@@ -727,10 +1066,12 @@ def write_root_index(
         "",
         f"- OKF version: `{OKF_VERSION}`",
         f"- Distribution version: `{version}`",
+        f"- Distribution profile: `{profile}`",
         f"- Source commit: `{commit}`",
         f"- Generated at: `{generated_at}`",
         f"- Manifest: [`{MANIFEST_NAME}`]({MANIFEST_NAME})",
         f"- Checksums: [`{CHECKSUMS_NAME}`]({CHECKSUMS_NAME})",
+        "- Licensing: [`LICENSE.txt`](LICENSE.txt) and [`NOTICE.txt`](NOTICE.txt)",
     ]
     (destination / "index.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
@@ -769,9 +1110,15 @@ def write_checksums(destination: Path) -> None:
     )
 
 
-def create_okf_archives(destination: Path, archive_dir: Path, version: str) -> list[dict[str, Any]]:
+def create_okf_archives(
+    destination: Path,
+    archive_dir: Path,
+    version: str,
+    *,
+    profile: str = "full",
+) -> list[dict[str, Any]]:
     archive_dir.mkdir(parents=True, exist_ok=True)
-    base_name = f"rock-agent-kb-okf-v{version}"
+    base_name = f"rock-agent-kb-okf-v{version}" if profile == "full" else f"rock-agent-kb-okf-{profile}-v{version}"
     zip_path = archive_dir / f"{base_name}.zip"
     tar_path = archive_dir / f"{base_name}.tar.gz"
     root_name = base_name
@@ -796,8 +1143,6 @@ def create_okf_archives(destination: Path, archive_dir: Path, version: str) -> l
                     info.size = len(data)
                     info.mode = 0o644
                     info.mtime = epoch
-                    import io
-
                     archive.addfile(info, io.BytesIO(data))
 
     checksum_path = archive_dir / f"{base_name}.sha256"
@@ -830,6 +1175,7 @@ def audit_okf_export(destination: Path) -> list[str]:
     if not root_log.exists():
         errors.append("missing reserved root file: log.md")
 
+    structured_paths: set[str] = set()
     for path in sorted(destination.rglob("*.md")):
         relative = path.relative_to(destination).as_posix()
         text = path.read_text(encoding="utf-8")
@@ -844,10 +1190,54 @@ def audit_okf_export(destination: Path) -> list[str]:
             frontmatter = read_frontmatter(text)
             if not frontmatter.get("type"):
                 errors.append(f"{relative} missing non-empty type frontmatter")
+            structured_record = str(frontmatter.get("structured_record") or "").lstrip("/")
+            if structured_record and not (destination / structured_record).exists():
+                errors.append(f"{relative} has missing structured record: {structured_record}")
+            elif structured_record:
+                if structured_record in structured_paths:
+                    errors.append(f"duplicate structured record reference: {structured_record}")
+                structured_paths.add(structured_record)
+                try:
+                    record = json.loads((destination / structured_record).read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError, UnicodeDecodeError):
+                    errors.append(f"{structured_record} is not valid structured-record JSON")
+                else:
+                    if record.get("schema") != "rock-kb-okf-structured-record-v1":
+                        errors.append(f"{structured_record} has unexpected structured-record schema")
+                    if str(record.get("canonical_id") or "") != str(
+                        frontmatter.get("canonical_id") or frontmatter.get("id") or ""
+                    ):
+                        errors.append(f"{relative} canonical ID does not match {structured_record}")
+            for relation in frontmatter.get("relationships") or []:
+                if isinstance(relation, dict) and str(relation.get("target") or "").lstrip("/") == relative:
+                    errors.append(f"{relative} has self relationship")
         for target in markdown_targets(text):
             resolved = resolve_markdown_target(relative, target)
-            if resolved and not (destination / resolved).exists():
-                errors.append(f"{relative} has unresolved link: {target}")
+            if resolved:
+                try:
+                    exists = len(resolved) <= 4096 and (destination / resolved).exists()
+                except OSError:
+                    exists = False
+                if not exists:
+                    errors.append(f"{relative} has unresolved link: {target[:500]}")
+        for marker in PRIVATE_MARKERS:
+            if marker.lower() in text.lower():
+                errors.append(f"{relative} contains private marker: {marker}")
+
+    record_paths = {
+        path.relative_to(destination).as_posix()
+        for path in destination.glob("records/**/*.json")
+        if path.is_file()
+    }
+    for relative in sorted(record_paths - structured_paths):
+        errors.append(f"unreferenced structured record: {relative}")
+
+    for path in sorted(path for path in destination.rglob("*") if path.is_file() and path.suffix != ".md"):
+        relative = path.relative_to(destination).as_posix()
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
         for marker in PRIVATE_MARKERS:
             if marker.lower() in text.lower():
                 errors.append(f"{relative} contains private marker: {marker}")
@@ -864,6 +1254,31 @@ def audit_okf_export(destination: Path) -> list[str]:
                 errors.append(f"{MANIFEST_NAME} has unexpected okf_version")
             if manifest.get("read_only") is not True:
                 errors.append(f"{MANIFEST_NAME} must declare read_only true")
+            if manifest.get("profile") not in OKF_PROFILES:
+                errors.append(f"{MANIFEST_NAME} has unexpected profile")
+            if manifest.get("okf_profile") != OKF_PROFILE_SCHEMA:
+                errors.append(f"{MANIFEST_NAME} has unexpected OKF extension profile")
+            if manifest.get("okf_spec_commit") != OKF_SPEC_COMMIT:
+                errors.append(f"{MANIFEST_NAME} has unexpected OKF specification commit")
+            license_info = manifest.get("license") if isinstance(manifest.get("license"), dict) else {}
+            if license_info.get("code") != "MIT" or license_info.get("original_content") != "CC-BY-4.0":
+                errors.append(f"{MANIFEST_NAME} has incomplete distribution licensing")
+            file_manifest_path = destination / FILE_MANIFEST_NAME
+            if not file_manifest_path.exists():
+                errors.append(f"missing {FILE_MANIFEST_NAME}")
+            elif manifest.get("file_manifest_sha256") != sha256_file(file_manifest_path):
+                errors.append(f"{FILE_MANIFEST_NAME} does not match the manifest digest")
+            relationships_path = destination / "relationships.jsonl"
+            if not relationships_path.exists():
+                errors.append("missing relationships.jsonl")
+            else:
+                relationship_count = sum(
+                    1 for line in relationships_path.read_text(encoding="utf-8").splitlines() if line.strip()
+                )
+                if manifest.get("relationships") != relationship_count:
+                    errors.append(
+                        f"relationship count mismatch: expected {manifest.get('relationships')}, found {relationship_count}"
+                    )
         except (OSError, json.JSONDecodeError):
             errors.append(f"{MANIFEST_NAME} is not valid JSON")
 
@@ -876,6 +1291,7 @@ def audit_checksums(destination: Path) -> list[str]:
     if not checksum_path.exists():
         return [f"missing {CHECKSUMS_NAME}"]
     errors = []
+    seen: set[str] = set()
     for line in checksum_path.read_text(encoding="utf-8").splitlines():
         if not line.strip():
             continue
@@ -884,11 +1300,29 @@ def audit_checksums(destination: Path) -> list[str]:
         except ValueError:
             errors.append(f"invalid checksum row: {line}")
             continue
+        if not re.fullmatch(r"[0-9a-f]{64}", expected):
+            errors.append(f"invalid checksum digest: {line}")
+            continue
+        if relative in seen:
+            errors.append(f"duplicate checksum target: {relative}")
+            continue
+        seen.add(relative)
+        relative_path = PurePosixPath(relative)
+        if relative_path.is_absolute() or ".." in relative_path.parts:
+            errors.append(f"unsafe checksum target: {relative}")
+            continue
         target = destination / relative
         if not target.exists():
             errors.append(f"checksum target missing: {relative}")
         elif sha256_file(target) != expected:
             errors.append(f"checksum mismatch: {relative}")
+    expected_paths = {
+        path.relative_to(destination).as_posix()
+        for path in destination.rglob("*")
+        if path.is_file() and path.name != CHECKSUMS_NAME
+    }
+    for relative in sorted(expected_paths - seen):
+        errors.append(f"file missing checksum: {relative}")
     return errors
 
 
