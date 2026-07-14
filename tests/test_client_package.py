@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 import sys
+import zipfile
 from pathlib import Path
 
 VALID_FIXTURE = Path("tests/fixtures/contributions/valid-bundle.jsonl")
@@ -180,6 +182,118 @@ def test_client_model_map_list_command_hits_model_list_endpoint(monkeypatch, cap
     assert exit_code == 0
     assert urls == ["https://example.test/model-map/models"]
     assert "rock-kb-model-map-model-list-v1" in capsys.readouterr().out
+
+
+def test_client_okf_commands_are_read_only(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    archive = tmp_path / "bundle.zip"
+    archive.write_bytes(b"fixture")
+    calls = []
+
+    monkeypatch.setattr(
+        cli,
+        "download_okf",
+        lambda **kwargs: calls.append(("download", kwargs)) or {"schema": "rock-kb-okf-download-v1", "status": "ok"},
+    )
+    monkeypatch.setattr(
+        cli,
+        "inspect_okf",
+        lambda path: calls.append(("inspect", path)) or {"schema": "rock-kb-okf-inspection-v1", "status": "ok"},
+    )
+    monkeypatch.setattr(
+        cli,
+        "validate_okf",
+        lambda path: calls.append(("validate", path)) or {"schema": "rock-kb-okf-validation-v1", "status": "ok"},
+    )
+
+    assert cli.main(["okf", "download", "--version", "0.6.0", "--format", "tar.gz", "--destination", str(archive), "--force"]) == 0
+    assert cli.main(["okf", "inspect", str(archive)]) == 0
+    assert cli.main(["okf", "validate", str(archive)]) == 0
+    assert calls[0][0] == "download"
+    assert calls[0][1]["version"] == "0.6.0"
+    assert calls[0][1]["archive_format"] == "tar.gz"
+    assert calls[1:] == [("inspect", archive), ("validate", archive)]
+    assert "rock-kb-okf-validation-v1" in capsys.readouterr().out
+
+
+def test_client_okf_validator_accepts_directory_and_archive(tmp_path):
+    load_client_cli()
+    from rock_kb_client.okf import validate_okf
+
+    bundle = tmp_path / "bundle"
+    bundle.mkdir()
+    (bundle / "index.md").write_text("---\nokf_version: '0.1'\n---\n\n# Fixture\n\n[Claim](claims/example.md)\n", encoding="utf-8")
+    (bundle / "log.md").write_text("# Log\n\n## 2026-07-13\n\n* **Creation**: Fixture.\n", encoding="utf-8")
+    (bundle / "claims").mkdir()
+    (bundle / "claims" / "example.md").write_text("---\ntype: Claim\ntitle: Example\n---\n\n# Example\n", encoding="utf-8")
+    manifest = {
+        "schema": "rock-kb-okf-distribution-v1",
+        "okf_version": "0.1",
+        "distribution_version": "test",
+        "read_only": True,
+        "markdown_files": 3,
+    }
+    (bundle / "okf-manifest.json").write_text(json.dumps(manifest) + "\n", encoding="utf-8")
+    checksum_targets = ["claims/example.md", "index.md", "log.md", "okf-manifest.json"]
+    (bundle / "checksums.sha256").write_text(
+        "".join(
+            f"{hashlib.sha256((bundle / relative).read_bytes()).hexdigest()}  {relative}\n"
+            for relative in checksum_targets
+        ),
+        encoding="utf-8",
+    )
+
+    assert validate_okf(bundle)["status"] == "ok"
+
+    archive_path = tmp_path / "bundle.zip"
+    with zipfile.ZipFile(archive_path, "w") as archive:
+        for path in bundle.rglob("*"):
+            if path.is_file():
+                archive.write(path, f"rock-agent-kb-okf-vtest/{path.relative_to(bundle).as_posix()}")
+    assert validate_okf(archive_path)["status"] == "ok"
+
+
+def test_client_okf_download_selects_release_asset_and_verifies_checksum(monkeypatch, tmp_path):
+    load_client_cli()
+    from rock_kb_client import okf
+
+    content = b"okf archive"
+    expected = hashlib.sha256(content).hexdigest()
+    monkeypatch.setattr(
+        okf,
+        "release_metadata",
+        lambda version, user_agent: {
+            "tag_name": "rock-kb-v0.6.0",
+            "html_url": "https://example.test/release",
+            "assets": [
+                {
+                    "name": "rock-agent-kb-okf-v0.6.0.zip",
+                    "browser_download_url": "https://example.test/bundle.zip",
+                },
+                {
+                    "name": "rock-agent-kb-okf-v0.6.0.sha256",
+                    "browser_download_url": "https://example.test/bundle.sha256",
+                },
+            ],
+        },
+    )
+    monkeypatch.setattr(okf, "download_url", lambda url, destination, user_agent: destination.write_bytes(content))
+    monkeypatch.setattr(okf, "expected_asset_checksum", lambda assets, asset_name, user_agent: expected)
+    destination = tmp_path / "download.zip"
+
+    report = okf.download_okf(
+        version="latest",
+        archive_format="zip",
+        destination=destination,
+        force=False,
+        user_agent="test",
+    )
+
+    assert destination.read_bytes() == content
+    assert report["status"] == "ok"
+    assert report["version"] == "0.6.0"
+    assert report["checksum_verified"] is True
+    assert report["sha256"] == expected
 
 
 def test_client_recipe_commands_hit_recipe_endpoints(monkeypatch, capsys):

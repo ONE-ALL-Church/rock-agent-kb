@@ -46,6 +46,14 @@ jobs:
       - name: Run lexical retrieval quality gate
         working-directory: .
         run: uv run kb quality-gate
+      - name: Build and validate OKF distribution
+        working-directory: .
+        run: |
+          version="${RELEASE_TAG#rock-kb-v}"
+          commit="$(git rev-parse HEAD)"
+          uv run kb publish okf --version "${version}" --source-commit "${commit}" --archive-dir release-assets
+          uv run kb publish okf-validate data/okf-export
+          uv run --project clients/python rock-kb okf validate "release-assets/rock-agent-kb-okf-v${version}.zip"
       - name: Build package
         run: uv build
       - name: Smoke test wheel
@@ -65,4 +73,6 @@ jobs:
         working-directory: .
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${GITHUB_REF_NAME}" --verify-tag --generate-notes --title "${GITHUB_REF_NAME}"
+        run: >
+          gh release create "${GITHUB_REF_NAME}" --verify-tag --generate-notes
+          --title "${GITHUB_REF_NAME}" release-assets/*

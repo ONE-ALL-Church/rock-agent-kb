@@ -14,6 +14,7 @@ on:
       - "community-contributions/**"
       - "source-suggestions/**"
       - "orgs/**"
+      - "docs/templates/rock-kb-agent/**"
       - "service/src/**"
       - "service/wrangler.jsonc"
       - "scripts/validate_bundle.py"

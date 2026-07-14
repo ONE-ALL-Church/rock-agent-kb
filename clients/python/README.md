@@ -6,6 +6,18 @@ Thin terminal client for the public Rock RMS agent knowledge base.
 
 The published client is available from PyPI as `rock-kb`.
 
+## Open Knowledge Format
+
+Download, inspect, and validate the complete read-only OKF release without cloning the repository:
+
+```bash
+uvx rock-kb okf download
+uvx rock-kb okf inspect rock-agent-kb-okf-vX.Y.Z.zip
+uvx rock-kb okf validate rock-agent-kb-okf-vX.Y.Z.zip
+```
+
+Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` with `okf download`. Downloaded archives are checksum-verified against the GitHub release. The client does not import OKF into trusted Rock KB knowledge.
+
 For one-off use, run it with `uvx`. `uvx` is part of the `uv` Python toolchain;
 it downloads or reuses a cached copy of the package and runs the command in an
 isolated environment.

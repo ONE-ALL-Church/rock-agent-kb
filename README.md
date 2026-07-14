@@ -16,6 +16,19 @@ uv run --extra dev pytest
 
 Generated content is meant to be reproducible from the registries, normalized records, reviewed claims, and CLI. For intentional rebuilds, pin `ROCK_KB_GENERATED_AT=<iso timestamp>` so generated `generated_at` metadata does not churn; standard `SOURCE_DATE_EPOCH` is also supported.
 
+## Portable OKF Distribution
+
+Each tagged release includes a complete, read-only Open Knowledge Format v0.1 distribution of the canonical public KB. It packages concept guides, claims, answers, recipes, Lava contexts, Rock model digests, task cards, source summaries, contribution provenance, and evidence-source policy as typed Markdown with links and checksums.
+
+Give an agent this command to download and validate the latest release:
+
+```bash
+uvx rock-kb okf download
+uvx rock-kb okf validate rock-agent-kb-okf-vX.Y.Z.zip
+```
+
+See the [OKF Distribution Runbook](docs/runbooks/okf-distribution.md) for contents, local builds, release assets, and the reviewed-import policy.
+
 ## Contribute
 
 The easiest path is a source suggestion: copy `source-suggestions/SUGGESTION_TEMPLATE.md` to `source-suggestions/<org-id>/<topic>.md`, fill it in, and open a PR that only changes that folder.
@@ -69,7 +82,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full public-safety rules.
 - `kb concepts ...` - concept listing, authored synthesis, and hydration; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb modelmap ...` - stable/latest Rock model-map API fetch, build, stamping, and diffs; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb audit ...` - guide, license, source-policy, public-export, readiness, and all-in-one audits; see [CLI Reference](docs/runbooks/cli-reference.md).
-- `kb publish ...` - public export and legacy public-repo push commands; see [CLI Reference](docs/runbooks/cli-reference.md).
+- `kb publish ...` - public scratch export and the versioned read-only OKF distribution; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb report ...` - refresh reports and maintainer dashboards; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb tools ...` - developer utility commands; see [CLI Reference](docs/runbooks/cli-reference.md).
 

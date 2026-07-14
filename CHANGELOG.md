@@ -6,6 +6,31 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-07-13
+
+### Added
+
+- Complete, read-only OKF v0.1 distribution covering canonical concept guides,
+  agent answers, approved claims, public contribution provenance, reviewed
+  recipes, Lava contexts, stable model digests, source summaries, task cards,
+  and public evidence-source policies.
+- Versioned ZIP and tarball release assets with a manifest, source commit,
+  per-file integrity records, typed relationships, and SHA-256 checksums.
+- `rock-kb okf download`, `rock-kb okf inspect`, and `rock-kb okf validate`
+  commands for read-only distribution use through `uvx` or a permanent install.
+
+### Changed
+
+- OKF validation now enforces v0.1 reserved-file behavior, date-only log
+  headings, internal-link integrity, canonical contribution deduplication,
+  archive path safety, and public/private boundary checks.
+
+### Decision
+
+- OKF remains a generated portability layer rather than the canonical store.
+  Arbitrary OKF import is deferred until it can use the existing reviewed
+  contribution, licensing, redaction, authority, and deduplication gates.
+
 ## [0.5.1] - 2026-07-10
 
 ### Changed

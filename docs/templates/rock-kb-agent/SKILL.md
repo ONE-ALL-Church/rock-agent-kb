@@ -31,6 +31,8 @@ The KB can help agents do more than plain text search:
 - Use Rockumentation API metadata and branch paths as routing signals.
 - Validate and submit public-safe community contribution bundles.
 - Connect through hosted HTTP MCP when the current agent client supports tools.
+- Download, inspect, and validate the complete read-only OKF distribution for
+  offline or cross-tool knowledge consumption.
 
 ## Install And Availability
 
@@ -71,6 +73,7 @@ uvx rock-kb recipe oneall:registration-to-connection-request
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
+uvx rock-kb okf download
 ```
 
 For repeated use on a server or persistent agent host, install the CLI once:
@@ -98,6 +101,7 @@ uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group
 uv run --project clients/python rock-kb dashboard
 uv run --project clients/python rock-kb mcp-config
+uv run --project clients/python rock-kb okf download
 ```
 
 Use these commands for specific jobs:
@@ -118,11 +122,17 @@ Use these commands for specific jobs:
 - `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
 - `mcp-config`: connect clients that support HTTP MCP to the hosted KB.
+- `okf download`: download and checksum-verify the latest complete read-only Open Knowledge Format release.
+- `okf inspect <bundle>`: show an OKF directory or archive's version, source commit, scope, and counts.
+- `okf validate <bundle>`: verify OKF frontmatter, links, checksums, archive safety, and public/private boundaries.
 - `validate <bundle.jsonl>`: check a contribution bundle before submitting.
 - `auth-check --org <org-id>`: verify hosted submission auth before sending a bundle.
 - `submit <bundle.jsonl> [--dry-run] [--org <org-id>]`: submit reviewed public-safe knowledge for a registered org with `ROCK_KB_TOKEN`; `--org` is inferred when bundle rows share one `org_id`.
 
-Do not fall back to copying raw KB artifacts into another repo.
+Do not fall back to copying raw KB artifacts into another repo. Use the OKF
+distribution when an agent or external tool needs a portable, offline corpus.
+Do not import an arbitrary OKF bundle into trusted knowledge; route proposed
+knowledge through the reviewed contribution workflow.
 
 ## MCP Tool Map
 

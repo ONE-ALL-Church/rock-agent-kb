@@ -50,6 +50,17 @@ uv run kb audit public-export
 uv run kb audit all
 ```
 
+## OKF Release Distribution
+
+Tagged releases also publish the complete read-only OKF v0.1 projection. Build it from canonical tracked public records, validate it independently, and attach the generated ZIP, tarball, and checksum file to the GitHub release. The OKF tree remains ignored generated output and is never a second source of truth.
+
+```bash
+uv run kb publish okf --version X.Y.Z --source-commit "$(git rev-parse HEAD)" --archive-dir release-assets
+uv run kb publish okf-validate data/okf-export
+```
+
+See [Open Knowledge Format Distribution](okf-distribution.md) for scope and consumer commands.
+
 ## Public Contributions
 
 Accepted public PRs should add reviewed bundles under:
