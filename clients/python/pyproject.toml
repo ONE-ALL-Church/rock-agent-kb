@@ -1,10 +1,12 @@
 [project]
 name = "rock-kb"
-version = "0.5.1"
+version = "0.6.0"
 description = "Thin CLI client for the public Rock RMS agent knowledge base."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pyyaml>=6.0.1",
+]
 
 [project.scripts]
 rock-kb = "rock_kb_client.cli:main"

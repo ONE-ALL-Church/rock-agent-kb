@@ -10,6 +10,7 @@ from urllib import error, request
 
 from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
+from .okf import download_okf, inspect_okf, validate_okf
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
 
@@ -99,6 +100,18 @@ def main(argv: list[str] | None = None) -> int:
     add_token_options(submit)
 
     subparsers.add_parser("mcp-config")
+
+    okf = subparsers.add_parser("okf")
+    okf_subparsers = okf.add_subparsers(dest="okf_command", required=True)
+    okf_download = okf_subparsers.add_parser("download")
+    okf_download.add_argument("--version", default="latest", help="Release version or 'latest'.")
+    okf_download.add_argument("--format", choices=["zip", "tar.gz"], default="zip")
+    okf_download.add_argument("--destination", type=Path)
+    okf_download.add_argument("--force", action="store_true")
+    okf_inspect = okf_subparsers.add_parser("inspect")
+    okf_inspect.add_argument("bundle", type=Path)
+    okf_validate = okf_subparsers.add_parser("validate")
+    okf_validate.add_argument("bundle", type=Path)
 
     install_agent = subparsers.add_parser("install-agent")
     install_agent.add_argument("--agent", action="append", choices=[*SUPPORTED_AGENTS, "all"], help="Agent host to configure. Repeat for multiple hosts; defaults to detected hosts.")
@@ -195,6 +208,23 @@ def main(argv: list[str] | None = None) -> int:
                 }
             }
         )
+    if args.command == "okf":
+        if args.okf_command == "download":
+            return print_json(
+                download_okf(
+                    version=args.version,
+                    archive_format=args.format,
+                    destination=args.destination,
+                    force=bool(args.force),
+                    user_agent=USER_AGENT,
+                )
+            )
+        if args.okf_command == "inspect":
+            return print_json(inspect_okf(args.bundle))
+        if args.okf_command == "validate":
+            report = validate_okf(args.bundle)
+            print_json(report)
+            return 0 if report["status"] == "ok" else 1
     if args.command == "install-agent":
         agents = selected_agents(args.agent, args.home)
         report = install_agents(

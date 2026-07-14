@@ -130,12 +130,13 @@ uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export
 uv run kb publish okf
+uv run kb publish okf-validate data/okf-export
 uv run kb report refresh
 uv run kb report dashboard
 uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 ```
 
-`kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates a separate ignored typed-Markdown projection under `data/okf-export/` for Open Knowledge Format consumers; it does not replace or rewrite canonical KB files.
+`kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates the complete read-only Open Knowledge Format v0.1 distribution under ignored `data/okf-export/`; `--archive-dir` adds versioned ZIP, tarball, and checksum assets. It does not replace or rewrite canonical KB files. Use `kb publish okf-validate` to verify conformance, checksums, links, and public-safety boundaries.
 
 `kb hybrid-shadow` builds the ignored, stratified contextual retrieval payload and reports its estimated embedding cost. Add `--apply` only from an authenticated maintainer environment to create or resume the isolated Cloudflare AI Search pilot, wait for indexing, and write the full evaluation to `service/dist/hybrid-shadow-results.json`. This command does not alter production Worker routing; promote hybrid retrieval only after its curated MRR, recall, authority, duplicate, latency, and cost results beat the corrected lexical baseline.
 
