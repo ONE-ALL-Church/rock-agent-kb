@@ -6,6 +6,22 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-07-14
+
+### Added
+
+- Structured `kb_report_issue`, `POST /issues/report`, and `rock-kb
+  report-issue` surfaces for service, MCP, CLI, schema, authentication, and
+  retrieval failures, with stable report IDs and dashboard triage.
+- Deterministic issue deduplication, occurrence counts, projection/client
+  context, public-safety validation, redaction attestation, bounded payloads,
+  and Cloudflare plus D1 rate limits.
+
+### Decision
+
+- `kb_feedback` remains fixed result-quality feedback. Issue reports remain
+  pending review and cannot create GitHub issues automatically.
+
 ## [0.7.0] - 2026-07-14
 
 ### Added

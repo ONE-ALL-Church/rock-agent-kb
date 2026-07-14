@@ -10,7 +10,7 @@ from typing import Any, Callable
 
 
 SCHEMA = "rock-kb-network-operations-smoke-v1"
-EXPECTED_MCP_TOOLS = {"kb_search", "kb_get_claims", "kb_submit", "kb_review_dashboard"}
+EXPECTED_MCP_TOOLS = {"kb_search", "kb_get_claims", "kb_submit", "kb_review_dashboard", "kb_report_issue"}
 
 
 def main(argv: list[str]) -> int:

@@ -21,7 +21,7 @@ class SmokeHandler(BaseHTTPRequestHandler):
         elif self.path == "/manifest.json":
             self.write_json({"schema": "manifest"})
         elif self.path == "/operations/dashboard":
-            self.write_json({"schema": "rock-kb-operations-dashboard-v1"})
+            self.write_json({"schema": "rock-kb-operations-dashboard-v2", "issue_reports": {"pending_review_count": 0}})
         else:
             self.send_response(404)
             self.end_headers()
@@ -41,6 +41,7 @@ class SmokeHandler(BaseHTTPRequestHandler):
                             {"name": "kb_get_claims"},
                             {"name": "kb_submit"},
                             {"name": "kb_review_dashboard"},
+                            {"name": "kb_report_issue"},
                         ]
                     },
                 }

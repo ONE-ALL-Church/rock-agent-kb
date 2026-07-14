@@ -86,6 +86,15 @@ def main(argv: list[str] | None = None) -> int:
     feedback.add_argument("--rating", type=int, choices=[-1, 1], required=True)
     feedback.add_argument("--reason", choices=["helpful", "outdated", "missing", "incorrect", "wrong_route"], required=True)
 
+    report_issue = subparsers.add_parser("report-issue", help="Report a structured Rock KB malfunction for maintainer review.")
+    report_issue.add_argument("--failure-type", choices=["service", "mcp", "cli", "schema", "authentication", "retrieval"], required=True)
+    report_issue.add_argument("--operation", required=True, help="Short operation identifier, such as search or mcp_tool_call.")
+    report_issue.add_argument("--error-code", required=True, help="Short structured error code; do not paste an error message.")
+    report_issue.add_argument("--description", required=True, help="Short redacted summary; never include logs, queries, secrets, or private Rock data.")
+    report_issue.add_argument("--result-id", help="Optional public Rock KB result ID.")
+    report_issue.add_argument("--http-status", type=int, help="Optional HTTP status from 100 through 599.")
+    report_issue.add_argument("--redaction-attested", action="store_true", required=True, help="Attest that the description contains no logs, queries, secrets, or private Rock data.")
+
     validate = subparsers.add_parser("validate")
     validate.add_argument("bundle", type=Path)
 
@@ -173,6 +182,19 @@ def main(argv: list[str] | None = None) -> int:
         return print_json(get_json(f"{base_url}/operations/dashboard"))
     if args.command == "feedback":
         return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
+    if args.command == "report-issue":
+        payload = {
+            "failure_type": args.failure_type,
+            "operation": args.operation,
+            "error_code": args.error_code,
+            "description": args.description,
+            "redaction_attested": bool(args.redaction_attested),
+        }
+        if args.result_id:
+            payload["result_id"] = args.result_id
+        if args.http_status is not None:
+            payload["http_status"] = args.http_status
+        return print_json(post_json(f"{base_url}/issues/report", payload))
     if args.command == "validate":
         errors = validate_bundle(args.bundle)
         if errors:
@@ -302,7 +324,7 @@ def get_json(url: str):
 
 
 def get_text(url: str) -> str:
-    req = request.Request(url, headers={"user-agent": USER_AGENT, "x-rock-kb-client": "cli"})
+    req = request.Request(url, headers={"user-agent": USER_AGENT, "x-rock-kb-client": "cli", "x-rock-kb-client-version": package_version()})
     with request.urlopen(req) as response:
         return response.read().decode("utf-8")
 
@@ -317,6 +339,7 @@ def post_json(url: str, payload: dict, token: str = ""):
             "content-type": "application/json",
             "user-agent": USER_AGENT,
             "x-rock-kb-client": "cli",
+            "x-rock-kb-client-version": package_version(),
             "accept": "application/json",
         },
     )

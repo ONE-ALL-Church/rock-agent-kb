@@ -119,6 +119,7 @@ Use these commands for specific jobs:
 - `recipe <recipe-id>`: fetch the full structured recipe before adapting code.
 - `recipe verify <recipe-id> [--rock-version <version>]`: check immutable file hashes and declared compatibility without executing recipe code.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
+- `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
 - `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
@@ -167,12 +168,23 @@ tools instead of shell commands:
   version without executing community code.
 - `kb_feedback`: record a fixed rating and reason for an exact result. Never put
   private data into feedback.
+- `kb_report_issue`: report a service, MCP, CLI, schema, authentication, or
+  retrieval malfunction. Send only structured fields and a short generic
+  redaction-attested description. Never send a query, prompt, raw request or
+  response, log, stack trace, secret, private path, person data, or private Rock
+  identifier. Keep `kb_feedback` for incorrect, outdated, missing, or misrouted
+  knowledge.
 - `kb_review_dashboard`: check public review queues, conflicts, community
-  intake, hosted evaluation, and telemetry counts.
+  intake, issue reports, hosted evaluation, and telemetry counts.
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
 
 Use MCP for agent-native tool access when available. Use the CLI for terminal
 agents, local testing, and environments without HTTP MCP support.
+
+When reporting a KB malfunction, retain the returned stable `report_id` for
+maintainer follow-up. Repeated failures deduplicate and increment an occurrence
+count. Reports remain pending review and do not create GitHub issues
+automatically.
 
 ## Read Workflow
 
