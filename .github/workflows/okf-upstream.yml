@@ -1,0 +1,17 @@
+name: Monitor OKF Upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 15 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  check-spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check pinned OKF specification
+        run: python3 scripts/check_okf_upstream.py

@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     permissions:
+      attestations: write
       contents: write
       id-token: write
     env:
@@ -48,12 +49,36 @@ jobs:
         run: uv run kb quality-gate
       - name: Build and validate OKF distribution
         working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           version="${RELEASE_TAG#rock-kb-v}"
           commit="$(git rev-parse HEAD)"
-          uv run kb publish okf --version "${version}" --source-commit "${commit}" --archive-dir release-assets
+          export SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)"
+          mkdir -p previous-okf release-assets
+          gh release download --repo "${GITHUB_REPOSITORY}" --pattern 'rock-agent-kb-okf-v*.zip' --dir previous-okf || true
+          gh release download --repo "${GITHUB_REPOSITORY}" --pattern 'rock-agent-kb-okf-core-v*.zip' --dir previous-okf || true
+          full_previous=()
+          core_previous=()
+          full_path="$(find previous-okf -maxdepth 1 -name 'rock-agent-kb-okf-v*.zip' -print -quit)"
+          core_path="$(find previous-okf -maxdepth 1 -name 'rock-agent-kb-okf-core-v*.zip' -print -quit)"
+          test -z "${full_path}" || full_previous=(--previous-bundle "${full_path}")
+          test -z "${core_path}" || core_previous=(--previous-bundle "${core_path}")
+          uv run kb publish okf --profile full --version "${version}" --source-commit "${commit}" --archive-dir release-assets "${full_previous[@]}"
+          uv run kb publish okf --profile core --destination data/okf-export-core --version "${version}" --source-commit "${commit}" --archive-dir release-assets "${core_previous[@]}"
           uv run kb publish okf-validate data/okf-export
-          uv run --project clients/python rock-kb okf validate "release-assets/rock-agent-kb-okf-v${version}.zip"
+          uv run kb publish okf-validate data/okf-export-core
+          uv run --project clients/python rock-kb okf conformance "release-assets/rock-agent-kb-okf-v${version}.zip"
+          uv run --project clients/python rock-kb okf verify "release-assets/rock-agent-kb-okf-v${version}.zip"
+          uv run --project clients/python rock-kb okf conformance "release-assets/rock-agent-kb-okf-core-v${version}.zip"
+          uv run --project clients/python rock-kb okf verify "release-assets/rock-agent-kb-okf-core-v${version}.zip"
+          uv run python scripts/validate_okf_reference_interop.py data/okf-export-core
+      - name: Attest OKF release archives
+        uses: actions/attest@v4
+        with:
+          subject-path: |
+            release-assets/*.zip
+            release-assets/*.tar.gz
       - name: Build package
         run: uv build
       - name: Smoke test wheel

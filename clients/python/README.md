@@ -8,15 +8,17 @@ The published client is available from PyPI as `rock-kb`.
 
 ## Open Knowledge Format
 
-Download, inspect, and validate the complete read-only OKF release without cloning the repository:
+Download, inspect, and verify full or compact core read-only OKF releases without cloning the repository:
 
 ```bash
 uvx rock-kb okf download
 uvx rock-kb okf inspect rock-agent-kb-okf-vX.Y.Z.zip
-uvx rock-kb okf validate rock-agent-kb-okf-vX.Y.Z.zip
+uvx rock-kb okf conformance third-party-okf.zip
+uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
+uvx rock-kb okf download --profile core
 ```
 
-Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` with `okf download`. Downloaded archives are checksum-verified against the GitHub release. The client does not import OKF into trusted Rock KB knowledge.
+Use `--profile full|core`, `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` with `okf download`. Downloads require published SHA-256 evidence. `conformance` handles generic OKF bundles; `verify` applies Rock release integrity and safety rules. The client does not import OKF into trusted knowledge.
 
 For one-off use, run it with `uvx`. `uvx` is part of the `uv` Python toolchain;
 it downloads or reuses a cached copy of the package and runs the command in an
