@@ -176,7 +176,9 @@ tools instead of shell commands:
   not proof of cause, fix, or local applicability. Exact results may include
   `reviewed_enrichments`; evaluate each enrichment's diagnosis status, claim
   tier, authority, confidence, citations, and version assertions separately
-  from the unreviewed upstream report.
+  from the unreviewed upstream report. If an assessment returns
+  `revalidation_due_enrichment_ids`, do not rely on those enrichments for
+  applicability until a replacement review is published.
 - `kb_assess_rock_issues`: compare issue version evidence with a bounded
   structured profile. Never send logs, queries, identifiers, secrets, or person
   data.

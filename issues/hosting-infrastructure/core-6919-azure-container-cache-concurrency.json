@@ -1,0 +1,48 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6919-azure-container-cache-concurrency-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6919",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Public Rock 19.2 source uses a shared mutable Dictionary cache in the static AzureBlobStorageClient and performs a ContainsKey/Add sequence without visible synchronization. Microsoft documents that Dictionary requires caller synchronization when reads and writes can overlap. This supports a concurrency defect in the Azure-backed BinaryFile path, but it does not by itself prove that the reported 100 percent CPU incident or a specific call stack had this cause; the upstream issue remains open without a recorded fix.",
+  "workaround_summaries": [],
+  "applicability": [
+    {
+      "assertion_id": "core-6919-under-investigation-19.2.0",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.2",
+      "context": {
+        "scope": "Azure-backed BinaryFile storage under concurrent first-use cache access; reported incident still requires reproduction"
+      },
+      "versions": ["19.2.0"],
+      "ranges": [],
+      "status": "under_investigation",
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6919",
+        "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Common/AzureBlobStorageClient.cs#L31-L80",
+        "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Provider/AzureBlobStorage.cs#L131-L209",
+        "https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netframework-4.8.1#thread-safety"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-15T20:34:20Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6919",
+    "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Common/AzureBlobStorageClient.cs#L31-L80",
+    "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Provider/AzureBlobStorage.cs#L131-L209",
+    "https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netframework-4.8.1#thread-safety"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "medium",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-14T19:15:18Z",
+  "reviewed_at": "2026-07-15T20:34:20Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "7bf8db4accc9499292873a337e2d745c9a7f744e7be8697455a34b3fcf144e69",
+  "catalog_content_hash": "11a92f5fad8bb1d1c4773ab941a5c8b96886dd6a1ce09b206cca5e58141d3a7a",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 127,
@@ -19,7 +19,20 @@
     "SparkDevNetwork/Rock": 5671,
     "SparkDevNetwork/Rock.Mobile-Issues": 127
   },
-  "reviewed_enrichment_count": 0,
+  "reviewed_enrichment_count": 4,
+  "reviewed_enrichment_metrics": {
+    "confidences": {
+      "high": 3,
+      "medium": 1
+    },
+    "diagnosis_statuses": {
+      "maintainer_confirmed": 1,
+      "source_supported": 3
+    },
+    "issue_count": 4,
+    "revalidation_due_count": 0,
+    "revalidation_due_enrichment_ids": []
+  },
   "routing": {
     "average_concepts_per_issue": 1.29,
     "basis_counts": {
@@ -36,9 +49,9 @@
     "open": 9
   },
   "timeline_coverage": {
-    "complete": 68,
-    "not_fetched": 5730,
-    "percent_complete": 1.17
+    "complete": 70,
+    "not_fetched": 5728,
+    "percent_complete": 1.21
   },
   "top_concepts": {
     "api-integrations": 105,

@@ -115,6 +115,7 @@ uv run kb sources freshness --strict
 
 ```bash
 GITHUB_TOKEN="$(gh auth token)" uv run kb issues sync --full
+GITHUB_TOKEN="$(gh auth token)" uv run kb issues sync --timeline-backfill-limit 0 --timeline-issue 6917 --timeline-issue mobile:128
 uv run kb issues validate
 uv run kb issues list --repository core --state open --version 19.2
 uv run kb issues get 6919

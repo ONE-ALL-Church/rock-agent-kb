@@ -854,7 +854,7 @@
   "recipe_count": 4,
   "release_caveat_count": 166,
   "rock_issue_count": 5798,
-  "rock_issue_enrichment_count": 0,
+  "rock_issue_enrichment_count": 4,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {
     "eligible_record_count": 5566,

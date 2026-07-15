@@ -1,0 +1,35 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6040-one-click-unsubscribe-surface-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6040",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Rock's public issue discussion and 16.6 source distinguish the unsubscribe link placed in a message footer from the email-client one-click control presented near message headers. The footer is a browser GET to Rock's preference experience, while one-click is carried in List-Unsubscribe headers and handled as a POST. Rock 16.3 release notes separately record one-click support, Email Preference Entry behavior for one-click requests, and the fix tracked by issue 5770. Issue 6040 itself was closed as clarification, not as a confirmed defect or fixed-version claim.",
+  "workaround_summaries": [
+    "When validating one-click unsubscribe, inspect the delivered message's List-Unsubscribe and List-Unsubscribe-Post headers and the receiving email client's native control separately from the footer link. Do not make a browser GET auto-unsubscribe, because automated link scanners can issue GET requests."
+  ],
+  "applicability": [],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6040",
+    "https://github.com/SparkDevNetwork/Rock/issues/6040#issuecomment-2417683447",
+    "https://github.com/SparkDevNetwork/Rock/issues/6040#issuecomment-2417837916",
+    "https://github.com/SparkDevNetwork/Rock/issues/5770",
+    "https://github.com/SparkDevNetwork/Rock/blob/1.16.6/Rock/Communication/Medium/Email.cs#L35-L92",
+    "https://github.com/SparkDevNetwork/Rock/blob/1.16.6/Rock/Communication/EmailTransportComponent.cs#L966-L1063",
+    "https://github.com/SparkDevNetwork/Rock/blob/1.16.6/Rock.Blocks/Communication/EmailPreferenceEntry.cs#L262-L321",
+    "https://www.rfc-editor.org/info/rfc8058",
+    "https://www.rockrms.com/releasenotes",
+    "rock_core_release_notes:44454c79b8cb0c37",
+    "rock_core_release_notes:872a0d0f13553f9d",
+    "rock_core_release_notes:01a3b88275961295"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2024-10-16T20:18:54Z",
+  "reviewed_at": "2026-07-15T20:34:20Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}
