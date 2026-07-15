@@ -1,0 +1,74 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6917-css-import-query-string-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6917",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "The linked closing commit shows that CssProcessor passed the full CSS @import URL, including its query string, into filesystem path resolution. A preceding stock-theme change introduced query-stamped local Tabler CSS imports, and the public 19.3.1-alpha tag is the parent of the fix. The fix resolves the file with the query removed while preserving the original query when rebuilding the browser URL. Rock labels the issue for the 19.3 release line, but no later public package was available at review time to prove exact build inclusion.",
+  "workaround_summaries": [
+    "Use a Rock build that contains commit aae87fcb73df28c84caa91d3a1e7e390dc6059a7, then verify a representative classic check-in page whose imported CSS URL includes a query string."
+  ],
+  "applicability": [
+    {
+      "assertion_id": "core-6917-affected-19.3.1-alpha",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "stock classic themes containing query-stamped local Tabler CSS imports"
+      },
+      "versions": ["19.3.1-alpha"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6917",
+        "https://github.com/SparkDevNetwork/Rock/commit/1291dc2dd2f8bbf89596d3c812346a04bed041fe",
+        "https://github.com/SparkDevNetwork/Rock/releases/tag/19.3.1-alpha",
+        "https://github.com/SparkDevNetwork/Rock/commit/aae87fcb73df28c84caa91d3a1e7e390dc6059a7"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-15T20:34:20Z"
+    },
+    {
+      "assertion_id": "core-6917-fixed-by-commit-aae87fc",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact source revision; release package inclusion remains unproven"
+      },
+      "versions": ["aae87fcb73df28c84caa91d3a1e7e390dc6059a7"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/aae87fcb73df28c84caa91d3a1e7e390dc6059a7"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6917",
+        "https://github.com/SparkDevNetwork/Rock/commit/aae87fcb73df28c84caa91d3a1e7e390dc6059a7"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-15T20:34:20Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6917",
+    "https://github.com/SparkDevNetwork/Rock/commit/1291dc2dd2f8bbf89596d3c812346a04bed041fe",
+    "https://github.com/SparkDevNetwork/Rock/releases/tag/19.3.1-alpha",
+    "https://github.com/SparkDevNetwork/Rock/compare/19.3.1-alpha...hotfix-19.3",
+    "https://github.com/SparkDevNetwork/Rock/commit/aae87fcb73df28c84caa91d3a1e7e390dc6059a7"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-14T22:33:30Z",
+  "reviewed_at": "2026-07-15T20:34:20Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

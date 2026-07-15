@@ -975,9 +975,16 @@ function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord): JsonRecord 
     ? issue.version_evidence.map(asRecord).filter((row) => row.component === component)
     : [];
   const reviewedAssertions: JsonRecord[] = [];
-  if (targetVersion && Array.isArray(issue.reviewed_enrichments)) {
+  const revalidationDueEnrichmentIds: string[] = [];
+  if (Array.isArray(issue.reviewed_enrichments)) {
     for (const rawEnrichment of issue.reviewed_enrichments) {
       const enrichment = asRecord(rawEnrichment);
+      if (!enrichment.issue_updated_at || String(enrichment.issue_updated_at) !== String(issue.updated_at || "")) {
+        const enrichmentId = String(enrichment.enrichment_id || "");
+        if (enrichmentId) revalidationDueEnrichmentIds.push(enrichmentId);
+        continue;
+      }
+      if (!targetVersion) continue;
       if (!Array.isArray(enrichment.applicability)) continue;
       for (const rawAssertion of enrichment.applicability) {
         const assertion = asRecord(rawAssertion);
@@ -1048,6 +1055,7 @@ function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord): JsonRecord 
     fixed_release_lines: Array.from(new Set(fixed.map((row) => String(row.version_line || "")).filter(Boolean))).sort(),
     fix_target_relations: fixTargetRelations,
     reviewed_assertion_ids: reviewedAssertions.map((row) => String(row.assertion_id || "")).filter(Boolean).sort(),
+    revalidation_due_enrichment_ids: Array.from(new Set(revalidationDueEnrichmentIds)).sort(),
     needs_live_verification: applicability !== "not_applicable",
   };
 }

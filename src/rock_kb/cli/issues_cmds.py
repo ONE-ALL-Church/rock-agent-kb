@@ -39,6 +39,11 @@ def sync_command(
         max=2000,
         help="Also fetch this many oldest issue timelines that have never been captured.",
     ),
+    timeline_issue: list[str] = typer.Option(
+        [],
+        "--timeline-issue",
+        help="Refresh only this exact current/transferred issue timeline; repeat for more refs.",
+    ),
 ) -> None:
     """Refresh the public-safe upstream issue catalog through GitHub's API."""
     print_json(
@@ -46,6 +51,7 @@ def sync_command(
             full=full,
             timeline_days=timeline_days,
             timeline_backfill_limit=timeline_backfill_limit,
+            timeline_issue_refs=timeline_issue,
         )
     )
 

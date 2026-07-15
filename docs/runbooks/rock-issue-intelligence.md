@@ -26,6 +26,7 @@ This surface is separate from `kb_report_issue`. Use `kb_report_issue` when the 
 
 ```bash
 GITHUB_TOKEN="$(gh auth token)" uv run kb issues sync --full
+GITHUB_TOKEN="$(gh auth token)" uv run kb issues sync --timeline-backfill-limit 0 --timeline-issue 6917 --timeline-issue mobile:128
 uv run kb issues validate
 uv run kb issues list --state open --version 19.3
 uv run kb issues get 6917
@@ -35,7 +36,7 @@ uv run kb issues assemble 6917 data/review/rock-issues/workers/*.json
 uv run kb issues assess instance-profile.json
 ```
 
-Every refresh cursor-paginates and count-reconciles the complete metadata catalog. Timelines are fetched only for changed current issues plus a bounded historical backfill; `--full` expands that backfill. Daily automation updates a rolling pull request only when tracked artifacts change.
+Every refresh cursor-paginates and count-reconciles the complete metadata catalog. Timelines are fetched only for changed current issues plus a bounded historical backfill; `--full` expands that backfill. Supplying one or more `--timeline-issue` values switches timeline fetching to only those current or transferred issue locations, even when their cached timelines are already complete. Daily automation updates a rolling pull request only when tracked artifacts change.
 
 Scheduled refreshes set historical backfill to zero so an unmerged automation
 branch does not repeatedly fetch the same old timelines. Use the default local
@@ -99,6 +100,8 @@ uv run kb issues validate
 
 The sync validates each tracked enrichment, writes the canonical generated projection to `agent/rock-issue-enrichments.jsonl`, and joins it into the existing issue result. It does not create another issue search row.
 
+`agent/rock-issue-summary.json` and `/operations/dashboard` also report the number of reviewed issues, diagnosis/confidence counts, and a revalidation queue. Every enrichment records the exact upstream `issue_updated_at` revision it reviewed. If that revision no longer matches, the enrichment enters the queue and its applicability assertions are ignored by Python and Worker assessments until a replacement review is promoted.
+
 Required trust fields include `diagnosis_status`, `authority_tier`, `claim_tier`, `confidence`, public `source_refs`, reviewer identity, review time, and both redaction and license attestations. A hypothesis must remain `routing_context_only`; a source-supported conclusion must use a source-backed claim tier. Applicability assertions must name the Rock component, exact versions or bounded ranges, evidence references, and a positive justification for `not_affected`.
 
 ```json
@@ -121,6 +124,7 @@ Required trust fields include `diagnosis_status`, `authority_tier`, `claim_tier`
   "confidence": "medium",
   "review_status": "approved_for_public_distillation",
   "reviewer": "github-handle",
+  "issue_updated_at": "2026-07-14T22:33:30Z",
   "reviewed_at": "2026-07-15T00:00:00Z",
   "redaction_attestation": true,
   "license_attestation": true

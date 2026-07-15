@@ -19,6 +19,9 @@ tags and follow semantic versioning for public client and service contracts.
 - Private orchestrator-worker review packets, public-safe enrichment schemas,
   scheduled metadata refresh, D1 projections, and full-profile OKF issue
   records.
+- First reviewed public enrichments for a source-confirmed check-in CSS failure,
+  Azure Blob cache concurrency risk, one-click unsubscribe behavior, and a
+  next-generation check-in security duplicate.
 
 ### Changed
 
@@ -28,6 +31,9 @@ tags and follow semantic versioning for public client and service contracts.
 - Product issue reports remain `community-unreviewed` routing evidence;
   reporter versions, fix labels, release notes, closure state, and reviewed
   applicability conclusions remain separate evidence.
+- Maintainers can request exact issue timelines, see enrichment coverage and
+  upstream-change revalidation counts, and safely validate the expanded full
+  OKF distribution under a 50,000-entry archive ceiling.
 
 ### Decision
 

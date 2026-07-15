@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 
 import pytest
 
@@ -10,6 +11,7 @@ from rock_kb.rock_issues import (
     assemble_investigation_packet,
     assess_issue,
     attach_issue_enrichments,
+    build_reviewed_enrichment_metrics,
     build_reviewed_issue_enrichments,
     find_issue_row,
     graphql_issue_to_raw,
@@ -18,11 +20,13 @@ from rock_kb.rock_issues import (
     parse_issue_ref,
     parse_markdown_sections,
     route_issue,
+    select_timeline_targets,
     validate_instance_profile,
     validate_rock_issue_rows,
     validate_worker_results,
 )
 from rock_kb.service_projection import build_d1_seed_sql, rock_issue_search_rows
+from rock_kb.schemas.rock_issue import RockIssueReviewedEnrichment
 
 
 def core_issue() -> tuple[dict, list[dict]]:
@@ -155,6 +159,76 @@ def test_issue_investigation_plan_separates_private_worker_and_disables_writes()
     private = next(task for task in plan["tasks"] if task["role"] == "instance_investigator")
     assert private["visibility"] == "private_only"
     assert all(task["permission"] == "read_only" for task in plan["tasks"])
+
+
+def test_timeline_selection_can_target_exact_core_and_mobile_issues():
+    raw_rows = [
+        (
+            "SparkDevNetwork/Rock",
+            {
+                "node_id": "I_core",
+                "number": 6917,
+                "state": "closed",
+                "created_at": "2026-07-14T14:00:00Z",
+                "updated_at": "2026-07-14T22:33:30Z",
+            },
+        ),
+        (
+            "SparkDevNetwork/Rock.Mobile-Issues",
+            {
+                "node_id": "I_mobile",
+                "number": 128,
+                "state": "closed",
+                "created_at": "2026-03-06T00:00:00Z",
+                "updated_at": "2026-07-13T18:34:17Z",
+            },
+        ),
+        (
+            "SparkDevNetwork/Rock",
+            {
+                "node_id": "I_unrelated",
+                "number": 6920,
+                "state": "open",
+                "created_at": "2026-07-15T00:00:00Z",
+                "updated_at": "2026-07-15T01:00:00Z",
+            },
+        ),
+    ]
+    existing = {
+        "I_core": {"timeline_status": "complete", "timeline_updated_through": "2026-07-14T22:33:30Z"},
+        "I_mobile": {
+            "timeline_status": "complete",
+            "timeline_updated_through": "2026-07-13T18:34:17Z",
+            "location_aliases": ["SparkDevNetwork/Chat-Issues#128"],
+        },
+    }
+
+    targets = select_timeline_targets(
+        raw_rows,
+        existing,
+        timeline_days=1,
+        timeline_backfill_limit=0,
+        timeline_issue_refs=["6917", "mobile:128"],
+        now=datetime(2026, 7, 15, tzinfo=timezone.utc),
+    )
+
+    assert set(targets) == {"I_core", "I_mobile"}
+
+    alias_target = select_timeline_targets(
+        raw_rows,
+        existing,
+        timeline_issue_refs=["https://github.com/SparkDevNetwork/Chat-Issues/issues/128"],
+        now=datetime(2026, 7, 15, tzinfo=timezone.utc),
+    )
+    assert set(alias_target) == {"I_mobile"}
+
+    with pytest.raises(ValueError, match="not found"):
+        select_timeline_targets(
+            raw_rows,
+            existing,
+            timeline_backfill_limit=0,
+            timeline_issue_refs=["999999"],
+        )
 
 
 def test_worker_results_are_typed_revision_bound_and_assembled_for_review():
@@ -418,6 +492,7 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
         "confidence": "high",
         "review_status": "approved_for_public_distillation",
         "reviewer": "fixture-reviewer",
+        "issue_updated_at": issue["updated_at"],
         "reviewed_at": "2026-07-15T00:00:00Z",
         "redaction_attestation": True,
         "license_attestation": True,
@@ -443,6 +518,30 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
     assert search_rows[0]["payload"]["reviewed_enrichments"][0]["enrichment_id"] == payload["enrichment_id"]
     assert payload["diagnosis_summary"] in search_rows[0]["body"]
 
+    current_metrics = build_reviewed_enrichment_metrics([issue], enrichments)
+    assert current_metrics["reviewed_enrichment_count"] == 1
+    assert current_metrics["reviewed_enrichment_metrics"] == {
+        "issue_count": 1,
+        "diagnosis_statuses": {"source_supported": 1},
+        "confidences": {"high": 1},
+        "revalidation_due_count": 0,
+        "revalidation_due_enrichment_ids": [],
+    }
+
+    stale_issue = {**issue, "updated_at": "2026-07-16T00:00:00Z"}
+    stale_metrics = build_reviewed_enrichment_metrics([stale_issue], enrichments)
+    assert stale_metrics["reviewed_enrichment_metrics"]["revalidation_due_count"] == 1
+    assert stale_metrics["reviewed_enrichment_metrics"]["revalidation_due_enrichment_ids"] == [
+        "rock_issue_enrichment:core-6917-v1"
+    ]
+    stale_assessment = assess_issue(
+        attach_issue_enrichments(stale_issue, {issue["issue_id"]: enrichments}),
+        {"core_version": "19.3.1"},
+    )
+    assert stale_assessment["applicability"] == "likely"
+    assert stale_assessment["reviewed_assertion_ids"] == []
+    assert stale_assessment["revalidation_due_enrichment_ids"] == ["rock_issue_enrichment:core-6917-v1"]
+
 
 def test_hypothesis_enrichment_cannot_be_promoted_as_source_backed(monkeypatch, tmp_path):
     raw, timeline = core_issue()
@@ -461,6 +560,7 @@ def test_hypothesis_enrichment_cannot_be_promoted_as_source_backed(monkeypatch, 
         "confidence": "low",
         "review_status": "approved_for_public_distillation",
         "reviewer": "fixture-reviewer",
+        "issue_updated_at": issue["updated_at"],
         "reviewed_at": "2026-07-15T00:00:00Z",
         "redaction_attestation": True,
         "license_attestation": True,
@@ -471,3 +571,28 @@ def test_hypothesis_enrichment_cannot_be_promoted_as_source_backed(monkeypatch, 
 
     with pytest.raises(ValueError, match="routing_context_only"):
         rock_issues.load_reviewed_issue_enrichments({issue["issue_id"]})
+
+
+def test_reviewed_enrichment_requires_revision_bound_rfc3339_timestamps():
+    payload = {
+        "schema": "rock-kb-rock-issue-enrichment-v1",
+        "enrichment_id": "rock_issue_enrichment:fixture-timestamps-v1",
+        "issue_id": "rock_issue:SparkDevNetwork/Rock#6917",
+        "diagnosis_status": "source_supported",
+        "diagnosis_summary": "A bounded fixture diagnosis.",
+        "source_refs": ["https://github.com/SparkDevNetwork/Rock/issues/6917"],
+        "claim_tier": "source_backed",
+        "confidence": "medium",
+        "review_status": "approved_for_public_distillation",
+        "reviewer": "fixture-reviewer",
+        "issue_updated_at": "2026-07-14T22:33:30Z",
+        "reviewed_at": "2026-07-15T00:00:00Z",
+        "redaction_attestation": True,
+        "license_attestation": True,
+    }
+
+    assert RockIssueReviewedEnrichment.model_validate(payload).issue_updated_at == "2026-07-14T22:33:30Z"
+    with pytest.raises(ValueError, match="RFC 3339"):
+        RockIssueReviewedEnrichment.model_validate({**payload, "reviewed_at": "not-a-date"})
+    with pytest.raises(ValueError, match="cannot be in the future"):
+        RockIssueReviewedEnrichment.model_validate({**payload, "reviewed_at": "2099-01-01T00:00:00Z"})

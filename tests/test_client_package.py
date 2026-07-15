@@ -401,6 +401,18 @@ def test_client_okf_archive_limits_and_duplicate_paths(monkeypatch, tmp_path):
     else:
         raise AssertionError("oversized archive entry was accepted")
 
+    monkeypatch.setattr(okf, "MAX_ARCHIVE_ENTRIES", 1)
+    too_many_entries = tmp_path / "too-many-entries.zip"
+    with zipfile.ZipFile(too_many_entries, "w") as archive:
+        archive.writestr("root/index.md", "index")
+        archive.writestr("root/knowledge.md", "knowledge")
+    try:
+        okf.read_bundle(too_many_entries)
+    except ValueError as exc:
+        assert "maximum is 1" in str(exc)
+    else:
+        raise AssertionError("archive entry-count limit was not enforced")
+
 
 def test_client_okf_download_selects_release_asset_and_verifies_checksum(monkeypatch, tmp_path):
     load_client_cli()

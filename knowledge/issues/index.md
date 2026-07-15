@@ -6,9 +6,11 @@ This directory routes agents to public Rock core and mobile issue metadata witho
 
 - Issues: `5798`
 - Source updated through: `2026-07-15T19:00:20Z`
-- Timelines captured: `68` (`1.17%`)
+- Timelines captured: `70` (`1.21%`)
 - Issues linked to official release notes: `889`
-- Reviewed public enrichments: `0`
+- Reviewed public enrichments: `4`
+- Reviewed issues: `4`
+- Enrichments due for revalidation after an upstream update: `0`
 - Public artifact: [`agent/rock-issues.jsonl`](../../agent/rock-issues.jsonl)
 - Reviewed enrichments: [`agent/rock-issue-enrichments.jsonl`](../../agent/rock-issue-enrichments.jsonl)
 - Summary: [`agent/rock-issue-summary.json`](../../agent/rock-issue-summary.json)

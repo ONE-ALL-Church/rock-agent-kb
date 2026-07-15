@@ -265,7 +265,7 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     assert.equal(get.status, "ok");
     assert.equal(get.issue.body, undefined);
     assert.equal(get.issue.version_evidence[0].normalized_version, "19.2.0");
-    assert.equal(get.issue.reviewed_enrichments.length, 1);
+    assert.equal(get.issue.reviewed_enrichments.length, 2);
 
     const aliasResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/6000");
     const alias = await aliasResponse.json();
@@ -285,6 +285,7 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     const assessment = await assessResponse.json();
     assert.equal(assessment.results[0].applicability, "possible");
     assert.equal(assessment.results[0].needs_live_verification, true);
+    assert.deepEqual(assessment.results[0].revalidation_due_enrichment_ids, ["rock_issue_enrichment:fixture-6919-stale-v1"]);
 
     const reviewedAssessResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
       method: "POST",
@@ -931,7 +932,23 @@ async function buildWorker(options = {}) {
           ranges: [],
           status: "affected",
         }],
+        issue_updated_at: "2026-07-15T00:00:00Z",
         reviewed_at: "2026-07-15T00:00:00Z",
+      }, {
+        schema: "rock-kb-rock-issue-enrichment-v1",
+        enrichment_id: "rock_issue_enrichment:fixture-6919-stale-v1",
+        issue_id: "rock_issue:SparkDevNetwork/Rock#6919",
+        diagnosis_status: "source_supported",
+        diagnosis_summary: "A stale reviewed fixture diagnosis.",
+        applicability: [{
+          assertion_id: "fixture-fixed-19.2.0",
+          component: "rock_core",
+          versions: ["19.2.0"],
+          ranges: [],
+          status: "fixed",
+        }],
+        issue_updated_at: "2026-07-14T00:00:00Z",
+        reviewed_at: "2026-07-14T01:00:00Z",
       }],
     };
     await db.prepare("INSERT INTO rock_issues VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")

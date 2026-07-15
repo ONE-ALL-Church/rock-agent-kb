@@ -40,6 +40,10 @@ ISSUE_REF_RE = re.compile(
     re.IGNORECASE,
 )
 SHORT_ISSUE_REF_RE = re.compile(r"^(?:(?P<repo>core|mobile)[:#])?#?(?P<number>\d+)$", re.IGNORECASE)
+ISSUE_LOCATION_REF_RE = re.compile(
+    r"^(?:https://github\.com/)?(?P<repository>[^/]+/[^/#]+)(?:/issues/|#)(?P<number>\d+)$",
+    re.IGNORECASE,
+)
 
 TOPIC_CONCEPT_MAP = {
     "api": "api-integrations",
@@ -863,14 +867,88 @@ def load_model_names() -> dict[str, str]:
     return names
 
 
+def select_timeline_targets(
+    raw_rows: Iterable[tuple[str, dict[str, Any]]],
+    existing_by_node: dict[str, dict[str, Any]],
+    *,
+    full: bool = False,
+    timeline_days: int = 120,
+    timeline_backfill_limit: int = 100,
+    timeline_issue_refs: Iterable[str] = (),
+    now: datetime | None = None,
+) -> dict[str, tuple[str, dict[str, Any]]]:
+    rows = list(raw_rows)
+    raw_by_node = {
+        str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}"): (repository, raw)
+        for repository, raw in rows
+    }
+    location_index = {
+        (repository.lower(), int(raw["number"])): (repository, raw)
+        for repository, raw in rows
+    }
+    for node_id, existing in existing_by_node.items():
+        target = raw_by_node.get(node_id)
+        if not target:
+            continue
+        for alias in existing.get("location_aliases") or []:
+            try:
+                location_index.setdefault(parse_issue_location_ref(str(alias)), target)
+            except ValueError:
+                continue
+    requested_locations = {parse_issue_location_ref(value) for value in timeline_issue_refs}
+    missing = sorted(requested_locations - set(location_index))
+    if missing:
+        rendered = ", ".join(f"{repository}#{number}" for repository, number in missing)
+        raise ValueError(f"Requested timeline issues were not found: {rendered}")
+    if requested_locations:
+        return {
+            str(location_index[location][1].get("node_id") or f"legacy:{location_index[location][0]}#{location_index[location][1]['number']}"): location_index[location]
+            for location in sorted(requested_locations)
+        }
+
+    cutoff = (now or datetime.now(timezone.utc)) - timedelta(days=max(1, timeline_days))
+    targets: dict[str, tuple[str, dict[str, Any]]] = {}
+    for repository, raw in rows:
+        node_id = str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}")
+        updated_at = parse_datetime(str(raw.get("updated_at") or ""))
+        previous = existing_by_node.get(node_id)
+        timeline_updated_through = str((previous or {}).get("timeline_updated_through") or "")
+        if not timeline_updated_through and (previous or {}).get("timeline_status") == "complete":
+            timeline_updated_through = str((previous or {}).get("updated_at") or "")
+        recent_or_open = str(raw.get("state") or "") == "open" or bool(updated_at and updated_at >= cutoff)
+        timeline_changed = str(raw.get("updated_at") or "") != timeline_updated_through
+        if recent_or_open and timeline_changed:
+            targets[node_id] = (repository, raw)
+
+    backfill_limit = max(0, timeline_backfill_limit)
+    if full:
+        backfill_limit = max(backfill_limit, 250)
+    backfill_candidates = sorted(
+        (
+            (repository, raw)
+            for repository, raw in rows
+            if str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}") not in targets
+            and (existing_by_node.get(str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}")) or {}).get("timeline_status") != "complete"
+        ),
+        key=lambda item: (str(item[1].get("created_at") or ""), item[0], int(item[1].get("number") or 0)),
+    )
+    for repository, raw in backfill_candidates[:backfill_limit]:
+        node_id = str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}")
+        targets[node_id] = (repository, raw)
+
+    return targets
+
+
 def sync_rock_issues(
     *,
     full: bool = False,
     timeline_days: int = 120,
     timeline_backfill_limit: int = 100,
+    timeline_issue_refs: Iterable[str] = (),
     token: str | None = None,
     repositories: Iterable[str] = tuple(ROCK_ISSUE_REPOSITORIES),
 ) -> dict[str, Any]:
+    requested_timeline_issue_refs = tuple(timeline_issue_refs)
     existing_rows = list(read_jsonl(ROCK_ISSUE_PATH))
     existing_by_node = {str(row.get("github_node_id") or row.get("identity_key") or row.get("issue_id") or ""): row for row in existing_rows}
     client = GitHubIssueClient(token)
@@ -880,34 +958,14 @@ def sync_rock_issues(
         for repository in repositories:
             for raw in client.issues(repository):
                 raw_rows.append((repository, raw))
-        cutoff = datetime.now(timezone.utc) - timedelta(days=max(1, timeline_days))
-        timeline_targets: dict[str, tuple[str, dict[str, Any]]] = {}
-        for repository, raw in raw_rows:
-            node_id = str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}")
-            updated_at = parse_datetime(str(raw.get("updated_at") or ""))
-            previous = existing_by_node.get(node_id)
-            timeline_updated_through = str((previous or {}).get("timeline_updated_through") or "")
-            if not timeline_updated_through and (previous or {}).get("timeline_status") == "complete":
-                timeline_updated_through = str((previous or {}).get("updated_at") or "")
-            recent_or_open = str(raw.get("state") or "") == "open" or bool(updated_at and updated_at >= cutoff)
-            timeline_changed = str(raw.get("updated_at") or "") != timeline_updated_through
-            if recent_or_open and timeline_changed:
-                timeline_targets[node_id] = (repository, raw)
-        backfill_limit = max(0, timeline_backfill_limit)
-        if full:
-            backfill_limit = max(backfill_limit, 250)
-        backfill_candidates = sorted(
-            (
-                (repository, raw)
-                for repository, raw in raw_rows
-                if str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}") not in timeline_targets
-                and (existing_by_node.get(str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}")) or {}).get("timeline_status") != "complete"
-            ),
-            key=lambda item: (str(item[1].get("created_at") or ""), item[0], int(item[1].get("number") or 0)),
+        timeline_targets = select_timeline_targets(
+            raw_rows,
+            existing_by_node,
+            full=full,
+            timeline_days=timeline_days,
+            timeline_backfill_limit=timeline_backfill_limit,
+            timeline_issue_refs=requested_timeline_issue_refs,
         )
-        for repository, raw in backfill_candidates[:backfill_limit]:
-            node_id = str(raw.get("node_id") or f"legacy:{repository}#{raw['number']}")
-            timeline_targets[node_id] = (repository, raw)
         for node_id, (repository, raw) in timeline_targets.items():
             timeline_by_node[node_id] = client.timeline(repository, int(raw["number"]))
             time.sleep(0.03)
@@ -938,7 +996,7 @@ def sync_rock_issues(
     write_jsonl(ROCK_ISSUE_PATH, rows)
     enrichments = build_reviewed_issue_enrichments(rows)
     summary = build_rock_issue_summary(rows)
-    summary["reviewed_enrichment_count"] = len(enrichments)
+    summary.update(build_reviewed_enrichment_metrics(rows, enrichments))
     ROCK_ISSUE_SUMMARY_PATH.write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_rock_issue_guide(summary)
     update_issue_manifest(summary)
@@ -948,6 +1006,7 @@ def sync_rock_issues(
         "metadata_mode": "graphql_cursor_full_count_reconciled",
         "changed_issue_count": changed_issue_count,
         "timeline_fetch_count": len(timeline_by_node),
+        "requested_timeline_issue_count": len({parse_issue_location_ref(value) for value in requested_timeline_issue_refs}),
         "catalog_content_hash": summary["catalog_content_hash"],
     }
     ROCK_ISSUE_CHECKPOINT_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -957,6 +1016,7 @@ def sync_rock_issues(
         "checked_at": checkpoint["checked_at"],
         "changed_issue_count": changed_issue_count,
         "timeline_fetch_count": len(timeline_by_node),
+        "requested_timeline_issue_count": checkpoint["requested_timeline_issue_count"],
         "metadata_mode": checkpoint["metadata_mode"],
     }
 
@@ -1089,6 +1149,38 @@ def attach_issue_enrichments(
     return row
 
 
+def build_reviewed_enrichment_metrics(
+    issue_rows: Iterable[dict[str, Any]],
+    enrichments: Iterable[dict[str, Any]],
+) -> dict[str, Any]:
+    issues_by_id = {
+        str(row.get("issue_id") or ""): row
+        for row in issue_rows
+        if row.get("issue_id")
+    }
+    values = list(enrichments)
+    revalidation_due: list[str] = []
+    for enrichment in values:
+        issue = issues_by_id.get(str(enrichment.get("issue_id") or ""))
+        if issue is None or enrichment_needs_revalidation(issue, enrichment):
+            revalidation_due.append(str(enrichment.get("enrichment_id") or ""))
+
+    diagnosis_statuses = Counter(str(row.get("diagnosis_status") or "") for row in values)
+    confidences = Counter(str(row.get("confidence") or "") for row in values)
+    return {
+        # Retain the scalar for existing clients while exposing review-health
+        # details to the maintainer dashboard through the same summary artifact.
+        "reviewed_enrichment_count": len(values),
+        "reviewed_enrichment_metrics": {
+            "issue_count": len({str(row.get("issue_id") or "") for row in values}),
+            "diagnosis_statuses": dict(sorted(diagnosis_statuses.items())),
+            "confidences": dict(sorted(confidences.items())),
+            "revalidation_due_count": len(revalidation_due),
+            "revalidation_due_enrichment_ids": sorted(revalidation_due),
+        },
+    }
+
+
 def build_rock_issue_summary(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
     values = list(rows)
     by_repo = Counter(str(row.get("repository") or "") for row in values)
@@ -1153,6 +1245,9 @@ def write_rock_issue_guide(summary: dict[str, Any]) -> None:
         f"(`{summary.get('timeline_coverage', {}).get('percent_complete', 0)}%`)",
         f"- Issues linked to official release notes: `{summary.get('release_note_linked_count', 0)}`",
         f"- Reviewed public enrichments: `{summary.get('reviewed_enrichment_count', 0)}`",
+        f"- Reviewed issues: `{summary.get('reviewed_enrichment_metrics', {}).get('issue_count', 0)}`",
+        f"- Enrichments due for revalidation after an upstream update: "
+        f"`{summary.get('reviewed_enrichment_metrics', {}).get('revalidation_due_count', 0)}`",
         "- Public artifact: [`agent/rock-issues.jsonl`](../../agent/rock-issues.jsonl)",
         "- Reviewed enrichments: [`agent/rock-issue-enrichments.jsonl`](../../agent/rock-issue-enrichments.jsonl)",
         "- Summary: [`agent/rock-issue-summary.json`](../../agent/rock-issue-summary.json)",
@@ -1193,6 +1288,18 @@ def parse_issue_ref(value: str, *, default_repository: str = "SparkDevNetwork/Ro
         repository = "SparkDevNetwork/Rock.Mobile-Issues" if repo_alias == "mobile" else default_repository
         return repository, int(short.group("number"))
     raise ValueError(f"Invalid Rock issue reference: {value}")
+
+
+def parse_issue_location_ref(value: str) -> tuple[str, int]:
+    try:
+        repository, number = parse_issue_ref(value)
+        return repository.lower(), number
+    except ValueError:
+        text = value.strip().rstrip("/").removeprefix("rock_issue:")
+        match = ISSUE_LOCATION_REF_RE.match(text)
+        if not match:
+            raise ValueError(f"Invalid Rock issue location reference: {value}") from None
+        return match.group("repository").lower(), int(match.group("number"))
 
 
 def extract_issue_ref_from_query(value: str) -> tuple[str, int] | None:
@@ -1368,10 +1475,20 @@ def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, An
     }
     target_version = component_versions.get(str(issue.get("component") or ""), "")
     evidence = [row for row in issue.get("version_evidence") or [] if row.get("component") == issue.get("component")]
-    reviewed_assertions = [
-        assertion
+    reviewed_enrichments = [
+        enrichment
         for enrichment in issue.get("reviewed_enrichments") or []
         if isinstance(enrichment, dict)
+    ]
+    revalidation_due_enrichment_ids = sorted(
+        str(enrichment.get("enrichment_id") or "")
+        for enrichment in reviewed_enrichments
+        if enrichment.get("enrichment_id") and enrichment_needs_revalidation(issue, enrichment)
+    )
+    reviewed_assertions = [
+        assertion
+        for enrichment in reviewed_enrichments
+        if not enrichment_needs_revalidation(issue, enrichment)
         for assertion in enrichment.get("applicability") or []
         if isinstance(assertion, dict)
         and assertion.get("component") == issue.get("component")
@@ -1430,8 +1547,13 @@ def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, An
         "reviewed_assertion_ids": sorted(
             str(row.get("assertion_id") or "") for row in reviewed_assertions if row.get("assertion_id")
         ),
+        "revalidation_due_enrichment_ids": revalidation_due_enrichment_ids,
         "needs_live_verification": status not in {"not_applicable"},
     }
+
+
+def enrichment_needs_revalidation(issue: dict[str, Any], enrichment: dict[str, Any]) -> bool:
+    return not str(enrichment.get("issue_updated_at") or "") or str(enrichment.get("issue_updated_at")) != str(issue.get("updated_at") or "")
 
 
 def applicability_assertion_matches(assertion: dict[str, Any], target_version: str) -> bool:

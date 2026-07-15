@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
 from typing import Literal
 
 from pydantic import Field, model_validator
@@ -253,6 +254,7 @@ class RockIssueReviewedEnrichment(KBRecord):
     confidence: Confidence
     review_status: Literal["redaction_reviewed", "approved_for_public_distillation"]
     reviewer: str = Field(min_length=1, max_length=120)
+    issue_updated_at: str
     reviewed_at: str
     redaction_attestation: Literal[True]
     license_attestation: Literal[True]
@@ -260,6 +262,20 @@ class RockIssueReviewedEnrichment(KBRecord):
 
     @model_validator(mode="after")
     def validate_bounded_public_text(self) -> "RockIssueReviewedEnrichment":
+        timestamps: dict[str, datetime] = {}
+        for field_name in ("issue_updated_at", "reviewed_at"):
+            raw = getattr(self, field_name)
+            try:
+                parsed = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+            except ValueError as exc:
+                raise ValueError(f"{field_name} must be an RFC 3339 timestamp") from exc
+            if parsed.tzinfo is None:
+                raise ValueError(f"{field_name} must include a timezone")
+            timestamps[field_name] = parsed.astimezone(timezone.utc)
+        if timestamps["issue_updated_at"] > timestamps["reviewed_at"]:
+            raise ValueError("issue_updated_at cannot be later than reviewed_at")
+        if timestamps["reviewed_at"] > datetime.now(timezone.utc) + timedelta(minutes=5):
+            raise ValueError("reviewed_at cannot be in the future")
         if any(len(value) > 800 for value in self.workaround_summaries):
             raise ValueError("workaround summaries must be at most 800 characters")
         if any(len(value) > 500 for value in self.source_refs):

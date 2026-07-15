@@ -31,7 +31,11 @@ PRIVATE_MARKERS = (
     "outside_org_contribution_candidates",
 )
 REQUEST_TIMEOUT = 30
-MAX_ARCHIVE_ENTRIES = 25_000
+# The full profile emits bounded knowledge and relationship artifacts per
+# canonical record. Rock issue intelligence takes the valid distribution above
+# the original 25k ceiling while the byte and compression limits remain tighter
+# protections against archive expansion attacks.
+MAX_ARCHIVE_ENTRIES = 50_000
 MAX_TOTAL_UNCOMPRESSED = 512 * 1024 * 1024
 MAX_FILE_BYTES = 32 * 1024 * 1024
 MAX_COMPRESSION_RATIO = 200

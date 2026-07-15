@@ -1,0 +1,56 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6081-nextgen-checkin-duplicate-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6081",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "A Rock maintainer closed issue 6081 as a duplicate of issue 6064. The linked fix migration adds ordered staff-role allows followed by an All Users deny so the out-of-box next-generation check-in security matches version 1 check-in, and issue 6064 is labeled confirmed and fixed in 16.7. Early alpha builds shared the same displayed file version before and after the commit, so exact build ancestry matters. Existing customized matching rules may not be overwritten and still require local verification.",
+  "workaround_summaries": [
+    "Follow issue 6064 for the canonical resolution, use a build proven to descend from commit c90c1459fa4d428a7a15af9f76a23dfaac9517c7, and inspect effective ordered permissions on customized next-generation check-in pages."
+  ],
+  "applicability": [
+    {
+      "assertion_id": "core-6081-fixed-by-commit-c90c1459",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact source revision for out-of-box next-generation check-in page security; release package inclusion requires verification",
+        "canonical_issue": "SparkDevNetwork/Rock#6064"
+      },
+      "versions": ["c90c1459fa4d428a7a15af9f76a23dfaac9517c7"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6064",
+        "https://github.com/SparkDevNetwork/Rock/commit/c90c1459fa4d428a7a15af9f76a23dfaac9517c7"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6081#issuecomment-2485973566",
+        "https://github.com/SparkDevNetwork/Rock/issues/6064",
+        "https://github.com/SparkDevNetwork/Rock/issues/6064#issuecomment-2485980271",
+        "https://github.com/SparkDevNetwork/Rock/commit/c90c1459fa4d428a7a15af9f76a23dfaac9517c7"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-15T20:34:20Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6081",
+    "https://github.com/SparkDevNetwork/Rock/issues/6081#issuecomment-2485973566",
+    "https://github.com/SparkDevNetwork/Rock/issues/6064",
+    "https://github.com/SparkDevNetwork/Rock/issues/6064#issuecomment-2485980271",
+    "https://github.com/SparkDevNetwork/Rock/commit/c90c1459fa4d428a7a15af9f76a23dfaac9517c7",
+    "https://github.com/SparkDevNetwork/Rock/blob/c90c1459fa4d428a7a15af9f76a23dfaac9517c7/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.7/202411182318196_UpdateNextGenCheckInDefaultSecurity.cs#L31-L71"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2024-11-19T15:06:23Z",
+  "reviewed_at": "2026-07-15T20:34:20Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}
