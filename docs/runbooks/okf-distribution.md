@@ -15,13 +15,15 @@ The distribution projects canonical public knowledge into typed Markdown with YA
 - stable Rock model digests;
 - public source summaries;
 - agent task cards;
+- public Rock issue routing metadata and nested reviewed enrichments in the full profile;
 - public evidence-source policies.
 
 Every document retains its canonical ID and links to a lossless JSON structured record. Typed edges connect concepts, evidence sources, models, recipes, contributions, and Lava contexts. Bounded, sharded directory `index.md` files provide progressive disclosure, while `relationships.jsonl` provides a compact typed-edge projection.
 
 The `full` profile includes every public canonical row. The smaller `core`
 profile omits routing-only claims, source summaries, and contribution
-provenance, and uses compact model digests. Canonical IDs remain the same.
+provenance, excludes Rock issue routing records, and uses compact model digests.
+Canonical IDs remain the same.
 
 The distribution excludes private organization overlays, raw transcripts and media, review queues, live-instance evidence, evaluations, telemetry, and redundant generated indexes.
 

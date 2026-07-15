@@ -98,6 +98,48 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
     def kb_get_recipe(recipe_id: str) -> dict[str, Any]:
         return retrieval.get_recipe(recipe_id)
 
+    @mcp.tool(
+        name="kb_search_rock_issues",
+        description="Search public Rock core and mobile issue routing metadata. Reports are leads, not proof of local impact.",
+    )
+    def kb_search_rock_issues(query: str, limit: int = 10) -> dict[str, Any]:
+        return retrieval.search_rock_issues(query, limit=limit)
+
+    @mcp.tool(
+        name="kb_list_rock_issues",
+        description="List Rock issues by repository, state, concept, or version evidence.",
+    )
+    def kb_list_rock_issues(
+        repository: str | None = None,
+        state: str | None = None,
+        concept: str | None = None,
+        version: str | None = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> dict[str, Any]:
+        return retrieval.list_rock_issues(repository, state, concept, version, limit, offset)
+
+    @mcp.tool(
+        name="kb_get_rock_issue",
+        description="Get one exact Rock issue by GitHub URL, canonical ID, core number, or mobile:number.",
+    )
+    def kb_get_rock_issue(issue: str) -> dict[str, Any]:
+        return retrieval.get_rock_issue(issue)
+
+    @mcp.tool(
+        name="kb_assess_rock_issues",
+        description="Conservatively route issues against a bounded profile. Never provide logs, identifiers, or person data.",
+    )
+    def kb_assess_rock_issues(profile: dict[str, Any], limit: int = 100) -> dict[str, Any]:
+        return retrieval.assess_rock_issues(profile, limit=limit)
+
+    @mcp.tool(
+        name="kb_plan_rock_issue_investigation",
+        description="Return a typed read-only multi-agent investigation plan. It never posts to GitHub.",
+    )
+    def kb_plan_rock_issue_investigation(issue: str, include_private_instance: bool = False) -> dict[str, Any]:
+        return retrieval.plan_rock_issue_investigation(issue, include_private_instance=include_private_instance)
+
     return mcp
 
 

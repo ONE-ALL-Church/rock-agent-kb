@@ -19,6 +19,7 @@ from .extract import generated_at_iso, sha256_text
 from .jsonl import read_jsonl
 from .paths import REPO_ROOT
 from .publish import public_export_manifest, public_export_text_for_public_path
+from .rock_issues import attach_issue_enrichments, issue_enrichments_by_id, normalize_version, version_line
 
 
 SERVICE_DIR = REPO_ROOT / "service"
@@ -146,6 +147,7 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows.extend(lava_context_search_rows())
     rows.extend(recipe_search_rows())
     rows.extend(source_summary_search_rows())
+    rows.extend(rock_issue_search_rows())
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
         concepts = normalize_concept_ids(row.get("concepts") or [row.get("concept") or ""])
@@ -238,7 +240,7 @@ def retrieval_index_policy(row: dict[str, Any]) -> str:
     kind = str(row.get("kind") or "")
     if kind == "model_map":
         return "exact_lexical_only"
-    if kind in {"source_summary", "community_contribution"}:
+    if kind in {"source_summary", "community_contribution", "rock_issue"}:
         return "semantic_secondary"
     return "hybrid_primary"
 
@@ -620,6 +622,86 @@ def lava_context_search_rows() -> list[dict[str, Any]]:
     return rows
 
 
+def rock_issue_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    enrichments = issue_enrichments_by_id(REPO_ROOT)
+    for raw_issue in read_jsonl(REPO_ROOT / "agent" / "rock-issues.jsonl"):
+        issue = attach_issue_enrichments(raw_issue, enrichments)
+        issue_id = str(issue.get("issue_id") or "")
+        if not issue_id:
+            continue
+        concepts = normalize_concept_ids(issue.get("concept_ids") or [])
+        labels = [str(value) for value in issue.get("labels") or []]
+        versions = [
+            str(value)
+            for evidence in issue.get("version_evidence") or []
+            for value in [evidence.get("normalized_version"), evidence.get("version_line")]
+            if value
+        ]
+        model_links = [str(value) for value in issue.get("model_map_links") or []]
+        release_note_summaries = [
+            str(value.get("summary") or "")
+            for value in issue.get("release_note_refs") or []
+            if isinstance(value, dict)
+        ]
+        enrichment_text = [
+            str(value)
+            for enrichment in issue.get("reviewed_enrichments") or []
+            if isinstance(enrichment, dict)
+            for value in [
+                enrichment.get("diagnosis_summary"),
+                *(enrichment.get("workaround_summaries") or []),
+                *(
+                    version
+                    for assertion in enrichment.get("applicability") or []
+                    if isinstance(assertion, dict)
+                    for version in assertion.get("versions") or []
+                ),
+            ]
+            if value
+        ]
+        body = " ".join(
+            value
+            for value in [
+                str(issue.get("title") or ""),
+                spaced_search_alias(str(issue.get("title") or "")),
+                " ".join(labels),
+                " ".join(versions),
+                " ".join(concepts),
+                " ".join(model_links),
+                " ".join(release_note_summaries),
+                " ".join(enrichment_text),
+                str(issue.get("repository") or ""),
+                f"issue {issue.get('number')}",
+                str(issue.get("state") or ""),
+                str(issue.get("remediation_state") or ""),
+            ]
+            if value
+        )
+        rows.append(
+            {
+                "id": issue_id,
+                "kind": "rock_issue",
+                "title": issue.get("title") or issue_id,
+                "body": body,
+                "path": "agent/rock-issues.jsonl",
+                "url": issue.get("url") or "",
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "topics": normalize_concept_ids(issue.get("topic_labels") or []),
+                "legacy_ids": [
+                    f"rock_issue:{'mobile' if issue.get('component') == 'mobile_shell' else 'core'}:{issue.get('number')}",
+                    *[f"rock_issue:{location}" for location in issue.get("location_aliases") or []],
+                ],
+                "authority_tier": issue.get("authority_tier") or "community-unreviewed",
+                "claim_tier": "routing_context_only",
+                "source_id": issue.get("source_id") or "",
+                "payload": issue,
+            }
+        )
+    return rows
+
+
 def lava_context_search_body(context: dict[str, Any]) -> str:
     root_key = str(context.get("root_key") or "")
     context_id = str(context.get("context_id") or "")
@@ -752,6 +834,54 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
         "CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept, tokenize='porter');",
         "DROP TABLE IF EXISTS org_registry;",
         "CREATE TABLE org_registry (org_id TEXT PRIMARY KEY, display_name TEXT, status TEXT, payload_json TEXT NOT NULL);",
+        "DROP TABLE IF EXISTS rock_issues;",
+        """CREATE TABLE rock_issues (
+  issue_id TEXT PRIMARY KEY,
+  github_node_id TEXT NOT NULL UNIQUE,
+  repository TEXT NOT NULL,
+  number INTEGER NOT NULL,
+  component TEXT NOT NULL,
+  state TEXT NOT NULL,
+  validation_state TEXT NOT NULL,
+  title TEXT NOT NULL,
+  url TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  evidence_state TEXT NOT NULL,
+  payload_json TEXT NOT NULL
+);""",
+        "CREATE UNIQUE INDEX rock_issues_repository_number_idx ON rock_issues (repository, number);",
+        "CREATE UNIQUE INDEX rock_issues_github_node_idx ON rock_issues (github_node_id);",
+        "CREATE INDEX rock_issues_state_updated_idx ON rock_issues (state, updated_at DESC);",
+        "DROP TABLE IF EXISTS rock_issue_locations;",
+        "CREATE TABLE rock_issue_locations (location_id TEXT PRIMARY KEY, issue_id TEXT NOT NULL, is_current INTEGER NOT NULL);",
+        "CREATE INDEX rock_issue_locations_issue_idx ON rock_issue_locations (issue_id);",
+        "DROP TABLE IF EXISTS rock_issue_versions;",
+        """CREATE TABLE rock_issue_versions (
+  issue_id TEXT NOT NULL,
+  component TEXT NOT NULL,
+  relationship TEXT NOT NULL,
+  version TEXT NOT NULL,
+  version_line TEXT NOT NULL,
+  source_kind TEXT NOT NULL,
+  authority_tier TEXT NOT NULL,
+  confidence TEXT NOT NULL,
+  source_ref TEXT NOT NULL,
+  observed_at TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (issue_id, component, relationship, version, source_ref, observed_at)
+);""",
+        "CREATE INDEX rock_issue_versions_lookup_idx ON rock_issue_versions (component, version_line, version, relationship);",
+        "DROP TABLE IF EXISTS rock_issue_concepts;",
+        "CREATE TABLE rock_issue_concepts (issue_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (issue_id, concept));",
+        "CREATE INDEX rock_issue_concepts_lookup_idx ON rock_issue_concepts (concept, issue_id);",
+        "DROP TABLE IF EXISTS rock_issue_enrichments;",
+        """CREATE TABLE rock_issue_enrichments (
+  enrichment_id TEXT PRIMARY KEY,
+  issue_id TEXT NOT NULL,
+  diagnosis_status TEXT NOT NULL,
+  reviewed_at TEXT NOT NULL,
+  payload_json TEXT NOT NULL
+);""",
+        "CREATE INDEX rock_issue_enrichments_issue_idx ON rock_issue_enrichments (issue_id, reviewed_at DESC);",
     ]
     for row in search_rows:
         tier = str(row.get("claim_tier") or "")
@@ -807,6 +937,123 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
                 + ", ".join([sql_string(alias_id), sql_string(row["id"])])
                 + ");"
             )
+        if row.get("kind") == "rock_issue":
+            payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+            lines.append(
+                "INSERT INTO rock_issues VALUES ("
+                + ", ".join(
+                    [
+                        sql_string(payload.get("issue_id") or row["id"]),
+                        sql_string(payload.get("github_node_id") or ""),
+                        sql_string(payload.get("repository") or ""),
+                        str(int(payload.get("number") or 0)),
+                        sql_string(payload.get("component") or ""),
+                        sql_string(payload.get("state") or ""),
+                        sql_string(payload.get("validation_state") or "reported"),
+                        sql_string(payload.get("title") or row.get("title") or ""),
+                        sql_string(payload.get("url") or row.get("url") or ""),
+                        sql_string(payload.get("updated_at") or ""),
+                        sql_string(payload.get("evidence_state") or "report_only"),
+                        sql_string(json.dumps(payload, ensure_ascii=False, sort_keys=True)),
+                    ]
+                )
+                + ");"
+            )
+            current_location = str(payload.get("location_id") or f"{payload.get('repository')}#{payload.get('number')}")
+            locations = [(current_location, 1)]
+            locations.extend((str(value), 0) for value in payload.get("location_aliases") or [])
+            for location_id, is_current in locations:
+                lines.append(
+                    "INSERT INTO rock_issue_locations VALUES ("
+                    + ", ".join(
+                        [
+                            sql_string(location_id),
+                            sql_string(payload.get("issue_id") or row["id"]),
+                            str(is_current),
+                        ]
+                    )
+                    + ");"
+                )
+            for evidence in payload.get("version_evidence") or []:
+                if not isinstance(evidence, dict):
+                    continue
+                lines.append(
+                    "INSERT INTO rock_issue_versions VALUES ("
+                    + ", ".join(
+                        [
+                            sql_string(payload.get("issue_id") or row["id"]),
+                            sql_string(evidence.get("component") or ""),
+                            sql_string(evidence.get("relationship") or ""),
+                            sql_string(evidence.get("normalized_version") or ""),
+                            sql_string(evidence.get("version_line") or ""),
+                            sql_string(evidence.get("source_kind") or ""),
+                            sql_string(evidence.get("authority_tier") or ""),
+                            sql_string(evidence.get("confidence") or ""),
+                            sql_string(evidence.get("source_ref") or ""),
+                            sql_string(evidence.get("observed_at") or ""),
+                        ]
+                    )
+                    + ");"
+                )
+            for concept_id in concepts:
+                lines.append(
+                    "INSERT INTO rock_issue_concepts VALUES ("
+                    + ", ".join([sql_string(payload.get("issue_id") or row["id"]), sql_string(concept_id)])
+                    + ");"
+                )
+            for enrichment in payload.get("reviewed_enrichments") or []:
+                if not isinstance(enrichment, dict):
+                    continue
+                lines.append(
+                    "INSERT INTO rock_issue_enrichments VALUES ("
+                    + ", ".join(
+                        [
+                            sql_string(enrichment.get("enrichment_id") or ""),
+                            sql_string(payload.get("issue_id") or row["id"]),
+                            sql_string(enrichment.get("diagnosis_status") or ""),
+                            sql_string(enrichment.get("reviewed_at") or ""),
+                            sql_string(json.dumps(enrichment, ensure_ascii=False, sort_keys=True)),
+                        ]
+                    )
+                    + ");"
+                )
+                relationship_by_status = {
+                    "affected": "known_affected",
+                    "fixed": "fixed",
+                    "not_affected": "known_not_affected",
+                    "under_investigation": "under_investigation",
+                    "unknown": "under_investigation",
+                }
+                for assertion in enrichment.get("applicability") or []:
+                    if not isinstance(assertion, dict):
+                        continue
+                    relationship = relationship_by_status.get(str(assertion.get("status") or ""), "under_investigation")
+                    source_ref = (
+                        f"reviewed_enrichment:{enrichment.get('enrichment_id')}#"
+                        f"{assertion.get('assertion_id')}"
+                    )
+                    for raw_version in assertion.get("versions") or []:
+                        normalized = normalize_version(str(raw_version))
+                        if not normalized:
+                            continue
+                        lines.append(
+                            "INSERT INTO rock_issue_versions VALUES ("
+                            + ", ".join(
+                                [
+                                    sql_string(payload.get("issue_id") or row["id"]),
+                                    sql_string(assertion.get("component") or payload.get("component") or ""),
+                                    sql_string(relationship),
+                                    sql_string(normalized),
+                                    sql_string(version_line(normalized)),
+                                    sql_string("reviewed_enrichment"),
+                                    sql_string(assertion.get("authority_tier") or enrichment.get("authority_tier") or "community-reviewed"),
+                                    sql_string(assertion.get("confidence") or enrichment.get("confidence") or "medium"),
+                                    sql_string(source_ref),
+                                    sql_string(assertion.get("assessed_at") or enrichment.get("reviewed_at") or ""),
+                                ]
+                            )
+                            + ");"
+                        )
     for row in org_rows:
         org_id = str(row.get("org_id") or "")
         if not org_id:

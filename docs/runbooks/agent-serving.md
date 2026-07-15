@@ -23,6 +23,9 @@ Available tools:
 - `kb_list_concepts`: available concept ids, titles, guide paths, and dependency metadata.
 - `kb_get_concept`: quickstart, answers, task cards, and release caveats for one concept.
 - `kb_get_claims`: approved public claims for a concept, optionally filtered by claim tier.
+- `kb_search_rock_issues`, `kb_list_rock_issues`, and `kb_get_rock_issue`: public Rock product issue routing metadata; exact results join separately reviewed enrichments without duplicating the issue result.
+- `kb_assess_rock_issues`: conservative comparison with a bounded version/concept profile.
+- `kb_plan_rock_issue_investigation`: typed read-only orchestrator-worker plan with no GitHub write path.
 - `kb_feedback`: fixed quality feedback for a public result.
 - `kb_report_issue`: bounded, redaction-attested reports when the KB itself malfunctions.
 - `kb_review_dashboard`: public review, issue-report, evaluation, and telemetry counts.
@@ -129,6 +132,11 @@ The Worker exposes:
 - `GET /claims/id/<claim-id>`
 - `GET /search?q=<query>&min_tier=routing_context_only` (compact by default; add `detail=full` for compatibility)
 - `GET /results/<result-id>`
+- `GET /rock-issues/search?q=<query>`
+- `GET /rock-issues?repository=core&state=open&version=19.2&concept=<concept-id>`
+- `GET /rock-issues/<issue-ref>`
+- `GET /rock-issues/<issue-ref>/plan`
+- `POST /rock-issues/assess`
 - `GET /operations/dashboard`
 - `POST /feedback`
 - `POST /issues/report`
@@ -137,7 +145,7 @@ The Worker exposes:
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 
-`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, structured issue reports, section status, answer evaluation results, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; records aggregate event, primary/result-kind, and result-count data for searches and successful claim, concept, model-map, recipe, and exact-result retrievals; and reports zero-result public Rock topic categories rather than query text. Current telemetry stores neither raw nor hashed query text, exact lookup IDs, user identities, organizations, IP addresses, nor free-form client labels. PyPI package downloads and `uvx` cache/install activity occur outside the hosted service and are not usage events. Structured feedback stores only the public canonical result ID, result kind, projection version, rating, and fixed reason so maintainers can identify the affected public artifact. It does not expose private corpus files or free-text feedback.
+`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, structured issue reports, Rock product-issue catalog and timeline coverage, section status, answer evaluation results, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; records aggregate event, primary/result-kind, and result-count data for searches and successful claim, concept, model-map, recipe, Rock issue, and exact-result retrievals; and reports zero-result public Rock topic categories rather than query text. Current telemetry stores neither raw nor hashed query text, exact lookup IDs, user identities, organizations, IP addresses, nor free-form client labels. PyPI package downloads and `uvx` cache/install activity occur outside the hosted service and are not usage events. Structured feedback stores only the public canonical result ID, result kind, projection version, rating, and fixed reason so maintainers can identify the affected public artifact. It does not expose private corpus files or free-text feedback.
 
 Structured issue reports are a separate, rate-limited path for service, MCP, CLI, schema, authentication, and retrieval failures. They accept only bounded structured fields plus a short redaction-attested description; descriptions that look like logs, queries, secrets, private paths, or private Rock data are rejected. Reports deduplicate to a stable ID and occurrence count, remain `pending_review`, and never create a GitHub issue automatically. See [Structured Issue Reporting](issue-reporting.md).
 

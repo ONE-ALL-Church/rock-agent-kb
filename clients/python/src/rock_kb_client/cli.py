@@ -78,6 +78,28 @@ def main(argv: list[str] | None = None) -> int:
     recipes_search.add_argument("query")
     recipes_search.add_argument("--limit", type=int, default=10)
 
+    issue = subparsers.add_parser("issue", help="Get one exact Rock product issue; this is separate from report-issue.")
+    issue.add_argument("issue_ref", help="GitHub URL, canonical ID, core number, or mobile:number.")
+
+    issues = subparsers.add_parser("issues", help="Search, list, assess, and plan investigation of public Rock issues.")
+    issues_subparsers = issues.add_subparsers(dest="issues_command", required=True)
+    issues_list = issues_subparsers.add_parser("list")
+    issues_list.add_argument("--repository", choices=["core", "mobile", "SparkDevNetwork/Rock", "SparkDevNetwork/Rock.Mobile-Issues"])
+    issues_list.add_argument("--state", choices=["open", "closed"])
+    issues_list.add_argument("--concept")
+    issues_list.add_argument("--version")
+    issues_list.add_argument("--limit", type=int, default=50)
+    issues_list.add_argument("--offset", type=int, default=0)
+    issues_search = issues_subparsers.add_parser("search")
+    issues_search.add_argument("query")
+    issues_search.add_argument("--limit", type=int, default=10)
+    issues_assess = issues_subparsers.add_parser("assess")
+    issues_assess.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, and capabilities only.")
+    issues_assess.add_argument("--limit", type=int, default=100)
+    issues_plan = issues_subparsers.add_parser("plan")
+    issues_plan.add_argument("issue_ref")
+    issues_plan.add_argument("--include-private-instance", action="store_true")
+
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
 
@@ -176,6 +198,26 @@ def main(argv: list[str] | None = None) -> int:
             return print_json(get_json(f"{base_url}/recipes{suffix}"))
         if args.recipes_command == "search":
             return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier=routing_context_only&kind=recipe&detail=compact"))
+    if args.command == "issue":
+        return print_json(get_json(f"{base_url}/rock-issues/{quote(args.issue_ref)}"))
+    if args.command == "issues":
+        if args.issues_command == "search":
+            return print_json(get_json(f"{base_url}/rock-issues/search?q={quote(args.query)}&limit={args.limit}"))
+        if args.issues_command == "list":
+            params = [f"limit={args.limit}", f"offset={args.offset}"]
+            for key in ["repository", "state", "concept", "version"]:
+                value = getattr(args, key)
+                if value:
+                    params.append(f"{key}={quote(value)}")
+            return print_json(get_json(f"{base_url}/rock-issues?{'&'.join(params)}"))
+        if args.issues_command == "assess":
+            profile = json.loads(args.profile.read_text(encoding="utf-8"))
+            if not isinstance(profile, dict):
+                parser.error("issues assess profile must contain a JSON object")
+            return print_json(post_json(f"{base_url}/rock-issues/assess", {"profile": profile, "limit": args.limit}))
+        if args.issues_command == "plan":
+            suffix = "?include_private_instance=true" if args.include_private_instance else ""
+            return print_json(get_json(f"{base_url}/rock-issues/{quote(args.issue_ref)}/plan{suffix}"))
     if args.command == "manifest":
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":

@@ -5,7 +5,20 @@ import sqlite3
 from pathlib import Path
 
 from rock_kb.serve.server import build_server
-from rock_kb.serve import get_claim, get_claims, get_concept, get_manifest, get_result, list_concepts, search
+from rock_kb.serve import (
+    assess_rock_issues,
+    get_claim,
+    get_claims,
+    get_concept,
+    get_manifest,
+    get_result,
+    get_rock_issue,
+    list_concepts,
+    list_rock_issues,
+    plan_rock_issue_investigation,
+    search,
+    search_rock_issues,
+)
 
 
 def seed_root(root: Path) -> None:
@@ -108,6 +121,35 @@ def seed_root(root: Path) -> None:
             {"claim_id": "claim:groups", "concept_ids": ["groups"], "claim_tier": "source_backed", "claim": "Group claim."},
         ],
     )
+    write_jsonl(
+        root / "agent" / "rock-issues.jsonl",
+        [
+            {
+                "issue_id": "rock_issue:SparkDevNetwork/Rock#6919",
+                "repository": "SparkDevNetwork/Rock",
+                "component": "rock_core",
+                "number": 6919,
+                "title": "Azure Blob Storage race causes CPU saturation",
+                "url": "https://github.com/SparkDevNetwork/Rock/issues/6919",
+                "state": "open",
+                "validation_state": "reported",
+                "updated_at": "2026-07-15T00:00:00Z",
+                "concept_ids": ["hosting-infrastructure"],
+                "labels": [],
+                "version_evidence": [
+                    {
+                        "component": "rock_core",
+                        "relationship": "reported_affected",
+                        "normalized_version": "19.2.0",
+                        "version_line": "19.2",
+                    }
+                ],
+                "linked_commit_shas": [],
+                "remediation_state": "none_recorded",
+                "evidence_state": "report_only",
+            }
+        ],
+    )
     (root / "knowledge" / "concepts" / "workflows" / "quickstart.md").write_text("# Workflow Quickstart\n", encoding="utf-8")
     (root / "knowledge" / "concepts" / "workflows" / "index.md").write_text("# Workflows\n", encoding="utf-8")
 
@@ -175,6 +217,23 @@ def test_exact_result_and_claim_lookup(tmp_path):
     assert claim["claim"]["claim_id"] == "claim:workflow-source"
 
 
+def test_local_issue_tools_search_filter_assess_and_plan(tmp_path):
+    seed_root(tmp_path)
+
+    search_result = search_rock_issues("Azure CPU issue", root=tmp_path)
+    listed = list_rock_issues(repository="core", state="open", version="19.2", root=tmp_path)
+    exact = get_rock_issue("6919", root=tmp_path)
+    assessed = assess_rock_issues({"core_version": "19.2.0"}, root=tmp_path)
+    plan = plan_rock_issue_investigation("6919", include_private_instance=True, root=tmp_path)
+
+    assert search_result["results"][0]["issue_id"] == "rock_issue:SparkDevNetwork/Rock#6919"
+    assert listed["count"] == 1
+    assert exact["status"] == "ok"
+    assert assessed["results"][0]["applicability"] == "possible"
+    assert plan["admission"]["github_write_enabled"] is False
+    assert next(row for row in plan["tasks"] if row["role"] == "instance_investigator")["visibility"] == "private_only"
+
+
 class FakeFastMCP:
     def __init__(self, name: str):
         self.name = name
@@ -204,5 +263,10 @@ def test_build_server_registers_expected_tools():
         "kb_get_claims",
         "kb_list_recipes",
         "kb_get_recipe",
+        "kb_search_rock_issues",
+        "kb_list_rock_issues",
+        "kb_get_rock_issue",
+        "kb_assess_rock_issues",
+        "kb_plan_rock_issue_investigation",
     }
     assert "Start here for any Rock question" in server.tools["kb_search"]["description"]

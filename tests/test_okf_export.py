@@ -40,6 +40,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert report["counts"]["models"] == len(list(read_jsonl(Path("agent/model-map-digests.jsonl"))))
     assert report["counts"]["source_summaries"] == len(list(read_jsonl(Path("agent/source-summaries.jsonl"))))
     assert report["counts"]["task_cards"] == len(list(read_jsonl(Path("agent/concept-task-cards.jsonl"))))
+    assert report["counts"]["rock_issues"] == len(list(read_jsonl(Path("agent/rock-issues.jsonl"))))
     assert report["counts"]["contributions"] == len(
         {str(row["contribution_id"]) for row in public_contribution_records()}
     )
@@ -65,6 +66,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
         "Rock Model",
         "Source Summary",
         "Agent Task Card",
+        "Rock Issue",
         "Reference",
     }
     seen_ids: set[str] = set()
@@ -120,6 +122,7 @@ def test_okf_core_profile_is_smaller_and_keeps_canonical_agent_knowledge(tmp_pat
     assert report["profile"] == "core"
     assert report["counts"].get("source_summaries", 0) == 0
     assert report["counts"].get("contributions", 0) == 0
+    assert report["counts"].get("rock_issues", 0) == 0
     assert report["counts"]["claims"] < len(list(read_jsonl(Path("claims/approved-claims.jsonl"))))
     assert report["counts"]["recipes"] == len(list(read_jsonl(Path("agent/recipes.jsonl"))))
     assert find_document(destination, "model_map:stable:group")

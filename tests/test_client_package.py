@@ -541,6 +541,36 @@ def test_client_recipe_verify_uses_hosted_read_only_verifier(monkeypatch, capsys
     capsys.readouterr()
 
 
+def test_client_rock_issue_commands_use_dedicated_read_only_endpoints(monkeypatch, tmp_path):
+    cli = load_client_cli()
+    gets: list[str] = []
+    posts: list[tuple[str, dict]] = []
+    profile = tmp_path / "profile.json"
+    profile.write_text('{"core_version":"19.2.0","concepts":["hosting-infrastructure"]}\n')
+
+    monkeypatch.setattr(cli, "get_json", lambda url: gets.append(url) or {"status": "ok"})
+    monkeypatch.setattr(cli, "post_json", lambda url, payload, token="": posts.append((url, payload)) or {"status": "ok"})
+
+    assert cli.main(["--url", "https://example.test", "issue", "mobile:128"]) == 0
+    assert cli.main(["--url", "https://example.test", "issues", "search", "chat text issue", "--limit", "4"]) == 0
+    assert cli.main(["--url", "https://example.test", "issues", "list", "--repository", "core", "--state", "open", "--version", "19.2"]) == 0
+    assert cli.main(["--url", "https://example.test", "issues", "plan", "6919", "--include-private-instance"]) == 0
+    assert cli.main(["--url", "https://example.test", "issues", "assess", str(profile), "--limit", "25"]) == 0
+
+    assert gets == [
+        "https://example.test/rock-issues/mobile%3A128",
+        "https://example.test/rock-issues/search?q=chat%20text%20issue&limit=4",
+        "https://example.test/rock-issues?limit=50&offset=0&repository=core&state=open&version=19.2",
+        "https://example.test/rock-issues/6919/plan?include_private_instance=true",
+    ]
+    assert posts == [
+        (
+            "https://example.test/rock-issues/assess",
+            {"profile": {"core_version": "19.2.0", "concepts": ["hosting-infrastructure"]}, "limit": 25},
+        )
+    ]
+
+
 def test_client_get_text_sends_user_agent(monkeypatch):
     cli = load_client_cli()
     captured = {}
