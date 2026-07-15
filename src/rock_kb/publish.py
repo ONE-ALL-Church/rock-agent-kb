@@ -17,9 +17,12 @@ PUBLIC_PATHS = [
     "claims/approved-claims.jsonl",
     "community-contributions",
     "docs/runbooks/contributor-reviewer-workflow.md",
+    "docs/runbooks/rock-issue-intelligence.md",
+    "docs/specs/rock-issue-intelligence-v1.md",
     "docs/community-recipes.md",
     "docs/prompts/media-claim-distillation-v1.md",
     "docs/prompts/source-claim-distillation-v1.md",
+    "docs/prompts/rock-issue-investigation-v1.md",
     "docs/decisions/public-export-policy.md",
     "docs/runbooks/public-publish-runbook.md",
     "docs/templates/rock-kb-agent/SKILL.md",
@@ -30,6 +33,8 @@ PUBLIC_PATHS = [
     "knowledge/concepts",
     "knowledge/model-map",
     "knowledge/recipes",
+    "knowledge/issues",
+    "issues",
     "recipes",
     "agent/README.md",
     "agent/concept-index.jsonl",
@@ -56,6 +61,9 @@ PUBLIC_PATHS = [
     "agent/lava-context-summary.json",
     "agent/recipes.jsonl",
     "agent/recipe-summary.json",
+    "agent/rock-issues.jsonl",
+    "agent/rock-issue-enrichments.jsonl",
+    "agent/rock-issue-summary.json",
     "agent/answer-pack.jsonl",
     "agent/live-inspection-checklists.jsonl",
     "agent/live-probe-recipes.jsonl",
@@ -226,6 +234,10 @@ def audit_agent_entrypoint_coverage() -> list[str]:
         "live_probe_recipes",
         "distilled_claims",
         "source_authority_rules",
+        "rock_issues",
+        "rock_issue_summary",
+        "rock_issue_directory",
+        "rock_issue_investigation_prompt",
     ]:
         if not entrypoints.get(field):
             errors.append(f"agent/rock-kb-manifest.json missing {field} entrypoint")
@@ -357,6 +369,7 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             "section-status.jsonl",
             "lava-capabilities.jsonl",
             "lava-contexts.jsonl",
+            "rock-issues.jsonl",
         )
     ):
         return []
@@ -389,6 +402,18 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             errors.append(f"{path}:{index} Lava capability row has no official_url or source_record_id")
         if path.endswith("lava-contexts.jsonl") and not (row.get("source_url") and row.get("source_file") and row.get("source_line_start")):
             errors.append(f"{path}:{index} Lava context row has no source_url, source_file, or source_line_start")
+        if path.endswith("rock-issues.jsonl"):
+            forbidden = sorted({"body", "comments", "users", "assignees", "timeline", "attachments"}.intersection(row))
+            if forbidden:
+                errors.append(f"{path}:{index} Rock issue row republishes forbidden raw fields: {', '.join(forbidden)}")
+            required = ["issue_id", "source_id", "url", "body_sha256", "source_content_hash", "concept_ids"]
+            missing = [field for field in required if not row.get(field)]
+            if missing:
+                errors.append(f"{path}:{index} Rock issue row has incomplete traceability: {', '.join(missing)}")
+            if row.get("raw_content_policy") != "untrusted_not_republished":
+                errors.append(f"{path}:{index} Rock issue row does not declare the raw-content boundary")
+            if row.get("claim_tier") != "routing_context_only":
+                errors.append(f"{path}:{index} Rock issue row must remain routing_context_only")
     return errors
 
 

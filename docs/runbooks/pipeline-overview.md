@@ -33,6 +33,8 @@ uv run --extra dev pytest
 - `knowledge/model-map/` - generated Rock model-map mirror from stable/latest generic demo Obsidian block-action fetches, model/property/method rows, version diff, and category slices.
 - `concepts/registry.yaml` - concept definitions, keywords, subguides, and source weighting.
 - `agent/` - generated `llms.txt`, topic indexes, release indexes, and citation maps.
+- `agent/rock-issues.jsonl`, `agent/rock-issue-enrichments.jsonl`, and `agent/rock-issue-summary.json` - count-reconciled, public-safe Rock core/mobile issue routing data, reviewed public enrichments, and coverage metrics.
+- `issues/` - reviewed public issue enrichments; private investigation packets remain under ignored `data/review/rock-issues/`.
 - `tools/` and `src/rock_kb/` - CLI and implementation.
 - `docs/` - maintainer runbooks and contribution policy.
 - `docs/runbooks/local-transcription.md` - local and hosted transcription model decision.
@@ -50,6 +52,13 @@ The default source posture is conservative: public web content is cited and summ
 Cloudflare Browser Run is supported only as an optional extractor. Set `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`, then use `kb extract markdown --tool cloudflare` for hard pages. Local extraction remains the default rebuild path so the corpus does not depend on hosted scraping.
 
 Public source summaries are generated into `agent/source-summaries.jsonl` from records that are already eligible for the public agent pack. They are citation-first routing notes for agents: title, source URL, topics, source hash, summary, key insights, and an agent-use hint. They are not a replacement for authoritative concept guides; they help agents decide which source or guide to inspect next. Coverage and redaction-skip counts are written to `agent/source-summary-report.json` and exposed from `agent/rock-kb-manifest.json`.
+
+Rock GitHub issues use the separate `kb issues sync` path because identity,
+timeline history, transfer aliases, version evidence, and untrusted-content
+rules do not fit the generic scraper. The issue metadata catalog is complete on
+every pass; timeline history is incrementally backfilled. Issue rows remain
+`routing_context_only`, while exact official release-note references are joined
+from the generated release index. See [Rock Issue Intelligence](rock-issue-intelligence.md).
 
 ## Mobile Selector X-Ray
 

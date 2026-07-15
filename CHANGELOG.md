@@ -6,6 +6,35 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-07-15
+
+### Added
+
+- Canonical Rock core and mobile issue intelligence with immutable GitHub
+  identity, version evidence, concept/model-map routing, release-note links,
+  transfer aliases, explicit timeline coverage, and reviewed enrichments.
+- Dedicated `rock-kb issue` and `rock-kb issues` commands plus matching REST
+  and MCP surfaces for exact lookup, search, listing, conservative instance
+  assessment, and bounded investigation planning.
+- Private orchestrator-worker review packets, public-safe enrichment schemas,
+  scheduled metadata refresh, D1 projections, and full-profile OKF issue
+  records.
+
+### Changed
+
+- General search keeps issue reports out of unrelated answers while dedicated
+  issue retrieval prefers exact references, distinctive titles, versions, and
+  official release evidence.
+- Product issue reports remain `community-unreviewed` routing evidence;
+  reporter versions, fix labels, release notes, closure state, and reviewed
+  applicability conclusions remain separate evidence.
+
+### Decision
+
+- Raw issue bodies, comments, users, screenshots, attachments, and private
+  instance evidence are not republished. Agents produce drafts only; GitHub
+  comments and public enrichments continue to require explicit human review.
+
 ## [0.8.0] - 2026-07-14
 
 ### Added

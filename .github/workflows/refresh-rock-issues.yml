@@ -1,0 +1,87 @@
+name: Refresh Rock Issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      full:
+        description: Backfill a larger batch of historical issue timelines
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    - cron: "43 9 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: rock-issue-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: uv sync --extra dev
+      - name: Refresh issue catalog
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ inputs.full || 'false' }}" = "true" ]; then
+            uv run kb issues sync --full
+          else
+            uv run kb issues sync --timeline-backfill-limit 0
+          fi
+      - name: Validate issue intelligence
+        run: |
+          uv run kb issues validate
+          uv run --extra dev pytest -q tests/test_rock_issues.py tests/test_service_projection.py tests/test_okf_export.py
+          python3 scripts/audit_tracked_tree.py
+          python3 scripts/validate_bundle.py
+          uv run kb audit public-export
+      - name: Detect tracked changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Write pull request body
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          mkdir -p data/review/rock-issues
+          uv run python - <<'PY'
+          import json
+          from pathlib import Path
+
+          summary = json.loads(Path("agent/rock-issue-summary.json").read_text())
+          lines = [
+              "## Rock Issue Refresh",
+              "",
+              f"- Catalog records: `{summary.get('record_count', 0)}`",
+              f"- Source updated through: `{summary.get('source_updated_through', 'unknown')}`",
+              f"- Open issues: `{summary.get('states', {}).get('open', 0)}`",
+              f"- Catalog hash: `{summary.get('catalog_content_hash', '')}`",
+              "",
+              "Raw issue bodies and comments are not included in public artifacts.",
+          ]
+          Path("data/review/rock-issues/pull-request-body.md").write_text("\n".join(lines) + "\n")
+          PY
+      - name: Create or update refresh pull request
+        if: steps.changes.outputs.changed == 'true' && github.ref_name == github.event.repository.default_branch
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: automation/rock-issue-refresh
+          title: "Refresh Rock issue intelligence"
+          body-path: data/review/rock-issues/pull-request-body.md
+          commit-message: "Refresh Rock issue intelligence"
+          labels: automated-refresh

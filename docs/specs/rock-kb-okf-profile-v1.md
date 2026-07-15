@@ -31,7 +31,11 @@ version routing, integrity, and graph traversal.
 The `full` profile is the lossless public projection. The `core` profile is a
 smaller agent-oriented subset containing concepts, answers, non-routing-only
 claims, recipes, Lava contexts, stable model digests, task cards, and
-source-policy references. Canonical IDs are shared between profiles.
+source-policy references. Public Rock issue routing records are full-profile
+only because they are numerous, version-sensitive, and always
+`routing_context_only`. Approved issue enrichments remain nested on their one
+canonical issue record rather than becoming duplicate OKF documents. Canonical
+IDs are shared between profiles.
 
 ## Concept Frontmatter
 
@@ -57,7 +61,8 @@ otherwise conformant OKF document invalid.
 `relationships.jsonl` contains `rock-kb-okf-relationship-v1` rows with
 `source`, `target`, and `type`. Paths omit the `.md` suffix and use OKF concept
 IDs. Current relationship types include `about`, `supported_by`, `uses_model`,
-`related_model`, and `supersedes`.
+`related_model`, and `supersedes`. Rock issue records link to concept, source,
+and explicit model records without making the issue report an approved claim.
 
 Standard Markdown links remain authoritative for generic OKF graph consumers.
 Typed rows are an optional acceleration and routing layer.

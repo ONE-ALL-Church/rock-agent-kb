@@ -224,6 +224,9 @@ STAGES: list[Stage] = [
             "data/review/lava-context-source/**/*",
             "src/rock_kb/lava_contexts.py",
             "agent/recipes.jsonl",
+            "agent/rock-issues.jsonl",
+            "agent/rock-issue-enrichments.jsonl",
+            "agent/rock-issue-summary.json",
         ],
         outputs=[
             "agent/llms.txt",

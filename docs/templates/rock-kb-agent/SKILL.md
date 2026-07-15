@@ -118,6 +118,11 @@ Use these commands for specific jobs:
 - `recipes search <query>`: search recipe use cases and learnings.
 - `recipe <recipe-id>`: fetch the full structured recipe before adapting code.
 - `recipe verify <recipe-id> [--rock-version <version>]`: check immutable file hashes and declared compatibility without executing recipe code.
+- `issues search <query>`: search public Rock core and mobile product issue metadata without mixing it with KB malfunction reports.
+- `issues list [--repository core|mobile] [--state open|closed] [--version <version>] [--concept <id>]`: filter issue routing metadata and version evidence.
+- `issue <url|id|number|mobile:number>`: fetch one exact issue record.
+- `issues assess <profile.json>`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, and capabilities.
+- `issues plan <issue>`: return a typed, read-only multi-agent investigation plan; `--include-private-instance` adds a private-only worker.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
@@ -166,6 +171,18 @@ tools instead of shell commands:
   points, security, compatibility, validation, and reusable learnings.
 - `kb_verify_recipe`: verify immutable recipe hashes and optional target Rock
   version without executing community code.
+- `kb_search_rock_issues`, `kb_list_rock_issues`, and `kb_get_rock_issue`:
+  retrieve public Rock product issue routing metadata. Treat reports as leads,
+  not proof of cause, fix, or local applicability. Exact results may include
+  `reviewed_enrichments`; evaluate each enrichment's diagnosis status, claim
+  tier, authority, confidence, citations, and version assertions separately
+  from the unreviewed upstream report.
+- `kb_assess_rock_issues`: compare issue version evidence with a bounded
+  structured profile. Never send logs, queries, identifiers, secrets, or person
+  data.
+- `kb_plan_rock_issue_investigation`: create a credentialless, read-only
+  orchestrator-worker plan. It never posts to GitHub; private instance evidence
+  stays in a separate permission-scoped overlay.
 - `kb_feedback`: record a fixed rating and reason for an exact result. Never put
   private data into feedback.
 - `kb_report_issue`: report a service, MCP, CLI, schema, authentication, or
@@ -219,6 +236,13 @@ unless a compatibility workflow genuinely requires every result body.
 
 4. For version-sensitive answers, call out Rock version when the KB provides it. If version is missing or behavior can vary by instance, say so.
 
+For product issues, keep GitHub state, validation, applicability, and remediation
+separate. Closed does not mean fixed. A reporter-provided version does not prove
+all instances on that version are affected, and a `Fixed in vX.Y` label does not
+prove every build in that release line contains the fix. Corroborate with
+official docs, release notes, public source, and authorized read-only instance
+evidence before recommending action.
+
 Official Rock videos and Community Blog articles can establish product context,
 demonstrations, rollout experience, and stated direction. They are not by
 themselves proof that a demonstrated or exploratory feature is available in a
@@ -238,6 +262,12 @@ what the KB can expose. Important manifest entrypoints include:
   quality, authority, and staleness signals.
 - `live_checklists` and `live_probe_recipes`: read-only verification guidance
   for agents that must inspect a live Rock instance.
+- `rock_issues`, `rock_issue_enrichments`, `rock_issue_summary`, and
+  `rock_issue_directory`: public-safe issue routing metadata, separately
+  reviewed conclusions, coverage, and trust rules. Exact issue results join
+  approved enrichments into the canonical issue instead of returning duplicates.
+- `rock_issue_investigation_prompt`: the typed worker output and security
+  contract for coordinated issue research.
 - `model_map`, `model_map_digests`, `model_map_properties`,
   `model_map_methods`, and `model_map_version_diff`: model lookup and version
   comparison surfaces.

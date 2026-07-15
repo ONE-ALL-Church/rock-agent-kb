@@ -111,6 +111,27 @@ uv run kb contributions promote --draft-path data/review/private-distill/rockpro
 uv run kb sources freshness --strict
 ```
 
+## Rock Issue Intelligence
+
+```bash
+GITHUB_TOKEN="$(gh auth token)" uv run kb issues sync --full
+uv run kb issues validate
+uv run kb issues list --repository core --state open --version 19.2
+uv run kb issues get 6919
+uv run kb issues get mobile:128
+uv run kb issues plan 6919 --include-private-instance
+uv run kb issues assemble 6919 data/review/rock-issues/workers/*.json
+uv run kb issues assess instance-profile.json
+```
+
+`issues sync` reads the public GitHub API and emits bounded metadata; it does not
+republish issue bodies or comments. `issues assess` accepts only versions,
+platforms, concept IDs, and capability names. `issues assemble` is maintainer-only
+and writes a validated multi-agent review packet under ignored `data/review/`.
+Approved public enrichments under `issues/` are validated and projected into
+`agent/rock-issue-enrichments.jsonl` during sync, then joined into exact issue
+results. See the Rock Issue Intelligence runbook for trust and review rules.
+
 ## Audit, Publish, Report, And Tools
 
 ```bash
@@ -156,6 +177,7 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 | `kb contributions ...` | Contribution bundle creation, validation, promotion, and import. |
 | `kb concepts ...` | Concept listing, authored synthesis, and hydration. |
 | `kb modelmap ...` | Stable/latest Rock model-map API fetch, build, stamping, and diffs. |
+| `kb issues ...` | Public Rock issue refresh, validation, filtering, conservative applicability, and typed investigation plans. |
 | `kb audit ...` | Guide, license, source-policy, public-export, readiness, and all-in-one audits. |
 | `kb publish ...` | Public export and legacy public-repo push commands. |
 | `kb report ...` | Refresh reports and maintainer dashboards. |

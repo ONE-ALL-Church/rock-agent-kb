@@ -249,6 +249,70 @@ test("search collapses nested Lava paths for the same context root", async () =>
   }
 });
 
+test("Rock issue REST and MCP surfaces keep reports separate and assess versions conservatively", async () => {
+  const mf = await buildWorker();
+  try {
+    const generalResponse = await mf.dispatchFetch("https://kb.example.test/search?q=Azure%20blob%20CPU&limit=5");
+    const general = await generalResponse.json();
+    assert.equal(general.results.some((row) => row.kind === "rock_issue"), false);
+
+    const searchResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/search?q=Azure%20blob%20CPU%20issue&limit=5");
+    const search = await searchResponse.json();
+    assert.equal(search.results[0].id, "rock_issue:SparkDevNetwork/Rock#6919");
+
+    const getResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/6919");
+    const get = await getResponse.json();
+    assert.equal(get.status, "ok");
+    assert.equal(get.issue.body, undefined);
+    assert.equal(get.issue.version_evidence[0].normalized_version, "19.2.0");
+    assert.equal(get.issue.reviewed_enrichments.length, 1);
+
+    const aliasResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/6000");
+    const alias = await aliasResponse.json();
+    assert.equal(alias.status, "ok");
+    assert.equal(alias.requested_issue_id, "rock_issue:SparkDevNetwork/Rock#6000");
+    assert.equal(alias.issue_id, "rock_issue:SparkDevNetwork/Rock#6919");
+
+    const listResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues?repository=core&version=19.2&limit=10");
+    const list = await listResponse.json();
+    assert.equal(list.count, 1);
+
+    const assessResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.2.0", concepts: ["hosting-infrastructure"] }, limit: 10 }),
+    });
+    const assessment = await assessResponse.json();
+    assert.equal(assessment.results[0].applicability, "possible");
+    assert.equal(assessment.results[0].needs_live_verification, true);
+
+    const reviewedAssessResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.3.1", concepts: ["hosting-infrastructure"] }, limit: 10 }),
+    });
+    const reviewedAssessment = await reviewedAssessResponse.json();
+    assert.equal(reviewedAssessment.results[0].applicability, "confirmed");
+    assert.deepEqual(reviewedAssessment.results[0].reviewed_assertion_ids, ["fixture-affected-19.3.1"]);
+
+    const tools = await mcp(mf, "tools/list", {});
+    const names = tools.result.tools.map((tool) => tool.name);
+    assert.equal(names.includes("kb_search_rock_issues"), true);
+    assert.equal(names.includes("kb_assess_rock_issues"), true);
+    assert.equal(names.includes("kb_plan_rock_issue_investigation"), true);
+
+    const planCall = await mcp(mf, "tools/call", {
+      name: "kb_plan_rock_issue_investigation",
+      arguments: { issue: "6919", include_private_instance: true },
+    });
+    const plan = JSON.parse(planCall.result.content[0].text);
+    assert.equal(plan.admission.github_write_enabled, false);
+    assert.equal(plan.tasks.find((task) => task.role === "instance_investigator").visibility, "private_only");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("strong lexical claims outrank incidental recipe matches", async () => {
   const mf = await buildWorker();
   try {
@@ -630,6 +694,36 @@ async function buildWorker(options = {}) {
     await db.prepare("CREATE TABLE search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept))").run();
     await db.prepare("CREATE TABLE search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL)").run();
     await db.prepare("CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept)").run();
+    await db.prepare(`CREATE TABLE rock_issues (
+      issue_id TEXT PRIMARY KEY,
+      github_node_id TEXT NOT NULL UNIQUE,
+      repository TEXT NOT NULL,
+      number INTEGER NOT NULL,
+      component TEXT NOT NULL,
+      state TEXT NOT NULL,
+      validation_state TEXT NOT NULL,
+      title TEXT NOT NULL,
+      url TEXT NOT NULL,
+      updated_at TEXT NOT NULL,
+      evidence_state TEXT NOT NULL,
+      payload_json TEXT NOT NULL
+    )`).run();
+    await db.prepare("CREATE TABLE rock_issue_locations (location_id TEXT PRIMARY KEY, issue_id TEXT NOT NULL, is_current INTEGER NOT NULL)").run();
+    await db.prepare("CREATE TABLE rock_issue_enrichments (enrichment_id TEXT PRIMARY KEY, issue_id TEXT NOT NULL, diagnosis_status TEXT NOT NULL, reviewed_at TEXT NOT NULL, payload_json TEXT NOT NULL)").run();
+    await db.prepare(`CREATE TABLE rock_issue_versions (
+      issue_id TEXT NOT NULL,
+      component TEXT NOT NULL,
+      relationship TEXT NOT NULL,
+      version TEXT NOT NULL,
+      version_line TEXT NOT NULL,
+      source_kind TEXT NOT NULL,
+      authority_tier TEXT NOT NULL,
+      confidence TEXT NOT NULL,
+      source_ref TEXT NOT NULL,
+      observed_at TEXT NOT NULL DEFAULT '',
+      PRIMARY KEY (issue_id, component, relationship, version, source_ref, observed_at)
+    )`).run();
+    await db.prepare("CREATE TABLE rock_issue_concepts (issue_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (issue_id, concept))").run();
     const row = {
     id: "claim:claim:abc123",
     kind: "claim",
@@ -792,6 +886,89 @@ async function buildWorker(options = {}) {
     }
     await db.prepare("INSERT INTO search_row_aliases (alias_id, canonical_id) VALUES (?, ?)")
       .bind("recipe:oneall:check-in-status-dashboard:check-in", recipeSearchRow.id).run();
+    const rockIssue = {
+      schema: "rock-kb-rock-issue-v1",
+      issue_id: "rock_issue:SparkDevNetwork/Rock#6919",
+      github_node_id: "I_fixture_6919",
+      source_id: "rock_core_issues",
+      repository: "SparkDevNetwork/Rock",
+      component: "rock_core",
+      number: 6919,
+      title: "Azure Blob Storage race causes 100 percent CPU",
+      url: "https://github.com/SparkDevNetwork/Rock/issues/6919",
+      state: "open",
+      validation_state: "reported",
+      created_at: "2026-07-15T00:00:00Z",
+      updated_at: "2026-07-15T00:00:00Z",
+      concept_ids: ["hosting-infrastructure"],
+      version_evidence: [{
+        component: "rock_core",
+        relationship: "reported_affected",
+        version: "19.2.0",
+        normalized_version: "19.2.0",
+        version_line: "19.2",
+        source_kind: "issue_form",
+        source_ref: "section:rock version",
+        authority_tier: "community-unreviewed",
+        confidence: "medium",
+      }],
+      linked_commit_shas: [],
+      remediation_state: "none_recorded",
+      evidence_state: "report_only",
+      authority_tier: "community-unreviewed",
+      claim_tier: "routing_context_only",
+      needs_live_verification: true,
+      reviewed_enrichments: [{
+        schema: "rock-kb-rock-issue-enrichment-v1",
+        enrichment_id: "rock_issue_enrichment:fixture-6919-v1",
+        issue_id: "rock_issue:SparkDevNetwork/Rock#6919",
+        diagnosis_status: "source_supported",
+        diagnosis_summary: "A reviewed fixture diagnosis.",
+        applicability: [{
+          assertion_id: "fixture-affected-19.3.1",
+          component: "rock_core",
+          versions: ["19.3.1"],
+          ranges: [],
+          status: "affected",
+        }],
+        reviewed_at: "2026-07-15T00:00:00Z",
+      }],
+    };
+    await db.prepare("INSERT INTO rock_issues VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(rockIssue.issue_id, rockIssue.github_node_id, rockIssue.repository, rockIssue.number, rockIssue.component, rockIssue.state,
+        rockIssue.validation_state, rockIssue.title, rockIssue.url, rockIssue.updated_at, rockIssue.evidence_state,
+        JSON.stringify(rockIssue)).run();
+    await db.prepare("INSERT INTO rock_issue_locations VALUES (?, ?, 1)")
+      .bind("SparkDevNetwork/Rock#6919", rockIssue.issue_id).run();
+    await db.prepare("INSERT INTO rock_issue_locations VALUES (?, ?, 0)")
+      .bind("SparkDevNetwork/Rock#6000", rockIssue.issue_id).run();
+    await db.prepare("INSERT INTO rock_issue_enrichments VALUES (?, ?, ?, ?, ?)")
+      .bind("rock_issue_enrichment:fixture-6919-v1", rockIssue.issue_id, "source_supported", "2026-07-15T00:00:00Z",
+        JSON.stringify(rockIssue.reviewed_enrichments[0])).run();
+    await db.prepare("INSERT INTO rock_issue_versions VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(rockIssue.issue_id, "rock_core", "reported_affected", "19.2.0", "19.2", "issue_form",
+        "community-unreviewed", "medium", "section:rock version", "").run();
+    await db.prepare("INSERT INTO rock_issue_concepts VALUES (?, ?)")
+      .bind(rockIssue.issue_id, "hosting-infrastructure").run();
+    const rockIssueSearchRow = {
+      id: rockIssue.issue_id,
+      kind: "rock_issue",
+      title: rockIssue.title,
+      body: "Azure Blob Storage race CPU 19.2 hosting infrastructure issue 6919",
+      path: "agent/rock-issues.jsonl",
+      url: rockIssue.url,
+      concept: "hosting-infrastructure",
+      authority_tier: "community-unreviewed",
+      claim_tier: "routing_context_only",
+      claim_tier_rank: 0,
+      source_id: "rock_core_issues",
+      payload_json: JSON.stringify(rockIssue),
+    };
+    await db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(rockIssueSearchRow)).run();
+    await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+      .bind(rockIssueSearchRow.id, rockIssueSearchRow.title, rockIssueSearchRow.body, rockIssueSearchRow.concept).run();
     return mf;
   } catch (error) {
     await mf.dispose();

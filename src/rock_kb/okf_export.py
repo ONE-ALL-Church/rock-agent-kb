@@ -59,6 +59,7 @@ KIND_CONFIG = {
     "lava_context": ("Lava Context", "lava-contexts"),
     "recipe": ("Community Recipe", "recipes"),
     "source_summary": ("Source Summary", "source-summaries"),
+    "rock_issue": ("Rock Issue", "rock-issues"),
 }
 
 
@@ -289,6 +290,7 @@ def build_okf_export(
             "source summaries",
             "agent task cards",
             "public evidence-source policies",
+            "public Rock issue routing metadata",
         ],
         "excluded_scope": [
             "private organization overlays",
@@ -367,7 +369,7 @@ def rows_for_profile(rows: Iterable[dict[str, Any]], profile: str) -> list[dict[
     selected = []
     for row in rows:
         kind = str(row.get("kind") or "")
-        if kind in {"source_summary", "community_contribution"}:
+        if kind in {"source_summary", "community_contribution", "rock_issue"}:
             continue
         if kind == "claim" and str(row.get("claim_tier") or "") == "routing_context_only":
             continue
@@ -386,6 +388,7 @@ def canonical_record_id(row: dict[str, Any]) -> str:
         "lava_context": payload.get("id") or payload.get("context_id"),
         "recipe": payload.get("recipe_id"),
         "source_summary": payload.get("id"),
+        "rock_issue": payload.get("issue_id"),
         "task_card": f"{payload.get('concept_id')}:{payload.get('task_id')}"
         if payload.get("concept_id") and payload.get("task_id")
         else "",
@@ -519,6 +522,9 @@ def row_path(row: dict[str, Any]) -> PurePosixPath:
         return PurePosixPath("answers" if kind == "answer" else "task-cards") / safe_slug(first_concept_id(row) or "unrouted") / filename
     if kind == "lava_context":
         return PurePosixPath("lava-contexts") / safe_slug(str(payload.get("context_family") or "other")) / filename
+    if kind == "rock_issue":
+        repository = "mobile" if payload.get("component") == "mobile_shell" else "core"
+        return PurePosixPath("rock-issues") / repository / digest[:1] / digest[1:2] / filename
     if kind in {"recipe", "contribution"}:
         return PurePosixPath("recipes" if kind == "recipe" else "contributions") / safe_slug(str(payload.get("org_id") or "community")) / filename
     if kind == "model_map":
@@ -544,6 +550,7 @@ def row_kind_count_key(row: dict[str, Any]) -> str:
         "lava_context": "lava_contexts",
         "source_summary": "source_summaries",
         "task_card": "task_cards",
+        "rock_issue": "rock_issues",
     }.get(str(row.get("kind") or ""), f"{row.get('kind')}s")
 
 
@@ -586,6 +593,7 @@ def row_tags(row: dict[str, Any], known_concepts: set[str]) -> list[str]:
     values = [str(row.get("kind") or "")]
     values.extend(concept_ids_for_row(row, known_concepts))
     values.extend(str(value) for value in payload.get("topics") or [])
+    values.extend(str(value) for value in payload.get("topic_labels") or [])
     return sorted({safe_slug(value) for value in values if value})
 
 
@@ -603,6 +611,9 @@ def rock_versions_for_row(row: dict[str, Any]) -> list[str]:
         values.append(identity["rock_version"])
     compatibility = payload.get("compatibility") if isinstance(payload.get("compatibility"), dict) else {}
     values.extend(compatibility.get("tested_rock_versions") or [])
+    for evidence in payload.get("version_evidence") or []:
+        if isinstance(evidence, dict) and evidence.get("normalized_version"):
+            values.append(evidence["normalized_version"])
     return sorted({str(value) for value in values if value})
 
 
@@ -650,6 +661,8 @@ def model_slugs_for_row(row: dict[str, Any]) -> set[str]:
     for item in payload.get("model_map_links") or []:
         if isinstance(item, dict) and item.get("model_slug"):
             values.add(str(item["model_slug"]))
+        elif isinstance(item, str) and item.startswith("model_map:stable:"):
+            values.add(item.removeprefix("model_map:stable:"))
     if row.get("kind") == "model_map":
         for item in payload.get("relationships") or []:
             if isinstance(item, dict) and item.get("target_model_slug"):
@@ -1017,20 +1030,29 @@ def write_root_index(
     profile: str,
 ) -> None:
     counts = Counter(row_kind_count_key(row) for row in rows)
-    browse_lines = [
-        "- [Concept guides](concepts/)",
-        "- [Agent answers](answers/)",
-        "- [Approved claims](claims/)",
-        "- [Community recipes](recipes/)",
-        "- [Lava contexts](lava-contexts/)",
-        "- [Rock models](models/)",
-        "- [Agent task cards](task-cards/)",
-        "- [Evidence sources](references/)",
-        "- [Rock OKF extension profile](profile.md)",
+    browse_options = [
+        ("concepts", "Concept guides", "concepts/"),
+        ("answers", "Agent answers", "answers/"),
+        ("claims", "Approved claims", "claims/"),
+        ("contributions", "Community contribution provenance", "contributions/"),
+        ("recipes", "Community recipes", "recipes/"),
+        ("lava_contexts", "Lava contexts", "lava-contexts/"),
+        ("models", "Rock models", "models/"),
+        ("rock_issues", "Rock issues", "rock-issues/"),
+        ("source_summaries", "Source summaries", "source-summaries/"),
+        ("task_cards", "Agent task cards", "task-cards/"),
     ]
-    if profile == "full":
-        browse_lines[3:3] = ["- [Community contribution provenance](contributions/)"]
-        browse_lines[7:7] = ["- [Source summaries](source-summaries/)"]
+    browse_lines = [
+        f"- [{label}]({path})"
+        for count_key, label, path in browse_options
+        if counts.get(count_key, 0) > 0
+    ]
+    browse_lines.extend(
+        [
+            "- [Evidence sources](references/)",
+            "- [Rock OKF extension profile](profile.md)",
+        ]
+    )
     frontmatter = yaml.safe_dump(
         {
             "okf_version": OKF_VERSION,

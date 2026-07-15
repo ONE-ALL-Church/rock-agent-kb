@@ -36,6 +36,11 @@ Agents can report a malfunction in the KB service, MCP, CLI, schema,
 authentication, or retrieval path through the bounded structured reporter. See
 the [Structured Issue Reporting Runbook](docs/runbooks/issue-reporting.md).
 
+Agents can also search public Rock core and mobile product issues, compare their
+structured version evidence with a bounded instance profile, and generate a
+read-only multi-agent investigation plan. This is a separate surface from KB
+malfunction reporting. See the [Rock Issue Intelligence Runbook](docs/runbooks/rock-issue-intelligence.md).
+
 ## Contribute
 
 The easiest path is a source suggestion: copy `source-suggestions/SUGGESTION_TEMPLATE.md` to `source-suggestions/<org-id>/<topic>.md`, fill it in, and open a PR that only changes that folder.
@@ -92,6 +97,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full public-safety rules.
 - `kb publish ...` - public scratch export and the versioned read-only OKF distribution; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb report ...` - refresh reports and maintainer dashboards; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb tools ...` - developer utility commands; see [CLI Reference](docs/runbooks/cli-reference.md).
+- `kb issues ...` - refresh, validate, inspect, assess, and plan investigations for public Rock issue metadata.
 
 ## Where To Go Next
 

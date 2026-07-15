@@ -33,6 +33,11 @@
     "recipe_directory": "knowledge/recipes/*/*.md",
     "recipes": "agent/recipes.jsonl",
     "release_caveats": "agent/concept-release-caveats.jsonl",
+    "rock_issue_directory": "knowledge/issues/index.md",
+    "rock_issue_enrichments": "agent/rock-issue-enrichments.jsonl",
+    "rock_issue_investigation_prompt": "docs/prompts/rock-issue-investigation-v1.md",
+    "rock_issue_summary": "agent/rock-issue-summary.json",
+    "rock_issues": "agent/rock-issues.jsonl",
     "section_status": "agent/section-status.jsonl",
     "sections": "agent/section-source-map.jsonl",
     "source_authority_rules": "agent/source-authority-rules.jsonl",
@@ -813,7 +818,7 @@
     }
   ],
   "entity_count": 448,
-  "generated_at": "2026-07-10T19:52:36+00:00",
+  "generated_at": "2026-07-15T19:58:36+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -848,6 +853,8 @@
   },
   "recipe_count": 4,
   "release_caveat_count": 166,
+  "rock_issue_count": 5798,
+  "rock_issue_enrichment_count": 0,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {
     "eligible_record_count": 5566,

@@ -327,6 +327,38 @@ sources:
     preferred_tooling: [github_api, git_clone, repomix]
     topics: [development, source, api, model-map]
 
+  - id: rock_core_issues
+    name: Rock Core GitHub Issues
+    kind: github_issues
+    root_url: https://github.com/SparkDevNetwork/Rock/issues
+    repo: SparkDevNetwork/Rock
+    description: Public Rock core issue metadata, labels, structured version fields, milestones, and selected timeline relations.
+    owner: Spark Development Network and issue reporters
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    public_publish_mode: public_cite_and_summarize_only
+    allowed_excerpt_chars: 0
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [github_api, github_timeline_api, deterministic_issue_normalizer]
+    topics: [issues, bugs, releases, development, operations]
+
+  - id: rock_mobile_issues
+    name: Rock Mobile GitHub Issues
+    kind: github_issues
+    root_url: https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues
+    repo: SparkDevNetwork/Rock.Mobile-Issues
+    description: Public Rock Mobile issue metadata, structured platform and version fields, milestones, and selected timeline relations.
+    owner: Spark Development Network and issue reporters
+    license_status: public_rights_reserved
+    allowed_extraction_mode: cite_and_summarize
+    public_publish_mode: public_cite_and_summarize_only
+    allowed_excerpt_chars: 0
+    refresh_cadence: daily
+    extraction_tier: 1
+    preferred_tooling: [github_api, github_timeline_api, deterministic_issue_normalizer]
+    topics: [issues, bugs, mobile, releases, development]
+
   - id: sparkdevnetwork_slingshot
     name: SparkDevNetwork/Slingshot
     kind: github_repo

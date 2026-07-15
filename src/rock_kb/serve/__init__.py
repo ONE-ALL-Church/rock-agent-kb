@@ -1,5 +1,35 @@
 from __future__ import annotations
 
-from .retrieval import get_claim, get_claims, get_concept, get_manifest, get_recipe, get_result, list_concepts, list_recipes, search
+from .retrieval import (
+    assess_rock_issues,
+    get_claim,
+    get_claims,
+    get_concept,
+    get_manifest,
+    get_recipe,
+    get_result,
+    get_rock_issue,
+    list_concepts,
+    list_recipes,
+    list_rock_issues,
+    plan_rock_issue_investigation,
+    search,
+    search_rock_issues,
+)
 
-__all__ = ["get_claim", "get_claims", "get_concept", "get_manifest", "get_recipe", "get_result", "list_concepts", "list_recipes", "search"]
+__all__ = [
+    "assess_rock_issues",
+    "get_claim",
+    "get_claims",
+    "get_concept",
+    "get_manifest",
+    "get_recipe",
+    "get_result",
+    "get_rock_issue",
+    "list_concepts",
+    "list_recipes",
+    "list_rock_issues",
+    "plan_rock_issue_investigation",
+    "search",
+    "search_rock_issues",
+]

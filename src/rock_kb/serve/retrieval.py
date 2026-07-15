@@ -8,6 +8,16 @@ from typing import Any
 
 from ..jsonl import read_jsonl
 from ..paths import REPO_ROOT
+from ..rock_issues import (
+    assess_catalog,
+    attach_issue_enrichments,
+    extract_issue_ref_from_query,
+    find_issue_row,
+    investigation_plan,
+    issue_enrichments_by_id,
+    issue_matches_version,
+    parse_issue_ref,
+)
 
 PUBLIC_SEARCH_PREFIXES = ("knowledge/", "agent/", "claims/")
 PRIVATE_PATH_PREFIXES = ("data/review/", "data/media/", "data/normalized/", "data/raw-manifests/", "data/index/")
@@ -217,6 +227,151 @@ def get_recipe(recipe_id: str, root: Path | None = None) -> dict[str, Any]:
     if row is None:
         return {"schema": "rock-kb-recipe-result-v1", "status": "not_found", "recipe_id": normalized}
     return {"schema": "rock-kb-recipe-result-v1", "status": "ok", "recipe": row}
+
+
+def search_rock_issues(query: str, limit: int = 10, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    enrichments = issue_enrichments_by_id(root)
+    terms = {term.lower() for term in re.findall(r"[A-Za-z0-9_.-]+", query) if len(term) > 1}
+    exact_ref = extract_issue_ref_from_query(query)
+    query_version = re.search(r"(?<!\d)(\d{1,2}(?:\.\d+){1,3})(?!\d)", query)
+    distinctive = terms - {"affect", "affected", "bug", "bugs", "fixed", "github", "issue", "issues", "regression", "version", "reported", "public", "tracker", "rock"}
+    matches = []
+    for raw_issue in read_jsonl(root / "agent" / "rock-issues.jsonl"):
+        issue = attach_issue_enrichments(raw_issue, enrichments)
+        searchable = " ".join(
+            [
+                str(issue.get("title") or ""),
+                " ".join(str(value) for value in issue.get("labels") or []),
+                " ".join(str(value) for value in issue.get("concept_ids") or []),
+                " ".join(
+                    str(value)
+                    for row in issue.get("version_evidence") or []
+                    for value in [row.get("normalized_version"), row.get("version_line")]
+                    if value
+                ),
+                " ".join(
+                    str(value)
+                    for enrichment in issue.get("reviewed_enrichments") or []
+                    for value in [
+                        enrichment.get("diagnosis_summary"),
+                        *(enrichment.get("workaround_summaries") or []),
+                    ]
+                    if value
+                ),
+                str(issue.get("number") or ""),
+            ]
+        ).lower()
+        score = sum(1 for term in terms if term in searchable)
+        natural_title = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", str(issue.get("title") or ""))
+        title_terms = {term.lower() for term in re.findall(r"[A-Za-z0-9_.-]+", natural_title)}
+        title_overlap = len(distinctive.intersection(title_terms))
+        score += title_overlap * title_overlap * 12
+        if query_version and issue_matches_version(issue, query_version.group(1)):
+            score += 140
+        if exact_ref and find_issue_row([issue], *exact_ref) is not None:
+            score += 1200
+        if score:
+            matches.append((score, compact_rock_issue(issue)))
+    results = [row for _, row in sorted(matches, key=lambda item: (-item[0], str(item[1].get("issue_id") or "")))[:limit]]
+    return {"schema": "rock-kb-rock-issue-search-v1", "query": query, "results": results}
+
+
+def list_rock_issues(
+    repository: str | None = None,
+    state: str | None = None,
+    concept: str | None = None,
+    version: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+    root: Path | None = None,
+) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    enrichments = issue_enrichments_by_id(root)
+    aliases = {
+        "core": "SparkDevNetwork/Rock",
+        "mobile": "SparkDevNetwork/Rock.Mobile-Issues",
+    }
+    repository = aliases.get(str(repository or "").lower(), repository)
+    rows = []
+    for raw_issue in read_jsonl(root / "agent" / "rock-issues.jsonl"):
+        issue = attach_issue_enrichments(raw_issue, enrichments)
+        if repository and issue.get("repository") != repository:
+            continue
+        if state and issue.get("state") != state:
+            continue
+        if concept and concept not in (issue.get("concept_ids") or []):
+            continue
+        if version and not issue_matches_version(issue, version):
+            continue
+        rows.append(compact_rock_issue(issue))
+    rows.sort(key=lambda row: str(row.get("updated_at") or ""), reverse=True)
+    selected = rows[offset : offset + max(1, min(limit, 100))]
+    return {
+        "schema": "rock-kb-rock-issue-list-v1",
+        "count": len(selected),
+        "offset": offset,
+        "next_offset": offset + len(selected) if len(selected) == limit else None,
+        "issues": selected,
+    }
+
+
+def get_rock_issue(issue_ref: str, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    try:
+        repository, number = parse_issue_ref(issue_ref)
+    except ValueError:
+        return {"schema": "rock-kb-rock-issue-result-v1", "status": "not_found", "issue_ref": issue_ref}
+    issue_id = f"rock_issue:{repository}#{number}"
+    issue = find_issue_row(read_jsonl(root / "agent" / "rock-issues.jsonl"), repository, number)
+    if issue is None:
+        return {"schema": "rock-kb-rock-issue-result-v1", "status": "not_found", "issue_id": issue_id}
+    issue = attach_issue_enrichments(issue, issue_enrichments_by_id(root))
+    return {
+        "schema": "rock-kb-rock-issue-result-v1",
+        "status": "ok",
+        "requested_issue_id": issue_id,
+        "issue_id": issue.get("issue_id"),
+        "issue": issue,
+    }
+
+
+def assess_rock_issues(profile: dict[str, Any], limit: int = 100, root: Path | None = None) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    enrichments = issue_enrichments_by_id(root)
+    rows = (attach_issue_enrichments(issue, enrichments) for issue in read_jsonl(root / "agent" / "rock-issues.jsonl"))
+    return assess_catalog(rows, profile, limit=limit)
+
+
+def plan_rock_issue_investigation(
+    issue_ref: str,
+    include_private_instance: bool = False,
+    root: Path | None = None,
+) -> dict[str, Any]:
+    result = get_rock_issue(issue_ref, root=root)
+    if result.get("status") != "ok":
+        return result
+    return investigation_plan(result["issue"], include_private_instance=include_private_instance)
+
+
+def compact_rock_issue(issue: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: issue.get(key)
+        for key in [
+            "issue_id",
+            "repository",
+            "number",
+            "title",
+            "url",
+            "state",
+            "validation_state",
+            "updated_at",
+            "concept_ids",
+            "version_evidence",
+            "remediation_state",
+            "evidence_state",
+        ]
+    } | {"reviewed_enrichment_count": len(issue.get("reviewed_enrichments") or [])}
 
 
 def list_models(root: Path | None = None) -> dict[str, Any]:

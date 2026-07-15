@@ -13,6 +13,10 @@ This file is generated for AI agents. It points to source registries, curated kn
 - [Concept index](concept-index.jsonl)
 - [Public source summaries](source-summaries.jsonl)
 - [Source summary coverage report](source-summary-report.json)
+- [Rock issue catalog](rock-issues.jsonl)
+- [Reviewed Rock issue enrichments](rock-issue-enrichments.jsonl)
+- [Rock issue summary](rock-issue-summary.json)
+- [Rock issue agent guide](../knowledge/issues/index.md)
 
 ## Sources
 
@@ -37,6 +41,8 @@ This file is generated for AI agents. It points to source registries, curated kn
 - [Rock Demo API v1 Docs](https://rock.rocksolidchurchdemo.com/api/docs/index) - Public Rock demo API v1 documentation shell referenced by Rock Community API docs.
 - [Rock Demo API v2 Docs](https://rock.rocksolidchurchdemo.com/api/v2/docs/index) - Public Rock demo API v2 documentation shell referenced by Rock Community API docs.
 - [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock) - Core Rock RMS source repository.
+- [Rock Core GitHub Issues](https://github.com/SparkDevNetwork/Rock/issues) - Public Rock core issue metadata, labels, structured version fields, milestones, and selected timeline relations.
+- [Rock Mobile GitHub Issues](https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues) - Public Rock Mobile issue metadata, structured platform and version fields, milestones, and selected timeline relations.
 - [SparkDevNetwork/Slingshot](https://github.com/SparkDevNetwork/Slingshot) - Migration tooling for moving data into Rock RMS.
 - [ONE&ALL Rock SQL Library](https://github.com/ONE-ALL-Church/Rock-SQL-Library) - ONE&ALL public Rock SQL examples and library.
 - [Public Rock-Related GitHub Repos](https://api.github.com/search/repositories?q=topic:rock-rms) - Public repos discovered via GitHub search, topics, and curated allowlists.
