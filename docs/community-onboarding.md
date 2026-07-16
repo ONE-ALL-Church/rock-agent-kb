@@ -4,11 +4,16 @@ This knowledge base is public-safe Rock RMS guidance for agents. It combines sou
 
 ## Read The KB
 
-Most testers should use one of two paths:
+Most testers should use one of two co-primary online paths. Both query the same
+hosted public projection and apply the same trust and retrieval rules:
 
-- **MCP for agents:** best when the AI client supports HTTP MCP tools.
-- **CLI for terminal testing:** best when a person or terminal-based agent wants
-  to run quick searches.
+- **MCP for agents:** use when the AI client supports native HTTP MCP tools.
+- **CLI for terminal testing:** use when a person, script, or terminal-based
+  agent wants to run searches and local commands.
+
+MCP does not contain better knowledge than the CLI. OKF release bundles are for
+offline, pinned, bulk, or cross-system use and are not needed for ordinary
+community testing.
 
 ### Recommended: Let The CLI Configure Your Agent
 

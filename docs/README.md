@@ -11,7 +11,7 @@
 - [Community Onboarding](community-onboarding.md) - how another church and its agents consume and contribute to the public KB.
 - [Community Content Priorities](community-content-priorities.md) - scoring rubric for reusable recipes, troubleshooting paths, failure modes, version caveats, and verified workflows.
 - [Public Surface Runbook](runbooks/public-publish-runbook.md) - public surface, scratch export, and contribution workflow.
-- [OKF Distribution](runbooks/okf-distribution.md) - complete read-only Open Knowledge Format bundle, validation, release assets, and future reviewed-import policy.
+- [OKF Distribution](runbooks/okf-distribution.md) - secondary read-only portability layer for offline, pinned, bulk, and cross-system use, plus validation, release assets, and future reviewed-import policy.
 - [Local Public Surface Audit](runbooks/local-public-surface-audit.md) - local pre-commit checks for public/private boundary and contribution bundles.
 - [Source Rebuild Orchestration Runbook](runbooks/source-rebuild-orchestration-runbook.md) - source scan, refresh, dry-run, rebuild, and PR automation workflow.
 - [Release Cadence](runbooks/release-cadence.md) - unified service/client versioning, changelog, validation, tagging, PyPI, and GitHub release procedure.

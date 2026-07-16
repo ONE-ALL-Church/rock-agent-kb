@@ -5,7 +5,9 @@ organization.
 
 ## Read First
 
-Before answering a Rock RMS operational question, query the hosted Rock KB:
+Before answering a Rock RMS operational question, query the hosted Rock KB
+through either the CLI or MCP. They expose the same hosted projection; choose
+MCP for native typed tools or the CLI for terminal and scripted access:
 
 ```bash
 uvx rock-kb search "<question or error>"
@@ -18,6 +20,10 @@ When your client supports HTTP MCP, add the hosted MCP endpoint:
 ```bash
 uvx rock-kb mcp-config
 ```
+
+Do not download an OKF release merely to answer an ordinary online question.
+Use OKF only for offline operation, a pinned snapshot, bulk/local indexing, or
+cross-system interchange.
 
 Prefer `official`, `release-note-confirmed`, `rocku-confirmed`,
 `source-code-confirmed`, and `community-reviewed` results. Treat
