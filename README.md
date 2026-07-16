@@ -4,7 +4,55 @@
 
 This repository is an agent-first knowledge base for Rock RMS, combining curated Markdown with structured JSONL manifests, claims, citations, and indexes. It keeps public-safe knowledge in the tracked tree while raw transcripts, private scans, and local review artifacts stay in ignored private storage. The default posture is conservative: cite and summarize public web content, publish only reviewed distilled claims, and fail closed when privacy, licensing, or source authority is unclear.
 
-## Quick Start
+## Use With An Agent
+
+For ordinary online questions, use one of the two hosted interfaces. They read
+the same current public projection and apply the same trust tiers and retrieval
+rules:
+
+- **MCP** is the natural choice when an agent host supports HTTP MCP and can use
+  typed tools directly.
+- **CLI** is the natural choice for terminal agents, scripts, local validation,
+  and clients without MCP support.
+
+Configure a supported agent host with the Rock KB skill and hosted MCP entry:
+
+```bash
+uvx rock-kb install-agent --dry-run
+uvx rock-kb install-agent
+```
+
+Or query the same hosted knowledge from a terminal:
+
+```bash
+uvx rock-kb search "check-in labels not printing"
+uvx rock-kb result '<result-id>'
+```
+
+MCP is not a higher-quality knowledge source than the CLI; it is a more native
+tool interface for compatible agents. Do not download an OKF bundle merely to
+answer an ordinary online question.
+
+## Portable OKF Distribution
+
+Each tagged release includes complete `full` and compact `core` read-only Open Knowledge Format v0.1 distributions of the canonical public KB. OKF is a secondary portability layer for offline operation, pinned snapshots, bulk analysis, local indexing or vectorization, archival, and cross-system interchange. It is not the default search interface.
+
+When one of those use cases applies, download and validate a release:
+
+```bash
+uvx rock-kb okf download --profile core
+uvx rock-kb okf verify rock-agent-kb-okf-core-vX.Y.Z.zip
+```
+
+Use the `core` profile for a smaller local agent corpus. Use `full` when a
+downstream system needs lossless public records, Rock issue routing data, source
+summaries, and contribution provenance. Use `okf conformance` for any
+third-party OKF bundle and `okf verify` for the stricter Rock release integrity,
+profile, licensing, and public-safety checks.
+
+See the [OKF Distribution Runbook](docs/runbooks/okf-distribution.md) for contents, local builds, release assets, and the reviewed-import policy.
+
+## Maintainer Quick Start
 
 ```bash
 uv sync --extra dev
@@ -16,21 +64,7 @@ uv run --extra dev pytest
 
 Generated content is meant to be reproducible from the registries, normalized records, reviewed claims, and CLI. For intentional rebuilds, pin `ROCK_KB_GENERATED_AT=<iso timestamp>` so generated `generated_at` metadata does not churn; standard `SOURCE_DATE_EPOCH` is also supported.
 
-## Portable OKF Distribution
-
-Each tagged release includes complete `full` and compact `core` read-only Open Knowledge Format v0.1 distributions of the canonical public KB. They package typed Markdown, normal links, lossless structured records, checksums, explicit licensing, and source/version metadata. The core profile omits routing-only claims, source summaries, and contribution provenance for smaller agent contexts.
-
-Give an agent this command to download and validate the latest release:
-
-```bash
-uvx rock-kb okf download
-uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
-```
-
-Use `okf conformance` for any third-party OKF bundle. Use `okf verify` for the
-stricter Rock release integrity, profile, licensing, and public-safety checks.
-
-See the [OKF Distribution Runbook](docs/runbooks/okf-distribution.md) for contents, local builds, release assets, and the reviewed-import policy.
+## Reporting And Product Issues
 
 Agents can report a malfunction in the KB service, MCP, CLI, schema,
 authentication, or retrieval path through the bounded structured reporter. See

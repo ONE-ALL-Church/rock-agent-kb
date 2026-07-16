@@ -2,6 +2,26 @@
 
 Rock KB publishes `full` and `core` read-only [Open Knowledge Format (OKF) v0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) distributions with each tagged release. OKF is a portability layer; the repository registries, JSONL records, hosted search service, and MCP server remain canonical. Rock-specific extensions are versioned in the [Rock KB OKF profile](../specs/rock-kb-okf-profile-v1.md).
 
+## When To Use OKF
+
+For ordinary online retrieval, use hosted MCP from an MCP-capable agent or the
+`rock-kb` CLI from a terminal agent. These are co-primary interfaces to the same
+current hosted projection; MCP is preferable only when native typed tools fit
+the client better.
+
+Use OKF when the consumer needs one or more of these properties:
+
+- offline or disconnected operation;
+- a version-pinned, reproducible public snapshot;
+- bulk analysis or a locally managed search/vector index;
+- archival and provenance inspection;
+- interchange with another OKF-aware knowledge system.
+
+Do not download an OKF bundle merely to answer an ordinary online question. An
+OKF consumer is responsible for indexing, bounded retrieval, and checking the
+bundle version for staleness; it should not place the complete corpus into one
+model context.
+
 ## Contents
 
 The distribution projects canonical public knowledge into typed Markdown with YAML frontmatter and normal Markdown links:
@@ -39,7 +59,7 @@ uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
 uvx rock-kb okf download --profile core
 ```
 
-`download` retrieves the latest full ZIP by default and requires a matching release checksum or GitHub asset digest. Use `--profile core`, `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` when needed. `conformance` applies generic OKF rules and reports unresolved links or unknown versions as warnings. `verify` applies the stricter Rock profile, integrity, licensing, structured-record, and public-safety rules. `validate` remains an alias for `verify` for older agents.
+`download` retrieves the latest full ZIP by default and requires a matching release checksum or GitHub asset digest. Prefer `--profile core` for a smaller local agent index; use `full` when the consumer needs Rock issue records, routing-only claims, source summaries, and contribution provenance. Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` when needed. `conformance` applies generic OKF rules and reports unresolved links or unknown versions as warnings. `verify` applies the stricter Rock profile, integrity, licensing, structured-record, and public-safety rules. `validate` remains an alias for `verify` for older agents.
 
 The same commands work after a permanent client install:
 

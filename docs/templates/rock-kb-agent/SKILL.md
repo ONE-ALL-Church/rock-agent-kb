@@ -11,6 +11,22 @@ Use the Rock Agent Knowledge Base before web search for Rock RMS operational, de
 
 The KB is source-tiered. Never blend community-only material into authoritative guidance without labeling it.
 
+## Access Strategy
+
+For ordinary online retrieval, MCP and the `rock-kb` CLI are co-primary
+interfaces to the same hosted public projection:
+
+- Use MCP when the agent host supports HTTP MCP and benefits from typed,
+  discoverable tools and structured results without shell parsing.
+- Use the CLI for terminal agents, scripts, local validation, stateful local
+  commands, and environments without MCP support.
+- Use OKF only when the task requires an offline corpus, a pinned release,
+  bulk analysis, local indexing or vectorization, archival, or cross-system
+  interchange.
+
+MCP does not contain better or newer knowledge than the CLI. Do not download or
+load an OKF bundle merely to answer an ordinary online Rock question.
+
 ## Capability Map
 
 The KB can help agents do more than plain text search:
@@ -36,9 +52,9 @@ The KB can help agents do more than plain text search:
 
 ## Install And Availability
 
-Use the hosted MCP endpoint when the current agent client supports HTTP MCP.
-The CLI can install this skill and the hosted MCP entry for detected Codex,
-Claude Code, Cursor, or OpenCode hosts:
+Choose the hosted interface that fits the current agent. For MCP-capable Codex,
+Claude Code, Cursor, or OpenCode hosts, the CLI can install this skill and the
+hosted MCP entry:
 
 ```bash
 uvx rock-kb install-agent --dry-run
@@ -73,8 +89,6 @@ uvx rock-kb recipe oneall:registration-to-connection-request
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
-uvx rock-kb okf download
-uvx rock-kb okf download --profile core
 ```
 
 For repeated use on a server or persistent agent host, install the CLI once:
@@ -102,7 +116,6 @@ uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group
 uv run --project clients/python rock-kb dashboard
 uv run --project clients/python rock-kb mcp-config
-uv run --project clients/python rock-kb okf download
 ```
 
 Use these commands for specific jobs:
@@ -130,7 +143,7 @@ Use these commands for specific jobs:
 - `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
 - `mcp-config`: connect clients that support HTTP MCP to the hosted KB.
-- `okf download [--profile full|core]`: download and digest-verify the latest read-only Open Knowledge Format release. Use `core` for smaller agent contexts and `full` for lossless public records.
+- `okf download [--profile full|core]`: download and digest-verify a read-only Open Knowledge Format release for offline, pinned, bulk, or interoperable use. Use `core` for a smaller local corpus and `full` for lossless public records.
 - `okf inspect <bundle>`: show an OKF directory or archive's version, source commit, scope, and counts.
 - `okf conformance <bundle>`: apply portable upstream OKF rules to any bundle; broken links and unknown versions are warnings.
 - `okf verify <bundle>`: verify a Rock KB release's profile, licensing, complete checksums, structured records, archive safety, and public/private boundaries. `okf validate` is a compatibility alias.
@@ -142,6 +155,25 @@ Do not fall back to copying raw KB artifacts into another repo. Use the OKF
 distribution when an agent or external tool needs a portable, offline corpus.
 Do not import an arbitrary OKF bundle into trusted knowledge; route proposed
 knowledge through the reviewed contribution workflow.
+
+## Offline And Portable Access
+
+Use OKF when the agent or an external knowledge system must operate without the
+hosted service, retain a reproducible release, index the complete public corpus,
+or exchange knowledge through standard Markdown and links:
+
+```bash
+uvx rock-kb okf download --profile core
+uvx rock-kb okf inspect rock-agent-kb-okf-core-vX.Y.Z.zip
+uvx rock-kb okf verify rock-agent-kb-okf-core-vX.Y.Z.zip
+```
+
+The `core` profile is the normal starting point for a local agent index. The
+`full` profile adds routing-only claims, source summaries, contribution
+provenance, and Rock issue records. An OKF bundle is a versioned release
+snapshot, so check its source commit and version before relying on it for
+current behavior. Do not place an entire bundle in one model context; index it
+and retrieve bounded records.
 
 ## MCP Tool Map
 
@@ -198,8 +230,9 @@ tools instead of shell commands:
   intake, issue reports, hosted evaluation, and telemetry counts.
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
 
-Use MCP for agent-native tool access when available. Use the CLI for terminal
-agents, local testing, and environments without HTTP MCP support.
+Use MCP for agent-native typed tools and the CLI for terminal or scripted
+access. Both query the same hosted projection; choose by client capability, not
+expected answer quality.
 
 When reporting a KB malfunction, retain the returned stable `report_id` for
 maintainer follow-up. Repeated failures deduplicate and increment an occurrence
@@ -208,7 +241,7 @@ automatically.
 
 ## Read Workflow
 
-1. Start with the hosted KB when available:
+1. Start with the hosted KB through MCP or the CLI. For terminal access:
 
 ```bash
 uvx rock-kb search "<question or error>"
@@ -217,7 +250,7 @@ uvx rock-kb claims <concept-id> --min-tier source_backed
 uvx rock-kb dashboard
 ```
 
-If the client supports HTTP MCP, configure:
+For an MCP-capable client, configure the same hosted projection instead:
 
 ```bash
 uvx rock-kb mcp-config

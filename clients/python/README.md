@@ -4,21 +4,10 @@ Thin terminal client for the public Rock RMS agent knowledge base.
 
 ## Quick Start
 
-The published client is available from PyPI as `rock-kb`.
-
-## Open Knowledge Format
-
-Download, inspect, and verify full or compact core read-only OKF releases without cloning the repository:
-
-```bash
-uvx rock-kb okf download
-uvx rock-kb okf inspect rock-agent-kb-okf-vX.Y.Z.zip
-uvx rock-kb okf conformance third-party-okf.zip
-uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
-uvx rock-kb okf download --profile core
-```
-
-Use `--profile full|core`, `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` with `okf download`. Downloads require published SHA-256 evidence. `conformance` handles generic OKF bundles; `verify` applies Rock release integrity and safety rules. The client does not import OKF into trusted knowledge.
+The published client is available from PyPI as `rock-kb`. It queries the same
+hosted public projection as the MCP server. Use MCP when an agent host supports
+native typed tools; use this CLI for terminal agents, scripts, local validation,
+and environments without MCP support. Neither interface has better knowledge.
 
 For one-off use, run it with `uvx`. `uvx` is part of the `uv` Python toolchain;
 it downloads or reuses a cached copy of the package and runs the command in an
@@ -123,6 +112,31 @@ revalidation changes. The snapshot defaults under the user state directory;
 override it with `--state`, preview with `--no-write`, or replace the baseline
 with `--reset`. Only the bounded profile is sent to the hosted service. The
 snapshot is never uploaded and does not retain the profile itself.
+
+## Offline And Portable Access
+
+OKF is a secondary distribution for offline operation, pinned releases, bulk
+analysis, local indexing or vectorization, archival, and cross-system
+interchange. Do not download an OKF bundle merely to answer an ordinary online
+question through this client.
+
+Download, inspect, and verify a full or compact core read-only release without
+cloning the repository:
+
+```bash
+uvx rock-kb okf download --profile core
+uvx rock-kb okf inspect rock-agent-kb-okf-core-vX.Y.Z.zip
+uvx rock-kb okf conformance third-party-okf.zip
+uvx rock-kb okf verify rock-agent-kb-okf-core-vX.Y.Z.zip
+```
+
+Use `core` as the normal starting point for a smaller local agent index. Use
+`full` when a downstream system needs lossless public records, Rock issue
+routing data, source summaries, and contribution provenance. Options include
+`--format tar.gz`, `--version X.Y.Z`, and `--destination <path>`. Downloads
+require published SHA-256 evidence. `conformance` handles generic OKF bundles;
+`verify` applies Rock release integrity and safety rules. The client does not
+import OKF into trusted knowledge.
 
 To test unreleased client changes directly from GitHub, use:
 
