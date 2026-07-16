@@ -275,6 +275,8 @@ Useful inspection approach:
 
 Do not invent state/status mapping. Inspect the live request row, the configured status, and the board/list filters.
 
+Source basis: Rock's [Model Map](https://community.rockrms.com/ModelMap) defines the entity fields and relationships, while the official [Engagement documentation](https://community.rockrms.com/documentation/bookcontent/39) describes how requests, opportunities, statuses, connectors, activities, and workflows are used. Verify the deployed version before translating this model into SQL.
+
 ## 6. Primary Entities And Relationships
 
 ### Entity Relationship Map
@@ -315,6 +317,8 @@ ConnectionStatus
 ConnectionOpportunityConnectorGroup
   links opportunities to groups that provide possible connectors
 ```
+
+This relationship summary is grounded in Rock's [Model Map](https://community.rockrms.com/ModelMap) and the official [Engagement documentation](https://community.rockrms.com/documentation/bookcontent/39). Treat it as a navigation map; inspect the exact model properties for the Rock version being diagnosed.
 
 ### ConnectionType
 
@@ -436,6 +440,8 @@ Use a Connection Opportunity when the organization needs a distinct destination 
 - Prayer > Prayer Team Follow-Up
 
 Opportunities are useful because they provide routing, ownership, reporting, and configuration boundaries. If every request in a type follows the same owners, workflows, and reporting, one opportunity may be enough. If different ministries own different responses, separate opportunities are usually cleaner.
+
+The official [Connection Opportunities training](https://community.rockrms.com/rocku/engagement/connection-opportunities) and [Engagement documentation](https://community.rockrms.com/documentation/bookcontent/39) are the source basis for this use of opportunities as configurable destinations within a Connection Type.
 
 ### Key Opportunity Settings To Inspect
 
@@ -796,6 +802,8 @@ For boards/lists:
 - Bulk update is restricted to trained staff.
 - Version-specific known bugs are reviewed.
 
+Use the official [Connection Types](https://community.rockrms.com/rocku/engagement/connection-types), [Connection Opportunities](https://community.rockrms.com/rocku/engagement/connection-opportunities), and [Connections Board](https://community.rockrms.com/rocku/engagement/connections-board) training as the configuration baseline, then compare the live instance and its Rock version before approving changes.
+
 ### Operational Metrics
 
 Track:
@@ -1017,6 +1025,8 @@ The hydrated release notes page shows Rock v19.1 beta and v18.3 alpha headings a
 13. Verify connector assignment.
 14. Verify inherited request attributes appear in signup/detail, especially on v17.2 or earlier.
 15. Verify reporting filters by type/opportunity.
+
+This playbook follows the configuration sequence in Rock's [Engagement documentation](https://community.rockrms.com/documentation/bookcontent/39) and [Connection Opportunities training](https://community.rockrms.com/rocku/engagement/connection-opportunities). Local status names, security groups, workflows, and service-level expectations remain organization-specific.
 
 ### Playbook: Public Opportunity Cards
 

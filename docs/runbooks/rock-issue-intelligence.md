@@ -34,6 +34,7 @@ uv run kb issues get mobile:128
 uv run kb issues plan 6917 --include-private-instance
 uv run kb issues assemble 6917 data/review/rock-issues/workers/*.json
 uv run kb issues assess instance-profile.json
+uv run --project clients/python rock-kb issues watch instance-profile.json
 ```
 
 Every refresh cursor-paginates and count-reconciles the complete metadata catalog. Timelines are fetched only for changed current issues plus a bounded historical backfill; `--full` expands that backfill. Supplying one or more `--timeline-issue` values switches timeline fetching to only those current or transferred issue locations, even when their cached timelines are already complete. Daily automation updates a rolling pull request only when tracked artifacts change.
@@ -57,6 +58,27 @@ An instance profile is deliberately narrow:
 
 Never put queries, logs, stack traces, URLs with credentials, person data, live identifiers, or private configuration in a profile.
 
+`issues assess` is paginated after the complete bounded candidate set is ranked.
+The response includes `total_count`, `offset`, `limit`, `next_offset`, and
+`has_more`; callers that need every applicable issue must follow every page.
+The MCP tool accepts the same `limit` and `offset` fields.
+
+For repeat checks, `uvx rock-kb issues watch instance-profile.json` retrieves
+every assessment page, stores a private baseline locally, and reports newly
+relevant issues, applicability or remediation changes, issues no longer routed
+to the profile, and reviewed enrichments due for revalidation. The default
+snapshot is under `ROCK_KB_STATE_DIR`, `XDG_STATE_HOME/rock-kb`, or
+`~/.local/state/rock-kb`; use `--state <path>` to choose another private local
+location. Snapshot files are written atomically with owner-only permissions.
+Use `--no-write` for a preview or `--reset` to establish a new baseline.
+
+The watch snapshot contains a hash of the bounded profile and compact public
+issue assessment fields. It does not store the profile itself, raw issue text,
+queries, logs, secrets, live IDs, or private Rock configuration. The hosted
+service receives only the same bounded profile used by `issues assess`. If any
+page is missing or inconsistent, the command fails without replacing the prior
+snapshot.
+
 ## Agent Retrieval
 
 Use the dedicated issue commands or MCP tools so historical issue metadata does not displace higher-authority answers:
@@ -66,6 +88,7 @@ uvx rock-kb issues search "Azure blob CPU issue"
 uvx rock-kb issues list --repository core --state open --version 19.2
 uvx rock-kb issue 6919
 uvx rock-kb issues assess instance-profile.json
+uvx rock-kb issues watch instance-profile.json
 uvx rock-kb issues plan 6919
 ```
 

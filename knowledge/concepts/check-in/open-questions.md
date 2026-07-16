@@ -10,12 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `13-administration-and-operational-guardrails-pre-service-checklist`: Pre-Service Checklist (90 words)
-- `17-implementation-playbooks-playbook-build-a-basic-family-check-in-area`: Playbook: Build A Basic Family Check-In Area (127 words)
-- `17-implementation-playbooks-playbook-add-a-new-room`: Playbook: Add A New Room (81 words)
-- `17-implementation-playbooks-playbook-configure-rapid-attendance-entry`: Playbook: Configure Rapid Attendance Entry (86 words)
-- `18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved`: A. Is The Problem Before Attendance Is Saved? (103 words)
-- `19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in`: Recipe: Prove Why A Child Cannot Check In (93 words)
 
 ## Community-Supported Only
 

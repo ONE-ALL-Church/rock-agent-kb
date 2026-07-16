@@ -15,7 +15,7 @@ Current checked-in tracks from the last accepted scrape:
 
 | Track | Source | Checked-in Rock Version | Raw Artifact |
 | --- | --- | --- | --- |
-| Stable | `https://rocksolidchurchdemo.com/admin/power-tools/model-map` | `19.1.8` | `data/review/model-map-scrape/demo-model-map-full-scrape.json` |
+| Stable | `https://rocksolidchurchdemo.com/admin/power-tools/model-map` | `19.2.0` | `data/review/model-map-scrape/demo-model-map-full-scrape.json` |
 | Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.5` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
 
 Do not assume those versions are still live. `uv run kb status` probes the stable and latest Rock version endpoints and reports `model-map versions` as stale when either site has advanced.

@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-lava-workflows-launching-a-workflow-from-lava`: Launching A Workflow From Lava (87 words)
-- `11-related-rock-areas-cms-workflows-sql-security-cms`: CMS (85 words)
-- `16-implementation-playbooks-playbook-add-a-safe-read-only-entity-list`: Playbook: Add A Safe Read-Only Entity List (104 words)
 
 ## Community-Supported Only
 

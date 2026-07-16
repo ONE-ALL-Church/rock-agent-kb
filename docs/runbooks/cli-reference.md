@@ -123,11 +123,16 @@ uv run kb issues get mobile:128
 uv run kb issues plan 6919 --include-private-instance
 uv run kb issues assemble 6919 data/review/rock-issues/workers/*.json
 uv run kb issues assess instance-profile.json
+uv run --project clients/python rock-kb issues watch instance-profile.json
 ```
 
 `issues sync` reads the public GitHub API and emits bounded metadata; it does not
 republish issue bodies or comments. `issues assess` accepts only versions,
-platforms, concept IDs, and capability names. `issues assemble` is maintainer-only
+platforms, concept IDs, and capability names and supports `--limit` plus
+`--offset`. The published client's `issues watch` command follows all assessment
+pages and writes an owner-only private local baseline so later runs can report
+issue-routing and remediation changes; use `--no-write` to preview and `--reset`
+to replace the baseline. `issues assemble` is maintainer-only
 and writes a validated multi-agent review packet under ignored `data/review/`.
 Approved public enrichments under `issues/` are validated and projected into
 `agent/rock-issue-enrichments.jsonl` during sync, then joined into exact issue

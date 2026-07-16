@@ -44,15 +44,15 @@ Find whether the failure is configuration, device routing, printer hardware, lab
 
 ## Source Links
 
+- https://community.rockrms.com/rocku/check-in
 - https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx
 - https://community.rockrms.com/documentation/bookcontent/10/266
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/LabelAttendanceDetail.cs
 - https://community.rockrms.com/ask/using/2804
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs
-- https://community.rockrms.com/rocku/check-in
+- https://community.rockrms.com/rocku/check-in/attendance-analytics
 - https://community.rockrms.com/recipes/125
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/ILabelDataHasAttendance.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
-- https://community.rockrms.com/recipes/116
 - https://community.rockrms.com/recipes/424

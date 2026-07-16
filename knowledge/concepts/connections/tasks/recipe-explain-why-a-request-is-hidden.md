@@ -35,14 +35,14 @@ Follow the guide section for Recipe: Explain Why A Request Is Hidden.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/39
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
 - https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
 - https://community.rockrms.com/ask/developing/2645
+- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
+- https://community.rockrms.com/rocku/engagement/connection-opportunities
 - https://community.rockrms.com/recipes/446
-- https://community.rockrms.com/rocku/engagement/connections-list-1
-- https://community.rockrms.com/rocku/engagement/overview
+- https://community.rockrms.com/rocku/engagement/connections-board

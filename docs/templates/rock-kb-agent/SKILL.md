@@ -121,7 +121,8 @@ Use these commands for specific jobs:
 - `issues search <query>`: search public Rock core and mobile product issue metadata without mixing it with KB malfunction reports.
 - `issues list [--repository core|mobile] [--state open|closed] [--version <version>] [--concept <id>]`: filter issue routing metadata and version evidence.
 - `issue <url|id|number|mobile:number>`: fetch one exact issue record.
-- `issues assess <profile.json>`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, and capabilities.
+- `issues assess <profile.json> [--limit N] [--offset N]`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, and capabilities. Follow `has_more` and `next_offset` when calling the REST or MCP surface directly.
+- `issues watch <profile.json>`: retrieve the complete assessment, keep an owner-only baseline on the local machine, and report newly relevant, changed, resolved-from-routing, or revalidation-due issues. Use this after upgrades and for periodic instance checks; never put logs, secrets, live IDs, person data, or private configuration in the profile.
 - `issues plan <issue>`: return a typed, read-only multi-agent investigation plan; `--include-private-instance` adds a private-only worker.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.

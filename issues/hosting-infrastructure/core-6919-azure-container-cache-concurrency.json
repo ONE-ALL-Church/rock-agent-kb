@@ -2,47 +2,79 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6919-azure-container-cache-concurrency-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6919",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Public Rock 19.2 source uses a shared mutable Dictionary cache in the static AzureBlobStorageClient and performs a ContainsKey/Add sequence without visible synchronization. Microsoft documents that Dictionary requires caller synchronization when reads and writes can overlap. This supports a concurrency defect in the Azure-backed BinaryFile path, but it does not by itself prove that the reported 100 percent CPU incident or a specific call stack had this cause; the upstream issue remains open without a recorded fix.",
-  "workaround_summaries": [],
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Public Rock 19.2 source used a shared mutable Dictionary cache in the singleton AzureBlobStorageClient and performed an unsynchronized ContainsKey/Add sequence. A Rock maintainer added a concurrent regression test, confirmed that it reproduced the reported race, replaced the cache with ConcurrentDictionary.GetOrAdd, and closed the issue. The issue is labeled Fixed in v19.4; verify exact package inclusion because a release-line label is not an exact build attestation.",
+  "workaround_summaries": [
+    "Use a Rock build proven to contain commit d66a4f492306b10c7bd71aa13d54273918c941a3. Until upgraded, an application-pool recycle may restore service after the reported failure, but it does not remove the concurrency defect and is not a durable fix."
+  ],
   "applicability": [
     {
-      "assertion_id": "core-6919-under-investigation-19.2.0",
+      "assertion_id": "core-6919-affected-19.2.0",
       "component": "rock_core",
       "version_scheme": "rock_release",
       "release_track": "19.2",
       "context": {
-        "scope": "Azure-backed BinaryFile storage under concurrent first-use cache access; reported incident still requires reproduction"
+        "scope": "Azure-backed BinaryFile storage under concurrent cache population"
       },
       "versions": ["19.2.0"],
       "ranges": [],
-      "status": "under_investigation",
+      "status": "affected",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6919",
+        "https://github.com/SparkDevNetwork/Rock/issues/6919#issuecomment-4985819602",
         "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Common/AzureBlobStorageClient.cs#L31-L80",
-        "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Provider/AzureBlobStorage.cs#L131-L209",
-        "https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netframework-4.8.1#thread-safety"
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6919-fixed-by-commit-d66a4f4",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact source revision; release package inclusion remains independently verifiable"
+      },
+      "versions": ["d66a4f492306b10c7bd71aa13d54273918c941a3"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6919#issuecomment-4985819602",
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3",
+        "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock/Storage/Common/AzureBlobStorageClient.cs#L38-L93",
+        "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock.Tests/Storage/AzureBlobStorageClientRaceTests.cs#L30-L104"
       ],
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
-      "confidence": "medium",
-      "assessed_at": "2026-07-15T20:34:20Z"
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6919",
+    "https://github.com/SparkDevNetwork/Rock/issues/6919#issuecomment-4985819602",
     "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Common/AzureBlobStorageClient.cs#L31-L80",
     "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Provider/AzureBlobStorage.cs#L131-L209",
-    "https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netframework-4.8.1#thread-safety"
+    "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3",
+    "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock/Storage/Common/AzureBlobStorageClient.cs#L38-L93",
+    "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock.Tests/Storage/AzureBlobStorageClientRaceTests.cs#L30-L104"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
-  "confidence": "medium",
+  "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-14T19:15:18Z",
-  "reviewed_at": "2026-07-15T20:34:20Z",
+  "issue_updated_at": "2026-07-15T22:22:06Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

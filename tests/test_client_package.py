@@ -4,6 +4,7 @@ import importlib.util
 import hashlib
 import json
 import sys
+import stat
 import warnings
 import zipfile
 from pathlib import Path
@@ -581,6 +582,135 @@ def test_client_rock_issue_commands_use_dedicated_read_only_endpoints(monkeypatc
             {"profile": {"core_version": "19.2.0", "concepts": ["hosting-infrastructure"]}, "limit": 25},
         )
     ]
+
+
+def test_client_issue_watch_collects_all_pages_and_detects_changes(tmp_path):
+    from rock_kb_client.issue_watch import run_issue_watch
+
+    state_path = tmp_path / "private" / "watch.json"
+    profile = {"core_version": "19.2.0", "concepts": ["hosting-infrastructure"]}
+    rows = [
+        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#1", "possible", "none_recorded"),
+        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#2", "likely", "candidate_fix"),
+        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#3", "confirmed", "official_fix_recorded"),
+    ]
+
+    first = run_issue_watch(
+        profile=profile,
+        service="https://example.test",
+        fetch_page=assessment_page_fetcher(rows),
+        state_path=state_path,
+        page_size=2,
+    )
+
+    assert first["status"] == "initialized"
+    assert first["total_count"] == 3
+    assert [row["issue_id"] for row in first["results"]] == [row["issue_id"] for row in rows]
+    assert stat.S_IMODE(state_path.stat().st_mode) == 0o600
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    assert "profile" not in state
+    assert state["profile_sha256"] == first["profile_sha256"]
+
+    changed = [
+        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#1", "confirmed", "candidate_fix", revalidation=["enrichment:1"]),
+        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#3", "confirmed", "official_fix_recorded"),
+        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#4", "possible", "none_recorded"),
+    ]
+    second = run_issue_watch(
+        profile=profile,
+        service="https://example.test",
+        fetch_page=assessment_page_fetcher(changed),
+        state_path=state_path,
+        page_size=2,
+    )
+
+    assert second["status"] == "updated"
+    assert [row["issue_id"] for row in second["changes"]["newly_relevant"]] == ["rock_issue:SparkDevNetwork/Rock#4"]
+    assert [row["issue_id"] for row in second["changes"]["no_longer_relevant"]] == ["rock_issue:SparkDevNetwork/Rock#2"]
+    assert second["changes"]["applicability_changed"][0]["issue_id"].endswith("#1")
+    assert second["changes"]["remediation_changed"][0]["issue_id"].endswith("#1")
+    assert second["changes"]["revalidation_due"][0]["issue_id"].endswith("#1")
+
+
+def test_client_issue_watch_does_not_replace_state_after_incomplete_page(tmp_path):
+    from rock_kb_client.issue_watch import run_issue_watch
+
+    state_path = tmp_path / "watch.json"
+    profile = {"core_version": "19.2.0"}
+    baseline = [issue_assessment_row("rock_issue:SparkDevNetwork/Rock#1", "possible", "none_recorded")]
+    run_issue_watch(
+        profile=profile,
+        service="https://example.test",
+        fetch_page=assessment_page_fetcher(baseline),
+        state_path=state_path,
+    )
+    before = state_path.read_bytes()
+
+    def incomplete(_payload):
+        return {
+            "schema": "rock-kb-rock-issue-assessment-v1",
+            "projection_version": "test-v1",
+            "count": 1,
+            "total_count": 2,
+            "offset": 0,
+            "limit": 500,
+            "next_offset": None,
+            "has_more": False,
+            "counts": {"possible": 2},
+            "results": baseline,
+        }
+
+    import pytest
+
+    with pytest.raises(RuntimeError, match="complete result set"):
+        run_issue_watch(
+            profile=profile,
+            service="https://example.test",
+            fetch_page=incomplete,
+            state_path=state_path,
+        )
+    assert state_path.read_bytes() == before
+
+
+def issue_assessment_row(issue_id, applicability, remediation, *, revalidation=None):
+    return {
+        "issue_id": issue_id,
+        "title": issue_id,
+        "url": f"https://github.com/{issue_id.split(':', 1)[1].replace('#', '/issues/')}",
+        "state": "open",
+        "applicability": applicability,
+        "reason": "Fixture evidence.",
+        "remediation": remediation,
+        "target_version": "19.2.0",
+        "fixed_release_lines": [],
+        "fix_target_relations": [],
+        "reviewed_assertion_ids": [],
+        "revalidation_due_enrichment_ids": revalidation or [],
+        "needs_live_verification": True,
+    }
+
+
+def assessment_page_fetcher(rows):
+    def fetch(payload):
+        offset = payload["offset"]
+        limit = payload["limit"]
+        page = rows[offset : offset + limit]
+        next_offset = offset + len(page)
+        has_more = next_offset < len(rows)
+        return {
+            "schema": "rock-kb-rock-issue-assessment-v1",
+            "projection_version": "test-v1",
+            "count": len(page),
+            "total_count": len(rows),
+            "offset": offset,
+            "limit": limit,
+            "next_offset": next_offset if has_more else None,
+            "has_more": has_more,
+            "counts": {"possible": len(rows)},
+            "results": page,
+        }
+
+    return fetch
 
 
 def test_client_get_text_sends_user_agent(monkeypatch):

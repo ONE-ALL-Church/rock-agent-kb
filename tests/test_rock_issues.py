@@ -9,6 +9,7 @@ from rock_kb import rock_issues, service_projection
 from rock_kb.jsonl import read_jsonl, write_jsonl
 from rock_kb.rock_issues import (
     assemble_investigation_packet,
+    assess_catalog,
     assess_issue,
     attach_issue_enrichments,
     build_reviewed_enrichment_metrics,
@@ -146,6 +147,25 @@ def test_issue_assessment_is_conservative_about_release_lines():
     assert exact["remediation"] == "fix_release_recorded"
     assert exact["fixed_release_lines"] == ["19.3"]
     assert exact["fix_target_relations"] == ["same_release_line"]
+
+
+def test_issue_catalog_assessment_pages_after_ranking_complete_result_set():
+    raw, timeline = core_issue()
+    first = normalize_issue("SparkDevNetwork/Rock", raw, timeline=timeline)
+    raw = {**raw, "number": 6918, "html_url": "https://github.com/SparkDevNetwork/Rock/issues/6918"}
+    second = normalize_issue("SparkDevNetwork/Rock", raw, timeline=timeline)
+
+    first_page = assess_catalog([second, first], {"core_version": "19.3.1"}, limit=1)
+    second_page = assess_catalog([second, first], {"core_version": "19.3.1"}, limit=1, offset=1)
+
+    assert first_page["total_count"] == 2
+    assert first_page["has_more"] is True
+    assert first_page["next_offset"] == 1
+    assert first_page["results"][0]["issue_id"].endswith("#6917")
+    assert second_page["count"] == 1
+    assert second_page["has_more"] is False
+    assert second_page["next_offset"] is None
+    assert second_page["results"][0]["issue_id"].endswith("#6918")
 
 
 def test_issue_investigation_plan_separates_private_worker_and_disables_writes():

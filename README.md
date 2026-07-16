@@ -38,7 +38,9 @@ the [Structured Issue Reporting Runbook](docs/runbooks/issue-reporting.md).
 
 Agents can also search public Rock core and mobile product issues, compare their
 structured version evidence with a bounded instance profile, and generate a
-read-only multi-agent investigation plan. This is a separate surface from KB
+read-only multi-agent investigation plan. The published CLI can keep a private
+local issue-assessment baseline with `uvx rock-kb issues watch
+instance-profile.json` and report changes on later runs. This is a separate surface from KB
 malfunction reporting. See the [Rock Issue Intelligence Runbook](docs/runbooks/rock-issue-intelligence.md).
 
 ## Contribute

@@ -1,7 +1,7 @@
 # Event Calendar Item Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Event`
 - Model title: `EventCalendarItem`
 - Table name: `not provided`

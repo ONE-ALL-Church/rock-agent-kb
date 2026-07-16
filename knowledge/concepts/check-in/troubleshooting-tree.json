@@ -20,17 +20,17 @@
         "Attendance"
       ],
       "source_urls": [
+        "https://community.rockrms.com/rocku/check-in",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/LabelAttendanceDetail.cs",
         "https://community.rockrms.com/ask/using/2804",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs",
-        "https://community.rockrms.com/rocku/check-in",
+        "https://community.rockrms.com/rocku/check-in/attendance-analytics",
         "https://community.rockrms.com/recipes/125",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/ILabelDataHasAttendance.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
-        "https://community.rockrms.com/recipes/116",
         "https://community.rockrms.com/recipes/424"
       ],
       "start_with": [
@@ -66,13 +66,13 @@
       "source_urls": [
         "https://community.rockrms.com/rocku/check-in",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+        "https://community.rockrms.com/rocku/check-in/attendance-analytics",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/recipes/116",
         "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
         "https://community.rockrms.com/ask/using/2804",
         "https://community.rockrms.com/recipes/483",
-        "https://community.rockrms.com/rocku/check-in/attendance-analytics",
+        "https://community.rockrms.com/recipes/116",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Mobile/CheckIn/CheckIn.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql"
@@ -106,12 +106,12 @@
         "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
         "https://community.rockrms.com/ask/using/2804",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
         "https://community.rockrms.com/rocku/check-in",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql",
         "https://community.rockrms.com/rocku/check-in/locations",
         "https://community.rockrms.com/rocku/check-in/schedules",
-        "https://community.rockrms.com/recipes/116",
+        "https://community.rockrms.com/rocku/check-in/attendance-analytics",
         "https://community.rockrms.com/recipes/424"
       ],
       "start_with": [
@@ -201,7 +201,7 @@
   ],
   "concept_id": "check-in",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-15T19:57:24+00:00",
+  "generated_at": "2026-07-16T00:16:53+00:00",
   "guide_sections": [
     "8-labels-deep-dive-label-troubleshooting-branches",
     "11-troubleshooting-deep-dive",

@@ -283,6 +283,12 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
       body: JSON.stringify({ profile: { core_version: "19.2.0", concepts: ["hosting-infrastructure"] }, limit: 10 }),
     });
     const assessment = await assessResponse.json();
+    assert.equal(assessment.count, 1);
+    assert.equal(assessment.total_count, 1);
+    assert.equal(assessment.offset, 0);
+    assert.equal(assessment.has_more, false);
+    assert.equal(assessment.next_offset, null);
+    assert.equal(typeof assessment.projection_version, "string");
     assert.equal(assessment.results[0].applicability, "possible");
     assert.equal(assessment.results[0].needs_live_verification, true);
     assert.deepEqual(assessment.results[0].revalidation_due_enrichment_ids, ["rock_issue_enrichment:fixture-6919-stale-v1"]);
@@ -301,6 +307,18 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     assert.equal(names.includes("kb_search_rock_issues"), true);
     assert.equal(names.includes("kb_assess_rock_issues"), true);
     assert.equal(names.includes("kb_plan_rock_issue_investigation"), true);
+    const assessTool = tools.result.tools.find((tool) => tool.name === "kb_assess_rock_issues");
+    assert.equal(assessTool.inputSchema.properties.offset.minimum, 0);
+
+    const emptyPageCall = await mcp(mf, "tools/call", {
+      name: "kb_assess_rock_issues",
+      arguments: { profile: { core_version: "19.2.0", concepts: ["hosting-infrastructure"] }, limit: 1, offset: 1 },
+    });
+    const emptyPage = JSON.parse(emptyPageCall.result.content[0].text);
+    assert.equal(emptyPage.count, 0);
+    assert.equal(emptyPage.total_count, 1);
+    assert.equal(emptyPage.offset, 1);
+    assert.equal(emptyPage.has_more, false);
 
     const planCall = await mcp(mf, "tools/call", {
       name: "kb_plan_rock_issue_investigation",
@@ -309,6 +327,61 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     const plan = JSON.parse(planCall.result.content[0].text);
     assert.equal(plan.admission.github_write_enabled, false);
     assert.equal(plan.tasks.find((task) => task.role === "instance_investigator").visibility, "private_only");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("Rock issue assessment evaluates candidates beyond the former 1000-row ceiling", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    for (const base of [0, 600]) {
+      await db.prepare(`WITH RECURSIVE seq(x) AS (
+        VALUES(1)
+        UNION ALL SELECT x + 1 FROM seq WHERE x < 600
+      )
+      INSERT INTO rock_issues
+        (issue_id, github_node_id, repository, number, component, state, validation_state, title, url, updated_at, evidence_state, payload_json)
+      SELECT
+        'rock_issue:SparkDevNetwork/Rock#' || (8000 + ? + x),
+        'I_bulk_' || (? + x),
+        'SparkDevNetwork/Rock',
+        8000 + ? + x,
+        'rock_core',
+        'open',
+        'reported',
+        'Bulk fixture ' || (? + x),
+        'https://github.com/SparkDevNetwork/Rock/issues/' || (8000 + ? + x),
+        '2026-07-15T00:00:00Z',
+        'report_only',
+        json_object(
+          'issue_id', 'rock_issue:SparkDevNetwork/Rock#' || (8000 + ? + x),
+          'title', 'Bulk fixture ' || (? + x),
+          'url', 'https://github.com/SparkDevNetwork/Rock/issues/' || (8000 + ? + x),
+          'state', 'open',
+          'component', 'rock_core',
+          'validation_state', 'reported',
+          'version_evidence', json('[]'),
+          'concept_ids', json('[]'),
+          'linked_commit_shas', json('[]'),
+          'reviewed_enrichments', json('[]')
+        )
+      FROM seq`).bind(base, base, base, base, base, base, base, base).run();
+    }
+
+    const response = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.2.0" }, limit: 2, offset: 1200 }),
+    });
+    const assessment = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(assessment.total_count, 1201);
+    assert.equal(assessment.offset, 1200);
+    assert.equal(assessment.count, 1);
+    assert.equal(assessment.has_more, false);
   } finally {
     await mf.dispose();
   }

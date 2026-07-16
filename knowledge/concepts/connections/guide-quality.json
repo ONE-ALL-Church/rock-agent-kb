@@ -14,7 +14,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 10890 words; expected at least 7000.",
+      "message": "Guide has 11107 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -61,9 +61,9 @@
   "concept_id": "connections",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-07-15T19:57:29+00:00",
-  "guide_line_count": 1348,
-  "guide_word_count": 10890,
+  "generated_at": "2026-07-16T00:16:58+00:00",
+  "guide_line_count": 1358,
+  "guide_word_count": 11107,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 105,

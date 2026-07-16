@@ -1,7 +1,7 @@
 # AI Agent Skill Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `AI`
 - Model title: `AIAgentSkill`
 - Table name: `not provided`

@@ -1,7 +1,7 @@
 # Web Farm Node Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `WebFarm`
 - Model title: `WebFarmNode`
 - Table name: `not provided`

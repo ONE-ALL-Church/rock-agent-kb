@@ -10,6 +10,7 @@ from urllib import error, request
 
 from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
+from .issue_watch import run_issue_watch
 from .okf import conform_okf, download_okf, inspect_okf, verify_okf
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
@@ -96,6 +97,13 @@ def main(argv: list[str] | None = None) -> int:
     issues_assess = issues_subparsers.add_parser("assess")
     issues_assess.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, and capabilities only.")
     issues_assess.add_argument("--limit", type=int, default=100)
+    issues_assess.add_argument("--offset", type=int, default=0)
+    issues_watch = issues_subparsers.add_parser("watch", help="Store a private local baseline and report changes in relevant public Rock issues.")
+    issues_watch.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, and capabilities only.")
+    issues_watch.add_argument("--state", type=Path, help="Private local snapshot path. Defaults under the user state directory.")
+    issues_watch.add_argument("--page-size", type=int, default=500)
+    issues_watch.add_argument("--reset", action="store_true", help="Replace any existing baseline after a complete assessment succeeds.")
+    issues_watch.add_argument("--no-write", action="store_true", help="Compare without changing the local snapshot.")
     issues_plan = issues_subparsers.add_parser("plan")
     issues_plan.add_argument("issue_ref")
     issues_plan.add_argument("--include-private-instance", action="store_true")
@@ -214,7 +222,25 @@ def main(argv: list[str] | None = None) -> int:
             profile = json.loads(args.profile.read_text(encoding="utf-8"))
             if not isinstance(profile, dict):
                 parser.error("issues assess profile must contain a JSON object")
-            return print_json(post_json(f"{base_url}/rock-issues/assess", {"profile": profile, "limit": args.limit}))
+            payload = {"profile": profile, "limit": args.limit}
+            if args.offset:
+                payload["offset"] = args.offset
+            return print_json(post_json(f"{base_url}/rock-issues/assess", payload))
+        if args.issues_command == "watch":
+            profile = json.loads(args.profile.read_text(encoding="utf-8"))
+            if not isinstance(profile, dict):
+                parser.error("issues watch profile must contain a JSON object")
+            return print_json(
+                run_issue_watch(
+                    profile=profile,
+                    service=base_url,
+                    fetch_page=lambda payload: post_json(f"{base_url}/rock-issues/assess", payload),
+                    state_path=args.state,
+                    page_size=args.page_size,
+                    reset=bool(args.reset),
+                    write=not bool(args.no_write),
+                )
+            )
         if args.issues_command == "plan":
             suffix = "?include_private_instance=true" if args.include_private_instance else ""
             return print_json(get_json(f"{base_url}/rock-issues/{quote(args.issue_ref)}/plan{suffix}"))

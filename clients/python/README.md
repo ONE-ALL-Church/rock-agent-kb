@@ -78,6 +78,7 @@ uvx rock-kb issues search "Azure blob CPU issue"
 uvx rock-kb issues list --repository core --state open --version 19.2
 uvx rock-kb issue 6919
 uvx rock-kb issues assess instance-profile.json
+uvx rock-kb issues watch instance-profile.json
 uvx rock-kb issues plan 6919
 uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
 uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
@@ -116,6 +117,12 @@ which reports a malfunction in the KB itself. Product issue reports are routing
 evidence, not proof of local impact or cause. `issues assess` accepts only a
 bounded JSON profile containing versions, platforms, concept IDs, and capability
 names; never include logs, queries, private identifiers, or person data.
+`issues watch` follows every assessment page and stores an owner-only local
+snapshot so later runs can report issue applicability, remediation, and
+revalidation changes. The snapshot defaults under the user state directory;
+override it with `--state`, preview with `--no-write`, or replace the baseline
+with `--reset`. Only the bounded profile is sent to the hosted service. The
+snapshot is never uploaded and does not retain the profile itself.
 
 To test unreleased client changes directly from GitHub, use:
 

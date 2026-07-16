@@ -2,7 +2,7 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-07-10T19:52:36+00:00
+last_built: 2026-07-16T00:15:49+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -112,29 +112,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Service Job History](../../model-map/models/service-job-history.md) | Core | 19.1.8 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Defined Type](../../model-map/models/defined-type.md) | Core | 19.1.8 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Defined Value](../../model-map/models/defined-value.md) | Core | 19.1.8 | 46 | 17 | 31 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Exception Log](../../model-map/models/exception-log.md) | Core | 19.1.8 | 52 | 23 | 37 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Service Job](../../model-map/models/service-job.md) | Core | 19.1.8 | 56 | 26 | 41 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [History Login](../../model-map/models/history-login.md) | Security | 19.1.8 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.1.8 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.1.8 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.1.8 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.1.8 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.1.8 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.1.8 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Service Job History](../../model-map/models/service-job-history.md) | Core | 19.2.0 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Defined Type](../../model-map/models/defined-type.md) | Core | 19.2.0 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Defined Value](../../model-map/models/defined-value.md) | Core | 19.2.0 | 46 | 17 | 31 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Exception Log](../../model-map/models/exception-log.md) | Core | 19.2.0 | 52 | 23 | 37 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Service Job](../../model-map/models/service-job.md) | Core | 19.2.0 | 56 | 26 | 41 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [History Login](../../model-map/models/history-login.md) | Security | 19.2.0 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.2.0 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.2.0 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.2.0 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.2.0 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.2.0 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

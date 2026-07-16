@@ -223,13 +223,15 @@ def test_local_issue_tools_search_filter_assess_and_plan(tmp_path):
     search_result = search_rock_issues("Azure CPU issue", root=tmp_path)
     listed = list_rock_issues(repository="core", state="open", version="19.2", root=tmp_path)
     exact = get_rock_issue("6919", root=tmp_path)
-    assessed = assess_rock_issues({"core_version": "19.2.0"}, root=tmp_path)
+    assessed = assess_rock_issues({"core_version": "19.2.0"}, limit=1, offset=0, root=tmp_path)
     plan = plan_rock_issue_investigation("6919", include_private_instance=True, root=tmp_path)
 
     assert search_result["results"][0]["issue_id"] == "rock_issue:SparkDevNetwork/Rock#6919"
     assert listed["count"] == 1
     assert exact["status"] == "ok"
     assert assessed["results"][0]["applicability"] == "possible"
+    assert assessed["total_count"] == 1
+    assert assessed["has_more"] is False
     assert plan["admission"]["github_write_enabled"] is False
     assert next(row for row in plan["tasks"] if row["role"] == "instance_investigator")["visibility"] == "private_only"
 

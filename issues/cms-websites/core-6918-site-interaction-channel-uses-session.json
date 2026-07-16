@@ -1,0 +1,46 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6918-site-interaction-channel-uses-session-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6918",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Site Detail source creates a website InteractionChannel and sets its medium, entity, name, retention, and component type, but never sets UsesSession. Because UsesSession is a non-nullable Boolean model property, a new channel retains the false default. This confirms the creation-path behavior on the reviewed source revision; the upstream issue does not yet record a fix or safe supported post-creation configuration path.",
+  "workaround_summaries": [],
+  "applicability": [
+    {
+      "assertion_id": "core-6918-affected-develop-6e30556",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "new web sites whose website interaction channel is created by Site Detail"
+      },
+      "versions": ["6e305568763043b3fb85c85142ce85b1ec566414"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6918",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Cms/SiteDetail.cs#L780-L800",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Core/InteractionChannel/InteractionChannel.cs#L254-L266"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6918",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Cms/SiteDetail.cs#L780-L800",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Core/InteractionChannel/InteractionChannel.cs#L254-L266"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-14T15:17:44Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

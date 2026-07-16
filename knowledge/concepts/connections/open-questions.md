@@ -10,11 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `5-core-configuration-and-data-model-connection-request-data`: Connection Request Data (138 words)
-- `6-primary-entities-and-relationships-entity-relationship-map`: Entity Relationship Map (114 words)
-- `8-opportunities-deep-dive-what-opportunities-are-for`: What Opportunities Are For (86 words)
-- `13-administration-and-operational-guardrails-configuration-review-checklist`: Configuration Review Checklist (151 words)
-- `17-implementation-playbooks-playbook-create-a-new-serving-pipeline`: Playbook: Create A New Serving Pipeline (136 words)
 
 ## Community-Supported Only
 
@@ -35,6 +30,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `5-core-configuration-and-data-model-connection-status-configuration`: Connection Status Configuration
 - `5-core-configuration-and-data-model-connection-opportunity-configuration`: Connection Opportunity Configuration
 - `5-core-configuration-and-data-model-connection-request-data`: Connection Request Data
+- `6-primary-entities-and-relationships-entity-relationship-map`: Entity Relationship Map
 - `7-common-connections-workflows-staff-creates-a-request`: Staff Creates A Request
 - `7-common-connections-workflows-person-self-service-signup`: Person Self-Service Signup
 - `8-opportunities-deep-dive-key-opportunity-settings-to-inspect`: Key Opportunity Settings To Inspect
@@ -49,6 +45,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `12-related-rock-areas-people-workflows-groups-communications-security-reporting-people`: People
 - `12-related-rock-areas-people-workflows-groups-communications-security-reporting-workflows`: Workflows
 - `12-related-rock-areas-people-workflows-groups-communications-security-reporting-security`: Security
+- `13-administration-and-operational-guardrails-configuration-review-checklist`: Configuration Review Checklist
 - `14-developer-api-lava-and-source-code-landmarks-query-page-parameter-landmarks`: Query/Page Parameter Landmarks
 - `16-version-and-release-caveats-rock-v10`: Rock v10
 - `16-version-and-release-caveats-rock-v12`: Rock v12

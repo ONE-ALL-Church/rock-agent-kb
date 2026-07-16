@@ -15,11 +15,11 @@
         "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
         "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
-        "https://community.rockrms.com/recipes/456"
+        "https://community.rockrms.com/recipes/456",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -42,11 +42,11 @@
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
+        "https://community.rockrms.com/developer/helix/lava-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
       ],
       "start_with": [
@@ -124,11 +124,11 @@
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
+        "https://community.rockrms.com/developer/helix/lava-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
       ],
       "start_with": [
@@ -152,11 +152,11 @@
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
+        "https://community.rockrms.com/developer/helix/lava-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
       ],
       "start_with": [
@@ -225,7 +225,7 @@
   ],
   "concept_id": "lava",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-15T19:57:31+00:00",
+  "generated_at": "2026-07-16T00:17:00+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-the-lava-renders-blank",

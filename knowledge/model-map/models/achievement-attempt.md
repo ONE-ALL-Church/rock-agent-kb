@@ -1,7 +1,7 @@
 # Achievement Attempt Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Engagement`
 - Model title: `AchievementAttempt`
 - Table name: `not provided`

@@ -1641,16 +1641,33 @@ def comparable_version(value: str) -> tuple[int, int, int, int] | None:
     return tuple((values + [0] * (4 - len(values)))[:4])
 
 
-def assess_catalog(rows: Iterable[dict[str, Any]], profile: dict[str, Any], *, limit: int = 100) -> dict[str, Any]:
+def assess_catalog(
+    rows: Iterable[dict[str, Any]],
+    profile: dict[str, Any],
+    *,
+    limit: int = 100,
+    offset: int = 0,
+) -> dict[str, Any]:
     validate_instance_profile(profile)
     assessments = [assess_issue(row, profile) for row in rows]
     priority = {"confirmed": 4, "likely": 3, "possible": 2, "insufficient_evidence": 1, "not_applicable": 0}
     selected = [row for row in assessments if row["applicability"] != "not_applicable"]
     selected.sort(key=lambda row: (-priority.get(str(row["applicability"]), 0), str(row.get("issue_id") or "")))
+    page_limit = max(1, min(limit, 500))
+    page_offset = max(0, offset)
+    page = selected[page_offset : page_offset + page_limit]
+    next_offset = page_offset + len(page)
+    has_more = next_offset < len(selected)
     return {
         "schema": "rock-kb-rock-issue-assessment-v1",
         "profile": profile,
-        "results": selected[: max(1, min(limit, 500))],
+        "count": len(page),
+        "total_count": len(selected),
+        "offset": page_offset,
+        "limit": page_limit,
+        "next_offset": next_offset if has_more else None,
+        "has_more": has_more,
+        "results": page,
         "counts": dict(Counter(str(row["applicability"]) for row in assessments)),
         "caveat": "This is conservative routing, not proof of impact. Verify against official source, release notes, and the authorized instance.",
     }

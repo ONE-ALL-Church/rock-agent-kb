@@ -1,7 +1,7 @@
 # Communication Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Communication`
 - Model title: `Communication`
 - Table name: `not provided`
@@ -164,7 +164,7 @@
 | PushImageBinaryFileId | image file | 9bb1a349-5998-47c1-97d5-d6cc00275662 |
 | Recipients | CommunicationRecipients | 3ec89b90-6692-451e-a48f-0d2adeba05bc |
 | ReviewerPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
-| SendSourceDate | send source date | 5c0f989c-cc31-4e25-954d-83986c02cf4d |
+| SendSourceDate | send source date | 953356cd-17aa-430b-b6b3-7479fae2e793 |
 | SenderPersonAlias | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 | SenderPersonAliasId | [Person Alias](person-alias.md) | 90f5e87b-f0d5-4617-8ae9-eb57e673f36f |
 
