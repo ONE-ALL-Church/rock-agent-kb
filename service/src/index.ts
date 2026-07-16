@@ -647,7 +647,12 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     return result;
   }
   if (name === "kb_assess_rock_issues") {
-    const result = await assessRockIssueProfile(env, asRecord(args.profile), boundedInt(args.limit, 100, 1, 500));
+    const result = await assessRockIssueProfile(
+      env,
+      asRecord(args.profile),
+      boundedInt(args.limit, 100, 1, 500),
+      boundedInt(args.offset, 0, 0, 100000),
+    );
     ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), "mcp"));
     return result;
   }
@@ -897,13 +902,14 @@ async function assessRockIssues(request: Request, env: ServiceEnv): Promise<Json
   const body = await readBoundedJson(request, 8192);
   const profile = asRecord(body.profile);
   const limit = boundedInt(body.limit, 100, 1, 500);
+  const offset = boundedInt(body.offset, 0, 0, 100000);
   if (!Object.keys(profile).length) {
     throw new PublicRequestError(400, "invalid_profile", "Request requires a structured profile object.");
   }
-  return assessRockIssueProfile(env, profile, limit);
+  return assessRockIssueProfile(env, profile, limit, offset);
 }
 
-async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limit: number): Promise<JsonRecord> {
+async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limit: number, offset = 0): Promise<JsonRecord> {
   validateRockIssueProfile(profile);
   const coreVersion = normalizeRockVersion(String(profile.core_version || ""));
   const mobileVersion = normalizeRockVersion(String(profile.mobile_shell_version || ""));
@@ -917,21 +923,41 @@ async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limi
     clauses.push("(EXISTS (SELECT 1 FROM rock_issue_versions v WHERE v.issue_id = i.issue_id AND v.component = 'mobile_shell' AND (v.version = ? OR v.version_line = ?)) OR EXISTS (SELECT 1 FROM rock_issue_enrichments e WHERE e.issue_id = i.issue_id))");
     bindings.push(mobileVersion, rockVersionLine(mobileVersion));
   }
-  const result = await env.KB_DB.prepare(
-    `SELECT DISTINCT i.payload_json
+  const sql = `SELECT DISTINCT i.payload_json
      FROM rock_issues i
      WHERE ${clauses.map((clause) => `(${clause})`).join(" OR ")}
-     ORDER BY CASE i.state WHEN 'open' THEN 0 ELSE 1 END, i.updated_at DESC
-     LIMIT 1000`
-  ).bind(...bindings).all<{ payload_json: string }>();
-  const assessments = (result.results || [])
+     ORDER BY CASE i.state WHEN 'open' THEN 0 ELSE 1 END, i.updated_at DESC, i.issue_id ASC
+     LIMIT ? OFFSET ?`;
+  const candidateRows: Array<{ payload_json: string }> = [];
+  const batchSize = 1000;
+  const maximumCandidates = 10000;
+  let candidateOffset = 0;
+  while (true) {
+    const result = await env.KB_DB.prepare(sql)
+      .bind(...bindings, batchSize, candidateOffset)
+      .all<{ payload_json: string }>();
+    const batch = result.results || [];
+    candidateRows.push(...batch);
+    if (candidateRows.length > maximumCandidates) {
+      throw new PublicRequestError(
+        503,
+        "assessment_candidate_limit",
+        `Issue assessment exceeded the ${maximumCandidates}-candidate safety limit; narrow the structured profile.`,
+      );
+    }
+    if (batch.length < batchSize) break;
+    candidateOffset += batch.length;
+  }
+  const assessments = candidateRows
     .map((row) => assessOneRockIssue(JSON.parse(row.payload_json) as JsonRecord, profile));
   const rank: Record<string, number> = { confirmed: 4, likely: 3, possible: 2, insufficient_evidence: 1, not_applicable: 0 };
   const selected = assessments
     .filter((row) => row.applicability !== "not_applicable")
     .sort((left, right) => (rank[String(right.applicability)] || 0) - (rank[String(left.applicability)] || 0)
-      || String(left.issue_id).localeCompare(String(right.issue_id)))
-    .slice(0, limit);
+      || String(left.issue_id).localeCompare(String(right.issue_id)));
+  const page = selected.slice(offset, offset + limit);
+  const nextOffset = offset + page.length;
+  const hasMore = nextOffset < selected.length;
   const counts: JsonRecord = {};
   for (const row of assessments) {
     const key = String(row.applicability || "unknown");
@@ -939,10 +965,16 @@ async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limi
   }
   return {
     schema: "rock-kb-rock-issue-assessment-v1",
+    projection_version: await currentVersion(env),
     profile,
-    count: selected.length,
+    count: page.length,
+    total_count: selected.length,
+    offset,
+    limit,
+    next_offset: hasMore ? nextOffset : null,
+    has_more: hasMore,
     counts,
-    results: selected,
+    results: page,
     caveat: "This is conservative routing, not proof of impact. Verify against official source, release notes, and the authorized instance.",
   };
 }
@@ -3116,7 +3148,7 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_search_rock_issues", description: "Search public Rock core and mobile issue routing metadata. Issue reports are leads, not proof of local applicability or cause.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 } }, required: ["query"] } },
     { name: "kb_list_rock_issues", description: "List Rock issues by repository, state, concept, or reported/fix version evidence.", inputSchema: { type: "object", additionalProperties: false, properties: { repository: { type: "string", enum: ["core", "mobile", "SparkDevNetwork/Rock", "SparkDevNetwork/Rock.Mobile-Issues"] }, state: { type: "string", enum: ["open", "closed"] }, concept: { type: "string" }, version: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 100 }, offset: { type: "integer", minimum: 0 } } } },
     { name: "kb_get_rock_issue", description: "Get one exact Rock issue record by GitHub URL, canonical ID, core number, or mobile:number.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" } }, required: ["issue"] } },
-    { name: "kb_assess_rock_issues", description: "Conservatively route Rock issues against a bounded instance profile containing only versions, platforms, concepts, and capabilities. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } } } }, limit: { type: "integer", minimum: 1, maximum: 500 } }, required: ["profile"] } },
+    { name: "kb_assess_rock_issues", description: "Conservatively route Rock issues against a bounded instance profile containing only versions, platforms, concepts, and capabilities. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } } } }, limit: { type: "integer", minimum: 1, maximum: 500 }, offset: { type: "integer", minimum: 0, maximum: 100000 } }, required: ["profile"] } },
     { name: "kb_plan_rock_issue_investigation", description: "Return a typed read-only orchestrator-worker plan for investigating one issue. It never posts to GitHub; private instance work remains a separate overlay.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" }, include_private_instance: { type: "boolean" } }, required: ["issue"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },

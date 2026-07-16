@@ -1,7 +1,7 @@
 # Lava Application Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `CMS`
 - Model title: `LavaApplication`
 - Table name: `not provided`

@@ -1,7 +1,7 @@
 # Communication Template Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Communication`
 - Model title: `CommunicationTemplate`
 - Table name: `not provided`

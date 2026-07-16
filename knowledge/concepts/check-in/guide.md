@@ -977,6 +977,8 @@ Before each service or event:
 - Confirm staff have required permissions.
 - Confirm fallback process for printer or network outage.
 
+The official [Running Check-In](https://community.rockrms.com/rocku/check-in/running-check-in) and [Check-In overview](https://community.rockrms.com/rocku/check-in) training support these operational checks. Add local printer, network, and escalation details without replacing the version-neutral baseline.
+
 ### Configuration Change Control
 
 Check-In changes should be treated as production operations. A small change can affect every arriving family. Use:
@@ -1223,6 +1225,8 @@ Version-sensitive areas:
 19. Verify Check-In Manager roster.
 20. Document the configuration.
 
+This sequence is based on Rock's official [Check-In overview](https://community.rockrms.com/rocku/check-in), [Types and Groups](https://community.rockrms.com/rocku/check-in/types-and-groups), [Locations](https://community.rockrms.com/rocku/check-in/locations), and [Schedules](https://community.rockrms.com/rocku/check-in/schedules) training. Confirm the available options against the deployed Rock version.
+
 ### Playbook: Add A New Room
 
 1. Create or identify the group.
@@ -1237,6 +1241,8 @@ Version-sensitive areas:
 10. Verify the room appears for an eligible test person.
 11. Verify attendance occurrence uses the new location.
 12. Verify labels show the room correctly.
+
+The official [Locations](https://community.rockrms.com/rocku/check-in/locations) and [Schedules](https://community.rockrms.com/rocku/check-in/schedules) training are the source basis for linking rooms, groups, locations, and active schedule windows. Printer and capacity behavior should still be verified with a controlled check-in.
 
 ### Playbook: Configure Mobile Check-In
 
@@ -1269,6 +1275,8 @@ Version-sensitive areas:
 10. Enable related updates, notes, prayer requests, or workflows only if operationally needed.
 11. Test with real group data.
 12. Verify attendance rows and occurrence context.
+
+See the official [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) training and the public [block source](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs) for the supported settings and write path. Block options can vary by Rock version.
 
 ### Playbook: Implement A QR Code Attendance Pattern
 
@@ -1351,6 +1359,8 @@ If save fails:
 - Check permissions.
 - Check duplicate/validation rules.
 - Check custom workflow hooks.
+
+This diagnostic order follows the eligibility and runtime dependencies described in the official [Check-In overview](https://community.rockrms.com/rocku/check-in), [Types and Groups](https://community.rockrms.com/rocku/check-in/types-and-groups), [Locations](https://community.rockrms.com/rocku/check-in/locations), and [Schedules](https://community.rockrms.com/rocku/check-in/schedules) training.
 
 ### B. Was Attendance Saved?
 
@@ -1443,6 +1453,8 @@ Report:
 - The exact record IDs inspected.
 - Whether this is configuration, data hygiene, schedule timing, or version behavior.
 - The safest change.
+
+Use the official [Check-In overview](https://community.rockrms.com/rocku/check-in), [Locations](https://community.rockrms.com/rocku/check-in/locations), and [Schedules](https://community.rockrms.com/rocku/check-in/schedules) training to substantiate the eligibility chain. The conclusion still requires inspection of the live person's family, group, location, and schedule context.
 
 ### Recipe: Prove Which Printer Should Print A Label
 

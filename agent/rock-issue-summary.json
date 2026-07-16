@@ -1,15 +1,15 @@
 {
-  "catalog_content_hash": "11a92f5fad8bb1d1c4773ab941a5c8b96886dd6a1ce09b206cca5e58141d3a7a",
+  "catalog_content_hash": "46648aef80a006f07e1b3861c6d2f3eb0180726de452c439677db4aa817e4ccf",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 127,
     "rock_core": 5671
   },
   "evidence_states": {
-    "commit_linked": 10,
-    "fixed_release_recorded": 3185,
+    "commit_linked": 13,
+    "fixed_release_recorded": 3187,
     "maintainer_triaged": 1227,
-    "report_only": 1376
+    "report_only": 1371
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
@@ -19,17 +19,17 @@
     "SparkDevNetwork/Rock": 5671,
     "SparkDevNetwork/Rock.Mobile-Issues": 127
   },
-  "reviewed_enrichment_count": 4,
+  "reviewed_enrichment_count": 12,
   "reviewed_enrichment_metrics": {
     "confidences": {
-      "high": 3,
-      "medium": 1
+      "high": 10,
+      "medium": 2
     },
     "diagnosis_statuses": {
-      "maintainer_confirmed": 1,
-      "source_supported": 3
+      "maintainer_confirmed": 3,
+      "source_supported": 9
     },
-    "issue_count": 4,
+    "issue_count": 12,
     "revalidation_due_count": 0,
     "revalidation_due_enrichment_ids": []
   },
@@ -37,26 +37,26 @@
     "average_concepts_per_issue": 1.29,
     "basis_counts": {
       "body_keyword": 395,
-      "github_topic_label": 1570,
+      "github_topic_label": 1571,
       "repository_default": 1331,
       "title_keyword": 4160
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-15T19:00:20Z",
+  "source_updated_through": "2026-07-15T22:22:06Z",
   "states": {
-    "closed": 5789,
-    "open": 9
+    "closed": 5791,
+    "open": 7
   },
   "timeline_coverage": {
-    "complete": 70,
-    "not_fetched": 5728,
-    "percent_complete": 1.21
+    "complete": 293,
+    "not_fetched": 5505,
+    "percent_complete": 5.05
   },
   "top_concepts": {
     "api-integrations": 105,
     "check-in": 361,
-    "cms-websites": 145,
+    "cms-websites": 146,
     "communications": 529,
     "connections": 172,
     "data-views-reports": 371,
@@ -76,7 +76,7 @@
     "workflows": 377
   },
   "validation_states": {
-    "confirmed": 2516,
-    "reported": 3282
+    "confirmed": 2533,
+    "reported": 3265
   }
 }

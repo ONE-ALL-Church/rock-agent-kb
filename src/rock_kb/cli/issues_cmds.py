@@ -134,6 +134,7 @@ def plan_command(
 def assess_command(
     profile: Path = typer.Argument(..., exists=True, dir_okay=False, help="Bounded JSON instance profile; never provide logs or private identifiers."),
     limit: int = typer.Option(100, "--limit", min=1, max=500),
+    offset: int = typer.Option(0, "--offset", min=0),
 ) -> None:
     """Conservatively route catalog issues against a structured instance profile."""
     payload = json.loads(profile.read_text(encoding="utf-8"))
@@ -141,7 +142,7 @@ def assess_command(
         raise typer.BadParameter("Profile must be a JSON object")
     enrichments = issue_enrichments_by_id()
     rows = (attach_issue_enrichments(row, enrichments) for row in read_jsonl(ROCK_ISSUE_PATH))
-    print_json(data=assess_catalog(rows, payload, limit=limit))
+    print_json(data=assess_catalog(rows, payload, limit=limit, offset=offset))
 
 
 @app.command("assemble")

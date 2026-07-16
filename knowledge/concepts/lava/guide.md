@@ -484,6 +484,8 @@ Agent checks:
 - Can the template execute multiple times?
 - Should the action be moved behind a form, endpoint, or Helix flow for better validation?
 
+The official [`workflowactivate` documentation](https://community.rockrms.com/lava/commands/workflow-activate-commands) defines the command contract, and the public [WorkflowActivateBlock source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs) provides implementation-level confirmation. Validate IDs, attribute storage formats, permissions, and repeat execution in the target instance.
+
 ### Creating A Lava API Or Webhook
 
 Lava APIs are configured as Defined Values and respond with the rendered Lava template. The docs warn that these webhooks do not inherently provide security, so agents must design the security model explicitly ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
@@ -1150,6 +1152,8 @@ Content Channel -> Content Channel Type -> Item Attributes -> Item Content -> De
 
 When a page output is wrong, the visible page is the symptom, not necessarily the source.
 
+Rock's [Lava overview](https://community.rockrms.com/lava) and [Advanced HTML Block training](https://community.rockrms.com/rocku/cms/advanced-html-block) support this CMS tracing model. The exact merge fields and enabled commands remain block- and page-context-specific.
+
 ### Workflows
 
 Workflows use Lava in action attributes, forms, notifications, entry blocks, and `workflowactivate` calls. Workflow attribute values often use stored internal representations, not display labels. The `workflowactivate` docs explicitly warn that attribute value types matter ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)).
@@ -1479,6 +1483,8 @@ Template shape:
 ```
 
 Verify exact `where` syntax and property names live.
+
+The official [Entity Commands documentation](https://community.rockrms.com/lava/commands/entity-commands) defines the query controls used here. Confirm the entity and properties in [Model Map](https://community.rockrms.com/ModelMap), and test security behavior with each intended audience before publishing.
 
 ### Playbook: Replace Unsafe SQL With Parameterized SQL
 

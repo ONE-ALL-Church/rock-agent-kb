@@ -5011,12 +5011,12 @@
   },
   "approved_media_hash": "91d17c08b90d285312dbdadb367c719ed7518a6ea4783acdfd325d1c5d5f85eb",
   "approved_media_path": "knowledge/concepts/check-in/approved-media.md",
-  "built_at": "2026-07-15T19:57:24+00:00",
+  "built_at": "2026-07-16T00:16:53+00:00",
   "concept_id": "check-in",
-  "guide_hash": "8e87d1fb3a669683d4c16b2b59ad81d862141e5b25d96d4d095aa8c53b2b169c",
-  "guide_line_count": 1628,
+  "guide_hash": "530e3f4d584dca7f7b299c56bb2f85c18ace54abd8597ba3aa52ceb60cdbefef",
+  "guide_line_count": 1640,
   "guide_path": "knowledge/concepts/check-in/guide.md",
-  "guide_word_count": 13185,
+  "guide_word_count": 13463,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6233,68 +6233,74 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
       "source_keys": [
-        "2e737fcc6a7c59c1"
+        "1ff0d6de569776fb",
+        "ee9796ce7f9afea9"
       ],
       "start_line": 961
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 979,
+      "confidence": "citation-only",
+      "end_line": 981,
       "heading": "Pre-Service Checklist",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-pre-service-checklist",
       "source_keys": [
-        "2e737fcc6a7c59c1"
+        "1ff0d6de569776fb",
+        "ee9796ce7f9afea9"
       ],
       "start_line": 963
     },
     {
       "confidence": "structural",
-      "end_line": 994,
+      "end_line": 996,
       "heading": "Configuration Change Control",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-configuration-change-control",
       "source_keys": [
-        "2e737fcc6a7c59c1"
+        "1ff0d6de569776fb",
+        "ee9796ce7f9afea9"
       ],
-      "start_line": 980
+      "start_line": 982
     },
     {
       "confidence": "structural",
-      "end_line": 1006,
+      "end_line": 1008,
       "heading": "Label Safety",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-label-safety",
       "source_keys": [
-        "2e737fcc6a7c59c1"
+        "1ff0d6de569776fb",
+        "ee9796ce7f9afea9"
       ],
-      "start_line": 995
+      "start_line": 997
     },
     {
       "confidence": "structural",
-      "end_line": 1020,
+      "end_line": 1022,
       "heading": "Data Hygiene",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-data-hygiene",
       "source_keys": [
-        "2e737fcc6a7c59c1"
+        "1ff0d6de569776fb",
+        "ee9796ce7f9afea9"
       ],
-      "start_line": 1007
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1034,
-      "heading": "Observability",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-observability",
-      "source_keys": [
-        "2e737fcc6a7c59c1"
-      ],
-      "start_line": 1021
+      "start_line": 1009
     },
     {
       "confidence": "structural",
       "end_line": 1036,
+      "heading": "Observability",
+      "needs_live_verification": false,
+      "section_id": "13-administration-and-operational-guardrails-observability",
+      "source_keys": [
+        "1ff0d6de569776fb",
+        "ee9796ce7f9afea9"
+      ],
+      "start_line": 1023
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1038,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -6318,33 +6324,33 @@
         "352864afe01d9012",
         "c634b29dacfd7ec0"
       ],
-      "start_line": 1035
+      "start_line": 1037
     },
     {
       "confidence": "normal",
-      "end_line": 1050,
+      "end_line": 1052,
       "heading": "Mobile Check-In Block",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-mobile-check-in-block",
       "source_keys": [
         "05931c3044950e72"
       ],
-      "start_line": 1037
+      "start_line": 1039
     },
     {
       "confidence": "normal",
-      "end_line": 1065,
+      "end_line": 1067,
       "heading": "Mobile Check-In Docs",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-mobile-check-in-docs",
       "source_keys": [
         "d8f903417f626234"
       ],
-      "start_line": 1051
+      "start_line": 1053
     },
     {
       "confidence": "normal",
-      "end_line": 1077,
+      "end_line": 1079,
       "heading": "Rapid Attendance Entry",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rapid-attendance-entry",
@@ -6353,11 +6359,11 @@
         "05e25d68371f3c79",
         "f9a37b4abc893028"
       ],
-      "start_line": 1066
+      "start_line": 1068
     },
     {
       "confidence": "normal",
-      "end_line": 1088,
+      "end_line": 1090,
       "heading": "Attendance Analytics",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-attendance-analytics",
@@ -6365,11 +6371,11 @@
         "227fd73082caf0ef",
         "227fd73082caf0ef"
       ],
-      "start_line": 1078
+      "start_line": 1080
     },
     {
       "confidence": "normal",
-      "end_line": 1099,
+      "end_line": 1101,
       "heading": "Label Data",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-label-data",
@@ -6379,11 +6385,11 @@
         "6b6a0caa19ce502a",
         "efc424486a7fa99e"
       ],
-      "start_line": 1089
+      "start_line": 1091
     },
     {
       "confidence": "normal",
-      "end_line": 1110,
+      "end_line": 1112,
       "heading": "Attendance Analytics Stored Procedures",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-attendance-analytics-stored-procedures",
@@ -6393,11 +6399,11 @@
         "049b32750234e772",
         "19dce90444cf55fa"
       ],
-      "start_line": 1100
+      "start_line": 1102
     },
     {
       "confidence": "community-supported",
-      "end_line": 1122,
+      "end_line": 1124,
       "heading": "Lava And Community Patterns",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-and-community-patterns",
@@ -6408,11 +6414,11 @@
         "352864afe01d9012",
         "c634b29dacfd7ec0"
       ],
-      "start_line": 1111
+      "start_line": 1113
     },
     {
       "confidence": "structural",
-      "end_line": 1124,
+      "end_line": 1126,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -6424,11 +6430,11 @@
         "c634b29dacfd7ec0",
         "6821ea88a529e9ee"
       ],
-      "start_line": 1123
+      "start_line": 1125
     },
     {
       "confidence": "structural",
-      "end_line": 1149,
+      "end_line": 1151,
       "heading": "Reporting Basis",
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-reporting-basis",
@@ -6439,33 +6445,33 @@
         "352864afe01d9012",
         "c634b29dacfd7ec0"
       ],
-      "start_line": 1125
+      "start_line": 1127
     },
     {
       "confidence": "normal",
-      "end_line": 1163,
+      "end_line": 1165,
       "heading": "Analytics Caveats",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-analytics-caveats",
       "source_keys": [
         "6821ea88a529e9ee"
       ],
-      "start_line": 1150
+      "start_line": 1152
     },
     {
       "confidence": "structural",
-      "end_line": 1175,
+      "end_line": 1177,
       "heading": "Model Map Use",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-model-map-use",
       "source_keys": [
         "6821ea88a529e9ee"
       ],
-      "start_line": 1164
+      "start_line": 1166
     },
     {
       "confidence": "normal",
-      "end_line": 1200,
+      "end_line": 1202,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats",
@@ -6476,225 +6482,248 @@
         "ee9796ce7f9afea9",
         "1ff0d6de569776fb"
       ],
-      "start_line": 1176
+      "start_line": 1178
     },
     {
       "confidence": "structural",
-      "end_line": 1202,
+      "end_line": 1204,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
-        "2e737fcc6a7c59c1",
-        "cd0ee42000651ed5",
-        "c06f9da9030c4f0f",
         "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
+        "78f1e8bbd9d351ff",
+        "05e25d68371f3c79",
         "28470b74e5c0cd42",
         "ab384b1a2bd7a807"
-      ],
-      "start_line": 1201
-    },
-    {
-      "confidence": "needs-citation",
-      "end_line": 1225,
-      "heading": "Playbook: Build A Basic Family Check-In Area",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-build-a-basic-family-check-in-area",
-      "source_keys": [
-        "2e737fcc6a7c59c1",
-        "cd0ee42000651ed5",
-        "c06f9da9030c4f0f",
-        "ee9796ce7f9afea9",
-        "1ff0d6de569776fb"
       ],
       "start_line": 1203
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1240,
+      "confidence": "citation-only",
+      "end_line": 1229,
+      "heading": "Playbook: Build A Basic Family Check-In Area",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-build-a-basic-family-check-in-area",
+      "source_keys": [
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
+      ],
+      "start_line": 1205
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 1246,
       "heading": "Playbook: Add A New Room",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-a-new-room",
       "source_keys": [
-        "2e737fcc6a7c59c1",
-        "cd0ee42000651ed5",
-        "c06f9da9030c4f0f",
-        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
-      "start_line": 1226
+      "start_line": 1230
     },
     {
       "confidence": "citation-only",
-      "end_line": 1257,
+      "end_line": 1263,
       "heading": "Playbook: Configure Mobile Check-In",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-configure-mobile-check-in",
       "source_keys": [
         "1ff0d6de569776fb"
       ],
-      "start_line": 1241
+      "start_line": 1247
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1272,
+      "confidence": "normal",
+      "end_line": 1280,
       "heading": "Playbook: Configure Rapid Attendance Entry",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-configure-rapid-attendance-entry",
       "source_keys": [
-        "1ff0d6de569776fb"
+        "78f1e8bbd9d351ff",
+        "05e25d68371f3c79"
       ],
-      "start_line": 1258
+      "start_line": 1264
     },
     {
       "confidence": "community-supported",
-      "end_line": 1288,
+      "end_line": 1296,
       "heading": "Playbook: Implement A QR Code Attendance Pattern",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-implement-a-qr-code-attendance-pattern",
       "source_keys": [
         "28470b74e5c0cd42"
       ],
-      "start_line": 1273
+      "start_line": 1281
     },
     {
       "confidence": "community-supported",
-      "end_line": 1304,
+      "end_line": 1312,
       "heading": "Playbook: Implement SMS/Text Attendance",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-implement-sms-text-attendance",
       "source_keys": [
         "ab384b1a2bd7a807"
       ],
-      "start_line": 1289
+      "start_line": 1297
     },
     {
       "confidence": "structural",
-      "end_line": 1308,
+      "end_line": 1316,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1305
+      "start_line": 1313
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1354,
+      "confidence": "citation-only",
+      "end_line": 1364,
       "heading": "A. Is The Problem Before Attendance Is Saved?",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1309
+      "start_line": 1317
     },
     {
       "confidence": "structural",
-      "end_line": 1368,
+      "end_line": 1378,
       "heading": "B. Was Attendance Saved?",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-b-was-attendance-saved",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1355
+      "start_line": 1365
     },
     {
       "confidence": "structural",
-      "end_line": 1388,
+      "end_line": 1398,
       "heading": "C. Is The Problem Labels?",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-c-is-the-problem-labels",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1369
+      "start_line": 1379
     },
     {
       "confidence": "structural",
-      "end_line": 1399,
+      "end_line": 1409,
       "heading": "D. Is The Problem Check-In Manager?",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1389
+      "start_line": 1399
     },
     {
       "confidence": "structural",
-      "end_line": 1410,
+      "end_line": 1420,
       "heading": "E. Is The Problem Analytics?",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-e-is-the-problem-analytics",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1400
+      "start_line": 1410
     },
     {
       "confidence": "structural",
-      "end_line": 1421,
+      "end_line": 1431,
       "heading": "F. Is The Problem Mobile?",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-f-is-the-problem-mobile",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1411
+      "start_line": 1421
     },
     {
       "confidence": "structural",
-      "end_line": 1423,
+      "end_line": 1433,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
       "source_keys": [
-        "ab384b1a2bd7a807",
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
         "78f1e8bbd9d351ff",
-        "28470b74e5c0cd42"
+        "28470b74e5c0cd42",
+        "ab384b1a2bd7a807"
       ],
-      "start_line": 1422
+      "start_line": 1432
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1446,
+      "confidence": "citation-only",
+      "end_line": 1458,
       "heading": "Recipe: Prove Why A Child Cannot Check In",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1424
+      "start_line": 1434
     },
     {
       "confidence": "structural",
-      "end_line": 1466,
+      "end_line": 1478,
       "heading": "Recipe: Prove Which Printer Should Print A Label",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-prove-which-printer-should-print-a-label",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1447
+      "start_line": 1459
     },
     {
       "confidence": "structural",
-      "end_line": 1489,
+      "end_line": 1501,
       "heading": "Recipe: Reconcile Attendance Analytics To Raw Rows",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-reconcile-attendance-analytics-to-raw-rows",
       "source_keys": [
-        "ab384b1a2bd7a807"
+        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb"
       ],
-      "start_line": 1467
+      "start_line": 1479
     },
     {
       "confidence": "community-supported",
-      "end_line": 1511,
+      "end_line": 1523,
       "heading": "Recipe: Decide Between Check-In, Group Attendance, Rapid Attendance, QR, And SMS",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-decide-between-check-in-group-attendance-rapid-attendance-qr-and-sms",
@@ -6703,11 +6732,11 @@
         "28470b74e5c0cd42",
         "ab384b1a2bd7a807"
       ],
-      "start_line": 1490
+      "start_line": 1502
     },
     {
       "confidence": "structural",
-      "end_line": 1536,
+      "end_line": 1548,
       "heading": "Recipe: Validate Mobile Check-In Readiness",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-validate-mobile-check-in-readiness",
@@ -6716,11 +6745,11 @@
         "28470b74e5c0cd42",
         "ab384b1a2bd7a807"
       ],
-      "start_line": 1512
+      "start_line": 1524
     },
     {
       "confidence": "citation-only",
-      "end_line": 1562,
+      "end_line": 1574,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -6738,11 +6767,11 @@
         "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
-      "start_line": 1537
+      "start_line": 1549
     },
     {
       "confidence": "citation-only",
-      "end_line": 1583,
+      "end_line": 1595,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -6756,11 +6785,11 @@
         "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
-      "start_line": 1563
+      "start_line": 1575
     },
     {
       "confidence": "high",
-      "end_line": 1628,
+      "end_line": 1640,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -6811,7 +6840,7 @@
         "eaf47d2e51a1810d",
         "3d0666ed2045fabc"
       ],
-      "start_line": 1584
+      "start_line": 1596
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T06:33:24+00:00",

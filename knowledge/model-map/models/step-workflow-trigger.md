@@ -1,7 +1,7 @@
 # Step Workflow Trigger Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Engagement`
 - Model title: `StepWorkflowTrigger`
 - Table name: `not provided`

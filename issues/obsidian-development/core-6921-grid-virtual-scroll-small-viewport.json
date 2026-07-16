@@ -1,0 +1,101 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6921-grid-virtual-scroll-small-viewport-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6921",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "A Rock maintainer closed issue 6921 because the narrow-viewport grid symptom had already been addressed by issue 6839. The earlier fix changes the shared virtual scroller so Grid ignores its internal horizontal scroll container when locating the vertical scroll container. The fix commit is directly linked to issue 6839, and both issues are currently labeled Fixed in v19.3.",
+  "workaround_summaries": [
+    "Use a Rock build proven to contain commit d99159265a36b1adb17d09eec13cc4f69414c385, then verify a wide Obsidian Grid on a narrow viewport. Horizontal scrolling can force a temporary relayout on an affected build but is not a durable fix."
+  ],
+  "applicability": [
+    {
+      "assertion_id": "core-6921-affected-19.2",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.2",
+      "context": {
+        "scope": "Obsidian Grid virtual scrolling with wide columns on narrow browser viewports"
+      },
+      "versions": ["19.2"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d99159265a36b1adb17d09eec13cc4f69414c385"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6921",
+        "https://github.com/SparkDevNetwork/Rock/issues/6921#issuecomment-4985495627",
+        "https://github.com/SparkDevNetwork/Rock/issues/6839",
+        "https://github.com/SparkDevNetwork/Rock/commit/d99159265a36b1adb17d09eec13cc4f69414c385"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6921-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official fix release line; verify the exact installed package"
+      },
+      "versions": ["19.3"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d99159265a36b1adb17d09eec13cc4f69414c385"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6921#issuecomment-4985495627",
+        "https://github.com/SparkDevNetwork/Rock/issues/6839",
+        "https://github.com/SparkDevNetwork/Rock/commit/d99159265a36b1adb17d09eec13cc4f69414c385"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6921-fixed-by-commit-d991592",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact shared virtual-scroller source revision"
+      },
+      "versions": ["d99159265a36b1adb17d09eec13cc4f69414c385"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d99159265a36b1adb17d09eec13cc4f69414c385"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/blob/d99159265a36b1adb17d09eec13cc4f69414c385/Rock.JavaScript.Obsidian/Framework/Controls/Grid/virtualDataRows.partial.obs#L190-L205",
+        "https://github.com/SparkDevNetwork/Rock/blob/d99159265a36b1adb17d09eec13cc4f69414c385/Rock.JavaScript.Obsidian/Framework/Core/Utilities/virtualScroll.ts#L442-L548"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6921",
+    "https://github.com/SparkDevNetwork/Rock/issues/6921#issuecomment-4985495627",
+    "https://github.com/SparkDevNetwork/Rock/issues/6839",
+    "https://github.com/SparkDevNetwork/Rock/commit/d99159265a36b1adb17d09eec13cc4f69414c385",
+    "https://github.com/SparkDevNetwork/Rock/blob/d99159265a36b1adb17d09eec13cc4f69414c385/Rock.JavaScript.Obsidian/Framework/Controls/Grid/virtualDataRows.partial.obs#L190-L205",
+    "https://github.com/SparkDevNetwork/Rock/blob/d99159265a36b1adb17d09eec13cc4f69414c385/Rock.JavaScript.Obsidian/Framework/Core/Utilities/virtualScroll.ts#L442-L548"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-15T21:36:34Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

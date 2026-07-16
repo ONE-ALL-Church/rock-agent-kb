@@ -6,6 +6,37 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-07-15
+
+### Added
+
+- `rock-kb issues watch` for complete, paginated instance assessments with
+  private local snapshots, stable profile hashes, restrictive file
+  permissions, and categorized changes between observations.
+- Reviewed public issue enrichments for Connections, CMS, LMS, Obsidian,
+  workflows, mobile, and hosting behavior, with exact public-source or
+  maintainer evidence and explicit abstention where evidence was insufficient.
+
+### Changed
+
+- Rock issue assessments now rank the complete bounded candidate set before
+  applying `offset` and `limit`; REST, MCP, local serving, and the published
+  client expose matching pagination metadata and projection versions.
+- Stable Model Map data now reflects Rock `19.2.0`, with `20.0.5` retained as
+  the latest comparison track and dependent model, concept, search, and agent
+  projections rebuilt.
+- Fourteen high-value Check-In, Connections, and Lava guide sections now link
+  directly to official documentation, training, Model Map, or public source
+  evidence.
+- Public export traversal excludes operating-system metadata at every nested
+  path rather than only at the export root.
+
+### Decision
+
+- Issue watch state remains local and private. It stores only the profile hash,
+  public normalized issue fields, projection metadata, and observation time;
+  it never stores raw GitHub content, private Rock data, secrets, or queries.
+
 ## [0.9.0] - 2026-07-15
 
 ### Added

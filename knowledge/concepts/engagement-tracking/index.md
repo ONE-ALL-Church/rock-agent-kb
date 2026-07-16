@@ -2,7 +2,7 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-07-10T19:52:36+00:00
+last_built: 2026-07-16T00:16:01+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -97,29 +97,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Step Program Completion](../../model-map/models/step-program-completion.md) | Engagement | 19.1.8 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Achievement Attempt](../../model-map/models/achievement-attempt.md) | Engagement | 19.1.8 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Achievement Type](../../model-map/models/achievement-type.md) | Engagement | 19.1.8 | 72 | 33 | 56 | 24 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Achievement Type Prerequisite](../../model-map/models/achievement-type-prerequisite.md) | Engagement | 19.1.8 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step](../../model-map/models/step.md) | Engagement | 19.1.8 | 62 | 24 | 46 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Program](../../model-map/models/step-program.md) | Engagement | 19.1.8 | 50 | 19 | 34 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Status](../../model-map/models/step-status.md) | Engagement | 19.1.8 | 46 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Type](../../model-map/models/step-type.md) | Engagement | 19.1.8 | 70 | 33 | 55 | 22 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Type Prerequisite](../../model-map/models/step-type-prerequisite.md) | Engagement | 19.1.8 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Workflow](../../model-map/models/step-workflow.md) | Engagement | 19.1.8 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.1.8 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Streak](../../model-map/models/streak.md) | Engagement | 19.1.8 | 53 | 22 | 38 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Program Completion](../../model-map/models/step-program-completion.md) | Engagement | 19.2.0 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Achievement Attempt](../../model-map/models/achievement-attempt.md) | Engagement | 19.2.0 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Achievement Type](../../model-map/models/achievement-type.md) | Engagement | 19.2.0 | 72 | 33 | 56 | 24 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Achievement Type Prerequisite](../../model-map/models/achievement-type-prerequisite.md) | Engagement | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step](../../model-map/models/step.md) | Engagement | 19.2.0 | 62 | 24 | 46 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Program](../../model-map/models/step-program.md) | Engagement | 19.2.0 | 50 | 19 | 34 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Status](../../model-map/models/step-status.md) | Engagement | 19.2.0 | 46 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Type](../../model-map/models/step-type.md) | Engagement | 19.2.0 | 70 | 33 | 55 | 22 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Type Prerequisite](../../model-map/models/step-type-prerequisite.md) | Engagement | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Workflow](../../model-map/models/step-workflow.md) | Engagement | 19.2.0 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.2.0 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Streak](../../model-map/models/streak.md) | Engagement | 19.2.0 | 53 | 22 | 38 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Achievement Attempt.AchievementType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.1.8; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.AchievementType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 

@@ -1,0 +1,51 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6912-start-task-queue-expiration-risk-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6912",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Rock source gives queues a default 300-second time to live, leaves StartTaskQueue on that default, and registers every consumer for a queue on one receive endpoint. The in-memory transport adds no Rock-specific consume timeout or concurrency policy. This confirms a shared queue and expiration boundary, but source inspection alone does not prove that one blocked consumer stops all delivery or that every expired message is silent. The reported mechanism remains under investigation.",
+  "workaround_summaries": [],
+  "applicability": [
+    {
+      "assertion_id": "core-6912-under-investigation-18.3.5",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "18.3",
+      "context": {
+        "scope": "in-memory bus using StartTaskQueue while a consumer is blocked"
+      },
+      "versions": ["18.3.5"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6912",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/RockQueue.cs#L70-L101",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/StartTaskQueue.cs#L20-L32",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Consumer/RockConsumer.cs#L165-L184",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Transport/Component/InMemory.cs#L55-L88"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6912",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/RockQueue.cs#L70-L101",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/StartTaskQueue.cs#L20-L32",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Consumer/RockConsumer.cs#L165-L184",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Transport/Component/InMemory.cs#L55-L88"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "medium",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-12T18:49:38Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

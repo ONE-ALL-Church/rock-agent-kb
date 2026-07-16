@@ -53,12 +53,11 @@ generated: true
 | `5-core-configuration-and-data-model-connection-type-configuration` | high | live verification |
 | `5-core-configuration-and-data-model-connection-status-configuration` | normal | live verification |
 | `5-core-configuration-and-data-model-connection-opportunity-configuration` | high | live verification |
-| `5-core-configuration-and-data-model-connection-request-data` | needs-citation | live verification |
-| `6-primary-entities-and-relationships-entity-relationship-map` | needs-citation | needs-citation |
+| `5-core-configuration-and-data-model-connection-request-data` | normal | live verification |
+| `6-primary-entities-and-relationships-entity-relationship-map` | normal | live verification |
 | `6-primary-entities-and-relationships-connectionopportunity` | community-supported | community-supported |
 | `7-common-connections-workflows-staff-creates-a-request` | normal | live verification |
 | `7-common-connections-workflows-person-self-service-signup` | normal | live verification |
-| `8-opportunities-deep-dive-what-opportunities-are-for` | needs-citation | needs-citation |
 | `8-opportunities-deep-dive-key-opportunity-settings-to-inspect` | normal | live verification |
 | `8-opportunities-deep-dive-opportunity-workflow-configuration` | normal | live verification |
 | `9-requests-and-statuses-deep-dive-status-vs-state` | normal | live verification |
@@ -72,13 +71,13 @@ generated: true
 | `12-related-rock-areas-people-workflows-groups-communications-security-reporting-people` | normal | live verification |
 | `12-related-rock-areas-people-workflows-groups-communications-security-reporting-workflows` | normal | live verification |
 | `12-related-rock-areas-people-workflows-groups-communications-security-reporting-security` | normal | live verification |
-| `13-administration-and-operational-guardrails-configuration-review-checklist` | needs-citation | needs-citation |
+| `13-administration-and-operational-guardrails-configuration-review-checklist` | citation-only | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-query-page-parameter-landmarks` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-lava` | community-supported | community-supported |
 | `16-version-and-release-caveats-rock-v10` | normal | live verification |
 | `16-version-and-release-caveats-rock-v12` | normal | live verification |
 | `16-version-and-release-caveats-rock-v19-1-current-release-notes` | normal | live verification |
-| `17-implementation-playbooks-playbook-create-a-new-serving-pipeline` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-create-a-new-serving-pipeline` | normal | live verification |
 | `17-implementation-playbooks-playbook-add-status-automation` | normal | live verification |
 | `18-troubleshooting-decision-tree-status-change-did-something-unexpected` | normal | live verification |
 | `18-troubleshooting-decision-tree-signup-missing-attributes` | normal | live verification |

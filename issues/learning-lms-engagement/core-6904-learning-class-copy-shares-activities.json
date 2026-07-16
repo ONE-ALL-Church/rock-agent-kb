@@ -1,0 +1,48 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6904-learning-class-copy-shares-activities-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6904",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Rock source copies each LearningClassActivity when copying a class but does not clone its related LearningActivity, so the copied row retains the original content relationship. The same method also declares a newActivities list but never adds the copied activities before the attribute-save loop. By contrast, the single-activity copy path explicitly clones LearningActivity. This confirms both implementation differences on the reviewed source revision; exact affected release boundaries remain unverified.",
+  "workaround_summaries": [
+    "Until the class-copy path is corrected, do not edit copied-class activity content under the assumption that it is independent. Build the new class and copy activities individually, then verify each copied LearningClassActivity points to a distinct LearningActivity before changing content."
+  ],
+  "applicability": [
+    {
+      "assertion_id": "core-6904-affected-develop-6e30556",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "LearningClassService.Copy with includeActivities enabled"
+      },
+      "versions": ["6e305568763043b3fb85c85142ce85b1ec566414"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6904",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClass/LearningClassService.cs#L89-L139",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClassActivity/LearningClassActivityService.cs#L31-L57"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6904",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClass/LearningClassService.cs#L89-L139",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClassActivity/LearningClassActivityService.cs#L31-L57"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-02T17:02:38Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

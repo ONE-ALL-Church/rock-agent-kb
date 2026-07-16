@@ -1,7 +1,7 @@
 # Financial Pledge Model Detail
 
 - Track: `stable`
-- Rock version: `19.1.8`
+- Rock version: `19.2.0`
 - Category: `Finance`
 - Model title: `FinancialPledge`
 - Table name: `not provided`

@@ -66,7 +66,6 @@ generated: true
 | `6-primary-entities-and-relationships-devices-and-printers` | normal | live verification |
 | `6-primary-entities-and-relationships-search-index-documents` | normal | live verification |
 | `7-common-lava-workflows-building-a-dynamic-report-page` | community-supported | live verification |
-| `7-common-lava-workflows-launching-a-workflow-from-lava` | needs-citation | needs-citation |
 | `7-common-lava-workflows-formatting-data-with-shortcodes` | community-supported | community-supported |
 | `7-common-lava-workflows-calling-external-apis` | normal | live verification |
 | `7-common-lava-workflows-adding-page-level-css` | normal | live verification |
@@ -84,7 +83,7 @@ generated: true
 | `10-shortcodes-deep-dive-shortcode-configuration-fields` | normal | live verification |
 | `10-shortcodes-deep-dive-enabled-commands-inside-shortcodes` | normal | live verification |
 | `10-shortcodes-deep-dive-scope-behavior` | normal | live verification |
-| `11-related-rock-areas-cms-workflows-sql-security-cms` | needs-citation | live verification |
+| `11-related-rock-areas-cms-workflows-sql-security-cms` | normal | live verification |
 | `11-related-rock-areas-cms-workflows-sql-security-workflows` | normal | live verification |
 | `11-related-rock-areas-cms-workflows-sql-security-sql` | normal | live verification |
 | `12-administration-and-operational-guardrails-pre-change-checklist` | structural | live verification |
@@ -97,7 +96,7 @@ generated: true
 | `14-reporting-analytics-and-model-map-model-map` | community-supported | live verification |
 | `15-version-and-release-caveats-fluid-migration` | normal | live verification |
 | `15-version-and-release-caveats-v19` | normal | live verification |
-| `16-implementation-playbooks-playbook-add-a-safe-read-only-entity-list` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-add-a-safe-read-only-entity-list` | normal | live verification |
 | `16-implementation-playbooks-playbook-replace-unsafe-sql-with-parameterized-sql` | normal | live verification |
 | `16-implementation-playbooks-playbook-build-a-reusable-shortcode` | normal | live verification |
 | `16-implementation-playbooks-playbook-diagnose-a-broken-shortcode` | structural | live verification |

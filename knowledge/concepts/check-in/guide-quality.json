@@ -14,7 +14,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13185 words; expected at least 7000.",
+      "message": "Guide has 13463 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -61,9 +61,9 @@
   "concept_id": "check-in",
   "contribution_record_count": 0,
   "entity_count": 24,
-  "generated_at": "2026-07-15T19:57:24+00:00",
-  "guide_line_count": 1628,
-  "guide_word_count": 13185,
+  "generated_at": "2026-07-16T00:16:53+00:00",
+  "guide_line_count": 1640,
+  "guide_word_count": 13463,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 112,

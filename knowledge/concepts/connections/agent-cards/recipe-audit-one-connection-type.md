@@ -36,12 +36,12 @@ Follow the guide section for Recipe: Audit One Connection Type.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/bookcontent/39
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
+- https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/rocku/engagement/connection-request-status-automation
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
-- https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/recipes/446
 - https://community.rockrms.com/ask/developing/2645
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection

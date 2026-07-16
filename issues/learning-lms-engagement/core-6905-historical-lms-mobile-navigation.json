@@ -1,0 +1,50 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6905-historical-lms-mobile-navigation-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6905",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "The public workspace block permits historical access server-side when the course allows it, but the reviewed client source chooses the completion screen before honoring an activity query parameter whenever every activity is complete. It clears the selected activity while showing the completion view; desktop retains a visible activity list, while the mobile presentation depends on the collapsed selector. This supports the reported navigation difference, but no public fix or exact package boundary is recorded.",
+  "workaround_summaries": [
+    "For completed courses that must remain browsable, direct learners to the desktop workspace until the mobile selector behavior is fixed, and verify historical access with a completed test learner on every supported viewport."
+  ],
+  "applicability": [
+    {
+      "assertion_id": "core-6905-under-investigation-develop-6e30556",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "completed LMS classes with historical access enabled on narrow browser viewports"
+      },
+      "versions": ["6e305568763043b3fb85c85142ce85b1ec566414"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6905",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Lms/Public/PublicLearningClassWorkspace.cs#L475-L504",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L188-L256",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L500-L535"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-16T00:00:06Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6905",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Lms/Public/PublicLearningClassWorkspace.cs#L475-L504",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L188-L256",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L500-L535"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "medium",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-02T19:37:32Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

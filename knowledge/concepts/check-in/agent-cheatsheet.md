@@ -95,7 +95,7 @@ generated: true
 | `11-troubleshooting-deep-dive-symptom-family-search-finds-nothing` | structural | live verification |
 | `11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape` | normal | live verification |
 | `12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-groups` | structural | live verification |
-| `13-administration-and-operational-guardrails-pre-service-checklist` | needs-citation | live verification |
+| `13-administration-and-operational-guardrails-pre-service-checklist` | citation-only | live verification |
 | `13-administration-and-operational-guardrails-configuration-change-control` | structural | live verification |
 | `13-administration-and-operational-guardrails-label-safety` | structural | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-mobile-check-in-docs` | normal | live verification |
@@ -103,19 +103,18 @@ generated: true
 | `15-reporting-analytics-and-model-map-analytics-caveats` | normal | live verification |
 | `15-reporting-analytics-and-model-map-model-map-use` | structural | live verification |
 | `16-version-and-release-caveats` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-basic-family-check-in-area` | needs-citation | live verification |
-| `17-implementation-playbooks-playbook-add-a-new-room` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-build-a-basic-family-check-in-area` | citation-only | live verification |
+| `17-implementation-playbooks-playbook-add-a-new-room` | citation-only | live verification |
 | `17-implementation-playbooks-playbook-configure-mobile-check-in` | citation-only | live verification |
-| `17-implementation-playbooks-playbook-configure-rapid-attendance-entry` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-configure-rapid-attendance-entry` | normal | live verification |
 | `17-implementation-playbooks-playbook-implement-a-qr-code-attendance-pattern` | community-supported | live verification |
 | `17-implementation-playbooks-playbook-implement-sms-text-attendance` | community-supported | live verification |
-| `18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved` | needs-citation | needs-citation |
 | `18-troubleshooting-decision-tree-b-was-attendance-saved` | structural | live verification |
 | `18-troubleshooting-decision-tree-c-is-the-problem-labels` | structural | live verification |
 | `18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager` | structural | live verification |
 | `18-troubleshooting-decision-tree-e-is-the-problem-analytics` | structural | live verification |
 | `18-troubleshooting-decision-tree-f-is-the-problem-mobile` | structural | live verification |
-| `19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in` | needs-citation | live verification |
+| `19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in` | citation-only | live verification |
 | `19-agent-task-recipes-recipe-prove-which-printer-should-print-a-label` | structural | live verification |
 | `19-agent-task-recipes-recipe-reconcile-attendance-analytics-to-raw-rows` | structural | live verification |
 | `19-agent-task-recipes-recipe-decide-between-check-in-group-attendance-rapid-attendance-qr-and-sms` | community-supported | community-supported |

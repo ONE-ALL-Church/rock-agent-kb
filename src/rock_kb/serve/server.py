@@ -130,8 +130,8 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
         name="kb_assess_rock_issues",
         description="Conservatively route issues against a bounded profile. Never provide logs, identifiers, or person data.",
     )
-    def kb_assess_rock_issues(profile: dict[str, Any], limit: int = 100) -> dict[str, Any]:
-        return retrieval.assess_rock_issues(profile, limit=limit)
+    def kb_assess_rock_issues(profile: dict[str, Any], limit: int = 100, offset: int = 0) -> dict[str, Any]:
+        return retrieval.assess_rock_issues(profile, limit=limit, offset=offset)
 
     @mcp.tool(
         name="kb_plan_rock_issue_investigation",

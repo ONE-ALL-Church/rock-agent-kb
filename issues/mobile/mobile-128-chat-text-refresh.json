@@ -1,0 +1,27 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:mobile-128-chat-text-refresh-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock.Mobile-Issues#128",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "The report names Rock Mobile shell 19.1 on both iOS and Android, but the Rock Mobile maintainer identified that the linked recording showed a different issue and requested corrected evidence. The maintainer later closed the report after being unable to reproduce it and receiving insufficient details. The v19.3 milestone is a target, not evidence that a defect was confirmed or fixed.",
+  "workaround_summaries": [
+    "Do not treat this report as proof of a local chat defect. Reproduce with the exact shell, platform, and app build, capture a recording that shows the text reset, and compare that evidence with the issue before diagnosing or escalating."
+  ],
+  "applicability": [],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues/128",
+    "https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues/128#issuecomment-4908919523",
+    "https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues/128#issuecomment-4961319092",
+    "https://github.com/SparkDevNetwork/Rock.Mobile-Issues/milestone/3"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-13T18:34:17Z",
+  "reviewed_at": "2026-07-16T00:00:06Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}
