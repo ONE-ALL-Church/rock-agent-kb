@@ -10,10 +10,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-event-registration-workflows-basic-public-registration`: Basic Public Registration (147 words)
-- `11-administration-and-operational-guardrails-security`: Security (96 words)
 - `11-administration-and-operational-guardrails-operational-health-checks`: Operational Health Checks (83 words)
-- `13-reporting-analytics-and-model-map-analytics-checks`: Analytics Checks (89 words)
 - `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration`: Playbook A: Create A Standard Paid Event Registration (159 words)
 - `15-implementation-playbooks-playbook-d-configure-payment-reminders`: Playbook D: Configure Payment Reminders (81 words)
 
@@ -29,6 +26,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat`: API Linkage Caveat
 - `13-reporting-analytics-and-model-map-reporting-entity-choice`: Reporting Entity Choice
 - `13-reporting-analytics-and-model-map-model-map-verification`: Model Map Verification
+- `13-reporting-analytics-and-model-map-analytics-checks`: Analytics Checks
 - `17-agent-task-recipes-recipe-build-a-registrant-packet-export`: Recipe: Build A Registrant Packet Export
 - `17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail`: Recipe: Add Staff Notes To Registration Detail
 - `17-agent-task-recipes-recipe-investigate-api-registration-url-issues`: Recipe: Investigate API Registration URL Issues

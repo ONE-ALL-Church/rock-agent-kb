@@ -2,7 +2,7 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-07-16T00:16:17+00:00
+last_built: 2026-07-17T00:39:28+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -91,8 +91,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 3
-- `rock_documentation`: 47
+- `rock_core_release_notes`: 2
+- `rock_documentation`: 48
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 2
 - `rock_qa`: 1
@@ -152,7 +152,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | --- | --- | --- | --- |
 | 18.3 | Core | Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669 | [source](https://www.rockrms.com/releasenotes) |
 | 17.2 | Group | Fixed an issue where Group Schedule ICS calendar events had unclear summaries. The Summary now uses the format "Group - Location - Schedule" to provide clarity for calendar events. Fixes: #6174 | [source](https://www.rockrms.com/releasenotes) |
-| 17.2 | Group | Fixed an issue where removing a Schedule from one Group Location also deleted capacity settings for that same Schedule in other Group Locations. Fixes: #6315 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Subguides
 

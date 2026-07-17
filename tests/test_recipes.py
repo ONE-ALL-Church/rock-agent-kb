@@ -12,6 +12,7 @@ def test_canonical_recipes_validate_and_use_immutable_source_pins():
     expected_ids = {
         "oneall:check-in-status-dashboard",
         "oneall:communication-history-active-search",
+        "oneall:event-registration-analytics-dashboard",
         "oneall:registration-to-connection-request",
         "oneall:workflow-backed-sms-verification",
     }
@@ -74,11 +75,12 @@ def test_build_recipes_writes_agent_and_human_artifacts(monkeypatch, tmp_path):
 
     report = recipes.build_recipes()
 
-    assert report["recipe_count"] == 4
+    assert report["recipe_count"] == 5
     assert (tmp_path / "agent" / "recipes.jsonl").exists()
     expected_artifacts = {
         "check-in-status-dashboard.md": "d8ea54fa67ef",
         "communication-history-active-search.md": "066de269c307",
+        "event-registration-analytics-dashboard.md": "8bbd478b3167",
         "registration-to-connection-request.md": "03efbb093c02",
         "workflow-backed-sms-verification.md": "7211f1d5a024",
     }

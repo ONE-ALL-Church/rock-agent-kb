@@ -2,7 +2,7 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-07-16T00:16:10+00:00
+last_built: 2026-07-17T00:39:22+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -32,7 +32,7 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 
 - `API And Integrations` spans security, workflows, lava, model-map. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_community_hubs, triumph_resources, rock_youtube, rock_podcast_rss, rock_developer, rock_documentation.
-- Related tags found in source records: api, development, lava, obsidian, security, operations, sql, releases.
+- Related tags found in source records: api, lava, development, obsidian, security, operations, sql, usage.
 - Source detail types include: developer_doc, documentation_article, question, recipe, rock_lava_docs.
 
 ## Reviewed Media Insights
@@ -105,10 +105,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_api_docs`: 1
 - `rock_community_hubs`: 2
-- `rock_core_release_notes`: 7
+- `rock_core_release_notes`: 4
 - `rock_demo_api_docs_v1`: 1
 - `rock_demo_api_docs_v2`: 1
-- `rock_developer`: 28
+- `rock_developer`: 31
 - `rock_documentation`: 8
 - `rock_lava_docs`: 3
 - `rock_mobile_docs`: 6
@@ -173,9 +173,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 16.1 | Communication | Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694 | [source](https://www.rockrms.com/releasenotes) |
 | 18.2 | API | Fixed an error that prevented the Workflows Action Launch API endpoint from functioning. Fixes: #6604 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | API | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
-| 19.1 | Finance | Fixed slow performance on the Giving History API endpoint. Response times are significantly improved for organizations with large giving history data. Fixes: #6818 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | CMS | Fixed an issue where some REST v2 API endpoints incorrectly failed security checks when using ExecuteWrite permissions. | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Finance | Fixed two issues in the Giving History API. When "Combine Giving With" was blank, the API incorrectly returned family giving data instead of only the individual's authorized giving. When family giving (includeGivingGroup parameter) was excluded, contributions from the individual's other records were missing from results. Fixes: #6739 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -212,11 +209,11 @@ Keywords: `auth, token, bearer, api key`
 | Using Lava Remotely | rock_lava_docs | Using Lava Remotely Many people assume that Lava is limited to being used inside Rock. For the most part that is true, but we have created some neat tools to help you extend the power of Lava to other websites running alternative technologies. Lava REST Endpoint The Lava REST endpoint is a simple endpoint that takes Lava as input and returns the rendered template as output. This endpoint is easily used by any... | [source](https://community.rockrms.com/lava/remote-lava) |
 | Configure Person Tokens | rock_documentation | Person tokens come preconfigured in Rock and can be found in the Global Attributes screen (`Admin Tools > Settings > Global Attributes`).There are three Person Token attributes: Person Token Expire Minutes, Person Token Usage Limit, and Person Token Use Legacy Fallback. Click on an attribute to open its configuration settings. The Person Token Expire Minutes attribute is the length of time the person token is valid,... | [source](https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens) |
 | Rock Security | rock_developer | See <https://community.rockrms.com/developer/videos/70> (from the beta launch at CITRT 2014) * Block Security Order * Entity Parent Authority * Block Security Actions * Entity Type Security (Admin UI) * Custom Action Verbs * **PersonActionIdentifier** The RSVP system uses our newer 'non-security' type identification token generator (called PersonActionIdentifier) which identifies a person for only one particular... | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
-| Rock Core Release Notes | rock_core_release_notes | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 | Rock Impersonation Token Leak (RCKIPID) | rock_recipes | 9 Rock Impersonation Token Leak (RCKIPID) Shared by Chuck Bump , Southeast Christian Church 6 years ago 7.0 Operations, Web Intermediate Note : This recipe was written with the knowledge that this is less of a recipe on how to do something cool or how to put something appetizing together for your organization and more of a howto guide for when things go horribly wrong. The Scenario So, imagine you've created a... | [source](https://community.rockrms.com/recipes/69) |
 | webrequest not running?? | rock_qa | 0 webrequest not running?? 1 Kelvin Liu posted 3 Years Ago Hi I have noticed that since sometime in mid March our lava codes which use webrequest have all been failing silently. No noticeable errors just suddenly not doing what it has been doing for more than a year(s). We were on Rock v9.x ... Just upgraded to 10 (in May) but I know it's not related to the upgrade because the problem has been there since March.... | [source](https://community.rockrms.com/ask/developing/2708) |
 | Creating An App | rock_developer | Creating a TV application from scratch. ### Creating an Application In your Rock instance, go ahead and navigate to `Admin Tools > CMS Configuration > Apple TV Apps`. Once there, create a new site. Let's break this down. **Name** - the name of your application. This is private to your Rock Instance, and isn't what it has to be named when published to the App Store. **Description** - An optional description of the... | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) |
 | Applications | rock_developer | *Learn how to create a Roku application in Rock to manage your TV content.* ## Application Settings When creating or editing a Roku application, you have access to the following configuration options. ### Enable Page Views Whether (or not) page interactions should be written to track the usage of your application. ### Page View Retention Duration The duration (in days) to retain the page interactions that are... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| Rock Core Release Notes | rock_core_release_notes | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 
 ### Webhooks
 

@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-07-16T00:16:02+00:00
+last_built: 2026-07-17T00:39:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -125,7 +125,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| Giving Unit Analytics | triumph_resources | June 01, 2026 Skip the Trial and Error: Borrow Our AI Playbook Introducing the AI Agentic Cohort with Claude. The AI skills, tools, and strategy our team uses every day are no... Read Article | [source](https://www.triumph.tech/resources/giving-unit-analytics) |
+| Resource Library | triumph_resources | July 14, 2026 We're Giving Away Our AI Use Church Policy Template, For Free We're sharing our AI Use Church Policy Template, for free, designed to help every staff member critically think ... Read Article | [source](https://www.triumph.tech/resources) |
 | Add Barcodes During Registration | rock_documentation | If your organization uses barcode scanners for rapid check-in, we've also enabled these screens to know where to put the data coming from the scanner. Scanning a barcode on this screen will ensure it will automatically go into the *Alternate ID* field if you have enabled it (as described in the [Configuration](/documentation/church-management/check-in/registration/configure-check-in-registration) section below). | [source](https://community.rockrms.com/documentation/church-management/check-in/registration/add-barcodes-during-registration) |
 | Calendar Event Item Occurrence View | rock_mobile_docs | This block displays a specific event item occurrence. ## Page Parameters \| Name \| Type \| Description \| \| --- \| --- \| --- \| \| EventOccurrenceGuid \| Guid \| The guid of the particular event occurrence. \| ## Block Configuration ### Registration URL The base URL to use when linking to the registration page. ### Template The template to use when rendering the Event Item Occurrence. #### Merge Fields In the template, you... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view) |
 | Configure Check-in Registration | rock_documentation | Registration features are packed with options. To configure these options, follow these steps: 1. First, enable a particular device kiosk by setting its [Registration Mode](/documentation/church-management/check-in/registration) to 'Yes'. 2. Then open up the check-in configurator `Admin Tools > Check-in > Check-in Configuration`. 3. Select the configuration you want to enable registration for and then Edit. 4.... | [source](https://community.rockrms.com/documentation/church-management/check-in/registration/configure-check-in-registration) |

@@ -58,8 +58,10 @@ sources 216 hours, and monthly sources 840 hours. Manual sources are reported
 without blocking refresh. It also writes
 `data/review/source-freshness/source-observations.json`, which records
 `last_checked_at`, `content_changed_at`, `result_count`, aggregate
-`content_hash`, and the check `status` independently. A successful check with
-no source delta advances `last_checked_at` while preserving
+semantic `content_hash`, and the check `status` independently. The hash uses a
+normalized summary hash plus stable routing metadata when available, with the
+raw normalized content hash as a fallback; this prevents dynamic page chrome
+from appearing as a content change. A successful check with no source delta advances `last_checked_at` while preserving
 `content_changed_at`. Rock core and mobile issue observations use
 `agent/rock-issue-summary.json` for the dedicated issue catalog timestamp,
 repository counts, and catalog hash instead of expecting normalized source

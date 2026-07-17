@@ -2,7 +2,7 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-07-16T00:16:02+00:00
+last_built: 2026-07-17T00:39:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -129,8 +129,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 19.3 | Core | Fixed File and Binary File attributes not showing a View link when displayed read-only in Obsidian blocks, such as the new Connections Request docked panel. Fixes: #6883 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Workflow | Fixed an issue where the Obsidian Workflow List block would time out when loading workflows assigned to groups with many members. | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Core | Fixed an issue in Obsidian blocks where Memo Fields configured to allow HTML displayed the HTML tags as encoded text instead of rendering the formatted content within the block. Fixes: #6718 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Core | Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Core | Fixed an issue in the Defined Value picker component where Single-Select Defined Value attributes configured with "Enhanced for Long Lists" did not display the searchable enhanced experience in Obsidian blocks (e.g., Workflow Entry and Event Registration), requiring manual scrolling through values. Fixes: #6658 #6705 | [source](https://www.rockrms.com/releasenotes) |
+| 18.3 | Core | Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Group | Fixed an issue in the Obsidian Group Requirement Type Detail block that caused Attribute Values to not load or save correctly when editing a requirement type. This prevented individuals from configuring or updating Group Requirement Types as expected. Fixes: #6642 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Group | Fixed an issue where the Obsidian Group Attendance Detail Block did not function correctly when Predictive Ids were disabled. The block now correctly resolves the selected group using either the Group Guid or IdKey and prevents an unintended group from loading when Disable Predictive Ids is checked in Site settings. Fixes: #6687 | [source](https://www.rockrms.com/releasenotes) |
 

@@ -2,7 +2,7 @@
 id: concept-documents-signatures
 title: Documents And Signatures
 generated: true
-last_built: 2026-07-16T00:15:59+00:00
+last_built: 2026-07-17T00:39:10+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -75,11 +75,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 6
+- `rock_core_release_notes`: 4
 - `rock_documentation`: 20
 - `rock_model_map`: 12
 - `rock_recipes`: 2
-- `rock_rocku`: 30
+- `rock_rocku`: 32
 - `triumph_resources`: 1
 
 ## Highest Signal Sources
@@ -135,8 +135,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 17.8 | Workflow | Fixed an issue where files uploaded through the Entity Document Add workflow action weren't properly linked to their parent Document. Because of that missing link, Rock couldn't check the Document Type's security rules when someone tried to access the file — it fell back to the File Type's security instead. Files are now linked correctly, so access is... | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Event | Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant without a valid SignatureDocumentId, due to documents being matched by person instead of the registrant's record. Updated these blocks to use... | [source](https://www.rockrms.com/releasenotes) |
 | 16.1 | Workflow | Fixed Signature Document Templates filtering to not show inactive templates in Workflow Actions. Fixes: #5511 | [source](https://www.rockrms.com/releasenotes) |
-| 18.2 | CMS | Fixed a display issue in the Obsidian Signature Document List block, affecting the Document column. Fixes: #6552 | [source](https://www.rockrms.com/releasenotes) |
-| 16.1 | CRM | Added the ability to use existing signed documents for event registrations if one already exists for the registrant. | [source](https://www.rockrms.com/releasenotes) |
 
 ## Subguides
 

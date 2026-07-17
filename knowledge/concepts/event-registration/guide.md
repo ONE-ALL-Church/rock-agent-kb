@@ -328,6 +328,8 @@ If a field is missing from a grid or export:
 
 ### Basic Public Registration
 
+RockU separates this journey into templates, instances, attributes, fees, discounts, payments, wait lists, and related operations, which is a useful checklist for locating the stage that failed ([RockU Event Registration](https://community.rockrms.com/rocku/event-registration), [Event Registration Attributes](https://community.rockrms.com/rocku/event-registration/event-registration-attributes)). Version-specific eligibility and entry behavior should still be checked against the [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+
 The common public flow is:
 
 1. Person opens an event detail page, calendar page, mobile event occurrence, or direct registration URL.
@@ -744,6 +746,8 @@ Community practice includes adding Notes blocks to registration detail pages to 
 
 Event registration customizations often expose SQL/Lava risk because page parameters, registration IDs, slugs, and person IDs are tempting shortcuts.
 
+Treat the official registration workflow as the product baseline, and apply the Lava SQL requirement to use parameters for untrusted values whenever a customization crosses into SQL ([Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations), [SQL Commands](https://community.rockrms.com/lava/commands/sql-commands)).
+
 Guardrails:
 
 - Do not put raw page parameters into SQL.
@@ -916,6 +920,8 @@ For leadership or ministry dashboards, include definitions:
 - **Ready for event**: registered, paid or approved, required forms complete, signature complete, placement complete.
 
 Each definition must be adapted to the organization’s Rock version and operational policy.
+
+Community roster examples illustrate why grain must be explicit: a useful registrant report commonly joins `RegistrationRegistrant` to `Registration`, `PersonAlias`, and `Person`, so it must not label registrant rows as registration transactions ([Single Page Registrant Info](https://community.rockrms.com/recipes/313)).
 
 ## 14. Version And Release Caveats
 

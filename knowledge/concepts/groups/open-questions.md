@@ -10,10 +10,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `12-administration-and-operational-guardrails-naming-and-hierarchy`: Naming And Hierarchy (86 words)
-- `14-reporting-analytics-and-model-map-reporting-questions-to-define`: Reporting Questions To Define (83 words)
 - `16-implementation-playbooks-playbook-build-a-small-group-structure`: Playbook: Build A Small Group Structure (144 words)
-- `19-source-map-and-dependency-notes-dependency-notes`: Dependency Notes (150 words)
 
 ## Community-Supported Only
 

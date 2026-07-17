@@ -649,6 +649,8 @@ The Web Forms Group Member Schedule Template Detail block saves a template name 
 
 Use names that distinguish folders, coach groups, small groups, serving teams, synced groups, security groups, and temporary groups. Avoid using only a ministry name when the group is a container. Good group tree hygiene prevents reporting errors.
 
+This naming recommendation follows Rock's documented distinction between structured and flexible group hierarchies: names should make the operational role of each node clear when the hierarchy itself permits several kinds of child groups ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
+
 Recommended naming checks:
 
 - Does the group name identify its ministry or campus?
@@ -783,6 +785,8 @@ Before building any groups report, define:
 - Are did-not-occur rows included?
 - Are notes included?
 - Is this report for staff, leaders, public users, or automation?
+
+These questions correspond to materially different join paths in Rock source: schedule reporting follows `Schedule -> GroupLocationSchedule -> GroupLocation`, hierarchy reporting includes `GroupTypeAssociation`, and attendance reporting traverses occurrences and person aliases ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql), [View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql), [PersonGetGroupTypeAttendance.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs)).
 
 ### Model Map Coverage
 
@@ -1264,5 +1268,7 @@ Use these as patterns to evaluate, not as authoritative behavior:
 ### Dependency Notes
 
 Groups depend on People because group membership is person-based and attendance uses person aliases. They depend on Attendance because group participation is occurrence-based. They depend on Security because visibility and management are layered across pages, blocks, groups, group types, and templates. They depend on Locations because finder, check-in, scheduling, and maps require correct location relationships. They depend on Schedules because attendance reminders, finder day/time filters, volunteer scheduling, RSVP, and mobile attendance all depend on schedule configuration.
+
+The official groups manual covers the hierarchy, location, schedule, attendance, finder, and placement relationships together, while the mobile Group Finder documentation separately warns that returned groups do not automatically account for user security ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7), [Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
 
 When an agent handles a groups task, the correct final answer should identify which dependency controlled the outcome. For example: "not visible because Group Finder block omitted the Group Type," "not schedulable because group has no location schedule," "attendance missing because mobile block requires a schedule," "counts changed because v18.3 Attendance Analytics no longer includes allowed child group types," or "member cannot be activated because a Group Member Requirement workflow remains unresolved."

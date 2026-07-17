@@ -63,7 +63,6 @@ generated: true
 | `6-primary-entities-and-relationships-registrationregistrant` | normal | live verification |
 | `6-primary-entities-and-relationships-event-item-occurrence-and-linkage` | normal | live verification |
 | `6-primary-entities-and-relationships-attributes-and-form-fields` | normal | live verification |
-| `7-common-event-registration-workflows-basic-public-registration` | needs-citation | needs-citation |
 | `7-common-event-registration-workflows-paid-registration` | citation-only | live verification |
 | `7-common-event-registration-workflows-wait-list-registration` | normal | live verification |
 | `7-common-event-registration-workflows-group-placement` | normal | live verification |
@@ -80,13 +79,12 @@ generated: true
 | `11-administration-and-operational-guardrails-naming` | community-supported | live verification |
 | `11-administration-and-operational-guardrails-change-management` | structural | live verification |
 | `11-administration-and-operational-guardrails-notes-and-auditability` | community-supported | community-supported |
-| `11-administration-and-operational-guardrails-security` | needs-citation | needs-citation |
 | `11-administration-and-operational-guardrails-operational-health-checks` | needs-citation | live verification |
 | `12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering` | normal | live verification |
 | `12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat` | community-supported | live verification |
 | `13-reporting-analytics-and-model-map-reporting-entity-choice` | community-supported | community-supported |
 | `13-reporting-analytics-and-model-map-model-map-verification` | community-supported | live verification |
-| `13-reporting-analytics-and-model-map-analytics-checks` | needs-citation | needs-citation |
+| `13-reporting-analytics-and-model-map-analytics-checks` | community-supported | community-supported |
 | `14-version-and-release-caveats-rock-18-3` | normal | live verification |
 | `14-version-and-release-caveats-v16-10-v17-0-spotlight` | citation-only | live verification |
 | `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration` | needs-citation | live verification |

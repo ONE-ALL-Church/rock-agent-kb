@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
@@ -116,6 +117,47 @@ def test_source_observations_advance_content_time_when_hash_changes():
     )
 
     assert observations["sources"]["rock_youtube"]["content_changed_at"] == as_of.isoformat()
+
+
+def test_source_observations_ignore_raw_page_chrome_when_normalized_summary_is_unchanged():
+    first_checked = datetime(2026, 7, 16, 11, tzinfo=timezone.utc)
+    second_checked = datetime(2026, 7, 16, 12, tzinfo=timezone.utc)
+    first_snapshot = {
+        "sources": {"rock_community_blog": {"retrieved_at_max": first_checked.isoformat(), "record_count": 1}},
+        "source_records": {
+            "article:1": {
+                "source_id": "rock_community_blog",
+                "source_title": "Stable article",
+                "source_url": "https://example.org/stable-article",
+                "content_hash": "raw-html-first",
+                "summary_hash": "stable-normalized-summary",
+                "topics": ["community"],
+            }
+        },
+    }
+    first = build_source_observations(
+        [source("rock_community_blog", "daily")],
+        first_snapshot,
+        first_checked,
+        refresh_status={"checked": ["rock_community_blog"], "checked_at": first_checked.isoformat()},
+    )
+    first["sources"]["rock_community_blog"]["content_changed_at"] = "2026-07-14T08:00:00+00:00"
+    second_snapshot = json.loads(json.dumps(first_snapshot))
+    second_snapshot["sources"]["rock_community_blog"]["retrieved_at_max"] = second_checked.isoformat()
+    second_snapshot["source_records"]["article:1"]["content_hash"] = "raw-html-second"
+
+    second = build_source_observations(
+        [source("rock_community_blog", "daily")],
+        second_snapshot,
+        second_checked,
+        refresh_status={"checked": ["rock_community_blog"], "checked_at": second_checked.isoformat()},
+        previous_observations=first,
+    )
+    row = second["sources"]["rock_community_blog"]
+
+    assert row["last_checked_at"] == second_checked.isoformat()
+    assert row["content_changed_at"] == "2026-07-14T08:00:00+00:00"
+    assert row["content_hash"] == first["sources"]["rock_community_blog"]["content_hash"]
 
 
 def test_rock_issue_summary_supplies_issue_source_freshness_metadata():

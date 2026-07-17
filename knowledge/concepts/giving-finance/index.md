@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-07-16T00:15:48+00:00
+last_built: 2026-07-17T00:38:59+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

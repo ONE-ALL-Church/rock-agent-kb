@@ -6920,12 +6920,12 @@
   },
   "approved_media_hash": "08b27e17dc0baa4060b045fb123823b399a314388b61fb6a1980d9c68d286ad3",
   "approved_media_path": "knowledge/concepts/groups/approved-media.md",
-  "built_at": "2026-07-16T00:16:54+00:00",
+  "built_at": "2026-07-17T00:39:32+00:00",
   "concept_id": "groups",
-  "guide_hash": "6391b3fb0de3f0560d3c13e99ea278448c7f2fbe5b561ea79bd5a372101f3ef3",
-  "guide_line_count": 1268,
+  "guide_hash": "c85cb9a1c682408e1641f83caa53682c47ce98dae742a9413cc0e3d0aa2f6df0",
+  "guide_line_count": 1274,
   "guide_path": "knowledge/concepts/groups/guide.md",
-  "guide_word_count": 11925,
+  "guide_word_count": 12098,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -8186,8 +8186,7 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
       "source_keys": [
-        "c72ee88036189ee1",
-        "b88624870e795303",
+        "d6783d9a3170135b",
         "adc2038fe1eefb8a",
         "45b728c37efb8bd1",
         "37fec332eda7181c"
@@ -8195,44 +8194,41 @@
       "start_line": 646
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 660,
+      "confidence": "normal",
+      "end_line": 662,
       "heading": "Naming And Hierarchy",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-naming-and-hierarchy",
       "source_keys": [
-        "c72ee88036189ee1",
-        "b88624870e795303"
+        "d6783d9a3170135b"
       ],
       "start_line": 648
     },
     {
       "confidence": "structural",
-      "end_line": 670,
+      "end_line": 672,
       "heading": "Avoid Hard-Coded IDs In Long-Lived Templates",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-avoid-hard-coded-ids-in-long-lived-templates",
       "source_keys": [
-        "c72ee88036189ee1",
-        "b88624870e795303"
+        "d6783d9a3170135b"
       ],
-      "start_line": 661
+      "start_line": 663
     },
     {
       "confidence": "structural",
-      "end_line": 683,
+      "end_line": 685,
       "heading": "Use Read-Only Investigation First",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-use-read-only-investigation-first",
       "source_keys": [
-        "c72ee88036189ee1",
-        "b88624870e795303"
+        "d6783d9a3170135b"
       ],
-      "start_line": 671
+      "start_line": 673
     },
     {
       "confidence": "community-supported",
-      "end_line": 698,
+      "end_line": 700,
       "heading": "Recipe Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-recipe-guardrails",
@@ -8240,22 +8236,22 @@
         "adc2038fe1eefb8a",
         "45b728c37efb8bd1"
       ],
-      "start_line": 684
+      "start_line": 686
     },
     {
       "confidence": "citation-only",
-      "end_line": 710,
+      "end_line": 712,
       "heading": "Group Type Change Guardrail",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-group-type-change-guardrail",
       "source_keys": [
         "37fec332eda7181c"
       ],
-      "start_line": 699
+      "start_line": 701
     },
     {
       "confidence": "structural",
-      "end_line": 712,
+      "end_line": 714,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -8281,11 +8277,11 @@
         "52de29b9741dc96b",
         "2681d3d85fb4823c"
       ],
-      "start_line": 711
+      "start_line": 713
     },
     {
       "confidence": "normal",
-      "end_line": 724,
+      "end_line": 726,
       "heading": "Mobile Blocks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-blocks",
@@ -8298,11 +8294,11 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 713
+      "start_line": 715
     },
     {
       "confidence": "normal",
-      "end_line": 735,
+      "end_line": 737,
       "heading": "Request Bags And Block Paths",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-request-bags-and-block-paths",
@@ -8314,11 +8310,11 @@
         "96f1328d8aafb3b3",
         "e190f1d2a903c646"
       ],
-      "start_line": 725
+      "start_line": 727
     },
     {
       "confidence": "community-supported",
-      "end_line": 751,
+      "end_line": 753,
       "heading": "Lava Landmarks",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-landmarks",
@@ -8328,11 +8324,11 @@
         "ae4f7dd44bb15d12",
         "2b0a81a795e23c56"
       ],
-      "start_line": 736
+      "start_line": 738
     },
     {
       "confidence": "normal",
-      "end_line": 768,
+      "end_line": 770,
       "heading": "API And SQL Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-and-sql-landmarks",
@@ -8341,11 +8337,11 @@
         "52de29b9741dc96b",
         "2681d3d85fb4823c"
       ],
-      "start_line": 752
+      "start_line": 754
     },
     {
       "confidence": "structural",
-      "end_line": 770,
+      "end_line": 772,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -8357,11 +8353,11 @@
         "87481bf8502df0e8",
         "776256c424368312"
       ],
-      "start_line": 769
+      "start_line": 771
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 786,
+      "confidence": "normal",
+      "end_line": 790,
       "heading": "Reporting Questions To Define",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-reporting-questions-to-define",
@@ -8370,11 +8366,11 @@
         "52de29b9741dc96b",
         "2681d3d85fb4823c"
       ],
-      "start_line": 771
+      "start_line": 773
     },
     {
       "confidence": "citation-only",
-      "end_line": 801,
+      "end_line": 805,
       "heading": "Model Map Coverage",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map-coverage",
@@ -8388,33 +8384,33 @@
         "bce31f25cb8a199e",
         "bce31f25cb8a199e"
       ],
-      "start_line": 787
+      "start_line": 791
     },
     {
       "confidence": "normal",
-      "end_line": 805,
+      "end_line": 809,
       "heading": "Data Filters",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-data-filters",
       "source_keys": [
         "87481bf8502df0e8"
       ],
-      "start_line": 802
+      "start_line": 806
     },
     {
       "confidence": "normal",
-      "end_line": 809,
+      "end_line": 813,
       "heading": "Attendance Analytics Caveat",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-attendance-analytics-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 806
+      "start_line": 810
     },
     {
       "confidence": "structural",
-      "end_line": 811,
+      "end_line": 815,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -8424,36 +8420,25 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 810
+      "start_line": 814
     },
     {
       "confidence": "structural",
-      "end_line": 815,
+      "end_line": 819,
       "heading": "Navigation Wording",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-navigation-wording",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 812
-    },
-    {
-      "confidence": "normal",
-      "end_line": 819,
-      "heading": "Rock 16",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-rock-16",
-      "source_keys": [
-        "d6783d9a3170135b"
-      ],
       "start_line": 816
     },
     {
       "confidence": "normal",
       "end_line": 823,
-      "heading": "Rock 18.1",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-rock-18-1",
+      "heading": "Rock 16",
+      "needs_live_verification": false,
+      "section_id": "15-version-and-release-caveats-rock-16",
       "source_keys": [
         "d6783d9a3170135b"
       ],
@@ -8461,7 +8446,18 @@
     },
     {
       "confidence": "normal",
-      "end_line": 833,
+      "end_line": 827,
+      "heading": "Rock 18.1",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats-rock-18-1",
+      "source_keys": [
+        "d6783d9a3170135b"
+      ],
+      "start_line": 824
+    },
+    {
+      "confidence": "normal",
+      "end_line": 837,
       "heading": "Rock 18.3",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-rock-18-3",
@@ -8472,22 +8468,22 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 824
+      "start_line": 828
     },
     {
       "confidence": "normal",
-      "end_line": 837,
+      "end_line": 841,
       "heading": "Rock 19.1 Beta Context",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-rock-19-1-beta-context",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 834
+      "start_line": 838
     },
     {
       "confidence": "normal",
-      "end_line": 841,
+      "end_line": 845,
       "heading": "Mobile/Core Version Markers",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-mobile-core-version-markers",
@@ -8495,11 +8491,11 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 838
+      "start_line": 842
     },
     {
       "confidence": "structural",
-      "end_line": 843,
+      "end_line": 847,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -8511,11 +8507,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 842
+      "start_line": 846
     },
     {
       "confidence": "needs-citation",
-      "end_line": 862,
+      "end_line": 866,
       "heading": "Playbook: Build A Small Group Structure",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-small-group-structure",
@@ -8523,44 +8519,44 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 844
+      "start_line": 848
     },
     {
       "confidence": "citation-only",
-      "end_line": 877,
+      "end_line": 881,
       "heading": "Playbook: Build A Serving Team Scheduling Structure",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-serving-team-scheduling-structure",
       "source_keys": [
         "08815cfa0fab37fd"
       ],
-      "start_line": 863
+      "start_line": 867
     },
     {
       "confidence": "structural",
-      "end_line": 893,
+      "end_line": 897,
       "heading": "Playbook: Set Up Group Finder",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-set-up-group-finder",
       "source_keys": [
         "08815cfa0fab37fd"
       ],
-      "start_line": 878
+      "start_line": 882
     },
     {
       "confidence": "community-supported",
-      "end_line": 906,
+      "end_line": 910,
       "heading": "Playbook: Add Group Requirements",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-group-requirements",
       "source_keys": [
         "9af162570ab9ac58"
       ],
-      "start_line": 894
+      "start_line": 898
     },
     {
       "confidence": "community-supported",
-      "end_line": 919,
+      "end_line": 923,
       "heading": "Playbook: Extend Group Leader Toolbox",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-extend-group-leader-toolbox",
@@ -8568,11 +8564,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 907
+      "start_line": 911
     },
     {
       "confidence": "structural",
-      "end_line": 921,
+      "end_line": 925,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -8583,11 +8579,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 920
+      "start_line": 924
     },
     {
       "confidence": "structural",
-      "end_line": 934,
+      "end_line": 938,
       "heading": "A Group Does Not Appear In Group Viewer",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-group-does-not-appear-in-group-viewer",
@@ -8595,11 +8591,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 922
+      "start_line": 926
     },
     {
       "confidence": "structural",
-      "end_line": 946,
+      "end_line": 950,
       "heading": "A Child Group Type Cannot Be Added",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-child-group-type-cannot-be-added",
@@ -8607,11 +8603,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 935
+      "start_line": 939
     },
     {
       "confidence": "structural",
-      "end_line": 959,
+      "end_line": 963,
       "heading": "A Person Is In The Group But Not On The Roster",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-person-is-in-the-group-but-not-on-the-roster",
@@ -8619,44 +8615,44 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 947
+      "start_line": 951
     },
     {
       "confidence": "normal",
-      "end_line": 975,
+      "end_line": 979,
       "heading": "Attendance Cannot Be Entered",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-attendance-cannot-be-entered",
       "source_keys": [
         "5dba4d03818c09a2"
       ],
-      "start_line": 960
+      "start_line": 964
     },
     {
       "confidence": "structural",
-      "end_line": 990,
+      "end_line": 994,
       "heading": "Group Finder Missing Expected Groups",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-finder-missing-expected-groups",
       "source_keys": [
         "5dba4d03818c09a2"
       ],
-      "start_line": 976
+      "start_line": 980
     },
     {
       "confidence": "normal",
-      "end_line": 1005,
+      "end_line": 1009,
       "heading": "Attendance Counts Are Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-attendance-counts-are-wrong",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 991
+      "start_line": 995
     },
     {
       "confidence": "normal",
-      "end_line": 1022,
+      "end_line": 1026,
       "heading": "Group Scheduler Looks Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-scheduler-looks-wrong",
@@ -8664,11 +8660,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1006
+      "start_line": 1010
     },
     {
       "confidence": "structural",
-      "end_line": 1034,
+      "end_line": 1038,
       "heading": "Group Requirement Cannot Be Resent",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-requirement-cannot-be-resent",
@@ -8676,11 +8672,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1023
+      "start_line": 1027
     },
     {
       "confidence": "structural",
-      "end_line": 1036,
+      "end_line": 1040,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -8689,11 +8685,11 @@
         "201f0c67fd7c113d",
         "64a7ffd3aa5844f1"
       ],
-      "start_line": 1035
+      "start_line": 1039
     },
     {
       "confidence": "structural",
-      "end_line": 1061,
+      "end_line": 1065,
       "heading": "Recipe: Identify Why A Group Is Not Visible",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-identify-why-a-group-is-not-visible",
@@ -8701,11 +8697,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1037
+      "start_line": 1041
     },
     {
       "confidence": "structural",
-      "end_line": 1088,
+      "end_line": 1092,
       "heading": "Recipe: Audit A Group Type Before Launch",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-a-group-type-before-launch",
@@ -8713,11 +8709,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1062
+      "start_line": 1066
     },
     {
       "confidence": "structural",
-      "end_line": 1107,
+      "end_line": 1111,
       "heading": "Recipe: Debug Group Attendance Reminder Failures",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-debug-group-attendance-reminder-failures",
@@ -8725,11 +8721,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1089
+      "start_line": 1093
     },
     {
       "confidence": "structural",
-      "end_line": 1131,
+      "end_line": 1135,
       "heading": "Recipe: Build A Group Finder QA Checklist",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-group-finder-qa-checklist",
@@ -8737,11 +8733,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1108
+      "start_line": 1112
     },
     {
       "confidence": "structural",
-      "end_line": 1153,
+      "end_line": 1157,
       "heading": "Recipe: Move Members Between Groups Safely",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-move-members-between-groups-safely",
@@ -8749,22 +8745,22 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1132
+      "start_line": 1136
     },
     {
       "confidence": "community-supported",
-      "end_line": 1171,
+      "end_line": 1175,
       "heading": "Recipe: Create A Custom Scheduled Volunteer Communication Page",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page",
       "source_keys": [
         "64a7ffd3aa5844f1"
       ],
-      "start_line": 1154
+      "start_line": 1158
     },
     {
       "confidence": "citation-only",
-      "end_line": 1197,
+      "end_line": 1201,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -8782,11 +8778,11 @@
         "08815cfa0fab37fd",
         "301dbb16c5d47932"
       ],
-      "start_line": 1172
+      "start_line": 1176
     },
     {
       "confidence": "citation-only",
-      "end_line": 1218,
+      "end_line": 1222,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -8800,11 +8796,11 @@
         "7054a521db6d0806",
         "c4a0a588db9ed5b7"
       ],
-      "start_line": 1198
+      "start_line": 1202
     },
     {
       "confidence": "structural",
-      "end_line": 1220,
+      "end_line": 1224,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -8839,11 +8835,11 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1219
+      "start_line": 1223
     },
     {
       "confidence": "high",
-      "end_line": 1227,
+      "end_line": 1231,
       "heading": "Primary Official Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-sources",
@@ -8853,11 +8849,11 @@
         "08815cfa0fab37fd",
         "776256c424368312"
       ],
-      "start_line": 1221
+      "start_line": 1225
     },
     {
       "confidence": "normal",
-      "end_line": 1237,
+      "end_line": 1241,
       "heading": "Developer Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-developer-sources",
@@ -8870,11 +8866,11 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 1228
+      "start_line": 1232
     },
     {
       "confidence": "normal",
-      "end_line": 1248,
+      "end_line": 1252,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -8888,11 +8884,11 @@
         "96f1328d8aafb3b3",
         "c72ee88036189ee1"
       ],
-      "start_line": 1238
+      "start_line": 1242
     },
     {
       "confidence": "community-supported",
-      "end_line": 1263,
+      "end_line": 1267,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-examples",
@@ -8909,28 +8905,19 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1249
+      "start_line": 1253
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1268,
+      "confidence": "normal",
+      "end_line": 1274,
       "heading": "Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependency-notes",
       "source_keys": [
-        "adc2038fe1eefb8a",
-        "8566432524405e49",
-        "111d7dcd59cf942b",
-        "b4bc4b7b0ac7c9d8",
-        "c2a9e573bc22ec4f",
-        "84ad25974ba80b60",
-        "ae4f7dd44bb15d12",
-        "5cbcd01f47b0c44a",
-        "45b728c37efb8bd1",
-        "2e546ad927545965",
-        "9af162570ab9ac58"
+        "d6783d9a3170135b",
+        "db21941c572fe3c9"
       ],
-      "start_line": 1264
+      "start_line": 1268
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T16:23:37+00:00",

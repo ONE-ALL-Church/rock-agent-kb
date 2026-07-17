@@ -11,7 +11,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11628 words; expected at least 7000.",
+      "message": "Guide has 11793 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -58,13 +58,13 @@
   "concept_id": "documents-signatures",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-16T00:17:13+00:00",
-  "guide_line_count": 1367,
-  "guide_word_count": 11628,
+  "generated_at": "2026-07-17T00:39:50+00:00",
+  "guide_line_count": 1373,
+  "guide_word_count": 11793,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 92,
-  "source_count": 15,
+  "source_count": 16,
   "status": "pass",
   "task_card_count": 5
 }

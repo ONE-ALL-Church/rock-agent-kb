@@ -41,8 +41,8 @@ Follow the guide section for Recipe: Investigate API Registration URL Issues.
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
 - https://www.triumph.tech/resources/github-spotlight-182025
 - https://community.rockrms.com/ask/developing/2547
+- https://community.rockrms.com/rocku/event-registration/additional-registration-fees
 - https://community.rockrms.com/rocku/event-registration/registration-fees
 - https://community.rockrms.com/rocku/event-registration/registration-discounts
-- https://community.rockrms.com/rocku/event-registration/additional-registration-fees
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes
 - https://community.rockrms.com/recipes/361

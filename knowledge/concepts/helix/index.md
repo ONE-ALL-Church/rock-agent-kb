@@ -2,7 +2,7 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-07-16T00:16:11+00:00
+last_built: 2026-07-17T00:39:23+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,8 +35,8 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 ## How To Think About This Area
 
 - `Helix` spans lava, api-integrations, security, cms, workflows, forms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_documentation, rock_core_release_notes, rock_recipes, rock_model_map, rock_lava_docs.
-- Related tags found in source records: development, lava, api, cms, workflow, obsidian, operations, security.
+- The strongest source families in this build are: rock_developer, rock_documentation, rock_recipes, rock_core_release_notes, rock_model_map, rock_lava_docs.
+- Related tags found in source records: development, lava, cms, workflow, api, obsidian, security, sql.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_community_site, rock_lava_docs, triumph_resources.
 
 ## Approved Claims
@@ -65,10 +65,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `public_rock_repos`: 1
 - `rock_community_site`: 1
-- `rock_core_release_notes`: 10
+- `rock_core_release_notes`: 3
 - `rock_developer`: 27
 - `rock_documentation`: 4
-- `rock_lava_docs`: 32
+- `rock_lava_docs`: 39
 - `rock_model_map`: 12
 - `rock_recipes`: 1
 - `sparkdevnetwork_rock`: 1
@@ -126,13 +126,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 18.1 | CMS | Added Helix support for Lava Applications to core. This provides a great new way to build interactive pages in Rock powered by Lava for more advanced administrators. | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Lava | Added Body and RawBody merge fields to Lava Applications. | [source](https://www.rockrms.com/releasenotes) |
 | 16.4 | Core | Updated the Save button in Obsidian Detail blocks to show a loading indicator while waiting for the data to be saved. Fixes: #5661 | [source](https://www.rockrms.com/releasenotes) |
-| 17.1 | Core | Added additional Observability Metrics for memory and volume usage. | [source](https://www.rockrms.com/releasenotes) |
-| 17.1 | Core | Added new minimal trace mode for Observability to reduce network load. | [source](https://www.rockrms.com/releasenotes) |
-| 17.0 | Core | Added system metrics to the Observability Platform. | [source](https://www.rockrms.com/releasenotes) |
-| 16.6 | Core | Added Observability to the Update Personalization Data job. This will show details on the performance of each segment as it is being updated. | [source](https://www.rockrms.com/releasenotes) |
-| 16.4 | Core | Updated Observability so it won't log full SQL query text unless enabled in settings. | [source](https://www.rockrms.com/releasenotes) |
-| 16.3 | Lava | Added new Lava 'observe' command to allow wrapping fragments of Lava in an observability activity. | [source](https://www.rockrms.com/releasenotes) |
-| 16.1 | Core | Added system metrics to the Observability Platform. | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -232,7 +225,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Rebuild Dependencies
 
-- Source records: `111`
+- Source records: `104`
 - Lava capability source records: `53`
 - Approved claims: `15`
 - Dependency file: `agent/concept-dependencies.jsonl`

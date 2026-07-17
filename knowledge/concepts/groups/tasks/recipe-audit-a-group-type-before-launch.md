@@ -44,5 +44,5 @@ Follow the guide section for Recipe: Audit A Group Type Before Launch.
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx
 - https://community.rockrms.com/rocku/groups/group-administrator
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs

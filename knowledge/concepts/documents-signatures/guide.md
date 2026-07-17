@@ -225,7 +225,7 @@ The Obsidian Signature Document Template Detail block has a **Default File Type*
 
 ### Signature Document Instance Data
 
-The `SignatureDocument` model represents a persisted signing instance. Source snippets identify fields and view-model properties including:
+The `SignatureDocument` model represents a persisted signing instance. The official [Documents guide](https://community.rockrms.com/documentation/core-concepts/documents) supplies the product context, while the upstream [`SignatureDocument` model](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs) is the field-level authority. Source snippets identify fields and view-model properties including:
 
 - **SignatureDocumentTemplateId**: Template used to create the signing instance.
 - **Name**: Document name.
@@ -738,6 +738,8 @@ Agent checks:
 
 ### Before Creating A New Document Type
 
+Start with the official [Documents guide](https://community.rockrms.com/documentation/core-concepts/documents) and the [RockU Entity Documents](https://community.rockrms.com/rocku/cms/entity-documents) workflow so the entity, document type, file type, and access model are chosen together.
+
 Use this checklist:
 
 - What entity is this document for?
@@ -803,6 +805,8 @@ If a signature request was sent to the wrong person, prefer supported resend, ca
 
 ### Source-Code Landmarks
 
+Use the linked upstream model as the field-level authority, and treat community helpers such as [Recipe 434](https://community.rockrms.com/recipes/434) only as operational examples that still require security and data-integrity review ([SignatureDocument.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs)).
+
 The source pack includes these important Rock source-code locations:
 
 - `Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplate.cs`: Core model for signature templates, table `SignatureDocumentTemplate`, REST code generation, active flag, reporting include attributes, and fields such as name, description, provider data, binary file type, invite communication, Lava template, active state, document term, and signature type.
@@ -863,6 +867,8 @@ Agent guidance:
 The source pack includes a [Model Map](https://community.rockrms.com/ModelMap) record identifying `Signature Document Template` as a Core model. Use Model Map to confirm model names, categories, and reporting availability. For exact field lists, verify current source code or the live Rock schema.
 
 ### Signature Reporting
+
+Use the [Rock Model Map](https://community.rockrms.com/ModelMap) to confirm the current model names and relationships before implementing any query, then verify sensitive field handling in the target version.
 
 Useful signature reports include:
 
@@ -1061,7 +1067,7 @@ Problem: Wrong users can view the document.
 
 - Check Document Type security.
 - Check File Type security.
-- Check Rock version relative to v17.8 Document Type security changes.
+- Check Rock version relative to v17.8 Document Type security changes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
 - Check whether the file is linked to the parent Document.
 - Check public page routes and direct file URLs.
 

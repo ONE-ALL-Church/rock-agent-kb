@@ -14,7 +14,7 @@
     "tv-apps",
     "workflows"
   ],
-  "generated_at": "2026-07-16T00:17:55+00:00",
+  "generated_at": "2026-07-17T00:40:31+00:00",
   "resource_paths": {
     "agent_capabilities": "agent/lava-capabilities.jsonl",
     "agent_summary": "agent/lava-capability-summary.json",

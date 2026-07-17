@@ -14,7 +14,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11183 words; expected at least 7000.",
+      "message": "Guide has 11336 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -61,13 +61,13 @@
   "concept_id": "event-registration",
   "contribution_record_count": 0,
   "entity_count": 14,
-  "generated_at": "2026-07-16T00:17:23+00:00",
-  "guide_line_count": 1384,
-  "guide_word_count": 11183,
+  "generated_at": "2026-07-17T00:40:00+00:00",
+  "guide_line_count": 1390,
+  "guide_word_count": 11336,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 95,
-  "source_count": 28,
+  "source_count": 30,
   "status": "pass",
   "task_card_count": 8
 }

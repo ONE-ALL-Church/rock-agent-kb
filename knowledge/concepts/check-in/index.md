@@ -2,7 +2,7 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-07-16T00:15:42+00:00
+last_built: 2026-07-17T00:38:54+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -335,8 +335,9 @@ Keywords: `troubleshooting, error, printer, issue, failed`
 | How rapid can Rapid Attendance be? | rock_qa | 0 How rapid can Rapid Attendance be? 2 David Wong posted 1 Year Ago I'm evaluating Rock RMS for a church probably at the smaller end of the scale. We have two congregations, around 50 and 150 in size. At this scale, I belive the fastest way to record attendance at church services is to present a list of members, and let the user click on the names of members at the given service. Is this something Rock can be set up... | [source](https://community.rockrms.com/ask/using/2804) |
 | Install CUSTOM Icon Font on Printer Label | rock_recipes | 7 Install CUSTOM Icon Font on Printer Label Shared by Stephen Cracium , Shepherd Church 2 years ago 12.0 General, Kids Intermediate Have you ever wanted a magic font label that installs your custom fonts just like the one included with Rock? First I'd like to thank Lee Peterson and Luke Potter for working on this with me 😄. This first part of making a custom font is also covered in the documentation here Go to... | [source](https://community.rockrms.com/recipes/424) |
 | Zebra Printer Label Catcher | rock_recipes | 10 Zebra Printer Label Catcher Shared by Steve Klein , Liquid Church one year ago Check-in Beginner We have developed a 3D printable label catcher for the Zebra ZD421 label printer. You can find the design here - you will just need a 3D printer (or a friend who has one). Please reach out to me on Rocket Chat @steve.klein if you have any questions or feedback. | [source](https://community.rockrms.com/recipes/470) |
-| Rock Core Release Notes | rock_core_release_notes | Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prevents loading attendance data when context is missing. Fixes: #6409 | [source](https://www.rockrms.com/releasenotes) |
 | Cut Labels | rock_documentation | You can easily configure your cutter-enabled label printer to automatically cut at the end of the set of labels. So, if there are a set of three kids checking in, it will automatically cut once after all labels for each child have been printed. As you’ll see later, you can take this to the next level and control cutting to a great extent. Tip **Printers with Cutters**If you’re in the market for a label printer with... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/cut-labels) |
+| Set up Cloud Printing | rock_documentation | One of the most important parts of check-in is label printing. When labels print without a hitch, your check-in experience stays as fast and easy as it should be. But if your Rock server lives in the cloud, a firewall might keep your server from connecting directly to your label printer. That’s where Cloud Printing steps in! With Cloud Printing, your labels print directly from the server, keeping check-in smooth and... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/set-up-cloud-printing) |
+| Rock Core Release Notes | rock_core_release_notes | Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prevents loading attendance data when context is missing. Fixes: #6409 | [source](https://www.rockrms.com/releasenotes) |
 
 
 ## Rebuild Dependencies
