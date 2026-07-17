@@ -15,6 +15,10 @@ Lava javascript and stylesheet commands do not function in Helix endpoint templa
 - `claim:c707a9d9cd2878d9e056`
 - `claim:da56681f6277c12df324`
 
+## Distilled Claims
+
+- `distilled-claim:dc59b27ab0c0ccfc17c5`
+
 ## Citations
 
 - [Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)

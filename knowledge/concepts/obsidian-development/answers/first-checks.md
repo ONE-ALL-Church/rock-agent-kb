@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Obsidian Development?
 
-The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser. For an Obsidian plugin, `npm run build` performs TypeScript type checking before compiling and copying assets to RockWeb, whereas `npm run watch` continuously recompiles changed files without type checking. Obsidian block actions are stateless server calls, so every action must revalidate client data and recheck authorization rather than relying on TypeScript visibility or a previous C# instance. To make a core field type available in Obsidian, declare Obsidian platform support on its C# field type, expose its GUID through the generated field-type system GUIDs, and import and register its TypeScript implementation in the Obsidian field-type index.
+The Obsidian developer documentation is a work in progress, so described behavior may change or may not yet be implemented as documented. An Obsidian field configuration change handled entirely in the client should emit an updated model value, while a change that requires refreshed server-derived options should additionally request a configuration update. Obsidian block actions are stateless server calls, so every action must revalidate client data and recheck authorization rather than relying on TypeScript visibility or a previous C# instance. Set an Obsidian Grid's key field to the data property that uniquely identifies each row when using advanced grid features that depend on row identity.
 
 ## Top Claims
 
@@ -19,6 +19,13 @@ The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by D
 - `claim:78428dfda89499f150b2`
 - `claim:92fc3e39e7763d1e2bc1`
 - `claim:a42b7d81a72eccfcfccf`
+
+## Distilled Claims
+
+- `distilled-claim:3afcc918fe79e80c4b4a`
+- `distilled-claim:44f4aa9e42ec03ed8e97`
+- `distilled-claim:6e4324da54be4f35da7c`
+- `distilled-claim:9a5e26521cb4b7e66eec`
 
 ## Citations
 

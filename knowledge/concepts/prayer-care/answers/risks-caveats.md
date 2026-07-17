@@ -16,6 +16,10 @@ The Outreach Toolbox dashboard can surface people due for outreach and prayer to
 - `claim:e704f98991439e3e1576`
 - `claim:9c8ce297c9c4a4cda982`
 
+## Distilled Claims
+
+- `distilled-claim:a617f7eef6df119d2c0a`
+
 ## Citations
 
 - [Your People are Ministers on the Ground with the Outreach Toolbox](https://www.youtube.com/shorts/c6T9Ha13jKE) (`00:00`)

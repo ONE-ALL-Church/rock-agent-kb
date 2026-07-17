@@ -18,6 +18,11 @@ For Hosting And Infrastructure, inspect these live surfaces before changing prod
 - `claim:3f74a64709044adaf969`
 - `claim:76b31296b6897d4734e3`
 
+## Distilled Claims
+
+- `distilled-claim:1776fa095e0253136152`
+- `distilled-claim:4f8517744cd8958fbeb8`
+
 ## Citations
 
 - [Compare Sizing and Service Options](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options)

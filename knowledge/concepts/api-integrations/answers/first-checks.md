@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for API And Integrations?
 
-Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation. The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.
+AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.
 
 ## Top Claims
 
@@ -19,6 +19,10 @@ Rock's planned MCP flow uses OAuth so the external harness holds and renews the 
 - `claim:d35ed98aadeaabd2cf1e`
 - `claim:4b7b8d0b0379ceb7587f`
 - `claim:57e32b4d554a759231a1`
+
+## Distilled Claims
+
+- `distilled-claim:3da7928236fbd816d5d7`
 
 ## Citations
 

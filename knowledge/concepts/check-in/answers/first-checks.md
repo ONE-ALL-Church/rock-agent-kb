@@ -22,10 +22,10 @@ Start by separating eligibility, availability, label printing, and device behavi
 
 ## Distilled Claims
 
+- `distilled-claim:ccb7d7488f469192d232`
 - `distilled-claim:06e207f9efda4d056d09`
 - `distilled-claim:c70d743be9ae320e0b20`
 - `distilled-claim:c9ae45cce27211bd15c9`
-- `distilled-claim:70600c695d11ee875599`
 
 ## Citations
 

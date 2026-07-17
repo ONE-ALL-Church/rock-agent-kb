@@ -18,6 +18,11 @@ For Content And Personalization, inspect these live surfaces before changing pro
 - `claim:3641e44aad90819d81f6`
 - `claim:3b056c89bf8f82b2e3cd`
 
+## Distilled Claims
+
+- `distilled-claim:10cd807cafe896b8bb8b`
+- `distilled-claim:17e381e8d52892d44eb3`
+
 ## Citations
 
 - [Use Content Channels](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-content-channels)

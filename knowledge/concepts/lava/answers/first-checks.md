@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Lava?
 
-When using Lava to expose API-style endpoints, treat Lava webhooks as custom integration surfaces: verify security explicitly, especially for TV app or channel scenarios, before exposing data or commands. Roku app pages should be reviewed as Lava-generated SceneGraph output, not normal CMS HTML, so agents should validate the TV application record, page Lava, and command behavior together. Advanced HTML Block adds public-safe guidance for CMS security and Lava review: block authorship is privileged, and agents should inspect enabled commands, context inputs, and page/block authorization.
+When using Lava to expose API-style endpoints, treat Lava webhooks as custom integration surfaces: verify security explicitly, especially for TV app or channel scenarios, before exposing data or commands. Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. Roku app pages should be reviewed as Lava-generated SceneGraph output, not normal CMS HTML, so agents should validate the TV application record, page Lava, and command behavior together. Advanced HTML Block adds public-safe guidance for CMS security and Lava review: block authorship is privileged, and agents should inspect enabled commands, context inputs, and page/block authorization.
 
 ## Top Claims
 
@@ -23,6 +23,7 @@ When using Lava to expose API-style endpoints, treat Lava webhooks as custom int
 ## Distilled Claims
 
 - `distilled-claim:018890c9ff7df61a429b`
+- `distilled-claim:0fdef944e805ef0178c0`
 - `distilled-claim:1b24fed3c10b3e77023a`
 - `distilled-claim:76309df0960788340bf4`
 

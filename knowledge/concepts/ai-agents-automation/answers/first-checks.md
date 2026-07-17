@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for AI Agents And Automation?
 
-Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread. Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent.
+When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread. AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.
 
 ## Top Claims
 
@@ -19,6 +19,11 @@ Prompt context is layered across Rock's core prompt, organization prompt, agent 
 - `claim:4b083dda9f0d9ccc4aff`
 - `claim:c8c3a60f71790dd3616d`
 - `claim:c9c1fa08cb0434d501e6`
+
+## Distilled Claims
+
+- `distilled-claim:b621fd88895fb6d1cc98`
+- `distilled-claim:f9f54edc0a7a0e7164dd`
 
 ## Citations
 

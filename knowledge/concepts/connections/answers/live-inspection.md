@@ -18,6 +18,11 @@ For Connections, inspect these live surfaces before changing production behavior
 - `claim:9851e6f9beb234b9ae44`
 - `claim:07a75e5ff71510d708de`
 
+## Distilled Claims
+
+- `distilled-claim:c11b1a8a134661c7d577`
+- `distilled-claim:de15ad65c688858eef99`
+
 ## Citations
 
 - [Connections Helps Prevent Your People from Falling Through the Cracks](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=82s) (`01:22`)

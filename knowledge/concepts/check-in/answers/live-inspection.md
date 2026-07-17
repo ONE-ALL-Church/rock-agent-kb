@@ -20,8 +20,8 @@ For Check-In, inspect these live surfaces before changing production behavior: R
 
 ## Distilled Claims
 
+- `distilled-claim:ccb7d7488f469192d232`
 - `distilled-claim:06e207f9efda4d056d09`
-- `distilled-claim:c70d743be9ae320e0b20`
 
 ## Citations
 

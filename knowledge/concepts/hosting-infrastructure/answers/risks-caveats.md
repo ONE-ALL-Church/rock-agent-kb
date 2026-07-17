@@ -17,6 +17,10 @@ In a Rock web farm, files stored on a node's local file system are unavailable f
 - `claim:53bd55e60a2554640a1a`
 - `claim:82f246088b04f492eae3`
 
+## Distilled Claims
+
+- `distilled-claim:4f8517744cd8958fbeb8`
+
 ## Citations
 
 - [Architect a Server Cluster](https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster)

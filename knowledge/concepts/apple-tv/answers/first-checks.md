@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Apple TV Apps?
 
-Apple TV TVML text can be styled with predefined tv-text-style values, font weights and families, and inline bold, italic, or strikethrough tags. Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater. Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage. When building a Rock-linked Apple TV app, use Apple’s TVML documentation for the underlying markup and Rock’s documentation for Rock-specific extensions; modifying the application’s JavaScript is discouraged.
+Apple TV TVML text can be styled with predefined tv-text-style values, font weights and families, and inline bold, italic, or strikethrough tags. A Rock Apple TV app icon uses three separate image layers for the tvOS parallax effect; foreground layers must be PNG files and the background layer must be a JPG file.
 
 ## Top Claims
 
@@ -19,6 +19,11 @@ Apple TV TVML text can be styled with predefined tv-text-style values, font weig
 - `claim:d46bd13bb8523b527394`
 - `claim:1a9395b309ce05370bc9`
 - `claim:47d0054183b6a3c9d5bf`
+
+## Distilled Claims
+
+- `distilled-claim:1ab29c1bee8b124dff55`
+- `distilled-claim:55c71492c0ed7bd87eb7`
 
 ## Citations
 

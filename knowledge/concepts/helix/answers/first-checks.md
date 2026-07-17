@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Helix?
 
-Each Helix Lava Endpoint call creates an observability activity whose name identifies both the endpoint and its Lava Application; the root activity also records their names as attributes, while the HTTP method is available through an existing activity attribute. When developing Helix Lava Applications, monitor endpoint observability data to identify inefficient execution and excessive database calls. The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code, allowing linked front-end content blocks and back-end endpoints to be managed together during application development. Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development.
+Lava javascript and stylesheet commands do not function in Helix endpoint templates because endpoint output is injected into the page by JavaScript, which prevents reliable detection of resources already present on the page.
 
 ## Top Claims
 
@@ -19,6 +19,10 @@ Each Helix Lava Endpoint call creates an observability activity whose name ident
 - `claim:d35ed98aadeaabd2cf1e`
 - `claim:fa508a4851ef572dee65`
 - `claim:1ab863013d2610a31c7d`
+
+## Distilled Claims
+
+- `distilled-claim:dc59b27ab0c0ccfc17c5`
 
 ## Citations
 

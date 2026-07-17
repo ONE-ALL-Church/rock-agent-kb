@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Platform Configuration?
 
-Rock v19 begins the organization-wide Essentials and Trailblazer experience-mode rollout. The mode changes visible pages, settings and help content, while individual supported settings screens can preview both levels; not every block is necessarily mode-aware yet. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.
+Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.
 
 ## Top Claims
 
@@ -19,6 +19,10 @@ Rock v19 begins the organization-wide Essentials and Trailblazer experience-mode
 - `claim:f8380a3e786ab33df98f`
 - `claim:07a75e5ff71510d708de`
 - `claim:091606bd3b8b0472392a`
+
+## Distilled Claims
+
+- `distilled-claim:6ee2827caf8a6024555e`
 
 ## Citations
 

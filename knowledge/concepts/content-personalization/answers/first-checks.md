@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Content And Personalization?
 
-Rock can personalize website content for visitors who are not logged in by using available browsing-session and visitor signals. A person must satisfy every configured filter area in a personalization segment, while conditions within an individual area can use either Any or All matching logic. Rock can automatically create a Content Channel Item for a video uploaded to a video service provider, allowing the video to be published and its engagement tracked within Rock. The Asset field type can be used as an attribute on entities such as content channels, people, and groups, allowing editors to choose files or images stored through an integrated remote cloud storage provider such as Azure or Amazon S3.
+When Content Collection changes are not reflected during the day, manually running the Index Content Collections system job can refresh the collection before its automatic overnight run. The Asset field type can be used as an attribute on entities such as content channels, people, and groups, allowing editors to choose files or images stored through an integrated remote cloud storage provider such as Azure or Amazon S3. Rock stores a person's matching personalization segments in the ROCK_SEGMENT_FILTERS browser cookie and refreshes it every five minutes by default; administrators can change that interval with the Personalization Segment Cookie Affinity Duration system setting. Personalization features for content channel items must be enabled in the configuration of their content channel.
 
 ## Top Claims
 
@@ -19,6 +19,13 @@ Rock can personalize website content for visitors who are not logged in by using
 - `claim:3641e44aad90819d81f6`
 - `claim:3c9cfae7558a24b3786c`
 - `claim:765885794aed878fce64`
+
+## Distilled Claims
+
+- `distilled-claim:10cd807cafe896b8bb8b`
+- `distilled-claim:17e381e8d52892d44eb3`
+- `distilled-claim:2ad071629b0a34910b7b`
+- `distilled-claim:3e6fd2390634fb32240d`
 
 ## Citations
 

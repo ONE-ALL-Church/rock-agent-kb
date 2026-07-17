@@ -17,6 +17,10 @@ When an Obsidian field type uses different public display and edit representatio
 - `claim:485b886cc73703d3f339`
 - `claim:93e0a70a12a20cd668de`
 
+## Distilled Claims
+
+- `distilled-claim:3afcc918fe79e80c4b4a`
+
 ## Citations
 
 - [Converting Core Field Types](https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types)

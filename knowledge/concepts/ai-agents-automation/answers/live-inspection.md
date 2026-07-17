@@ -18,6 +18,11 @@ For AI Agents And Automation, inspect these live surfaces before changing produc
 - `claim:c3921cb1d8b61e06c713`
 - `claim:4b083dda9f0d9ccc4aff`
 
+## Distilled Claims
+
+- `distilled-claim:b621fd88895fb6d1cc98`
+- `distilled-claim:f9f54edc0a7a0e7164dd`
+
 ## Citations
 
 - [AI Summit: The Community's First Look at Rock's AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s) (`76:13`)

@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Hosting And Infrastructure?
 
-With SaaS-hosted Rock, the hosting provider operates and monitors the cloud environment and database and manages infrastructure concerns such as maintenance, backups, certificates, domains, and incidents according to the selected plan; the organization remains responsible for its data, content, Rock configuration, users, security, workflows, and routine administration. Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs. Rock v18 and later require SQL Server 2022 or newer according to the internal-hosting system requirements, including installations whose other sizing guidance still lists older SQL editions. A Rock web farm requires a Spark web-farm license and an active message-bus transport; Rock 19.0 supports Azure Service Bus or RabbitMQ, with only one transport active.
+For an internally hosted Rock web server, install the IIS Web Server role with the Windows ASP.NET 4.x role service appropriate to the server OS, WebSocket Protocol, Application Initialization, and .NET Framework 3.5 Features. Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. Before launching a SaaS-hosted Rock instance publicly, an organization should select a hosting partner, inventory its current system, arrange a kickoff, prepare a migration plan, and reserve a test period.
 
 ## Top Claims
 
@@ -19,6 +19,12 @@ With SaaS-hosted Rock, the hosting provider operates and monitors the cloud envi
 - `claim:d64ec12bd44248ad3db0`
 - `claim:3800f13989d805462464`
 - `claim:dba9f8a7413cfd92b396`
+
+## Distilled Claims
+
+- `distilled-claim:1776fa095e0253136152`
+- `distilled-claim:4f8517744cd8958fbeb8`
+- `distilled-claim:e053b5f43eb35208f724`
 
 ## Citations
 

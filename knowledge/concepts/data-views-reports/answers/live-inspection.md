@@ -20,8 +20,8 @@ For Data Views And Reports, inspect these live surfaces before changing producti
 
 ## Distilled Claims
 
+- `distilled-claim:3956f608a4eda1239433`
 - `distilled-claim:c51e6e995b2e05007b83`
-- `distilled-claim:3d81166b3f841bab7c30`
 
 ## Citations
 

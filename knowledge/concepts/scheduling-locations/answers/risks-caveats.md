@@ -17,6 +17,11 @@ Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows
 - `claim:9ad17cb08b8955d0d3ec`
 - `claim:9c8ce297c9c4a4cda982`
 
+## Distilled Claims
+
+- `distilled-claim:8bfc82127ec1e32191da`
+- `distilled-claim:cd3356f2b9d53eef9dee`
+
 ## Citations
 
 - [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s) (`06:26`)

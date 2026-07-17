@@ -18,6 +18,11 @@ For Obsidian Development, inspect these live surfaces before changing production
 - `claim:3cfc6f1ae39b7aee62fe`
 - `claim:4b5ea0770a8c958c31d6`
 
+## Distilled Claims
+
+- `distilled-claim:3afcc918fe79e80c4b4a`
+- `distilled-claim:44f4aa9e42ec03ed8e97`
+
 ## Citations
 
 - [Creating Blocks](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks)

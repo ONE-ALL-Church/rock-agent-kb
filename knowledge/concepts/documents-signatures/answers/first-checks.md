@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Documents And Signatures?
 
-In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature. Entity Documents can associate multiple documents of the same document type with a single Rock entity, including a person or group. Rock merge documents support Word and HTML formats, with Lava used to supply templated content in either format. For an event registration signature document, Applies To is each registrant; Assigned To is the registrant when the registrant is an adult, but the person completing the registration when the registrant is a child.
+The Entity Document block can manage documents for any Rock entity; the document types available for adding are determined by entity document type configuration and the block's settings. When preparing grid data for a merge document, Rock can preview the first 15 source records and display the available merge fields before the merge is run. A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied. For an event registration signature document, Applies To is each registrant; Assigned To is the registrant when the registrant is an adult, but the person completing the registration when the registrant is a child.
 
 ## Top Claims
 
@@ -19,6 +19,13 @@ In Rock electronic signatures, Applies To identifies the subject of the document
 - `claim:2b12292de387462d2016`
 - `claim:63b4ae7f9cdb042b4538`
 - `claim:ed0a1b359645f423053a`
+
+## Distilled Claims
+
+- `distilled-claim:0b398bcdb7201dc81088`
+- `distilled-claim:6c0b42987afa06e8cab9`
+- `distilled-claim:a29bc3f7be45005be6a9`
+- `distilled-claim:b881209da100103997bd`
 
 ## Citations
 

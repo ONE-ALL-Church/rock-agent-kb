@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Engagement Tracking?
 
-Data views can filter people by results from any assessment available in Rock, enabling organizations to group those people and report on their assessment responses. An achievement type defines a goal that Rock can automatically evaluate from engagement or interaction data while tracking each entity's progress toward completion. A step program's Completion Flow controls ordering and prerequisites: Linear (Required) enforces sequence and removes custom prerequisites, Linear (Preferred) favors sequence while retaining prerequisites, and Non-Linear uses sequence only for display while retaining prerequisites. Rock Streaks uses attendance or other engagement data to identify consecutive instances of a person's engagement.
+Rock calculates streaks using an occurrence map for participation opportunities, an engagement map for an individual's participation, and an exclusion map for excused absences. When an achievement badge has no Lava template, Rock uses the achievement icon, except that Step Program Completion uses the step program icon; if no applicable icon is configured, Rock uses the default achievement badge icon. From a person's profile, the Request Assessment action can send one or more assessment requests with a custom message. A streak type defines the engagement source, time pattern and start date Rock uses to calculate streaks, as well as the population enrolled for tracking.
 
 ## Top Claims
 
@@ -19,6 +19,13 @@ Data views can filter people by results from any assessment available in Rock, e
 - `claim:372bccdc8c694cdeb713`
 - `claim:46835c086d9ce455a270`
 - `claim:801ccf092de2b478a4da`
+
+## Distilled Claims
+
+- `distilled-claim:4a1e3be162ee8e0f09d0`
+- `distilled-claim:549968484f3c180329b8`
+- `distilled-claim:6619193e42970ecb731c`
+- `distilled-claim:6ace7d82b2e5c9a9d390`
 
 ## Citations
 

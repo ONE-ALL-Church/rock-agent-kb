@@ -18,6 +18,10 @@ For Helix, inspect these live surfaces before changing production behavior: Rock
 - `claim:1ab863013d2610a31c7d`
 - `claim:da56681f6277c12df324`
 
+## Distilled Claims
+
+- `distilled-claim:dc59b27ab0c0ccfc17c5`
+
 ## Citations
 
 - [Magnus](https://community.rockrms.com/developer/helix/lava-applications/magnus)

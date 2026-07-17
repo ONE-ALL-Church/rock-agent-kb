@@ -17,6 +17,10 @@ The v19 Check-In Manager roster uses real-time updates so attendance state chang
 - `claim:07a75e5ff71510d708de`
 - `claim:2a9844acce5ba6150dec`
 
+## Distilled Claims
+
+- `distilled-claim:ccb7d7488f469192d232`
+
 ## Citations
 
 - [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s) (`04:22`)

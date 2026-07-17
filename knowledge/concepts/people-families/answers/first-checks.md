@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for People And Families?
 
-Connections work should be modeled as a ministry follow-up process: define the person, opportunity, connector, status, and next action before automating or reporting on the flow. When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. Person Profile adds people/security guidance: profile work should identify the exact tab, block, action, and data surface before troubleshooting visibility or edit access. Connections Overview adds workflow guidance for connection ministries: separate person context, request status, opportunity setup, assignment, and automation when diagnosing issues.
+When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it. Connections work should be modeled as a ministry follow-up process: define the person, opportunity, connector, status, and next action before automating or reporting on the flow. When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. Person Profile adds people/security guidance: profile work should identify the exact tab, block, action, and data surface before troubleshooting visibility or edit access.
 
 ## Top Claims
 
@@ -22,10 +22,10 @@ Connections work should be modeled as a ministry follow-up process: define the p
 
 ## Distilled Claims
 
+- `distilled-claim:1d750424284ebf9eef9f`
 - `distilled-claim:0abaace78e9d4ec2e962`
 - `distilled-claim:bcab9f9af531642cae23`
 - `distilled-claim:bbe9995eb14df2fa8653`
-- `distilled-claim:5639e13f1a82d14cc2e8`
 
 ## Citations
 

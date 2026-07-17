@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Roku Apps?
 
-When selecting SceneGraph layout elements for a Rock Roku application, account for the fact that most Roku layouts lack default item templates and prefer built-in elements where possible to avoid custom BrightScript components. Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML. Rock Roku applications use Roku's SceneGraph XML language and are composed primarily from built-in SceneGraph components, supplemented by Rock-provided custom components. Beginning Roku development with Rock requires contacting the Rock Core team to obtain a development application setup.
+In Rock Roku layouts, a FocusGroup arranges its child views horizontally or vertically and automatically moves focus left/right for horizontal groups or up/down for vertical groups. A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava. Rock's Roku TV application cannot play YouTube content; its video command expects a directly playable MP4 or HLS resource instead.
 
 ## Top Claims
 
@@ -19,6 +19,12 @@ When selecting SceneGraph layout elements for a Rock Roku application, account f
 - `claim:6ff04ce9f309e8163832`
 - `claim:84305ad4d42aafc22e6d`
 - `claim:a43c6281e5328e7cac68`
+
+## Distilled Claims
+
+- `distilled-claim:10234d2138196d0ad4d2`
+- `distilled-claim:222b9d4f421c32383c4d`
+- `distilled-claim:ad2426e1a191434cfeaa`
 
 ## Citations
 

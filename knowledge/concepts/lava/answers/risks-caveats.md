@@ -20,6 +20,7 @@ Rock v19 adds a contains parameter to the Lava where filter for partial field ma
 ## Distilled Claims
 
 - `distilled-claim:018890c9ff7df61a429b`
+- `distilled-claim:0fdef944e805ef0178c0`
 
 ## Citations
 

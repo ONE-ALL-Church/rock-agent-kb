@@ -17,6 +17,10 @@ Rock v19 begins the organization-wide Essentials and Trailblazer experience-mode
 - `claim:f8380a3e786ab33df98f`
 - `claim:07a75e5ff71510d708de`
 
+## Distilled Claims
+
+- `distilled-claim:6ee2827caf8a6024555e`
+
 ## Citations
 
 - [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=96s) (`01:36`)

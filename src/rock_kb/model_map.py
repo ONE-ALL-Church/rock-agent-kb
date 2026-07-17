@@ -1003,6 +1003,14 @@ def parse_demo_rock_version_response(body: str) -> Optional[str]:
     return match.group(0) if match else None
 
 
+def rock_version_key(version: object) -> tuple[int, ...] | None:
+    """Return a comparable numeric key for a Rock semantic version."""
+    value = str(version or "").strip()
+    if not re.fullmatch(r"\d+\.\d+\.\d+(?:\.\d+)?", value):
+        return None
+    return tuple(int(part) for part in value.split("."))
+
+
 def model_map_artifact_freshness(
     summary_path: Path = AGENT_MODEL_MAP_SUMMARY_PATH,
     timeout_seconds: int = 5,
@@ -1139,10 +1147,16 @@ def model_map_version_freshness(
         elif probe.get("version") == recorded_version:
             row["status"] = "current"
         else:
-            row["status"] = "stale"
+            recorded_key = rock_version_key(recorded_version)
+            live_key = rock_version_key(probe.get("version"))
+            if recorded_key is not None and live_key is not None and live_key < recorded_key:
+                row["status"] = "live-behind"
+            else:
+                row["status"] = "stale"
         rows.append(row)
 
     stale_tracks = [row for row in rows if row.get("status") == "stale"]
+    ahead_tracks = [row for row in rows if row.get("status") == "live-behind"]
     blocking_tracks = [row for row in rows if row.get("status") in {"missing", "missing-version"}]
     unknown_tracks = [row for row in rows if row.get("status") == "unknown"]
     if stale_tracks:
@@ -1161,6 +1175,7 @@ def model_map_version_freshness(
         "checked_at": now_iso(),
         "tracks": rows,
         "stale_tracks": stale_tracks,
+        "ahead_tracks": ahead_tracks,
         "unknown_tracks": unknown_tracks,
         "missing_tracks": blocking_tracks,
     }
