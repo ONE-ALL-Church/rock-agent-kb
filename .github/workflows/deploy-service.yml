@@ -107,9 +107,9 @@ jobs:
       - name: Smoke-test hosted service
         if: ${{ env.ROCK_KB_BASE_URL != '' }}
         run: |
-          curl --fail "${ROCK_KB_BASE_URL}/health"
-          curl --fail "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
-          curl --fail "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health"
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json
           uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5
       - name: Enforce bounded artifact retention
         if: ${{ env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
