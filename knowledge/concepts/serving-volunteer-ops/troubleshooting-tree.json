@@ -10,16 +10,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/recipes/169",
-        "https://community.rockrms.com/recipes/459",
-        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
-        "https://community.rockrms.com/recipes/489",
         "https://community.rockrms.com/rocku/groups/group-requirements",
-        "https://community.rockrms.com/recipes/238",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications"
+        "https://community.rockrms.com/rocku/groups/group-types",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/rocku/groups/group-security",
+        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -38,16 +38,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
         "https://community.rockrms.com/recipes/169",
         "https://community.rockrms.com/recipes/459",
-        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/rocku/groups/group-types",
+        "https://community.rockrms.com/rocku/groups/group-security",
         "https://community.rockrms.com/recipes/489",
-        "https://community.rockrms.com/rocku/groups/group-requirements",
-        "https://community.rockrms.com/recipes/238",
-        "https://community.rockrms.com/recipes/356",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics"
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -66,16 +66,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/recipes/169",
-        "https://community.rockrms.com/recipes/459",
-        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
-        "https://community.rockrms.com/recipes/489",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/rocku/groups/group-requirements",
-        "https://community.rockrms.com/recipes/238",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications"
+        "https://community.rockrms.com/recipes/169",
+        "https://community.rockrms.com/rocku/groups/group-types",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/rocku/groups/group-security",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -125,13 +125,13 @@
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
         "https://community.rockrms.com/recipes/169",
-        "https://community.rockrms.com/recipes/459",
-        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
-        "https://community.rockrms.com/recipes/489",
         "https://community.rockrms.com/rocku/groups/group-requirements",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications",
-        "https://community.rockrms.com/recipes/238"
+        "https://community.rockrms.com/rocku/groups/group-types",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/rocku/groups/group-security",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -151,15 +151,15 @@
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/recipes/169",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/recipes/459",
-        "https://community.rockrms.com/rocku/groups/group-history",
-        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
-        "https://community.rockrms.com/ask/using/2808",
-        "https://community.rockrms.com/recipes/489",
-        "https://community.rockrms.com/rocku/groups/group-viewer",
+        "https://community.rockrms.com/rocku/groups/group-types",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
+        "https://community.rockrms.com/rocku/groups/group-requirements",
         "https://community.rockrms.com/rocku/groups/group-details",
-        "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+        "https://community.rockrms.com/rocku/groups/group-history",
+        "https://community.rockrms.com/rocku/groups/group-security",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -178,16 +178,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/documentation/bookcontent/10/266",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
         "https://community.rockrms.com/recipes/169",
-        "https://community.rockrms.com/recipes/459",
-        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
-        "https://community.rockrms.com/recipes/489",
         "https://community.rockrms.com/rocku/groups/group-requirements",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
-        "https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications",
-        "https://community.rockrms.com/recipes/238"
+        "https://community.rockrms.com/rocku/groups/group-types",
+        "https://community.rockrms.com/rocku/groups/group-scheduling-overview",
+        "https://community.rockrms.com/recipes/459",
+        "https://community.rockrms.com/rocku/groups/group-security",
+        "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+        "https://community.rockrms.com/recipes/489"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -199,7 +199,7 @@
   ],
   "concept_id": "serving-volunteer-ops",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T00:39:45+00:00",
+  "generated_at": "2026-07-17T05:35:25+00:00",
   "guide_sections": [
     "10-volunteer-requirements-deep-dive-requirement-failure-troubleshooting",
     "18-troubleshooting-decision-tree",

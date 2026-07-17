@@ -58,7 +58,26 @@ Apply the projection only when Cloudflare credentials and bindings are configure
 uv run kb deploy-service --apply --env production --database rock-agent-kb --bucket rock-agent-kb-artifacts
 ```
 
-`--apply` uploads the versioned R2 artifact payload first, then seeds the remote D1 database with `--remote`, then deploys the Worker. That order prevents the live Worker from flipping to a new `current_version` before the matching artifacts exist.
+`--apply` reads `/health`, selects the inactive fixed R2 slot (`slots/a` or
+`slots/b`), uploads all shards there, deploys Worker code that understands both
+slots and legacy version prefixes, and then updates D1 metadata to switch the
+active projection. It fails closed when current slot state cannot be read.
+This bounds future artifact storage to two projections while retaining a
+legacy fallback during migration.
+
+After the hosted smoke test confirms a slot-backed deployment, run:
+
+```bash
+uv run kb service-retention --apply \
+  --base-url https://rock-agent-kb.oneandall.church \
+  --bucket rock-agent-kb-artifacts
+```
+
+The command first verifies that `/health` reports a bounded slot, then
+idempotently upserts a 30-day expiration rule scoped only to the old
+`versions/` prefix. It preserves unrelated lifecycle rules and will not create
+an age rule for either active slot. The deploy workflow performs this step only
+after hosted smoke tests pass.
 
 Before the production GitHub Action can deploy, configure these repository environment values:
 
@@ -266,6 +285,7 @@ uvx rock-kb search "check-in labels not printing"
 uvx rock-kb concepts
 uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
+uvx rock-kb test-round
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```

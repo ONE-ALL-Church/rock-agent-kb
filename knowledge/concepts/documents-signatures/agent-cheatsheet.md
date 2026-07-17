@@ -54,7 +54,7 @@ generated: true
 | `4-source-authority-and-how-to-use-this-guide` | high | live verification |
 | `5-core-configuration-and-data-model-entity-document-configuration` | normal | live verification |
 | `6-primary-entities-and-relationships-entity-document-relationships` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-add-a-document-to-a-person` | needs-citation | live verification |
+| `7-common-documents-and-signatures-workflows-add-a-document-to-a-person` | normal | live verification |
 | `7-common-documents-and-signatures-workflows-add-documents-to-groups-or-other-entities` | normal | live verification |
 | `7-common-documents-and-signatures-workflows-add-entity-documents-from-workflows` | normal | live verification |
 | `7-common-documents-and-signatures-workflows-generate-a-merge-document-from-a-grid` | normal | live verification |
@@ -71,12 +71,12 @@ generated: true
 | `10-generated-pdfs-deep-dive-what-the-pdf-represents` | normal | live verification |
 | `10-generated-pdfs-deep-dive-pdf-preview-versus-signed-pdf` | structural | live verification |
 | `10-generated-pdfs-deep-dive-performance-and-offloading` | normal | live verification |
-| `10-generated-pdfs-deep-dive-pdf-troubleshooting` | needs-citation | live verification |
+| `10-generated-pdfs-deep-dive-pdf-troubleshooting` | normal | live verification |
 | `11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-security` | high | live verification |
-| `12-administration-and-operational-guardrails-before-creating-a-new-signature-template` | needs-citation | live verification |
+| `12-administration-and-operational-guardrails-before-creating-a-new-signature-template` | normal | live verification |
 | `12-administration-and-operational-guardrails-data-integrity-guardrails` | community-supported | community-supported |
 | `13-developer-api-lava-and-source-code-landmarks-api-considerations` | structural | live verification |
-| `13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates` | needs-citation | live verification |
+| `13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates` | normal | live verification |
 | `14-reporting-analytics-and-model-map-model-map` | citation-only | live verification |
 | `14-reporting-analytics-and-model-map-signature-reporting` | citation-only | live verification |
 | `14-reporting-analytics-and-model-map-entity-document-reporting` | structural | live verification |
@@ -84,12 +84,12 @@ generated: true
 | `15-version-and-release-caveats-inactive-signature-templates` | normal | live verification |
 | `15-version-and-release-caveats-signature-placement-keyword` | normal | live verification |
 | `15-version-and-release-caveats-signature-template-detail-pdf-viewer` | citation-only | live verification |
-| `16-implementation-playbooks-playbook-build-a-new-event-waiver` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-build-a-new-event-waiver` | normal | live verification |
 | `16-implementation-playbooks-playbook-add-documents-to-a-group-page` | structural | live verification |
-| `16-implementation-playbooks-playbook-build-a-merge-letter-template` | needs-citation | live verification |
-| `16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-build-a-merge-letter-template` | normal | live verification |
+| `16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures` | normal | live verification |
 | `16-implementation-playbooks-playbook-audit-document-security-after-upgrade` | structural | live verification |
-| `17-troubleshooting-decision-tree-merge-documents` | needs-citation | live verification |
+| `17-troubleshooting-decision-tree-merge-documents` | normal | live verification |
 | `17-troubleshooting-decision-tree-electronic-signatures` | normal | live verification |
 | `17-troubleshooting-decision-tree-generated-pdfs` | normal | live verification |
 | `18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template` | structural | live verification |

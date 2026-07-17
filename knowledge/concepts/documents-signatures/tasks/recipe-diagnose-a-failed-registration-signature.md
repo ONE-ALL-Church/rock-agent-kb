@@ -37,11 +37,11 @@ Follow the guide section for Recipe: Diagnose A Failed Registration Signature.
 - https://community.rockrms.com/documentation/core-concepts/documents
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
-- https://community.rockrms.com/recipes/434
 - https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/rocku/cms/entity-documents
+- https://community.rockrms.com/recipes/434
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs
 - https://community.rockrms.com/rocku/workflows/electronic-signatures-1
+- https://community.rockrms.com/rocku/cms/entity-documents
 - https://www.triumph.tech/resources/github-spotlight-182025
 - https://www.triumph.tech/resources/github-spotlight-1042024
 - https://community.rockrms.com/rocku/event-registration/electronic-signatures

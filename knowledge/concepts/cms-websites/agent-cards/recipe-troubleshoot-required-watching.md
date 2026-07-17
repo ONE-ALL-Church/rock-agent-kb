@@ -36,6 +36,7 @@ Follow the guide section for Recipe: “Troubleshoot Required Watching”.
 
 - https://community.rockrms.com/rocku/cms
 - https://community.rockrms.com/lava/commands
+- https://community.rockrms.com/rocku/content-channels/content-channel-view
 - https://community.rockrms.com/rocku/cms/rock-media-required-watching
 - https://community.rockrms.com/recipes/432
 - https://community.rockrms.com/recipes/261

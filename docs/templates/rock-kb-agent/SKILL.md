@@ -45,6 +45,8 @@ The KB can help agents do more than plain text search:
 - Find reusable community recipes with pinned code, adaptation points,
   security boundaries, compatibility, validation steps, and learnings.
 - Use Rockumentation API metadata and branch paths as routing signals.
+- Run the bounded external-church test round and preserve its stable public
+  result IDs for structured feedback.
 - Validate and submit public-safe community contribution bundles.
 - Connect through hosted HTTP MCP when the current agent client supports tools.
 - Download, inspect, and verify full or compact core read-only OKF distributions for
@@ -87,6 +89,7 @@ uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe oneall:registration-to-connection-request
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
+uvx rock-kb test-round
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
@@ -114,6 +117,7 @@ uv run --project clients/python rock-kb get check-in
 uv run --project clients/python rock-kb claims workflows --min-tier source_backed
 uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group
+uv run --project clients/python rock-kb test-round
 uv run --project clients/python rock-kb dashboard
 uv run --project clients/python rock-kb mcp-config
 ```
@@ -137,6 +141,10 @@ Use these commands for specific jobs:
 - `issues assess <profile.json> [--limit N] [--offset N]`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, and capabilities. Follow `has_more` and `next_offset` when calling the REST or MCP surface directly.
 - `issues watch <profile.json>`: retrieve the complete assessment, keep an owner-only baseline on the local machine, and report newly relevant, changed, resolved-from-routing, or revalidation-due issues. Use this after upgrades and for periodic instance checks; never put logs, secrets, live IDs, person data, or private configuration in the profile.
 - `issues plan <issue>`: return a typed, read-only multi-agent investigation plan; `--include-private-instance` adds a private-only worker.
+- `test-round`: run nine bounded public cohort checks, including core/mobile
+  issue trust separation and version applicability. Review every manual prompt;
+  an automatic pass proves the response contract, not that the answer is useful
+  for a particular church.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.

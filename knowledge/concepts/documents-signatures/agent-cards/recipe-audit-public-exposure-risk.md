@@ -36,6 +36,5 @@ Follow the guide section for Recipe: Audit Public Exposure Risk.
 
 - https://community.rockrms.com/documentation/core-concepts/documents
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/482
 - https://community.rockrms.com/recipes/434

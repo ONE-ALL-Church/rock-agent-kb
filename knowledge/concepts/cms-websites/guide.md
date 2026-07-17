@@ -318,6 +318,8 @@ The following relationship map is the practical minimum for CMS troubleshooting.
 
 ### Site To Page
 
+Use [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) to confirm the configured page structure, then verify route and site selection in the target instance.
+
 A Site owns or scopes pages. A page generally belongs to a site or participates in a site’s route tree. A public URL must resolve through domain/site selection and page route/page ID resolution. When diagnosing a URL:
 
 1. Determine the requested host.
@@ -641,6 +643,8 @@ When a user says “change this page,” determine which layer is actually requi
 
 ### What Themes Control
 
+[RockU CMS](https://community.rockrms.com/rocku/cms) establishes the website administration surface; theme files remain versioned implementation evidence and must be inspected in the deployed theme.
+
 Themes control presentation but can also affect functionality. Inspect theme files for:
 
 - Layout definitions and zone names.
@@ -932,6 +936,8 @@ Personalization guardrails:
 
 ### Production Change Protocol
 
+Use [CMS Components](https://community.rockrms.com/rocku/cms/cms-components) to identify the owning Rock surface and [Cache Tags](https://community.rockrms.com/rocku/cms/cache-tags) to limit invalidation after a change.
+
 For production CMS changes:
 
 1. Record the current page URL, page ID, block ID, block type, and content item ID.
@@ -1208,6 +1214,8 @@ GitHub source snippets in the pack are from the `develop` branch at retrieval ti
 
 ### Playbook: Build A Content Channel
 
+Use [Content Channel Types and Content Channels](https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels) for schema setup and [Adding Content](https://community.rockrms.com/rocku/content-channels/adding-content) for the authoring path.
+
 1. Define content purpose and owners.
 2. Create or select Content Channel Type.
 3. Define attributes.
@@ -1224,6 +1232,8 @@ GitHub source snippets in the pack are from the `develop` branch at retrieval ti
 14. Document IDs, pages, and rollback.
 
 ### Playbook: Audit A Public CMS Page For Security
+
+The [Lava Commands](https://community.rockrms.com/lava/commands) documentation warns that enabled commands can bypass normal security and business logic, so command review is a required part of public-page inspection.
 
 1. List all blocks.
 2. Identify block types.
@@ -1399,6 +1409,8 @@ The Lava commands documentation explicitly warns that commands can bypass built-
 
 ### Recipe: “Add A Detail Page For Channel Items”
 
+Use [Content Channel View](https://community.rockrms.com/rocku/content-channels/content-channel-view) as the official display baseline and verify direct-route behavior for every allowed item state.
+
 1. Create detail page.
 2. Add Content Channel Item View.
 3. Configure content channel.
@@ -1532,6 +1544,8 @@ This generated summary links the long-form guide to reviewed media distillations
 - Triumph Tech GitHub Spotlight is secondary release commentary and should not override official release notes or source code ([GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-1242025)).
 
 ### Dependencies To Other Guides
+
+Use [RockU CMS](https://community.rockrms.com/rocku/cms) as the feature boundary, then cross into Lava, security, media, workflows, or reporting only when the block behavior requires that ownership.
 
 Use the Lava guide when:
 

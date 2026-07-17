@@ -10,15 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide (94 words)
-- `4-source-authority-and-how-to-use-this-guide-when-to-prefer-live-verification`: When To Prefer Live Verification (99 words)
-- `5-core-configuration-and-data-model-group-roles`: Group Roles (92 words)
-- `6-primary-entities-and-relationships-grouptype-group`: GroupType -> Group (136 words)
-- `7-common-serving-and-volunteer-operations-workflows-build-or-audit-a-serving-team`: Build Or Audit A Serving Team (105 words)
-- `8-serving-teams-and-roles-deep-dive-designing-serving-group-types`: Designing Serving Group Types (102 words)
-- `17-implementation-playbooks-playbook-launch-a-new-serving-ministry-team`: Playbook: Launch A New Serving Ministry Team (95 words)
-- `20-source-map-and-dependency-notes-dependency-notes`: Dependency Notes (96 words)
-- `20-source-map-and-dependency-notes-live-verification-required`: Live Verification Required (81 words)
 
 ## Community-Supported Only
 

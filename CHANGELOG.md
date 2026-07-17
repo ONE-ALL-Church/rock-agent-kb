@@ -6,6 +6,32 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-07-16
+
+### Added
+
+- `rock-kb test-round`, a nine-case structured external-church test pack for
+  exact model retrieval, Lava contexts, recipes, troubleshooting, no-answer
+  behavior, and three imported Rock issue trust/applicability paths.
+- Fail-safe two-slot R2 artifact deployment with health-visible active-prefix
+  metadata and idempotent legacy-prefix retention enforcement.
+
+### Changed
+
+- Fifteen high-value ONE&ALL submissions are now reviewed community results,
+  including API/Obsidian readback, check-in relationship, document-signature,
+  communication-list, connection-history, and payment-safety guidance.
+- Thirty-one sections across the four largest guide queues now carry direct
+  official or public-source citations, reducing the review backlog from 94 to
+  63 sections.
+
+### Decision
+
+- Imported GitHub issues remain a separate routing surface. Upstream reports
+  stay `community-unreviewed`; only separately reviewed, cited enrichments can
+  provide stronger conclusions, and instance applicability remains a bounded
+  read-only assessment.
+
 ## [0.9.1] - 2026-07-15
 
 ### Added

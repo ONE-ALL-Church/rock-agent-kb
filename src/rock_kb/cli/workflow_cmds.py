@@ -9,6 +9,7 @@ def register(app: typer.Typer) -> None:
     app.command("status")(legacy.status_command)
     app.command("build")(legacy.build_command)
     app.command("deploy-service")(deploy_service_command)
+    app.command("service-retention")(service_retention_command)
     app.command("eval-service")(eval_service_command)
     app.command("quality-gate")(quality_gate_command)
     app.command("hybrid-shadow")(hybrid_shadow_command)
@@ -33,14 +34,28 @@ def deploy_service_command(
     env: str | None = typer.Option(None, "--env", help="Wrangler environment name."),
     bucket: str | None = typer.Option(None, "--bucket", help="R2 bucket name. Defaults to rock-agent-kb-artifacts."),
     database: str | None = typer.Option(None, "--database", help="D1 database name. Defaults to rock-agent-kb."),
+    base_url: str | None = typer.Option(None, "--base-url", help="Current hosted service URL used to select the inactive R2 slot."),
 ) -> None:
     """Project public artifacts into the hosted service deployment payload."""
     from rich import print_json
 
     from ..service_projection import deploy_service_projection
 
-    result = deploy_service_projection(apply=apply, env=env, bucket=bucket, database=database)
+    result = deploy_service_projection(apply=apply, env=env, bucket=bucket, database=database, base_url=base_url)
     print_json(data=result)
+
+
+def service_retention_command(
+    base_url: str = typer.Option(..., "--base-url", help="Hosted Rock KB service URL."),
+    bucket: str = typer.Option("rock-agent-kb-artifacts", "--bucket", help="R2 bucket name."),
+    apply: bool = typer.Option(False, "--apply", help="Upsert the legacy artifact expiration rule through the Cloudflare API."),
+) -> None:
+    """Verify bounded artifact slots and configure safe legacy R2 cleanup."""
+    from rich import print_json
+
+    from ..service_projection import configure_bounded_artifact_retention
+
+    print_json(data=configure_bounded_artifact_retention(base_url=base_url, bucket=bucket, apply=apply))
 
 
 def eval_service_command(

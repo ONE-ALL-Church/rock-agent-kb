@@ -75,6 +75,69 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
     assert "rock-kb-operations-dashboard-v2" in capsys.readouterr().out
 
 
+def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypatch, capsys):
+    cli = load_client_cli()
+
+    def fake_get_json(url: str):
+        if url.endswith("/health"):
+            return {"status": "ok", "version": "projection-v1", "artifact_prefix": "slots/a"}
+        if "/model-map/models/group" in url:
+            return {
+                "status": "ok",
+                "model": {
+                    "identity": {"model_slug": "group", "rock_version": "19.2.0"},
+                    "relationships": [{"property_name": "Members"}],
+                },
+            }
+        if "Check-In%20Label%20Designer" in url:
+            return {"results": [{"id": "lava_context:check-in-label:personattendance:1", "kind": "lava_context", "authority_tier": "source-code-confirmed"}]}
+        if "/recipes/" in url:
+            return {"status": "ok", "recipe": {"authority_tier": "community-reviewed", "needs_live_verification": True, "implementation": {"commit_sha": "a" * 40}}}
+        if "child%20eligible" in url:
+            return {"results": [{"id": "answer:check-in:first-checks", "concepts": ["check-in"], "authority_tier": "official"}]}
+        if url.endswith("/rock-issues/6920"):
+            return {
+                "status": "ok",
+                "issue_id": "rock_issue:SparkDevNetwork/Rock#6920",
+                "issue": {"authority_tier": "community-unreviewed", "reviewed_enrichments": [{"claim_tier": "source_backed"}]},
+            }
+        if url.endswith("/rock-issues/mobile%3A116"):
+            return {
+                "status": "ok",
+                "issue_id": "rock_issue:SparkDevNetwork/Rock.Mobile-Issues#116",
+                "issue": {
+                    "state": "closed",
+                    "evidence_state": "fixed_release_recorded",
+                    "needs_live_verification": True,
+                    "version_evidence": [{"relationship": "fixed", "authority_tier": "official", "normalized_version": "19.2"}],
+                },
+            }
+        if "qzvwx9417" in url:
+            return {"results": []}
+        raise AssertionError(url)
+
+    def fake_post_json(url: str, payload: dict, token: str = ""):
+        assert url.endswith("/rock-issues/assess")
+        assert payload["profile"]["core_version"] == "19.1.8"
+        return {
+            "caveat": "Verify locally.",
+            "results": [{"issue_id": "rock_issue:SparkDevNetwork/Rock#6920", "applicability": "possible", "needs_live_verification": True}],
+        }
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+    monkeypatch.setattr(cli, "post_json", fake_post_json)
+
+    exit_code = cli.main(["--url", "https://example.test", "test-round"])
+    report = json.loads(capsys.readouterr().out)
+
+    assert exit_code == 0
+    assert report["status"] == "ok"
+    assert report["case_count"] == 9
+    assert report["imported_issue_case_count"] == 3
+    assert report["manual_review_required"] is True
+    assert all(row["status"] == "pass" for row in report["cases"])
+
+
 def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
     cli = load_client_cli()
     calls = []

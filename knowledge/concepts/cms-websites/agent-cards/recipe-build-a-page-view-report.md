@@ -44,5 +44,5 @@ Follow the guide section for Recipe: “Build A Page View Report”.
 - https://community.rockrms.com/documentation/bookcontent/6
 - https://community.rockrms.com/rocku/content-channels/content-channel-view
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
-- https://community.rockrms.com/recipes/535
-- https://www.triumph.tech/resources/github-spotlight-1242025
+- https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels
+- https://community.rockrms.com/rocku/content-channels/adding-content

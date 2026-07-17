@@ -27,6 +27,7 @@ Or query the same hosted knowledge from a terminal:
 ```bash
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb result '<result-id>'
+uvx rock-kb test-round
 ```
 
 MCP is not a higher-quality knowledge source than the CLI; it is a more native
@@ -76,6 +77,11 @@ read-only multi-agent investigation plan. The published CLI can keep a private
 local issue-assessment baseline with `uvx rock-kb issues watch
 instance-profile.json` and report changes on later runs. This is a separate surface from KB
 malfunction reporting. See the [Rock Issue Intelligence Runbook](docs/runbooks/rock-issue-intelligence.md).
+
+Churches can run `uvx rock-kb test-round` for the standard bounded public test
+pack. It includes exact retrieval, a no-answer boundary, and three imported
+issue checks. Imported reports remain unreviewed routing evidence unless a
+separate public enrichment has passed review.
 
 ## Contribute
 

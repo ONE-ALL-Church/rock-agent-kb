@@ -4,6 +4,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 from rock_kb import service_projection
 from rock_kb.service_projection import build_d1_seed_sql, build_retrieval_documents, build_search_rows, build_service_projection, retrieval_projection_diff
 
@@ -445,12 +447,14 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert "CREATE VIRTUAL TABLE search_rows_fts" in sql
     assert "CREATE TABLE search_row_concepts" in sql
     assert "CREATE TABLE search_row_aliases" in sql
+    assert "'artifact_prefix'" in sql
+    assert f"'versions/{projection.version}'" in sql
     assert projection.retrieval_document_count == projection.search_row_count
     assert (projection.dist / "retrieval-documents.jsonl").exists()
     assert (projection.dist / "retrieval-change-report.json").exists()
     assert (projection.dist / "artifacts" / "agent" / "rock-kb-manifest.json").exists()
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
-    assert shard_files
+    assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))
     assert shard_payload["schema"] == "rock-kb-artifact-shard-v1"
     assert isinstance(shard_payload["artifacts"], dict)
@@ -502,6 +506,20 @@ def test_build_d1_seed_sql_bounds_large_search_bodies():
     assert "Search body truncated" in sql
 
 
+def test_build_d1_seed_sql_switches_artifact_prefix_after_projection_rows():
+    sql = build_d1_seed_sql(
+        version="abc123",
+        generated_at="2026-06-12T00:00:00Z",
+        search_rows=[],
+        org_rows=[],
+        artifact_prefix="slots/b",
+    )
+
+    assert "DROP TABLE IF EXISTS kb_meta" not in sql
+    assert "('artifact_prefix', 'slots/b') ON CONFLICT(key)" in sql
+    assert sql.rfind("'artifact_prefix'") > sql.rfind("CREATE TABLE rock_issue_enrichments")
+
+
 def read_jsonl_for_test(relative_path: str):
     path = Path(__file__).resolve().parents[1] / relative_path
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
@@ -522,6 +540,7 @@ def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, t
         org_count=1,
         dist=dist,
         sql_path=dist / "d1-seed.sql",
+        artifact_prefix="slots/a",
     )
     projection.sql_path.write_text("SELECT 1;\n", encoding="utf-8")
     commands: list[list[str]] = []
@@ -531,12 +550,92 @@ def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, t
     service_projection.apply_projection_to_cloudflare(projection, env="production", bucket="bucket", database="database")
 
     assert commands[0][:5] == ["npx", "wrangler", "r2", "object", "put"]
-    assert commands[0][5] == "bucket/versions/abc123/artifact-shards/ab.json"
+    assert commands[0][5] == "bucket/slots/a/artifact-shards/ab.json"
     assert "--remote" in commands[0]
-    assert commands[1][:5] == ["npx", "wrangler", "d1", "execute", "database"]
-    assert "--remote" in commands[1]
-    assert "--yes" in commands[1]
-    assert commands[2] == ["npx", "wrangler", "deploy", "--env", "production"]
+    assert commands[1] == ["npx", "wrangler", "deploy", "--env", "production"]
+    assert commands[2][:5] == ["npx", "wrangler", "d1", "execute", "database"]
+    assert "--remote" in commands[2]
+    assert "--yes" in commands[2]
+
+
+def test_select_deploy_artifact_prefix_uses_inactive_slot_and_legacy_migration(monkeypatch):
+    monkeypatch.setattr(service_projection, "request_json", lambda url: {"status": "ok", "version": "old"})
+    assert service_projection.select_deploy_artifact_prefix(base_url="https://kb.test") == "slots/a"
+
+    monkeypatch.setattr(
+        service_projection,
+        "request_json",
+        lambda url: {"status": "ok", "version": "current", "artifact_prefix": "slots/a"},
+    )
+    assert service_projection.select_deploy_artifact_prefix(base_url="https://kb.test") == "slots/b"
+    assert service_projection.select_deploy_artifact_prefix(base_url="", override="slots/a") == "slots/a"
+
+
+def test_select_deploy_artifact_prefix_fails_closed_for_unknown_or_missing_state(monkeypatch):
+    monkeypatch.setattr(
+        service_projection,
+        "request_json",
+        lambda url: {"status": "ok", "artifact_prefix": "unexpected/current"},
+    )
+    with pytest.raises(RuntimeError, match="Unsupported active artifact prefix"):
+        service_projection.select_deploy_artifact_prefix(base_url="https://kb.test")
+    with pytest.raises(RuntimeError, match="ROCK_KB_BASE_URL"):
+        service_projection.select_deploy_artifact_prefix(base_url="")
+
+
+def test_configure_bounded_artifact_retention_preserves_other_rules(monkeypatch):
+    calls = []
+    multipart_rule = {
+        "id": "abort-multipart",
+        "enabled": True,
+        "conditions": {},
+        "abortMultipartUploadsTransition": {"condition": {"type": "Age", "maxAge": 604800}},
+    }
+
+    def fake_request(url, *, method="GET", headers=None, payload=None):
+        calls.append((url, method, payload))
+        if url.endswith("/health"):
+            return {"status": "ok", "artifact_prefix": "slots/b"}
+        if method == "GET":
+            return {"result": {"rules": [multipart_rule]}}
+        return {"success": True, "result": None}
+
+    monkeypatch.setattr(service_projection, "request_json", fake_request)
+    report = service_projection.configure_bounded_artifact_retention(
+        base_url="https://kb.test",
+        bucket="bucket",
+        apply=True,
+        account_id="account",
+        api_token="token",
+    )
+
+    assert report["status"] == "updated"
+    put_payload = calls[-1][2]
+    assert put_payload["rules"][0] == multipart_rule
+    assert put_payload["rules"][1] == service_projection.legacy_artifact_retention_rule()
+    assert put_payload["rules"][1]["conditions"] == {"prefix": "versions/"}
+
+
+def test_configure_bounded_artifact_retention_is_idempotent(monkeypatch):
+    target = service_projection.legacy_artifact_retention_rule()
+    calls = []
+
+    def fake_request(url, *, method="GET", headers=None, payload=None):
+        calls.append((url, method, payload))
+        if url.endswith("/health"):
+            return {"status": "ok", "artifact_prefix": "slots/a"}
+        return {"result": {"rules": [target]}}
+
+    monkeypatch.setattr(service_projection, "request_json", fake_request)
+    report = service_projection.configure_bounded_artifact_retention(
+        base_url="https://kb.test",
+        apply=True,
+        account_id="account",
+        api_token="token",
+    )
+
+    assert report["status"] == "unchanged"
+    assert all(method == "GET" for _, method, _ in calls)
 
 
 def max_sql_statement_length(sql: str) -> int:

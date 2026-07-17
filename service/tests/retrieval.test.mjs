@@ -68,6 +68,23 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
   }
 });
 
+test("health reports the active bounded artifact slot and artifact reads use it", async () => {
+  const mf = await buildWorker({ artifactPrefix: "slots/b" });
+  try {
+    const healthResponse = await mf.dispatchFetch("https://kb.example.test/health");
+    const health = await healthResponse.json();
+    assert.equal(health.status, "ok");
+    assert.equal(health.artifact_prefix, "slots/b");
+    assert.equal(health.artifact_storage, "bounded_two_slot");
+
+    const recipeResponse = await mf.dispatchFetch("https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard");
+    assert.equal(recipeResponse.status, 200);
+    assert.equal((await recipeResponse.json()).status, "ok");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("exact concept routing injects authored answers outside the FTS candidate set", async () => {
   const mf = await buildWorker();
   try {
@@ -749,6 +766,9 @@ async function buildWorker(options = {}) {
     const db = await mf.getD1Database("KB_DB");
     await db.prepare("CREATE TABLE kb_meta (key TEXT PRIMARY KEY, value TEXT)").run();
     await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('current_version', 'test-version')").run();
+    if (options.artifactPrefix) {
+      await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('artifact_prefix', ?)").bind(options.artifactPrefix).run();
+    }
     await db.prepare(`CREATE TABLE search_rows (
       id TEXT PRIMARY KEY,
       kind TEXT NOT NULL,
@@ -933,7 +953,8 @@ async function buildWorker(options = {}) {
       },
     };
     const shard = crypto.createHash("sha256").update(recipePath).digest("hex").slice(0, 2);
-    await bucket.put(`versions/test-version/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));
+    const artifactPrefix = options.artifactPrefix || "versions/test-version";
+    await bucket.put(`${artifactPrefix}/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));
     const recipeSearchRow = {
       id: "recipe:oneall:check-in-status-dashboard",
       kind: "recipe",

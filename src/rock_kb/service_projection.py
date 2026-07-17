@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from threading import Lock
 from typing import Any, Iterable
+from urllib import request as urllib_request
 
 import yaml
 
@@ -34,6 +35,10 @@ SERVICE_RETRIEVAL_CHANGE_REPORT_PATH = SERVICE_DIST_DIR / "retrieval-change-repo
 ORG_REGISTRY_PATH = SERVICE_DIST_DIR / "org-registry.json"
 D1_SEARCH_BODY_CHAR_LIMIT = 75_000
 ARTIFACT_SHARD_PREFIX_LENGTH = 2
+ARTIFACT_SLOT_PREFIXES = ("slots/a", "slots/b")
+LEGACY_ARTIFACT_RETENTION_RULE_ID = "rock-kb-legacy-versions-expiry"
+LEGACY_ARTIFACT_RETENTION_PREFIX = "versions/"
+LEGACY_ARTIFACT_RETENTION_DAYS = 30
 
 
 CLAIM_TIER_RANK = {
@@ -64,6 +69,7 @@ class ServiceProjection:
     org_count: int
     dist: Path
     sql_path: Path
+    artifact_prefix: str = ""
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -76,10 +82,11 @@ class ServiceProjection:
             "org_count": self.org_count,
             "dist": str(self.dist),
             "sql_path": str(self.sql_path),
+            "artifact_prefix": self.artifact_prefix,
         }
 
 
-def build_service_projection(destination: Path | None = None) -> ServiceProjection:
+def build_service_projection(destination: Path | None = None, artifact_prefix: str | None = None) -> ServiceProjection:
     dist = destination or SERVICE_DIST_DIR
     artifacts_dir = dist / "artifacts"
     previous_retrieval_documents = list(read_jsonl(dist / "retrieval-documents.jsonl")) if (dist / "retrieval-documents.jsonl").exists() else []
@@ -96,6 +103,7 @@ def build_service_projection(destination: Path | None = None) -> ServiceProjecti
     version_manifest["search_projection_hash"] = rows_content_hash(search_rows)
     version_manifest["retrieval_projection_hash"] = rows_content_hash(retrieval_documents)
     version = sha256_text(json.dumps(version_manifest, sort_keys=True, ensure_ascii=False))[:16]
+    resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
     files = manifest.get("files") or []
     for row in files:
         public_path = str(row["path"])
@@ -121,7 +129,13 @@ def build_service_projection(destination: Path | None = None) -> ServiceProjecti
         json.dumps({"schema": "rock-kb-org-registry-v1", "orgs": org_rows}, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    sql_text = build_d1_seed_sql(version=version, generated_at=generated_at, search_rows=search_rows, org_rows=org_rows)
+    sql_text = build_d1_seed_sql(
+        version=version,
+        generated_at=generated_at,
+        search_rows=search_rows,
+        org_rows=org_rows,
+        artifact_prefix=resolved_artifact_prefix,
+    )
     (dist / "d1-seed.sql").write_text(sql_text, encoding="utf-8")
     projection = ServiceProjection(
         version=version,
@@ -132,6 +146,7 @@ def build_service_projection(destination: Path | None = None) -> ServiceProjecti
         org_count=len(org_rows),
         dist=dist,
         sql_path=dist / "d1-seed.sql",
+        artifact_prefix=resolved_artifact_prefix,
     )
     (dist / "projection.json").write_text(json.dumps(projection.as_dict(), ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return projection
@@ -807,12 +822,16 @@ def load_org_registry() -> list[dict[str, Any]]:
     return rows
 
 
-def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[str, Any]], org_rows: list[dict[str, Any]]) -> str:
+def build_d1_seed_sql(
+    version: str,
+    generated_at: str,
+    search_rows: list[dict[str, Any]],
+    org_rows: list[dict[str, Any]],
+    artifact_prefix: str | None = None,
+) -> str:
+    resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
     lines = [
-        "DROP TABLE IF EXISTS kb_meta;",
-        "CREATE TABLE kb_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);",
-        "INSERT INTO kb_meta (key, value) VALUES ('current_version', " + sql_string(version) + ");",
-        "INSERT INTO kb_meta (key, value) VALUES ('generated_at', " + sql_string(generated_at) + ");",
+        "CREATE TABLE IF NOT EXISTS kb_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);",
         "DROP TABLE IF EXISTS search_rows;",
         """CREATE TABLE search_rows (
   id TEXT PRIMARY KEY,
@@ -1075,6 +1094,18 @@ def build_d1_seed_sql(version: str, generated_at: str, search_rows: list[dict[st
             )
             + ");"
         )
+    for key, value in [
+        ("current_version", version),
+        ("generated_at", generated_at),
+        ("artifact_prefix", resolved_artifact_prefix),
+    ]:
+        lines.append(
+            "INSERT INTO kb_meta (key, value) VALUES ("
+            + sql_string(key)
+            + ", "
+            + sql_string(value)
+            + ") ON CONFLICT(key) DO UPDATE SET value = excluded.value;"
+        )
     return "\n".join(lines) + "\n"
 
 
@@ -1084,15 +1115,21 @@ def deploy_service_projection(
     env: str | None = None,
     bucket: str | None = None,
     database: str | None = None,
+    base_url: str | None = None,
 ) -> dict[str, Any]:
-    projection = build_service_projection()
+    target_artifact_prefix = None
+    if apply:
+        target_artifact_prefix = select_deploy_artifact_prefix(
+            base_url=base_url or os.getenv("ROCK_KB_BASE_URL", ""),
+            override=os.getenv("ROCK_KB_ARTIFACT_PREFIX", ""),
+        )
+    projection = build_service_projection(artifact_prefix=target_artifact_prefix)
     result = projection.as_dict()
     result["applied"] = False
     if not apply:
         result["next_commands"] = [
-            f"cd service && find dist/artifact-shards -type f -print | sed 's#dist/artifact-shards/##' | xargs -I {{}} npx wrangler r2 object put {bucket or '<bucket-name>'}/versions/{projection.version}/artifact-shards/{{}} --remote --file dist/artifact-shards/{{}}",
-            f"cd service && npx wrangler d1 execute {database or '<database-name>'} --remote --file dist/d1-seed.sql --yes",
-            "cd service && npx wrangler deploy" + (f" --env {env}" if env else ""),
+            "Set ROCK_KB_BASE_URL to the current hosted service URL.",
+            f"uv run kb deploy-service --apply{f' --env {env}' if env else ''} --database {database or '<database-name>'} --bucket {bucket or '<bucket-name>'}",
         ]
         return result
     apply_projection_to_cloudflare(projection, env=env, bucket=bucket, database=database)
@@ -1107,18 +1144,50 @@ def apply_projection_to_cloudflare(
     bucket: str | None,
     database: str | None,
 ) -> None:
+    validate_slot_artifact_prefix(projection.artifact_prefix)
     env_args = ["--env", env] if env else []
     bucket_name = bucket or "rock-agent-kb-artifacts"
     upload_artifacts_to_r2(projection=projection, bucket_name=bucket_name, env_args=env_args)
+    run(["npx", "wrangler", "deploy", *env_args], cwd=SERVICE_DIR)
     d1_target = database or "rock-agent-kb"
     run(["npx", "wrangler", "d1", "execute", d1_target, "--remote", "--file", str(projection.sql_path), "--yes", *env_args], cwd=SERVICE_DIR)
-    run(["npx", "wrangler", "deploy", *env_args], cwd=SERVICE_DIR)
+
+
+def select_deploy_artifact_prefix(*, base_url: str, override: str = "") -> str:
+    if override:
+        return validate_slot_artifact_prefix(override)
+    if not base_url:
+        raise RuntimeError(
+            "ROCK_KB_BASE_URL is required for a fail-safe deployment. "
+            "For a first deployment, explicitly set ROCK_KB_ARTIFACT_PREFIX=slots/a."
+        )
+    health = request_json(f"{base_url.rstrip('/')}/health")
+    if health.get("status") != "ok":
+        raise RuntimeError("The current Rock KB service did not return a healthy deployment status.")
+    active = str(health.get("artifact_prefix") or "").rstrip("/")
+    if not active or active.startswith("versions/"):
+        return ARTIFACT_SLOT_PREFIXES[0]
+    if active == ARTIFACT_SLOT_PREFIXES[0]:
+        return ARTIFACT_SLOT_PREFIXES[1]
+    if active == ARTIFACT_SLOT_PREFIXES[1]:
+        return ARTIFACT_SLOT_PREFIXES[0]
+    raise RuntimeError(f"Unsupported active artifact prefix: {active}")
+
+
+def validate_slot_artifact_prefix(prefix: str) -> str:
+    normalized = str(prefix or "").strip().rstrip("/")
+    if normalized not in ARTIFACT_SLOT_PREFIXES:
+        raise ValueError(f"artifact prefix must be one of: {', '.join(ARTIFACT_SLOT_PREFIXES)}")
+    return normalized
 
 
 def write_artifact_shards(*, artifacts_dir: Path, shards_dir: Path) -> None:
     if shards_dir.exists():
         shutil.rmtree(shards_dir)
-    grouped: dict[str, dict[str, str]] = {}
+    grouped: dict[str, dict[str, str]] = {
+        f"{value:0{ARTIFACT_SHARD_PREFIX_LENGTH}x}": {}
+        for value in range(16**ARTIFACT_SHARD_PREFIX_LENGTH)
+    }
     for path in sorted(item for item in artifacts_dir.rglob("*") if item.is_file()):
         rel = path.relative_to(artifacts_dir).as_posix()
         shard = artifact_shard_for_path(rel)
@@ -1172,7 +1241,7 @@ def upload_artifact_shard_to_r2(projection: ServiceProjection, bucket_name: str,
             "r2",
             "object",
             "put",
-            f"{bucket_name}/versions/{projection.version}/artifact-shards/{rel}",
+            f"{bucket_name}/{projection.artifact_prefix}/artifact-shards/{rel}",
             "--remote",
             "--file",
             str(path),
@@ -1198,6 +1267,83 @@ def run_with_retries(command: list[str], cwd: Path, attempts: int = 3) -> None:
         if attempt == attempts:
             raise subprocess.CalledProcessError(result.returncode, command)
         time.sleep(min(2**attempt, 10))
+
+
+def configure_bounded_artifact_retention(
+    *,
+    base_url: str,
+    bucket: str = "rock-agent-kb-artifacts",
+    apply: bool = False,
+    account_id: str = "",
+    api_token: str = "",
+) -> dict[str, Any]:
+    health = request_json(f"{base_url.rstrip('/')}/health")
+    active_prefix = validate_slot_artifact_prefix(str(health.get("artifact_prefix") or ""))
+    target_rule = legacy_artifact_retention_rule()
+    report: dict[str, Any] = {
+        "schema": "rock-kb-artifact-retention-v1",
+        "status": "planned",
+        "applied": False,
+        "bucket": bucket,
+        "active_artifact_prefix": active_prefix,
+        "bounded_slots": list(ARTIFACT_SLOT_PREFIXES),
+        "legacy_rule": target_rule,
+    }
+    if not apply:
+        return report
+
+    resolved_account_id = account_id or os.getenv("CLOUDFLARE_ACCOUNT_ID", "")
+    resolved_api_token = api_token or os.getenv("CLOUDFLARE_API_TOKEN", "")
+    if not resolved_account_id or not resolved_api_token:
+        raise RuntimeError("CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN are required to configure R2 retention.")
+    endpoint = f"https://api.cloudflare.com/client/v4/accounts/{resolved_account_id}/r2/buckets/{bucket}/lifecycle"
+    headers = {"authorization": f"Bearer {resolved_api_token}", "content-type": "application/json"}
+    lifecycle = request_json(endpoint, headers=headers)
+    if lifecycle.get("success") is False:
+        raise RuntimeError("Cloudflare rejected the R2 lifecycle read request.")
+    result = lifecycle.get("result") if isinstance(lifecycle.get("result"), dict) else {}
+    rules = list(result.get("rules") or [])
+    current = next((row for row in rules if row.get("id") == LEGACY_ARTIFACT_RETENTION_RULE_ID), None)
+    if current == target_rule:
+        report.update({"status": "unchanged", "applied": True, "rule_count": len(rules)})
+        return report
+    updated_rules = [row for row in rules if row.get("id") != LEGACY_ARTIFACT_RETENTION_RULE_ID]
+    updated_rules.append(target_rule)
+    update = request_json(endpoint, method="PUT", headers=headers, payload={"rules": updated_rules})
+    if update.get("success") is False:
+        raise RuntimeError("Cloudflare rejected the R2 lifecycle update request.")
+    report.update({"status": "updated", "applied": True, "rule_count": len(updated_rules)})
+    return report
+
+
+def legacy_artifact_retention_rule() -> dict[str, Any]:
+    return {
+        "id": LEGACY_ARTIFACT_RETENTION_RULE_ID,
+        "enabled": True,
+        "conditions": {"prefix": LEGACY_ARTIFACT_RETENTION_PREFIX},
+        "deleteObjectsTransition": {
+            "condition": {
+                "type": "Age",
+                "maxAge": LEGACY_ARTIFACT_RETENTION_DAYS * 24 * 60 * 60,
+            }
+        },
+    }
+
+
+def request_json(
+    url: str,
+    *,
+    method: str = "GET",
+    headers: dict[str, str] | None = None,
+    payload: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    body = json.dumps(payload).encode("utf-8") if payload is not None else None
+    req = urllib_request.Request(url, data=body, method=method, headers=headers or {})
+    with urllib_request.urlopen(req, timeout=30) as response:
+        value = json.loads(response.read().decode("utf-8"))
+    if not isinstance(value, dict):
+        raise RuntimeError(f"Expected a JSON object from {url}")
+    return value
 
 
 def first_source_url(claim: dict[str, Any]) -> str:
