@@ -2677,12 +2677,12 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-07-16T00:17:23+00:00",
+  "built_at": "2026-07-17T00:40:00+00:00",
   "concept_id": "event-registration",
-  "guide_hash": "65df45291c346604350e929d608eb4de11a6be5d7a57af91cb60250d845b057a",
-  "guide_line_count": 1384,
+  "guide_hash": "3911fe27c52e4588329c963d8c56d0a0fdcc23662674641ecdcf091b86c26438",
+  "guide_line_count": 1390,
   "guide_path": "knowledge/concepts/event-registration/guide.md",
-  "guide_word_count": 11183,
+  "guide_word_count": 11336,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2854,6 +2854,24 @@
       "source_key": "c0cf9e3bbb1f6f9b",
       "source_record_id": "triumph_resources:c0cf9e3bbb1f6f9b",
       "url": "https://www.triumph.tech/resources/github-spotlight-182025"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "ad1b70c97442fd41",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "b76e00f4cafbfba8",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/lava/commands/sql-commands"
     },
     {
       "authority": "official-developer",
@@ -3151,12 +3169,12 @@
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows",
       "source_keys": [
+        "cdbd7089fd2af521",
         "ce8eb086e4ef0cc6",
-        "f88b0748151b17a6",
         "776256c424368312",
         "5ecfe350fe307663",
-        "cdbd7089fd2af521",
         "9f3bc83f6e5fb51b",
+        "f88b0748151b17a6",
         "d275b5b94a9da833",
         "e9dcfbe00e9392de",
         "1b6019ed673610cf"
@@ -3164,32 +3182,32 @@
       "start_line": 327
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 347,
+      "confidence": "normal",
+      "end_line": 349,
       "heading": "Basic Public Registration",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-basic-public-registration",
       "source_keys": [
+        "cdbd7089fd2af521",
         "ce8eb086e4ef0cc6",
-        "f88b0748151b17a6",
         "776256c424368312"
       ],
       "start_line": 329
     },
     {
       "confidence": "normal",
-      "end_line": 360,
+      "end_line": 362,
       "heading": "Family And Guest Registration",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-family-and-guest-registration",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 348
+      "start_line": 350
     },
     {
       "confidence": "citation-only",
-      "end_line": 380,
+      "end_line": 382,
       "heading": "Paid Registration",
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-paid-registration",
@@ -3200,11 +3218,11 @@
         "f88b0748151b17a6",
         "f88b0748151b17a6"
       ],
-      "start_line": 361
+      "start_line": 363
     },
     {
       "confidence": "normal",
-      "end_line": 395,
+      "end_line": 397,
       "heading": "Wait List Registration",
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-wait-list-registration",
@@ -3213,11 +3231,11 @@
         "e9dcfbe00e9392de",
         "776256c424368312"
       ],
-      "start_line": 381
+      "start_line": 383
     },
     {
       "confidence": "normal",
-      "end_line": 413,
+      "end_line": 415,
       "heading": "Group Placement",
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-group-placement",
@@ -3225,11 +3243,11 @@
         "f88b0748151b17a6",
         "1b6019ed673610cf"
       ],
-      "start_line": 396
+      "start_line": 398
     },
     {
       "confidence": "normal",
-      "end_line": 426,
+      "end_line": 428,
       "heading": "Payment Reminder Workflow",
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-payment-reminder-workflow",
@@ -3238,11 +3256,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 414
+      "start_line": 416
     },
     {
       "confidence": "structural",
-      "end_line": 428,
+      "end_line": 430,
       "heading": "8. Registration Instances Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-registration-instances-deep-dive",
@@ -3253,11 +3271,11 @@
         "8b1609730224eb1b",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 427
+      "start_line": 429
     },
     {
       "confidence": "normal",
-      "end_line": 434,
+      "end_line": 436,
       "heading": "Instance Identity",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-instance-identity",
@@ -3265,11 +3283,11 @@
         "1b6019ed673610cf",
         "f9ada88191ace9fa"
       ],
-      "start_line": 429
+      "start_line": 431
     },
     {
       "confidence": "structural",
-      "end_line": 447,
+      "end_line": 449,
       "heading": "Active And Date Windows",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-active-and-date-windows",
@@ -3277,22 +3295,22 @@
         "1b6019ed673610cf",
         "f9ada88191ace9fa"
       ],
-      "start_line": 435
+      "start_line": 437
     },
     {
       "confidence": "community-supported",
-      "end_line": 462,
+      "end_line": 464,
       "heading": "Capacity And Spots",
       "needs_live_verification": false,
       "section_id": "8-registration-instances-deep-dive-capacity-and-spots",
       "source_keys": [
         "f3cc81b84e9a9aa9"
       ],
-      "start_line": 448
+      "start_line": 450
     },
     {
       "confidence": "normal",
-      "end_line": 477,
+      "end_line": 479,
       "heading": "URL Slug And Public Linkage",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-url-slug-and-public-linkage",
@@ -3300,22 +3318,22 @@
         "1b6019ed673610cf",
         "8b1609730224eb1b"
       ],
-      "start_line": 463
+      "start_line": 465
     },
     {
       "confidence": "citation-only",
-      "end_line": 489,
+      "end_line": 491,
       "heading": "Attributes",
       "needs_live_verification": true,
       "section_id": "8-registration-instances-deep-dive-attributes",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 478
+      "start_line": 480
     },
     {
       "confidence": "structural",
-      "end_line": 491,
+      "end_line": 493,
       "heading": "9. Payments Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive",
@@ -3327,22 +3345,22 @@
         "d275b5b94a9da833",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 490
+      "start_line": 492
     },
     {
       "confidence": "citation-only",
-      "end_line": 521,
+      "end_line": 523,
       "heading": "Cost Model",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-cost-model",
       "source_keys": [
         "cdbd7089fd2af521"
       ],
-      "start_line": 492
+      "start_line": 494
     },
     {
       "confidence": "high",
-      "end_line": 535,
+      "end_line": 537,
       "heading": "Discounts",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-discounts",
@@ -3351,55 +3369,55 @@
         "776256c424368312",
         "1b6019ed673610cf"
       ],
-      "start_line": 522
+      "start_line": 524
     },
     {
       "confidence": "normal",
-      "end_line": 552,
+      "end_line": 554,
       "heading": "Partial Payments",
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-partial-payments",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 536
+      "start_line": 538
     },
     {
       "confidence": "normal",
-      "end_line": 565,
+      "end_line": 567,
       "heading": "Payment Plans",
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-payment-plans",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 553
+      "start_line": 555
     },
     {
       "confidence": "citation-only",
-      "end_line": 579,
+      "end_line": 581,
       "heading": "Payment Gateways And Saved Accounts",
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-payment-gateways-and-saved-accounts",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 566
+      "start_line": 568
     },
     {
       "confidence": "normal",
-      "end_line": 594,
+      "end_line": 596,
       "heading": "Batches And Matching",
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-batches-and-matching",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 580
+      "start_line": 582
     },
     {
       "confidence": "structural",
-      "end_line": 596,
+      "end_line": 598,
       "heading": "10. Related Rock Areas: Events, Finance, Workflows, Communications, Groups",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups",
@@ -3412,22 +3430,22 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6"
       ],
-      "start_line": 595
+      "start_line": 597
     },
     {
       "confidence": "citation-only",
-      "end_line": 610,
+      "end_line": 612,
       "heading": "Events And Calendars",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-events-and-calendars",
       "source_keys": [
         "cdbd7089fd2af521"
       ],
-      "start_line": 597
+      "start_line": 599
     },
     {
       "confidence": "community-supported",
-      "end_line": 629,
+      "end_line": 631,
       "heading": "Finance",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-finance",
@@ -3435,22 +3453,22 @@
         "1f10c6dc510ad680",
         "ba714c760814915d"
       ],
-      "start_line": 611
+      "start_line": 613
     },
     {
       "confidence": "community-supported",
-      "end_line": 647,
+      "end_line": 649,
       "heading": "Workflows",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-workflows",
       "source_keys": [
         "f3cc81b84e9a9aa9"
       ],
-      "start_line": 630
+      "start_line": 632
     },
     {
       "confidence": "normal",
-      "end_line": 673,
+      "end_line": 675,
       "heading": "Communications",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-communications",
@@ -3459,11 +3477,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 648
+      "start_line": 650
     },
     {
       "confidence": "normal",
-      "end_line": 688,
+      "end_line": 690,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-groups",
@@ -3471,11 +3489,11 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6"
       ],
-      "start_line": 674
+      "start_line": 676
     },
     {
       "confidence": "structural",
-      "end_line": 690,
+      "end_line": 692,
       "heading": "11. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails",
@@ -3483,13 +3501,15 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6",
         "f9ada88191ace9fa",
-        "4df598747f60249c"
+        "4df598747f60249c",
+        "ad1b70c97442fd41",
+        "b76e00f4cafbfba8"
       ],
-      "start_line": 689
+      "start_line": 691
     },
     {
       "confidence": "structural",
-      "end_line": 705,
+      "end_line": 707,
       "heading": "Permissions",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-permissions",
@@ -3497,66 +3517,68 @@
         "1b6019ed673610cf",
         "f88b0748151b17a6"
       ],
-      "start_line": 691
+      "start_line": 693
     },
     {
       "confidence": "community-supported",
-      "end_line": 709,
+      "end_line": 711,
       "heading": "Naming",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-naming",
       "source_keys": [
         "f9ada88191ace9fa"
       ],
-      "start_line": 706
+      "start_line": 708
     },
     {
       "confidence": "structural",
-      "end_line": 738,
+      "end_line": 740,
       "heading": "Change Management",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-change-management",
       "source_keys": [
         "f9ada88191ace9fa"
       ],
-      "start_line": 710
+      "start_line": 712
     },
     {
       "confidence": "community-supported",
-      "end_line": 742,
+      "end_line": 744,
       "heading": "Notes And Auditability",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-notes-and-auditability",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 739
+      "start_line": 741
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 757,
+      "confidence": "normal",
+      "end_line": 761,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-administration-and-operational-guardrails-security",
       "source_keys": [
-        "4df598747f60249c"
+        "ad1b70c97442fd41",
+        "b76e00f4cafbfba8"
       ],
-      "start_line": 743
+      "start_line": 745
     },
     {
       "confidence": "needs-citation",
-      "end_line": 775,
+      "end_line": 779,
       "heading": "Operational Health Checks",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-operational-health-checks",
       "source_keys": [
-        "4df598747f60249c"
+        "ad1b70c97442fd41",
+        "b76e00f4cafbfba8"
       ],
-      "start_line": 758
+      "start_line": 762
     },
     {
       "confidence": "structural",
-      "end_line": 777,
+      "end_line": 781,
       "heading": "12. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks",
@@ -3566,33 +3588,33 @@
         "d275b5b94a9da833",
         "2a94aef5f83aa079"
       ],
-      "start_line": 776
+      "start_line": 780
     },
     {
       "confidence": "normal",
-      "end_line": 790,
+      "end_line": 794,
       "heading": "Public/Mobile Event Occurrence Rendering",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering",
       "source_keys": [
         "e9dcfbe00e9392de"
       ],
-      "start_line": 778
+      "start_line": 782
     },
     {
       "confidence": "community-supported",
-      "end_line": 804,
+      "end_line": 808,
       "heading": "API Linkage Caveat",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat",
       "source_keys": [
         "8b1609730224eb1b"
       ],
-      "start_line": 791
+      "start_line": 795
     },
     {
       "confidence": "normal",
-      "end_line": 816,
+      "end_line": 820,
       "heading": "Internal Registrant List",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-internal-registrant-list",
@@ -3600,26 +3622,14 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 805
-    },
-    {
-      "confidence": "normal",
-      "end_line": 820,
-      "heading": "Registration List Wait-List Indicator",
-      "needs_live_verification": false,
-      "section_id": "12-developer-api-lava-and-source-code-landmarks-registration-list-wait-list-indicator",
-      "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
-      ],
-      "start_line": 817
+      "start_line": 809
     },
     {
       "confidence": "normal",
       "end_line": 824,
-      "heading": "Fee And Payment List Blocks",
+      "heading": "Registration List Wait-List Indicator",
       "needs_live_verification": false,
-      "section_id": "12-developer-api-lava-and-source-code-landmarks-fee-and-payment-list-blocks",
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-registration-list-wait-list-indicator",
       "source_keys": [
         "d275b5b94a9da833",
         "d275b5b94a9da833"
@@ -3628,7 +3638,19 @@
     },
     {
       "confidence": "normal",
-      "end_line": 846,
+      "end_line": 828,
+      "heading": "Fee And Payment List Blocks",
+      "needs_live_verification": false,
+      "section_id": "12-developer-api-lava-and-source-code-landmarks-fee-and-payment-list-blocks",
+      "source_keys": [
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 825
+    },
+    {
+      "confidence": "normal",
+      "end_line": 850,
       "heading": "Payment Reminder Block",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-payment-reminder-block",
@@ -3640,22 +3662,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 825
+      "start_line": 829
     },
     {
       "confidence": "normal",
-      "end_line": 850,
+      "end_line": 854,
       "heading": "Agent Skills",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-agent-skills",
       "source_keys": [
         "2a94aef5f83aa079"
       ],
-      "start_line": 847
+      "start_line": 851
     },
     {
       "confidence": "structural",
-      "end_line": 852,
+      "end_line": 856,
       "heading": "13. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map",
@@ -3667,22 +3689,22 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 851
+      "start_line": 855
     },
     {
       "confidence": "structural",
-      "end_line": 874,
+      "end_line": 878,
       "heading": "Core Metrics",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-core-metrics",
       "source_keys": [
         "2a94aef5f83aa079"
       ],
-      "start_line": 853
+      "start_line": 857
     },
     {
       "confidence": "community-supported",
-      "end_line": 888,
+      "end_line": 892,
       "heading": "Reporting Entity Choice",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-reporting-entity-choice",
@@ -3693,33 +3715,33 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 875
+      "start_line": 879
     },
     {
       "confidence": "community-supported",
-      "end_line": 906,
+      "end_line": 910,
       "heading": "Model Map Verification",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-model-map-verification",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 889
+      "start_line": 893
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 919,
+      "confidence": "community-supported",
+      "end_line": 925,
       "heading": "Analytics Checks",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-analytics-checks",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 907
+      "start_line": 911
     },
     {
       "confidence": "structural",
-      "end_line": 921,
+      "end_line": 927,
       "heading": "14. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats",
@@ -3728,55 +3750,55 @@
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 920
+      "start_line": 926
     },
     {
       "confidence": "normal",
-      "end_line": 925,
+      "end_line": 931,
       "heading": "Rock 18.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-rock-18-1",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 922
+      "start_line": 928
     },
     {
       "confidence": "normal",
-      "end_line": 931,
+      "end_line": 937,
       "heading": "Rock 18.3",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-rock-18-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 926
+      "start_line": 932
     },
     {
       "confidence": "normal",
-      "end_line": 944,
+      "end_line": 950,
       "heading": "Rock 19.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-rock-19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 932
+      "start_line": 938
     },
     {
       "confidence": "citation-only",
-      "end_line": 948,
+      "end_line": 954,
       "heading": "v16.10 / v17.0 Spotlight",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v16-10-v17-0-spotlight",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 945
+      "start_line": 951
     },
     {
       "confidence": "structural",
-      "end_line": 950,
+      "end_line": 956,
       "heading": "15. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks",
@@ -3784,77 +3806,77 @@
         "c0cf9e3bbb1f6f9b",
         "776256c424368312"
       ],
-      "start_line": 949
+      "start_line": 955
     },
     {
       "confidence": "needs-citation",
-      "end_line": 975,
+      "end_line": 981,
       "heading": "Playbook A: Create A Standard Paid Event Registration",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 951
+      "start_line": 957
     },
     {
       "confidence": "normal",
-      "end_line": 987,
+      "end_line": 993,
       "heading": "Playbook B: Add Eligibility Rules In v19.1+",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 976
+      "start_line": 982
     },
     {
       "confidence": "structural",
-      "end_line": 997,
+      "end_line": 1003,
       "heading": "Playbook C: Prevent Duplicate Registrants In v19.1+",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 988
+      "start_line": 994
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1010,
+      "end_line": 1016,
       "heading": "Playbook D: Configure Payment Reminders",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-d-configure-payment-reminders",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 998
+      "start_line": 1004
     },
     {
       "confidence": "structural",
-      "end_line": 1024,
+      "end_line": 1030,
       "heading": "Playbook E: Diagnose A Missing Public Registration Button",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1011
+      "start_line": 1017
     },
     {
       "confidence": "structural",
-      "end_line": 1035,
+      "end_line": 1041,
       "heading": "Playbook F: Build A Read-Only Registration Dashboard",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks-playbook-f-build-a-read-only-registration-dashboard",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1025
+      "start_line": 1031
     },
     {
       "confidence": "structural",
-      "end_line": 1037,
+      "end_line": 1043,
       "heading": "16. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree",
@@ -3863,110 +3885,110 @@
         "1b6019ed673610cf",
         "d275b5b94a9da833"
       ],
-      "start_line": 1036
+      "start_line": 1042
     },
     {
       "confidence": "structural",
-      "end_line": 1054,
+      "end_line": 1060,
       "heading": "Public page says registration is closed",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1038
+      "start_line": 1044
     },
     {
       "confidence": "structural",
-      "end_line": 1067,
+      "end_line": 1073,
       "heading": "User cannot select the intended family member",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1055
+      "start_line": 1061
     },
     {
       "confidence": "structural",
-      "end_line": 1077,
+      "end_line": 1083,
       "heading": "Duplicate registration is blocked",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1068
+      "start_line": 1074
     },
     {
       "confidence": "structural",
-      "end_line": 1091,
+      "end_line": 1097,
       "heading": "Discount code does not work",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-discount-code-does-not-work",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1078
+      "start_line": 1084
     },
     {
       "confidence": "structural",
-      "end_line": 1107,
+      "end_line": 1113,
       "heading": "Balance due is wrong",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-balance-due-is-wrong",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1092
+      "start_line": 1098
     },
     {
       "confidence": "normal",
-      "end_line": 1119,
+      "end_line": 1125,
       "heading": "Payment plan amount is wrong",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1108
+      "start_line": 1114
     },
     {
       "confidence": "structural",
-      "end_line": 1131,
+      "end_line": 1137,
       "heading": "Signature document shown for wrong registrant",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1120
+      "start_line": 1126
     },
     {
       "confidence": "structural",
-      "end_line": 1145,
+      "end_line": 1151,
       "heading": "Registrant missing from group placement",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1132
+      "start_line": 1138
     },
     {
       "confidence": "normal",
-      "end_line": 1159,
+      "end_line": 1165,
       "heading": "Payment reminder did not send",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1146
+      "start_line": 1152
     },
     {
       "confidence": "structural",
-      "end_line": 1161,
+      "end_line": 1167,
       "heading": "17. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes",
@@ -3976,99 +3998,99 @@
         "4df598747f60249c",
         "8b1609730224eb1b"
       ],
-      "start_line": 1160
+      "start_line": 1166
     },
     {
       "confidence": "structural",
-      "end_line": 1179,
+      "end_line": 1185,
       "heading": "Recipe: Summarize A Registration Instance",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-summarize-a-registration-instance",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1162
+      "start_line": 1168
     },
     {
       "confidence": "structural",
-      "end_line": 1195,
+      "end_line": 1201,
       "heading": "Recipe: Verify A Public Registration URL",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-verify-a-public-registration-url",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1180
+      "start_line": 1186
     },
     {
       "confidence": "structural",
-      "end_line": 1211,
+      "end_line": 1217,
       "heading": "Recipe: Audit Payment Risk",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-payment-risk",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1196
+      "start_line": 1202
     },
     {
       "confidence": "structural",
-      "end_line": 1225,
+      "end_line": 1231,
       "heading": "Recipe: Audit Discount Codes",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-discount-codes",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1212
+      "start_line": 1218
     },
     {
       "confidence": "structural",
-      "end_line": 1240,
+      "end_line": 1246,
       "heading": "Recipe: Audit Wait List",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-wait-list",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1226
+      "start_line": 1232
     },
     {
       "confidence": "community-supported",
-      "end_line": 1253,
+      "end_line": 1259,
       "heading": "Recipe: Build A Registrant Packet Export",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-build-a-registrant-packet-export",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 1241
+      "start_line": 1247
     },
     {
       "confidence": "community-supported",
-      "end_line": 1264,
+      "end_line": 1270,
       "heading": "Recipe: Add Staff Notes To Registration Detail",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 1254
+      "start_line": 1260
     },
     {
       "confidence": "community-supported",
-      "end_line": 1281,
+      "end_line": 1287,
       "heading": "Recipe: Investigate API Registration URL Issues",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-investigate-api-registration-url-issues",
       "source_keys": [
         "8b1609730224eb1b"
       ],
-      "start_line": 1265
+      "start_line": 1271
     },
     {
       "confidence": "citation-only",
-      "end_line": 1307,
+      "end_line": 1313,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -4086,11 +4108,11 @@
         "3ac2b7b2e39e37f3",
         "3ac2b7b2e39e37f3"
       ],
-      "start_line": 1282
+      "start_line": 1288
     },
     {
       "confidence": "citation-only",
-      "end_line": 1328,
+      "end_line": 1334,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4104,11 +4126,11 @@
         "f88b0748151b17a6",
         "ce8eb086e4ef0cc6"
       ],
-      "start_line": 1308
+      "start_line": 1314
     },
     {
       "confidence": "high",
-      "end_line": 1384,
+      "end_line": 1390,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes",
@@ -4148,7 +4170,7 @@
         "f9ada88191ace9fa",
         "8b1609730224eb1b"
       ],
-      "start_line": 1329
+      "start_line": 1335
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T06:46:40+00:00",
@@ -4588,6 +4610,26 @@
       ],
       "url": "https://www.triumph.tech/resources/github-spotlight-182025",
       "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "ad1b70c97442fd41",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "b76e00f4cafbfba8",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/lava/commands/sql-commands",
+      "url": "https://community.rockrms.com/lava/commands/sql-commands"
     },
     {
       "authority": "official-developer",

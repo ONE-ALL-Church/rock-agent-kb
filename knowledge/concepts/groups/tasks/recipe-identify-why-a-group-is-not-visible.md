@@ -43,6 +43,6 @@ Follow the guide section for Recipe: Identify Why A Group Is Not Visible.
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
 - https://community.rockrms.com/rocku/groups/group-administrator
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs

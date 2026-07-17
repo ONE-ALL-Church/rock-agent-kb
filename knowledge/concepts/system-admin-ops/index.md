@@ -2,7 +2,7 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-07-16T00:15:49+00:00
+last_built: 2026-07-17T00:39:01+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,7 +35,7 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 
 - `System Administration And Operations` spans security, workflows, data-views, reports, cache, jobs. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_community_hubs, rock_documentation, rock_community_site, rock_core_release_notes, rock_developer, rock_model_map.
-- Related tags found in source records: operations, usage, development, releases, workflow, admin, training, security.
+- Related tags found in source records: usage, operations, workflow, development, training, admin, releases, security.
 - Source detail types include: developer_doc, documentation_article, question, recipe, rock_community_site, rock_lava_docs, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -80,14 +80,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_community_hubs`: 2
 - `rock_community_site`: 1
-- `rock_core_release_notes`: 26
-- `rock_developer`: 1
+- `rock_core_release_notes`: 20
+- `rock_developer`: 3
 - `rock_documentation`: 22
 - `rock_lava_docs`: 1
 - `rock_model_map`: 12
 - `rock_qa`: 1
-- `rock_recipes`: 1
-- `rock_rocku`: 22
+- `rock_recipes`: 3
+- `rock_rocku`: 24
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -144,8 +144,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 19.3 | CMS | Fixed Person Attribute Values configured for indexing not being included in Universal Search results after a bulk re-index, and restored the missing "Indexing Enabled" option in the Attributes block so Attributes can be flagged for indexing. Fixes: #6857 | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Event | Fixed Defined Value attributes not loading their options when editing an Event Item. Fixes: #6878 | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Event | Fixed inline attribute editors (such as adding a new Defined Value) on the Event Detail block returning an HTTP 401 by adding the Event Calendar Item attribute field type rules to the security grant. Fixes: #6881 | [source](https://www.rockrms.com/releasenotes) |
-| 19.1 | Core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Core | Fixed issue that prevented anonymous individuals from adding defined files on a workflow entry form configured with a defined value field type even though 'Allow Add' was enabled. Fixes: #6807 | [source](https://www.rockrms.com/releasenotes) |
+| 19.1 | Core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Core | Fixed an issue in the Defined Value picker component where Single-Select Defined Value attributes configured with "Enhanced for Long Lists" did not display the searchable enhanced experience in Obsidian blocks (e.g., Workflow Entry and Event Registration), requiring manual scrolling through values. Fixes: #6658 #6705 | [source](https://www.rockrms.com/releasenotes) |
 | 18.2 | Security | Improved security by adding HMAC authentication to encrypted string values to ensure data integrity. | [source](https://www.rockrms.com/releasenotes) |
 | 18.1 | Core | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
@@ -207,6 +207,7 @@ Keywords: `cache, indexing, index, search`
 | Clear Cache Tags | rock_documentation | To clear all items that are tied to a specific tag, go to `Admin Tools > CMS Configuration > Cache Manager`. Click the button to the right of the tag's row. This will empty the cache of all linked keys. | [source](https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/clear-cache-tags) |
 | Rock Core Release Notes | rock_core_release_notes | Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the folder may not get recreated. Previously, the Clear Cache button would throw a DirectoryNotFoundException in this case. Now it checks for... | [source](https://www.rockrms.com/releasenotes) |
 | Specifics for Entities | rock_documentation | How does search differ for each entity? Read on for details. # Person The person entity is pretty basic. Once enabled, all individuals in the database will be sent to the index. You can add specific person attributes to be indexed as well (`Admin Tools > General Settings > Person Attributes`). When you add/delete attributes to the index, you'll want to run a bulk load on the Person index to ensure they are available... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities) |
+| Cache Persisted Datasets | rock_documentation | Traditional caching in Rock is limited to specific blocks, or to a particular format when using the Lava cache tag. Persisted Datasets are an always-ready cache that allow you to shape data for speed and use across many different blocks, and with different types of markup. Persisted Datasets are cached on the database or in memory using a job, so they’re quick every time. Persisted Datasets should be used when a... | [source](https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets) |
 
 ### Cleanup And Data Integrity
 
@@ -237,6 +238,8 @@ Keywords: `cleanup, data integrity, integrity, stale, orphaned`
 | Intro to Data Integrity | rock_documentation | With data coming into Rock from all directions, it can be a real challenge to keep it all clean, consistent and accurate. To help you out with that, we've built tools that find and fix issues as they arise. You'll find these tools under: `Tools > Data Integrity.` Only individuals in the *Data Integrity Worker* security role will have access to these tools. We will look at each part in detail in the following... | [source](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/intro-to-data-integrity) |
 | Use Duplicate Finder | rock_documentation | The duplicate finder routinely goes through your database looking for records that could be duplicates. When it finds possible matches, it scores them and lists them for you under: `Tools > Data Integrity > Duplicate Finder`. 1. **Confidence** - Indicates the likelihood that this is a duplicate record. 2. **Account Protection Profile** - The [Account Protection... | [source](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder) |
 | Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yeşu Chum , Houston's First Baptist Church 6 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522) |
+| Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yeşu Chum , Houston's First Baptist Church 6 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol) |
+| Overview | rock_developer | Helix is the codename for an upcoming project that represents the next evolution of Lava for web development, integrating four distinct technologies. * [HTMX](/documentation/helix/overview#htmx) * [Lava Applications](/documentation/helix/overview#lava-applications) * [Lava Commands](/documentation/helix/overview#lava-commands) * [Control Shortcodes](/documentation/helix/overview#control-shortcodes) Important Before... | [source](https://community.rockrms.com/developer/helix/overview) |
 
 ### Search
 

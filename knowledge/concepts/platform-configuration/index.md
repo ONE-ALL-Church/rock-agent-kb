@@ -2,7 +2,7 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-07-16T00:15:51+00:00
+last_built: 2026-07-17T00:39:03+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -35,7 +35,7 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 ## How To Think About This Area
 
 - `Platform Configuration` spans people, groups, workflows, cms, security, data-views. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_podcast_rss, rock_youtube, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_core_release_notes.
+- The strongest source families in this build are: rock_podcast_rss, rock_youtube, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_developer.
 - Related tags found in source records: usage, operations, admin, workflow, training, lava, api, development.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training.
 

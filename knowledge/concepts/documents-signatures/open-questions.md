@@ -10,18 +10,13 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `5-core-configuration-and-data-model-signature-document-instance-data`: Signature Document Instance Data (205 words)
 - `7-common-documents-and-signatures-workflows-add-a-document-to-a-person`: Add A Document To A Person (133 words)
 - `10-generated-pdfs-deep-dive-pdf-troubleshooting`: PDF Troubleshooting (154 words)
-- `12-administration-and-operational-guardrails-before-creating-a-new-document-type`: Before Creating A New Document Type (105 words)
 - `12-administration-and-operational-guardrails-before-creating-a-new-signature-template`: Before Creating A New Signature Template (105 words)
-- `13-developer-api-lava-and-source-code-landmarks-source-code-landmarks`: Source-Code Landmarks (269 words)
 - `13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates`: Lava In Signature Templates (97 words)
-- `14-reporting-analytics-and-model-map-signature-reporting`: Signature Reporting (83 words)
 - `16-implementation-playbooks-playbook-build-a-new-event-waiver`: Playbook: Build A New Event Waiver (163 words)
 - `16-implementation-playbooks-playbook-build-a-merge-letter-template`: Playbook: Build A Merge Letter Template (85 words)
 - `16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures`: Playbook: Move From Legacy Signature Provider To Rock-Native Signatures (88 words)
-- `17-troubleshooting-decision-tree-entity-documents`: Entity Documents (112 words)
 - `17-troubleshooting-decision-tree-merge-documents`: Merge Documents (91 words)
 
 ## Community-Supported Only
@@ -61,6 +56,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `13-developer-api-lava-and-source-code-landmarks-api-considerations`: API Considerations
 - `13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates`: Lava In Signature Templates
 - `14-reporting-analytics-and-model-map-model-map`: Model Map
+- `14-reporting-analytics-and-model-map-signature-reporting`: Signature Reporting
 - `14-reporting-analytics-and-model-map-entity-document-reporting`: Entity Document Reporting
 - `14-reporting-analytics-and-model-map-merge-document-analytics`: Merge Document Analytics
 - `15-version-and-release-caveats-inactive-signature-templates`: Inactive Signature Templates
@@ -69,7 +65,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `16-implementation-playbooks-playbook-build-a-new-event-waiver`: Playbook: Build A New Event Waiver
 - `16-implementation-playbooks-playbook-add-documents-to-a-group-page`: Playbook: Add Documents To A Group Page
 - `16-implementation-playbooks-playbook-build-a-merge-letter-template`: Playbook: Build A Merge Letter Template
-- `16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures`: Playbook: Move From Legacy Signature Provider To Rock-Native Signatures
 
 ## Live Verification Clarification
 

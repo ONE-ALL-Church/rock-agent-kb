@@ -1,0 +1,251 @@
+{
+  "adaptation_points": [
+    {
+      "description": "Set the locally verified registration instance. The public configuration uses zero and the endpoint stops until this is supplied.",
+      "example": "Use a local numeric ID; the recipe provides no working default.",
+      "key": "registrationInstanceId",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Optionally set a comparable prior instance whose end date can anchor same-stage pace comparison.",
+      "example": "Leave zero to disable prior-event metrics.",
+      "key": "priorRegistrationInstanceId",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Set a fallback only when RegistrationInstance.MaxAttendees is intentionally empty.",
+      "example": "Leave zero when no fallback is appropriate.",
+      "key": "capacityFallback",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Map optional registrant campus and discovery-source Attribute IDs after confirming entity scope and display semantics.",
+      "example": "registrantCampusAttributeId and sourceAttributeId remain zero by default.",
+      "key": "registrantAttributes",
+      "required": false,
+      "sensitive": true
+    },
+    {
+      "description": "Configure optional staff and serving-verifier groups, then confirm active non-archived membership is the intended truth source.",
+      "example": "staffGroupId and servingVerifierGroupId remain zero by default.",
+      "key": "segmentVerifierGroups",
+      "required": false,
+      "sensitive": true
+    },
+    {
+      "description": "Configure a serving root group and department group type only when the local hierarchy supports that interpretation.",
+      "example": "servingRootGroupId and departmentGroupTypeId remain zero by default.",
+      "key": "servingDepartmentHierarchy",
+      "required": false,
+      "sensitive": true
+    },
+    {
+      "description": "Confirm fee items represent participant choices and optionally restrict displayed fee groups by name.",
+      "example": "Leave feeGroupNameContains empty to include every qualifying fee group.",
+      "key": "feeChoiceScope",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Optionally remove a display-only suffix such as a target-audience annotation without modifying fee-item source names.",
+      "example": "Set an empty string to disable label cleanup.",
+      "key": "optionLabelSuffixMarker",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "description": "Choose a bounded local drilldown cap between 1 and 1000 after measuring database and browser cost.",
+      "example": "500",
+      "key": "maxRegistrantRows",
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "description": "Restrict both the Rock page and Lava Application View action to authenticated roles approved for participant operations.",
+      "key": "authorization",
+      "required": true,
+      "sensitive": true
+    }
+  ],
+  "audience": [
+    "Rock administrators",
+    "Lava developers",
+    "event registration teams",
+    "reporting teams",
+    "security reviewers"
+  ],
+  "authority_tier": "community-reviewed",
+  "compatibility": {
+    "last_verified_at": "2026-07-13",
+    "minimum_rock_version": "17",
+    "notes": [
+      "The production pattern was reviewed against the Rock 17/18 model family, but the sanitized package has not been deployed unchanged in every supported release.",
+      "Verify RegistrationInstance, RegistrationRegistrant, RegistrationRegistrantFee, AttributeValue, GroupMember, and Lava SQL behavior against the target release.",
+      "The reference uses SQL Server window functions and STRING_AGG; performance depends on data volume, indexes, compatibility level, and optional hierarchy depth."
+    ],
+    "tested_rock_versions": [],
+    "version_matrix": [
+      {
+        "notes": [
+          "The source pattern targets this model family, but the sanitized package still requires target-instance validation."
+        ],
+        "rock_version": "17",
+        "status": "expected"
+      },
+      {
+        "notes": [
+          "The source pattern targets this model family, but the sanitized package still requires target-instance validation."
+        ],
+        "rock_version": "18",
+        "status": "expected"
+      }
+    ]
+  },
+  "concept_ids": [
+    "event-registration",
+    "lava",
+    "data-views-reports",
+    "security-permissions"
+  ],
+  "created_at": "2026-07-13",
+  "difficulty": "advanced",
+  "evidence_urls": [
+    "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
+    "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+    "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+    "https://community.rockrms.com/lava/commands/sql-commands",
+    "https://community.rockrms.com/modelmap"
+  ],
+  "feedback_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/issues",
+  "implementation": {
+    "commit_sha": "8bbd478b31673f25d40fe31ce8ea492be91d16d4",
+    "files": [
+      {
+        "path": "README.md",
+        "purpose": "Adaptation, metrics, security, performance, validation, compatibility, and rollback guidance",
+        "sha256": "41cc20ffebebf5d0c1650090198895a29c50c0751617218ea8afc4c2d671b7f0"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "License for the public recipe package",
+        "sha256": "4d9831307793402495e74078f32f56ea55ff2e837dee7317d14c2eb51617f85e"
+      },
+      {
+        "path": "config/configuration.example.json",
+        "purpose": "Public-safe application rigging with disabled optional modules and no working production IDs",
+        "sha256": "57ee64afd976e780fa81c6dade7fc60d919c2891d6612993cedbc2e445869fb8"
+      },
+      {
+        "path": "recipe.json",
+        "purpose": "External recipe manifest",
+        "sha256": "858f6be3ad59474ff26e7d37fe211150af6b65e7426892d5f6bc6652abd96676"
+      },
+      {
+        "path": "src/dashboard.lava",
+        "purpose": "Read-only aggregate queries, responsive dashboard, and bounded participant drilldown",
+        "sha256": "be0a03821ad0ce781efa5cbe3c190de3757265813fe584c155540b74e3c7057e"
+      },
+      {
+        "path": "tests/static_contract.py",
+        "purpose": "Executable public-boundary, configuration, metric, row-cap, and no-mutation checks",
+        "sha256": "73d9c41b5ec5e8d0ab9f68755ee6de7430f42715fd23b6e57df6d64a58959c9e"
+      }
+    ],
+    "ingestion_mode": "index_documentation",
+    "license": "MIT",
+    "license_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard/LICENSE",
+    "manifest_url": "https://raw.githubusercontent.com/ONE-ALL-Church/RockRMS-OA-Public/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard/recipe.json",
+    "owner": "ONE-ALL-Church",
+    "repository_url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public",
+    "source_path": "Recipes/event-registration-analytics-dashboard"
+  },
+  "instructions": [
+    "Review the immutable README, configuration, Lava source, and static contract before adaptation.",
+    "Create a secured GET endpoint with ApplicationView security and enable only the Sql Lava command.",
+    "Set registrationInstanceId, then add optional prior-instance, attribute, segment, hierarchy, and fee configuration only after documenting their local meaning.",
+    "Render the endpoint through a Lava Application Content block on a staff-authorized page.",
+    "Run the static contract and test query plans with representative production volume.",
+    "Validate metric invariants, wait-list behavior, multi-person registrations, optional adapters, authorization personas, and desktop/mobile rendering before launch."
+  ],
+  "known_limitations": [
+    "The sanitized package requires live testing in each target Rock release and instance configuration.",
+    "Client-side drilldown filtering is intentionally capped and should become server-side pagination for large events.",
+    "BirthYear-derived age bands are approximate and are not exact birthday calculations.",
+    "Fee items are not universally breakout choices; the target registration template determines their meaning.",
+    "Group-based staff, serving, and department classifications are optional local semantics rather than built-in universal Rock definitions.",
+    "Department totals can exceed unique serving people because group membership is many-to-many."
+  ],
+  "learnings": [
+    "Declare metric grain because one Registration can contain multiple RegistrationRegistrant rows.",
+    "Define confirmed and wait-list predicates once, then reconcile every segment and distribution against that population.",
+    "Compare registration pace by days remaining until close rather than calendar date.",
+    "Use explicit classification precedence so staff and serving segments remain mutually exclusive.",
+    "Treat verifier groups and department hierarchies as configurable local truth sources, not as universal Rock behavior.",
+    "Distinguish registrant attribute campus from registration campus and person campus before labeling a chart.",
+    "Interpret fee items as choices only after reviewing the registration template and active or historical behavior.",
+    "Clean display labels without mutating source registration option names.",
+    "A read-only endpoint still requires application and page authorization because participant operations data is sensitive.",
+    "Bound the drilldown and measure query plans before increasing row limits.",
+    "Verify rendered metrics, authorization, errors, and responsive overflow after content readback; a successful file write alone is not proof of a working dashboard."
+  ],
+  "needs_live_verification": true,
+  "org_id": "oneall",
+  "outcomes": [
+    "Registered people and registration records are reported as separate grains.",
+    "Confirmed, wait-list, weekly, segment, campus, demographic, fee-choice, and optional department metrics remain explicit and reconcilable.",
+    "Authorized staff can filter a bounded participant drilldown without exposing contact details or free-text registration answers."
+  ],
+  "prerequisites": [
+    "A Rock registration instance with representative confirmed, wait-list, fee, and attribute data for validation.",
+    "Permission to create and secure a Helix Lava Application GET endpoint and page content block.",
+    "A reviewed definition for every optional campus, source, staff, serving-verifier, and department input.",
+    "A production-sized test plan for query cost, row cap, browser performance, and authorization."
+  ],
+  "recipe_id": "oneall:event-registration-analytics-dashboard",
+  "recipe_kind": "lava_application",
+  "review_status": "community_reviewed",
+  "rollback_steps": [
+    "Disable or remove the Lava Application endpoint and page block.",
+    "Restore the previous page and application configuration; no data rollback is required because the recipe performs no writes."
+  ],
+  "schema": "rock-kb-recipe-v1",
+  "security": {
+    "authentication": "Rock-authenticated staff session",
+    "authorization": "Application-view and page permissions limited to approved registration operations roles",
+    "csrf_required": false,
+    "data_access": "read_only",
+    "handles_sensitive_data": true,
+    "notes": [
+      "Read-only participant names, attendance intent, staff/serving classification, and registration choices remain sensitive operational data.",
+      "The public reference omits email, phone, addresses, payment details, arbitrary attributes, and free-text registration answers.",
+      "The endpoint enables only Sql and uses GET only while it performs no writes.",
+      "A future write action requires a separate endpoint with authorization, CSRF protection, validation, audit logging, and rollback planning."
+    ]
+  },
+  "status": "experimental",
+  "summary": "Build a secured read-only Helix dashboard for registration capacity, pace, wait list, optional segmentation, fee choices, demographics, and bounded participant drilldown.",
+  "title": "Event Registration Analytics Dashboard",
+  "updated_at": "2026-07-13",
+  "use_cases": [
+    "Give event teams one secured view of capacity, pace, wait list, choices, demographics, and participant context.",
+    "Compare a current registration instance with a prior event at the same number of days before registration closes.",
+    "Add optional mutually exclusive staff and serving segments without presenting local group semantics as universal Rock behavior."
+  ],
+  "validation_steps": [
+    "Run python3 tests/static_contract.py from the recipe directory.",
+    "Confirm registered people match a known instance total and registrations differ correctly for a multi-person registration.",
+    "Confirm wait-list people are excluded from confirmed aggregates and remain explicit in the separate metric and drilldown.",
+    "Confirm mutually exclusive segment counts sum exactly to confirmed people and staff precedence handles a person who also satisfies serving verification.",
+    "Confirm campus and source values use the intended registrant attributes rather than person or registration campus by accident.",
+    "Confirm fee-choice counts against known selections and review active versus historical fee behavior.",
+    "Confirm a serving-verifier holder without an active department lands in the verifier-only bucket and multi-department totals disclose possible duplication.",
+    "Confirm prior-stage comparison is absent when disabled and aligns by days remaining when configured.",
+    "Confirm the row cap, empty state, reset, search, campus, segment, and detail controls behave correctly.",
+    "Confirm unauthorized users cannot open the page or endpoint and an administrator override is not mistaken for intended-role access.",
+    "Confirm rendered output has no Lava or browser-console errors, clipped labels, or internal vertical scrolling at desktop and mobile widths."
+  ],
+  "version": "1.0.0"
+}

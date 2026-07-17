@@ -86,12 +86,10 @@ generated: true
 | `10-group-attendance-deep-dive-attendance-ux-and-confirmation` | community-supported | live verification |
 | `10-group-attendance-deep-dive-attendance-reporting` | normal | live verification |
 | `11-related-rock-areas-people-attendance-security-locations-schedules-attendance` | structural | live verification |
-| `12-administration-and-operational-guardrails-naming-and-hierarchy` | needs-citation | needs-citation |
 | `12-administration-and-operational-guardrails-use-read-only-investigation-first` | structural | live verification |
 | `12-administration-and-operational-guardrails-recipe-guardrails` | community-supported | live verification |
 | `12-administration-and-operational-guardrails-group-type-change-guardrail` | citation-only | live verification |
 | `13-developer-api-lava-and-source-code-landmarks-lava-landmarks` | community-supported | live verification |
-| `14-reporting-analytics-and-model-map-reporting-questions-to-define` | needs-citation | needs-citation |
 | `14-reporting-analytics-and-model-map-model-map-coverage` | citation-only | live verification |
 | `14-reporting-analytics-and-model-map-attendance-analytics-caveat` | normal | live verification |
 | `15-version-and-release-caveats-navigation-wording` | structural | live verification |
@@ -111,4 +109,3 @@ generated: true
 | `18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page` | community-supported | live verification |
 | `approved-claim-coverage` | citation-only | live verification |
 | `19-source-map-and-dependency-notes-community-examples` | community-supported | community-supported |
-| `19-source-map-and-dependency-notes-dependency-notes` | needs-citation | needs-citation |

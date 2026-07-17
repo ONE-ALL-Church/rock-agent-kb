@@ -57,6 +57,42 @@ def test_build_search_rows_includes_public_community_contributions(monkeypatch):
     assert row["legacy_ids"] == ["community_contribution:test-org:workflow-pattern:workflows"]
 
 
+def test_reviewed_contribution_wins_over_unreviewed_copy(monkeypatch):
+    shared = {
+        "contribution_id": "test-org:reviewed-pattern",
+        "org_id": "test-org",
+        "source_id": "org_contribution",
+        "source_title": "Reviewed pattern",
+        "source_url": "https://community.rockrms.com/documentation",
+        "summary": "Use the reviewed canonical pattern.",
+        "topics": ["workflows"],
+        "claim_tier": "routing_context_only",
+    }
+    monkeypatch.setattr(
+        service_projection,
+        "public_contribution_records",
+        lambda: [
+            {
+                **shared,
+                "authority_tier": "community-reviewed",
+                "bundle_path": "contributions/test-org/bundle.jsonl",
+            },
+            {
+                **shared,
+                "authority_tier": "community-unreviewed",
+                "bundle_path": "community-contributions/test-org/bundle.jsonl",
+            },
+        ],
+    )
+
+    rows = build_search_rows()
+    matches = [row for row in rows if row["id"] == "community_contribution:test-org:reviewed-pattern"]
+
+    assert len(matches) == 1
+    assert matches[0]["authority_tier"] == "community-reviewed"
+    assert matches[0]["path"] == "contributions/test-org/bundle.jsonl"
+
+
 def test_promoted_recipe_contribution_is_not_indexed_as_duplicate_guidance(monkeypatch):
     monkeypatch.setattr(
         service_projection,

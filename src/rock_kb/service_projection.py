@@ -162,7 +162,12 @@ def build_search_rows() -> list[dict[str, Any]]:
                 if str(value).strip() and str(value).strip() != str(row["id"])
             }
         )
-        deduped[str(row["id"])] = row
+        row_id = str(row["id"])
+        existing = deduped.get(row_id)
+        candidate_rank = AUTHORITY_TIER_RANK.get(str(row.get("authority_tier") or ""), 0)
+        existing_rank = AUTHORITY_TIER_RANK.get(str((existing or {}).get("authority_tier") or ""), 0)
+        if existing is None or candidate_rank >= existing_rank:
+            deduped[row_id] = row
     return sorted(deduped.values(), key=lambda row: str(row.get("id") or ""))
 
 

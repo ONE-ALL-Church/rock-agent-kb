@@ -798,12 +798,12 @@
   },
   "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
   "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
-  "built_at": "2026-07-16T00:17:13+00:00",
+  "built_at": "2026-07-17T00:39:50+00:00",
   "concept_id": "documents-signatures",
-  "guide_hash": "5c76237055047e163397ec0a8658a72ffc4e54b00bd5bdc1711734df1e20922c",
-  "guide_line_count": 1367,
+  "guide_hash": "f1f1cfe90f74caa732ff1ee57a5f59dd0c847e314773304876e10b9bc2b779a5",
+  "guide_line_count": 1373,
   "guide_path": "knowledge/concepts/documents-signatures/guide.md",
-  "guide_word_count": 11628,
+  "guide_word_count": 11793,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -912,6 +912,15 @@
       "source_key": "9af162570ab9ac58",
       "source_record_id": "rock_recipes:9af162570ab9ac58",
       "url": "https://community.rockrms.com/recipes/482"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "db48aae734d362c767d0d3680de8ca4c713d35cc0bfba5f9d2013e58ce8a9af2",
+      "excerpt_hash": "cf06edc272fff4c1432b53946042eb1c0768661d04b6b5baefe4cdd245dd5e12",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3ac90be5dca1c39b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs"
     },
     {
       "authority": "official-triumph",
@@ -1087,7 +1096,9 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "44c48fbb00fd6286",
+        "ba453d3167752790",
+        "3ac90be5dca1c39b"
       ],
       "start_line": 161
     },
@@ -1129,13 +1140,14 @@
       "start_line": 201
     },
     {
-      "confidence": "needs-citation",
+      "confidence": "high",
       "end_line": 262,
       "heading": "Signature Document Instance Data",
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-signature-document-instance-data",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "ba453d3167752790",
+        "3ac90be5dca1c39b"
       ],
       "start_line": 226
     },
@@ -1542,189 +1554,188 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "ba453d3167752790",
         "2000146157764196",
         "badab030c195b30e"
       ],
       "start_line": 737
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 755,
+      "confidence": "normal",
+      "end_line": 757,
       "heading": "Before Creating A New Document Type",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-new-document-type",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "ba453d3167752790",
         "2000146157764196"
       ],
       "start_line": 739
     },
     {
       "confidence": "needs-citation",
-      "end_line": 773,
+      "end_line": 775,
       "heading": "Before Creating A New Signature Template",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-new-signature-template",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "ba453d3167752790",
         "2000146157764196"
       ],
-      "start_line": 756
+      "start_line": 758
     },
     {
       "confidence": "structural",
-      "end_line": 782,
+      "end_line": 784,
       "heading": "Naming Standards",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-naming-standards",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "ba453d3167752790",
         "2000146157764196"
       ],
-      "start_line": 774
+      "start_line": 776
     },
     {
       "confidence": "structural",
-      "end_line": 795,
+      "end_line": 797,
       "heading": "Security Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-security-guardrails",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "ba453d3167752790",
         "2000146157764196"
       ],
-      "start_line": 783
+      "start_line": 785
     },
     {
       "confidence": "community-supported",
-      "end_line": 801,
+      "end_line": 803,
       "heading": "Data Integrity Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-data-integrity-guardrails",
       "source_keys": [
         "badab030c195b30e"
       ],
-      "start_line": 796
+      "start_line": 798
     },
     {
       "confidence": "structural",
-      "end_line": 803,
+      "end_line": 805,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
         "badab030c195b30e",
+        "3ac90be5dca1c39b",
         "44c48fbb00fd6286"
-      ],
-      "start_line": 802
-    },
-    {
-      "confidence": "needs-citation",
-      "end_line": 824,
-      "heading": "Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
-      "source_keys": [
-        "badab030c195b30e"
       ],
       "start_line": 804
     },
     {
+      "confidence": "normal",
+      "end_line": 828,
+      "heading": "Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "13-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
+      "source_keys": [
+        "badab030c195b30e",
+        "3ac90be5dca1c39b"
+      ],
+      "start_line": 806
+    },
+    {
       "confidence": "structural",
-      "end_line": 836,
+      "end_line": 840,
       "heading": "API Considerations",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-considerations",
       "source_keys": [
-        "badab030c195b30e"
+        "badab030c195b30e",
+        "3ac90be5dca1c39b"
       ],
-      "start_line": 825
+      "start_line": 829
     },
     {
       "confidence": "normal",
-      "end_line": 845,
+      "end_line": 849,
       "heading": "Lava In Merge Documents",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-in-merge-documents",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 837
+      "start_line": 841
     },
     {
       "confidence": "needs-citation",
-      "end_line": 858,
+      "end_line": 862,
       "heading": "Lava In Signature Templates",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 846
+      "start_line": 850
     },
     {
       "confidence": "structural",
-      "end_line": 860,
+      "end_line": 864,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 859
+      "start_line": 863
     },
     {
       "confidence": "citation-only",
-      "end_line": 864,
+      "end_line": 868,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 861
+      "start_line": 865
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 883,
+      "confidence": "citation-only",
+      "end_line": 889,
       "heading": "Signature Reporting",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-signature-reporting",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 865
+      "start_line": 869
     },
     {
       "confidence": "structural",
-      "end_line": 898,
+      "end_line": 904,
       "heading": "Entity Document Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-entity-document-reporting",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 884
+      "start_line": 890
     },
     {
       "confidence": "structural",
-      "end_line": 907,
+      "end_line": 913,
       "heading": "Merge Document Analytics",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-merge-document-analytics",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 899
+      "start_line": 905
     },
     {
       "confidence": "structural",
-      "end_line": 909,
+      "end_line": 915,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -1733,11 +1744,11 @@
         "c0cf9e3bbb1f6f9b",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 908
+      "start_line": 914
     },
     {
       "confidence": "normal",
-      "end_line": 915,
+      "end_line": 921,
       "heading": "Inactive Signature Templates",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-inactive-signature-templates",
@@ -1745,11 +1756,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 910
+      "start_line": 916
     },
     {
       "confidence": "normal",
-      "end_line": 921,
+      "end_line": 927,
       "heading": "Signature Placement Keyword",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-signature-placement-keyword",
@@ -1757,47 +1768,36 @@
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 916
+      "start_line": 922
     },
     {
       "confidence": "citation-only",
-      "end_line": 927,
+      "end_line": 933,
       "heading": "Signature Template Detail PDF Viewer",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-signature-template-detail-pdf-viewer",
       "source_keys": [
         "9d0ccce785ef64bb"
       ],
-      "start_line": 922
+      "start_line": 928
     },
     {
       "confidence": "normal",
-      "end_line": 933,
+      "end_line": 939,
       "heading": "Registration Signature Relationship Fix",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-registration-signature-relationship-fix",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 928
-    },
-    {
-      "confidence": "normal",
-      "end_line": 939,
-      "heading": "Document Type Security Fix",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-document-type-security-fix",
-      "source_keys": [
-        "776256c424368312"
-      ],
       "start_line": 934
     },
     {
-      "confidence": "structural",
+      "confidence": "normal",
       "end_line": 945,
-      "heading": "Legacy Signature Providers",
+      "heading": "Document Type Security Fix",
       "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-legacy-signature-providers",
+      "section_id": "15-version-and-release-caveats-document-type-security-fix",
       "source_keys": [
         "776256c424368312"
       ],
@@ -1805,73 +1805,84 @@
     },
     {
       "confidence": "structural",
-      "end_line": 947,
-      "heading": "16. Implementation Playbooks",
+      "end_line": 951,
+      "heading": "Legacy Signature Providers",
       "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks",
+      "section_id": "15-version-and-release-caveats-legacy-signature-providers",
       "source_keys": [
         "776256c424368312"
       ],
       "start_line": 946
     },
     {
+      "confidence": "structural",
+      "end_line": 953,
+      "heading": "16. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "16-implementation-playbooks",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 952
+    },
+    {
       "confidence": "needs-citation",
-      "end_line": 971,
+      "end_line": 977,
       "heading": "Playbook: Build A New Event Waiver",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-new-event-waiver",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 948
+      "start_line": 954
     },
     {
       "confidence": "structural",
-      "end_line": 983,
+      "end_line": 989,
       "heading": "Playbook: Add Documents To A Group Page",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-documents-to-a-group-page",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 972
+      "start_line": 978
     },
     {
       "confidence": "needs-citation",
-      "end_line": 998,
+      "end_line": 1004,
       "heading": "Playbook: Build A Merge Letter Template",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-merge-letter-template",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 984
+      "start_line": 990
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1014,
+      "end_line": 1020,
       "heading": "Playbook: Move From Legacy Signature Provider To Rock-Native Signatures",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 999
+      "start_line": 1005
     },
     {
       "confidence": "structural",
-      "end_line": 1029,
+      "end_line": 1035,
       "heading": "Playbook: Audit Document Security After Upgrade",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-audit-document-security-after-upgrade",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1015
+      "start_line": 1021
     },
     {
       "confidence": "structural",
-      "end_line": 1031,
+      "end_line": 1037,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -1879,66 +1890,66 @@
         "776256c424368312",
         "44c48fbb00fd6286"
       ],
-      "start_line": 1030
+      "start_line": 1036
     },
     {
       "confidence": "structural",
-      "end_line": 1041,
+      "end_line": 1047,
       "heading": "Start Here: What Kind Of Document Is Broken?",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1032
+      "start_line": 1038
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1067,
+      "confidence": "normal",
+      "end_line": 1073,
       "heading": "Entity Documents",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-entity-documents",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1042
+      "start_line": 1048
     },
     {
       "confidence": "needs-citation",
-      "end_line": 1093,
+      "end_line": 1099,
       "heading": "Merge Documents",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-merge-documents",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1068
+      "start_line": 1074
     },
     {
       "confidence": "normal",
-      "end_line": 1140,
+      "end_line": 1146,
       "heading": "Electronic Signatures",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-electronic-signatures",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1094
+      "start_line": 1100
     },
     {
       "confidence": "normal",
-      "end_line": 1168,
+      "end_line": 1174,
       "heading": "Generated PDFs",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-generated-pdfs",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1141
+      "start_line": 1147
     },
     {
       "confidence": "structural",
-      "end_line": 1170,
+      "end_line": 1176,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -1948,55 +1959,55 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1169
+      "start_line": 1175
     },
     {
       "confidence": "structural",
-      "end_line": 1190,
+      "end_line": 1196,
       "heading": "Recipe: Find All Pending Signature Requests For A Template",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1171
+      "start_line": 1177
     },
     {
       "confidence": "structural",
-      "end_line": 1213,
+      "end_line": 1219,
       "heading": "Recipe: Verify A Person Has A Valid Signed Waiver",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-verify-a-person-has-a-valid-signed-waiver",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1191
+      "start_line": 1197
     },
     {
       "confidence": "structural",
-      "end_line": 1235,
+      "end_line": 1241,
       "heading": "Recipe: Diagnose A Failed Registration Signature",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-a-failed-registration-signature",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1214
+      "start_line": 1220
     },
     {
       "confidence": "structural",
-      "end_line": 1256,
+      "end_line": 1262,
       "heading": "Recipe: Audit Public Exposure Risk",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-public-exposure-risk",
       "source_keys": [
         "44c48fbb00fd6286"
       ],
-      "start_line": 1236
+      "start_line": 1242
     },
     {
       "confidence": "normal",
-      "end_line": 1272,
+      "end_line": 1278,
       "heading": "Recipe: Build A Staff Resend Process",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-staff-resend-process",
@@ -2005,11 +2016,11 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1257
+      "start_line": 1263
     },
     {
       "confidence": "normal",
-      "end_line": 1298,
+      "end_line": 1304,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -2027,11 +2038,11 @@
         "44c48fbb00fd6286",
         "44c48fbb00fd6286"
       ],
-      "start_line": 1273
+      "start_line": 1279
     },
     {
       "confidence": "citation-only",
-      "end_line": 1312,
+      "end_line": 1318,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2039,11 +2050,11 @@
         "99161b788cad1f6e",
         "9ca73fb85a7d51b9"
       ],
-      "start_line": 1299
+      "start_line": 1305
     },
     {
       "confidence": "high",
-      "end_line": 1367,
+      "end_line": 1373,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -2077,7 +2088,7 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 1313
+      "start_line": 1319
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:39:56+00:00",
@@ -2346,6 +2357,29 @@
       ],
       "url": "https://community.rockrms.com/recipes/482",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "db48aae734d362c767d0d3680de8ca4c713d35cc0bfba5f9d2013e58ce8a9af2",
+      "excerpt_hash": "cf06edc272fff4c1432b53946042eb1c0768661d04b6b5baefe4cdd245dd5e12",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "document",
+        "documents",
+        "signature",
+        "e-signature",
+        "e signature",
+        "esignature"
+      ],
+      "path": "Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3ac90be5dca1c39b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
+      "title": "Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs"
     },
     {
       "authority": "official-triumph",

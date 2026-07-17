@@ -14,12 +14,12 @@
         "https://community.rockrms.com/recipes/434",
         "https://community.rockrms.com/ModelMap",
         "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482",
-        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+        "https://community.rockrms.com/recipes/482"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -42,12 +42,12 @@
         "https://community.rockrms.com/recipes/434",
         "https://community.rockrms.com/ModelMap",
         "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482",
-        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+        "https://community.rockrms.com/recipes/482"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -70,12 +70,12 @@
         "https://community.rockrms.com/recipes/434",
         "https://community.rockrms.com/ModelMap",
         "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482",
-        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+        "https://community.rockrms.com/recipes/482"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -119,12 +119,12 @@
         "https://community.rockrms.com/recipes/434",
         "https://community.rockrms.com/ModelMap",
         "https://community.rockrms.com/rocku/cms/entity-documents",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
         "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
         "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482",
-        "https://community.rockrms.com/rocku/individuals-in-rock/merge-documents"
+        "https://community.rockrms.com/recipes/482"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -136,7 +136,7 @@
   ],
   "concept_id": "documents-signatures",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-16T00:17:13+00:00",
+  "generated_at": "2026-07-17T00:39:50+00:00",
   "guide_sections": [
     "10-generated-pdfs-deep-dive-pdf-troubleshooting",
     "17-troubleshooting-decision-tree",
