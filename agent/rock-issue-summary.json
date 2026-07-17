@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "677e83eb738de85735d2adb0e31c6ef3812ec2f517097c0d6bf9aa4f7d5eff8c",
+  "catalog_content_hash": "3ae758fc5c65c018275118b6c0ce7b99253d98734dfbf0d46214107e1ec1b2da",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
@@ -46,7 +46,7 @@
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-17T15:21:54Z",
+  "source_updated_through": "2026-07-17T17:50:45Z",
   "states": {
     "closed": 5794,
     "open": 9

@@ -34,6 +34,7 @@
 - [Topic Split Rules](decisions/topic-split-rules.md) - routing rules for deciding whether a domain belongs in a new concept or an existing guide.
 - [Private And Org Data Integration Plan](decisions/private-and-org-data-integration-plan.md) - owner-private docs and outside-org contribution bundle plan.
 - [Org Data Implementation Roadmap](decisions/org-data-implementation-roadmap.md) - roadmap for private org data, outside-org bundles, review gates, and rebuild tracking.
+- [Hybrid Retrieval Shadow Decision](decisions/hybrid-shadow-evaluation-2026-07-17.md) - measured decision to retain lexical production retrieval and retire the failed vector shadow.
 
 ## Working Notes
 

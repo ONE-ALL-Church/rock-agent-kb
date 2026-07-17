@@ -76,6 +76,20 @@ uvx rock-kb dashboard
 uvx rock-kb mcp-config
 ```
 
+Churches participating in the public external test can opt into aggregate
+cohort reporting without identifying their church or users:
+
+```bash
+ROCK_KB_COHORT=external-test uvx rock-kb test-round
+uvx rock-kb --cohort external-test mcp-config
+```
+
+The second command includes the same bounded header in the generated MCP
+configuration. Maintainers can use `ROCK_KB_COHORT=maintainer`. The service
+accepts only `external-test` or `maintainer`; omitted or invalid values become
+`unattributed`. This self-declared marker is not authentication and never
+contains an organization name, installation ID, user ID, or query text.
+
 For repeated use on a server or agent host, install the CLI permanently:
 
 ```bash

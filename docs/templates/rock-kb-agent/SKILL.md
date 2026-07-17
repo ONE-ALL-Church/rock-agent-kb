@@ -268,6 +268,18 @@ For an MCP-capable client, configure the same hosted projection instead:
 uvx rock-kb mcp-config
 ```
 
+When the church has explicitly joined the public testing cohort, opt into the
+single aggregate `external-test` marker:
+
+```bash
+ROCK_KB_COHORT=external-test uvx rock-kb test-round
+uvx rock-kb --cohort external-test mcp-config
+```
+
+Do not replace `external-test` with a church name or identifier. The marker is
+self-declared telemetry, not authentication, and ordinary use should leave it
+unset.
+
 2. Prefer this evidence order:
 
 - `live_verified`

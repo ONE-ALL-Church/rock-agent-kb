@@ -6,6 +6,7 @@ import subprocess
 import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -25,6 +26,7 @@ EMBEDDING_PRICE_PER_MILLION_TOKENS_USD = 0.012
 EMBEDDING_PRICING_URL = "https://developers.cloudflare.com/workers-ai/platform/pricing/"
 SHADOW_MANIFEST_PATH = SERVICE_RETRIEVAL_DOCUMENTS_PATH.parent / "hybrid-shadow-manifest.jsonl"
 SHADOW_RESULTS_PATH = SERVICE_RETRIEVAL_DOCUMENTS_PATH.parent / "hybrid-shadow-results.json"
+SHADOW_STUCK_AFTER_SECONDS = 30 * 60
 
 
 @dataclass(frozen=True)
@@ -161,6 +163,17 @@ def upload_shadow_documents(
     base_url = shadow_instance_url(credentials.account_id, instance, namespace)
     headers = {"Authorization": f"Bearer {credentials.token}"}
     existing = list_shadow_items(credentials, instance=instance, namespace=namespace)
+    desired_keys = {str(row["key"]) for row in rows}
+    reconciliation = shadow_reconciliation_plan(existing, desired_keys)
+    deleted = delete_shadow_items(
+        [row["item"] for row in reconciliation],
+        credentials,
+        instance=instance,
+        namespace=namespace,
+        concurrency=concurrency,
+    )
+    deleted_ids = {str(row.get("id") or "") for row in deleted}
+    existing = [row for row in existing if str(row.get("id") or "") not in deleted_ids]
     accepted_statuses = {"queued", "running", "completed"}
     existing_keys = {str(row.get("key") or "") for row in existing if str(row.get("status") or "") in accepted_statuses}
     pending_rows = [row for row in rows if row["key"] not in existing_keys]
@@ -196,8 +209,84 @@ def upload_shadow_documents(
     return {
         "uploaded": len(uploaded),
         "already_present": len(rows) - len(pending_rows),
+        "deleted": len(deleted),
+        "deleted_by_reason": count_values(str(row["reason"]) for row in reconciliation),
         "keys": [str(row.get("key") or "") for row in uploaded],
     }
+
+
+def shadow_reconciliation_plan(
+    items: list[dict[str, Any]],
+    desired_keys: set[str],
+    *,
+    now: datetime | None = None,
+    stuck_after_seconds: int = SHADOW_STUCK_AFTER_SECONDS,
+) -> list[dict[str, Any]]:
+    current_time = now or datetime.now(timezone.utc)
+    plan: list[dict[str, Any]] = []
+    for item in items:
+        key = str(item.get("key") or "")
+        status = str(item.get("status") or "")
+        reason = ""
+        if key not in desired_keys:
+            reason = "obsolete"
+        elif status in {"error", "skipped", "outdated"}:
+            reason = "retryable_status"
+        elif status in {"queued", "running"} and shadow_item_age_seconds(item, current_time) >= stuck_after_seconds:
+            reason = "stuck_pending"
+        if reason:
+            plan.append({"reason": reason, "item": item})
+    return plan
+
+
+def shadow_item_age_seconds(item: dict[str, Any], now: datetime) -> float:
+    value = str(item.get("last_seen_at") or item.get("created_at") or "").strip()
+    if not value:
+        return 0
+    try:
+        timestamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return 0
+    if timestamp.tzinfo is None:
+        timestamp = timestamp.replace(tzinfo=timezone.utc)
+    return max(0, (now - timestamp.astimezone(timezone.utc)).total_seconds())
+
+
+def delete_shadow_items(
+    items: list[dict[str, Any]],
+    credentials: CloudflareCredentials,
+    *,
+    instance: str = DEFAULT_INSTANCE,
+    namespace: str = DEFAULT_NAMESPACE,
+    concurrency: int = 8,
+) -> list[dict[str, Any]]:
+    base_url = f"{shadow_instance_url(credentials.account_id, instance, namespace)}/items"
+    headers = {"Authorization": f"Bearer {credentials.token}"}
+
+    def delete(item: dict[str, Any]) -> dict[str, Any]:
+        item_id = str(item.get("id") or "")
+        if not item_id:
+            raise RuntimeError(f"Cloudflare AI Search item has no ID: {item.get('key')}")
+        for attempt in range(5):
+            try:
+                response = httpx.delete(f"{base_url}/{item_id}", headers=headers, timeout=60)
+            except httpx.HTTPError as exc:
+                if attempt == 4:
+                    raise RuntimeError(f"Cloudflare AI Search delete failed for {item.get('key')}: {exc}") from exc
+                time.sleep(min(2**attempt, 10))
+                continue
+            if not response.is_error or response.status_code == 404:
+                return item
+            if response.status_code not in {429, 500, 502, 503, 504} or attempt == 4:
+                raise RuntimeError(
+                    f"Cloudflare AI Search delete failed for {item.get('key')} ({response.status_code}): {response.text[:1000]}"
+                )
+            time.sleep(min(2**attempt, 10))
+        raise AssertionError("unreachable")
+
+    worker_count = max(1, min(concurrency, 4, len(items) or 1))
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        return list(executor.map(delete, items))
 
 
 def list_shadow_items(
@@ -229,6 +318,7 @@ def wait_for_shadow_index(
     credentials: CloudflareCredentials,
     *,
     expected_count: int,
+    expected_keys: set[str] | None = None,
     instance: str = DEFAULT_INSTANCE,
     namespace: str = DEFAULT_NAMESPACE,
     timeout: float = 900,
@@ -236,11 +326,31 @@ def wait_for_shadow_index(
 ) -> dict[str, Any]:
     deadline = time.monotonic() + timeout
     last_stats: dict[str, Any] = {}
-    allowed_pending = max(1, math.floor(expected_count * 0.005))
-    minimum_completed = expected_count - allowed_pending
     headers = {"Authorization": f"Bearer {credentials.token}"}
     url = f"{shadow_instance_url(credentials.account_id, instance, namespace)}/stats"
     while time.monotonic() < deadline:
+        if expected_keys is not None:
+            items = list_shadow_items(credentials, instance=instance, namespace=namespace)
+            status_by_key = {str(item.get("key") or ""): str(item.get("status") or "") for item in items}
+            statuses = [status_by_key.get(key, "missing") for key in expected_keys]
+            counts = count_values(statuses)
+            last_stats = {
+                "item_status_counts": counts,
+                "shadow_readiness": {
+                    "expected": len(expected_keys),
+                    "completed": int(counts.get("completed") or 0),
+                    "ready": int(counts.get("completed") or 0) == len(expected_keys),
+                },
+            }
+            if last_stats["shadow_readiness"]["ready"]:
+                return last_stats
+            if int(counts.get("error") or 0) or int(counts.get("skipped") or 0):
+                raise RuntimeError(f"AI Search indexing failed for current shadow items: {counts}")
+            time.sleep(interval)
+            continue
+
+        allowed_pending = max(1, math.floor(expected_count * 0.005))
+        minimum_completed = expected_count - allowed_pending
         response = httpx.get(url, headers=headers, timeout=30)
         response.raise_for_status()
         payload = response.json()
@@ -256,6 +366,13 @@ def wait_for_shadow_index(
             return last_stats
         time.sleep(interval)
     raise TimeoutError(f"AI Search indexing did not complete within {timeout:.0f}s: {last_stats}")
+
+
+def count_values(values: Iterable[str]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for value in values:
+        counts[value] = counts.get(value, 0) + 1
+    return counts
 
 
 def evaluate_shadow(
