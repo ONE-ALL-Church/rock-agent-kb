@@ -172,6 +172,11 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 
 `kb hybrid-shadow` builds the ignored, stratified contextual retrieval payload and reports its estimated embedding cost. Add `--apply` only from an authenticated maintainer environment to create or resume the isolated Cloudflare AI Search pilot, wait for indexing, and write the full evaluation to `service/dist/hybrid-shadow-results.json`. This command does not alter production Worker routing; promote hybrid retrieval only after its curated MRR, recall, authority, duplicate, latency, and cost results beat the corrected lexical baseline.
 
+The July 17, 2026 shadow failed that promotion gate and was deleted. See
+[Hybrid Retrieval Shadow Decision](../decisions/hybrid-shadow-evaluation-2026-07-17.md).
+Running `--apply` again requires a materially different experiment and a new
+active entry in `service/shadow-lifecycle.yaml`.
+
 ## Command Groups
 
 | Group | Purpose |

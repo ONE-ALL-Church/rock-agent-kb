@@ -778,6 +778,7 @@ def assessment_page_fetcher(rows):
 
 def test_client_get_text_sends_user_agent(monkeypatch):
     cli = load_client_cli()
+    cli.REQUEST_COHORT = "external-test"
     captured = {}
 
     class FakeResponse:
@@ -793,6 +794,7 @@ def test_client_get_text_sends_user_agent(monkeypatch):
     def fake_urlopen(req):
         captured["user_agent"] = req.headers.get("User-agent")
         captured["client_version"] = req.headers.get("X-rock-kb-client-version")
+        captured["cohort"] = req.headers.get("X-rock-kb-cohort")
         return FakeResponse()
 
     monkeypatch.setattr(cli.request, "urlopen", fake_urlopen)
@@ -800,10 +802,12 @@ def test_client_get_text_sends_user_agent(monkeypatch):
     assert cli.get_text("https://example.test/manifest.json") == "ok"
     assert captured["user_agent"] == cli.USER_AGENT
     assert captured["client_version"] == cli.package_version()
+    assert captured["cohort"] == "external-test"
 
 
 def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
     cli = load_client_cli()
+    cli.REQUEST_COHORT = "maintainer"
     captured = {}
 
     class FakeResponse:
@@ -820,6 +824,7 @@ def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
         captured["user_agent"] = req.headers.get("User-agent")
         captured["accept"] = req.headers.get("Accept")
         captured["client_version"] = req.headers.get("X-rock-kb-client-version")
+        captured["cohort"] = req.headers.get("X-rock-kb-cohort")
         return FakeResponse()
 
     monkeypatch.setattr(cli.request, "urlopen", fake_urlopen)
@@ -828,6 +833,16 @@ def test_client_post_json_sends_user_agent_and_accept(monkeypatch):
     assert captured["user_agent"] == cli.USER_AGENT
     assert captured["accept"] == "application/json"
     assert captured["client_version"] == cli.package_version()
+    assert captured["cohort"] == "maintainer"
+
+
+def test_client_mcp_config_includes_only_bounded_opt_in_cohort(capsys):
+    cli = load_client_cli()
+
+    assert cli.main(["--url", "https://example.test", "--cohort", "external-test", "mcp-config"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+
+    assert payload["mcpServers"]["rock-kb"]["headers"] == {"x-rock-kb-cohort": "external-test"}
 
 
 def test_client_submit_infers_org_and_reads_token_file(monkeypatch, tmp_path, capsys):

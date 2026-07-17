@@ -125,7 +125,12 @@ def hybrid_shadow_command(
         credentials = wrangler_credentials()
         ensure_shadow_instance(credentials, instance=instance)
         result["upload"] = upload_shadow_documents(rows, credentials, instance=instance, concurrency=concurrency)
-        result["stats"] = wait_for_shadow_index(credentials, expected_count=len(rows), instance=instance)
+        result["stats"] = wait_for_shadow_index(
+            credentials,
+            expected_count=len(rows),
+            expected_keys={str(row["key"]) for row in rows},
+            instance=instance,
+        )
         evaluation = evaluate_shadow(rows, credentials, instance=instance, concurrency=min(concurrency, 10))
         result["evaluation"] = {key: value for key, value in evaluation.items() if key != "results"}
         result["evaluation"]["results_path"] = "service/dist/hybrid-shadow-results.json"

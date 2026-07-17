@@ -472,13 +472,13 @@ test("telemetry separates evaluation traffic and records structured feedback wit
   const mf = await buildWorker();
   try {
     await mf.dispatchFetch("https://kb.example.test/search?q=labels", {
-      headers: { "x-rock-kb-client": "cli" },
+      headers: { "x-rock-kb-client": "cli", "x-rock-kb-cohort": "external-test" },
     });
     await mf.dispatchFetch("https://kb.example.test/search?q=prayerzz", {
       headers: { "user-agent": "rock-kb-eval/1.0" },
     });
     await mf.dispatchFetch("https://kb.example.test/search?q=prayerzz", {
-      headers: { "x-rock-kb-client": "browser" },
+      headers: { "x-rock-kb-client": "browser", "x-rock-kb-cohort": "one-all-church" },
     });
     await mf.dispatchFetch("https://kb.example.test/results/claim%3Aclaim%3Aabc123", {
       headers: { "x-rock-kb-client": "cli" },
@@ -486,10 +486,21 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     await mf.dispatchFetch("https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard", {
       headers: { "x-rock-kb-client": "cli" },
     });
-    await mcp(mf, "tools/call", { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } });
+    await mcp(
+      mf,
+      "tools/call",
+      { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } },
+      { "x-rock-kb-cohort": "external-test" },
+    );
+    await mcp(
+      mf,
+      "tools/call",
+      { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } },
+      { "x-rock-kb-client": "eval", "x-rock-kb-cohort": "external-test" },
+    );
     const feedbackResponse = await mf.dispatchFetch("https://kb.example.test/feedback", {
       method: "POST",
-      headers: { "content-type": "application/json", "x-rock-kb-client": "cli" },
+      headers: { "content-type": "application/json", "x-rock-kb-client": "cli", "x-rock-kb-cohort": "external-test" },
       body: JSON.stringify({ result_id: "claim:claim:abc123:check-in", rating: -1, reason: "outdated" }),
     });
     assert.equal(feedbackResponse.status, 201);
@@ -501,18 +512,24 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     const telemetryResponse = await mf.dispatchFetch("https://kb.example.test/telemetry/summary");
     const telemetry = await telemetryResponse.json();
 
-    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v3");
+    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v4");
     assert.equal(telemetry.adoption_rows.some((row) => row.client_class === "cli"), true);
+    assert.equal(telemetry.external_test_rows.some((row) => row.client_class === "cli" && row.cohort === "external-test"), true);
+    assert.equal(telemetry.adoption_rows.some((row) => row.client_class === "browser" && row.cohort === "unattributed"), true);
     assert.equal(telemetry.evaluation_rows.some((row) => row.client_class === "eval"), true);
+    assert.equal(telemetry.evaluation_rows.every((row) => row.cohort === "evaluation"), true);
     assert.equal(telemetry.zero_result_topics.some((row) => row.topic_hint === "prayer-care"), true);
     assert.equal(telemetry.feedback.some((row) => row.reason === "outdated" && row.rating === -1), true);
     assert.equal(telemetry.feedback.some((row) => row.result_id === "claim:claim:abc123"), true);
+    assert.equal(telemetry.feedback.some((row) => row.cohort === "external-test"), true);
     assert.equal(telemetry.result_kinds.some((row) => row.result_kind === "claim" && row.client_class === "cli"), true);
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "result_get" && row.client_class === "cli" && row.primary_result_kind === "claim"), true);
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "recipe_get" && row.client_class === "cli" && row.primary_result_kind === "recipe"), true);
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "claim_get" && row.client_class === "mcp" && row.primary_result_kind === "claim"), true);
+    assert.equal(telemetry.external_test_rows.some((row) => row.event === "claim_get" && row.client_class === "mcp"), true);
     assert.match(telemetry.privacy, /No raw or hashed query text/);
     assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
+    assert.equal(JSON.stringify(telemetry).includes("one-all-church"), false);
   } finally {
     await mf.dispose();
   }
@@ -1087,10 +1104,10 @@ async function buildWorker(options = {}) {
   }
 }
 
-async function mcp(mf, method, params) {
+async function mcp(mf, method, params, headers = {}) {
   const response = await mf.dispatchFetch("https://kb.example.test/mcp", {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", ...headers },
     body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
   });
   return response.json();

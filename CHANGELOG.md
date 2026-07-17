@@ -6,6 +6,32 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-07-17
+
+### Added
+
+- Opt-in `external-test` and `maintainer` telemetry cohorts for the published
+  CLI and MCP configuration. Cohorts remain self-declared aggregate labels and
+  do not collect organization, installation, user, or query identity.
+- Exact Cloudflare AI Search shadow-index reconciliation, including bounded
+  cleanup of obsolete, failed, and stale in-progress items before evaluation.
+
+### Changed
+
+- Hosted telemetry now reports cohort-separated usage, result-kind, zero-result,
+  and structured-feedback counts while retaining historical rows as
+  `unattributed`.
+- Rock issue `#6925` was revalidated after upstream activity without changing
+  its source-confirmed diagnosis, fix, or public verification playbook.
+- The Python package's exported version now stays aligned with the release
+  metadata used by the CLI and PyPI package.
+
+### Decision
+
+- The bounded Cloudflare hybrid shadow did not outperform lexical retrieval,
+  so vectors remain out of production and the temporary shadow instance was
+  deleted. Lexical retrieval remains the authoritative production path.
+
 ## [0.10.0] - 2026-07-16
 
 ### Added

@@ -1,6 +1,15 @@
 from __future__ import annotations
 
-from rock_kb.hybrid_shadow import prepare_shadow_documents, score_shadow_row, shadow_cost_estimate, shadow_hits, shadow_item_counts
+from datetime import datetime, timezone
+
+from rock_kb.hybrid_shadow import (
+    prepare_shadow_documents,
+    score_shadow_row,
+    shadow_cost_estimate,
+    shadow_hits,
+    shadow_item_counts,
+    shadow_reconciliation_plan,
+)
 
 
 def test_prepare_shadow_documents_only_includes_hybrid_primary(tmp_path):
@@ -125,6 +134,27 @@ def test_shadow_item_counts_supports_current_stats_shape():
         "completed": 10,
         "pending": 5,
     }
+
+
+def test_shadow_reconciliation_removes_obsolete_failed_and_stuck_items():
+    now = datetime(2026, 7, 17, 22, 0, tzinfo=timezone.utc)
+    plan = shadow_reconciliation_plan(
+        [
+            {"id": "obsolete", "key": "old.md", "status": "completed", "created_at": "2026-07-17 21:59:00"},
+            {"id": "failed", "key": "failed.md", "status": "error", "created_at": "2026-07-17 21:59:00"},
+            {"id": "stuck", "key": "stuck.md", "status": "running", "created_at": "2026-07-17 20:00:00"},
+            {"id": "recent", "key": "recent.md", "status": "running", "created_at": "2026-07-17 21:59:00"},
+            {"id": "ready", "key": "ready.md", "status": "completed", "created_at": "2026-07-17 20:00:00"},
+        ],
+        {"failed.md", "stuck.md", "recent.md", "ready.md"},
+        now=now,
+    )
+
+    assert [(row["item"]["id"], row["reason"]) for row in plan] == [
+        ("obsolete", "obsolete"),
+        ("failed", "retryable_status"),
+        ("stuck", "stuck_pending"),
+    ]
 
 
 def test_shadow_cost_estimate_is_explicit_and_small_for_fixture():

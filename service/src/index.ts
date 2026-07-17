@@ -1,5 +1,10 @@
 type JsonRecord = Record<string, unknown>;
 
+type TelemetryIdentity = {
+  clientClass: string;
+  cohort: string;
+};
+
 type SearchRow = {
   id: string;
   kind: string;
@@ -156,6 +161,7 @@ const ISSUE_DESCRIPTION_MAX_BYTES = 280;
 const ISSUE_REQUEST_MAX_BYTES = 4096;
 const ISSUE_FINGERPRINT_LIMIT_PER_MINUTE = 10;
 const ISSUE_GLOBAL_LIMIT_PER_MINUTE = 120;
+const DECLARED_TELEMETRY_COHORTS = new Set(["external-test", "maintainer"]);
 const TOPIC_HINTS: Array<[string, string[]]> = [
   ["check-in", ["checkin", "check-in", "check in", "kiosk", "label", "attendance"]],
   ["workflows", ["workflow", "actiontype", "trigger"]],
@@ -209,7 +215,7 @@ export default {
       if (url.pathname.startsWith("/concepts/") && url.pathname.endsWith(".md")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/concepts/".length, -".md".length));
         const response = await artifactText(env, `knowledge/concepts/${conceptId}/index.md`, "text/markdown; charset=utf-8");
-        ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, request));
         return response;
       }
       if (url.pathname === "/search") {
@@ -219,37 +225,37 @@ export default {
         const detail = url.searchParams.get("detail") === "full" ? "full" : "compact";
         const kind = url.searchParams.get("kind") || "";
         const rows = await search(env, query, limit, minTier, detail === "full", kind);
-        ctx.waitUntil(recordUsage(env, "search", query, rows, classifyClient(request)));
+        ctx.waitUntil(recordUsage(env, "search", query, rows, request));
         return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, kind: kind || null, detail, results: rows });
       }
       if (url.pathname.startsWith("/results/")) {
         const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
         const result = await getResult(env, resultId);
         if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, classifyClient(request)));
+          ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, request));
         }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname === "/model-map/models") {
         const result = await listModelMapModels(env);
-        ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), request));
         return json(result);
       }
       if (url.pathname === "/recipes") {
         const result = await listRecipes(env, url.searchParams.get("concept"));
-        ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), request));
         return json(result);
       }
       if (url.pathname === "/rock-issues/search") {
         const query = url.searchParams.get("q") || "";
         const limit = boundedInt(url.searchParams.get("limit"), 10, 1, 50);
         const results = await search(env, query, limit, "routing_context_only", false, "rock_issue");
-        ctx.waitUntil(recordUsage(env, "rock_issue_search", query, results, classifyClient(request)));
+        ctx.waitUntil(recordUsage(env, "rock_issue_search", query, results, request));
         return json({ schema: "rock-kb-rock-issue-search-v1", query, results });
       }
       if (url.pathname === "/rock-issues/assess" && request.method === "POST") {
         const result = await assessRockIssues(request, env);
-        ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), request));
         return json(result);
       }
       if (url.pathname === "/rock-issues") {
@@ -261,7 +267,7 @@ export default {
           limit: boundedInt(url.searchParams.get("limit"), 50, 1, 100),
           offset: boundedInt(url.searchParams.get("offset"), 0, 0, 100000),
         });
-        ctx.waitUntil(recordAccessUsage(env, "rock_issue_list", "rock_issue", Number(result.count || 0), classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "rock_issue_list", "rock_issue", Number(result.count || 0), request));
         return json(result);
       }
       if (url.pathname.startsWith("/rock-issues/") && url.pathname.endsWith("/plan")) {
@@ -269,14 +275,14 @@ export default {
         const issue = await getRockIssue(env, issueRef);
         if (issue.status !== "ok") return json(issue, 404);
         const plan = rockIssueInvestigationPlan(asRecord(issue.issue), url.searchParams.get("include_private_instance") === "true");
-        ctx.waitUntil(recordAccessUsage(env, "rock_issue_plan", "rock_issue", 1, classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "rock_issue_plan", "rock_issue", 1, request));
         return json(plan);
       }
       if (url.pathname.startsWith("/rock-issues/")) {
         const issueRef = decodeURIComponent(url.pathname.slice("/rock-issues/".length));
         const result = await getRockIssue(env, issueRef);
         if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", 1, classifyClient(request)));
+          ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", 1, request));
         }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
@@ -284,7 +290,7 @@ export default {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length, -"/verify".length));
         const result = await verifyRecipe(env, recipeId, url.searchParams.get("rock_version"));
         if (result.status !== "not_found") {
-          ctx.waitUntil(recordAccessUsage(env, "recipe_verify", "recipe", 1, classifyClient(request)));
+          ctx.waitUntil(recordAccessUsage(env, "recipe_verify", "recipe", 1, request));
         }
         return json(result, result.status === "not_found" ? 404 : result.status === "fail" ? 409 : 200);
       }
@@ -292,7 +298,7 @@ export default {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length));
         const result = await getRecipe(env, recipeId);
         if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, classifyClient(request)));
+          ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, request));
         }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
@@ -305,7 +311,7 @@ export default {
         if (!result) {
           return json({ schema: "rock-kb-model-map-model-result-v1", status: "not_found", model }, 404);
         }
-        ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, request));
         if ((url.searchParams.get("format") || "json") === "markdown") {
           return text(renderModelMapMarkdown(result), "text/markdown; charset=utf-8");
         }
@@ -315,7 +321,7 @@ export default {
         const claimId = decodeURIComponent(url.pathname.slice("/claims/id/".length));
         const result = await getClaim(env, claimId);
         if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, classifyClient(request)));
+          ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, request));
         }
         return json(result, result.status === "not_found" ? 404 : 200);
       }
@@ -324,7 +330,7 @@ export default {
         const minTier = url.searchParams.get("min_tier") || "routing_context_only";
         const tier = url.searchParams.get("tier");
         const claimRows = await claims(env, conceptId, minTier, tier);
-        ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", claimRows.length, classifyClient(request)));
+        ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", claimRows.length, request));
         return json({ schema: "rock-kb-claims-result-v1", concept_id: conceptId, claims: claimRows });
       }
       if (url.pathname === "/telemetry/summary") {
@@ -581,24 +587,24 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     const limit = boundedInt(args.limit, 10, 1, 50);
     const minTier = String(args.min_tier || "routing_context_only");
     const rows = await search(env, query, limit, minTier, args.full === true, String(args.kind || ""));
-    ctx.waitUntil(recordUsage(env, "search", query, rows, "mcp"));
+    ctx.waitUntil(recordUsage(env, "search", query, rows, request, "mcp"));
     return rows;
   }
   if (name === "kb_get_result") {
     const result = await getResult(env, String(args.id || args.result_id || ""));
     if (result.status === "ok") {
-      ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, "mcp"));
+      ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, request, "mcp"));
     }
     return result;
   }
   if (name === "kb_get_claim") {
     const result = await getClaim(env, String(args.claim_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, "mcp"));
+    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, request, "mcp"));
     return result;
   }
   if (name === "kb_list_models") {
     const result = await listModelMapModels(env);
-    ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), request, "mcp"));
     return result;
   }
   if (name === "kb_get_model") {
@@ -609,29 +615,29 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     if (!result) {
       return { schema: "rock-kb-model-map-model-result-v1", status: "not_found", model: String(args.model || args.model_slug || "") };
     }
-    ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, request, "mcp"));
     return result;
   }
   if (name === "kb_list_recipes") {
     const result = await listRecipes(env, stringOrNull(args.concept_id));
-    ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), request, "mcp"));
     return result;
   }
   if (name === "kb_get_recipe") {
     const result = await getRecipe(env, String(args.recipe_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, "mcp"));
+    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, request, "mcp"));
     return result;
   }
   if (name === "kb_verify_recipe") {
     const result = await verifyRecipe(env, String(args.recipe_id || ""), stringOrNull(args.rock_version));
-    if (result.status !== "not_found") ctx.waitUntil(recordAccessUsage(env, "recipe_verify", "recipe", 1, "mcp"));
+    if (result.status !== "not_found") ctx.waitUntil(recordAccessUsage(env, "recipe_verify", "recipe", 1, request, "mcp"));
     return result;
   }
   if (name === "kb_search_rock_issues") {
     const query = String(args.query || "");
     const limit = boundedInt(args.limit, 10, 1, 50);
     const results = await search(env, query, limit, "routing_context_only", false, "rock_issue");
-    ctx.waitUntil(recordUsage(env, "rock_issue_search", query, results, "mcp"));
+    ctx.waitUntil(recordUsage(env, "rock_issue_search", query, results, request, "mcp"));
     return { schema: "rock-kb-rock-issue-search-v1", query, results };
   }
   if (name === "kb_list_rock_issues") {
@@ -643,12 +649,12 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       limit: boundedInt(args.limit, 50, 1, 100),
       offset: boundedInt(args.offset, 0, 0, 100000),
     });
-    ctx.waitUntil(recordAccessUsage(env, "rock_issue_list", "rock_issue", Number(result.count || 0), "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "rock_issue_list", "rock_issue", Number(result.count || 0), request, "mcp"));
     return result;
   }
   if (name === "kb_get_rock_issue") {
     const result = await getRockIssue(env, String(args.issue || args.issue_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", 1, "mcp"));
+    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", 1, request, "mcp"));
     return result;
   }
   if (name === "kb_assess_rock_issues") {
@@ -658,13 +664,13 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       boundedInt(args.limit, 100, 1, 500),
       boundedInt(args.offset, 0, 0, 100000),
     );
-    ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), request, "mcp"));
     return result;
   }
   if (name === "kb_plan_rock_issue_investigation") {
     const result = await getRockIssue(env, String(args.issue || args.issue_id || ""));
     if (result.status !== "ok") return result;
-    ctx.waitUntil(recordAccessUsage(env, "rock_issue_plan", "rock_issue", 1, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "rock_issue_plan", "rock_issue", 1, request, "mcp"));
     return rockIssueInvestigationPlan(asRecord(result.issue), args.include_private_instance === true);
   }
   if (name === "kb_manifest") {
@@ -676,12 +682,12 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_get_concept") {
     const conceptId = String(args.concept_id || "");
     const result = await conceptPackage(env, conceptId);
-    ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, request, "mcp"));
     return result;
   }
   if (name === "kb_get_claims") {
     const result = await claims(env, String(args.concept_id || ""), String(args.min_tier || "routing_context_only"), stringOrNull(args.tier));
-    ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", result.length, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", result.length, request, "mcp"));
     return result;
   }
   if (name === "kb_review_dashboard") {
@@ -1974,19 +1980,35 @@ async function artifactJsonl(env: ServiceEnv, path: string): Promise<Response> {
   return json({ rows: await artifactJsonlValue(env, path) });
 }
 
-async function recordUsage(env: ServiceEnv, event: string, query: string, results: JsonRecord[], clientClass: string): Promise<void> {
+async function recordUsage(
+  env: ServiceEnv,
+  event: string,
+  query: string,
+  results: JsonRecord[],
+  request: Request,
+  forcedClientClass = "",
+): Promise<void> {
   const resultCount = results.length;
   const primaryResultKind = String(results[0]?.kind || "none");
   const kindCounts = countValues(results.map((row) => String(row.kind || "unknown")));
-  await recordUsageSummary(env, event, clientClass, queryTopicHint(query), resultCount, primaryResultKind, kindCounts);
+  const identity = telemetryIdentity(request, forcedClientClass);
+  await recordUsageSummary(env, event, identity, queryTopicHint(query), resultCount, primaryResultKind, kindCounts);
 }
 
-async function recordAccessUsage(env: ServiceEnv, event: string, resultKind: string, resultCount: number, clientClass: string): Promise<void> {
+async function recordAccessUsage(
+  env: ServiceEnv,
+  event: string,
+  resultKind: string,
+  resultCount: number,
+  request: Request,
+  forcedClientClass = "",
+): Promise<void> {
   const count = Math.max(0, Math.floor(resultCount));
+  const identity = telemetryIdentity(request, forcedClientClass);
   await recordUsageSummary(
     env,
     event,
-    clientClass,
+    identity,
     "unclassified",
     count,
     count > 0 ? resultKind : "none",
@@ -1997,7 +2019,7 @@ async function recordAccessUsage(env: ServiceEnv, event: string, resultKind: str
 async function recordUsageSummary(
   env: ServiceEnv,
   event: string,
-  clientClass: string,
+  identity: TelemetryIdentity,
   topicHint: string,
   resultCount: number,
   primaryResultKind: string,
@@ -2006,68 +2028,127 @@ async function recordUsageSummary(
   await ensureTelemetryTables(env);
   const day = new Date().toISOString().slice(0, 10);
   await env.KB_DB.prepare(
-    `INSERT INTO usage_events_v3 (day, event, client_class, topic_hint, result_count, primary_result_kind, count)
-     VALUES (?, ?, ?, ?, ?, ?, 1)
-     ON CONFLICT(day, event, client_class, topic_hint, result_count, primary_result_kind)
+    `INSERT INTO usage_events_v4 (day, event, client_class, cohort, topic_hint, result_count, primary_result_kind, count)
+     VALUES (?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, event, client_class, cohort, topic_hint, result_count, primary_result_kind)
      DO UPDATE SET count = count + 1`
-  ).bind(day, event, clientClass, topicHint, resultCount, primaryResultKind).run();
+  ).bind(day, event, identity.clientClass, identity.cohort, topicHint, resultCount, primaryResultKind).run();
   for (const [resultKind, count] of Object.entries(kindCounts)) {
     await env.KB_DB.prepare(
-      `INSERT INTO usage_result_kinds (day, event, client_class, result_kind, count)
-       VALUES (?, ?, ?, ?, ?)
-       ON CONFLICT(day, event, client_class, result_kind)
+      `INSERT INTO usage_result_kinds_v2 (day, event, client_class, cohort, result_kind, count)
+       VALUES (?, ?, ?, ?, ?, ?)
+       ON CONFLICT(day, event, client_class, cohort, result_kind)
        DO UPDATE SET count = count + excluded.count`
-    ).bind(day, event, clientClass, resultKind, Number(count)).run();
+    ).bind(day, event, identity.clientClass, identity.cohort, resultKind, Number(count)).run();
   }
 }
 
 async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
   await ensureTelemetryTables(env);
-  const [result, zeroResults, resultKinds, feedback] = await Promise.all([
+  const [current, legacy, currentZeroResults, legacyZeroResults, currentResultKinds, legacyResultKinds, currentFeedback, legacyFeedback] = await Promise.all([
     env.KB_DB.prepare(
-    `SELECT day, event, client_class, result_count, primary_result_kind, SUM(count) AS count
-     FROM usage_events_v3
-     GROUP BY day, event, client_class, result_count, primary_result_kind
-     ORDER BY day DESC, count DESC
-     LIMIT 100`
+    `SELECT day, event, client_class, cohort, result_count, primary_result_kind, SUM(count) AS count
+     FROM usage_events_v4
+     GROUP BY day, event, client_class, cohort, result_count, primary_result_kind`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
-    `SELECT day, topic_hint, SUM(count) AS count
+    `SELECT day, event, client_class, 'unattributed' AS cohort, result_count, primary_result_kind, SUM(count) AS count
+     FROM usage_events_v3
+     GROUP BY day, event, client_class, result_count, primary_result_kind`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, cohort, topic_hint, SUM(count) AS count
+     FROM usage_events_v4
+     WHERE result_count = 0 AND client_class <> 'eval' AND topic_hint <> 'unclassified'
+     GROUP BY day, cohort, topic_hint`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, 'unattributed' AS cohort, topic_hint, SUM(count) AS count
      FROM usage_events_v3
      WHERE result_count = 0 AND client_class <> 'eval' AND topic_hint <> 'unclassified'
-     GROUP BY day, topic_hint
-     ORDER BY day DESC, count DESC
-     LIMIT 50`
+     GROUP BY day, topic_hint`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
-    `SELECT day, event, client_class, result_kind, SUM(count) AS count
+    `SELECT day, event, client_class, cohort, result_kind, SUM(count) AS count
+     FROM usage_result_kinds_v2
+     GROUP BY day, event, client_class, cohort, result_kind`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, event, client_class, 'unattributed' AS cohort, result_kind, SUM(count) AS count
      FROM usage_result_kinds
-     GROUP BY day, event, client_class, result_kind
-     ORDER BY day DESC, count DESC
-     LIMIT 100`
+     GROUP BY day, event, client_class, result_kind`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
-    `SELECT day, client_class, result_id, result_kind, projection_version, rating, reason, SUM(count) AS count
+    `SELECT day, client_class, cohort, result_id, result_kind, projection_version, rating, reason, SUM(count) AS count
+     FROM feedback_events_v3
+     GROUP BY day, client_class, cohort, result_id, result_kind, projection_version, rating, reason`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, client_class, 'unattributed' AS cohort, result_id, result_kind, projection_version, rating, reason, SUM(count) AS count
      FROM feedback_events_v2
-     GROUP BY day, client_class, result_id, result_kind, projection_version, rating, reason
-     ORDER BY day DESC, count DESC
-     LIMIT 100`
+     GROUP BY day, client_class, result_id, result_kind, projection_version, rating, reason`
     ).all<JsonRecord>(),
   ]);
-  const rows = result.results || [];
+  const mergedUsageRows = mergeCountRows(
+    [...(current.results || []), ...(legacy.results || [])],
+    ["day", "event", "client_class", "cohort", "result_count", "primary_result_kind"],
+    Number.MAX_SAFE_INTEGER,
+  );
+  const rows = mergedUsageRows.slice(0, 100);
+  const zeroResults = mergeCountRows(
+    [...(currentZeroResults.results || []), ...(legacyZeroResults.results || [])],
+    ["day", "cohort", "topic_hint"],
+    50,
+  );
+  const resultKinds = mergeCountRows(
+    [...(currentResultKinds.results || []), ...(legacyResultKinds.results || [])],
+    ["day", "event", "client_class", "cohort", "result_kind"],
+    100,
+  );
+  const feedback = mergeCountRows(
+    [...(currentFeedback.results || []), ...(legacyFeedback.results || [])],
+    ["day", "client_class", "cohort", "result_id", "result_kind", "projection_version", "rating", "reason"],
+    100,
+  );
   return {
-    schema: "rock-kb-telemetry-summary-v3",
+    schema: "rock-kb-telemetry-summary-v4",
     rows,
-    adoption_rows: rows.filter((row) => row.client_class !== "eval"),
-    evaluation_rows: rows.filter((row) => row.client_class === "eval"),
-    zero_result_topics: zeroResults.results || [],
-    result_kinds: resultKinds.results || [],
-    feedback: feedback.results || [],
-    privacy: "No raw or hashed query text and no free-text feedback are retained in current telemetry. Adoption uses aggregate client classes, topic categories, result kinds, counts, and fixed feedback reasons.",
+    adoption_rows: mergedUsageRows.filter((row) => row.client_class !== "eval").slice(0, 100),
+    evaluation_rows: mergedUsageRows.filter((row) => row.client_class === "eval").slice(0, 100),
+    external_test_rows: mergedUsageRows.filter((row) => row.client_class !== "eval" && row.cohort === "external-test").slice(0, 100),
+    maintainer_rows: mergedUsageRows.filter((row) => row.client_class !== "eval" && row.cohort === "maintainer").slice(0, 100),
+    zero_result_topics: zeroResults,
+    result_kinds: resultKinds,
+    feedback,
+    privacy: "No raw or hashed query text, user identity, organization identity, IP address, or free-text feedback is retained. Cohorts are optional self-declared aggregate labels restricted to external-test, maintainer, evaluation, or unattributed; they are not authentication.",
   };
 }
 
 async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS usage_events_v4 (
+      day TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      topic_hint TEXT NOT NULL,
+      result_count INTEGER NOT NULL,
+      primary_result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, event, client_class, cohort, topic_hint, result_count, primary_result_kind)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS usage_result_kinds_v2 (
+      day TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, event, client_class, cohort, result_kind)
+    )`
+  ).run();
   await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS usage_events_v3 (
       day TEXT NOT NULL,
@@ -2100,6 +2181,20 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
       result_count INTEGER NOT NULL,
       count INTEGER NOT NULL,
       PRIMARY KEY(day, event, client_class, query_hash, topic_hint, result_count)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS feedback_events_v3 (
+      day TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      result_id TEXT NOT NULL,
+      result_kind TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      rating INTEGER NOT NULL,
+      reason TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, client_class, cohort, result_id, projection_version, rating, reason)
     )`
   ).run();
   await env.KB_DB.prepare(
@@ -2142,14 +2237,14 @@ async function submitFeedback(request: Request, env: ServiceEnv, forcedClientCla
   }
   await ensureTelemetryTables(env);
   const day = new Date().toISOString().slice(0, 10);
-  const clientClass = forcedClientClass || classifyClient(request);
+  const identity = telemetryIdentity(request, forcedClientClass);
   const projectionVersion = await currentVersion(env);
   await env.KB_DB.prepare(
-    `INSERT INTO feedback_events_v2 (day, client_class, result_id, result_kind, projection_version, rating, reason, count)
-     VALUES (?, ?, ?, ?, ?, ?, ?, 1)
-     ON CONFLICT(day, client_class, result_id, projection_version, rating, reason)
+    `INSERT INTO feedback_events_v3 (day, client_class, cohort, result_id, result_kind, projection_version, rating, reason, count)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, client_class, cohort, result_id, projection_version, rating, reason)
      DO UPDATE SET count = count + 1`
-  ).bind(day, clientClass, result.id, result.kind, projectionVersion, rating, reason).run();
+  ).bind(day, identity.clientClass, identity.cohort, result.id, result.kind, projectionVersion, rating, reason).run();
   return { schema: "rock-kb-feedback-result-v2", status: "recorded", result_id: result.id, projection_version: projectionVersion, rating, reason };
 }
 
@@ -2409,6 +2504,35 @@ function classifyClient(request: Request): string {
   if (userAgent.includes("rock-kb-cli") || userAgent.includes("rock-kb-client")) return "cli";
   if (userAgent.includes("mozilla/")) return "browser";
   return "unknown";
+}
+
+function telemetryIdentity(request: Request, forcedClientClass = ""): TelemetryIdentity {
+  const detectedClientClass = classifyClient(request);
+  const clientClass = detectedClientClass === "eval" ? "eval" : forcedClientClass || detectedClientClass;
+  if (clientClass === "eval") {
+    return { clientClass, cohort: "evaluation" };
+  }
+  const declared = String(request.headers.get("x-rock-kb-cohort") || "").trim().toLowerCase();
+  return {
+    clientClass,
+    cohort: DECLARED_TELEMETRY_COHORTS.has(declared) ? declared : "unattributed",
+  };
+}
+
+function mergeCountRows(rows: JsonRecord[], fields: string[], limit: number): JsonRecord[] {
+  const merged = new Map<string, JsonRecord>();
+  for (const row of rows) {
+    const key = JSON.stringify(fields.map((field) => row[field] ?? null));
+    const existing = merged.get(key);
+    if (existing) {
+      existing.count = Number(existing.count || 0) + Number(row.count || 0);
+    } else {
+      merged.set(key, { ...row, count: Number(row.count || 0) });
+    }
+  }
+  return [...merged.values()]
+    .sort((left, right) => String(right.day || "").localeCompare(String(left.day || "")) || Number(right.count || 0) - Number(left.count || 0))
+    .slice(0, limit);
 }
 
 function classifyClientVersion(request: Request): string {
@@ -3141,7 +3265,7 @@ function cors(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
   headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
-  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client,x-rock-kb-client-version");
+  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client,x-rock-kb-client-version,x-rock-kb-cohort");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
 

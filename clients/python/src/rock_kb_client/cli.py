@@ -15,6 +15,8 @@ from .okf import conform_okf, download_okf, inspect_okf, verify_okf
 from .cohort_test import run_cohort_test
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
+COHORT_VALUES = ("external-test", "maintainer")
+REQUEST_COHORT = ""
 
 
 def package_version() -> str:
@@ -28,8 +30,14 @@ USER_AGENT = f"rock-kb-client/{package_version()} (+https://github.com/ONE-ALL-C
 
 
 def main(argv: list[str] | None = None) -> int:
+    global REQUEST_COHORT
     parser = argparse.ArgumentParser(prog="rock-kb")
     parser.add_argument("--url", default=os.environ.get("ROCK_KB_URL", DEFAULT_BASE_URL), help="Rock KB service base URL")
+    parser.add_argument(
+        "--cohort",
+        default=os.environ.get("ROCK_KB_COHORT", ""),
+        help="Optional aggregate telemetry cohort: external-test or maintainer. This is not authentication.",
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     search = subparsers.add_parser("search")
@@ -168,6 +176,9 @@ def main(argv: list[str] | None = None) -> int:
     install_agent.add_argument("--skip-verify", action="store_true", help="Skip the hosted health check.")
 
     args = parser.parse_args(argv)
+    if args.cohort and args.cohort not in COHORT_VALUES:
+        parser.error(f"--cohort must be one of: {', '.join(COHORT_VALUES)}")
+    REQUEST_COHORT = str(args.cohort or "")
     base_url = str(args.url).rstrip("/")
 
     if args.command == "search":
@@ -299,13 +310,16 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         return print_json(post_json(f"{base_url}/submit", {"org_id": org_id, "bundle": rows, "dry_run": bool(args.dry_run)}, token=token))
     if args.command == "mcp-config":
+        server = {
+            "type": "http",
+            "url": f"{base_url}/mcp",
+        }
+        if REQUEST_COHORT:
+            server["headers"] = {"x-rock-kb-cohort": REQUEST_COHORT}
         return print_json(
             {
                 "mcpServers": {
-                    "rock-kb": {
-                        "type": "http",
-                        "url": f"{base_url}/mcp"
-                    }
+                    "rock-kb": server
                 }
             }
         )
@@ -398,7 +412,7 @@ def get_json(url: str):
 
 
 def get_text(url: str) -> str:
-    req = request.Request(url, headers={"user-agent": USER_AGENT, "x-rock-kb-client": "cli", "x-rock-kb-client-version": package_version()})
+    req = request.Request(url, headers=client_headers())
     with request.urlopen(req) as response:
         return response.read().decode("utf-8")
 
@@ -409,13 +423,7 @@ def post_json(url: str, payload: dict, token: str = ""):
         url,
         data=body,
         method="POST",
-        headers={
-            "content-type": "application/json",
-            "user-agent": USER_AGENT,
-            "x-rock-kb-client": "cli",
-            "x-rock-kb-client-version": package_version(),
-            "accept": "application/json",
-        },
+        headers={**client_headers(), "content-type": "application/json", "accept": "application/json"},
     )
     if token:
         req.add_header("authorization", f"Bearer {token}")
@@ -434,6 +442,17 @@ def quote(value: str) -> str:
     from urllib.parse import quote as url_quote
 
     return url_quote(value, safe="")
+
+
+def client_headers() -> dict[str, str]:
+    headers = {
+        "user-agent": USER_AGENT,
+        "x-rock-kb-client": "cli",
+        "x-rock-kb-client-version": package_version(),
+    }
+    if REQUEST_COHORT:
+        headers["x-rock-kb-cohort"] = REQUEST_COHORT
+    return headers
 
 
 def print_json(value) -> int:
