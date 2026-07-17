@@ -634,6 +634,8 @@ Release notes also mention a fix where Contribution Statements included the name
 
 ### Statement Eligibility
 
+Start with [Contribution Statements](https://community.rockrms.com/rocku/finance/contribution-statements) and the current [Statement Generator transaction settings](https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs); eligibility is the intersection of the selected people, accounts, transaction and currency types, dates, statuses, and household-giving rules.
+
 A gift may be excluded from statements because:
 
 - The transaction type is not included.
@@ -1061,6 +1063,8 @@ Agents should always verify current installed version. The release notes page in
 
 ### Playbook: Add A New Giving Account
 
+Use [Rock Solid Finances](https://community.rockrms.com/documentation/bookcontent/15) for account semantics and [Online Giving](https://community.rockrms.com/rocku/finance/online-giving) for public availability; confirm statement, pledge, gateway, batch, and accounting consequences before creating the account.
+
 1. Confirm the business purpose with finance.
 2. Decide whether this needs a true account or a transaction attribute.
 3. Define internal name, public name, tax deductibility, parent/category, active status, campus constraints, and accounting code.
@@ -1103,6 +1107,8 @@ Agents should always verify current installed version. The release notes page in
 11. Verify audit and reconciliation on desktop finance pages.
 
 ### Playbook: Build A Giving Analytics Report
+
+Use [Giving Analytics](https://community.rockrms.com/rocku/finance/giving-analytics) for the operational reporting surface and [BI Financial Transaction Report](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) for the BI path; reconcile any derived result to live transaction-detail and batch totals.
 
 1. Define the question: donor count, gift count, account totals, first-time givers, lapsed givers, recurring donors, pledge progress, campus giving, or giving units.
 2. Choose grain: transaction, transaction detail, person, family, giving unit, month, account.

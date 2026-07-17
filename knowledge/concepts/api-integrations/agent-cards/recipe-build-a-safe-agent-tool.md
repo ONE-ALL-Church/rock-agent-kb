@@ -40,9 +40,9 @@ Follow the guide section for Recipe: Build A Safe Agent Tool.
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
 - https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://community.rockrms.com/lava/commands/web-request-commands
+- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs

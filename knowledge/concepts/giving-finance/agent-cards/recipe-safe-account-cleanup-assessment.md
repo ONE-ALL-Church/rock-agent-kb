@@ -36,13 +36,12 @@ Follow the guide section for Recipe: Safe Account Cleanup Assessment.
 
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
-- https://community.rockrms.com/documentation/bookcontent/15
 - https://community.rockrms.com/recipes/254
-- https://www.triumph.tech/resources/giving-unit-analytics
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list
+- https://community.rockrms.com/documentation/bookcontent/15
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs
+- https://community.rockrms.com/rocku/finance
 - https://community.rockrms.com/rocku/finance/accounts
 - https://community.rockrms.com/recipes/122
+- https://community.rockrms.com/recipes/90

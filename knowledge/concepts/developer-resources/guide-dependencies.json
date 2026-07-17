@@ -927,12 +927,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "a9d047fa2cc1f1ec2b193b8f93a9602994a8b2f5ec168017fdf335a649124de0",
   "approved_media_path": "knowledge/concepts/developer-resources/approved-media.md",
-  "built_at": "2026-07-17T05:35:56+00:00",
+  "built_at": "2026-07-17T15:45:04+00:00",
   "concept_id": "developer-resources",
-  "guide_hash": "764f7dc079730284445b5a58ba85c0a30488c88929a6a43b2cf6ede5cfe7a95d",
-  "guide_line_count": 1595,
+  "guide_hash": "cc0dd311c2f781360a38d03cfbf46d587f7b44784dbf8953f6d2d2ed14f0b412",
+  "guide_line_count": 1607,
   "guide_path": "knowledge/concepts/developer-resources/guide.md",
-  "guide_word_count": 16343,
+  "guide_word_count": 16581,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1387,28 +1387,27 @@
       "needs_live_verification": false,
       "section_id": "7-common-rock-developer-resources-workflows",
       "source_keys": [
-        "bce31f25cb8a199e",
-        "776256c424368312",
         "ee6f9bf49caca37c",
+        "bce31f25cb8a199e",
         "d275b5b94a9da833"
       ],
       "start_line": 272
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 290,
+      "confidence": "normal",
+      "end_line": 292,
       "heading": "Choose the correct developer path",
       "needs_live_verification": false,
       "section_id": "7-common-rock-developer-resources-workflows-choose-the-correct-developer-path",
       "source_keys": [
-        "bce31f25cb8a199e",
-        "776256c424368312"
+        "ee6f9bf49caca37c",
+        "bce31f25cb8a199e"
       ],
       "start_line": 274
     },
     {
       "confidence": "normal",
-      "end_line": 299,
+      "end_line": 301,
       "heading": "Build a basic custom block",
       "needs_live_verification": false,
       "section_id": "7-common-rock-developer-resources-workflows-build-a-basic-custom-block",
@@ -1418,11 +1417,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 291
+      "start_line": 293
     },
     {
       "confidence": "normal",
-      "end_line": 308,
+      "end_line": 310,
       "heading": "Build an Obsidian block",
       "needs_live_verification": false,
       "section_id": "7-common-rock-developer-resources-workflows-build-an-obsidian-block",
@@ -1434,11 +1433,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 300
+      "start_line": 302
     },
     {
       "confidence": "normal",
-      "end_line": 317,
+      "end_line": 319,
       "heading": "Build a Helix application",
       "needs_live_verification": false,
       "section_id": "7-common-rock-developer-resources-workflows-build-a-helix-application",
@@ -1451,11 +1450,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 309
+      "start_line": 311
     },
     {
       "confidence": "normal",
-      "end_line": 326,
+      "end_line": 328,
       "heading": "Package and deploy a plugin or theme",
       "needs_live_verification": true,
       "section_id": "7-common-rock-developer-resources-workflows-package-and-deploy-a-plugin-or-theme",
@@ -1463,11 +1462,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 318
+      "start_line": 320
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 341,
+      "confidence": "normal",
+      "end_line": 345,
       "heading": "Diagnose a broken developer feature",
       "needs_live_verification": true,
       "section_id": "7-common-rock-developer-resources-workflows-diagnose-a-broken-developer-feature",
@@ -1475,11 +1474,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 327
+      "start_line": 329
     },
     {
       "confidence": "normal",
-      "end_line": 345,
+      "end_line": 349,
       "heading": "8. Developer Codex Deep Dive",
       "needs_live_verification": true,
       "section_id": "8-developer-codex-deep-dive",
@@ -1487,44 +1486,44 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 342
+      "start_line": 346
     },
     {
       "confidence": "normal",
-      "end_line": 357,
+      "end_line": 361,
       "heading": "Naming and database conventions",
       "needs_live_verification": false,
       "section_id": "8-developer-codex-deep-dive-naming-and-database-conventions",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 346
+      "start_line": 350
     },
     {
       "confidence": "normal",
-      "end_line": 369,
+      "end_line": 373,
       "heading": "Service layer boundaries",
       "needs_live_verification": false,
       "section_id": "8-developer-codex-deep-dive-service-layer-boundaries",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 358
+      "start_line": 362
     },
     {
       "confidence": "normal",
-      "end_line": 380,
+      "end_line": 384,
       "heading": "Code generator and model changes",
       "needs_live_verification": true,
       "section_id": "8-developer-codex-deep-dive-code-generator-and-model-changes",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 370
+      "start_line": 374
     },
     {
       "confidence": "normal",
-      "end_line": 394,
+      "end_line": 398,
       "heading": "Migrations",
       "needs_live_verification": false,
       "section_id": "8-developer-codex-deep-dive-migrations",
@@ -1534,11 +1533,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 381
+      "start_line": 385
     },
     {
       "confidence": "normal",
-      "end_line": 410,
+      "end_line": 414,
       "heading": "Obsidian Chop, Swap, Sneak",
       "needs_live_verification": true,
       "section_id": "8-developer-codex-deep-dive-obsidian-chop-swap-sneak",
@@ -1547,11 +1546,11 @@
         "ee6f9bf49caca37c",
         "d275b5b94a9da833"
       ],
-      "start_line": 395
+      "start_line": 399
     },
     {
       "confidence": "normal",
-      "end_line": 425,
+      "end_line": 429,
       "heading": "Testing and peer review",
       "needs_live_verification": true,
       "section_id": "8-developer-codex-deep-dive-testing-and-peer-review",
@@ -1560,220 +1559,221 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 411
+      "start_line": 415
     },
     {
       "confidence": "normal",
-      "end_line": 431,
+      "end_line": 435,
       "heading": "Compatibility",
       "needs_live_verification": false,
       "section_id": "8-developer-codex-deep-dive-compatibility",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 426
+      "start_line": 430
     },
     {
       "confidence": "normal",
-      "end_line": 435,
+      "end_line": 439,
       "heading": "9. Developer 101 Launchpad Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-developer-101-launchpad-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 432
+      "start_line": 436
     },
     {
       "confidence": "structural",
-      "end_line": 450,
+      "end_line": 454,
       "heading": "What 101 is for",
       "needs_live_verification": false,
       "section_id": "9-developer-101-launchpad-deep-dive-what-101-is-for",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 436
+      "start_line": 440
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 465,
+      "confidence": "normal",
+      "end_line": 471,
       "heading": "Operational pattern",
       "needs_live_verification": true,
       "section_id": "9-developer-101-launchpad-deep-dive-operational-pattern",
       "source_keys": [
+        "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 451
+      "start_line": 455
     },
     {
       "confidence": "structural",
-      "end_line": 469,
+      "end_line": 475,
       "heading": "PersonAlias vs Person",
       "needs_live_verification": true,
       "section_id": "9-developer-101-launchpad-deep-dive-personalias-vs-person",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 466
+      "start_line": 472
     },
     {
       "confidence": "normal",
-      "end_line": 481,
+      "end_line": 487,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "9-developer-101-launchpad-deep-dive-security",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 470
+      "start_line": 476
     },
     {
       "confidence": "normal",
-      "end_line": 485,
+      "end_line": 491,
       "heading": "10. Developer 202 Ignition Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-developer-202-ignition-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 482
+      "start_line": 488
     },
     {
       "confidence": "normal",
-      "end_line": 500,
+      "end_line": 506,
       "heading": "Saving custom data",
       "needs_live_verification": false,
       "section_id": "10-developer-202-ignition-deep-dive-saving-custom-data",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 486
+      "start_line": 492
     },
     {
       "confidence": "normal",
-      "end_line": 517,
+      "end_line": 523,
       "heading": "Migrations in 202",
       "needs_live_verification": true,
       "section_id": "10-developer-202-ignition-deep-dive-migrations-in-202",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 501
+      "start_line": 507
     },
     {
       "confidence": "normal",
-      "end_line": 521,
+      "end_line": 527,
       "heading": "Data migration helper methods",
       "needs_live_verification": true,
       "section_id": "10-developer-202-ignition-deep-dive-data-migration-helper-methods",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 518
+      "start_line": 524
     },
     {
       "confidence": "structural",
-      "end_line": 525,
+      "end_line": 531,
       "heading": "Agent cautions",
       "needs_live_verification": true,
       "section_id": "10-developer-202-ignition-deep-dive-agent-cautions",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 522
+      "start_line": 528
     },
     {
       "confidence": "normal",
-      "end_line": 529,
+      "end_line": 535,
       "heading": "11. Developer 303 Blast-Off Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-developer-303-blast-off-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 526
+      "start_line": 532
     },
     {
       "confidence": "normal",
-      "end_line": 544,
+      "end_line": 550,
       "heading": "Jobs",
       "needs_live_verification": false,
       "section_id": "11-developer-303-blast-off-deep-dive-jobs",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 530
+      "start_line": 536
     },
     {
       "confidence": "structural",
-      "end_line": 556,
+      "end_line": 562,
       "heading": "Workflow actions",
       "needs_live_verification": false,
       "section_id": "11-developer-303-blast-off-deep-dive-workflow-actions",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 545
+      "start_line": 551
     },
     {
       "confidence": "normal",
-      "end_line": 560,
+      "end_line": 566,
       "heading": "Data view filters and Dynamic LINQ",
       "needs_live_verification": true,
       "section_id": "11-developer-303-blast-off-deep-dive-data-view-filters-and-dynamic-linq",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 557
+      "start_line": 563
     },
     {
       "confidence": "citation-only",
-      "end_line": 572,
+      "end_line": 578,
       "heading": "REST API",
       "needs_live_verification": true,
       "section_id": "11-developer-303-blast-off-deep-dive-rest-api",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 561
+      "start_line": 567
     },
     {
       "confidence": "normal",
-      "end_line": 585,
+      "end_line": 591,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-developer-303-blast-off-deep-dive-security",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 573
+      "start_line": 579
     },
     {
       "confidence": "normal",
-      "end_line": 589,
+      "end_line": 595,
       "heading": "12. Obsidian Deep Dive",
       "needs_live_verification": false,
       "section_id": "12-obsidian-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 586
+      "start_line": 592
     },
     {
       "confidence": "normal",
-      "end_line": 599,
+      "end_line": 605,
       "heading": "Anatomy of an Obsidian block",
       "needs_live_verification": false,
       "section_id": "12-obsidian-deep-dive-anatomy-of-an-obsidian-block",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 590
+      "start_line": 596
     },
     {
       "confidence": "normal",
-      "end_line": 614,
+      "end_line": 620,
       "heading": "Component structure",
       "needs_live_verification": false,
       "section_id": "12-obsidian-deep-dive-component-structure",
@@ -1781,26 +1781,14 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 600
-    },
-    {
-      "confidence": "normal",
-      "end_line": 620,
-      "heading": "Core development environment",
-      "needs_live_verification": false,
-      "section_id": "12-obsidian-deep-dive-core-development-environment",
-      "source_keys": [
-        "ee6f9bf49caca37c",
-        "ee6f9bf49caca37c"
-      ],
-      "start_line": 615
+      "start_line": 606
     },
     {
       "confidence": "normal",
       "end_line": 626,
-      "heading": "Plugin development",
+      "heading": "Core development environment",
       "needs_live_verification": false,
-      "section_id": "12-obsidian-deep-dive-plugin-development",
+      "section_id": "12-obsidian-deep-dive-core-development-environment",
       "source_keys": [
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
@@ -1810,22 +1798,22 @@
     {
       "confidence": "normal",
       "end_line": 632,
-      "heading": "Detail blocks",
-      "needs_live_verification": true,
-      "section_id": "12-obsidian-deep-dive-detail-blocks",
+      "heading": "Plugin development",
+      "needs_live_verification": false,
+      "section_id": "12-obsidian-deep-dive-plugin-development",
       "source_keys": [
+        "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
       "start_line": 627
     },
     {
       "confidence": "normal",
-      "end_line": 646,
-      "heading": "Grids",
+      "end_line": 638,
+      "heading": "Detail blocks",
       "needs_live_verification": true,
-      "section_id": "12-obsidian-deep-dive-grids",
+      "section_id": "12-obsidian-deep-dive-detail-blocks",
       "source_keys": [
-        "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
       "start_line": 633
@@ -1833,6 +1821,18 @@
     {
       "confidence": "normal",
       "end_line": 652,
+      "heading": "Grids",
+      "needs_live_verification": true,
+      "section_id": "12-obsidian-deep-dive-grids",
+      "source_keys": [
+        "ee6f9bf49caca37c",
+        "ee6f9bf49caca37c"
+      ],
+      "start_line": 639
+    },
+    {
+      "confidence": "normal",
+      "end_line": 658,
       "heading": "Field types and UI controls",
       "needs_live_verification": true,
       "section_id": "12-obsidian-deep-dive-field-types-and-ui-controls",
@@ -1840,33 +1840,33 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 647
+      "start_line": 653
     },
     {
       "confidence": "normal",
-      "end_line": 656,
+      "end_line": 662,
       "heading": "Lava with Obsidian",
       "needs_live_verification": false,
       "section_id": "12-obsidian-deep-dive-lava-with-obsidian",
       "source_keys": [
         "16b69950a994d9e5"
       ],
-      "start_line": 653
+      "start_line": 659
     },
     {
       "confidence": "normal",
-      "end_line": 660,
+      "end_line": 666,
       "heading": "13. Helix Deep Dive",
       "needs_live_verification": false,
       "section_id": "13-helix-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 657
+      "start_line": 663
     },
     {
       "confidence": "normal",
-      "end_line": 666,
+      "end_line": 672,
       "heading": "Plugin vs core status",
       "needs_live_verification": true,
       "section_id": "13-helix-deep-dive-plugin-vs-core-status",
@@ -1875,11 +1875,11 @@
         "ee6f9bf49caca37c",
         "d275b5b94a9da833"
       ],
-      "start_line": 661
+      "start_line": 667
     },
     {
       "confidence": "normal",
-      "end_line": 680,
+      "end_line": 686,
       "heading": "Lava Applications",
       "needs_live_verification": true,
       "section_id": "13-helix-deep-dive-lava-applications",
@@ -1887,11 +1887,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 667
+      "start_line": 673
     },
     {
       "confidence": "normal",
-      "end_line": 696,
+      "end_line": 702,
       "heading": "Lava Endpoints",
       "needs_live_verification": true,
       "section_id": "13-helix-deep-dive-lava-endpoints",
@@ -1900,11 +1900,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 681
+      "start_line": 687
     },
     {
       "confidence": "normal",
-      "end_line": 709,
+      "end_line": 715,
       "heading": "HTMX and partial updates",
       "needs_live_verification": false,
       "section_id": "13-helix-deep-dive-htmx-and-partial-updates",
@@ -1912,22 +1912,22 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 697
+      "start_line": 703
     },
     {
       "confidence": "normal",
-      "end_line": 713,
+      "end_line": 719,
       "heading": "Loading indicators",
       "needs_live_verification": false,
       "section_id": "13-helix-deep-dive-loading-indicators",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 710
+      "start_line": 716
     },
     {
       "confidence": "normal",
-      "end_line": 717,
+      "end_line": 723,
       "heading": "Limitations",
       "needs_live_verification": false,
       "section_id": "13-helix-deep-dive-limitations",
@@ -1935,22 +1935,22 @@
         "ee6f9bf49caca37c",
         "16b69950a994d9e5"
       ],
-      "start_line": 714
+      "start_line": 720
     },
     {
       "confidence": "normal",
-      "end_line": 721,
+      "end_line": 727,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "13-helix-deep-dive-security",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 718
+      "start_line": 724
     },
     {
       "confidence": "normal",
-      "end_line": 735,
+      "end_line": 741,
       "heading": "14. AI Agents Deep Dive",
       "needs_live_verification": false,
       "section_id": "14-ai-agents-deep-dive",
@@ -1958,11 +1958,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 722
+      "start_line": 728
     },
     {
       "confidence": "structural",
-      "end_line": 749,
+      "end_line": 755,
       "heading": "Mental model for Rock agents",
       "needs_live_verification": false,
       "section_id": "14-ai-agents-deep-dive-mental-model-for-rock-agents",
@@ -1970,11 +1970,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 736
+      "start_line": 742
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 757,
+      "confidence": "normal",
+      "end_line": 765,
       "heading": "Lava tools vs native tools",
       "needs_live_verification": false,
       "section_id": "14-ai-agents-deep-dive-lava-tools-vs-native-tools",
@@ -1982,11 +1982,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 750
+      "start_line": 756
     },
     {
       "confidence": "structural",
-      "end_line": 761,
+      "end_line": 769,
       "heading": "Agent instructions and context anchors",
       "needs_live_verification": false,
       "section_id": "14-ai-agents-deep-dive-agent-instructions-and-context-anchors",
@@ -1994,11 +1994,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 758
+      "start_line": 766
     },
     {
       "confidence": "structural",
-      "end_line": 778,
+      "end_line": 786,
       "heading": "Tool design checklist",
       "needs_live_verification": false,
       "section_id": "14-ai-agents-deep-dive-tool-design-checklist",
@@ -2006,11 +2006,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 762
+      "start_line": 770
     },
     {
       "confidence": "structural",
-      "end_line": 782,
+      "end_line": 790,
       "heading": "Live verification",
       "needs_live_verification": true,
       "section_id": "14-ai-agents-deep-dive-live-verification",
@@ -2018,44 +2018,44 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 779
+      "start_line": 787
     },
     {
       "confidence": "normal",
-      "end_line": 786,
+      "end_line": 794,
       "heading": "15. Mobile Docs Deep Dive",
       "needs_live_verification": false,
       "section_id": "15-mobile-docs-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 783
+      "start_line": 791
     },
     {
       "confidence": "structural",
-      "end_line": 790,
+      "end_line": 798,
       "heading": "Mobile is not web",
       "needs_live_verification": false,
       "section_id": "15-mobile-docs-deep-dive-mobile-is-not-web",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 787
+      "start_line": 795
     },
     {
       "confidence": "normal",
-      "end_line": 803,
+      "end_line": 811,
       "heading": "App Factory and developer accounts",
       "needs_live_verification": false,
       "section_id": "15-mobile-docs-deep-dive-app-factory-and-developer-accounts",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 791
+      "start_line": 799
     },
     {
       "confidence": "normal",
-      "end_line": 809,
+      "end_line": 817,
       "heading": "Mobile block categories",
       "needs_live_verification": true,
       "section_id": "15-mobile-docs-deep-dive-mobile-block-categories",
@@ -2073,11 +2073,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 804
+      "start_line": 812
     },
     {
       "confidence": "normal",
-      "end_line": 813,
+      "end_line": 821,
       "heading": "Controls and styling",
       "needs_live_verification": true,
       "section_id": "15-mobile-docs-deep-dive-controls-and-styling",
@@ -2088,22 +2088,22 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 810
+      "start_line": 818
     },
     {
       "confidence": "structural",
-      "end_line": 817,
+      "end_line": 825,
       "heading": "16. TV App Docs Deep Dive",
       "needs_live_verification": false,
       "section_id": "16-tv-app-docs-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 814
+      "start_line": 822
     },
     {
       "confidence": "normal",
-      "end_line": 838,
+      "end_line": 846,
       "heading": "Apple TV",
       "needs_live_verification": true,
       "section_id": "16-tv-app-docs-deep-dive-apple-tv",
@@ -2120,11 +2120,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 818
+      "start_line": 826
     },
     {
       "confidence": "normal",
-      "end_line": 863,
+      "end_line": 871,
       "heading": "Roku",
       "needs_live_verification": false,
       "section_id": "16-tv-app-docs-deep-dive-roku",
@@ -2139,11 +2139,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 839
+      "start_line": 847
     },
     {
       "confidence": "normal",
-      "end_line": 884,
+      "end_line": 892,
       "heading": "17. Packaging Plugins And Themes Deep Dive",
       "needs_live_verification": true,
       "section_id": "17-packaging-plugins-and-themes-deep-dive",
@@ -2153,11 +2153,11 @@
         "bce31f25cb8a199e",
         "776256c424368312"
       ],
-      "start_line": 864
+      "start_line": 872
     },
     {
       "confidence": "normal",
-      "end_line": 888,
+      "end_line": 896,
       "heading": "18. Quickstart Tutorials Deep Dive",
       "needs_live_verification": false,
       "section_id": "18-quickstart-tutorials-deep-dive",
@@ -2166,11 +2166,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 885
+      "start_line": 893
     },
     {
       "confidence": "normal",
-      "end_line": 894,
+      "end_line": 902,
       "heading": "Environment setup",
       "needs_live_verification": true,
       "section_id": "18-quickstart-tutorials-deep-dive-environment-setup",
@@ -2178,11 +2178,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 889
+      "start_line": 897
     },
     {
       "confidence": "structural",
-      "end_line": 905,
+      "end_line": 913,
       "heading": "Quickstart block workflow",
       "needs_live_verification": false,
       "section_id": "18-quickstart-tutorials-deep-dive-quickstart-block-workflow",
@@ -2191,11 +2191,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 895
+      "start_line": 903
     },
     {
       "confidence": "structural",
-      "end_line": 909,
+      "end_line": 917,
       "heading": "Avoid overfitting to tutorial code",
       "needs_live_verification": false,
       "section_id": "18-quickstart-tutorials-deep-dive-avoid-overfitting-to-tutorial-code",
@@ -2204,11 +2204,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 906
+      "start_line": 914
     },
     {
       "confidence": "normal",
-      "end_line": 913,
+      "end_line": 921,
       "heading": "19. Slingshot Migration Deep Dive",
       "needs_live_verification": false,
       "section_id": "19-slingshot-migration-deep-dive",
@@ -2216,66 +2216,66 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 910
+      "start_line": 918
     },
     {
       "confidence": "normal",
-      "end_line": 924,
+      "end_line": 932,
       "heading": "What Slingshot does well",
       "needs_live_verification": false,
       "section_id": "19-slingshot-migration-deep-dive-what-slingshot-does-well",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 914
+      "start_line": 922
     },
     {
       "confidence": "normal",
-      "end_line": 943,
+      "end_line": 951,
       "heading": "What Slingshot does not eliminate",
       "needs_live_verification": false,
       "section_id": "19-slingshot-migration-deep-dive-what-slingshot-does-not-eliminate",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 925
+      "start_line": 933
     },
     {
       "confidence": "normal",
-      "end_line": 949,
+      "end_line": 957,
       "heading": "Source-system specifics",
       "needs_live_verification": true,
       "section_id": "19-slingshot-migration-deep-dive-source-system-specifics",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 944
+      "start_line": 952
     },
     {
       "confidence": "structural",
-      "end_line": 951,
+      "end_line": 959,
       "heading": "20. Utility And Reference Pages Deep Dive",
       "needs_live_verification": false,
       "section_id": "20-utility-and-reference-pages-deep-dive",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 950
+      "start_line": 958
     },
     {
       "confidence": "normal",
-      "end_line": 964,
+      "end_line": 972,
       "heading": "Dynamic LINQ Syntax",
       "needs_live_verification": true,
       "section_id": "20-utility-and-reference-pages-deep-dive-dynamic-linq-syntax",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 952
+      "start_line": 960
     },
     {
       "confidence": "normal",
-      "end_line": 981,
+      "end_line": 989,
       "heading": "RealTime Visualizer",
       "needs_live_verification": false,
       "section_id": "20-utility-and-reference-pages-deep-dive-realtime-visualizer",
@@ -2283,55 +2283,55 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 965
+      "start_line": 973
     },
     {
       "confidence": "normal",
-      "end_line": 993,
+      "end_line": 1001,
       "heading": "Rock Branches",
       "needs_live_verification": false,
       "section_id": "20-utility-and-reference-pages-deep-dive-rock-branches",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 982
+      "start_line": 990
     },
     {
       "confidence": "normal",
-      "end_line": 1007,
+      "end_line": 1015,
       "heading": "SQL Style Guide",
       "needs_live_verification": true,
       "section_id": "20-utility-and-reference-pages-deep-dive-sql-style-guide",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 994
+      "start_line": 1002
     },
     {
       "confidence": "normal",
-      "end_line": 1011,
+      "end_line": 1019,
       "heading": "Design System",
       "needs_live_verification": true,
       "section_id": "20-utility-and-reference-pages-deep-dive-design-system",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1008
+      "start_line": 1016
     },
     {
       "confidence": "normal",
-      "end_line": 1015,
+      "end_line": 1023,
       "heading": "Developer Radar",
       "needs_live_verification": false,
       "section_id": "20-utility-and-reference-pages-deep-dive-developer-radar",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1012
+      "start_line": 1020
     },
     {
       "confidence": "structural",
-      "end_line": 1017,
+      "end_line": 1025,
       "heading": "21. Related Rock Areas: Api Integrations, Lava, Helix, Obsidian, Mobile, Plugins, Themes, Migration, Security, Cms, Tv Apps",
       "needs_live_verification": false,
       "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps",
@@ -2343,22 +2343,22 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1016
+      "start_line": 1024
     },
     {
       "confidence": "citation-only",
-      "end_line": 1028,
+      "end_line": 1036,
       "heading": "API Integrations",
       "needs_live_verification": true,
       "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-api-integrations",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 1018
+      "start_line": 1026
     },
     {
       "confidence": "normal",
-      "end_line": 1032,
+      "end_line": 1040,
       "heading": "Lava",
       "needs_live_verification": false,
       "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-lava",
@@ -2366,38 +2366,15 @@
         "16b69950a994d9e5",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1029
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1036,
-      "heading": "Helix",
-      "needs_live_verification": false,
-      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-helix",
-      "source_keys": [
-        "ee6f9bf49caca37c"
-      ],
-      "start_line": 1033
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1040,
-      "heading": "Obsidian",
-      "needs_live_verification": false,
-      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-obsidian",
-      "source_keys": [
-        "ee6f9bf49caca37c"
-      ],
       "start_line": 1037
     },
     {
       "confidence": "normal",
       "end_line": 1044,
-      "heading": "Mobile",
-      "needs_live_verification": true,
-      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-mobile",
+      "heading": "Helix",
+      "needs_live_verification": false,
+      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-helix",
       "source_keys": [
-        "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
       "start_line": 1041
@@ -2405,21 +2382,20 @@
     {
       "confidence": "normal",
       "end_line": 1048,
-      "heading": "Plugins and themes",
-      "needs_live_verification": true,
-      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-plugins-and-themes",
+      "heading": "Obsidian",
+      "needs_live_verification": false,
+      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-obsidian",
       "source_keys": [
-        "ee6f9bf49caca37c",
-        "bce31f25cb8a199e"
+        "ee6f9bf49caca37c"
       ],
       "start_line": 1045
     },
     {
       "confidence": "normal",
       "end_line": 1052,
-      "heading": "Migration",
-      "needs_live_verification": false,
-      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-migration",
+      "heading": "Mobile",
+      "needs_live_verification": true,
+      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-mobile",
       "source_keys": [
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
@@ -2429,17 +2405,41 @@
     {
       "confidence": "normal",
       "end_line": 1056,
-      "heading": "Security",
-      "needs_live_verification": false,
-      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-security",
+      "heading": "Plugins and themes",
+      "needs_live_verification": true,
+      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-plugins-and-themes",
       "source_keys": [
-        "776256c424368312"
+        "ee6f9bf49caca37c",
+        "bce31f25cb8a199e"
       ],
       "start_line": 1053
     },
     {
       "confidence": "normal",
       "end_line": 1060,
+      "heading": "Migration",
+      "needs_live_verification": false,
+      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-migration",
+      "source_keys": [
+        "ee6f9bf49caca37c",
+        "ee6f9bf49caca37c"
+      ],
+      "start_line": 1057
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1064,
+      "heading": "Security",
+      "needs_live_verification": false,
+      "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-security",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1061
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1068,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-cms",
@@ -2447,11 +2447,11 @@
         "d275b5b94a9da833",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1057
+      "start_line": 1065
     },
     {
       "confidence": "normal",
-      "end_line": 1064,
+      "end_line": 1072,
       "heading": "TV Apps",
       "needs_live_verification": false,
       "section_id": "21-related-rock-areas-api-integrations-lava-helix-obsidian-mobile-plugins-themes-migration-security-cms-tv-apps-tv-apps",
@@ -2460,11 +2460,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1061
+      "start_line": 1069
     },
     {
       "confidence": "structural",
-      "end_line": 1066,
+      "end_line": 1074,
       "heading": "22. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "22-administration-and-operational-guardrails",
@@ -2472,11 +2472,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1065
+      "start_line": 1073
     },
     {
       "confidence": "normal",
-      "end_line": 1077,
+      "end_line": 1085,
       "heading": "Version guardrails",
       "needs_live_verification": true,
       "section_id": "22-administration-and-operational-guardrails-version-guardrails",
@@ -2487,11 +2487,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1067
+      "start_line": 1075
     },
     {
       "confidence": "structural",
-      "end_line": 1092,
+      "end_line": 1100,
       "heading": "Security guardrails",
       "needs_live_verification": false,
       "section_id": "22-administration-and-operational-guardrails-security-guardrails",
@@ -2502,11 +2502,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1078
+      "start_line": 1086
     },
     {
       "confidence": "structural",
-      "end_line": 1105,
+      "end_line": 1113,
       "heading": "Data guardrails",
       "needs_live_verification": true,
       "section_id": "22-administration-and-operational-guardrails-data-guardrails",
@@ -2517,11 +2517,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1093
+      "start_line": 1101
     },
     {
       "confidence": "structural",
-      "end_line": 1115,
+      "end_line": 1123,
       "heading": "Migration guardrails",
       "needs_live_verification": true,
       "section_id": "22-administration-and-operational-guardrails-migration-guardrails",
@@ -2532,11 +2532,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1106
+      "start_line": 1114
     },
     {
       "confidence": "structural",
-      "end_line": 1123,
+      "end_line": 1131,
       "heading": "UI guardrails",
       "needs_live_verification": true,
       "section_id": "22-administration-and-operational-guardrails-ui-guardrails",
@@ -2547,22 +2547,22 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1116
+      "start_line": 1124
     },
     {
       "confidence": "normal",
-      "end_line": 1127,
+      "end_line": 1135,
       "heading": "Communication guardrails",
       "needs_live_verification": false,
       "section_id": "22-administration-and-operational-guardrails-communication-guardrails",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1124
+      "start_line": 1132
     },
     {
       "confidence": "normal",
-      "end_line": 1164,
+      "end_line": 1172,
       "heading": "23. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "23-developer-api-lava-and-source-code-landmarks",
@@ -2600,11 +2600,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1128
+      "start_line": 1136
     },
     {
       "confidence": "structural",
-      "end_line": 1166,
+      "end_line": 1174,
       "heading": "24. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "24-reporting-analytics-and-model-map",
@@ -2612,11 +2612,11 @@
         "ee6f9bf49caca37c",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1165
+      "start_line": 1173
     },
     {
       "confidence": "normal",
-      "end_line": 1178,
+      "end_line": 1186,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "24-reporting-analytics-and-model-map-model-map",
@@ -2624,22 +2624,22 @@
         "ee6f9bf49caca37c",
         "bce31f25cb8a199e"
       ],
-      "start_line": 1167
+      "start_line": 1175
     },
     {
       "confidence": "normal",
-      "end_line": 1191,
+      "end_line": 1199,
       "heading": "Reporting and Dynamic LINQ",
       "needs_live_verification": false,
       "section_id": "24-reporting-analytics-and-model-map-reporting-and-dynamic-linq",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1179
+      "start_line": 1187
     },
     {
       "confidence": "normal",
-      "end_line": 1204,
+      "end_line": 1212,
       "heading": "Analytics and interactions",
       "needs_live_verification": false,
       "section_id": "24-reporting-analytics-and-model-map-analytics-and-interactions",
@@ -2649,22 +2649,22 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1192
+      "start_line": 1200
     },
     {
       "confidence": "normal",
-      "end_line": 1208,
+      "end_line": 1216,
       "heading": "RealTime visualization",
       "needs_live_verification": true,
       "section_id": "24-reporting-analytics-and-model-map-realtime-visualization",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1205
+      "start_line": 1213
     },
     {
       "confidence": "structural",
-      "end_line": 1210,
+      "end_line": 1218,
       "heading": "25. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "25-version-and-release-caveats",
@@ -2673,11 +2673,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1209
+      "start_line": 1217
     },
     {
       "confidence": "normal",
-      "end_line": 1216,
+      "end_line": 1224,
       "heading": "Draft and work-in-progress docs",
       "needs_live_verification": true,
       "section_id": "25-version-and-release-caveats-draft-and-work-in-progress-docs",
@@ -2686,11 +2686,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1211
+      "start_line": 1219
     },
     {
       "confidence": "normal",
-      "end_line": 1220,
+      "end_line": 1228,
       "heading": "Rock v14",
       "needs_live_verification": false,
       "section_id": "25-version-and-release-caveats-rock-v14",
@@ -2699,33 +2699,33 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1217
+      "start_line": 1225
     },
     {
       "confidence": "normal",
-      "end_line": 1224,
+      "end_line": 1232,
       "heading": "Rock v16",
       "needs_live_verification": true,
       "section_id": "25-version-and-release-caveats-rock-v16",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1221
+      "start_line": 1229
     },
     {
       "confidence": "normal",
-      "end_line": 1228,
+      "end_line": 1236,
       "heading": "Rock v17",
       "needs_live_verification": false,
       "section_id": "25-version-and-release-caveats-rock-v17",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1225
+      "start_line": 1233
     },
     {
       "confidence": "normal",
-      "end_line": 1232,
+      "end_line": 1240,
       "heading": "Rock v18",
       "needs_live_verification": false,
       "section_id": "25-version-and-release-caveats-rock-v18",
@@ -2734,11 +2734,11 @@
         "d275b5b94a9da833",
         "776256c424368312"
       ],
-      "start_line": 1229
+      "start_line": 1237
     },
     {
       "confidence": "normal",
-      "end_line": 1236,
+      "end_line": 1244,
       "heading": "Rock v19",
       "needs_live_verification": false,
       "section_id": "25-version-and-release-caveats-rock-v19",
@@ -2746,22 +2746,22 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1233
+      "start_line": 1241
     },
     {
       "confidence": "normal",
-      "end_line": 1240,
+      "end_line": 1248,
       "heading": "Branch caveat",
       "needs_live_verification": true,
       "section_id": "25-version-and-release-caveats-branch-caveat",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1237
+      "start_line": 1245
     },
     {
       "confidence": "structural",
-      "end_line": 1242,
+      "end_line": 1250,
       "heading": "26. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "26-implementation-playbooks",
@@ -2769,22 +2769,22 @@
         "d275b5b94a9da833",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1241
+      "start_line": 1249
     },
     {
       "confidence": "normal",
-      "end_line": 1257,
+      "end_line": 1265,
       "heading": "Playbook: Add a new configurable block setting",
       "needs_live_verification": true,
       "section_id": "26-implementation-playbooks-playbook-add-a-new-configurable-block-setting",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1243
+      "start_line": 1251
     },
     {
       "confidence": "normal",
-      "end_line": 1274,
+      "end_line": 1282,
       "heading": "Playbook: Build a safe Lava Endpoint",
       "needs_live_verification": true,
       "section_id": "26-implementation-playbooks-playbook-build-a-safe-lava-endpoint",
@@ -2793,11 +2793,11 @@
         "ee6f9bf49caca37c",
         "d275b5b94a9da833"
       ],
-      "start_line": 1258
+      "start_line": 1266
     },
     {
       "confidence": "normal",
-      "end_line": 1292,
+      "end_line": 1300,
       "heading": "Playbook: Replace a WebForms block with Obsidian",
       "needs_live_verification": true,
       "section_id": "26-implementation-playbooks-playbook-replace-a-webforms-block-with-obsidian",
@@ -2806,11 +2806,11 @@
         "ee6f9bf49caca37c",
         "d275b5b94a9da833"
       ],
-      "start_line": 1275
+      "start_line": 1283
     },
     {
       "confidence": "normal",
-      "end_line": 1308,
+      "end_line": 1316,
       "heading": "Playbook: Create a custom entity/plugin data model",
       "needs_live_verification": true,
       "section_id": "26-implementation-playbooks-playbook-create-a-custom-entity-plugin-data-model",
@@ -2819,11 +2819,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1293
+      "start_line": 1301
     },
     {
       "confidence": "normal",
-      "end_line": 1324,
+      "end_line": 1332,
       "heading": "Playbook: Build a Roku page",
       "needs_live_verification": true,
       "section_id": "26-implementation-playbooks-playbook-build-a-roku-page",
@@ -2833,11 +2833,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1309
+      "start_line": 1317
     },
     {
       "confidence": "normal",
-      "end_line": 1339,
+      "end_line": 1347,
       "heading": "Playbook: Build an Apple TV app page",
       "needs_live_verification": true,
       "section_id": "26-implementation-playbooks-playbook-build-an-apple-tv-app-page",
@@ -2848,11 +2848,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1325
+      "start_line": 1333
     },
     {
       "confidence": "structural",
-      "end_line": 1341,
+      "end_line": 1349,
       "heading": "27. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "27-troubleshooting-decision-tree",
@@ -2861,26 +2861,23 @@
         "16b69950a994d9e5",
         "d275b5b94a9da833"
       ],
-      "start_line": 1340
+      "start_line": 1348
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1354,
+      "confidence": "normal",
+      "end_line": 1364,
       "heading": "The block does not render",
       "needs_live_verification": false,
       "section_id": "27-troubleshooting-decision-tree-the-block-does-not-render",
       "source_keys": [
         "ee6f9bf49caca37c",
-        "ee6f9bf49caca37c",
-        "ee6f9bf49caca37c",
-        "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1342
+      "start_line": 1350
     },
     {
       "confidence": "normal",
-      "end_line": 1368,
+      "end_line": 1378,
       "heading": "The Obsidian block renders but actions fail",
       "needs_live_verification": true,
       "section_id": "27-troubleshooting-decision-tree-the-obsidian-block-renders-but-actions-fail",
@@ -2888,11 +2885,11 @@
         "ee6f9bf49caca37c",
         "16b69950a994d9e5"
       ],
-      "start_line": 1355
+      "start_line": 1365
     },
     {
       "confidence": "normal",
-      "end_line": 1383,
+      "end_line": 1393,
       "heading": "The Helix endpoint behaves differently than the UI",
       "needs_live_verification": false,
       "section_id": "27-troubleshooting-decision-tree-the-helix-endpoint-behaves-differently-than-the-ui",
@@ -2900,22 +2897,22 @@
         "ee6f9bf49caca37c",
         "d275b5b94a9da833"
       ],
-      "start_line": 1369
+      "start_line": 1379
     },
     {
       "confidence": "normal",
-      "end_line": 1395,
+      "end_line": 1405,
       "heading": "The grid is slow",
       "needs_live_verification": false,
       "section_id": "27-troubleshooting-decision-tree-the-grid-is-slow",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1384
+      "start_line": 1394
     },
     {
       "confidence": "normal",
-      "end_line": 1410,
+      "end_line": 1420,
       "heading": "The migration failed",
       "needs_live_verification": true,
       "section_id": "27-troubleshooting-decision-tree-the-migration-failed",
@@ -2923,11 +2920,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1396
+      "start_line": 1406
     },
     {
       "confidence": "normal",
-      "end_line": 1436,
+      "end_line": 1446,
       "heading": "The TV app page is blank",
       "needs_live_verification": true,
       "section_id": "27-troubleshooting-decision-tree-the-tv-app-page-is-blank",
@@ -2935,11 +2932,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1411
+      "start_line": 1421
     },
     {
       "confidence": "structural",
-      "end_line": 1438,
+      "end_line": 1448,
       "heading": "28. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "28-agent-task-recipes",
@@ -2947,11 +2944,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1437
+      "start_line": 1447
     },
     {
       "confidence": "structural",
-      "end_line": 1446,
+      "end_line": 1456,
       "heading": "Recipe: Answer \"Where is this configured?\"",
       "needs_live_verification": true,
       "section_id": "28-agent-task-recipes-recipe-answer-where-is-this-configured",
@@ -2959,11 +2956,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1439
+      "start_line": 1449
     },
     {
       "confidence": "normal",
-      "end_line": 1462,
+      "end_line": 1472,
       "heading": "Recipe: Review a Rock PR",
       "needs_live_verification": true,
       "section_id": "28-agent-task-recipes-recipe-review-a-rock-pr",
@@ -2973,11 +2970,11 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1447
+      "start_line": 1457
     },
     {
       "confidence": "normal",
-      "end_line": 1477,
+      "end_line": 1487,
       "heading": "Recipe: Diagnose \"Works for admin but not staff\"",
       "needs_live_verification": true,
       "section_id": "28-agent-task-recipes-recipe-diagnose-works-for-admin-but-not-staff",
@@ -2986,11 +2983,11 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1463
+      "start_line": 1473
     },
     {
       "confidence": "structural",
-      "end_line": 1486,
+      "end_line": 1496,
       "heading": "Recipe: Build a source-backed answer",
       "needs_live_verification": false,
       "section_id": "28-agent-task-recipes-recipe-build-a-source-backed-answer",
@@ -2999,22 +2996,22 @@
         "ee6f9bf49caca37c",
         "776256c424368312"
       ],
-      "start_line": 1478
+      "start_line": 1488
     },
     {
       "confidence": "normal",
-      "end_line": 1503,
+      "end_line": 1513,
       "heading": "Recipe: Build a Rock agent tool",
       "needs_live_verification": true,
       "section_id": "28-agent-task-recipes-recipe-build-a-rock-agent-tool",
       "source_keys": [
         "ee6f9bf49caca37c"
       ],
-      "start_line": 1487
+      "start_line": 1497
     },
     {
       "confidence": "normal",
-      "end_line": 1529,
+      "end_line": 1539,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -3032,11 +3029,11 @@
         "47290b8c4150f42f",
         "abe67980f434af23"
       ],
-      "start_line": 1504
+      "start_line": 1514
     },
     {
       "confidence": "structural",
-      "end_line": 1536,
+      "end_line": 1546,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3054,11 +3051,11 @@
         "47290b8c4150f42f",
         "abe67980f434af23"
       ],
-      "start_line": 1530
+      "start_line": 1540
     },
     {
       "confidence": "structural",
-      "end_line": 1538,
+      "end_line": 1548,
       "heading": "29. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "29-source-map-and-dependency-notes",
@@ -3070,22 +3067,22 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1537
+      "start_line": 1547
     },
     {
       "confidence": "community-supported",
-      "end_line": 1546,
+      "end_line": 1556,
       "heading": "Community Examples And Q&A",
       "needs_live_verification": true,
       "section_id": "29-source-map-and-dependency-notes-community-examples-and-q-a",
       "source_keys": [
         "b7e0389038fbb3ed"
       ],
-      "start_line": 1539
+      "start_line": 1549
     },
     {
       "confidence": "normal",
-      "end_line": 1562,
+      "end_line": 1572,
       "heading": "Official developer docs",
       "needs_live_verification": true,
       "section_id": "29-source-map-and-dependency-notes-official-developer-docs",
@@ -3104,11 +3101,11 @@
         "ee6f9bf49caca37c",
         "14e4b0253d1428ca"
       ],
-      "start_line": 1547
+      "start_line": 1557
     },
     {
       "confidence": "normal",
-      "end_line": 1572,
+      "end_line": 1582,
       "heading": "Official reference pages",
       "needs_live_verification": false,
       "section_id": "29-source-map-and-dependency-notes-official-reference-pages",
@@ -3121,11 +3118,11 @@
         "bce31f25cb8a199e",
         "776256c424368312"
       ],
-      "start_line": 1563
+      "start_line": 1573
     },
     {
       "confidence": "normal",
-      "end_line": 1583,
+      "end_line": 1593,
       "heading": "Source-code landmarks",
       "needs_live_verification": false,
       "section_id": "29-source-map-and-dependency-notes-source-code-landmarks",
@@ -3139,25 +3136,20 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1573
+      "start_line": 1583
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1595,
+      "confidence": "normal",
+      "end_line": 1607,
       "heading": "Dependency notes",
       "needs_live_verification": true,
       "section_id": "29-source-map-and-dependency-notes-dependency-notes",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "ee6f9bf49caca37c",
+        "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1584
+      "start_line": 1594
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T18:04:48+00:00",

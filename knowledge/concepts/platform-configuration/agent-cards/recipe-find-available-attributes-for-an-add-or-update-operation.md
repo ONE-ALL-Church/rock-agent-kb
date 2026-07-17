@@ -43,6 +43,6 @@ Follow the guide section for Recipe: Find Available Attributes For An Add Or Upd
 - https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor
+- https://community.rockrms.com/ModelMap

@@ -96,7 +96,7 @@ generated: true
 | `15-version-and-release-caveats-rock-18-1` | normal | live verification |
 | `15-version-and-release-caveats-rock-19-1-beta-context` | normal | live verification |
 | `15-version-and-release-caveats-mobile-core-version-markers` | normal | live verification |
-| `16-implementation-playbooks-playbook-build-a-small-group-structure` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-build-a-small-group-structure` | normal | live verification |
 | `16-implementation-playbooks-playbook-build-a-serving-team-scheduling-structure` | citation-only | live verification |
 | `16-implementation-playbooks-playbook-set-up-group-finder` | structural | live verification |
 | `16-implementation-playbooks-playbook-add-group-requirements` | community-supported | live verification |

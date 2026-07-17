@@ -63,11 +63,15 @@ If a fact is instance-specific, inspect the live Rock instance instead of assumi
 
 ## 2. Scope And Terminology
 
+Use [The Rock REST API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns), and [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) to identify which API family owns a request before applying its authentication or authorization model.
+
 This guide covers API and integration concepts across Rock RMS, with emphasis on agent-usable diagnosis and implementation. It includes REST APIs, API authentication, CORS, OData, Swagger/API docs, Lava Webhooks, remote Lava, Helix Lava Applications, workflow launch paths, webhooks, external API calls from Lava, Model Map usage, source-code landmarks, and version caveats.
 
 It does not replace the full Rock administration manuals, API reference, security guide, workflow guide, Lava command reference, or source code. It is a synthesis layer for agents that need to reason across those sources.
 
 ### API
+
+The official [API documentation portal](https://community.rockrms.com/api-docs) separates REST reference surfaces, while [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns) defines the newer v2 security and implementation conventions.
 
 In Rock, "API" can mean several things. The most common meaning is the REST API available through HTTP routes. It can also refer to API-style Lava webhooks, Helix Lava endpoints, mobile/TV application endpoints, and external third-party APIs called from Rock.
 
@@ -1189,6 +1193,8 @@ Implication: When an API integration exists inside mobile, verify both Rock core
 
 ### Playbook A: Server-To-Server REST Read Integration
 
+Use the [Rock REST API v2 reference](https://rock.rocksolidchurchdemo.com/api/v2/docs/index) and [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns) to choose the route and execution permission; use the live Model Map and controller security for the target version before issuing credentials.
+
 Use when an external backend needs to read Rock data.
 
 1. Identify exact data and model.
@@ -1205,6 +1211,8 @@ Use when an external backend needs to read Rock data.
 
 ### Playbook B: Browser Public Data Feed
 
+For a Rock-hosted feed, use [Lava Application Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) and [Observability](https://community.rockrms.com/developer/helix/lava-applications/observability) as the supported endpoint baseline; never move a server credential into browser code to avoid endpoint design work.
+
 Use when a public website needs non-sensitive data.
 
 1. Check if Rock already exposes a public feed, such as calendar iCal.
@@ -1218,6 +1226,8 @@ Use when a public website needs non-sensitive data.
 9. Monitor usage and errors.
 
 ### Playbook C: Webhook To Workflow Intake
+
+Follow [Configure a Webhook to a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow) for the supported launch contract, then add provider-specific authentication, idempotency, and bounded payload handling in the target instance.
 
 Use when a provider event should start a Rock workflow.
 

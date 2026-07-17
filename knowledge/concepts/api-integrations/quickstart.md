@@ -26,11 +26,11 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 ## High-Signal Sections
 
 - `1-executive-summary-for-agents` lines 29-63: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology-rest-api-v1` lines 82-87: REST API v1 (normal)
-- `2-scope-and-terminology-rest-api-v2` lines 88-93: REST API v2 (normal)
-- `2-scope-and-terminology-odata` lines 94-97: OData (normal)
-- `2-scope-and-terminology-rest-key-authorization-token` lines 104-109: REST Key / Authorization Token (normal)
-- `2-scope-and-terminology-cors` lines 110-115: CORS (normal)
+- `2-scope-and-terminology` lines 64-71: 2. Scope And Terminology (normal)
+- `2-scope-and-terminology-api` lines 72-85: API (normal)
+- `2-scope-and-terminology-rest-api-v1` lines 86-91: REST API v1 (normal)
+- `2-scope-and-terminology-rest-api-v2` lines 92-97: REST API v2 (normal)
+- `2-scope-and-terminology-odata` lines 98-101: OData (normal)
 
 ## Core Entities
 

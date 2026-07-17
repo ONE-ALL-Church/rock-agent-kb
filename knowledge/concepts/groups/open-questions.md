@@ -10,7 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `16-implementation-playbooks-playbook-build-a-small-group-structure`: Playbook: Build A Small Group Structure (144 words)
 
 ## Community-Supported Only
 

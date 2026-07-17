@@ -20,7 +20,13 @@ from .extract import generated_at_iso, sha256_text
 from .jsonl import read_jsonl
 from .paths import REPO_ROOT
 from .publish import public_export_manifest, public_export_text_for_public_path
-from .rock_issues import attach_issue_enrichments, issue_enrichments_by_id, normalize_version, version_line
+from .rock_issues import (
+    attach_issue_enrichments,
+    issue_enrichment_search_values,
+    issue_enrichments_by_id,
+    normalize_version,
+    version_line,
+)
 
 
 SERVICE_DIR = REPO_ROOT / "service"
@@ -665,20 +671,10 @@ def rock_issue_search_rows() -> list[dict[str, Any]]:
             if isinstance(value, dict)
         ]
         enrichment_text = [
-            str(value)
+            value
             for enrichment in issue.get("reviewed_enrichments") or []
             if isinstance(enrichment, dict)
-            for value in [
-                enrichment.get("diagnosis_summary"),
-                *(enrichment.get("workaround_summaries") or []),
-                *(
-                    version
-                    for assertion in enrichment.get("applicability") or []
-                    if isinstance(assertion, dict)
-                    for version in assertion.get("versions") or []
-                ),
-            ]
-            if value
+            for value in issue_enrichment_search_values(enrichment)
         ]
         body = " ".join(
             value

@@ -628,12 +628,12 @@
   },
   "approved_media_hash": "9cac3e4b9584f69646ec8c66adb8bbe2ee4cf068fd3b5aacb8eeb5451e541f23",
   "approved_media_path": "knowledge/concepts/roku/approved-media.md",
-  "built_at": "2026-07-17T05:36:01+00:00",
+  "built_at": "2026-07-17T15:45:09+00:00",
   "concept_id": "roku",
-  "guide_hash": "853832c44616779c5a79775d78e502126392a3866f25e56b0b3344b0fd682549",
-  "guide_line_count": 1254,
+  "guide_hash": "626bb6656dd4a3aa217de666fd20dab3de09fe71c58a7ecd3784f245b4c46ecb",
+  "guide_line_count": 1258,
   "guide_path": "knowledge/concepts/roku/guide.md",
-  "guide_word_count": 12579,
+  "guide_word_count": 12679,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -985,10 +985,10 @@
       "start_line": 219
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 248,
+      "confidence": "normal",
+      "end_line": 250,
       "heading": "Add A Page",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "7-common-roku-apps-workflows-add-a-page",
       "source_keys": [
         "35d2e6eb8d06e01f",
@@ -998,18 +998,18 @@
     },
     {
       "confidence": "normal",
-      "end_line": 254,
+      "end_line": 256,
       "heading": "Build A Menu",
       "needs_live_verification": true,
       "section_id": "7-common-roku-apps-workflows-build-a-menu",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 249
+      "start_line": 251
     },
     {
       "confidence": "normal",
-      "end_line": 270,
+      "end_line": 272,
       "heading": "Add Login",
       "needs_live_verification": true,
       "section_id": "7-common-roku-apps-workflows-add-login",
@@ -1017,22 +1017,22 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 255
+      "start_line": 257
     },
     {
       "confidence": "normal",
-      "end_line": 284,
+      "end_line": 286,
       "heading": "Play Media",
       "needs_live_verification": false,
       "section_id": "7-common-roku-apps-workflows-play-media",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 271
+      "start_line": 273
     },
     {
       "confidence": "normal",
-      "end_line": 290,
+      "end_line": 292,
       "heading": "Personalize Content",
       "needs_live_verification": false,
       "section_id": "7-common-roku-apps-workflows-personalize-content",
@@ -1040,33 +1040,33 @@
         "30be60a23d3d0317",
         "30be60a23d3d0317"
       ],
-      "start_line": 285
+      "start_line": 287
     },
     {
       "confidence": "normal",
-      "end_line": 296,
+      "end_line": 298,
       "heading": "8. Roku Getting Started Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-roku-getting-started-deep-dive",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 291
+      "start_line": 293
     },
     {
       "confidence": "normal",
-      "end_line": 311,
+      "end_line": 313,
       "heading": "Provisioning",
       "needs_live_verification": true,
       "section_id": "8-roku-getting-started-deep-dive-provisioning",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 297
+      "start_line": 299
     },
     {
       "confidence": "normal",
-      "end_line": 331,
+      "end_line": 333,
       "heading": "Page Construction",
       "needs_live_verification": true,
       "section_id": "8-roku-getting-started-deep-dive-page-construction",
@@ -1074,22 +1074,22 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 312
+      "start_line": 314
     },
     {
       "confidence": "normal",
-      "end_line": 348,
+      "end_line": 350,
       "heading": "Device Validation",
       "needs_live_verification": true,
       "section_id": "8-roku-getting-started-deep-dive-device-validation",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 332
+      "start_line": 334
     },
     {
       "confidence": "normal",
-      "end_line": 352,
+      "end_line": 354,
       "heading": "9. Roku Commands Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-roku-commands-deep-dive",
@@ -1098,22 +1098,22 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 349
+      "start_line": 351
     },
     {
       "confidence": "normal",
-      "end_line": 369,
+      "end_line": 371,
       "heading": "Multiple Commands",
       "needs_live_verification": false,
       "section_id": "9-roku-commands-deep-dive-multiple-commands",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 353
+      "start_line": 355
     },
     {
       "confidence": "normal",
-      "end_line": 390,
+      "end_line": 392,
       "heading": "Navigation Commands",
       "needs_live_verification": true,
       "section_id": "9-roku-commands-deep-dive-navigation-commands",
@@ -1122,11 +1122,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 370
+      "start_line": 372
     },
     {
       "confidence": "normal",
-      "end_line": 403,
+      "end_line": 405,
       "heading": "Cache Control In Navigation",
       "needs_live_verification": false,
       "section_id": "9-roku-commands-deep-dive-cache-control-in-navigation",
@@ -1134,22 +1134,22 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 391
+      "start_line": 393
     },
     {
       "confidence": "normal",
-      "end_line": 419,
+      "end_line": 421,
       "heading": "Utility Commands",
       "needs_live_verification": false,
       "section_id": "9-roku-commands-deep-dive-utility-commands",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 404
+      "start_line": 406
     },
     {
       "confidence": "normal",
-      "end_line": 443,
+      "end_line": 445,
       "heading": "Media Commands",
       "needs_live_verification": true,
       "section_id": "9-roku-commands-deep-dive-media-commands",
@@ -1158,11 +1158,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 420
+      "start_line": 422
     },
     {
       "confidence": "normal",
-      "end_line": 458,
+      "end_line": 460,
       "heading": "Personal Commands",
       "needs_live_verification": false,
       "section_id": "9-roku-commands-deep-dive-personal-commands",
@@ -1171,66 +1171,66 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 444
+      "start_line": 446
     },
     {
       "confidence": "normal",
-      "end_line": 462,
+      "end_line": 464,
       "heading": "10. Roku Controls Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-roku-controls-deep-dive",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 459
+      "start_line": 461
     },
     {
       "confidence": "normal",
-      "end_line": 484,
+      "end_line": 486,
       "heading": "Rock:Page",
       "needs_live_verification": true,
       "section_id": "10-roku-controls-deep-dive-rock-page",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 463
+      "start_line": 465
     },
     {
       "confidence": "normal",
-      "end_line": 496,
+      "end_line": 498,
       "heading": "Rock:Button",
       "needs_live_verification": true,
       "section_id": "10-roku-controls-deep-dive-rock-button",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 485
+      "start_line": 487
     },
     {
       "confidence": "normal",
-      "end_line": 513,
+      "end_line": 515,
       "heading": "Rock:ContentNode",
       "needs_live_verification": false,
       "section_id": "10-roku-controls-deep-dive-rock-contentnode",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 497
+      "start_line": 499
     },
     {
       "confidence": "normal",
-      "end_line": 527,
+      "end_line": 529,
       "heading": "Rock:FocusGroup",
       "needs_live_verification": true,
       "section_id": "10-roku-controls-deep-dive-rock-focusgroup",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 514
+      "start_line": 516
     },
     {
       "confidence": "normal",
-      "end_line": 533,
+      "end_line": 535,
       "heading": "Built-In SceneGraph Nodes",
       "needs_live_verification": true,
       "section_id": "10-roku-controls-deep-dive-built-in-scenegraph-nodes",
@@ -1238,22 +1238,22 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 528
+      "start_line": 530
     },
     {
       "confidence": "normal",
-      "end_line": 537,
+      "end_line": 539,
       "heading": "11. Roku Layouts And Resources Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-roku-layouts-and-resources-deep-dive",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 534
+      "start_line": 536
     },
     {
       "confidence": "normal",
-      "end_line": 573,
+      "end_line": 575,
       "heading": "RowList",
       "needs_live_verification": true,
       "section_id": "11-roku-layouts-and-resources-deep-dive-rowlist",
@@ -1262,55 +1262,55 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 538
+      "start_line": 540
     },
     {
       "confidence": "normal",
-      "end_line": 586,
+      "end_line": 588,
       "heading": "Layout Simplicity",
       "needs_live_verification": false,
       "section_id": "11-roku-layouts-and-resources-deep-dive-layout-simplicity",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 574
+      "start_line": 576
     },
     {
       "confidence": "normal",
-      "end_line": 596,
+      "end_line": 598,
       "heading": "Roku Resources",
       "needs_live_verification": false,
       "section_id": "11-roku-layouts-and-resources-deep-dive-roku-resources",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 587
+      "start_line": 589
     },
     {
       "confidence": "normal",
-      "end_line": 600,
+      "end_line": 602,
       "heading": "Useful Links And Feedback",
       "needs_live_verification": false,
       "section_id": "11-roku-layouts-and-resources-deep-dive-useful-links-and-feedback",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 597
+      "start_line": 599
     },
     {
       "confidence": "structural",
-      "end_line": 604,
+      "end_line": 606,
       "heading": "12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Tv Apps",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 601
+      "start_line": 603
     },
     {
       "confidence": "normal",
-      "end_line": 617,
+      "end_line": 619,
       "heading": "API Integrations",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-api-integrations",
@@ -1318,11 +1318,11 @@
         "35d2e6eb8d06e01f",
         "14e4b0253d1428ca"
       ],
-      "start_line": 605
+      "start_line": 607
     },
     {
       "confidence": "normal",
-      "end_line": 633,
+      "end_line": 635,
       "heading": "Lava",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava",
@@ -1340,22 +1340,22 @@
         "30be60a23d3d0317",
         "30be60a23d3d0317"
       ],
-      "start_line": 618
+      "start_line": 620
     },
     {
       "confidence": "normal",
-      "end_line": 637,
+      "end_line": 639,
       "heading": "CMS",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 634
+      "start_line": 636
     },
     {
       "confidence": "normal",
-      "end_line": 654,
+      "end_line": 656,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-security",
@@ -1365,22 +1365,22 @@
         "30be60a23d3d0317",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 638
+      "start_line": 640
     },
     {
       "confidence": "normal",
-      "end_line": 658,
+      "end_line": 660,
       "heading": "Media",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 655
+      "start_line": 657
     },
     {
       "confidence": "normal",
-      "end_line": 662,
+      "end_line": 664,
       "heading": "TV Apps",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-tv-apps",
@@ -1388,11 +1388,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 659
+      "start_line": 661
     },
     {
       "confidence": "structural",
-      "end_line": 664,
+      "end_line": 666,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
@@ -1401,44 +1401,44 @@
         "d275b5b94a9da833",
         "30be60a23d3d0317"
       ],
-      "start_line": 663
+      "start_line": 665
     },
     {
       "confidence": "normal",
-      "end_line": 668,
+      "end_line": 670,
       "heading": "Version Gate",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-version-gate",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 665
+      "start_line": 667
     },
     {
       "confidence": "structural",
-      "end_line": 672,
+      "end_line": 674,
       "heading": "Environment Separation",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-environment-separation",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 669
+      "start_line": 671
     },
     {
       "confidence": "structural",
-      "end_line": 676,
+      "end_line": 678,
       "heading": "Secret Handling",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-secret-handling",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 673
+      "start_line": 675
     },
     {
       "confidence": "normal",
-      "end_line": 689,
+      "end_line": 691,
       "heading": "Cache Policy",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-cache-policy",
@@ -1446,11 +1446,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 677
+      "start_line": 679
     },
     {
       "confidence": "normal",
-      "end_line": 701,
+      "end_line": 703,
       "heading": "Interaction Tracking",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-interaction-tracking",
@@ -1459,11 +1459,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 690
+      "start_line": 692
     },
     {
       "confidence": "normal",
-      "end_line": 713,
+      "end_line": 715,
       "heading": "Lava Command Policy",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-lava-command-policy",
@@ -1471,11 +1471,11 @@
         "d275b5b94a9da833",
         "30be60a23d3d0317"
       ],
-      "start_line": 702
+      "start_line": 704
     },
     {
       "confidence": "structural",
-      "end_line": 728,
+      "end_line": 730,
       "heading": "Content Governance",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-content-governance",
@@ -1483,11 +1483,11 @@
         "d275b5b94a9da833",
         "30be60a23d3d0317"
       ],
-      "start_line": 714
+      "start_line": 716
     },
     {
       "confidence": "structural",
-      "end_line": 732,
+      "end_line": 734,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -1500,11 +1500,11 @@
         "14e4b0253d1428ca",
         "d275b5b94a9da833"
       ],
-      "start_line": 729
+      "start_line": 731
     },
     {
       "confidence": "normal",
-      "end_line": 747,
+      "end_line": 749,
       "heading": "Official Roku Docs",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-official-roku-docs",
@@ -1522,11 +1522,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 733
+      "start_line": 735
     },
     {
       "confidence": "normal",
-      "end_line": 763,
+      "end_line": 765,
       "heading": "Rock Lava Docs",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rock-lava-docs",
@@ -1545,22 +1545,22 @@
         "1a7cdd8d2a7f15eb",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 748
+      "start_line": 750
     },
     {
       "confidence": "normal",
-      "end_line": 767,
+      "end_line": 769,
       "heading": "API Docs",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-api-docs",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 764
+      "start_line": 766
     },
     {
       "confidence": "normal",
-      "end_line": 777,
+      "end_line": 779,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
@@ -1569,11 +1569,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 768
+      "start_line": 770
     },
     {
       "confidence": "normal",
-      "end_line": 802,
+      "end_line": 804,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -1585,11 +1585,11 @@
         "30be60a23d3d0317",
         "30be60a23d3d0317"
       ],
-      "start_line": 778
+      "start_line": 780
     },
     {
       "confidence": "normal",
-      "end_line": 824,
+      "end_line": 826,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats",
@@ -1609,62 +1609,47 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 803
+      "start_line": 805
     },
     {
       "confidence": "structural",
-      "end_line": 826,
+      "end_line": 828,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
         "35d2e6eb8d06e01f",
-        "9d0ccce785ef64bb",
-        "044170dca04e8bbb",
-        "53ad1133e1cb2d0a",
-        "6f19b884e4da0469",
         "30be60a23d3d0317"
-      ],
-      "start_line": 825
-    },
-    {
-      "confidence": "needs-citation",
-      "end_line": 857,
-      "heading": "Playbook: Create A Minimal Roku Home Page",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-create-a-minimal-roku-home-page",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "9d0ccce785ef64bb",
-        "044170dca04e8bbb",
-        "53ad1133e1cb2d0a",
-        "6f19b884e4da0469",
-        "30be60a23d3d0317",
-        "30be60a23d3d0317",
-        "30be60a23d3d0317",
-        "30be60a23d3d0317",
-        "30be60a23d3d0317",
-        "30be60a23d3d0317",
-        "30be60a23d3d0317",
-        "35d2e6eb8d06e01f",
-        "35d2e6eb8d06e01f"
       ],
       "start_line": 827
     },
     {
       "confidence": "normal",
-      "end_line": 874,
+      "end_line": 861,
+      "heading": "Playbook: Create A Minimal Roku Home Page",
+      "needs_live_verification": true,
+      "section_id": "17-implementation-playbooks-playbook-create-a-minimal-roku-home-page",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "35d2e6eb8d06e01f",
+        "30be60a23d3d0317"
+      ],
+      "start_line": 829
+    },
+    {
+      "confidence": "normal",
+      "end_line": 878,
       "heading": "Playbook: Build A Media Row",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-media-row",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 858
+      "start_line": 862
     },
     {
       "confidence": "normal",
-      "end_line": 890,
+      "end_line": 894,
       "heading": "Playbook: Add Campus Selection",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-campus-selection",
@@ -1672,22 +1657,22 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 875
+      "start_line": 879
     },
     {
       "confidence": "normal",
-      "end_line": 908,
+      "end_line": 912,
       "heading": "Playbook: Add Login",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-login",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 891
+      "start_line": 895
     },
     {
       "confidence": "normal",
-      "end_line": 925,
+      "end_line": 929,
       "heading": "Playbook: Tune Caching",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-tune-caching",
@@ -1695,11 +1680,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 909
+      "start_line": 913
     },
     {
       "confidence": "structural",
-      "end_line": 927,
+      "end_line": 931,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -1708,33 +1693,33 @@
         "6f19b884e4da0469",
         "30be60a23d3d0317"
       ],
-      "start_line": 926
+      "start_line": 930
     },
     {
       "confidence": "normal",
-      "end_line": 941,
+      "end_line": 945,
       "heading": "App Does Not Load",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-app-does-not-load",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 928
+      "start_line": 932
     },
     {
       "confidence": "structural",
-      "end_line": 954,
+      "end_line": 958,
       "heading": "Page Loads Blank",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-page-loads-blank",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 942
+      "start_line": 946
     },
     {
       "confidence": "normal",
-      "end_line": 968,
+      "end_line": 972,
       "heading": "Focus Is Broken",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-focus-is-broken",
@@ -1742,11 +1727,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 955
+      "start_line": 959
     },
     {
       "confidence": "structural",
-      "end_line": 980,
+      "end_line": 984,
       "heading": "Navigation Goes To The Wrong Page",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-navigation-goes-to-the-wrong-page",
@@ -1754,33 +1739,33 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 969
+      "start_line": 973
     },
     {
       "confidence": "normal",
-      "end_line": 993,
+      "end_line": 997,
       "heading": "Menu Does Not Update",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-menu-does-not-update",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 981
+      "start_line": 985
     },
     {
       "confidence": "normal",
-      "end_line": 1008,
+      "end_line": 1012,
       "heading": "Login QR Does Not Show",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-login-qr-does-not-show",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 994
+      "start_line": 998
     },
     {
       "confidence": "normal",
-      "end_line": 1022,
+      "end_line": 1026,
       "heading": "Authenticated Content Does Not Personalize",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-authenticated-content-does-not-personalize",
@@ -1789,33 +1774,33 @@
         "35d2e6eb8d06e01f",
         "6f19b884e4da0469"
       ],
-      "start_line": 1009
+      "start_line": 1013
     },
     {
       "confidence": "normal",
-      "end_line": 1035,
+      "end_line": 1039,
       "heading": "Video Does Not Play",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-video-does-not-play",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 1023
+      "start_line": 1027
     },
     {
       "confidence": "normal",
-      "end_line": 1048,
+      "end_line": 1052,
       "heading": "Resume Does Not Work",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
       "source_keys": [
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 1036
+      "start_line": 1040
     },
     {
       "confidence": "normal",
-      "end_line": 1062,
+      "end_line": 1066,
       "heading": "Interactions Are Missing Or Excessive",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-interactions-are-missing-or-excessive",
@@ -1824,11 +1809,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1049
+      "start_line": 1053
     },
     {
       "confidence": "structural",
-      "end_line": 1064,
+      "end_line": 1068,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
@@ -1836,11 +1821,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1063
+      "start_line": 1067
     },
     {
       "confidence": "structural",
-      "end_line": 1077,
+      "end_line": 1081,
       "heading": "Recipe: Inventory Existing Roku App",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-inventory-existing-roku-app",
@@ -1849,11 +1834,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1065
+      "start_line": 1069
     },
     {
       "confidence": "structural",
-      "end_line": 1096,
+      "end_line": 1100,
       "heading": "Recipe: Review A Roku Page For Safety",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-a-roku-page-for-safety",
@@ -1862,11 +1847,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1078
+      "start_line": 1082
     },
     {
       "confidence": "structural",
-      "end_line": 1109,
+      "end_line": 1113,
       "heading": "Recipe: Convert A Static Media List To Dynamic RowList",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-convert-a-static-media-list-to-dynamic-rowlist",
@@ -1875,11 +1860,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1097
+      "start_line": 1101
     },
     {
       "confidence": "structural",
-      "end_line": 1120,
+      "end_line": 1124,
       "heading": "Recipe: Diagnose A Cache Leak",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-diagnose-a-cache-leak",
@@ -1888,11 +1873,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1110
+      "start_line": 1114
     },
     {
       "confidence": "structural",
-      "end_line": 1133,
+      "end_line": 1137,
       "heading": "Recipe: Add A Safe Diagnostic Page",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-add-a-safe-diagnostic-page",
@@ -1901,11 +1886,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1121
+      "start_line": 1125
     },
     {
       "confidence": "structural",
-      "end_line": 1149,
+      "end_line": 1153,
       "heading": "Recipe: Validate Post-Upgrade Roku Behavior",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-validate-post-upgrade-roku-behavior",
@@ -1914,11 +1899,11 @@
         "35d2e6eb8d06e01f",
         "30be60a23d3d0317"
       ],
-      "start_line": 1134
+      "start_line": 1138
     },
     {
       "confidence": "normal",
-      "end_line": 1175,
+      "end_line": 1179,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -1936,11 +1921,11 @@
         "35d2e6eb8d06e01f",
         "35d2e6eb8d06e01f"
       ],
-      "start_line": 1150
+      "start_line": 1154
     },
     {
       "confidence": "citation-only",
-      "end_line": 1192,
+      "end_line": 1196,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1951,11 +1936,11 @@
         "f5e7897c401dd153",
         "7b2dd6a6b528a9f3"
       ],
-      "start_line": 1176
+      "start_line": 1180
     },
     {
       "confidence": "structural",
-      "end_line": 1194,
+      "end_line": 1198,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1971,11 +1956,11 @@
         "044170dca04e8bbb",
         "d275b5b94a9da833"
       ],
-      "start_line": 1193
+      "start_line": 1197
     },
     {
       "confidence": "normal",
-      "end_line": 1254,
+      "end_line": 1258,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -2021,7 +2006,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1195
+      "start_line": 1199
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:39:25+00:00",

@@ -69,7 +69,7 @@ generated: true
 | `7-common-platform-configuration-workflows-configure-a-campus-aware-report` | normal | live verification |
 | `7-common-platform-configuration-workflows-add-mobile-site-attributes` | normal | live verification |
 | `7-common-platform-configuration-workflows-use-attributes-in-custom-blocks` | normal | live verification |
-| `8-attributes-and-attribute-values-deep-dive-attribute-definition-fields` | needs-citation | live verification |
+| `8-attributes-and-attribute-values-deep-dive-attribute-definition-fields` | normal | live verification |
 | `8-attributes-and-attribute-values-deep-dive-qualifiers` | normal | live verification |
 | `8-attributes-and-attribute-values-deep-dive-raw-values-versus-formatted-values` | normal | live verification |
 | `8-attributes-and-attribute-values-deep-dive-attribute-values-in-lava` | normal | live verification |
@@ -87,7 +87,7 @@ generated: true
 | `13-administration-and-operational-guardrails-change-management` | structural | live verification |
 | `13-administration-and-operational-guardrails-public-exposure` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-field-types-and-field-attributes` | normal | live verification |
-| `15-reporting-analytics-and-model-map-reporting-rules` | needs-citation | live verification |
+| `15-reporting-analytics-and-model-map-reporting-rules` | normal | live verification |
 | `16-version-and-release-caveats-rock-v10-3` | normal | live verification |
 | `16-version-and-release-caveats-rock-v15-0` | normal | live verification |
 | `16-version-and-release-caveats-rock-v17-and-v17-5` | normal | live verification |
@@ -98,7 +98,6 @@ generated: true
 | `17-implementation-playbooks-playbook-diagnose-missing-attribute-in-a-block` | structural | live verification |
 | `17-implementation-playbooks-playbook-diagnose-lava-attribute-output` | structural | live verification |
 | `17-implementation-playbooks-playbook-build-a-campus-aware-workflow-or-report` | normal | live verification |
-| `18-troubleshooting-decision-tree-attribute-does-not-appear` | needs-citation | needs-citation |
 | `19-agent-task-recipes-recipe-find-available-attributes-for-an-add-or-update-operation` | normal | live verification |
 | `19-agent-task-recipes-recipe-explain-a-platform-configuration-object-to-a-user` | structural | live verification |
 | `19-agent-task-recipes-recipe-safely-answer-can-we-delete-this` | structural | live verification |

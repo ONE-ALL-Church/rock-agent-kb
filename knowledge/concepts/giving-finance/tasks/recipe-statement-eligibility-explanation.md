@@ -37,6 +37,7 @@ Follow the guide section for Recipe: Statement Eligibility Explanation.
 - https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
+- https://community.rockrms.com/rocku/finance
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql

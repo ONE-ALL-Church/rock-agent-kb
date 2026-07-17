@@ -962,6 +962,8 @@ Agents should always record:
 
 ### Playbook: Weekend Messages App
 
+Use the official [Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content), [Templates](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates), and [Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) contracts as the baseline. Verify the rendered TVML, media URLs, API-key access, focus behavior, and watch-map behavior on the target Rock version and an actual tvOS shell.
+
 Goal: Build a basic app for latest message, series archive, and sign-in.
 
 1. Create Apple TV app record.
@@ -990,6 +992,8 @@ Verify:
 
 ### Playbook: Campus-Aware App
 
+Follow the documented [Context](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context), [TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages), and [Utility Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/utility-commands) behavior. Verify the live context value, fallback logic, page-cache variation, and campus lookup on the target app rather than assuming person campus and persisted TV context are equivalent.
+
 Goal: Let households choose a campus and see campus-specific content.
 
 1. Create Campus Selector page.
@@ -1008,6 +1012,8 @@ Verify:
 - Page cache does not ignore campus differences.
 
 ### Playbook: Remote Login
+
+Use [Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) and [Personal Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands) for the supported flow, then verify the external page, Remote Authentication block security, app login-page setting, code lifetime, and success/timeout TVML in the target instance.
 
 Goal: Use browser/mobile authentication for Apple TV.
 

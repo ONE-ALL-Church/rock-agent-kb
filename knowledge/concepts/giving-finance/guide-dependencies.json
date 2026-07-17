@@ -4241,12 +4241,12 @@
   },
   "approved_media_hash": "25c5f17af4a55ef866c088b7927418927a214e584cafa11f399e1b919cf98e38",
   "approved_media_path": "knowledge/concepts/giving-finance/approved-media.md",
-  "built_at": "2026-07-17T05:35:19+00:00",
+  "built_at": "2026-07-17T15:44:27+00:00",
   "concept_id": "giving-finance",
-  "guide_hash": "2fa7db98230a552efa6aae72df5199867010e43b0dcf4e677e65ef9dafe6705b",
-  "guide_line_count": 1468,
+  "guide_hash": "95c42c30219a14cf60d5bf718ca01ed2d249edf677a683df123873246f6a69c1",
+  "guide_line_count": 1474,
   "guide_path": "knowledge/concepts/giving-finance/guide.md",
-  "guide_word_count": 13103,
+  "guide_word_count": 13232,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4827,6 +4827,7 @@
       "source_keys": [
         "d275b5b94a9da833",
         "776256c424368312",
+        "5feb321c12dae9ff",
         "ec1feb0cddfde711"
       ],
       "start_line": 591
@@ -4857,32 +4858,31 @@
       "start_line": 615
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 653,
+      "confidence": "normal",
+      "end_line": 655,
       "heading": "Statement Eligibility",
       "needs_live_verification": true,
       "section_id": "9-statements-deep-dive-statement-eligibility",
       "source_keys": [
-        "d275b5b94a9da833",
-        "776256c424368312",
-        "776256c424368312"
+        "5feb321c12dae9ff",
+        "d275b5b94a9da833"
       ],
       "start_line": 635
     },
     {
       "confidence": "community-supported",
-      "end_line": 667,
+      "end_line": 669,
       "heading": "Receipts Vs Statements",
       "needs_live_verification": false,
       "section_id": "9-statements-deep-dive-receipts-vs-statements",
       "source_keys": [
         "ec1feb0cddfde711"
       ],
-      "start_line": 654
+      "start_line": 656
     },
     {
       "confidence": "structural",
-      "end_line": 669,
+      "end_line": 671,
       "heading": "10. Batches Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-batches-deep-dive",
@@ -4893,11 +4893,11 @@
         "776256c424368312",
         "cd275eaf0cc0a25a"
       ],
-      "start_line": 668
+      "start_line": 670
     },
     {
       "confidence": "normal",
-      "end_line": 683,
+      "end_line": 685,
       "heading": "Batch Purpose",
       "needs_live_verification": false,
       "section_id": "10-batches-deep-dive-batch-purpose",
@@ -4905,44 +4905,44 @@
         "5feb321c12dae9ff",
         "1590d03b5f992088"
       ],
-      "start_line": 670
+      "start_line": 672
     },
     {
       "confidence": "normal",
-      "end_line": 704,
+      "end_line": 706,
       "heading": "Batch Fields To Inspect",
       "needs_live_verification": true,
       "section_id": "10-batches-deep-dive-batch-fields-to-inspect",
       "source_keys": [
         "b298af2cf3202cfb"
       ],
-      "start_line": 684
+      "start_line": 686
     },
     {
       "confidence": "normal",
-      "end_line": 715,
+      "end_line": 717,
       "heading": "Batch Status",
       "needs_live_verification": false,
       "section_id": "10-batches-deep-dive-batch-status",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 705
+      "start_line": 707
     },
     {
       "confidence": "normal",
-      "end_line": 727,
+      "end_line": 729,
       "heading": "Automated Batches",
       "needs_live_verification": true,
       "section_id": "10-batches-deep-dive-automated-batches",
       "source_keys": [
         "1590d03b5f992088"
       ],
-      "start_line": 716
+      "start_line": 718
     },
     {
       "confidence": "normal",
-      "end_line": 745,
+      "end_line": 747,
       "heading": "Check Scanning And Mobile Batch Processing",
       "needs_live_verification": true,
       "section_id": "10-batches-deep-dive-check-scanning-and-mobile-batch-processing",
@@ -4951,11 +4951,11 @@
         "cd275eaf0cc0a25a",
         "776256c424368312"
       ],
-      "start_line": 728
+      "start_line": 730
     },
     {
       "confidence": "structural",
-      "end_line": 747,
+      "end_line": 749,
       "heading": "11. Related Rock Areas: People, Groups, Workflows, Security, Reporting",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting",
@@ -4970,11 +4970,11 @@
         "ec1feb0cddfde711",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 746
+      "start_line": 748
     },
     {
       "confidence": "structural",
-      "end_line": 769,
+      "end_line": 771,
       "heading": "People",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-people",
@@ -4983,11 +4983,11 @@
         "cd275eaf0cc0a25a",
         "776256c424368312"
       ],
-      "start_line": 748
+      "start_line": 750
     },
     {
       "confidence": "normal",
-      "end_line": 775,
+      "end_line": 777,
       "heading": "Groups",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-groups",
@@ -4996,11 +4996,11 @@
         "d275b5b94a9da833",
         "5feb321c12dae9ff"
       ],
-      "start_line": 770
+      "start_line": 772
     },
     {
       "confidence": "community-supported",
-      "end_line": 801,
+      "end_line": 803,
       "heading": "Workflows",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-workflows",
@@ -5009,11 +5009,11 @@
         "5feb321c12dae9ff",
         "fe44664d13d01acc"
       ],
-      "start_line": 776
+      "start_line": 778
     },
     {
       "confidence": "normal",
-      "end_line": 820,
+      "end_line": 822,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-security",
@@ -5022,11 +5022,11 @@
         "fe44664d13d01acc",
         "ec1feb0cddfde711"
       ],
-      "start_line": 802
+      "start_line": 804
     },
     {
       "confidence": "citation-only",
-      "end_line": 841,
+      "end_line": 843,
       "heading": "Reporting",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-reporting",
@@ -5038,11 +5038,11 @@
         "5feb321c12dae9ff",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 821
+      "start_line": 823
     },
     {
       "confidence": "structural",
-      "end_line": 843,
+      "end_line": 845,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -5054,11 +5054,11 @@
         "b298af2cf3202cfb",
         "776256c424368312"
       ],
-      "start_line": 842
+      "start_line": 844
     },
     {
       "confidence": "structural",
-      "end_line": 856,
+      "end_line": 858,
       "heading": "Change Control",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-change-control",
@@ -5070,55 +5070,55 @@
         "5feb321c12dae9ff",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 844
+      "start_line": 846
     },
     {
       "confidence": "community-supported",
-      "end_line": 871,
+      "end_line": 873,
       "heading": "Account Governance",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-account-governance",
       "source_keys": [
         "23faa2ec51ba6e7d"
       ],
-      "start_line": 857
+      "start_line": 859
     },
     {
       "confidence": "normal",
-      "end_line": 886,
+      "end_line": 888,
       "heading": "Gateway Governance",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-gateway-governance",
       "source_keys": [
         "1590d03b5f992088"
       ],
-      "start_line": 872
+      "start_line": 874
     },
     {
       "confidence": "normal",
-      "end_line": 902,
+      "end_line": 904,
       "heading": "Batch Controls",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-batch-controls",
       "source_keys": [
         "b298af2cf3202cfb"
       ],
-      "start_line": 887
+      "start_line": 889
     },
     {
       "confidence": "normal",
-      "end_line": 919,
+      "end_line": 921,
       "heading": "Receipt And Statement Controls",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-receipt-and-statement-controls",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 903
+      "start_line": 905
     },
     {
       "confidence": "structural",
-      "end_line": 921,
+      "end_line": 923,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -5132,11 +5132,11 @@
         "cd275eaf0cc0a25a",
         "b298af2cf3202cfb"
       ],
-      "start_line": 920
+      "start_line": 922
     },
     {
       "confidence": "normal",
-      "end_line": 946,
+      "end_line": 948,
       "heading": "Source Repository",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-source-repository",
@@ -5157,11 +5157,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 922
+      "start_line": 924
     },
     {
       "confidence": "normal",
-      "end_line": 954,
+      "end_line": 956,
       "heading": "API Considerations",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-api-considerations",
@@ -5171,11 +5171,11 @@
         "776256c424368312",
         "fe44664d13d01acc"
       ],
-      "start_line": 947
+      "start_line": 949
     },
     {
       "confidence": "community-supported",
-      "end_line": 972,
+      "end_line": 974,
       "heading": "Lava Considerations",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-considerations",
@@ -5184,11 +5184,11 @@
         "ec1feb0cddfde711",
         "c9eb9fb42916f1a8"
       ],
-      "start_line": 955
+      "start_line": 957
     },
     {
       "confidence": "normal",
-      "end_line": 981,
+      "end_line": 983,
       "heading": "Mobile Developer Landmarks",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-developer-landmarks",
@@ -5197,11 +5197,11 @@
         "b298af2cf3202cfb",
         "776256c424368312"
       ],
-      "start_line": 973
+      "start_line": 975
     },
     {
       "confidence": "structural",
-      "end_line": 983,
+      "end_line": 985,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -5211,11 +5211,11 @@
         "1590d03b5f992088",
         "d26a070ba9bc8cae"
       ],
-      "start_line": 982
+      "start_line": 984
     },
     {
       "confidence": "normal",
-      "end_line": 1000,
+      "end_line": 1002,
       "heading": "Transactional Tables Vs Analytics Tables",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-transactional-tables-vs-analytics-tables",
@@ -5225,11 +5225,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 984
+      "start_line": 986
     },
     {
       "confidence": "normal",
-      "end_line": 1015,
+      "end_line": 1017,
       "heading": "Giving Analytics",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-giving-analytics",
@@ -5238,33 +5238,33 @@
         "5feb321c12dae9ff",
         "1590d03b5f992088"
       ],
-      "start_line": 1001
+      "start_line": 1003
     },
     {
       "confidence": "citation-only",
-      "end_line": 1027,
+      "end_line": 1029,
       "heading": "BI Financial Transaction Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-bi-financial-transaction-reporting",
       "source_keys": [
         "d26a070ba9bc8cae"
       ],
-      "start_line": 1016
+      "start_line": 1018
     },
     {
       "confidence": "structural",
-      "end_line": 1042,
+      "end_line": 1044,
       "heading": "Model Map Usage",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-model-map-usage",
       "source_keys": [
         "d26a070ba9bc8cae"
       ],
-      "start_line": 1028
+      "start_line": 1030
     },
     {
       "confidence": "high",
-      "end_line": 1059,
+      "end_line": 1061,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats",
@@ -5281,70 +5281,51 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1043
+      "start_line": 1045
     },
     {
       "confidence": "structural",
-      "end_line": 1061,
+      "end_line": 1063,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
         "1590d03b5f992088",
-        "638bd14421adcd15",
-        "ec1feb0cddfde711",
-        "fe44664d13d01acc",
+        "5feb321c12dae9ff",
         "cd275eaf0cc0a25a",
         "b298af2cf3202cfb",
-        "776256c424368312"
+        "d26a070ba9bc8cae",
+        "fe44664d13d01acc"
       ],
-      "start_line": 1060
+      "start_line": 1062
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1076,
+      "confidence": "normal",
+      "end_line": 1080,
       "heading": "Playbook: Add A New Giving Account",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-new-giving-account",
       "source_keys": [
         "1590d03b5f992088",
-        "1590d03b5f992088",
-        "638bd14421adcd15",
-        "ec1feb0cddfde711",
-        "fe44664d13d01acc",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312"
+        "5feb321c12dae9ff"
       ],
-      "start_line": 1062
+      "start_line": 1064
     },
     {
       "confidence": "structural",
-      "end_line": 1090,
+      "end_line": 1094,
       "heading": "Playbook: Configure Online Giving",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-configure-online-giving",
       "source_keys": [
         "1590d03b5f992088",
-        "1590d03b5f992088",
-        "638bd14421adcd15",
-        "ec1feb0cddfde711",
-        "fe44664d13d01acc",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312"
+        "5feb321c12dae9ff"
       ],
-      "start_line": 1077
+      "start_line": 1081
     },
     {
       "confidence": "normal",
-      "end_line": 1104,
+      "end_line": 1108,
       "heading": "Playbook: Enable Mobile Batch Check Scanning",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-enable-mobile-batch-check-scanning",
@@ -5352,34 +5333,34 @@
         "cd275eaf0cc0a25a",
         "b298af2cf3202cfb"
       ],
-      "start_line": 1091
+      "start_line": 1095
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1117,
+      "confidence": "citation-only",
+      "end_line": 1123,
       "heading": "Playbook: Build A Giving Analytics Report",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-giving-analytics-report",
       "source_keys": [
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb"
+        "5feb321c12dae9ff",
+        "d26a070ba9bc8cae"
       ],
-      "start_line": 1105
+      "start_line": 1109
     },
     {
       "confidence": "community-supported",
-      "end_line": 1135,
+      "end_line": 1141,
       "heading": "Playbook: Import Giving From An External System",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-import-giving-from-an-external-system",
       "source_keys": [
         "fe44664d13d01acc"
       ],
-      "start_line": 1118
+      "start_line": 1124
     },
     {
       "confidence": "structural",
-      "end_line": 1137,
+      "end_line": 1143,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -5388,22 +5369,22 @@
         "d275b5b94a9da833",
         "ec1feb0cddfde711"
       ],
-      "start_line": 1136
+      "start_line": 1142
     },
     {
       "confidence": "normal",
-      "end_line": 1150,
+      "end_line": 1156,
       "heading": "A Gift Is Missing From A Person's Giving History",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1138
+      "start_line": 1144
     },
     {
       "confidence": "normal",
-      "end_line": 1164,
+      "end_line": 1170,
       "heading": "A Gift Is Missing From A Statement",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-statement",
@@ -5411,33 +5392,33 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 1151
+      "start_line": 1157
     },
     {
       "confidence": "normal",
-      "end_line": 1177,
+      "end_line": 1183,
       "heading": "Batch Total Does Not Match",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-batch-total-does-not-match",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1165
+      "start_line": 1171
     },
     {
       "confidence": "normal",
-      "end_line": 1190,
+      "end_line": 1196,
       "heading": "Recurring Gift Did Not Run",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-recurring-gift-did-not-run",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1178
+      "start_line": 1184
     },
     {
       "confidence": "normal",
-      "end_line": 1202,
+      "end_line": 1208,
       "heading": "Receipt Language Is Wrong",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-receipt-language-is-wrong",
@@ -5445,11 +5426,11 @@
         "776256c424368312",
         "ec1feb0cddfde711"
       ],
-      "start_line": 1191
+      "start_line": 1197
     },
     {
       "confidence": "structural",
-      "end_line": 1213,
+      "end_line": 1219,
       "heading": "External Import Created Duplicates",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-external-import-created-duplicates",
@@ -5457,11 +5438,11 @@
         "776256c424368312",
         "ec1feb0cddfde711"
       ],
-      "start_line": 1203
+      "start_line": 1209
     },
     {
       "confidence": "structural",
-      "end_line": 1215,
+      "end_line": 1221,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -5471,11 +5452,11 @@
         "bbc64e1562c729c9",
         "c9eb9fb42916f1a8"
       ],
-      "start_line": 1214
+      "start_line": 1220
     },
     {
       "confidence": "structural",
-      "end_line": 1245,
+      "end_line": 1251,
       "heading": "Recipe: Read-Only Finance Record Inspection",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-read-only-finance-record-inspection",
@@ -5483,11 +5464,11 @@
         "776256c424368312",
         "ec1feb0cddfde711"
       ],
-      "start_line": 1216
+      "start_line": 1222
     },
     {
       "confidence": "structural",
-      "end_line": 1271,
+      "end_line": 1277,
       "heading": "Recipe: Statement Eligibility Explanation",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-statement-eligibility-explanation",
@@ -5495,11 +5476,11 @@
         "776256c424368312",
         "ec1feb0cddfde711"
       ],
-      "start_line": 1246
+      "start_line": 1252
     },
     {
       "confidence": "structural",
-      "end_line": 1295,
+      "end_line": 1301,
       "heading": "Recipe: Safe Account Cleanup Assessment",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-safe-account-cleanup-assessment",
@@ -5507,33 +5488,33 @@
         "776256c424368312",
         "ec1feb0cddfde711"
       ],
-      "start_line": 1272
+      "start_line": 1278
     },
     {
       "confidence": "community-supported",
-      "end_line": 1321,
+      "end_line": 1327,
       "heading": "Recipe: Giving Automation Review",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-giving-automation-review",
       "source_keys": [
         "bbc64e1562c729c9"
       ],
-      "start_line": 1296
+      "start_line": 1302
     },
     {
       "confidence": "community-supported",
-      "end_line": 1349,
+      "end_line": 1355,
       "heading": "Recipe: Pledge Progress Analysis",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-pledge-progress-analysis",
       "source_keys": [
         "c9eb9fb42916f1a8"
       ],
-      "start_line": 1322
+      "start_line": 1328
     },
     {
       "confidence": "citation-only",
-      "end_line": 1375,
+      "end_line": 1381,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -5551,11 +5532,11 @@
         "5feb321c12dae9ff",
         "5feb321c12dae9ff"
       ],
-      "start_line": 1350
+      "start_line": 1356
     },
     {
       "confidence": "citation-only",
-      "end_line": 1396,
+      "end_line": 1402,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -5569,11 +5550,11 @@
         "5feb321c12dae9ff",
         "4c0fe1130f878c66"
       ],
-      "start_line": 1376
+      "start_line": 1382
     },
     {
       "confidence": "high",
-      "end_line": 1468,
+      "end_line": 1474,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5616,7 +5597,7 @@
         "ec1feb0cddfde711",
         "c9eb9fb42916f1a8"
       ],
-      "start_line": 1397
+      "start_line": 1403
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:50+00:00",

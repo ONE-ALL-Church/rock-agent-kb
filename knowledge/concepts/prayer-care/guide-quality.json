@@ -11,7 +11,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12882 words; expected at least 7000.",
+      "message": "Guide has 12998 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -58,9 +58,9 @@
   "concept_id": "prayer-care",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-17T05:35:34+00:00",
-  "guide_line_count": 1307,
-  "guide_word_count": 12882,
+  "generated_at": "2026-07-17T15:44:42+00:00",
+  "guide_line_count": 1313,
+  "guide_word_count": 12998,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 96,

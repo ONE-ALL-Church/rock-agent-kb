@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12543 words; expected at least 7000.",
+      "message": "Guide has 12750 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,13 +60,13 @@
   "concept_id": "system-admin-ops",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-17T05:35:21+00:00",
-  "guide_line_count": 1676,
-  "guide_word_count": 12543,
+  "generated_at": "2026-07-17T15:44:29+00:00",
+  "guide_line_count": 1682,
+  "guide_word_count": 12750,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 131,
-  "source_count": 22,
+  "source_count": 28,
   "status": "pass",
   "task_card_count": 6
 }

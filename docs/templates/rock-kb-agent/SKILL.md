@@ -217,7 +217,11 @@ tools instead of shell commands:
   not proof of cause, fix, or local applicability. Exact results may include
   `reviewed_enrichments`; evaluate each enrichment's diagnosis status, claim
   tier, authority, confidence, citations, and version assertions separately
-  from the unreviewed upstream report. If an assessment returns
+  from the unreviewed upstream report. When a `verification_playbook` is
+  present, follow its read-only checks to determine whether the issue can affect
+  the current instance. Record only the bounded evidence labels it requests;
+  keep private IDs, names, logs, and query output out of public feedback. Never
+  improvise a mutating reproduction in production. If an assessment returns
   `revalidation_due_enrichment_ids`, do not rely on those enrichments for
   applicability until a replacement review is published.
 - `kb_assess_rock_issues`: compare issue version evidence with a bounded

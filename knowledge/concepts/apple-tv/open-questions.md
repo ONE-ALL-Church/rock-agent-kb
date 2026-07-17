@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `17-implementation-playbooks-playbook-weekend-messages-app`: Playbook: Weekend Messages App (141 words)
-- `17-implementation-playbooks-playbook-campus-aware-app`: Playbook: Campus-Aware App (89 words)
-- `17-implementation-playbooks-playbook-remote-login`: Playbook: Remote Login (91 words)
 
 ## Community-Supported Only
 

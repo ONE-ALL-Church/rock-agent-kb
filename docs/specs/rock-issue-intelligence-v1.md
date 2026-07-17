@@ -22,6 +22,8 @@ The canonical public row is `rock-kb-rock-issue-v1` in `agent/rock-issues.jsonl`
 
 Reviewed conclusions use `rock-kb-rock-issue-enrichment-v1`. Tracked review records under `issues/` are projected to `agent/rock-issue-enrichments.jsonl` and joined into the canonical issue payload at retrieval time. They never create a second search result for the same GitHub node.
 
+A reviewed enrichment may include an instance `verification_playbook`. Playbooks are public-safe, production-safe, and read-only. They separate prerequisites, typed checks, affected and unaffected observations, evidence to retain, and known limitations. SQL steps must be a single `SELECT` or `WITH` statement and are rejected if they contain write-capable SQL. A playbook helps an agent assess a specific installation; it does not promote the issue report or the local observation to official product truth.
+
 ## State Model
 
 Agents must keep these dimensions separate:
@@ -49,7 +51,7 @@ The v1 investigation model is orchestrator-worker:
 2. independent KB, source-history, and documentation/release investigators run read-only;
 3. an optional church-instance investigator operates only in a permission-scoped private overlay;
 4. a skeptic challenges causal, version, and workaround claims;
-5. a public editor produces a citation-first draft for human review.
+5. a public editor produces a citation-first diagnosis, conservative workaround, and instance verification playbook for human review.
 
 At most three independent investigators run in parallel. Every worker returns `rock-kb-rock-issue-worker-result-v1`; results are rejected when the issue revision is stale, a task is unknown or duplicated, or a public worker attempts to return private evidence references. `kb issues assemble` creates a private review packet under `data/review/rock-issues/`.
 
@@ -64,6 +66,8 @@ Any eventual write path must be a separate broker with exact repository and oper
 ## Promotion
 
 Private observations stay in a separate overlay. A public enrichment requires public citations, typed applicability assertions, redaction and licensing attestations, explicit review, and the normal public-export audits. It may summarize an evidence-backed cause or workaround, but it may not copy issue discussions or church-specific evidence.
+
+Connected-instance checks should validate whether the playbook is usable, using aggregate or otherwise non-identifying results whenever possible. Private record IDs, names, logs, query results, and instance-specific findings remain outside the public enrichment. A test that could send a communication, process a workflow, change a timestamp, save a block, or otherwise mutate Rock belongs in an isolated staging instance and is not a production-safe verification step.
 
 Generated enrichments are included in the full OKF issue record and in the hosted relational projection. Hypotheses remain routing context; reviewed source-supported findings can improve issue-specific retrieval and version assessment without changing the authority of the underlying reporter submission.
 

@@ -39,13 +39,13 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 - `Block`: Rock concept/entity referenced by the developer-resources guide.
 - `DefinedType`: Rock concept/entity referenced by the developer-resources guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
+- `Family`: Rock concept/entity referenced by the developer-resources guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the developer-resources guide.
 - `Page`: Rock concept/entity referenced by the developer-resources guide.
 - `Person`: Rock concept/entity referenced by the developer-resources guide.
 - `PersonAlias`: Rock concept/entity referenced by the developer-resources guide.
 - `Step`: Person-specific engagement milestone instance.
-- `Workflow`: Rock concept/entity referenced by the developer-resources guide.
 
 ## Version Caveats
 

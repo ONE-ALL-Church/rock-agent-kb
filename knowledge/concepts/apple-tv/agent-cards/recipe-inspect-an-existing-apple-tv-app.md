@@ -35,14 +35,14 @@ Follow the guide section for Recipe: Inspect An Existing Apple TV App.
 ## Source Links
 
 - https://community.rockrms.com/developer/apple-tv-docs
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/apple-tv-docs/javascript
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images
 - https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
 - https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/api-docs
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
 - https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/api-docs
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/apple-tv-docs/developer
 - https://www.triumph.tech/resources/dashboard-design-part-1

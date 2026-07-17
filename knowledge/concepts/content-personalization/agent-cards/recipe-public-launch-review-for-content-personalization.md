@@ -34,8 +34,8 @@ Follow the guide section for Recipe: Public launch review for content personaliz
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/digital-publishing/content-management
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels
+- https://community.rockrms.com/documentation/digital-publishing/content-management
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/digital-publishing/personalization
@@ -43,6 +43,6 @@ Follow the guide section for Recipe: Public launch review for content personaliz
 - https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
 - https://www.triumph.tech/resources/structured-content-rock-upgrade
+- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
 - https://community.rockrms.com/recipes/128
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-for-anonymous-visitors
-- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items

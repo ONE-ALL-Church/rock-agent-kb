@@ -35,10 +35,11 @@ Follow the guide section for Recipe: Audit Discount Codes.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/472
 - https://community.rockrms.com/recipes/245
 - https://community.rockrms.com/documentation/bookcontent/29
+- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/event-registration/registration-discounts
 - https://community.rockrms.com/recipes/313
 - https://community.rockrms.com/ask/developing/2547

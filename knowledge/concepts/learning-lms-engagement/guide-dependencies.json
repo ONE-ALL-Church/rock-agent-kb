@@ -1336,12 +1336,12 @@
   },
   "approved_media_hash": "a0b57d334071cf790dbc08ce3846995364523241e8f5042bbc9fefde7c58459d",
   "approved_media_path": "knowledge/concepts/learning-lms-engagement/approved-media.md",
-  "built_at": "2026-07-17T05:35:29+00:00",
+  "built_at": "2026-07-17T15:44:37+00:00",
   "concept_id": "learning-lms-engagement",
-  "guide_hash": "dcf693da5ae271e6aa584f2723ff599f48520249d3c51c8b70747c78ba59cab2",
-  "guide_line_count": 1257,
+  "guide_hash": "ee568f09b6c280276d4bc2c43fcc1238856ddc3d70427508ab4e1495ed4265bc",
+  "guide_line_count": 1269,
   "guide_path": "knowledge/concepts/learning-lms-engagement/guide.md",
-  "guide_word_count": 10959,
+  "guide_word_count": 11211,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1425,6 +1425,24 @@
       "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "7ae31f8ce1d8e726",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "4880767c10a7866e",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+    },
+    {
       "authority": "community-example",
       "content_hash": "9b5d8f800acd6c719d2c69e4ea69ce0ecb47b1918956e303041c96148917b2e1",
       "excerpt_hash": "1d87ea548b06b2bc1aef194bcbc4c8f623063d1470ecd630ce63e5c20c3270df",
@@ -1441,6 +1459,15 @@
       "source_key": "10d9f0934e171ebf",
       "source_record_id": "media-insight:9a2fef11fd30a564",
       "url": "https://community.rockrms.com/rocku/groups/group-requirements"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "ed385c31a897d3d9",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements"
     },
     {
       "authority": "official-training",
@@ -1468,6 +1495,69 @@
       "source_key": "a1ed0fff68d780b1",
       "source_record_id": "rock_qa:a1ed0fff68d780b1",
       "url": "https://community.rockrms.com/ask/developing/2786"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "3a204c8863c4051d",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "d804cd25a18cc62b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "fe95bcbc8097696f",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "ce446ea5f567fb5f",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "fe3c3eeb6053c5d5",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/configure-steps"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "b598f4bd43d82f3c",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "1ac96a563154db22",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs"
     },
     {
       "authority": "unknown",
@@ -1584,31 +1674,20 @@
       "start_line": 49
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 108,
+      "confidence": "normal",
+      "end_line": 110,
       "heading": "3. Learning, LMS, And Engagement Mental Model",
       "needs_live_verification": false,
       "section_id": "3-learning-lms-and-engagement-mental-model",
       "source_keys": [
-        "4bf789337b4a474e",
-        "bce31f25cb8a199e",
-        "4bf789337b4a474e",
-        "4bf789337b4a474e",
-        "4bf789337b4a474e",
-        "776256c424368312",
-        "bce31f25cb8a199e",
-        "87c8ac3acde5fa9a",
-        "d275b5b94a9da833",
-        "256bfaf3b8f47935",
-        "a259479b03a961c3",
-        "256bfaf3b8f47935",
-        "d275b5b94a9da833"
+        "7ae31f8ce1d8e726",
+        "4880767c10a7866e"
       ],
       "start_line": 84
     },
     {
       "confidence": "high",
-      "end_line": 122,
+      "end_line": 124,
       "heading": "4. Source Authority And How To Use This Guide",
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
@@ -1621,11 +1700,11 @@
         "bce31f25cb8a199e",
         "9af162570ab9ac58"
       ],
-      "start_line": 109
+      "start_line": 111
     },
     {
       "confidence": "high",
-      "end_line": 157,
+      "end_line": 159,
       "heading": "5. Core Configuration And Data Model",
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model",
@@ -1643,11 +1722,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 123
+      "start_line": 125
     },
     {
       "confidence": "structural",
-      "end_line": 159,
+      "end_line": 161,
       "heading": "6. Primary Entities And Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
@@ -1661,11 +1740,11 @@
         "d275b5b94a9da833",
         "10d9f0934e171ebf"
       ],
-      "start_line": 158
+      "start_line": 160
     },
     {
       "confidence": "high",
-      "end_line": 175,
+      "end_line": 177,
       "heading": "LMS Entity Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-lms-entity-relationships",
@@ -1676,11 +1755,11 @@
         "87c8ac3acde5fa9a",
         "bce31f25cb8a199e"
       ],
-      "start_line": 160
+      "start_line": 162
     },
     {
       "confidence": "normal",
-      "end_line": 189,
+      "end_line": 191,
       "heading": "Engagement Entity Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-engagement-entity-relationships",
@@ -1692,11 +1771,11 @@
         "256bfaf3b8f47935",
         "256bfaf3b8f47935"
       ],
-      "start_line": 176
+      "start_line": 178
     },
     {
       "confidence": "high",
-      "end_line": 197,
+      "end_line": 199,
       "heading": "Requirements Entity Relationships",
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-requirements-entity-relationships",
@@ -1705,36 +1784,38 @@
         "256bfaf3b8f47935",
         "10d9f0934e171ebf"
       ],
-      "start_line": 190
+      "start_line": 192
     },
     {
       "confidence": "structural",
-      "end_line": 199,
+      "end_line": 201,
       "heading": "7. Common Learning, LMS, And Engagement Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-learning-lms-and-engagement-workflows",
       "source_keys": [
         "4bf789337b4a474e",
         "bb36a9170c60ca9d",
+        "7ae31f8ce1d8e726",
+        "ed385c31a897d3d9",
         "a259479b03a961c3",
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 198
+      "start_line": 200
     },
     {
       "confidence": "normal",
-      "end_line": 218,
+      "end_line": 220,
       "heading": "Create An On-Demand Training Program",
       "needs_live_verification": true,
       "section_id": "7-common-learning-lms-and-engagement-workflows-create-an-on-demand-training-program",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 200
+      "start_line": 202
     },
     {
       "confidence": "normal",
-      "end_line": 236,
+      "end_line": 238,
       "heading": "Create An Academic Calendar Program",
       "needs_live_verification": true,
       "section_id": "7-common-learning-lms-and-engagement-workflows-create-an-academic-calendar-program",
@@ -1742,23 +1823,23 @@
         "4bf789337b4a474e",
         "bb36a9170c60ca9d"
       ],
-      "start_line": 219
+      "start_line": 221
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 251,
+      "confidence": "normal",
+      "end_line": 255,
       "heading": "Assign Training To Volunteers Or Staff",
       "needs_live_verification": true,
       "section_id": "7-common-learning-lms-and-engagement-workflows-assign-training-to-volunteers-or-staff",
       "source_keys": [
-        "4bf789337b4a474e",
-        "bb36a9170c60ca9d"
+        "7ae31f8ce1d8e726",
+        "ed385c31a897d3d9"
       ],
-      "start_line": 237
+      "start_line": 239
     },
     {
       "confidence": "citation-only",
-      "end_line": 267,
+      "end_line": 271,
       "heading": "Record A Ministry Milestone",
       "needs_live_verification": true,
       "section_id": "7-common-learning-lms-and-engagement-workflows-record-a-ministry-milestone",
@@ -1767,55 +1848,55 @@
         "a259479b03a961c3",
         "a259479b03a961c3"
       ],
-      "start_line": 252
+      "start_line": 256
     },
     {
       "confidence": "citation-only",
-      "end_line": 280,
+      "end_line": 284,
       "heading": "Automate Follow-Up From Learning Completion",
       "needs_live_verification": true,
       "section_id": "7-common-learning-lms-and-engagement-workflows-automate-follow-up-from-learning-completion",
       "source_keys": [
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 268
+      "start_line": 272
     },
     {
       "confidence": "normal",
-      "end_line": 296,
+      "end_line": 300,
       "heading": "8. Courses And Lessons Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-courses-and-lessons-deep-dive",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 281
+      "start_line": 285
     },
     {
       "confidence": "normal",
-      "end_line": 313,
+      "end_line": 317,
       "heading": "Course Configuration Checks",
       "needs_live_verification": true,
       "section_id": "8-courses-and-lessons-deep-dive-course-configuration-checks",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 297
+      "start_line": 301
     },
     {
       "confidence": "normal",
-      "end_line": 330,
+      "end_line": 334,
       "heading": "Class Design",
       "needs_live_verification": true,
       "section_id": "8-courses-and-lessons-deep-dive-class-design",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 314
+      "start_line": 318
     },
     {
       "confidence": "high",
-      "end_line": 349,
+      "end_line": 353,
       "heading": "Learning Plan Activity Design",
       "needs_live_verification": true,
       "section_id": "8-courses-and-lessons-deep-dive-learning-plan-activity-design",
@@ -1823,22 +1904,22 @@
         "4bf789337b4a474e",
         "776256c424368312"
       ],
-      "start_line": 331
+      "start_line": 335
     },
     {
       "confidence": "citation-only",
-      "end_line": 362,
+      "end_line": 366,
       "heading": "Lessons Versus Activities",
       "needs_live_verification": true,
       "section_id": "8-courses-and-lessons-deep-dive-lessons-versus-activities",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 350
+      "start_line": 354
     },
     {
       "confidence": "structural",
-      "end_line": 366,
+      "end_line": 370,
       "heading": "9. Requirements And Completion Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-requirements-and-completion-deep-dive",
@@ -1849,22 +1930,22 @@
         "256bfaf3b8f47935",
         "9af162570ab9ac58"
       ],
-      "start_line": 363
+      "start_line": 367
     },
     {
       "confidence": "normal",
-      "end_line": 383,
+      "end_line": 387,
       "heading": "LMS Course Requirements",
       "needs_live_verification": true,
       "section_id": "9-requirements-and-completion-deep-dive-lms-course-requirements",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 367
+      "start_line": 371
     },
     {
       "confidence": "normal",
-      "end_line": 398,
+      "end_line": 402,
       "heading": "Completion Tracking",
       "needs_live_verification": true,
       "section_id": "9-requirements-and-completion-deep-dive-completion-tracking",
@@ -1872,22 +1953,22 @@
         "d275b5b94a9da833",
         "bce31f25cb8a199e"
       ],
-      "start_line": 384
+      "start_line": 388
     },
     {
       "confidence": "citation-only",
-      "end_line": 420,
+      "end_line": 424,
       "heading": "Activity Completion Workflows",
       "needs_live_verification": true,
       "section_id": "9-requirements-and-completion-deep-dive-activity-completion-workflows",
       "source_keys": [
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 399
+      "start_line": 403
     },
     {
       "confidence": "normal",
-      "end_line": 428,
+      "end_line": 432,
       "heading": "Group Requirements As A Parallel System",
       "needs_live_verification": false,
       "section_id": "9-requirements-and-completion-deep-dive-group-requirements-as-a-parallel-system",
@@ -1895,11 +1976,11 @@
         "256bfaf3b8f47935",
         "9af162570ab9ac58"
       ],
-      "start_line": 421
+      "start_line": 425
     },
     {
       "confidence": "normal",
-      "end_line": 436,
+      "end_line": 440,
       "heading": "10. Engagement Journeys Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-engagement-journeys-deep-dive",
@@ -1907,11 +1988,11 @@
         "a259479b03a961c3",
         "256bfaf3b8f47935"
       ],
-      "start_line": 429
+      "start_line": 433
     },
     {
       "confidence": "structural",
-      "end_line": 454,
+      "end_line": 458,
       "heading": "Step Program Design",
       "needs_live_verification": false,
       "section_id": "10-engagement-journeys-deep-dive-step-program-design",
@@ -1919,44 +2000,44 @@
         "a259479b03a961c3",
         "256bfaf3b8f47935"
       ],
-      "start_line": 437
+      "start_line": 441
     },
     {
       "confidence": "normal",
-      "end_line": 473,
+      "end_line": 477,
       "heading": "Step Types",
       "needs_live_verification": true,
       "section_id": "10-engagement-journeys-deep-dive-step-types",
       "source_keys": [
         "256bfaf3b8f47935"
       ],
-      "start_line": 455
+      "start_line": 459
     },
     {
       "confidence": "citation-only",
-      "end_line": 498,
+      "end_line": 502,
       "heading": "Adding Steps",
       "needs_live_verification": true,
       "section_id": "10-engagement-journeys-deep-dive-adding-steps",
       "source_keys": [
         "a259479b03a961c3"
       ],
-      "start_line": 474
+      "start_line": 478
     },
     {
       "confidence": "citation-only",
-      "end_line": 512,
+      "end_line": 516,
       "heading": "Badges",
       "needs_live_verification": false,
       "section_id": "10-engagement-journeys-deep-dive-badges",
       "source_keys": [
         "a259479b03a961c3"
       ],
-      "start_line": 499
+      "start_line": 503
     },
     {
       "confidence": "high",
-      "end_line": 536,
+      "end_line": 540,
       "heading": "Achievements And Streaks",
       "needs_live_verification": true,
       "section_id": "10-engagement-journeys-deep-dive-achievements-and-streaks",
@@ -1964,11 +2045,11 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 513
+      "start_line": 517
     },
     {
       "confidence": "structural",
-      "end_line": 540,
+      "end_line": 544,
       "heading": "11. Reporting And Administration Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-reporting-and-administration-deep-dive",
@@ -1976,22 +2057,22 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 537
+      "start_line": 541
     },
     {
       "confidence": "normal",
-      "end_line": 568,
+      "end_line": 572,
       "heading": "LMS Reporting",
       "needs_live_verification": true,
       "section_id": "11-reporting-and-administration-deep-dive-lms-reporting",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 541
+      "start_line": 545
     },
     {
       "confidence": "normal",
-      "end_line": 587,
+      "end_line": 591,
       "heading": "Engagement Reporting",
       "needs_live_verification": false,
       "section_id": "11-reporting-and-administration-deep-dive-engagement-reporting",
@@ -1999,11 +2080,11 @@
         "256bfaf3b8f47935",
         "a259479b03a961c3"
       ],
-      "start_line": 569
+      "start_line": 573
     },
     {
       "confidence": "normal",
-      "end_line": 598,
+      "end_line": 602,
       "heading": "Data Views",
       "needs_live_verification": false,
       "section_id": "11-reporting-and-administration-deep-dive-data-views",
@@ -2012,22 +2093,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 588
+      "start_line": 592
     },
     {
       "confidence": "normal",
-      "end_line": 617,
+      "end_line": 621,
       "heading": "Administration",
       "needs_live_verification": true,
       "section_id": "11-reporting-and-administration-deep-dive-administration",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 599
+      "start_line": 603
     },
     {
       "confidence": "structural",
-      "end_line": 619,
+      "end_line": 623,
       "heading": "12. Related Rock Areas: People, Groups, Communications, Workflows, Event Registration, Data Views, Reports, Security, Platform Configuration",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration",
@@ -2041,22 +2122,22 @@
         "f68105efa2b24826",
         "d275b5b94a9da833"
       ],
-      "start_line": 618
+      "start_line": 622
     },
     {
       "confidence": "structural",
-      "end_line": 634,
+      "end_line": 638,
       "heading": "People",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-people",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 620
+      "start_line": 624
     },
     {
       "confidence": "normal",
-      "end_line": 640,
+      "end_line": 644,
       "heading": "Groups",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-groups",
@@ -2064,11 +2145,11 @@
         "256bfaf3b8f47935",
         "10d9f0934e171ebf"
       ],
-      "start_line": 635
+      "start_line": 639
     },
     {
       "confidence": "normal",
-      "end_line": 655,
+      "end_line": 659,
       "heading": "Communications",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-communications",
@@ -2076,11 +2157,11 @@
         "776256c424368312",
         "d8e206fd8dc90132"
       ],
-      "start_line": 641
+      "start_line": 645
     },
     {
       "confidence": "citation-only",
-      "end_line": 673,
+      "end_line": 677,
       "heading": "Workflows",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-workflows",
@@ -2088,11 +2169,11 @@
         "87c8ac3acde5fa9a",
         "f68105efa2b24826"
       ],
-      "start_line": 656
+      "start_line": 660
     },
     {
       "confidence": "normal",
-      "end_line": 679,
+      "end_line": 683,
       "heading": "Event Registration",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-event-registration",
@@ -2100,33 +2181,33 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 674
+      "start_line": 678
     },
     {
       "confidence": "normal",
-      "end_line": 694,
+      "end_line": 698,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-security",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 680
+      "start_line": 684
     },
     {
       "confidence": "structural",
-      "end_line": 714,
+      "end_line": 718,
       "heading": "Platform Configuration",
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-platform-configuration",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 695
+      "start_line": 699
     },
     {
       "confidence": "structural",
-      "end_line": 716,
+      "end_line": 720,
       "heading": "13. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
@@ -2138,77 +2219,77 @@
         "a259479b03a961c3",
         "f68105efa2b24826"
       ],
-      "start_line": 715
+      "start_line": 719
     },
     {
       "confidence": "normal",
-      "end_line": 720,
+      "end_line": 724,
       "heading": "Guardrail 1: Do Not Edit Active Learning Plans Blindly",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-guardrail-1-do-not-edit-active-learning-plans-blindly",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 717
+      "start_line": 721
     },
     {
       "confidence": "structural",
-      "end_line": 724,
+      "end_line": 728,
       "heading": "Guardrail 2: Treat Requirements As Policy",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-guardrail-2-treat-requirements-as-policy",
       "source_keys": [
         "4bf789337b4a474e"
       ],
-      "start_line": 721
+      "start_line": 725
     },
     {
       "confidence": "citation-only",
-      "end_line": 728,
+      "end_line": 732,
       "heading": "Guardrail 3: Verify Entity Types Before Automating",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-guardrail-3-verify-entity-types-before-automating",
       "source_keys": [
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 725
+      "start_line": 729
     },
     {
       "confidence": "normal",
-      "end_line": 732,
+      "end_line": 736,
       "heading": "Guardrail 4: Preserve Customized System Communications",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-guardrail-4-preserve-customized-system-communications",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 729
+      "start_line": 733
     },
     {
       "confidence": "structural",
-      "end_line": 736,
+      "end_line": 740,
       "heading": "Guardrail 5: Separate Training Completion From Ministry Qualification",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-guardrail-5-separate-training-completion-from-ministry-qualification",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 733
+      "start_line": 737
     },
     {
       "confidence": "normal",
-      "end_line": 740,
+      "end_line": 744,
       "heading": "Guardrail 6: Use Built-In Reporting Before Custom SQL",
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-guardrail-6-use-built-in-reporting-before-custom-sql",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 737
+      "start_line": 741
     },
     {
       "confidence": "citation-only",
-      "end_line": 744,
+      "end_line": 748,
       "heading": "Guardrail 7: Mark Legacy Training As Legacy",
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-guardrail-7-mark-legacy-training-as-legacy",
@@ -2216,11 +2297,11 @@
         "a259479b03a961c3",
         "f68105efa2b24826"
       ],
-      "start_line": 741
+      "start_line": 745
     },
     {
       "confidence": "structural",
-      "end_line": 746,
+      "end_line": 750,
       "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
@@ -2228,22 +2309,22 @@
         "d275b5b94a9da833",
         "a1ed0fff68d780b1"
       ],
-      "start_line": 745
+      "start_line": 749
     },
     {
       "confidence": "normal",
-      "end_line": 750,
+      "end_line": 754,
       "heading": "Source Repository",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-source-repository",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 747
+      "start_line": 751
     },
     {
       "confidence": "normal",
-      "end_line": 762,
+      "end_line": 766,
       "heading": "LMS API Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lms-api-landmarks",
@@ -2252,11 +2333,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 751
+      "start_line": 755
     },
     {
       "confidence": "normal",
-      "end_line": 770,
+      "end_line": 774,
       "heading": "Reporting Landmarks",
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-reporting-landmarks",
@@ -2265,22 +2346,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 763
+      "start_line": 767
     },
     {
       "confidence": "community-supported",
-      "end_line": 776,
+      "end_line": 780,
       "heading": "Lava Landmarks",
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-landmarks",
       "source_keys": [
         "a1ed0fff68d780b1"
       ],
-      "start_line": 771
+      "start_line": 775
     },
     {
       "confidence": "normal",
-      "end_line": 804,
+      "end_line": 808,
       "heading": "15. Reporting, Analytics, And Model Map",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map",
@@ -2288,11 +2369,11 @@
         "bce31f25cb8a199e",
         "256bfaf3b8f47935"
       ],
-      "start_line": 777
+      "start_line": 781
     },
     {
       "confidence": "structural",
-      "end_line": 806,
+      "end_line": 810,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats",
@@ -2301,11 +2382,11 @@
         "4bf789337b4a474e",
         "256bfaf3b8f47935"
       ],
-      "start_line": 805
+      "start_line": 809
     },
     {
       "confidence": "high",
-      "end_line": 812,
+      "end_line": 816,
       "heading": "Rock v17.0",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v17-0",
@@ -2313,11 +2394,11 @@
         "776256c424368312",
         "4bf789337b4a474e"
       ],
-      "start_line": 807
+      "start_line": 811
     },
     {
       "confidence": "high",
-      "end_line": 829,
+      "end_line": 833,
       "heading": "Rock v18.1",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v18-1",
@@ -2326,255 +2407,267 @@
         "256bfaf3b8f47935",
         "776256c424368312"
       ],
-      "start_line": 813
+      "start_line": 817
     },
     {
       "confidence": "normal",
-      "end_line": 841,
+      "end_line": 845,
       "heading": "Rock v18.3 And v19.1 Release Notes In Pack",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-rock-v18-3-and-v19-1-release-notes-in-pack",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 830
+      "start_line": 834
     },
     {
       "confidence": "structural",
-      "end_line": 845,
+      "end_line": 849,
       "heading": "Develop Branch Caveat",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-develop-branch-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 842
+      "start_line": 846
     },
     {
       "confidence": "structural",
-      "end_line": 847,
+      "end_line": 851,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
+        "3a204c8863c4051d",
+        "d804cd25a18cc62b",
+        "fe95bcbc8097696f",
+        "ce446ea5f567fb5f",
+        "fe3c3eeb6053c5d5",
         "776256c424368312"
       ],
-      "start_line": 846
+      "start_line": 850
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 877,
+      "confidence": "normal",
+      "end_line": 883,
       "heading": "Playbook: Launch A Volunteer Training LMS Program",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-launch-a-volunteer-training-lms-program",
       "source_keys": [
-        "776256c424368312"
+        "3a204c8863c4051d",
+        "d804cd25a18cc62b"
       ],
-      "start_line": 848
+      "start_line": 852
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 892,
+      "confidence": "normal",
+      "end_line": 900,
       "heading": "Playbook: Add A New Course Requirement",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-a-new-course-requirement",
       "source_keys": [
-        "776256c424368312"
+        "fe95bcbc8097696f"
       ],
-      "start_line": 878
+      "start_line": 884
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 907,
+      "confidence": "normal",
+      "end_line": 917,
       "heading": "Playbook: Convert A Training Completion Into An Engagement Step",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-convert-a-training-completion-into-an-engagement-step",
       "source_keys": [
-        "776256c424368312"
+        "ce446ea5f567fb5f",
+        "fe3c3eeb6053c5d5"
       ],
-      "start_line": 893
+      "start_line": 901
     },
     {
       "confidence": "structural",
-      "end_line": 926,
+      "end_line": 936,
       "heading": "Playbook: Build A Learning Dashboard",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-learning-dashboard",
       "source_keys": [
-        "776256c424368312"
+        "ce446ea5f567fb5f",
+        "fe3c3eeb6053c5d5"
       ],
-      "start_line": 908
+      "start_line": 918
     },
     {
       "confidence": "normal",
-      "end_line": 942,
+      "end_line": 952,
       "heading": "Playbook: Upgrade Review For LMS And Engagement",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-upgrade-review-for-lms-and-engagement",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 927
+      "start_line": 937
     },
     {
       "confidence": "structural",
-      "end_line": 944,
+      "end_line": 954,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
       "source_keys": [
         "776256c424368312",
         "d275b5b94a9da833",
-        "87c8ac3acde5fa9a"
+        "87c8ac3acde5fa9a",
+        "b598f4bd43d82f3c",
+        "1ac96a563154db22"
       ],
-      "start_line": 943
+      "start_line": 953
     },
     {
       "confidence": "structural",
-      "end_line": 959,
+      "end_line": 969,
       "heading": "Learner Cannot See A Course",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-learner-cannot-see-a-course",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 945
+      "start_line": 955
     },
     {
       "confidence": "structural",
-      "end_line": 974,
+      "end_line": 984,
       "heading": "Learner Completed Activity But Course Did Not Complete",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-learner-completed-activity-but-course-did-not-complete",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 960
+      "start_line": 970
     },
     {
       "confidence": "normal",
-      "end_line": 989,
+      "end_line": 999,
       "heading": "Course Does Not Appear In Reporting",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-course-does-not-appear-in-reporting",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 975
+      "start_line": 985
     },
     {
       "confidence": "citation-only",
-      "end_line": 1006,
+      "end_line": 1016,
       "heading": "Completion Workflow Did Not Run",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-completion-workflow-did-not-run",
       "source_keys": [
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 990
+      "start_line": 1000
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1021,
+      "confidence": "normal",
+      "end_line": 1033,
       "heading": "Group Requirement Still Fails After LMS Completion",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion",
       "source_keys": [
-        "87c8ac3acde5fa9a"
+        "b598f4bd43d82f3c",
+        "1ac96a563154db22"
       ],
-      "start_line": 1007
+      "start_line": 1017
     },
     {
       "confidence": "structural",
-      "end_line": 1036,
+      "end_line": 1048,
       "heading": "Step Badge Not Showing",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-step-badge-not-showing",
       "source_keys": [
-        "87c8ac3acde5fa9a"
+        "b598f4bd43d82f3c",
+        "1ac96a563154db22"
       ],
-      "start_line": 1022
+      "start_line": 1034
     },
     {
       "confidence": "normal",
-      "end_line": 1053,
+      "end_line": 1065,
       "heading": "Announcement Or Activity Notification Not Sent",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-announcement-or-activity-notification-not-sent",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1037
+      "start_line": 1049
     },
     {
       "confidence": "structural",
-      "end_line": 1055,
+      "end_line": 1067,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1054
+      "start_line": 1066
     },
     {
       "confidence": "structural",
-      "end_line": 1080,
+      "end_line": 1092,
       "heading": "Recipe: Audit One LMS Program",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-audit-one-lms-program",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1056
+      "start_line": 1068
     },
     {
       "confidence": "structural",
-      "end_line": 1102,
+      "end_line": 1114,
       "heading": "Recipe: Find Why A Person Is Not Complete",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-find-why-a-person-is-not-complete",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1081
+      "start_line": 1093
     },
     {
       "confidence": "structural",
-      "end_line": 1119,
+      "end_line": 1131,
       "heading": "Recipe: Prepare A Course For Launch",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-prepare-a-course-for-launch",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1103
+      "start_line": 1115
     },
     {
       "confidence": "structural",
-      "end_line": 1140,
+      "end_line": 1152,
       "heading": "Recipe: Build A Step Journey From Training",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-build-a-step-journey-from-training",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1120
+      "start_line": 1132
     },
     {
       "confidence": "structural",
-      "end_line": 1165,
+      "end_line": 1177,
       "heading": "Recipe: Review Upgrade Risk",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-upgrade-risk",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1141
+      "start_line": 1153
     },
     {
       "confidence": "citation-only",
-      "end_line": 1191,
+      "end_line": 1203,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2592,11 +2685,11 @@
         "892f43823742ae10",
         "b68311e84ce45057"
       ],
-      "start_line": 1166
+      "start_line": 1178
     },
     {
       "confidence": "citation-only",
-      "end_line": 1209,
+      "end_line": 1221,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2608,11 +2701,11 @@
         "892f43823742ae10",
         "121d4215e1fc4edb"
       ],
-      "start_line": 1192
+      "start_line": 1204
     },
     {
       "confidence": "high",
-      "end_line": 1257,
+      "end_line": 1269,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2641,7 +2734,7 @@
         "a1ed0fff68d780b1",
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 1210
+      "start_line": 1222
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:55:32+00:00",
@@ -2846,6 +2939,26 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "7ae31f8ce1d8e726",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "4880767c10a7866e",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
@@ -2893,6 +3006,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/groups/group-requirements",
       "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "ed385c31a897d3d9",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements"
     },
     {
       "authority": "official-training",
@@ -2966,6 +3089,76 @@
       ],
       "url": "https://community.rockrms.com/ask/developing/2786",
       "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "3a204c8863c4051d",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "d804cd25a18cc62b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "fe95bcbc8097696f",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "ce446ea5f567fb5f",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "fe3c3eeb6053c5d5",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/steps/configure-steps",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/configure-steps"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "b598f4bd43d82f3c",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "1ac96a563154db22",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs"
     },
     {
       "authority": "unknown",

@@ -847,6 +847,8 @@ Developer docs include mobile/core version markers for some blocks, such as Sche
 
 ### Playbook: Build A Small Group Structure
 
+Start with the official [Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7) hierarchy, role, location, schedule, attendance, and finder model. Verify the target instance's allowed child types, role permissions, finder filters, schedules, locations, and leader access before opening the structure to staff or the public.
+
 1. Define ministry hierarchy: top-level folder, coach layer, small group layer.
 2. Create or verify Group Types:
    - Small Group Leadership or folder type.

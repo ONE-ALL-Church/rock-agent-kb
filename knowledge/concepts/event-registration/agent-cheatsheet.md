@@ -79,7 +79,7 @@ generated: true
 | `11-administration-and-operational-guardrails-naming` | community-supported | live verification |
 | `11-administration-and-operational-guardrails-change-management` | structural | live verification |
 | `11-administration-and-operational-guardrails-notes-and-auditability` | community-supported | community-supported |
-| `11-administration-and-operational-guardrails-operational-health-checks` | needs-citation | live verification |
+| `11-administration-and-operational-guardrails-operational-health-checks` | normal | live verification |
 | `12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering` | normal | live verification |
 | `12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat` | community-supported | live verification |
 | `13-reporting-analytics-and-model-map-reporting-entity-choice` | community-supported | community-supported |
@@ -87,10 +87,10 @@ generated: true
 | `13-reporting-analytics-and-model-map-analytics-checks` | community-supported | community-supported |
 | `14-version-and-release-caveats-rock-18-3` | normal | live verification |
 | `14-version-and-release-caveats-v16-10-v17-0-spotlight` | citation-only | live verification |
-| `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration` | needs-citation | live verification |
+| `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration` | citation-only | live verification |
 | `15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1` | normal | live verification |
 | `15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1` | structural | live verification |
-| `15-implementation-playbooks-playbook-d-configure-payment-reminders` | needs-citation | live verification |
+| `15-implementation-playbooks-playbook-d-configure-payment-reminders` | high | live verification |
 | `15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button` | structural | live verification |
 | `16-troubleshooting-decision-tree-public-page-says-registration-is-closed` | structural | live verification |
 | `17-agent-task-recipes-recipe-verify-a-public-registration-url` | structural | live verification |

@@ -716,12 +716,12 @@
   },
   "approved_media_hash": "7fc1276035689e0bc28de6fa9192a1f6b6e43c65b5e505ca6b8cf94e52f6c4f6",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-07-17T05:35:59+00:00",
+  "built_at": "2026-07-17T15:45:07+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "6da73261e6f03d9555a8e1163a31ec36cc5f44d05c121e2e967f51c881d0688a",
-  "guide_line_count": 1381,
+  "guide_hash": "dbcc02803eb5bb7780bc3e59fd9c66502dbb56274aadcf22cefb1abf6f98e911",
+  "guide_line_count": 1387,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
-  "guide_word_count": 13606,
+  "guide_word_count": 13780,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1758,294 +1758,244 @@
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
       "start_line": 961
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 990,
+      "confidence": "normal",
+      "end_line": 992,
       "heading": "Playbook: Weekend Messages App",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-weekend-messages-app",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "74ac83f99a50c012",
+        "80679876651d7dc7"
       ],
       "start_line": 963
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1009,
+      "confidence": "normal",
+      "end_line": 1013,
       "heading": "Playbook: Campus-Aware App",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-campus-aware-app",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "74ac83f99a50c012",
+        "80679876651d7dc7"
       ],
-      "start_line": 991
+      "start_line": 993
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1034,
+      "confidence": "normal",
+      "end_line": 1040,
       "heading": "Playbook: Remote Login",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-remote-login",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
-      "start_line": 1010
+      "start_line": 1014
     },
     {
       "confidence": "structural",
-      "end_line": 1053,
+      "end_line": 1059,
       "heading": "Playbook: Media Resume",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-media-resume",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
-      "start_line": 1035
+      "start_line": 1041
     },
     {
       "confidence": "structural",
-      "end_line": 1068,
+      "end_line": 1074,
       "heading": "Playbook: Production Readiness Audit",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-production-readiness-audit",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
-      "start_line": 1054
+      "start_line": 1060
     },
     {
       "confidence": "structural",
-      "end_line": 1070,
+      "end_line": 1076,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
-      "start_line": 1069
+      "start_line": 1075
     },
     {
       "confidence": "structural",
-      "end_line": 1085,
+      "end_line": 1091,
       "heading": "App Does Not Launch",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-app-does-not-launch",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
-      "start_line": 1071
+      "start_line": 1077
     },
     {
       "confidence": "structural",
-      "end_line": 1098,
+      "end_line": 1104,
       "heading": "Page Is Blank",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-page-is-blank",
       "source_keys": [
-        "0c49f1da7a50e9ad",
-        "d275b5b94a9da833",
-        "0c49f1da7a50e9ad",
-        "4155cc8ec235808f",
-        "80679876651d7dc7",
         "74ac83f99a50c012",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
+        "80679876651d7dc7"
       ],
-      "start_line": 1086
+      "start_line": 1092
     },
     {
       "confidence": "normal",
-      "end_line": 1110,
+      "end_line": 1116,
       "heading": "Navigation Does Not Work",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-navigation-does-not-work",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 1099
+      "start_line": 1105
     },
     {
       "confidence": "structural",
-      "end_line": 1126,
+      "end_line": 1132,
       "heading": "Sign-In Fails",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-sign-in-fails",
       "source_keys": [
         "74ac83f99a50c012"
       ],
-      "start_line": 1111
+      "start_line": 1117
     },
     {
       "confidence": "normal",
-      "end_line": 1140,
+      "end_line": 1146,
       "heading": "Media Will Not Play",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-media-will-not-play",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1127
+      "start_line": 1133
     },
     {
       "confidence": "structural",
-      "end_line": 1151,
+      "end_line": 1157,
       "heading": "Resume Does Not Work",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1141
+      "start_line": 1147
     },
     {
       "confidence": "structural",
-      "end_line": 1163,
+      "end_line": 1169,
       "heading": "Styles Do Not Apply",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-styles-do-not-apply",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1152
+      "start_line": 1158
     },
     {
       "confidence": "structural",
-      "end_line": 1176,
+      "end_line": 1182,
       "heading": "Images Do Not Render",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-images-do-not-render",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1164
+      "start_line": 1170
     },
     {
       "confidence": "structural",
-      "end_line": 1178,
+      "end_line": 1184,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1177
+      "start_line": 1183
     },
     {
       "confidence": "structural",
-      "end_line": 1191,
+      "end_line": 1197,
       "heading": "Recipe: Inspect An Existing Apple TV App",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-inspect-an-existing-apple-tv-app",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1179
+      "start_line": 1185
     },
     {
       "confidence": "structural",
-      "end_line": 1204,
+      "end_line": 1210,
       "heading": "Recipe: Diagnose A Broken Button",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-diagnose-a-broken-button",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1192
+      "start_line": 1198
     },
     {
       "confidence": "structural",
-      "end_line": 1217,
+      "end_line": 1223,
       "heading": "Recipe: Add A New Page Safely",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-add-a-new-page-safely",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1205
+      "start_line": 1211
     },
     {
       "confidence": "structural",
-      "end_line": 1230,
+      "end_line": 1236,
       "heading": "Recipe: Review For Security",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-for-security",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1218
+      "start_line": 1224
     },
     {
       "confidence": "structural",
-      "end_line": 1244,
+      "end_line": 1250,
       "heading": "Recipe: Review For Performance",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-for-performance",
       "source_keys": [
         "80679876651d7dc7"
       ],
-      "start_line": 1231
+      "start_line": 1237
     },
     {
       "confidence": "normal",
-      "end_line": 1270,
+      "end_line": 1276,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2063,11 +2013,11 @@
         "80679876651d7dc7",
         "0c49f1da7a50e9ad"
       ],
-      "start_line": 1245
+      "start_line": 1251
     },
     {
       "confidence": "citation-only",
-      "end_line": 1284,
+      "end_line": 1290,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2075,11 +2025,11 @@
         "4c0fe1130f878c66",
         "7cf9c01c97ba95d5"
       ],
-      "start_line": 1271
+      "start_line": 1277
     },
     {
       "confidence": "structural",
-      "end_line": 1286,
+      "end_line": 1292,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2096,11 +2046,11 @@
         "d275b5b94a9da833",
         "9d0ccce785ef64bb"
       ],
-      "start_line": 1285
+      "start_line": 1291
     },
     {
       "confidence": "normal",
-      "end_line": 1381,
+      "end_line": 1387,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -2168,7 +2118,7 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1287
+      "start_line": 1293
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",

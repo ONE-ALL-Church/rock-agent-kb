@@ -41,8 +41,8 @@ Follow the guide section for Recipe: Diagnose “editor cannot see channel in To
 - https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
 - https://community.rockrms.com/documentation/digital-publishing/personalization
+- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
 - https://www.triumph.tech/resources/structured-content-rock-upgrade
 - https://github.com/SparkDevNetwork/Rock
 - https://rocksolidchurchdemo.com/admin/power-tools/model-map
 - https://community.rockrms.com/recipes/128
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/secure-content

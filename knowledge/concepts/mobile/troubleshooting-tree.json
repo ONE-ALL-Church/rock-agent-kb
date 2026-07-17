@@ -19,7 +19,7 @@
         "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -47,7 +47,7 @@
         "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -75,7 +75,7 @@
         "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -143,7 +143,7 @@
   ],
   "concept_id": "mobile",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T05:35:50+00:00",
+  "generated_at": "2026-07-17T15:44:58+00:00",
   "guide_sections": [
     "8-commands-deep-dive-operational-command-troubleshooting",
     "17-troubleshooting-decision-tree",

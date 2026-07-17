@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Inventory A Mobile App.
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform

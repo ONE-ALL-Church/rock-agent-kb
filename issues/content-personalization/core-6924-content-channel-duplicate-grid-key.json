@@ -1,0 +1,112 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6924",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Content Channel Item List source combines every Show in Grid item attribute qualified by either the channel type or the specific channel without deduplicating by attribute key. The shared grid extension turns each attribute key into the field name `attr_<key>`, and GridBuilder throws when a field name already exists. A type-level and channel-level grid attribute with the same key therefore reaches the builder twice with the same field name, which supports the reported list-page failure on the reviewed source revision.",
+  "workaround_summaries": [
+    "Until the list builder handles duplicate qualified keys, ensure only one of the same-key attributes is marked Show in Grid. Prefer preserving the canonical type-level attribute and renaming or hiding the channel-specific duplicate after staging review; changing the key can affect Lava, filters, data entry, and integrations that already reference it."
+  ],
+  "verification_playbook": {
+    "goal": "Detect content channels whose type-level and channel-level item attributes share a grid-visible key, without opening a failing list or changing configuration.",
+    "prerequisites": [
+      "Have read-only SQL access to Rock metadata.",
+      "Record aggregate counts only; do not export attribute values or content item data."
+    ],
+    "steps": [
+      {
+        "step_id": "count-duplicate-grid-keys",
+        "title": "Count duplicate grid-visible keys",
+        "method": "read_only_sql",
+        "instructions": "Run the aggregate metadata probe. It compares channel-qualified item attributes with attributes on the channel's type and returns only the number of duplicate key pairs.",
+        "probe": "WITH ChannelGridAttributes AS (SELECT TRY_CONVERT(int, a.[EntityTypeQualifierValue]) AS ChannelId, a.[Key] FROM [Attribute] a INNER JOIN [EntityType] et ON et.[Id] = a.[EntityTypeId] WHERE et.[Name] = 'Rock.Model.ContentChannelItem' AND a.[IsGridColumn] = 1 AND a.[EntityTypeQualifierColumn] = 'ContentChannelId'), TypeGridAttributes AS (SELECT TRY_CONVERT(int, a.[EntityTypeQualifierValue]) AS ChannelTypeId, a.[Key] FROM [Attribute] a INNER JOIN [EntityType] et ON et.[Id] = a.[EntityTypeId] WHERE et.[Name] = 'Rock.Model.ContentChannelItem' AND a.[IsGridColumn] = 1 AND a.[EntityTypeQualifierColumn] = 'ContentChannelTypeId') SELECT COUNT(*) AS DuplicateGridKeyPairCount FROM ChannelGridAttributes cga INNER JOIN [ContentChannel] cc ON cc.[Id] = cga.ChannelId INNER JOIN TypeGridAttributes tga ON tga.ChannelTypeId = cc.[ContentChannelTypeId] AND tga.[Key] = cga.[Key]",
+        "expected_if_affected": "DuplicateGridKeyPairCount is greater than zero and the installed list source still generates one field per returned attribute without key deduplication.",
+        "expected_if_unaffected": "DuplicateGridKeyPairCount is zero, or the installed source explicitly resolves duplicate keys before adding grid fields.",
+        "evidence_to_record": [
+          "aggregate duplicate grid key pair count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "check-installed-builder",
+        "title": "Check the installed grid builder",
+        "method": "source_revision_check",
+        "instructions": "Verify whether ContentChannelItemList still returns both qualifier scopes and whether AddAttributeFields still derives a field name only from the shared attribute key.",
+        "expected_if_affected": "Both same-key attributes reach GridBuilder as the same `attr_<key>` field, and duplicate fields are rejected.",
+        "expected_if_unaffected": "The installed build deduplicates, scopes, or otherwise resolves same-key attributes before adding grid fields.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A positive metadata count identifies the exact structural precondition but does not prove every matching list has been opened or failed.",
+      "Do not open a known matching list in production solely to reproduce the exception; verify rendering after remediation in staging."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6924-under-investigation-19",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19",
+      "context": {
+        "scope": "Content Channel Item List with same-key type and channel item attributes both marked Show in Grid"
+      },
+      "versions": ["19"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6924"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    },
+    {
+      "assertion_id": "core-6924-affected-develop-f4e14ae",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "reviewed ContentChannelItemList and GridBuilder source when duplicate grid-visible keys exist"
+      },
+      "versions": ["f4e14ae9a1dd97096627429876d6e1bc1df07b30"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6924",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Cms/ContentChannelItemList.cs#L463-L490",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilderExtensions.cs#L135-L181",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilder.cs#L66-L78"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6924",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Cms/ContentChannelItemList.cs#L463-L490",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilderExtensions.cs#L135-L181",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilder.cs#L66-L78"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-16T19:27:14Z",
+  "reviewed_at": "2026-07-17T07:57:36Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

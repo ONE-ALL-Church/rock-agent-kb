@@ -7,6 +7,40 @@
   "workaround_summaries": [
     "Follow issue 6064 for the canonical resolution, use a build proven to descend from commit c90c1459fa4d428a7a15af9f76a23dfaac9517c7, and inspect effective ordered permissions on customized next-generation check-in pages."
   ],
+  "verification_playbook": {
+    "goal": "Determine whether customized next-generation check-in pages have the corrected ordered security rules.",
+    "prerequisites": [
+      "Know the exact installed build ancestry.",
+      "Have read-only access to page security configuration."
+    ],
+    "steps": [
+      {
+        "step_id": "check-security-fix-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm that the installed build descends from commit c90c1459fa4d428a7a15af9f76a23dfaac9517c7 or contains an equivalent migration.",
+        "expected_if_affected": "The build predates the migration, or customized pages retained earlier matching rules.",
+        "expected_if_unaffected": "The build contains the migration and the effective page rules match the corrected order.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-effective-security",
+        "title": "Inspect ordered page security",
+        "method": "configuration_check",
+        "instructions": "View security for the next-generation check-in pages without saving. Confirm the intended staff-role allows precede the All Users deny; record role categories only, not person or group identifiers.",
+        "expected_if_affected": "Required staff allows are absent, ordered after the deny, or customized rules prevent the corrected effective access.",
+        "expected_if_unaffected": "Required staff-role allows are evaluated before the All Users deny on every relevant customized page.",
+        "evidence_to_record": ["staff allows present yes or no", "All Users deny last yes or no"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "The migration may intentionally avoid overwriting customized security, so fixed build ancestry alone is insufficient."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6081-fixed-by-commit-c90c1459",

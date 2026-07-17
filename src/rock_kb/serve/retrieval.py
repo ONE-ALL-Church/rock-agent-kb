@@ -14,6 +14,7 @@ from ..rock_issues import (
     extract_issue_ref_from_query,
     find_issue_row,
     investigation_plan,
+    issue_enrichment_search_values,
     issue_enrichments_by_id,
     issue_matches_version,
     parse_issue_ref,
@@ -251,13 +252,10 @@ def search_rock_issues(query: str, limit: int = 10, root: Path | None = None) ->
                     if value
                 ),
                 " ".join(
-                    str(value)
+                    value
                     for enrichment in issue.get("reviewed_enrichments") or []
-                    for value in [
-                        enrichment.get("diagnosis_summary"),
-                        *(enrichment.get("workaround_summaries") or []),
-                    ]
-                    if value
+                    if isinstance(enrichment, dict)
+                    for value in issue_enrichment_search_values(enrichment)
                 ),
                 str(issue.get("number") or ""),
             ]

@@ -10,8 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `15-reporting-analytics-and-model-map-data-view-reporting`: Data View Reporting (88 words)
-- `20-source-map-and-dependency-notes-dependency-notes`: Dependency Notes (121 words)
 
 ## Community-Supported Only
 

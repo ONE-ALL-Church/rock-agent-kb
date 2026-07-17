@@ -1,0 +1,154 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6882-registration-session-capacity-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6882",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit c83705a08d2df6977c158c027e9cf3bb45d5371e and recorded the fix in the v19.3 release notes. Registration Entry created or renewed a RegistrationSession for redirect payment flows, then compared the registration's full non-wait-list count with only the instance's remaining capacity. An existing registration at capacity was therefore treated as requesting its already-held spots again. The fix credits saved, non-wait-list, non-temporary registrants and checks only a true increase; new registrations and additional spots remain capacity-limited.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain the capacity-credit fix. Before upgrade, use an approved staff payment or follow-up path for an already-registered person who cannot reach a redirect gateway. Do not increase capacity, move wait-list state, duplicate a registration, or edit payment records solely to bypass the error."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the installed Registration Session service credits already-reserved spots and whether active full registrations create exposure, without starting a payment or changing registration data.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to aggregate registration-capacity data and gateway configuration."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit c83705a08d2df6977c158c027e9cf3bb45d5371e or equivalent logic that credits saved active registrants when the session count represents the full existing registration.",
+        "expected_if_affected": "The Registration Entry flow passes the full registration count into capacity validation without crediting already-reserved active spots.",
+        "expected_if_unaffected": "The installed flow credits saved non-wait-list spots and limits only the requested increase.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-full-active-instances",
+        "title": "Count active full or over-capacity instances",
+        "method": "read_only_sql",
+        "instructions": "Return only an aggregate count. Do not return instance names, IDs, registrants, balances, gateways, or payment details.",
+        "probe": "SELECT COUNT(*) AS ActiveFullOrOverCapacityInstanceCount FROM [RegistrationInstance] ri WHERE ri.[IsActive] = 1 AND ri.[MaxAttendees] IS NOT NULL AND ri.[MaxAttendees] > 0 AND ri.[MaxAttendees] <= (SELECT COUNT(*) FROM [RegistrationRegistrant] rr INNER JOIN [Registration] r ON r.[Id] = rr.[RegistrationId] WHERE r.[RegistrationInstanceId] = ri.[Id] AND rr.[OnWaitList] = 0 AND r.[IsTemporary] = 0)",
+        "expected_if_affected": "The count is greater than zero and the installed build lacks the fix, establishing possible exposure without proving an outstanding redirect payment exists.",
+        "expected_if_unaffected": "The count is zero, or the installed build contains the corrected capacity-credit logic.",
+        "evidence_to_record": [
+          "aggregate active full or over-capacity instance count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-redirect-payment-exposure",
+        "title": "Inspect redirect-payment exposure",
+        "method": "configuration_check",
+        "instructions": "Without beginning a payment or saving configuration, determine whether any active full instance allows outstanding balances and uses a gateway that redirects outside Rock. Record only yes or no, not instance, gateway, account, or registrant details.",
+        "expected_if_affected": "At least one full instance has an existing balance flow through an external redirect gateway on a build without the fix.",
+        "expected_if_unaffected": "No such configuration exists, or the installed build contains the fix.",
+        "evidence_to_record": [
+          "external redirect exposure present yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "The aggregate capacity count does not identify outstanding balances or gateway behavior and must not be treated as proof that a registrant encountered the error.",
+      "Do not reproduce the payment flow in production; a full end-to-end test belongs in an isolated environment with a test gateway."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6882-reported-affected-19.1",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.1",
+      "context": {
+        "scope": "existing registrations completing payment through a redirect gateway at or over capacity"
+      },
+      "versions": ["19.1"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6882"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6882-fixed-by-commit-c83705a",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Registration Entry and Registration Session capacity revision"
+      },
+      "versions": ["c83705a08d2df6977c158c027e9cf3bb45d5371e"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c83705a08d2df6977c158c027e9cf3bb45d5371e"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6882",
+        "https://github.com/SparkDevNetwork/Rock/commit/c83705a08d2df6977c158c027e9cf3bb45d5371e",
+        "https://github.com/SparkDevNetwork/Rock/blob/c83705a08d2df6977c158c027e9cf3bb45d5371e/Rock.Blocks/Event/RegistrationEntry.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/c83705a08d2df6977c158c027e9cf3bb45d5371e/Rock/Model/Event/RegistrationSession/RegistrationSessionService.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/c83705a08d2df6977c158c027e9cf3bb45d5371e/Rock.Tests.Integration/Core/Model/RegistrationSessionServiceTests.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6882-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": ["19.3"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c83705a08d2df6977c158c027e9cf3bb45d5371e"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6882",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/c83705a08d2df6977c158c027e9cf3bb45d5371e"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6882",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/c83705a08d2df6977c158c027e9cf3bb45d5371e",
+    "https://github.com/SparkDevNetwork/Rock/blob/c83705a08d2df6977c158c027e9cf3bb45d5371e/Rock.Blocks/Event/RegistrationEntry.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/c83705a08d2df6977c158c027e9cf3bb45d5371e/Rock/Model/Event/RegistrationSession/RegistrationSessionService.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/c83705a08d2df6977c158c027e9cf3bb45d5371e/Rock.Tests.Integration/Core/Model/RegistrationSessionServiceTests.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-06-22T18:11:46Z",
+  "reviewed_at": "2026-07-17T08:48:12Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

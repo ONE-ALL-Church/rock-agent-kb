@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-helix-workflows-read-only-partial-refresh`: Read-Only Partial Refresh (106 words)
-- `20-implementation-playbooks-playbook-a-build-a-read-only-results-panel`: Playbook A: Build A Read-Only Results Panel (103 words)
-- `20-implementation-playbooks-playbook-b-build-a-safe-update-form`: Playbook B: Build A Safe Update Form (86 words)
 
 ## Community-Supported Only
 

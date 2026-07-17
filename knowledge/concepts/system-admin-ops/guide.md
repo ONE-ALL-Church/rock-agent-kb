@@ -111,6 +111,8 @@ Rock operations can be understood as five connected layers.
 
 ### Layer 1: Configuration
 
+Use [System Configuration](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/other-essentials/system-configuration), [Jobs](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/jobs), and [Universal Search](https://community.rockrms.com/documentation/core-concepts/search/universal-search) to identify the owning configuration surface before diagnosing runtime or derived-state symptoms.
+
 Configuration is what Rock has been told to do. This includes service job definitions, schedules, job attributes, Data View persisted settings, Universal Search provider settings, site indexing settings, block settings, workflow configuration, security rules, defined values, global attributes, and plugin settings.
 
 Agents should inspect configuration before interpreting symptoms. A failed job may be configured with an impossible schedule, a too-short timeout, a missing attribute, an inactive provider, or a stale defined value. A search problem may be an indexing configuration problem rather than a search engine problem. A workflow issue may be a category permission problem, a block setting problem, or a security issue.
@@ -360,7 +362,9 @@ The source pack confirms Data Views are also used in APIs and communication flow
 
 ### ExceptionLog
 
-The source pack names diagnostics and exception logs as part of the concept, but it does not hydrate the ExceptionLog model or source code. Do not invent exact fields. In a live Rock instance, inspect:
+Rock's official [View the Exception List](https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list) guidance defines the administrator surface. Public source defines `ExceptionLog` as a read-only REST entity with hierarchical parent/inner-exception records and fields for status, type, description, source, stack trace, page URL, request context, site, and page ([ExceptionLog.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ExceptionLog/ExceptionLog.cs)).
+
+In a live Rock instance, inspect:
 
 - `ExceptionLog` table schema.
 - Exception detail page.
@@ -375,7 +379,7 @@ The source pack names diagnostics and exception logs as part of the concept, but
 - Server or application context if present.
 - Count and recurrence pattern.
 
-Use exact live schema before writing queries.
+The service supports outermost/innermost and description-prefix filtering, and falls back to `App_Data/Logs/RockExceptions.csv` if database logging fails ([ExceptionLogService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ExceptionLog/ExceptionLogService.cs)). Use the exact live schema and retention state before writing queries or concluding that a missing database row means no exception occurred.
 
 ### Attribute And AttributeValue
 
@@ -515,7 +519,7 @@ The Lava cache documentation explains that cached Lava output is stored in serve
 
 ### Workflow: Investigate An Exception Spike
 
-Because the source pack lacks ExceptionLog model detail, verify live fields first.
+Start with [View the Exception List](https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list) and [Exception Handling](https://community.rockrms.com/developer/303---blast-off/exception-handling). Group outermost records separately from inner exceptions and treat request fields, form values, query strings, cookies, and server variables as sensitive operational data.
 
 1. Identify the spike window.
 2. Group exceptions by type, message, page/route, and stack trace.
@@ -835,6 +839,8 @@ Avoid or redesign Lava cache when:
 - Operators cannot safely invalidate it.
 
 ### Cache Keys
+
+The [Lava Cache command](https://community.rockrms.com/lava/commands/cache-commands) defines fragment caching, while [Cache Tags](https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags) defines grouped invalidation; neither source can prove that a proposed key contains every live request dimension.
 
 A cache key must uniquely represent every dimension that changes the rendered output. If output differs by campus, include campus. If output differs by person, include person or do not cache. If output differs by route, include route. If output differs by query string, include the relevant query value.
 

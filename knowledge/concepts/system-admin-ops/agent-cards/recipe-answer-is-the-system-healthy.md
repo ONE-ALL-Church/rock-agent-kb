@@ -36,12 +36,13 @@ Follow the guide section for Recipe: Answer “Is The System Healthy?”.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/32
 - https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/rocku/core-concepts
+- https://community.rockrms.com/documentation/bookcontent/32
+- https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/other-essentials/system-configuration
+- https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
+- https://community.rockrms.com/documentation/core-concepts/search/universal-search
+- https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/jobs
+- https://community.rockrms.com/developer/303---blast-off/exception-handling
 - https://community.rockrms.com/lava/commands/cache-commands
-- https://community.rockrms.com/developer/developer-codex/coding-standards
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/rocku/cms/cache-tags
 - https://community.rockrms.com/ask/developing/2578

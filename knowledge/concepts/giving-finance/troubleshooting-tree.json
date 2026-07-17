@@ -39,6 +39,7 @@
         "https://www.rockrms.com/releasenotes",
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
+        "https://community.rockrms.com/rocku/finance",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
@@ -63,16 +64,15 @@
       "source_urls": [
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-        "https://community.rockrms.com/documentation/bookcontent/15",
         "https://community.rockrms.com/recipes/254",
-        "https://www.triumph.tech/resources/giving-unit-analytics",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
+        "https://community.rockrms.com/documentation/bookcontent/15",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs",
+        "https://community.rockrms.com/rocku/finance",
         "https://community.rockrms.com/rocku/finance/accounts",
-        "https://community.rockrms.com/recipes/122"
+        "https://community.rockrms.com/recipes/122",
+        "https://community.rockrms.com/recipes/90"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -89,18 +89,18 @@
       "id": "recipe-giving-automation-review",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/15",
-        "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/rocku/finance",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/bookcontent/15",
+        "https://community.rockrms.com/recipes/122",
         "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
         "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms",
-        "https://www.triumph.tech/resources/giving-unit-analytics",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
-        "https://community.rockrms.com/recipes/122",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
         "https://community.rockrms.com/recipes/254",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs"
+        "https://www.triumph.tech/resources/giving-unit-analytics",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs",
+        "https://community.rockrms.com/rocku/finance/giving-alerts"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -133,7 +133,7 @@
   ],
   "concept_id": "giving-finance",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T05:35:19+00:00",
+  "generated_at": "2026-07-17T15:44:27+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",

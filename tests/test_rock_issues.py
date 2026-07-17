@@ -374,6 +374,30 @@ def test_issue_routing_covers_precise_open_issue_domains(title, expected):
     assert expected in {route["concept_id"] for route in routes}
 
 
+def test_issue_routing_does_not_treat_communication_delivery_time_as_a_schedule_location():
+    routes = route_issue(
+        "SparkDevNetwork/Rock",
+        title="Scheduled duplicated bulk communication sent before the future send date",
+        body="",
+        labels=[],
+    )
+
+    assert {route["concept_id"] for route in routes} == {"communications"}
+
+
+@pytest.mark.parametrize(
+    ("title", "expected"),
+    [
+        ("Deleting a Schedule", {"scheduling-locations"}),
+        ("Check-in Schedule Builder hides locations", {"check-in", "scheduling-locations"}),
+    ],
+)
+def test_issue_routing_retains_standalone_and_precise_scheduling_titles(title, expected):
+    routes = route_issue("SparkDevNetwork/Rock", title=title, body="", labels=[])
+
+    assert {route["concept_id"] for route in routes} == expected
+
+
 def test_release_note_join_adds_official_fix_evidence():
     raw, _ = core_issue()
     raw["labels"] = [{"name": "Topic: Check-in"}]
@@ -490,6 +514,23 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
         "diagnosis_status": "source_supported",
         "diagnosis_summary": "The public source identifies the parsing path that produced the exception.",
         "workaround_summaries": ["Use the corrected build and verify one representative check-in label before rollout."],
+        "verification_playbook": {
+            "goal": "Determine whether the installed build still sends query-stamped CSS imports into file resolution.",
+            "prerequisites": ["Know the exact installed Rock build."],
+            "steps": [
+                {
+                    "step_id": "check-build",
+                    "title": "Check build ancestry",
+                    "method": "source_revision_check",
+                    "instructions": "Compare the installed build with the linked fix commit before opening check-in.",
+                    "expected_if_affected": "The build predates the fix commit.",
+                    "expected_if_unaffected": "The build contains the fix commit or a verified later package.",
+                    "evidence_to_record": ["Rock version", "build or package identifier"],
+                }
+            ],
+            "limitations": ["Build ancestry does not prove that a customized theme uses the affected import form."],
+            "production_safe": True,
+        },
         "applicability": [
             {
                 "assertion_id": "core-6917-affected-19.3.1",
@@ -537,6 +578,7 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
     assert len(search_rows) == 1
     assert search_rows[0]["payload"]["reviewed_enrichments"][0]["enrichment_id"] == payload["enrichment_id"]
     assert payload["diagnosis_summary"] in search_rows[0]["body"]
+    assert payload["verification_playbook"]["steps"][0]["instructions"] in search_rows[0]["body"]
 
     current_metrics = build_reviewed_enrichment_metrics([issue], enrichments)
     assert current_metrics["reviewed_enrichment_count"] == 1
@@ -544,6 +586,9 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
         "issue_count": 1,
         "diagnosis_statuses": {"source_supported": 1},
         "confidences": {"high": 1},
+        "verification_playbook_count": 1,
+        "verification_playbook_coverage_percent": 100.0,
+        "missing_verification_playbook_enrichment_ids": [],
         "revalidation_due_count": 0,
         "revalidation_due_enrichment_ids": [],
     }
@@ -616,3 +661,47 @@ def test_reviewed_enrichment_requires_revision_bound_rfc3339_timestamps():
         RockIssueReviewedEnrichment.model_validate({**payload, "reviewed_at": "not-a-date"})
     with pytest.raises(ValueError, match="cannot be in the future"):
         RockIssueReviewedEnrichment.model_validate({**payload, "reviewed_at": "2099-01-01T00:00:00Z"})
+
+
+@pytest.mark.parametrize(
+    "probe",
+    [
+        "SELECT TOP (1) Id FROM Block; UPDATE Block SET Name = Name",
+        "SELECT TOP (1) Id INTO #BlockIds FROM Block",
+    ],
+)
+def test_issue_verification_playbook_rejects_write_capable_sql(probe):
+    payload = {
+        "schema": "rock-kb-rock-issue-enrichment-v1",
+        "enrichment_id": "rock_issue_enrichment:fixture-read-only-v1",
+        "issue_id": "rock_issue:SparkDevNetwork/Rock#6917",
+        "diagnosis_status": "source_supported",
+        "diagnosis_summary": "A bounded fixture diagnosis.",
+        "verification_playbook": {
+            "goal": "Check the instance without changing it.",
+            "steps": [
+                {
+                    "step_id": "unsafe-probe",
+                    "title": "Unsafe probe",
+                    "method": "read_only_sql",
+                    "instructions": "Inspect one bounded row.",
+                    "probe": probe,
+                    "expected_if_affected": "A matching row exists.",
+                    "expected_if_unaffected": "No matching row exists.",
+                }
+            ],
+            "production_safe": True,
+        },
+        "source_refs": ["https://github.com/SparkDevNetwork/Rock/issues/6917"],
+        "claim_tier": "source_backed",
+        "confidence": "medium",
+        "review_status": "approved_for_public_distillation",
+        "reviewer": "fixture-reviewer",
+        "issue_updated_at": "2026-07-14T22:33:30Z",
+        "reviewed_at": "2026-07-15T00:00:00Z",
+        "redaction_attestation": True,
+        "license_attestation": True,
+    }
+
+    with pytest.raises(ValueError, match="write-capable SQL"):
+        RockIssueReviewedEnrichment.model_validate(payload)

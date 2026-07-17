@@ -611,6 +611,8 @@ v19.1 adds a `Communication Access Mode` setting to Communication Detail and a `
 
 ### Governance
 
+The official [Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8) manual defines the communication, template, transport, approval, preference, and saturation surfaces. Apply those controls to the target instance's actual roles, categories, transports, system phone numbers, and recipient policies before approving broad sends.
+
 Use communication governance to prevent over-sending, inconsistent branding, privacy mistakes, and deliverability problems.
 
 Recommended guardrails:

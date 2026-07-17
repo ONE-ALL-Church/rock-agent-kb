@@ -11,7 +11,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 9646 words; expected at least 7000.",
+      "message": "Guide has 9797 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -58,9 +58,9 @@
   "concept_id": "helix",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-17T05:35:54+00:00",
-  "guide_line_count": 1120,
-  "guide_word_count": 9646,
+  "generated_at": "2026-07-17T15:45:02+00:00",
+  "guide_line_count": 1126,
+  "guide_word_count": 9797,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 71,

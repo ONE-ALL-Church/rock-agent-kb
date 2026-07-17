@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12257 words; expected at least 7000.",
+      "message": "Guide has 12301 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,9 +60,9 @@
   "concept_id": "communications",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-17T05:35:45+00:00",
-  "guide_line_count": 1221,
-  "guide_word_count": 12257,
+  "generated_at": "2026-07-17T15:44:53+00:00",
+  "guide_line_count": 1223,
+  "guide_word_count": 12301,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 98,

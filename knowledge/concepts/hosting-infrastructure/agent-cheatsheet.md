@@ -62,7 +62,7 @@ generated: true
 | `4-source-authority-and-how-to-use-this-guide` | high | live verification |
 | `5-core-configuration-and-data-model-iis-and-windows-configuration` | normal | live verification |
 | `5-core-configuration-and-data-model-sql-configuration` | high | live verification |
-| `5-core-configuration-and-data-model-rock-database-records-that-affect-hosting` | needs-citation | live verification |
+| `5-core-configuration-and-data-model-rock-database-records-that-affect-hosting` | high | live verification |
 | `5-core-configuration-and-data-model-azure-resource-configuration` | normal | live verification |
 | `6-primary-entities-and-relationships-site-domain-and-request-handling` | normal | live verification |
 | `6-primary-entities-and-relationships-file-type-and-storage-provider` | normal | live verification |
@@ -89,7 +89,7 @@ generated: true
 | `13-developer-api-lava-and-source-code-landmarks-lava-endpoints` | normal | live verification |
 | `13-developer-api-lava-and-source-code-landmarks-source-code-version-caveat` | structural | live verification |
 | `14-reporting-analytics-and-model-map-useful-operational-reports` | structural | live verification |
-| `14-reporting-analytics-and-model-map-model-map-usage` | needs-citation | live verification |
+| `14-reporting-analytics-and-model-map-model-map-usage` | normal | live verification |
 | `15-version-and-release-caveats-v19-1` | normal | live verification |
 | `16-implementation-playbooks-playbook-production-readiness-review` | structural | live verification |
 | `16-implementation-playbooks-playbook-azure-cost-and-capacity-review` | normal | live verification |

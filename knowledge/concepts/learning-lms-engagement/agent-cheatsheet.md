@@ -74,13 +74,12 @@ generated: true
 | --- | --- | --- |
 | `generated-model-map-pointers` | citation-only | live verification |
 | `1-executive-summary-for-agents` | high | live verification |
-| `3-learning-lms-and-engagement-mental-model` | needs-citation | needs-citation |
 | `4-source-authority-and-how-to-use-this-guide` | high | live verification |
 | `5-core-configuration-and-data-model` | high | live verification |
 | `6-primary-entities-and-relationships-lms-entity-relationships` | high | live verification |
 | `7-common-learning-lms-and-engagement-workflows-create-an-on-demand-training-program` | normal | live verification |
 | `7-common-learning-lms-and-engagement-workflows-create-an-academic-calendar-program` | normal | live verification |
-| `7-common-learning-lms-and-engagement-workflows-assign-training-to-volunteers-or-staff` | needs-citation | live verification |
+| `7-common-learning-lms-and-engagement-workflows-assign-training-to-volunteers-or-staff` | normal | live verification |
 | `7-common-learning-lms-and-engagement-workflows-record-a-ministry-milestone` | citation-only | live verification |
 | `7-common-learning-lms-and-engagement-workflows-automate-follow-up-from-learning-completion` | citation-only | live verification |
 | `8-courses-and-lessons-deep-dive-course-configuration-checks` | normal | live verification |
@@ -110,12 +109,12 @@ generated: true
 | `16-version-and-release-caveats-rock-v18-1` | high | live verification |
 | `16-version-and-release-caveats-rock-v18-3-and-v19-1-release-notes-in-pack` | normal | live verification |
 | `16-version-and-release-caveats-develop-branch-caveat` | structural | live verification |
-| `17-implementation-playbooks-playbook-launch-a-volunteer-training-lms-program` | needs-citation | live verification |
-| `17-implementation-playbooks-playbook-add-a-new-course-requirement` | needs-citation | live verification |
-| `17-implementation-playbooks-playbook-convert-a-training-completion-into-an-engagement-step` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-launch-a-volunteer-training-lms-program` | normal | live verification |
+| `17-implementation-playbooks-playbook-add-a-new-course-requirement` | normal | live verification |
+| `17-implementation-playbooks-playbook-convert-a-training-completion-into-an-engagement-step` | normal | live verification |
 | `17-implementation-playbooks-playbook-build-a-learning-dashboard` | structural | live verification |
 | `17-implementation-playbooks-playbook-upgrade-review-for-lms-and-engagement` | normal | live verification |
-| `18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion` | needs-citation | needs-citation |
+| `18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion` | normal | live verification |
 | `19-agent-task-recipes-recipe-find-why-a-person-is-not-complete` | structural | live verification |
 | `19-agent-task-recipes-recipe-prepare-a-course-for-launch` | structural | live verification |
 | `19-agent-task-recipes-recipe-build-a-step-journey-from-training` | structural | live verification |

@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `6-primary-entities-and-relationships-mobile-application-relationship-map`: Mobile Application Relationship Map (117 words)
-- `8-commands-deep-dive-command-binding-pattern`: Command Binding Pattern (113 words)
-- `8-commands-deep-dive-operational-command-troubleshooting`: Operational Command Troubleshooting (136 words)
 
 ## Community-Supported Only
 
@@ -36,6 +33,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `5-core-configuration-and-data-model-homepage-routing-logic`: Homepage Routing Logic
 - `5-core-configuration-and-data-model-palette-colors-and-styling-values`: Palette Colors And Styling Values
 - `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
+- `6-primary-entities-and-relationships-mobile-application-relationship-map`: Mobile Application Relationship Map
 - `6-primary-entities-and-relationships-page-block-and-security-relationships`: Page, Block, And Security Relationships
 - `6-primary-entities-and-relationships-check-in-source-code-landmarks`: Check-In Source-Code Landmarks
 - `7-common-rock-mobile-workflows-build-a-first-app`: Build A First App
@@ -43,6 +41,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `7-common-rock-mobile-workflows-add-a-webview-integration`: Add A WebView Integration
 - `7-common-rock-mobile-workflows-configure-push-notifications`: Configure Push Notifications
 - `7-common-rock-mobile-workflows-upgrade-from-xamarin-forms-to-maui`: Upgrade From Xamarin Forms To MAUI
+- `8-commands-deep-dive-command-binding-pattern`: Command Binding Pattern
 - `8-commands-deep-dive-commandreference`: CommandReference
 - `8-commands-deep-dive-operational-command-troubleshooting`: Operational Command Troubleshooting
 - `9-controls-deep-dive-webview`: WebView
@@ -60,8 +59,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `12-administration-and-operational-guardrails-app-store-guardrails`: App Store Guardrails
 - `12-administration-and-operational-guardrails-android-keystore-guardrails`: Android Keystore Guardrails
 - `12-administration-and-operational-guardrails-in-app-giving-guardrails`: In-App Giving Guardrails
-- `13-developer-api-lava-and-source-code-landmarks-xaml-and-lava`: XAML And Lava
-- `13-developer-api-lava-and-source-code-landmarks-styling`: Styling
 
 ## Live Verification Clarification
 

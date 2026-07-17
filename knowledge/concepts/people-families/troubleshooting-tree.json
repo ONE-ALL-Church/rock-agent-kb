@@ -10,16 +10,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -66,16 +66,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -94,16 +94,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks"
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -122,16 +122,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -150,16 +150,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -178,15 +178,15 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
         "https://community.rockrms.com/rocku/individuals-in-rock",
         "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile",
         "https://community.rockrms.com/rocku/individuals-in-rock/blended-families"
       ],
       "start_with": [
@@ -205,17 +205,17 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/lava/workflows",
         "https://community.rockrms.com/developer/303---blast-off/attributes",
         "https://community.rockrms.com/lava/commands/entity-commands",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/recipes/184/recovering-a-merged-person",
         "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
-        "https://community.rockrms.com/rocku/individuals-in-rock"
+        "https://community.rockrms.com/rocku/individuals-in-rock",
+        "https://community.rockrms.com/documentation/bookcontent/7/296"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -234,16 +234,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -262,16 +262,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/documentation/bookcontent/7/296",
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
         "https://community.rockrms.com/lava/filters/person-filters",
         "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
         "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes",
+        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -283,7 +283,7 @@
   ],
   "concept_id": "people-families",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T05:36:03+00:00",
+  "generated_at": "2026-07-17T15:45:11+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-person-does-not-appear-in-search",

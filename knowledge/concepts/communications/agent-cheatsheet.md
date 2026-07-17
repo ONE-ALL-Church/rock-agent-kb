@@ -90,7 +90,6 @@ generated: true
 | `9-sms-deep-dive-disabled-sms-warnings` | community-supported | live verification |
 | `10-related-rock-areas-people-workflows-lava-security-lava` | normal | live verification |
 | `10-related-rock-areas-people-workflows-lava-security-security` | high | live verification |
-| `11-administration-and-operational-guardrails-governance` | needs-citation | needs-citation |
 | `11-administration-and-operational-guardrails-approval-policies` | normal | live verification |
 | `11-administration-and-operational-guardrails-template-operations` | structural | live verification |
 | `11-administration-and-operational-guardrails-lower-environment-safety` | community-supported | live verification |

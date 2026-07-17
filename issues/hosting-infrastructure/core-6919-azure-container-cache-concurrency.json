@@ -7,6 +7,61 @@
   "workaround_summaries": [
     "Use a Rock build proven to contain commit d66a4f492306b10c7bd71aa13d54273918c941a3. Until upgraded, an application-pool recycle may restore service after the reported failure, but it does not remove the concurrency defect and is not a durable fix."
   ],
+  "verification_playbook": {
+    "goal": "Determine whether the instance combines the vulnerable Azure container cache implementation with an Azure-backed binary file type.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to file-storage configuration and bounded exception counts."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit d66a4f492306b10c7bd71aa13d54273918c941a3, which replaces the shared Dictionary path with ConcurrentDictionary.GetOrAdd.",
+        "expected_if_affected": "The installed build uses the earlier unsynchronized container cache implementation.",
+        "expected_if_unaffected": "The installed build contains the fixing commit or an independently verified equivalent implementation.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "check-azure-provider",
+        "title": "Check whether Azure storage is in use",
+        "method": "configuration_check",
+        "instructions": "Inspect Binary File Type storage-provider configuration without saving it. Record only whether at least one relevant type uses the Azure Blob provider; do not record account names, container names, keys, or file details.",
+        "expected_if_affected": "At least one active Binary File Type uses Azure Blob storage and the installed build lacks the fix.",
+        "expected_if_unaffected": "No Binary File Type uses Azure Blob storage, or the installed build contains the fix.",
+        "evidence_to_record": [
+          "Azure provider present yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "check-exception-count",
+        "title": "Check for the bounded exception signature",
+        "method": "log_review",
+        "instructions": "Review only a bounded count of recent exceptions matching the Azure container-cache duplicate-key signature. Do not export exception bodies, request URLs, users, file names, storage identifiers, or stack traces.",
+        "expected_if_affected": "The vulnerable configuration is present and matching exceptions occur under concurrent file access.",
+        "expected_if_unaffected": "No matching exceptions are present in the bounded window, although absence does not prove the race cannot occur on a vulnerable build.",
+        "evidence_to_record": [
+          "time window",
+          "aggregate matching exception count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A concurrency race cannot be safely disproved by a single production observation.",
+      "Do not load-test production storage to force reproduction; the maintainer's source regression test is the authoritative reproduction."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6919-affected-19.2.0",
@@ -56,6 +111,29 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6919-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official fix release line; verify the exact installed package"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6919",
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T07:57:36Z"
     }
   ],
   "source_refs": [
@@ -73,8 +151,8 @@
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-15T22:22:06Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "issue_updated_at": "2026-07-16T20:00:45Z",
+  "reviewed_at": "2026-07-17T07:57:36Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

@@ -7,6 +7,40 @@
   "workaround_summaries": [
     "When validating one-click unsubscribe, inspect the delivered message's List-Unsubscribe and List-Unsubscribe-Post headers and the receiving email client's native control separately from the footer link. Do not make a browser GET auto-unsubscribe, because automated link scanners can issue GET requests."
   ],
+  "verification_playbook": {
+    "goal": "Distinguish Rock's footer preference link from standards-based one-click unsubscribe on an already delivered message.",
+    "prerequisites": [
+      "Use an existing non-sensitive test message delivered by the Rock communication path being assessed.",
+      "Do not click an unsubscribe control while inspecting it."
+    ],
+    "steps": [
+      {
+        "step_id": "inspect-message-headers",
+        "title": "Inspect one-click headers",
+        "method": "ui_observation",
+        "instructions": "View the raw headers of the existing test message and record only whether List-Unsubscribe and List-Unsubscribe-Post are present. Do not retain addresses, tokens, message IDs, or header values.",
+        "expected_if_affected": "The expected headers are absent even though the communication configuration and release should provide one-click support.",
+        "expected_if_unaffected": "Both headers are present; the receiving client may still choose whether to display its native control.",
+        "evidence_to_record": ["List-Unsubscribe present yes or no", "List-Unsubscribe-Post present yes or no"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "compare-client-surfaces",
+        "title": "Compare native and footer surfaces",
+        "method": "ui_observation",
+        "instructions": "Observe, without clicking, whether the email client displays a native unsubscribe control and whether the message footer contains Rock's preference link. Treat them as separate mechanisms.",
+        "expected_if_affected": "Headers expected for one-click are missing; absence of a client-native control alone is inconclusive.",
+        "expected_if_unaffected": "Headers are present and the footer remains a separate browser preference link, regardless of the client's display choice.",
+        "evidence_to_record": ["native control displayed yes or no", "footer preference link displayed yes or no"],
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Email-client UI is not authoritative because providers apply their own reputation and display policies.",
+      "Do not test by issuing the one-click POST against a real recipient subscription from production."
+    ],
+    "production_safe": true
+  },
   "applicability": [],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6040",

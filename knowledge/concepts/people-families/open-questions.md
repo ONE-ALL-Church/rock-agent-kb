@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `12-administration-and-operational-guardrails-person-data-is-high-impact`: Person Data Is High Impact (94 words)
-- `12-administration-and-operational-guardrails-data-integrity-monitoring`: Data Integrity Monitoring (104 words)
-- `19-source-map-and-dependency-notes-records-requiring-live-verification`: Records Requiring Live Verification (106 words)
 
 ## Community-Supported Only
 

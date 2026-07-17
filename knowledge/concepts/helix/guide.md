@@ -228,6 +228,8 @@ Agents should inspect the following when troubleshooting relationships:
 
 ### Read-Only Partial Refresh
 
+Follow the official [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) endpoint model and [Observability](https://community.rockrms.com/developer/helix/lava-applications/observability) tooling. Verify endpoint security, enabled commands, rendered fragment shape, request parameters, and database-call behavior in the target application before treating a GET interaction as production-safe.
+
 Use case: load filtered groups, upcoming events, prayer items, campus-specific content, or a detail panel without reloading the page.
 
 Pattern:
@@ -784,6 +786,8 @@ Caveats:
 
 ### Playbook A: Build A Read-Only Results Panel
 
+Use [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications), [Observability](https://community.rockrms.com/developer/helix/lava-applications/observability), and the documented [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) behavior as the implementation baseline. Test direct endpoint access, authorization, parameter validation, empty results, and query cost in the target Rock version.
+
 1. Create a Lava Application with name, description, slug, and stable configuration rigging.
 2. Create a GET endpoint named `Results`.
 3. Use Endpoint Execute or Application View security depending on audience.
@@ -798,6 +802,8 @@ Caveats:
 12. Inspect observability for database call count and latency.
 
 ### Playbook B: Build A Safe Update Form
+
+Use the official [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) security and endpoint contracts, and permit only the exact modify commands required by the form. Verify server-side authorization, validation, identifiers, duplicate submission behavior, and a complete readback in a non-production path before enabling the live endpoint.
 
 1. Create or reuse a Lava Application.
 2. Create a PUT or POST endpoint for the update.

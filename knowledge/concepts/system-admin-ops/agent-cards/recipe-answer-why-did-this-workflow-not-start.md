@@ -40,9 +40,9 @@ Follow the guide section for Recipe: Answer â€œWhy Did This Workflow Not Start?â
 - https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/lava/commands/cache-commands
 - https://community.rockrms.com/developer/developer-codex/coding-standards
+- https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
+- https://community.rockrms.com/developer/303---blast-off/exception-handling
 - https://community.rockrms.com/recipes/522
 - https://community.rockrms.com/rocku/cms/cache-tags
 - https://community.rockrms.com/rocku/core-concepts/automations
 - https://community.rockrms.com/recipes/503
-- https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools

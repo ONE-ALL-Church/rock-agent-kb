@@ -7,6 +7,36 @@
   "workaround_summaries": [
     "Use a Rock build that contains commit aae87fcb73df28c84caa91d3a1e7e390dc6059a7, then verify a representative classic check-in page whose imported CSS URL includes a query string."
   ],
+  "verification_playbook": {
+    "goal": "Determine whether classic check-in uses query-stamped local CSS imports on a build that passes the query string into file resolution.",
+    "prerequisites": ["Know the exact installed build or package."],
+    "steps": [
+      {
+        "step_id": "check-css-fix-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed build contains commit aae87fcb73df28c84caa91d3a1e7e390dc6059a7.",
+        "expected_if_affected": "The build is 19.3.1-alpha or another revision after the query-stamped import change but before the fix.",
+        "expected_if_unaffected": "The build contains the fix that removes the query while resolving the local file path.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-css-request",
+        "title": "Inspect a static CSS request",
+        "method": "read_only_api",
+        "instructions": "Use browser network tools on a representative classic check-in theme to inspect the imported CSS URL and response without starting a check-in session or submitting attendance.",
+        "expected_if_affected": "A local CSS import includes a query string and the request fails with the illegal-characters path error.",
+        "expected_if_unaffected": "The query-stamped CSS request resolves successfully, or the theme does not use the affected import form.",
+        "evidence_to_record": ["query string present yes or no", "HTTP status", "generic error category"],
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A successful theme without a query-stamped local import does not test the affected parser branch."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6917-affected-19.3.1-alpha",

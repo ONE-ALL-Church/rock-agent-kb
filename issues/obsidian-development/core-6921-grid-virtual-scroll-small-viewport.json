@@ -7,6 +7,39 @@
   "workaround_summaries": [
     "Use a Rock build proven to contain commit d99159265a36b1adb17d09eec13cc4f69414c385, then verify a wide Obsidian Grid on a narrow viewport. Horizontal scrolling can force a temporary relayout on an affected build but is not a durable fix."
   ],
+  "verification_playbook": {
+    "goal": "Determine whether a narrow-viewport Obsidian Grid still binds virtual rows to the wrong scroll container.",
+    "prerequisites": [
+      "Know the exact installed build.",
+      "Choose an existing read-only grid with enough rows and columns to require both virtual and horizontal scrolling."
+    ],
+    "steps": [
+      {
+        "step_id": "check-virtual-scroll-fix",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed build contains commit d99159265a36b1adb17d09eec13cc4f69414c385 or an equivalent virtual-scroll fix.",
+        "expected_if_affected": "The build predates the fix and Grid can select its internal horizontal container as the vertical scroll container.",
+        "expected_if_unaffected": "The build contains the fix and excludes Grid's horizontal container from vertical-scroll discovery.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "observe-narrow-grid",
+        "title": "Observe a read-only narrow grid",
+        "method": "ui_observation",
+        "instructions": "At a narrow viewport, scroll an existing read-only grid vertically without sorting, filtering, selecting, or editing. Record whether rows continue rendering before and after horizontal movement.",
+        "expected_if_affected": "Virtual rows stop rendering or leave blank space until horizontal scrolling forces a relayout.",
+        "expected_if_unaffected": "Rows continue rendering through vertical scrolling and horizontal movement is not required to restore them.",
+        "evidence_to_record": ["viewport category", "rows blank before horizontal scroll yes or no", "rows restored after horizontal scroll yes or no"],
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "One grid configuration does not cover every custom cell renderer, sticky-header mode, or browser engine."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6921-affected-19.2",

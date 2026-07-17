@@ -494,6 +494,8 @@ Workflow:
 
 ### Attribute Definition Fields
 
+Use [Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes), [AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools), and the version-matched [Model Map](https://community.rockrms.com/ModelMap) to distinguish definition metadata from stored values.
+
 The exact columns vary by Rock version, but agents should normally inspect:
 
 - `Id`: local numeric identifier.
@@ -1112,6 +1114,8 @@ The supplied SQL archive files are useful landmarks:
 
 ### Reporting Rules
 
+The source-backed relationship examples in [View Defined Values Attribute Values](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql) and [View Defined Type Attributes](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql) show why entity type, qualifier, field type, and attribute identity must remain explicit in reports.
+
 When reporting on attributes:
 
 - Join attribute values by `AttributeId`, not by display name.
@@ -1263,6 +1267,8 @@ If users report wrong attribute categories or hard-to-use defined value pickers 
 ## 18. Troubleshooting Decision Tree
 
 ### Attribute Does Not Appear
+
+Compare the target surface with [Person Attributes](https://community.rockrms.com/rocku/individuals-in-rock/person-attributes) and [Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes), then retrieve the actual available definitions rather than inferring them from existing `AttributeValue` rows.
 
 Check:
 

@@ -7,6 +7,42 @@
   "workaround_summaries": [
     "Until the class-copy path is corrected, do not edit copied-class activity content under the assumption that it is independent. Build the new class and copy activities individually, then verify each copied LearningClassActivity points to a distinct LearningActivity before changing content."
   ],
+  "verification_playbook": {
+    "goal": "Detect learning activities referenced by more than one class before an agent edits copied-class content.",
+    "prerequisites": [
+      "Know whether classes were copied with Include Activities enabled.",
+      "Have read-only SQL access to LMS relationship metadata."
+    ],
+    "steps": [
+      {
+        "step_id": "check-class-copy-source",
+        "title": "Check the installed copy path",
+        "method": "source_revision_check",
+        "instructions": "Verify whether LearningClassService.Copy still copies LearningClassActivity rows while retaining the original LearningActivity relationship.",
+        "expected_if_affected": "The class-copy path retains LearningActivityId while the individual activity-copy path creates a distinct LearningActivity.",
+        "expected_if_unaffected": "The installed class-copy path clones each related LearningActivity and preserves its attributes independently.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-shared-activities",
+        "title": "Count cross-class activity sharing",
+        "method": "read_only_sql",
+        "instructions": "Return only the aggregate number of LearningActivity records referenced by more than one class. Do not return class IDs, names, learner data, content, or attribute values.",
+        "probe": "SELECT COUNT(*) AS SharedLearningActivityCount FROM (SELECT [LearningActivityId] FROM [LearningClassActivity] GROUP BY [LearningActivityId] HAVING COUNT(DISTINCT [LearningClassId]) > 1) shared",
+        "expected_if_affected": "SharedLearningActivityCount is greater than zero and the relevant classes came from the affected copy path; editing one shared activity can change more than one class.",
+        "expected_if_unaffected": "The count is zero, or every shared relationship has been independently reviewed as intentional rather than produced by class copy.",
+        "evidence_to_record": ["aggregate shared learning activity count"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A shared LearningActivity can be intentional; the aggregate probe identifies review candidates but cannot determine provenance.",
+      "Do not edit an activity to test linkage in production."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6904-affected-develop-6e30556",

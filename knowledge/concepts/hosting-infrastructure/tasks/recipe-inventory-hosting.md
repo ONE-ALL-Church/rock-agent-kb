@@ -37,8 +37,8 @@ Follow the guide section for Recipe: Inventory Hosting.
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/259
 - https://community.rockrms.com/recipes/355
 - https://community.rockrms.com/recipes/202

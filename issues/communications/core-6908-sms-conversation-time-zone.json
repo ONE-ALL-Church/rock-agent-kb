@@ -1,0 +1,156 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6908-sms-conversation-time-zone-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6908",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 8869083da5d1e4e13cff4b36efc070c6c92e7206 and recorded the fix in the v19.3 release notes. The SMS Conversations block copied Rock-local DateTime values directly into DateTimeOffset response fields, which could serialize them with an incorrect offset when the web server and organization time zones differed. The fix applies ToRockDateTimeOffset() to both conversation-loading paths before returning message timestamps.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain the timestamp conversion fix. Before upgrade, treat the displayed SMS conversation time as potentially shifted when server and organization time zones differ; use an authorized source record for investigation rather than editing timestamps or resending a message."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the installed SMS Conversations block normalizes message timestamps to the Rock organization offset and whether the deployment has a time-zone mismatch that can expose the defect, without sending a message or returning communication content.",
+    "prerequisites": [
+      "Know the installed Rock version or build ancestry.",
+      "Have read-only access to organization and server time-zone configuration."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit 8869083da5d1e4e13cff4b36efc070c6c92e7206 or equivalent calls to ToRockDateTimeOffset() for both SMS Conversations CreatedDateTime assignments.",
+        "expected_if_affected": "The block assigns nullable DateTime values directly to DateTimeOffset response fields in one or both conversation-loading paths.",
+        "expected_if_unaffected": "Both response paths explicitly convert CreatedDateTime with the Rock organization offset, or the installed package contains the confirmed fix.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier",
+          "both conversion paths present yes or no"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "check-time-zone-exposure",
+        "title": "Check time-zone exposure",
+        "method": "configuration_check",
+        "instructions": "Compare the configured Rock organization time zone with the web server time zone. Record only whether they differ; do not record message data, phone numbers, people, or exact timestamps.",
+        "expected_if_affected": "The time zones differ and the installed block lacks the conversion fix, establishing likely exposure without proving that a displayed message was wrong.",
+        "expected_if_unaffected": "The time zones do not differ, or the installed block contains the conversion fix.",
+        "evidence_to_record": [
+          "organization and server time zones differ yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "observe-existing-response-offset",
+        "title": "Observe an existing authorized response",
+        "method": "ui_observation",
+        "instructions": "Without sending a message, inspect one already-authorized SMS Conversations network response and record only whether its timestamp offset agrees with the Rock organization time zone. Do not retain message text, identifiers, recipients, phone numbers, or timestamps.",
+        "expected_if_affected": "The response offset is inconsistent with the organization time zone on a build that lacks the fix.",
+        "expected_if_unaffected": "The response offset agrees with the organization time zone, or the installed package contains the fix.",
+        "evidence_to_record": [
+          "response offset agrees with organization time zone yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A matching server and organization time zone can mask the defect and does not prove that the old serialization path is correct.",
+      "Do not send a production SMS to reproduce this issue; end-to-end sending belongs in an isolated environment with test recipients."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6908-reported-affected-17.7",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "17.7",
+      "context": {
+        "scope": "SMS Conversations when web-server and organization time zones differ"
+      },
+      "versions": [
+        "17.7"
+      ],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6908"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6908-fixed-by-commit-8869083",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact SMS Conversations timestamp conversion revision"
+      },
+      "versions": [
+        "8869083da5d1e4e13cff4b36efc070c6c92e7206"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/8869083da5d1e4e13cff4b36efc070c6c92e7206"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6908",
+        "https://github.com/SparkDevNetwork/Rock/commit/8869083da5d1e4e13cff4b36efc070c6c92e7206",
+        "https://github.com/SparkDevNetwork/Rock/blob/8869083da5d1e4e13cff4b36efc070c6c92e7206/Rock.Blocks/Communication/SmsConversations.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6908-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": [
+        "19.3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/8869083da5d1e4e13cff4b36efc070c6c92e7206"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6908",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/8869083da5d1e4e13cff4b36efc070c6c92e7206"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6908",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/8869083da5d1e4e13cff4b36efc070c6c92e7206",
+    "https://github.com/SparkDevNetwork/Rock/blob/8869083da5d1e4e13cff4b36efc070c6c92e7206/Rock.Blocks/Communication/SmsConversations.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-08T18:24:07Z",
+  "reviewed_at": "2026-07-17T15:32:37Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

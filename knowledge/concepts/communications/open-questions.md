@@ -10,7 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `11-administration-and-operational-guardrails-governance`: Governance (87 words)
 
 ## Community-Supported Only
 

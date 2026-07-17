@@ -45,4 +45,4 @@ Follow the guide section for Recipe: Add Analytics To A Tap.
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs

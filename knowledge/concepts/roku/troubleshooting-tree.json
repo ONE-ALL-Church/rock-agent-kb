@@ -13,13 +13,13 @@
         "https://community.rockrms.com/lava/filters/attribute-filters",
         "https://community.rockrms.com/lava",
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/lava-api",
         "https://www.triumph.tech/resources/grouping-sets",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
         "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://www.triumph.tech/resources/pivot-patterns",
-        "https://www.triumph.tech/resources/sql-window-functions"
+        "https://www.triumph.tech/resources/sql-window-functions",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -44,10 +44,10 @@
         "https://community.rockrms.com/lava",
         "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/lava/remote-lava",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        "https://www.triumph.tech/resources/ai-in-digital-ministry",
+        "https://www.triumph.tech/resources/github-spotlight-1042024"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -72,10 +72,10 @@
         "https://community.rockrms.com/lava",
         "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/lava/remote-lava",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        "https://www.triumph.tech/resources/ai-in-digital-ministry",
+        "https://www.triumph.tech/resources/github-spotlight-1042024"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -100,10 +100,10 @@
         "https://community.rockrms.com/lava",
         "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/lava/remote-lava",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        "https://www.triumph.tech/resources/ai-in-digital-ministry",
+        "https://www.triumph.tech/resources/github-spotlight-1042024"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -128,10 +128,10 @@
         "https://community.rockrms.com/lava",
         "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/lava/remote-lava",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
         "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        "https://www.triumph.tech/resources/ai-in-digital-ministry",
+        "https://www.triumph.tech/resources/github-spotlight-1042024"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -150,16 +150,16 @@
       "source_urls": [
         "https://community.rockrms.com/developer/roku-docs",
         "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/lava",
         "https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks",
         "https://community.rockrms.com/developer/roku-docs/commands/media",
         "https://community.rockrms.com/developer/roku-docs/commands/utility",
-        "https://community.rockrms.com/lava/lava-api",
         "https://community.rockrms.com/developer/roku-docs/getting-started/pages",
         "https://community.rockrms.com/developer/roku-docs/resources/useful-links",
-        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group",
+        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/developer/roku-docs/commands/personal",
+        "https://community.rockrms.com/developer/roku-docs/getting-started",
+        "https://community.rockrms.com/developer/roku-docs/commands"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -171,7 +171,7 @@
   ],
   "concept_id": "roku",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T05:36:01+00:00",
+  "generated_at": "2026-07-17T15:45:09+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-app-does-not-load",

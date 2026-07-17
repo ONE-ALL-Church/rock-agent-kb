@@ -4069,12 +4069,12 @@
   },
   "approved_media_hash": "ba766c03874beab8dd851924e4f492cefcb5432af5d57b84225418735587d50c",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-07-17T05:35:50+00:00",
+  "built_at": "2026-07-17T15:44:58+00:00",
   "concept_id": "mobile",
-  "guide_hash": "f49f373451f4615e4fc43abf3041190a7d22cf2c52dca15c63e3082dfb2fa3a2",
-  "guide_line_count": 1505,
+  "guide_hash": "ed8cd0b5c44c0e8b6ee659c534781322af7269eafa7a6d23769567ebf4293ae8",
+  "guide_line_count": 1511,
   "guide_path": "knowledge/concepts/mobile/guide.md",
-  "guide_word_count": 12906,
+  "guide_word_count": 13056,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4736,23 +4736,20 @@
       "start_line": 320
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 340,
+      "confidence": "normal",
+      "end_line": 342,
       "heading": "Mobile Application Relationship Map",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-mobile-application-relationship-map",
       "source_keys": [
-        "4725293a0044fb8b",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "18a10aca58c2b1f1",
+        "b2bd874c41f3be1c",
         "18a10aca58c2b1f1"
       ],
       "start_line": 324
     },
     {
       "confidence": "normal",
-      "end_line": 352,
+      "end_line": 354,
       "heading": "Page, Block, And Security Relationships",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-block-and-security-relationships",
@@ -4760,11 +4757,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 341
+      "start_line": 343
     },
     {
       "confidence": "normal",
-      "end_line": 372,
+      "end_line": 374,
       "heading": "Check-In Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-check-in-source-code-landmarks",
@@ -4784,11 +4781,11 @@
         "043ee0dda2027021",
         "f5ba65fbdf6d9fea"
       ],
-      "start_line": 353
+      "start_line": 355
     },
     {
       "confidence": "structural",
-      "end_line": 374,
+      "end_line": 376,
       "heading": "7. Common Rock Mobile Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-rock-mobile-workflows",
@@ -4804,11 +4801,11 @@
         "9201fe8635986015",
         "d973648867411aa4"
       ],
-      "start_line": 373
+      "start_line": 375
     },
     {
       "confidence": "normal",
-      "end_line": 386,
+      "end_line": 388,
       "heading": "Build A First App",
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-build-a-first-app",
@@ -4817,11 +4814,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 375
+      "start_line": 377
     },
     {
       "confidence": "structural",
-      "end_line": 400,
+      "end_line": 402,
       "heading": "Change A Page Or Block",
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-change-a-page-or-block",
@@ -4830,11 +4827,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 387
+      "start_line": 389
     },
     {
       "confidence": "normal",
-      "end_line": 416,
+      "end_line": 418,
       "heading": "Add A WebView Integration",
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-add-a-webview-integration",
@@ -4844,11 +4841,11 @@
         "7151c6037ac8c7a3",
         "362ccb41c9d64b1f"
       ],
-      "start_line": 401
+      "start_line": 403
     },
     {
       "confidence": "normal",
-      "end_line": 437,
+      "end_line": 439,
       "heading": "Configure Push Notifications",
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-configure-push-notifications",
@@ -4858,11 +4855,11 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 417
+      "start_line": 419
     },
     {
       "confidence": "normal",
-      "end_line": 452,
+      "end_line": 454,
       "heading": "Publish Or Update Through App Factory",
       "needs_live_verification": false,
       "section_id": "7-common-rock-mobile-workflows-publish-or-update-through-app-factory",
@@ -4876,11 +4873,11 @@
         "a54f0299534eff0b",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 438
+      "start_line": 440
     },
     {
       "confidence": "normal",
-      "end_line": 466,
+      "end_line": 468,
       "heading": "Upgrade From Xamarin Forms To MAUI",
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-upgrade-from-xamarin-forms-to-maui",
@@ -4889,44 +4886,44 @@
         "d973648867411aa4",
         "9201fe8635986015"
       ],
-      "start_line": 453
+      "start_line": 455
     },
     {
       "confidence": "normal",
-      "end_line": 470,
+      "end_line": 472,
       "heading": "8. Commands Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive",
       "source_keys": [
         "427b1530c85cfeda"
       ],
-      "start_line": 467
+      "start_line": 469
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 493,
+      "confidence": "normal",
+      "end_line": 497,
       "heading": "Command Binding Pattern",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-command-binding-pattern",
       "source_keys": [
         "427b1530c85cfeda"
       ],
-      "start_line": 471
+      "start_line": 473
     },
     {
       "confidence": "normal",
-      "end_line": 506,
+      "end_line": 510,
       "heading": "CommandReference",
       "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-commandreference",
       "source_keys": [
         "070471cfc7c5bacc"
       ],
-      "start_line": 494
+      "start_line": 498
     },
     {
       "confidence": "normal",
-      "end_line": 526,
+      "end_line": 530,
       "heading": "ExecuteCommand Control",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-executecommand-control",
@@ -4934,11 +4931,11 @@
         "8789a75933cc6915",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 507
+      "start_line": 511
     },
     {
       "confidence": "normal",
-      "end_line": 545,
+      "end_line": 549,
       "heading": "Commands From Release Notes",
       "needs_live_verification": false,
       "section_id": "8-commands-deep-dive-commands-from-release-notes",
@@ -4956,88 +4953,79 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 527
+      "start_line": 531
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 581,
+      "confidence": "normal",
+      "end_line": 587,
       "heading": "Operational Command Troubleshooting",
       "needs_live_verification": true,
       "section_id": "8-commands-deep-dive-operational-command-troubleshooting",
       "source_keys": [
-        "427b1530c85cfeda"
+        "427b1530c85cfeda",
+        "18a10aca58c2b1f1"
       ],
-      "start_line": 546
+      "start_line": 550
     },
     {
       "confidence": "structural",
-      "end_line": 585,
+      "end_line": 591,
       "heading": "9. Controls Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-controls-deep-dive",
       "source_keys": [
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
-        "18a10aca58c2b1f1",
+        "427b1530c85cfeda",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 582
+      "start_line": 588
     },
     {
       "confidence": "normal",
-      "end_line": 611,
+      "end_line": 617,
       "heading": "WebView",
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-webview",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 586
+      "start_line": 592
     },
     {
       "confidence": "normal",
-      "end_line": 631,
+      "end_line": 637,
       "heading": "Context Menu",
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-context-menu",
       "source_keys": [
         "52b1e0e2f1c51a91"
       ],
-      "start_line": 612
+      "start_line": 618
     },
     {
       "confidence": "normal",
-      "end_line": 645,
+      "end_line": 651,
       "heading": "PaletteColor XAML Extension",
       "needs_live_verification": false,
       "section_id": "9-controls-deep-dive-palettecolor-xaml-extension",
       "source_keys": [
         "4725293a0044fb8b"
       ],
-      "start_line": 632
+      "start_line": 638
     },
     {
       "confidence": "normal",
-      "end_line": 656,
+      "end_line": 662,
       "heading": "OnDevicePlatform And MAUI Platform Support",
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-ondeviceplatform-and-maui-platform-support",
       "source_keys": [
         "d973648867411aa4"
       ],
-      "start_line": 646
+      "start_line": 652
     },
     {
       "confidence": "normal",
-      "end_line": 669,
+      "end_line": 675,
       "heading": "Cards And Styling",
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-cards-and-styling",
@@ -5045,11 +5033,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 657
+      "start_line": 663
     },
     {
       "confidence": "normal",
-      "end_line": 680,
+      "end_line": 686,
       "heading": "Behaviors",
       "needs_live_verification": false,
       "section_id": "9-controls-deep-dive-behaviors",
@@ -5057,11 +5045,11 @@
         "7151c6037ac8c7a3",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 670
+      "start_line": 676
     },
     {
       "confidence": "normal",
-      "end_line": 698,
+      "end_line": 704,
       "heading": "Media Controls",
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-media-controls",
@@ -5073,11 +5061,11 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 681
+      "start_line": 687
     },
     {
       "confidence": "normal",
-      "end_line": 709,
+      "end_line": 715,
       "heading": "Form Fields And Responsive Inputs",
       "needs_live_verification": false,
       "section_id": "9-controls-deep-dive-form-fields-and-responsive-inputs",
@@ -5085,11 +5073,11 @@
         "7151c6037ac8c7a3",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 699
+      "start_line": 705
     },
     {
       "confidence": "structural",
-      "end_line": 711,
+      "end_line": 717,
       "heading": "10. Mobile Releases Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-mobile-releases-deep-dive",
@@ -5099,11 +5087,11 @@
         "18a10aca58c2b1f1",
         "9201fe8635986015"
       ],
-      "start_line": 710
+      "start_line": 716
     },
     {
       "confidence": "normal",
-      "end_line": 730,
+      "end_line": 736,
       "heading": "Release Version Table",
       "needs_live_verification": true,
       "section_id": "10-mobile-releases-deep-dive-release-version-table",
@@ -5111,11 +5099,11 @@
         "7151c6037ac8c7a3",
         "6920f6e860c4b936"
       ],
-      "start_line": 712
+      "start_line": 718
     },
     {
       "confidence": "normal",
-      "end_line": 756,
+      "end_line": 762,
       "heading": "v7.0",
       "needs_live_verification": true,
       "section_id": "10-mobile-releases-deep-dive-v7-0",
@@ -5123,11 +5111,11 @@
         "18a10aca58c2b1f1",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 731
+      "start_line": 737
     },
     {
       "confidence": "normal",
-      "end_line": 767,
+      "end_line": 773,
       "heading": "v6.0",
       "needs_live_verification": true,
       "section_id": "10-mobile-releases-deep-dive-v6-0",
@@ -5135,55 +5123,55 @@
         "18a10aca58c2b1f1",
         "9201fe8635986015"
       ],
-      "start_line": 757
+      "start_line": 763
     },
     {
       "confidence": "normal",
-      "end_line": 771,
+      "end_line": 777,
       "heading": "v5.0 And Earlier",
       "needs_live_verification": false,
       "section_id": "10-mobile-releases-deep-dive-v5-0-and-earlier",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 768
+      "start_line": 774
     },
     {
       "confidence": "normal",
-      "end_line": 782,
+      "end_line": 788,
       "heading": "v4.0",
       "needs_live_verification": false,
       "section_id": "10-mobile-releases-deep-dive-v4-0",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 772
+      "start_line": 778
     },
     {
       "confidence": "normal",
-      "end_line": 800,
+      "end_line": 806,
       "heading": "v3.0",
       "needs_live_verification": false,
       "section_id": "10-mobile-releases-deep-dive-v3-0",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 783
+      "start_line": 789
     },
     {
       "confidence": "normal",
-      "end_line": 806,
+      "end_line": 812,
       "heading": "v2.x",
       "needs_live_verification": false,
       "section_id": "10-mobile-releases-deep-dive-v2-x",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 801
+      "start_line": 807
     },
     {
       "confidence": "structural",
-      "end_line": 808,
+      "end_line": 814,
       "heading": "11. Related Rock Areas: Api, Check In, Cms, Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-api-check-in-cms-security",
@@ -5195,11 +5183,11 @@
         "2b29c6766ad7c0c1",
         "6ec62a1509d61113"
       ],
-      "start_line": 807
+      "start_line": 813
     },
     {
       "confidence": "normal",
-      "end_line": 823,
+      "end_line": 829,
       "heading": "API",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-api",
@@ -5207,11 +5195,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 809
+      "start_line": 815
     },
     {
       "confidence": "normal",
-      "end_line": 845,
+      "end_line": 851,
       "heading": "Check-In",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-check-in",
@@ -5221,11 +5209,11 @@
         "cff63e93f4ad7264",
         "73db35ed860fc868"
       ],
-      "start_line": 824
+      "start_line": 830
     },
     {
       "confidence": "normal",
-      "end_line": 860,
+      "end_line": 866,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-cms",
@@ -5233,11 +5221,11 @@
         "7151c6037ac8c7a3",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 846
+      "start_line": 852
     },
     {
       "confidence": "normal",
-      "end_line": 878,
+      "end_line": 884,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-security",
@@ -5246,11 +5234,11 @@
         "7151c6037ac8c7a3",
         "6ec62a1509d61113"
       ],
-      "start_line": 861
+      "start_line": 867
     },
     {
       "confidence": "structural",
-      "end_line": 880,
+      "end_line": 886,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -5262,77 +5250,77 @@
         "2b29c6766ad7c0c1",
         "a54f0299534eff0b"
       ],
-      "start_line": 879
+      "start_line": 885
     },
     {
       "confidence": "normal",
-      "end_line": 889,
+      "end_line": 895,
       "heading": "Deployment Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-deployment-guardrails",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 881
+      "start_line": 887
     },
     {
       "confidence": "normal",
-      "end_line": 903,
+      "end_line": 909,
       "heading": "Shell Update Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-shell-update-guardrails",
       "source_keys": [
         "6920f6e860c4b936"
       ],
-      "start_line": 890
+      "start_line": 896
     },
     {
       "confidence": "normal",
-      "end_line": 923,
+      "end_line": 929,
       "heading": "App Store Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-app-store-guardrails",
       "source_keys": [
         "b2bd874c41f3be1c"
       ],
-      "start_line": 904
+      "start_line": 910
     },
     {
       "confidence": "normal",
-      "end_line": 937,
+      "end_line": 943,
       "heading": "Developer Account Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-developer-account-guardrails",
       "source_keys": [
         "6ec62a1509d61113"
       ],
-      "start_line": 924
+      "start_line": 930
     },
     {
       "confidence": "normal",
-      "end_line": 947,
+      "end_line": 953,
       "heading": "Android Keystore Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-android-keystore-guardrails",
       "source_keys": [
         "2b29c6766ad7c0c1"
       ],
-      "start_line": 938
+      "start_line": 944
     },
     {
       "confidence": "normal",
-      "end_line": 966,
+      "end_line": 972,
       "heading": "Image Resource Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-image-resource-guardrails",
       "source_keys": [
         "a54f0299534eff0b"
       ],
-      "start_line": 948
+      "start_line": 954
     },
     {
       "confidence": "normal",
-      "end_line": 980,
+      "end_line": 986,
       "heading": "In-App Giving Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-in-app-giving-guardrails",
@@ -5340,11 +5328,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 967
+      "start_line": 973
     },
     {
       "confidence": "structural",
-      "end_line": 982,
+      "end_line": 988,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -5364,33 +5352,33 @@
         "e1a674672834de52",
         "60af7ca2f9a811ae"
       ],
-      "start_line": 981
+      "start_line": 987
     },
     {
       "confidence": "community-supported",
-      "end_line": 996,
+      "end_line": 1002,
       "heading": "XAML And Lava",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-xaml-and-lava",
       "source_keys": [
         "459b95df0ea8e5ee"
       ],
-      "start_line": 983
+      "start_line": 989
     },
     {
       "confidence": "normal",
-      "end_line": 1011,
+      "end_line": 1017,
       "heading": "Styling",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-styling",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 997
+      "start_line": 1003
     },
     {
       "confidence": "normal",
-      "end_line": 1026,
+      "end_line": 1032,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
@@ -5408,11 +5396,11 @@
         "e1a674672834de52",
         "60af7ca2f9a811ae"
       ],
-      "start_line": 1012
+      "start_line": 1018
     },
     {
       "confidence": "structural",
-      "end_line": 1028,
+      "end_line": 1034,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -5423,44 +5411,44 @@
         "981b3ac7fdde6d7f",
         "043ee0dda2027021"
       ],
-      "start_line": 1027
+      "start_line": 1033
     },
     {
       "confidence": "normal",
-      "end_line": 1040,
+      "end_line": 1046,
       "heading": "Interaction Tracking",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-interaction-tracking",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1029
+      "start_line": 1035
     },
     {
       "confidence": "normal",
-      "end_line": 1044,
+      "end_line": 1050,
       "heading": "Mobile Preferences",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-mobile-preferences",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1041
+      "start_line": 1047
     },
     {
       "confidence": "normal",
-      "end_line": 1056,
+      "end_line": 1062,
       "heading": "Communication Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-communication-reporting",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1045
+      "start_line": 1051
     },
     {
       "confidence": "normal",
-      "end_line": 1072,
+      "end_line": 1078,
       "heading": "Check-In Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-check-in-reporting",
@@ -5469,11 +5457,11 @@
         "981b3ac7fdde6d7f",
         "043ee0dda2027021"
       ],
-      "start_line": 1057
+      "start_line": 1063
     },
     {
       "confidence": "structural",
-      "end_line": 1088,
+      "end_line": 1094,
       "heading": "Model Map",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map",
@@ -5482,11 +5470,11 @@
         "981b3ac7fdde6d7f",
         "043ee0dda2027021"
       ],
-      "start_line": 1073
+      "start_line": 1079
     },
     {
       "confidence": "structural",
-      "end_line": 1090,
+      "end_line": 1096,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -5499,11 +5487,11 @@
         "52b1e0e2f1c51a91",
         "6920f6e860c4b936"
       ],
-      "start_line": 1089
+      "start_line": 1095
     },
     {
       "confidence": "normal",
-      "end_line": 1102,
+      "end_line": 1108,
       "heading": "Core And Shell Tags",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-core-and-shell-tags",
@@ -5515,22 +5503,22 @@
         "18a10aca58c2b1f1",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1091
+      "start_line": 1097
     },
     {
       "confidence": "normal",
-      "end_line": 1116,
+      "end_line": 1122,
       "heading": "MAUI Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-maui-caveats",
       "source_keys": [
         "9201fe8635986015"
       ],
-      "start_line": 1103
+      "start_line": 1109
     },
     {
       "confidence": "normal",
-      "end_line": 1124,
+      "end_line": 1130,
       "heading": "Platform Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-platform-caveats",
@@ -5541,11 +5529,11 @@
         "7151c6037ac8c7a3",
         "6920f6e860c4b936"
       ],
-      "start_line": 1117
+      "start_line": 1123
     },
     {
       "confidence": "structural",
-      "end_line": 1126,
+      "end_line": 1132,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -5555,11 +5543,11 @@
         "7151c6037ac8c7a3",
         "6920f6e860c4b936"
       ],
-      "start_line": 1125
+      "start_line": 1131
     },
     {
       "confidence": "structural",
-      "end_line": 1140,
+      "end_line": 1146,
       "heading": "Playbook: Add A New Native Mobile Page",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-new-native-mobile-page",
@@ -5570,66 +5558,66 @@
         "7151c6037ac8c7a3",
         "6920f6e860c4b936"
       ],
-      "start_line": 1127
+      "start_line": 1133
     },
     {
       "confidence": "normal",
-      "end_line": 1152,
+      "end_line": 1158,
       "heading": "Playbook: Add A Push Notification Campaign",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-push-notification-campaign",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1141
+      "start_line": 1147
     },
     {
       "confidence": "normal",
-      "end_line": 1164,
+      "end_line": 1170,
       "heading": "Playbook: Add In-App Giving",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-in-app-giving",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1153
+      "start_line": 1159
     },
     {
       "confidence": "structural",
-      "end_line": 1178,
+      "end_line": 1184,
       "heading": "Playbook: Prepare For Shell Update",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-prepare-for-shell-update",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1165
+      "start_line": 1171
     },
     {
       "confidence": "structural",
-      "end_line": 1190,
+      "end_line": 1196,
       "heading": "Playbook: Diagnose “Change Not Showing”",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-change-not-showing",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1179
+      "start_line": 1185
     },
     {
       "confidence": "normal",
-      "end_line": 1201,
+      "end_line": 1207,
       "heading": "Playbook: Diagnose WebView Blank Screen",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-webview-blank-screen",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1191
+      "start_line": 1197
     },
     {
       "confidence": "structural",
-      "end_line": 1203,
+      "end_line": 1209,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -5637,88 +5625,88 @@
         "7151c6037ac8c7a3",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1202
+      "start_line": 1208
     },
     {
       "confidence": "structural",
-      "end_line": 1213,
+      "end_line": 1219,
       "heading": "App Does Not Launch",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-app-does-not-launch",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1204
+      "start_line": 1210
     },
     {
       "confidence": "structural",
-      "end_line": 1222,
+      "end_line": 1228,
       "heading": "App Launches But Shows Old Content",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-app-launches-but-shows-old-content",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1214
+      "start_line": 1220
     },
     {
       "confidence": "structural",
-      "end_line": 1234,
+      "end_line": 1240,
       "heading": "Page Is Blank",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-page-is-blank",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1223
+      "start_line": 1229
     },
     {
       "confidence": "structural",
-      "end_line": 1245,
+      "end_line": 1251,
       "heading": "Button Or Action Does Nothing",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-button-or-action-does-nothing",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1235
+      "start_line": 1241
     },
     {
       "confidence": "structural",
-      "end_line": 1258,
+      "end_line": 1264,
       "heading": "Push Notification Not Received",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-push-notification-not-received",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1246
+      "start_line": 1252
     },
     {
       "confidence": "structural",
-      "end_line": 1267,
+      "end_line": 1273,
       "heading": "Push Opens Wrong Page",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-push-opens-wrong-page",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1259
+      "start_line": 1265
     },
     {
       "confidence": "structural",
-      "end_line": 1277,
+      "end_line": 1283,
       "heading": "WebView Looks Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-webview-looks-wrong",
       "source_keys": [
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1268
+      "start_line": 1274
     },
     {
       "confidence": "normal",
-      "end_line": 1291,
+      "end_line": 1297,
       "heading": "Check-In Fails",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-check-in-fails",
@@ -5726,11 +5714,11 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1278
+      "start_line": 1284
     },
     {
       "confidence": "structural",
-      "end_line": 1302,
+      "end_line": 1308,
       "heading": "MAUI Upgrade Regression",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-maui-upgrade-regression",
@@ -5738,11 +5726,11 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1292
+      "start_line": 1298
     },
     {
       "confidence": "structural",
-      "end_line": 1304,
+      "end_line": 1310,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -5754,11 +5742,11 @@
         "6ec62a1509d61113",
         "2b29c6766ad7c0c1"
       ],
-      "start_line": 1303
+      "start_line": 1309
     },
     {
       "confidence": "structural",
-      "end_line": 1326,
+      "end_line": 1332,
       "heading": "Recipe: Inventory A Mobile App",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-inventory-a-mobile-app",
@@ -5766,11 +5754,11 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1305
+      "start_line": 1311
     },
     {
       "confidence": "structural",
-      "end_line": 1337,
+      "end_line": 1343,
       "heading": "Recipe: Determine Whether A Feature Can Be Used",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-determine-whether-a-feature-can-be-used",
@@ -5778,33 +5766,33 @@
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1327
+      "start_line": 1333
     },
     {
       "confidence": "normal",
-      "end_line": 1347,
+      "end_line": 1353,
       "heading": "Recipe: Add Analytics To A Tap",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-add-analytics-to-a-tap",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1338
+      "start_line": 1344
     },
     {
       "confidence": "normal",
-      "end_line": 1358,
+      "end_line": 1364,
       "heading": "Recipe: Modernize Legacy Platform XAML",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-modernize-legacy-platform-xaml",
       "source_keys": [
         "d973648867411aa4"
       ],
-      "start_line": 1348
+      "start_line": 1354
     },
     {
       "confidence": "normal",
-      "end_line": 1376,
+      "end_line": 1382,
       "heading": "Recipe: Review App Store Readiness",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-review-app-store-readiness",
@@ -5814,11 +5802,11 @@
         "6ec62a1509d61113",
         "2b29c6766ad7c0c1"
       ],
-      "start_line": 1359
+      "start_line": 1365
     },
     {
       "confidence": "citation-only",
-      "end_line": 1402,
+      "end_line": 1408,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -5836,11 +5824,11 @@
         "6c0184b4e7ec7558",
         "d7a4121f91c3b42b"
       ],
-      "start_line": 1377
+      "start_line": 1383
     },
     {
       "confidence": "citation-only",
-      "end_line": 1423,
+      "end_line": 1429,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -5854,11 +5842,11 @@
         "45babaf3ce911131",
         "d2890df9787aa1ae"
       ],
-      "start_line": 1403
+      "start_line": 1409
     },
     {
       "confidence": "structural",
-      "end_line": 1425,
+      "end_line": 1431,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5895,11 +5883,11 @@
         "362ccb41c9d64b1f",
         "459b95df0ea8e5ee"
       ],
-      "start_line": 1424
+      "start_line": 1430
     },
     {
       "confidence": "normal",
-      "end_line": 1436,
+      "end_line": 1442,
       "heading": "Primary Official Mobile Docs",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-primary-official-mobile-docs",
@@ -5913,11 +5901,11 @@
         "7151c6037ac8c7a3",
         "9201fe8635986015"
       ],
-      "start_line": 1426
+      "start_line": 1432
     },
     {
       "confidence": "normal",
-      "end_line": 1450,
+      "end_line": 1456,
       "heading": "Commands And Controls",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-commands-and-controls",
@@ -5933,11 +5921,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1437
+      "start_line": 1443
     },
     {
       "confidence": "normal",
-      "end_line": 1466,
+      "end_line": 1472,
       "heading": "Blocks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-blocks",
@@ -5956,11 +5944,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1451
+      "start_line": 1457
     },
     {
       "confidence": "normal",
-      "end_line": 1478,
+      "end_line": 1484,
       "heading": "App Factory And Store Operations",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-app-factory-and-store-operations",
@@ -5975,22 +5963,22 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1467
+      "start_line": 1473
     },
     {
       "confidence": "normal",
-      "end_line": 1482,
+      "end_line": 1488,
       "heading": "Release Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-release-notes",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1479
+      "start_line": 1485
     },
     {
       "confidence": "normal",
-      "end_line": 1499,
+      "end_line": 1505,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -6010,11 +5998,11 @@
         "f5ba65fbdf6d9fea",
         "043ee0dda2027021"
       ],
-      "start_line": 1483
+      "start_line": 1489
     },
     {
       "confidence": "community-supported",
-      "end_line": 1505,
+      "end_line": 1511,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-examples",
@@ -6022,7 +6010,7 @@
         "362ccb41c9d64b1f",
         "459b95df0ea8e5ee"
       ],
-      "start_line": 1500
+      "start_line": 1506
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:13:12+00:00",

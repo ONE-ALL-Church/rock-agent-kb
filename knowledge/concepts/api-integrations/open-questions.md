@@ -10,11 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `2-scope-and-terminology`: 2. Scope And Terminology (87 words)
-- `2-scope-and-terminology-api`: API (152 words)
-- `16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration`: Playbook A: Server-To-Server REST Read Integration (105 words)
-- `16-implementation-playbooks-playbook-b-browser-public-data-feed`: Playbook B: Browser Public Data Feed (90 words)
-- `16-implementation-playbooks-playbook-c-webhook-to-workflow-intake`: Playbook C: Webhook To Workflow Intake (99 words)
 
 ## Community-Supported Only
 

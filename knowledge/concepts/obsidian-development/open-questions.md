@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen`: Troubleshoot An Existing Obsidian Screen (122 words)
-- `19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block`: Recipe: Identify The Source Files Behind A Visible Obsidian Block (85 words)
-- `19-agent-task-recipes-recipe-review-an-obsidian-pull-request`: Recipe: Review An Obsidian Pull Request (87 words)
 
 ## Community-Supported Only
 

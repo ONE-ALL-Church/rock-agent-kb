@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 18838 words; expected at least 7000.",
+      "message": "Guide has 18962 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,9 +60,9 @@
   "concept_id": "people-families",
   "contribution_record_count": 0,
   "entity_count": 18,
-  "generated_at": "2026-07-17T05:36:03+00:00",
-  "guide_line_count": 1826,
-  "guide_word_count": 18838,
+  "generated_at": "2026-07-17T15:45:11+00:00",
+  "guide_line_count": 1832,
+  "guide_word_count": 18962,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 140,

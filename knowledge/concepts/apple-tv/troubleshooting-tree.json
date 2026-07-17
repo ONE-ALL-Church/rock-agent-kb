@@ -9,14 +9,14 @@
       "inspect": [],
       "source_urls": [
         "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/apple-tv-docs/javascript",
+        "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
         "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
         "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/api-docs",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/apple-tv-docs/developer",
         "https://www.triumph.tech/resources/dashboard-design-part-1"
@@ -42,9 +42,9 @@
         "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
         "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
         "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/api-docs",
         "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
         "https://community.rockrms.com/developer/apple-tv-docs/developer"
@@ -70,9 +70,9 @@
         "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
         "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
         "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/api-docs",
         "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
         "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/api-docs",
         "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/dashboard-design-part-1",
         "https://community.rockrms.com/developer/apple-tv-docs/developer"
@@ -135,7 +135,7 @@
   ],
   "concept_id": "apple-tv",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T05:35:59+00:00",
+  "generated_at": "2026-07-17T15:45:07+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-app-does-not-launch",

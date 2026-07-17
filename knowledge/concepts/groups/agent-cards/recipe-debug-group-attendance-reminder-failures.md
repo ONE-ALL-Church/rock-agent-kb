@@ -37,9 +37,9 @@ Follow the guide section for Recipe: Debug Group Attendance Reminder Failures.
 - https://community.rockrms.com/documentation/bookcontent/7
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://community.rockrms.com/ask/developing/2801
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
 - https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/recipes/220

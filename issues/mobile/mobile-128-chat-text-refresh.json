@@ -7,6 +7,40 @@
   "workaround_summaries": [
     "Do not treat this report as proof of a local chat defect. Reproduce with the exact shell, platform, and app build, capture a recording that shows the text reset, and compare that evidence with the issue before diagnosing or escalating."
   ],
+  "verification_playbook": {
+    "goal": "Collect the minimum version and UI evidence needed to distinguish the reported unsent-text reset from the different behavior shown in the original recording.",
+    "prerequisites": [
+      "Use a non-production test account and test conversation.",
+      "Do not send a message while checking unsent composer state."
+    ],
+    "steps": [
+      {
+        "step_id": "record-mobile-build",
+        "title": "Record the exact client profile",
+        "method": "version_check",
+        "instructions": "Record the Rock Mobile shell version, platform and OS version, app build, and whether the behavior occurs on iOS, Android, or both.",
+        "expected_if_affected": "The behavior repeats on a specific, bounded client profile rather than being inferred from the issue's broad 19.1 report.",
+        "expected_if_unaffected": "The exact profile cannot reproduce the reset; this remains inconclusive because the maintainer also lacked corrected evidence.",
+        "evidence_to_record": ["shell version", "platform and OS version", "app build"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "observe-unsent-text",
+        "title": "Observe unsent composer state",
+        "method": "ui_observation",
+        "instructions": "In the test conversation, type non-sensitive placeholder text but do not send it. Follow the exact navigation or refresh sequence being evaluated and record whether the composer clears, retaining no chat IDs, names, message text, or private screenshots.",
+        "expected_if_affected": "The unsent placeholder text clears under a repeatable sequence on the recorded client profile.",
+        "expected_if_unaffected": "The text remains. A single pass is insufficient; compare at least two runs on the same profile before concluding it is not reproducible.",
+        "evidence_to_record": ["repeat count", "text cleared yes or no", "generic action sequence"],
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "The upstream report was closed for insufficient corrected evidence, so a new local observation should be treated as a fresh reproduction, not confirmation of the old report.",
+      "Do not upload a recording containing real names, conversations, notifications, or account identifiers."
+    ],
+    "production_safe": true
+  },
   "applicability": [],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues/128",
