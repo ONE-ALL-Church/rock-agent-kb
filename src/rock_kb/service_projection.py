@@ -1338,7 +1338,12 @@ def request_json(
     payload: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     body = json.dumps(payload).encode("utf-8") if payload is not None else None
-    req = urllib_request.Request(url, data=body, method=method, headers=headers or {})
+    resolved_headers = {
+        "accept": "application/json",
+        "user-agent": "rock-kb-deployer/1.0",
+        **(headers or {}),
+    }
+    req = urllib_request.Request(url, data=body, method=method, headers=resolved_headers)
     with urllib_request.urlopen(req, timeout=30) as response:
         value = json.loads(response.read().decode("utf-8"))
     if not isinstance(value, dict):
