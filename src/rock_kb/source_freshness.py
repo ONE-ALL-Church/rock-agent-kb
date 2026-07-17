@@ -32,6 +32,7 @@ def build_source_freshness_report(
     baseline_snapshot_path: Path | None = None,
     previous_observations_path: Path | None = None,
     issue_summary_path: Path = ROCK_ISSUE_SUMMARY_PATH,
+    required_cadences: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     as_of = (as_of or datetime.now(timezone.utc)).astimezone(timezone.utc)
     policy = load_freshness_policy()
@@ -55,7 +56,12 @@ def build_source_freshness_report(
     )
     rows = source_freshness_rows(sources, snapshot, policy, as_of, refresh_status, observations)
     counts = Counter(str(row["status"]) for row in rows)
-    blocking = [row["source_id"] for row in rows if row["status"] in {"overdue", "missing", "failed"}]
+    required_cadence_set = {str(value) for value in required_cadences or []}
+    known_cadences = {source.refresh_cadence for source in sources}
+    unknown_cadences = required_cadence_set - known_cadences
+    if unknown_cadences:
+        raise ValueError(f"Unknown required cadence(s): {', '.join(sorted(unknown_cadences))}")
+    blocking = blocking_source_ids(rows, required_cadence_set or None)
     report = {
         "schema": "rock-kb-source-freshness-report-v1",
         "generated_at": generated_at_iso(),
@@ -63,6 +69,7 @@ def build_source_freshness_report(
         "policy_path": "sources/freshness-policy.yaml",
         "status": "fail" if blocking else "ok",
         "counts": dict(sorted(counts.items())),
+        "required_cadences": sorted(required_cadence_set),
         "blocking_source_ids": sorted(blocking),
         "sources": rows,
     }
@@ -74,6 +81,17 @@ def build_source_freshness_report(
     )
     (output_dir / "source-freshness-summary.md").write_text(render_freshness_markdown(report), encoding="utf-8")
     return report
+
+
+def blocking_source_ids(
+    rows: Iterable[dict[str, Any]], required_cadences: set[str] | None = None
+) -> list[str]:
+    return sorted(
+        str(row["source_id"])
+        for row in rows
+        if row.get("status") in {"overdue", "missing", "failed"}
+        and (not required_cadences or row.get("cadence") in required_cadences)
+    )
 
 
 def build_source_observations(
