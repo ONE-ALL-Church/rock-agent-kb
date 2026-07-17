@@ -1,0 +1,193 @@
+from __future__ import annotations
+
+from datetime import datetime, timezone
+from typing import Any, Callable
+from urllib.parse import quote
+
+
+JsonGetter = Callable[[str], dict[str, Any]]
+JsonPoster = Callable[[str, dict[str, Any]], dict[str, Any]]
+
+
+def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoster) -> dict[str, Any]:
+    base = base_url.rstrip("/")
+    cases = [
+        run_case("service-health", "service", "GET /health", "Does the service respond consistently?", lambda: health_case(base, get_json)),
+        run_case("exact-group-model", "exact_lookup", "GET Group model", "Is the Group digest direct and useful without unrelated models?", lambda: model_case(base, get_json)),
+        run_case("check-in-lava-context", "lava_context", "Search Check-In label roots", "Does the result clearly identify which Lava root is available?", lambda: lava_case(base, get_json)),
+        run_case("reviewed-recipe", "recipe", "GET Check-In Status Dashboard recipe", "Is the recipe reusable and are its adaptation and live-verification boundaries clear?", lambda: recipe_case(base, get_json)),
+        run_case("check-in-troubleshooting", "semantic_search", "Search an eligibility-versus-availability symptom", "Would the top results lead an administrator to the right first checks?", lambda: troubleshooting_case(base, get_json)),
+        run_case("core-issue-trust", "imported_issue", "GET core issue 6920", "Is the unreviewed report clearly separated from its reviewed, source-backed enrichment?", lambda: core_issue_case(base, get_json)),
+        run_case("mobile-issue-release-evidence", "imported_issue", "GET mobile issue 116", "Is the fixed-release evidence useful without implying every local instance is fixed?", lambda: mobile_issue_case(base, get_json)),
+        run_case("issue-version-assessment", "imported_issue", "Assess a bounded v19.1.8 profile", "Does the assessment help triage possible impact while still requiring local verification?", lambda: issue_assessment_case(base, post_json)),
+        run_case("no-answer-boundary", "no_answer", "Search a deliberately unknown term", "Does the KB avoid inventing an answer when it has no matching evidence?", lambda: no_answer_case(base, get_json)),
+    ]
+    failures = [case for case in cases if case["status"] != "pass"]
+    return {
+        "schema": "rock-kb-community-test-round-v1",
+        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "service": base,
+        "status": "fail" if failures else "ok",
+        "automatic_pass_count": len(cases) - len(failures),
+        "automatic_fail_count": len(failures),
+        "case_count": len(cases),
+        "imported_issue_case_count": sum(1 for case in cases if case["category"] == "imported_issue"),
+        "manual_review_required": True,
+        "cases": cases,
+        "next_steps": [
+            "For a correct or incorrect result, use rock-kb feedback with the exact result_id and a fixed reason.",
+            "For a service, MCP, CLI, schema, authentication, or retrieval malfunction, use rock-kb report-issue with a redaction-attested generic description.",
+            "Never include private Rock data, query logs, identifiers, secrets, screenshots, or internal URLs in feedback.",
+        ],
+    }
+
+
+def run_case(case_id: str, category: str, operation: str, manual_prompt: str, execute: Callable[[], dict[str, Any]]) -> dict[str, Any]:
+    try:
+        evidence = execute()
+        passed = bool(evidence.pop("passed", False))
+        return {
+            "case_id": case_id,
+            "category": category,
+            "operation": operation,
+            "status": "pass" if passed else "fail",
+            "manual_review_prompt": manual_prompt,
+            **evidence,
+        }
+    except Exception as exc:
+        return {
+            "case_id": case_id,
+            "category": category,
+            "operation": operation,
+            "status": "fail",
+            "manual_review_prompt": manual_prompt,
+            "error_type": type(exc).__name__,
+            "error": str(exc)[:300],
+        }
+
+
+def health_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    payload = get_json(f"{base}/health")
+    version = str(payload.get("version") or "")
+    return {
+        "passed": payload.get("status") == "ok" and bool(version),
+        "projection_version": version,
+        "artifact_prefix": payload.get("artifact_prefix"),
+    }
+
+
+def model_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    payload = get_json(f"{base}/model-map/models/group?fields=identity%2Crequired%2Crelationships%2Cdiffs")
+    model = payload.get("model") or {}
+    identity = model.get("identity") or {}
+    relationships = model.get("relationships") or []
+    members = [row for row in relationships if row.get("property_name") == "Members"]
+    return {
+        "passed": payload.get("status") == "ok" and identity.get("model_slug") == "group" and bool(members),
+        "result_ids": ["model_map:stable:group"],
+        "model_slug": identity.get("model_slug"),
+        "rock_version": identity.get("rock_version"),
+        "members_relationship_found": bool(members),
+    }
+
+
+def lava_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    query = quote("Check-In Label Designer PersonAttendance Lava roots", safe="")
+    payload = get_json(f"{base}/search?q={query}&limit=3&min_tier=source_backed&detail=compact")
+    results = payload.get("results") or []
+    result_ids = [str(row.get("id") or "") for row in results]
+    return {
+        "passed": bool(results) and results[0].get("kind") == "lava_context" and result_ids[0].startswith("lava_context:check-in-label"),
+        "result_ids": result_ids,
+        "top_kind": results[0].get("kind") if results else None,
+        "top_authority_tier": results[0].get("authority_tier") if results else None,
+    }
+
+
+def recipe_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    recipe_id = "oneall:check-in-status-dashboard"
+    payload = get_json(f"{base}/recipes/{quote(recipe_id, safe='')}")
+    recipe = payload.get("recipe") or {}
+    implementation = recipe.get("implementation") or {}
+    commit_sha = str(implementation.get("commit_sha") or "")
+    return {
+        "passed": payload.get("status") == "ok" and recipe.get("authority_tier") == "community-reviewed" and len(commit_sha) == 40,
+        "result_ids": [f"recipe:{recipe_id}"],
+        "authority_tier": recipe.get("authority_tier"),
+        "needs_live_verification": recipe.get("needs_live_verification"),
+        "immutable_commit_present": len(commit_sha) == 40,
+    }
+
+
+def troubleshooting_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    query = quote("child eligible but not available at checkin", safe="")
+    payload = get_json(f"{base}/search?q={query}&limit=5&min_tier=routing_context_only&detail=compact")
+    results = payload.get("results") or []
+    ranked = [row for row in results[:2] if "check-in" in (row.get("concepts") or [row.get("concept")])]
+    return {
+        "passed": bool(ranked),
+        "result_ids": [str(row.get("id") or "") for row in results],
+        "top_concepts": results[0].get("concepts") if results else [],
+        "top_authority_tier": results[0].get("authority_tier") if results else None,
+    }
+
+
+def core_issue_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    payload = get_json(f"{base}/rock-issues/6920")
+    issue = payload.get("issue") or {}
+    enrichments = issue.get("reviewed_enrichments") or []
+    source_backed = [row for row in enrichments if row.get("claim_tier") == "source_backed"]
+    return {
+        "passed": (
+            payload.get("status") == "ok"
+            and issue.get("authority_tier") == "community-unreviewed"
+            and "body" not in issue
+            and bool(source_backed)
+        ),
+        "result_ids": [str(payload.get("issue_id") or "")],
+        "report_authority_tier": issue.get("authority_tier"),
+        "raw_body_republished": "body" in issue,
+        "reviewed_enrichment_count": len(enrichments),
+        "source_backed_enrichment_count": len(source_backed),
+    }
+
+
+def mobile_issue_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    payload = get_json(f"{base}/rock-issues/{quote('mobile:116', safe='')}")
+    issue = payload.get("issue") or {}
+    fixed = [
+        row
+        for row in issue.get("version_evidence") or []
+        if row.get("relationship") == "fixed" and row.get("authority_tier") == "official"
+    ]
+    return {
+        "passed": payload.get("status") == "ok" and issue.get("state") == "closed" and bool(fixed),
+        "result_ids": [str(payload.get("issue_id") or "")],
+        "state": issue.get("state"),
+        "evidence_state": issue.get("evidence_state"),
+        "official_fixed_versions": [row.get("normalized_version") for row in fixed],
+        "needs_live_verification": issue.get("needs_live_verification"),
+    }
+
+
+def issue_assessment_case(base: str, post_json: JsonPoster) -> dict[str, Any]:
+    payload = post_json(
+        f"{base}/rock-issues/assess",
+        {"profile": {"core_version": "19.1.8", "concepts": ["connections", "workflows"]}, "limit": 100},
+    )
+    results = payload.get("results") or []
+    match = next((row for row in results if row.get("issue_id") == "rock_issue:SparkDevNetwork/Rock#6920"), None)
+    return {
+        "passed": bool(match) and match.get("needs_live_verification") is True and bool(payload.get("caveat")),
+        "result_ids": [str(match.get("issue_id"))] if match else [],
+        "applicability": match.get("applicability") if match else None,
+        "needs_live_verification": match.get("needs_live_verification") if match else None,
+        "assessment_caveat_present": bool(payload.get("caveat")),
+    }
+
+
+def no_answer_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    query = quote("qzvwx9417 frobnication", safe="")
+    payload = get_json(f"{base}/search?q={query}&limit=5&min_tier=routing_context_only&detail=compact")
+    results = payload.get("results") or []
+    return {"passed": len(results) == 0, "result_ids": [], "result_count": len(results)}

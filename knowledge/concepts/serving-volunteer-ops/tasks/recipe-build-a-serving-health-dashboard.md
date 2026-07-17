@@ -36,13 +36,13 @@ Follow the guide section for Recipe: Build A Serving Health Dashboard.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox
 - https://community.rockrms.com/documentation/bookcontent/10/266
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox
 - https://community.rockrms.com/recipes/169
+- https://community.rockrms.com/rocku/groups/group-requirements
+- https://community.rockrms.com/rocku/groups/group-types
+- https://community.rockrms.com/rocku/groups/group-scheduling-overview
 - https://community.rockrms.com/recipes/459
+- https://community.rockrms.com/rocku/groups/group-security
 - https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback
 - https://community.rockrms.com/recipes/489
-- https://community.rockrms.com/rocku/groups/group-requirements
-- https://community.rockrms.com/rocku/groups/group-scheduling-analytics
-- https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications
-- https://community.rockrms.com/recipes/238

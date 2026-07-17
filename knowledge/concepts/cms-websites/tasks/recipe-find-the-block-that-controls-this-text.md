@@ -44,5 +44,5 @@ Follow the guide section for Recipe: â€œFind The Block That Controls This Textâ€
 - https://community.rockrms.com/developer/apple-tv-docs/styling/themes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
 - https://community.rockrms.com/recipes/535
-- https://www.triumph.tech/resources/github-spotlight-1242025
 - https://community.rockrms.com/developer/helix/forms-controls/understanding-forms
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts

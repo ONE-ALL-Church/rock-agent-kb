@@ -183,7 +183,12 @@ export default {
         return cors(new Response(null, { status: 204 }));
       }
       if (url.pathname === "/health") {
-        return json({ status: "ok", version: await currentVersion(env) });
+        return json({
+          status: "ok",
+          version: await currentVersion(env),
+          artifact_prefix: await currentArtifactPrefix(env),
+          artifact_storage: "bounded_two_slot",
+        });
       }
       if (url.pathname === "/manifest.json") {
         return artifactJson(env, "agent/rock-kb-manifest.json");
@@ -1923,9 +1928,14 @@ async function currentVersion(env: ServiceEnv): Promise<string> {
   return result?.value || "unknown";
 }
 
+async function currentArtifactPrefix(env: ServiceEnv): Promise<string> {
+  const result = await env.KB_DB.prepare("SELECT value FROM kb_meta WHERE key = 'artifact_prefix'").first<{ value: string }>();
+  return result?.value || `versions/${await currentVersion(env)}`;
+}
+
 async function artifactShardKey(env: ServiceEnv, path: string): Promise<string> {
   const shard = (await sha256Hex(path)).slice(0, 2);
-  return `versions/${await currentVersion(env)}/artifact-shards/${shard}.json`;
+  return `${await currentArtifactPrefix(env)}/artifact-shards/${shard}.json`;
 }
 
 async function artifactTextValue(env: ServiceEnv, path: string): Promise<string> {

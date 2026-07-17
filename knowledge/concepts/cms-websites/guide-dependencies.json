@@ -6799,12 +6799,12 @@
   },
   "approved_media_hash": "d6da57910a72706609eab86d6481e182b0937e64ce5accc3600af37e22fbc8e6",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-07-17T00:40:01+00:00",
+  "built_at": "2026-07-17T05:35:43+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "44ef202a7a9f5a27d4c35cf8f52a06afeab7ef289595a80135458465a536abbf",
-  "guide_line_count": 1569,
+  "guide_hash": "529968c3f7345334c256104700e42eae2ee0307ab0b872f7973c2995b291d2ea",
+  "guide_line_count": 1583,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
-  "guide_word_count": 13478,
+  "guide_word_count": 13682,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6924,6 +6924,24 @@
       "url": "https://community.rockrms.com/documentation/bookcontent/6"
     },
     {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "2875911abf284e79",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "87a5ab006404f4af",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/content-channels/adding-content"
+    },
+    {
       "authority": "official-developer",
       "content_hash": null,
       "excerpt_hash": null,
@@ -6949,24 +6967,6 @@
       "source_key": "58a92984acbd2344",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "87a5ab006404f4af",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/content-channels/adding-content"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "2875911abf284e79",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
     },
     {
       "authority": "official-triumph",
@@ -7189,82 +7189,72 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
-        "d275b5b94a9da833",
         "35633587d4819f55",
         "776256c424368312",
         "30be60a23d3d0317",
+        "d275b5b94a9da833",
         "7ca0c3010644f891"
       ],
       "start_line": 315
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 329,
+      "confidence": "citation-only",
+      "end_line": 331,
       "heading": "Site To Page",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-site-to-page",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "35633587d4819f55",
-        "35633587d4819f55",
         "35633587d4819f55"
       ],
       "start_line": 319
     },
     {
       "confidence": "structural",
-      "end_line": 333,
+      "end_line": 335,
       "heading": "Page To Layout To Zone To Block",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-to-layout-to-zone-to-block",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "35633587d4819f55",
-        "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 330
+      "start_line": 332
     },
     {
       "confidence": "normal",
-      "end_line": 339,
+      "end_line": 341,
       "heading": "Page To Block Settings",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-to-block-settings",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 334
+      "start_line": 336
     },
     {
       "confidence": "normal",
-      "end_line": 350,
+      "end_line": 352,
       "heading": "Block To Lava Commands",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-block-to-lava-commands",
       "source_keys": [
         "30be60a23d3d0317"
       ],
-      "start_line": 340
+      "start_line": 342
     },
     {
       "confidence": "normal",
-      "end_line": 367,
+      "end_line": 369,
       "heading": "Content Channel Type To Channel To Item",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-content-channel-type-to-channel-to-item",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 351
+      "start_line": 353
     },
     {
       "confidence": "normal",
-      "end_line": 380,
+      "end_line": 382,
       "heading": "Content Channel Item To Media",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-content-channel-item-to-media",
@@ -7272,11 +7262,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 368
+      "start_line": 370
     },
     {
       "confidence": "normal",
-      "end_line": 395,
+      "end_line": 397,
       "heading": "Page And Content To Interactions",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-and-content-to-interactions",
@@ -7285,22 +7275,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 381
+      "start_line": 383
     },
     {
       "confidence": "normal",
-      "end_line": 406,
+      "end_line": 408,
       "heading": "Files, Binary Files, Entity Documents, And Security",
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-files-binary-files-entity-documents-and-security",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 396
+      "start_line": 398
     },
     {
       "confidence": "structural",
-      "end_line": 408,
+      "end_line": 410,
       "heading": "7. Common CMS And Websites Workflows",
       "needs_live_verification": false,
       "section_id": "7-common-cms-and-websites-workflows",
@@ -7311,11 +7301,11 @@
         "08d28c7142d649ae",
         "7ca0c3010644f891"
       ],
-      "start_line": 407
+      "start_line": 409
     },
     {
       "confidence": "citation-only",
-      "end_line": 427,
+      "end_line": 429,
       "heading": "Create A New Public Page",
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-create-a-new-public-page",
@@ -7323,11 +7313,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 409
+      "start_line": 411
     },
     {
       "confidence": "citation-only",
-      "end_line": 444,
+      "end_line": 446,
       "heading": "Add Or Edit An HTML Content Block",
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-add-or-edit-an-html-content-block",
@@ -7335,22 +7325,22 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 428
+      "start_line": 430
     },
     {
       "confidence": "normal",
-      "end_line": 464,
+      "end_line": 466,
       "heading": "Build A Content Channel Listing And Detail Flow",
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-build-a-content-channel-listing-and-detail-flow",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 445
+      "start_line": 447
     },
     {
       "confidence": "citation-only",
-      "end_line": 478,
+      "end_line": 480,
       "heading": "Publish Media Through CMS",
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-publish-media-through-cms",
@@ -7359,11 +7349,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 465
+      "start_line": 467
     },
     {
       "confidence": "normal",
-      "end_line": 490,
+      "end_line": 492,
       "heading": "Add Personalization To A Page Or Channel",
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-add-personalization-to-a-page-or-channel",
@@ -7371,33 +7361,33 @@
         "d275b5b94a9da833",
         "35633587d4819f55"
       ],
-      "start_line": 479
+      "start_line": 481
     },
     {
       "confidence": "community-supported",
-      "end_line": 502,
+      "end_line": 504,
       "heading": "Add A Search Or Filter Interface For Pages",
       "needs_live_verification": false,
       "section_id": "7-common-cms-and-websites-workflows-add-a-search-or-filter-interface-for-pages",
       "source_keys": [
         "08d28c7142d649ae"
       ],
-      "start_line": 491
+      "start_line": 493
     },
     {
       "confidence": "community-supported",
-      "end_line": 513,
+      "end_line": 515,
       "heading": "Build Page View Reporting",
       "needs_live_verification": false,
       "section_id": "7-common-cms-and-websites-workflows-build-page-view-reporting",
       "source_keys": [
         "7ca0c3010644f891"
       ],
-      "start_line": 503
+      "start_line": 505
     },
     {
       "confidence": "structural",
-      "end_line": 515,
+      "end_line": 517,
       "heading": "8. Pages And Blocks Deep Dive",
       "needs_live_verification": false,
       "section_id": "8-pages-and-blocks-deep-dive",
@@ -7409,33 +7399,33 @@
         "776256c424368312",
         "35633587d4819f55"
       ],
-      "start_line": 514
+      "start_line": 516
     },
     {
       "confidence": "structural",
-      "end_line": 531,
+      "end_line": 533,
       "heading": "Page Identity",
       "needs_live_verification": false,
       "section_id": "8-pages-and-blocks-deep-dive-page-identity",
       "source_keys": [
         "7ca0c3010644f891"
       ],
-      "start_line": 516
+      "start_line": 518
     },
     {
       "confidence": "community-supported",
-      "end_line": 544,
+      "end_line": 546,
       "heading": "Page Hierarchy And Navigation",
       "needs_live_verification": true,
       "section_id": "8-pages-and-blocks-deep-dive-page-hierarchy-and-navigation",
       "source_keys": [
         "08d28c7142d649ae"
       ],
-      "start_line": 532
+      "start_line": 534
     },
     {
       "confidence": "normal",
-      "end_line": 569,
+      "end_line": 571,
       "heading": "Page Parameters",
       "needs_live_verification": true,
       "section_id": "8-pages-and-blocks-deep-dive-page-parameters",
@@ -7443,11 +7433,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 545
+      "start_line": 547
     },
     {
       "confidence": "normal",
-      "end_line": 580,
+      "end_line": 582,
       "heading": "Block Types And Implementation Generations",
       "needs_live_verification": false,
       "section_id": "8-pages-and-blocks-deep-dive-block-types-and-implementation-generations",
@@ -7456,33 +7446,33 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 570
+      "start_line": 572
     },
     {
       "confidence": "normal",
-      "end_line": 604,
+      "end_line": 606,
       "heading": "Block Settings",
       "needs_live_verification": true,
       "section_id": "8-pages-and-blocks-deep-dive-block-settings",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 581
+      "start_line": 583
     },
     {
       "confidence": "normal",
-      "end_line": 617,
+      "end_line": 619,
       "heading": "Block Security",
       "needs_live_verification": true,
       "section_id": "8-pages-and-blocks-deep-dive-block-security",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 605
+      "start_line": 607
     },
     {
       "confidence": "normal",
-      "end_line": 627,
+      "end_line": 629,
       "heading": "Dynamic Data Blocks",
       "needs_live_verification": false,
       "section_id": "8-pages-and-blocks-deep-dive-dynamic-data-blocks",
@@ -7490,22 +7480,22 @@
         "776256c424368312",
         "7ca0c3010644f891"
       ],
-      "start_line": 618
+      "start_line": 620
     },
     {
       "confidence": "citation-only",
-      "end_line": 639,
+      "end_line": 641,
       "heading": "Page Builder",
       "needs_live_verification": false,
       "section_id": "8-pages-and-blocks-deep-dive-page-builder",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 628
+      "start_line": 630
     },
     {
       "confidence": "structural",
-      "end_line": 641,
+      "end_line": 643,
       "heading": "9. Themes Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-themes-deep-dive",
@@ -7513,33 +7503,33 @@
         "35633587d4819f55",
         "950d01229b6a2dfc"
       ],
-      "start_line": 640
+      "start_line": 642
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 658,
+      "confidence": "citation-only",
+      "end_line": 662,
       "heading": "What Themes Control",
       "needs_live_verification": true,
       "section_id": "9-themes-deep-dive-what-themes-control",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 642
+      "start_line": 644
     },
     {
       "confidence": "structural",
-      "end_line": 669,
+      "end_line": 673,
       "heading": "Theme Selection",
       "needs_live_verification": true,
       "section_id": "9-themes-deep-dive-theme-selection",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 659
+      "start_line": 663
     },
     {
       "confidence": "citation-only",
-      "end_line": 682,
+      "end_line": 686,
       "heading": "Icon Systems",
       "needs_live_verification": true,
       "section_id": "9-themes-deep-dive-icon-systems",
@@ -7547,33 +7537,33 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 670
+      "start_line": 674
     },
     {
       "confidence": "citation-only",
-      "end_line": 703,
+      "end_line": 707,
       "heading": "Asset Manager And Theme Assets",
       "needs_live_verification": false,
       "section_id": "9-themes-deep-dive-asset-manager-and-theme-assets",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 683
+      "start_line": 687
     },
     {
       "confidence": "community-supported",
-      "end_line": 716,
+      "end_line": 720,
       "heading": "JavaScript In CMS",
       "needs_live_verification": false,
       "section_id": "9-themes-deep-dive-javascript-in-cms",
       "source_keys": [
         "950d01229b6a2dfc"
       ],
-      "start_line": 704
+      "start_line": 708
     },
     {
       "confidence": "structural",
-      "end_line": 718,
+      "end_line": 722,
       "heading": "10. Content Channels Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive",
@@ -7583,47 +7573,36 @@
         "b51b24ed7912d814",
         "776256c424368312"
       ],
-      "start_line": 717
+      "start_line": 721
     },
     {
       "confidence": "structural",
-      "end_line": 736,
+      "end_line": 740,
       "heading": "When To Use Content Channels",
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-when-to-use-content-channels",
       "source_keys": [
         "950d01229b6a2dfc"
       ],
-      "start_line": 719
+      "start_line": 723
     },
     {
       "confidence": "normal",
-      "end_line": 756,
+      "end_line": 760,
       "heading": "Content Channel Design",
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-content-channel-design",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 737
+      "start_line": 741
     },
     {
       "confidence": "normal",
-      "end_line": 760,
+      "end_line": 764,
       "heading": "Content Channel Item Statuses",
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-content-channel-item-statuses",
-      "source_keys": [
-        "d275b5b94a9da833"
-      ],
-      "start_line": 757
-    },
-    {
-      "confidence": "normal",
-      "end_line": 775,
-      "heading": "Dates And Ordering",
-      "needs_live_verification": true,
-      "section_id": "10-content-channels-deep-dive-dates-and-ordering",
       "source_keys": [
         "d275b5b94a9da833"
       ],
@@ -7631,7 +7610,18 @@
     },
     {
       "confidence": "normal",
-      "end_line": 785,
+      "end_line": 779,
+      "heading": "Dates And Ordering",
+      "needs_live_verification": true,
+      "section_id": "10-content-channels-deep-dive-dates-and-ordering",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 765
+    },
+    {
+      "confidence": "normal",
+      "end_line": 789,
       "heading": "Categories And Navigation",
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-categories-and-navigation",
@@ -7640,22 +7630,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 776
+      "start_line": 780
     },
     {
       "confidence": "normal",
-      "end_line": 816,
+      "end_line": 820,
       "heading": "Content Channel Item View",
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-content-channel-item-view",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 786
+      "start_line": 790
     },
     {
       "confidence": "normal",
-      "end_line": 831,
+      "end_line": 835,
       "heading": "Content Channel Item List",
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-content-channel-item-list",
@@ -7664,11 +7654,11 @@
         "b51b24ed7912d814",
         "776256c424368312"
       ],
-      "start_line": 817
+      "start_line": 821
     },
     {
       "confidence": "normal",
-      "end_line": 842,
+      "end_line": 846,
       "heading": "Content Channel Detail",
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-content-channel-detail",
@@ -7676,11 +7666,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 832
+      "start_line": 836
     },
     {
       "confidence": "structural",
-      "end_line": 844,
+      "end_line": 848,
       "heading": "11. Related Rock Areas: Lava, Security, Media, Content, Personalization",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization",
@@ -7690,33 +7680,33 @@
         "35633587d4819f55",
         "d275b5b94a9da833"
       ],
-      "start_line": 843
+      "start_line": 847
     },
     {
       "confidence": "normal",
-      "end_line": 862,
+      "end_line": 866,
       "heading": "Lava",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-lava",
       "source_keys": [
         "30be60a23d3d0317"
       ],
-      "start_line": 845
+      "start_line": 849
     },
     {
       "confidence": "normal",
-      "end_line": 882,
+      "end_line": 886,
       "heading": "Security",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-security",
       "source_keys": [
         "d3956fe7fabc25d7"
       ],
-      "start_line": 863
+      "start_line": 867
     },
     {
       "confidence": "citation-only",
-      "end_line": 897,
+      "end_line": 901,
       "heading": "Media",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-media",
@@ -7725,11 +7715,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 883
+      "start_line": 887
     },
     {
       "confidence": "structural",
-      "end_line": 916,
+      "end_line": 920,
       "heading": "Content",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-content",
@@ -7738,11 +7728,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 898
+      "start_line": 902
     },
     {
       "confidence": "normal",
-      "end_line": 930,
+      "end_line": 934,
       "heading": "Personalization",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-personalization",
@@ -7751,41 +7741,39 @@
         "d275b5b94a9da833",
         "30be60a23d3d0317"
       ],
-      "start_line": 917
+      "start_line": 921
     },
     {
       "confidence": "structural",
-      "end_line": 932,
+      "end_line": 936,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
       "source_keys": [
         "35633587d4819f55",
         "d275b5b94a9da833",
-        "30be60a23d3d0317",
         "776256c424368312",
         "08d28c7142d649ae",
         "7ca0c3010644f891",
         "d3956fe7fabc25d7"
       ],
-      "start_line": 931
+      "start_line": 935
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 948,
+      "confidence": "citation-only",
+      "end_line": 954,
       "heading": "Production Change Protocol",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-production-change-protocol",
       "source_keys": [
         "35633587d4819f55",
-        "d275b5b94a9da833",
-        "30be60a23d3d0317"
+        "35633587d4819f55"
       ],
-      "start_line": 933
+      "start_line": 937
     },
     {
       "confidence": "normal",
-      "end_line": 966,
+      "end_line": 972,
       "heading": "Cache Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-cache-guardrails",
@@ -7793,22 +7781,22 @@
         "35633587d4819f55",
         "d275b5b94a9da833"
       ],
-      "start_line": 949
+      "start_line": 955
     },
     {
       "confidence": "normal",
-      "end_line": 977,
+      "end_line": 983,
       "heading": "Shared Content Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-shared-content-guardrails",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 967
+      "start_line": 973
     },
     {
       "confidence": "community-supported",
-      "end_line": 989,
+      "end_line": 995,
       "heading": "Community Recipe Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-community-recipe-guardrails",
@@ -7816,33 +7804,33 @@
         "08d28c7142d649ae",
         "7ca0c3010644f891"
       ],
-      "start_line": 978
+      "start_line": 984
     },
     {
       "confidence": "normal",
-      "end_line": 1001,
+      "end_line": 1007,
       "heading": "Reporting Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-reporting-guardrails",
       "source_keys": [
         "d3956fe7fabc25d7"
       ],
-      "start_line": 990
+      "start_line": 996
     },
     {
       "confidence": "structural",
-      "end_line": 1013,
+      "end_line": 1019,
       "heading": "Upgrade Guardrails",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-upgrade-guardrails",
       "source_keys": [
         "d3956fe7fabc25d7"
       ],
-      "start_line": 1002
+      "start_line": 1008
     },
     {
       "confidence": "structural",
-      "end_line": 1015,
+      "end_line": 1021,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -7852,33 +7840,33 @@
         "b6101e209d895fc3",
         "30be60a23d3d0317"
       ],
-      "start_line": 1014
+      "start_line": 1020
     },
     {
       "confidence": "normal",
-      "end_line": 1019,
+      "end_line": 1025,
       "heading": "Rock Source Repository",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-rock-source-repository",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1016
+      "start_line": 1022
     },
     {
       "confidence": "normal",
-      "end_line": 1029,
+      "end_line": 1035,
       "heading": "Obsidian Blocks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-obsidian-blocks",
       "source_keys": [
         "688f7051e9eaa0b1"
       ],
-      "start_line": 1020
+      "start_line": 1026
     },
     {
       "confidence": "normal",
-      "end_line": 1040,
+      "end_line": 1046,
       "heading": "Content Channel Source Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-content-channel-source-landmarks",
@@ -7892,44 +7880,44 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1030
+      "start_line": 1036
     },
     {
       "confidence": "normal",
-      "end_line": 1044,
+      "end_line": 1050,
       "heading": "Web Forms CMS Block Landmark",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-web-forms-cms-block-landmark",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1041
+      "start_line": 1047
     },
     {
       "confidence": "normal",
-      "end_line": 1048,
+      "end_line": 1054,
       "heading": "Mobile CMS Landmark",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-cms-landmark",
       "source_keys": [
         "b6101e209d895fc3"
       ],
-      "start_line": 1045
+      "start_line": 1051
     },
     {
       "confidence": "normal",
-      "end_line": 1052,
+      "end_line": 1058,
       "heading": "Lava Command Landmark",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-command-landmark",
       "source_keys": [
         "30be60a23d3d0317"
       ],
-      "start_line": 1049
+      "start_line": 1055
     },
     {
       "confidence": "structural",
-      "end_line": 1054,
+      "end_line": 1060,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -7938,22 +7926,22 @@
         "d275b5b94a9da833",
         "35633587d4819f55"
       ],
-      "start_line": 1053
+      "start_line": 1059
     },
     {
       "confidence": "community-supported",
-      "end_line": 1069,
+      "end_line": 1075,
       "heading": "Page View Analytics",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-page-view-analytics",
       "source_keys": [
         "7ca0c3010644f891"
       ],
-      "start_line": 1055
+      "start_line": 1061
     },
     {
       "confidence": "normal",
-      "end_line": 1084,
+      "end_line": 1090,
       "heading": "Content Item Analytics",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-content-item-analytics",
@@ -7961,33 +7949,33 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1070
+      "start_line": 1076
     },
     {
       "confidence": "citation-only",
-      "end_line": 1095,
+      "end_line": 1101,
       "heading": "Media Analytics",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-media-analytics",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 1085
+      "start_line": 1091
     },
     {
       "confidence": "structural",
-      "end_line": 1123,
+      "end_line": 1129,
       "heading": "Model Map Usage",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map-usage",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 1096
+      "start_line": 1102
     },
     {
       "confidence": "structural",
-      "end_line": 1125,
+      "end_line": 1131,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
@@ -7995,25 +7983,14 @@
         "776256c424368312",
         "35633587d4819f55"
       ],
-      "start_line": 1124
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1131,
-      "heading": "v19.1 CMS Caveat: HTML Content Shared Deletion",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-v19-1-cms-caveat-html-content-shared-deletion",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1126
+      "start_line": 1130
     },
     {
       "confidence": "normal",
       "end_line": 1137,
-      "heading": "v18.2 CMS Caveat: Content Channel Delete Authorization",
+      "heading": "v19.1 CMS Caveat: HTML Content Shared Deletion",
       "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-v18-2-cms-caveat-content-channel-delete-authorization",
+      "section_id": "15-version-and-release-caveats-v19-1-cms-caveat-html-content-shared-deletion",
       "source_keys": [
         "776256c424368312"
       ],
@@ -8022,9 +7999,9 @@
     {
       "confidence": "normal",
       "end_line": 1143,
-      "heading": "v18.2 Entity Document Caveat",
+      "heading": "v18.2 CMS Caveat: Content Channel Delete Authorization",
       "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-v18-2-entity-document-caveat",
+      "section_id": "15-version-and-release-caveats-v18-2-cms-caveat-content-channel-delete-authorization",
       "source_keys": [
         "776256c424368312"
       ],
@@ -8033,9 +8010,9 @@
     {
       "confidence": "normal",
       "end_line": 1149,
-      "heading": "v17.1 Content Channel Breadcrumb Caveat",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-v17-1-content-channel-breadcrumb-caveat",
+      "heading": "v18.2 Entity Document Caveat",
+      "needs_live_verification": true,
+      "section_id": "15-version-and-release-caveats-v18-2-entity-document-caveat",
       "source_keys": [
         "776256c424368312"
       ],
@@ -8044,17 +8021,28 @@
     {
       "confidence": "normal",
       "end_line": 1155,
-      "heading": "v16.1 Dynamic Data Caveat",
+      "heading": "v17.1 Content Channel Breadcrumb Caveat",
       "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-v16-1-dynamic-data-caveat",
+      "section_id": "15-version-and-release-caveats-v17-1-content-channel-breadcrumb-caveat",
       "source_keys": [
         "776256c424368312"
       ],
       "start_line": 1150
     },
     {
+      "confidence": "normal",
+      "end_line": 1161,
+      "heading": "v16.1 Dynamic Data Caveat",
+      "needs_live_verification": false,
+      "section_id": "15-version-and-release-caveats-v16-1-dynamic-data-caveat",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1156
+    },
+    {
       "confidence": "citation-only",
-      "end_line": 1159,
+      "end_line": 1165,
       "heading": "Icon Version Caveats",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-icon-version-caveats",
@@ -8062,37 +8050,14 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1156
+      "start_line": 1162
     },
     {
       "confidence": "structural",
-      "end_line": 1163,
+      "end_line": 1169,
       "heading": "Source Branch Caveat",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-source-branch-caveat",
-      "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
-      ],
-      "start_line": 1160
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1165,
-      "heading": "16. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks",
-      "source_keys": [
-        "35633587d4819f55"
-      ],
-      "start_line": 1164
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1179,
-      "heading": "Playbook: Diagnose A Missing Page",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-diagnose-a-missing-page",
       "source_keys": [
         "35633587d4819f55",
         "35633587d4819f55"
@@ -8101,7 +8066,33 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1194,
+      "end_line": 1171,
+      "heading": "16. Implementation Playbooks",
+      "needs_live_verification": false,
+      "section_id": "16-implementation-playbooks",
+      "source_keys": [
+        "35633587d4819f55",
+        "2875911abf284e79",
+        "87a5ab006404f4af",
+        "30be60a23d3d0317"
+      ],
+      "start_line": 1170
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1185,
+      "heading": "Playbook: Diagnose A Missing Page",
+      "needs_live_verification": true,
+      "section_id": "16-implementation-playbooks-playbook-diagnose-a-missing-page",
+      "source_keys": [
+        "35633587d4819f55",
+        "35633587d4819f55"
+      ],
+      "start_line": 1172
+    },
+    {
+      "confidence": "structural",
+      "end_line": 1200,
       "heading": "Playbook: Diagnose A Block That Does Not Render",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-a-block-that-does-not-render",
@@ -8109,11 +8100,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1180
+      "start_line": 1186
     },
     {
       "confidence": "structural",
-      "end_line": 1208,
+      "end_line": 1214,
       "heading": "Playbook: Safely Modify Advanced HTML",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-safely-modify-advanced-html",
@@ -8121,59 +8112,56 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1195
+      "start_line": 1201
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1225,
+      "confidence": "citation-only",
+      "end_line": 1233,
       "heading": "Playbook: Build A Content Channel",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-content-channel",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "2875911abf284e79",
+        "87a5ab006404f4af"
       ],
-      "start_line": 1209
+      "start_line": 1215
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1242,
+      "confidence": "normal",
+      "end_line": 1252,
       "heading": "Playbook: Audit A Public CMS Page For Security",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-audit-a-public-cms-page-for-security",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "30be60a23d3d0317"
       ],
-      "start_line": 1226
+      "start_line": 1234
     },
     {
       "confidence": "structural",
-      "end_line": 1254,
+      "end_line": 1264,
       "heading": "Playbook: Add Content Item Analytics",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-content-item-analytics",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "30be60a23d3d0317"
       ],
-      "start_line": 1243
+      "start_line": 1253
     },
     {
       "confidence": "structural",
-      "end_line": 1267,
+      "end_line": 1277,
       "heading": "Playbook: Troubleshoot Media Required Watching",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-troubleshoot-media-required-watching",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "30be60a23d3d0317"
       ],
-      "start_line": 1255
+      "start_line": 1265
     },
     {
       "confidence": "structural",
-      "end_line": 1269,
+      "end_line": 1279,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -8183,11 +8171,11 @@
         "7ca0c3010644f891",
         "d275b5b94a9da833"
       ],
-      "start_line": 1268
+      "start_line": 1278
     },
     {
       "confidence": "normal",
-      "end_line": 1278,
+      "end_line": 1288,
       "heading": "The Page Returns Not Found",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-the-page-returns-not-found",
@@ -8195,11 +8183,11 @@
         "35633587d4819f55",
         "776256c424368312"
       ],
-      "start_line": 1270
+      "start_line": 1280
     },
     {
       "confidence": "structural",
-      "end_line": 1291,
+      "end_line": 1301,
       "heading": "The Page Loads But Content Is Missing",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
@@ -8207,11 +8195,11 @@
         "35633587d4819f55",
         "776256c424368312"
       ],
-      "start_line": 1279
+      "start_line": 1289
     },
     {
       "confidence": "structural",
-      "end_line": 1302,
+      "end_line": 1312,
       "heading": "The Wrong Content Shows",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-the-wrong-content-shows",
@@ -8219,33 +8207,33 @@
         "35633587d4819f55",
         "776256c424368312"
       ],
-      "start_line": 1292
+      "start_line": 1302
     },
     {
       "confidence": "normal",
-      "end_line": 1312,
+      "end_line": 1322,
       "heading": "Authors Cannot Edit Content",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-authors-cannot-edit-content",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1303
+      "start_line": 1313
     },
     {
       "confidence": "structural",
-      "end_line": 1322,
+      "end_line": 1332,
       "heading": "Lava Works For Staff But Not Public",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-lava-works-for-staff-but-not-public",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1313
+      "start_line": 1323
     },
     {
       "confidence": "normal",
-      "end_line": 1332,
+      "end_line": 1342,
       "heading": "Analytics Are Empty",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-analytics-are-empty",
@@ -8254,22 +8242,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1323
+      "start_line": 1333
     },
     {
       "confidence": "normal",
-      "end_line": 1342,
+      "end_line": 1352,
       "heading": "Files Or Documents Are Accessible To The Wrong Users",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-files-or-documents-are-accessible-to-the-wrong-users",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1333
+      "start_line": 1343
     },
     {
       "confidence": "citation-only",
-      "end_line": 1351,
+      "end_line": 1361,
       "heading": "Styling Or Icons Are Broken",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
@@ -8277,25 +8265,26 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1343
+      "start_line": 1353
     },
     {
       "confidence": "structural",
-      "end_line": 1353,
+      "end_line": 1363,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
       "source_keys": [
         "35633587d4819f55",
         "30be60a23d3d0317",
+        "b51b24ed7912d814",
         "08d28c7142d649ae",
         "7ca0c3010644f891"
       ],
-      "start_line": 1352
+      "start_line": 1362
     },
     {
       "confidence": "structural",
-      "end_line": 1364,
+      "end_line": 1374,
       "heading": "Recipe: “Find The Block That Controls This Text”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-the-block-that-controls-this-text",
@@ -8303,11 +8292,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1354
+      "start_line": 1364
     },
     {
       "confidence": "structural",
-      "end_line": 1380,
+      "end_line": 1390,
       "heading": "Recipe: “Why Is This Content Item Not Public?”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-why-is-this-content-item-not-public",
@@ -8315,66 +8304,66 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1365
+      "start_line": 1375
     },
     {
       "confidence": "normal",
-      "end_line": 1399,
+      "end_line": 1409,
       "heading": "Recipe: “Can I Enable SQL In This HTML Block?”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-can-i-enable-sql-in-this-html-block",
       "source_keys": [
         "30be60a23d3d0317"
       ],
-      "start_line": 1381
+      "start_line": 1391
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1416,
+      "confidence": "citation-only",
+      "end_line": 1428,
       "heading": "Recipe: “Add A Detail Page For Channel Items”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items",
       "source_keys": [
-        "30be60a23d3d0317"
+        "b51b24ed7912d814"
       ],
-      "start_line": 1400
+      "start_line": 1410
     },
     {
       "confidence": "community-supported",
-      "end_line": 1428,
+      "end_line": 1440,
       "heading": "Recipe: “Review A Community Recipe Before Installing”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-review-a-community-recipe-before-installing",
       "source_keys": [
         "08d28c7142d649ae"
       ],
-      "start_line": 1417
+      "start_line": 1429
     },
     {
       "confidence": "community-supported",
-      "end_line": 1442,
+      "end_line": 1454,
       "heading": "Recipe: “Build A Page View Report”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-page-view-report",
       "source_keys": [
         "7ca0c3010644f891"
       ],
-      "start_line": 1429
+      "start_line": 1441
     },
     {
       "confidence": "citation-only",
-      "end_line": 1457,
+      "end_line": 1469,
       "heading": "Recipe: “Troubleshoot Required Watching”",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-troubleshoot-required-watching",
       "source_keys": [
         "35633587d4819f55"
       ],
-      "start_line": 1443
+      "start_line": 1455
     },
     {
       "confidence": "normal",
-      "end_line": 1483,
+      "end_line": 1495,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -8392,11 +8381,11 @@
         "35633587d4819f55",
         "35633587d4819f55"
       ],
-      "start_line": 1458
+      "start_line": 1470
     },
     {
       "confidence": "citation-only",
-      "end_line": 1504,
+      "end_line": 1516,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -8410,11 +8399,11 @@
         "2875911abf284e79",
         "b51b24ed7912d814"
       ],
-      "start_line": 1484
+      "start_line": 1496
     },
     {
       "confidence": "structural",
-      "end_line": 1506,
+      "end_line": 1518,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -8429,11 +8418,11 @@
         "950d01229b6a2dfc",
         "ed3acb4204b5cddd"
       ],
-      "start_line": 1505
+      "start_line": 1517
     },
     {
       "confidence": "normal",
-      "end_line": 1516,
+      "end_line": 1528,
       "heading": "Primary Official / Core Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-core-sources",
@@ -8448,11 +8437,11 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 1507
+      "start_line": 1519
     },
     {
       "confidence": "normal",
-      "end_line": 1526,
+      "end_line": 1538,
       "heading": "Source-Code Landmarks Used",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks-used",
@@ -8471,11 +8460,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1517
+      "start_line": 1529
     },
     {
       "confidence": "community-supported",
-      "end_line": 1533,
+      "end_line": 1545,
       "heading": "Secondary And Community Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-secondary-and-community-sources",
@@ -8485,21 +8474,18 @@
         "950d01229b6a2dfc",
         "ed3acb4204b5cddd"
       ],
-      "start_line": 1527
+      "start_line": 1539
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1569,
+      "confidence": "citation-only",
+      "end_line": 1583,
       "heading": "Dependencies To Other Guides",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependencies-to-other-guides",
       "source_keys": [
-        "08d28c7142d649ae",
-        "7ca0c3010644f891",
-        "950d01229b6a2dfc",
-        "ed3acb4204b5cddd"
+        "35633587d4819f55"
       ],
-      "start_line": 1534
+      "start_line": 1546
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T16:04:51+00:00",
@@ -8784,6 +8770,26 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "2875911abf284e79",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels",
+      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "87a5ab006404f4af",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/content-channels/adding-content",
+      "url": "https://community.rockrms.com/rocku/content-channels/adding-content"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "kind": "citation_only",
@@ -8812,26 +8818,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "87a5ab006404f4af",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/content-channels/adding-content",
-      "url": "https://community.rockrms.com/rocku/content-channels/adding-content"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "2875911abf284e79",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
     },
     {
       "authority": "official-triumph",

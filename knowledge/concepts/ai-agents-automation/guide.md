@@ -365,6 +365,8 @@ A bad lookup result contains:
 
 ### List Tools
 
+Rock's [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools) guidance provides the product taxonomy; use list tools for bounded candidate selection rather than unrestricted export.
+
 List tools return candidate records matching filters. Use list tools when the set is too large for a lookup or when the user supplies search criteria. A person list tool, for example, should not return every person. It should accept search terms, campus, status, or other constrained filters and return a limited candidate set.
 
 A list tool should answer: “Which records might the user mean?” It should not answer: “Here is every detail about each record.” Follow with a get or summary tool for details.
@@ -392,6 +394,8 @@ Rock's Lava insight guidance frames the pattern as filtering/aggregating, format
 
 ### AvailableAttributes Tools
 
+The official [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) guidance establishes the tool contract, but attribute keys and writable scope must still be loaded from the target instance.
+
 Use available-attributes tools before allowing an agent to update entity attributes or build attribute filters. Attribute keys are often site-specific, and the model cannot know them reliably. A tool should return the exact attribute keys, names, field types, allowed values, and whether each is writable for the current user.
 
 Verify live:
@@ -405,6 +409,8 @@ Verify live:
 - Whether security applies at the entity, attribute, category, or edit block level.
 
 ### AddOrUpdate Tools
+
+[Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) documents native tool support patterns; write tools should add authorization, validation, preview, and post-write verification around those primitives.
 
 Add/update tools are write tools. They should be narrow and high-friction by design.
 
@@ -483,6 +489,8 @@ Safe pattern:
 
 ### Sensitive Data Classes
 
+Apply the authorization and output-shaping boundaries from [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) before exposing any of these classes to a model.
+
 Treat these as sensitive by default:
 
 - Person identity and contact information.
@@ -550,6 +558,8 @@ Agents and automations should cooperate through Rock-native state where possible
 - Use **AI tools** for selection, summarization, drafting, and bounded actions.
 
 ### Trigger Design
+
+Use Rock's official [Automations](https://community.rockrms.com/rocku/core-concepts/automations) surface for trigger/action ownership and keep broad event filtering outside the model whenever deterministic criteria are available.
 
 A trigger should be specific enough that downstream logic is simple. Avoid triggers that fire on every broad event and rely on the agent to decide whether anything matters. The agent should not be the primary filter for noisy or sensitive automation.
 
@@ -730,6 +740,8 @@ Lava is a first-class way to build tools. Rock's Lava tool docs describe tools w
 
 ## 13. Administration And Operational Guardrails
 
+The official [AI Agents](https://community.rockrms.com/developer/ai-agents) and [Creating Skills](https://community.rockrms.com/developer/ai-agents/skills/creating-skills) guidance should be the baseline for ownership, security, and tool attachment.
+
 Recommended guardrails:
 
 - Maintain separate agents for public, volunteer, staff, finance, system admin, and experimental work.
@@ -906,6 +918,8 @@ Before implementing, verify:
 ## 17. Implementation Playbooks
 
 ### Playbook: Build A Read-Only Staff Agent
+
+Start from the official [Agents](https://community.rockrms.com/developer/ai-agents/agents) and [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions) guidance, then constrain every live tool to the intended staff role.
 
 1. Define audience: staff only.
 2. Identify top read tasks: person lookup, group summary, connection request status, registration summary, workflow queue summary.

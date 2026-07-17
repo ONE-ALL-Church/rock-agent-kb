@@ -18,8 +18,8 @@
         "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
         "https://community.rockrms.com/recipes/535",
-        "https://www.triumph.tech/resources/github-spotlight-1242025",
-        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -43,10 +43,10 @@
         "https://community.rockrms.com/documentation/bookcontent/6",
         "https://community.rockrms.com/recipes/261",
         "https://community.rockrms.com/recipes/432",
-        "https://www.triumph.tech/resources/github-spotlight-1242025",
-        "https://community.rockrms.com/recipes/535",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/recipes/535",
+        "https://www.triumph.tech/resources/github-spotlight-1242025",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list"
       ],
       "start_with": [
@@ -72,10 +72,10 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/recipes/535",
         "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://www.triumph.tech/resources/github-spotlight-1242025"
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/rocku/content-channels/adding-content"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -100,10 +100,10 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/recipes/535",
         "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://www.triumph.tech/resources/github-spotlight-1242025"
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -128,10 +128,10 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/recipes/535",
         "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://www.triumph.tech/resources/github-spotlight-1242025"
+        "https://community.rockrms.com/recipes/535",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -158,8 +158,8 @@
         "https://community.rockrms.com/documentation/bookcontent/6",
         "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://community.rockrms.com/recipes/535",
-        "https://www.triumph.tech/resources/github-spotlight-1242025"
+        "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels",
+        "https://community.rockrms.com/rocku/content-channels/adding-content"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -178,6 +178,7 @@
       "source_urls": [
         "https://community.rockrms.com/rocku/cms",
         "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
         "https://community.rockrms.com/rocku/cms/rock-media-required-watching",
         "https://community.rockrms.com/recipes/432",
         "https://community.rockrms.com/recipes/261"
@@ -192,7 +193,7 @@
   ],
   "concept_id": "cms-websites",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T00:40:01+00:00",
+  "generated_at": "2026-07-17T05:35:43+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-the-page-returns-not-found",

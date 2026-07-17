@@ -10,13 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `8-agent-tools-and-lookup-surfaces-deep-dive-list-tools`: List Tools (85 words)
-- `8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools`: AvailableAttributes Tools (84 words)
-- `8-agent-tools-and-lookup-surfaces-deep-dive-addorupdate-tools`: AddOrUpdate Tools (90 words)
-- `9-permissions-and-data-boundaries-deep-dive-sensitive-data-classes`: Sensitive Data Classes (98 words)
-- `10-automation-design-and-workflows-deep-dive-trigger-design`: Trigger Design (109 words)
-- `13-administration-and-operational-guardrails`: 13. Administration And Operational Guardrails (233 words)
-- `17-implementation-playbooks-playbook-build-a-read-only-staff-agent`: Playbook: Build A Read-Only Staff Agent (90 words)
 
 ## Community-Supported Only
 

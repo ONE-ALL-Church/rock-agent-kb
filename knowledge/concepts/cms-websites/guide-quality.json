@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13478 words; expected at least 7000.",
+      "message": "Guide has 13682 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,9 +60,9 @@
   "concept_id": "cms-websites",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-17T00:40:01+00:00",
-  "guide_line_count": 1569,
-  "guide_word_count": 13478,
+  "generated_at": "2026-07-17T05:35:43+00:00",
+  "guide_line_count": 1583,
+  "guide_word_count": 13682,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 121,

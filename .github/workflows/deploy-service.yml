@@ -23,6 +23,10 @@ on:
       - "src/rock_kb/service_projection.py"
       - "src/rock_kb/service_eval.py"
 
+concurrency:
+  group: rock-kb-production-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy-service:
     runs-on: ubuntu-latest
@@ -107,3 +111,8 @@ jobs:
           curl --fail "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
           curl --fail "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json
           uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5
+      - name: Enforce bounded artifact retention
+        if: ${{ env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
+        run: >
+          uv run kb service-retention --apply --base-url "${ROCK_KB_BASE_URL}"
+          --bucket "${ROCK_KB_R2_BUCKET:-rock-agent-kb-artifacts}"

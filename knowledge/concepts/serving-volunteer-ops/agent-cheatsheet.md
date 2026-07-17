@@ -57,13 +57,13 @@ generated: true
 | `3-serving-and-volunteer-operations-mental-model-layer-2-where-and-when` | normal | live verification |
 | `3-serving-and-volunteer-operations-mental-model-layer-3-assignment-and-response` | normal | live verification |
 | `3-serving-and-volunteer-operations-mental-model-layer-4-actual-attendance` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | needs-citation | live verification |
+| `4-source-authority-and-how-to-use-this-guide` | normal | live verification |
 | `4-source-authority-and-how-to-use-this-guide-how-agents-should-use-this-guide` | structural | live verification |
-| `4-source-authority-and-how-to-use-this-guide-when-to-prefer-live-verification` | needs-citation | live verification |
+| `4-source-authority-and-how-to-use-this-guide-when-to-prefer-live-verification` | citation-only | live verification |
 | `5-core-configuration-and-data-model-group-types` | normal | live verification |
 | `5-core-configuration-and-data-model-group-type-inheritance` | high | live verification |
 | `5-core-configuration-and-data-model-groups` | community-supported | live verification |
-| `5-core-configuration-and-data-model-group-roles` | needs-citation | live verification |
+| `5-core-configuration-and-data-model-group-roles` | citation-only | live verification |
 | `5-core-configuration-and-data-model-group-members` | community-supported | live verification |
 | `5-core-configuration-and-data-model-locations` | high | live verification |
 | `5-core-configuration-and-data-model-schedules` | community-supported | live verification |
@@ -71,11 +71,10 @@ generated: true
 | `5-core-configuration-and-data-model-attendance` | normal | live verification |
 | `5-core-configuration-and-data-model-communications` | normal | live verification |
 | `5-core-configuration-and-data-model-workflows` | community-supported | live verification |
-| `6-primary-entities-and-relationships-grouptype-group` | needs-citation | live verification |
+| `6-primary-entities-and-relationships-grouptype-group` | citation-only | live verification |
 | `6-primary-entities-and-relationships-group-groupmember-personalias-person` | normal | live verification |
 | `6-primary-entities-and-relationships-grouprequirement-and-eligibility-data` | citation-only | live verification |
 | `7-common-serving-and-volunteer-operations-workflows-new-volunteer-interest-intake` | community-supported | community-supported |
-| `7-common-serving-and-volunteer-operations-workflows-build-or-audit-a-serving-team` | needs-citation | needs-citation |
 | `7-common-serving-and-volunteer-operations-workflows-volunteer-schedule-preference-collection` | community-supported | live verification |
 | `7-common-serving-and-volunteer-operations-workflows-auto-scheduling` | community-supported | community-supported |
 | `7-common-serving-and-volunteer-operations-workflows-send-schedule-confirmations` | normal | live verification |
@@ -83,7 +82,6 @@ generated: true
 | `7-common-serving-and-volunteer-operations-workflows-view-serving-schedule-externally` | community-supported | live verification |
 | `7-common-serving-and-volunteer-operations-workflows-manage-family-members-serving-requests` | community-supported | live verification |
 | `7-common-serving-and-volunteer-operations-workflows-record-serving-attendance` | community-supported | community-supported |
-| `8-serving-teams-and-roles-deep-dive-designing-serving-group-types` | needs-citation | needs-citation |
 | `8-serving-teams-and-roles-deep-dive-real-team-vs-sign-up-opportunity-vs-interest-pipeline` | community-supported | community-supported |
 | `8-serving-teams-and-roles-deep-dive-role-based-scheduling` | structural | live verification |
 | `8-serving-teams-and-roles-deep-dive-team-coordinator-fields` | community-supported | community-supported |
@@ -113,7 +111,7 @@ generated: true
 | `16-version-and-release-caveats-rock-v18-3-check-in-scheduled-times-fix` | normal | live verification |
 | `16-version-and-release-caveats-rock-v14-check-in-manager-roster-updates` | normal | live verification |
 | `16-version-and-release-caveats-mobile-schedule-toolbox-version` | normal | live verification |
-| `17-implementation-playbooks-playbook-launch-a-new-serving-ministry-team` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-launch-a-new-serving-ministry-team` | citation-only | live verification |
 | `17-implementation-playbooks-playbook-add-fifth-sunday-auto-schedule-coverage` | community-supported | live verification |
 | `17-implementation-playbooks-playbook-build-external-serving-schedule-view` | community-supported | live verification |
 | `17-implementation-playbooks-playbook-configure-dynamic-sender-for-scheduling-confirmations` | community-supported | live verification |
@@ -131,5 +129,4 @@ generated: true
 | `19-agent-task-recipes-recipe-investigate-family-serving-response-request` | community-supported | live verification |
 | `approved-claim-coverage` | citation-only | live verification |
 | `20-source-map-and-dependency-notes-community-example-sources` | community-supported | community-supported |
-| `20-source-map-and-dependency-notes-dependency-notes` | needs-citation | needs-citation |
-| `20-source-map-and-dependency-notes-live-verification-required` | needs-citation | live verification |
+| `20-source-map-and-dependency-notes-live-verification-required` | citation-only | live verification |

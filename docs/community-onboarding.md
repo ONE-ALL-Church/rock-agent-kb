@@ -89,6 +89,7 @@ uvx rock-kb model group
 uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
+uvx rock-kb test-round
 uvx rock-kb dashboard
 ```
 
@@ -110,6 +111,22 @@ If your organization runs a staging copy, set:
 ```bash
 export ROCK_KB_URL=https://your-rock-kb-service.example.org
 ```
+
+### Run The Standard Church Test Round
+
+Run `uvx rock-kb test-round` after installation and after meaningful KB
+releases. It performs nine bounded public checks and prints a JSON report with
+automatic pass/fail evidence plus one manual usefulness question per case.
+Three cases cover imported Rock issues: a reviewed core-issue enrichment, an
+official mobile fixed-release link, and conservative version applicability.
+
+Imported issues are routing evidence, not automatically trusted knowledge.
+The upstream report remains `community-unreviewed`; only separately reviewed
+enrichments can carry stronger claim and authority tiers. Closed does not mean
+fixed, and a reporter version does not prove that every instance is affected.
+Use the test's stable result IDs with `rock-kb feedback`; use
+`rock-kb report-issue` only when the KB itself malfunctions. Never add church
+names, private records, logs, internal URLs, or secrets to either path.
 
 ## Understand Trust Tiers
 

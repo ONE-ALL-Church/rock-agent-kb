@@ -58,13 +58,9 @@ generated: true
 | `7-common-ai-agents-and-automation-workflows-event-registration-support` | normal | live verification |
 | `7-common-ai-agents-and-automation-workflows-chat-message-automation` | normal | live verification |
 | `7-common-ai-agents-and-automation-workflows-mobile-voice-agent` | normal | live verification |
-| `8-agent-tools-and-lookup-surfaces-deep-dive-list-tools` | needs-citation | needs-citation |
-| `8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools` | needs-citation | live verification |
-| `8-agent-tools-and-lookup-surfaces-deep-dive-addorupdate-tools` | needs-citation | needs-citation |
+| `8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools` | normal | live verification |
 | `9-permissions-and-data-boundaries-deep-dive` | normal | live verification |
-| `9-permissions-and-data-boundaries-deep-dive-sensitive-data-classes` | needs-citation | needs-citation |
 | `9-permissions-and-data-boundaries-deep-dive-generated-v2-endpoint-boundary` | normal | live verification |
-| `10-automation-design-and-workflows-deep-dive-trigger-design` | needs-citation | needs-citation |
 | `10-automation-design-and-workflows-deep-dive-agent-as-reviewer-automation` | structural | live verification |
 | `11-verification-and-review-gates-deep-dive-read-only-low-risk-gate` | structural | live verification |
 | `11-verification-and-review-gates-deep-dive-sensitive-read-gate` | structural | live verification |
@@ -75,12 +71,12 @@ generated: true
 | `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-platform-configuration` | structural | live verification |
 | `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-data-views` | normal | live verification |
 | `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-operations` | normal | live verification |
-| `13-administration-and-operational-guardrails` | needs-citation | live verification |
+| `13-administration-and-operational-guardrails` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-native-tool-development` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-lava-tool-development` | normal | live verification |
 | `15-reporting-analytics-and-model-map` | citation-only | live verification |
 | `16-version-and-release-caveats` | high | live verification |
-| `17-implementation-playbooks-playbook-build-a-read-only-staff-agent` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-build-a-read-only-staff-agent` | normal | live verification |
 | `17-implementation-playbooks-playbook-build-a-custom-lookup-tool` | normal | live verification |
 | `17-implementation-playbooks-playbook-build-a-lava-insight-tool` | normal | live verification |
 | `17-implementation-playbooks-playbook-build-a-native-addorupdate-tool` | normal | live verification |

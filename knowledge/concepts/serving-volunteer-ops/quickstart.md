@@ -32,7 +32,7 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 - `3-serving-and-volunteer-operations-mental-model-layer-2-where-and-when` lines 137-146: Layer 2: Where And When (normal)
 - `3-serving-and-volunteer-operations-mental-model-layer-3-assignment-and-response` lines 147-154: Layer 3: Assignment And Response (normal)
 - `3-serving-and-volunteer-operations-mental-model-layer-4-actual-attendance` lines 155-162: Layer 4: Actual Attendance (normal)
-- `5-core-configuration-and-data-model-group-types` lines 239-271: Group Types (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 184-199: 4. Source Authority And How To Use This Guide (normal)
 
 ## Core Entities
 

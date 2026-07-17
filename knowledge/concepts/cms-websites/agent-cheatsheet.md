@@ -58,7 +58,7 @@ generated: true
 | `5-core-configuration-and-data-model-content-channels` | normal | live verification |
 | `5-core-configuration-and-data-model-content-channel-items` | normal | live verification |
 | `5-core-configuration-and-data-model-media-and-linked-media-elements` | normal | live verification |
-| `6-primary-entities-and-relationships-site-to-page` | needs-citation | needs-citation |
+| `6-primary-entities-and-relationships-site-to-page` | citation-only | live verification |
 | `6-primary-entities-and-relationships-page-to-layout-to-zone-to-block` | structural | live verification |
 | `6-primary-entities-and-relationships-page-to-block-settings` | normal | live verification |
 | `6-primary-entities-and-relationships-block-to-lava-commands` | normal | live verification |
@@ -77,7 +77,7 @@ generated: true
 | `8-pages-and-blocks-deep-dive-page-parameters` | normal | live verification |
 | `8-pages-and-blocks-deep-dive-block-settings` | normal | live verification |
 | `8-pages-and-blocks-deep-dive-block-security` | normal | live verification |
-| `9-themes-deep-dive-what-themes-control` | needs-citation | live verification |
+| `9-themes-deep-dive-what-themes-control` | citation-only | live verification |
 | `9-themes-deep-dive-theme-selection` | structural | live verification |
 | `9-themes-deep-dive-icon-systems` | citation-only | live verification |
 | `9-themes-deep-dive-javascript-in-cms` | community-supported | community-supported |
@@ -87,7 +87,7 @@ generated: true
 | `10-content-channels-deep-dive-content-channel-item-list` | normal | live verification |
 | `11-related-rock-areas-lava-security-media-content-personalization-security` | normal | live verification |
 | `11-related-rock-areas-lava-security-media-content-personalization-personalization` | normal | live verification |
-| `12-administration-and-operational-guardrails-production-change-protocol` | needs-citation | live verification |
+| `12-administration-and-operational-guardrails-production-change-protocol` | citation-only | live verification |
 | `12-administration-and-operational-guardrails-cache-guardrails` | normal | live verification |
 | `12-administration-and-operational-guardrails-shared-content-guardrails` | normal | live verification |
 | `12-administration-and-operational-guardrails-community-recipe-guardrails` | community-supported | live verification |
@@ -104,8 +104,8 @@ generated: true
 | `16-implementation-playbooks-playbook-diagnose-a-missing-page` | structural | live verification |
 | `16-implementation-playbooks-playbook-diagnose-a-block-that-does-not-render` | structural | live verification |
 | `16-implementation-playbooks-playbook-safely-modify-advanced-html` | structural | live verification |
-| `16-implementation-playbooks-playbook-build-a-content-channel` | needs-citation | live verification |
-| `16-implementation-playbooks-playbook-audit-a-public-cms-page-for-security` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-build-a-content-channel` | citation-only | live verification |
+| `16-implementation-playbooks-playbook-audit-a-public-cms-page-for-security` | normal | live verification |
 | `16-implementation-playbooks-playbook-add-content-item-analytics` | structural | live verification |
 | `16-implementation-playbooks-playbook-troubleshoot-media-required-watching` | structural | live verification |
 | `17-troubleshooting-decision-tree-the-page-returns-not-found` | normal | live verification |
@@ -113,10 +113,9 @@ generated: true
 | `18-agent-task-recipes-recipe-find-the-block-that-controls-this-text` | structural | live verification |
 | `18-agent-task-recipes-recipe-why-is-this-content-item-not-public` | structural | live verification |
 | `18-agent-task-recipes-recipe-can-i-enable-sql-in-this-html-block` | normal | live verification |
-| `18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items` | needs-citation | live verification |
+| `18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items` | citation-only | live verification |
 | `18-agent-task-recipes-recipe-review-a-community-recipe-before-installing` | community-supported | live verification |
 | `18-agent-task-recipes-recipe-build-a-page-view-report` | community-supported | live verification |
 | `18-agent-task-recipes-recipe-troubleshoot-required-watching` | citation-only | live verification |
 | `approved-claim-coverage` | normal | live verification |
 | `19-source-map-and-dependency-notes-secondary-and-community-sources` | community-supported | community-supported |
-| `19-source-map-and-dependency-notes-dependencies-to-other-guides` | needs-citation | needs-citation |

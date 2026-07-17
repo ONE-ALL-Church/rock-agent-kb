@@ -69,6 +69,7 @@ uvx rock-kb issue 6919
 uvx rock-kb issues assess instance-profile.json
 uvx rock-kb issues watch instance-profile.json
 uvx rock-kb issues plan 6919
+uvx rock-kb test-round
 uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
 uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
 uvx rock-kb dashboard
@@ -112,6 +113,14 @@ revalidation changes. The snapshot defaults under the user state directory;
 override it with `--state`, preview with `--no-write`, or replace the baseline
 with `--reset`. Only the bounded profile is sent to the hosted service. The
 snapshot is never uploaded and does not retain the profile itself.
+
+`test-round` runs the same bounded public test pack used with the external
+church cohort. It checks service health, exact Model Map lookup, Lava context
+retrieval, a reviewed recipe, semantic troubleshooting, core and mobile issue
+trust boundaries, version-aware issue assessment, and a deliberate no-answer
+case. The JSON report contains stable public result IDs plus a manual review
+question for each case. It sends only the built-in public test queries and
+profile; it never collects church identifiers or private instance data.
 
 ## Offline And Portable Access
 

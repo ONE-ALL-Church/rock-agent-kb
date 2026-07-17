@@ -10,14 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-documents-and-signatures-workflows-add-a-document-to-a-person`: Add A Document To A Person (133 words)
-- `10-generated-pdfs-deep-dive-pdf-troubleshooting`: PDF Troubleshooting (154 words)
-- `12-administration-and-operational-guardrails-before-creating-a-new-signature-template`: Before Creating A New Signature Template (105 words)
-- `13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates`: Lava In Signature Templates (97 words)
-- `16-implementation-playbooks-playbook-build-a-new-event-waiver`: Playbook: Build A New Event Waiver (163 words)
-- `16-implementation-playbooks-playbook-build-a-merge-letter-template`: Playbook: Build A Merge Letter Template (85 words)
-- `16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures`: Playbook: Move From Legacy Signature Provider To Rock-Native Signatures (88 words)
-- `17-troubleshooting-decision-tree-merge-documents`: Merge Documents (91 words)
 
 ## Community-Supported Only
 

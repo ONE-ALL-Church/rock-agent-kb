@@ -42,7 +42,7 @@ Follow the guide section for Recipe: “Can I Enable SQL In This HTML Block?”.
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
 - https://community.rockrms.com/recipes/432
 - https://community.rockrms.com/documentation/bookcontent/6
-- https://community.rockrms.com/recipes/535
 - https://community.rockrms.com/rocku/content-channels/content-channel-view
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
-- https://www.triumph.tech/resources/github-spotlight-1242025
+- https://community.rockrms.com/recipes/535
+- https://community.rockrms.com/rocku/content-channels/adding-content

@@ -12,6 +12,7 @@ from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
 from .issue_watch import run_issue_watch
 from .okf import conform_okf, download_okf, inspect_okf, verify_okf
+from .cohort_test import run_cohort_test
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
 
@@ -110,6 +111,7 @@ def main(argv: list[str] | None = None) -> int:
 
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
+    subparsers.add_parser("test-round", help="Run the public structured church testing cohort cases.")
 
     feedback = subparsers.add_parser("feedback")
     feedback.add_argument("result_id")
@@ -248,6 +250,10 @@ def main(argv: list[str] | None = None) -> int:
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":
         return print_json(get_json(f"{base_url}/operations/dashboard"))
+    if args.command == "test-round":
+        report = run_cohort_test(base_url=base_url, get_json=get_json, post_json=post_json)
+        print_json(report)
+        return 0 if report["status"] == "ok" else 1
     if args.command == "feedback":
         return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
     if args.command == "report-issue":

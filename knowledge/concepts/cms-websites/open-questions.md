@@ -10,13 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `6-primary-entities-and-relationships-site-to-page`: Site To Page (87 words)
-- `9-themes-deep-dive-what-themes-control`: What Themes Control (88 words)
-- `12-administration-and-operational-guardrails-production-change-protocol`: Production Change Protocol (84 words)
-- `16-implementation-playbooks-playbook-build-a-content-channel`: Playbook: Build A Content Channel (89 words)
-- `16-implementation-playbooks-playbook-audit-a-public-cms-page-for-security`: Playbook: Audit A Public CMS Page For Security (83 words)
-- `18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items`: Recipe: “Add A Detail Page For Channel Items” (81 words)
-- `19-source-map-and-dependency-notes-dependencies-to-other-guides`: Dependencies To Other Guides (131 words)
 
 ## Community-Supported Only
 
@@ -47,6 +40,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `5-core-configuration-and-data-model-content-channels`: Content Channels
 - `5-core-configuration-and-data-model-content-channel-items`: Content Channel Items
 - `5-core-configuration-and-data-model-media-and-linked-media-elements`: Media And Linked Media Elements
+- `6-primary-entities-and-relationships-site-to-page`: Site To Page
 - `6-primary-entities-and-relationships-page-to-layout-to-zone-to-block`: Page To Layout To Zone To Block
 - `6-primary-entities-and-relationships-page-to-block-settings`: Page To Block Settings
 - `6-primary-entities-and-relationships-block-to-lava-commands`: Block To Lava Commands
@@ -73,7 +67,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `11-related-rock-areas-lava-security-media-content-personalization-security`: Security
 - `11-related-rock-areas-lava-security-media-content-personalization-personalization`: Personalization
 - `12-administration-and-operational-guardrails-production-change-protocol`: Production Change Protocol
-- `12-administration-and-operational-guardrails-cache-guardrails`: Cache Guardrails
 
 ## Live Verification Clarification
 

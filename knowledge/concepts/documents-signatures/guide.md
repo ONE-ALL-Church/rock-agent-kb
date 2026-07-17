@@ -314,6 +314,8 @@ The distinction between applies-to, assigned-to, and signed-by is central. In ch
 
 ### Add A Document To A Person
 
+Use the official [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) guidance and verify the configured Document Type and File Type before uploading.
+
 Use this when staff need to store a static document such as a form, certificate, permission letter, or scanned artifact on a person record.
 
 Process:
@@ -618,6 +620,8 @@ Operational checks before a high-volume event:
 
 ### PDF Troubleshooting
 
+Rock documents the supported generation path in [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume); diagnose that path before attempting record-level repair.
+
 If signed documents exist but PDFs are missing:
 
 1. Confirm `SignatureDocument.Status = Signed`.
@@ -757,6 +761,8 @@ Do not create a new Document Type for every minor variation if one governed type
 
 ### Before Creating A New Signature Template
 
+Start with [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) and verify registration or workflow integration separately for the intended launch surface.
+
 Use this checklist:
 
 - Has legal/content owner approved the body text?
@@ -848,6 +854,8 @@ Rock’s merge document docs state that most Lava skills work with Merge Templat
 - Use the merge screen’s field list rather than guessing field names.
 
 ### Lava In Signature Templates
+
+The official [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) flow defines the template surface; verify the actual merge objects with preview data rather than borrowing fields from another Lava context.
 
 Signature templates use a Lava template to build the document body. Source snippets identify `LavaTemplate` as the field used to build the signature document. Because the signed document text is stored at signing time, changes to the template after signing should not be assumed to modify existing signed document text.
 
@@ -953,6 +961,8 @@ Agent implication: Do not build new workflows around legacy provider templates. 
 
 ### Playbook: Build A New Event Waiver
 
+Use [Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) as the supported integration baseline, then test the exact participant and signer relationship.
+
 1. Confirm legal text with the ministry/legal owner.
 2. Create a Signature Document Template under `Admin Tools > Settings > Signature Documents`.
 3. Name it clearly, such as `Students - Camp Waiver - 2026`.
@@ -989,6 +999,8 @@ Agent implication: Do not build new workflows around legacy provider templates. 
 
 ### Playbook: Build A Merge Letter Template
 
+Follow [Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document) and [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents) for the source-grid and field contract.
+
 1. Identify the grid users will start from.
 2. Generate a sample merge and inspect available fields.
 3. Decide HTML or Word format.
@@ -1003,6 +1015,8 @@ Agent implication: Do not build new workflows around legacy provider templates. 
 12. Document expected source grid for staff.
 
 ### Playbook: Move From Legacy Signature Provider To Rock-Native Signatures
+
+Base the replacement design on [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) and retain historical records until legal, reporting, and retention owners approve the migration.
 
 1. Inventory templates with `ProviderEntityTypeId` or provider template keys.
 2. Identify workflows and registration templates using those templates.
@@ -1072,6 +1086,8 @@ Problem: Wrong users can view the document.
 - Check public page routes and direct file URLs.
 
 ### Merge Documents
+
+Use [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents) to verify the starting grid, row set, and exposed fields before changing the template.
 
 Problem: Merge fields are blank.
 

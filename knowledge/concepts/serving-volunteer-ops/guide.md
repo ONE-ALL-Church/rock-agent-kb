@@ -183,6 +183,8 @@ RockU includes scheduling analytics, roster and communications, RSVP, attendance
 
 ## 4. Source Authority And How To Use This Guide
 
+Anchor normal scheduling behavior in the official [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), then use [Rock Core Release Notes](https://www.rockrms.com/releasenotes) and version-matched source for changed behavior.
+
 Use source authority in this order:
 
 1. Live Rock instance configuration and data.
@@ -217,6 +219,8 @@ Use this guide to plan inspections and changes. Do not assume every field, block
 - Release-note caveats around the affected feature.
 
 ### When To Prefer Live Verification
+
+The official [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview) establishes the product surface, but it cannot establish one church's assignments, inherited settings, permissions, or sent communications.
 
 Live verification is required when the question depends on:
 
@@ -317,6 +321,8 @@ The group is the serving team itself. Inspect:
 A community dynamic-sender recipe uses `Attendance.Occurrence.Group.ScheduleCoordinatorPersonAliasId`, which is a practical source signal that groups may carry a schedule coordinator person alias used in scheduling communications ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)). Do not assume it is populated. Inspect the group record and fallback behavior.
 
 ### Group Roles
+
+Use [Group Details](https://community.rockrms.com/rocku/groups/group-details) for the configured team record and [Group Security](https://community.rockrms.com/rocku/groups/group-security) for role-dependent access before attributing behavior to a role name alone.
 
 Roles define function inside the team. For serving operations, common roles include:
 
@@ -495,6 +501,8 @@ Group Scheduler view models expose selected locations, location names, schedule 
 
 ### GroupType -> Group
 
+RockU treats [Group Types](https://community.rockrms.com/rocku/groups/group-types) and [Group Details](https://community.rockrms.com/rocku/groups/group-details) as separate configuration surfaces, which is the correct boundary for deciding whether a symptom is inherited or isolated to one team.
+
 A group type can have many groups. A serving team is usually one group inside a serving group type. If a problem affects many teams, start at the group type. If it affects one team, inspect the group first but still compare inherited group type settings.
 
 Common symptoms of group type issues:
@@ -630,6 +638,8 @@ Agent implementation checks:
 - Is there a dead-end state where a volunteer submits interest but no owner is notified?
 
 ### Build Or Audit A Serving Team
+
+Use the official [Group Details](https://community.rockrms.com/rocku/groups/group-details), [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements), and [Group Security](https://community.rockrms.com/rocku/groups/group-security) surfaces as the minimum configuration checkpoints.
 
 A serving team should have:
 
@@ -851,6 +861,8 @@ Rock v18.3's reminder fix is relevant when follow-up depends on attendance remin
 ## 8. Serving Teams And Roles Deep Dive
 
 ### Designing Serving Group Types
+
+[Group Types](https://community.rockrms.com/rocku/groups/group-types) defines the structural starting point, while [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements) and [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview) cover distinct eligibility and scheduling concerns.
 
 A serving group type should reflect operational behavior, not only ministry branding. Design for:
 
@@ -1627,6 +1639,8 @@ Agent impact:
 
 ### Playbook: Launch A New Serving Ministry Team
 
+Before launch, compare the design against [Group Types](https://community.rockrms.com/rocku/groups/group-types), [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), and [Group Security](https://community.rockrms.com/rocku/groups/group-security).
+
 1. Define the ministry owner and coordinator.
 2. Decide whether this is a durable serving team, sign-up opportunity, or intake pipeline.
 3. Select or create the group type.
@@ -2107,6 +2121,8 @@ Community sources are useful operational examples but should be reviewed for sec
 
 ### Dependency Notes
 
+The official Groups training separates [Group Scheduling](https://community.rockrms.com/rocku/groups/group-scheduling-overview), [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements), and [Group Security](https://community.rockrms.com/rocku/groups/group-security), so agents should preserve those ownership boundaries when crossing into adjacent guides.
+
 Serving and volunteer operations depend on these topics:
 
 - **Groups:** group types, groups, roles, members, inheritance, requirements, security.
@@ -2120,6 +2136,8 @@ Serving and volunteer operations depend on these topics:
 - **Reporting:** attendance facts, group scheduling analytics, no-show reporting, requirement compliance.
 
 ### Live Verification Required
+
+The [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview) describes intended product behavior; the exact records and settings below remain instance-owned evidence.
 
 The source pack is not sufficient to determine any specific church's live behavior for:
 

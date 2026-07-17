@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11489 words; expected at least 7000.",
+      "message": "Guide has 11699 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,9 +59,9 @@
   "concept_id": "ai-agents-automation",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-07-17T00:39:47+00:00",
-  "guide_line_count": 1269,
-  "guide_word_count": 11489,
+  "generated_at": "2026-07-17T05:35:27+00:00",
+  "guide_line_count": 1283,
+  "guide_word_count": 11699,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 83,
