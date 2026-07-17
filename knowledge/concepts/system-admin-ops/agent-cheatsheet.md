@@ -48,7 +48,7 @@ generated: true
 | `generated-model-map-pointers` | citation-only | live verification |
 | `1-executive-summary-for-agents` | citation-only | live verification |
 | `2-scope-and-terminology` | high | live verification |
-| `3-system-administration-and-operations-mental-model-layer-1-configuration` | needs-citation | live verification |
+| `3-system-administration-and-operations-mental-model-layer-1-configuration` | normal | live verification |
 | `3-system-administration-and-operations-mental-model-layer-4-security-and-authorization` | normal | live verification |
 | `4-source-authority-and-how-to-use-this-guide` | normal | live verification |
 | `5-core-configuration-and-data-model-entities-properties-and-attributes` | citation-only | live verification |
@@ -59,7 +59,7 @@ generated: true
 | `6-primary-entities-and-relationships-servicejob-and-servicejobhistory` | normal | live verification |
 | `6-primary-entities-and-relationships-servicejobhistory-fields-to-inspect` | normal | live verification |
 | `6-primary-entities-and-relationships-dataview-and-persisted-data-view-state` | normal | live verification |
-| `6-primary-entities-and-relationships-exceptionlog` | needs-citation | live verification |
+| `6-primary-entities-and-relationships-exceptionlog` | high | live verification |
 | `6-primary-entities-and-relationships-page-block-and-security-relationships` | community-supported | live verification |
 | `7-common-system-administration-and-operations-workflows-workflow-investigate-a-failed-service-job` | normal | live verification |
 | `7-common-system-administration-and-operations-workflows-workflow-confirm-whether-a-job-actually-ran` | normal | live verification |
@@ -67,7 +67,7 @@ generated: true
 | `7-common-system-administration-and-operations-workflows-workflow-investigate-stale-search-results` | normal | live verification |
 | `7-common-system-administration-and-operations-workflows-workflow-investigate-stale-persisted-data-view-results` | normal | live verification |
 | `7-common-system-administration-and-operations-workflows-workflow-investigate-a-cache-suspect` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike` | needs-citation | live verification |
+| `7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike` | normal | live verification |
 | `7-common-system-administration-and-operations-workflows-workflow-review-operational-health-after-upgrade` | normal | live verification |
 | `8-jobs-and-scheduling-deep-dive-job-configuration-fields-to-inspect` | normal | live verification |
 | `8-jobs-and-scheduling-deep-dive-job-history-interpretation` | normal | live verification |
@@ -82,7 +82,7 @@ generated: true
 | `exception-investigation-branches-dataview-exception` | normal | live verification |
 | `exception-investigation-branches-search-exception` | normal | live verification |
 | `exception-investigation-branches-cache-exception` | normal | live verification |
-| `10-cache-and-indexing-deep-dive-cache-keys` | needs-citation | live verification |
+| `10-cache-and-indexing-deep-dive-cache-keys` | normal | live verification |
 | `10-cache-and-indexing-deep-dive-cache-tags` | citation-only | live verification |
 | `10-cache-and-indexing-deep-dive-cache-clearing` | normal | live verification |
 | `10-cache-and-indexing-deep-dive-entity-indexing` | normal | live verification |

@@ -817,8 +817,8 @@
       "troubleshooting_tree": "knowledge/concepts/scheduling-locations/troubleshooting-tree.json"
     }
   ],
-  "entity_count": 448,
-  "generated_at": "2026-07-17T05:36:05+00:00",
+  "entity_count": 449,
+  "generated_at": "2026-07-17T08:22:23+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -853,8 +853,8 @@
   },
   "recipe_count": 5,
   "release_caveat_count": 166,
-  "rock_issue_count": 5798,
-  "rock_issue_enrichment_count": 12,
+  "rock_issue_count": 5803,
+  "rock_issue_enrichment_count": 17,
   "schema": "rock-kb-agent-manifest-v1",
   "source_summaries": {
     "eligible_record_count": 5568,

@@ -1,0 +1,132 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6925-prayer-comments-custom-grid-validation-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6925",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Prayer Comment List source explicitly enables customized-grid Lava and exposes the prayer request as the Row merge object. The shared attribute helper, however, creates `core.CustomGridColumnsConfig` as a plain TextFieldAttribute without enabling Lava. TextField validation defaults to the PlainText profile unless Allow Lava is configured. This supports a contract mismatch between the feature's intended Lava content and the backing attribute's validation rules. The issue remains open, and the reviewed source does not establish a maintainer-approved fix or whether every save throws versus logs the validation exception under each runtime setting.",
+  "workaround_summaries": [
+    "Do not disable server string validation or edit the database to suppress this exception. Avoid changing Prayer Comment List custom columns in production until a fixed build is available. If the column is operationally necessary and already renders, preserve the existing configuration, monitor only aggregate exception counts, and test any change in an isolated staging instance first."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether Prayer Comment List blocks store Lava in the custom-grid configuration and whether the validation mismatch is producing exceptions, without saving a block.",
+    "prerequisites": [
+      "Know the exact installed Rock version.",
+      "Have read-only access to aggregate block-configuration and exception counts."
+    ],
+    "steps": [
+      {
+        "step_id": "check-source-contract",
+        "title": "Check the installed source contract",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether PrayerCommentList advertises customized-grid Lava while the shared helper still creates core.CustomGridColumnsConfig as a plain Text field without Allow Lava.",
+        "expected_if_affected": "The installed build contains both sides of the mismatch: Lava-capable custom columns and a non-Lava Text validation profile.",
+        "expected_if_unaffected": "The installed build explicitly allows Lava for the custom-grid configuration or otherwise stores and validates the nested Lava safely.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-lava-configurations",
+        "title": "Count configured Prayer Comment List blocks",
+        "method": "read_only_sql",
+        "instructions": "Return aggregate counts only. Do not return block IDs, page names, Lava templates, or attribute values.",
+        "probe": "SELECT COUNT(*) AS ConfiguredPrayerCommentListCount, SUM(CASE WHEN av.[Value] LIKE '%{{%' OR av.[Value] LIKE '%{%%' THEN 1 ELSE 0 END) AS LavaConfiguredPrayerCommentListCount FROM [Block] b INNER JOIN [BlockType] bt ON bt.[Id] = b.[BlockTypeId] INNER JOIN [Attribute] a ON a.[EntityTypeId] = (SELECT TOP (1) [Id] FROM [EntityType] WHERE [Name] = 'Rock.Model.Block') AND a.[Key] = 'core.CustomGridColumnsConfig' AND a.[EntityTypeQualifierColumn] = 'BlockTypeId' AND TRY_CONVERT(int, a.[EntityTypeQualifierValue]) = bt.[Id] LEFT JOIN [AttributeValue] av ON av.[AttributeId] = a.[Id] AND av.[EntityId] = b.[Id] WHERE bt.[Guid] = '3F997DA7-AC42-41C9-97F1-2069BB9D9E5C'",
+        "expected_if_affected": "LavaConfiguredPrayerCommentListCount is greater than zero and the installed source still has the validation mismatch.",
+        "expected_if_unaffected": "No Prayer Comment List block stores Lava custom columns, or the installed build has corrected the backing validation contract.",
+        "evidence_to_record": [
+          "aggregate configured block count",
+          "aggregate Lava-configured block count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-recent-exceptions",
+        "title": "Count the exact validation exception",
+        "method": "read_only_sql",
+        "instructions": "Return only a bounded seven-day count. Do not return exception descriptions, stack traces, URLs, users, page IDs, block IDs, or request data.",
+        "probe": "SELECT COUNT(*) AS RecentMatchingExceptionCount FROM [ExceptionLog] WHERE [CreatedDateTime] >= DATEADD(day, -7, GETDATE()) AND [Description] LIKE '%core.CustomGridColumnsConfig%' AND [Description] LIKE '%may not contain Lava formatting%'",
+        "expected_if_affected": "RecentMatchingExceptionCount is greater than zero while Lava-configured Prayer Comment List blocks are present.",
+        "expected_if_unaffected": "The count is zero in the bounded window. This does not prove an untested save path is safe when the source mismatch remains.",
+        "evidence_to_record": [
+          "time window",
+          "aggregate matching exception count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Do not save a block in production solely to reproduce the issue; saving is the operation that triggers validation.",
+      "A zero recent-exception count may only mean no one edited the affected configuration during the window."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6925-under-investigation-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "Prayer Comment List custom grid columns containing Lava"
+      },
+      "versions": ["19.3.1", "19.3.2"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6925",
+        "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    },
+    {
+      "assertion_id": "core-6925-source-mismatch-develop-f4e14ae",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "reviewed PrayerCommentList custom-grid contract and shared Text field validation source"
+      },
+      "versions": ["f4e14ae9a1dd97096627429876d6e1bc1df07b30"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6925",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Prayer/PrayerCommentList.cs#L50-L61",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Prayer/PrayerCommentList.cs#L260-L281",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Attribute/Helper.cs#L153-L159",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Field/Types/TextFieldType.cs#L103-L127"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6925",
+    "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Prayer/PrayerCommentList.cs#L50-L61",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Prayer/PrayerCommentList.cs#L260-L281",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Attribute/Helper.cs#L153-L159",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Field/Types/TextFieldType.cs#L103-L127"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "medium",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-16T21:41:32Z",
+  "reviewed_at": "2026-07-17T07:57:36Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

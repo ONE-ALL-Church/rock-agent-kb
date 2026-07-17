@@ -35,8 +35,8 @@ Follow the guide section for Recipe: Diagnose "Works for admin but not staff".
 ## Source Links
 
 - https://community.rockrms.com/developer
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/api-docs
 - https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/ask/developing

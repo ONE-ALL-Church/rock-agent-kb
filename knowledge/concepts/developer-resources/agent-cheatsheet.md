@@ -25,6 +25,7 @@ generated: true
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DefinedType` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
+| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -63,14 +64,13 @@ generated: true
 | `6-primary-entities-and-relationships-lavaapplication-and-lavaendpoint` | normal | live verification |
 | `6-primary-entities-and-relationships-interaction-and-analytics` | normal | live verification |
 | `6-primary-entities-and-relationships-theme` | normal | live verification |
-| `7-common-rock-developer-resources-workflows-choose-the-correct-developer-path` | needs-citation | needs-citation |
 | `7-common-rock-developer-resources-workflows-package-and-deploy-a-plugin-or-theme` | normal | live verification |
-| `7-common-rock-developer-resources-workflows-diagnose-a-broken-developer-feature` | needs-citation | live verification |
+| `7-common-rock-developer-resources-workflows-diagnose-a-broken-developer-feature` | normal | live verification |
 | `8-developer-codex-deep-dive` | normal | live verification |
 | `8-developer-codex-deep-dive-code-generator-and-model-changes` | normal | live verification |
 | `8-developer-codex-deep-dive-obsidian-chop-swap-sneak` | normal | live verification |
 | `8-developer-codex-deep-dive-testing-and-peer-review` | normal | live verification |
-| `9-developer-101-launchpad-deep-dive-operational-pattern` | needs-citation | live verification |
+| `9-developer-101-launchpad-deep-dive-operational-pattern` | normal | live verification |
 | `9-developer-101-launchpad-deep-dive-personalias-vs-person` | structural | live verification |
 | `9-developer-101-launchpad-deep-dive-security` | normal | live verification |
 | `10-developer-202-ignition-deep-dive-migrations-in-202` | normal | live verification |
@@ -84,7 +84,6 @@ generated: true
 | `13-helix-deep-dive-plugin-vs-core-status` | normal | live verification |
 | `13-helix-deep-dive-lava-applications` | normal | live verification |
 | `13-helix-deep-dive-lava-endpoints` | normal | live verification |
-| `14-ai-agents-deep-dive-lava-tools-vs-native-tools` | needs-citation | needs-citation |
 | `14-ai-agents-deep-dive-live-verification` | structural | live verification |
 | `15-mobile-docs-deep-dive-mobile-block-categories` | normal | live verification |
 | `15-mobile-docs-deep-dive-controls-and-styling` | normal | live verification |
@@ -113,7 +112,6 @@ generated: true
 | `26-implementation-playbooks-playbook-create-a-custom-entity-plugin-data-model` | normal | live verification |
 | `26-implementation-playbooks-playbook-build-a-roku-page` | normal | live verification |
 | `26-implementation-playbooks-playbook-build-an-apple-tv-app-page` | normal | live verification |
-| `27-troubleshooting-decision-tree-the-block-does-not-render` | needs-citation | needs-citation |
 | `27-troubleshooting-decision-tree-the-obsidian-block-renders-but-actions-fail` | normal | live verification |
 | `27-troubleshooting-decision-tree-the-migration-failed` | normal | live verification |
 | `27-troubleshooting-decision-tree-the-tv-app-page-is-blank` | normal | live verification |
@@ -124,4 +122,4 @@ generated: true
 | `approved-claim-coverage` | normal | live verification |
 | `29-source-map-and-dependency-notes-community-examples-and-q-a` | community-supported | live verification |
 | `29-source-map-and-dependency-notes-official-developer-docs` | normal | live verification |
-| `29-source-map-and-dependency-notes-dependency-notes` | needs-citation | live verification |
+| `29-source-map-and-dependency-notes-dependency-notes` | normal | live verification |

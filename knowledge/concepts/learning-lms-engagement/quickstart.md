@@ -27,10 +27,10 @@ Learning programs, LMS courses, lessons, requirements, completion tracking, enga
 
 - `1-executive-summary-for-agents` lines 29-48: 1. Executive Summary For Agents (high)
 - `2-scope-and-terminology` lines 49-83: 2. Scope And Terminology (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 109-122: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 123-157: 5. Core Configuration And Data Model (high)
-- `6-primary-entities-and-relationships-lms-entity-relationships` lines 160-175: LMS Entity Relationships (high)
-- `6-primary-entities-and-relationships-engagement-entity-relationships` lines 176-189: Engagement Entity Relationships (normal)
+- `3-learning-lms-and-engagement-mental-model` lines 84-110: 3. Learning, LMS, And Engagement Mental Model (normal)
+- `4-source-authority-and-how-to-use-this-guide` lines 111-124: 4. Source Authority And How To Use This Guide (high)
+- `5-core-configuration-and-data-model` lines 125-159: 5. Core Configuration And Data Model (high)
+- `6-primary-entities-and-relationships-lms-entity-relationships` lines 162-177: LMS Entity Relationships (high)
 
 ## Core Entities
 

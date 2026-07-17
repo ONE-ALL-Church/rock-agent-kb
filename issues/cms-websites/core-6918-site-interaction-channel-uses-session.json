@@ -5,6 +5,40 @@
   "diagnosis_status": "source_supported",
   "diagnosis_summary": "Current public Site Detail source creates a website InteractionChannel and sets its medium, entity, name, retention, and component type, but never sets UsesSession. Because UsesSession is a non-nullable Boolean model property, a new channel retains the false default. This confirms the creation-path behavior on the reviewed source revision; the upstream issue does not yet record a fix or safe supported post-creation configuration path.",
   "workaround_summaries": [],
+  "verification_playbook": {
+    "goal": "Determine whether a website interaction channel created by Site Detail has Uses Session disabled.",
+    "prerequisites": [
+      "Know which site and website interaction channel are paired.",
+      "Have read-only access to interaction-channel configuration."
+    ],
+    "steps": [
+      {
+        "step_id": "check-site-detail-source",
+        "title": "Check the installed creation path",
+        "method": "source_revision_check",
+        "instructions": "Verify whether the installed Site Detail source still creates a website InteractionChannel without assigning UsesSession.",
+        "expected_if_affected": "The creation path omits UsesSession and leaves the non-nullable Boolean at its false default.",
+        "expected_if_unaffected": "The installed path explicitly assigns the intended session setting or a later migration corrects existing channels.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-channel-setting",
+        "title": "Inspect the paired interaction channel",
+        "method": "configuration_check",
+        "instructions": "View the website Interaction Channel without saving and record only whether Uses Session is enabled. Do not record channel IDs, site domains, visitor data, or interaction records.",
+        "expected_if_affected": "The paired website channel exists and Uses Session is disabled.",
+        "expected_if_unaffected": "Uses Session is enabled, or the site does not use a website interaction channel created by this path.",
+        "evidence_to_record": ["website channel present yes or no", "Uses Session enabled yes or no"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A disabled setting confirms local exposure to the reported configuration, but it does not by itself quantify analytics impact or establish a supported remediation path."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6918-affected-develop-6e30556",

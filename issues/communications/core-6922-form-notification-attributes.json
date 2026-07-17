@@ -1,0 +1,109 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6922-form-notification-attributes-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6922",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "The stock Form Submission Result communication created by the public migration assigns its list from Action.FormAttributes. Current Form Builder notification source supplies Action, Activity, and Workflow merge roots, and WorkflowAction.FormAttributes remains Lava-visible and formats the attributes declared on that action's workflow form. This confirms the intended merge contract but does not explain why the reported Rock 19.2 template produced an empty list. Iterating Workflow.AttributeValues can bypass the symptom, but that collection is broader than the form-only list and can expose internal or non-form workflow attributes unless the template explicitly limits what it renders.",
+  "workaround_summaries": [
+    "On an affected installation, clone the stock communication before changing it. Prefer an explicit allowlist of approved workflow attribute keys. If Workflow.AttributeValues is used, do not render the full collection without review; verify in isolated staging that hidden, internal, sensitive, and non-form values are excluded before using the template with real submissions."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the instance has the reported Form Builder notification preconditions without submitting a form or sending an email.",
+    "prerequisites": [
+      "Know the exact installed Rock version.",
+      "Have read-only access to the selected Form Builder notification communication."
+    ],
+    "steps": [
+      {
+        "step_id": "check-release-scope",
+        "title": "Check the installed release",
+        "method": "version_check",
+        "instructions": "Record whether the instance runs Rock 19.2 or another build whose Form Builder notification path has not been independently verified.",
+        "expected_if_affected": "The instance runs the reported 19.2 release and uses Form Builder notification emails.",
+        "expected_if_unaffected": "The instance does not use this notification path, or its exact build and template have been independently verified; version alone cannot prove the absence of the defect.",
+        "evidence_to_record": [
+          "Rock version"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-stock-template",
+        "title": "Inspect the selected template contract",
+        "method": "read_only_sql",
+        "instructions": "Return only the two Boolean indicators. Do not return the communication body or any submitted workflow values.",
+        "probe": "SELECT TOP (1) CASE WHEN [Body] LIKE '%Action.FormAttributes%' THEN 1 ELSE 0 END AS UsesActionFormAttributes, CASE WHEN [Body] LIKE '%Workflow.AttributeValues%' THEN 1 ELSE 0 END AS UsesWorkflowAttributeValues FROM [SystemCommunication] WHERE [Guid] = 'D5414D4F-538E-4578-8330-D6CA8FD5F664'",
+        "expected_if_affected": "UsesActionFormAttributes is 1 on the reported release, establishing the reported stock-template precondition but not proving that a particular notification renders empty.",
+        "expected_if_unaffected": "The stock communication is absent or customized. That changes applicability and requires reviewing the actual selected template rather than assuming the issue is absent.",
+        "evidence_to_record": [
+          "uses Action.FormAttributes yes or no",
+          "uses Workflow.AttributeValues yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-form-configuration",
+        "title": "Inspect the form notification selection",
+        "method": "configuration_check",
+        "instructions": "Open the form's Communications configuration without saving and confirm whether Notification Email uses the stock Form Submission Result communication or a customized replacement.",
+        "expected_if_affected": "Notification Email selects the stock template or a copy that still reads Action.FormAttributes.",
+        "expected_if_unaffected": "Notification Email is disabled or uses a separately verified template and merge-field strategy.",
+        "evidence_to_record": [
+          "notification enabled yes or no",
+          "stock or custom template"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A definitive render test requires a form submission and email delivery, so it must use isolated staging and non-real recipients rather than this production-safe playbook.",
+      "Template inspection cannot prove whether a specific workflow action resolves FormAttributes at runtime."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6922-under-investigation-19.2",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.2",
+      "context": {
+        "scope": "Form Builder Notification Email using the stock Form Submission Result communication"
+      },
+      "versions": ["19.2"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6922",
+        "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-4994609248",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202504281829314_UpdateWorkflowEntryFormSharingAndFormBuilderSupport.cs#L109-L145",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Workflow/Action/WorkflowControl/UserForm.cs#L1560-L1574",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs#L60-L105"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6922",
+    "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-4994609248",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202504281829314_UpdateWorkflowEntryFormSharingAndFormBuilderSupport.cs#L109-L145",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Workflow/Action/WorkflowControl/UserForm.cs#L1560-L1574",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs#L60-L105"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "medium",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-16T17:10:25Z",
+  "reviewed_at": "2026-07-17T07:57:36Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

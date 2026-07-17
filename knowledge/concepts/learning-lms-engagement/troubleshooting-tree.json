@@ -25,16 +25,16 @@
       "source_urls": [
         "https://community.rockrms.com/documentation/bookcontent/43/354",
         "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms",
         "https://www.triumph.tech/resources/github-spotlight-11142025",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/engagement",
-        "https://community.rockrms.com/ModelMap",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/lms",
-        "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
-        "https://community.rockrms.com/rocku/lms/lms-academic-calendar",
-        "https://community.rockrms.com/rocku/lms/lms-create-a-program",
-        "https://community.rockrms.com/rocku/lms/lms-overview"
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements",
+        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
       ],
       "start_with": [
         "Identify the program, course, class, semester, and activity records involved.",
@@ -69,11 +69,16 @@
       ],
       "source_urls": [
         "https://www.triumph.tech/resources/github-spotlight-11142025",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/ModelMap",
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://community.rockrms.com/recipes/482"
+        "https://community.rockrms.com/recipes/482",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes",
+        "https://community.rockrms.com/documentation/engagement/steps/configure-steps",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses",
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
         "Confirm the person is the intended learner and is attached to the expected class or program.",
@@ -109,6 +114,7 @@
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/documentation/bookcontent/43/354",
         "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses",
         "https://community.rockrms.com/ModelMap",
         "https://www.triumph.tech/resources/github-spotlight-11142025",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs",
@@ -149,18 +155,18 @@
         "Workflow"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/39",
         "https://community.rockrms.com/rocku/engagement",
+        "https://community.rockrms.com/documentation/bookcontent/39",
         "https://www.triumph.tech/resources/github-spotlight-11142025",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs",
         "https://community.rockrms.com/documentation/bookcontent/43/354",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/ModelMap",
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/rocku/lms",
-        "https://community.rockrms.com/recipes/482",
-        "https://community.rockrms.com/documentation/bookcontent/39/362",
-        "https://community.rockrms.com/rocku/engagement/steps-badges",
-        "https://community.rockrms.com/rocku/engagement/steps-overview"
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes"
       ],
       "start_with": [
         "Define which completion event should create or update the engagement step.",
@@ -194,16 +200,16 @@
       "source_urls": [
         "https://community.rockrms.com/documentation/bookcontent/43/354",
         "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/github-spotlight-11142025",
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://www.triumph.tech/resources/github-spotlight-11142025",
         "https://community.rockrms.com/rocku/engagement",
-        "https://community.rockrms.com/ModelMap",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms",
+        "https://community.rockrms.com/documentation/bookcontent/39",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes",
+        "https://community.rockrms.com/documentation/engagement/steps/configure-steps",
         "https://community.rockrms.com/rocku/lms",
         "https://community.rockrms.com/rocku/workflows/text-to-workflow",
-        "https://community.rockrms.com/rocku/groups/group-requirements",
-        "https://community.rockrms.com/rocku/communication/communication-preferences-legacy",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs"
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements"
       ],
       "start_with": [
         "Identify the current and target Rock versions.",
@@ -215,7 +221,7 @@
   ],
   "concept_id": "learning-lms-engagement",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T05:35:29+00:00",
+  "generated_at": "2026-07-17T08:21:22+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-learner-cannot-see-a-course",

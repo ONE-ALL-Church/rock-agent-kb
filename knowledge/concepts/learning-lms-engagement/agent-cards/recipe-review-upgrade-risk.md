@@ -49,13 +49,13 @@ Review LMS, engagement, requirement, workflow, and communication behavior agains
 
 - https://community.rockrms.com/documentation/bookcontent/43/354
 - https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/github-spotlight-11142025
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/39
+- https://www.triumph.tech/resources/github-spotlight-11142025
 - https://community.rockrms.com/rocku/engagement
-- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
+- https://community.rockrms.com/documentation/bookcontent/39
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes
+- https://community.rockrms.com/documentation/engagement/steps/configure-steps
 - https://community.rockrms.com/rocku/lms
 - https://community.rockrms.com/rocku/workflows/text-to-workflow
-- https://community.rockrms.com/rocku/groups/group-requirements
-- https://community.rockrms.com/rocku/communication/communication-preferences-legacy
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
+- https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements

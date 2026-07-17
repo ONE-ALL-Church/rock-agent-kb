@@ -273,6 +273,8 @@ The Model Map source identifies `Theme` as a CMS model ([Model Map](https://comm
 
 ### Choose the correct developer path
 
+Use the official [Developer documentation](https://community.rockrms.com/developer) to identify the owning runtime before selecting a tutorial, API, or deployment path; use the [Model Map](https://community.rockrms.com/ModelMap) only after the surface and target version are known.
+
 Start by asking what surface owns the work:
 
 - Web page with old `.ascx` block: Developer 101/202/303.
@@ -325,6 +327,8 @@ For older/tutorial style work:
 6. Do not assume local file placement equals installed behavior.
 
 ### Diagnose a broken developer feature
+
+Rock's [Exception Handling](https://community.rockrms.com/developer/303---blast-off/exception-handling) and [Rock Logging Engine](https://community.rockrms.com/developer/303---blast-off/rock-logging-engine) guidance establish the diagnostic evidence path; release notes and version-matched source establish whether the behavior is already known.
 
 Use this branch sequence:
 
@@ -449,6 +453,8 @@ Use 101 when the work is a standard Rock web feature and the questions are:
 - Should I use Person or PersonAlias?
 
 ### Operational pattern
+
+Follow [Developer 101](https://community.rockrms.com/developer/101---launchpad) and its [Quickstart Blocks](https://community.rockrms.com/developer/quickstart-tutorials/blocks) flow for the supported entity-loading, validation, security, and save conventions before adapting an existing block.
 
 For an agent implementing or debugging a 101-level block:
 
@@ -748,6 +754,8 @@ An agent is not just a chat interface. It is a configured actor with instruction
 - Human review for high-impact changes.
 
 ### Lava tools vs native tools
+
+Compare the official [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools) and [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) contracts before choosing an implementation; the installed Rock version still determines which tool types and helpers are available.
 
 Lava tools can be faster to create for Rock-aware querying and templating, but they inherit Lava command risks and must be constrained. Native tools can provide stronger typed contracts, better validation, and deeper integration, but require C# implementation and deployment. When choosing:
 
@@ -1341,6 +1349,8 @@ References: Apple TV Docs, Creating An App, Testing, Adding Content, Media Comma
 
 ### The block does not render
 
+Start from the official [Developer documentation](https://community.rockrms.com/developer) for the identified block family, then use [Exception Handling](https://community.rockrms.com/developer/303---blast-off/exception-handling) rather than assuming every blank block is a client-rendering failure.
+
 1. Is it WebForms, Obsidian, Helix, Mobile, Apple TV, or Roku?
 2. Is the block type installed and active?
 3. Is the block instance placed on the expected page/layout/site?
@@ -1582,6 +1592,8 @@ This guide depends primarily on the following source families.
 - [ContentChannelItemList block settings migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.cs)
 
 ### Dependency notes
+
+The official [Developer documentation](https://community.rockrms.com/developer), [Rock Core Release Notes](https://www.rockrms.com/releasenotes), and [public Rock source](https://github.com/SparkDevNetwork/Rock) are the maintained cross-surface references; exact `develop` code must still be compared with the installed release line.
 
 This guide depends on related topic guides for API integrations, Lava, Helix, Obsidian, Mobile, Plugins, Themes, Migration, Security, CMS, and TV Apps. It intentionally does not duplicate every API endpoint, Lava command, mobile control, TVML template, or Obsidian grid column reference. Instead, it tells agents where to look, what to verify, and how to avoid common operational mistakes.
 

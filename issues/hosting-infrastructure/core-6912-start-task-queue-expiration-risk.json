@@ -5,6 +5,42 @@
   "diagnosis_status": "source_supported",
   "diagnosis_summary": "Current public Rock source gives queues a default 300-second time to live, leaves StartTaskQueue on that default, and registers every consumer for a queue on one receive endpoint. The in-memory transport adds no Rock-specific consume timeout or concurrency policy. This confirms a shared queue and expiration boundary, but source inspection alone does not prove that one blocked consumer stops all delivery or that every expired message is silent. The reported mechanism remains under investigation.",
   "workaround_summaries": [],
+  "verification_playbook": {
+    "goal": "Determine whether the instance uses the reported in-memory StartTaskQueue configuration and has bounded evidence of delayed or expired work, without blocking a consumer.",
+    "prerequisites": [
+      "Know the exact installed Rock version.",
+      "Have read-only access to bus configuration and aggregate operational metrics."
+    ],
+    "steps": [
+      {
+        "step_id": "inspect-bus-configuration",
+        "title": "Inspect bus and queue configuration",
+        "method": "configuration_check",
+        "instructions": "Record only whether the instance uses the in-memory transport and the default StartTaskQueue expiration behavior. Do not change transport, timeout, or concurrency settings.",
+        "expected_if_affected": "The instance uses the in-memory transport, StartTaskQueue, and an unmodified short expiration on an unverified build.",
+        "expected_if_unaffected": "The instance does not use the reported transport/queue combination or runs a build with an independently verified correction.",
+        "evidence_to_record": ["in-memory transport yes or no", "default queue expiration yes or no", "Rock version"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "review-bounded-queue-signals",
+        "title": "Review bounded queue health signals",
+        "method": "log_review",
+        "instructions": "Review aggregate counts and durations for recent StartTaskQueue failures, expirations, or unusually long consumers. Do not export message payloads, stack traces, task arguments, users, or request data.",
+        "expected_if_affected": "The configuration preconditions are present and bounded operational evidence shows work exceeding the expiration window or not reaching consumers.",
+        "expected_if_unaffected": "No matching signals appear in the window, which is inconclusive if the source configuration remains vulnerable to the reported mechanism.",
+        "evidence_to_record": ["time window", "aggregate failure or expiration count", "maximum observed duration category"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Do not deliberately block a production consumer or enqueue synthetic production work to force reproduction.",
+      "Source inspection does not yet prove that one blocked consumer stops all delivery, so local signals must remain an observation rather than a confirmed cause."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6912-under-investigation-18.3.5",

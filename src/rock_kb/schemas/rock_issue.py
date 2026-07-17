@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from datetime import datetime, timedelta, timezone
 from typing import Literal
 
@@ -29,6 +30,12 @@ ApplicabilityStatus = Literal[
     "under_investigation",
     "unknown",
 ]
+
+READ_ONLY_SQL_START_PATTERN = re.compile(r"^(?:SELECT|WITH)\b", re.IGNORECASE)
+SQL_WRITE_PATTERN = re.compile(
+    r"\b(?:INSERT|UPDATE|DELETE|MERGE|DROP|ALTER|TRUNCATE|EXEC(?:UTE)?|CREATE|GRANT|REVOKE|INTO)\b",
+    re.IGNORECASE,
+)
 
 
 class RockIssueConceptRoute(KBRecord):
@@ -239,6 +246,64 @@ class RockIssueApplicabilityAssertion(KBRecord):
         return self
 
 
+class RockIssueVerificationStep(KBRecord):
+    step_id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]{0,79}$")
+    title: str = Field(min_length=1, max_length=160)
+    method: Literal[
+        "version_check",
+        "source_revision_check",
+        "configuration_check",
+        "read_only_sql",
+        "read_only_api",
+        "ui_observation",
+        "log_review",
+    ]
+    instructions: str = Field(min_length=1, max_length=1000)
+    probe: str | None = Field(default=None, max_length=2000)
+    expected_if_affected: str = Field(min_length=1, max_length=700)
+    expected_if_unaffected: str = Field(min_length=1, max_length=700)
+    evidence_to_record: list[str] = Field(default_factory=list, max_length=10)
+    requires_privileged_access: bool = False
+    mutation_risk: Literal["none"] = "none"
+
+    @model_validator(mode="after")
+    def enforce_read_only_probe(self) -> "RockIssueVerificationStep":
+        if any(len(value) > 160 for value in self.evidence_to_record):
+            raise ValueError("verification evidence labels must be at most 160 characters")
+
+        if self.method == "read_only_sql":
+            if not self.probe:
+                raise ValueError("read_only_sql verification steps require a probe")
+            sql = self.probe.strip()
+            if not READ_ONLY_SQL_START_PATTERN.match(sql):
+                raise ValueError("read_only_sql probes must begin with SELECT or WITH")
+            if SQL_WRITE_PATTERN.search(sql):
+                raise ValueError("read_only_sql probes may not contain write-capable SQL")
+            if ";" in sql.rstrip(";"):
+                raise ValueError("read_only_sql probes must contain exactly one statement")
+
+        return self
+
+
+class RockIssueVerificationPlaybook(KBRecord):
+    goal: str = Field(min_length=1, max_length=700)
+    prerequisites: list[str] = Field(default_factory=list, max_length=10)
+    steps: list[RockIssueVerificationStep] = Field(min_length=1, max_length=12)
+    limitations: list[str] = Field(default_factory=list, max_length=10)
+    production_safe: Literal[True] = True
+
+    @model_validator(mode="after")
+    def validate_bounded_guidance(self) -> "RockIssueVerificationPlaybook":
+        if any(len(value) > 500 for value in self.prerequisites):
+            raise ValueError("verification prerequisites must be at most 500 characters")
+        if any(len(value) > 700 for value in self.limitations):
+            raise ValueError("verification limitations must be at most 700 characters")
+        step_ids = [step.step_id for step in self.steps]
+        if len(step_ids) != len(set(step_ids)):
+            raise ValueError("verification step IDs must be unique within a playbook")
+        return self
+
+
 class RockIssueReviewedEnrichment(KBRecord):
     schema_: Literal["rock-kb-rock-issue-enrichment-v1"] = Field(alias="schema")
     enrichment_id: str = Field(pattern=r"^rock_issue_enrichment:[A-Za-z0-9._:/#-]+$", max_length=240)
@@ -246,6 +311,7 @@ class RockIssueReviewedEnrichment(KBRecord):
     diagnosis_status: Literal["hypothesis", "source_supported", "maintainer_confirmed"]
     diagnosis_summary: str = Field(min_length=1, max_length=1200)
     workaround_summaries: list[str] = Field(default_factory=list, max_length=20)
+    verification_playbook: RockIssueVerificationPlaybook | None = None
     applicability: list[RockIssueApplicabilityAssertion] = Field(default_factory=list)
     source_refs: list[str] = Field(min_length=1, max_length=30)
     agent_run_ids: list[str] = Field(default_factory=list, max_length=20)

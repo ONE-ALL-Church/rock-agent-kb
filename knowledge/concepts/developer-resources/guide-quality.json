@@ -11,7 +11,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 16343 words; expected at least 7000.",
+      "message": "Guide has 16581 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 12 entity rows; expected at least 8.",
+      "message": "Guide has 13 entity rows; expected at least 8.",
       "passed": true
     },
     {
@@ -57,10 +57,10 @@
   ],
   "concept_id": "developer-resources",
   "contribution_record_count": 0,
-  "entity_count": 12,
-  "generated_at": "2026-07-17T05:35:56+00:00",
-  "guide_line_count": 1595,
-  "guide_word_count": 16343,
+  "entity_count": 13,
+  "generated_at": "2026-07-17T08:21:55+00:00",
+  "guide_line_count": 1607,
+  "guide_word_count": 16581,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 162,

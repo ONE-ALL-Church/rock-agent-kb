@@ -10,12 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `3-learning-lms-and-engagement-mental-model`: 3. Learning, LMS, And Engagement Mental Model (358 words)
-- `7-common-learning-lms-and-engagement-workflows-assign-training-to-volunteers-or-staff`: Assign Training To Volunteers Or Staff (115 words)
-- `17-implementation-playbooks-playbook-launch-a-volunteer-training-lms-program`: Playbook: Launch A Volunteer Training LMS Program (137 words)
-- `17-implementation-playbooks-playbook-add-a-new-course-requirement`: Playbook: Add A New Course Requirement (95 words)
-- `17-implementation-playbooks-playbook-convert-a-training-completion-into-an-engagement-step`: Playbook: Convert A Training Completion Into An Engagement Step (92 words)
-- `18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion`: Group Requirement Still Fails After LMS Completion (89 words)
 
 ## Community-Supported Only
 

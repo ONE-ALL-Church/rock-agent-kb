@@ -49,15 +49,15 @@ Connect training completion to an engagement journey only through explicit workf
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/bookcontent/39
 - https://community.rockrms.com/rocku/engagement
+- https://community.rockrms.com/documentation/bookcontent/39
 - https://www.triumph.tech/resources/github-spotlight-11142025
+- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
+- https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs
 - https://community.rockrms.com/documentation/bookcontent/43/354
+- https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements
+- https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/ModelMap
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/rocku/lms
-- https://community.rockrms.com/recipes/482
-- https://community.rockrms.com/documentation/bookcontent/39/362
-- https://community.rockrms.com/rocku/engagement/steps-badges
-- https://community.rockrms.com/rocku/engagement/steps-overview
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes

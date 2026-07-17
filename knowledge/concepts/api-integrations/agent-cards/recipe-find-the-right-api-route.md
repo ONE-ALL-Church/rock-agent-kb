@@ -40,9 +40,9 @@ Follow the guide section for Recipe: Find The Right API Route.
 - https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/api-docs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs
-- https://community.rockrms.com/lava/remote-lava
 - https://community.rockrms.com/developer/roku-docs/getting-started/applications
-- https://community.rockrms.com/developer/helix/lava-applications/observability
+- https://community.rockrms.com/lava/lava-api
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts

@@ -242,6 +242,8 @@ Poor channel type candidates:
 
 ### Channel configuration
 
+Use the official [Content Channels](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels) guidance as the configuration baseline, then inspect the live channel type, security, and version-specific fields before changing a channel.
+
 A content channel is where the type becomes operational. Inspect:
 
 - Name and description.
@@ -363,6 +365,8 @@ Adaptive Messages are for audience-aware message selection when simple personali
 
 ### When to use adaptive messages
 
+Rock's [Intro to Adaptive Messages](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages) defines this as a managed message-selection surface built on personalization; it is not a replacement for authorization or a general content model.
+
 Use adaptive messages when:
 
 - Several segment-specific variants compete for the same placement.
@@ -401,6 +405,8 @@ Source-code snippets confirm:
 Because these snippets are generated and from `develop`, agents should use them as landmarks, not as a promise that the deployed instance exposes identical routes or security behavior. Verify REST controllers, API auth, entity fields, and enabled endpoints in the live Rock version.
 
 ### Troubleshooting adaptive messages
+
+Start with [Set Up Adaptive Messages](https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages) and [Troubleshoot Personalization](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization), then verify the actual site, segment, job, date, and saturation state in the target instance.
 
 If an adaptive message displays the wrong variant:
 
@@ -618,6 +624,8 @@ Content reporting usually depends on interactions, attributes, statuses, dates, 
 
 ### Content item reporting
 
+Use [Content Channels](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels) for the item lifecycle and [Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write) for interaction-writing semantics; verify exact reporting fields in the version-matched Model Map or live schema.
+
 Useful questions:
 
 - How many items exist by channel and status?
@@ -760,6 +768,8 @@ This aligns with the operational argument that structured content reduces format
 
 ### Content item is missing from a page
 
+[Use Content Channels](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-content-channels) establishes the item, status, date, and display flow; [Secure Content](https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/secure-content) covers the separate authorization boundary.
+
 1. Is the block on the expected page and zone?
 2. Is the block pointed at the expected channel?
 3. Does the block filter by status, date, tags, campus, or attributes?
@@ -805,6 +815,8 @@ Official troubleshooting emphasizes checking the person, site personalization en
 Official troubleshooting specifically points to site personalization for personalized collection behavior and the index job for stale results ([Troubleshoot Content Collections](https://community.rockrms.com/documentation/digital-publishing/content-management/content-collections/troubleshoot-content-collections)).
 
 ### Asset image does not display
+
+Use [Intro to the Asset Manager](https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager) to verify the managed asset and [Referencing Files and Images](https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images) to verify how the rendering surface addresses it.
 
 1. Is the field a file attribute, asset attribute, inline HTML asset, media element, or structured content image?
 2. Does the referenced file exist?

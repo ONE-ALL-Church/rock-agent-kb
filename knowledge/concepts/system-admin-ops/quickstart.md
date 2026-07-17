@@ -27,11 +27,11 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 ## High-Signal Sections
 
 - `2-scope-and-terminology` lines 55-107: 2. Scope And Terminology (high)
-- `3-system-administration-and-operations-mental-model-layer-2-runtime-execution` lines 118-123: Layer 2: Runtime Execution (normal)
-- `3-system-administration-and-operations-mental-model-layer-3-derived-state` lines 124-129: Layer 3: Derived State (high)
-- `3-system-administration-and-operations-mental-model-layer-4-security-and-authorization` lines 130-135: Layer 4: Security And Authorization (normal)
-- `3-system-administration-and-operations-mental-model-layer-5-version-behavior` lines 136-139: Layer 5: Version Behavior (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 140-168: 4. Source Authority And How To Use This Guide (normal)
+- `3-system-administration-and-operations-mental-model-layer-1-configuration` lines 112-119: Layer 1: Configuration (normal)
+- `3-system-administration-and-operations-mental-model-layer-2-runtime-execution` lines 120-125: Layer 2: Runtime Execution (normal)
+- `3-system-administration-and-operations-mental-model-layer-3-derived-state` lines 126-131: Layer 3: Derived State (high)
+- `3-system-administration-and-operations-mental-model-layer-4-security-and-authorization` lines 132-137: Layer 4: Security And Authorization (normal)
+- `3-system-administration-and-operations-mental-model-layer-5-version-behavior` lines 138-141: Layer 5: Version Behavior (normal)
 
 ## Core Entities
 

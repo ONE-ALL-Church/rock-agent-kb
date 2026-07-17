@@ -38,11 +38,11 @@ Follow the guide section for Recipe: Review A Lava Webhook Before Launch.
 - https://community.rockrms.com/developer/helix/lava-applications/endpoints
 - https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
 - https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://community.rockrms.com/lava/commands/web-request-commands
-- https://community.rockrms.com/developer/roku-docs/getting-started/applications
 - https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
+- https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/developer/roku-docs/getting-started/applications
 - https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs

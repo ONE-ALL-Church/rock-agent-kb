@@ -48,8 +48,7 @@ generated: true
 | --- | --- | --- |
 | `generated-model-map-pointers` | citation-only | live verification |
 | `1-executive-summary-for-agents` | normal | live verification |
-| `2-scope-and-terminology` | needs-citation | needs-citation |
-| `2-scope-and-terminology-api` | needs-citation | live verification |
+| `2-scope-and-terminology-api` | normal | live verification |
 | `2-scope-and-terminology-rest-api-v1` | normal | live verification |
 | `2-scope-and-terminology-odata` | normal | live verification |
 | `2-scope-and-terminology-swagger-api-docs` | community-supported | live verification |
@@ -86,9 +85,8 @@ generated: true
 | `15-version-and-release-caveats-mailgun-api-key-and-webhook-signing-key` | normal | live verification |
 | `15-version-and-release-caveats-helix-and-lava-applications` | normal | live verification |
 | `15-version-and-release-caveats-mobile-and-shell-caveats` | normal | live verification |
-| `16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration` | needs-citation | live verification |
-| `16-implementation-playbooks-playbook-b-browser-public-data-feed` | needs-citation | needs-citation |
-| `16-implementation-playbooks-playbook-c-webhook-to-workflow-intake` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration` | normal | live verification |
+| `16-implementation-playbooks-playbook-c-webhook-to-workflow-intake` | normal | live verification |
 | `16-implementation-playbooks-playbook-e-custom-rest-v2-endpoint` | normal | live verification |
 | `16-implementation-playbooks-playbook-f-agent-tool-for-rock-data` | normal | live verification |
 | `17-troubleshooting-decision-tree-works-in-postman-but-not-browser` | structural | live verification |

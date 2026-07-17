@@ -10,10 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `3-system-administration-and-operations-mental-model-layer-1-configuration`: Layer 1: Configuration (104 words)
-- `6-primary-entities-and-relationships-exceptionlog`: ExceptionLog (93 words)
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike`: Workflow: Investigate An Exception Spike (123 words)
-- `10-cache-and-indexing-deep-dive-cache-keys`: Cache Keys (87 words)
 
 ## Community-Supported Only
 

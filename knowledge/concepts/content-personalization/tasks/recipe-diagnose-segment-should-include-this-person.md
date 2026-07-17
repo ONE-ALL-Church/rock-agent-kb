@@ -41,6 +41,7 @@ Follow the guide section for Recipe: Diagnose “segment should include this per
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
+- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels
 - https://community.rockrms.com/recipes/128

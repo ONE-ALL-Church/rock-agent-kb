@@ -49,13 +49,13 @@ Trace a program from source content through courses, classes, activities, comple
 
 - https://community.rockrms.com/documentation/bookcontent/43/354
 - https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
 - https://www.triumph.tech/resources/github-spotlight-11142025
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/engagement
-- https://community.rockrms.com/ModelMap
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/lms
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
-- https://community.rockrms.com/rocku/lms/lms-academic-calendar
-- https://community.rockrms.com/rocku/lms/lms-create-a-program
-- https://community.rockrms.com/rocku/lms/lms-overview
+- https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements
+- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps

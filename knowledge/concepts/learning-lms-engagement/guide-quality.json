@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 10959 words; expected at least 7000.",
+      "message": "Guide has 11211 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,13 +60,13 @@
   "concept_id": "learning-lms-engagement",
   "contribution_record_count": 0,
   "entity_count": 40,
-  "generated_at": "2026-07-17T05:35:29+00:00",
-  "guide_line_count": 1257,
-  "guide_word_count": 10959,
+  "generated_at": "2026-07-17T08:21:22+00:00",
+  "guide_line_count": 1269,
+  "guide_word_count": 11211,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 87,
-  "source_count": 21,
+  "source_count": 31,
   "status": "pass",
   "task_card_count": 5
 }

@@ -56,17 +56,16 @@ generated: true
 | `7-common-content-and-personalization-workflows-display-a-single-channel-item` | normal | live verification |
 | `7-common-content-and-personalization-workflows-aggregate-content-into-a-collection` | normal | live verification |
 | `7-common-content-and-personalization-workflows-add-personalization-to-channel-items` | normal | live verification |
-| `8-content-channels-deep-dive-channel-configuration` | needs-citation | live verification |
+| `8-content-channels-deep-dive-channel-configuration` | normal | live verification |
 | `8-content-channels-deep-dive-display-and-lava` | normal | live verification |
 | `8-content-channels-deep-dive-security` | high | live verification |
 | `9-asset-manager-deep-dive-viewing-and-managing-assets` | high | live verification |
 | `9-asset-manager-deep-dive-storage-provider-setup` | normal | live verification |
 | `9-asset-manager-deep-dive-image-and-file-performance` | normal | live verification |
 | `9-asset-manager-deep-dive-structured-content-file-behavior` | normal | live verification |
-| `10-adaptive-messages-deep-dive-when-to-use-adaptive-messages` | needs-citation | needs-citation |
 | `10-adaptive-messages-deep-dive-setup-model` | normal | live verification |
 | `10-adaptive-messages-deep-dive-entity-and-api-landmarks` | normal | live verification |
-| `10-adaptive-messages-deep-dive-troubleshooting-adaptive-messages` | needs-citation | live verification |
+| `10-adaptive-messages-deep-dive-troubleshooting-adaptive-messages` | normal | live verification |
 | `11-personalization-and-segments-deep-dive-site-level-prerequisites` | normal | live verification |
 | `11-personalization-and-segments-deep-dive-segment-types` | normal | live verification |
 | `12-related-rock-areas-cms-lava-security-communications-media-workflows-people-lava` | normal | live verification |
@@ -81,7 +80,7 @@ generated: true
 | `14-developer-api-lava-and-source-code-landmarks-rest-and-model-landmarks` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-content-channel-item-personal-list-lava-block` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-lava-interaction-logging` | normal | live verification |
-| `15-reporting-analytics-and-model-map-content-item-reporting` | needs-citation | live verification |
+| `15-reporting-analytics-and-model-map-content-item-reporting` | normal | live verification |
 | `15-reporting-analytics-and-model-map-content-collection-analytics` | normal | live verification |
 | `15-reporting-analytics-and-model-map-personalization-reporting` | normal | live verification |
 | `16-version-and-release-caveats` | normal | live verification |
@@ -91,8 +90,7 @@ generated: true
 | `17-implementation-playbooks-playbook-use-adaptive-messages-for-giving-campaign-variants` | normal | live verification |
 | `17-implementation-playbooks-playbook-publish-sermon-media-through-content-channel-items` | high | live verification |
 | `17-implementation-playbooks-playbook-configure-rss-feed-for-a-content-channel` | normal | live verification |
-| `18-troubleshooting-decision-tree-content-item-is-missing-from-a-page` | needs-citation | needs-citation |
-| `18-troubleshooting-decision-tree-asset-image-does-not-display` | needs-citation | needs-citation |
+| `18-troubleshooting-decision-tree-asset-image-does-not-display` | normal | live verification |
 | `19-agent-task-recipes-recipe-diagnose-segment-should-include-this-person` | structural | live verification |
 | `19-agent-task-recipes-recipe-create-safe-lava-for-channel-display` | high | live verification |
 | `19-agent-task-recipes-recipe-public-launch-review-for-content-personalization` | structural | live verification |

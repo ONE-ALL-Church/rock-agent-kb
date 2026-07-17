@@ -42,7 +42,7 @@ Follow the guide section for Recipe: Create safe Lava for channel display.
 - https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
 - https://community.rockrms.com/documentation/digital-publishing/personalization
+- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
 - https://community.rockrms.com/recipes/128
 - https://www.triumph.tech/resources/structured-content-rock-upgrade
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/secure-content
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/create-content-component-templates

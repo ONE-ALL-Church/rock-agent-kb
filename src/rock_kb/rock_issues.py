@@ -91,8 +91,28 @@ CONCEPT_KEYWORDS: list[tuple[str, tuple[str, ...]]] = [
     ("prayer-care", ("prayer", "care request")),
     ("content-personalization", ("personalization", "adaptive message", "content channel")),
     ("obsidian-development", ("obsidian", "block action")),
-    ("scheduling-locations", ("schedule", "location", "campus")),
 ]
+
+SCHEDULING_LOCATION_PRECISE_TITLE_KEYWORDS = (
+    "check-in schedule",
+    "checkin schedule",
+    "schedule builder",
+    "schedule category",
+    "schedule exclusion",
+    "schedule field",
+    "schedule model",
+    "schedule picker",
+    "group schedule",
+    "scheduled location",
+    "named location",
+    "location picker",
+    "location service",
+    "device location",
+    "campus context",
+    "campus picker",
+    "campus schedule",
+)
+SCHEDULING_LOCATION_AMBIGUOUS_TITLE_KEYWORDS = ("schedule", "location", "campus")
 
 BODY_ROUTE_KEYWORDS: list[tuple[str, tuple[str, ...]]] = [
     ("check-in", ("check-in", "label printing", "checkin kiosk")),
@@ -539,6 +559,22 @@ def route_issue(repository: str, *, title: str, body: str, labels: list[str]) ->
         if title_signal:
             routes[concept] = {"concept_id": concept, "basis": "title_keyword", "signal": title_signal}
             continue
+    if "scheduling-locations" not in routes:
+        scheduling_signal = next(
+            (keyword for keyword in SCHEDULING_LOCATION_PRECISE_TITLE_KEYWORDS if keyword in title_lower),
+            "",
+        )
+        if not scheduling_signal and not routes:
+            scheduling_signal = next(
+                (keyword for keyword in SCHEDULING_LOCATION_AMBIGUOUS_TITLE_KEYWORDS if keyword in title_lower),
+                "",
+            )
+        if scheduling_signal:
+            routes["scheduling-locations"] = {
+                "concept_id": "scheduling-locations",
+                "basis": "title_keyword",
+                "signal": scheduling_signal,
+            }
     if not routes:
         body_lower = body.lower()
         for concept, keywords in BODY_ROUTE_KEYWORDS:
@@ -1149,6 +1185,43 @@ def attach_issue_enrichments(
     return row
 
 
+def issue_enrichment_search_values(enrichment: dict[str, Any]) -> list[str]:
+    values: list[Any] = [
+        enrichment.get("diagnosis_summary"),
+        *(enrichment.get("workaround_summaries") or []),
+    ]
+    values.extend(
+        version
+        for assertion in enrichment.get("applicability") or []
+        if isinstance(assertion, dict)
+        for version in assertion.get("versions") or []
+    )
+
+    playbook = enrichment.get("verification_playbook")
+    if isinstance(playbook, dict):
+        values.extend(
+            [
+                playbook.get("goal"),
+                *(playbook.get("prerequisites") or []),
+                *(playbook.get("limitations") or []),
+            ]
+        )
+        for step in playbook.get("steps") or []:
+            if not isinstance(step, dict):
+                continue
+            values.extend(
+                [
+                    step.get("title"),
+                    step.get("instructions"),
+                    step.get("expected_if_affected"),
+                    step.get("expected_if_unaffected"),
+                    *(step.get("evidence_to_record") or []),
+                ]
+            )
+
+    return [str(value) for value in values if value]
+
+
 def build_reviewed_enrichment_metrics(
     issue_rows: Iterable[dict[str, Any]],
     enrichments: Iterable[dict[str, Any]],
@@ -1167,6 +1240,16 @@ def build_reviewed_enrichment_metrics(
 
     diagnosis_statuses = Counter(str(row.get("diagnosis_status") or "") for row in values)
     confidences = Counter(str(row.get("confidence") or "") for row in values)
+    playbook_enrichment_ids = sorted(
+        str(row.get("enrichment_id") or "")
+        for row in values
+        if row.get("verification_playbook")
+    )
+    missing_playbook_enrichment_ids = sorted(
+        str(row.get("enrichment_id") or "")
+        for row in values
+        if not row.get("verification_playbook")
+    )
     return {
         # Retain the scalar for existing clients while exposing review-health
         # details to the maintainer dashboard through the same summary artifact.
@@ -1175,6 +1258,12 @@ def build_reviewed_enrichment_metrics(
             "issue_count": len({str(row.get("issue_id") or "") for row in values}),
             "diagnosis_statuses": dict(sorted(diagnosis_statuses.items())),
             "confidences": dict(sorted(confidences.items())),
+            "verification_playbook_count": len(playbook_enrichment_ids),
+            "verification_playbook_coverage_percent": round(
+                (len(playbook_enrichment_ids) / len(values) * 100) if values else 100.0,
+                1,
+            ),
+            "missing_verification_playbook_enrichment_ids": missing_playbook_enrichment_ids,
             "revalidation_due_count": len(revalidation_due),
             "revalidation_due_enrichment_ids": sorted(revalidation_due),
         },
@@ -1246,6 +1335,9 @@ def write_rock_issue_guide(summary: dict[str, Any]) -> None:
         f"- Issues linked to official release notes: `{summary.get('release_note_linked_count', 0)}`",
         f"- Reviewed public enrichments: `{summary.get('reviewed_enrichment_count', 0)}`",
         f"- Reviewed issues: `{summary.get('reviewed_enrichment_metrics', {}).get('issue_count', 0)}`",
+        f"- Instance verification playbooks: "
+        f"`{summary.get('reviewed_enrichment_metrics', {}).get('verification_playbook_count', 0)}` "
+        f"(`{summary.get('reviewed_enrichment_metrics', {}).get('verification_playbook_coverage_percent', 0)}%` coverage)",
         f"- Enrichments due for revalidation after an upstream update: "
         f"`{summary.get('reviewed_enrichment_metrics', {}).get('revalidation_due_count', 0)}`",
         "- Public artifact: [`agent/rock-issues.jsonl`](../../agent/rock-issues.jsonl)",

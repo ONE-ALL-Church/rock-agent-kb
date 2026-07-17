@@ -1,0 +1,111 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6916-scheduled-duplicate-sent-early-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6916",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Rock develop source clears the prior future-send date when duplicating an approved communication, saves the newly selected FutureSendDateTime from the entry bag, and queues an immediate ProcessSendCommunication message only when that date is absent or already due. The Send Communications job also calls GetQueued with includeFuture disabled, and that query excludes a future-dated communication until it is due. These paths implement the expected scheduling boundary on the reviewed source revision, but they do not explain or reproduce the reported Rock 18.2 event and do not establish that the same code shipped in every 18.2 package. The root cause and release scope remain under investigation.",
+  "workaround_summaries": [
+    "For a time-sensitive send on an affected or unverified release, create a new draft from the intended template instead of duplicating a previously sent communication. Before final approval, verify that FutureSendDateTime is the intended future value, SendDateTime is null, and recipients remain pending; stop the send if those invariants do not hold."
+  ],
+  "verification_playbook": {
+    "goal": "Check whether future-scheduled communications show the state that preceded the reported early-send behavior without sending, approving, or changing a communication.",
+    "prerequisites": [
+      "Know the exact installed Rock version.",
+      "Use an existing pending future communication; do not create or duplicate one in production for this check."
+    ],
+    "steps": [
+      {
+        "step_id": "check-release-scope",
+        "title": "Check release scope",
+        "method": "version_check",
+        "instructions": "Compare the installed version with the reported 18.2 release and with a source revision whose scheduling guards have been reviewed.",
+        "expected_if_affected": "The instance runs the reported or another unverified release and uses duplicated future communications.",
+        "expected_if_unaffected": "The instance runs a build independently verified to contain the reviewed scheduling guards; this lowers risk but does not explain past sends.",
+        "evidence_to_record": [
+          "Rock version"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "check-future-send-invariants",
+        "title": "Check future-send invariants",
+        "method": "read_only_sql",
+        "instructions": "Return aggregate counts only. A future-scheduled communication should not already have SendDateTime populated. Do not return communication IDs, subjects, recipient data, or message content.",
+        "probe": "SELECT COUNT(*) AS FutureScheduledCount, SUM(CASE WHEN [SendDateTime] IS NOT NULL THEN 1 ELSE 0 END) AS FutureScheduledWithSendDateCount FROM [Communication] WHERE [FutureSendDateTime] > GETDATE()",
+        "expected_if_affected": "FutureScheduledWithSendDateCount is greater than zero, which is an actionable state anomaly requiring immediate human review; it does not by itself establish this issue's root cause.",
+        "expected_if_unaffected": "FutureScheduledWithSendDateCount is zero. This verifies the current stored invariant only and cannot disprove a past transient event.",
+        "evidence_to_record": [
+          "aggregate future scheduled count",
+          "aggregate future scheduled with send date count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-pending-state",
+        "title": "Inspect an existing pending communication",
+        "method": "ui_observation",
+        "instructions": "Open an existing future communication read-only and verify the displayed scheduled time and pending state. Do not edit, approve, duplicate, cancel, or trigger processing.",
+        "expected_if_affected": "The page shows an inconsistent scheduled or sent state before the intended time.",
+        "expected_if_unaffected": "The intended future time is displayed and the communication remains pending, which verifies only that record at that moment.",
+        "evidence_to_record": [
+          "scheduled time matches yes or no",
+          "pending state yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A safe production check cannot reproduce an early send because sending or approving a test communication is a mutation.",
+      "Use an isolated staging instance and non-real recipients for any active reproduction."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6916-under-investigation-18.2",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "18.2",
+      "context": {
+        "scope": "duplicating a previously sent bulk communication and selecting a future send date"
+      },
+      "versions": ["18.2"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6916",
+        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationDetail.cs#L1007-L1015",
+        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3198-L3246",
+        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3400-L3407",
+        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Jobs/SendCommunications.cs#L95-L108",
+        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Model/Communication/Communication/CommunicationService.cs#L646-L716"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T07:25:16Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6916",
+    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationDetail.cs#L1007-L1015",
+    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3198-L3246",
+    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3400-L3407",
+    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Jobs/SendCommunications.cs#L95-L108",
+    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Model/Communication/Communication/CommunicationService.cs#L646-L716"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "medium",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-09T20:01:43Z",
+  "reviewed_at": "2026-07-17T07:25:16Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

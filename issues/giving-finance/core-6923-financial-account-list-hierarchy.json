@@ -1,0 +1,128 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6923",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Current public Financial Account List source filters to children when AccountId identifies a parent. When no parent is supplied, its else-if condition is `topLevelOnly || !parentAccountId.HasValue`; the second term is always true in that branch, so the query always filters to accounts whose ParentAccountId is null. ReorderItem then operates only on that filtered list. This confirms that the reviewed Obsidian path cannot present a flat all-account reorder list, even when TopLevel is false. The earlier issue 6465 fix intentionally added this condition to restore an unparameterized top-level view, but it did not preserve the legacy block's separate all-account behavior.",
+  "workaround_summaries": [
+    "Until Rock restores an explicit all-account ordering mode, manage ordering within each parent-specific account list and verify the resulting public giving presentation in staging. Do not treat the root Obsidian list as a complete flattened account hierarchy or move parent accounts under the assumption that omitted children will follow its order."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the instance has child financial accounts that the Obsidian root reorder list cannot display.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to aggregate FinancialAccount hierarchy counts."
+    ],
+    "steps": [
+      {
+        "step_id": "check-list-source",
+        "title": "Check the installed list behavior",
+        "method": "source_revision_check",
+        "instructions": "Determine whether the installed FinancialAccountList implementation still applies the root-only filter whenever AccountId is absent.",
+        "expected_if_affected": "The unscoped branch filters ParentAccountId to null regardless of the TopLevel value.",
+        "expected_if_unaffected": "The installed build exposes an explicit, verified all-account branch or otherwise includes child accounts in the intended reorder operation.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-child-accounts",
+        "title": "Count hierarchy exposure",
+        "method": "read_only_sql",
+        "instructions": "Return aggregate counts only. Do not return account IDs, names, balances, or transaction data.",
+        "probe": "SELECT COUNT(*) AS AccountCount, SUM(CASE WHEN [ParentAccountId] IS NOT NULL THEN 1 ELSE 0 END) AS ChildAccountCount, SUM(CASE WHEN [ParentAccountId] IS NOT NULL AND [IsActive] = 1 AND [IsPublic] = 1 THEN 1 ELSE 0 END) AS ActivePublicChildAccountCount FROM [FinancialAccount]",
+        "expected_if_affected": "ChildAccountCount is greater than zero and the installed list source has the root-only filter; active public children make the public ordering impact more immediate.",
+        "expected_if_unaffected": "ChildAccountCount is zero, or the installed list source has a verified all-account path. A zero count removes current data exposure but does not change the code behavior.",
+        "evidence_to_record": [
+          "aggregate account count",
+          "aggregate child account count",
+          "aggregate active public child account count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "observe-root-list",
+        "title": "Compare the hierarchy with the root list",
+        "method": "ui_observation",
+        "instructions": "Open the account hierarchy and root account list without dragging, saving, or editing. Record only whether known child rows are absent from the root reorder surface.",
+        "expected_if_affected": "Child accounts exist in the hierarchy but are absent from the root reorder list.",
+        "expected_if_unaffected": "The intended child accounts are present in the reorder surface or the instance has no child accounts.",
+        "evidence_to_record": [
+          "child accounts exist yes or no",
+          "child rows absent from root list yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "The playbook confirms applicability but does not test a reorder because dragging accounts changes production ordering.",
+      "A staging reorder is still needed to validate how a specific Giving block renders customized account selections."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6923-under-investigation-18.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "18.3",
+      "context": {
+        "scope": "Obsidian Financial Account List used to reorder a hierarchy containing child accounts"
+      },
+      "versions": ["18.3"],
+      "ranges": [],
+      "status": "under_investigation",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6923",
+        "https://github.com/SparkDevNetwork/Rock/commit/13e782e0bb955151d648d5ef61db9ebcd65d9ccb"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    },
+    {
+      "assertion_id": "core-6923-affected-develop-f4e14ae",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "reviewed FinancialAccountList source when child accounts exist"
+      },
+      "versions": ["f4e14ae9a1dd97096627429876d6e1bc1df07b30"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6923",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L174-L199",
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L228-L245"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6923",
+    "https://github.com/SparkDevNetwork/Rock/commit/13e782e0bb955151d648d5ef61db9ebcd65d9ccb",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L174-L199",
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L228-L245"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-16T18:57:45Z",
+  "reviewed_at": "2026-07-17T07:57:36Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

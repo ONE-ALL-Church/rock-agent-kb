@@ -83,6 +83,8 @@ Use the following working vocabulary.
 
 ## 3. Learning, LMS, And Engagement Mental Model
 
+Use [Intro to LMS](https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms) for the learning hierarchy and [Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps) for milestone tracking; integrations with groups, workflows, and registrations remain separate ownership boundaries.
+
 Think of Rock learning and engagement as layered systems.
 
 The bottom layer is **People**. All learning and engagement ultimately attach to person records, often through group membership, class enrollment, connection requests, communication recipients, or workflow attributes. If the person record is merged, duplicated, inactive, deceased, security-restricted, or missing communication channels, downstream learning behavior can appear broken.
@@ -235,6 +237,8 @@ Operational sequence:
 When source material is thin, verify in the target instance: semester field names, class date behavior, whether activity due dates block completion or only affect grading labels, and whether calendar mode changes are allowed after learners have begun.
 
 ### Assign Training To Volunteers Or Staff
+
+[Intro to LMS](https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms) defines the training system, while [Intro to Group Requirements](https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements) defines the eligibility system; verify the live bridge between them instead of assuming completion automatically satisfies a group rule.
 
 LMS is usually the right system when the organization needs training records. Group Requirements are usually the right system when the organization needs eligibility checks before someone serves, joins, or is scheduled.
 
@@ -847,6 +851,8 @@ GitHub source snippets come from the `develop` branch. Do not assume they exactl
 
 ### Playbook: Launch A Volunteer Training LMS Program
 
+Base the configuration sequence on [Create a Learning Program](https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program) and [Create the Learning Plan](https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan), then test the learner and administrator surfaces in the target version.
+
 1. Define the training policy.
 2. Identify the people or group roles affected.
 3. Create the Learning Program.
@@ -877,6 +883,8 @@ Verify live:
 
 ### Playbook: Add A New Course Requirement
 
+The official [Courses](https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses) guidance defines course prerequisites; verify enforcement against existing enrollments and completions before publishing a new requirement.
+
 1. Identify the dependent course.
 2. Identify the required course.
 3. Confirm both are active and in the intended program relationship.
@@ -891,6 +899,8 @@ Verify live:
 If enforcement behavior is unclear, inspect the live LMS enrollment and class access flow. The source pack confirms requirement models and fields, but not every UI enforcement moment.
 
 ### Playbook: Convert A Training Completion Into An Engagement Step
+
+[LMS Behind the Scenes](https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes) and [Configure Steps](https://community.rockrms.com/documentation/engagement/steps/configure-steps) define the two record systems, but the automation that connects them is instance-owned and must be tested for trigger entity, duplicate protection, and date semantics.
 
 1. Identify LMS completion source: activity, course, class, or program.
 2. Identify target Step Program and Step Type.
@@ -1005,6 +1015,8 @@ Check:
 Review the v19-era caveat about activity completion workflows using `Learning Class Activity Completion` ([GitHub Spotlight: 11/14/2025](https://www.triumph.tech/resources/github-spotlight-11142025)).
 
 ### Group Requirement Still Fails After LMS Completion
+
+Use [View Group Requirements](https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements) to inspect the evaluated result and [Use Group Requirement Jobs](https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs) to verify recalculation behavior before changing LMS completion data.
 
 Check:
 

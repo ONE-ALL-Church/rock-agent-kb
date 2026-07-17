@@ -40,9 +40,9 @@ Follow the guide section for Recipe: Diagnose External Website API Failure.
 - https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/developer/roku-docs/getting-started/applications
 - https://community.rockrms.com/api-docs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs
-- https://community.rockrms.com/lava/commands/web-request-commands
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/lava/lava-api

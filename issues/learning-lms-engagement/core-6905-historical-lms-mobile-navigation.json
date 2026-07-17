@@ -7,6 +7,41 @@
   "workaround_summaries": [
     "For completed courses that must remain browsable, direct learners to the desktop workspace until the mobile selector behavior is fixed, and verify historical access with a completed test learner on every supported viewport."
   ],
+  "verification_playbook": {
+    "goal": "Determine whether completed learners lose historical activity navigation only on narrow viewports.",
+    "prerequisites": [
+      "Use an existing non-sensitive test learner whose class is complete.",
+      "Confirm the course is configured to allow historical access."
+    ],
+    "steps": [
+      {
+        "step_id": "check-historical-access-setting",
+        "title": "Inspect historical access configuration",
+        "method": "configuration_check",
+        "instructions": "View the course and class configuration without saving and record only whether historical access is enabled for completed learners.",
+        "expected_if_affected": "Historical access is enabled, so the server-side prerequisite for browsing completed content is present.",
+        "expected_if_unaffected": "Historical access is disabled; inability to browse completed content is then expected configuration rather than this issue.",
+        "evidence_to_record": ["historical access enabled yes or no"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "compare-viewports",
+        "title": "Compare completed workspace navigation",
+        "method": "ui_observation",
+        "instructions": "Using the same completed test learner, open the workspace at desktop and narrow mobile viewport widths without submitting work. Record only whether prior activities remain selectable in each view.",
+        "expected_if_affected": "Desktop exposes prior activities while the narrow view remains on the completion screen without an accessible activity selector.",
+        "expected_if_unaffected": "Prior activities remain selectable on both viewports, or neither viewport permits access because configuration disables it.",
+        "evidence_to_record": ["desktop activities selectable yes or no", "mobile activities selectable yes or no", "viewport category"],
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Use a test learner because opening activities can update ordinary interaction telemetry even when course progress does not change.",
+      "One browser width does not cover every mobile shell or embedded webview."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6905-under-investigation-develop-6e30556",

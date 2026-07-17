@@ -51,6 +51,7 @@ Prepare a course or class for learners by checking structure, activities, schedu
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/43/354
 - https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses
 - https://community.rockrms.com/ModelMap
 - https://www.triumph.tech/resources/github-spotlight-11142025
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs

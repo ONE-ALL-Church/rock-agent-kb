@@ -39,10 +39,10 @@ Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”.
 - https://community.rockrms.com/documentation/bookcontent/32
 - https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/lava/commands/cache-commands
-- https://community.rockrms.com/rocku/core-concepts
 - https://community.rockrms.com/recipes/522
 - https://community.rockrms.com/rocku/cms/cache-tags
-- https://community.rockrms.com/developer/developer-codex/coding-standards
-- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/rocku/core-concepts
+- https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
 - https://community.rockrms.com/rocku/core-concepts/automations
 - https://community.rockrms.com/rocku/individuals-in-rock/data-integrity
+- https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1

@@ -2,11 +2,53 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6897-workflow-entry-completion-timestamps-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6897",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Rock source processes a loaded workflow during Workflow Entry block initialization. Workflow processing calls MarkComplete whenever no active activities remain, and MarkComplete unconditionally rewrites every activity completion time and the workflow CompletedDateTime before adding another completion log entry. This supports the reported timestamp mutation on the reviewed source revision; exact release-package boundaries remain unverified.",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "The reviewed pre-fix source processed a loaded workflow during Workflow Entry initialization and could rewrite completion timestamps when no active activities remained. Rock closed the confirmed issue with commit 9db966e3da336b30ff62fffd1c54e147035922c5: the Obsidian block now returns the end-of-workflow result before processing a workflow that already has CompletedDateTime, and the legacy block likewise skips processing. The issue is labeled Fixed in v19.4; verify exact package inclusion because the label names a release line rather than an exact installed build.",
   "workaround_summaries": [
     "When an existing completion timestamp is an audit or reporting datum, do not open that completed workflow through Workflow Entry. Use a read-only report or detail surface that does not process the workflow, and verify the chosen surface in staging."
   ],
+  "verification_playbook": {
+    "goal": "Determine whether the installed build can reprocess completed workflows through Workflow Entry without risking a production timestamp change.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Do not open a completed workflow through Workflow Entry while assessing an unverified build."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm that the installed package contains commit 9db966e3da336b30ff62fffd1c54e147035922c5 or an independently verified equivalent fix.",
+        "expected_if_affected": "The installed build predates the guard or its Workflow Entry source still processes a workflow when CompletedDateTime already has a value.",
+        "expected_if_unaffected": "The installed build contains the completed-workflow guard in both applicable Workflow Entry implementations.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-exposed-workflows",
+        "title": "Count completed workflows without opening them",
+        "method": "read_only_sql",
+        "instructions": "Use the aggregate count only to determine whether completed workflows exist that could be exposed to the affected page. Do not return workflow IDs or other record details.",
+        "probe": "SELECT COUNT(*) AS CompletedWorkflowCount FROM [Workflow] WHERE [CompletedDateTime] IS NOT NULL",
+        "expected_if_affected": "A nonzero count establishes exposure if the installed build lacks the fix; it does not prove timestamps were already changed.",
+        "expected_if_unaffected": "A zero count means there is no current completed-workflow population to expose, while a fixed build removes the known processing path regardless of count.",
+        "evidence_to_record": [
+          "aggregate completed workflow count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "There is no production-safe reproduction on an affected build because opening the target page is the action that can mutate the audit timestamp.",
+      "Historical data alone may not prove which page view changed a timestamp."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6897-affected-develop-6e30556",
@@ -29,13 +71,63 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6897-fixed-by-commit-9db966e",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Workflow Entry source revision; release package inclusion remains independently verifiable"
+      },
+      "versions": ["9db966e3da336b30ff62fffd1c54e147035922c5"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/9db966e3da336b30ff62fffd1c54e147035922c5"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6897",
+        "https://github.com/SparkDevNetwork/Rock/commit/9db966e3da336b30ff62fffd1c54e147035922c5",
+        "https://github.com/SparkDevNetwork/Rock/blob/9db966e3da336b30ff62fffd1c54e147035922c5/Rock.Blocks/WorkFlow/WorkflowEntry.cs#L690-L702",
+        "https://github.com/SparkDevNetwork/Rock/blob/9db966e3da336b30ff62fffd1c54e147035922c5/RockWeb/Blocks/WorkFlow/WorkflowEntry.ascx.cs#L672-L681"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T07:57:36Z"
+    },
+    {
+      "assertion_id": "core-6897-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official fix release line; verify the exact installed package"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/9db966e3da336b30ff62fffd1c54e147035922c5"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6897",
+        "https://github.com/SparkDevNetwork/Rock/commit/9db966e3da336b30ff62fffd1c54e147035922c5"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T07:57:36Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6897",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/WorkFlow/WorkflowEntry.cs#L355-L402",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/WorkFlow/WorkflowEntry.cs#L959-L994",
-    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Workflow/Workflow/Workflow.Logic.cs#L208-L256"
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Workflow/Workflow/Workflow.Logic.cs#L208-L256",
+    "https://github.com/SparkDevNetwork/Rock/commit/9db966e3da336b30ff62fffd1c54e147035922c5",
+    "https://github.com/SparkDevNetwork/Rock/blob/9db966e3da336b30ff62fffd1c54e147035922c5/Rock.Blocks/WorkFlow/WorkflowEntry.cs#L690-L702",
+    "https://github.com/SparkDevNetwork/Rock/blob/9db966e3da336b30ff62fffd1c54e147035922c5/RockWeb/Blocks/WorkFlow/WorkflowEntry.ascx.cs#L672-L681"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
@@ -43,8 +135,8 @@
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-06-27T20:25:10Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "issue_updated_at": "2026-07-16T03:00:57Z",
+  "reviewed_at": "2026-07-17T07:57:36Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

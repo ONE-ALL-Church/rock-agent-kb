@@ -7,6 +7,40 @@
   "workaround_summaries": [
     "Until Connections Hub handles interactive redirect results, do not rely on a Redirect action for a manually launched connection workflow. Use an active entry-form flow that Connections Hub can return, or launch the workflow from the classic Connection Request Board after staging verification."
   ],
+  "verification_playbook": {
+    "goal": "Identify connection workflows that rely on Redirect when manually launched from Connections Hub, without launching or processing a workflow.",
+    "prerequisites": [
+      "Know which workflows are exposed as manual actions in Connections Hub.",
+      "Have read-only access to workflow action configuration."
+    ],
+    "steps": [
+      {
+        "step_id": "check-hub-source",
+        "title": "Check the installed launch path",
+        "method": "source_revision_check",
+        "instructions": "Verify whether Connections Hub still returns only an active Workflow Entry form URL and does not consume Redirect's interactive-action result.",
+        "expected_if_affected": "The installed path has the reviewed behavior and a launched workflow can complete through Redirect without returning a browser destination.",
+        "expected_if_unaffected": "The installed build explicitly handles the interactive redirect result or otherwise returns the intended destination.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-workflow-actions",
+        "title": "Inspect exposed workflow actions",
+        "method": "configuration_check",
+        "instructions": "Without launching a workflow, inspect each manual Connections Hub workflow and record only whether its reachable action path depends on Redirect before any active entry form.",
+        "expected_if_affected": "A manually exposed workflow relies on Redirect and the installed hub source does not handle its interactive result.",
+        "expected_if_unaffected": "No exposed workflow relies on Redirect, an active form is returned first, or the installed hub source handles the redirect result.",
+        "evidence_to_record": ["manual workflow exposed yes or no", "Redirect dependency yes or no"],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Do not launch a production workflow solely to reproduce the symptom because processing can create activities, logs, notifications, or other side effects."
+    ],
+    "production_safe": true
+  },
   "applicability": [
     {
       "assertion_id": "core-6920-affected-develop-6e30556",

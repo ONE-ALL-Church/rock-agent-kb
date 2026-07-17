@@ -10,12 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `8-content-channels-deep-dive-channel-configuration`: Channel configuration (97 words)
-- `10-adaptive-messages-deep-dive-when-to-use-adaptive-messages`: When to use adaptive messages (104 words)
-- `10-adaptive-messages-deep-dive-troubleshooting-adaptive-messages`: Troubleshooting adaptive messages (126 words)
-- `15-reporting-analytics-and-model-map-content-item-reporting`: Content item reporting (104 words)
-- `18-troubleshooting-decision-tree-content-item-is-missing-from-a-page`: Content item is missing from a page (115 words)
-- `18-troubleshooting-decision-tree-asset-image-does-not-display`: Asset image does not display (104 words)
 
 ## Community-Supported Only
 

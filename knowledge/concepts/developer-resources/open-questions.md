@@ -10,12 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-rock-developer-resources-workflows-choose-the-correct-developer-path`: Choose the correct developer path (94 words)
-- `7-common-rock-developer-resources-workflows-diagnose-a-broken-developer-feature`: Diagnose a broken developer feature (86 words)
-- `9-developer-101-launchpad-deep-dive-operational-pattern`: Operational pattern (107 words)
-- `14-ai-agents-deep-dive-lava-tools-vs-native-tools`: Lava tools vs native tools (94 words)
-- `27-troubleshooting-decision-tree-the-block-does-not-render`: The block does not render (81 words)
-- `29-source-map-and-dependency-notes-dependency-notes`: Dependency notes (143 words)
 
 ## Community-Supported Only
 
