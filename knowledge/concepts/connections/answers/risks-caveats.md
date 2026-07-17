@@ -17,6 +17,11 @@ Connection request due and due-soon dates in v19 can be configured at the connec
 - `claim:22d1740dac760490a861`
 - `claim:9851e6f9beb234b9ae44`
 
+## Distilled Claims
+
+- `distilled-claim:c11b1a8a134661c7d577`
+- `distilled-claim:de15ad65c688858eef99`
+
 ## Citations
 
 - [Connections Helps Prevent Your People from Falling Through the Cracks](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=82s) (`01:22`)

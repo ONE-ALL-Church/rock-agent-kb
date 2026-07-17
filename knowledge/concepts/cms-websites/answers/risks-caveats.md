@@ -19,6 +19,7 @@ When reviewing an Advanced HTML block, inspect page/block security, enabled Lava
 
 ## Distilled Claims
 
+- `distilled-claim:375811de9dc2a7ee843e`
 - `distilled-claim:73769c81f365903959ad`
 
 ## Citations

@@ -16,6 +16,10 @@ Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for main
 - `claim:9c8ce297c9c4a4cda982`
 - `claim:e704f98991439e3e1576`
 
+## Distilled Claims
+
+- `distilled-claim:49989d42ed466c8d255a`
+
 ## Citations
 
 - [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s) (`00:00`)

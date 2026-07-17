@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Connections?
 
-Connection request due and due-soon dates in v19 can be configured at the connection type, opportunity or status level. Inspect the selected calculation mode before interpreting overdue metrics. Connection-request AI summaries and insights require a configured prompt on the connection type and a configured AI provider. Their output should be treated as generated assistance, not authoritative person data. When sequential status mode is enabled for a connection type, a request can advance only through adjacent configured status order rather than jumping arbitrarily. Completion becomes available after the final status. The v19 Connections list supports filtering by assignment, opportunity and campus; grouping, sorting and column selection; quick search; and an optional request-source field. Verify local block settings and source configuration when a field or grouping option is absent.
+Connection request due and due-soon dates in v19 can be configured at the connection type, opportunity or status level. Inspect the selected calculation mode before interpreting overdue metrics. Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.
 
 ## Top Claims
 
@@ -19,6 +19,11 @@ Connection request due and due-soon dates in v19 can be configured at the connec
 - `claim:07a75e5ff71510d708de`
 - `claim:5eedd5acf0194a87c5ce`
 - `claim:90fecb6ea51cf994ff92`
+
+## Distilled Claims
+
+- `distilled-claim:c11b1a8a134661c7d577`
+- `distilled-claim:de15ad65c688858eef99`
 
 ## Citations
 

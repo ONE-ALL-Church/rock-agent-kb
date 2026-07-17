@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Prayer And Care?
 
-Rock can require administrator approval before prayer requests enter team sessions, and it prioritizes urgent requests ahead of requests ordered from least prayed-for to most prayed-for. Prayer requests configured for automatic approval become available to the prayer team immediately; otherwise an administrator must approve them before they appear in prayer sessions. The Prayer Request Comments Digest communication includes the original request and comments added since the job last ran; on its first run, it includes all existing comments. The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally.
+The Prayer Request Entry block's expiration period controls how long an approved request stays active, but this setting applies only when automatic approval is enabled. The Prayer Request Comments Digest communication includes the original request and comments added since the job last ran; on its first run, it includes all existing comments. To send prayer-comment digests regardless of category, leave the job's Prayer Categories setting blank and enable Include Child Categories; otherwise, category selection and the child-category option can restrict which requests generate communications. Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout.
 
 ## Top Claims
 
@@ -19,6 +19,13 @@ Rock can require administrator approval before prayer requests enter team sessio
 - `claim:5d8cf058b42faaa9b067`
 - `claim:730dc8002a49af1f97f8`
 - `claim:86749b850c84898312d8`
+
+## Distilled Claims
+
+- `distilled-claim:620d77e1e55b5123cfe2`
+- `distilled-claim:92dd0ee2c12fe24352ec`
+- `distilled-claim:9efccb5f44d0ab015f75`
+- `distilled-claim:a617f7eef6df119d2c0a`
 
 ## Citations
 

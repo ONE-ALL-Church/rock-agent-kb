@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for CMS And Websites?
 
-When reviewing an Advanced HTML block, inspect page/block security, enabled Lava commands, query-string or context inputs, and whether the output exposes sensitive entity data. Personalization should be reviewed as conditional content delivery, not as a security substitute; hidden or targeted content still needs proper page, block, and entity authorization. Content Channel View adds public-safe CMS guidance: verify both content-channel configuration and page/block rendering paths when auditing what content is visible.
+Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. When reviewing an Advanced HTML block, inspect page/block security, enabled Lava commands, query-string or context inputs, and whether the output exposes sensitive entity data. Personalization should be reviewed as conditional content delivery, not as a security substitute; hidden or targeted content still needs proper page, block, and entity authorization. Content Channel View adds public-safe CMS guidance: verify both content-channel configuration and page/block rendering paths when auditing what content is visible.
 
 ## Top Claims
 
@@ -22,6 +22,7 @@ When reviewing an Advanced HTML block, inspect page/block security, enabled Lava
 
 ## Distilled Claims
 
+- `distilled-claim:375811de9dc2a7ee843e`
 - `distilled-claim:73769c81f365903959ad`
 - `distilled-claim:f0418366c8494ff2dc97`
 - `distilled-claim:5e002f961b8117942c7d`

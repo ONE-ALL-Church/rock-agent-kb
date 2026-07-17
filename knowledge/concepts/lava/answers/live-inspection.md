@@ -21,7 +21,7 @@ For Lava, inspect these live surfaces before changing production behavior: Rock 
 ## Distilled Claims
 
 - `distilled-claim:018890c9ff7df61a429b`
-- `distilled-claim:1b24fed3c10b3e77023a`
+- `distilled-claim:0fdef944e805ef0178c0`
 
 ## Citations
 

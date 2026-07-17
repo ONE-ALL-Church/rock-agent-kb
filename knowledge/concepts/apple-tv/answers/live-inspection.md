@@ -18,6 +18,11 @@ For Apple TV Apps, inspect these live surfaces before changing production behavi
 - `claim:7c1dbe225fa4deb7dd95`
 - `claim:7ccac1bf95c7087cf399`
 
+## Distilled Claims
+
+- `distilled-claim:1ab29c1bee8b124dff55`
+- `distilled-claim:55c71492c0ed7bd87eb7`
+
 ## Citations
 
 - [TV Text Style](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style)

@@ -18,6 +18,10 @@ For Platform Configuration, inspect these live surfaces before changing producti
 - `claim:b4fb38224ff8452078f3`
 - `claim:f8380a3e786ab33df98f`
 
+## Distilled Claims
+
+- `distilled-claim:6ee2827caf8a6024555e`
+
 ## Citations
 
 - [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=96s) (`01:36`)

@@ -18,6 +18,11 @@ For Documents And Signatures, inspect these live surfaces before changing produc
 - `claim:ee557cad58f629774200`
 - `claim:10c8aa9843cf753763cc`
 
+## Distilled Claims
+
+- `distilled-claim:0b398bcdb7201dc81088`
+- `distilled-claim:6c0b42987afa06e8cab9`
+
 ## Citations
 
 - [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow)

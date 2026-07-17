@@ -431,6 +431,59 @@ def test_model_map_scrape_freshness_accepts_current_scrapes(monkeypatch, tmp_pat
     assert [row["status"] for row in result["tracks"]] == ["current", "current"]
 
 
+def test_model_map_artifact_freshness_does_not_treat_live_rollback_as_stale(monkeypatch, tmp_path):
+    summary_path = tmp_path / "model-map-summary.json"
+    summary_path.write_text(
+        json.dumps(
+            {
+                "stable": {
+                    "rock_version": "19.2.0",
+                    "rock_version_source_url": "https://stable.example/api/Utility/GetRockSemanticVersionNumber",
+                },
+                "latest": {
+                    "rock_version": "20.0.4",
+                    "rock_version_source_url": "https://latest.example/api/Utility/GetRockSemanticVersionNumber",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    class FakeResponse:
+        status = 200
+        headers = {"content-type": "application/json"}
+
+        def __init__(self, body):
+            self.body = body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+        def read(self, _limit):
+            return self.body
+
+    def fake_urlopen(request, timeout):
+        if "stable.example" in request.full_url:
+            return FakeResponse(b'"19.1.8"')
+        if "latest.example" in request.full_url:
+            return FakeResponse(b'"20.0.4"')
+        raise AssertionError(request.full_url)
+
+    monkeypatch.setattr(model_map.urllib.request, "urlopen", fake_urlopen)
+
+    result = model_map.model_map_artifact_freshness(summary_path=summary_path)
+
+    assert result["status"] == "current"
+    assert result["stale_tracks"] == []
+    assert [(row["track"], row["recorded_version"], row["live_version"]) for row in result["ahead_tracks"]] == [
+        ("stable", "19.2.0", "19.1.8")
+    ]
+    assert result["tracks"][0]["status"] == "live-behind"
+
+
 def test_build_model_map_version_diff_tracks_added_and_changed_properties(tmp_path):
     stable_path = tmp_path / "stable.json"
     latest_path = tmp_path / "latest.json"

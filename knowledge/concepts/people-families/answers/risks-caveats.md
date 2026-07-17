@@ -17,6 +17,10 @@ When a v19 person merge changes the surviving last name, Rock can add the former
 - `claim:c161a6f06a707e04dbea`
 - `claim:5c53977793c7673b19e9`
 
+## Distilled Claims
+
+- `distilled-claim:1d750424284ebf9eef9f`
+
 ## Citations
 
 - [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=963s) (`16:03`)

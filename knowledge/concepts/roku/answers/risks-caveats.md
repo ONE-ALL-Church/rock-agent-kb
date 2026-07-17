@@ -15,6 +15,10 @@ Rock's Roku TV application cannot play YouTube content; its video command expect
 - `claim:410bf6750e90b7193262`
 - `claim:52b50da71870c1d611da`
 
+## Distilled Claims
+
+- `distilled-claim:ad2426e1a191434cfeaa`
+
 ## Citations
 
 - [Media](https://community.rockrms.com/developer/roku-docs/commands/media)

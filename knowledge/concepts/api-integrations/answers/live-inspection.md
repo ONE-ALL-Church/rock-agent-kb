@@ -18,6 +18,10 @@ For API And Integrations, inspect these live surfaces before changing production
 - `claim:410bf6750e90b7193262`
 - `claim:d35ed98aadeaabd2cf1e`
 
+## Distilled Claims
+
+- `distilled-claim:3da7928236fbd816d5d7`
+
 ## Citations
 
 - [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s) (`05:40`)

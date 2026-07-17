@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What should I check first for Scheduling And Locations?
 
-Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.
+Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.
 
 ## Top Claims
 
@@ -19,6 +19,11 @@ Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows
 - `claim:32f0173b23a7d2c356c0`
 - `claim:3e398ac03167b9c52704`
 - `claim:dc7cb132c34cdde8cb4e`
+
+## Distilled Claims
+
+- `distilled-claim:8bfc82127ec1e32191da`
+- `distilled-claim:cd3356f2b9d53eef9dee`
 
 ## Citations
 

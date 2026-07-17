@@ -18,6 +18,11 @@ For Prayer And Care, inspect these live surfaces before changing production beha
 - `claim:55fa3b618e6ed07e28b8`
 - `claim:91425a8f1fedfc67184b`
 
+## Distilled Claims
+
+- `distilled-claim:620d77e1e55b5123cfe2`
+- `distilled-claim:92dd0ee2c12fe24352ec`
+
 ## Citations
 
 - [Enter Prayer Requests](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests)

@@ -20,8 +20,8 @@ For Rock Mobile, inspect these live surfaces before changing production behavior
 
 ## Distilled Claims
 
+- `distilled-claim:49989d42ed466c8d255a`
 - `distilled-claim:635171e1475b9f4ea2dd`
-- `distilled-claim:e0d8c482b56560af1ea5`
 
 ## Citations
 

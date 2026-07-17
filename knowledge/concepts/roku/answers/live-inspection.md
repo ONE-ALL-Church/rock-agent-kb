@@ -18,6 +18,11 @@ For Roku Apps, inspect these live surfaces before changing production behavior: 
 - `claim:d67d29d2e4b62513a89b`
 - `claim:f1a329c4eb4099f7fa88`
 
+## Distilled Claims
+
+- `distilled-claim:10234d2138196d0ad4d2`
+- `distilled-claim:222b9d4f421c32383c4d`
+
 ## Citations
 
 - [Layout Nodes](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes)
