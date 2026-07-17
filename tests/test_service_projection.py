@@ -638,6 +638,34 @@ def test_configure_bounded_artifact_retention_is_idempotent(monkeypatch):
     assert all(method == "GET" for _, method, _ in calls)
 
 
+def test_request_json_uses_named_json_client_headers(monkeypatch):
+    captured = {}
+
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, traceback):
+            return False
+
+        def read(self):
+            return b'{"status":"ok"}'
+
+    def fake_urlopen(request, timeout):
+        captured["headers"] = {key.lower(): value for key, value in request.header_items()}
+        captured["timeout"] = timeout
+        return FakeResponse()
+
+    monkeypatch.setattr(service_projection.urllib_request, "urlopen", fake_urlopen)
+
+    result = service_projection.request_json("https://kb.test/health")
+
+    assert result == {"status": "ok"}
+    assert captured["headers"]["accept"] == "application/json"
+    assert captured["headers"]["user-agent"] == "rock-kb-deployer/1.0"
+    assert captured["timeout"] == 30
+
+
 def max_sql_statement_length(sql: str) -> int:
     statements: list[str] = []
     in_string = False
