@@ -26,6 +26,11 @@ def source_freshness_command(
     source_status: Path | None = typer.Option(None, "--source-status", exists=True, dir_okay=False),
     baseline_snapshot: Path | None = typer.Option(None, "--baseline-snapshot", exists=True, dir_okay=False),
     previous_observations: Path | None = typer.Option(None, "--previous-observations", exists=True, dir_okay=False),
+    required_cadence: list[str] = typer.Option(
+        [],
+        "--required-cadence",
+        help="Restrict the strict freshness gate to one or more cadences while retaining all rows in the report.",
+    ),
     strict: bool = typer.Option(False, "--strict", help="Exit non-zero when required sources are failed, missing, or overdue."),
 ) -> None:
     """Classify every registered source against its expected refresh cadence."""
@@ -38,6 +43,7 @@ def source_freshness_command(
         source_status_path=source_status,
         baseline_snapshot_path=baseline_snapshot,
         previous_observations_path=previous_observations,
+        required_cadences=required_cadence,
     )
     print_json(data=report)
     if strict and report["status"] != "ok":

@@ -95,6 +95,7 @@ jobs:
           uv run kb sources freshness \
             --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
             --source-status data/review/source-scan/source-refresh-status.json \
+            --required-cadence daily \
             --strict
       - name: Run daily refresh regression tests
         if: steps.refresh_sources.outcome == 'success'

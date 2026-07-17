@@ -6,7 +6,7 @@ from types import SimpleNamespace
 
 import yaml
 
-from rock_kb.source_freshness import build_source_observations, source_freshness_rows
+from rock_kb.source_freshness import blocking_source_ids, build_source_observations, source_freshness_rows
 from rock_kb.sources import load_sources
 
 
@@ -152,6 +152,17 @@ def test_rock_issue_summary_supplies_issue_source_freshness_metadata():
     assert by_id["rock_core_issues"]["content_hash"] != by_id["rock_mobile_issues"]["content_hash"]
 
 
+def test_blocking_sources_can_be_scoped_to_daily_cadence():
+    rows = [
+        {"source_id": "daily-current", "cadence": "daily", "status": "current"},
+        {"source_id": "daily-missing", "cadence": "daily", "status": "missing"},
+        {"source_id": "weekly-missing", "cadence": "weekly", "status": "missing"},
+    ]
+
+    assert blocking_source_ids(rows) == ["daily-missing", "weekly-missing"]
+    assert blocking_source_ids(rows, {"daily"}) == ["daily-missing"]
+
+
 def test_daily_workflow_covers_refreshable_daily_sources_and_leaves_weekly_refresh():
     daily_workflow = yaml.safe_load(Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8"))
     configured = set(daily_workflow["jobs"]["refresh"]["env"]["DAILY_SOURCE_IDS"].split())
@@ -163,5 +174,6 @@ def test_daily_workflow_covers_refreshable_daily_sources_and_leaves_weekly_refre
 
     assert configured == expected
     assert 'cron: "17 10 * * 0,2-6"' in Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8")
+    assert "--required-cadence daily" in Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8")
     assert 'cron: "17 10 * * 1"' in Path(".github/workflows/refresh.yml").read_text(encoding="utf-8")
     assert daily_workflow["concurrency"]["group"] == "source-refresh"

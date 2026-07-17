@@ -201,7 +201,10 @@ weekly workflow covers the same cadence. It refreshes only registered
 daily-cadence sources handled by the general source pipeline, skips the broad
 endpoint probe, compares the result with a pre-refresh snapshot, writes source
 observations, runs focused regression tests, and uploads one
-`daily-source-refresh` artifact. Rock GitHub issues remain owned by the separate
+`daily-source-refresh` artifact. Its strict gate uses `--required-cadence daily`
+so a clean CI checkout does not require weekly/monthly normalized inputs; those
+rows remain visible in the report, while the comprehensive Monday workflow
+continues to gate every automated cadence. Rock GitHub issues remain owned by the separate
 daily `.github/workflows/refresh-rock-issues.yml` pipeline; their summary feeds
 the shared freshness report.
 
