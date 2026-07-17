@@ -977,6 +977,8 @@ Agent version workflow:
 
 ### Playbook: Launch Basic Prayer Intake
 
+Use the official [Prayer](https://community.rockrms.com/documentation/engagement/prayer) documentation and [Prayer Requests](https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests) training as the configuration baseline; public visibility, approval, category, campus, expiration, and requester privacy still require end-to-end tests.
+
 1. Create or verify the external `Connect > Prayer` page.
 2. Add or inspect Prayer Request Entry block.
 3. Configure requester fields.
@@ -994,6 +996,8 @@ Agent version workflow:
 15. Train prayer administrators.
 
 ### Playbook: Launch Prayer Team Page
+
+Follow the authenticated team workflow in [Prayer](https://community.rockrms.com/documentation/engagement/prayer), then verify the exact block settings and the current user's page, category, group, and request permissions in the target instance.
 
 1. Define Prayer Team role or group.
 2. Secure the Prayer Team page.
@@ -1061,6 +1065,8 @@ Agent version workflow:
 ## 17. Troubleshooting Decision Tree
 
 ### Request Was Submitted But Prayer Team Cannot See It
+
+Start with [Prayer](https://community.rockrms.com/documentation/engagement/prayer) and the version-matched [Prayer Request List options](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs); distinguish request state from category, campus, group, page, and user-security filters.
 
 Check:
 

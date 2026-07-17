@@ -1,0 +1,151 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6911-combine-giving-statements-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6911",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock closed this issue with commit 30e2c9021d02776436495b32c5c40982ce526c24 and recorded the fix in the v19.3 release notes. The v19 Giving Configuration block filtered pledges and contribution-statement transactions to the selected person's aliases. That bypassed the household GivingId relationship used by Combine Giving With, so spouses in the same giving unit could see different statement and pledge lists. The fix resolves the selected person, then filters pledges and aliases by the shared GivingId. It changes the profile block's list visibility; it does not merge or move transactions.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain the fix. Before upgrade, authorized finance staff can retrieve a statement from the contributing person's supported statement surface when necessary. Do not move gifts, change authorized aliases, split or combine families, or alter giving-group relationships merely to make the affected profile list look complete."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the Giving Configuration block honors shared GivingId membership and whether the instance has households that can encounter the issue, without exposing financial details.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to aggregate giving-unit counts and an authorized profile comparison if needed."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed Giving Configuration block contains commit 30e2c9021d02776436495b32c5c40982ce526c24 or an equivalent query that filters pledges and person aliases by the selected person's GivingId.",
+        "expected_if_affected": "The installed block filters only by the selected PersonId or aliases rather than the shared GivingId.",
+        "expected_if_unaffected": "The installed block uses the shared GivingId for both pledge and contribution-statement list queries.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-shared-giving-groups",
+        "title": "Count shared giving groups",
+        "method": "read_only_sql",
+        "instructions": "Return only the number of GivingGroupId values used by more than one person. Do not return giving-group IDs, people, aliases, transaction counts, or amounts.",
+        "probe": "SELECT COUNT(*) AS SharedGivingGroupCount FROM (SELECT [GivingGroupId] FROM [Person] WHERE [GivingGroupId] IS NOT NULL GROUP BY [GivingGroupId] HAVING COUNT(*) > 1) shared",
+        "expected_if_affected": "The count is greater than zero and the installed block still uses person-only filtering, establishing an exposed population without proving a visible mismatch for every household.",
+        "expected_if_unaffected": "The count is zero, or the installed block contains the GivingId fix.",
+        "evidence_to_record": [
+          "aggregate shared giving-group count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "compare-one-authorized-household",
+        "title": "Compare one authorized household read-only",
+        "method": "ui_observation",
+        "instructions": "With finance authorization and a preselected test household that intentionally combines giving, view the Giving Configuration block for both adults. Record only whether the statement and pledge lists agree; do not record names, dates, accounts, amounts, statement links, or screenshots.",
+        "expected_if_affected": "The two adults share a GivingId but the affected block presents different lists based on which profile is open.",
+        "expected_if_unaffected": "The two profiles present the same giving-unit statement and pledge lists, subject to other configured filters.",
+        "evidence_to_record": [
+          "shared giving setting confirmed yes or no",
+          "lists agree yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A shared giving-group count proves exposure only; it does not prove that a given household has statements or pledges in the affected list.",
+      "Statement generation, salutation, tax rules, and transaction ownership are separate from this profile-block display issue."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6911-reported-affected-19.2",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.2",
+      "context": {
+        "scope": "Giving Configuration contribution-statement and pledge lists for combined-giving households"
+      },
+      "versions": ["19.2"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6911"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6911-fixed-by-commit-30e2c90",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Giving Configuration block query revision"
+      },
+      "versions": ["30e2c9021d02776436495b32c5c40982ce526c24"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/30e2c9021d02776436495b32c5c40982ce526c24"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6911",
+        "https://github.com/SparkDevNetwork/Rock/commit/30e2c9021d02776436495b32c5c40982ce526c24",
+        "https://github.com/SparkDevNetwork/Rock/blob/30e2c9021d02776436495b32c5c40982ce526c24/Rock.Blocks/Crm/PersonDetail/GivingConfiguration.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6911-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": ["19.3"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/30e2c9021d02776436495b32c5c40982ce526c24"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6911",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/30e2c9021d02776436495b32c5c40982ce526c24"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6911",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/30e2c9021d02776436495b32c5c40982ce526c24",
+    "https://github.com/SparkDevNetwork/Rock/blob/30e2c9021d02776436495b32c5c40982ce526c24/Rock.Blocks/Crm/PersonDetail/GivingConfiguration.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-09T17:39:28Z",
+  "reviewed_at": "2026-07-17T08:48:12Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

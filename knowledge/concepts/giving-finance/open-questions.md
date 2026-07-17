@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `9-statements-deep-dive-statement-eligibility`: Statement Eligibility (111 words)
-- `16-implementation-playbooks-playbook-add-a-new-giving-account`: Playbook: Add A New Giving Account (115 words)
-- `16-implementation-playbooks-playbook-build-a-giving-analytics-report`: Playbook: Build A Giving Analytics Report (99 words)
 
 ## Community-Supported Only
 

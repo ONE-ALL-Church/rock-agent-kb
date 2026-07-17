@@ -36,13 +36,13 @@ Follow the guide section for Recipe: Audit Payment Risk.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/bookcontent/29
-- https://www.rockrms.com/releasenotes
 - https://www.triumph.tech/resources/github-spotlight-182025
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/event-registration/additional-registration-fees
 - https://community.rockrms.com/recipes/245
 - https://community.rockrms.com/recipes/472
+- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/registrationInstanceSendPaymentReminderInitializationBox.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewResponseBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs

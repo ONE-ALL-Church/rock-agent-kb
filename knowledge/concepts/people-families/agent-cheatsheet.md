@@ -104,9 +104,7 @@ generated: true
 | `10-attributes-deep-dive-entity-commands-and-attribute-prefetch` | normal | live verification |
 | `10-attributes-deep-dive-attribute-migration-and-source-control` | normal | live verification |
 | `11-related-rock-areas-groups-security-communications-check-in-communications` | normal | live verification |
-| `12-administration-and-operational-guardrails-person-data-is-high-impact` | needs-citation | needs-citation |
 | `12-administration-and-operational-guardrails-before-merging` | structural | live verification |
-| `12-administration-and-operational-guardrails-data-integrity-monitoring` | needs-citation | needs-citation |
 | `13-developer-api-lava-and-source-code-landmarks-person-lava-filters` | normal | live verification |
 | `13-developer-api-lava-and-source-code-landmarks-setpersonattribute-workflow-action` | normal | live verification |
 | `13-developer-api-lava-and-source-code-landmarks-personattributeforms-block` | normal | live verification |
@@ -141,4 +139,4 @@ generated: true
 | `18-agent-task-recipes-recipe-add-a-bookmarked-groups-like-profile-panel` | community-supported | live verification |
 | `approved-claim-coverage` | citation-only | live verification |
 | `19-source-map-and-dependency-notes-community-recipes-used-as-examples-only` | community-supported | community-supported |
-| `19-source-map-and-dependency-notes-records-requiring-live-verification` | needs-citation | live verification |
+| `19-source-map-and-dependency-notes-records-requiring-live-verification` | normal | live verification |

@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `11-administration-and-operational-guardrails-operational-health-checks`: Operational Health Checks (83 words)
-- `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration`: Playbook A: Create A Standard Paid Event Registration (159 words)
-- `15-implementation-playbooks-playbook-d-configure-payment-reminders`: Playbook D: Configure Payment Reminders (81 words)
 
 ## Community-Supported Only
 

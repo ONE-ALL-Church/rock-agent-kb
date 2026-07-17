@@ -2677,12 +2677,12 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-07-17T08:21:36+00:00",
+  "built_at": "2026-07-17T09:00:15+00:00",
   "concept_id": "event-registration",
-  "guide_hash": "3911fe27c52e4588329c963d8c56d0a0fdcc23662674641ecdcf091b86c26438",
-  "guide_line_count": 1390,
+  "guide_hash": "feffaa67e681d9e4360755eedf8cfcb7c918fc964fddab676157b57526ff1981",
+  "guide_line_count": 1396,
   "guide_path": "knowledge/concepts/event-registration/guide.md",
-  "guide_word_count": 11336,
+  "guide_word_count": 11467,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2874,6 +2874,15 @@
       "url": "https://community.rockrms.com/lava/commands/sql-commands"
     },
     {
+      "authority": "official-training",
+      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
+      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
+      "source_id": "rock_rocku",
+      "source_key": "e4f10f35a86cedbd",
+      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "ef4a4f9b29559b9e69513460791d45f3648092ad1fcc3ae0b04b7c52b763d4de",
       "excerpt_hash": "bd6526f291ebf5dc1bac586b04f7ef1ccdb6ffa27d36cc0a3b44828867db79e0",
@@ -2883,13 +2892,13 @@
       "url": "https://community.rockrms.com/developer/ai-agents/skills"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "58a92984acbd2344",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+      "authority": "official-training",
+      "content_hash": "43e9fe4d40e267db2ee91ec66099a8edf2a2b70f1a9c3f797c2a7648f78db9ab",
+      "excerpt_hash": "6bd6d37ee0fa47e095a7781a7799718831c2708aff62ed03742fcc185aaef62c",
+      "source_id": "rock_rocku",
+      "source_key": "7b16cf34fbbaa021",
+      "source_record_id": "rock_rocku:7b16cf34fbbaa021",
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
     },
     {
       "authority": "official-training",
@@ -2899,6 +2908,15 @@
       "source_key": "e702311bcbacf6ba",
       "source_record_id": "rock_rocku:e702311bcbacf6ba",
       "url": "https://community.rockrms.com/rocku/event-registration/registration-instances"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",
@@ -2935,24 +2953,6 @@
       "source_key": "53507aa08e9095dd",
       "source_record_id": "",
       "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
-      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
-      "source_id": "rock_rocku",
-      "source_key": "e4f10f35a86cedbd",
-      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
-      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "43e9fe4d40e267db2ee91ec66099a8edf2a2b70f1a9c3f797c2a7648f78db9ab",
-      "excerpt_hash": "6bd6d37ee0fa47e095a7781a7799718831c2708aff62ed03742fcc185aaef62c",
-      "source_id": "rock_rocku",
-      "source_key": "7b16cf34fbbaa021",
-      "source_record_id": "rock_rocku:7b16cf34fbbaa021",
-      "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
     }
   ],
   "sections": [
@@ -3503,7 +3503,8 @@
         "f9ada88191ace9fa",
         "4df598747f60249c",
         "ad1b70c97442fd41",
-        "b76e00f4cafbfba8"
+        "b76e00f4cafbfba8",
+        "e4f10f35a86cedbd"
       ],
       "start_line": 691
     },
@@ -3565,20 +3566,20 @@
       "start_line": 745
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 779,
+      "confidence": "normal",
+      "end_line": 781,
       "heading": "Operational Health Checks",
       "needs_live_verification": true,
       "section_id": "11-administration-and-operational-guardrails-operational-health-checks",
       "source_keys": [
         "ad1b70c97442fd41",
-        "b76e00f4cafbfba8"
+        "e4f10f35a86cedbd"
       ],
       "start_line": 762
     },
     {
       "confidence": "structural",
-      "end_line": 781,
+      "end_line": 783,
       "heading": "12. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks",
@@ -3588,33 +3589,33 @@
         "d275b5b94a9da833",
         "2a94aef5f83aa079"
       ],
-      "start_line": 780
+      "start_line": 782
     },
     {
       "confidence": "normal",
-      "end_line": 794,
+      "end_line": 796,
       "heading": "Public/Mobile Event Occurrence Rendering",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering",
       "source_keys": [
         "e9dcfbe00e9392de"
       ],
-      "start_line": 782
+      "start_line": 784
     },
     {
       "confidence": "community-supported",
-      "end_line": 808,
+      "end_line": 810,
       "heading": "API Linkage Caveat",
       "needs_live_verification": true,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat",
       "source_keys": [
         "8b1609730224eb1b"
       ],
-      "start_line": 795
+      "start_line": 797
     },
     {
       "confidence": "normal",
-      "end_line": 820,
+      "end_line": 822,
       "heading": "Internal Registrant List",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-internal-registrant-list",
@@ -3622,11 +3623,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 809
+      "start_line": 811
     },
     {
       "confidence": "normal",
-      "end_line": 824,
+      "end_line": 826,
       "heading": "Registration List Wait-List Indicator",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-registration-list-wait-list-indicator",
@@ -3634,11 +3635,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 821
+      "start_line": 823
     },
     {
       "confidence": "normal",
-      "end_line": 828,
+      "end_line": 830,
       "heading": "Fee And Payment List Blocks",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-fee-and-payment-list-blocks",
@@ -3646,11 +3647,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 825
+      "start_line": 827
     },
     {
       "confidence": "normal",
-      "end_line": 850,
+      "end_line": 852,
       "heading": "Payment Reminder Block",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-payment-reminder-block",
@@ -3662,22 +3663,22 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 829
+      "start_line": 831
     },
     {
       "confidence": "normal",
-      "end_line": 854,
+      "end_line": 856,
       "heading": "Agent Skills",
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-agent-skills",
       "source_keys": [
         "2a94aef5f83aa079"
       ],
-      "start_line": 851
+      "start_line": 853
     },
     {
       "confidence": "structural",
-      "end_line": 856,
+      "end_line": 858,
       "heading": "13. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map",
@@ -3689,22 +3690,22 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 855
+      "start_line": 857
     },
     {
       "confidence": "structural",
-      "end_line": 878,
+      "end_line": 880,
       "heading": "Core Metrics",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-core-metrics",
       "source_keys": [
         "2a94aef5f83aa079"
       ],
-      "start_line": 857
+      "start_line": 859
     },
     {
       "confidence": "community-supported",
-      "end_line": 892,
+      "end_line": 894,
       "heading": "Reporting Entity Choice",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-reporting-entity-choice",
@@ -3715,33 +3716,33 @@
         "84c5de76cca78a1a",
         "4df598747f60249c"
       ],
-      "start_line": 879
+      "start_line": 881
     },
     {
       "confidence": "community-supported",
-      "end_line": 910,
+      "end_line": 912,
       "heading": "Model Map Verification",
       "needs_live_verification": true,
       "section_id": "13-reporting-analytics-and-model-map-model-map-verification",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 893
+      "start_line": 895
     },
     {
       "confidence": "community-supported",
-      "end_line": 925,
+      "end_line": 927,
       "heading": "Analytics Checks",
       "needs_live_verification": false,
       "section_id": "13-reporting-analytics-and-model-map-analytics-checks",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 911
+      "start_line": 913
     },
     {
       "confidence": "structural",
-      "end_line": 927,
+      "end_line": 929,
       "heading": "14. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats",
@@ -3750,245 +3751,259 @@
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 926
+      "start_line": 928
     },
     {
       "confidence": "normal",
-      "end_line": 931,
+      "end_line": 933,
       "heading": "Rock 18.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-rock-18-1",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 928
+      "start_line": 930
     },
     {
       "confidence": "normal",
-      "end_line": 937,
+      "end_line": 939,
       "heading": "Rock 18.3",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-rock-18-3",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 932
+      "start_line": 934
     },
     {
       "confidence": "normal",
-      "end_line": 950,
+      "end_line": 952,
       "heading": "Rock 19.1",
       "needs_live_verification": false,
       "section_id": "14-version-and-release-caveats-rock-19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 938
+      "start_line": 940
     },
     {
       "confidence": "citation-only",
-      "end_line": 954,
+      "end_line": 956,
       "heading": "v16.10 / v17.0 Spotlight",
       "needs_live_verification": true,
       "section_id": "14-version-and-release-caveats-v16-10-v17-0-spotlight",
       "source_keys": [
         "c0cf9e3bbb1f6f9b"
       ],
-      "start_line": 951
+      "start_line": 953
     },
     {
       "confidence": "structural",
-      "end_line": 956,
+      "end_line": 958,
       "heading": "15. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks",
       "source_keys": [
-        "c0cf9e3bbb1f6f9b",
-        "776256c424368312"
-      ],
-      "start_line": 955
-    },
-    {
-      "confidence": "needs-citation",
-      "end_line": 981,
-      "heading": "Playbook A: Create A Standard Paid Event Registration",
-      "needs_live_verification": true,
-      "section_id": "15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration",
-      "source_keys": [
-        "c0cf9e3bbb1f6f9b"
+        "7b16cf34fbbaa021",
+        "e702311bcbacf6ba",
+        "cdbd7089fd2af521",
+        "776256c424368312",
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
       "start_line": 957
     },
     {
+      "confidence": "citation-only",
+      "end_line": 985,
+      "heading": "Playbook A: Create A Standard Paid Event Registration",
+      "needs_live_verification": true,
+      "section_id": "15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration",
+      "source_keys": [
+        "7b16cf34fbbaa021",
+        "e702311bcbacf6ba",
+        "cdbd7089fd2af521"
+      ],
+      "start_line": 959
+    },
+    {
       "confidence": "normal",
-      "end_line": 993,
+      "end_line": 997,
       "heading": "Playbook B: Add Eligibility Rules In v19.1+",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 982
+      "start_line": 986
     },
     {
       "confidence": "structural",
-      "end_line": 1003,
+      "end_line": 1007,
       "heading": "Playbook C: Prevent Duplicate Registrants In v19.1+",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 994
+      "start_line": 998
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1016,
+      "confidence": "high",
+      "end_line": 1022,
       "heading": "Playbook D: Configure Payment Reminders",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-d-configure-payment-reminders",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1004
+      "start_line": 1008
     },
     {
       "confidence": "structural",
-      "end_line": 1030,
+      "end_line": 1036,
       "heading": "Playbook E: Diagnose A Missing Public Registration Button",
       "needs_live_verification": true,
       "section_id": "15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1017
+      "start_line": 1023
     },
     {
       "confidence": "structural",
-      "end_line": 1041,
+      "end_line": 1047,
       "heading": "Playbook F: Build A Read-Only Registration Dashboard",
       "needs_live_verification": false,
       "section_id": "15-implementation-playbooks-playbook-f-build-a-read-only-registration-dashboard",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1031
+      "start_line": 1037
     },
     {
       "confidence": "structural",
-      "end_line": 1043,
+      "end_line": 1049,
       "heading": "16. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree",
       "source_keys": [
-        "776256c424368312",
-        "1b6019ed673610cf",
-        "d275b5b94a9da833"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833",
+        "1b6019ed673610cf"
       ],
-      "start_line": 1042
+      "start_line": 1048
     },
     {
       "confidence": "structural",
-      "end_line": 1060,
+      "end_line": 1066,
       "heading": "Public page says registration is closed",
       "needs_live_verification": true,
       "section_id": "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1044
+      "start_line": 1050
     },
     {
       "confidence": "structural",
-      "end_line": 1073,
+      "end_line": 1079,
       "heading": "User cannot select the intended family member",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1061
+      "start_line": 1067
     },
     {
       "confidence": "structural",
-      "end_line": 1083,
+      "end_line": 1089,
       "heading": "Duplicate registration is blocked",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1074
+      "start_line": 1080
     },
     {
       "confidence": "structural",
-      "end_line": 1097,
+      "end_line": 1103,
       "heading": "Discount code does not work",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-discount-code-does-not-work",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1084
+      "start_line": 1090
     },
     {
       "confidence": "structural",
-      "end_line": 1113,
+      "end_line": 1119,
       "heading": "Balance due is wrong",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-balance-due-is-wrong",
       "source_keys": [
-        "776256c424368312"
+        "ad1b70c97442fd41",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1098
+      "start_line": 1104
     },
     {
       "confidence": "normal",
-      "end_line": 1125,
+      "end_line": 1131,
       "heading": "Payment plan amount is wrong",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1114
+      "start_line": 1120
     },
     {
       "confidence": "structural",
-      "end_line": 1137,
+      "end_line": 1143,
       "heading": "Signature document shown for wrong registrant",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1126
+      "start_line": 1132
     },
     {
       "confidence": "structural",
-      "end_line": 1151,
+      "end_line": 1157,
       "heading": "Registrant missing from group placement",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
       "source_keys": [
         "1b6019ed673610cf"
       ],
-      "start_line": 1138
+      "start_line": 1144
     },
     {
       "confidence": "normal",
-      "end_line": 1165,
+      "end_line": 1171,
       "heading": "Payment reminder did not send",
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1152
+      "start_line": 1158
     },
     {
       "confidence": "structural",
-      "end_line": 1167,
+      "end_line": 1173,
       "heading": "17. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes",
@@ -3998,99 +4013,99 @@
         "4df598747f60249c",
         "8b1609730224eb1b"
       ],
-      "start_line": 1166
+      "start_line": 1172
     },
     {
       "confidence": "structural",
-      "end_line": 1185,
+      "end_line": 1191,
       "heading": "Recipe: Summarize A Registration Instance",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-summarize-a-registration-instance",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1168
+      "start_line": 1174
     },
     {
       "confidence": "structural",
-      "end_line": 1201,
+      "end_line": 1207,
       "heading": "Recipe: Verify A Public Registration URL",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-verify-a-public-registration-url",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1186
+      "start_line": 1192
     },
     {
       "confidence": "structural",
-      "end_line": 1217,
+      "end_line": 1223,
       "heading": "Recipe: Audit Payment Risk",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-payment-risk",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1202
+      "start_line": 1208
     },
     {
       "confidence": "structural",
-      "end_line": 1231,
+      "end_line": 1237,
       "heading": "Recipe: Audit Discount Codes",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-discount-codes",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1218
+      "start_line": 1224
     },
     {
       "confidence": "structural",
-      "end_line": 1246,
+      "end_line": 1252,
       "heading": "Recipe: Audit Wait List",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-wait-list",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1232
+      "start_line": 1238
     },
     {
       "confidence": "community-supported",
-      "end_line": 1259,
+      "end_line": 1265,
       "heading": "Recipe: Build A Registrant Packet Export",
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-build-a-registrant-packet-export",
       "source_keys": [
         "60357b5b8ff0c238"
       ],
-      "start_line": 1247
+      "start_line": 1253
     },
     {
       "confidence": "community-supported",
-      "end_line": 1270,
+      "end_line": 1276,
       "heading": "Recipe: Add Staff Notes To Registration Detail",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail",
       "source_keys": [
         "4df598747f60249c"
       ],
-      "start_line": 1260
+      "start_line": 1266
     },
     {
       "confidence": "community-supported",
-      "end_line": 1287,
+      "end_line": 1293,
       "heading": "Recipe: Investigate API Registration URL Issues",
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-investigate-api-registration-url-issues",
       "source_keys": [
         "8b1609730224eb1b"
       ],
-      "start_line": 1271
+      "start_line": 1277
     },
     {
       "confidence": "citation-only",
-      "end_line": 1313,
+      "end_line": 1319,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -4108,11 +4123,11 @@
         "3ac2b7b2e39e37f3",
         "3ac2b7b2e39e37f3"
       ],
-      "start_line": 1288
+      "start_line": 1294
     },
     {
       "confidence": "citation-only",
-      "end_line": 1334,
+      "end_line": 1340,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4126,11 +4141,11 @@
         "f88b0748151b17a6",
         "ce8eb086e4ef0cc6"
       ],
-      "start_line": 1314
+      "start_line": 1320
     },
     {
       "confidence": "high",
-      "end_line": 1390,
+      "end_line": 1396,
       "heading": "18. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "18-source-map-and-dependency-notes",
@@ -4170,7 +4185,7 @@
         "f9ada88191ace9fa",
         "8b1609730224eb1b"
       ],
-      "start_line": 1335
+      "start_line": 1341
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T06:46:40+00:00",
@@ -4632,6 +4647,28 @@
       "url": "https://community.rockrms.com/lava/commands/sql-commands"
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
+      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e4f10f35a86cedbd",
+      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
+      "title": "Registration Walk-through",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -4657,14 +4694,26 @@
       "version": null
     },
     {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "58a92984acbd2344",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
-      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "43e9fe4d40e267db2ee91ec66099a8edf2a2b70f1a9c3f797c2a7648f78db9ab",
+      "excerpt_hash": "6bd6d37ee0fa47e095a7781a7799718831c2708aff62ed03742fcc185aaef62c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "7b16cf34fbbaa021",
+      "source_record_id": "rock_rocku:7b16cf34fbbaa021",
+      "title": "Registration Templates",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
+      "version": null
     },
     {
       "authority": "official-training",
@@ -4687,6 +4736,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/event-registration/registration-instances",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "58a92984acbd2344",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",
@@ -4739,50 +4798,6 @@
       "source_record_id": "",
       "title": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
       "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "5b94a0e4981d5c007a89067bb7f71fe4e62c93f2a3990f3ce38c81177206de49",
-      "excerpt_hash": "69db4ba3af39a13593d613150fb9182b0f36d9097a264559f3872ec02a5b82c9",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "e4f10f35a86cedbd",
-      "source_record_id": "rock_rocku:e4f10f35a86cedbd",
-      "title": "Registration Walk-through",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "43e9fe4d40e267db2ee91ec66099a8edf2a2b70f1a9c3f797c2a7648f78db9ab",
-      "excerpt_hash": "6bd6d37ee0fa47e095a7781a7799718831c2708aff62ed03742fcc185aaef62c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "7b16cf34fbbaa021",
-      "source_record_id": "rock_rocku:7b16cf34fbbaa021",
-      "title": "Registration Templates",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
-      "version": null
     }
   ],
   "synthesis_profile": "comprehensive"

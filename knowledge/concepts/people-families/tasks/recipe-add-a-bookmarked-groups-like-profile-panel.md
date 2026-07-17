@@ -36,13 +36,13 @@ Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
 - https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/lava/workflows
-- https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/lava/filters/person-filters
 - https://community.rockrms.com/rocku/individuals-in-rock
-- https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager
 - https://community.rockrms.com/lava/commands/entity-commands
 - https://community.rockrms.com/developer/303---blast-off/attributes
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks

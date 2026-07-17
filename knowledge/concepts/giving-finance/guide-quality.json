@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13103 words; expected at least 7000.",
+      "message": "Guide has 13232 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,9 +59,9 @@
   "concept_id": "giving-finance",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-17T08:21:11+00:00",
-  "guide_line_count": 1468,
-  "guide_word_count": 13103,
+  "generated_at": "2026-07-17T08:59:54+00:00",
+  "guide_line_count": 1474,
+  "guide_word_count": 13232,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 88,

@@ -852,12 +852,12 @@
   },
   "approved_media_hash": "8f2dca2725f194742fc54d8fede3d3fd61cf7d8bfe07e99b7528149ea72d3e9e",
   "approved_media_path": "knowledge/concepts/prayer-care/approved-media.md",
-  "built_at": "2026-07-17T08:21:28+00:00",
+  "built_at": "2026-07-17T09:00:08+00:00",
   "concept_id": "prayer-care",
-  "guide_hash": "1174180fd9ff3fb2166f4285af2be076d13c56d3e10c8a270be08559baf3072f",
-  "guide_line_count": 1307,
+  "guide_hash": "e89c4a5cd7e6565de39dc408fb065e7d2332d6ba3a04558e22854fc99513ff63",
+  "guide_line_count": 1313,
   "guide_path": "knowledge/concepts/prayer-care/guide.md",
-  "guide_word_count": 12882,
+  "guide_word_count": 12998,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2099,235 +2099,248 @@
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "8f42746b6ac656d0"
       ],
       "start_line": 976
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 995,
+      "confidence": "normal",
+      "end_line": 997,
       "heading": "Playbook: Launch Basic Prayer Intake",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-launch-basic-prayer-intake",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "8f42746b6ac656d0"
       ],
       "start_line": 978
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1009,
+      "confidence": "normal",
+      "end_line": 1013,
       "heading": "Playbook: Launch Prayer Team Page",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-launch-prayer-team-page",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb"
       ],
-      "start_line": 996
+      "start_line": 998
     },
     {
       "confidence": "structural",
-      "end_line": 1021,
+      "end_line": 1025,
       "heading": "Playbook: Add Group Prayer",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-group-prayer",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb"
       ],
-      "start_line": 1010
+      "start_line": 1014
     },
     {
       "confidence": "structural",
-      "end_line": 1034,
+      "end_line": 1038,
       "heading": "Playbook: Enable Comment Digest",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-enable-comment-digest",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb"
       ],
-      "start_line": 1022
+      "start_line": 1026
     },
     {
       "confidence": "structural",
-      "end_line": 1047,
+      "end_line": 1051,
       "heading": "Playbook: Add SMS Prayer Intake",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-sms-prayer-intake",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb"
       ],
-      "start_line": 1035
+      "start_line": 1039
     },
     {
       "confidence": "structural",
-      "end_line": 1060,
+      "end_line": 1064,
       "heading": "Playbook: Add Public Prayer Wall",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-public-prayer-wall",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb"
       ],
-      "start_line": 1048
+      "start_line": 1052
     },
     {
       "confidence": "structural",
-      "end_line": 1062,
+      "end_line": 1066,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1061
+      "start_line": 1065
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1077,
+      "confidence": "high",
+      "end_line": 1083,
       "heading": "Request Was Submitted But Prayer Team Cannot See It",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1063
+      "start_line": 1067
     },
     {
       "confidence": "structural",
-      "end_line": 1090,
+      "end_line": 1096,
       "heading": "Request Appears Publicly When It Should Not",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-request-appears-publicly-when-it-should-not",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1078
+      "start_line": 1084
     },
     {
       "confidence": "structural",
-      "end_line": 1100,
+      "end_line": 1106,
       "heading": "Approval Does Not Record Approver Or Date",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-approval-does-not-record-approver-or-date",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1091
+      "start_line": 1097
     },
     {
       "confidence": "structural",
-      "end_line": 1110,
+      "end_line": 1116,
       "heading": "Urgent Sorting Looks Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-urgent-sorting-looks-wrong",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1101
+      "start_line": 1107
     },
     {
       "confidence": "structural",
-      "end_line": 1122,
+      "end_line": 1128,
       "heading": "Comment Digest Sends Too Much",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-comment-digest-sends-too-much",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1111
+      "start_line": 1117
     },
     {
       "confidence": "structural",
-      "end_line": 1133,
+      "end_line": 1139,
       "heading": "SMS Intake Creates Anonymous Requests",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-sms-intake-creates-anonymous-requests",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1123
+      "start_line": 1129
     },
     {
       "confidence": "structural",
-      "end_line": 1143,
+      "end_line": 1149,
       "heading": "Group Prayer Request Appears In General Queue",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-prayer-request-appears-in-general-queue",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1134
+      "start_line": 1140
     },
     {
       "confidence": "structural",
-      "end_line": 1145,
+      "end_line": 1151,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
       "source_keys": [
-        "776256c424368312",
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7",
         "c7e4c23eeac95081",
         "3e90f319b1b78824"
       ],
-      "start_line": 1144
+      "start_line": 1150
     },
     {
       "confidence": "structural",
-      "end_line": 1159,
+      "end_line": 1165,
       "heading": "Audit Prayer Configuration",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-audit-prayer-configuration",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1146
+      "start_line": 1152
     },
     {
       "confidence": "structural",
-      "end_line": 1170,
+      "end_line": 1176,
       "heading": "Review A Sensitive Request",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-review-a-sensitive-request",
       "source_keys": [
-        "776256c424368312"
+        "67bf41b13dcab2bb",
+        "3863af672865d6b7"
       ],
-      "start_line": 1160
+      "start_line": 1166
     },
     {
       "confidence": "normal",
-      "end_line": 1181,
+      "end_line": 1187,
       "heading": "Build A Prayer-Team Coverage Report",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-build-a-prayer-team-coverage-report",
       "source_keys": [
         "c7e4c23eeac95081"
       ],
-      "start_line": 1171
+      "start_line": 1177
     },
     {
       "confidence": "normal",
-      "end_line": 1190,
+      "end_line": 1196,
       "heading": "Investigate Person Prayer History",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-investigate-person-prayer-history",
       "source_keys": [
         "3e90f319b1b78824"
       ],
-      "start_line": 1182
+      "start_line": 1188
     },
     {
       "confidence": "structural",
-      "end_line": 1203,
+      "end_line": 1209,
       "heading": "Safely Extend Prayer Intake",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-safely-extend-prayer-intake",
       "source_keys": [
         "3e90f319b1b78824"
       ],
-      "start_line": 1191
+      "start_line": 1197
     },
     {
       "confidence": "normal",
-      "end_line": 1229,
+      "end_line": 1235,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -2345,11 +2358,11 @@
         "67bf41b13dcab2bb",
         "67bf41b13dcab2bb"
       ],
-      "start_line": 1204
+      "start_line": 1210
     },
     {
       "confidence": "citation-only",
-      "end_line": 1246,
+      "end_line": 1252,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -2360,11 +2373,11 @@
         "78f1e8bbd9d351ff",
         "1c59cd336e8baae0"
       ],
-      "start_line": 1230
+      "start_line": 1236
     },
     {
       "confidence": "high",
-      "end_line": 1307,
+      "end_line": 1313,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -2408,7 +2421,7 @@
         "18ca1ca102f2f24a",
         "69239abb486b0abc"
       ],
-      "start_line": 1247
+      "start_line": 1253
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:45:53+00:00",

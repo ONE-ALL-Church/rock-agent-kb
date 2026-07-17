@@ -761,6 +761,8 @@ Guardrails:
 
 ### Operational Health Checks
 
+Use the official [Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations) documentation and [Registration Walk-through](https://community.rockrms.com/rocku/event-registration/registration-walk-through) as the intended configuration baseline, then verify the active instance, gateway, communications, security, and reconciliation path in the target environment.
+
 For each active registration, agents should be able to report:
 
 - Public URL works.
@@ -956,6 +958,8 @@ A Triumph Tech GitHub spotlight reports v16.10 highlights including an optional 
 
 ### Playbook A: Create A Standard Paid Event Registration
 
+Follow [Registration Templates](https://community.rockrms.com/rocku/event-registration/registration-templates), [Registration Instances](https://community.rockrms.com/rocku/event-registration/registration-instances), and [Additional Registration Fees](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) for the supported object and cost model; test the exact public and payment flow before opening registration.
+
 1. Define the event goal, audience, date, capacity, and owner.
 2. Decide whether the registration is individual, family, guest, or multi-registrant.
 3. Choose or create a Registration Template.
@@ -1002,6 +1006,8 @@ A Triumph Tech GitHub spotlight reports v16.10 highlights including an optional 
 7. Document whether duplicate prevention applies only to the same person record, not duplicate names or unresolved guests.
 
 ### Playbook D: Configure Payment Reminders
+
+Use [Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations) for the balance workflow and the version-matched [RegistrationInstanceSendPaymentReminderInitializationBox](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs) contract for recipient selection and preview behavior.
 
 1. Confirm partial payments or outstanding balances are allowed.
 2. Configure template payment reminder sender, subject, body, and time span.

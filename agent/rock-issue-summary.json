@@ -19,21 +19,21 @@
     "SparkDevNetwork/Rock": 5675,
     "SparkDevNetwork/Rock.Mobile-Issues": 128
   },
-  "reviewed_enrichment_count": 17,
+  "reviewed_enrichment_count": 22,
   "reviewed_enrichment_metrics": {
     "confidences": {
-      "high": 12,
+      "high": 17,
       "medium": 5
     },
     "diagnosis_statuses": {
-      "maintainer_confirmed": 4,
+      "maintainer_confirmed": 9,
       "source_supported": 13
     },
-    "issue_count": 17,
+    "issue_count": 22,
     "missing_verification_playbook_enrichment_ids": [],
     "revalidation_due_count": 0,
     "revalidation_due_enrichment_ids": [],
-    "verification_playbook_count": 17,
+    "verification_playbook_count": 22,
     "verification_playbook_coverage_percent": 100.0
   },
   "routing": {

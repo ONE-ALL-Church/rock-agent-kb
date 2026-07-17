@@ -13,13 +13,13 @@
         "https://community.rockrms.com/rocku/event-registration",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://community.rockrms.com/recipes/313",
         "https://community.rockrms.com/developer/ai-agents/skills",
         "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
-        "https://community.rockrms.com/recipes/245",
-        "https://community.rockrms.com/recipes/472"
+        "https://community.rockrms.com/recipes/245"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -41,13 +41,13 @@
         "https://community.rockrms.com/rocku/event-registration",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://community.rockrms.com/recipes/313",
         "https://community.rockrms.com/developer/ai-agents/skills",
         "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
-        "https://community.rockrms.com/recipes/245",
-        "https://community.rockrms.com/recipes/472"
+        "https://community.rockrms.com/recipes/245"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -66,16 +66,16 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/documentation/bookcontent/29",
-        "https://www.rockrms.com/releasenotes",
         "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
         "https://community.rockrms.com/recipes/245",
         "https://community.rockrms.com/recipes/472",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/registrationInstanceSendPaymentReminderInitializationBox.d.ts",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewResponseBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -93,10 +93,11 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/recipes/472",
         "https://community.rockrms.com/recipes/245",
         "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/event-registration/registration-discounts",
         "https://community.rockrms.com/recipes/313",
         "https://community.rockrms.com/ask/developing/2547"
@@ -149,13 +150,13 @@
         "https://community.rockrms.com/rocku/event-registration",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
+        "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://community.rockrms.com/recipes/313",
         "https://community.rockrms.com/developer/ai-agents/skills",
         "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
-        "https://community.rockrms.com/recipes/245",
-        "https://community.rockrms.com/recipes/472"
+        "https://community.rockrms.com/recipes/245"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -173,12 +174,12 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/rocku/event-registration",
         "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://community.rockrms.com/rocku/event-registration/registration-fees",
         "https://community.rockrms.com/rocku/event-registration/registration-discounts",
         "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
@@ -202,12 +203,12 @@
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/documentation/bookcontent/29",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
         "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
         "https://community.rockrms.com/rocku/event-registration",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
         "https://community.rockrms.com/ask/developing/2547",
-        "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
         "https://community.rockrms.com/rocku/event-registration/registration-fees",
         "https://community.rockrms.com/rocku/event-registration/registration-discounts",
         "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
@@ -223,7 +224,7 @@
   ],
   "concept_id": "event-registration",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T08:21:36+00:00",
+  "generated_at": "2026-07-17T09:00:15+00:00",
   "guide_sections": [
     "16-troubleshooting-decision-tree",
     "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",

@@ -35,12 +35,12 @@ Follow the guide section for Recipe: Add Staff Notes To Registration Detail.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/29
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/event-registration
 - https://community.rockrms.com/rocku/event-registration/additional-registration-fees
+- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
-- https://www.triumph.tech/resources/github-spotlight-182025
 - https://community.rockrms.com/rocku/event-registration/registration-fees
 - https://community.rockrms.com/rocku/event-registration/registration-discounts
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes

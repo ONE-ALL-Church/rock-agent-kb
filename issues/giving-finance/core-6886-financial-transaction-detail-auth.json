@@ -1,0 +1,149 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6886-financial-transaction-detail-auth-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6886",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 7fedaffe54f128b0939d336dd95d575d70374668. FinancialTransaction and FinancialPaymentDetail already granted Edit to the stock Finance Worker and Finance Administration roles, but FinancialTransactionDetail lacked the matching explicit entity authorization. Lava ModifyEntity therefore rejected creation or editing of the allocation detail for those finance roles even when the surrounding transaction operation was otherwise allowed. The fixing migration adds explicit Edit allows for both stock roles; it does not bypass page, command, account, or other authorization checks.",
+  "workaround_summaries": [
+    "Prefer a Rock package proven to contain the fixing migration. If an upgrade is not yet possible, a Rock administrator can review the exact stock role grants and add equivalent Edit authorization through Entity Administration under normal change control. Do not insert Auth rows with SQL, grant broader roles, or use an administrator identity merely to bypass the missing permission."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether FinancialTransactionDetail has the two explicit stock finance-role Edit allows without creating or changing a financial transaction.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to entity authorization metadata."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit 7fedaffe54f128b0939d336dd95d575d70374668 or the equivalent FinancialTransactionDetail authorization migration.",
+        "expected_if_affected": "The build predates the migration and no equivalent authorization change is documented.",
+        "expected_if_unaffected": "The package contains the fixing migration or an equivalent reviewed authorization change.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-stock-role-allows",
+        "title": "Count the stock role Edit allows",
+        "method": "read_only_sql",
+        "instructions": "Return only aggregate counts for the two stock role GUIDs. Do not return local authorization IDs, group names, membership, transactions, or financial data.",
+        "probe": "SELECT COALESCE(SUM(CASE WHEN g.[Guid] = '2539CF5D-E2CE-4706-8BBF-4A9DF8E763E9' THEN 1 ELSE 0 END), 0) AS FinanceWorkerEditAllowCount, COALESCE(SUM(CASE WHEN g.[Guid] = '6246A7EF-B7A3-4C8C-B1E4-3FF114B84559' THEN 1 ELSE 0 END), 0) AS FinanceAdministrationEditAllowCount FROM [Auth] a INNER JOIN [EntityType] authEntityType ON authEntityType.[Id] = a.[EntityTypeId] AND authEntityType.[Name] = 'Rock.Model.EntityType' INNER JOIN [EntityType] targetEntityType ON targetEntityType.[Id] = a.[EntityId] AND targetEntityType.[Name] = 'Rock.Model.FinancialTransactionDetail' INNER JOIN [Group] g ON g.[Id] = a.[GroupId] WHERE a.[Action] = 'Edit' AND a.[AllowOrDeny] = 'A'",
+        "expected_if_affected": "Either stock role count is zero on a build that should rely on these explicit allows.",
+        "expected_if_unaffected": "Both stock role counts are at least one and no higher-order deny or local override defeats the intended authorization.",
+        "evidence_to_record": [
+          "Finance Worker allow count",
+          "Finance Administration allow count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "inspect-authorization-order",
+        "title": "Inspect effective authorization order",
+        "method": "configuration_check",
+        "instructions": "Open Entity Administration for Financial Transaction Detail in read-only review mode. Confirm the two intended allows and check for earlier explicit denies or local role changes. Do not save the entity security screen.",
+        "expected_if_affected": "One or both allows are absent, or an earlier authorization rule prevents the expected role from receiving Edit.",
+        "expected_if_unaffected": "The intended allows are present in effective order and no conflicting rule is found.",
+        "evidence_to_record": [
+          "stock allows present yes or no",
+          "conflicting authorization present yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Entity authorization alone does not prove that a Lava block enables ModifyEntity or that the current person can access every related account and transaction surface.",
+      "Do not reproduce this issue in production by creating a financial transaction; use source and authorization evidence, then test writes only in an isolated test environment."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6886-reported-affected-18.1-19.1",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "context": {
+        "scope": "Lava ModifyEntity operations on FinancialTransactionDetail by stock finance roles"
+      },
+      "versions": ["18.1", "19.1"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6886"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6886-fixed-by-commit-7fedaff",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact authorization hotfix migration"
+      },
+      "versions": ["7fedaffe54f128b0939d336dd95d575d70374668"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/7fedaffe54f128b0939d336dd95d575d70374668"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6886",
+        "https://github.com/SparkDevNetwork/Rock/commit/7fedaffe54f128b0939d336dd95d575d70374668",
+        "https://github.com/SparkDevNetwork/Rock/blob/7fedaffe54f128b0939d336dd95d575d70374668/Rock/Plugin/HotFixes/305_FixFinancialTransactionDetailAuth6886.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6886-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/7fedaffe54f128b0939d336dd95d575d70374668"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6886",
+        "https://github.com/SparkDevNetwork/Rock/commit/7fedaffe54f128b0939d336dd95d575d70374668"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6886",
+    "https://github.com/SparkDevNetwork/Rock/commit/7fedaffe54f128b0939d336dd95d575d70374668",
+    "https://github.com/SparkDevNetwork/Rock/blob/7fedaffe54f128b0939d336dd95d575d70374668/Rock/Plugin/HotFixes/305_FixFinancialTransactionDetailAuth6886.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-13T17:04:25Z",
+  "reviewed_at": "2026-07-17T08:48:12Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

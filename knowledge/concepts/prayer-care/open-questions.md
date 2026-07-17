@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `16-implementation-playbooks-playbook-launch-basic-prayer-intake`: Playbook: Launch Basic Prayer Intake (99 words)
-- `16-implementation-playbooks-playbook-launch-prayer-team-page`: Playbook: Launch Prayer Team Page (82 words)
-- `17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it`: Request Was Submitted But Prayer Team Cannot See It (95 words)
 
 ## Community-Supported Only
 

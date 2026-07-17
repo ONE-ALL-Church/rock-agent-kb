@@ -1,0 +1,153 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6896-prayer-comment-row-context-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6896",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock closed this issue with commit a9e81325551f19ac69e5d872e4e48d3fed0da991 and recorded the fix in the v19.3 release notes. The Prayer Comment List projected each row into a custom PrayerCommentData object, while customized-grid Lava did not receive the related PrayerRequest as its Row object. Administrators therefore could not use normal Row property access for request or requester fields. The fix exposes PrayerRequest as Row, eager-loads RequestedByPersonAlias.Person to avoid the common requester N+1 query, and also repairs date, From-column, and category-filter behavior. Other unloaded relationships can still query per row.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain the Prayer Comment List fix. On an older build, prefer the built-in columns or a separately reviewed secured report. Avoid the JSON round-trip plus per-row prayerrequest query workaround on large grids because it can increase query volume and complicate security review."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether Prayer Comment List exposes PrayerRequest as the custom-column Row object and whether any current block depends on custom columns, without saving block settings or reading prayer text.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to aggregate Prayer Comment List configuration."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed PrayerCommentList contains commit a9e81325551f19ac69e5d872e4e48d3fed0da991 or equivalent GridBuilder configuration that supplies PrayerRequest as LavaObject and preloads the requester person.",
+        "expected_if_affected": "The grid still exposes only PrayerCommentData to custom-column Lava and does not provide PrayerRequest as Row.",
+        "expected_if_unaffected": "PrayerRequest is supplied as the custom-column Row object and RequestedByPersonAlias.Person is preloaded.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-custom-column-configurations",
+        "title": "Count configured custom-column blocks",
+        "method": "read_only_sql",
+        "instructions": "Return aggregate block and nonblank custom-column counts only. Do not return block IDs, page names, Lava, prayer requests, requester details, comments, or attribute values.",
+        "probe": "SELECT COUNT(*) AS ConfiguredPrayerCommentListCount, SUM(CASE WHEN NULLIF(LTRIM(RTRIM(av.[Value])), '') IS NOT NULL THEN 1 ELSE 0 END) AS CustomColumnConfiguredCount FROM [Block] b INNER JOIN [BlockType] bt ON bt.[Id] = b.[BlockTypeId] INNER JOIN [Attribute] a ON a.[EntityTypeId] = (SELECT TOP (1) [Id] FROM [EntityType] WHERE [Name] = 'Rock.Model.Block') AND a.[Key] = 'core.CustomGridColumnsConfig' AND a.[EntityTypeQualifierColumn] = 'BlockTypeId' AND TRY_CONVERT(int, a.[EntityTypeQualifierValue]) = bt.[Id] LEFT JOIN [AttributeValue] av ON av.[AttributeId] = a.[Id] AND av.[EntityId] = b.[Id] WHERE bt.[Guid] = '3F997DA7-AC42-41C9-97F1-2069BB9D9E5C'",
+        "expected_if_affected": "CustomColumnConfiguredCount is greater than zero and the installed build lacks the Row-object fix.",
+        "expected_if_unaffected": "No current block uses custom columns, or the installed build contains the fix.",
+        "evidence_to_record": [
+          "aggregate Prayer Comment List block count",
+          "aggregate custom-column configured count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "observe-existing-column",
+        "title": "Observe one existing custom column",
+        "method": "ui_observation",
+        "instructions": "Only when an existing custom column is already configured, load the secured Prayer Comment List and record whether normal Row property access renders. Do not edit or save the block, add a test column, record prayer text, or capture requester identity.",
+        "expected_if_affected": "The existing custom column cannot access expected PrayerRequest Row properties on the affected build.",
+        "expected_if_unaffected": "The existing custom column resolves supported PrayerRequest Row properties on the fixed build.",
+        "evidence_to_record": [
+          "existing custom column present yes or no",
+          "supported Row property rendered yes or no"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Do not add or save a custom column in production solely to test this issue.",
+      "The fix preloads the requester path, but other PrayerRequest relationships can still issue a query per row and require performance review.",
+      "This issue is distinct from later validation failures when saving Lava custom-column configuration."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6896-reported-affected-18.2",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "18.2",
+      "context": {
+        "scope": "Prayer Comment List customized-grid Lava Row properties"
+      },
+      "versions": ["18.2"],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6896"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6896-fixed-by-commit-a9e8132",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Prayer Comment List Row-object and filter revision"
+      },
+      "versions": ["a9e81325551f19ac69e5d872e4e48d3fed0da991"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6896",
+        "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991",
+        "https://github.com/SparkDevNetwork/Rock/blob/a9e81325551f19ac69e5d872e4e48d3fed0da991/Rock.Blocks/Prayer/PrayerCommentList.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    },
+    {
+      "assertion_id": "core-6896-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": ["19.3"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6896",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T08:48:12Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6896",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/a9e81325551f19ac69e5d872e4e48d3fed0da991",
+    "https://github.com/SparkDevNetwork/Rock/blob/a9e81325551f19ac69e5d872e4e48d3fed0da991/Rock.Blocks/Prayer/PrayerCommentList.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-06-24T22:35:10Z",
+  "reviewed_at": "2026-07-17T08:48:12Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

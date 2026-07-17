@@ -929,6 +929,8 @@ Version caveats:
 
 ### Person Data Is High Impact
 
+Use [Person Profile](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) for the supported administrative surface and [Using PersonAlias vs Person](https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person) for durable identity references; neither source makes a person or family change low-risk.
+
 Person/family changes can affect:
 
 - Child safety and check-in authorization.
@@ -1028,6 +1030,8 @@ Checklist:
 - Is the report performant?
 
 ### Data Integrity Monitoring
+
+Begin with supported search and profile workflows such as [Searching for a Person](https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person) and use [How to Delete a Person](https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person) to understand dependency-sensitive cleanup; audits should identify candidates, not silently alter records.
 
 Useful recurring audits:
 
@@ -1809,6 +1813,8 @@ This generated summary links the long-form guide to reviewed media distillations
 - [Outstanding Registration Payment Accessible to All Family Members](https://community.rockrms.com/recipes/488): family payment workaround with registrar-change caveats.
 
 ### Records Requiring Live Verification
+
+Use the version-matched [Model Map](https://community.rockrms.com/ModelMap) for entity shape and [Using PersonAlias vs Person](https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person) for identity semantics, then inspect local qualifiers, security, plugins, and configuration before acting.
 
 The source pack does not include full current schema for every person/family table, full implementation of every profile block, or full official documentation for every training topic. Verify in a live Rock instance before depending on:
 

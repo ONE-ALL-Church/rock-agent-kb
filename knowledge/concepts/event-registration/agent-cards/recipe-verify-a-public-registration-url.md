@@ -39,10 +39,10 @@ Follow the guide section for Recipe: Verify A Public Registration URL.
 - https://community.rockrms.com/rocku/event-registration
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/event-registration/additional-registration-fees
-- https://www.triumph.tech/resources/github-spotlight-182025
+- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
+- https://www.triumph.tech/resources/github-spotlight-182025
 - https://community.rockrms.com/recipes/313
 - https://community.rockrms.com/developer/ai-agents/skills
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes
 - https://community.rockrms.com/recipes/245
-- https://community.rockrms.com/recipes/472

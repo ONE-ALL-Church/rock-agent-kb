@@ -62,7 +62,7 @@ generated: true
 | `8-transactions-deep-dive-transaction-attributes` | community-supported | community-supported |
 | `8-transactions-deep-dive-transaction-security` | normal | live verification |
 | `9-statements-deep-dive-statement-recipients` | normal | live verification |
-| `9-statements-deep-dive-statement-eligibility` | needs-citation | live verification |
+| `9-statements-deep-dive-statement-eligibility` | normal | live verification |
 | `9-statements-deep-dive-receipts-vs-statements` | community-supported | community-supported |
 | `10-batches-deep-dive-batch-fields-to-inspect` | normal | live verification |
 | `10-batches-deep-dive-automated-batches` | normal | live verification |
@@ -81,10 +81,10 @@ generated: true
 | `14-reporting-analytics-and-model-map-giving-analytics` | normal | live verification |
 | `14-reporting-analytics-and-model-map-bi-financial-transaction-reporting` | citation-only | live verification |
 | `15-version-and-release-caveats` | high | live verification |
-| `16-implementation-playbooks-playbook-add-a-new-giving-account` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-add-a-new-giving-account` | normal | live verification |
 | `16-implementation-playbooks-playbook-configure-online-giving` | structural | live verification |
 | `16-implementation-playbooks-playbook-enable-mobile-batch-check-scanning` | normal | live verification |
-| `16-implementation-playbooks-playbook-build-a-giving-analytics-report` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-build-a-giving-analytics-report` | citation-only | live verification |
 | `16-implementation-playbooks-playbook-import-giving-from-an-external-system` | community-supported | live verification |
 | `17-troubleshooting-decision-tree-recurring-gift-did-not-run` | normal | live verification |
 | `17-troubleshooting-decision-tree-receipt-language-is-wrong` | normal | live verification |

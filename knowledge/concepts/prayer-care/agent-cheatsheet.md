@@ -84,12 +84,11 @@ generated: true
 | `13-developer-api-lava-and-source-code-landmarks-lava` | normal | live verification |
 | `14-reporting-analytics-and-model-map-metrics-to-avoid-misreading` | community-supported | community-supported |
 | `15-version-and-release-caveats` | normal | live verification |
-| `16-implementation-playbooks-playbook-launch-basic-prayer-intake` | needs-citation | live verification |
-| `16-implementation-playbooks-playbook-launch-prayer-team-page` | needs-citation | live verification |
+| `16-implementation-playbooks-playbook-launch-basic-prayer-intake` | normal | live verification |
+| `16-implementation-playbooks-playbook-launch-prayer-team-page` | normal | live verification |
 | `16-implementation-playbooks-playbook-add-group-prayer` | structural | live verification |
 | `16-implementation-playbooks-playbook-enable-comment-digest` | structural | live verification |
 | `16-implementation-playbooks-playbook-add-sms-prayer-intake` | structural | live verification |
 | `16-implementation-playbooks-playbook-add-public-prayer-wall` | structural | live verification |
-| `17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it` | needs-citation | needs-citation |
 | `18-agent-task-recipes-audit-prayer-configuration` | structural | live verification |
 | `18-agent-task-recipes-safely-extend-prayer-intake` | structural | live verification |

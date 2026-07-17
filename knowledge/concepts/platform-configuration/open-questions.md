@@ -10,9 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `8-attributes-and-attribute-values-deep-dive-attribute-definition-fields`: Attribute Definition Fields (92 words)
-- `15-reporting-analytics-and-model-map-reporting-rules`: Reporting Rules (145 words)
-- `18-troubleshooting-decision-tree-attribute-does-not-appear`: Attribute Does Not Appear (96 words)
 
 ## Community-Supported Only
 
