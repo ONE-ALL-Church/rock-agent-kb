@@ -1,6 +1,6 @@
 # Source Scan And Rebuild Orchestration Runbook
 
-This runbook describes the repeatable source-refresh path for the Rock General Knowledge Base. The orchestration layer does not replace the source registry, normalized records, claim graph, media review path, concept guides, answer pack, public export, or audits. It coordinates those existing layers so weekly refreshes are reviewable.
+This runbook describes the repeatable source-refresh path for the Rock General Knowledge Base. The orchestration layer does not replace the source registry, normalized records, claim graph, media review path, concept guides, answer pack, public export, or audits. It coordinates a lightweight daily check for daily-cadence sources and a comprehensive weekly refresh so both paths remain reviewable.
 
 ## Normal Flow
 
@@ -47,6 +47,7 @@ Classify every registered source against the cadence in
 
 ```bash
 uv run kb sources freshness \
+  --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
   --source-status data/review/source-scan/source-refresh-status.json \
   --strict
 ```
@@ -54,9 +55,17 @@ uv run kb sources freshness \
 The report classifies sources as `current`, `due_soon`, `overdue`, `failed`,
 `missing`, or `manual`. Daily sources may be at most 48 hours old, weekly
 sources 216 hours, and monthly sources 840 hours. Manual sources are reported
-without blocking refresh. The scheduled workflow uploads the JSON and Markdown
-reports as the `source-freshness` artifact and fails when a required source is
-failed, missing, or overdue.
+without blocking refresh. It also writes
+`data/review/source-freshness/source-observations.json`, which records
+`last_checked_at`, `content_changed_at`, `result_count`, aggregate
+`content_hash`, and the check `status` independently. A successful check with
+no source delta advances `last_checked_at` while preserving
+`content_changed_at`. Rock core and mobile issue observations use
+`agent/rock-issue-summary.json` for the dedicated issue catalog timestamp,
+repository counts, and catalog hash instead of expecting normalized source
+files. Scheduled workflows cache the previous observation file, upload the
+freshness and scan reports, and fail when a required source is failed, missing,
+or overdue.
 
 4. Inspect the current build status and dry-run action plan.
 
@@ -186,6 +195,15 @@ The orchestration layer must preserve the existing public/private model:
 - CI may flag long-form guides that need authored refresh, but it must not pretend to produce reviewed prose without Codex/reviewer involvement.
 
 ## Scheduled Workflow
+
+`.github/workflows/refresh-daily.yml` runs on every day except Monday, when the
+weekly workflow covers the same cadence. It refreshes only registered
+daily-cadence sources handled by the general source pipeline, skips the broad
+endpoint probe, compares the result with a pre-refresh snapshot, writes source
+observations, runs focused regression tests, and uploads one
+`daily-source-refresh` artifact. Rock GitHub issues remain owned by the separate
+daily `.github/workflows/refresh-rock-issues.yml` pipeline; their summary feeds
+the shared freshness report.
 
 `.github/workflows/refresh.yml` runs the safe path on schedule and on manual dispatch:
 

@@ -1,0 +1,130 @@
+name: Refresh Daily Sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 * * 0,2-6"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DAILY_SOURCE_IDS: >-
+        rock_community_blog
+        rock_core_release_notes
+        rock_mobile_release_notes
+        rock_podcast_rss
+        rock_youtube
+        sparkdevnetwork_rock
+        triumph_resources
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore source observations
+        uses: actions/cache@v4
+        with:
+          path: data/review/source-freshness/source-observations.json
+          key: rock-kb-source-observations-${{ github.run_id }}
+          restore-keys: |
+            rock-kb-source-observations-
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: uv sync --extra dev
+      - name: Capture pre-refresh source snapshot
+        run: uv run kb sources scan --output-dir data/review/source-scan-pre --snapshot-output data/review/source-scan-pre/source-snapshot.json
+      - name: Refresh daily-cadence normalized sources
+        id: refresh_sources
+        continue-on-error: true
+        run: |
+          args=()
+          for source_id in $DAILY_SOURCE_IDS; do
+            args+=(--source "$source_id")
+          done
+          set +e
+          uv run kb sources refresh "${args[@]}" \
+            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            --skip-probe \
+            --skip-indexes
+          refresh_exit=$?
+          export REFRESH_EXIT="$refresh_exit"
+          uv run python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          exit_code = int(os.environ["REFRESH_EXIT"])
+          source_ids = os.environ["DAILY_SOURCE_IDS"].split()
+          payload = {
+              "schema": "rock-kb-source-refresh-status-v1",
+              "checked": source_ids if exit_code == 0 else [],
+              "checked_at": datetime.now(timezone.utc).isoformat(),
+              "failed": [] if exit_code == 0 else ["refresh_pipeline"],
+              "skipped": [],
+              "exit_code": exit_code,
+          }
+          path = Path("data/review/source-scan/source-refresh-status.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          PY
+          exit "$refresh_exit"
+      - name: Scan daily source changes
+        if: always()
+        run: |
+          uv run kb sources scan \
+            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            --source-status data/review/source-scan/source-refresh-status.json \
+            --output-dir data/review/source-scan
+      - name: Check source freshness expectations
+        id: source_freshness
+        if: always()
+        continue-on-error: true
+        run: |
+          uv run kb sources freshness \
+            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            --source-status data/review/source-scan/source-refresh-status.json \
+            --strict
+      - name: Run daily refresh regression tests
+        if: steps.refresh_sources.outcome == 'success'
+        run: uv run --extra dev pytest -q tests/test_source_freshness.py tests/test_source_orchestration.py
+      - name: Upload daily source reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-source-refresh
+          path: |
+            data/review/source-freshness/
+            data/review/source-scan/
+      - name: Summarize daily refresh
+        if: always()
+        run: |
+          uv run python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+
+          freshness = json.loads(Path("data/review/source-freshness/source-freshness-report.json").read_text())
+          scan = json.loads(Path("data/review/source-scan/source-scan-report.json").read_text())
+          summary = scan.get("summary") or {}
+          print("## Daily Source Refresh")
+          print()
+          print(f"- Freshness: `{freshness.get('status')}`")
+          print(f"- Changed records: `{summary.get('changed_source_records', 0)}`")
+          print(f"- New records: `{summary.get('new_source_records', 0)}`")
+          print(f"- Removed records: `{summary.get('removed_source_records', 0)}`")
+          print(f"- Blocking sources: `{', '.join(freshness.get('blocking_source_ids') or []) or 'none'}`")
+          PY
+      - name: Fail unsuccessful refresh or stale source state
+        if: steps.refresh_sources.outcome != 'success' || steps.source_freshness.outcome != 'success'
+        run: exit 1

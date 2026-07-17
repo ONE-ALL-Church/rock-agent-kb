@@ -24,6 +24,8 @@ app.command("scan")(legacy.source_scan_command)
 def source_freshness_command(
     output_dir: Path = typer.Option(Path("data/review/source-freshness"), "--output-dir", file_okay=False),
     source_status: Path | None = typer.Option(None, "--source-status", exists=True, dir_okay=False),
+    baseline_snapshot: Path | None = typer.Option(None, "--baseline-snapshot", exists=True, dir_okay=False),
+    previous_observations: Path | None = typer.Option(None, "--previous-observations", exists=True, dir_okay=False),
     strict: bool = typer.Option(False, "--strict", help="Exit non-zero when required sources are failed, missing, or overdue."),
 ) -> None:
     """Classify every registered source against its expected refresh cadence."""
@@ -31,7 +33,12 @@ def source_freshness_command(
 
     from ..source_freshness import build_source_freshness_report
 
-    report = build_source_freshness_report(output_dir=output_dir, source_status_path=source_status)
+    report = build_source_freshness_report(
+        output_dir=output_dir,
+        source_status_path=source_status,
+        baseline_snapshot_path=baseline_snapshot,
+        previous_observations_path=previous_observations,
+    )
     print_json(data=report)
     if strict and report["status"] != "ok":
         raise typer.Exit(code=1)
