@@ -8,14 +8,20 @@ from typing import Any, Iterable
 
 import yaml
 
-from .extract import generated_at_iso
-from .paths import REPO_ROOT
+from .extract import generated_at_iso, sha256_text
+from .paths import AGENT_DIR, REPO_ROOT
 from .source_orchestration import build_source_snapshot
 from .sources import Source, load_sources
 
 
 POLICY_PATH = REPO_ROOT / "sources" / "freshness-policy.yaml"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "data" / "review" / "source-freshness"
+OBSERVATION_SCHEMA = "rock-kb-source-observations-v1"
+ROCK_ISSUE_SUMMARY_PATH = AGENT_DIR / "rock-issue-summary.json"
+ISSUE_SOURCE_REPOSITORIES = {
+    "rock_core_issues": "SparkDevNetwork/Rock",
+    "rock_mobile_issues": "SparkDevNetwork/Rock.Mobile-Issues",
+}
 
 
 def build_source_freshness_report(
@@ -23,12 +29,31 @@ def build_source_freshness_report(
     output_dir: Path = DEFAULT_OUTPUT_DIR,
     as_of: datetime | None = None,
     source_status_path: Path | None = None,
+    baseline_snapshot_path: Path | None = None,
+    previous_observations_path: Path | None = None,
+    issue_summary_path: Path = ROCK_ISSUE_SUMMARY_PATH,
 ) -> dict[str, Any]:
     as_of = (as_of or datetime.now(timezone.utc)).astimezone(timezone.utc)
     policy = load_freshness_policy()
     snapshot = build_source_snapshot()
     refresh_status = read_json(source_status_path) if source_status_path and source_status_path.exists() else {}
-    rows = source_freshness_rows(load_sources(), snapshot, policy, as_of, refresh_status)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    observation_path = output_dir / "source-observations.json"
+    previous_path = previous_observations_path or observation_path
+    previous_observations = read_json(previous_path) if previous_path.exists() else {}
+    baseline_snapshot = read_json(baseline_snapshot_path) if baseline_snapshot_path and baseline_snapshot_path.exists() else {}
+    issue_summary = read_json(issue_summary_path) if issue_summary_path.exists() else {}
+    sources = load_sources()
+    observations = build_source_observations(
+        sources,
+        snapshot,
+        as_of,
+        refresh_status=refresh_status,
+        previous_observations=previous_observations,
+        baseline_snapshot=baseline_snapshot,
+        issue_summary=issue_summary,
+    )
+    rows = source_freshness_rows(sources, snapshot, policy, as_of, refresh_status, observations)
     counts = Counter(str(row["status"]) for row in rows)
     blocking = [row["source_id"] for row in rows if row["status"] in {"overdue", "missing", "failed"}]
     report = {
@@ -41,12 +66,132 @@ def build_source_freshness_report(
         "blocking_source_ids": sorted(blocking),
         "sources": rows,
     }
-    output_dir.mkdir(parents=True, exist_ok=True)
+    observation_path.write_text(
+        json.dumps(observations, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     (output_dir / "source-freshness-report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     (output_dir / "source-freshness-summary.md").write_text(render_freshness_markdown(report), encoding="utf-8")
     return report
+
+
+def build_source_observations(
+    sources: Iterable[Source],
+    snapshot: dict[str, Any],
+    as_of: datetime,
+    *,
+    refresh_status: dict[str, Any] | None = None,
+    previous_observations: dict[str, Any] | None = None,
+    baseline_snapshot: dict[str, Any] | None = None,
+    issue_summary: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    refresh_status = refresh_status or {}
+    previous_sources = (previous_observations or {}).get("sources") or {}
+    baseline_snapshot = baseline_snapshot or {}
+    issue_summary = issue_summary or {}
+    snapshot_sources = snapshot.get("sources") or {}
+    checked = {str(value) for value in refresh_status.get("checked") or []}
+    failed = {str(value) for value in refresh_status.get("failed") or []}
+    skipped = {str(value) for value in refresh_status.get("skipped") or []}
+    explicit_checked = "checked" in refresh_status
+    checked_at = parse_datetime(refresh_status.get("checked_at"))
+    issue_checked_at = parse_datetime(issue_summary.get("source_updated_through"))
+    rows: dict[str, dict[str, Any]] = {}
+
+    for source in sorted(sources, key=lambda item: item.id):
+        current = snapshot_sources.get(source.id) or {}
+        previous = previous_sources.get(source.id) or {}
+        result_count = int(current.get("record_count") or 0)
+        content_hash = source_content_hash(snapshot, source.id)
+        source_checked_at = parse_datetime(current.get("retrieved_at_max"))
+
+        repository = ISSUE_SOURCE_REPOSITORIES.get(source.id)
+        if repository and issue_summary:
+            result_count = int((issue_summary.get("repositories") or {}).get(repository) or 0)
+            catalog_hash = str(issue_summary.get("catalog_content_hash") or "")
+            content_hash = sha256_text(f"{source.id}:{catalog_hash}:{result_count}") if catalog_hash else ""
+            source_checked_at = issue_checked_at
+
+        if source.refresh_cadence == "manual":
+            check_status = "manual"
+        elif source.id in failed or "refresh_pipeline" in failed:
+            check_status = "failed"
+        elif source.id in skipped:
+            check_status = "skipped"
+        elif repository and source_checked_at and result_count:
+            check_status = "success"
+        elif source.id in checked:
+            check_status = "success" if result_count else "missing"
+            source_checked_at = checked_at or source_checked_at
+        elif explicit_checked:
+            check_status = "not_checked"
+        elif source_checked_at and result_count:
+            check_status = "success"
+        else:
+            check_status = "missing"
+
+        last_checked_at = source_checked_at
+        if check_status == "not_checked" and previous.get("last_checked_at"):
+            last_checked_at = parse_datetime(previous.get("last_checked_at"))
+        if source.id in checked and checked_at:
+            last_checked_at = checked_at
+
+        content_changed_at = resolve_content_changed_at(
+            source.id,
+            content_hash,
+            previous,
+            baseline_snapshot,
+            last_checked_at or as_of,
+        )
+        rows[source.id] = {
+            "source_id": source.id,
+            "last_checked_at": isoformat(last_checked_at),
+            "content_changed_at": isoformat(content_changed_at),
+            "result_count": result_count,
+            "content_hash": content_hash,
+            "status": check_status,
+        }
+
+    return {
+        "schema": OBSERVATION_SCHEMA,
+        "generated_at": generated_at_iso(),
+        "sources": rows,
+    }
+
+
+def resolve_content_changed_at(
+    source_id: str,
+    content_hash: str,
+    previous: dict[str, Any],
+    baseline_snapshot: dict[str, Any],
+    fallback: datetime,
+) -> datetime | None:
+    if not content_hash:
+        return None
+    if previous.get("content_hash") == content_hash and previous.get("content_changed_at"):
+        return parse_datetime(previous.get("content_changed_at"))
+    baseline_hash = source_content_hash(baseline_snapshot, source_id)
+    if baseline_hash == content_hash:
+        baseline_source = ((baseline_snapshot.get("sources") or {}).get(source_id) or {})
+        return (
+            parse_datetime(baseline_source.get("retrieved_at_max"))
+            or parse_datetime(baseline_snapshot.get("generated_at"))
+            or fallback
+        )
+    return fallback
+
+
+def source_content_hash(snapshot: dict[str, Any], source_id: str) -> str:
+    records = snapshot.get("source_records") or {}
+    pairs = sorted(
+        (str(record_id), str(row.get("content_hash") or ""))
+        for record_id, row in records.items()
+        if row.get("source_id") == source_id
+    )
+    if not pairs:
+        return ""
+    return sha256_text(json.dumps(pairs, ensure_ascii=False, separators=(",", ":")))
 
 
 def source_freshness_rows(
@@ -55,24 +200,30 @@ def source_freshness_rows(
     policy: dict[str, Any],
     as_of: datetime,
     refresh_status: dict[str, Any] | None = None,
+    observations: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     refresh_status = refresh_status or {}
     failed = {str(value) for value in refresh_status.get("failed") or []}
     skipped = {str(value) for value in refresh_status.get("skipped") or []}
     snapshot_sources = snapshot.get("sources") or {}
+    observation_sources = (observations or {}).get("sources") or {}
     due_soon_fraction = float(policy.get("due_soon_fraction") or 0.75)
     cadence_policy = policy.get("cadences") or {}
     rows = []
     for source in sorted(sources, key=lambda item: item.id):
         current = snapshot_sources.get(source.id) or {}
+        observation = observation_sources.get(source.id) or {}
         maximum_age = (cadence_policy.get(source.refresh_cadence) or {}).get("maximum_age_hours")
-        retrieved_at = parse_datetime(current.get("retrieved_at_max"))
-        age_hours = round((as_of - retrieved_at).total_seconds() / 3600, 2) if retrieved_at else None
-        if source.id in failed or "refresh_pipeline" in failed:
+        last_checked_at = parse_datetime(observation.get("last_checked_at") or current.get("retrieved_at_max"))
+        content_changed_at = parse_datetime(observation.get("content_changed_at"))
+        result_count = int(observation.get("result_count") if "result_count" in observation else current.get("record_count") or 0)
+        check_status = str(observation.get("status") or "")
+        age_hours = round((as_of - last_checked_at).total_seconds() / 3600, 2) if last_checked_at else None
+        if source.id in failed or "refresh_pipeline" in failed or check_status == "failed":
             status = "failed"
         elif source.refresh_cadence == "manual":
             status = "manual"
-        elif not retrieved_at or not int(current.get("record_count") or 0):
+        elif not last_checked_at or not result_count:
             status = "missing"
         elif maximum_age is not None and age_hours is not None and age_hours > float(maximum_age):
             status = "overdue"
@@ -86,11 +237,16 @@ def source_freshness_rows(
                 "name": source.name,
                 "cadence": source.refresh_cadence,
                 "maximum_age_hours": maximum_age,
-                "retrieved_at": retrieved_at.isoformat() if retrieved_at else "",
+                "last_checked_at": isoformat(last_checked_at),
+                "content_changed_at": isoformat(content_changed_at),
+                "result_count": result_count,
+                "content_hash": str(observation.get("content_hash") or ""),
+                "check_status": check_status or ("success" if last_checked_at and result_count else "missing"),
+                "retrieved_at": isoformat(last_checked_at),
                 "age_hours": age_hours,
-                "record_count": int(current.get("record_count") or 0),
+                "record_count": result_count,
                 "status": status,
-                "refresh_skipped": source.id in skipped,
+                "refresh_skipped": source.id in skipped or check_status == "skipped",
             }
         )
     return rows
@@ -111,18 +267,26 @@ def parse_datetime(value: Any) -> datetime | None:
     return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed.astimezone(timezone.utc)
 
 
+def isoformat(value: datetime | None) -> str:
+    return value.isoformat() if value else ""
+
+
 def render_freshness_markdown(report: dict[str, Any]) -> str:
     lines = [
         "# Source Freshness",
         "",
         f"Status: **{report['status']}**",
         "",
-        "| Source | Cadence | Age (hours) | Records | Status |",
-        "|---|---:|---:|---:|---|",
+        "| Source | Cadence | Last checked | Content changed | Age (hours) | Results | Check | Freshness |",
+        "|---|---:|---|---|---:|---:|---|---|",
     ]
     for row in report["sources"]:
         age = "n/a" if row["age_hours"] is None else f"{row['age_hours']:.1f}"
-        lines.append(f"| `{row['source_id']}` | {row['cadence']} | {age} | {row['record_count']} | {row['status']} |")
+        lines.append(
+            f"| `{row['source_id']}` | {row['cadence']} | {row['last_checked_at'] or 'n/a'} | "
+            f"{row['content_changed_at'] or 'n/a'} | {age} | {row['result_count']} | "
+            f"{row['check_status']} | {row['status']} |"
+        )
     return "\n".join(lines) + "\n"
 
 

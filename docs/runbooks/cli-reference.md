@@ -109,6 +109,7 @@ uv run kb contributions validate
 uv run kb contributions validate --path contributions/<org-key>/bundle.jsonl
 uv run kb contributions promote --draft-path data/review/private-distill/rockproduction_docs_private_candidates-workflows.jsonl --org-id oneall --rewrite-file data/review/rewrites/oneall-workflows.jsonl --reviewed --redaction-attestation --license-attestation --output contributions/oneall/bundle.jsonl
 uv run kb sources freshness --strict
+uv run kb sources freshness --baseline-snapshot data/review/source-scan-pre/source-snapshot.json --source-status data/review/source-scan/source-refresh-status.json --strict
 ```
 
 ## Rock Issue Intelligence

@@ -9,12 +9,23 @@ permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: source-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - name: Restore source observations
+        uses: actions/cache@v4
+        with:
+          path: data/review/source-freshness/source-observations.json
+          key: rock-kb-source-observations-${{ github.run_id }}
+          restore-keys: |
+            rock-kb-source-observations-
       - name: Install uv
         uses: astral-sh/setup-uv@v5
       - name: Set up Python
@@ -33,11 +44,27 @@ jobs:
           uv run kb sources refresh --baseline-snapshot data/review/source-scan-pre/source-snapshot.json --skip-indexes
           status=$?
           mkdir -p data/review/source-scan
-          if [ "$status" -eq 0 ]; then
-            printf '{"failed":[],"skipped":[],"exit_code":0}\n' > data/review/source-scan/source-refresh-status.json
-          else
-            printf '{"failed":["refresh_pipeline"],"skipped":[],"exit_code":%s}\n' "$status" > data/review/source-scan/source-refresh-status.json
-          fi
+          export REFRESH_EXIT="$status"
+          uv run python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from rock_kb.cli._legacy import REFRESH_STEPS
+
+          exit_code = int(os.environ["REFRESH_EXIT"])
+          payload = {
+              "schema": "rock-kb-source-refresh-status-v1",
+              "checked": [step.source_id for step in REFRESH_STEPS] if exit_code == 0 else [],
+              "checked_at": datetime.now(timezone.utc).isoformat(),
+              "failed": [] if exit_code == 0 else ["refresh_pipeline"],
+              "skipped": [],
+              "exit_code": exit_code,
+          }
+          path = Path("data/review/source-scan/source-refresh-status.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          PY
           exit "$status"
       - name: Scan source changes
         if: always()
@@ -46,7 +73,11 @@ jobs:
         id: source_freshness
         if: always()
         continue-on-error: true
-        run: uv run kb sources freshness --source-status data/review/source-scan/source-refresh-status.json --strict
+        run: |
+          uv run kb sources freshness \
+            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            --source-status data/review/source-scan/source-refresh-status.json \
+            --strict
       - name: Upload source freshness report
         if: always()
         uses: actions/upload-artifact@v4
