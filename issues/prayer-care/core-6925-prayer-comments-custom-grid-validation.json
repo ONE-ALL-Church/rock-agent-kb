@@ -2,10 +2,10 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6925-prayer-comments-custom-grid-validation-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6925",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Prayer Comment List source explicitly enables customized-grid Lava and exposes the prayer request as the Row merge object. The shared attribute helper, however, creates `core.CustomGridColumnsConfig` as a plain TextFieldAttribute without enabling Lava. TextField validation defaults to the PlainText profile unless Allow Lava is configured. This supports a contract mismatch between the feature's intended Lava content and the backing attribute's validation rules. The issue remains open, and the reviewed source does not establish a maintainer-approved fix or whether every save throws versus logs the validation exception under each runtime setting.",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 47313ad65c063f8f08f7172467a484d997b123e1 and labeled the fix for v19.3. Prayer Comment List custom columns intentionally support Lava, but the shared helper created core.CustomGridColumnsConfig as a TextFieldAttribute without enabling Lava, so saving a valid custom-column template could trigger string-validation exceptions. The fix adds explicit AllowHtml and AllowLava TextFieldAttribute properties and enables both when the shared helper creates custom-grid configuration attributes.",
   "workaround_summaries": [
-    "Do not disable server string validation or edit the database to suppress this exception. Avoid changing Prayer Comment List custom columns in production until a fixed build is available. If the column is operationally necessary and already renders, preserve the existing configuration, monitor only aggregate exception counts, and test any change in an isolated staging instance first."
+    "Upgrade to a package proven to contain the custom-grid TextField validation fix. Before upgrade, do not disable server string validation or edit the database to suppress the exception; preserve existing working configuration and test any custom-column change in an isolated staging instance."
   ],
   "verification_playbook": {
     "goal": "Determine whether Prayer Comment List blocks store Lava in the custom-grid configuration and whether the validation mismatch is producing exceptions, without saving a block.",
@@ -18,9 +18,9 @@
         "step_id": "check-source-contract",
         "title": "Check the installed source contract",
         "method": "source_revision_check",
-        "instructions": "Confirm whether PrayerCommentList advertises customized-grid Lava while the shared helper still creates core.CustomGridColumnsConfig as a plain Text field without Allow Lava.",
+        "instructions": "Confirm whether the installed package contains commit 47313ad65c063f8f08f7172467a484d997b123e1 or equivalent behavior that enables AllowHtml and AllowLava when the shared helper creates core.CustomGridColumnsConfig.",
         "expected_if_affected": "The installed build contains both sides of the mismatch: Lava-capable custom columns and a non-Lava Text validation profile.",
-        "expected_if_unaffected": "The installed build explicitly allows Lava for the custom-grid configuration or otherwise stores and validates the nested Lava safely.",
+        "expected_if_unaffected": "The installed build explicitly allows Lava and HTML for the custom-grid configuration, or contains the confirmed fix.",
         "evidence_to_record": [
           "Rock version",
           "package or commit identifier"
@@ -67,7 +67,7 @@
   },
   "applicability": [
     {
-      "assertion_id": "core-6925-under-investigation-19.3",
+      "assertion_id": "core-6925-reported-affected-19.3.1-19.3.2",
       "component": "rock_core",
       "version_scheme": "rock_release",
       "release_track": "19.3",
@@ -76,7 +76,7 @@
       },
       "versions": ["19.3.1", "19.3.2"],
       "ranges": [],
-      "status": "under_investigation",
+      "status": "affected",
       "fix_refs": [],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6925",
@@ -109,6 +109,57 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-17T07:57:36Z"
+    },
+    {
+      "assertion_id": "core-6925-fixed-by-commit-47313ad",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact shared custom-grid TextField validation revision"
+      },
+      "versions": [
+        "47313ad65c063f8f08f7172467a484d997b123e1"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/47313ad65c063f8f08f7172467a484d997b123e1"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6925",
+        "https://github.com/SparkDevNetwork/Rock/commit/47313ad65c063f8f08f7172467a484d997b123e1",
+        "https://github.com/SparkDevNetwork/Rock/blob/47313ad65c063f8f08f7172467a484d997b123e1/Rock/Attribute/Helper.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/47313ad65c063f8f08f7172467a484d997b123e1/Rock/Attribute/TextFieldAttribute.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:40:21Z"
+    },
+    {
+      "assertion_id": "core-6925-fixed-label-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official GitHub fixed-version label; verify exact package inclusion"
+      },
+      "versions": [
+        "19.3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/47313ad65c063f8f08f7172467a484d997b123e1"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6925",
+        "https://github.com/SparkDevNetwork/Rock/commit/47313ad65c063f8f08f7172467a484d997b123e1"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T15:40:21Z"
     }
   ],
   "source_refs": [
@@ -117,16 +168,19 @@
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Prayer/PrayerCommentList.cs#L50-L61",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Prayer/PrayerCommentList.cs#L260-L281",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Attribute/Helper.cs#L153-L159",
-    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Field/Types/TextFieldType.cs#L103-L127"
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Field/Types/TextFieldType.cs#L103-L127",
+    "https://github.com/SparkDevNetwork/Rock/commit/47313ad65c063f8f08f7172467a484d997b123e1",
+    "https://github.com/SparkDevNetwork/Rock/blob/47313ad65c063f8f08f7172467a484d997b123e1/Rock/Attribute/Helper.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/47313ad65c063f8f08f7172467a484d997b123e1/Rock/Attribute/TextFieldAttribute.cs"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
-  "confidence": "medium",
+  "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-16T21:41:32Z",
-  "reviewed_at": "2026-07-17T07:57:36Z",
+  "issue_updated_at": "2026-07-17T15:21:54Z",
+  "reviewed_at": "2026-07-17T15:40:21Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

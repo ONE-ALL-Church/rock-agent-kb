@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "916d4f9570573d4bbb0bf22b27e2eac89796bfcbcc34e7842c785bc569b027c7",
+  "catalog_content_hash": "677e83eb738de85735d2adb0e31c6ef3812ec2f517097c0d6bf9aa4f7d5eff8c",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
@@ -7,9 +7,9 @@
   },
   "evidence_states": {
     "commit_linked": 13,
-    "fixed_release_recorded": 3188,
+    "fixed_release_recorded": 3189,
     "maintainer_triaged": 1227,
-    "report_only": 1375
+    "report_only": 1374
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
@@ -19,21 +19,21 @@
     "SparkDevNetwork/Rock": 5675,
     "SparkDevNetwork/Rock.Mobile-Issues": 128
   },
-  "reviewed_enrichment_count": 22,
+  "reviewed_enrichment_count": 27,
   "reviewed_enrichment_metrics": {
     "confidences": {
-      "high": 17,
-      "medium": 5
+      "high": 23,
+      "medium": 4
     },
     "diagnosis_statuses": {
-      "maintainer_confirmed": 9,
-      "source_supported": 13
+      "maintainer_confirmed": 15,
+      "source_supported": 12
     },
-    "issue_count": 22,
+    "issue_count": 27,
     "missing_verification_playbook_enrichment_ids": [],
     "revalidation_due_count": 0,
     "revalidation_due_enrichment_ids": [],
-    "verification_playbook_count": 22,
+    "verification_playbook_count": 27,
     "verification_playbook_coverage_percent": 100.0
   },
   "routing": {
@@ -46,10 +46,10 @@
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-16T21:41:32Z",
+  "source_updated_through": "2026-07-17T15:21:54Z",
   "states": {
-    "closed": 5793,
-    "open": 10
+    "closed": 5794,
+    "open": 9
   },
   "timeline_coverage": {
     "complete": 298,
@@ -79,7 +79,7 @@
     "workflows": 377
   },
   "validation_states": {
-    "confirmed": 2534,
-    "reported": 3269
+    "confirmed": 2535,
+    "reported": 3268
   }
 }

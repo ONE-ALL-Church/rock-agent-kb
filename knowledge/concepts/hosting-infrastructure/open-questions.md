@@ -10,8 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `5-core-configuration-and-data-model-rock-database-records-that-affect-hosting`: Rock Database Records That Affect Hosting (121 words)
-- `14-reporting-analytics-and-model-map-model-map-usage`: Model Map Usage (83 words)
 
 ## Community-Supported Only
 

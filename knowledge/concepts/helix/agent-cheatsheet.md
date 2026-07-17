@@ -50,7 +50,7 @@ generated: true
 | `5-core-configuration-and-data-model-lava-application-configuration` | normal | live verification |
 | `5-core-configuration-and-data-model-lava-endpoint-configuration` | normal | live verification |
 | `6-primary-entities-and-relationships` | normal | live verification |
-| `7-common-helix-workflows-read-only-partial-refresh` | needs-citation | live verification |
+| `7-common-helix-workflows-read-only-partial-refresh` | normal | live verification |
 | `7-common-helix-workflows-admin-utility` | community-supported | live verification |
 | `7-common-helix-workflows-guided-search-or-finder` | citation-only | live verification |
 | `8-overview-and-roadmap-deep-dive` | normal | live verification |
@@ -71,8 +71,8 @@ generated: true
 | `17-developer-api-lava-and-source-code-landmarks` | normal | live verification |
 | `18-reporting-analytics-and-model-map` | normal | live verification |
 | `19-version-and-release-caveats` | normal | live verification |
-| `20-implementation-playbooks-playbook-a-build-a-read-only-results-panel` | needs-citation | live verification |
-| `20-implementation-playbooks-playbook-b-build-a-safe-update-form` | needs-citation | live verification |
+| `20-implementation-playbooks-playbook-a-build-a-read-only-results-panel` | normal | live verification |
+| `20-implementation-playbooks-playbook-b-build-a-safe-update-form` | normal | live verification |
 | `20-implementation-playbooks-playbook-c-convert-a-static-lava-page-to-helix` | structural | live verification |
 | `20-implementation-playbooks-playbook-d-audit-an-existing-helix-app` | structural | live verification |
 | `21-troubleshooting-decision-tree-the-button-does-nothing` | normal | live verification |

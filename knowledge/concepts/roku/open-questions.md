@@ -10,8 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `7-common-roku-apps-workflows-add-a-page`: Add A Page (97 words)
-- `17-implementation-playbooks-playbook-create-a-minimal-roku-home-page`: Playbook: Create A Minimal Roku Home Page (111 words)
 
 ## Community-Supported Only
 
@@ -27,6 +25,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `5-core-configuration-and-data-model-lava-merge-fields`: Lava Merge Fields
 - `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
 - `7-common-roku-apps-workflows-build-a-first-app`: Build A First App
+- `7-common-roku-apps-workflows-add-a-page`: Add A Page
 - `7-common-roku-apps-workflows-build-a-menu`: Build A Menu
 - `7-common-roku-apps-workflows-add-login`: Add Login
 - `8-roku-getting-started-deep-dive-provisioning`: Provisioning
@@ -57,7 +56,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `17-implementation-playbooks-playbook-add-campus-selection`: Playbook: Add Campus Selection
 - `17-implementation-playbooks-playbook-add-login`: Playbook: Add Login
 - `17-implementation-playbooks-playbook-tune-caching`: Playbook: Tune Caching
-- `19-agent-task-recipes-recipe-review-a-roku-page-for-safety`: Recipe: Review A Roku Page For Safety
 
 ## Live Verification Clarification
 

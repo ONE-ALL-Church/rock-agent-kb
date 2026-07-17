@@ -1378,12 +1378,12 @@
   },
   "approved_media_hash": "aebcaa061fb04d7cb10d9f129006a9537fe6b88c39fabbbed8010a7354aa6976",
   "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
-  "built_at": "2026-07-17T09:00:38+00:00",
+  "built_at": "2026-07-17T15:45:12+00:00",
   "concept_id": "scheduling-locations",
-  "guide_hash": "8b9fa5719b7c2167b636b24d8f4da7721245be87d6c0a668cf73262b6c943eb6",
-  "guide_line_count": 1146,
+  "guide_hash": "28f3952df7109253200d8b283e722471eb07636ea5faaa9d2d353da334d9f4f0",
+  "guide_line_count": 1148,
   "guide_path": "knowledge/concepts/scheduling-locations/guide.md",
-  "guide_word_count": 11469,
+  "guide_word_count": 11520,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2374,8 +2374,8 @@
       "start_line": 365
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 389,
+      "confidence": "normal",
+      "end_line": 391,
       "heading": "Location Types",
       "needs_live_verification": true,
       "section_id": "8-locations-deep-dive-location-types",
@@ -2386,7 +2386,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 403,
+      "end_line": 405,
       "heading": "Active State And Open/Closed State",
       "needs_live_verification": false,
       "section_id": "8-locations-deep-dive-active-state-and-open-closed-state",
@@ -2394,11 +2394,11 @@
         "043ee0dda2027021",
         "776256c424368312"
       ],
-      "start_line": 390
+      "start_line": 392
     },
     {
       "confidence": "normal",
-      "end_line": 416,
+      "end_line": 418,
       "heading": "Thresholds And Capacity",
       "needs_live_verification": true,
       "section_id": "8-locations-deep-dive-thresholds-and-capacity",
@@ -2406,11 +2406,11 @@
         "7de7c8a5de3827c3",
         "e1ba30aa8aee50d7"
       ],
-      "start_line": 404
+      "start_line": 406
     },
     {
       "confidence": "high",
-      "end_line": 424,
+      "end_line": 426,
       "heading": "Location Selection Strategy",
       "needs_live_verification": true,
       "section_id": "8-locations-deep-dive-location-selection-strategy",
@@ -2419,11 +2419,11 @@
         "2e737fcc6a7c59c1",
         "316bc299d3b76c92"
       ],
-      "start_line": 417
+      "start_line": 419
     },
     {
       "confidence": "high",
-      "end_line": 436,
+      "end_line": 438,
       "heading": "Device Location Scope",
       "needs_live_verification": false,
       "section_id": "8-locations-deep-dive-device-location-scope",
@@ -2431,22 +2431,22 @@
         "6f0f21989434ef17",
         "2e737fcc6a7c59c1"
       ],
-      "start_line": 425
+      "start_line": 427
     },
     {
       "confidence": "community-supported",
-      "end_line": 440,
+      "end_line": 442,
       "heading": "Location SEO And Public Pages",
       "needs_live_verification": false,
       "section_id": "8-locations-deep-dive-location-seo-and-public-pages",
       "source_keys": [
         "3951d791b6a731a6"
       ],
-      "start_line": 437
+      "start_line": 439
     },
     {
       "confidence": "structural",
-      "end_line": 442,
+      "end_line": 444,
       "heading": "9. Schedules Deep Dive",
       "needs_live_verification": false,
       "section_id": "9-schedules-deep-dive",
@@ -2457,22 +2457,22 @@
         "2e546ad927545965",
         "4749333ecb64208a"
       ],
-      "start_line": 441
+      "start_line": 443
     },
     {
       "confidence": "normal",
-      "end_line": 456,
+      "end_line": 458,
       "heading": "Schedule Categories",
       "needs_live_verification": false,
       "section_id": "9-schedules-deep-dive-schedule-categories",
       "source_keys": [
         "992c0520f63523db"
       ],
-      "start_line": 443
+      "start_line": 445
     },
     {
       "confidence": "normal",
-      "end_line": 466,
+      "end_line": 468,
       "heading": "Effective Dates And Recurrence",
       "needs_live_verification": true,
       "section_id": "9-schedules-deep-dive-effective-dates-and-recurrence",
@@ -2481,11 +2481,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 457
+      "start_line": 459
     },
     {
       "confidence": "normal",
-      "end_line": 472,
+      "end_line": 474,
       "heading": "Check-In Start Offsets",
       "needs_live_verification": true,
       "section_id": "9-schedules-deep-dive-check-in-start-offsets",
@@ -2493,22 +2493,22 @@
         "992c0520f63523db",
         "5bc36db2182cdfa1"
       ],
-      "start_line": 467
+      "start_line": 469
     },
     {
       "confidence": "normal",
-      "end_line": 482,
+      "end_line": 484,
       "heading": "Schedule Exclusions",
       "needs_live_verification": true,
       "section_id": "9-schedules-deep-dive-schedule-exclusions",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 473
+      "start_line": 475
     },
     {
       "confidence": "community-supported",
-      "end_line": 495,
+      "end_line": 497,
       "heading": "Schedule Templates And Preferences",
       "needs_live_verification": true,
       "section_id": "9-schedules-deep-dive-schedule-templates-and-preferences",
@@ -2516,66 +2516,66 @@
         "2e546ad927545965",
         "4749333ecb64208a"
       ],
-      "start_line": 483
+      "start_line": 485
     },
     {
       "confidence": "normal",
-      "end_line": 499,
+      "end_line": 501,
       "heading": "Schedule Builder Field Type",
       "needs_live_verification": true,
       "section_id": "9-schedules-deep-dive-schedule-builder-field-type",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 496
+      "start_line": 498
     },
     {
       "confidence": "structural",
-      "end_line": 503,
+      "end_line": 505,
       "heading": "10. Reservations Deep Dive",
       "needs_live_verification": false,
       "section_id": "10-reservations-deep-dive",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 500
+      "start_line": 502
     },
     {
       "confidence": "community-supported",
-      "end_line": 518,
+      "end_line": 520,
       "heading": "Reservation Lifecycle",
       "needs_live_verification": false,
       "section_id": "10-reservations-deep-dive-reservation-lifecycle",
       "source_keys": [
         "99b6339f06b5bdc2"
       ],
-      "start_line": 504
+      "start_line": 506
     },
     {
       "confidence": "community-supported",
-      "end_line": 532,
+      "end_line": 534,
       "heading": "Approvals",
       "needs_live_verification": false,
       "section_id": "10-reservations-deep-dive-approvals",
       "source_keys": [
         "8ea41a943b81c1d2"
       ],
-      "start_line": 519
+      "start_line": 521
     },
     {
       "confidence": "community-supported",
-      "end_line": 545,
+      "end_line": 547,
       "heading": "Reservation Calendar Views",
       "needs_live_verification": true,
       "section_id": "10-reservations-deep-dive-reservation-calendar-views",
       "source_keys": [
         "31045fdc8f468a7e"
       ],
-      "start_line": 533
+      "start_line": 535
     },
     {
       "confidence": "community-supported",
-      "end_line": 551,
+      "end_line": 553,
       "heading": "Reservation To Event Calendar Linkage",
       "needs_live_verification": true,
       "section_id": "10-reservations-deep-dive-reservation-to-event-calendar-linkage",
@@ -2583,11 +2583,11 @@
         "e8068f7bf9b9c14f",
         "eb219bea22e48f70"
       ],
-      "start_line": 546
+      "start_line": 548
     },
     {
       "confidence": "community-supported",
-      "end_line": 564,
+      "end_line": 566,
       "heading": "Reservation iCal Feeds",
       "needs_live_verification": true,
       "section_id": "10-reservations-deep-dive-reservation-ical-feeds",
@@ -2596,11 +2596,11 @@
         "c84c8d9c6888251c",
         "07e7de2629271fcc"
       ],
-      "start_line": 552
+      "start_line": 554
     },
     {
       "confidence": "structural",
-      "end_line": 566,
+      "end_line": 568,
       "heading": "11. Related Rock Areas: Check In, Groups, Events, Cms",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-check-in-groups-events-cms",
@@ -2618,11 +2618,11 @@
         "7a617924deb729b4",
         "ea40bd76dd01f501"
       ],
-      "start_line": 565
+      "start_line": 567
     },
     {
       "confidence": "high",
-      "end_line": 585,
+      "end_line": 587,
       "heading": "Check-In",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-check-in-groups-events-cms-check-in",
@@ -2631,11 +2631,11 @@
         "ca9bd2a7c1a46e9c",
         "776256c424368312"
       ],
-      "start_line": 567
+      "start_line": 569
     },
     {
       "confidence": "normal",
-      "end_line": 606,
+      "end_line": 608,
       "heading": "Groups",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-check-in-groups-events-cms-groups",
@@ -2643,11 +2643,11 @@
         "d0d7d71631f3f890",
         "776256c424368312"
       ],
-      "start_line": 586
+      "start_line": 588
     },
     {
       "confidence": "normal",
-      "end_line": 612,
+      "end_line": 614,
       "heading": "Events",
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-check-in-groups-events-cms-events",
@@ -2656,11 +2656,11 @@
         "6800ccf5533f9abd",
         "72a54fed295b6af5"
       ],
-      "start_line": 607
+      "start_line": 609
     },
     {
       "confidence": "normal",
-      "end_line": 623,
+      "end_line": 625,
       "heading": "CMS And Lava",
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-check-in-groups-events-cms-cms-and-lava",
@@ -2671,11 +2671,11 @@
         "7a617924deb729b4",
         "ea40bd76dd01f501"
       ],
-      "start_line": 613
+      "start_line": 615
     },
     {
       "confidence": "structural",
-      "end_line": 625,
+      "end_line": 627,
       "heading": "12. Administration And Operational Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
@@ -2684,66 +2684,66 @@
         "3a126f8b9dcc63d7",
         "5bc36db2182cdfa1"
       ],
-      "start_line": 624
+      "start_line": 626
     },
     {
       "confidence": "community-supported",
-      "end_line": 637,
+      "end_line": 639,
       "heading": "Naming Conventions",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-naming-conventions",
       "source_keys": [
         "2e546ad927545965"
       ],
-      "start_line": 626
+      "start_line": 628
     },
     {
       "confidence": "community-supported",
-      "end_line": 663,
+      "end_line": 665,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-security",
       "source_keys": [
         "3a126f8b9dcc63d7"
       ],
-      "start_line": 638
+      "start_line": 640
     },
     {
       "confidence": "structural",
-      "end_line": 676,
+      "end_line": 678,
       "heading": "Avoid Raw SQL Writes Unless Necessary",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-avoid-raw-sql-writes-unless-necessary",
       "source_keys": [
         "3a126f8b9dcc63d7"
       ],
-      "start_line": 664
+      "start_line": 666
     },
     {
       "confidence": "community-supported",
-      "end_line": 691,
+      "end_line": 693,
       "heading": "Cache And Time",
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-cache-and-time",
       "source_keys": [
         "5bc36db2182cdfa1"
       ],
-      "start_line": 677
+      "start_line": 679
     },
     {
       "confidence": "structural",
-      "end_line": 704,
+      "end_line": 706,
       "heading": "Version Guardrails",
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-version-guardrails",
       "source_keys": [
         "5bc36db2182cdfa1"
       ],
-      "start_line": 692
+      "start_line": 694
     },
     {
       "confidence": "structural",
-      "end_line": 706,
+      "end_line": 708,
       "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
@@ -2768,11 +2768,11 @@
         "f3f93f025a571807",
         "74531b276e6301ef"
       ],
-      "start_line": 705
+      "start_line": 707
     },
     {
       "confidence": "normal",
-      "end_line": 720,
+      "end_line": 722,
       "heading": "Check-In Source Landmarks",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-check-in-source-landmarks",
@@ -2787,11 +2787,11 @@
         "316bc299d3b76c92",
         "9304defba1d01973"
       ],
-      "start_line": 707
+      "start_line": 709
     },
     {
       "confidence": "normal",
-      "end_line": 724,
+      "end_line": 726,
       "heading": "Schedule Builder View Models",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-schedule-builder-view-models",
@@ -2799,11 +2799,11 @@
         "eaef6723bbed3067",
         "133163653fa64d1c"
       ],
-      "start_line": 721
+      "start_line": 723
     },
     {
       "confidence": "normal",
-      "end_line": 728,
+      "end_line": 730,
       "heading": "Group Scheduler View Models",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-group-scheduler-view-models",
@@ -2811,22 +2811,22 @@
         "e190f1d2a903c646",
         "96f1328d8aafb3b3"
       ],
-      "start_line": 725
+      "start_line": 727
     },
     {
       "confidence": "normal",
-      "end_line": 732,
+      "end_line": 734,
       "heading": "Lava Commands",
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-commands",
       "source_keys": [
         "e4041265ea398ac0"
       ],
-      "start_line": 729
+      "start_line": 731
     },
     {
       "confidence": "normal",
-      "end_line": 742,
+      "end_line": 744,
       "heading": "Mobile Blocks And Commands",
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-blocks-and-commands",
@@ -2837,11 +2837,11 @@
         "f3f93f025a571807",
         "74531b276e6301ef"
       ],
-      "start_line": 733
+      "start_line": 735
     },
     {
       "confidence": "structural",
-      "end_line": 744,
+      "end_line": 746,
       "heading": "14. Reporting, Analytics, And Model Map",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map",
@@ -2854,22 +2854,22 @@
         "33223685db3751d9",
         "8ea41a943b81c1d2"
       ],
-      "start_line": 743
+      "start_line": 745
     },
     {
       "confidence": "normal",
-      "end_line": 759,
+      "end_line": 761,
       "heading": "Basic Relationship Queries",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-basic-relationship-queries",
       "source_keys": [
         "6f0f21989434ef17"
       ],
-      "start_line": 745
+      "start_line": 747
     },
     {
       "confidence": "community-supported",
-      "end_line": 763,
+      "end_line": 765,
       "heading": "Schedule Status Board",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-schedule-status-board",
@@ -2877,33 +2877,33 @@
         "3707a557d81c1137",
         "f2e1024cee9511f5"
       ],
-      "start_line": 760
+      "start_line": 762
     },
     {
       "confidence": "citation-only",
-      "end_line": 779,
+      "end_line": 781,
       "heading": "Scheduling Analytics",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-scheduling-analytics",
       "source_keys": [
         "1cfd7942fe8e3344"
       ],
-      "start_line": 764
+      "start_line": 766
     },
     {
       "confidence": "normal",
-      "end_line": 783,
+      "end_line": 785,
       "heading": "Data Views",
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-data-views",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 780
+      "start_line": 782
     },
     {
       "confidence": "community-supported",
-      "end_line": 787,
+      "end_line": 789,
       "heading": "Facilities Reporting",
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-facilities-reporting",
@@ -2911,11 +2911,11 @@
         "33223685db3751d9",
         "8ea41a943b81c1d2"
       ],
-      "start_line": 784
+      "start_line": 786
     },
     {
       "confidence": "high",
-      "end_line": 806,
+      "end_line": 808,
       "heading": "15. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats",
@@ -2934,11 +2934,11 @@
         "776256c424368312",
         "2e737fcc6a7c59c1"
       ],
-      "start_line": 788
+      "start_line": 790
     },
     {
       "confidence": "structural",
-      "end_line": 808,
+      "end_line": 810,
       "heading": "16. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
@@ -2953,11 +2953,11 @@
         "8e315d226b2c1474",
         "7a617924deb729b4"
       ],
-      "start_line": 807
+      "start_line": 809
     },
     {
       "confidence": "high",
-      "end_line": 825,
+      "end_line": 827,
       "heading": "Playbook: New Service Time For Check-In",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-new-service-time-for-check-in",
@@ -2966,11 +2966,11 @@
         "b1336a6f5c82cca4",
         "4bcd4d6f854645e8"
       ],
-      "start_line": 809
+      "start_line": 811
     },
     {
       "confidence": "normal",
-      "end_line": 843,
+      "end_line": 845,
       "heading": "Playbook: New Serving Team Scheduling Setup",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-new-serving-team-scheduling-setup",
@@ -2978,11 +2978,11 @@
         "324c7412fbbf81eb",
         "6acb630b48f2c665"
       ],
-      "start_line": 826
+      "start_line": 828
     },
     {
       "confidence": "community-supported",
-      "end_line": 858,
+      "end_line": 860,
       "heading": "Playbook: Room Management Reservation Calendar Sync",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-room-management-reservation-calendar-sync",
@@ -2990,11 +2990,11 @@
         "e8068f7bf9b9c14f",
         "eb219bea22e48f70"
       ],
-      "start_line": 844
+      "start_line": 846
     },
     {
       "confidence": "community-supported",
-      "end_line": 871,
+      "end_line": 873,
       "heading": "Playbook: Internal Staff Calendar",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-internal-staff-calendar",
@@ -3002,11 +3002,11 @@
         "8e315d226b2c1474",
         "7a617924deb729b4"
       ],
-      "start_line": 859
+      "start_line": 861
     },
     {
       "confidence": "structural",
-      "end_line": 873,
+      "end_line": 875,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -3024,11 +3024,11 @@
         "e8068f7bf9b9c14f",
         "eb219bea22e48f70"
       ],
-      "start_line": 872
+      "start_line": 874
     },
     {
       "confidence": "normal",
-      "end_line": 890,
+      "end_line": 892,
       "heading": "A Schedule Is Missing From Check-In",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",
@@ -3036,11 +3036,11 @@
         "5bc36db2182cdfa1",
         "776256c424368312"
       ],
-      "start_line": 874
+      "start_line": 876
     },
     {
       "confidence": "normal",
-      "end_line": 906,
+      "end_line": 908,
       "heading": "A Room Is Missing From Check-In",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-a-room-is-missing-from-check-in",
@@ -3050,22 +3050,22 @@
         "861baa4d96092f65",
         "316bc299d3b76c92"
       ],
-      "start_line": 891
+      "start_line": 893
     },
     {
       "confidence": "normal",
-      "end_line": 919,
+      "end_line": 921,
       "heading": "Volunteer Was Scheduled But Cannot Check In",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-volunteer-was-scheduled-but-cannot-check-in",
       "source_keys": [
         "4bcd4d6f854645e8"
       ],
-      "start_line": 907
+      "start_line": 909
     },
     {
       "confidence": "normal",
-      "end_line": 930,
+      "end_line": 932,
       "heading": "Group Scheduler Capacity Looks Wrong",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-group-scheduler-capacity-looks-wrong",
@@ -3073,11 +3073,11 @@
         "e388dcef91a5e571",
         "776256c424368312"
       ],
-      "start_line": 920
+      "start_line": 922
     },
     {
       "confidence": "normal",
-      "end_line": 945,
+      "end_line": 947,
       "heading": "Calendar Event Does Not Appear",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-calendar-event-does-not-appear",
@@ -3085,11 +3085,11 @@
         "e4041265ea398ac0",
         "47d5a6318fb5fef4"
       ],
-      "start_line": 931
+      "start_line": 933
     },
     {
       "confidence": "community-supported",
-      "end_line": 960,
+      "end_line": 962,
       "heading": "Reservation And Calendar Are Out Of Sync",
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-reservation-and-calendar-are-out-of-sync",
@@ -3097,11 +3097,11 @@
         "e8068f7bf9b9c14f",
         "eb219bea22e48f70"
       ],
-      "start_line": 946
+      "start_line": 948
     },
     {
       "confidence": "structural",
-      "end_line": 962,
+      "end_line": 964,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -3115,11 +3115,11 @@
         "07e7de2629271fcc",
         "a2819513ef35f906"
       ],
-      "start_line": 961
+      "start_line": 963
     },
     {
       "confidence": "structural",
-      "end_line": 985,
+      "end_line": 987,
       "heading": "Recipe: Prove Why A Check-In Room Is Not Available",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-prove-why-a-check-in-room-is-not-available",
@@ -3127,44 +3127,44 @@
         "e8068f7bf9b9c14f",
         "eb219bea22e48f70"
       ],
-      "start_line": 963
+      "start_line": 965
     },
     {
       "confidence": "normal",
-      "end_line": 1007,
+      "end_line": 1009,
       "heading": "Recipe: Audit Group Location Schedules",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-audit-group-location-schedules",
       "source_keys": [
         "6f0f21989434ef17"
       ],
-      "start_line": 986
+      "start_line": 988
     },
     {
       "confidence": "structural",
-      "end_line": 1021,
+      "end_line": 1023,
       "heading": "Recipe: Verify A New Service Time",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-verify-a-new-service-time",
       "source_keys": [
         "6f0f21989434ef17"
       ],
-      "start_line": 1008
+      "start_line": 1010
     },
     {
       "confidence": "community-supported",
-      "end_line": 1034,
+      "end_line": 1036,
       "heading": "Recipe: Build A Facilities Daily Report",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-build-a-facilities-daily-report",
       "source_keys": [
         "33223685db3751d9"
       ],
-      "start_line": 1022
+      "start_line": 1024
     },
     {
       "confidence": "community-supported",
-      "end_line": 1050,
+      "end_line": 1052,
       "heading": "Recipe: Build A Calendar Feed",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-calendar-feed",
@@ -3173,22 +3173,22 @@
         "7ff0ecd90a9b0c18",
         "07e7de2629271fcc"
       ],
-      "start_line": 1035
+      "start_line": 1037
     },
     {
       "confidence": "community-supported",
-      "end_line": 1065,
+      "end_line": 1067,
       "heading": "Recipe: Diagnose Schedule API Issues",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-schedule-api-issues",
       "source_keys": [
         "a2819513ef35f906"
       ],
-      "start_line": 1051
+      "start_line": 1053
     },
     {
       "confidence": "citation-only",
-      "end_line": 1091,
+      "end_line": 1093,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -3206,11 +3206,11 @@
         "2a863471e239f0b9",
         "aa94e8b3d8886a7a"
       ],
-      "start_line": 1066
+      "start_line": 1068
     },
     {
       "confidence": "citation-only",
-      "end_line": 1112,
+      "end_line": 1114,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3224,11 +3224,11 @@
         "2a863471e239f0b9",
         "3d0824ff41704b39"
       ],
-      "start_line": 1092
+      "start_line": 1094
     },
     {
       "confidence": "high",
-      "end_line": 1146,
+      "end_line": 1148,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -3276,7 +3276,7 @@
         "8e315d226b2c1474",
         "7a617924deb729b4"
       ],
-      "start_line": 1113
+      "start_line": 1115
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T20:25:44+00:00",

@@ -1,0 +1,144 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6892-new-location-cache-invalidation-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6892",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 383fbaca34432df432a2a9f6a89550186dc34c97 and recorded the fix in the v19.3 release notes. Saving a child Location did not invalidate the cached parent NamedLocation, leaving its ChildLocationIds stale. Check-in could therefore omit a newly created child location until cache expiration, restart, or a broad cache clear. The fix records affected parent IDs during Location saves and flushes those parent cache items after add, move, or delete operations.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain targeted parent-location cache invalidation. Before upgrade, plan new check-in locations ahead of use and use the approved narrow cache-refresh procedure; avoid repeated hierarchy edits or broad production cache clears during active check-in."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether Location saves invalidate affected parent NamedLocation cache entries and whether the instance uses child named locations, without creating locations, clearing cache, or opening a kiosk session.",
+    "prerequisites": [
+      "Know the installed Rock version or build ancestry.",
+      "Have read-only access to aggregate Location metadata."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-save-hook",
+        "title": "Check the Location save hook",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit 383fbaca34432df432a2a9f6a89550186dc34c97 or equivalent logic that records old and new parent IDs and flushes each affected NamedLocationCache item after Location add, move, or delete operations.",
+        "expected_if_affected": "The Location save hook does not invalidate parent NamedLocation cache entries when child membership changes.",
+        "expected_if_unaffected": "Affected parent cache entries are flushed after child hierarchy changes, or the package contains the confirmed fix.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier",
+          "parent cache invalidation present yes or no"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-child-named-locations",
+        "title": "Count hierarchy exposure",
+        "method": "read_only_sql",
+        "instructions": "Return only the aggregate count of nonblank named locations with a parent. Do not return location IDs, names, addresses, groups, schedules, or check-in configuration.",
+        "probe": "SELECT COUNT(*) AS ChildNamedLocationCount FROM [Location] WHERE [ParentLocationId] IS NOT NULL AND [Name] IS NOT NULL AND LTRIM(RTRIM([Name])) <> ''",
+        "expected_if_affected": "The count is greater than zero and the installed save hook lacks parent cache invalidation, establishing possible exposure without proving a kiosk failure.",
+        "expected_if_unaffected": "The count is zero, or the installed package contains the targeted invalidation fix.",
+        "evidence_to_record": [
+          "child named location count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "The aggregate hierarchy count does not show whether a location is used by check-in or whether a stale cache entry currently exists.",
+      "Do not create, move, or delete a production location or clear production cache solely to reproduce this issue."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6892-reported-affected-19.1.8",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.1",
+      "context": {
+        "scope": "new or moved child named locations used by check-in before cache refresh"
+      },
+      "versions": [
+        "19.1.8"
+      ],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6892"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6892-fixed-by-commit-383fbac",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Location parent-cache invalidation revision"
+      },
+      "versions": [
+        "383fbaca34432df432a2a9f6a89550186dc34c97"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/383fbaca34432df432a2a9f6a89550186dc34c97"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6892",
+        "https://github.com/SparkDevNetwork/Rock/commit/383fbaca34432df432a2a9f6a89550186dc34c97",
+        "https://github.com/SparkDevNetwork/Rock/blob/383fbaca34432df432a2a9f6a89550186dc34c97/Rock/Model/Core/Location/Location.SaveHook.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6892-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": [
+        "19.3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/383fbaca34432df432a2a9f6a89550186dc34c97"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6892",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/383fbaca34432df432a2a9f6a89550186dc34c97"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6892",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/383fbaca34432df432a2a9f6a89550186dc34c97",
+    "https://github.com/SparkDevNetwork/Rock/blob/383fbaca34432df432a2a9f6a89550186dc34c97/Rock/Model/Core/Location/Location.SaveHook.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-06-24T22:48:19Z",
+  "reviewed_at": "2026-07-17T15:32:37Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

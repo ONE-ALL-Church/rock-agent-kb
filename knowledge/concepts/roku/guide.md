@@ -233,6 +233,8 @@ A minimum first app workflow:
 
 ### Add A Page
 
+Use the official [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages) and [Roku documentation](https://community.rockrms.com/developer/roku-docs) as the page contract. Verify the rendered XML, focus target, command parameters, cache behavior, and navigation on the target Rock version and a real Roku shell.
+
 A page addition is not complete when the page record exists. It must be addressable, focusable, and reachable.
 
 Checklist:
@@ -825,6 +827,8 @@ Media caveat: YouTube playback is not supported in Roku TV applications accordin
 ## 17. Implementation Playbooks
 
 ### Playbook: Create A Minimal Roku Home Page
+
+Follow the official [Roku documentation](https://community.rockrms.com/developer/roku-docs), [Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages), and [Lava Commands](https://community.rockrms.com/lava/commands) guidance. Verify API access, command enablement, rendered SceneGraph XML, initial focus, navigation, and exception logs in the target app before extending the page.
 
 Goal: prove app connectivity, page rendering, focus, and navigation.
 

@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 14725 words; expected at least 7000.",
+      "message": "Guide has 14817 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,9 +59,9 @@
   "concept_id": "engagement-tracking",
   "contribution_record_count": 0,
   "entity_count": 17,
-  "generated_at": "2026-07-17T09:00:10+00:00",
-  "guide_line_count": 1614,
-  "guide_word_count": 14725,
+  "generated_at": "2026-07-17T15:44:44+00:00",
+  "guide_line_count": 1618,
+  "guide_word_count": 14817,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 130,

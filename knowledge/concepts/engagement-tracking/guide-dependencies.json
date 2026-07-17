@@ -3119,12 +3119,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "79b1615d8b90e2855f4085d8ae88b47af6695f86081fd6b99fc997596166a855",
   "approved_media_path": "knowledge/concepts/engagement-tracking/approved-media.md",
-  "built_at": "2026-07-17T09:00:10+00:00",
+  "built_at": "2026-07-17T15:44:44+00:00",
   "concept_id": "engagement-tracking",
-  "guide_hash": "e857df5a04b9fd0f16860a0be4ef712c39e14ddf198a3a1f85f10591a8f017a7",
-  "guide_line_count": 1614,
+  "guide_hash": "1a4a26a6e56505a2579fcb976bcb782211b9c73e5ced501993e40e64c07b906d",
+  "guide_line_count": 1618,
   "guide_path": "knowledge/concepts/engagement-tracking/guide.md",
-  "guide_word_count": 14725,
+  "guide_word_count": 14817,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4410,8 +4410,8 @@
       "start_line": 1118
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1142,
+      "confidence": "citation-only",
+      "end_line": 1144,
       "heading": "Data View Reporting",
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-data-view-reporting",
@@ -4422,21 +4422,10 @@
     },
     {
       "confidence": "structural",
-      "end_line": 1144,
+      "end_line": 1146,
       "heading": "16. Version And Release Caveats",
       "needs_live_verification": false,
       "section_id": "16-version-and-release-caveats",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1143
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1164,
-      "heading": "v18.1 Engagement Changes",
-      "needs_live_verification": true,
-      "section_id": "16-version-and-release-caveats-v18-1-engagement-changes",
       "source_keys": [
         "776256c424368312"
       ],
@@ -4444,29 +4433,40 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1179,
+      "end_line": 1166,
+      "heading": "v18.1 Engagement Changes",
+      "needs_live_verification": true,
+      "section_id": "16-version-and-release-caveats-v18-1-engagement-changes",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 1147
+    },
+    {
+      "confidence": "normal",
+      "end_line": 1181,
       "heading": "v18.3 Engagement Fixes",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-v18-3-engagement-fixes",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1165
+      "start_line": 1167
     },
     {
       "confidence": "structural",
-      "end_line": 1183,
+      "end_line": 1185,
       "heading": "v19 Documentation",
       "needs_live_verification": true,
       "section_id": "16-version-and-release-caveats-v19-documentation",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1180
+      "start_line": 1182
     },
     {
       "confidence": "structural",
-      "end_line": 1185,
+      "end_line": 1187,
       "heading": "17. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
@@ -4480,11 +4480,11 @@
         "8dc32f58a61e137e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1184
+      "start_line": 1186
     },
     {
       "confidence": "normal",
-      "end_line": 1205,
+      "end_line": 1207,
       "heading": "Playbook: New Step Program For Volunteer Onboarding",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-new-step-program-for-volunteer-onboarding",
@@ -4493,22 +4493,22 @@
         "e261a62bd0cdb7e8",
         "374e3d98f260df41"
       ],
-      "start_line": 1186
+      "start_line": 1188
     },
     {
       "confidence": "community-supported",
-      "end_line": 1220,
+      "end_line": 1222,
       "heading": "Playbook: Historical Baptism Step Import",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-historical-baptism-step-import",
       "source_keys": [
         "b4c0c9357fbd1a73"
       ],
-      "start_line": 1206
+      "start_line": 1208
     },
     {
       "confidence": "normal",
-      "end_line": 1235,
+      "end_line": 1237,
       "heading": "Playbook: Weekend Attendance Streak",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-weekend-attendance-streak",
@@ -4517,11 +4517,11 @@
         "9f7f2404ad9395cf",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1221
+      "start_line": 1223
     },
     {
       "confidence": "normal",
-      "end_line": 1248,
+      "end_line": 1250,
       "heading": "Playbook: Assessment-Driven Volunteer Placement",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-assessment-driven-volunteer-placement",
@@ -4531,11 +4531,11 @@
         "433c95686237aa43",
         "433c95686237aa43"
       ],
-      "start_line": 1236
+      "start_line": 1238
     },
     {
       "confidence": "high",
-      "end_line": 1263,
+      "end_line": 1265,
       "heading": "Playbook: Achievement For Consistent Attendance That Adds A Step",
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-achievement-for-consistent-attendance-that-adds-a-step",
@@ -4544,11 +4544,11 @@
         "8dc32f58a61e137e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1249
+      "start_line": 1251
     },
     {
       "confidence": "structural",
-      "end_line": 1265,
+      "end_line": 1267,
       "heading": "18. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
@@ -4561,11 +4561,11 @@
         "776256c424368312",
         "8dc32f58a61e137e"
       ],
-      "start_line": 1264
+      "start_line": 1266
     },
     {
       "confidence": "normal",
-      "end_line": 1280,
+      "end_line": 1282,
       "heading": "A Step Is Missing From A Person",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-a-step-is-missing-from-a-person",
@@ -4573,22 +4573,22 @@
         "374e3d98f260df41",
         "374e3d98f260df41"
       ],
-      "start_line": 1266
+      "start_line": 1268
     },
     {
       "confidence": "normal",
-      "end_line": 1290,
+      "end_line": 1292,
       "heading": "Step Program Completion Looks Wrong",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-step-program-completion-looks-wrong",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1281
+      "start_line": 1283
     },
     {
       "confidence": "normal",
-      "end_line": 1305,
+      "end_line": 1307,
       "heading": "Streak Count Looks Wrong",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-streak-count-looks-wrong",
@@ -4598,22 +4598,22 @@
         "9f7f2404ad9395cf",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1291
+      "start_line": 1293
     },
     {
       "confidence": "normal",
-      "end_line": 1317,
+      "end_line": 1319,
       "heading": "Assessment Cannot Be Retaken",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-assessment-cannot-be-retaken",
       "source_keys": [
         "f973a3ffb115a8ad"
       ],
-      "start_line": 1306
+      "start_line": 1308
     },
     {
       "confidence": "normal",
-      "end_line": 1329,
+      "end_line": 1331,
       "heading": "Assessment Results Are Not Reportable",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-assessment-results-are-not-reportable",
@@ -4622,55 +4622,55 @@
         "433c95686237aa43",
         "433c95686237aa43"
       ],
-      "start_line": 1318
+      "start_line": 1320
     },
     {
       "confidence": "normal",
-      "end_line": 1340,
+      "end_line": 1342,
       "heading": "Achievement Does Not Create Attempts",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-achievement-does-not-create-attempts",
       "source_keys": [
         "d275b5b94a9da833"
       ],
-      "start_line": 1330
+      "start_line": 1332
     },
     {
       "confidence": "normal",
-      "end_line": 1351,
+      "end_line": 1353,
       "heading": "Achievement Saves But Behaves Incorrectly",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-achievement-saves-but-behaves-incorrectly",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1341
+      "start_line": 1343
     },
     {
       "confidence": "normal",
-      "end_line": 1360,
+      "end_line": 1362,
       "heading": "Achievement Success Workflow Does Not Run",
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-achievement-success-workflow-does-not-run",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 1352
+      "start_line": 1354
     },
     {
       "confidence": "normal",
-      "end_line": 1372,
+      "end_line": 1374,
       "heading": "Step Is Not Added When Achievement Succeeds",
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-step-is-not-added-when-achievement-succeeds",
       "source_keys": [
         "8dc32f58a61e137e"
       ],
-      "start_line": 1361
+      "start_line": 1363
     },
     {
       "confidence": "structural",
-      "end_line": 1374,
+      "end_line": 1376,
       "heading": "19. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
@@ -4682,11 +4682,11 @@
         "8dc32f58a61e137e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1373
+      "start_line": 1375
     },
     {
       "confidence": "normal",
-      "end_line": 1392,
+      "end_line": 1394,
       "heading": "Recipe: Audit A Step Program",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-audit-a-step-program",
@@ -4694,22 +4694,22 @@
         "e261a62bd0cdb7e8",
         "e261a62bd0cdb7e8"
       ],
-      "start_line": 1375
+      "start_line": 1377
     },
     {
       "confidence": "normal",
-      "end_line": 1407,
+      "end_line": 1409,
       "heading": "Recipe: Diagnose Step Badge Display",
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-diagnose-step-badge-display",
       "source_keys": [
         "374e3d98f260df41"
       ],
-      "start_line": 1393
+      "start_line": 1395
     },
     {
       "confidence": "normal",
-      "end_line": 1423,
+      "end_line": 1425,
       "heading": "Recipe: Review A Streak Type Before Rebuild",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-review-a-streak-type-before-rebuild",
@@ -4717,11 +4717,11 @@
         "9f7f2404ad9395cf",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1408
+      "start_line": 1410
     },
     {
       "confidence": "normal",
-      "end_line": 1439,
+      "end_line": 1441,
       "heading": "Recipe: Verify Assessment Request Flow",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-verify-assessment-request-flow",
@@ -4730,11 +4730,11 @@
         "f973a3ffb115a8ad",
         "f973a3ffb115a8ad"
       ],
-      "start_line": 1424
+      "start_line": 1426
     },
     {
       "confidence": "high",
-      "end_line": 1459,
+      "end_line": 1461,
       "heading": "Recipe: Audit Achievement Type",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-audit-achievement-type",
@@ -4743,11 +4743,11 @@
         "8dc32f58a61e137e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1440
+      "start_line": 1442
     },
     {
       "confidence": "structural",
-      "end_line": 1472,
+      "end_line": 1474,
       "heading": "Recipe: Explain Engagement Data To A Ministry User",
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-explain-engagement-data-to-a-ministry-user",
@@ -4756,11 +4756,11 @@
         "8dc32f58a61e137e",
         "d275b5b94a9da833"
       ],
-      "start_line": 1460
+      "start_line": 1462
     },
     {
       "confidence": "normal",
-      "end_line": 1498,
+      "end_line": 1500,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
@@ -4778,11 +4778,11 @@
         "62c8e250fa83c52b",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1473
+      "start_line": 1475
     },
     {
       "confidence": "structural",
-      "end_line": 1505,
+      "end_line": 1507,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4800,11 +4800,11 @@
         "62c8e250fa83c52b",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1499
+      "start_line": 1501
     },
     {
       "confidence": "structural",
-      "end_line": 1507,
+      "end_line": 1509,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -4824,11 +4824,11 @@
         "a9b81d5c581f1d75",
         "d275b5b94a9da833"
       ],
-      "start_line": 1506
+      "start_line": 1508
     },
     {
       "confidence": "normal",
-      "end_line": 1523,
+      "end_line": 1525,
       "heading": "Primary Official Documentation",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-primary-official-documentation",
@@ -4847,11 +4847,11 @@
         "e261a62bd0cdb7e8",
         "e261a62bd0cdb7e8"
       ],
-      "start_line": 1508
+      "start_line": 1510
     },
     {
       "confidence": "normal",
-      "end_line": 1537,
+      "end_line": 1539,
       "heading": "Streak Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-streak-sources",
@@ -4868,11 +4868,11 @@
         "9f7f2404ad9395cf",
         "9f7f2404ad9395cf"
       ],
-      "start_line": 1524
+      "start_line": 1526
     },
     {
       "confidence": "normal",
-      "end_line": 1552,
+      "end_line": 1554,
       "heading": "Assessment Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-assessment-sources",
@@ -4890,11 +4890,11 @@
         "433c95686237aa43",
         "433c95686237aa43"
       ],
-      "start_line": 1538
+      "start_line": 1540
     },
     {
       "confidence": "normal",
-      "end_line": 1562,
+      "end_line": 1564,
       "heading": "Achievement Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-achievement-sources",
@@ -4907,11 +4907,11 @@
         "8dc32f58a61e137e",
         "8dc32f58a61e137e"
       ],
-      "start_line": 1553
+      "start_line": 1555
     },
     {
       "confidence": "normal",
-      "end_line": 1576,
+      "end_line": 1578,
       "heading": "Related Engagement Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-related-engagement-sources",
@@ -4928,11 +4928,11 @@
         "62c8e250fa83c52b",
         "62c8e250fa83c52b"
       ],
-      "start_line": 1563
+      "start_line": 1565
     },
     {
       "confidence": "normal",
-      "end_line": 1585,
+      "end_line": 1587,
       "heading": "Training, Release, Model, And Community Sources",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-training-release-model-and-community-sources",
@@ -4944,11 +4944,11 @@
         "14f39743f237079d",
         "a9b81d5c581f1d75"
       ],
-      "start_line": 1577
+      "start_line": 1579
     },
     {
       "confidence": "normal",
-      "end_line": 1600,
+      "end_line": 1602,
       "heading": "Source-Code Sources",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-source-code-sources",
@@ -4966,29 +4966,20 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 1586
+      "start_line": 1588
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 1614,
+      "confidence": "normal",
+      "end_line": 1618,
       "heading": "Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-dependency-notes",
       "source_keys": [
         "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "bce31f25cb8a199e",
+        "776256c424368312"
       ],
-      "start_line": 1601
+      "start_line": 1603
     }
   ],
   "source_pack_hydrated_at": "2026-06-18T23:52:32+00:00",

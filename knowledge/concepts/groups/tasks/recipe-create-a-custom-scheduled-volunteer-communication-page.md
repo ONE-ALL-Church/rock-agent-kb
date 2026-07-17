@@ -37,12 +37,12 @@ Follow the guide section for Recipe: Create A Custom Scheduled Volunteer Communi
 - https://community.rockrms.com/documentation/bookcontent/7
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
 - https://community.rockrms.com/rocku/groups/group-administrator
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view

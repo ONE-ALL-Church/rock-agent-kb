@@ -65,7 +65,7 @@ generated: true
 | `7-common-obsidian-development-workflows-build-a-new-core-list-block` | normal | live verification |
 | `7-common-obsidian-development-workflows-build-a-detail-block` | normal | live verification |
 | `7-common-obsidian-development-workflows-convert-webforms-behavior-to-obsidian` | normal | live verification |
-| `7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen` | needs-citation | live verification |
+| `7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen` | normal | live verification |
 | `8-blocks-deep-dive-c-block-responsibilities` | normal | live verification |
 | `8-blocks-deep-dive-typescript-component-responsibilities` | normal | live verification |
 | `8-blocks-deep-dive-block-actions` | normal | live verification |
@@ -118,9 +118,9 @@ generated: true
 | `18-troubleshooting-decision-tree-symptom-lava-redirect-or-meta-tag-does-not-work` | normal | live verification |
 | `18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save` | normal | live verification |
 | `18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff` | structural | live verification |
-| `19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block` | needs-citation | live verification |
+| `19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block` | normal | live verification |
 | `19-agent-task-recipes-recipe-determine-whether-a-bug-is-version-related` | normal | live verification |
-| `19-agent-task-recipes-recipe-review-an-obsidian-pull-request` | needs-citation | live verification |
+| `19-agent-task-recipes-recipe-review-an-obsidian-pull-request` | normal | live verification |
 | `19-agent-task-recipes-recipe-audit-a-block-for-security` | structural | live verification |
 | `19-agent-task-recipes-recipe-audit-a-grid-for-operational-readiness` | structural | live verification |
 | `20-source-map-and-dependency-notes` | normal | live verification |

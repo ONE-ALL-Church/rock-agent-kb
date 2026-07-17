@@ -1,0 +1,142 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6903-plugin-reorder-entity-access-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6903",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 68c6a68535dc5f81eb4529e367b4bfaf07e0b05d and recorded the fix in the v19.3 release notes. Generated Obsidian list-block code could call the ReorderEntity extension, but the extension was internal and therefore inaccessible to plugin assemblies. The fix changes only the extension method's access modifier from internal to public, allowing generated plugin code to compile without replacing the reorder implementation.",
+  "workaround_summaries": [
+    "Upgrade the plugin build environment and target instance to a package proven to contain the public ReorderEntity method. Before upgrade, keep the generated reorder action disabled or use a reviewed plugin-local equivalent; do not deploy a binary built against a different Rock contract without compatibility testing."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the Rock contract targeted by a plugin exposes ReorderEntity publicly and whether plugin source uses that extension, without deploying or modifying the instance.",
+    "prerequisites": [
+      "Know the Rock package or SDK revision used to compile the plugin.",
+      "Have read-only access to the plugin source or build output."
+    ],
+    "steps": [
+      {
+        "step_id": "check-public-method",
+        "title": "Check the target Rock contract",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the targeted Rock source or assembly contains commit 68c6a68535dc5f81eb4529e367b4bfaf07e0b05d or exposes EntityExtensions.ReorderEntity as public. Do not substitute the develop branch for the package actually used by the plugin.",
+        "expected_if_affected": "ReorderEntity is internal in the exact Rock contract used to compile the plugin.",
+        "expected_if_unaffected": "ReorderEntity is public, or the target package contains the confirmed access-modifier fix.",
+        "evidence_to_record": [
+          "Rock package or commit identifier",
+          "ReorderEntity access modifier"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-plugin-call-sites",
+        "title": "Count plugin call sites",
+        "method": "configuration_check",
+        "instructions": "Search the plugin source read-only for calls to ReorderEntity and record only the count of files containing a call. Do not retain private source paths or code in public evidence.",
+        "expected_if_affected": "At least one plugin call site exists and the targeted Rock contract keeps the method internal.",
+        "expected_if_unaffected": "No plugin call site exists, or the targeted Rock contract exposes the method publicly.",
+        "evidence_to_record": [
+          "plugin files with ReorderEntity calls count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Public visibility proves that the extension is callable; it does not prove the plugin's entity ordering, authorization, or persistence logic is correct.",
+      "Compile and functional tests belong in an isolated plugin build and test Rock instance before deployment."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6903-reported-affected-18.2.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "18.2",
+      "context": {
+        "scope": "plugin assemblies compiling generated Obsidian list-block reorder actions"
+      },
+      "versions": [
+        "18.2.4"
+      ],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6903"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6903-fixed-by-commit-68c6a68",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact EntityExtensions.ReorderEntity visibility revision"
+      },
+      "versions": [
+        "68c6a68535dc5f81eb4529e367b4bfaf07e0b05d"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6903",
+        "https://github.com/SparkDevNetwork/Rock/commit/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d",
+        "https://github.com/SparkDevNetwork/Rock/blob/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d/Rock/Utility/ExtensionMethods/EntityExtensions.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6903-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": [
+        "19.3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6903",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6903",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d",
+    "https://github.com/SparkDevNetwork/Rock/blob/68c6a68535dc5f81eb4529e367b4bfaf07e0b05d/Rock/Utility/ExtensionMethods/EntityExtensions.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-02T16:15:30Z",
+  "reviewed_at": "2026-07-17T15:32:37Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

@@ -14,12 +14,12 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
         "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian",
         "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
-        "https://community.rockrms.com/developer/obsidian/form-validation"
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -42,12 +42,12 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
         "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian/grids",
         "https://community.rockrms.com/developer/obsidian",
+        "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+        "https://community.rockrms.com/developer/obsidian/browser-bus"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -69,11 +69,11 @@
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/grids",
         "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
         "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
       ],
@@ -98,12 +98,12 @@
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/developer/obsidian/grid-reference",
         "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/lava/obsidian",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian",
         "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
-        "https://community.rockrms.com/developer/obsidian/form-validation"
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -126,12 +126,12 @@
         "https://community.rockrms.com/developer/obsidian/grid-reference",
         "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
         "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian",
+        "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+        "https://community.rockrms.com/developer/obsidian/form-validation"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -148,14 +148,14 @@
       "id": "recipe-decide-whether-to-use-browser-bus",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/developer/obsidian/browser-bus",
         "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
         "https://community.rockrms.com/developer/obsidian",
         "https://community.rockrms.com/lava/obsidian",
         "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
         "https://community.rockrms.com/ModelMap",
         "https://github.com/SparkDevNetwork/Rock",
         "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
@@ -171,7 +171,7 @@
   ],
   "concept_id": "obsidian-development",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T09:00:13+00:00",
+  "generated_at": "2026-07-17T15:44:47+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",

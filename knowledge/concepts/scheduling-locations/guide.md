@@ -377,6 +377,8 @@ A good hierarchy supports:
 
 ### Location Types
 
+Use the official [Rock Your Groups location guidance](https://community.rockrms.com/documentation/bookcontent/7/296) and the version-matched Model Map to distinguish location records from Location Type Defined Values. Verify the target instance's Defined Values, allowed group-type locations, campus links, attributes, and check-in filters before adding or reclassifying a type.
+
 Location Types are Defined Values. Typical types include Campus, Building, Room, but local instances often add Position, Area, Venue, Classroom, Office, or Ministry Zone. Before creating locations, inspect:
 
 - Defined Type: Location Type.

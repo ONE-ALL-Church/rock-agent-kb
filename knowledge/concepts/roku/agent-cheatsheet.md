@@ -52,7 +52,7 @@ generated: true
 | `5-core-configuration-and-data-model-lava-merge-fields` | normal | live verification |
 | `6-primary-entities-and-relationships` | normal | live verification |
 | `7-common-roku-apps-workflows-build-a-first-app` | normal | live verification |
-| `7-common-roku-apps-workflows-add-a-page` | needs-citation | needs-citation |
+| `7-common-roku-apps-workflows-add-a-page` | normal | live verification |
 | `7-common-roku-apps-workflows-build-a-menu` | normal | live verification |
 | `7-common-roku-apps-workflows-add-login` | normal | live verification |
 | `8-roku-getting-started-deep-dive-provisioning` | normal | live verification |
@@ -78,7 +78,7 @@ generated: true
 | `13-administration-and-operational-guardrails-content-governance` | structural | live verification |
 | `15-reporting-analytics-and-model-map` | normal | live verification |
 | `16-version-and-release-caveats` | normal | live verification |
-| `17-implementation-playbooks-playbook-create-a-minimal-roku-home-page` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-create-a-minimal-roku-home-page` | normal | live verification |
 | `17-implementation-playbooks-playbook-build-a-media-row` | normal | live verification |
 | `17-implementation-playbooks-playbook-add-campus-selection` | normal | live verification |
 | `17-implementation-playbooks-playbook-add-login` | normal | live verification |

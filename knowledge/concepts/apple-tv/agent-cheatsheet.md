@@ -84,9 +84,9 @@ generated: true
 | `13-administration-and-operational-guardrails-release-gate` | structural | live verification |
 | `15-reporting-analytics-and-model-map` | normal | live verification |
 | `16-version-and-release-caveats` | normal | live verification |
-| `17-implementation-playbooks-playbook-weekend-messages-app` | needs-citation | live verification |
-| `17-implementation-playbooks-playbook-campus-aware-app` | needs-citation | live verification |
-| `17-implementation-playbooks-playbook-remote-login` | needs-citation | live verification |
+| `17-implementation-playbooks-playbook-weekend-messages-app` | normal | live verification |
+| `17-implementation-playbooks-playbook-campus-aware-app` | normal | live verification |
+| `17-implementation-playbooks-playbook-remote-login` | normal | live verification |
 | `17-implementation-playbooks-playbook-media-resume` | structural | live verification |
 | `18-troubleshooting-decision-tree-navigation-does-not-work` | normal | live verification |
 | `18-troubleshooting-decision-tree-styles-do-not-apply` | structural | live verification |

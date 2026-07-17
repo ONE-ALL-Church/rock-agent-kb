@@ -37,11 +37,11 @@ Follow the guide section for Recipe: Public Launch Hosting Gate.
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
+- https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/recipes/259
 - https://community.rockrms.com/recipes/355
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/recipes/202
 - https://community.rockrms.com/recipes/176
 - https://community.rockrms.com/recipes/352

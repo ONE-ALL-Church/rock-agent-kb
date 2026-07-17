@@ -36,13 +36,13 @@ Follow the guide section for Recipe: Validate Post-Upgrade Roku Behavior.
 
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/lava/filters/attribute-filters
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/lava
 - https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks
 - https://community.rockrms.com/developer/roku-docs/commands/media
 - https://community.rockrms.com/developer/roku-docs/commands/utility
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/developer/roku-docs/getting-started/pages
 - https://community.rockrms.com/developer/roku-docs/resources/useful-links
 - https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group
+- https://community.rockrms.com/lava/filters/attribute-filters
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/getting-started
+- https://community.rockrms.com/developer/roku-docs/commands

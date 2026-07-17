@@ -1,0 +1,144 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6895-named-location-edit-state-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6895",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 40986f7974645dc42f57bdab567ccbfe77b449f3 and recorded the fix in the v19.3 release notes. Location Detail recomputed named-location feature visibility from the live edit value of Name. Temporarily clearing Name therefore reclassified an existing named location as address-only and hid the named-location fields, including the field needed to continue editing. The fix snapshots existing-record and original-name state when editing begins and bases visibility on that stable state.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain the stable edit-state fix. Before upgrade, replace the existing name without leaving the field temporarily blank, and cancel rather than save if the form hides fields; do not change location type or related records to work around the client-state defect."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the installed Location Detail edit panel preserves the originally loaded named-location state and whether named locations exist, without saving or changing a location.",
+    "prerequisites": [
+      "Know the installed Rock version or source revision.",
+      "Have read-only access to aggregate Location metadata."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check the Location Detail implementation",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed client bundle contains commit 40986f7974645dc42f57bdab567ccbfe77b449f3 or equivalent stable isExistingLocation and hadNameWhenEditingBegan values captured from the originally loaded bag.",
+        "expected_if_affected": "Named-location feature visibility is recomputed directly from the live editable Name value.",
+        "expected_if_unaffected": "Visibility uses the original edit state, or the installed package contains the confirmed fix.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier",
+          "stable original edit state present yes or no"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-named-locations",
+        "title": "Count named-location exposure",
+        "method": "read_only_sql",
+        "instructions": "Return only the aggregate count of locations with a nonblank Name. Do not return location IDs, names, addresses, campuses, or attributes.",
+        "probe": "SELECT COUNT(*) AS NamedLocationCount FROM [Location] WHERE [Name] IS NOT NULL AND LTRIM(RTRIM([Name])) <> ''",
+        "expected_if_affected": "The count is greater than zero and the installed client lacks the stable edit-state fix, establishing possible exposure without reproducing the UI defect.",
+        "expected_if_unaffected": "The count is zero, or the installed client contains the confirmed fix.",
+        "evidence_to_record": [
+          "named location count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "A named-location count does not prove that a user encountered the client-state defect.",
+      "Do not save a production location to reproduce this issue; interactive reproduction belongs in an isolated environment or must end with Cancel and no network save."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6895-reported-affected-19.1.8",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.1",
+      "context": {
+        "scope": "editing an existing named location in the Obsidian Location Detail block"
+      },
+      "versions": [
+        "19.1.8"
+      ],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6895"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6895-fixed-by-commit-40986f7",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Location Detail named-location visibility revision"
+      },
+      "versions": [
+        "40986f7974645dc42f57bdab567ccbfe77b449f3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/40986f7974645dc42f57bdab567ccbfe77b449f3"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6895",
+        "https://github.com/SparkDevNetwork/Rock/commit/40986f7974645dc42f57bdab567ccbfe77b449f3",
+        "https://github.com/SparkDevNetwork/Rock/blob/40986f7974645dc42f57bdab567ccbfe77b449f3/Rock.JavaScript.Obsidian.Blocks/src/Core/LocationDetail/editPanel.partial.obs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6895-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": [
+        "19.3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/40986f7974645dc42f57bdab567ccbfe77b449f3"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6895",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/40986f7974645dc42f57bdab567ccbfe77b449f3"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6895",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/40986f7974645dc42f57bdab567ccbfe77b449f3",
+    "https://github.com/SparkDevNetwork/Rock/blob/40986f7974645dc42f57bdab567ccbfe77b449f3/Rock.JavaScript.Obsidian.Blocks/src/Core/LocationDetail/editPanel.partial.obs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-06-24T18:59:46Z",
+  "reviewed_at": "2026-07-17T15:32:37Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

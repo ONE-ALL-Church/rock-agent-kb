@@ -10,7 +10,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12579 words; expected at least 7000.",
+      "message": "Guide has 12679 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -57,9 +57,9 @@
   "concept_id": "roku",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-17T09:00:34+00:00",
-  "guide_line_count": 1254,
-  "guide_word_count": 12579,
+  "generated_at": "2026-07-17T15:45:09+00:00",
+  "guide_line_count": 1258,
+  "guide_word_count": 12679,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 89,

@@ -236,6 +236,8 @@ Conversion checklist:
 
 ### Troubleshoot An Existing Obsidian Screen
 
+Use the official [Obsidian developer documentation](https://community.rockrms.com/developer/obsidian), especially [Null vs Undefined](https://community.rockrms.com/developer/obsidian/null-vs-undefined) and [Universal Field Types](https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types), as the client contract. Verify the exact page, block type, server action, generated bag, component, permissions, and network payload in the target Rock version.
+
 Use a top-down and bottom-up pass.
 
 Top-down:
@@ -1246,6 +1248,8 @@ Inspect:
 
 ### Recipe: Identify The Source Files Behind A Visible Obsidian Block
 
+Start from the live block type and follow the conventions documented in the [Obsidian developer documentation](https://community.rockrms.com/developer/obsidian) and [Grid Columns](https://community.rockrms.com/developer/obsidian/grid-reference/columns). Confirm paths against the exact source revision because core, generated view-model, and plugin layouts can differ by version.
+
 1. Record page URL, block name, and visible UI text.
 2. In Rock admin, inspect the page's block instance and Block Type.
 3. Record C# block class, category, and component path.
@@ -1268,6 +1272,8 @@ Inspect:
 Use official release notes as the first release source ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
 
 ### Recipe: Review An Obsidian Pull Request
+
+Review against the current [Obsidian developer documentation](https://community.rockrms.com/developer/obsidian), [Null vs Undefined](https://community.rockrms.com/developer/obsidian/null-vs-undefined), and [Rock Core Release Notes](https://www.rockrms.com/releasenotes). Build and exercise the changed block on its supported Rock version; static review alone cannot establish authorization, payload, grid, or lifecycle behavior.
 
 Focus on defects:
 

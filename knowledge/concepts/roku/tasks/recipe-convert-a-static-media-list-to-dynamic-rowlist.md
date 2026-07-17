@@ -42,7 +42,7 @@ Follow the guide section for Recipe: Convert A Static Media List To Dynamic RowL
 - https://community.rockrms.com/lava
 - https://community.rockrms.com/api-docs
 - https://community.rockrms.com/lava/remote-lava
-- https://www.triumph.tech/resources/github-spotlight-1042024
 - https://www.rockrms.com/releasenotes
 - https://www.triumph.tech/resources/dashboard-design-part-1
 - https://www.triumph.tech/resources/ai-in-digital-ministry
+- https://www.triumph.tech/resources/github-spotlight-1042024

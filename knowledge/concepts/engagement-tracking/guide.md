@@ -1121,6 +1121,8 @@ The source pack identifies [Step Program Completion](https://community.rockrms.c
 
 ### Data View Reporting
 
+Use the version-matched [Model Map](https://community.rockrms.com/ModelMap) to confirm the Step, Achievement, Streak, Assessment, and person-identity relationships behind each Data View. Validate qualifiers, date boundaries, security, and sample-person inclusion against live records before using a result for automation or ministry follow-up.
+
 Useful Data Views include:
 
 - People with no Step in a required Step Type.
@@ -1599,6 +1601,8 @@ No approved media distillations are currently routed to this concept.
 - [`StepProgramAchievementTests.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Engagement/Achievements/StepProgramAchievementTests.cs): integration-test landmark for Step Program achievements.
 
 ### Dependency Notes
+
+The supported entity surface is version-sensitive; use the [Rock source repository](https://github.com/SparkDevNetwork/Rock), [Model Map](https://community.rockrms.com/ModelMap), and [Rock Core Release Notes](https://www.rockrms.com/releasenotes) together, then confirm enabled components, workflows, jobs, security, and sample records in the target instance.
 
 Engagement Tracking depends on:
 

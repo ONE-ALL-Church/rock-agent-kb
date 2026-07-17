@@ -1,0 +1,147 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6899-achievement-type-detail-performance-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6899",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 13fe34b1acdcb1552e97567d28a6d638b96be040 and recorded the fix in the v19.3 release notes. Achievement Type Detail materialized the complete Attempts collection into its initialization bag and grouped successful attempt dates in application memory, so initial page cost grew with the full history. The fix omits Attempts from the detail bag, aggregates chart counts in the database, and gives the separate attempt list a bounded six-month created-date default.",
+  "workaround_summaries": [
+    "Upgrade to a package proven to contain the bounded detail and chart queries. Before upgrade, avoid opening high-volume Achievement Type Detail pages during peak usage; use an approved aggregate report or read-only query for counts rather than rebuilding achievements or deleting attempts."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether the installed Achievement Type blocks avoid materializing full attempt history and whether the instance has high-volume types that can expose the defect, without opening a costly detail page or processing achievements.",
+    "prerequisites": [
+      "Know the installed Rock version or build ancestry.",
+      "Have read-only access to aggregate AchievementAttempt counts."
+    ],
+    "steps": [
+      {
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit 13fe34b1acdcb1552e97567d28a6d638b96be040 or equivalent behavior: no full Attempts collection in AchievementTypeDetail initialization, database-side chart grouping, and a bounded created-date default for AchievementAttemptList.",
+        "expected_if_affected": "The detail bag materializes all attempts or chart grouping loads all successful dates into application memory.",
+        "expected_if_unaffected": "The detail path omits the full attempt collection, chart aggregation occurs in the database, and the list defaults to a bounded date range.",
+        "evidence_to_record": [
+          "Rock version",
+          "package or commit identifier",
+          "all three bounded-query behaviors present yes or no"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "measure-attempt-volume",
+        "title": "Measure aggregate attempt volume",
+        "method": "read_only_sql",
+        "instructions": "Return only the count of achievement types at or above 10000 attempts and the maximum attempt count. Do not return type IDs, names, people, dates, or attempt rows.",
+        "probe": "SELECT COUNT(*) AS HighVolumeAchievementTypeCount, MAX([AttemptCount]) AS MaxAttemptCount FROM (SELECT [AchievementTypeId], COUNT_BIG(*) AS [AttemptCount] FROM [AchievementAttempt] GROUP BY [AchievementTypeId]) AS [Counts] WHERE [AttemptCount] >= 10000",
+        "expected_if_affected": "At least one high-volume type exists and the installed build lacks one or more bounded-query fixes, establishing performance exposure without proving a timeout.",
+        "expected_if_unaffected": "No type meets the threshold, or the installed build contains the confirmed bounded-query fix.",
+        "evidence_to_record": [
+          "high-volume achievement type count",
+          "maximum attempt count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Attempt volume is an exposure signal, not a deterministic timeout threshold; database size, indexes, hardware, and concurrent load also matter.",
+      "Do not open a known high-volume detail page or run an achievement rebuild in production merely to reproduce the issue."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6899-reported-affected-19.1.8-19.2",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "context": {
+        "scope": "Achievement Type Detail and attempt list for high-volume achievement types"
+      },
+      "versions": [
+        "19.1.8",
+        "19.2"
+      ],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6899"
+      ],
+      "authority_tier": "community-reviewed",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6899-fixed-by-commit-13fe34b",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Achievement Type detail, chart, and attempt-list performance revision"
+      },
+      "versions": [
+        "13fe34b1acdcb1552e97567d28a6d638b96be040"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/13fe34b1acdcb1552e97567d28a6d638b96be040"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6899",
+        "https://github.com/SparkDevNetwork/Rock/commit/13fe34b1acdcb1552e97567d28a6d638b96be040",
+        "https://github.com/SparkDevNetwork/Rock/blob/13fe34b1acdcb1552e97567d28a6d638b96be040/Rock.Blocks/Engagement/AchievementTypeDetail.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/13fe34b1acdcb1552e97567d28a6d638b96be040/Rock.Blocks/Engagement/AchievementAttemptList.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    },
+    {
+      "assertion_id": "core-6899-fixed-19.3",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.3",
+      "context": {
+        "scope": "official release-note fix; verify exact package inclusion"
+      },
+      "versions": [
+        "19.3"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/13fe34b1acdcb1552e97567d28a6d638b96be040"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6899",
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/commit/13fe34b1acdcb1552e97567d28a6d638b96be040"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-17T15:32:37Z"
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6899",
+    "https://www.rockrms.com/releasenotes",
+    "https://github.com/SparkDevNetwork/Rock/commit/13fe34b1acdcb1552e97567d28a6d638b96be040",
+    "https://github.com/SparkDevNetwork/Rock/blob/13fe34b1acdcb1552e97567d28a6d638b96be040/Rock.Blocks/Engagement/AchievementTypeDetail.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/13fe34b1acdcb1552e97567d28a6d638b96be040/Rock.Blocks/Engagement/AchievementAttemptList.cs"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-06-30T23:13:57Z",
+  "reviewed_at": "2026-07-17T15:32:37Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

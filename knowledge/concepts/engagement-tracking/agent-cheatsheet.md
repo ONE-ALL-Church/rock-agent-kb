@@ -102,7 +102,7 @@ generated: true
 | `14-developer-api-lava-and-source-code-landmarks-lava-landmarks` | normal | live verification |
 | `14-developer-api-lava-and-source-code-landmarks-api-notes` | normal | live verification |
 | `15-reporting-analytics-and-model-map-model-map` | citation-only | live verification |
-| `15-reporting-analytics-and-model-map-data-view-reporting` | needs-citation | live verification |
+| `15-reporting-analytics-and-model-map-data-view-reporting` | citation-only | live verification |
 | `16-version-and-release-caveats-v18-1-engagement-changes` | normal | live verification |
 | `16-version-and-release-caveats-v18-3-engagement-fixes` | normal | live verification |
 | `16-version-and-release-caveats-v19-documentation` | structural | live verification |
@@ -121,4 +121,4 @@ generated: true
 | `19-agent-task-recipes-recipe-diagnose-step-badge-display` | normal | live verification |
 | `20-source-map-and-dependency-notes-training-release-model-and-community-sources` | normal | live verification |
 | `20-source-map-and-dependency-notes-source-code-sources` | normal | live verification |
-| `20-source-map-and-dependency-notes-dependency-notes` | needs-citation | live verification |
+| `20-source-map-and-dependency-notes-dependency-notes` | normal | live verification |

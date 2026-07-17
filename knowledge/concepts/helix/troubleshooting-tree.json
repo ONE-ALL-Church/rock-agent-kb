@@ -9,17 +9,17 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/tags/observe",
         "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands"
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/ModelMap"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -37,17 +37,17 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/overview",
         "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/lava/tags/observe",
         "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/tags/observe",
         "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands"
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/ModelMap"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -65,17 +65,17 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
         "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
         "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/lava/tags/observe",
         "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands"
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/ModelMap"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -93,17 +93,17 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
         "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/lava/tags/observe",
         "https://community.rockrms.com/developer/helix/forms-controls",
         "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://community.rockrms.com/lava/tags/observe",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/helix/strategies"
+        "https://community.rockrms.com/developer/helix/strategies",
+        "https://community.rockrms.com/ModelMap"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -121,17 +121,17 @@
       "inspect": [],
       "source_urls": [
         "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/developer/helix/lava-applications",
         "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/forms-controls",
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+        "https://community.rockrms.com/lava/tags/observe",
         "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
+        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands"
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/ModelMap"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -143,7 +143,7 @@
   ],
   "concept_id": "helix",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T09:00:27+00:00",
+  "generated_at": "2026-07-17T15:45:02+00:00",
   "guide_sections": [
     "21-troubleshooting-decision-tree",
     "21-troubleshooting-decision-tree-the-button-does-nothing",

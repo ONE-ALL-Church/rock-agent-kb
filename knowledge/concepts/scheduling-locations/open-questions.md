@@ -10,7 +10,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `8-locations-deep-dive-location-types`: Location Types (82 words)
 
 ## Community-Supported Only
 

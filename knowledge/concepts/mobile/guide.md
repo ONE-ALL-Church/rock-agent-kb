@@ -323,6 +323,8 @@ The source pack does not provide full Rock database schema records for Rock Mobi
 
 ### Mobile Application Relationship Map
 
+The official [Rock Mobile documentation](https://community.rockrms.com/developer/mobile-docs) and [Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes) define the supported shell and publishing surface. Use the version-matched Model Map and live app configuration to verify exact page, block, API-key, security, communication, and deployment relationships before changing records.
+
 A Rock Mobile implementation typically includes:
 
 - **Mobile Application**: top-level app configuration.
@@ -470,6 +472,8 @@ Commands are the behavior layer of Rock Mobile. The docs frame commands as a sha
 
 ### Command Binding Pattern
 
+Confirm command names, binding context, and parameter contracts against the official [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands) reference for the deployed shell version. The example below is a pattern only; verify it on the target page and both supported platforms.
+
 A typical command pattern is:
 
 ```xml
@@ -544,6 +548,8 @@ The release notes establish a timeline for several command capabilities:
 Agent rule: if a command does not work, check the shell version before debugging XAML. A v3.0 command will not be reliable in a v2.x shell; a v7.0 command such as `CopyToClipboard` or `ExecuteCommand` requires v7.0.
 
 ### Operational Command Troubleshooting
+
+Use the official [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands) reference and [Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes), then inspect the target page's deployed XAML, binding context, parameters, security, shell version, and platform logs. A command that works in preview or one operating system is not proof that the production bundle is correct.
 
 Use this branch:
 

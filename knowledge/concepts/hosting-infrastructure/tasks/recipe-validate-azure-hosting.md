@@ -37,8 +37,8 @@ Follow the guide section for Recipe: Validate Azure Hosting.
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/259
 - https://community.rockrms.com/recipes/355
 - https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms

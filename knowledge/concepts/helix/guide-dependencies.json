@@ -493,12 +493,12 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "36f85f09122e6e7082f04e4c92a4be0e8bc778ff9dc072fac876e7e0fcdd4bb9",
   "approved_media_path": "knowledge/concepts/helix/approved-media.md",
-  "built_at": "2026-07-17T09:00:27+00:00",
+  "built_at": "2026-07-17T15:45:02+00:00",
   "concept_id": "helix",
-  "guide_hash": "baeb0296df4413244bd98d7d99aa528e05d36c1cd80337c61ce64cdaf7695268",
-  "guide_line_count": 1120,
+  "guide_hash": "be77fc28bc635c5cfa61960d8d7d84716bc92d00d76333d71ff8958751fcbbc7",
+  "guide_line_count": 1126,
   "guide_path": "knowledge/concepts/helix/guide.md",
-  "guide_word_count": 9646,
+  "guide_word_count": 9797,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -868,9 +868,7 @@
       "needs_live_verification": false,
       "section_id": "7-common-helix-workflows",
       "source_keys": [
-        "d275b5b94a9da833",
         "379b8b3e079b94e5",
-        "366c62c0274cf5af",
         "802567c280193bd0",
         "c597e729f3063cb4",
         "e0db41b4ca576c2c",
@@ -879,24 +877,20 @@
       "start_line": 227
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 249,
+      "confidence": "normal",
+      "end_line": 251,
       "heading": "Read-Only Partial Refresh",
       "needs_live_verification": true,
       "section_id": "7-common-helix-workflows-read-only-partial-refresh",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
         "379b8b3e079b94e5",
-        "366c62c0274cf5af",
-        "d275b5b94a9da833",
-        "366c62c0274cf5af"
+        "379b8b3e079b94e5"
       ],
       "start_line": 229
     },
     {
       "confidence": "normal",
-      "end_line": 265,
+      "end_line": 267,
       "heading": "State-Changing Action",
       "needs_live_verification": false,
       "section_id": "7-common-helix-workflows-state-changing-action",
@@ -904,33 +898,33 @@
         "802567c280193bd0",
         "c597e729f3063cb4"
       ],
-      "start_line": 250
+      "start_line": 252
     },
     {
       "confidence": "community-supported",
-      "end_line": 278,
+      "end_line": 280,
       "heading": "Admin Utility",
       "needs_live_verification": true,
       "section_id": "7-common-helix-workflows-admin-utility",
       "source_keys": [
         "e0db41b4ca576c2c"
       ],
-      "start_line": 266
+      "start_line": 268
     },
     {
       "confidence": "citation-only",
-      "end_line": 291,
+      "end_line": 293,
       "heading": "Guided Search Or Finder",
       "needs_live_verification": true,
       "section_id": "7-common-helix-workflows-guided-search-or-finder",
       "source_keys": [
         "73dd22236e939189"
       ],
-      "start_line": 279
+      "start_line": 281
     },
     {
       "confidence": "normal",
-      "end_line": 306,
+      "end_line": 308,
       "heading": "8. Overview And Roadmap Deep Dive",
       "needs_live_verification": true,
       "section_id": "8-overview-and-roadmap-deep-dive",
@@ -943,11 +937,11 @@
         "802567c280193bd0",
         "776256c424368312"
       ],
-      "start_line": 292
+      "start_line": 294
     },
     {
       "confidence": "normal",
-      "end_line": 350,
+      "end_line": 352,
       "heading": "9. HTMX Deep Dive",
       "needs_live_verification": true,
       "section_id": "9-htmx-deep-dive",
@@ -956,11 +950,11 @@
         "b8af2a0e80b2efe7",
         "8331df94a7814389"
       ],
-      "start_line": 307
+      "start_line": 309
     },
     {
       "confidence": "normal",
-      "end_line": 374,
+      "end_line": 376,
       "heading": "10. Lava Applications Deep Dive",
       "needs_live_verification": true,
       "section_id": "10-lava-applications-deep-dive",
@@ -968,22 +962,22 @@
         "379b8b3e079b94e5",
         "802567c280193bd0"
       ],
-      "start_line": 351
+      "start_line": 353
     },
     {
       "confidence": "normal",
-      "end_line": 408,
+      "end_line": 410,
       "heading": "Configuration Rigging Strategy",
       "needs_live_verification": true,
       "section_id": "10-lava-applications-deep-dive-configuration-rigging-strategy",
       "source_keys": [
         "366c62c0274cf5af"
       ],
-      "start_line": 375
+      "start_line": 377
     },
     {
       "confidence": "normal",
-      "end_line": 422,
+      "end_line": 424,
       "heading": "Application Security",
       "needs_live_verification": false,
       "section_id": "10-lava-applications-deep-dive-application-security",
@@ -991,22 +985,22 @@
         "366c62c0274cf5af",
         "d275b5b94a9da833"
       ],
-      "start_line": 409
+      "start_line": 411
     },
     {
       "confidence": "normal",
-      "end_line": 426,
+      "end_line": 428,
       "heading": "11. Lava Endpoints Deep Dive",
       "needs_live_verification": false,
       "section_id": "11-lava-endpoints-deep-dive",
       "source_keys": [
         "366c62c0274cf5af"
       ],
-      "start_line": 423
+      "start_line": 425
     },
     {
       "confidence": "normal",
-      "end_line": 447,
+      "end_line": 449,
       "heading": "Routing",
       "needs_live_verification": true,
       "section_id": "11-lava-endpoints-deep-dive-routing",
@@ -1014,11 +1008,11 @@
         "366c62c0274cf5af",
         "d275b5b94a9da833"
       ],
-      "start_line": 427
+      "start_line": 429
     },
     {
       "confidence": "normal",
-      "end_line": 462,
+      "end_line": 464,
       "heading": "HTTP Methods",
       "needs_live_verification": false,
       "section_id": "11-lava-endpoints-deep-dive-http-methods",
@@ -1026,11 +1020,11 @@
         "d275b5b94a9da833",
         "802567c280193bd0"
       ],
-      "start_line": 448
+      "start_line": 450
     },
     {
       "confidence": "normal",
-      "end_line": 477,
+      "end_line": 479,
       "heading": "Security Modes",
       "needs_live_verification": false,
       "section_id": "11-lava-endpoints-deep-dive-security-modes",
@@ -1038,11 +1032,11 @@
         "366c62c0274cf5af",
         "d275b5b94a9da833"
       ],
-      "start_line": 463
+      "start_line": 465
     },
     {
       "confidence": "normal",
-      "end_line": 496,
+      "end_line": 498,
       "heading": "Enabled Lava Commands",
       "needs_live_verification": false,
       "section_id": "11-lava-endpoints-deep-dive-enabled-lava-commands",
@@ -1050,11 +1044,11 @@
         "30be60a23d3d0317",
         "48cabcef2f22cabd"
       ],
-      "start_line": 478
+      "start_line": 480
     },
     {
       "confidence": "normal",
-      "end_line": 502,
+      "end_line": 504,
       "heading": "Merge Fields And Request Body",
       "needs_live_verification": true,
       "section_id": "11-lava-endpoints-deep-dive-merge-fields-and-request-body",
@@ -1062,33 +1056,33 @@
         "776256c424368312",
         "d275b5b94a9da833"
       ],
-      "start_line": 497
+      "start_line": 499
     },
     {
       "confidence": "normal",
-      "end_line": 506,
+      "end_line": 508,
       "heading": "12. Forms And Controls Deep Dive",
       "needs_live_verification": false,
       "section_id": "12-forms-and-controls-deep-dive",
       "source_keys": [
         "c597e729f3063cb4"
       ],
-      "start_line": 503
+      "start_line": 505
     },
     {
       "confidence": "normal",
-      "end_line": 530,
+      "end_line": 532,
       "heading": "Lava Form Pattern",
       "needs_live_verification": true,
       "section_id": "12-forms-and-controls-deep-dive-lava-form-pattern",
       "source_keys": [
         "c597e729f3063cb4"
       ],
-      "start_line": 507
+      "start_line": 509
     },
     {
       "confidence": "normal",
-      "end_line": 545,
+      "end_line": 547,
       "heading": "Control Shortcodes",
       "needs_live_verification": false,
       "section_id": "12-forms-and-controls-deep-dive-control-shortcodes",
@@ -1098,11 +1092,11 @@
         "c597e729f3063cb4",
         "62578d1f5bcde8a6"
       ],
-      "start_line": 531
+      "start_line": 533
     },
     {
       "confidence": "normal",
-      "end_line": 558,
+      "end_line": 560,
       "heading": "Validation",
       "needs_live_verification": false,
       "section_id": "12-forms-and-controls-deep-dive-validation",
@@ -1110,22 +1104,22 @@
         "c597e729f3063cb4",
         "c597e729f3063cb4"
       ],
-      "start_line": 546
+      "start_line": 548
     },
     {
       "confidence": "normal",
-      "end_line": 570,
+      "end_line": 572,
       "heading": "Loading Indicators",
       "needs_live_verification": true,
       "section_id": "12-forms-and-controls-deep-dive-loading-indicators",
       "source_keys": [
         "242a3ac9b87c1e0c"
       ],
-      "start_line": 559
+      "start_line": 561
     },
     {
       "confidence": "structural",
-      "end_line": 572,
+      "end_line": 574,
       "heading": "13. Security And Observability Deep Dive",
       "needs_live_verification": false,
       "section_id": "13-security-and-observability-deep-dive",
@@ -1135,11 +1129,11 @@
         "379b8b3e079b94e5",
         "8a5899b11a6ccbbe"
       ],
-      "start_line": 571
+      "start_line": 573
     },
     {
       "confidence": "normal",
-      "end_line": 592,
+      "end_line": 594,
       "heading": "Security Principles",
       "needs_live_verification": true,
       "section_id": "13-security-and-observability-deep-dive-security-principles",
@@ -1147,11 +1141,11 @@
         "802567c280193bd0",
         "6f19b884e4da0469"
       ],
-      "start_line": 573
+      "start_line": 575
     },
     {
       "confidence": "normal",
-      "end_line": 620,
+      "end_line": 622,
       "heading": "Observability",
       "needs_live_verification": true,
       "section_id": "13-security-and-observability-deep-dive-observability",
@@ -1160,11 +1154,11 @@
         "8a5899b11a6ccbbe",
         "8a5899b11a6ccbbe"
       ],
-      "start_line": 593
+      "start_line": 595
     },
     {
       "confidence": "normal",
-      "end_line": 638,
+      "end_line": 640,
       "heading": "14. Strategies And Limitations Deep Dive",
       "needs_live_verification": true,
       "section_id": "14-strategies-and-limitations-deep-dive",
@@ -1173,11 +1167,11 @@
         "8331df94a7814389",
         "8331df94a7814389"
       ],
-      "start_line": 621
+      "start_line": 623
     },
     {
       "confidence": "structural",
-      "end_line": 640,
+      "end_line": 642,
       "heading": "15. Related Rock Areas: Lava, Api Integrations, Security, Cms, Workflows, Forms, Htmx, Observability",
       "needs_live_verification": false,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability",
@@ -1189,88 +1183,88 @@
         "b8af2a0e80b2efe7",
         "379b8b3e079b94e5"
       ],
-      "start_line": 639
+      "start_line": 641
     },
     {
       "confidence": "normal",
-      "end_line": 644,
+      "end_line": 646,
       "heading": "Lava",
       "needs_live_verification": true,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-lava",
       "source_keys": [
         "8a5899b11a6ccbbe"
       ],
-      "start_line": 641
+      "start_line": 643
     },
     {
       "confidence": "normal",
-      "end_line": 648,
+      "end_line": 650,
       "heading": "API Integrations",
       "needs_live_verification": false,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-api-integrations",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 645
+      "start_line": 647
     },
     {
       "confidence": "structural",
-      "end_line": 652,
+      "end_line": 654,
       "heading": "Security",
       "needs_live_verification": false,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-security",
       "source_keys": [
         "14e4b0253d1428ca"
       ],
-      "start_line": 649
+      "start_line": 651
     },
     {
       "confidence": "citation-only",
-      "end_line": 656,
+      "end_line": 658,
       "heading": "CMS",
       "needs_live_verification": false,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-cms",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 653
+      "start_line": 655
     },
     {
       "confidence": "structural",
-      "end_line": 660,
+      "end_line": 662,
       "heading": "Workflows",
       "needs_live_verification": true,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-workflows",
       "source_keys": [
         "bce31f25cb8a199e"
       ],
-      "start_line": 657
+      "start_line": 659
     },
     {
       "confidence": "normal",
-      "end_line": 664,
+      "end_line": 666,
       "heading": "Forms",
       "needs_live_verification": false,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-forms",
       "source_keys": [
         "c597e729f3063cb4"
       ],
-      "start_line": 661
+      "start_line": 663
     },
     {
       "confidence": "normal",
-      "end_line": 668,
+      "end_line": 670,
       "heading": "HTMX",
       "needs_live_verification": true,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-htmx",
       "source_keys": [
         "b8af2a0e80b2efe7"
       ],
-      "start_line": 665
+      "start_line": 667
     },
     {
       "confidence": "normal",
-      "end_line": 672,
+      "end_line": 674,
       "heading": "Observability",
       "needs_live_verification": false,
       "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-observability",
@@ -1278,22 +1272,22 @@
         "379b8b3e079b94e5",
         "8a5899b11a6ccbbe"
       ],
-      "start_line": 669
+      "start_line": 671
     },
     {
       "confidence": "normal",
-      "end_line": 701,
+      "end_line": 703,
       "heading": "16. Administration And Operational Guardrails",
       "needs_live_verification": true,
       "section_id": "16-administration-and-operational-guardrails",
       "source_keys": [
         "9d3715414e399928"
       ],
-      "start_line": 673
+      "start_line": 675
     },
     {
       "confidence": "normal",
-      "end_line": 723,
+      "end_line": 725,
       "heading": "17. Developer, API, Lava, And Source-Code Landmarks",
       "needs_live_verification": true,
       "section_id": "17-developer-api-lava-and-source-code-landmarks",
@@ -1314,11 +1308,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 702
+      "start_line": 704
     },
     {
       "confidence": "normal",
-      "end_line": 760,
+      "end_line": 762,
       "heading": "18. Reporting, Analytics, And Model Map",
       "needs_live_verification": true,
       "section_id": "18-reporting-analytics-and-model-map",
@@ -1327,11 +1321,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 724
+      "start_line": 726
     },
     {
       "confidence": "normal",
-      "end_line": 782,
+      "end_line": 784,
       "heading": "19. Version And Release Caveats",
       "needs_live_verification": true,
       "section_id": "19-version-and-release-caveats",
@@ -1345,98 +1339,69 @@
         "776256c424368312",
         "e0db41b4ca576c2c"
       ],
-      "start_line": 761
+      "start_line": 763
     },
     {
       "confidence": "structural",
-      "end_line": 784,
+      "end_line": 786,
       "heading": "20. Implementation Playbooks",
       "needs_live_verification": false,
       "section_id": "20-implementation-playbooks",
       "source_keys": [
-        "8a5899b11a6ccbbe",
-        "6f19b884e4da0469",
-        "776256c424368312",
-        "242a3ac9b87c1e0c",
-        "e0db41b4ca576c2c"
-      ],
-      "start_line": 783
-    },
-    {
-      "confidence": "needs-citation",
-      "end_line": 799,
-      "heading": "Playbook A: Build A Read-Only Results Panel",
-      "needs_live_verification": true,
-      "section_id": "20-implementation-playbooks-playbook-a-build-a-read-only-results-panel",
-      "source_keys": [
-        "8a5899b11a6ccbbe",
-        "8a5899b11a6ccbbe",
-        "6f19b884e4da0469",
-        "776256c424368312",
-        "242a3ac9b87c1e0c",
-        "242a3ac9b87c1e0c",
-        "776256c424368312",
-        "e0db41b4ca576c2c"
+        "379b8b3e079b94e5",
+        "242a3ac9b87c1e0c"
       ],
       "start_line": 785
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 814,
+      "confidence": "normal",
+      "end_line": 803,
+      "heading": "Playbook A: Build A Read-Only Results Panel",
+      "needs_live_verification": true,
+      "section_id": "20-implementation-playbooks-playbook-a-build-a-read-only-results-panel",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "379b8b3e079b94e5",
+        "242a3ac9b87c1e0c"
+      ],
+      "start_line": 787
+    },
+    {
+      "confidence": "normal",
+      "end_line": 820,
       "heading": "Playbook B: Build A Safe Update Form",
       "needs_live_verification": true,
       "section_id": "20-implementation-playbooks-playbook-b-build-a-safe-update-form",
       "source_keys": [
-        "8a5899b11a6ccbbe",
-        "8a5899b11a6ccbbe",
-        "6f19b884e4da0469",
-        "776256c424368312",
-        "242a3ac9b87c1e0c",
-        "242a3ac9b87c1e0c",
-        "776256c424368312",
-        "e0db41b4ca576c2c"
+        "379b8b3e079b94e5"
       ],
-      "start_line": 800
+      "start_line": 804
     },
     {
       "confidence": "structural",
-      "end_line": 827,
+      "end_line": 833,
       "heading": "Playbook C: Convert A Static Lava Page To Helix",
       "needs_live_verification": true,
       "section_id": "20-implementation-playbooks-playbook-c-convert-a-static-lava-page-to-helix",
       "source_keys": [
-        "8a5899b11a6ccbbe",
-        "8a5899b11a6ccbbe",
-        "6f19b884e4da0469",
-        "776256c424368312",
-        "242a3ac9b87c1e0c",
-        "242a3ac9b87c1e0c",
-        "776256c424368312",
-        "e0db41b4ca576c2c"
+        "379b8b3e079b94e5"
       ],
-      "start_line": 815
+      "start_line": 821
     },
     {
       "confidence": "structural",
-      "end_line": 841,
+      "end_line": 847,
       "heading": "Playbook D: Audit An Existing Helix App",
       "needs_live_verification": true,
       "section_id": "20-implementation-playbooks-playbook-d-audit-an-existing-helix-app",
       "source_keys": [
-        "8a5899b11a6ccbbe",
-        "8a5899b11a6ccbbe",
-        "6f19b884e4da0469",
-        "776256c424368312",
-        "242a3ac9b87c1e0c",
-        "242a3ac9b87c1e0c",
-        "776256c424368312",
-        "e0db41b4ca576c2c"
+        "379b8b3e079b94e5"
       ],
-      "start_line": 828
+      "start_line": 834
     },
     {
       "confidence": "structural",
-      "end_line": 843,
+      "end_line": 849,
       "heading": "21. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "21-troubleshooting-decision-tree",
@@ -1445,165 +1410,165 @@
         "c597e729f3063cb4",
         "379b8b3e079b94e5"
       ],
-      "start_line": 842
+      "start_line": 848
     },
     {
       "confidence": "normal",
-      "end_line": 856,
+      "end_line": 862,
       "heading": "The button does nothing",
       "needs_live_verification": true,
       "section_id": "21-troubleshooting-decision-tree-the-button-does-nothing",
       "source_keys": [
         "8331df94a7814389"
       ],
-      "start_line": 844
+      "start_line": 850
     },
     {
       "confidence": "structural",
-      "end_line": 869,
+      "end_line": 875,
       "heading": "The request is sent but endpoint is not found",
       "needs_live_verification": false,
       "section_id": "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
       "source_keys": [
         "8331df94a7814389"
       ],
-      "start_line": 857
+      "start_line": 863
     },
     {
       "confidence": "structural",
-      "end_line": 881,
+      "end_line": 887,
       "heading": "The endpoint returns login markup or unauthorized",
       "needs_live_verification": false,
       "section_id": "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
       "source_keys": [
         "8331df94a7814389"
       ],
-      "start_line": 870
+      "start_line": 876
     },
     {
       "confidence": "structural",
-      "end_line": 894,
+      "end_line": 900,
       "heading": "The endpoint works in UI but fails when called directly",
       "needs_live_verification": false,
       "section_id": "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
       "source_keys": [
         "8331df94a7814389"
       ],
-      "start_line": 882
+      "start_line": 888
     },
     {
       "confidence": "normal",
-      "end_line": 905,
+      "end_line": 911,
       "heading": "Validation does not run",
       "needs_live_verification": false,
       "section_id": "21-troubleshooting-decision-tree-validation-does-not-run",
       "source_keys": [
         "c597e729f3063cb4"
       ],
-      "start_line": 895
+      "start_line": 901
     },
     {
       "confidence": "structural",
-      "end_line": 915,
+      "end_line": 921,
       "heading": "Spinner does not show",
       "needs_live_verification": false,
       "section_id": "21-troubleshooting-decision-tree-spinner-does-not-show",
       "source_keys": [
         "c597e729f3063cb4"
       ],
-      "start_line": 906
+      "start_line": 912
     },
     {
       "confidence": "normal",
-      "end_line": 932,
+      "end_line": 938,
       "heading": "Endpoint is slow",
       "needs_live_verification": true,
       "section_id": "21-troubleshooting-decision-tree-endpoint-is-slow",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 916
+      "start_line": 922
     },
     {
       "confidence": "structural",
-      "end_line": 948,
+      "end_line": 954,
       "heading": "Endpoint modifies wrong data",
       "needs_live_verification": true,
       "section_id": "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 933
+      "start_line": 939
     },
     {
       "confidence": "structural",
-      "end_line": 950,
+      "end_line": 956,
       "heading": "22. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "22-agent-task-recipes",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 949
+      "start_line": 955
     },
     {
       "confidence": "structural",
-      "end_line": 962,
+      "end_line": 968,
       "heading": "Recipe: Find The Endpoint Behind A Button",
       "needs_live_verification": true,
       "section_id": "22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 951
+      "start_line": 957
     },
     {
       "confidence": "structural",
-      "end_line": 975,
+      "end_line": 981,
       "heading": "Recipe: Determine Whether A Helix App Is Public-Safe",
       "needs_live_verification": false,
       "section_id": "22-agent-task-recipes-recipe-determine-whether-a-helix-app-is-public-safe",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 963
+      "start_line": 969
     },
     {
       "confidence": "structural",
-      "end_line": 988,
+      "end_line": 994,
       "heading": "Recipe: Upgrade A Plugin-Era Helix App",
       "needs_live_verification": true,
       "section_id": "22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 976
+      "start_line": 982
     },
     {
       "confidence": "structural",
-      "end_line": 1001,
+      "end_line": 1007,
       "heading": "Recipe: Review A Community Recipe Before Use",
       "needs_live_verification": true,
       "section_id": "22-agent-task-recipes-recipe-review-a-community-recipe-before-use",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 989
+      "start_line": 995
     },
     {
       "confidence": "structural",
-      "end_line": 1012,
+      "end_line": 1018,
       "heading": "Recipe: Add Observability To A Complex Endpoint",
       "needs_live_verification": false,
       "section_id": "22-agent-task-recipes-recipe-add-observability-to-a-complex-endpoint",
       "source_keys": [
         "379b8b3e079b94e5"
       ],
-      "start_line": 1002
+      "start_line": 1008
     },
     {
       "confidence": "normal",
-      "end_line": 1038,
+      "end_line": 1044,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1621,11 +1586,11 @@
         "b8af2a0e80b2efe7",
         "366c62c0274cf5af"
       ],
-      "start_line": 1013
+      "start_line": 1019
     },
     {
       "confidence": "structural",
-      "end_line": 1045,
+      "end_line": 1051,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1643,11 +1608,11 @@
         "b8af2a0e80b2efe7",
         "366c62c0274cf5af"
       ],
-      "start_line": 1039
+      "start_line": 1045
     },
     {
       "confidence": "normal",
-      "end_line": 1120,
+      "end_line": 1126,
       "heading": "23. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "23-source-map-and-dependency-notes",
@@ -1696,7 +1661,7 @@
         "e0db41b4ca576c2c",
         "73dd22236e939189"
       ],
-      "start_line": 1046
+      "start_line": 1052
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T17:55:43+00:00",

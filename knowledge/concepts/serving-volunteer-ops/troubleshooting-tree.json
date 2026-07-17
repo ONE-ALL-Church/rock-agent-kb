@@ -199,7 +199,7 @@
   ],
   "concept_id": "serving-volunteer-ops",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-17T08:59:59+00:00",
+  "generated_at": "2026-07-17T15:44:33+00:00",
   "guide_sections": [
     "10-volunteer-requirements-deep-dive-requirement-failure-troubleshooting",
     "18-troubleshooting-decision-tree",

@@ -79,7 +79,7 @@ generated: true
 | `5-core-configuration-and-data-model-homepage-routing-logic` | normal | live verification |
 | `5-core-configuration-and-data-model-palette-colors-and-styling-values` | normal | live verification |
 | `6-primary-entities-and-relationships` | structural | live verification |
-| `6-primary-entities-and-relationships-mobile-application-relationship-map` | needs-citation | needs-citation |
+| `6-primary-entities-and-relationships-mobile-application-relationship-map` | normal | live verification |
 | `6-primary-entities-and-relationships-page-block-and-security-relationships` | normal | live verification |
 | `6-primary-entities-and-relationships-check-in-source-code-landmarks` | normal | live verification |
 | `7-common-rock-mobile-workflows-build-a-first-app` | normal | live verification |
@@ -87,9 +87,9 @@ generated: true
 | `7-common-rock-mobile-workflows-add-a-webview-integration` | normal | live verification |
 | `7-common-rock-mobile-workflows-configure-push-notifications` | normal | live verification |
 | `7-common-rock-mobile-workflows-upgrade-from-xamarin-forms-to-maui` | normal | live verification |
-| `8-commands-deep-dive-command-binding-pattern` | needs-citation | needs-citation |
+| `8-commands-deep-dive-command-binding-pattern` | normal | live verification |
 | `8-commands-deep-dive-commandreference` | normal | live verification |
-| `8-commands-deep-dive-operational-command-troubleshooting` | needs-citation | live verification |
+| `8-commands-deep-dive-operational-command-troubleshooting` | normal | live verification |
 | `9-controls-deep-dive-webview` | normal | live verification |
 | `9-controls-deep-dive-context-menu` | normal | live verification |
 | `9-controls-deep-dive-ondeviceplatform-and-maui-platform-support` | normal | live verification |

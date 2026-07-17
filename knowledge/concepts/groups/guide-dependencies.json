@@ -6920,12 +6920,12 @@
   },
   "approved_media_hash": "08b27e17dc0baa4060b045fb123823b399a314388b61fb6a1980d9c68d286ad3",
   "approved_media_path": "knowledge/concepts/groups/approved-media.md",
-  "built_at": "2026-07-17T08:59:46+00:00",
+  "built_at": "2026-07-17T15:44:20+00:00",
   "concept_id": "groups",
-  "guide_hash": "c85cb9a1c682408e1641f83caa53682c47ce98dae742a9413cc0e3d0aa2f6df0",
-  "guide_line_count": 1274,
+  "guide_hash": "5c9d0cb6b447b4322cf89592f08943dc8014a56bac20838db201292db582ce32",
+  "guide_line_count": 1276,
   "guide_path": "knowledge/concepts/groups/guide.md",
-  "guide_word_count": 12098,
+  "guide_word_count": 12145,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -8500,8 +8500,7 @@
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
-        "376fb0e23e71f1af",
-        "6ed8a60516b78b29",
+        "d6783d9a3170135b",
         "08815cfa0fab37fd",
         "9af162570ab9ac58",
         "ae4f7dd44bb15d12",
@@ -8510,53 +8509,52 @@
       "start_line": 846
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 866,
+      "confidence": "normal",
+      "end_line": 868,
       "heading": "Playbook: Build A Small Group Structure",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-small-group-structure",
       "source_keys": [
-        "376fb0e23e71f1af",
-        "6ed8a60516b78b29"
+        "d6783d9a3170135b"
       ],
       "start_line": 848
     },
     {
       "confidence": "citation-only",
-      "end_line": 881,
+      "end_line": 883,
       "heading": "Playbook: Build A Serving Team Scheduling Structure",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-serving-team-scheduling-structure",
       "source_keys": [
         "08815cfa0fab37fd"
       ],
-      "start_line": 867
+      "start_line": 869
     },
     {
       "confidence": "structural",
-      "end_line": 897,
+      "end_line": 899,
       "heading": "Playbook: Set Up Group Finder",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-set-up-group-finder",
       "source_keys": [
         "08815cfa0fab37fd"
       ],
-      "start_line": 882
+      "start_line": 884
     },
     {
       "confidence": "community-supported",
-      "end_line": 910,
+      "end_line": 912,
       "heading": "Playbook: Add Group Requirements",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-group-requirements",
       "source_keys": [
         "9af162570ab9ac58"
       ],
-      "start_line": 898
+      "start_line": 900
     },
     {
       "confidence": "community-supported",
-      "end_line": 923,
+      "end_line": 925,
       "heading": "Playbook: Extend Group Leader Toolbox",
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-extend-group-leader-toolbox",
@@ -8564,11 +8562,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 911
+      "start_line": 913
     },
     {
       "confidence": "structural",
-      "end_line": 925,
+      "end_line": 927,
       "heading": "17. Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
@@ -8579,11 +8577,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 924
+      "start_line": 926
     },
     {
       "confidence": "structural",
-      "end_line": 938,
+      "end_line": 940,
       "heading": "A Group Does Not Appear In Group Viewer",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-group-does-not-appear-in-group-viewer",
@@ -8591,11 +8589,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 926
+      "start_line": 928
     },
     {
       "confidence": "structural",
-      "end_line": 950,
+      "end_line": 952,
       "heading": "A Child Group Type Cannot Be Added",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-child-group-type-cannot-be-added",
@@ -8603,11 +8601,11 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 939
+      "start_line": 941
     },
     {
       "confidence": "structural",
-      "end_line": 963,
+      "end_line": 965,
       "heading": "A Person Is In The Group But Not On The Roster",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-a-person-is-in-the-group-but-not-on-the-roster",
@@ -8615,44 +8613,44 @@
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
       ],
-      "start_line": 951
+      "start_line": 953
     },
     {
       "confidence": "normal",
-      "end_line": 979,
+      "end_line": 981,
       "heading": "Attendance Cannot Be Entered",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-attendance-cannot-be-entered",
       "source_keys": [
         "5dba4d03818c09a2"
       ],
-      "start_line": 964
+      "start_line": 966
     },
     {
       "confidence": "structural",
-      "end_line": 994,
+      "end_line": 996,
       "heading": "Group Finder Missing Expected Groups",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-finder-missing-expected-groups",
       "source_keys": [
         "5dba4d03818c09a2"
       ],
-      "start_line": 980
+      "start_line": 982
     },
     {
       "confidence": "normal",
-      "end_line": 1009,
+      "end_line": 1011,
       "heading": "Attendance Counts Are Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-attendance-counts-are-wrong",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 995
+      "start_line": 997
     },
     {
       "confidence": "normal",
-      "end_line": 1026,
+      "end_line": 1028,
       "heading": "Group Scheduler Looks Wrong",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-scheduler-looks-wrong",
@@ -8660,11 +8658,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1010
+      "start_line": 1012
     },
     {
       "confidence": "structural",
-      "end_line": 1038,
+      "end_line": 1040,
       "heading": "Group Requirement Cannot Be Resent",
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-group-requirement-cannot-be-resent",
@@ -8672,11 +8670,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1027
+      "start_line": 1029
     },
     {
       "confidence": "structural",
-      "end_line": 1040,
+      "end_line": 1042,
       "heading": "18. Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
@@ -8685,11 +8683,11 @@
         "201f0c67fd7c113d",
         "64a7ffd3aa5844f1"
       ],
-      "start_line": 1039
+      "start_line": 1041
     },
     {
       "confidence": "structural",
-      "end_line": 1065,
+      "end_line": 1067,
       "heading": "Recipe: Identify Why A Group Is Not Visible",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-identify-why-a-group-is-not-visible",
@@ -8697,11 +8695,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1041
+      "start_line": 1043
     },
     {
       "confidence": "structural",
-      "end_line": 1092,
+      "end_line": 1094,
       "heading": "Recipe: Audit A Group Type Before Launch",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-a-group-type-before-launch",
@@ -8709,11 +8707,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1066
+      "start_line": 1068
     },
     {
       "confidence": "structural",
-      "end_line": 1111,
+      "end_line": 1113,
       "heading": "Recipe: Debug Group Attendance Reminder Failures",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-debug-group-attendance-reminder-failures",
@@ -8721,11 +8719,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1093
+      "start_line": 1095
     },
     {
       "confidence": "structural",
-      "end_line": 1135,
+      "end_line": 1137,
       "heading": "Recipe: Build A Group Finder QA Checklist",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-group-finder-qa-checklist",
@@ -8733,11 +8731,11 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1112
+      "start_line": 1114
     },
     {
       "confidence": "structural",
-      "end_line": 1157,
+      "end_line": 1159,
       "heading": "Recipe: Move Members Between Groups Safely",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-move-members-between-groups-safely",
@@ -8745,22 +8743,22 @@
         "776256c424368312",
         "201f0c67fd7c113d"
       ],
-      "start_line": 1136
+      "start_line": 1138
     },
     {
       "confidence": "community-supported",
-      "end_line": 1175,
+      "end_line": 1177,
       "heading": "Recipe: Create A Custom Scheduled Volunteer Communication Page",
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page",
       "source_keys": [
         "64a7ffd3aa5844f1"
       ],
-      "start_line": 1158
+      "start_line": 1160
     },
     {
       "confidence": "citation-only",
-      "end_line": 1201,
+      "end_line": 1203,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -8778,11 +8776,11 @@
         "08815cfa0fab37fd",
         "301dbb16c5d47932"
       ],
-      "start_line": 1176
+      "start_line": 1178
     },
     {
       "confidence": "citation-only",
-      "end_line": 1222,
+      "end_line": 1224,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -8796,11 +8794,11 @@
         "7054a521db6d0806",
         "c4a0a588db9ed5b7"
       ],
-      "start_line": 1202
+      "start_line": 1204
     },
     {
       "confidence": "structural",
-      "end_line": 1224,
+      "end_line": 1226,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -8835,11 +8833,11 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1223
+      "start_line": 1225
     },
     {
       "confidence": "high",
-      "end_line": 1231,
+      "end_line": 1233,
       "heading": "Primary Official Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-primary-official-sources",
@@ -8849,11 +8847,11 @@
         "08815cfa0fab37fd",
         "776256c424368312"
       ],
-      "start_line": 1225
+      "start_line": 1227
     },
     {
       "confidence": "normal",
-      "end_line": 1241,
+      "end_line": 1243,
       "heading": "Developer Sources",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-developer-sources",
@@ -8866,11 +8864,11 @@
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
       ],
-      "start_line": 1232
+      "start_line": 1234
     },
     {
       "confidence": "normal",
-      "end_line": 1252,
+      "end_line": 1254,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -8884,11 +8882,11 @@
         "96f1328d8aafb3b3",
         "c72ee88036189ee1"
       ],
-      "start_line": 1242
+      "start_line": 1244
     },
     {
       "confidence": "community-supported",
-      "end_line": 1267,
+      "end_line": 1269,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-examples",
@@ -8905,11 +8903,11 @@
         "2e546ad927545965",
         "9af162570ab9ac58"
       ],
-      "start_line": 1253
+      "start_line": 1255
     },
     {
       "confidence": "normal",
-      "end_line": 1274,
+      "end_line": 1276,
       "heading": "Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-dependency-notes",
@@ -8917,7 +8915,7 @@
         "d6783d9a3170135b",
         "db21941c572fe3c9"
       ],
-      "start_line": 1268
+      "start_line": 1270
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T16:23:37+00:00",

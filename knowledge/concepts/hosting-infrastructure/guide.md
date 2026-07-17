@@ -241,6 +241,8 @@ Rock release notes show database performance is an active area of change. Rock v
 
 ### Rock Database Records That Affect Hosting
 
+Use the official [Azure Hosting](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting) guidance and the version-matched [Rock source](https://github.com/SparkDevNetwork/Rock) to identify supported hosting dependencies. Confirm the live provider, job, cache, site, transport, storage, authentication, and observability records with read-only inspection because local plugins and deployment topology can change the effective contract.
+
 Common records to inspect in Rock:
 
 - Service Jobs and job schedules.
@@ -862,6 +864,8 @@ Create or inspect reports for:
 - Login failures and authentication provider errors.
 
 ### Model Map Usage
+
+Use the version-matched [Model Map](https://community.rockrms.com/ModelMap) for entity and relationship shape, and [Rock source](https://github.com/SparkDevNetwork/Rock) for implementation details that the map does not expose. Confirm installed version, local attributes, plugins, and actual records before translating a model relationship into a hosting diagnosis.
 
 Use the Model Map or live schema inspection for exact entity/table/field names. Hosting work often touches entities whose names vary by version or plugin. The source pack does not include a detailed hosting Model Map record, so avoid pretending exact schema certainty. For live work, inspect:
 

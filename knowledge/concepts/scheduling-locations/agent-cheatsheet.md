@@ -81,7 +81,7 @@ generated: true
 | `7-common-scheduling-and-locations-workflows-clone-a-check-in-schedule` | high | live verification |
 | `7-common-scheduling-and-locations-workflows-create-event-calendar-occurrences` | normal | live verification |
 | `7-common-scheduling-and-locations-workflows-manage-room-reservations` | community-supported | live verification |
-| `8-locations-deep-dive-location-types` | needs-citation | live verification |
+| `8-locations-deep-dive-location-types` | normal | live verification |
 | `8-locations-deep-dive-thresholds-and-capacity` | normal | live verification |
 | `8-locations-deep-dive-location-selection-strategy` | high | live verification |
 | `8-locations-deep-dive-location-seo-and-public-pages` | community-supported | community-supported |
