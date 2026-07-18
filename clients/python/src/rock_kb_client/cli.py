@@ -319,6 +319,8 @@ def main(argv: list[str] | None = None) -> int:
             if args.submit:
                 submission = post_json(f"{base_url}/test-rounds/review", review)
             print_json({"schema": "rock-kb-community-test-round-result-v1", "test_round": report, "review": review, "submission": submission})
+            if args.submit and (not isinstance(submission, dict) or submission.get("status") != "recorded"):
+                return 1
         else:
             print_json(report)
         return 0 if report["status"] == "ok" else 1

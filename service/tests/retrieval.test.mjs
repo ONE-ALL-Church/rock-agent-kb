@@ -616,13 +616,24 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
       test_round_schema: "rock-kb-community-test-round-v1",
       projection_version: "test-version",
       automatic_status: "ok",
-      cases: [...categories].map(([case_id, category]) => ({
-        case_id,
-        category,
-        automatic_status: "pass",
-        outcome: case_id === "no-answer-boundary" ? "unsure" : "useful",
-        result_id: ["service", "no_answer"].includes(category) ? null : "claim:claim:abc123",
-      })),
+      cases: [...categories].map(([case_id, category]) => {
+        const canonicalResultIds = new Map([
+          ["exact-group-model", "model_map:stable:group"],
+          ["reviewed-recipe", "recipe:oneall:check-in-status-dashboard"],
+          ["check-in-troubleshooting", "concept:check-in"],
+          ["idea-relationship-trust", "rock_idea:2250"],
+          ["core-issue-trust", "rock_issue:SparkDevNetwork/Rock#6919"],
+          ["mobile-issue-release-evidence", "rock_issue:SparkDevNetwork/Rock#6919"],
+          ["issue-version-assessment", "rock_issue:SparkDevNetwork/Rock#6919"],
+        ]);
+        return {
+          case_id,
+          category,
+          automatic_status: "pass",
+          outcome: case_id === "no-answer-boundary" ? "unsure" : "useful",
+          result_id: canonicalResultIds.get(case_id) || (["service", "no_answer"].includes(category) ? null : "claim:claim:abc123"),
+        };
+      }),
     };
     const unattributed = await mf.dispatchFetch("https://kb.example.test/test-rounds/review", {
       method: "POST",
@@ -648,6 +659,12 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
     assert.equal(dashboard.test_rounds.case_outcome_count, 10);
     assert.equal(dashboard.test_rounds.by_manual_outcome.useful, 9);
     assert.equal(dashboard.test_rounds.by_manual_outcome.unsure, 1);
+    assert.equal(
+      dashboard.test_rounds.cases.find((row) => row.case_id === "core-issue-trust").result_ids[
+        "rock_issue:SparkDevNetwork/Rock#6919"
+      ],
+      1,
+    );
     assert.equal(JSON.stringify(dashboard.test_rounds).includes("Review this"), false);
 
     const mcpDefinition = await mcp(mf, "tools/call", { name: "kb_get_test_round", arguments: {} });

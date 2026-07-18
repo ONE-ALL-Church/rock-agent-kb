@@ -6,6 +6,15 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.12.1] - 2026-07-17
+
+### Fixed
+
+- Structured test-round and issue-report validation now accepts canonical Rock
+  issue result IDs containing `#`, matching the IDs in the public projection.
+- `rock-kb test-round --submit` now exits nonzero when the hosted service
+  rejects the review instead of reporting process success for a failed submit.
+
 ## [0.12.0] - 2026-07-17
 
 ### Added

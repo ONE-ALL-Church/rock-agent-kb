@@ -148,6 +148,7 @@ const DIRECT_MEDIA_HINTS = [
 
 const FEEDBACK_REASONS = new Set(["helpful", "outdated", "missing", "incorrect", "wrong_route"]);
 const TEST_ROUND_REVIEW_OUTCOMES = new Set(["useful", "incorrect", "incomplete", "unclear", "unsure"]);
+const PUBLIC_RESULT_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9:._/#-]{0,199}$/;
 const TEST_ROUND_CASES = new Map<string, string>([
   ["service-health", "service"],
   ["exact-group-model", "exact_lookup"],
@@ -2666,7 +2667,7 @@ async function validateTestRoundReview(body: JsonRecord, env: ServiceEnv): Promi
       throw new PublicRequestError(400, "unexpected_result_id", "The no-answer case must not include a result ID");
     }
     if (resultId) {
-      if (resultId === "__invalid__" || !/^[A-Za-z0-9][A-Za-z0-9:._/-]{0,199}$/.test(resultId)) {
+      if (resultId === "__invalid__" || !PUBLIC_RESULT_ID_PATTERN.test(resultId)) {
         throw new PublicRequestError(400, "invalid_result_id", "Case result IDs must be public Rock KB identifiers");
       }
       const resolved = await resolveSearchRow(env, resultId);
@@ -2793,7 +2794,7 @@ function validateIssueReport(body: JsonRecord): {
   if (!/^[a-z][a-z0-9_.:-]{0,63}$/.test(errorCode)) {
     throw new PublicRequestError(400, "invalid_error_code", "error_code must be a short structured identifier");
   }
-  if (resultId && !/^[A-Za-z0-9][A-Za-z0-9:._-]{0,199}$/.test(resultId)) {
+  if (resultId && !PUBLIC_RESULT_ID_PATTERN.test(resultId)) {
     throw new PublicRequestError(400, "invalid_result_id", "result_id must be a public Rock KB result identifier");
   }
   if (httpStatus !== null && (!Number.isInteger(httpStatus) || httpStatus < 100 || httpStatus > 599)) {
