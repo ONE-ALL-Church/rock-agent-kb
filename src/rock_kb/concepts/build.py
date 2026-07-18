@@ -1350,6 +1350,8 @@ def build_agent_manifest() -> dict[str, Any]:
         "schema": "rock-kb-agent-manifest-v1",
         "generated_at": generated_at_iso(),
         "agent_entrypoints": {
+            "skill_manifest": "skills/rock-kb-agent/manifest.json",
+            "skill_lifecycle": "docs/agent-skill-lifecycle.md",
             "concepts": "knowledge/concepts/*/quickstart.md",
             "tasks": "agent/concept-task-cards.jsonl",
             "entities": "agent/entity-index.jsonl",

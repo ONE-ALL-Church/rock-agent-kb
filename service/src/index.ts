@@ -179,6 +179,8 @@ const ISSUE_REQUEST_MAX_BYTES = 4096;
 const ISSUE_FINGERPRINT_LIMIT_PER_MINUTE = 10;
 const ISSUE_GLOBAL_LIMIT_PER_MINUTE = 120;
 const DECLARED_TELEMETRY_COHORTS = new Set(["external-test", "maintainer"]);
+const SKILL_ARTIFACT_PATH = "skills/rock-kb-agent/SKILL.md";
+const SKILL_MANIFEST_PATH = "skills/rock-kb-agent/manifest.json";
 const TOPIC_HINTS: Array<[string, string[]]> = [
   ["check-in", ["checkin", "check-in", "check in", "kiosk", "label", "attendance"]],
   ["workflows", ["workflow", "actiontype", "trigger"]],
@@ -211,7 +213,11 @@ export default {
           version: await currentVersion(env),
           artifact_prefix: await currentArtifactPrefix(env),
           artifact_storage: "bounded_two_slot",
+          skill_manifest_url: `${env.PUBLIC_BASE_URL.replace(/\/$/, "")}/skill/manifest.json`,
         });
+      }
+      if (url.pathname === "/skill/manifest.json") {
+        return json(await skillManifest(env));
       }
       if (url.pathname === "/manifest.json") {
         return artifactJson(env, "agent/rock-kb-manifest.json");
@@ -774,6 +780,9 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_manifest") {
     return artifactJsonValue(env, "agent/rock-kb-manifest.json");
+  }
+  if (name === "kb_skill_manifest") {
+    return skillManifest(env);
   }
   if (name === "kb_list_concepts") {
     return artifactJsonlValue(env, "agent/concept-index.jsonl");
@@ -2215,6 +2224,19 @@ async function currentVersion(env: ServiceEnv): Promise<string> {
 async function currentArtifactPrefix(env: ServiceEnv): Promise<string> {
   const result = await env.KB_DB.prepare("SELECT value FROM kb_meta WHERE key = 'artifact_prefix'").first<{ value: string }>();
   return result?.value || `versions/${await currentVersion(env)}`;
+}
+
+async function skillManifest(env: ServiceEnv): Promise<JsonRecord> {
+  const [manifest, skillText] = await Promise.all([
+    artifactJsonValue(env, SKILL_MANIFEST_PATH),
+    artifactTextValue(env, SKILL_ARTIFACT_PATH),
+  ]);
+  const baseUrl = env.PUBLIC_BASE_URL.replace(/\/$/, "");
+  return {
+    ...manifest,
+    source_url: `${baseUrl}/artifacts/${SKILL_ARTIFACT_PATH}`,
+    sha256: await sha256Hex(skillText),
+  };
 }
 
 async function artifactShardKey(env: ServiceEnv, path: string): Promise<string> {
@@ -3852,6 +3874,7 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_assess_rock_issues", description: "Conservatively route Rock issues against a bounded instance profile containing only versions, platforms, concepts, and capabilities. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } } } }, limit: { type: "integer", minimum: 1, maximum: 500 }, offset: { type: "integer", minimum: 0, maximum: 100000 } }, required: ["profile"] } },
     { name: "kb_plan_rock_issue_investigation", description: "Return a typed read-only orchestrator-worker plan for investigating one issue. It never posts to GitHub; private instance work remains a separate overlay.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" }, include_private_instance: { type: "boolean" } }, required: ["issue"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_skill_manifest", description: "Return the current Rock KB agent skill version, source URL, SHA-256, minimum client version, restart behavior, and update policy defaults.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package, including bounded Rock Ideas lifecycle counts and highlights for roadmap context.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },

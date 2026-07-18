@@ -13,6 +13,11 @@ service contract and the `rock-kb` Python client.
   identity, contribution schemas, or hosted response contracts.
 - Routine automated refreshes with no material public answer change do not
   require a release.
+- Skill-instruction-only changes may bump
+  `skills/rock-kb-agent/manifest.json` and deploy the hosted artifact without a
+  new Python client release, provided the existing updater contract still
+  supports them. Bump `minimum_client_version` and publish a client release
+  when the skill depends on new CLI behavior.
 
 Prepare releases after meaningful changes are merged and the production Worker
 is healthy. Avoid batching unrelated high-risk changes solely to meet a date;

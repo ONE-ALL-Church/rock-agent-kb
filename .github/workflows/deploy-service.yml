@@ -14,7 +14,7 @@ on:
       - "community-contributions/**"
       - "source-suggestions/**"
       - "orgs/**"
-      - "docs/templates/rock-kb-agent/**"
+      - "skills/rock-kb-agent/**"
       - "service/src/**"
       - "service/wrangler.jsonc"
       - "scripts/validate_bundle.py"
@@ -113,6 +113,7 @@ jobs:
         if: ${{ env.ROCK_KB_BASE_URL != '' }}
         run: |
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health"
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/skill/manifest.json" >/tmp/skill-manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json
           uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5 --output /tmp/hosted-evaluation.json

@@ -45,6 +45,8 @@
     "rock_issues": "agent/rock-issues.jsonl",
     "section_status": "agent/section-status.jsonl",
     "sections": "agent/section-source-map.jsonl",
+    "skill_lifecycle": "docs/agent-skill-lifecycle.md",
+    "skill_manifest": "skills/rock-kb-agent/manifest.json",
     "source_authority_rules": "agent/source-authority-rules.jsonl",
     "source_conflicts": "agent/source-conflicts.jsonl",
     "source_summaries": "agent/source-summaries.jsonl",

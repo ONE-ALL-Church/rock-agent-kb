@@ -12,6 +12,55 @@ from pathlib import Path
 VALID_FIXTURE = Path("tests/fixtures/contributions/valid-bundle.jsonl")
 
 
+def skill_source(version: str = "1.0.0") -> str:
+    return (
+        "---\n"
+        "name: rock-kb-agent\n"
+        "description: Test Rock KB skill.\n"
+        "metadata:\n"
+        f"  rock-kb-skill-version: \"{version}\"\n"
+        "---\n\n"
+        "# Rock KB Agent\n"
+    )
+
+
+def skill_manifest(source: str, version: str = "1.0.0") -> dict:
+    return {
+        "schema": "rock-kb-skill-manifest-v1",
+        "name": "rock-kb-agent",
+        "skill_version": version,
+        "published_at": "2026-07-17T00:00:00Z",
+        "source_repository": "https://github.com/ONE-ALL-Church/rock-agent-kb",
+        "source_url": "https://example.test/artifacts/skills/rock-kb-agent/SKILL.md",
+        "source_path": "skills/rock-kb-agent/SKILL.md",
+        "legacy_source_path": "docs/templates/rock-kb-agent/SKILL.md",
+        "sha256": hashlib.sha256(source.encode("utf-8")).hexdigest(),
+        "minimum_client_version": "0.13.0",
+        "restart_required": True,
+        "update_check_interval_hours": 24,
+        "default_update_policy": "notify",
+        "supported_agents": ["codex", "claude", "cursor", "opencode"],
+    }
+
+
+def mock_skill_service(monkeypatch, cli, source: str | None = None) -> str:
+    source = source or skill_source()
+    manifest = skill_manifest(source)
+
+    def get_json(url: str):
+        if not url.endswith("/skill/manifest.json"):
+            return {"status": "ok", "version": "test"}
+        response = dict(manifest)
+        service_url = url.removesuffix("/skill/manifest.json")
+        response["source_url"] = f"{service_url}/artifacts/skills/rock-kb-agent/SKILL.md"
+        return response
+
+    monkeypatch.setattr(cli, "get_json", get_json)
+    monkeypatch.setattr(cli, "get_text", lambda url: source)
+    monkeypatch.setattr(cli, "package_version", lambda: "0.13.0")
+    return source
+
+
 def load_client_validator():
     path = Path("clients/python/src/rock_kb_client/validator.py")
     spec = importlib.util.spec_from_file_location("client_validator", path)
@@ -1054,8 +1103,7 @@ def test_agent_installer_preserves_config_and_creates_backups(monkeypatch, tmp_p
     config.parent.mkdir(parents=True)
     config.write_text('# keep this comment\nmodel = "gpt-5"\n\n[mcp_servers.other]\nurl = "https://other.test/mcp"\n', encoding="utf-8")
 
-    monkeypatch.setattr(cli, "get_json", lambda url: {"status": "ok", "version": "test"})
-    monkeypatch.setattr(cli, "get_text", lambda url: "---\nname: rock-kb-agent\n---\n\n# Rock KB Agent\n")
+    mock_skill_service(monkeypatch, cli)
 
     exit_code = cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)])
 
@@ -1065,14 +1113,20 @@ def test_agent_installer_preserves_config_and_creates_backups(monkeypatch, tmp_p
     assert '[mcp_servers.rock-kb]\nurl = "https://example.test/mcp"' in updated
     assert '[mcp_servers.other]\nurl = "https://other.test/mcp"' in updated
     assert list(config.parent.glob("config.toml.rock-kb-backup-*"))
-    assert (tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md").exists()
-    assert '"status": "ok"' in capsys.readouterr().out
+    installed_skill = tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md"
+    assert installed_skill.exists()
+    assert "rock-kb-managed-by: rock-kb" in installed_skill.read_text(encoding="utf-8")
+    output = json.loads(capsys.readouterr().out)
+    state_path = Path(output["state_path"])
+    assert state_path.exists()
+    assert state_path.stat().st_mode & 0o777 == 0o600
+    assert output["status"] == "ok"
+    assert output["restart_required"] is True
 
 
 def test_agent_installer_dry_run_is_non_mutating(monkeypatch, tmp_path, capsys):
     cli = load_client_cli()
-    monkeypatch.setattr(cli, "get_json", lambda url: {"status": "ok"})
-    monkeypatch.setattr(cli, "get_text", lambda url: "---\nname: rock-kb-agent\n---\n")
+    mock_skill_service(monkeypatch, cli)
 
     exit_code = cli.main(["install-agent", "--agent", "cursor", "--home", str(tmp_path), "--dry-run"])
 
@@ -1081,6 +1135,26 @@ def test_agent_installer_dry_run_is_non_mutating(monkeypatch, tmp_path, capsys):
     output = capsys.readouterr().out
     assert '"status": "dry_run"' in output
     assert '"config_action": "would_update"' in output
+
+
+def test_agent_installer_rejects_manifest_hash_mismatch_before_writing(monkeypatch, tmp_path):
+    cli = load_client_cli()
+    source = skill_source()
+    manifest = skill_manifest(source)
+    manifest["sha256"] = "0" * 64
+    monkeypatch.setattr(cli, "get_json", lambda url: manifest if url.endswith("/skill/manifest.json") else {"status": "ok"})
+    monkeypatch.setattr(cli, "get_text", lambda url: source)
+    monkeypatch.setattr(cli, "package_version", lambda: "0.13.0")
+
+    try:
+        cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)])
+    except RuntimeError as exc:
+        assert "published manifest hash" in str(exc)
+    else:
+        raise AssertionError("mismatched skill bytes should fail closed")
+
+    assert not (tmp_path / ".codex" / "config.toml").exists()
+    assert not (tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md").exists()
 
 
 def test_agent_installer_surgically_updates_json_config():
@@ -1104,8 +1178,7 @@ def test_agent_installer_preflights_all_hosts_before_writing(monkeypatch, tmp_pa
     cursor_config.parent.mkdir(parents=True)
     cursor_config.write_text('{"mcpServers": {}}\n', encoding="utf-8")
     (tmp_path / ".claude.json").write_text('{"mcpServers": ', encoding="utf-8")
-    monkeypatch.setattr(cli, "get_json", lambda url: {"status": "ok"})
-    monkeypatch.setattr(cli, "get_text", lambda url: "---\nname: rock-kb-agent\n---\n")
+    mock_skill_service(monkeypatch, cli)
 
     try:
         cli.main(["install-agent", "--agent", "cursor", "--agent", "claude", "--home", str(tmp_path)])
@@ -1117,3 +1190,127 @@ def test_agent_installer_preflights_all_hosts_before_writing(monkeypatch, tmp_pa
     assert json.loads(cursor_config.read_text(encoding="utf-8")) == {"mcpServers": {}}
     assert not list(cursor_config.parent.glob("mcp.json.rock-kb-backup-*"))
     capsys.readouterr()
+
+
+def test_skill_check_is_non_mutating_and_update_is_backup_protected(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    first_source = mock_skill_service(monkeypatch, cli)
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+    skill_path = tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md"
+    installed_before = skill_path.read_text(encoding="utf-8")
+
+    second_source = skill_source("1.0.1")
+    second_manifest = skill_manifest(second_source, "1.0.1")
+    monkeypatch.setattr(cli, "get_json", lambda url: second_manifest if url.endswith("/skill/manifest.json") else {"status": "ok", "version": "test"})
+    monkeypatch.setattr(cli, "get_text", lambda url: second_source)
+
+    assert cli.main(["--url", "https://example.test", "skill", "check", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    check = json.loads(capsys.readouterr().out)
+    assert check["status"] == "update_available"
+    assert check["recommended_action"] == "notify_human_before_update"
+    assert skill_path.read_text(encoding="utf-8") == installed_before
+    assert second_source != first_source
+
+    assert cli.main(["--url", "https://example.test", "skill", "update", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    update = json.loads(capsys.readouterr().out)
+    installed_after = skill_path.read_text(encoding="utf-8")
+    assert update["status"] == "ok"
+    assert update["restart_required"] is True
+    assert "rock-kb-skill-version: 1.0.1" in installed_after
+    assert second_manifest["sha256"] in installed_after
+    assert list(skill_path.parent.glob("SKILL.md.rock-kb-backup-*"))
+
+
+def test_skill_status_and_policy_are_stable_and_project_auto_is_rejected(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "cursor", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+
+    assert cli.main(["--url", "https://example.test", "skill", "policy", "auto", "--agent", "cursor", "--home", str(tmp_path)]) == 0
+    policy = json.loads(capsys.readouterr().out)
+    assert policy["schema"] == "rock-kb-skill-policy-v1"
+    assert policy["policy"] == "auto"
+
+    assert cli.main(["--url", "https://example.test", "skill", "status", "--agent", "cursor", "--home", str(tmp_path), "--format", "json"]) == 0
+    status = json.loads(capsys.readouterr().out)
+    assert status["schema"] == "rock-kb-skill-status-v1"
+    assert status["status"] == "current"
+    assert status["policy"] == "auto"
+    assert status["agents"][0]["source_sha256"] == skill_manifest(skill_source())["sha256"]
+
+    project = tmp_path / "project"
+    project.mkdir()
+    assert cli.main([
+        "--url", "https://example.test", "skill", "policy", "auto", "--agent", "cursor", "--home", str(tmp_path),
+        "--scope", "project", "--project-dir", str(project),
+    ]) == 1
+    rejected = json.loads(capsys.readouterr().out)
+    assert rejected["status"] == "error"
+    assert "cannot use auto policy" in rejected["error"]
+
+
+def test_pinned_skill_requires_explicit_unpin_before_update(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+    assert cli.main(["--url", "https://example.test", "skill", "policy", "pinned", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+    skill_path = tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md"
+    pinned_text = skill_path.read_text(encoding="utf-8")
+
+    new_source = skill_source("1.0.1")
+    new_manifest = skill_manifest(new_source, "1.0.1")
+    monkeypatch.setattr(cli, "get_json", lambda url: new_manifest if url.endswith("/skill/manifest.json") else {"status": "ok", "version": "test"})
+    monkeypatch.setattr(cli, "get_text", lambda url: new_source)
+
+    assert cli.main(["--url", "https://example.test", "skill", "update", "--agent", "codex", "--home", str(tmp_path)]) == 1
+    pinned = json.loads(capsys.readouterr().out)
+    assert pinned["status"] == "pinned"
+    assert skill_path.read_text(encoding="utf-8") == pinned_text
+
+    assert cli.main(["--url", "https://example.test", "skill", "update", "--unpin", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+    assert "rock-kb-skill-version: 1.0.1" in skill_path.read_text(encoding="utf-8")
+
+
+def test_if_due_check_skips_network_and_passive_auto_update_uses_persisted_consent(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    install = json.loads(capsys.readouterr().out)
+    assert cli.main(["--url", "https://example.test", "skill", "policy", "auto", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+
+    calls: list[str] = []
+    monkeypatch.setattr(cli, "get_json", lambda url: calls.append(url) or {"status": "ok"})
+    assert cli.main(["--url", "https://example.test", "skill", "check", "--if-due", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    assert json.loads(capsys.readouterr().out)["status"] == "not_due"
+    assert calls == []
+
+    state_path = Path(install["state_path"])
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["last_checked_at"] = "2026-07-15T00:00:00Z"
+    state["last_attempted_at"] = "2026-07-15T00:00:00Z"
+    state_path.write_text(json.dumps(state), encoding="utf-8")
+    new_source = skill_source("1.0.1")
+    new_manifest = skill_manifest(new_source, "1.0.1")
+
+    def service_json(url: str):
+        if url.endswith("/skill/manifest.json"):
+            return new_manifest
+        if url.endswith("/health"):
+            return {"status": "ok", "version": "test"}
+        if "/search?" in url:
+            return {"schema": "rock-kb-search-result-v2", "results": []}
+        raise AssertionError(url)
+
+    monkeypatch.setattr(cli, "get_json", service_json)
+    monkeypatch.setattr(cli, "get_text", lambda url: new_source)
+    monkeypatch.setattr(cli.Path, "home", lambda: tmp_path)
+    assert cli.main(["--url", "https://example.test", "search", "labels"]) == 0
+    captured = capsys.readouterr()
+    assert "updated automatically" in captured.err
+    assert "rock-kb-skill-version: 1.0.1" in (tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md").read_text(encoding="utf-8")

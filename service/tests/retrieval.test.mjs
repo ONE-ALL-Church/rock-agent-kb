@@ -8,6 +8,8 @@ const WORKER_BUNDLE = "dist/dry-run/index.js";
 const RECIPE_FIXTURE_CONTENT = "verified recipe fixture\n";
 const RECIPE_FIXTURE_SHA = crypto.createHash("sha256").update(RECIPE_FIXTURE_CONTENT).digest("hex");
 const RECIPE_FIXTURE_COMMIT = "d8ea54fa67efe40692689fb009561ff96e88bf42";
+const SKILL_FIXTURE_CONTENT = "---\nname: rock-kb-agent\ndescription: Test skill.\n---\n\n# Rock KB Agent\n";
+const SKILL_FIXTURE_SHA = crypto.createHash("sha256").update(SKILL_FIXTURE_CONTENT).digest("hex");
 
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
@@ -76,6 +78,19 @@ test("health reports the active bounded artifact slot and artifact reads use it"
     assert.equal(health.status, "ok");
     assert.equal(health.artifact_prefix, "slots/b");
     assert.equal(health.artifact_storage, "bounded_two_slot");
+    assert.equal(health.skill_manifest_url, "https://kb.example.test/skill/manifest.json");
+
+    const skillManifestResponse = await mf.dispatchFetch("https://kb.example.test/skill/manifest.json");
+    const skillManifest = await skillManifestResponse.json();
+    assert.equal(skillManifest.schema, "rock-kb-skill-manifest-v1");
+    assert.equal(skillManifest.skill_version, "1.0.0");
+    assert.equal(skillManifest.sha256, SKILL_FIXTURE_SHA);
+    assert.equal(skillManifest.source_url, "https://kb.example.test/artifacts/skills/rock-kb-agent/SKILL.md");
+
+    const toolsResponse = await mcp(mf, "tools/list", {});
+    assert.equal(toolsResponse.result.tools.some((tool) => tool.name === "kb_skill_manifest"), true);
+    const skillToolResponse = await mcp(mf, "tools/call", { name: "kb_skill_manifest", arguments: {} });
+    assert.equal(JSON.parse(skillToolResponse.result.content[0].text).sha256, SKILL_FIXTURE_SHA);
 
     const recipeResponse = await mf.dispatchFetch("https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard");
     assert.equal(recipeResponse.status, 200);
@@ -1168,6 +1183,20 @@ async function buildWorker(options = {}) {
     const artifactPrefix = options.artifactPrefix || "versions/test-version";
     await putArtifactSet(bucket, artifactPrefix, {
       [recipePath]: `${JSON.stringify(recipe)}\n`,
+      "skills/rock-kb-agent/SKILL.md": SKILL_FIXTURE_CONTENT,
+      "skills/rock-kb-agent/manifest.json": JSON.stringify({
+        schema: "rock-kb-skill-manifest-v1",
+        name: "rock-kb-agent",
+        skill_version: "1.0.0",
+        published_at: "2026-07-17T00:00:00Z",
+        source_repository: "https://github.com/ONE-ALL-Church/rock-agent-kb",
+        source_path: "skills/rock-kb-agent/SKILL.md",
+        minimum_client_version: "0.13.0",
+        restart_required: true,
+        update_check_interval_hours: 24,
+        default_update_policy: "notify",
+        supported_agents: ["codex", "claude", "cursor", "opencode"],
+      }),
       "agent/concept-index.jsonl": `${JSON.stringify({ concept_id: "event-registration", title: "Event Registration" })}\n`,
       "knowledge/concepts/event-registration/quickstart.md": "# Event Registration\n",
       "knowledge/concepts/event-registration/index.md": "# Event Registration\n",

@@ -1,6 +1,11 @@
 ---
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
+metadata:
+  rock-kb-skill-version: "1.0.0"
+  rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
+  rock-kb-published-at: "2026-07-17T00:00:00Z"
+  rock-kb-minimum-client-version: "0.13.0"
 ---
 
 # Rock KB Agent
@@ -36,6 +41,8 @@ The KB can help agents do more than plain text search:
 - Inspect structured claims and source citations by concept.
 - List valid concept IDs before writing or submitting contribution rows.
 - Use the manifest to discover agent entrypoints and generated artifacts.
+- Inspect the hosted skill manifest to detect a newer reviewed instruction
+  package without trusting an unverified local copy.
 - Inspect public operations counts through the dashboard.
 - List stable Rock Model Map models and get exact model digests.
 - Inspect model fields, required fields, relationships, methods, version diffs,
@@ -71,6 +78,36 @@ print the MCP block:
 ```bash
 uvx rock-kb mcp-config
 ```
+
+### Skill Update Check
+
+On the first Rock KB task in a session, run the bounded check below when a
+terminal is available. It makes no network request if a successful check is
+less than 24 hours old and never changes the installed skill:
+
+```bash
+uvx rock-kb skill check --if-due
+```
+
+Respect the returned persisted policy:
+
+- `notify`: tell the human an update is available and wait for approval before
+  running `uvx rock-kb skill update`.
+- `auto`: run `uvx rock-kb skill update` when the check reports an update. This
+  policy represents prior explicit user-level permission.
+- `pinned`: do not update or repeatedly prompt. Update only when the human asks
+  to run `uvx rock-kb skill update --unpin`.
+
+Never infer update permission from feedback, test-round, contribution, or
+GitHub consent. Ask once before setting `auto`, and persist the answer only with
+permission through `uvx rock-kb skill policy auto`. Project-scoped skills may
+not use `auto`; update them explicitly and ask the human to review the Git diff.
+After an applied update with `restart_required: true`, explain that the host
+must restart or reload before the new instructions take effect.
+
+When no terminal is available, call `kb_skill_manifest` and compare its
+`skill_version` with `metadata.rock-kb-skill-version` above. Notify the human if
+they differ; do not claim that an MCP call can rewrite the local skill.
 
 Use the published `rock-kb` client from PyPI for terminal access. The examples
 use `uvx`, which comes from the `uv` Python toolchain and runs the package

@@ -21,12 +21,13 @@ PUBLIC_PATHS = [
     "docs/runbooks/rock-ideas-intelligence.md",
     "docs/specs/rock-issue-intelligence-v1.md",
     "docs/community-recipes.md",
+    "docs/agent-skill-lifecycle.md",
     "docs/prompts/media-claim-distillation-v1.md",
     "docs/prompts/source-claim-distillation-v1.md",
     "docs/prompts/rock-issue-investigation-v1.md",
     "docs/decisions/public-export-policy.md",
     "docs/runbooks/public-publish-runbook.md",
-    "docs/templates/rock-kb-agent/SKILL.md",
+    "skills/rock-kb-agent",
     "sources/registry.yaml",
     "concepts/registry.yaml",
     "knowledge/README.md",
@@ -86,6 +87,7 @@ PUBLIC_PATHS = [
 
 PUBLIC_VIRTUAL_FILES = {
     "README.md": "docs/public-repo-readme.md",
+    "docs/templates/rock-kb-agent/SKILL.md": "skills/rock-kb-agent/SKILL.md",
 }
 
 PUBLIC_INTERNAL_AGENT_ENTRYPOINTS = {
@@ -206,6 +208,49 @@ def audit_public_export_manifest(manifest: Optional[dict[str, Any]] = None) -> l
 
             errors.extend(validate_claim_rows(read_jsonl_text(text), public=True, label=path))
     errors.extend(audit_agent_entrypoint_coverage())
+    errors.extend(audit_skill_distribution())
+    return errors
+
+
+def audit_skill_distribution() -> list[str]:
+    skill_path = REPO_ROOT / "skills" / "rock-kb-agent" / "SKILL.md"
+    manifest_path = REPO_ROOT / "skills" / "rock-kb-agent" / "manifest.json"
+    if not skill_path.exists() or not manifest_path.exists():
+        return ["skills/rock-kb-agent requires SKILL.md and manifest.json"]
+    errors = []
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return ["skills/rock-kb-agent/manifest.json is invalid JSON"]
+    text = skill_path.read_text(encoding="utf-8")
+    if not text.startswith("---\n") or "\n---\n" not in text[4:]:
+        return ["skills/rock-kb-agent/SKILL.md has invalid YAML frontmatter boundaries"]
+    frontmatter_text = text.split("\n---\n", 1)[0].removeprefix("---\n")
+    try:
+        frontmatter = yaml.safe_load(frontmatter_text) or {}
+    except yaml.YAMLError:
+        return ["skills/rock-kb-agent/SKILL.md has invalid YAML frontmatter"]
+    metadata = frontmatter.get("metadata") if isinstance(frontmatter, dict) else {}
+    if not isinstance(metadata, dict):
+        errors.append("skills/rock-kb-agent/SKILL.md metadata must be a mapping")
+        metadata = {}
+    expected = {
+        "name": "rock-kb-agent",
+        "source_path": "skills/rock-kb-agent/SKILL.md",
+        "default_update_policy": "notify",
+    }
+    for key, value in expected.items():
+        if manifest.get(key) != value:
+            errors.append(f"skills/rock-kb-agent/manifest.json {key} must be {value}")
+    for manifest_key, metadata_key in [
+        ("skill_version", "rock-kb-skill-version"),
+        ("published_at", "rock-kb-published-at"),
+        ("minimum_client_version", "rock-kb-minimum-client-version"),
+    ]:
+        if str(manifest.get(manifest_key) or "") != str(metadata.get(metadata_key) or ""):
+            errors.append(f"skills/rock-kb-agent {manifest_key} disagrees with SKILL.md metadata")
+    if sorted(manifest.get("supported_agents") or []) != ["claude", "codex", "cursor", "opencode"]:
+        errors.append("skills/rock-kb-agent/manifest.json supported_agents is incomplete")
     return errors
 
 
@@ -236,6 +281,8 @@ def audit_agent_entrypoint_coverage() -> list[str]:
     if not entrypoints.get("approved_claims"):
         errors.append("agent/rock-kb-manifest.json missing approved_claims entrypoint")
     for field in [
+        "skill_manifest",
+        "skill_lifecycle",
         "answer_pack",
         "live_checklists",
         "live_probe_recipes",

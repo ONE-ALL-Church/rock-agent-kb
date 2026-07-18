@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL = REPO_ROOT / "docs" / "templates" / "rock-kb-agent" / "SKILL.md"
+SKILL = REPO_ROOT / "skills" / "rock-kb-agent" / "SKILL.md"
 CONTRIBUTOR_INSTRUCTIONS = REPO_ROOT / "docs" / "templates" / "agent-contributor-instructions.md"
 ONBOARDING = REPO_ROOT / "docs" / "community-onboarding.md"
 
