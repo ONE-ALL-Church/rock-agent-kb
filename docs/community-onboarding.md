@@ -31,6 +31,21 @@ unrelated configuration, and backs up existing files before changing them.
 Use `--agent <name>` to select one host or `--scope project --project-dir
 <path>` for a project-local install. Restart the agent after installation.
 
+The skill does not silently rewrite itself. Its default update policy is
+`notify`; check and apply reviewed updates with:
+
+```bash
+uvx rock-kb skill check
+uvx rock-kb skill update
+uvx rock-kb skill status --format json
+```
+
+An agent may ask once whether it can use `skill policy auto` for a user-level
+installation and remember that choice in private local state. Project-level
+automatic updates are intentionally rejected so churches can review the Git
+diff. Complete policy, pinning, and alternate-manager instructions are in
+[Agent Skill Lifecycle](agent-skill-lifecycle.md).
+
 ### Option 1: Connect An MCP-Capable Agent
 
 Use the hosted MCP endpoint when your agent supports HTTP MCP. This does not
@@ -277,7 +292,7 @@ Never submit private person data, internal URLs, raw transcripts, screenshots wi
 For a reusable file version, use
 `docs/templates/agent-contributor-instructions.md`.
 
-For agents that support Codex-style skills, use the reusable skill package at
-`docs/templates/rock-kb-agent/`. It teaches agents how to search the hosted KB,
+For agents that support Agent Skills, use the reusable skill package at
+`skills/rock-kb-agent/`. It teaches agents how to search the hosted KB,
 respect trust tiers, use stable-first model-map references, and submit
 public-safe contribution bundles.

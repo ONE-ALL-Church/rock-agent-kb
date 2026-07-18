@@ -22,6 +22,20 @@ uvx rock-kb install-agent --dry-run
 uvx rock-kb install-agent
 ```
 
+The installed skill is versioned. Check without changing agent configuration
+or skill content, apply an approved update, or inspect the persisted policy and
+source hash:
+
+```bash
+uvx rock-kb skill check
+uvx rock-kb skill update
+uvx rock-kb skill status --format json
+```
+
+The default policy is `notify`; `skill policy auto` requires explicit human
+permission and is user-scope only, while `skill policy pinned` holds the
+installed version. See [Agent Skill Lifecycle](docs/agent-skill-lifecycle.md).
+
 Or query the same hosted knowledge from a terminal:
 
 ```bash

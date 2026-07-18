@@ -50,6 +50,23 @@ The installer changes only the `rock-kb` MCP entry and the
 reports every path it touched. Use `--agent codex` (repeatable) to select hosts
 explicitly, or `--scope project --project-dir <path>` for project-local setup.
 
+The same client manages updates with source provenance and an exact hosted
+SHA-256:
+
+```bash
+uvx rock-kb skill check
+uvx rock-kb skill update
+uvx rock-kb skill status --format json
+uvx rock-kb skill policy notify
+```
+
+`notify` is the default. A human can explicitly choose `auto` for a user-level
+installation or `pinned` to remain on the installed version. Project-level
+automatic updates are rejected so the changed skill can be reviewed through
+Git. `skill check --if-due` and ordinary managed CLI use limit passive checks
+to once per 24 hours. Restart or reload the agent when an applied update
+reports `restart_required: true`.
+
 Common commands:
 
 ```bash
@@ -74,6 +91,7 @@ uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
 uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
 uvx rock-kb dashboard
 uvx rock-kb mcp-config
+uvx rock-kb skill status --format json
 ```
 
 Churches participating in the public external test can opt into aggregate

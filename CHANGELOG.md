@@ -6,6 +6,26 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-07-17
+
+### Added
+
+- Source-aware Rock KB agent skill lifecycle commands for read-only update
+  checks, backup-protected updates, local status, and persisted notify, auto, or
+  pinned policies.
+- A hosted REST and MCP skill manifest with a stable skill version, source
+  SHA-256, minimum client version, restart behavior, and update cadence.
+- Standard `skills/rock-kb-agent/` distribution for cross-agent discovery while
+  retaining the legacy hosted artifact path for older clients.
+
+### Changed
+
+- Installed skills now carry source provenance in standard Agent Skills
+  metadata, and ordinary CLI use performs a throttled daily check without
+  interrupting the requested operation.
+- Project-scoped skills reject automatic updates so changes can be reviewed in
+  Git before they are committed.
+
 ## [0.12.1] - 2026-07-17
 
 ### Fixed

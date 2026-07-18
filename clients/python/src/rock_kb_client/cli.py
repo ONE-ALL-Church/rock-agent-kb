@@ -9,7 +9,17 @@ from pathlib import Path
 from urllib import error, request
 
 from .validator import validate_bundle
-from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
+from .installer import (
+    SKILL_POLICIES,
+    SUPPORTED_AGENTS,
+    check_agents,
+    install_agents,
+    passive_skill_checks,
+    selected_agents,
+    set_skill_policy,
+    skill_status,
+    update_agents,
+)
 from .issue_watch import run_issue_watch
 from .okf import conform_okf, download_okf, inspect_okf, verify_okf
 from .cohort_test import REVIEW_OUTCOMES, build_test_round_review, review_outcomes_from_payload, run_cohort_test
@@ -17,6 +27,25 @@ from .cohort_test import REVIEW_OUTCOMES, build_test_round_review, review_outcom
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
 COHORT_VALUES = ("external-test", "maintainer")
 REQUEST_COHORT = ""
+PASSIVE_SKILL_CHECK_COMMANDS = {
+    "search",
+    "result",
+    "claim",
+    "concepts",
+    "get",
+    "claims",
+    "model",
+    "model-map",
+    "recipe",
+    "recipes",
+    "issue",
+    "issues",
+    "idea",
+    "ideas",
+    "manifest",
+    "dashboard",
+    "test-round",
+}
 
 
 def package_version() -> str:
@@ -186,6 +215,23 @@ def main(argv: list[str] | None = None) -> int:
     okf_validate = okf_subparsers.add_parser("validate")
     okf_validate.add_argument("bundle", type=Path)
 
+    skill = subparsers.add_parser("skill", help="Check, update, inspect, or pin the installed Rock KB agent skill.")
+    skill_subparsers = skill.add_subparsers(dest="skill_command", required=True)
+    skill_check = skill_subparsers.add_parser("check", help="Check the hosted skill manifest without changing agent files.")
+    add_skill_target_options(skill_check)
+    skill_check.add_argument("--if-due", action="store_true", help="Skip the network check when a successful check is less than 24 hours old.")
+    skill_check.add_argument("--skip-verify", action="store_true", help="Skip the hosted health check.")
+    skill_update = skill_subparsers.add_parser("update", help="Back up and update the managed skill and MCP configuration.")
+    add_skill_target_options(skill_update)
+    skill_update.add_argument("--unpin", action="store_true", help="Clear a pinned policy before updating.")
+    skill_update.add_argument("--skip-verify", action="store_true", help="Skip the hosted health check.")
+    skill_status_parser = skill_subparsers.add_parser("status", help="Inspect local skill state without a network request.")
+    add_skill_target_options(skill_status_parser)
+    skill_status_parser.add_argument("--format", choices=["json", "text"], default="json")
+    skill_policy = skill_subparsers.add_parser("policy", help="Persist notify, auto, or pinned update behavior.")
+    skill_policy.add_argument("policy", choices=SKILL_POLICIES)
+    add_skill_target_options(skill_policy)
+
     install_agent = subparsers.add_parser("install-agent")
     install_agent.add_argument("--agent", action="append", choices=[*SUPPORTED_AGENTS, "all"], help="Agent host to configure. Repeat for multiple hosts; defaults to detected hosts.")
     install_agent.add_argument("--scope", choices=["user", "project"], default="user")
@@ -199,6 +245,20 @@ def main(argv: list[str] | None = None) -> int:
         parser.error(f"--cohort must be one of: {', '.join(COHORT_VALUES)}")
     REQUEST_COHORT = str(args.cohort or "")
     base_url = str(args.url).rstrip("/")
+    if args.command in PASSIVE_SKILL_CHECK_COMMANDS:
+        for notice in passive_skill_checks(
+            base_url=base_url,
+            home=Path.home().expanduser().resolve(),
+            project_dir=Path.cwd().resolve(),
+            fetch_text=get_text,
+            fetch_json=get_json,
+            client_version=package_version(),
+        ):
+            if notice.get("status") == "updated":
+                suffix = " Restart or reload the agent before the next task." if notice.get("restart_required") else ""
+                print(f"Rock KB agent skill updated automatically.{suffix}", file=sys.stderr)
+            elif notice.get("status") == "update_available":
+                print("Rock KB agent skill update available. Run: uvx rock-kb skill update", file=sys.stderr)
     if args.command == "test-round":
         if args.submit and not (args.review or args.review_file):
             parser.error("test-round --submit requires --review or --review-file")
@@ -404,6 +464,62 @@ def main(argv: list[str] | None = None) -> int:
             report = verify_okf(args.bundle)
             print_json(report)
             return 0 if report["status"] == "ok" else 1
+    if args.command == "skill":
+        home = args.home.expanduser().resolve()
+        project_dir = args.project_dir.expanduser().resolve()
+        agents = selected_agents(args.agent, home)
+        if args.skill_command == "check":
+            report = check_agents(
+                base_url=base_url,
+                agents=agents,
+                scope=args.scope,
+                home=home,
+                project_dir=project_dir,
+                verify=not bool(args.skip_verify),
+                fetch_text=get_text,
+                fetch_json=get_json,
+                client_version=package_version(),
+                if_due=bool(args.if_due),
+            )
+            print_json(report)
+            return 0 if report.get("status") != "no_agents_detected" else 1
+        if args.skill_command == "update":
+            report = update_agents(
+                base_url=base_url,
+                agents=agents,
+                scope=args.scope,
+                home=home,
+                project_dir=project_dir,
+                verify=not bool(args.skip_verify),
+                fetch_text=get_text,
+                fetch_json=get_json,
+                client_version=package_version(),
+                unpin=bool(args.unpin),
+            )
+            print_json(report)
+            return 0 if report.get("status") not in {"no_agents_detected", "pinned"} else 1
+        if args.skill_command == "status":
+            report = skill_status(base_url=base_url, agents=agents, scope=args.scope, home=home, project_dir=project_dir)
+            if args.format == "text":
+                print_text(format_skill_status(report))
+            else:
+                print_json(report)
+            return 0
+        if args.skill_command == "policy":
+            try:
+                report = set_skill_policy(
+                    base_url=base_url,
+                    policy=args.policy,
+                    agents=agents,
+                    scope=args.scope,
+                    home=home,
+                    project_dir=project_dir,
+                )
+            except ValueError as exc:
+                print_json({"schema": "rock-kb-skill-policy-v1", "status": "error", "error": str(exc)})
+                return 1
+            print_json(report)
+            return 0 if report.get("status") != "not_installed" else 1
     if args.command == "install-agent":
         agents = selected_agents(args.agent, args.home)
         report = install_agents(
@@ -416,10 +532,32 @@ def main(argv: list[str] | None = None) -> int:
             verify=not bool(args.skip_verify),
             fetch_text=get_text,
             fetch_json=get_json,
+            client_version=package_version(),
         )
         print_json(report)
         return 0 if report.get("status") != "no_agents_detected" else 1
     return 1
+
+
+def add_skill_target_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--agent", action="append", choices=[*SUPPORTED_AGENTS, "all"], help="Agent host to inspect or update. Repeat for multiple hosts; defaults to detected or previously managed hosts.")
+    parser.add_argument("--scope", choices=["user", "project"], default="user")
+    parser.add_argument("--project-dir", type=Path, default=Path.cwd())
+    parser.add_argument("--home", type=Path, default=Path.home(), help=argparse.SUPPRESS)
+
+
+def format_skill_status(report: dict) -> str:
+    lines = [
+        f"Rock KB skill: {report.get('status', 'unknown')}",
+        f"Policy: {report.get('policy', 'notify')}",
+        f"Scope: {report.get('scope', 'user')}",
+        f"Check due: {'yes' if report.get('check_due') else 'no'}",
+    ]
+    if report.get("last_checked_at"):
+        lines.append(f"Last checked: {report['last_checked_at']}")
+    for agent in report.get("agents") or []:
+        lines.append(f"{agent['agent']}: {agent['status']} ({agent['skill_path']})")
+    return "\n".join(lines) + "\n"
 
 
 def add_token_options(parser: argparse.ArgumentParser) -> None:

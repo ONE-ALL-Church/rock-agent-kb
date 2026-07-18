@@ -3,6 +3,7 @@
 This directory contains generated public files for AI agents:
 
 - `rock-kb-manifest.json` - canonical map of concept files and global agent entry points.
+- `../skills/rock-kb-agent/` - versioned source-aware skill distribution; `../docs/agent-skill-lifecycle.md` describes checks, updates, policies, and pinning.
 - `answer-pack.jsonl` - compact source-linked answers for common Rock questions.
 - `concept-index.jsonl`, `concept-task-cards.jsonl`, `entity-index.jsonl`, and `release-index.jsonl` - cross-concept lookup indexes.
 - `model-map-*.jsonl`, `model-map-digests.jsonl`, and `model-map-summary.json` - stable-first public Rock model-map details, exact model digests, and version differences.
