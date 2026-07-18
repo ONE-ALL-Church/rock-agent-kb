@@ -91,6 +91,12 @@ pack. It includes exact retrieval, a no-answer boundary, and three imported
 issue checks. Imported reports remain unreviewed routing evidence unless a
 separate public enrichment has passed review.
 
+The reusable agent skill also asks the human once whether exact-result quality
+feedback may be submitted automatically and remembered privately. This standing
+permission never covers malfunction reports, test-round submissions, public
+contributions, or PRs. See [community onboarding](docs/community-onboarding.md#let-your-agent-provide-ongoing-feedback)
+for the consent and privacy boundaries.
+
 ## Contribute
 
 The easiest path is a source suggestion: copy `source-suggestions/SUGGESTION_TEMPLATE.md` to `source-suggestions/<org-id>/<topic>.md`, fill it in, and open a PR that only changes that folder.
