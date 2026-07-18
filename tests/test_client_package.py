@@ -208,6 +208,56 @@ def test_client_test_round_submits_complete_bounded_review(monkeypatch, tmp_path
     assert payload["submission"]["status"] == "recorded"
 
 
+def test_client_test_round_returns_failure_when_submission_is_rejected(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    from rock_kb_client.cohort_test import CASE_DEFINITIONS
+
+    report = {
+        "schema": "rock-kb-community-test-round-v1",
+        "projection_version": "projection-v1",
+        "status": "ok",
+        "cases": [
+            {
+                "case_id": case_id,
+                "category": category,
+                "status": "pass",
+                "manual_review_prompt": "Review this bounded case.",
+                "result_ids": [] if category in {"service", "no_answer"} else ["claim:claim:abc123"],
+            }
+            for case_id, category in CASE_DEFINITIONS
+        ],
+    }
+    review_path = tmp_path / "review.json"
+    review_path.write_text(
+        json.dumps({"outcomes": {case_id: "useful" for case_id, _ in CASE_DEFINITIONS}}),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(cli, "run_cohort_test", lambda **_kwargs: report)
+    monkeypatch.setattr(
+        cli,
+        "post_json",
+        lambda *_args, **_kwargs: {"status": "rejected", "error_code": "invalid_result_id"},
+    )
+
+    exit_code = cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "--cohort",
+            "external-test",
+            "test-round",
+            "--review-file",
+            str(review_path),
+            "--submit",
+        ]
+    )
+    payload = json.loads(capsys.readouterr().out)
+
+    assert exit_code == 1
+    assert payload["submission"]["status"] == "rejected"
+    assert payload["submission"]["error_code"] == "invalid_result_id"
+
+
 def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
     cli = load_client_cli()
     calls = []
