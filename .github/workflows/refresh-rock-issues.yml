@@ -12,6 +12,7 @@ on:
     - cron: "43 9 * * *"
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -78,6 +79,7 @@ jobs:
           PY
       - name: Create or update refresh pull request
         if: steps.changes.outputs.changed == 'true' && github.ref_name == github.event.repository.default_branch
+        id: refresh_pr
         uses: peter-evans/create-pull-request@v6
         with:
           branch: automation/rock-issue-refresh
@@ -85,3 +87,11 @@ jobs:
           body-path: data/review/rock-issues/pull-request-body.md
           commit-message: "Refresh Rock issue intelligence"
           labels: automated-refresh
+      - name: Dispatch required pull request checks
+        if: steps.refresh_pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_BRANCH: ${{ steps.refresh_pr.outputs.pull-request-branch }}
+        run: |
+          gh workflow run public-surface.yml --ref "$PR_BRANCH"
+          gh workflow run validate-contributions.yml --ref "$PR_BRANCH"

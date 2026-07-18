@@ -6,6 +6,7 @@ on:
     - cron: "17 10 * * 1"
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -198,6 +199,7 @@ jobs:
           EOF
       - name: Create refresh pull request
         if: steps.refresh_sources.outcome == 'success' && github.ref_name == github.event.repository.default_branch && steps.refresh_scope.outputs.has_source_changes == 'true'
+        id: refresh_pr
         uses: peter-evans/create-pull-request@v6
         with:
           branch: automation/source-refresh
@@ -205,6 +207,14 @@ jobs:
           body-path: data/review/rebuild-plan/pull-request-body.md
           commit-message: "Refresh Rock KB source artifacts"
           labels: automated-refresh
+      - name: Dispatch required pull request checks
+        if: steps.refresh_pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_BRANCH: ${{ steps.refresh_pr.outputs.pull-request-branch }}
+        run: |
+          gh workflow run public-surface.yml --ref "$PR_BRANCH"
+          gh workflow run validate-contributions.yml --ref "$PR_BRANCH"
       - name: Skip refresh pull request without source changes
         if: steps.refresh_sources.outcome == 'success' && github.ref_name == github.event.repository.default_branch && steps.refresh_scope.outputs.has_source_changes != 'true'
         run: echo "Skipping automated refresh pull request creation because the source scan found no source deltas."
