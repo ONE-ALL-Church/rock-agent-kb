@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.0.0"
+  rock-kb-skill-version: "1.0.1"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-17T00:00:00Z"
+  rock-kb-published-at: "2026-07-18T18:25:53Z"
   rock-kb-minimum-client-version: "0.13.0"
 ---
 

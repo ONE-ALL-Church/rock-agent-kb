@@ -1,8 +1,8 @@
 {
   "schema": "rock-kb-skill-manifest-v1",
   "name": "rock-kb-agent",
-  "skill_version": "1.0.0",
-  "published_at": "2026-07-17T00:00:00Z",
+  "skill_version": "1.0.1",
+  "published_at": "2026-07-18T18:25:53Z",
   "source_repository": "https://github.com/ONE-ALL-Church/rock-agent-kb",
   "source_path": "skills/rock-kb-agent/SKILL.md",
   "legacy_source_path": "docs/templates/rock-kb-agent/SKILL.md",

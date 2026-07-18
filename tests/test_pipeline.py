@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
 from typer.testing import CliRunner
 
 from rock_kb import cli as cli_module
@@ -16,7 +17,7 @@ from rock_kb.pipeline.state import (
     stage_status,
     update_stage_state,
 )
-from rock_kb.pipeline.stages import topological_stages
+from rock_kb.pipeline.stages import stage_by_name, topological_stages
 
 
 def touch(path: Path, text: str = "x") -> Path:
@@ -57,6 +58,30 @@ def test_stage_is_stale_after_input_changes(tmp_path):
 
     assert stage_status(stage, state, repo_root=tmp_path) == "stale"
     assert changed_input_paths(stage, state, repo_root=tmp_path) == ["inputs/a.txt"]
+
+
+@pytest.mark.parametrize(
+    "input_path",
+    [
+        "skills/rock-kb-agent/SKILL.md",
+        "docs/agent-skill-lifecycle.md",
+    ],
+)
+def test_export_stage_is_stale_after_public_source_changes(tmp_path, input_path):
+    stage = stage_by_name()["export"]
+    source = touch(tmp_path / input_path, "before")
+    touch(tmp_path / "data/public-export/public-export-manifest.json", "{}")
+    state = update_stage_state(stage, {}, repo_root=tmp_path)
+
+    source.write_text("after", encoding="utf-8")
+
+    assert stage_status(
+        stage,
+        state,
+        repo_root=tmp_path,
+        upstream_statuses={"agent-pack": "fresh", "claims-validate": "fresh"},
+    ) == "stale"
+    assert changed_input_paths(stage, state, repo_root=tmp_path) == [input_path]
 
 
 def test_changed_input_paths_uses_per_file_hashes(tmp_path):
