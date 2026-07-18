@@ -70,6 +70,24 @@ The parser may retain only the canonical target URL, target ID/kind, link origin
 
 Exact Idea retrieval returns outbound relationships. Exact issue retrieval returns matching inbound Idea relationships. Concept packages expose a bounded Idea summary and at most eight lifecycle-prioritized highlights; use Ideas search/list for the full concept-filtered catalog.
 
+## Verification Queue
+
+`agent/rock-idea-verification-queue.jsonl` prioritizes every `Complete`,
+`Planned`, `Started`, and `Under Review` lifecycle row for evidence review. It
+uses vote count, lifecycle state, planned-version metadata, explicit references,
+and the presence of private release-note candidates to assign a bounded priority.
+
+- `officially_corroborated` requires deterministic high-confidence official release evidence.
+- `candidate_review_pending` means a possible release match exists only in ignored maintainer data; candidate details are not public evidence.
+- `references_available` means useful explicit links exist but do not prove implementation.
+- `evidence_needed` means no corroborating or reference edge is currently available.
+
+Each queue row stores the source content hash, evidence relationship hashes, a
+candidate-set hash, and a combined `review_input_hash`. A changed Idea,
+relationship, or candidate set therefore changes the review input and returns
+the lifecycle claim to maintainer attention. Queue state never changes the
+Idea's `community-unreviewed` and `routing_context_only` trust level.
+
 ## Trust Rules
 
 - An idea is evidence that someone requested a capability, not proof that Rock lacks every equivalent workflow.
@@ -111,6 +129,7 @@ Use these tools only for explicit idea, feature-request, known-gap, or roadmap q
 
 - `agent/rock-ideas.jsonl`: public-safe canonical metadata rows.
 - `agent/rock-idea-relationships.jsonl`: canonical typed edges to concepts, models, issues, other Ideas, official documentation/source, and corroborating release records.
+- `agent/rock-idea-verification-queue.jsonl`: prioritized lifecycle verification rows with hash-based revalidation inputs and no speculative candidate details.
 - `agent/rock-idea-summary.json`: counts, discovery coverage, and trust boundary.
 - `knowledge/ideas/index.md`: concise agent and human usage guidance.
 - `data/normalized/rock_ideas.jsonl`: private pipeline source records.

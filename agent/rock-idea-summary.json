@@ -112,7 +112,28 @@
     "ideas_with_relationships": 1082,
     "ideas_with_release_evidence": 2,
     "relationship_count": 1571,
-    "schema": "rock-kb-rock-idea-relationship-summary-v1"
+    "schema": "rock-kb-rock-idea-relationship-summary-v1",
+    "verification_queue": {
+      "by_status": {
+        "complete": 175,
+        "planned": 6,
+        "started": 3,
+        "under_review": 1
+      },
+      "by_verification_state": {
+        "candidate_review_pending": 8,
+        "evidence_needed": 169,
+        "officially_corroborated": 2,
+        "references_available": 6
+      },
+      "candidate_review_count": 9,
+      "high_priority_count": 49,
+      "officially_corroborated_count": 2,
+      "queue_content_hash": "5567281d8692fc3decb5b1f93fce9192dabf711115b48eb274d9811bc9da81a5",
+      "queue_count": 185,
+      "schema": "rock-kb-rock-idea-verification-queue-summary-v1",
+      "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."
+    }
   },
   "result_count": 1082,
   "schema": "rock-kb-rock-idea-summary-v1",

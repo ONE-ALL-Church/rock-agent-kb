@@ -239,6 +239,7 @@ STAGES: list[Stage] = [
             "agent/lava-contexts.jsonl",
             "agent/lava-context-summary.json",
             "agent/rock-idea-relationships.jsonl",
+            "agent/rock-idea-verification-queue.jsonl",
             "knowledge/concepts/lava/lava-contexts.jsonl",
             "knowledge/concepts/lava/lava-context-directory.md",
             "knowledge/concepts/lava/lava-context-dependencies.json",

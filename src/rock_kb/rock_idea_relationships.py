@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from typing import Any, Iterable
 from urllib.parse import urlparse
@@ -14,6 +14,17 @@ from .paths import AGENT_DIR, REVIEW_DIR
 
 ROCK_IDEA_RELATIONSHIP_PATH = AGENT_DIR / "rock-idea-relationships.jsonl"
 ROCK_IDEA_RELATIONSHIP_CANDIDATE_PATH = REVIEW_DIR / "rock-ideas" / "relationship-candidates.jsonl"
+ROCK_IDEA_VERIFICATION_QUEUE_PATH = AGENT_DIR / "rock-idea-verification-queue.jsonl"
+
+VERIFICATION_LIFECYCLE_STATUSES = {"complete", "planned", "started", "under_review"}
+CORROBORATING_RELATIONSHIP_TYPES = {"corroborated_by_release_note", "implemented_by_issue"}
+REFERENCE_RELATIONSHIP_TYPES = {
+    "references_issue",
+    "references_idea",
+    "references_release_notes",
+    "references_official_documentation",
+    "references_official_source",
+}
 
 RELATIONSHIP_TYPES = {
     "about",
@@ -71,6 +82,14 @@ def build_rock_idea_relationship_artifacts(
     validate_rock_idea_relationship_rows(relationships, idea_rows=idea_rows)
     write_jsonl(ROCK_IDEA_RELATIONSHIP_PATH, relationships)
     write_jsonl(ROCK_IDEA_RELATIONSHIP_CANDIDATE_PATH, candidates)
+    verification_queue, verification_summary = build_rock_idea_verification_queue(
+        idea_rows,
+        relationships=relationships,
+        candidates=candidates,
+        checked_at=checked_at,
+    )
+    validate_rock_idea_verification_queue(verification_queue, idea_rows=idea_rows)
+    write_jsonl(ROCK_IDEA_VERIFICATION_QUEUE_PATH, verification_queue)
     by_type = Counter(str(row["relationship_type"]) for row in relationships)
     sources_by_type: dict[str, set[str]] = {}
     for row in relationships:
@@ -89,7 +108,224 @@ def build_rock_idea_relationship_artifacts(
             sources_by_type.get("references_release_notes", set())
             | sources_by_type.get("corroborated_by_release_note", set())
         ),
+        "verification_queue": verification_summary,
     }
+
+
+def build_rock_idea_verification_queue(
+    ideas: Iterable[dict[str, Any]],
+    *,
+    relationships: Iterable[dict[str, Any]],
+    candidates: Iterable[dict[str, Any]],
+    checked_at: str | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    idea_rows = list(ideas)
+    observed_at = checked_at or utc_now()
+    relationships_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    candidates_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for relationship in relationships:
+        relationships_by_source[str(relationship.get("source_id") or "")].append(relationship)
+    for candidate in candidates:
+        candidates_by_source[str(candidate.get("source_id") or "")].append(candidate)
+
+    queue: list[dict[str, Any]] = []
+    for idea in idea_rows:
+        status = str(idea.get("status") or "")
+        if status not in VERIFICATION_LIFECYCLE_STATUSES:
+            continue
+        idea_id = str(idea.get("idea_id") or "")
+        related = relationships_by_source.get(idea_id, [])
+        evidence = [
+            row
+            for row in related
+            if str(row.get("relationship_type") or "")
+            in CORROBORATING_RELATIONSHIP_TYPES | REFERENCE_RELATIONSHIP_TYPES
+        ]
+        corroborating = [
+            row
+            for row in evidence
+            if str(row.get("relationship_type") or "") in CORROBORATING_RELATIONSHIP_TYPES
+            and str(row.get("authority_tier") or "") == "official"
+            and str(row.get("confidence") or "") == "high"
+        ]
+        candidate_rows = candidates_by_source.get(idea_id, [])
+        verification_state = (
+            "officially_corroborated"
+            if corroborating
+            else "candidate_review_pending"
+            if candidate_rows
+            else "references_available"
+            if evidence
+            else "evidence_needed"
+        )
+        recommended_action = verification_recommended_action(status, verification_state)
+        priority_score, priority_reasons = verification_priority(
+            idea,
+            verification_state=verification_state,
+            evidence_count=len(evidence),
+            candidate_count=len(candidate_rows),
+        )
+        relationship_hashes = sorted(str(row.get("content_hash") or "") for row in evidence if row.get("content_hash"))
+        candidate_hash = sha256_text(
+            json.dumps(
+                [
+                    {
+                        "candidate_id": row.get("candidate_id"),
+                        "release_record_id": row.get("release_record_id"),
+                        "title_token_coverage": row.get("title_token_coverage"),
+                    }
+                    for row in sorted(candidate_rows, key=lambda value: str(value.get("candidate_id") or ""))
+                ],
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        )
+        review_input_hash = sha256_text(
+            json.dumps(
+                {
+                    "source_content_hash": idea.get("content_hash"),
+                    "relationship_hashes": relationship_hashes,
+                    "candidate_set_hash": candidate_hash,
+                },
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        )
+        row = {
+            "schema": "rock-kb-rock-idea-verification-queue-v1",
+            "queue_id": f"rock_idea_verification:{idea_id.split(':', 1)[-1]}",
+            "idea_id": idea_id,
+            "number": idea.get("number"),
+            "title": idea.get("title"),
+            "url": idea.get("url"),
+            "status": status,
+            "status_label": idea.get("status_label"),
+            "planned_version": idea.get("planned_version"),
+            "vote_count": int(idea.get("vote_count") or 0),
+            "concept_ids": list(idea.get("concept_ids") or []),
+            "verification_state": verification_state,
+            "recommended_action": recommended_action,
+            "priority_score": priority_score,
+            "priority_band": "high" if priority_score >= 90 else "medium" if priority_score >= 60 else "low",
+            "priority_reasons": priority_reasons,
+            "evidence_relationship_ids": sorted(str(value.get("relationship_id") or "") for value in evidence),
+            "evidence_relationship_types": sorted({str(value.get("relationship_type") or "") for value in evidence}),
+            "candidate_match_count": len(candidate_rows),
+            "source_content_hash": idea.get("content_hash"),
+            "review_input_hash": review_input_hash,
+            "revalidation_triggers": [
+                "idea_content_hash_changed",
+                "evidence_relationship_hash_changed",
+                "candidate_set_changed",
+            ],
+            "authority_tier": "community-unreviewed",
+            "claim_tier": "routing_context_only",
+            "needs_live_verification": True,
+            "last_checked_at": str(idea.get("last_checked_at") or observed_at),
+        }
+        row["content_hash"] = sha256_text(
+            json.dumps(
+                {key: value for key, value in row.items() if key not in {"last_checked_at", "content_hash"}},
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        )
+        queue.append(row)
+
+    queue.sort(
+        key=lambda row: (
+            -int(row["priority_score"]),
+            -int(row["vote_count"]),
+            int(row.get("number") or 0),
+        )
+    )
+    by_state = Counter(str(row["verification_state"]) for row in queue)
+    summary = {
+        "schema": "rock-kb-rock-idea-verification-queue-summary-v1",
+        "queue_count": len(queue),
+        "high_priority_count": sum(1 for row in queue if row["priority_band"] == "high"),
+        "candidate_review_count": sum(1 for row in queue if row["candidate_match_count"]),
+        "officially_corroborated_count": by_state.get("officially_corroborated", 0),
+        "by_status": dict(sorted(Counter(str(row["status"]) for row in queue).items())),
+        "by_verification_state": dict(sorted(by_state.items())),
+        "queue_content_hash": sha256_text(
+            json.dumps(
+                [(row["queue_id"], row["content_hash"]) for row in queue],
+                separators=(",", ":"),
+            )
+        ),
+        "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence.",
+    }
+    return queue, summary
+
+
+def verification_recommended_action(status: str, verification_state: str) -> str:
+    if verification_state == "officially_corroborated":
+        return "confirm_version_and_instance_applicability"
+    if status == "complete":
+        return "corroborate_completed_state"
+    if status in {"planned", "started"}:
+        return "verify_roadmap_state_and_release_evidence"
+    return "monitor_review_outcome"
+
+
+def verification_priority(
+    idea: dict[str, Any],
+    *,
+    verification_state: str,
+    evidence_count: int,
+    candidate_count: int,
+) -> tuple[int, list[str]]:
+    status = str(idea.get("status") or "")
+    votes = int(idea.get("vote_count") or 0)
+    score = {"started": 70, "planned": 65, "complete": 55, "under_review": 45}.get(status, 0)
+    reasons = [f"lifecycle_{status}"]
+    score += min(votes, 50)
+    if votes:
+        reasons.append("community_vote_signal")
+    if idea.get("planned_version"):
+        score += 15
+        reasons.append("planned_version_present")
+    if candidate_count:
+        score += 20
+        reasons.append("private_candidate_available")
+    if evidence_count:
+        score += 10
+        reasons.append("explicit_public_reference_available")
+    if verification_state == "officially_corroborated":
+        score = max(0, score - 60)
+        reasons.append("official_release_evidence_present")
+    return score, reasons
+
+
+def validate_rock_idea_verification_queue(
+    rows: Iterable[dict[str, Any]],
+    *,
+    idea_rows: Iterable[dict[str, Any]],
+) -> None:
+    ideas = {str(row.get("idea_id") or ""): row for row in idea_rows}
+    seen: set[str] = set()
+    forbidden = {"description", "body", "response", "response_text", "comments", "author", "submitter", "organization"}
+    allowed_states = {"officially_corroborated", "candidate_review_pending", "references_available", "evidence_needed"}
+    for index, row in enumerate(rows, 1):
+        queue_id = str(row.get("queue_id") or "")
+        idea_id = str(row.get("idea_id") or "")
+        if row.get("schema") != "rock-kb-rock-idea-verification-queue-v1" or not queue_id.startswith("rock_idea_verification:"):
+            raise ValueError(f"Rock idea verification queue row {index} has an invalid schema or ID")
+        if queue_id in seen:
+            raise ValueError(f"Duplicate Rock idea verification queue ID: {queue_id}")
+        seen.add(queue_id)
+        if idea_id not in ideas or row.get("source_content_hash") != ideas[idea_id].get("content_hash"):
+            raise ValueError(f"Rock idea verification queue {queue_id} has stale or unknown source input")
+        if row.get("status") not in VERIFICATION_LIFECYCLE_STATUSES or row.get("verification_state") not in allowed_states:
+            raise ValueError(f"Rock idea verification queue {queue_id} has an invalid lifecycle or verification state")
+        if forbidden & set(row):
+            raise ValueError(f"Rock idea verification queue {queue_id} contains disallowed raw content")
+        if row.get("needs_live_verification") is not True or row.get("claim_tier") != "routing_context_only":
+            raise ValueError(f"Rock idea verification queue {queue_id} overstates verification authority")
+        if not row.get("review_input_hash") or not row.get("content_hash"):
+            raise ValueError(f"Rock idea verification queue {queue_id} has incomplete hash traceability")
 
 
 def rock_idea_relationship_rows(

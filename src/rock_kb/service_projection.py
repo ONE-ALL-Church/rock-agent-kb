@@ -723,6 +723,11 @@ def rock_issue_search_rows() -> list[dict[str, Any]]:
 def rock_idea_search_rows() -> list[dict[str, Any]]:
     rows = []
     relationships_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    verification_by_source = {
+        str(row.get("idea_id") or ""): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "rock-idea-verification-queue.jsonl")
+        if row.get("idea_id")
+    }
     for relationship in read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"):
         source_id = str(relationship.get("source_id") or "")
         if source_id:
@@ -732,6 +737,7 @@ def rock_idea_search_rows() -> list[dict[str, Any]]:
         if not idea_id:
             continue
         concepts = normalize_concept_ids(idea.get("concept_ids") or [])
+        verification = verification_by_source.get(idea_id)
         relationship_terms = [
             " ".join(
                 str(value or "")
@@ -752,8 +758,13 @@ def rock_idea_search_rows() -> list[dict[str, Any]]:
             str(idea.get("planned_version") or ""),
             " ".join(concepts),
             *relationship_terms,
+            str((verification or {}).get("verification_state") or ""),
+            str((verification or {}).get("recommended_action") or ""),
             "Rock Community idea feature request known gap roadmap planned started complete status",
         ]
+        payload = dict(idea)
+        if verification:
+            payload["verification"] = verification
         rows.append(
             {
                 "id": idea_id,
@@ -768,7 +779,7 @@ def rock_idea_search_rows() -> list[dict[str, Any]]:
                 "authority_tier": "community-unreviewed",
                 "claim_tier": "routing_context_only",
                 "source_id": "rock_ideas",
-                "payload": idea,
+                "payload": payload,
             }
         )
     return rows

@@ -544,6 +544,45 @@ def test_build_d1_seed_sql_projects_canonical_related_content_edges(monkeypatch,
     assert "rock_issue:SparkDevNetwork/Rock#6919" in sql
 
 
+def test_rock_idea_search_rows_attach_verification_context(monkeypatch, tmp_path):
+    agent_dir = tmp_path / "agent"
+    agent_dir.mkdir()
+    idea = {
+        "idea_id": "rock_idea:2250",
+        "number": 2250,
+        "title": "Add days to event duration",
+        "url": "https://community.rockrms.com/ideas/2250/add-days-to-event-duration",
+        "category": "Event",
+        "status": "complete",
+        "status_label": "Complete",
+        "concept_ids": ["event-registration"],
+    }
+    verification = {
+        "schema": "rock-kb-rock-idea-verification-queue-v1",
+        "idea_id": idea["idea_id"],
+        "verification_state": "candidate_review_pending",
+        "recommended_action": "corroborate_completed_state",
+        "review_input_hash": "review-input-hash",
+        "content_hash": "verification-content-hash",
+        "claim_tier": "routing_context_only",
+        "needs_live_verification": True,
+    }
+    (agent_dir / "rock-ideas.jsonl").write_text(json.dumps(idea) + "\n", encoding="utf-8")
+    (agent_dir / "rock-idea-relationships.jsonl").write_text("", encoding="utf-8")
+    (agent_dir / "rock-idea-verification-queue.jsonl").write_text(
+        json.dumps(verification) + "\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(service_projection, "REPO_ROOT", tmp_path)
+
+    rows = service_projection.rock_idea_search_rows()
+
+    assert len(rows) == 1
+    assert rows[0]["payload"]["verification"] == verification
+    assert "candidate_review_pending" in rows[0]["body"]
+    assert "corroborate_completed_state" in rows[0]["body"]
+
+
 def read_jsonl_for_test(relative_path: str):
     path = Path(__file__).resolve().parents[1] / relative_path
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]

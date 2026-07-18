@@ -22,8 +22,10 @@ from rock_kb.rock_ideas import (
     validate_rock_idea_rows,
 )
 from rock_kb.rock_idea_relationships import (
+    build_rock_idea_verification_queue,
     model_aliases,
     rock_idea_relationship_rows,
+    validate_rock_idea_verification_queue,
     validate_rock_idea_relationship_rows,
 )
 from rock_kb import service_projection
@@ -451,6 +453,93 @@ def test_relationship_projection_uses_exact_model_and_official_release_evidence(
     assert any(row.get("target_id") == "source:rock_documentation:fixture" for row in relationships)
     assert not any(row.get("target_id") == "model_map:stable:group" for row in relationships)
     assert "Private" not in json.dumps(relationships)
+
+
+def test_verification_queue_prioritizes_lifecycle_claims_without_leaking_candidates() -> None:
+    ideas = [
+        finalize_idea_row(
+            {
+                "number": 1,
+                "title": "Completed feature",
+                "category": "Core",
+                "status": "complete",
+                "status_label": "Complete",
+                "planned_version": "20.0",
+                "vote_count": 30,
+            },
+            checked_at="2026-07-17T00:00:00Z",
+            previous=None,
+        ),
+        finalize_idea_row(
+            {
+                "number": 2,
+                "title": "Planned feature",
+                "category": "Workflow",
+                "status": "planned",
+                "status_label": "Planned",
+                "planned_version": "21.0",
+                "vote_count": 45,
+            },
+            checked_at="2026-07-17T00:00:00Z",
+            previous=None,
+        ),
+        finalize_idea_row(
+            {
+                "number": 3,
+                "title": "Open feature",
+                "category": "Other",
+                "status": "open",
+                "status_label": "Open",
+                "vote_count": 100,
+            },
+            checked_at="2026-07-17T00:00:00Z",
+            previous=None,
+        ),
+    ]
+    relationship = {
+        "relationship_id": "rock_idea_relationship:official",
+        "source_id": "rock_idea:1",
+        "relationship_type": "corroborated_by_release_note",
+        "authority_tier": "official",
+        "confidence": "high",
+        "content_hash": "relationship-hash",
+    }
+    candidate = {
+        "candidate_id": "rock_idea_relationship_candidate:private",
+        "source_id": "rock_idea:2",
+        "release_record_id": "private-release-candidate",
+        "title_token_coverage": 0.8,
+    }
+
+    queue, summary = build_rock_idea_verification_queue(
+        ideas,
+        relationships=[relationship],
+        candidates=[candidate],
+        checked_at="2026-07-17T00:00:00Z",
+    )
+
+    validate_rock_idea_verification_queue(queue, idea_rows=ideas)
+    by_id = {row["idea_id"]: row for row in queue}
+    assert set(by_id) == {"rock_idea:1", "rock_idea:2"}
+    assert by_id["rock_idea:1"]["verification_state"] == "officially_corroborated"
+    assert by_id["rock_idea:2"]["verification_state"] == "candidate_review_pending"
+    assert by_id["rock_idea:2"]["priority_score"] > by_id["rock_idea:1"]["priority_score"]
+    assert summary["queue_count"] == 2
+    assert summary["candidate_review_count"] == 1
+    assert summary["officially_corroborated_count"] == 1
+    public_text = json.dumps(queue)
+    assert "private-release-candidate" not in public_text
+    assert "rock_idea_relationship_candidate:private" not in public_text
+
+    updated_candidates = [{**candidate, "title_token_coverage": 0.9}]
+    updated_queue, _ = build_rock_idea_verification_queue(
+        ideas,
+        relationships=[relationship],
+        candidates=updated_candidates,
+        checked_at="2026-07-17T00:00:00Z",
+    )
+    updated_by_id = {row["idea_id"]: row for row in updated_queue}
+    assert updated_by_id["rock_idea:2"]["review_input_hash"] != by_id["rock_idea:2"]["review_input_hash"]
 
 
 def test_model_aliases_keep_human_and_code_names_but_exclude_generic_single_tokens() -> None:

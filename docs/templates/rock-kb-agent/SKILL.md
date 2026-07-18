@@ -144,12 +144,13 @@ Use these commands for specific jobs:
 - `ideas search <query>`: search explicit feature-request, known-gap, and roadmap metadata without mixing it into normal implementation guidance.
 - `ideas list [--status <status>] [--category <category>] [--concept <id>] [--planned-version <version>]`: filter the bounded Ideas catalog.
 - `idea <number|id|url>`: fetch one exact idea metadata row and its bounded typed relationships; corroborate its status before making a product claim.
-- `test-round`: run nine bounded public cohort checks, including core/mobile
+- `test-round`: run ten bounded public cohort checks, including Rock Idea
+  relationship trust and core/mobile
   issue trust separation and version applicability. Review every manual prompt;
   an automatic pass proves the response contract, not that the answer is useful
   for a particular church.
 - `test-round --review --submit`: for an opted-in `external-test` or maintainer
-  cohort, record one fixed outcome for all nine cases. Never submit free text,
+  cohort, record one fixed outcome for all ten cases. Never submit free text,
   raw queries, logs, identities, or private Rock data.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
@@ -344,9 +345,11 @@ what the KB can expose. Important manifest entrypoints include:
   approved enrichments into the canonical issue instead of returning duplicates.
 - `rock_issue_investigation_prompt`: the typed worker output and security
   contract for coordinated issue research.
-- `rock_ideas`, `rock_idea_relationships`, `rock_idea_summary`, and
+- `rock_ideas`, `rock_idea_relationships`, `rock_idea_verification_queue`, `rock_idea_summary`, and
   `rock_idea_directory`: public-safe feature-gap and lifecycle metadata plus
   evidence-backed concept, model, issue, documentation, and release links.
+  Verification queue states prioritize corroboration work but never prove that
+  a lifecycle label is implemented.
   These rows stay separate from approved claims and ordinary implementation
   guidance. Concept packages include only a bounded Idea summary; use the
   dedicated Ideas tools for complete filtering.

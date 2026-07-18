@@ -68,6 +68,7 @@ PUBLIC_PATHS = [
     "agent/rock-issue-summary.json",
     "agent/rock-ideas.jsonl",
     "agent/rock-idea-relationships.jsonl",
+    "agent/rock-idea-verification-queue.jsonl",
     "agent/rock-idea-summary.json",
     "agent/answer-pack.jsonl",
     "agent/live-inspection-checklists.jsonl",
@@ -246,6 +247,7 @@ def audit_agent_entrypoint_coverage() -> list[str]:
         "rock_issue_investigation_prompt",
         "rock_ideas",
         "rock_idea_relationships",
+        "rock_idea_verification_queue",
         "rock_idea_summary",
         "rock_idea_directory",
     ]:
@@ -382,6 +384,7 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             "rock-issues.jsonl",
             "rock-ideas.jsonl",
             "rock-idea-relationships.jsonl",
+            "rock-idea-verification-queue.jsonl",
         )
     ):
         return []
@@ -463,6 +466,31 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
                 errors.append(f"{path}:{index} Rock idea relationship has no target")
             if row.get("needs_live_verification") is not True:
                 errors.append(f"{path}:{index} Rock idea relationship must require live verification")
+        if path.endswith("rock-idea-verification-queue.jsonl"):
+            forbidden = sorted(
+                {"description", "body", "response", "response_text", "comments", "author", "submitter", "organization"}.intersection(row)
+            )
+            if forbidden:
+                errors.append(
+                    f"{path}:{index} Rock idea verification row republishes forbidden raw fields: {', '.join(forbidden)}"
+                )
+            required = [
+                "queue_id",
+                "idea_id",
+                "url",
+                "verification_state",
+                "recommended_action",
+                "source_content_hash",
+                "review_input_hash",
+                "content_hash",
+            ]
+            missing = [field for field in required if not row.get(field)]
+            if missing:
+                errors.append(
+                    f"{path}:{index} Rock idea verification row has incomplete traceability: {', '.join(missing)}"
+                )
+            if row.get("needs_live_verification") is not True or row.get("claim_tier") != "routing_context_only":
+                errors.append(f"{path}:{index} Rock idea verification row overstates verification authority")
     return errors
 
 
