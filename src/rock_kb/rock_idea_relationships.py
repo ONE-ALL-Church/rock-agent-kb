@@ -9,12 +9,13 @@ from urllib.parse import urlparse
 
 from .extract import sha256_text
 from .jsonl import read_jsonl, write_jsonl
-from .paths import AGENT_DIR, REVIEW_DIR
+from .paths import AGENT_DIR, REPO_ROOT, REVIEW_DIR
 
 
 ROCK_IDEA_RELATIONSHIP_PATH = AGENT_DIR / "rock-idea-relationships.jsonl"
 ROCK_IDEA_RELATIONSHIP_CANDIDATE_PATH = REVIEW_DIR / "rock-ideas" / "relationship-candidates.jsonl"
 ROCK_IDEA_VERIFICATION_QUEUE_PATH = AGENT_DIR / "rock-idea-verification-queue.jsonl"
+ROCK_IDEA_VERIFICATION_REVIEW_PATH = REPO_ROOT / "ideas" / "verification-reviews.jsonl"
 
 VERIFICATION_LIFECYCLE_STATUSES = {"complete", "planned", "started", "under_review"}
 CORROBORATING_RELATIONSHIP_TYPES = {"corroborated_by_release_note", "implemented_by_issue"}
@@ -60,6 +61,18 @@ RELEASE_TITLE_STOPWORDS = {
     "with",
 }
 
+VERIFICATION_REVIEW_OUTCOMES = {
+    "corroborated_by_release_note",
+    "references_only",
+    "no_official_match",
+}
+
+VERIFICATION_REVIEW_REASON_CODES = {
+    "official_release_note_describes_same_shipped_behavior",
+    "explicit_reference_does_not_confirm_planned_release",
+    "no_matching_official_evidence_in_current_inputs",
+}
+
 
 def build_rock_idea_relationship_artifacts(
     ideas: Iterable[dict[str, Any]],
@@ -71,12 +84,15 @@ def build_rock_idea_relationship_artifacts(
     release_rows = list(read_jsonl(AGENT_DIR / "release-index.jsonl"))
     issue_rows = list(read_jsonl(AGENT_DIR / "rock-issues.jsonl"))
     source_rows = list(read_jsonl(AGENT_DIR / "source-summaries.jsonl"))
+    verification_reviews = list(read_jsonl(ROCK_IDEA_VERIFICATION_REVIEW_PATH))
+    validate_rock_idea_verification_reviews(verification_reviews, idea_rows=idea_rows)
     relationships, candidates = rock_idea_relationship_rows(
         idea_rows,
         model_rows=model_rows,
         release_rows=release_rows,
         issue_rows=issue_rows,
         source_rows=source_rows,
+        verification_reviews=verification_reviews,
         checked_at=checked_at,
     )
     validate_rock_idea_relationship_rows(relationships, idea_rows=idea_rows)
@@ -86,6 +102,7 @@ def build_rock_idea_relationship_artifacts(
         idea_rows,
         relationships=relationships,
         candidates=candidates,
+        verification_reviews=verification_reviews,
         checked_at=checked_at,
     )
     validate_rock_idea_verification_queue(verification_queue, idea_rows=idea_rows)
@@ -117,12 +134,18 @@ def build_rock_idea_verification_queue(
     *,
     relationships: Iterable[dict[str, Any]],
     candidates: Iterable[dict[str, Any]],
+    verification_reviews: Iterable[dict[str, Any]] = (),
     checked_at: str | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     idea_rows = list(ideas)
     observed_at = checked_at or utc_now()
     relationships_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
     candidates_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    reviews_by_source = {
+        str(review.get("idea_id") or ""): review
+        for review in verification_reviews
+        if review.get("idea_id")
+    }
     for relationship in relationships:
         relationships_by_source[str(relationship.get("source_id") or "")].append(relationship)
     for candidate in candidates:
@@ -149,9 +172,30 @@ def build_rock_idea_verification_queue(
             and str(row.get("confidence") or "") == "high"
         ]
         candidate_rows = candidates_by_source.get(idea_id, [])
+        base_evidence = [row for row in evidence if row.get("review_state") != "maintainer_reviewed"]
+        candidate_hash = verification_candidate_set_hash(candidate_rows)
+        evidence_hash = verification_evidence_set_hash(base_evidence)
+        active_review = current_verification_review(
+            idea,
+            related=base_evidence,
+            candidates=candidate_rows,
+            review=reviews_by_source.get(idea_id),
+        )
+        if active_review and active_review.get("outcome") == "corroborated_by_release_note" and not any(
+            row.get("review_state") == "maintainer_reviewed"
+            and (row.get("metadata") or {}).get("review_id") == active_review.get("review_id")
+            for row in corroborating
+        ):
+            active_review = None
+        if active_review and active_review.get("outcome") == "references_only" and not base_evidence:
+            active_review = None
         verification_state = (
             "officially_corroborated"
             if corroborating
+            else "maintainer_reviewed_references_only"
+            if active_review and active_review.get("outcome") == "references_only"
+            else "maintainer_reviewed_no_official_match"
+            if active_review and active_review.get("outcome") == "no_official_match"
             else "candidate_review_pending"
             if candidate_rows
             else "references_available"
@@ -165,26 +209,11 @@ def build_rock_idea_verification_queue(
             evidence_count=len(evidence),
             candidate_count=len(candidate_rows),
         )
-        relationship_hashes = sorted(str(row.get("content_hash") or "") for row in evidence if row.get("content_hash"))
-        candidate_hash = sha256_text(
-            json.dumps(
-                [
-                    {
-                        "candidate_id": row.get("candidate_id"),
-                        "release_record_id": row.get("release_record_id"),
-                        "title_token_coverage": row.get("title_token_coverage"),
-                    }
-                    for row in sorted(candidate_rows, key=lambda value: str(value.get("candidate_id") or ""))
-                ],
-                sort_keys=True,
-                separators=(",", ":"),
-            )
-        )
         review_input_hash = sha256_text(
             json.dumps(
                 {
                     "source_content_hash": idea.get("content_hash"),
-                    "relationship_hashes": relationship_hashes,
+                    "evidence_relationship_set_hash": evidence_hash,
                     "candidate_set_hash": candidate_hash,
                 },
                 sort_keys=True,
@@ -212,7 +241,11 @@ def build_rock_idea_verification_queue(
             "evidence_relationship_types": sorted({str(value.get("relationship_type") or "") for value in evidence}),
             "candidate_match_count": len(candidate_rows),
             "source_content_hash": idea.get("content_hash"),
+            "evidence_relationship_set_hash": evidence_hash,
+            "candidate_set_hash": candidate_hash,
             "review_input_hash": review_input_hash,
+            "verification_review_id": active_review.get("review_id") if active_review else None,
+            "verification_review_outcome": active_review.get("outcome") if active_review else None,
             "revalidation_triggers": [
                 "idea_content_hash_changed",
                 "evidence_relationship_hash_changed",
@@ -247,6 +280,7 @@ def build_rock_idea_verification_queue(
         "high_priority_count": sum(1 for row in queue if row["priority_band"] == "high"),
         "candidate_review_count": sum(1 for row in queue if row["candidate_match_count"]),
         "officially_corroborated_count": by_state.get("officially_corroborated", 0),
+        "maintainer_reviewed_count": sum(1 for row in queue if row.get("verification_review_id")),
         "by_status": dict(sorted(Counter(str(row["status"]) for row in queue).items())),
         "by_verification_state": dict(sorted(by_state.items())),
         "queue_content_hash": sha256_text(
@@ -263,6 +297,11 @@ def build_rock_idea_verification_queue(
 def verification_recommended_action(status: str, verification_state: str) -> str:
     if verification_state == "officially_corroborated":
         return "confirm_version_and_instance_applicability"
+    if verification_state in {
+        "maintainer_reviewed_references_only",
+        "maintainer_reviewed_no_official_match",
+    }:
+        return "revalidate_when_review_inputs_change"
     if status == "complete":
         return "corroborate_completed_state"
     if status in {"planned", "started"}:
@@ -293,9 +332,13 @@ def verification_priority(
     if evidence_count:
         score += 10
         reasons.append("explicit_public_reference_available")
-    if verification_state == "officially_corroborated":
-        score = max(0, score - 60)
-        reasons.append("official_release_evidence_present")
+    if verification_state == "officially_corroborated" or verification_state.startswith("maintainer_reviewed_"):
+        score = min(score, 40 if verification_state == "officially_corroborated" else 30)
+        reasons.append(
+            "official_release_evidence_present"
+            if verification_state == "officially_corroborated"
+            else "current_inputs_maintainer_reviewed"
+        )
     return score, reasons
 
 
@@ -307,7 +350,14 @@ def validate_rock_idea_verification_queue(
     ideas = {str(row.get("idea_id") or ""): row for row in idea_rows}
     seen: set[str] = set()
     forbidden = {"description", "body", "response", "response_text", "comments", "author", "submitter", "organization"}
-    allowed_states = {"officially_corroborated", "candidate_review_pending", "references_available", "evidence_needed"}
+    allowed_states = {
+        "officially_corroborated",
+        "maintainer_reviewed_references_only",
+        "maintainer_reviewed_no_official_match",
+        "candidate_review_pending",
+        "references_available",
+        "evidence_needed",
+    }
     for index, row in enumerate(rows, 1):
         queue_id = str(row.get("queue_id") or "")
         idea_id = str(row.get("idea_id") or "")
@@ -326,6 +376,161 @@ def validate_rock_idea_verification_queue(
             raise ValueError(f"Rock idea verification queue {queue_id} overstates verification authority")
         if not row.get("review_input_hash") or not row.get("content_hash"):
             raise ValueError(f"Rock idea verification queue {queue_id} has incomplete hash traceability")
+        if not row.get("candidate_set_hash") or not row.get("evidence_relationship_set_hash"):
+            raise ValueError(f"Rock idea verification queue {queue_id} has incomplete review input hashes")
+        if str(row.get("verification_state") or "").startswith("maintainer_reviewed_") and not (
+            row.get("verification_review_id") and row.get("verification_review_outcome")
+        ):
+            raise ValueError(f"Rock idea verification queue {queue_id} has an incomplete maintainer review")
+
+
+def verification_candidate_set_hash(rows: Iterable[dict[str, Any]]) -> str:
+    return sha256_text(
+        json.dumps(
+            [
+                {
+                    "candidate_id": row.get("candidate_id"),
+                    "release_record_id": row.get("release_record_id"),
+                    "title_token_coverage": row.get("title_token_coverage"),
+                }
+                for row in sorted(rows, key=lambda value: str(value.get("candidate_id") or ""))
+            ],
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+    )
+
+
+def verification_evidence_set_hash(rows: Iterable[dict[str, Any]]) -> str:
+    evidence = [
+        row
+        for row in rows
+        if str(row.get("relationship_type") or "")
+        in CORROBORATING_RELATIONSHIP_TYPES | REFERENCE_RELATIONSHIP_TYPES
+        and row.get("review_state") != "maintainer_reviewed"
+    ]
+    return sha256_text(
+        json.dumps(
+            sorted(
+                str(row.get("content_hash") or row.get("relationship_id") or "")
+                for row in evidence
+            ),
+            separators=(",", ":"),
+        )
+    )
+
+
+def release_evidence_hash(row: dict[str, Any]) -> str:
+    return sha256_text(
+        json.dumps(
+            {
+                "id": row.get("id"),
+                "version": row.get("version"),
+                "module": row.get("module"),
+                "release_family": row.get("release_family"),
+                "summary": row.get("summary"),
+                "issue_refs": list(row.get("issue_refs") or []),
+                "change_type": row.get("change_type"),
+            },
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+    )
+
+
+def current_verification_review(
+    idea: dict[str, Any],
+    *,
+    related: Iterable[dict[str, Any]],
+    candidates: Iterable[dict[str, Any]],
+    review: dict[str, Any] | None,
+) -> dict[str, Any] | None:
+    if not review or review.get("source_content_hash") != idea.get("content_hash"):
+        return None
+    if review.get("candidate_set_hash") != verification_candidate_set_hash(candidates):
+        return None
+    if review.get("evidence_relationship_set_hash") != verification_evidence_set_hash(related):
+        return None
+    return review
+
+
+def validate_rock_idea_verification_reviews(
+    rows: Iterable[dict[str, Any]],
+    *,
+    idea_rows: Iterable[dict[str, Any]],
+) -> None:
+    idea_ids = {str(row.get("idea_id") or "") for row in idea_rows}
+    seen_reviews: set[str] = set()
+    seen_ideas: set[str] = set()
+    allowed_keys = {
+        "schema",
+        "review_id",
+        "idea_id",
+        "source_content_hash",
+        "evidence_relationship_set_hash",
+        "candidate_set_hash",
+        "outcome",
+        "reason_code",
+        "candidate_id",
+        "release_record_id",
+        "release_evidence_hash",
+        "reviewer",
+        "reviewed_at",
+        "redaction_attestation",
+        "license_attestation",
+    }
+    hash_pattern = re.compile(r"^[0-9a-f]{64}$")
+    for index, row in enumerate(rows, 1):
+        review_id = str(row.get("review_id") or "")
+        idea_id = str(row.get("idea_id") or "")
+        if row.get("schema") != "rock-kb-rock-idea-verification-review-v1" or not review_id.startswith(
+            "rock_idea_verification_review:"
+        ):
+            raise ValueError(f"Rock idea verification review row {index} has an invalid schema or ID")
+        if review_id in seen_reviews or idea_id in seen_ideas:
+            raise ValueError(f"Duplicate Rock idea verification review for {idea_id or review_id}")
+        seen_reviews.add(review_id)
+        seen_ideas.add(idea_id)
+        if idea_id not in idea_ids:
+            raise ValueError(f"Rock idea verification review {review_id} has an unknown idea")
+        if review_id != f"rock_idea_verification_review:{idea_id.split(':', 1)[-1]}":
+            raise ValueError(f"Rock idea verification review {review_id} does not match its idea")
+        if set(row) - allowed_keys:
+            raise ValueError(f"Rock idea verification review {review_id} contains unsupported fields")
+        if row.get("outcome") not in VERIFICATION_REVIEW_OUTCOMES:
+            raise ValueError(f"Rock idea verification review {review_id} has an invalid outcome")
+        if row.get("reason_code") not in VERIFICATION_REVIEW_REASON_CODES:
+            raise ValueError(f"Rock idea verification review {review_id} has an invalid reason code")
+        expected_reason = {
+            "corroborated_by_release_note": "official_release_note_describes_same_shipped_behavior",
+            "references_only": "explicit_reference_does_not_confirm_planned_release",
+            "no_official_match": "no_matching_official_evidence_in_current_inputs",
+        }[str(row["outcome"])]
+        if row.get("reason_code") != expected_reason:
+            raise ValueError(f"Rock idea verification review {review_id} has an inconsistent reason code")
+        for key in ("source_content_hash", "evidence_relationship_set_hash", "candidate_set_hash"):
+            if not hash_pattern.fullmatch(str(row.get(key) or "")):
+                raise ValueError(f"Rock idea verification review {review_id} has an invalid {key}")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,63}", str(row.get("reviewer") or "")):
+            raise ValueError(f"Rock idea verification review {review_id} has an invalid reviewer")
+        try:
+            reviewed_at = datetime.fromisoformat(str(row.get("reviewed_at") or "").replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError(f"Rock idea verification review {review_id} has an invalid reviewed_at") from exc
+        if reviewed_at.tzinfo is None:
+            raise ValueError(f"Rock idea verification review {review_id} reviewed_at must include a timezone")
+        if row.get("redaction_attestation") is not True or row.get("license_attestation") is not True:
+            raise ValueError(f"Rock idea verification review {review_id} is missing required attestations")
+        if row.get("outcome") == "corroborated_by_release_note":
+            if not (
+                str(row.get("candidate_id") or "").startswith("rock_idea_relationship_candidate:")
+                and str(row.get("release_record_id") or "").startswith("rock_")
+                and hash_pattern.fullmatch(str(row.get("release_evidence_hash") or ""))
+            ):
+                raise ValueError(f"Rock idea verification review {review_id} has incomplete release evidence")
+        elif any(row.get(key) for key in ("candidate_id", "release_record_id", "release_evidence_hash")):
+            raise ValueError(f"Rock idea verification review {review_id} attaches release evidence to a negative outcome")
 
 
 def rock_idea_relationship_rows(
@@ -335,10 +540,13 @@ def rock_idea_relationship_rows(
     release_rows: Iterable[dict[str, Any]],
     issue_rows: Iterable[dict[str, Any]],
     source_rows: Iterable[dict[str, Any]] = (),
+    verification_reviews: Iterable[dict[str, Any]] = (),
     checked_at: str | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     idea_rows = list(ideas)
     releases = list(release_rows)
+    review_rows = list(verification_reviews)
+    validate_rock_idea_verification_reviews(review_rows, idea_rows=idea_rows)
     observed_at = checked_at or utc_now()
     issue_ids = issue_id_index(issue_rows)
     source_targets = source_target_index(source_rows)
@@ -478,12 +686,93 @@ def rock_idea_relationship_rows(
                 )
         candidates.extend(release_candidates)
 
-    deduped = {str(row["relationship_id"]): row for row in edges}
     candidate_rows = {str(row["candidate_id"]): row for row in candidates}
+    edges.extend(
+        reviewed_release_relationship_rows(
+            idea_rows,
+            relationships=edges,
+            candidates=candidate_rows.values(),
+            releases=releases,
+            verification_reviews=review_rows,
+        )
+    )
+    deduped = {str(row["relationship_id"]): row for row in edges}
     return (
         sorted(deduped.values(), key=lambda row: (str(row["source_id"]), str(row["relationship_type"]), str(row.get("target_id") or row.get("target_url") or ""))),
         sorted(candidate_rows.values(), key=lambda row: (str(row["source_id"]), -float(row["title_token_coverage"]), str(row["release_record_id"]))),
     )
+
+
+def reviewed_release_relationship_rows(
+    ideas: Iterable[dict[str, Any]],
+    *,
+    relationships: Iterable[dict[str, Any]],
+    candidates: Iterable[dict[str, Any]],
+    releases: Iterable[dict[str, Any]],
+    verification_reviews: Iterable[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    relationships_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    candidates_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for relationship in relationships:
+        relationships_by_source[str(relationship.get("source_id") or "")].append(relationship)
+    for candidate in candidates:
+        candidates_by_source[str(candidate.get("source_id") or "")].append(candidate)
+    ideas_by_id = {str(idea.get("idea_id") or ""): idea for idea in ideas}
+    releases_by_id = {str(release.get("id") or ""): release for release in releases}
+
+    rows: list[dict[str, Any]] = []
+    for review in verification_reviews:
+        if review.get("outcome") != "corroborated_by_release_note":
+            continue
+        idea_id = str(review.get("idea_id") or "")
+        idea = ideas_by_id.get(idea_id)
+        related = relationships_by_source.get(idea_id, [])
+        candidate_rows = candidates_by_source.get(idea_id, [])
+        if not idea or not current_verification_review(
+            idea,
+            related=related,
+            candidates=candidate_rows,
+            review=review,
+        ):
+            continue
+        candidate = next(
+            (
+                row
+                for row in candidate_rows
+                if row.get("candidate_id") == review.get("candidate_id")
+                and row.get("release_record_id") == review.get("release_record_id")
+            ),
+            None,
+        )
+        release = releases_by_id.get(str(review.get("release_record_id") or ""))
+        if not candidate or not release or review.get("release_evidence_hash") != release_evidence_hash(release):
+            continue
+        release_record_id = str(release["id"])
+        evidence_url = release_url(release)
+        rows.append(
+            relationship_row(
+                source_id=idea_id,
+                target_id=f"source:{release_record_id}",
+                target_url=evidence_url,
+                target_kind="source_summary",
+                relationship_type="corroborated_by_release_note",
+                basis="maintainer_reviewed_official_release_match",
+                signal=release_record_id,
+                evidence_url=evidence_url,
+                authority_tier="official",
+                confidence="high",
+                review_state="maintainer_reviewed",
+                checked_at=str(review.get("reviewed_at") or idea.get("last_checked_at") or utc_now()),
+                metadata={
+                    "review_id": review.get("review_id"),
+                    "release_record_id": release_record_id,
+                    "release_version": release.get("version"),
+                    "release_module": release.get("module"),
+                    "title_token_coverage": candidate.get("title_token_coverage"),
+                },
+            )
+        )
+    return rows
 
 
 def relationship_row(

@@ -9,6 +9,10 @@ from rich import print_json
 from ..jsonl import read_jsonl
 from ..rock_idea_relationships import (
     ROCK_IDEA_RELATIONSHIP_PATH,
+    ROCK_IDEA_VERIFICATION_QUEUE_PATH,
+    ROCK_IDEA_VERIFICATION_REVIEW_PATH,
+    validate_rock_idea_verification_queue,
+    validate_rock_idea_verification_reviews,
     validate_rock_idea_relationship_rows,
 )
 from ..rock_ideas import ROCK_IDEA_PATH, sync_rock_ideas, validate_rock_idea_rows
@@ -42,12 +46,28 @@ def validate_command(
         exists=True,
         dir_okay=False,
     ),
+    verification_queue_path: Path = typer.Option(
+        ROCK_IDEA_VERIFICATION_QUEUE_PATH,
+        "--verification-queue-path",
+        exists=True,
+        dir_okay=False,
+    ),
+    verification_reviews_path: Path = typer.Option(
+        ROCK_IDEA_VERIFICATION_REVIEW_PATH,
+        "--verification-reviews-path",
+        exists=True,
+        dir_okay=False,
+    ),
 ) -> None:
     """Validate Ideas identity, lifecycle, trust, and public-safety boundaries."""
     rows = list(read_jsonl(path))
     relationships = list(read_jsonl(relationships_path))
+    verification_queue = list(read_jsonl(verification_queue_path))
+    verification_reviews = list(read_jsonl(verification_reviews_path))
     validate_rock_idea_rows(rows)
     validate_rock_idea_relationship_rows(relationships, idea_rows=rows)
+    validate_rock_idea_verification_queue(verification_queue, idea_rows=rows)
+    validate_rock_idea_verification_reviews(verification_reviews, idea_rows=rows)
     print_json(
         data={
             "status": "ok",
@@ -55,6 +75,10 @@ def validate_command(
             "record_count": len(rows),
             "relationships_path": str(relationships_path),
             "relationship_count": len(relationships),
+            "verification_queue_path": str(verification_queue_path),
+            "verification_queue_count": len(verification_queue),
+            "verification_reviews_path": str(verification_reviews_path),
+            "verification_review_count": len(verification_reviews),
         }
     )
 

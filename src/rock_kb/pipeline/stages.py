@@ -229,6 +229,7 @@ STAGES: list[Stage] = [
             "agent/rock-issue-summary.json",
             "agent/rock-ideas.jsonl",
             "agent/rock-idea-summary.json",
+            "ideas/verification-reviews.jsonl",
             "src/rock_kb/rock_idea_relationships.py",
         ],
         outputs=[

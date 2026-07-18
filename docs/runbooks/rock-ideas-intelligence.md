@@ -78,6 +78,12 @@ uses vote count, lifecycle state, planned-version metadata, explicit references,
 and the presence of private release-note candidates to assign a bounded priority.
 
 - `officially_corroborated` requires deterministic high-confidence official release evidence.
+- `maintainer_reviewed_references_only` means a maintainer checked the current
+  Idea, explicit references, and candidate set, but those references do not
+  confirm the claimed release.
+- `maintainer_reviewed_no_official_match` means the current bounded official
+  inputs produced no match. It does not prove that the feature is absent or
+  that no older source can corroborate it.
 - `candidate_review_pending` means a possible release match exists only in ignored maintainer data; candidate details are not public evidence.
 - `references_available` means useful explicit links exist but do not prove implementation.
 - `evidence_needed` means no corroborating or reference edge is currently available.
@@ -87,6 +93,29 @@ candidate-set hash, and a combined `review_input_hash`. A changed Idea,
 relationship, or candidate set therefore changes the review input and returns
 the lifecycle claim to maintainer attention. Queue state never changes the
 Idea's `community-unreviewed` and `routing_context_only` trust level.
+
+Maintainer dispositions live in
+`ideas/verification-reviews.jsonl`. The ledger accepts only stable IDs, exact
+input hashes, fixed outcomes and reason codes, reviewer/timestamp metadata, and
+redaction and license attestations. It rejects free-form notes and raw Idea or
+staff-response content. A current reviewed release match can produce an
+official `corroborated_by_release_note` edge; negative and reference-only
+reviews only close the current queue input. Any changed Idea, relationship,
+candidate set, or reviewed release evidence makes the disposition stale and
+requeues the Idea automatically.
+
+For a bounded review batch:
+
+1. Start with high-priority rows in the generated verification queue.
+2. Inspect explicit public references and the ignored release candidates under
+   `data/review/rock-ideas/`, then verify any proposed match against the exact
+   official release record.
+3. Record only one fixed-vocabulary disposition for the current hashes. Use
+   `no_official_match` when the bounded inputs do not establish a match; never
+   convert that outcome into a product-absence claim.
+4. Run `uv run kb ideas sync --skip-details` and `uv run kb ideas validate`.
+   Confirm that stale dispositions reopened and current dispositions moved out
+   of the high-priority queue.
 
 ## Trust Rules
 
@@ -130,6 +159,9 @@ Use these tools only for explicit idea, feature-request, known-gap, or roadmap q
 - `agent/rock-ideas.jsonl`: public-safe canonical metadata rows.
 - `agent/rock-idea-relationships.jsonl`: canonical typed edges to concepts, models, issues, other Ideas, official documentation/source, and corroborating release records.
 - `agent/rock-idea-verification-queue.jsonl`: prioritized lifecycle verification rows with hash-based revalidation inputs and no speculative candidate details.
+- `ideas/verification-reviews.jsonl`: bounded public-safe maintainer
+  dispositions tied to exact source, relationship, candidate, and release
+  evidence hashes.
 - `agent/rock-idea-summary.json`: counts, discovery coverage, and trust boundary.
 - `knowledge/ideas/index.md`: concise agent and human usage guidance.
 - `data/normalized/rock_ideas.jsonl`: private pipeline source records.

@@ -15,6 +15,24 @@ MCP does not contain better knowledge than the CLI. OKF release bundles are for
 offline, pinned, bulk, or cross-system use and are not needed for ordinary
 community testing.
 
+### Give This To A Testing Agent
+
+Send the agent this repository URL and prompt:
+
+> Review https://github.com/ONE-ALL-Church/rock-agent-kb and its community
+> onboarding guide. Preview `uvx rock-kb install-agent --dry-run`, explain what
+> it would change, and ask before installing. After installation and any
+> required restart, use Rock KB on two or three real Rock questions, retain only
+> public result IDs, and run
+> `ROCK_KB_COHORT=external-test uvx rock-kb test-round`. Show me the automatic
+> report. Ask separately before running the interactive `--review --submit`
+> command. Never submit our questions, church name, private Rock records, logs,
+> internal URLs, screenshots, or secrets.
+
+The `external-test` value is a shared aggregate cohort label, not a church or
+user identifier. The maintainer can see pass and fixed-vocabulary review counts
+but cannot identify which church installed `uvx`, used MCP, or ran a test.
+
 ### Recommended: Let The CLI Configure Your Agent
 
 For Codex, Claude Code, Cursor, or OpenCode, the published CLI can install the

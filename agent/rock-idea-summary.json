@@ -55,12 +55,12 @@
     "under_review": 1
   },
   "catalog_complete": true,
-  "catalog_content_hash": "a0f7bb0ed7f7e168ff05e7a443eed7650ba33cb2a1ef56b0d08c7130b1e44273",
+  "catalog_content_hash": "3c60d7577d54271c8ac6adf8b49ecbc2cbcd2dfbb5200622d38bff5fa4298410",
   "catalog_page_count": 109,
-  "content_changed_at": "2026-07-18T01:54:14Z",
+  "content_changed_at": "2026-07-18T17:53:31Z",
   "detail_rows_failed": 0,
-  "detail_rows_refreshed": 500,
-  "detail_rows_selected": 500,
+  "detail_rows_refreshed": 0,
+  "detail_rows_selected": 0,
   "detail_shape_current_count": 1082,
   "detail_shape_version": 2,
   "discovery": {
@@ -77,8 +77,8 @@
     "staff response text or identity",
     "comments"
   ],
-  "generated_at": "2026-07-18T01:54:14Z",
-  "last_checked_at": "2026-07-18T01:54:14Z",
+  "generated_at": "2026-07-18T18:09:37Z",
+  "last_checked_at": "2026-07-18T18:09:37Z",
   "latest_idea_number": 2258,
   "public_shape": [
     "idea_id",
@@ -100,7 +100,7 @@
     "by_type": {
       "about": 1366,
       "about_model": 170,
-      "corroborated_by_release_note": 2,
+      "corroborated_by_release_note": 3,
       "references_idea": 11,
       "references_issue": 11,
       "references_official_documentation": 6,
@@ -110,8 +110,8 @@
     "ideas_with_issue_links": 11,
     "ideas_with_model_links": 151,
     "ideas_with_relationships": 1082,
-    "ideas_with_release_evidence": 2,
-    "relationship_count": 1571,
+    "ideas_with_release_evidence": 3,
+    "relationship_count": 1572,
     "schema": "rock-kb-rock-idea-relationship-summary-v1",
     "verification_queue": {
       "by_status": {
@@ -121,15 +121,18 @@
         "under_review": 1
       },
       "by_verification_state": {
-        "candidate_review_pending": 8,
-        "evidence_needed": 169,
-        "officially_corroborated": 2,
-        "references_available": 6
+        "candidate_review_pending": 7,
+        "evidence_needed": 157,
+        "maintainer_reviewed_no_official_match": 12,
+        "maintainer_reviewed_references_only": 2,
+        "officially_corroborated": 3,
+        "references_available": 4
       },
       "candidate_review_count": 9,
-      "high_priority_count": 49,
-      "officially_corroborated_count": 2,
-      "queue_content_hash": "5567281d8692fc3decb5b1f93fce9192dabf711115b48eb274d9811bc9da81a5",
+      "high_priority_count": 34,
+      "maintainer_reviewed_count": 15,
+      "officially_corroborated_count": 3,
+      "queue_content_hash": "f4f04060af9aa7d9b21a823c224da2765d3175eb787672e48c19fbf36cf8479c",
       "queue_count": 185,
       "schema": "rock-kb-rock-idea-verification-queue-summary-v1",
       "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."

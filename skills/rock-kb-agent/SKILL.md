@@ -453,7 +453,10 @@ what the KB can expose. Important manifest entrypoints include:
   `rock_idea_directory`: public-safe feature-gap and lifecycle metadata plus
   evidence-backed concept, model, issue, documentation, and release links.
   Verification queue states prioritize corroboration work but never prove that
-  a lifecycle label is implemented.
+  a lifecycle label is implemented. A
+  `maintainer_reviewed_no_official_match` state means only that the current
+  bounded evidence inputs produced no match; it is not proof that the feature
+  is absent. Treat only an official typed relationship as corroboration.
   These rows stay separate from approved claims and ordinary implementation
   guidance. Concept packages include only a bounded Idea summary; use the
   dedicated Ideas tools for complete filtering.
