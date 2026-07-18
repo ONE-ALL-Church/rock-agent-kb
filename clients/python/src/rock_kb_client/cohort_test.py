@@ -17,6 +17,7 @@ CASE_DEFINITIONS = (
     ("check-in-lava-context", "lava_context"),
     ("reviewed-recipe", "recipe"),
     ("check-in-troubleshooting", "semantic_search"),
+    ("idea-relationship-trust", "rock_idea"),
     ("core-issue-trust", "imported_issue"),
     ("mobile-issue-release-evidence", "imported_issue"),
     ("issue-version-assessment", "imported_issue"),
@@ -32,6 +33,7 @@ def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoste
         run_case("check-in-lava-context", "lava_context", "Search Check-In label roots", "Does the result clearly identify which Lava root is available?", lambda: lava_case(base, get_json)),
         run_case("reviewed-recipe", "recipe", "GET Check-In Status Dashboard recipe", "Is the recipe reusable and are its adaptation and live-verification boundaries clear?", lambda: recipe_case(base, get_json)),
         run_case("check-in-troubleshooting", "semantic_search", "Search an eligibility-versus-availability symptom", "Would the top results lead an administrator to the right first checks?", lambda: troubleshooting_case(base, get_json)),
+        run_case("idea-relationship-trust", "rock_idea", "GET Rock Community Idea 1307", "Do the concept, model, and issue links help without presenting an Idea or reference as implementation proof?", lambda: rock_idea_case(base, get_json)),
         run_case("core-issue-trust", "imported_issue", "GET core issue 6920", "Is the unreviewed report clearly separated from its reviewed, source-backed enrichment?", lambda: core_issue_case(base, get_json)),
         run_case("mobile-issue-release-evidence", "imported_issue", "GET mobile issue 116", "Is the fixed-release evidence useful without implying every local instance is fixed?", lambda: mobile_issue_case(base, get_json)),
         run_case("issue-version-assessment", "imported_issue", "Assess a bounded v19.1.8 profile", "Does the assessment help triage possible impact while still requiring local verification?", lambda: issue_assessment_case(base, post_json)),
@@ -51,6 +53,7 @@ def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoste
         "automatic_pass_count": len(cases) - len(failures),
         "automatic_fail_count": len(failures),
         "case_count": len(cases),
+        "rock_idea_case_count": sum(1 for case in cases if case["category"] == "rock_idea"),
         "imported_issue_case_count": sum(1 for case in cases if case["category"] == "imported_issue"),
         "manual_review_required": True,
         "cases": cases,
@@ -197,6 +200,45 @@ def troubleshooting_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
         "result_ids": [str(row.get("id") or "") for row in results],
         "top_concepts": results[0].get("concepts") if results else [],
         "top_authority_tier": results[0].get("authority_tier") if results else None,
+    }
+
+
+def rock_idea_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
+    payload = get_json(f"{base}/rock-ideas/1307")
+    idea = payload.get("idea") or {}
+    relationships = payload.get("relationships") or []
+    relationship_types = {str(row.get("relationship_type") or "") for row in relationships}
+    targets = {str(row.get("target_id") or "") for row in relationships}
+    forbidden_fields = {"description", "body", "response", "response_text", "comments", "author", "submitter", "organization"}
+    return {
+        "passed": (
+            payload.get("status") == "ok"
+            and idea.get("idea_id") == "rock_idea:1307"
+            and idea.get("authority_tier") == "community-unreviewed"
+            and idea.get("needs_live_verification") is True
+            and not (forbidden_fields & set(idea))
+            and {"about", "about_model", "references_issue"}.issubset(relationship_types)
+            and "concept:communications" in targets
+            and "model_map:stable:phone-number" in targets
+            and "rock_issue:SparkDevNetwork/Rock#2935" in targets
+            and not any(
+                row.get("relationship_type") == "implemented_by_issue"
+                for row in relationships
+                if row.get("target_id") == "rock_issue:SparkDevNetwork/Rock#2935"
+            )
+        ),
+        "result_ids": ["rock_idea:1307"],
+        "authority_tier": idea.get("authority_tier"),
+        "needs_live_verification": idea.get("needs_live_verification"),
+        "verification_state": (idea.get("verification") or {}).get("verification_state"),
+        "relationship_types": sorted(relationship_types),
+        "relationship_targets": sorted(targets),
+        "raw_content_republished": bool(forbidden_fields & set(idea)),
+        "reference_presented_as_implementation": any(
+            row.get("relationship_type") == "implemented_by_issue"
+            for row in relationships
+            if row.get("target_id") == "rock_issue:SparkDevNetwork/Rock#2935"
+        ),
     }
 
 

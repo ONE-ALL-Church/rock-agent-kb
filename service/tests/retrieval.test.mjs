@@ -380,6 +380,8 @@ test("Rock Ideas are explicit-intent routing metadata across REST, search, and M
     const get = await getResponse.json();
     assert.equal(get.status, "ok");
     assert.equal(get.idea.needs_live_verification, true);
+    assert.equal(get.idea.verification.verification_state, "candidate_review_pending");
+    assert.equal(get.idea.verification.claim_tier, "routing_context_only");
     assert.equal(get.idea.description, undefined);
     assert.equal(get.idea.author, undefined);
     assert.equal(get.relationships[0].target_id, "rock_issue:SparkDevNetwork/Rock#6919");
@@ -603,6 +605,7 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
       ["check-in-lava-context", "lava_context"],
       ["reviewed-recipe", "recipe"],
       ["check-in-troubleshooting", "semantic_search"],
+      ["idea-relationship-trust", "rock_idea"],
       ["core-issue-trust", "imported_issue"],
       ["mobile-issue-release-evidence", "imported_issue"],
       ["issue-version-assessment", "imported_issue"],
@@ -637,20 +640,25 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
     assert.equal(recorded.status, 201);
     const result = await recorded.json();
     assert.equal(result.status, "recorded");
-    assert.equal(result.case_count, 9);
+    assert.equal(result.case_count, 10);
     assert.equal(result.projection_matches_current, true);
 
     const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
     assert.equal(dashboard.test_rounds.submission_count, 1);
-    assert.equal(dashboard.test_rounds.case_outcome_count, 9);
-    assert.equal(dashboard.test_rounds.by_manual_outcome.useful, 8);
+    assert.equal(dashboard.test_rounds.case_outcome_count, 10);
+    assert.equal(dashboard.test_rounds.by_manual_outcome.useful, 9);
     assert.equal(dashboard.test_rounds.by_manual_outcome.unsure, 1);
     assert.equal(JSON.stringify(dashboard.test_rounds).includes("Review this"), false);
 
     const mcpDefinition = await mcp(mf, "tools/call", { name: "kb_get_test_round", arguments: {} });
     const definition = JSON.parse(mcpDefinition.result.content[0].text);
-    assert.equal(definition.cases.length, 9);
+    assert.equal(definition.cases.length, 10);
     assert.deepEqual(definition.outcomes, ["useful", "incorrect", "incomplete", "unclear", "unsure"]);
+
+    const mcpTools = await mcp(mf, "tools/list", {});
+    const submitTool = mcpTools.result.tools.find((tool) => tool.name === "kb_submit_test_round_review");
+    assert.equal(submitTool.inputSchema.properties.cases.minItems, 10);
+    assert.equal(submitTool.inputSchema.properties.cases.maxItems, 10);
   } finally {
     await mf.dispose();
   }
@@ -683,6 +691,12 @@ test("operations dashboard separates generated evaluation rows from the latest h
     assert.equal(dashboard.evaluation.hosted_service.case_count, 151);
     assert.equal(dashboard.evaluation.hosted_service.current_projection, true);
     assert.equal(dashboard.evaluation.hosted_service.metrics.mean_reciprocal_rank, 0.993377);
+    assert.equal(dashboard.rock_ideas.record_count, 1);
+    assert.equal(dashboard.rock_ideas.relationships.verification_queue.queue_count, 1);
+    assert.equal(
+      dashboard.rock_ideas.relationships.verification_queue.by_verification_state.candidate_review_pending,
+      1,
+    );
   } finally {
     await mf.dispose();
   }
@@ -1143,6 +1157,17 @@ async function buildWorker(options = {}) {
       "agent/answer-pack.jsonl": "",
       "agent/concept-task-cards.jsonl": "",
       "agent/concept-release-caveats.jsonl": "",
+      "agent/rock-idea-summary.json": JSON.stringify({
+        schema: "rock-kb-rock-idea-summary-v1",
+        record_count: 1,
+        relationships: {
+          verification_queue: {
+            schema: "rock-kb-rock-idea-verification-queue-summary-v1",
+            queue_count: 1,
+            by_verification_state: { candidate_review_pending: 1 },
+          },
+        },
+      }),
     });
     const recipeSearchRow = {
       id: "recipe:oneall:check-in-status-dashboard",
@@ -1285,6 +1310,21 @@ async function buildWorker(options = {}) {
       authority_tier: "community-unreviewed",
       claim_tier: "routing_context_only",
       needs_live_verification: true,
+      verification: {
+        schema: "rock-kb-rock-idea-verification-queue-v1",
+        queue_id: "rock_idea_verification:2250",
+        idea_id: "rock_idea:2250",
+        verification_state: "candidate_review_pending",
+        recommended_action: "corroborate_completed_state",
+        priority_score: 82,
+        priority_band: "medium",
+        source_content_hash: "idea-source-hash",
+        review_input_hash: "review-input-hash",
+        content_hash: "verification-content-hash",
+        authority_tier: "community-unreviewed",
+        claim_tier: "routing_context_only",
+        needs_live_verification: true,
+      },
     };
     const rockIdeaSearchRow = {
       id: rockIdea.idea_id,

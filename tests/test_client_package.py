@@ -95,6 +95,21 @@ def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypa
             return {"status": "ok", "recipe": {"authority_tier": "community-reviewed", "needs_live_verification": True, "implementation": {"commit_sha": "a" * 40}}}
         if "child%20eligible" in url:
             return {"results": [{"id": "answer:check-in:first-checks", "concepts": ["check-in"], "authority_tier": "official"}]}
+        if url.endswith("/rock-ideas/1307"):
+            return {
+                "status": "ok",
+                "idea": {
+                    "idea_id": "rock_idea:1307",
+                    "authority_tier": "community-unreviewed",
+                    "needs_live_verification": True,
+                    "verification": {"verification_state": "references_available"},
+                },
+                "relationships": [
+                    {"relationship_type": "about", "target_id": "concept:communications"},
+                    {"relationship_type": "about_model", "target_id": "model_map:stable:phone-number"},
+                    {"relationship_type": "references_issue", "target_id": "rock_issue:SparkDevNetwork/Rock#2935"},
+                ],
+            }
         if url.endswith("/rock-issues/6920"):
             return {
                 "status": "ok",
@@ -132,7 +147,8 @@ def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypa
 
     assert exit_code == 0
     assert report["status"] == "ok"
-    assert report["case_count"] == 9
+    assert report["case_count"] == 10
+    assert report["rock_idea_case_count"] == 1
     assert report["imported_issue_case_count"] == 3
     assert report["manual_review_required"] is True
     assert report["projection_version"] == "projection-v1"
@@ -167,7 +183,7 @@ def test_client_test_round_submits_complete_bounded_review(monkeypatch, tmp_path
     monkeypatch.setattr(
         cli,
         "post_json",
-        lambda url, payload, token="": calls.append((url, payload)) or {"status": "recorded", "case_count": 9},
+        lambda url, payload, token="": calls.append((url, payload)) or {"status": "recorded", "case_count": 10},
     )
 
     exit_code = cli.main(
@@ -187,7 +203,7 @@ def test_client_test_round_submits_complete_bounded_review(monkeypatch, tmp_path
     assert exit_code == 0
     assert calls[0][0] == "https://example.test/test-rounds/review"
     assert calls[0][1]["schema"] == "rock-kb-community-test-round-review-v1"
-    assert len(calls[0][1]["cases"]) == 9
+    assert len(calls[0][1]["cases"]) == 10
     assert all(set(row) == {"case_id", "category", "automatic_status", "outcome", "result_id"} for row in calls[0][1]["cases"])
     assert payload["submission"]["status"] == "recorded"
 

@@ -116,7 +116,7 @@ export ROCK_KB_URL=https://your-rock-kb-service.example.org
 ### Run The Standard Church Test Round
 
 Run `uvx rock-kb test-round` after installation and after meaningful KB
-releases. It performs nine bounded public checks and prints a JSON report with
+releases. It performs ten bounded public checks and prints a JSON report with
 automatic pass/fail evidence. To record a complete fixed-vocabulary manual
 review without sending free text, queries, or private data, use:
 
@@ -126,7 +126,7 @@ ROCK_KB_COHORT=external-test uvx rock-kb test-round --review --submit
 
 The command asks for one of `useful`, `incorrect`, `incomplete`, `unclear`, or
 `unsure` for every case.
-Three cases cover imported Rock issues: a reviewed core-issue enrichment, an
+One case checks Rock Idea relationship and trust-boundary handling. Three cases cover imported Rock issues: a reviewed core-issue enrichment, an
 official mobile fixed-release link, and conservative version applicability.
 
 Imported issues are routing evidence, not automatically trusted knowledge.

@@ -173,6 +173,8 @@ def build_agent_pack() -> dict[str, int]:
         "- [Rock issue summary](rock-issue-summary.json)",
         "- [Rock issue agent guide](../knowledge/issues/index.md)",
         "- [Rock Ideas metadata catalog](rock-ideas.jsonl)",
+        "- [Rock Ideas typed relationships](rock-idea-relationships.jsonl)",
+        "- [Rock Ideas verification queue](rock-idea-verification-queue.jsonl)",
         "- [Rock Ideas metadata summary](rock-idea-summary.json)",
         "- [Rock Ideas agent guide](../knowledge/ideas/index.md)",
         "",

@@ -6,6 +6,31 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-07-17
+
+### Added
+
+- First-class Rock Community Ideas retrieval through the hosted REST, MCP, and
+  CLI surfaces, with concept, model-map, issue, release-note, and source links.
+- A generated Ideas verification queue for lifecycle claims such as Complete,
+  Planned, Started, and Under Review. Queue rows expose stable review hashes,
+  priorities, and recommended actions without publishing private candidates.
+- A tenth external test-round case that checks exact Idea retrieval, trust-tier
+  labeling, concept/model/issue routing, and relationship semantics.
+
+### Changed
+
+- The maintainer operations dashboard now exposes Rock Ideas catalog and
+  verification-queue summaries alongside issue and freshness reporting.
+- Exact lifecycle-Idea results include their current verification context so
+  agents can distinguish corroborated state from claims still needing evidence.
+
+### Decision
+
+- Idea lifecycle labels, relationship candidates, and verification priority
+  remain `routing_context_only`. They help agents investigate feature gaps but
+  do not prove implementation, release availability, or instance applicability.
+
 ## [0.11.0] - 2026-07-17
 
 ### Added

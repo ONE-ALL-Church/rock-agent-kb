@@ -72,6 +72,7 @@ def build_rock_kb_manifest() -> dict[str, Any]:
             "rock_issue_investigation_prompt": "docs/prompts/rock-issue-investigation-v1.md",
             "rock_ideas": "agent/rock-ideas.jsonl",
             "rock_idea_relationships": "agent/rock-idea-relationships.jsonl",
+            "rock_idea_verification_queue": "agent/rock-idea-verification-queue.jsonl",
             "rock_idea_summary": "agent/rock-idea-summary.json",
             "rock_idea_directory": "knowledge/ideas/index.md",
             "approved_claims": "claims/approved-claims.jsonl",
@@ -102,6 +103,7 @@ def build_rock_kb_manifest() -> dict[str, Any]:
         "rock_issue_enrichment_count": count_jsonl(AGENT_DIR / "rock-issue-enrichments.jsonl"),
         "rock_idea_count": count_jsonl(AGENT_DIR / "rock-ideas.jsonl"),
         "rock_idea_relationship_count": count_jsonl(AGENT_DIR / "rock-idea-relationships.jsonl"),
+        "rock_idea_verification_queue_count": count_jsonl(AGENT_DIR / "rock-idea-verification-queue.jsonl"),
     }
 
 def approved_claims_manifest_entry() -> dict[str, Any]:

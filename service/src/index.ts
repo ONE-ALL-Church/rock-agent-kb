@@ -154,6 +154,7 @@ const TEST_ROUND_CASES = new Map<string, string>([
   ["check-in-lava-context", "lava_context"],
   ["reviewed-recipe", "recipe"],
   ["check-in-troubleshooting", "semantic_search"],
+  ["idea-relationship-trust", "rock_idea"],
   ["core-issue-trust", "imported_issue"],
   ["mobile-issue-release-evidence", "imported_issue"],
   ["issue-version-assessment", "imported_issue"],
@@ -2984,7 +2985,7 @@ function queryTopicHint(query: string): string {
 }
 
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
-  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, testRounds, hostedEvaluation] = await Promise.all([
+  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation] = await Promise.all([
     artifactJsonlOptional(env, "agent/claim-review-queue.jsonl"),
     artifactJsonlOptional(env, "agent/source-conflicts.jsonl"),
     artifactJsonlOptional(env, "agent/section-status.jsonl"),
@@ -2993,6 +2994,7 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     communityContributionRows(env),
     issueReportDashboard(env),
     artifactJsonOptional(env, "agent/rock-issue-summary.json"),
+    artifactJsonOptional(env, "agent/rock-idea-summary.json"),
     testRoundDashboard(env),
     hostedEvaluationSummary(env),
   ]);
@@ -3013,6 +3015,7 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     telemetry,
     issue_reports: issueReports,
     rock_issues: rockIssues,
+    rock_ideas: rockIdeas,
   };
 }
 
@@ -3852,8 +3855,8 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_concept", description: "Return one concept package, including bounded Rock Ideas lifecycle counts and highlights for roadmap context.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
-    { name: "kb_get_test_round", description: "Return the nine canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
-    { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 9, maxItems: 9, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
+    { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
+    { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 10, maxItems: 10, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
     { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }

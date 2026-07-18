@@ -157,7 +157,9 @@ source because it caps results. The KB stores metadata only; it does not
 republish proposal text, identities, staff-response text, anchor text, or
 comments. Exact `ideas get` output includes bounded typed relationships to
 concepts, exact models, explicitly linked issues and Ideas, and sufficiently
-corroborated official release records. See the Rock Ideas Intelligence runbook
+corroborated official release records. Lifecycle rows also expose their
+verification queue state, priority, and hash-based revalidation input without
+publishing speculative candidate details. See the Rock Ideas Intelligence runbook
 for the coverage and trust rules.
 
 ## Audit, Publish, Report, And Tools
