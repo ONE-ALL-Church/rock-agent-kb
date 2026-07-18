@@ -141,6 +141,25 @@ Approved public enrichments under `issues/` are validated and projected into
 `agent/rock-issue-enrichments.jsonl` during sync, then joined into exact issue
 results. See the Rock Issue Intelligence runbook for trust and review rules.
 
+## Rock Ideas Intelligence
+
+```bash
+uv run kb ideas sync
+uv run kb ideas validate
+uv run kb ideas list --status planned --concept workflows
+uv run kb ideas list --status complete --planned-version 20.0
+uv run kb ideas get 2250
+```
+
+The refresh completely traverses the public Ideas block's native pager and uses
+bounded rolling detail checks. The Universal Search block is not the catalog
+source because it caps results. The KB stores metadata only; it does not
+republish proposal text, identities, staff-response text, anchor text, or
+comments. Exact `ideas get` output includes bounded typed relationships to
+concepts, exact models, explicitly linked issues and Ideas, and sufficiently
+corroborated official release records. See the Rock Ideas Intelligence runbook
+for the coverage and trust rules.
+
 ## Audit, Publish, Report, And Tools
 
 ```bash

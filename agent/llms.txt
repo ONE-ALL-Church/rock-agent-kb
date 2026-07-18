@@ -17,12 +17,16 @@ This file is generated for AI agents. It points to source registries, curated kn
 - [Reviewed Rock issue enrichments](rock-issue-enrichments.jsonl)
 - [Rock issue summary](rock-issue-summary.json)
 - [Rock issue agent guide](../knowledge/issues/index.md)
+- [Rock Ideas metadata catalog](rock-ideas.jsonl)
+- [Rock Ideas metadata summary](rock-idea-summary.json)
+- [Rock Ideas agent guide](../knowledge/ideas/index.md)
 
 ## Sources
 
 - [Rock Manuals](https://community.rockrms.com/documentation) - Official Rock RMS Rockumentation topic and article content.
 - [Rock Community Recipes](https://community.rockrms.com/recipes) - Community-contributed implementation recipes.
 - [Rock Community Q&A](https://community.rockrms.com/ask) - Public Rock Community questions and answers.
+- [Rock Community Ideas](https://community.rockrms.com/ideas) - Bounded public feature-request and roadmap lifecycle metadata from Rock Community Ideas.
 - [RockU](https://community.rockrms.com/rocku) - Rock training video index and lesson metadata.
 - [Rock Developer Resources](https://community.rockrms.com/developer) - Developer docs, API, Lava, Obsidian, and platform resources.
 - [Rock API Documentation Landing Page](https://community.rockrms.com/api-docs) - Public API documentation landing page, demo API documentation links, and API learning resources.

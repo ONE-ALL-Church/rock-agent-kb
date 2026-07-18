@@ -520,6 +520,30 @@ def test_build_d1_seed_sql_switches_artifact_prefix_after_projection_rows():
     assert sql.rfind("'artifact_prefix'") > sql.rfind("CREATE TABLE rock_issue_enrichments")
 
 
+def test_build_d1_seed_sql_projects_canonical_related_content_edges(monkeypatch, tmp_path):
+    agent_dir = tmp_path / "agent"
+    agent_dir.mkdir()
+    relationship = {
+        "relationship_id": "rock_idea_relationship:fixture",
+        "source_id": "rock_idea:2250",
+        "target_id": "rock_issue:SparkDevNetwork/Rock#6919",
+        "target_url": "https://github.com/SparkDevNetwork/Rock/issues/6919",
+        "target_kind": "rock_issue",
+        "relationship_type": "references_issue",
+        "authority_tier": "community-unreviewed",
+        "confidence": "high",
+        "review_state": "source_observed",
+    }
+    (agent_dir / "rock-idea-relationships.jsonl").write_text(json.dumps(relationship) + "\n", encoding="utf-8")
+    monkeypatch.setattr(service_projection, "REPO_ROOT", tmp_path)
+
+    sql = build_d1_seed_sql("v1", "2026-07-17T00:00:00Z", [], [])
+
+    assert "CREATE TABLE related_content_edges" in sql
+    assert "rock_idea_relationship:fixture" in sql
+    assert "rock_issue:SparkDevNetwork/Rock#6919" in sql
+
+
 def read_jsonl_for_test(relative_path: str):
     path = Path(__file__).resolve().parents[1] / relative_path
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]

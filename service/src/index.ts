@@ -147,6 +147,21 @@ const DIRECT_MEDIA_HINTS = [
 ];
 
 const FEEDBACK_REASONS = new Set(["helpful", "outdated", "missing", "incorrect", "wrong_route"]);
+const TEST_ROUND_REVIEW_OUTCOMES = new Set(["useful", "incorrect", "incomplete", "unclear", "unsure"]);
+const TEST_ROUND_CASES = new Map<string, string>([
+  ["service-health", "service"],
+  ["exact-group-model", "exact_lookup"],
+  ["check-in-lava-context", "lava_context"],
+  ["reviewed-recipe", "recipe"],
+  ["check-in-troubleshooting", "semantic_search"],
+  ["core-issue-trust", "imported_issue"],
+  ["mobile-issue-release-evidence", "imported_issue"],
+  ["issue-version-assessment", "imported_issue"],
+  ["no-answer-boundary", "no_answer"],
+]);
+const TEST_ROUND_REVIEW_FIELDS = new Set(["schema", "test_round_schema", "projection_version", "automatic_status", "cases"]);
+const TEST_ROUND_CASE_FIELDS = new Set(["case_id", "category", "automatic_status", "outcome", "result_id"]);
+const TEST_ROUND_REVIEW_MAX_BYTES = 8192;
 const ISSUE_FAILURE_TYPES = new Set(["service", "mcp", "cli", "schema", "authentication", "retrieval"]);
 const ISSUE_REPORT_FIELDS = new Set([
   "failure_type",
@@ -253,6 +268,31 @@ export default {
         ctx.waitUntil(recordUsage(env, "rock_issue_search", query, results, request));
         return json({ schema: "rock-kb-rock-issue-search-v1", query, results });
       }
+      if (url.pathname === "/rock-ideas/search") {
+        const query = url.searchParams.get("q") || "";
+        const limit = boundedInt(url.searchParams.get("limit"), 10, 1, 50);
+        const results = await search(env, query, limit, "routing_context_only", false, "rock_idea");
+        ctx.waitUntil(recordUsage(env, "rock_idea_search", query, results, request));
+        return json({ schema: "rock-kb-rock-idea-search-v1", query, results });
+      }
+      if (url.pathname === "/rock-ideas") {
+        const result = await listRockIdeas(env, {
+          status: url.searchParams.get("status"),
+          category: url.searchParams.get("category"),
+          concept: url.searchParams.get("concept"),
+          plannedVersion: url.searchParams.get("planned_version"),
+          limit: boundedInt(url.searchParams.get("limit"), 50, 1, 100),
+          offset: boundedInt(url.searchParams.get("offset"), 0, 0, 100000),
+        });
+        ctx.waitUntil(recordAccessUsage(env, "rock_idea_list", "rock_idea", Number(result.count || 0), request));
+        return json(result);
+      }
+      if (url.pathname.startsWith("/rock-ideas/")) {
+        const ideaRef = decodeURIComponent(url.pathname.slice("/rock-ideas/".length));
+        const result = await getRockIdea(env, ideaRef);
+        if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_idea_get", "rock_idea", 1, request));
+        return json(result, result.status === "not_found" ? 404 : 200);
+      }
       if (url.pathname === "/rock-issues/assess" && request.method === "POST") {
         const result = await assessRockIssues(request, env);
         ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), request));
@@ -339,6 +379,16 @@ export default {
       if (url.pathname === "/feedback" && request.method === "POST") {
         return json(await submitFeedback(request, env), 201);
       }
+      if (url.pathname === "/test-rounds/review" && request.method === "POST") {
+        try {
+          return json(await submitTestRoundReview(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json({ schema: "rock-kb-community-test-round-review-result-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
+          }
+          throw error;
+        }
+      }
       if (url.pathname === "/issues/report" && request.method === "POST") {
         try {
           return json(await submitIssueReport(request, env), 201);
@@ -377,6 +427,7 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
   const minRank = CLAIM_TIER_RANK[minTier] ?? 0;
   const terms = searchTerms(query);
   const includeRockIssues = kind === "rock_issue" || hasRockIssueQueryIntent(terms, query) ? 1 : 0;
+  const includeRockIdeas = kind === "rock_idea" || hasRockIdeaQueryIntent(terms, query) ? 1 : 0;
   const candidateLimit = Math.max(limit * 25, 200);
   const result = await env.KB_DB.prepare(
     `SELECT r.*, bm25(search_rows_fts) AS rank,
@@ -386,9 +437,10 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
      WHERE search_rows_fts MATCH ? AND r.claim_tier_rank >= ?
        AND (? = '' OR r.kind = ?)
        AND (? = 1 OR r.kind != 'rock_issue')
+       AND (? = 1 OR r.kind != 'rock_idea')
      ORDER BY rank
      LIMIT ?`
-  ).bind(fts, minRank, kind, kind, includeRockIssues, candidateLimit).all<SearchRow & { rank?: number }>();
+  ).bind(fts, minRank, kind, kind, includeRockIssues, includeRockIdeas, candidateLimit).all<SearchRow & { rank?: number }>();
   const rowsById = new Map<string, SearchRow & { rank?: number }>();
   for (const row of result.results || []) {
     rowsById.set(row.id, row);
@@ -403,6 +455,11 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
   }
   if (kind === "rock_issue" || includeRockIssues === 1) {
     for (const row of await exactRockIssueRows(env, query, minRank)) {
+      rowsById.set(row.id, row);
+    }
+  }
+  if (kind === "rock_idea" || includeRockIdeas === 1) {
+    for (const row of await exactRockIdeaRows(env, query, minRank)) {
       rowsById.set(row.id, row);
     }
   }
@@ -440,6 +497,10 @@ function searchResultGroup(row: SearchRow): string {
   if (row.kind === "rock_issue") {
     const issueId = String(payload.issue_id || row.id || "");
     return issueId ? `rock_issue:${issueId}` : "";
+  }
+  if (row.kind === "rock_idea") {
+    const ideaId = String(payload.idea_id || row.id || "");
+    return ideaId ? `rock_idea:${ideaId}` : "";
   }
   return "";
 }
@@ -512,6 +573,18 @@ async function exactRockIssueRows(env: ServiceEnv, query: string, minRank: numbe
      WHERE l.location_id = ? AND r.claim_tier_rank >= ?
      LIMIT 1`,
   ).bind(locationId, minRank).first<SearchRow>();
+  return row ? [{ ...row, rank: -60 }] : [];
+}
+
+async function exactRockIdeaRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+  const ideaId = extractRockIdeaIdFromQuery(query);
+  if (!ideaId) return [];
+  const row = await env.KB_DB.prepare(
+    `SELECT *
+     FROM search_rows
+     WHERE id = ? AND kind = 'rock_idea' AND claim_tier_rank >= ?
+     LIMIT 1`,
+  ).bind(ideaId, minRank).first<SearchRow>();
   return row ? [{ ...row, rank: -60 }] : [];
 }
 
@@ -640,6 +713,30 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     ctx.waitUntil(recordUsage(env, "rock_issue_search", query, results, request, "mcp"));
     return { schema: "rock-kb-rock-issue-search-v1", query, results };
   }
+  if (name === "kb_search_rock_ideas") {
+    const query = String(args.query || "");
+    const limit = boundedInt(args.limit, 10, 1, 50);
+    const results = await search(env, query, limit, "routing_context_only", false, "rock_idea");
+    ctx.waitUntil(recordUsage(env, "rock_idea_search", query, results, request, "mcp"));
+    return { schema: "rock-kb-rock-idea-search-v1", query, results };
+  }
+  if (name === "kb_list_rock_ideas") {
+    const result = await listRockIdeas(env, {
+      status: stringOrNull(args.status),
+      category: stringOrNull(args.category),
+      concept: stringOrNull(args.concept),
+      plannedVersion: stringOrNull(args.planned_version),
+      limit: boundedInt(args.limit, 50, 1, 100),
+      offset: boundedInt(args.offset, 0, 0, 100000),
+    });
+    ctx.waitUntil(recordAccessUsage(env, "rock_idea_list", "rock_idea", Number(result.count || 0), request, "mcp"));
+    return result;
+  }
+  if (name === "kb_get_rock_idea") {
+    const result = await getRockIdea(env, String(args.idea || args.idea_id || ""));
+    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_idea_get", "rock_idea", 1, request, "mcp"));
+    return result;
+  }
   if (name === "kb_list_rock_issues") {
     const result = await listRockIssues(env, {
       repository: stringOrNull(args.repository),
@@ -693,6 +790,16 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_review_dashboard") {
     return operationsDashboard(env);
   }
+  if (name === "kb_get_test_round") {
+    return publicTestRoundDefinition(await currentVersion(env));
+  }
+  if (name === "kb_submit_test_round_review") {
+    return submitTestRoundReview(
+      new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }),
+      env,
+      "mcp",
+    );
+  }
   if (name === "kb_feedback") {
     return submitFeedback(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env, "mcp");
   }
@@ -715,7 +822,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
 }
 
 async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonRecord> {
-  const [index, quickstart, guide, answers, tasks, caveats, recipeRows, claimRows] = await Promise.all([
+  const [index, quickstart, guide, answers, tasks, caveats, recipeRows, claimRows, rockIdeas] = await Promise.all([
     artifactJsonlValue(env, "agent/concept-index.jsonl"),
     artifactTextValue(env, `knowledge/concepts/${conceptId}/quickstart.md`),
     artifactTextValue(env, `knowledge/concepts/${conceptId}/index.md`),
@@ -723,7 +830,8 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
     artifactJsonlValue(env, "agent/concept-task-cards.jsonl"),
     artifactJsonlValue(env, "agent/concept-release-caveats.jsonl"),
     artifactJsonlValue(env, "agent/recipes.jsonl"),
-    claims(env, conceptId, "routing_context_only", null)
+    claims(env, conceptId, "routing_context_only", null),
+    conceptRockIdeas(env, conceptId),
   ]);
   return {
     concept_id: conceptId,
@@ -734,7 +842,53 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
     task_cards: tasks.filter((row) => row.concept_id === conceptId),
     release_caveats: caveats.filter((row) => row.concept_id === conceptId),
     recipes: recipeRows.filter((row) => Array.isArray(row.concept_ids) && row.concept_ids.includes(conceptId)),
-    claims: claimRows
+    claims: claimRows,
+    rock_ideas: rockIdeas,
+  };
+}
+
+async function conceptRockIdeas(env: ServiceEnv, conceptId: string): Promise<JsonRecord> {
+  const [statusResult, highlightResult] = await Promise.all([
+    env.KB_DB.prepare(
+      `SELECT json_extract(r.payload_json, '$.status') AS status, COUNT(*) AS count
+       FROM search_rows r
+       JOIN search_row_concepts c ON c.row_id = r.id
+       WHERE r.kind = 'rock_idea' AND c.concept = ?
+       GROUP BY json_extract(r.payload_json, '$.status')
+       ORDER BY status`,
+    ).bind(conceptId).all<{ status: string; count: number }>(),
+    env.KB_DB.prepare(
+      `SELECT r.payload_json
+       FROM search_rows r
+       JOIN search_row_concepts c ON c.row_id = r.id
+       WHERE r.kind = 'rock_idea' AND c.concept = ?
+       ORDER BY CASE json_extract(r.payload_json, '$.status')
+         WHEN 'started' THEN 0
+         WHEN 'planned' THEN 1
+         WHEN 'under_review' THEN 2
+         WHEN 'open' THEN 3
+         WHEN 'complete' THEN 4
+         WHEN 'pending' THEN 5
+         ELSE 6 END,
+         CAST(json_extract(r.payload_json, '$.vote_count') AS INTEGER) DESC,
+         CAST(json_extract(r.payload_json, '$.number') AS INTEGER) DESC
+       LIMIT 8`,
+    ).bind(conceptId).all<{ payload_json: string }>(),
+  ]);
+  const byStatus: Record<string, number> = {};
+  let totalCount = 0;
+  for (const row of statusResult.results || []) {
+    const status = String(row.status || "unknown");
+    const count = Number(row.count || 0);
+    byStatus[status] = count;
+    totalCount += count;
+  }
+  return {
+    schema: "rock-kb-concept-rock-ideas-v1",
+    total_count: totalCount,
+    by_status: byStatus,
+    highlights: (highlightResult.results || []).map((row) => compactRockIdea(JSON.parse(row.payload_json) as JsonRecord)),
+    trust_boundary: "Idea lifecycle metadata is a routing signal, not release or instance evidence.",
   };
 }
 
@@ -777,6 +931,110 @@ async function listRecipes(env: ServiceEnv, conceptId: string | null = null): Pr
       concept_ids: recipe.concept_ids || [],
       authority_tier: recipe.authority_tier || "community-unreviewed",
     })),
+  };
+}
+
+type RockIdeaListOptions = {
+  status: string | null;
+  category: string | null;
+  concept: string | null;
+  plannedVersion: string | null;
+  limit: number;
+  offset: number;
+};
+
+async function listRockIdeas(env: ServiceEnv, options: RockIdeaListOptions): Promise<JsonRecord> {
+  const clauses = ["r.kind = 'rock_idea'"];
+  const bindings: unknown[] = [];
+  if (options.status) {
+    const status = options.status.trim().toLowerCase().replace(/[ -]+/g, "_");
+    if (!["not_planned", "under_review", "started", "planned", "pending", "open", "complete"].includes(status)) {
+      throw new PublicRequestError(400, "invalid_status", "Unknown Rock Ideas status.");
+    }
+    clauses.push("json_extract(r.payload_json, '$.status') = ?");
+    bindings.push(status);
+  }
+  if (options.category) {
+    const category = options.category.trim();
+    if (!category || category.length > 80) throw new PublicRequestError(400, "invalid_category", "Invalid Rock Ideas category.");
+    clauses.push("lower(json_extract(r.payload_json, '$.category')) = lower(?)");
+    bindings.push(category);
+  }
+  if (options.concept) {
+    clauses.push("EXISTS (SELECT 1 FROM search_row_concepts c WHERE c.row_id = r.id AND c.concept = ?)");
+    bindings.push(options.concept);
+  }
+  if (options.plannedVersion) {
+    if (!/^\d+(?:\.\d+){0,2}$/.test(options.plannedVersion)) {
+      throw new PublicRequestError(400, "invalid_version", "Planned version must be numeric.");
+    }
+    clauses.push("json_extract(r.payload_json, '$.planned_version') = ?");
+    bindings.push(options.plannedVersion);
+  }
+  const result = await env.KB_DB.prepare(
+    `SELECT r.payload_json
+     FROM search_rows r
+     WHERE ${clauses.join(" AND ")}
+     ORDER BY CAST(json_extract(r.payload_json, '$.number') AS INTEGER) DESC
+     LIMIT ? OFFSET ?`,
+  ).bind(...bindings, options.limit, options.offset).all<{ payload_json: string }>();
+  const ideas = (result.results || []).map((row) => compactRockIdea(JSON.parse(row.payload_json) as JsonRecord));
+  return {
+    schema: "rock-kb-rock-idea-list-v1",
+    count: ideas.length,
+    offset: options.offset,
+    next_offset: ideas.length === options.limit ? options.offset + options.limit : null,
+    ideas,
+  };
+}
+
+async function getRockIdea(env: ServiceEnv, ideaRef: string): Promise<JsonRecord> {
+  const ideaId = normalizeRockIdeaId(ideaRef);
+  if (!ideaId) return { schema: "rock-kb-rock-idea-result-v1", status: "not_found", idea_ref: ideaRef };
+  const row = await env.KB_DB.prepare(
+    "SELECT payload_json FROM search_rows WHERE id = ? AND kind = 'rock_idea' LIMIT 1",
+  ).bind(ideaId).first<{ payload_json: string }>();
+  if (!row) return { schema: "rock-kb-rock-idea-result-v1", status: "not_found", idea_id: ideaId };
+  const relationships = await relatedContentEdges(env, ideaId);
+  return {
+    schema: "rock-kb-rock-idea-result-v1",
+    status: "ok",
+    idea_id: ideaId,
+    idea: JSON.parse(row.payload_json) as JsonRecord,
+    relationships,
+  };
+}
+
+function normalizeRockIdeaId(value: string): string {
+  let text = value.trim().replace(/\/$/, "");
+  try {
+    const url = new URL(text);
+    const match = url.pathname.match(/^\/ideas\/(\d+)(?:\/|$)/i);
+    if (match) text = match[1];
+  } catch {
+    // A numeric or canonical reference is expected for CLI and MCP callers.
+  }
+  text = text.replace(/^rock_idea:/i, "");
+  const match = text.match(/^(?:idea\s*)?#?(\d+)$/i);
+  return match && Number(match[1]) > 0 ? `rock_idea:${match[1]}` : "";
+}
+
+function compactRockIdea(idea: JsonRecord): JsonRecord {
+  return {
+    idea_id: idea.idea_id,
+    number: idea.number,
+    title: idea.title,
+    url: idea.url,
+    category: idea.category,
+    status: idea.status,
+    status_label: idea.status_label,
+    vote_count: idea.vote_count,
+    planned_version: idea.planned_version,
+    feature_size: idea.feature_size,
+    submitted_at: idea.submitted_at,
+    response_updated_at: idea.response_updated_at,
+    concept_ids: idea.concept_ids || [],
+    needs_live_verification: true,
   };
 }
 
@@ -851,13 +1109,31 @@ async function getRockIssue(env: ServiceEnv, issueRef: string): Promise<JsonReco
     .first<{ payload_json: string }>();
   if (!row) return { schema: "rock-kb-rock-issue-result-v1", status: "not_found", issue_id: issueId };
   const issue = JSON.parse(row.payload_json) as JsonRecord;
+  const canonicalIssueId = String(issue.issue_id || issueId);
+  const relationships = await relatedContentEdges(env, canonicalIssueId);
   return {
     schema: "rock-kb-rock-issue-result-v1",
     status: "ok",
     requested_issue_id: issueId,
     issue_id: issue.issue_id,
     issue,
+    relationships,
   };
+}
+
+async function relatedContentEdges(env: ServiceEnv, recordId: string): Promise<JsonRecord[]> {
+  const result = await env.KB_DB.prepare(
+    `SELECT source_id, target_id, payload_json
+     FROM related_content_edges
+     WHERE source_id = ? OR target_id = ?
+     ORDER BY relationship_type, relationship_id
+     LIMIT 50`,
+  ).bind(recordId, recordId).all<{ source_id: string; target_id: string; payload_json: string }>();
+  return (result.results || []).map((row) => ({
+    ...(JSON.parse(row.payload_json) as JsonRecord),
+    direction: row.source_id === recordId ? "outbound" : "inbound",
+    related_record_id: row.source_id === recordId ? row.target_id : row.source_id,
+  }));
 }
 
 function compactRockIssue(issue: JsonRecord): JsonRecord {
@@ -2221,6 +2497,45 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
       PRIMARY KEY(day, client_class, result_id_hash, rating, reason)
     )`
   ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS test_round_submissions_v1 (
+      day TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      automatic_status TEXT NOT NULL,
+      projection_matches_current INTEGER NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, projection_version, client_class, cohort, automatic_status, projection_matches_current)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS test_round_case_outcomes_v1 (
+      day TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      case_id TEXT NOT NULL,
+      category TEXT NOT NULL,
+      automatic_status TEXT NOT NULL,
+      outcome TEXT NOT NULL,
+      result_id TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, projection_version, client_class, cohort, case_id, automatic_status, outcome, result_id)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS hosted_evaluation_runs_v1 (
+      projection_version TEXT PRIMARY KEY,
+      evaluated_at TEXT NOT NULL,
+      status TEXT NOT NULL,
+      case_count INTEGER NOT NULL,
+      pass_count INTEGER NOT NULL,
+      fail_count INTEGER NOT NULL,
+      metrics_json TEXT NOT NULL,
+      client_version TEXT NOT NULL
+    )`
+  ).run();
 }
 
 async function submitFeedback(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
@@ -2246,6 +2561,122 @@ async function submitFeedback(request: Request, env: ServiceEnv, forcedClientCla
      DO UPDATE SET count = count + 1`
   ).bind(day, identity.clientClass, identity.cohort, result.id, result.kind, projectionVersion, rating, reason).run();
   return { schema: "rock-kb-feedback-result-v2", status: "recorded", result_id: result.id, projection_version: projectionVersion, rating, reason };
+}
+
+function publicTestRoundDefinition(projectionVersion: string): JsonRecord {
+  return {
+    schema: "rock-kb-community-test-round-definition-v1",
+    projection_version: projectionVersion,
+    outcomes: [...TEST_ROUND_REVIEW_OUTCOMES],
+    cases: [...TEST_ROUND_CASES].map(([caseId, category]) => ({ case_id: caseId, category })),
+    privacy: "Submit only the fixed outcome and public result ID for each case. Never submit queries, free text, logs, private Rock data, identities, screenshots, or internal URLs.",
+  };
+}
+
+async function submitTestRoundReview(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const identity = telemetryIdentity(request, forcedClientClass);
+  if (!DECLARED_TELEMETRY_COHORTS.has(identity.cohort)) {
+    throw new PublicRequestError(400, "cohort_required", "Test-round review submission requires the external-test or maintainer cohort");
+  }
+  const body = await readBoundedJson(request, TEST_ROUND_REVIEW_MAX_BYTES);
+  const review = await validateTestRoundReview(body, env);
+  await ensureTelemetryTables(env);
+  const day = new Date().toISOString().slice(0, 10);
+  const currentProjection = await currentVersion(env);
+  const projectionMatchesCurrent = review.projection_version === currentProjection ? 1 : 0;
+  await env.KB_DB.prepare(
+    `INSERT INTO test_round_submissions_v1 (
+       day, projection_version, client_class, cohort, automatic_status, projection_matches_current, count
+     ) VALUES (?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, projection_version, client_class, cohort, automatic_status, projection_matches_current)
+     DO UPDATE SET count = count + 1`
+  ).bind(day, review.projection_version, identity.clientClass, identity.cohort, review.automatic_status, projectionMatchesCurrent).run();
+  for (const testCase of review.cases) {
+    await env.KB_DB.prepare(
+      `INSERT INTO test_round_case_outcomes_v1 (
+         day, projection_version, client_class, cohort, case_id, category, automatic_status, outcome, result_id, count
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+       ON CONFLICT(day, projection_version, client_class, cohort, case_id, automatic_status, outcome, result_id)
+       DO UPDATE SET count = count + 1`
+    ).bind(
+      day,
+      review.projection_version,
+      identity.clientClass,
+      identity.cohort,
+      testCase.case_id,
+      testCase.category,
+      testCase.automatic_status,
+      testCase.outcome,
+      testCase.result_id,
+    ).run();
+  }
+  return {
+    schema: "rock-kb-community-test-round-review-result-v1",
+    status: "recorded",
+    projection_version: review.projection_version,
+    current_projection_version: currentProjection,
+    projection_matches_current: projectionMatchesCurrent === 1,
+    cohort: identity.cohort,
+    case_count: review.cases.length,
+  };
+}
+
+async function validateTestRoundReview(body: JsonRecord, env: ServiceEnv): Promise<{
+  projection_version: string;
+  automatic_status: string;
+  cases: Array<{ case_id: string; category: string; automatic_status: string; outcome: string; result_id: string }>;
+}> {
+  if (Object.keys(body).some((field) => !TEST_ROUND_REVIEW_FIELDS.has(field))) {
+    throw new PublicRequestError(400, "unsupported_fields", "Test-round reviews may contain only the documented structured fields");
+  }
+  if (body.schema !== "rock-kb-community-test-round-review-v1" || body.test_round_schema !== "rock-kb-community-test-round-v1") {
+    throw new PublicRequestError(400, "invalid_schema", "Unsupported test-round review schema");
+  }
+  const projectionVersion = typeof body.projection_version === "string" ? body.projection_version.trim() : "";
+  const automaticStatus = typeof body.automatic_status === "string" ? body.automatic_status.trim() : "";
+  if (!/^[0-9A-Za-z][0-9A-Za-z._-]{0,127}$/.test(projectionVersion) || !["ok", "fail"].includes(automaticStatus)) {
+    throw new PublicRequestError(400, "invalid_summary", "projection_version and automatic_status are invalid");
+  }
+  if (!Array.isArray(body.cases) || body.cases.length !== TEST_ROUND_CASES.size) {
+    throw new PublicRequestError(400, "incomplete_cases", "Every canonical test-round case must be reviewed exactly once");
+  }
+  const seen = new Set<string>();
+  const cases: Array<{ case_id: string; category: string; automatic_status: string; outcome: string; result_id: string }> = [];
+  for (const value of body.cases) {
+    if (!value || Array.isArray(value) || typeof value !== "object") {
+      throw new PublicRequestError(400, "invalid_case", "Each test-round case must be a structured object");
+    }
+    const testCase = value as JsonRecord;
+    if (Object.keys(testCase).some((field) => !TEST_ROUND_CASE_FIELDS.has(field))) {
+      throw new PublicRequestError(400, "unsupported_case_fields", "Test-round cases may contain only the documented structured fields");
+    }
+    const caseId = typeof testCase.case_id === "string" ? testCase.case_id : "";
+    const category = typeof testCase.category === "string" ? testCase.category : "";
+    const caseAutomaticStatus = typeof testCase.automatic_status === "string" ? testCase.automatic_status : "";
+    const outcome = typeof testCase.outcome === "string" ? testCase.outcome : "";
+    const resultId = testCase.result_id === null || testCase.result_id === undefined ? "" : typeof testCase.result_id === "string" ? testCase.result_id.trim() : "__invalid__";
+    if (!TEST_ROUND_CASES.has(caseId) || TEST_ROUND_CASES.get(caseId) !== category || seen.has(caseId)) {
+      throw new PublicRequestError(400, "invalid_case_identity", "Test-round case IDs and categories must match the canonical definition");
+    }
+    if (!["pass", "fail"].includes(caseAutomaticStatus) || !TEST_ROUND_REVIEW_OUTCOMES.has(outcome)) {
+      throw new PublicRequestError(400, "invalid_case_outcome", "Each case requires a pass or fail automatic status and a supported manual outcome");
+    }
+    if (category === "no_answer" && resultId) {
+      throw new PublicRequestError(400, "unexpected_result_id", "The no-answer case must not include a result ID");
+    }
+    if (resultId) {
+      if (resultId === "__invalid__" || !/^[A-Za-z0-9][A-Za-z0-9:._/-]{0,199}$/.test(resultId)) {
+        throw new PublicRequestError(400, "invalid_result_id", "Case result IDs must be public Rock KB identifiers");
+      }
+      const resolved = await resolveSearchRow(env, resultId);
+      if (!resolved) {
+        throw new PublicRequestError(400, "unknown_result_id", "A submitted case result ID was not found in the public projection");
+      }
+    }
+    seen.add(caseId);
+    cases.push({ case_id: caseId, category, automatic_status: caseAutomaticStatus, outcome, result_id: resultId });
+  }
+  return { projection_version: projectionVersion, automatic_status: automaticStatus, cases };
 }
 
 async function submitIssueReport(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
@@ -2553,7 +2984,7 @@ function queryTopicHint(query: string): string {
 }
 
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
-  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues] = await Promise.all([
+  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, testRounds, hostedEvaluation] = await Promise.all([
     artifactJsonlOptional(env, "agent/claim-review-queue.jsonl"),
     artifactJsonlOptional(env, "agent/source-conflicts.jsonl"),
     artifactJsonlOptional(env, "agent/section-status.jsonl"),
@@ -2562,18 +2993,102 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     communityContributionRows(env),
     issueReportDashboard(env),
     artifactJsonOptional(env, "agent/rock-issue-summary.json"),
+    testRoundDashboard(env),
+    hostedEvaluationSummary(env),
   ]);
+  const generatedEvaluation = summarizeEvaluationResults(evaluationResults);
   return {
-    schema: "rock-kb-operations-dashboard-v2",
+    schema: "rock-kb-operations-dashboard-v3",
     version: await currentVersion(env),
     review_queue: summarizeReviewQueue(reviewQueue),
     community_contributions: summarizeCommunityContributions(communityRows),
     source_conflicts: summarizeSourceConflicts(conflicts),
     section_status: summarizeSectionStatus(sectionStatus),
-    evaluation: summarizeEvaluationResults(evaluationResults),
+    evaluation: {
+      ...generatedEvaluation,
+      generated_projection: generatedEvaluation,
+      hosted_service: hostedEvaluation,
+    },
+    test_rounds: testRounds,
     telemetry,
     issue_reports: issueReports,
     rock_issues: rockIssues,
+  };
+}
+
+async function testRoundDashboard(env: ServiceEnv): Promise<JsonRecord> {
+  await ensureTelemetryTables(env);
+  const [submissions, outcomes] = await Promise.all([
+    env.KB_DB.prepare(
+      `SELECT day, projection_version, client_class, cohort, automatic_status, projection_matches_current, SUM(count) AS count
+       FROM test_round_submissions_v1
+       GROUP BY day, projection_version, client_class, cohort, automatic_status, projection_matches_current
+       ORDER BY day DESC, count DESC
+       LIMIT 100`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT case_id, category, automatic_status, outcome, result_id, SUM(count) AS count
+       FROM test_round_case_outcomes_v1
+       GROUP BY case_id, category, automatic_status, outcome, result_id
+       ORDER BY case_id, count DESC`
+    ).all<JsonRecord>(),
+  ]);
+  const submissionRows = submissions.results || [];
+  const outcomeRows = outcomes.results || [];
+  return {
+    schema: "rock-kb-community-test-round-dashboard-v1",
+    submission_count: submissionRows.reduce((total, row) => total + Number(row.count || 0), 0),
+    case_outcome_count: outcomeRows.reduce((total, row) => total + Number(row.count || 0), 0),
+    by_cohort: countWeightedValues(submissionRows, "cohort"),
+    by_automatic_status: countWeightedValues(submissionRows, "automatic_status"),
+    by_manual_outcome: countWeightedValues(outcomeRows, "outcome"),
+    cases: [...TEST_ROUND_CASES].map(([caseId, category]) => {
+      const rows = outcomeRows.filter((row) => row.case_id === caseId);
+      return {
+        case_id: caseId,
+        category,
+        outcome_count: rows.reduce((total, row) => total + Number(row.count || 0), 0),
+        by_manual_outcome: countWeightedValues(rows, "outcome"),
+        by_automatic_status: countWeightedValues(rows, "automatic_status"),
+        result_ids: countWeightedValues(rows.filter((row) => row.result_id), "result_id"),
+      };
+    }),
+    privacy: "Only fixed case outcomes, public result IDs, projection versions, client classes, and bounded cohort labels are aggregated. No free text, queries, identities, or private Rock data are stored.",
+  };
+}
+
+async function hostedEvaluationSummary(env: ServiceEnv): Promise<JsonRecord> {
+  await ensureTelemetryTables(env);
+  const row = await env.KB_DB.prepare(
+    `SELECT projection_version, evaluated_at, status, case_count, pass_count, fail_count, metrics_json, client_version
+     FROM hosted_evaluation_runs_v1
+     ORDER BY evaluated_at DESC
+     LIMIT 1`
+  ).first<JsonRecord>();
+  if (!row) {
+    return {
+      schema: "rock-kb-hosted-evaluation-summary-v1",
+      status: "not_recorded",
+      note: "Generated pending_service rows are local projections. The deployment workflow must run and persist the hosted service evaluation separately.",
+    };
+  }
+  let metrics: JsonRecord = {};
+  try {
+    metrics = JSON.parse(String(row.metrics_json || "{}")) as JsonRecord;
+  } catch {
+    metrics = { status: "invalid_metrics_json" };
+  }
+  return {
+    schema: "rock-kb-hosted-evaluation-summary-v1",
+    status: row.status || "unknown",
+    projection_version: row.projection_version || "",
+    evaluated_at: row.evaluated_at || "",
+    case_count: Number(row.case_count || 0),
+    pass_count: Number(row.pass_count || 0),
+    fail_count: Number(row.fail_count || 0),
+    metrics,
+    client_version: row.client_version || "unknown",
+    current_projection: row.projection_version === await currentVersion(env),
   };
 }
 
@@ -2727,6 +3242,15 @@ function countByField(rows: JsonRecord[], field: string): JsonRecord {
   return countValues(rows.map((row) => String(row[field] || "unknown")));
 }
 
+function countWeightedValues(rows: JsonRecord[], field: string): JsonRecord {
+  const counts: Record<string, number> = {};
+  for (const row of rows) {
+    const value = String(row[field] || "unknown");
+    counts[value] = (counts[value] || 0) + Number(row.count || 0);
+  }
+  return Object.fromEntries(Object.entries(counts).sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])));
+}
+
 function countByListField(rows: JsonRecord[], field: string): JsonRecord {
   const values = rows.flatMap((row) => Array.isArray(row[field]) ? (row[field] as unknown[]).map((value) => String(value || "unknown")) : ["unknown"]);
   return countValues(values);
@@ -2877,6 +3401,11 @@ const ROCK_ISSUE_QUERY_INTENT_TERMS = new Set([
   "version",
 ]);
 
+const ROCK_IDEA_QUERY_INTENT_TERMS = new Set([
+  "idea",
+  "roadmap",
+]);
+
 function buildFtsQuery(query: string): string {
   return searchTerms(query).map((term) => `${term}*`).slice(0, 12).join(" OR ");
 }
@@ -2929,6 +3458,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   const modelMapExactBoost = exactModelMapBoost(row, query);
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
   const rockIssueLookupBoost = rockIssueRetrievalBoost(row, queryTerms, query);
+  const rockIdeaLookupBoost = rockIdeaRetrievalBoost(row, queryTerms, query);
   const conceptIntent = conceptIntentBoost(row, queryTerms, query);
   const routeIntent = concepts.includes(queryTopicHint(query)) ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
@@ -2936,7 +3466,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
   // FTS5 negates BM25 so stronger matches have numerically lower values.
   const bm25Relevance = Math.min(Math.max(-Number(row.rank || 0), 0), 60);
-  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
+  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
   return {
     score,
     title_overlap: titleOverlap,
@@ -2946,7 +3476,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
     lexical_coverage: Number(lexicalCoverage.toFixed(4)),
     lexical_coverage_boost: lexicalCoverageBoost,
     phrase_boost: conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost,
-    exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + conceptIntent + routeIntent,
+    exact_lookup_boost: modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + conceptIntent + routeIntent,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
     bm25_relevance: bm25Relevance,
@@ -2963,6 +3493,9 @@ function kindIntentBoost(row: SearchRow, queryTerms: string[]): number {
   if (row.kind === "rock_issue") {
     return queryTerms.some((term) => ROCK_ISSUE_QUERY_INTENT_TERMS.has(term)) ? 28 : -20;
   }
+  if (row.kind === "rock_idea") {
+    return hasRockIdeaQueryIntent(queryTerms, queryTerms.join(" ")) ? 28 : -30;
+  }
   if (row.kind === "answer") return 14;
   if (row.kind === "concept") return 10;
   if (row.kind === "claim") return 6;
@@ -2973,6 +3506,33 @@ function hasRockIssueQueryIntent(queryTerms: string[], query: string): boolean {
   return queryTerms.some((term) => ROCK_ISSUE_QUERY_INTENT_TERMS.has(term))
     || /(?:^|\s)#\d+\b/.test(query)
     || /github\.com\/SparkDevNetwork\/(?:Rock|Rock\.Mobile-Issues)\/issues\/\d+/i.test(query);
+}
+
+function hasRockIdeaQueryIntent(queryTerms: string[], query: string): boolean {
+  const terms = new Set(queryTerms);
+  return queryTerms.some((term) => ROCK_IDEA_QUERY_INTENT_TERMS.has(term))
+    || (terms.has("feature") && terms.has("request"))
+    || /\b(?:not planned|under review|feature request)\b/i.test(query)
+    || /(?:community\.rockrms\.com\/ideas\/|rock_idea:|\bidea\s*#?)\d+/i.test(query);
+}
+
+function extractRockIdeaIdFromQuery(query: string): string {
+  const url = query.match(/community\.rockrms\.com\/ideas\/(\d+)(?:\/|\b)/i);
+  if (url) return normalizeRockIdeaId(url[1]);
+  const canonical = query.match(/\brock_idea:(\d+)\b/i);
+  if (canonical) return normalizeRockIdeaId(canonical[1]);
+  const named = query.match(/\bidea\s*#?\s*(\d+)\b/i);
+  if (named) return normalizeRockIdeaId(named[1]);
+  const bare = query.trim().match(/^\d+$/);
+  return bare ? normalizeRockIdeaId(bare[0]) : "";
+}
+
+function rockIdeaRetrievalBoost(row: SearchRow, queryTerms: string[], query: string): number {
+  if (row.kind !== "rock_idea") return 0;
+  const payload = parsePayload(row);
+  const requestedId = extractRockIdeaIdFromQuery(query);
+  if (requestedId && String(payload.idea_id || row.id) === requestedId) return 1200;
+  return hasRockIdeaQueryIntent(queryTerms, query) ? 20 : -40;
 }
 
 function extractRockIssueIdFromQuery(query: string): string {
@@ -3280,15 +3840,20 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_recipe", description: "Return one exact recipe with its pinned source, adaptation points, security, compatibility, validation, and reusable learnings.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" } }, required: ["recipe_id"] } },
     { name: "kb_verify_recipe", description: "Verify a recipe's immutable source hashes and optional target Rock version without executing its code.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" }, rock_version: { type: "string" } }, required: ["recipe_id"] } },
     { name: "kb_search_rock_issues", description: "Search public Rock core and mobile issue routing metadata. Issue reports are leads, not proof of local applicability or cause.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 } }, required: ["query"] } },
+    { name: "kb_search_rock_ideas", description: "Search Rock Community Ideas metadata for explicit feature-gap and roadmap questions. An idea status is not proof of released behavior.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 } }, required: ["query"] } },
+    { name: "kb_list_rock_ideas", description: "List Rock Community Ideas metadata by lifecycle status, category, concept, or planned-version label.", inputSchema: { type: "object", additionalProperties: false, properties: { status: { type: "string", enum: ["not_planned", "under_review", "started", "planned", "pending", "open", "complete"] }, category: { type: "string" }, concept: { type: "string" }, planned_version: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 100 }, offset: { type: "integer", minimum: 0 } } } },
+    { name: "kb_get_rock_idea", description: "Get one exact Rock Community idea metadata row plus bounded typed relationships by number, canonical ID, or public URL. A reference edge is not implementation proof; corroborate lifecycle labels before making product claims.", inputSchema: { type: "object", additionalProperties: false, properties: { idea: { type: "string" } }, required: ["idea"] } },
     { name: "kb_list_rock_issues", description: "List Rock issues by repository, state, concept, or reported/fix version evidence.", inputSchema: { type: "object", additionalProperties: false, properties: { repository: { type: "string", enum: ["core", "mobile", "SparkDevNetwork/Rock", "SparkDevNetwork/Rock.Mobile-Issues"] }, state: { type: "string", enum: ["open", "closed"] }, concept: { type: "string" }, version: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 100 }, offset: { type: "integer", minimum: 0 } } } },
-    { name: "kb_get_rock_issue", description: "Get one exact Rock issue record by GitHub URL, canonical ID, core number, or mobile:number.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" } }, required: ["issue"] } },
+    { name: "kb_get_rock_issue", description: "Get one exact Rock issue record plus bounded inbound Idea relationships by GitHub URL, canonical ID, core number, or mobile:number.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" } }, required: ["issue"] } },
     { name: "kb_assess_rock_issues", description: "Conservatively route Rock issues against a bounded instance profile containing only versions, platforms, concepts, and capabilities. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } } } }, limit: { type: "integer", minimum: 1, maximum: 500 }, offset: { type: "integer", minimum: 0, maximum: 100000 } }, required: ["profile"] } },
     { name: "kb_plan_rock_issue_investigation", description: "Return a typed read-only orchestrator-worker plan for investigating one issue. It never posts to GitHub; private instance work remains a separate overlay.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" }, include_private_instance: { type: "boolean" } }, required: ["issue"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
-    { name: "kb_get_concept", description: "Return one concept package.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
+    { name: "kb_get_concept", description: "Return one concept package, including bounded Rock Ideas lifecycle counts and highlights for roadmap context.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_get_test_round", description: "Return the nine canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
+    { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 9, maxItems: 9, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
     { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }

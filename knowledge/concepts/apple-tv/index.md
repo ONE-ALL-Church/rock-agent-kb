@@ -2,7 +2,7 @@
 id: concept-apple-tv
 title: Apple TV Apps
 generated: true
-last_built: 2026-07-17T16:19:27+00:00
+last_built: 2026-07-18T02:04:03+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

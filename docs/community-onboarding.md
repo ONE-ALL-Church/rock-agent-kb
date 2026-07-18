@@ -89,6 +89,7 @@ uvx rock-kb model group
 uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
+uvx rock-kb ideas search "workflow feature request"
 uvx rock-kb test-round
 uvx rock-kb dashboard
 ```
@@ -116,7 +117,15 @@ export ROCK_KB_URL=https://your-rock-kb-service.example.org
 
 Run `uvx rock-kb test-round` after installation and after meaningful KB
 releases. It performs nine bounded public checks and prints a JSON report with
-automatic pass/fail evidence plus one manual usefulness question per case.
+automatic pass/fail evidence. To record a complete fixed-vocabulary manual
+review without sending free text, queries, or private data, use:
+
+```bash
+ROCK_KB_COHORT=external-test uvx rock-kb test-round --review --submit
+```
+
+The command asks for one of `useful`, `incorrect`, `incomplete`, `unclear`, or
+`unsure` for every case.
 Three cases cover imported Rock issues: a reviewed core-issue enrichment, an
 official mobile fixed-release link, and conservative version applicability.
 

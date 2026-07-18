@@ -135,7 +135,61 @@ def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypa
     assert report["case_count"] == 9
     assert report["imported_issue_case_count"] == 3
     assert report["manual_review_required"] is True
+    assert report["projection_version"] == "projection-v1"
     assert all(row["status"] == "pass" for row in report["cases"])
+
+
+def test_client_test_round_submits_complete_bounded_review(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    from rock_kb_client.cohort_test import CASE_DEFINITIONS
+
+    cases = [
+        {
+            "case_id": case_id,
+            "category": category,
+            "status": "pass",
+            "manual_review_prompt": "Review this bounded case.",
+            "result_ids": [] if category in {"service", "no_answer"} else ["claim:claim:abc123"],
+        }
+        for case_id, category in CASE_DEFINITIONS
+    ]
+    report = {
+        "schema": "rock-kb-community-test-round-v1",
+        "projection_version": "projection-v1",
+        "status": "ok",
+        "cases": cases,
+    }
+    review_path = tmp_path / "review.json"
+    review_path.write_text(json.dumps({"outcomes": {case_id: "useful" for case_id, _ in CASE_DEFINITIONS}}), encoding="utf-8")
+    calls = []
+
+    monkeypatch.setattr(cli, "run_cohort_test", lambda **_kwargs: report)
+    monkeypatch.setattr(
+        cli,
+        "post_json",
+        lambda url, payload, token="": calls.append((url, payload)) or {"status": "recorded", "case_count": 9},
+    )
+
+    exit_code = cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "--cohort",
+            "external-test",
+            "test-round",
+            "--review-file",
+            str(review_path),
+            "--submit",
+        ]
+    )
+    payload = json.loads(capsys.readouterr().out)
+
+    assert exit_code == 0
+    assert calls[0][0] == "https://example.test/test-rounds/review"
+    assert calls[0][1]["schema"] == "rock-kb-community-test-round-review-v1"
+    assert len(calls[0][1]["cases"]) == 9
+    assert all(set(row) == {"case_id", "category", "automatic_status", "outcome", "result_id"} for row in calls[0][1]["cases"])
+    assert payload["submission"]["status"] == "recorded"
 
 
 def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
@@ -644,6 +698,37 @@ def test_client_rock_issue_commands_use_dedicated_read_only_endpoints(monkeypatc
             "https://example.test/rock-issues/assess",
             {"profile": {"core_version": "19.2.0", "concepts": ["hosting-infrastructure"]}, "limit": 25},
         )
+    ]
+
+
+def test_client_rock_idea_commands_use_dedicated_metadata_endpoints(monkeypatch):
+    cli = load_client_cli()
+    gets: list[str] = []
+    monkeypatch.setattr(cli, "get_json", lambda url: gets.append(url) or {"status": "ok"})
+
+    assert cli.main(["--url", "https://example.test", "idea", "2250"]) == 0
+    assert cli.main(["--url", "https://example.test", "ideas", "search", "event duration feature request", "--limit", "4"]) == 0
+    assert cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "ideas",
+            "list",
+            "--status",
+            "complete",
+            "--category",
+            "Event",
+            "--concept",
+            "event-registration",
+            "--planned-version",
+            "20.0",
+        ]
+    ) == 0
+
+    assert gets == [
+        "https://example.test/rock-ideas/2250",
+        "https://example.test/rock-ideas/search?q=event%20duration%20feature%20request&limit=4",
+        "https://example.test/rock-ideas?limit=50&offset=0&status=complete&category=Event&concept=event-registration&planned_version=20.0",
     ]
 
 

@@ -10,6 +10,7 @@ This directory contains generated public files for AI agents:
 - `live-inspection-checklists.jsonl` and `live-probe-recipes.jsonl` - generic read-only verification patterns for local Rock instances.
 - `recipes.jsonl` and `recipe-summary.json` - reusable community implementation patterns with immutable code pins, adaptation points, security, compatibility, and validation guidance.
 - `rock-issues.jsonl`, `rock-issue-enrichments.jsonl`, and `rock-issue-summary.json` - public-safe Rock core and mobile issue routing metadata, typed version evidence, timeline coverage, official release-note links, and separately reviewed public conclusions. The upstream issue row remains a lead, not an approved product claim.
+- `rock-ideas.jsonl`, `rock-idea-relationships.jsonl`, and `rock-idea-summary.json` - bounded Rock Community Ideas feature-gap and roadmap metadata plus typed, evidence-backed concept, model, issue, documentation, and release-note links. Idea statuses remain routing signals, not approved product claims or release proof.
 - `source-summaries.jsonl`, `source-citations.jsonl`, and `source-summary-report.json` - source coverage and citation metadata.
 - `distilled-claims.jsonl`, `source-authority-rules.jsonl`, and `claims/approved-claims.jsonl` - public distilled claim data and authority rules.
 - `llms.txt` - AI-readable source and repo map.
@@ -19,6 +20,6 @@ Review queues, conflict reports, evaluation sets, and private media indexes are 
 Maintainers rebuild with:
 
 ```bash
-uv run kb build-agent-pack
+uv run kb build --stage agent-pack --force
 uv run kb public-export
 ```

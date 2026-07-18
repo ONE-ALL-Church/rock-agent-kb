@@ -10,6 +10,7 @@ from . import (
     corpus_cmds,
     extract_cmds,
     issues_cmds,
+    ideas_cmds,
     lava_cmds,
     media_cmds,
     modelmap_cmds,
@@ -28,6 +29,7 @@ workflow_cmds.register(app)
 app.add_typer(sources_cmds.app, name="sources")
 app.add_typer(extract_cmds.app, name="extract")
 app.add_typer(issues_cmds.app, name="issues")
+app.add_typer(ideas_cmds.app, name="ideas")
 app.add_typer(lava_cmds.app, name="lava")
 app.add_typer(media_cmds.app, name="media")
 app.add_typer(claims_cmds.app, name="claims")

@@ -12,6 +12,7 @@ from .jsonl import read_jsonl, write_jsonl
 from .lava_capabilities import build_lava_capability_reference
 from .lava_contexts import build_lava_context_reference
 from .paths import AGENT_DIR, INDEX_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR, SOURCES_DIR
+from .rock_ideas import build_rock_idea_artifacts_from_normalized
 from .sources import load_sources
 
 
@@ -171,6 +172,9 @@ def build_agent_pack() -> dict[str, int]:
         "- [Reviewed Rock issue enrichments](rock-issue-enrichments.jsonl)",
         "- [Rock issue summary](rock-issue-summary.json)",
         "- [Rock issue agent guide](../knowledge/issues/index.md)",
+        "- [Rock Ideas metadata catalog](rock-ideas.jsonl)",
+        "- [Rock Ideas metadata summary](rock-idea-summary.json)",
+        "- [Rock Ideas agent guide](../knowledge/ideas/index.md)",
         "",
         "## Sources",
         "",
@@ -236,6 +240,7 @@ def build_agent_pack() -> dict[str, int]:
     counts.update({f"model_map_{key}": value for key, value in build_or_reuse_model_map().items()})
     counts.update(build_lava_capability_reference(records))
     counts.update(build_lava_context_reference())
+    counts.update(build_rock_idea_artifacts_from_normalized())
     from .concepts import refresh_long_form_model_map_pointers
 
     model_map_pointer_result = refresh_long_form_model_map_pointers()
@@ -317,6 +322,8 @@ def public_agent_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def is_public_agent_record(record: dict[str, Any]) -> bool:
+    if record.get("source_kind") == "rock_ideas" and record.get("routing_metadata_only"):
+        return False
     if record.get("derived_from_private_transcript") and not is_reviewed_for_public_agent_pack(record):
         return False
     if record.get("private_storage") and record.get("needs_review"):

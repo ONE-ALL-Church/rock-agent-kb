@@ -283,6 +283,8 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     assert.equal(get.issue.body, undefined);
     assert.equal(get.issue.version_evidence[0].normalized_version, "19.2.0");
     assert.equal(get.issue.reviewed_enrichments.length, 2);
+    assert.equal(get.relationships[0].source_id, "rock_idea:2250");
+    assert.equal(get.relationships[0].direction, "inbound");
 
     const aliasResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/6000");
     const alias = await aliasResponse.json();
@@ -344,6 +346,63 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     const plan = JSON.parse(planCall.result.content[0].text);
     assert.equal(plan.admission.github_write_enabled, false);
     assert.equal(plan.tasks.find((task) => task.role === "instance_investigator").visibility, "private_only");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("Rock Ideas are explicit-intent routing metadata across REST, search, and MCP", async () => {
+  const mf = await buildWorker();
+  try {
+    const ordinaryResponse = await mf.dispatchFetch("https://kb.example.test/search?q=event%20duration%20days&limit=5");
+    const ordinary = await ordinaryResponse.json();
+    assert.equal(ordinary.results.some((row) => row.kind === "rock_idea"), false);
+
+    const searchResponse = await mf.dispatchFetch("https://kb.example.test/rock-ideas/search?q=event%20duration%20feature%20request&limit=5");
+    const search = await searchResponse.json();
+    assert.equal(search.results[0].id, "rock_idea:2250");
+    assert.equal(search.results[0].claim_tier, "routing_context_only");
+
+    const genericIntentResponse = await mf.dispatchFetch("https://kb.example.test/search?q=event%20duration%20feature%20request&limit=5");
+    const genericIntent = await genericIntentResponse.json();
+    assert.equal(genericIntent.results.some((row) => row.id === "rock_idea:2250"), true);
+
+    const exactIntentResponse = await mf.dispatchFetch("https://kb.example.test/search?q=What%20is%20the%20status%20of%20Rock%20Community%20idea%202250%3F&limit=5");
+    const exactIntent = await exactIntentResponse.json();
+    assert.equal(exactIntent.results[0].id, "rock_idea:2250");
+
+    const listResponse = await mf.dispatchFetch("https://kb.example.test/rock-ideas?status=complete&concept=event-registration&planned_version=20.0");
+    const list = await listResponse.json();
+    assert.equal(list.count, 1);
+    assert.equal(list.ideas[0].idea_id, "rock_idea:2250");
+
+    const getResponse = await mf.dispatchFetch("https://kb.example.test/rock-ideas/2250");
+    const get = await getResponse.json();
+    assert.equal(get.status, "ok");
+    assert.equal(get.idea.needs_live_verification, true);
+    assert.equal(get.idea.description, undefined);
+    assert.equal(get.idea.author, undefined);
+    assert.equal(get.relationships[0].target_id, "rock_issue:SparkDevNetwork/Rock#6919");
+    assert.equal(get.relationships[0].direction, "outbound");
+
+    const tools = await mcp(mf, "tools/list", {});
+    const names = tools.result.tools.map((tool) => tool.name);
+    assert.equal(names.includes("kb_search_rock_ideas"), true);
+    assert.equal(names.includes("kb_list_rock_ideas"), true);
+    assert.equal(names.includes("kb_get_rock_idea"), true);
+
+    const call = await mcp(mf, "tools/call", { name: "kb_get_rock_idea", arguments: { idea: "2250" } });
+    const toolResult = JSON.parse(call.result.content[0].text);
+    assert.equal(toolResult.idea_id, "rock_idea:2250");
+
+    const conceptCall = await mcp(mf, "tools/call", {
+      name: "kb_get_concept",
+      arguments: { concept_id: "event-registration" },
+    });
+    const concept = JSON.parse(conceptCall.result.content[0].text);
+    assert.equal(concept.rock_ideas.total_count, 1);
+    assert.equal(concept.rock_ideas.by_status.complete, 1);
+    assert.equal(concept.rock_ideas.highlights[0].idea_id, "rock_idea:2250");
   } finally {
     await mf.dispose();
   }
@@ -535,6 +594,100 @@ test("telemetry separates evaluation traffic and records structured feedback wit
   }
 });
 
+test("community test rounds require a cohort and aggregate all fixed case outcomes", async () => {
+  const mf = await buildWorker();
+  try {
+    const categories = new Map([
+      ["service-health", "service"],
+      ["exact-group-model", "exact_lookup"],
+      ["check-in-lava-context", "lava_context"],
+      ["reviewed-recipe", "recipe"],
+      ["check-in-troubleshooting", "semantic_search"],
+      ["core-issue-trust", "imported_issue"],
+      ["mobile-issue-release-evidence", "imported_issue"],
+      ["issue-version-assessment", "imported_issue"],
+      ["no-answer-boundary", "no_answer"],
+    ]);
+    const review = {
+      schema: "rock-kb-community-test-round-review-v1",
+      test_round_schema: "rock-kb-community-test-round-v1",
+      projection_version: "test-version",
+      automatic_status: "ok",
+      cases: [...categories].map(([case_id, category]) => ({
+        case_id,
+        category,
+        automatic_status: "pass",
+        outcome: case_id === "no-answer-boundary" ? "unsure" : "useful",
+        result_id: ["service", "no_answer"].includes(category) ? null : "claim:claim:abc123",
+      })),
+    };
+    const unattributed = await mf.dispatchFetch("https://kb.example.test/test-rounds/review", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-rock-kb-client": "cli" },
+      body: JSON.stringify(review),
+    });
+    assert.equal(unattributed.status, 400);
+    assert.equal((await unattributed.json()).error_code, "cohort_required");
+
+    const recorded = await mf.dispatchFetch("https://kb.example.test/test-rounds/review", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-rock-kb-client": "cli", "x-rock-kb-cohort": "external-test" },
+      body: JSON.stringify(review),
+    });
+    assert.equal(recorded.status, 201);
+    const result = await recorded.json();
+    assert.equal(result.status, "recorded");
+    assert.equal(result.case_count, 9);
+    assert.equal(result.projection_matches_current, true);
+
+    const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(dashboard.test_rounds.submission_count, 1);
+    assert.equal(dashboard.test_rounds.case_outcome_count, 9);
+    assert.equal(dashboard.test_rounds.by_manual_outcome.useful, 8);
+    assert.equal(dashboard.test_rounds.by_manual_outcome.unsure, 1);
+    assert.equal(JSON.stringify(dashboard.test_rounds).includes("Review this"), false);
+
+    const mcpDefinition = await mcp(mf, "tools/call", { name: "kb_get_test_round", arguments: {} });
+    const definition = JSON.parse(mcpDefinition.result.content[0].text);
+    assert.equal(definition.cases.length, 9);
+    assert.deepEqual(definition.outcomes, ["useful", "incorrect", "incomplete", "unclear", "unsure"]);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("operations dashboard separates generated evaluation rows from the latest hosted run", async () => {
+  const mf = await buildWorker();
+  try {
+    await mf.dispatchFetch("https://kb.example.test/operations/dashboard");
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(
+      `INSERT INTO hosted_evaluation_runs_v1
+       (projection_version, evaluated_at, status, case_count, pass_count, fail_count, metrics_json, client_version)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).bind(
+      "test-version",
+      "2026-07-17T20:00:00Z",
+      "ok",
+      151,
+      151,
+      0,
+      JSON.stringify({ mean_reciprocal_rank: 0.993377, recall_at_target_rank: 1, duplicate_result_rate: 0 }),
+      "workflow-v1",
+    ).run();
+
+    const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v3");
+    assert.equal(dashboard.evaluation.generated_projection.row_count, dashboard.evaluation.row_count);
+    assert.equal(dashboard.evaluation.hosted_service.status, "ok");
+    assert.equal(dashboard.evaluation.hosted_service.case_count, 151);
+    assert.equal(dashboard.evaluation.hosted_service.current_projection, true);
+    assert.equal(dashboard.evaluation.hosted_service.metrics.mean_reciprocal_rank, 0.993377);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("structured issue reports capture context, deduplicate, and remain pending review", async () => {
   const mf = await buildWorker();
   try {
@@ -587,7 +740,7 @@ test("structured issue reports capture context, deduplicate, and remain pending 
 
     const dashboardResponse = await mf.dispatchFetch("https://kb.example.test/operations/dashboard");
     const dashboard = await dashboardResponse.json();
-    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v2");
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v3");
     assert.equal(dashboard.issue_reports.schema, "rock-kb-issue-review-dashboard-v1");
     assert.equal(dashboard.issue_reports.unique_report_count, 1);
     assert.equal(dashboard.issue_reports.total_occurrences, 2);
@@ -804,6 +957,18 @@ async function buildWorker(options = {}) {
     )`).run();
     await db.prepare("CREATE TABLE search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept))").run();
     await db.prepare("CREATE TABLE search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL)").run();
+    await db.prepare(`CREATE TABLE related_content_edges (
+      relationship_id TEXT PRIMARY KEY,
+      source_id TEXT NOT NULL,
+      target_id TEXT,
+      target_url TEXT,
+      target_kind TEXT NOT NULL,
+      relationship_type TEXT NOT NULL,
+      authority_tier TEXT NOT NULL,
+      confidence TEXT NOT NULL,
+      review_state TEXT NOT NULL,
+      payload_json TEXT NOT NULL
+    )`).run();
     await db.prepare("CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept)").run();
     await db.prepare(`CREATE TABLE rock_issues (
       issue_id TEXT PRIMARY KEY,
@@ -969,9 +1134,16 @@ async function buildWorker(options = {}) {
         files: [{ path: "README.md", sha256: RECIPE_FIXTURE_SHA }],
       },
     };
-    const shard = crypto.createHash("sha256").update(recipePath).digest("hex").slice(0, 2);
     const artifactPrefix = options.artifactPrefix || "versions/test-version";
-    await bucket.put(`${artifactPrefix}/artifact-shards/${shard}.json`, JSON.stringify({ artifacts: { [recipePath]: `${JSON.stringify(recipe)}\n` } }));
+    await putArtifactSet(bucket, artifactPrefix, {
+      [recipePath]: `${JSON.stringify(recipe)}\n`,
+      "agent/concept-index.jsonl": `${JSON.stringify({ concept_id: "event-registration", title: "Event Registration" })}\n`,
+      "knowledge/concepts/event-registration/quickstart.md": "# Event Registration\n",
+      "knowledge/concepts/event-registration/index.md": "# Event Registration\n",
+      "agent/answer-pack.jsonl": "",
+      "agent/concept-task-cards.jsonl": "",
+      "agent/concept-release-caveats.jsonl": "",
+    });
     const recipeSearchRow = {
       id: "recipe:oneall:check-in-status-dashboard",
       kind: "recipe",
@@ -1097,10 +1269,92 @@ async function buildWorker(options = {}) {
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(rockIssueSearchRow)).run();
     await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
       .bind(rockIssueSearchRow.id, rockIssueSearchRow.title, rockIssueSearchRow.body, rockIssueSearchRow.concept).run();
+    const rockIdea = {
+      schema: "rock-kb-rock-idea-v1",
+      idea_id: "rock_idea:2250",
+      number: 2250,
+      title: "Add days to event duration",
+      url: "https://community.rockrms.com/ideas/2250/add-days-to-event-duration",
+      category: "Event",
+      status: "complete",
+      status_label: "Complete",
+      vote_count: 7,
+      planned_version: "20.0",
+      feature_size: "Small",
+      concept_ids: ["event-registration"],
+      authority_tier: "community-unreviewed",
+      claim_tier: "routing_context_only",
+      needs_live_verification: true,
+    };
+    const rockIdeaSearchRow = {
+      id: rockIdea.idea_id,
+      kind: "rock_idea",
+      title: rockIdea.title,
+      body: "Add days event duration idea 2250 Event Complete 20.0 feature request roadmap",
+      path: "agent/rock-ideas.jsonl",
+      url: rockIdea.url,
+      concept: "event-registration",
+      authority_tier: "community-unreviewed",
+      claim_tier: "routing_context_only",
+      claim_tier_rank: 0,
+      source_id: "rock_ideas",
+      payload_json: JSON.stringify(rockIdea),
+    };
+    await db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(rockIdeaSearchRow)).run();
+    await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+      .bind(rockIdeaSearchRow.id, rockIdeaSearchRow.title, rockIdeaSearchRow.body, rockIdeaSearchRow.concept).run();
+    await db.prepare("INSERT INTO search_row_concepts (row_id, concept) VALUES (?, ?)")
+      .bind(rockIdeaSearchRow.id, "event-registration").run();
+    const ideaIssueRelationship = {
+      schema: "rock-kb-rock-idea-relationship-v1",
+      relationship_id: "rock_idea_relationship:fixture",
+      source_id: rockIdea.idea_id,
+      target_id: rockIssue.issue_id,
+      target_url: rockIssue.url,
+      target_kind: "rock_issue",
+      relationship_type: "references_issue",
+      basis: "explicit_staff_response_link",
+      signal: "github_issue",
+      evidence_url: rockIdea.url,
+      authority_tier: "community-unreviewed",
+      confidence: "high",
+      review_state: "source_observed",
+      needs_live_verification: true,
+    };
+    await db.prepare("INSERT INTO related_content_edges VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(
+        ideaIssueRelationship.relationship_id,
+        ideaIssueRelationship.source_id,
+        ideaIssueRelationship.target_id,
+        ideaIssueRelationship.target_url,
+        ideaIssueRelationship.target_kind,
+        ideaIssueRelationship.relationship_type,
+        ideaIssueRelationship.authority_tier,
+        ideaIssueRelationship.confidence,
+        ideaIssueRelationship.review_state,
+        JSON.stringify(ideaIssueRelationship),
+      ).run();
     return mf;
   } catch (error) {
     await mf.dispose();
     throw error;
+  }
+}
+
+async function putArtifactSet(bucket, artifactPrefix, artifacts) {
+  const grouped = new Map();
+  for (const [artifactPath, value] of Object.entries(artifacts)) {
+    const shard = crypto.createHash("sha256").update(artifactPath).digest("hex").slice(0, 2);
+    if (!grouped.has(shard)) grouped.set(shard, {});
+    grouped.get(shard)[artifactPath] = value;
+  }
+  for (const [shard, shardArtifacts] of grouped.entries()) {
+    await bucket.put(
+      `${artifactPrefix}/artifact-shards/${shard}.json`,
+      JSON.stringify({ artifacts: shardArtifacts }),
+    );
   }
 }
 

@@ -78,6 +78,14 @@ local issue-assessment baseline with `uvx rock-kb issues watch
 instance-profile.json` and report changes on later runs. This is a separate surface from KB
 malfunction reporting. See the [Rock Issue Intelligence Runbook](docs/runbooks/rock-issue-intelligence.md).
 
+For explicit feature-gap and roadmap research, agents can search the bounded
+Rock Community Ideas metadata catalog with `uvx rock-kb ideas search "<feature
+request>"` or the dedicated MCP tools. Ideas remain unreviewed routing signals;
+even a `Complete` label must be corroborated with documentation, release notes,
+source, or live verification. Exact Idea and Issue retrieval can expose
+evidence-backed typed links among Ideas, concepts, model maps, official release
+records, and explicitly referenced issues. See the [Rock Ideas Intelligence Runbook](docs/runbooks/rock-ideas-intelligence.md).
+
 Churches can run `uvx rock-kb test-round` for the standard bounded public test
 pack. It includes exact retrieval, a no-answer boundary, and three imported
 issue checks. Imported reports remain unreviewed routing evidence unless a
@@ -140,6 +148,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full public-safety rules.
 - `kb report ...` - refresh reports and maintainer dashboards; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb tools ...` - developer utility commands; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb issues ...` - refresh, validate, inspect, assess, and plan investigations for public Rock issue metadata.
+- `kb ideas ...` - refresh, validate, inspect, and route public Rock Ideas lifecycle metadata.
 
 ## Where To Go Next
 

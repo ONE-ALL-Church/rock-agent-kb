@@ -1378,6 +1378,9 @@ def build_agent_manifest() -> dict[str, Any]:
             "rock_issue_summary": "agent/rock-issue-summary.json",
             "rock_issue_directory": "knowledge/issues/index.md",
             "rock_issue_investigation_prompt": "docs/prompts/rock-issue-investigation-v1.md",
+            "rock_ideas": "agent/rock-ideas.jsonl",
+            "rock_idea_summary": "agent/rock-idea-summary.json",
+            "rock_idea_directory": "knowledge/ideas/index.md",
             "approved_claims": "claims/approved-claims.jsonl",
             "answer_pack": "agent/answer-pack.jsonl",
             "live_checklists": "agent/live-inspection-checklists.jsonl",
@@ -1403,6 +1406,7 @@ def build_agent_manifest() -> dict[str, Any]:
         "release_caveat_count": count_jsonl(AGENT_DIR / "concept-release-caveats.jsonl"),
         "rock_issue_count": count_jsonl(AGENT_DIR / "rock-issues.jsonl"),
         "rock_issue_enrichment_count": count_jsonl(AGENT_DIR / "rock-issue-enrichments.jsonl"),
+        "rock_idea_count": count_jsonl(AGENT_DIR / "rock-ideas.jsonl"),
 }
 
 def approved_claims_manifest_entry() -> dict[str, Any]:
