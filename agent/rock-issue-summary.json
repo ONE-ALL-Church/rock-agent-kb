@@ -31,11 +31,8 @@
     },
     "issue_count": 27,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 2,
-    "revalidation_due_enrichment_ids": [
-      "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
-      "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1"
-    ],
+    "revalidation_due_count": 0,
+    "revalidation_due_enrichment_ids": [],
     "verification_playbook_count": 27,
     "verification_playbook_coverage_percent": 100.0
   },

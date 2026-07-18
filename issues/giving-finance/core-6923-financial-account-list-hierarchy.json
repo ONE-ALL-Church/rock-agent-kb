@@ -3,9 +3,9 @@
   "enrichment_id": "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6923",
   "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Financial Account List source filters to children when AccountId identifies a parent. When no parent is supplied, its else-if condition is `topLevelOnly || !parentAccountId.HasValue`; the second term is always true in that branch, so the query always filters to accounts whose ParentAccountId is null. ReorderItem then operates only on that filtered list. This confirms that the reviewed Obsidian path cannot present a flat all-account reorder list, even when TopLevel is false. The earlier issue 6465 fix intentionally added this condition to restore an unparameterized top-level view, but it did not preserve the legacy block's separate all-account behavior.",
+  "diagnosis_summary": "Affected Financial Account List revisions filter to children when AccountId identifies a parent. When no parent is supplied, the condition `topLevelOnly || !parentAccountId.HasValue` always filters to accounts whose ParentAccountId is null, so the root Obsidian list cannot present a flat all-account reorder list when TopLevel is false. Commit 409f2a0 removes the always-true no-parent term and restores the legacy no-parameter all-account mode. The source change directly addresses the diagnosed branch and is the exact fixed revision; release-package inclusion remains independently verifiable.",
   "workaround_summaries": [
-    "Until Rock restores an explicit all-account ordering mode, manage ordering within each parent-specific account list and verify the resulting public giving presentation in staging. Do not treat the root Obsidian list as a complete flattened account hierarchy or move parent accounts under the assumption that omitted children will follow its order."
+    "For builds that do not include commit 409f2a0 or an equivalent release fix, manage ordering within each parent-specific account list and verify the resulting public giving presentation in staging. Do not treat the root Obsidian list as a complete flattened account hierarchy or move parent accounts under the assumption that omitted children will follow its order."
   ],
   "verification_playbook": {
     "goal": "Determine whether the instance has child financial accounts that the Obsidian root reorder list cannot display.",
@@ -67,7 +67,7 @@
   },
   "applicability": [
     {
-      "assertion_id": "core-6923-under-investigation-18.3",
+      "assertion_id": "core-6923-affected-18.3",
       "component": "rock_core",
       "version_scheme": "rock_release",
       "release_track": "18.3",
@@ -76,8 +76,10 @@
       },
       "versions": ["18.3"],
       "ranges": [],
-      "status": "under_investigation",
-      "fix_refs": [],
+      "status": "affected",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6923",
         "https://github.com/SparkDevNetwork/Rock/commit/13e782e0bb955151d648d5ef61db9ebcd65d9ccb"
@@ -85,7 +87,7 @@
       "authority_tier": "community-reviewed",
       "claim_tier": "source_backed",
       "confidence": "medium",
-      "assessed_at": "2026-07-17T07:57:36Z"
+      "assessed_at": "2026-07-18T17:08:35Z"
     },
     {
       "assertion_id": "core-6923-affected-develop-f4e14ae",
@@ -97,7 +99,9 @@
       "versions": ["f4e14ae9a1dd97096627429876d6e1bc1df07b30"],
       "ranges": [],
       "status": "affected",
-      "fix_refs": [],
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6923",
         "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L174-L199",
@@ -106,14 +110,41 @@
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
       "confidence": "high",
-      "assessed_at": "2026-07-17T07:57:36Z"
+      "assessed_at": "2026-07-18T17:08:35Z"
+    },
+    {
+      "assertion_id": "core-6923-fixed-by-commit-409f2a0",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Financial Account List source revision; release-package inclusion remains independently verifiable"
+      },
+      "versions": [
+        "409f2a04680174857cebfea8fc83278b0a7fcda4"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6923",
+        "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4",
+        "https://github.com/SparkDevNetwork/Rock/blob/409f2a04680174857cebfea8fc83278b0a7fcda4/Rock.Blocks/Finance/FinancialAccountList.cs#L180-L208"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-18T17:08:35Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6923",
     "https://github.com/SparkDevNetwork/Rock/commit/13e782e0bb955151d648d5ef61db9ebcd65d9ccb",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L174-L199",
-    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L228-L245"
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Finance/FinancialAccountList.cs#L228-L245",
+    "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4",
+    "https://github.com/SparkDevNetwork/Rock/blob/409f2a04680174857cebfea8fc83278b0a7fcda4/Rock.Blocks/Finance/FinancialAccountList.cs#L180-L208"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
@@ -121,8 +152,8 @@
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-16T18:57:45Z",
-  "reviewed_at": "2026-07-17T07:57:36Z",
+  "issue_updated_at": "2026-07-17T22:40:10Z",
+  "reviewed_at": "2026-07-18T17:08:35Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

@@ -3,9 +3,9 @@
   "enrichment_id": "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6924",
   "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Content Channel Item List source combines every Show in Grid item attribute qualified by either the channel type or the specific channel without deduplicating by attribute key. The shared grid extension turns each attribute key into the field name `attr_<key>`, and GridBuilder throws when a field name already exists. A type-level and channel-level grid attribute with the same key therefore reaches the builder twice with the same field name, which supports the reported list-page failure on the reviewed source revision.",
+  "diagnosis_summary": "Affected Content Channel Item List revisions combine every Show in Grid item attribute qualified by either the channel type or the specific channel without deduplicating by key. The shared grid extension turns each key into `attr_<key>`, and GridBuilder rejects duplicate field names. Commit c98befb keeps the full attribute list for value loading but adds a distinct-by-key list for grid-column definitions, directly removing the diagnosed collision. That commit is the exact fixed revision; release-package inclusion remains independently verifiable.",
   "workaround_summaries": [
-    "Until the list builder handles duplicate qualified keys, ensure only one of the same-key attributes is marked Show in Grid. Prefer preserving the canonical type-level attribute and renaming or hiding the channel-specific duplicate after staging review; changing the key can affect Lava, filters, data entry, and integrations that already reference it."
+    "For builds that do not include commit c98befb or an equivalent release fix, ensure only one of the same-key attributes is marked Show in Grid. Prefer preserving the canonical type-level attribute and renaming or hiding the channel-specific duplicate after staging review; changing the key can affect Lava, filters, data entry, and integrations that already reference it."
   ],
   "verification_playbook": {
     "goal": "Detect content channels whose type-level and channel-level item attributes share a grid-visible key, without opening a failing list or changing configuration.",
@@ -51,7 +51,7 @@
   },
   "applicability": [
     {
-      "assertion_id": "core-6924-under-investigation-19",
+      "assertion_id": "core-6924-affected-19",
       "component": "rock_core",
       "version_scheme": "rock_release",
       "release_track": "19",
@@ -60,15 +60,17 @@
       },
       "versions": ["19"],
       "ranges": [],
-      "status": "under_investigation",
-      "fix_refs": [],
+      "status": "affected",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6924"
       ],
       "authority_tier": "community-reviewed",
       "claim_tier": "source_backed",
       "confidence": "medium",
-      "assessed_at": "2026-07-17T07:57:36Z"
+      "assessed_at": "2026-07-18T17:08:35Z"
     },
     {
       "assertion_id": "core-6924-affected-develop-f4e14ae",
@@ -80,7 +82,9 @@
       "versions": ["f4e14ae9a1dd97096627429876d6e1bc1df07b30"],
       "ranges": [],
       "status": "affected",
-      "fix_refs": [],
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6924",
         "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Cms/ContentChannelItemList.cs#L463-L490",
@@ -90,14 +94,41 @@
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
       "confidence": "high",
-      "assessed_at": "2026-07-17T07:57:36Z"
+      "assessed_at": "2026-07-18T17:08:35Z"
+    },
+    {
+      "assertion_id": "core-6924-fixed-by-commit-c98befb",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Content Channel Item List source revision; release-package inclusion remains independently verifiable"
+      },
+      "versions": [
+        "c98befbae4def19e8661e80aa4accfbb537c407e"
+      ],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6924",
+        "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e",
+        "https://github.com/SparkDevNetwork/Rock/blob/c98befbae4def19e8661e80aa4accfbb537c407e/Rock.Blocks/Cms/ContentChannelItemList.cs#L461-L534"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-18T17:08:35Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6924",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Blocks/Cms/ContentChannelItemList.cs#L463-L490",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilderExtensions.cs#L135-L181",
-    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilder.cs#L66-L78"
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Obsidian/UI/GridBuilder.cs#L66-L78",
+    "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e",
+    "https://github.com/SparkDevNetwork/Rock/blob/c98befbae4def19e8661e80aa4accfbb537c407e/Rock.Blocks/Cms/ContentChannelItemList.cs#L461-L534"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
@@ -105,8 +136,8 @@
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-16T19:27:14Z",
-  "reviewed_at": "2026-07-17T07:57:36Z",
+  "issue_updated_at": "2026-07-17T22:40:11Z",
+  "reviewed_at": "2026-07-18T17:08:35Z",
   "redaction_attestation": true,
   "license_attestation": true
 }
