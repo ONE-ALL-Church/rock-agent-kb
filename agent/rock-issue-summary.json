@@ -1,15 +1,15 @@
 {
-  "catalog_content_hash": "3ae758fc5c65c018275118b6c0ce7b99253d98734dfbf0d46214107e1ec1b2da",
+  "catalog_content_hash": "398dfc65caeec1e0fd1c93804b203480fd37ef9bed5498dc3f628f4678546347",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
     "rock_core": 5675
   },
   "evidence_states": {
-    "commit_linked": 13,
+    "commit_linked": 15,
     "fixed_release_recorded": 3189,
     "maintainer_triaged": 1227,
-    "report_only": 1374
+    "report_only": 1372
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
@@ -31,8 +31,11 @@
     },
     "issue_count": 27,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 0,
-    "revalidation_due_enrichment_ids": [],
+    "revalidation_due_count": 2,
+    "revalidation_due_enrichment_ids": [
+      "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
+      "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1"
+    ],
     "verification_playbook_count": 27,
     "verification_playbook_coverage_percent": 100.0
   },
@@ -46,10 +49,10 @@
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-17T17:50:45Z",
+  "source_updated_through": "2026-07-17T22:40:11Z",
   "states": {
-    "closed": 5794,
-    "open": 9
+    "closed": 5796,
+    "open": 7
   },
   "timeline_coverage": {
     "complete": 298,
