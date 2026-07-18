@@ -26,6 +26,7 @@ Available tools:
 - `kb_search_rock_issues`, `kb_list_rock_issues`, and `kb_get_rock_issue`: public Rock product issue routing metadata; exact results join separately reviewed enrichments without duplicating the issue result.
 - `kb_assess_rock_issues`: conservative comparison with a bounded version/concept profile.
 - `kb_plan_rock_issue_investigation`: typed read-only orchestrator-worker plan with no GitHub write path.
+- `kb_search_rock_ideas`, `kb_list_rock_ideas`, and `kb_get_rock_idea`: explicit feature-gap and roadmap routing; exact Idea and Issue lookups expose bounded typed relationships when evidence exists.
 - `kb_feedback`: fixed quality feedback for a public result.
 - `kb_report_issue`: bounded, redaction-attested reports when the KB itself malfunctions.
 - `kb_review_dashboard`: public review, issue-report, evaluation, and telemetry counts.
@@ -156,6 +157,16 @@ The Worker exposes:
 - `GET /rock-issues/<issue-ref>`
 - `GET /rock-issues/<issue-ref>/plan`
 - `POST /rock-issues/assess`
+- `GET /rock-ideas/search?q=<query>`
+- `GET /rock-ideas?status=<status>&concept=<concept-id>`
+- `GET /rock-ideas/<idea-ref>`
+
+Exact Idea responses include outbound typed relationships. Exact issue
+responses include inbound Idea relationships. `references_issue` records an
+explicit public-page link; only an official release-note-backed
+`implemented_by_issue` edge carries stronger implementation evidence. Concept
+packages returned by `kb_get_concept` include aggregate Idea status counts and
+at most eight lifecycle-prioritized highlights.
 - `GET /operations/dashboard`
 - `POST /feedback`
 - `POST /issues/report`
@@ -164,12 +175,13 @@ The Worker exposes:
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 
-`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, structured issue reports, Rock product-issue catalog and timeline coverage, section status, answer evaluation results, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; records aggregate event, primary/result-kind, and result-count data for searches and successful claim, concept, model-map, recipe, Rock issue, and exact-result retrievals; and reports zero-result public Rock topic categories rather than query text. Participating churches may opt into the aggregate `external-test` cohort and maintainers may use `maintainer`; invalid or omitted values are `unattributed`, while evaluation traffic is always `evaluation`. Cohorts are self-declared reporting labels, not authentication. Current telemetry stores neither raw nor hashed query text, exact lookup IDs, user identities, organizations, installation IDs, IP addresses, nor free-form client labels. PyPI package downloads and `uvx` cache/install activity occur outside the hosted service and are not usage events. Structured feedback stores only the public canonical result ID, result kind, projection version, rating, fixed reason, and bounded cohort so maintainers can identify the affected public artifact. It does not expose private corpus files or free-text feedback.
+`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, structured issue reports, Rock product-issue catalog and timeline coverage, section status, answer evaluation results, hosted evaluation, structured test-round outcomes, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; records aggregate event, primary/result-kind, and result-count data for searches and successful claim, concept, model-map, recipe, Rock issue, Rock idea, and exact-result retrievals; and reports zero-result public Rock topic categories rather than query text. Participating churches may opt into the aggregate `external-test` cohort and maintainers may use `maintainer`; invalid or omitted values are `unattributed`, while evaluation traffic is always `evaluation`. Cohorts are self-declared reporting labels, not authentication. Current telemetry stores neither raw nor hashed query text, exact lookup IDs, user identities, organizations, installation IDs, IP addresses, nor free-form client labels. PyPI package downloads and `uvx` cache/install activity occur outside the hosted service and are not usage events. Structured feedback stores only the public canonical result ID, result kind, projection version, rating, fixed reason, and bounded cohort so maintainers can identify the affected public artifact. Complete test-round reviews store only fixed outcomes and public result IDs for the nine canonical cases. Neither path accepts free text or private data.
 
 Use the opt-in marker only for a real external test or maintainer session:
 
 ```bash
 ROCK_KB_COHORT=external-test uvx rock-kb test-round
+ROCK_KB_COHORT=external-test uvx rock-kb test-round --review --submit
 uvx rock-kb --cohort external-test mcp-config
 ROCK_KB_COHORT=maintainer uvx rock-kb dashboard
 ```

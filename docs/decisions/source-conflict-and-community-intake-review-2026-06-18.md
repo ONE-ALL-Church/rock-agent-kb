@@ -45,16 +45,17 @@ Real community intake status:
   are promoted into `contributions/oneall/bundle.jsonl`.
 - `source-suggestions`: no submitted files.
 
-The only unpromoted community bundle is
-`community-contributions/simulated-docs-contributor/bundle.jsonl`, with 3 rows:
+The synthetic intake bundle was moved out of the production contribution
+surface to
+`tests/fixtures/community-contributions/simulated-docs-contributor/bundle.jsonl`,
+with 3 rows:
 
 - `simulated-docs-contributor:lava-security-layering`
 - `simulated-docs-contributor:sql-dynamic-data-guardrails`
 - `simulated-docs-contributor:checkin-registration-preflight`
 
 Those rows validate structurally and are public-safe as test material, but the
-org ID and source record IDs are simulated. Keep them as intake/test fixture
-material. Do not promote them into canonical `contributions/` unless a maintainer
-explicitly decides simulated material should become real KB content or replaces
-the synthetic source references with real reviewed source records.
-
+org ID and source record IDs are simulated. They are not production community
+submissions and must not appear in hosted contribution review counts. Do not
+promote them into canonical `contributions/` unless a maintainer explicitly
+replaces the synthetic source references with real reviewed source records.

@@ -38,7 +38,7 @@ The distribution projects canonical public knowledge into typed Markdown with YA
 - public Rock issue routing metadata and nested reviewed enrichments in the full profile;
 - public evidence-source policies.
 
-Every document retains its canonical ID and links to a lossless JSON structured record. Typed edges connect concepts, evidence sources, models, recipes, contributions, and Lava contexts. Bounded, sharded directory `index.md` files provide progressive disclosure, while `relationships.jsonl` provides a compact typed-edge projection.
+Every document retains its canonical ID and links to a lossless JSON structured record. Typed edges connect concepts, evidence sources, models, recipes, contributions, Lava contexts, Rock issues, and Rock Ideas. Idea-to-issue or Idea-to-release edges retain their evidence basis and do not elevate community lifecycle metadata into approved claims. Bounded, sharded directory `index.md` files provide progressive disclosure, while `relationships.jsonl` provides a compact typed-edge projection.
 
 The `full` profile includes every public canonical row. The smaller `core`
 profile omits routing-only claims, source summaries, and contribution

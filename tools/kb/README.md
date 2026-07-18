@@ -11,7 +11,7 @@ uv run kb probe-endpoints
 uv run kb discover-community --source rock_lava_docs --max-pages 180
 uv run kb normalize --source rock_core_release_notes
 uv run kb refresh --source rock_api_docs --skip-discovery --skip-probe --skip-indexes
-uv run kb build-agent-pack
+uv run kb build --stage agent-pack --force
 uv run kb build-concepts
 uv run kb concepts stale
 uv run kb hydrate-concept --concept groups --limit 80

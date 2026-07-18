@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import typer
 
 from . import _legacy as legacy
@@ -11,6 +14,7 @@ def register(app: typer.Typer) -> None:
     app.command("deploy-service")(deploy_service_command)
     app.command("service-retention")(service_retention_command)
     app.command("eval-service")(eval_service_command)
+    app.command("record-hosted-eval", hidden=True)(record_hosted_eval_command)
     app.command("quality-gate")(quality_gate_command)
     app.command("hybrid-shadow")(hybrid_shadow_command)
     app.command("shadow-lifecycle")(shadow_lifecycle_command)
@@ -63,6 +67,7 @@ def eval_service_command(
     limit: int = typer.Option(5, "--limit", min=1, max=20, help="Search hits to inspect per evaluation question."),
     target_rank: int = typer.Option(2, "--target-rank", min=1, max=20, help="Expected concept must appear at or above this result rank."),
     concurrency: int = typer.Option(6, "--concurrency", min=1, max=25, help="Concurrent hosted search requests."),
+    output: Path | None = typer.Option(None, "--output", dir_okay=False, help="Write the complete ephemeral evaluation report for the deployment workflow."),
 ) -> None:
     """Run the public evaluation set against the hosted service search API."""
     from rich import print_json
@@ -70,9 +75,25 @@ def eval_service_command(
     from ..service_eval import evaluate_service
 
     result = evaluate_service(base_url=base_url, limit=limit, target_rank=target_rank, concurrency=concurrency).as_dict()
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print_json(data=result)
     if result["status"] != "ok":
         raise typer.Exit(code=1)
+
+
+def record_hosted_eval_command(
+    report: Path = typer.Argument(..., exists=True, dir_okay=False),
+    database: str = typer.Option("rock-agent-kb", "--database"),
+    env: str | None = typer.Option(None, "--env"),
+) -> None:
+    """Persist a trusted hosted-evaluation summary through Wrangler and D1."""
+    from rich import print_json
+
+    from ..hosted_evaluation import record_hosted_evaluation
+
+    print_json(data=record_hosted_evaluation(report, database=database, env=env))
 
 
 def quality_gate_command(

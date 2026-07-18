@@ -1,12 +1,27 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from typing import Any, Callable
+from typing import Any, Callable, Mapping
 from urllib.parse import quote
 
 
 JsonGetter = Callable[[str], dict[str, Any]]
 JsonPoster = Callable[[str, dict[str, Any]], dict[str, Any]]
+
+TEST_ROUND_SCHEMA = "rock-kb-community-test-round-v1"
+TEST_ROUND_REVIEW_SCHEMA = "rock-kb-community-test-round-review-v1"
+REVIEW_OUTCOMES = ("useful", "incorrect", "incomplete", "unclear", "unsure")
+CASE_DEFINITIONS = (
+    ("service-health", "service"),
+    ("exact-group-model", "exact_lookup"),
+    ("check-in-lava-context", "lava_context"),
+    ("reviewed-recipe", "recipe"),
+    ("check-in-troubleshooting", "semantic_search"),
+    ("core-issue-trust", "imported_issue"),
+    ("mobile-issue-release-evidence", "imported_issue"),
+    ("issue-version-assessment", "imported_issue"),
+    ("no-answer-boundary", "no_answer"),
+)
 
 
 def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoster) -> dict[str, Any]:
@@ -23,10 +38,15 @@ def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoste
         run_case("no-answer-boundary", "no_answer", "Search a deliberately unknown term", "Does the KB avoid inventing an answer when it has no matching evidence?", lambda: no_answer_case(base, get_json)),
     ]
     failures = [case for case in cases if case["status"] != "pass"]
+    projection_version = next(
+        (str(case.get("projection_version") or "") for case in cases if case.get("projection_version")),
+        "",
+    )
     return {
-        "schema": "rock-kb-community-test-round-v1",
+        "schema": TEST_ROUND_SCHEMA,
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "service": base,
+        "projection_version": projection_version,
         "status": "fail" if failures else "ok",
         "automatic_pass_count": len(cases) - len(failures),
         "automatic_fail_count": len(failures),
@@ -35,11 +55,59 @@ def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoste
         "manual_review_required": True,
         "cases": cases,
         "next_steps": [
-            "For a correct or incorrect result, use rock-kb feedback with the exact result_id and a fixed reason.",
+            "Run again with --review to record one bounded manual outcome for every case; add --submit with an external-test or maintainer cohort to aggregate it in the review dashboard.",
+            "For a specific correct or incorrect search result, use rock-kb feedback with the exact result_id and a fixed reason.",
             "For a service, MCP, CLI, schema, authentication, or retrieval malfunction, use rock-kb report-issue with a redaction-attested generic description.",
             "Never include private Rock data, query logs, identifiers, secrets, screenshots, or internal URLs in feedback.",
         ],
     }
+
+
+def build_test_round_review(report: Mapping[str, Any], outcomes: Mapping[str, str]) -> dict[str, Any]:
+    if report.get("schema") != TEST_ROUND_SCHEMA:
+        raise ValueError(f"Expected {TEST_ROUND_SCHEMA}")
+    cases = report.get("cases")
+    if not isinstance(cases, list):
+        raise ValueError("Test round cases are missing")
+    expected = {case_id: category for case_id, category in CASE_DEFINITIONS}
+    actual = {str(case.get("case_id") or ""): case for case in cases if isinstance(case, dict)}
+    if set(actual) != set(expected):
+        raise ValueError("Test round must contain every canonical case exactly once")
+    if set(outcomes) != set(expected):
+        raise ValueError("Review outcomes must cover every canonical case exactly once")
+
+    review_cases = []
+    for case_id, category in CASE_DEFINITIONS:
+        case = actual[case_id]
+        outcome = str(outcomes[case_id]).strip().lower()
+        if outcome not in REVIEW_OUTCOMES:
+            raise ValueError(f"Unsupported outcome for {case_id}: {outcome}")
+        result_ids = [str(value) for value in case.get("result_ids") or [] if str(value)]
+        review_cases.append(
+            {
+                "case_id": case_id,
+                "category": category,
+                "automatic_status": "pass" if case.get("status") == "pass" else "fail",
+                "outcome": outcome,
+                "result_id": result_ids[0] if result_ids and category != "no_answer" else None,
+            }
+        )
+    return {
+        "schema": TEST_ROUND_REVIEW_SCHEMA,
+        "test_round_schema": TEST_ROUND_SCHEMA,
+        "projection_version": str(report.get("projection_version") or ""),
+        "automatic_status": "ok" if report.get("status") == "ok" else "fail",
+        "cases": review_cases,
+    }
+
+
+def review_outcomes_from_payload(payload: Any) -> dict[str, str]:
+    if not isinstance(payload, dict):
+        raise ValueError("Review file must contain a JSON object")
+    value = payload.get("outcomes", payload)
+    if not isinstance(value, dict):
+        raise ValueError("Review outcomes must be a JSON object keyed by case_id")
+    return {str(case_id): str(outcome) for case_id, outcome in value.items()}
 
 
 def run_case(case_id: str, category: str, operation: str, manual_prompt: str, execute: Callable[[], dict[str, Any]]) -> dict[str, Any]:

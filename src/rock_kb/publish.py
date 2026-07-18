@@ -18,6 +18,7 @@ PUBLIC_PATHS = [
     "community-contributions",
     "docs/runbooks/contributor-reviewer-workflow.md",
     "docs/runbooks/rock-issue-intelligence.md",
+    "docs/runbooks/rock-ideas-intelligence.md",
     "docs/specs/rock-issue-intelligence-v1.md",
     "docs/community-recipes.md",
     "docs/prompts/media-claim-distillation-v1.md",
@@ -34,6 +35,7 @@ PUBLIC_PATHS = [
     "knowledge/model-map",
     "knowledge/recipes",
     "knowledge/issues",
+    "knowledge/ideas",
     "issues",
     "recipes",
     "agent/README.md",
@@ -64,6 +66,9 @@ PUBLIC_PATHS = [
     "agent/rock-issues.jsonl",
     "agent/rock-issue-enrichments.jsonl",
     "agent/rock-issue-summary.json",
+    "agent/rock-ideas.jsonl",
+    "agent/rock-idea-relationships.jsonl",
+    "agent/rock-idea-summary.json",
     "agent/answer-pack.jsonl",
     "agent/live-inspection-checklists.jsonl",
     "agent/live-probe-recipes.jsonl",
@@ -239,6 +244,10 @@ def audit_agent_entrypoint_coverage() -> list[str]:
         "rock_issue_summary",
         "rock_issue_directory",
         "rock_issue_investigation_prompt",
+        "rock_ideas",
+        "rock_idea_relationships",
+        "rock_idea_summary",
+        "rock_idea_directory",
     ]:
         if not entrypoints.get(field):
             errors.append(f"agent/rock-kb-manifest.json missing {field} entrypoint")
@@ -371,6 +380,8 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
             "lava-capabilities.jsonl",
             "lava-contexts.jsonl",
             "rock-issues.jsonl",
+            "rock-ideas.jsonl",
+            "rock-idea-relationships.jsonl",
         )
     ):
         return []
@@ -415,6 +426,43 @@ def audit_json_public_traceability(path: str, text: str) -> list[str]:
                 errors.append(f"{path}:{index} Rock issue row does not declare the raw-content boundary")
             if row.get("claim_tier") != "routing_context_only":
                 errors.append(f"{path}:{index} Rock issue row must remain routing_context_only")
+        if path.endswith("rock-ideas.jsonl"):
+            forbidden = sorted({"author", "submitter", "organization", "description", "body", "response", "response_text", "comments"}.intersection(row))
+            if forbidden:
+                errors.append(f"{path}:{index} Rock idea row republishes forbidden raw fields: {', '.join(forbidden)}")
+            required = ["idea_id", "source_id", "url", "content_hash", "concept_ids"]
+            missing = [field for field in required if not row.get(field)]
+            if missing:
+                errors.append(f"{path}:{index} Rock idea row has incomplete traceability: {', '.join(missing)}")
+            if row.get("claim_tier") != "routing_context_only":
+                errors.append(f"{path}:{index} Rock idea row must remain routing_context_only")
+        if path.endswith("rock-idea-relationships.jsonl"):
+            forbidden = sorted(
+                {"description", "body", "response", "response_text", "comments", "author", "submitter", "organization"}.intersection(row)
+            )
+            if forbidden:
+                errors.append(
+                    f"{path}:{index} Rock idea relationship republishes forbidden raw fields: {', '.join(forbidden)}"
+                )
+            required = [
+                "relationship_id",
+                "source_id",
+                "relationship_type",
+                "basis",
+                "evidence_url",
+                "authority_tier",
+                "confidence",
+                "content_hash",
+            ]
+            missing = [field for field in required if not row.get(field)]
+            if missing:
+                errors.append(
+                    f"{path}:{index} Rock idea relationship has incomplete traceability: {', '.join(missing)}"
+                )
+            if not row.get("target_id") and not row.get("target_url"):
+                errors.append(f"{path}:{index} Rock idea relationship has no target")
+            if row.get("needs_live_verification") is not True:
+                errors.append(f"{path}:{index} Rock idea relationship must require live verification")
     return errors
 
 

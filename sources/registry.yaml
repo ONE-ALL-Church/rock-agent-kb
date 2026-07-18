@@ -51,6 +51,19 @@ sources:
     preferred_tooling: [static_http, custom_parser, crawl4ai]
     topics: [troubleshooting, development, usage]
 
+  - id: rock_ideas
+    name: Rock Community Ideas
+    kind: rock_ideas
+    root_url: https://community.rockrms.com/ideas
+    description: Bounded public feature-request and roadmap lifecycle metadata from Rock Community Ideas.
+    owner: Spark Development Network and community contributors
+    license_status: public_rights_reserved
+    allowed_extraction_mode: structured_metadata
+    refresh_cadence: weekly
+    extraction_tier: 1
+    preferred_tooling: [webforms_ajax, static_http, custom_parser]
+    topics: [ideas, feature-gaps, roadmap]
+
   - id: rock_rocku
     name: RockU
     kind: rocku

@@ -60,6 +60,7 @@ KIND_CONFIG = {
     "recipe": ("Community Recipe", "recipes"),
     "source_summary": ("Source Summary", "source-summaries"),
     "rock_issue": ("Rock Issue", "rock-issues"),
+    "rock_idea": ("Rock Idea", "rock-ideas"),
 }
 
 
@@ -122,6 +123,12 @@ def build_okf_export(
         raise ValueError(f"Duplicate canonical OKF record ids: {', '.join(duplicate_ids[:10])}")
 
     path_by_id = {str(row["id"]): row_path(row) for row in rows}
+    idea_relationships_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    if profile == "full":
+        for relationship_row in read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"):
+            source_id = str(relationship_row.get("source_id") or "")
+            if source_id:
+                idea_relationships_by_source[source_id].append(relationship_row)
     assert_unique_paths(path_by_id, "knowledge records")
     model_path_by_slug = {
         str((row.get("payload") or {}).get("identity", {}).get("model_slug") or ""): path_by_id[str(row["id"])]
@@ -186,6 +193,7 @@ def build_okf_export(
             reference_paths=reference_paths,
             model_path_by_slug=model_path_by_slug,
             path_by_id=path_by_id,
+            idea_relationships=idea_relationships_by_source.get(row_id, []),
         )
         row_relationships = []
         for relation_type, target in related:
@@ -291,6 +299,7 @@ def build_okf_export(
             "agent task cards",
             "public evidence-source policies",
             "public Rock issue routing metadata",
+            "public Rock Ideas routing metadata and evidence-backed typed links",
         ],
         "excluded_scope": [
             "private organization overlays",
@@ -369,7 +378,7 @@ def rows_for_profile(rows: Iterable[dict[str, Any]], profile: str) -> list[dict[
     selected = []
     for row in rows:
         kind = str(row.get("kind") or "")
-        if kind in {"source_summary", "community_contribution", "rock_issue"}:
+        if kind in {"source_summary", "community_contribution", "rock_issue", "rock_idea"}:
             continue
         if kind == "claim" and str(row.get("claim_tier") or "") == "routing_context_only":
             continue
@@ -389,6 +398,7 @@ def canonical_record_id(row: dict[str, Any]) -> str:
         "recipe": payload.get("recipe_id"),
         "source_summary": payload.get("id"),
         "rock_issue": payload.get("issue_id"),
+        "rock_idea": payload.get("idea_id"),
         "task_card": f"{payload.get('concept_id')}:{payload.get('task_id')}"
         if payload.get("concept_id") and payload.get("task_id")
         else "",
@@ -525,6 +535,9 @@ def row_path(row: dict[str, Any]) -> PurePosixPath:
     if kind == "rock_issue":
         repository = "mobile" if payload.get("component") == "mobile_shell" else "core"
         return PurePosixPath("rock-issues") / repository / digest[:1] / digest[1:2] / filename
+    if kind == "rock_idea":
+        status = safe_slug(str(payload.get("status") or "unknown"))
+        return PurePosixPath("rock-ideas") / status / digest[:1] / filename
     if kind in {"recipe", "contribution"}:
         return PurePosixPath("recipes" if kind == "recipe" else "contributions") / safe_slug(str(payload.get("org_id") or "community")) / filename
     if kind == "model_map":
@@ -551,6 +564,7 @@ def row_kind_count_key(row: dict[str, Any]) -> str:
         "source_summary": "source_summaries",
         "task_card": "task_cards",
         "rock_issue": "rock_issues",
+        "rock_idea": "rock_ideas",
     }.get(str(row.get("kind") or ""), f"{row.get('kind')}s")
 
 
@@ -680,6 +694,7 @@ def related_paths_for_row(
     reference_paths: dict[str, PurePosixPath],
     model_path_by_slug: dict[str, PurePosixPath],
     path_by_id: dict[str, PurePosixPath],
+    idea_relationships: Iterable[dict[str, Any]] = (),
 ) -> list[tuple[str, PurePosixPath]]:
     related: list[tuple[str, PurePosixPath]] = []
     current_path = path_by_id.get(str(row.get("id") or ""))
@@ -698,6 +713,11 @@ def related_paths_for_row(
             target_id = f"contribution:{contribution_id}"
             if target_id in path_by_id:
                 related.append(("supersedes", path_by_id[target_id]))
+    for relationship_row in idea_relationships:
+        target_id = str(relationship_row.get("target_id") or "")
+        relationship_type = str(relationship_row.get("relationship_type") or "")
+        if target_id in path_by_id and path_by_id[target_id] != current_path and relationship_type:
+            related.append((relationship_type, path_by_id[target_id]))
     return sorted(set(related), key=lambda item: (item[0], item[1].as_posix()))
 
 
@@ -1039,6 +1059,7 @@ def write_root_index(
         ("lava_contexts", "Lava contexts", "lava-contexts/"),
         ("models", "Rock models", "models/"),
         ("rock_issues", "Rock issues", "rock-issues/"),
+        ("rock_ideas", "Rock Ideas metadata", "rock-ideas/"),
         ("source_summaries", "Source summaries", "source-summaries/"),
         ("task_cards", "Agent task cards", "task-cards/"),
     ]

@@ -12,7 +12,7 @@ from .validator import validate_bundle
 from .installer import SUPPORTED_AGENTS, install_agents, selected_agents
 from .issue_watch import run_issue_watch
 from .okf import conform_okf, download_okf, inspect_okf, verify_okf
-from .cohort_test import run_cohort_test
+from .cohort_test import REVIEW_OUTCOMES, build_test_round_review, review_outcomes_from_payload, run_cohort_test
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
 COHORT_VALUES = ("external-test", "maintainer")
@@ -117,9 +117,28 @@ def main(argv: list[str] | None = None) -> int:
     issues_plan.add_argument("issue_ref")
     issues_plan.add_argument("--include-private-instance", action="store_true")
 
+    idea = subparsers.add_parser("idea", help="Get one exact Rock Community idea metadata row.")
+    idea.add_argument("idea_ref", help="Idea number, canonical ID, or public Rock Community URL.")
+
+    ideas = subparsers.add_parser("ideas", help="Search and list Rock Community feature-request and roadmap metadata.")
+    ideas_subparsers = ideas.add_subparsers(dest="ideas_command", required=True)
+    ideas_search = ideas_subparsers.add_parser("search")
+    ideas_search.add_argument("query")
+    ideas_search.add_argument("--limit", type=int, default=10)
+    ideas_list = ideas_subparsers.add_parser("list")
+    ideas_list.add_argument("--status", choices=["not_planned", "under_review", "started", "planned", "pending", "open", "complete"])
+    ideas_list.add_argument("--category")
+    ideas_list.add_argument("--concept")
+    ideas_list.add_argument("--planned-version")
+    ideas_list.add_argument("--limit", type=int, default=50)
+    ideas_list.add_argument("--offset", type=int, default=0)
+
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
-    subparsers.add_parser("test-round", help="Run the public structured church testing cohort cases.")
+    test_round = subparsers.add_parser("test-round", help="Run the public structured church testing cohort cases.")
+    test_round.add_argument("--review", action="store_true", help="Prompt for one fixed manual outcome for every case.")
+    test_round.add_argument("--review-file", type=Path, help="Read case outcomes from a bounded JSON object instead of prompting.")
+    test_round.add_argument("--submit", action="store_true", help="Submit the complete structured review for aggregate maintainer reporting.")
 
     feedback = subparsers.add_parser("feedback")
     feedback.add_argument("result_id")
@@ -180,6 +199,13 @@ def main(argv: list[str] | None = None) -> int:
         parser.error(f"--cohort must be one of: {', '.join(COHORT_VALUES)}")
     REQUEST_COHORT = str(args.cohort or "")
     base_url = str(args.url).rstrip("/")
+    if args.command == "test-round":
+        if args.submit and not (args.review or args.review_file):
+            parser.error("test-round --submit requires --review or --review-file")
+        if args.review and args.review_file:
+            parser.error("test-round accepts either --review or --review-file, not both")
+        if args.submit and REQUEST_COHORT not in COHORT_VALUES:
+            parser.error("test-round --submit requires --cohort external-test or --cohort maintainer")
 
     if args.command == "search":
         detail = "full" if args.full else "compact"
@@ -257,13 +283,44 @@ def main(argv: list[str] | None = None) -> int:
         if args.issues_command == "plan":
             suffix = "?include_private_instance=true" if args.include_private_instance else ""
             return print_json(get_json(f"{base_url}/rock-issues/{quote(args.issue_ref)}/plan{suffix}"))
+    if args.command == "idea":
+        return print_json(get_json(f"{base_url}/rock-ideas/{quote(args.idea_ref)}"))
+    if args.command == "ideas":
+        if args.ideas_command == "search":
+            return print_json(get_json(f"{base_url}/rock-ideas/search?q={quote(args.query)}&limit={args.limit}"))
+        if args.ideas_command == "list":
+            params = [f"limit={args.limit}", f"offset={args.offset}"]
+            for argument, parameter in [
+                ("status", "status"),
+                ("category", "category"),
+                ("concept", "concept"),
+                ("planned_version", "planned_version"),
+            ]:
+                value = getattr(args, argument)
+                if value:
+                    params.append(f"{parameter}={quote(value)}")
+            return print_json(get_json(f"{base_url}/rock-ideas?{'&'.join(params)}"))
     if args.command == "manifest":
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":
         return print_json(get_json(f"{base_url}/operations/dashboard"))
     if args.command == "test-round":
         report = run_cohort_test(base_url=base_url, get_json=get_json, post_json=post_json)
-        print_json(report)
+        if args.review or args.review_file:
+            try:
+                if args.review_file:
+                    outcomes = review_outcomes_from_payload(json.loads(args.review_file.read_text(encoding="utf-8")))
+                else:
+                    outcomes = prompt_for_test_round_outcomes(report)
+                review = build_test_round_review(report, outcomes)
+            except (OSError, json.JSONDecodeError, ValueError) as exc:
+                parser.error(f"invalid test-round review: {exc}")
+            submission = None
+            if args.submit:
+                submission = post_json(f"{base_url}/test-rounds/review", review)
+            print_json({"schema": "rock-kb-community-test-round-result-v1", "test_round": report, "review": review, "submission": submission})
+        else:
+            print_json(report)
         return 0 if report["status"] == "ok" else 1
     if args.command == "feedback":
         return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
@@ -390,6 +447,21 @@ def missing_token_message(org_id: str) -> str:
         "Ask a Rock KB maintainer to review orgs/<org-id>.yaml and issue or rotate a token outside git.\n"
         "Provide it to this command with ROCK_KB_TOKEN, ROCK_KB_TOKEN_FILE, --token-file, or --token-stdin."
     )
+
+
+def prompt_for_test_round_outcomes(report: dict) -> dict[str, str]:
+    choices = ", ".join(REVIEW_OUTCOMES)
+    outcomes: dict[str, str] = {}
+    for case in report.get("cases") or []:
+        case_id = str(case.get("case_id") or "")
+        prompt = str(case.get("manual_review_prompt") or case_id)
+        while True:
+            value = input(f"{case_id}: {prompt}\nOutcome ({choices}): ").strip().lower()
+            if value in REVIEW_OUTCOMES:
+                outcomes[case_id] = value
+                break
+            print(f"Choose one of: {choices}", file=sys.stderr)
+    return outcomes
 
 
 def print_model(base_url: str, model: str, fields: str | None, property_name: str | None, format_name: str) -> int:

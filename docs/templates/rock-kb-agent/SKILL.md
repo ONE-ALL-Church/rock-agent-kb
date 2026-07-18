@@ -141,10 +141,16 @@ Use these commands for specific jobs:
 - `issues assess <profile.json> [--limit N] [--offset N]`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, and capabilities. Follow `has_more` and `next_offset` when calling the REST or MCP surface directly.
 - `issues watch <profile.json>`: retrieve the complete assessment, keep an owner-only baseline on the local machine, and report newly relevant, changed, resolved-from-routing, or revalidation-due issues. Use this after upgrades and for periodic instance checks; never put logs, secrets, live IDs, person data, or private configuration in the profile.
 - `issues plan <issue>`: return a typed, read-only multi-agent investigation plan; `--include-private-instance` adds a private-only worker.
+- `ideas search <query>`: search explicit feature-request, known-gap, and roadmap metadata without mixing it into normal implementation guidance.
+- `ideas list [--status <status>] [--category <category>] [--concept <id>] [--planned-version <version>]`: filter the bounded Ideas catalog.
+- `idea <number|id|url>`: fetch one exact idea metadata row and its bounded typed relationships; corroborate its status before making a product claim.
 - `test-round`: run nine bounded public cohort checks, including core/mobile
   issue trust separation and version applicability. Review every manual prompt;
   an automatic pass proves the response contract, not that the answer is useful
   for a particular church.
+- `test-round --review --submit`: for an opted-in `external-test` or maintainer
+  cohort, record one fixed outcome for all nine cases. Never submit free text,
+  raw queries, logs, identities, or private Rock data.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
@@ -230,6 +236,16 @@ tools instead of shell commands:
 - `kb_plan_rock_issue_investigation`: create a credentialless, read-only
   orchestrator-worker plan. It never posts to GitHub; private instance evidence
   stays in a separate permission-scoped overlay.
+- `kb_search_rock_ideas`, `kb_list_rock_ideas`, and `kb_get_rock_idea`:
+  retrieve bounded Rock Community feature-request and roadmap metadata. Use
+  these only for explicit idea, known-gap, feature-request, or roadmap intent.
+  Treat every row as `community-unreviewed` routing context. A `Complete`,
+  `Planned`, or `Started` label is not proof of release availability; confirm it
+  with official documentation, release notes, public source, and authorized
+  read-only instance evidence. Exact Idea results include outbound typed links,
+  and exact issue results may include inbound Idea links. Interpret
+  `references_issue` as an explicit link, not proof of implementation;
+  `implemented_by_issue` requires official release-note corroboration.
 - `kb_feedback`: record a fixed rating and reason for an exact result. Never put
   private data into feedback.
 - `kb_report_issue`: report a service, MCP, CLI, schema, authentication, or
@@ -328,6 +344,12 @@ what the KB can expose. Important manifest entrypoints include:
   approved enrichments into the canonical issue instead of returning duplicates.
 - `rock_issue_investigation_prompt`: the typed worker output and security
   contract for coordinated issue research.
+- `rock_ideas`, `rock_idea_relationships`, `rock_idea_summary`, and
+  `rock_idea_directory`: public-safe feature-gap and lifecycle metadata plus
+  evidence-backed concept, model, issue, documentation, and release links.
+  These rows stay separate from approved claims and ordinary implementation
+  guidance. Concept packages include only a bounded Idea summary; use the
+  dedicated Ideas tools for complete filtering.
 - `model_map`, `model_map_digests`, `model_map_properties`,
   `model_map_methods`, and `model_map_version_diff`: model lookup and version
   comparison surfaces.

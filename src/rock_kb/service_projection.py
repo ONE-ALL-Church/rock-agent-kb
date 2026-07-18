@@ -6,6 +6,7 @@ import re
 import shutil
 import subprocess
 import time
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
@@ -169,6 +170,7 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows.extend(recipe_search_rows())
     rows.extend(source_summary_search_rows())
     rows.extend(rock_issue_search_rows())
+    rows.extend(rock_idea_search_rows())
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
         concepts = normalize_concept_ids(row.get("concepts") or [row.get("concept") or ""])
@@ -266,7 +268,7 @@ def retrieval_index_policy(row: dict[str, Any]) -> str:
     kind = str(row.get("kind") or "")
     if kind == "model_map":
         return "exact_lexical_only"
-    if kind in {"source_summary", "community_contribution", "rock_issue"}:
+    if kind in {"source_summary", "community_contribution", "rock_issue", "rock_idea"}:
         return "semantic_secondary"
     return "hybrid_primary"
 
@@ -718,6 +720,60 @@ def rock_issue_search_rows() -> list[dict[str, Any]]:
     return rows
 
 
+def rock_idea_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    relationships_by_source: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for relationship in read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"):
+        source_id = str(relationship.get("source_id") or "")
+        if source_id:
+            relationships_by_source[source_id].append(relationship)
+    for idea in read_jsonl(REPO_ROOT / "agent" / "rock-ideas.jsonl"):
+        idea_id = str(idea.get("idea_id") or "")
+        if not idea_id:
+            continue
+        concepts = normalize_concept_ids(idea.get("concept_ids") or [])
+        relationship_terms = [
+            " ".join(
+                str(value or "")
+                for value in (
+                    relationship.get("relationship_type"),
+                    relationship.get("target_id"),
+                    relationship.get("target_kind"),
+                    relationship.get("signal"),
+                )
+            )
+            for relationship in relationships_by_source.get(idea_id, [])
+        ]
+        metadata = [
+            str(idea.get("title") or ""),
+            f"idea {idea.get('number')}",
+            str(idea.get("category") or ""),
+            str(idea.get("status_label") or ""),
+            str(idea.get("planned_version") or ""),
+            " ".join(concepts),
+            *relationship_terms,
+            "Rock Community idea feature request known gap roadmap planned started complete status",
+        ]
+        rows.append(
+            {
+                "id": idea_id,
+                "kind": "rock_idea",
+                "title": idea.get("title") or idea_id,
+                "body": " ".join(value for value in metadata if value),
+                "path": "agent/rock-ideas.jsonl",
+                "url": idea.get("url") or "",
+                "concept": first_concept(concepts),
+                "concepts": concepts,
+                "topics": ["ideas", "feature-gaps", "roadmap", str(idea.get("category") or "").lower()],
+                "authority_tier": "community-unreviewed",
+                "claim_tier": "routing_context_only",
+                "source_id": "rock_ideas",
+                "payload": idea,
+            }
+        )
+    return rows
+
+
 def lava_context_search_body(context: dict[str, Any]) -> str:
     root_key = str(context.get("root_key") or "")
     context_id = str(context.get("context_id") or "")
@@ -826,6 +882,7 @@ def build_d1_seed_sql(
     artifact_prefix: str | None = None,
 ) -> str:
     resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
+    relationship_rows = list(read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"))
     lines = [
         "CREATE TABLE IF NOT EXISTS kb_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);",
         "DROP TABLE IF EXISTS search_rows;",
@@ -902,6 +959,21 @@ def build_d1_seed_sql(
   payload_json TEXT NOT NULL
 );""",
         "CREATE INDEX rock_issue_enrichments_issue_idx ON rock_issue_enrichments (issue_id, reviewed_at DESC);",
+        "DROP TABLE IF EXISTS related_content_edges;",
+        """CREATE TABLE related_content_edges (
+  relationship_id TEXT PRIMARY KEY,
+  source_id TEXT NOT NULL,
+  target_id TEXT,
+  target_url TEXT,
+  target_kind TEXT NOT NULL,
+  relationship_type TEXT NOT NULL,
+  authority_tier TEXT NOT NULL,
+  confidence TEXT NOT NULL,
+  review_state TEXT NOT NULL,
+  payload_json TEXT NOT NULL
+);""",
+        "CREATE INDEX related_content_edges_source_idx ON related_content_edges (source_id, relationship_type, target_id);",
+        "CREATE INDEX related_content_edges_target_idx ON related_content_edges (target_id, relationship_type, source_id);",
     ]
     for row in search_rows:
         tier = str(row.get("claim_tier") or "")
@@ -1074,6 +1146,25 @@ def build_d1_seed_sql(
                             )
                             + ");"
                         )
+    for relationship in relationship_rows:
+        lines.append(
+            "INSERT INTO related_content_edges VALUES ("
+            + ", ".join(
+                [
+                    sql_string(relationship.get("relationship_id") or ""),
+                    sql_string(relationship.get("source_id") or ""),
+                    sql_string(relationship.get("target_id") or ""),
+                    sql_string(relationship.get("target_url") or ""),
+                    sql_string(relationship.get("target_kind") or ""),
+                    sql_string(relationship.get("relationship_type") or ""),
+                    sql_string(relationship.get("authority_tier") or ""),
+                    sql_string(relationship.get("confidence") or ""),
+                    sql_string(relationship.get("review_state") or ""),
+                    sql_string(json.dumps(relationship, ensure_ascii=False, sort_keys=True)),
+                ]
+            )
+            + ");"
+        )
     for row in org_rows:
         org_id = str(row.get("org_id") or "")
         if not org_id:

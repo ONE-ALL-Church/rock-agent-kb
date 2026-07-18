@@ -120,6 +120,7 @@ from ..private_corpus import (
 from ..private_scan import scan_private_repo
 from ..publish import audit_public_export_manifest, audit_source_policy, build_public_export
 from ..readiness import goal_readiness_report
+from ..rock_ideas import sync_rock_ideas
 from ..sources import get_source, load_sources, validate_registry
 from ..source_orchestration import (
     DEFAULT_REFRESH_DASHBOARD_DIR,
@@ -415,6 +416,7 @@ REFRESH_STEPS = [
     RefreshStep("rock_documentation", discover=True, max_pages=160),
     RefreshStep("rock_recipes", discover=True, max_pages=160, id_sweep=True, sweep_window=110),
     RefreshStep("rock_qa", discover=True, max_pages=12),
+    RefreshStep("rock_ideas"),
     RefreshStep("rock_rocku", discover=True, max_pages=140),
     RefreshStep("rock_developer", discover=True, max_pages=180),
     RefreshStep("rock_api_docs", discover=True, max_pages=20),
@@ -546,6 +548,11 @@ def source_urls_from_snapshot(path: Optional[Path]) -> dict[str, set[str]]:
 
 
 def _normalize_source(src) -> int:
+    if src.kind == "rock_ideas":
+        summary = sync_rock_ideas()
+        count = int(summary.get("record_count") or 0)
+        console.print(f"{src.id}: wrote {count} structured metadata records.")
+        return count
     records = []
     if src.kind == "github_repo":
         records = [_fetch_github_repo_record(src)]

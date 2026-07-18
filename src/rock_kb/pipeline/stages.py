@@ -227,6 +227,9 @@ STAGES: list[Stage] = [
             "agent/rock-issues.jsonl",
             "agent/rock-issue-enrichments.jsonl",
             "agent/rock-issue-summary.json",
+            "agent/rock-ideas.jsonl",
+            "agent/rock-idea-summary.json",
+            "src/rock_kb/rock_idea_relationships.py",
         ],
         outputs=[
             "agent/llms.txt",
@@ -235,6 +238,7 @@ STAGES: list[Stage] = [
             "agent/rock-kb-manifest.json",
             "agent/lava-contexts.jsonl",
             "agent/lava-context-summary.json",
+            "agent/rock-idea-relationships.jsonl",
             "knowledge/concepts/lava/lava-contexts.jsonl",
             "knowledge/concepts/lava/lava-context-directory.md",
             "knowledge/concepts/lava/lava-context-dependencies.json",

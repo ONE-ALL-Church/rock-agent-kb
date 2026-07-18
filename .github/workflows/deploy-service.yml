@@ -22,6 +22,11 @@ on:
       - "src/rock_kb/contribution_sources.py"
       - "src/rock_kb/service_projection.py"
       - "src/rock_kb/service_eval.py"
+      - "src/rock_kb/hosted_evaluation.py"
+      - "src/rock_kb/rock_ideas.py"
+      - "src/rock_kb/rock_idea_relationships.py"
+      - "src/rock_kb/okf_export.py"
+      - "src/rock_kb/cli/workflow_cmds.py"
 
 concurrency:
   group: rock-kb-production-deploy
@@ -110,7 +115,13 @@ jobs:
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health"
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json
-          uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5
+          uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5 --output /tmp/hosted-evaluation.json
+      - name: Record hosted evaluation summary
+        if: ${{ env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
+        run: >
+          uv run kb record-hosted-eval /tmp/hosted-evaluation.json
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --env production
       - name: Enforce bounded artifact retention
         if: ${{ env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
         run: >

@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import json
+import math
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
+from datetime import datetime, timezone
+from time import perf_counter
 from typing import Any
 from urllib.parse import urlencode
 
@@ -22,6 +25,8 @@ class ServiceEvalResult:
     fail_count: int
     results: list[dict[str, Any]]
     metrics: dict[str, Any]
+    projection_version: str = ""
+    evaluated_at: str = ""
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -30,6 +35,8 @@ class ServiceEvalResult:
             "pass_count": self.pass_count,
             "fail_count": self.fail_count,
             "metrics": self.metrics,
+            "projection_version": self.projection_version,
+            "evaluated_at": self.evaluated_at,
             "results": self.results,
         }
 
@@ -42,6 +49,8 @@ def evaluate_service(
     target_rank: int = 2,
 ) -> ServiceEvalResult:
     base = base_url.rstrip("/")
+    evaluated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    projection_version = hosted_projection_version(base, timeout)
     rows = list(read_jsonl(EVALUATION_SET_PATH))
     worker_count = max(1, min(concurrency, len(rows) or 1))
     max_allowed_rank = max(1, min(target_rank, limit))
@@ -54,6 +63,8 @@ def evaluate_service(
         fail_count=fail_count,
         results=results,
         metrics=evaluation_metrics(results),
+        projection_version=projection_version,
+        evaluated_at=evaluated_at,
     )
 
 
@@ -62,8 +73,13 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
     expected_concept = str(row.get("concept_id") or "")
     row_max_rank = max(1, min(int(row.get("max_rank") or max_allowed_rank), limit))
     params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only", "detail": "full"})
+    started_at = perf_counter()
     try:
-        response = httpx.get(f"{base_url}/search?{params}", headers={"user-agent": "rock-kb-eval/1.0"}, timeout=timeout)
+        response = httpx.get(
+            f"{base_url}/search?{params}",
+            headers={"user-agent": "rock-kb-eval/1.0", "x-rock-kb-client": "eval"},
+            timeout=timeout,
+        )
         response.raise_for_status()
         payload = response.json()
         hits = payload.get("results") or []
@@ -84,6 +100,7 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
             "reciprocal_rank": 0.0,
             "required_authority_tiers": row.get("required_authority_tiers") or [],
             "authority_passed": False,
+            "latency_ms": round((perf_counter() - started_at) * 1000, 3),
             "status": "fail",
             "error": str(exc),
         }
@@ -153,8 +170,22 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         "missing_terms": missing_terms,
         "source": row.get("source"),
         "evaluation_mode": row.get("evaluation_mode"),
+        "latency_ms": round((perf_counter() - started_at) * 1000, 3),
         "status": "pass" if passed else "fail",
     }
+
+
+def hosted_projection_version(base_url: str, timeout: float) -> str:
+    try:
+        response = httpx.get(
+            f"{base_url.rstrip('/')}/health",
+            headers={"user-agent": "rock-kb-eval/1.0", "x-rock-kb-client": "eval"},
+            timeout=timeout,
+        )
+        response.raise_for_status()
+        return str(response.json().get("version") or "")
+    except Exception:
+        return ""
 
 
 def hit_concepts(hit: dict[str, Any]) -> list[str]:
@@ -178,6 +209,8 @@ def evaluation_metrics(results: list[dict[str, Any]]) -> dict[str, Any]:
         for row in relevance_rows
         if row.get("relevant_rank") is not None and int(row["relevant_rank"]) <= int(row.get("max_allowed_rank") or 1)
     )
+    latencies = sorted(float(row.get("latency_ms") or 0) for row in results if row.get("latency_ms") is not None)
+    p95_index = max(0, min(len(latencies) - 1, math.ceil(len(latencies) * 0.95) - 1)) if latencies else 0
     return {
         "question_count": len(results),
         "relevance_question_count": len(relevance_rows),
@@ -187,4 +220,6 @@ def evaluation_metrics(results: list[dict[str, Any]]) -> dict[str, Any]:
         "duplicate_result_rate": round(duplicate_count / max(1, retrieved_count), 6),
         "authority_question_count": len(authority_rows),
         "authority_pass_rate": round(sum(1 for row in authority_rows if row.get("authority_passed")) / max(1, len(authority_rows)), 6),
+        "mean_latency_ms": round(sum(latencies) / max(1, len(latencies)), 3),
+        "p95_latency_ms": round(latencies[p95_index], 3) if latencies else 0.0,
     }
