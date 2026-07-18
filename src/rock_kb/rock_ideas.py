@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import quote, unquote, urljoin, urlparse
 
 import httpx
 from bs4 import BeautifulSoup
@@ -973,7 +973,7 @@ def idea_content_hash(row: dict[str, Any]) -> str:
 
 def canonical_idea_url(url: str) -> str:
     parsed = urlparse(url)
-    path = parsed.path.rstrip("/")
+    path = quote(unquote(parsed.path), safe="/-._~").rstrip("/")
     return f"https://community.rockrms.com{path}"
 
 

@@ -9,6 +9,7 @@ from rock_kb.okf_export import rows_for_profile
 from rock_kb.cli.ideas_cmds import relationships_for_record
 from rock_kb.rock_ideas import (
     build_rock_idea_summary,
+    canonical_idea_url,
     classify_idea_evidence_link,
     concept_ids_for_idea,
     concept_routes_for_idea,
@@ -24,9 +25,13 @@ from rock_kb.rock_ideas import (
 from rock_kb.rock_idea_relationships import (
     build_rock_idea_verification_queue,
     model_aliases,
+    release_evidence_hash,
     rock_idea_relationship_rows,
+    validate_rock_idea_verification_reviews,
     validate_rock_idea_verification_queue,
     validate_rock_idea_relationship_rows,
+    verification_candidate_set_hash,
+    verification_evidence_set_hash,
 )
 from rock_kb import service_projection
 
@@ -42,6 +47,14 @@ LIST_HTML = """
   <span class="author">Example Person</span>, Example Organization
 </div>
 """
+
+
+def test_canonical_idea_url_stabilizes_encoded_and_unicode_paths() -> None:
+    encoded = "https://community.rockrms.com/ideas/62/allow-%E2%80%9Ccombine%E2%80%9D-in-reports"
+    unicode_path = "https://community.rockrms.com/ideas/62/allow-“combine”-in-reports"
+
+    assert canonical_idea_url(encoded) == encoded
+    assert canonical_idea_url(unicode_path) == encoded
 
 
 DETAIL_HTML = """
@@ -540,6 +553,168 @@ def test_verification_queue_prioritizes_lifecycle_claims_without_leaking_candida
     )
     updated_by_id = {row["idea_id"]: row for row in updated_queue}
     assert updated_by_id["rock_idea:2"]["review_input_hash"] != by_id["rock_idea:2"]["review_input_hash"]
+
+
+def test_maintainer_review_promotes_a_current_release_candidate() -> None:
+    idea = finalize_idea_row(
+        {
+            "number": 1399,
+            "title": "Add the ability to input family address from Check-In",
+            "category": "Check-in",
+            "status": "complete",
+            "status_label": "Complete",
+            "planned_version": "17.0",
+            "vote_count": 50,
+        },
+        checked_at="2026-07-18T00:00:00Z",
+        previous=None,
+    )
+    release = {
+        "id": "rock_core_release_notes:family-address",
+        "version": "17.0",
+        "module": "Check-in",
+        "release_family": "core",
+        "change_type": "bug_fix",
+        "summary": "Fixed Next Gen Check-In not saving a family address.",
+        "issue_refs": ["6224"],
+    }
+    base_relationships, candidates = rock_idea_relationship_rows(
+        [idea],
+        model_rows=[],
+        release_rows=[release],
+        issue_rows=[],
+        checked_at="2026-07-18T00:00:00Z",
+    )
+    assert len(candidates) == 1
+    review = {
+        "schema": "rock-kb-rock-idea-verification-review-v1",
+        "review_id": "rock_idea_verification_review:1399",
+        "idea_id": "rock_idea:1399",
+        "source_content_hash": idea["content_hash"],
+        "evidence_relationship_set_hash": verification_evidence_set_hash(base_relationships),
+        "candidate_set_hash": verification_candidate_set_hash(candidates),
+        "outcome": "corroborated_by_release_note",
+        "reason_code": "official_release_note_describes_same_shipped_behavior",
+        "candidate_id": candidates[0]["candidate_id"],
+        "release_record_id": release["id"],
+        "release_evidence_hash": release_evidence_hash(release),
+        "reviewer": "delegated-reviewer",
+        "reviewed_at": "2026-07-18T01:00:00Z",
+        "redaction_attestation": True,
+        "license_attestation": True,
+    }
+    validate_rock_idea_verification_reviews([review], idea_rows=[idea])
+
+    relationships, _ = rock_idea_relationship_rows(
+        [idea],
+        model_rows=[],
+        release_rows=[release],
+        issue_rows=[],
+        verification_reviews=[review],
+        checked_at="2026-07-18T00:00:00Z",
+    )
+    reviewed = [row for row in relationships if row.get("review_state") == "maintainer_reviewed"]
+    assert len(reviewed) == 1
+    assert reviewed[0]["relationship_type"] == "corroborated_by_release_note"
+    assert reviewed[0]["basis"] == "maintainer_reviewed_official_release_match"
+    assert reviewed[0]["metadata"]["review_id"] == review["review_id"]
+
+    queue, summary = build_rock_idea_verification_queue(
+        [idea],
+        relationships=relationships,
+        candidates=candidates,
+        verification_reviews=[review],
+        checked_at="2026-07-18T00:00:00Z",
+    )
+    assert queue[0]["verification_state"] == "officially_corroborated"
+    assert queue[0]["verification_review_id"] == review["review_id"]
+    assert queue[0]["priority_band"] == "low"
+    assert summary["maintainer_reviewed_count"] == 1
+
+
+def test_negative_review_closes_current_inputs_and_requeues_when_candidates_change() -> None:
+    idea = finalize_idea_row(
+        {
+            "number": 62,
+            "title": "Combine family members in reports",
+            "category": "Reporting",
+            "status": "complete",
+            "status_label": "Complete",
+            "planned_version": "13.4",
+            "vote_count": 136,
+        },
+        checked_at="2026-07-18T00:00:00Z",
+        previous=None,
+    )
+    review = {
+        "schema": "rock-kb-rock-idea-verification-review-v1",
+        "review_id": "rock_idea_verification_review:62",
+        "idea_id": "rock_idea:62",
+        "source_content_hash": idea["content_hash"],
+        "evidence_relationship_set_hash": verification_evidence_set_hash([]),
+        "candidate_set_hash": verification_candidate_set_hash([]),
+        "outcome": "no_official_match",
+        "reason_code": "no_matching_official_evidence_in_current_inputs",
+        "reviewer": "delegated-reviewer",
+        "reviewed_at": "2026-07-18T01:00:00Z",
+        "redaction_attestation": True,
+        "license_attestation": True,
+    }
+    queue, _ = build_rock_idea_verification_queue(
+        [idea],
+        relationships=[],
+        candidates=[],
+        verification_reviews=[review],
+    )
+    assert queue[0]["verification_state"] == "maintainer_reviewed_no_official_match"
+    assert queue[0]["recommended_action"] == "revalidate_when_review_inputs_change"
+    assert queue[0]["priority_band"] == "low"
+
+    candidate = {
+        "candidate_id": "rock_idea_relationship_candidate:new",
+        "source_id": "rock_idea:62",
+        "release_record_id": "rock_core_release_notes:new",
+        "title_token_coverage": 0.8,
+    }
+    updated_queue, _ = build_rock_idea_verification_queue(
+        [idea],
+        relationships=[],
+        candidates=[candidate],
+        verification_reviews=[review],
+    )
+    assert updated_queue[0]["verification_state"] == "candidate_review_pending"
+    assert updated_queue[0]["verification_review_id"] is None
+
+
+def test_verification_review_rejects_free_form_content() -> None:
+    idea = finalize_idea_row(
+        {
+            "number": 1,
+            "title": "Reviewed idea",
+            "category": "Core",
+            "status": "complete",
+            "status_label": "Complete",
+        },
+        checked_at="2026-07-18T00:00:00Z",
+        previous=None,
+    )
+    review = {
+        "schema": "rock-kb-rock-idea-verification-review-v1",
+        "review_id": "rock_idea_verification_review:1",
+        "idea_id": "rock_idea:1",
+        "source_content_hash": idea["content_hash"],
+        "evidence_relationship_set_hash": verification_evidence_set_hash([]),
+        "candidate_set_hash": verification_candidate_set_hash([]),
+        "outcome": "no_official_match",
+        "reason_code": "no_matching_official_evidence_in_current_inputs",
+        "reviewer": "delegated-reviewer",
+        "reviewed_at": "2026-07-18T01:00:00Z",
+        "redaction_attestation": True,
+        "license_attestation": True,
+        "notes": "Free-form reviewer text must not be published.",
+    }
+    with pytest.raises(ValueError, match="unsupported fields"):
+        validate_rock_idea_verification_reviews([review], idea_rows=[idea])
 
 
 def test_model_aliases_keep_human_and_code_names_but_exclude_generic_single_tokens() -> None:
