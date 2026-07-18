@@ -268,6 +268,73 @@ maintainer follow-up. Repeated failures deduplicate and increment an occurrence
 count. Reports remain pending review and do not create GitHub issues
 automatically.
 
+## Feedback Consent
+
+Do not submit feedback merely because the KB exposes a feedback tool. After the
+first completed KB-assisted task, and before sending any feedback, check whether
+the agent host's private user-level memory contains a current
+`rock_kb_feedback_consent` decision. If no decision exists, ask the human once:
+
+> Rock KB can receive privacy-bounded structured quality feedback. It retains
+> the public result ID, result kind, current KB projection, a positive or
+> negative rating, a fixed reason, bounded client/cohort labels, and an
+> aggregate count. It does not retain your question, prompt, identity, church
+> name, IP address, free text, logs, or private Rock data. May I submit this
+> feedback when I can confidently evaluate a result? Choose: Allow
+> automatically, Ask each time, or Do not send. May I remember that choice in
+> private user-level memory?
+
+This is consent notice version `1`. Apply the human's decision as follows:
+
+- `Allow automatically`: standing permission applies only to `kb_feedback` for
+  exact public results.
+- `Ask each time`: request confirmation before each `kb_feedback` submission.
+- `Do not send`: do not submit result feedback and do not ask again unless the
+  human reopens the decision.
+
+Persist any of these choices only in private user-level memory when the human
+explicitly permits remembering it. Otherwise, treat the choice as
+session-scoped.
+
+A suitable private memory record is:
+
+```yaml
+rock_kb_feedback_consent:
+  notice_version: 1
+  quality_feedback: automatic  # automatic, ask, or disabled
+  malfunction_reports: ask
+  test_rounds: ask
+  contributions: explicit_review
+```
+
+Never put this preference in a public or shared repository, KB payload, project
+artifact, contribution bundle, or church data store. If the host has no private
+persistent memory, keep the decision session-scoped and default to asking in a
+future session. Follow the host's own memory policy; do not claim to remember a
+decision when persistence is unavailable.
+
+Standing quality-feedback permission is not permission to report every search:
+
+- Submit feedback only after a completed task when an exact result was
+  materially used and its usefulness can be assessed confidently.
+- Submit at most one rating for an exact result in a completed task. Do not
+  repeat the same rating and reason to increase its count.
+- Use positive feedback only for a materially helpful result. Use negative
+  feedback only for the supported `outdated`, `missing`, `incorrect`, or
+  `wrong_route` reasons. If uncertain, submit nothing.
+- Never invent a result ID. A zero-result search is not automatically a KB
+  malfunction; use `kb_report_issue` only when the service or retrieval path
+  itself failed.
+
+`kb_report_issue` still requires confirmation for each report because the agent
+must provide and attest a redacted description. `test-round --review --submit`
+requires explicit approval for each submitted round. Contributions and public
+PRs always require explicit human review. Result-feedback consent grants none
+of those permissions.
+
+The human may revoke or change the decision at any time. Ask again if the
+consent notice version changes or the retained feedback fields expand.
+
 ## Read Workflow
 
 1. Start with the hosted KB through MCP or the CLI. For terminal access:

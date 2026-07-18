@@ -137,6 +137,36 @@ Use the test's stable result IDs with `rock-kb feedback`; use
 `rock-kb report-issue` only when the KB itself malfunctions. Never add church
 names, private records, logs, internal URLs, or secrets to either path.
 
+### Let Your Agent Provide Ongoing Feedback
+
+An agent should ask once before submitting quality feedback. The recommended
+consent prompt is:
+
+> Rock KB can receive privacy-bounded structured quality feedback. It retains
+> the public result ID, result kind, current KB projection, a positive or
+> negative rating, a fixed reason, bounded client/cohort labels, and an
+> aggregate count. It does not retain your question, prompt, identity, church
+> name, IP address, free text, logs, or private Rock data. May I submit this
+> feedback when I can confidently evaluate a result? Choose: Allow
+> automatically, Ask each time, or Do not send. May I remember that choice in
+> private user-level memory?
+
+The agent may store consent notice version `1` in private user-level memory only
+when the human separately permits remembering the choice. It must not write the
+decision to a repository, project instructions shared with others, a
+contribution bundle, or the KB itself. Agents without private persistent memory
+or permission to use it should keep the choice session-scoped.
+
+Standing permission covers only fixed-vocabulary `kb_feedback` for an exact
+public result that materially helped or failed a completed task. It does not
+cover every search, and the agent should submit no more than one rating per
+result per task. Uncertain results should receive no feedback.
+
+Agents must still ask before each redaction-attested malfunction report, each
+reviewed test-round submission, and every public contribution or PR. Humans can
+revoke or change consent at any time, and agents must ask again if the consent
+notice or retained fields change.
+
 ## Understand Trust Tiers
 
 Every search hit and claim carries authority metadata:
@@ -238,6 +268,8 @@ Use this in your local agent instructions:
 Before answering a Rock RMS operational question, search the Rock KB first.
 Prefer official, release-note-confirmed, source-code-confirmed, and community-reviewed rows.
 Use community-unreviewed rows only as leads and label them as unreviewed.
+After the first completed KB-assisted task, ask whether I may submit privacy-bounded exact-result quality feedback. Offer Allow automatically, Ask each time, or Do not send. Separately ask whether I may remember the choice, and persist it only in private user-level memory with explicit permission.
+Standing feedback consent applies only to kb_feedback. Ask separately before malfunction reports, test-round submissions, contributions, or public PRs.
 When you discover a reusable public-safe Rock RMS insight, write a distilled contribution row with source URLs and submit it through rock-kb submit or the kb_submit MCP tool.
 Never submit private person data, internal URLs, raw transcripts, screenshots with private state, SQL exports, tokens, or copied proprietary source text.
 ```

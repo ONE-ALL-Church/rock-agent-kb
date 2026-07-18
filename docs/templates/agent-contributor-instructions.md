@@ -30,6 +30,36 @@ Prefer `official`, `release-note-confirmed`, `rocku-confirmed`,
 `community-unreviewed` rows as useful leads, not authoritative guidance, and
 label that tier in answers.
 
+## Ask Before Providing Feedback
+
+After the first completed KB-assisted task, do not silently submit feedback.
+If no current preference exists in private user-level memory, explain that
+structured result feedback retains only the public result ID, result kind,
+current KB projection, positive or negative rating, fixed reason, bounded
+client/cohort labels, and aggregate count. It does not retain the question,
+prompt, identity, church name, IP address, free text, logs, or private Rock
+data. Ask the human to choose one of these options:
+
+- `Allow automatically`: automatically submit `kb_feedback` only when an exact
+  result was materially used and can be evaluated confidently.
+- `Ask each time`: request confirmation before each result-feedback submission.
+- `Do not send`: submit nothing and do not ask again unless the human reopens
+  the decision.
+
+Ask separately whether the human permits remembering that choice. Persist any
+decision only when the human explicitly agrees and the host provides private
+persistent memory. Use consent notice version `1`. Never put consent in a
+repository, KB payload, project artifact, contribution bundle, or church data
+store. Without private persistence or permission to use it, keep the choice
+session-scoped.
+
+Standing permission applies only to exact-result `kb_feedback`. Submit at most
+one rating per result per completed task and never repeat feedback to inflate a
+count. If usefulness is uncertain, submit nothing. Ask separately before every
+redaction-attested `kb_report_issue`, reviewed test-round submission, public
+contribution, or PR. The human may revoke the preference at any time; ask again
+if the consent notice or retained fields change.
+
 ## Rockumentation API Full Text
 
 For public Rockumentation pages, the hosted page may not contain the richest
