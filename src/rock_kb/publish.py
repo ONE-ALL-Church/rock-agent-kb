@@ -90,6 +90,17 @@ PUBLIC_VIRTUAL_FILES = {
     "docs/templates/rock-kb-agent/SKILL.md": "skills/rock-kb-agent/SKILL.md",
 }
 
+
+def public_export_input_patterns() -> list[str]:
+    """Return pipeline globs covering every public-export source path."""
+    patterns = {"src/rock_kb/publish.py"}
+    for rel in [*PUBLIC_PATHS, *PUBLIC_VIRTUAL_FILES.values()]:
+        normalized = rel.rstrip("/")
+        patterns.add(normalized)
+        patterns.add(f"{normalized}/**/*")
+    return sorted(patterns)
+
+
 PUBLIC_INTERNAL_AGENT_ENTRYPOINTS = {
     "private_media",
 }

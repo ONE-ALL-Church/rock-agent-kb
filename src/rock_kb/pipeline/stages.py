@@ -11,7 +11,7 @@ from ..indexes import build_agent_pack, build_sqlite_index
 from ..mobile_selector_audit import build_mobile_selector_audit
 from ..model_map import build_model_map
 from ..paths import PUBLIC_EXPORT_DIR
-from ..publish import build_public_export
+from ..publish import build_public_export, public_export_input_patterns
 from ..recipes import build_recipes
 
 
@@ -252,14 +252,7 @@ STAGES: list[Stage] = [
     Stage(
         name="export",
         description="Build audited public export payload.",
-        inputs=[
-            "agent/**/*",
-            "claims/approved-claims.jsonl",
-            "knowledge/**/*.md",
-            "knowledge/**/*.json",
-            "knowledge/**/*.jsonl",
-            "README.md",
-        ],
+        inputs=public_export_input_patterns(),
         outputs=["data/public-export/public-export-manifest.json"],
         run=lambda: build_public_export(PUBLIC_EXPORT_DIR),
         depends_on=["agent-pack", "claims-validate"],
