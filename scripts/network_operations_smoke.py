@@ -10,7 +10,7 @@ from typing import Any, Callable
 
 
 SCHEMA = "rock-kb-network-operations-smoke-v1"
-EXPECTED_MCP_TOOLS = {"kb_search", "kb_get_claims", "kb_submit", "kb_review_dashboard", "kb_report_issue"}
+EXPECTED_MCP_TOOLS = {"kb_search", "kb_get_claims", "kb_submit", "kb_review_dashboard", "kb_get_freshness", "kb_report_issue"}
 
 
 def main(argv: list[str]) -> int:
@@ -35,6 +35,7 @@ def network_operations_smoke(
         get_json_check("health", f"{base}/health"),
         get_json_check("manifest", f"{base}/manifest.json"),
         get_json_check("operations_dashboard", f"{base}/operations/dashboard"),
+        source_freshness_check(base),
         mcp_tools_check(base),
         unauthorized_submit_check(base),
         hosted_eval_check(base, limit, evaluator=evaluator),
@@ -54,6 +55,32 @@ def get_json_check(name: str, url: str) -> dict[str, Any]:
     except Exception as exc:
         return check(name, "fail", str(exc))
     return check(name, "pass", "ok", {"keys": sorted(payload)[:10] if isinstance(payload, dict) else []})
+
+
+def source_freshness_check(base_url: str) -> dict[str, Any]:
+    try:
+        payload = fetch_json(f"{base_url}/operations/freshness")
+    except Exception as exc:
+        return check("source_freshness", "fail", str(exc))
+    if not isinstance(payload, dict) or payload.get("schema") != "rock-kb-source-operations-v1":
+        return check("source_freshness", "fail", "unexpected freshness response", {"response": payload})
+    if payload.get("status") != "ok":
+        return check(
+            "source_freshness",
+            "fail",
+            "source or refresh workflow is stale, failed, or not recorded",
+            {
+                "status": payload.get("status"),
+                "blocking_workflow_ids": payload.get("blocking_workflow_ids"),
+                "blocking_source_ids": payload.get("blocking_source_ids"),
+            },
+        )
+    return check(
+        "source_freshness",
+        "pass",
+        "ok",
+        {"workflow_count": payload.get("workflow_count"), "source_count": payload.get("source_count")},
+    )
 
 
 def mcp_tools_check(base_url: str) -> dict[str, Any]:

@@ -124,6 +124,21 @@ def test_client_dashboard_command_hits_operations_dashboard(monkeypatch, capsys)
     assert "rock-kb-operations-dashboard-v2" in capsys.readouterr().out
 
 
+def test_client_freshness_command_hits_hosted_source_operations(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"schema": "rock-kb-source-operations-v1", "status": "ok"}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    assert cli.main(["--url", "https://example.test", "freshness"]) == 0
+    assert urls == ["https://example.test/operations/freshness"]
+    assert "rock-kb-source-operations-v1" in capsys.readouterr().out
+
+
 def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypatch, capsys):
     cli = load_client_cli()
 
@@ -1043,6 +1058,15 @@ def test_client_mcp_config_includes_only_bounded_opt_in_cohort(capsys):
     payload = json.loads(capsys.readouterr().out)
 
     assert payload["mcpServers"]["rock-kb"]["headers"] == {"x-rock-kb-cohort": "external-test"}
+
+
+def test_client_mcp_config_supports_opt_in_codemode(capsys):
+    cli = load_client_cli()
+
+    assert cli.main(["--url", "https://example.test", "mcp-config", "--mode", "code"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+
+    assert payload["mcpServers"]["rock-kb"]["url"] == "https://example.test/mcp/code"
 
 
 def test_client_submit_infers_org_and_reads_token_file(monkeypatch, tmp_path, capsys):

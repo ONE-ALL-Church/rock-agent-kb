@@ -41,11 +41,23 @@ Or query the same hosted knowledge from a terminal:
 ```bash
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb result '<result-id>'
+uvx rock-kb freshness
 uvx rock-kb test-round
 ```
 
 MCP is not a higher-quality knowledge source than the CLI; it is a more native
-tool interface for compatible agents. Do not download an OKF bundle merely to
+tool interface for compatible agents. The default `/mcp` endpoint exposes
+direct typed tools and is the right choice for normal use. An experimental
+read-only Cloudflare Code Mode endpoint is available for agents that need to
+compose several dependent KB calls, loops, or filters in one operation:
+
+```bash
+uvx rock-kb mcp-config --mode code
+```
+
+Code Mode excludes feedback, issue-report, test-review, and contribution
+writes. It does not have better knowledge and should not replace direct MCP for
+single searches or exact lookups. Do not download an OKF bundle merely to
 answer an ordinary online question.
 
 ## Portable OKF Distribution
@@ -104,6 +116,11 @@ Churches can run `uvx rock-kb test-round` for the standard bounded public test
 pack. It includes exact retrieval, a no-answer boundary, and three imported
 issue checks. Imported reports remain unreviewed routing evidence unless a
 separate public enrichment has passed review.
+
+Anyone can inspect the authoritative scheduled-refresh and source state with
+`uvx rock-kb freshness`. It reports workflow schedule health separately from
+each source's last check, last content change, result count, content hash, and
+check status. It does not expose private source content or maintainer paths.
 
 The reusable agent skill also asks the human once whether exact-result quality
 feedback may be submitted automatically and remembered privately. This standing

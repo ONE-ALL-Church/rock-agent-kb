@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.0.1"
+  rock-kb-skill-version: "1.1.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-18T18:25:53Z"
-  rock-kb-minimum-client-version: "0.13.0"
+  rock-kb-published-at: "2026-07-19T02:00:00Z"
+  rock-kb-minimum-client-version: "0.14.0"
 ---
 
 # Rock KB Agent
@@ -23,6 +23,11 @@ interfaces to the same hosted public projection:
 
 - Use MCP when the agent host supports HTTP MCP and benefits from typed,
   discoverable tools and structured results without shell parsing.
+- Prefer the default direct MCP tools for ordinary search, exact lookup, and
+  any feedback or submission operation.
+- Use the opt-in experimental Code Mode endpoint only when a read-only task
+  needs several dependent KB calls, branching, loops, or intermediate
+  filtering. It excludes every write tool.
 - Use the CLI for terminal agents, scripts, local validation, stateful local
   commands, and environments without MCP support.
 - Use OKF only when the task requires an offline corpus, a pinned release,
@@ -44,6 +49,8 @@ The KB can help agents do more than plain text search:
 - Inspect the hosted skill manifest to detect a newer reviewed instruction
   package without trusting an unverified local copy.
 - Inspect public operations counts through the dashboard.
+- Inspect authoritative daily/weekly workflow and source freshness, including
+  separate last-check, content-change, count, hash, and status fields.
 - List stable Rock Model Map models and get exact model digests.
 - Inspect model fields, required fields, relationships, methods, version diffs,
   and one property at a time.
@@ -128,6 +135,7 @@ uvx rock-kb recipe oneall:registration-to-connection-request
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb test-round
 uvx rock-kb dashboard
+uvx rock-kb freshness
 uvx rock-kb mcp-config
 ```
 
@@ -156,6 +164,7 @@ uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group
 uv run --project clients/python rock-kb test-round
 uv run --project clients/python rock-kb dashboard
+uv run --project clients/python rock-kb freshness
 uv run --project clients/python rock-kb mcp-config
 ```
 
@@ -194,7 +203,11 @@ Use these commands for specific jobs:
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
 - `concepts`: list valid concept IDs and their guide paths.
 - `dashboard`: check public contribution counts, review queues, and operational health.
-- `mcp-config`: connect clients that support HTTP MCP to the hosted KB.
+- `freshness`: inspect authoritative source and scheduled-refresh health without
+  exposing source bodies, private paths, identities, or queries.
+- `mcp-config`: connect clients that support HTTP MCP to the hosted direct tools.
+- `mcp-config --mode code`: opt into the experimental read-only composition
+  endpoint. Use direct tools for single calls and every write operation.
 - `okf download [--profile full|core]`: download and digest-verify a read-only Open Knowledge Format release for offline, pinned, bulk, or interoperable use. Use `core` for a smaller local corpus and `full` for lossless public records.
 - `okf inspect <bundle>`: show an OKF directory or archive's version, source commit, scope, and counts.
 - `okf conformance <bundle>`: apply portable upstream OKF rules to any bundle; broken links and unknown versions are warnings.
@@ -294,11 +307,21 @@ tools instead of shell commands:
   knowledge.
 - `kb_review_dashboard`: check public review queues, conflicts, community
   intake, issue reports, hosted evaluation, and telemetry counts.
+- `kb_get_freshness`: check daily/weekly schedule health and source
+  `last_checked_at`, `content_changed_at`, result count, content hash, and
+  status independently.
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
 
 Use MCP for agent-native typed tools and the CLI for terminal or scripted
 access. Both query the same hosted projection; choose by client capability, not
 expected answer quality.
+
+The default direct MCP endpoint exposes each operation as a typed tool with
+read/write annotations and structured results. The optional `/mcp/code`
+endpoint exposes one experimental `code` tool that can compose the read-only
+subset. Use Code Mode only when composition reduces calls or intermediate
+context; it is unnecessary overhead for one search, claim, model, recipe,
+issue, or Idea lookup. Never use it to work around the omitted write tools.
 
 When reporting a KB malfunction, retain the returned stable `report_id` for
 maintainer follow-up. Repeated failures deduplicate and increment an occurrence

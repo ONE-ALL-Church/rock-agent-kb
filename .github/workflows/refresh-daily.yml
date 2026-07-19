@@ -15,8 +15,12 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    environment: production
     timeout-minutes: 30
     env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
       DAILY_SOURCE_IDS: >-
         rock_community_blog
         rock_core_release_notes
@@ -36,12 +40,21 @@ jobs:
             rock-kb-source-observations-
       - name: Install uv
         uses: astral-sh/setup-uv@v5
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: service/package-lock.json
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install dependencies
         run: uv sync --extra dev
+      - name: Install service dependencies
+        working-directory: service
+        run: npm ci
       - name: Capture pre-refresh source snapshot
         run: uv run kb sources scan --output-dir data/review/source-scan-pre --snapshot-output data/review/source-scan-pre/source-snapshot.json
       - name: Refresh daily-cadence normalized sources
@@ -97,6 +110,22 @@ jobs:
             --source-status data/review/source-scan/source-refresh-status.json \
             --required-cadence daily \
             --strict
+      - name: Publish authoritative daily freshness snapshot
+        if: always() && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
+        run: |
+          args=()
+          for source_id in $DAILY_SOURCE_IDS; do
+            args+=(--source "$source_id")
+          done
+          uv run kb record-source-freshness \
+            data/review/source-freshness/source-freshness-report.json \
+            --workflow-id daily-sources \
+            --workflow-max-age-hours 52 \
+            --run-id "${{ github.run_id }}" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}" \
+            --env production \
+            "${args[@]}"
       - name: Run daily refresh regression tests
         if: steps.refresh_sources.outcome == 'success'
         run: uv run --extra dev pytest -q tests/test_source_freshness.py tests/test_source_orchestration.py

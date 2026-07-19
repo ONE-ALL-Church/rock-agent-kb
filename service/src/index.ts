@@ -1,3 +1,10 @@
+import { DynamicWorkerExecutor } from "@cloudflare/codemode";
+import { codeMcpServer } from "@cloudflare/codemode/mcp";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
+import { createMcpHandler } from "agents/mcp";
+import { z, type ZodType } from "zod";
+
 type JsonRecord = Record<string, unknown>;
 
 type TelemetryIdentity = {
@@ -179,6 +186,10 @@ const ISSUE_REQUEST_MAX_BYTES = 4096;
 const ISSUE_FINGERPRINT_LIMIT_PER_MINUTE = 10;
 const ISSUE_GLOBAL_LIMIT_PER_MINUTE = 120;
 const DECLARED_TELEMETRY_COHORTS = new Set(["external-test", "maintainer"]);
+const TEST_ROUND_FUNNEL_STAGES = new Set(["started", "completed"]);
+const SUPPORTED_MCP_PROTOCOL_VERSIONS = new Set(["2025-03-26", "2025-06-18", "2025-11-25"]);
+const LATEST_STABLE_MCP_PROTOCOL_VERSION = "2025-11-25";
+const EXPECTED_SOURCE_WORKFLOWS = new Set(["daily-sources", "daily-issues", "weekly-comprehensive"]);
 const SKILL_ARTIFACT_PATH = "skills/rock-kb-agent/SKILL.md";
 const SKILL_MANIFEST_PATH = "skills/rock-kb-agent/manifest.json";
 const TOPIC_HINTS: Array<[string, string[]]> = [
@@ -397,6 +408,16 @@ export default {
           throw error;
         }
       }
+      if (url.pathname === "/test-rounds/events" && request.method === "POST") {
+        try {
+          return json(await recordTestRoundEvent(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json({ schema: "rock-kb-community-test-round-event-result-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
+          }
+          throw error;
+        }
+      }
       if (url.pathname === "/issues/report" && request.method === "POST") {
         try {
           return json(await submitIssueReport(request, env), 201);
@@ -409,6 +430,12 @@ export default {
       }
       if (url.pathname === "/operations/dashboard") {
         return json(await operationsDashboard(env));
+      }
+      if (url.pathname === "/operations/freshness") {
+        return json(await sourceOperationsSnapshot(env));
+      }
+      if (url.pathname === "/mcp/code") {
+        return handleCodeMcp(request, env, ctx);
       }
       if (url.pathname === "/mcp" && request.method === "POST") {
         return json(await handleMcp(request, env, ctx));
@@ -647,7 +674,20 @@ async function handleMcp(request: Request, env: ServiceEnv, ctx: ExecutionContex
   const id = body.id ?? null;
   const method = String(body.method || "");
   if (method === "initialize") {
-    return { jsonrpc: "2.0", id, result: { protocolVersion: "2025-03-26", serverInfo: { name: "Rock KB", version: await currentVersion(env) }, capabilities: { tools: {} } } };
+    const requestedVersion = String(asRecord(body.params).protocolVersion || "");
+    const protocolVersion = SUPPORTED_MCP_PROTOCOL_VERSIONS.has(requestedVersion)
+      ? requestedVersion
+      : LATEST_STABLE_MCP_PROTOCOL_VERSION;
+    return {
+      jsonrpc: "2.0",
+      id,
+      result: {
+        protocolVersion,
+        serverInfo: { name: "Rock KB", version: await currentVersion(env) },
+        capabilities: { tools: {} },
+        instructions: "Start with kb_search, then expand only the exact result you need. Use exact model, recipe, issue, and idea tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.",
+      },
+    };
   }
   if (method === "tools/list") {
     return { jsonrpc: "2.0", id, result: { tools: toolDefinitions() } };
@@ -656,10 +696,107 @@ async function handleMcp(request: Request, env: ServiceEnv, ctx: ExecutionContex
     const params = asRecord(body.params);
     const name = String(params.name || "");
     const args = asRecord(params.arguments);
-    const result = await callTool(name, args, env, request, ctx);
-    return { jsonrpc: "2.0", id, result: { content: [{ type: "text", text: JSON.stringify(result) }] } };
+    try {
+      const result = await callTool(name, args, env, request, ctx);
+      return { jsonrpc: "2.0", id, result: mcpToolResult(result) };
+    } catch (error) {
+      return {
+        jsonrpc: "2.0",
+        id,
+        result: {
+          content: [{ type: "text", text: JSON.stringify({ error: "tool_error", message: String(error) }) }],
+          isError: true,
+        },
+      };
+    }
   }
   return { jsonrpc: "2.0", id, error: { code: -32601, message: "Method not found" } };
+}
+
+async function handleCodeMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
+  if (!env.LOADER) {
+    return json({ error: "codemode_unavailable", message: "The Worker Loader binding is not configured." }, 503);
+  }
+  const upstream = new McpServer(
+    { name: "Rock KB upstream tools", version: await currentVersion(env) },
+    { capabilities: { tools: {} }, instructions: "Use compact search before exact expansion." },
+  );
+  for (const definition of toolDefinitions()) {
+    if (asRecord(definition.annotations).readOnlyHint !== true) continue;
+    const inputSchema = zodFromJsonSchema(asRecord(definition.inputSchema));
+    upstream.registerTool(
+      String(definition.name),
+      {
+        description: String(definition.description || ""),
+        inputSchema,
+        annotations: asRecord(definition.annotations),
+      },
+      async (args: unknown) => mcpToolResult(await callTool(String(definition.name), asRecord(args), env, request, ctx)),
+    );
+  }
+  const executor = new DynamicWorkerExecutor({ loader: env.LOADER });
+  const server = await codeMcpServer({
+    server: upstream,
+    executor,
+    description: "Execute JavaScript to compose Rock KB operations, filter intermediate results, and return one focused value. Prefer the normal direct MCP endpoint for a single exact lookup. Available methods:\n\n{{types}}\n\nExample:\n{{example}}",
+  });
+  return createMcpHandler(server, { route: "/mcp/code" })(request, env, ctx);
+}
+
+function mcpToolResult(value: unknown): CallToolResult {
+  const structuredContent = value && typeof value === "object" && !Array.isArray(value)
+    ? value as JsonRecord
+    : { results: value };
+  return {
+    structuredContent,
+    content: [{ type: "text", text: JSON.stringify(value) }],
+  };
+}
+
+function zodFromJsonSchema(schema: JsonRecord): ZodType {
+  const schemaType = schema.type;
+  if (Array.isArray(schemaType)) {
+    const variants = schemaType.map((value) => zodFromJsonSchema({ ...schema, type: value }));
+    return variants.length === 1 ? variants[0] : z.union(variants as [ZodType, ZodType, ...ZodType[]]);
+  }
+  if (Object.prototype.hasOwnProperty.call(schema, "const")) {
+    return z.literal(schema.const as string | number | boolean | null);
+  }
+  if (Array.isArray(schema.enum) && schema.enum.length) {
+    const values: ZodType[] = schema.enum.map((value) => z.literal(value as string | number | boolean | null));
+    return values.length === 1 ? values[0] : z.union(values as unknown as [ZodType, ZodType, ...ZodType[]]);
+  }
+  if (schemaType === "string") {
+    let result = z.string();
+    if (Number.isInteger(schema.minLength)) result = result.min(Number(schema.minLength));
+    if (Number.isInteger(schema.maxLength)) result = result.max(Number(schema.maxLength));
+    return result;
+  }
+  if (schemaType === "integer" || schemaType === "number") {
+    let result = schemaType === "integer" ? z.number().int() : z.number();
+    if (typeof schema.minimum === "number") result = result.min(schema.minimum);
+    if (typeof schema.maximum === "number") result = result.max(schema.maximum);
+    return result;
+  }
+  if (schemaType === "boolean") return z.boolean();
+  if (schemaType === "null") return z.null();
+  if (schemaType === "array") {
+    let result = z.array(zodFromJsonSchema(asRecord(schema.items)));
+    if (Number.isInteger(schema.minItems)) result = result.min(Number(schema.minItems));
+    if (Number.isInteger(schema.maxItems)) result = result.max(Number(schema.maxItems));
+    return result;
+  }
+  if (schemaType === "object" || schema.properties) {
+    const required = new Set(Array.isArray(schema.required) ? schema.required.map(String) : []);
+    const shape: Record<string, ZodType> = {};
+    for (const [name, propertySchema] of Object.entries(asRecord(schema.properties))) {
+      const value = zodFromJsonSchema(asRecord(propertySchema));
+      shape[name] = required.has(name) ? value : value.optional();
+    }
+    const result = z.object(shape);
+    return schema.additionalProperties === false ? result.strict() : result.passthrough();
+  }
+  return z.unknown();
 }
 
 async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request: Request, ctx: ExecutionContext): Promise<unknown> {
@@ -801,7 +938,11 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_review_dashboard") {
     return operationsDashboard(env);
   }
+  if (name === "kb_get_freshness") {
+    return sourceOperationsSnapshot(env);
+  }
   if (name === "kb_get_test_round") {
+    ctx.waitUntil(recordTestRoundFunnel(env, "started", "", request, "mcp"));
     return publicTestRoundDefinition(await currentVersion(env));
   }
   if (name === "kb_submit_test_round_review") {
@@ -2549,6 +2690,17 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
     )`
   ).run();
   await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS test_round_funnel_v1 (
+      day TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      stage TEXT NOT NULL,
+      automatic_status TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, client_class, cohort, stage, automatic_status)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS hosted_evaluation_runs_v1 (
       projection_version TEXT PRIMARY KEY,
       evaluated_at TEXT NOT NULL,
@@ -2585,6 +2737,50 @@ async function submitFeedback(request: Request, env: ServiceEnv, forcedClientCla
      DO UPDATE SET count = count + 1`
   ).bind(day, identity.clientClass, identity.cohort, result.id, result.kind, projectionVersion, rating, reason).run();
   return { schema: "rock-kb-feedback-result-v2", status: "recorded", result_id: result.id, projection_version: projectionVersion, rating, reason };
+}
+
+async function recordTestRoundEvent(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const body = await readBoundedJson(request, 512);
+  const allowedFields = new Set(["stage", "automatic_status"]);
+  if (Object.keys(body).some((field) => !allowedFields.has(field))) {
+    throw new PublicRequestError(400, "unsupported_fields", "Test-round events accept only stage and automatic_status");
+  }
+  const stage = String(body.stage || "").trim().toLowerCase();
+  const automaticStatus = String(body.automatic_status || "").trim().toLowerCase();
+  if (!TEST_ROUND_FUNNEL_STAGES.has(stage)) {
+    throw new PublicRequestError(400, "invalid_stage", "stage must be started or completed");
+  }
+  if (stage === "completed" && !["ok", "fail"].includes(automaticStatus)) {
+    throw new PublicRequestError(400, "invalid_automatic_status", "completed events require automatic_status ok or fail");
+  }
+  if (stage === "started" && automaticStatus) {
+    throw new PublicRequestError(400, "unexpected_automatic_status", "started events do not accept automatic_status");
+  }
+  await recordTestRoundFunnel(env, stage, automaticStatus, request, forcedClientClass);
+  return {
+    schema: "rock-kb-community-test-round-event-result-v1",
+    status: "recorded",
+    stage,
+    automatic_status: automaticStatus || null,
+  };
+}
+
+async function recordTestRoundFunnel(
+  env: ServiceEnv,
+  stage: string,
+  automaticStatus: string,
+  request: Request,
+  forcedClientClass = "",
+): Promise<void> {
+  await ensureTelemetryTables(env);
+  const identity = telemetryIdentity(request, forcedClientClass);
+  const day = new Date().toISOString().slice(0, 10);
+  await env.KB_DB.prepare(
+    `INSERT INTO test_round_funnel_v1 (day, client_class, cohort, stage, automatic_status, count)
+     VALUES (?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, client_class, cohort, stage, automatic_status)
+     DO UPDATE SET count = count + 1`
+  ).bind(day, identity.clientClass, identity.cohort, stage, automaticStatus).run();
 }
 
 function publicTestRoundDefinition(projectionVersion: string): JsonRecord {
@@ -3007,8 +3203,169 @@ function queryTopicHint(query: string): string {
   return "unclassified";
 }
 
+async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
+  await ensureSourceOperationsTables(env);
+  const [workflowResult, sourceResult] = await Promise.all([
+    env.KB_DB.prepare(
+      `SELECT workflow_id, run_id, run_url, observed_at, status, maximum_age_hours, source_count,
+              content_hash, counts_json, blocking_source_ids_json
+       FROM source_workflow_runs_v1
+       ORDER BY workflow_id`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at,
+              result_count, content_hash, check_status, status, observed_at, workflow_id
+       FROM source_freshness_state_v1
+       ORDER BY source_id`
+    ).all<JsonRecord>(),
+  ]);
+  const workflows = (workflowResult.results || []).map((row) => {
+    const ageHours = hoursSince(asOf, row.observed_at);
+    const maximumAgeHours = Number(row.maximum_age_hours || 0);
+    const scheduleStatus = ageHours === null
+      ? "missing"
+      : ageHours > maximumAgeHours
+        ? "overdue"
+        : "current";
+    return {
+      workflow_id: String(row.workflow_id || ""),
+      run_id: String(row.run_id || ""),
+      run_url: String(row.run_url || "") || null,
+      observed_at: String(row.observed_at || ""),
+      age_hours: ageHours,
+      maximum_age_hours: maximumAgeHours,
+      schedule_status: scheduleStatus,
+      run_status: String(row.status || "unknown"),
+      source_count: Number(row.source_count || 0),
+      content_hash: String(row.content_hash || ""),
+      counts: parseStoredJson(row.counts_json, {}),
+      blocking_source_ids: parseStoredJson(row.blocking_source_ids_json, []),
+    };
+  });
+  const sources = (sourceResult.results || []).map((row) => {
+    const ageHours = hoursSince(asOf, row.last_checked_at);
+    const maximumAgeHours = row.maximum_age_hours === null || row.maximum_age_hours === undefined
+      ? null
+      : Number(row.maximum_age_hours);
+    const checkStatus = String(row.check_status || "");
+    const cadence = String(row.cadence || "");
+    const resultCount = Number(row.result_count || 0);
+    let status = "current";
+    if (checkStatus === "failed") status = "failed";
+    else if (cadence === "manual") status = "manual";
+    else if (ageHours === null || resultCount <= 0) status = "missing";
+    else if (maximumAgeHours !== null && ageHours > maximumAgeHours) status = "overdue";
+    else if (maximumAgeHours !== null && ageHours >= maximumAgeHours * 0.75) status = "due_soon";
+    return {
+      source_id: String(row.source_id || ""),
+      name: String(row.name || ""),
+      cadence,
+      maximum_age_hours: maximumAgeHours,
+      last_checked_at: String(row.last_checked_at || ""),
+      content_changed_at: String(row.content_changed_at || ""),
+      age_hours: ageHours,
+      result_count: resultCount,
+      content_hash: String(row.content_hash || ""),
+      check_status: checkStatus,
+      status,
+      observed_at: String(row.observed_at || ""),
+      workflow_id: String(row.workflow_id || ""),
+    };
+  });
+  const missingWorkflows = [...EXPECTED_SOURCE_WORKFLOWS]
+    .filter((workflowId) => !workflows.some((row) => row.workflow_id === workflowId));
+  const blockingWorkflows = [
+    ...missingWorkflows,
+    ...workflows
+    .filter((row) => row.schedule_status !== "current" || row.run_status !== "ok")
+    .map((row) => row.workflow_id),
+  ].sort();
+  const blockingSources = sources
+    .filter((row) => ["failed", "missing", "overdue"].includes(row.status))
+    .map((row) => row.source_id);
+  const status = workflows.length === 0 || sources.length === 0
+    ? "not_recorded"
+    : blockingWorkflows.length || blockingSources.length
+      ? "fail"
+      : "ok";
+  const issueSources = sources.filter((row) => ["rock_core_issues", "rock_mobile_issues"].includes(row.source_id));
+  return {
+    schema: "rock-kb-source-operations-v1",
+    generated_at: asOf.toISOString(),
+    status,
+    workflow_count: workflows.length,
+    source_count: sources.length,
+    counts: countValues(sources.map((row) => row.status)),
+    blocking_workflow_ids: blockingWorkflows,
+    missing_workflow_ids: missingWorkflows,
+    blocking_source_ids: blockingSources,
+    workflows,
+    sources,
+    rock_issues: {
+      source_count: issueSources.length,
+      result_count: issueSources.reduce((total, row) => total + row.result_count, 0),
+      sources: issueSources.map((row) => ({
+        source_id: row.source_id,
+        last_checked_at: row.last_checked_at,
+        content_changed_at: row.content_changed_at,
+        result_count: row.result_count,
+        content_hash: row.content_hash,
+        status: row.status,
+      })),
+    },
+    alerting: "The daily Network Operations workflow fails when this status is fail or not_recorded. Schedule age and source age are evaluated separately.",
+  };
+}
+
+async function ensureSourceOperationsTables(env: ServiceEnv): Promise<void> {
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS source_workflow_runs_v1 (
+      workflow_id TEXT PRIMARY KEY,
+      run_id TEXT NOT NULL,
+      run_url TEXT NOT NULL,
+      observed_at TEXT NOT NULL,
+      status TEXT NOT NULL,
+      maximum_age_hours REAL NOT NULL,
+      source_count INTEGER NOT NULL,
+      content_hash TEXT NOT NULL,
+      counts_json TEXT NOT NULL,
+      blocking_source_ids_json TEXT NOT NULL
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS source_freshness_state_v1 (
+      source_id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      cadence TEXT NOT NULL,
+      maximum_age_hours REAL,
+      last_checked_at TEXT NOT NULL,
+      content_changed_at TEXT NOT NULL,
+      result_count INTEGER NOT NULL,
+      content_hash TEXT NOT NULL,
+      check_status TEXT NOT NULL,
+      status TEXT NOT NULL,
+      observed_at TEXT NOT NULL,
+      workflow_id TEXT NOT NULL
+    )`
+  ).run();
+}
+
+function hoursSince(asOf: Date, value: unknown): number | null {
+  const timestamp = Date.parse(String(value || ""));
+  if (!Number.isFinite(timestamp)) return null;
+  return Math.round(Math.max(0, asOf.getTime() - timestamp) / 36_000) / 100;
+}
+
+function parseStoredJson(value: unknown, fallback: unknown): unknown {
+  try {
+    return JSON.parse(String(value || ""));
+  } catch {
+    return fallback;
+  }
+}
+
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
-  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation] = await Promise.all([
+  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation, sourceFreshness] = await Promise.all([
     artifactJsonlOptional(env, "agent/claim-review-queue.jsonl"),
     artifactJsonlOptional(env, "agent/source-conflicts.jsonl"),
     artifactJsonlOptional(env, "agent/section-status.jsonl"),
@@ -3020,10 +3377,11 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     artifactJsonOptional(env, "agent/rock-idea-summary.json"),
     testRoundDashboard(env),
     hostedEvaluationSummary(env),
+    sourceOperationsSnapshot(env),
   ]);
   const generatedEvaluation = summarizeEvaluationResults(evaluationResults);
   return {
-    schema: "rock-kb-operations-dashboard-v3",
+    schema: "rock-kb-operations-dashboard-v4",
     version: await currentVersion(env),
     review_queue: summarizeReviewQueue(reviewQueue),
     community_contributions: summarizeCommunityContributions(communityRows),
@@ -3039,12 +3397,13 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     issue_reports: issueReports,
     rock_issues: rockIssues,
     rock_ideas: rockIdeas,
+    source_freshness: sourceFreshness,
   };
 }
 
 async function testRoundDashboard(env: ServiceEnv): Promise<JsonRecord> {
   await ensureTelemetryTables(env);
-  const [submissions, outcomes] = await Promise.all([
+  const [submissions, outcomes, funnel, currentFeedback, legacyFeedback] = await Promise.all([
     env.KB_DB.prepare(
       `SELECT day, projection_version, client_class, cohort, automatic_status, projection_matches_current, SUM(count) AS count
        FROM test_round_submissions_v1
@@ -3058,16 +3417,53 @@ async function testRoundDashboard(env: ServiceEnv): Promise<JsonRecord> {
        GROUP BY case_id, category, automatic_status, outcome, result_id
        ORDER BY case_id, count DESC`
     ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT day, client_class, cohort, stage, automatic_status, SUM(count) AS count
+       FROM test_round_funnel_v1
+       GROUP BY day, client_class, cohort, stage, automatic_status
+       ORDER BY day DESC, stage, cohort`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT cohort, rating, reason, SUM(count) AS count
+       FROM feedback_events_v3
+       GROUP BY cohort, rating, reason`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT 'unattributed' AS cohort, rating, reason, SUM(count) AS count
+       FROM feedback_events_v2
+       GROUP BY rating, reason`
+    ).all<JsonRecord>(),
   ]);
   const submissionRows = submissions.results || [];
   const outcomeRows = outcomes.results || [];
+  const funnelRows = funnel.results || [];
+  const feedbackRows = mergeCountRows(
+    [...(currentFeedback.results || []), ...(legacyFeedback.results || [])],
+    ["cohort", "rating", "reason"],
+    Number.MAX_SAFE_INTEGER,
+  );
+  const startedRows = funnelRows.filter((row) => row.stage === "started");
+  const completedRows = funnelRows.filter((row) => row.stage === "completed");
   return {
-    schema: "rock-kb-community-test-round-dashboard-v1",
+    schema: "rock-kb-community-test-round-dashboard-v2",
     submission_count: submissionRows.reduce((total, row) => total + Number(row.count || 0), 0),
     case_outcome_count: outcomeRows.reduce((total, row) => total + Number(row.count || 0), 0),
     by_cohort: countWeightedValues(submissionRows, "cohort"),
     by_automatic_status: countWeightedValues(submissionRows, "automatic_status"),
     by_manual_outcome: countWeightedValues(outcomeRows, "outcome"),
+    funnel: {
+      started_count: startedRows.reduce((total, row) => total + Number(row.count || 0), 0),
+      completed_count: completedRows.reduce((total, row) => total + Number(row.count || 0), 0),
+      submitted_count: submissionRows.reduce((total, row) => total + Number(row.count || 0), 0),
+      feedback_count: feedbackRows.reduce((total, row) => total + Number(row.count || 0), 0),
+      positive_feedback_count: feedbackRows.filter((row) => Number(row.rating) === 1).reduce((total, row) => total + Number(row.count || 0), 0),
+      corrective_feedback_count: feedbackRows.filter((row) => Number(row.rating) === -1).reduce((total, row) => total + Number(row.count || 0), 0),
+      starts_by_cohort: countWeightedValues(startedRows, "cohort"),
+      completions_by_cohort: countWeightedValues(completedRows, "cohort"),
+      submissions_by_cohort: countWeightedValues(submissionRows, "cohort"),
+      completion_statuses: countWeightedValues(completedRows, "automatic_status"),
+      feedback_reasons: countWeightedValues(feedbackRows, "reason"),
+    },
     cases: [...TEST_ROUND_CASES].map(([caseId, category]) => {
       const rows = outcomeRows.filter((row) => row.case_id === caseId);
       return {
@@ -3079,7 +3475,7 @@ async function testRoundDashboard(env: ServiceEnv): Promise<JsonRecord> {
         result_ids: countWeightedValues(rows.filter((row) => row.result_id), "result_id"),
       };
     }),
-    privacy: "Only fixed case outcomes, public result IDs, projection versions, client classes, and bounded cohort labels are aggregated. No free text, queries, identities, or private Rock data are stored.",
+    privacy: "Only fixed funnel stages, case outcomes, public result IDs, projection versions, client classes, and bounded cohort labels are aggregated. No free text, queries, identities, IP addresses, or private Rock data are stored.",
   };
 }
 
@@ -3856,7 +4252,7 @@ function cors(response: Response): Response {
 }
 
 function toolDefinitions(): JsonRecord[] {
-  return [
+  const definitions: JsonRecord[] = [
     { name: "kb_search", description: "Start here for any Rock question. Returns compact ranked results; use kb_get_result or kb_get_claim for full detail.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" }, kind: { type: "string", description: "Optional exact result-kind filter, such as recipe." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
     { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID.", inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] } },
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
@@ -3879,10 +4275,27 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_concept", description: "Return one concept package, including bounded Rock Ideas lifecycle counts and highlights for roadmap context.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_get_freshness", description: "Return authoritative public source and refresh-workflow health, with last check, content change, result count, content hash, and status stored separately.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 10, maxItems: 10, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
     { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }
   ];
+  return definitions.map((definition) => ({
+    ...definition,
+    annotations: mcpToolAnnotations(String(definition.name || "")),
+  }));
+}
+
+function mcpToolAnnotations(name: string): JsonRecord {
+  const writeTools = new Set(["kb_feedback", "kb_report_issue", "kb_submit_test_round_review", "kb_submit"]);
+  const openWorldTools = new Set(["kb_verify_recipe", "kb_submit"]);
+  const readOnly = !writeTools.has(name);
+  return {
+    readOnlyHint: readOnly,
+    destructiveHint: false,
+    idempotentHint: readOnly,
+    openWorldHint: openWorldTools.has(name),
+  };
 }

@@ -9,7 +9,7 @@ def test_hosted_smoke_test_retries_cloudflare_propagation_failures():
         "- name: Enforce bounded artifact retention", 1
     )[0]
 
-    assert smoke_step.count("--retry 12") == 4
-    assert smoke_step.count("--retry-all-errors") == 4
-    assert smoke_step.count("--retry-delay 5") == 4
+    assert smoke_step.count("--retry 12") == 5
+    assert smoke_step.count("--retry-all-errors") == 5
+    assert smoke_step.count("--retry-delay 5") == 5
     assert '"${ROCK_KB_BASE_URL}/skill/manifest.json"' in smoke_step

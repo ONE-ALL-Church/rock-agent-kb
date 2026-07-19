@@ -128,6 +128,8 @@ async function buildWorker({ github }) {
   const mf = new Miniflare({
     modules: true,
     scriptPath: WORKER_BUNDLE,
+    compatibilityDate: "2026-07-18",
+    compatibilityFlags: ["nodejs_compat"],
     d1Databases: { KB_DB: `kb-intake-${suffix}` },
     r2Buckets: { KB_ARTIFACTS: `kb-artifacts-${suffix}` },
     bindings: {
