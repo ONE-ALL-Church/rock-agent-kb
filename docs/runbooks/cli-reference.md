@@ -179,6 +179,7 @@ uv run kb hybrid-shadow
 uv run kb hybrid-shadow --apply
 uv run kb shadow-lifecycle --strict
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
+uv run kb record-source-freshness data/review/source-freshness/source-freshness-report.json --workflow-id weekly-comprehensive --workflow-max-age-hours 216 --database rock-agent-kb --env production
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export
 uv run kb publish okf
@@ -192,6 +193,12 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 `kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates the complete read-only Open Knowledge Format v0.1 projection; `--profile full|core`, `--previous-bundle`, and `--archive-dir` control profile, release delta, and versioned assets. It does not replace canonical KB files. Use `kb publish okf-validate` for strict producer verification.
 
 `kb hybrid-shadow` builds the ignored, stratified contextual retrieval payload and reports its estimated embedding cost. Add `--apply` only from an authenticated maintainer environment to create or resume the isolated Cloudflare AI Search pilot, wait for indexing, and write the full evaluation to `service/dist/hybrid-shadow-results.json`. This command does not alter production Worker routing; promote hybrid retrieval only after its curated MRR, recall, authority, duplicate, latency, and cost results beat the corrected lexical baseline.
+
+`kb record-source-freshness` is a hidden CI command. It validates a generated
+freshness report, selects the source rows owned by one workflow, and upserts a
+public-safe snapshot to D1 through Wrangler. Scheduled workflows should call it;
+maintainers should not hand-edit the hosted freshness tables. Consumers use
+`uvx rock-kb freshness` or MCP `kb_get_freshness` instead.
 
 The July 17, 2026 shadow failed that promotion gate and was deleted. See
 [Hybrid Retrieval Shadow Decision](../decisions/hybrid-shadow-evaluation-2026-07-17.md).

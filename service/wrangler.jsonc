@@ -2,7 +2,7 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "rock-agent-kb",
   "main": "src/index.ts",
-  "compatibility_date": "2026-06-12",
+  "compatibility_date": "2026-07-18",
   "compatibility_flags": [
     "nodejs_compat"
   ],
@@ -10,6 +10,11 @@
     "enabled": true,
     "head_sampling_rate": 1
   },
+  "worker_loaders": [
+    {
+      "binding": "LOADER"
+    }
+  ],
   "vars": {
     "PUBLIC_BASE_URL": "https://rock-agent-kb.oneandall.church",
     "GITHUB_OWNER": "ONE-ALL-Church",
@@ -42,6 +47,11 @@
   "env": {
     "production": {
       "name": "rock-agent-kb",
+      "worker_loaders": [
+        {
+          "binding": "LOADER"
+        }
+      ],
       "vars": {
         "PUBLIC_BASE_URL": "https://rock-agent-kb.oneandall.church",
         "GITHUB_OWNER": "ONE-ALL-Church",

@@ -77,8 +77,8 @@
     "staff response text or identity",
     "comments"
   ],
-  "generated_at": "2026-07-18T18:09:37Z",
-  "last_checked_at": "2026-07-18T18:09:37Z",
+  "generated_at": "2026-07-19T02:07:37Z",
+  "last_checked_at": "2026-07-19T02:07:37Z",
   "latest_idea_number": 2258,
   "public_shape": [
     "idea_id",
@@ -100,7 +100,7 @@
     "by_type": {
       "about": 1366,
       "about_model": 170,
-      "corroborated_by_release_note": 3,
+      "corroborated_by_release_note": 8,
       "references_idea": 11,
       "references_issue": 11,
       "references_official_documentation": 6,
@@ -110,8 +110,8 @@
     "ideas_with_issue_links": 11,
     "ideas_with_model_links": 151,
     "ideas_with_relationships": 1082,
-    "ideas_with_release_evidence": 3,
-    "relationship_count": 1572,
+    "ideas_with_release_evidence": 8,
+    "relationship_count": 1577,
     "schema": "rock-kb-rock-idea-relationship-summary-v1",
     "verification_queue": {
       "by_status": {
@@ -121,18 +121,17 @@
         "under_review": 1
       },
       "by_verification_state": {
-        "candidate_review_pending": 7,
         "evidence_needed": 157,
-        "maintainer_reviewed_no_official_match": 12,
+        "maintainer_reviewed_no_official_match": 14,
         "maintainer_reviewed_references_only": 2,
-        "officially_corroborated": 3,
+        "officially_corroborated": 8,
         "references_available": 4
       },
       "candidate_review_count": 9,
-      "high_priority_count": 34,
-      "maintainer_reviewed_count": 15,
-      "officially_corroborated_count": 3,
-      "queue_content_hash": "f4f04060af9aa7d9b21a823c224da2765d3175eb787672e48c19fbf36cf8479c",
+      "high_priority_count": 27,
+      "maintainer_reviewed_count": 22,
+      "officially_corroborated_count": 8,
+      "queue_content_hash": "85bd1015877a2d19ed216deb5b86984c6a0984415d50e1310953d80287094cf3",
       "queue_count": 185,
       "schema": "rock-kb-rock-idea-verification-queue-summary-v1",
       "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."

@@ -22,6 +22,8 @@ class SmokeHandler(BaseHTTPRequestHandler):
             self.write_json({"schema": "manifest"})
         elif self.path == "/operations/dashboard":
             self.write_json({"schema": "rock-kb-operations-dashboard-v2", "issue_reports": {"pending_review_count": 0}})
+        elif self.path == "/operations/freshness":
+            self.write_json({"schema": "rock-kb-source-operations-v1", "status": "ok", "workflow_count": 3, "source_count": 44})
         else:
             self.send_response(404)
             self.end_headers()
@@ -41,6 +43,7 @@ class SmokeHandler(BaseHTTPRequestHandler):
                             {"name": "kb_get_claims"},
                             {"name": "kb_submit"},
                             {"name": "kb_review_dashboard"},
+                            {"name": "kb_get_freshness"},
                             {"name": "kb_report_issue"},
                         ]
                     },
@@ -79,6 +82,7 @@ def test_network_operations_smoke_passes_against_expected_service():
         "health": "pass",
         "manifest": "pass",
         "operations_dashboard": "pass",
+        "source_freshness": "pass",
         "mcp_tools": "pass",
         "unauthorized_submit": "pass",
         "hosted_eval": "pass",
@@ -112,3 +116,36 @@ def test_network_operations_smoke_fails_missing_mcp_tool():
     assert result["status"] == "fail"
     assert checks["mcp_tools"]["status"] == "fail"
     assert "missing tools" in checks["mcp_tools"]["message"]
+
+
+def test_network_operations_smoke_fails_stale_source_workflow():
+    class StaleSourceHandler(SmokeHandler):
+        def do_GET(self):
+            if self.path == "/operations/freshness":
+                self.write_json(
+                    {
+                        "schema": "rock-kb-source-operations-v1",
+                        "status": "fail",
+                        "blocking_workflow_ids": ["daily-sources"],
+                        "blocking_source_ids": [],
+                    }
+                )
+            else:
+                super().do_GET()
+
+    server = ThreadingHTTPServer(("127.0.0.1", 0), StaleSourceHandler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    base_url = f"http://127.0.0.1:{server.server_address[1]}"
+    try:
+        result = network_operations_smoke(
+            base_url,
+            evaluator=lambda _base_url, _limit: {"status": "ok", "pass_count": 100, "fail_count": 0},
+        )
+    finally:
+        server.shutdown()
+
+    checks = {row["name"]: row for row in result["checks"]}
+    assert result["status"] == "fail"
+    assert checks["source_freshness"]["status"] == "fail"
+    assert checks["source_freshness"]["evidence"]["blocking_workflow_ids"] == ["daily-sources"]

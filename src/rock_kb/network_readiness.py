@@ -57,6 +57,7 @@ def repo_side_implementation_check() -> dict[str, Any]:
         "service/wrangler.jsonc",
         "src/rock_kb/service_projection.py",
         "src/rock_kb/service_eval.py",
+        "src/rock_kb/source_operations.py",
         "clients/python/src/rock_kb_client/cli.py",
         "docs/runbooks/private-corpus-cloud-runbook.md",
         "docs/templates/private-corpus-ingest.workflow.yml",
@@ -108,8 +109,8 @@ def repo_side_feature_errors() -> list[str]:
     smoke_script = read_repo_text("scripts/network_operations_smoke.py")
     if "scripts/network_operations_smoke.py" not in network_workflow:
         errors.append("network operations workflow does not use the checked-in smoke test script")
-    if "hosted_eval_check" not in smoke_script or "/operations/dashboard" not in smoke_script:
-        errors.append("network operations smoke script does not run hosted eval and dashboard probes")
+    if "hosted_eval_check" not in smoke_script or "/operations/dashboard" not in smoke_script or "/operations/freshness" not in smoke_script:
+        errors.append("network operations smoke script does not run hosted eval, dashboard, and source-freshness probes")
     if "/submit" not in smoke_script or "/mcp" not in smoke_script:
         errors.append("network operations workflow does not smoke-test hosted MCP and intake boundary")
     if "schedule:" not in private_ingest_template or "workflow_dispatch:" not in private_ingest_template:
@@ -129,6 +130,10 @@ def repo_side_feature_errors() -> list[str]:
         errors.append("Worker claims endpoint does not include community contribution rows")
     if "/operations/dashboard" not in worker or "kb_review_dashboard" not in worker:
         errors.append("Worker does not expose the public operations dashboard endpoint and MCP tool")
+    if "/operations/freshness" not in worker or "kb_get_freshness" not in worker:
+        errors.append("Worker does not expose authoritative source freshness through REST and MCP")
+    if "/mcp/code" not in worker or "codeMcpServer" not in worker:
+        errors.append("Worker does not expose the opt-in read-only Code Mode MCP endpoint")
     worker_validation_markers = [
         "unknown fields:",
         "needs_live_verification must be true or false",
@@ -141,6 +146,8 @@ def repo_side_feature_errors() -> list[str]:
         errors.append("Worker auto-merge path does not enforce org approval and exact per-org intake path eligibility")
     if "/operations/dashboard" not in client or 'subparsers.add_parser("dashboard")' not in client:
         errors.append("Python client does not expose the hosted operations dashboard")
+    if "/operations/freshness" not in client or 'subparsers.add_parser("freshness"' not in client:
+        errors.append("Python client does not expose authoritative source freshness")
     if "rock-kb submit" not in agent_contributor_template or "Never Submit" not in agent_contributor_template:
         errors.append("agent contributor instructions do not cover submit flow and privacy exclusions")
     return errors
@@ -369,6 +376,7 @@ def hosted_service_check(env: dict[str, str], repo: str, run_command: RunCommand
     probes = [
         ["curl", "--fail", "--silent", f"{base_url.rstrip('/')}/health"],
         ["curl", "--fail", "--silent", f"{base_url.rstrip('/')}/operations/dashboard"],
+        ["curl", "--fail", "--silent", f"{base_url.rstrip('/')}/operations/freshness"],
         ["uv", "run", "kb", "eval-service", "--base-url", base_url.rstrip("/"), "--limit", "5"],
     ]
     failures = []
@@ -386,9 +394,9 @@ def hosted_service_check(env: dict[str, str], repo: str, run_command: RunCommand
     return check(
         "hosted_service",
         "pass" if not failures else "fail",
-        "Hosted read service health, operations dashboard, and evaluation gate pass."
+        "Hosted read service health, operations dashboard, source freshness, and evaluation gate pass."
         if not failures
-        else "Hosted read service health, operations dashboard, or evaluation gate failed.",
+        else "Hosted read service health, operations dashboard, source freshness, or evaluation gate failed.",
         {"base_url": base_url, "failures": failures},
     )
 

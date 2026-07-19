@@ -25,8 +25,16 @@ CASE_DEFINITIONS = (
 )
 
 
-def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoster) -> dict[str, Any]:
+def run_cohort_test(
+    *,
+    base_url: str,
+    get_json: JsonGetter,
+    post_json: JsonPoster,
+    record_funnel: bool = False,
+) -> dict[str, Any]:
     base = base_url.rstrip("/")
+    if record_funnel:
+        record_test_round_event(base, post_json, "started")
     cases = [
         run_case("service-health", "service", "GET /health", "Does the service respond consistently?", lambda: health_case(base, get_json)),
         run_case("exact-group-model", "exact_lookup", "GET Group model", "Is the Group digest direct and useful without unrelated models?", lambda: model_case(base, get_json)),
@@ -44,7 +52,7 @@ def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoste
         (str(case.get("projection_version") or "") for case in cases if case.get("projection_version")),
         "",
     )
-    return {
+    report = {
         "schema": TEST_ROUND_SCHEMA,
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "service": base,
@@ -64,6 +72,25 @@ def run_cohort_test(*, base_url: str, get_json: JsonGetter, post_json: JsonPoste
             "Never include private Rock data, query logs, identifiers, secrets, screenshots, or internal URLs in feedback.",
         ],
     }
+    if record_funnel:
+        record_test_round_event(base, post_json, "completed", str(report["status"]))
+    return report
+
+
+def record_test_round_event(
+    base: str,
+    post_json: JsonPoster,
+    stage: str,
+    automatic_status: str = "",
+) -> None:
+    payload = {"stage": stage}
+    if automatic_status:
+        payload["automatic_status"] = automatic_status
+    try:
+        post_json(f"{base}/test-rounds/events", payload)
+    except Exception:
+        # Funnel telemetry must never make the public test itself fail.
+        return
 
 
 def build_test_round_review(report: Mapping[str, Any], outcomes: Mapping[str, str]) -> dict[str, Any]:

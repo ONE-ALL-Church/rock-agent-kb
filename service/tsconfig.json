@@ -6,8 +6,10 @@
     "strict": true,
     "types": [],
     "lib": [
-      "ES2022"
+      "ES2022",
+      "ESNext.Disposable"
     ],
+    "skipLibCheck": true,
     "noEmit": true
   },
   "include": [

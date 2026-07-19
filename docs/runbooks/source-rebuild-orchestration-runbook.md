@@ -69,6 +69,14 @@ files. Scheduled workflows cache the previous observation file, upload the
 freshness and scan reports, and fail when a required source is failed, missing,
 or overdue.
 
+After validation, each scheduled workflow publishes its owned rows to the
+hosted D1 operations projection with `kb record-source-freshness`. This is the
+authoritative public snapshot used by `/operations/freshness`, the operations
+dashboard, CLI `freshness`, and MCP `kb_get_freshness`. The snapshot stores
+workflow schedule state independently from source state, so an unchanged
+source is still visibly checked and a missed workflow is not mistaken for a
+content change.
+
 4. Inspect the current build status and dry-run action plan.
 
 ```bash
@@ -210,6 +218,13 @@ continues to gate every automated cadence. Rock GitHub issues remain owned by th
 daily `.github/workflows/refresh-rock-issues.yml` pipeline; their summary feeds
 the shared freshness report.
 
+The three required hosted workflow records are `daily-sources`, `daily-issues`,
+and `weekly-comprehensive`. Their maximum schedule ages are 52, 36, and 216
+hours respectively. The issue workflow publishes `rock_core_issues` and
+`rock_mobile_issues` from `agent/rock-issue-summary.json`; the dashboard reports
+their catalog hash, count, last check, last content change, and status without
+republishing issue bodies.
+
 `.github/workflows/refresh.yml` runs the safe path on schedule and on manual dispatch:
 
 1. Pre-refresh source scan snapshot.
@@ -227,3 +242,9 @@ If source refresh fails, the workflow still writes the source-scan report and bu
 If the source scan finds no source deltas, the default-branch workflow exits cleanly without opening a refresh PR. If source deltas exist but private media indexes are unavailable in CI, treat the automation PR as a source-refresh/status PR; run the private-media-aware rebuild locally before publishing guide and agent-pack artifact changes.
 
 The generated PR body includes source-scan counts, affected concepts, claim impact counts, guide refresh/synthesis flags, media review counts, live-verification counts, commands, and audit/test expectations.
+
+`.github/workflows/network-operations.yml` checks the public freshness endpoint
+daily. It fails when a required workflow is missed or a source is failed,
+missing, or genuinely overdue. A normal no-change check remains healthy because
+`last_checked_at` advances while `content_changed_at` and `content_hash` remain
+stable.

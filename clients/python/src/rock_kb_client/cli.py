@@ -44,6 +44,7 @@ PASSIVE_SKILL_CHECK_COMMANDS = {
     "ideas",
     "manifest",
     "dashboard",
+    "freshness",
     "test-round",
 }
 
@@ -164,6 +165,7 @@ def main(argv: list[str] | None = None) -> int:
 
     subparsers.add_parser("manifest")
     subparsers.add_parser("dashboard")
+    subparsers.add_parser("freshness", help="Show authoritative hosted source and refresh-workflow health.")
     test_round = subparsers.add_parser("test-round", help="Run the public structured church testing cohort cases.")
     test_round.add_argument("--review", action="store_true", help="Prompt for one fixed manual outcome for every case.")
     test_round.add_argument("--review-file", type=Path, help="Read case outcomes from a bounded JSON object instead of prompting.")
@@ -196,7 +198,13 @@ def main(argv: list[str] | None = None) -> int:
     submit.add_argument("--dry-run", action="store_true", help="Validate hosted auth and bundle without opening a PR.")
     add_token_options(submit)
 
-    subparsers.add_parser("mcp-config")
+    mcp_config = subparsers.add_parser("mcp-config")
+    mcp_config.add_argument(
+        "--mode",
+        choices=["direct", "code"],
+        default="direct",
+        help="Use direct tools by default, or the experimental read-only Cloudflare Code Mode endpoint.",
+    )
 
     okf = subparsers.add_parser("okf")
     okf_subparsers = okf.add_subparsers(dest="okf_command", required=True)
@@ -364,8 +372,10 @@ def main(argv: list[str] | None = None) -> int:
         return print_json(get_json(f"{base_url}/manifest.json"))
     if args.command == "dashboard":
         return print_json(get_json(f"{base_url}/operations/dashboard"))
+    if args.command == "freshness":
+        return print_json(get_json(f"{base_url}/operations/freshness"))
     if args.command == "test-round":
-        report = run_cohort_test(base_url=base_url, get_json=get_json, post_json=post_json)
+        report = run_cohort_test(base_url=base_url, get_json=get_json, post_json=post_json, record_funnel=True)
         if args.review or args.review_file:
             try:
                 if args.review_file:
@@ -431,7 +441,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "mcp-config":
         server = {
             "type": "http",
-            "url": f"{base_url}/mcp",
+            "url": f"{base_url}/mcp/code" if args.mode == "code" else f"{base_url}/mcp",
         }
         if REQUEST_COHORT:
             server["headers"] = {"x-rock-kb-cohort": REQUEST_COHORT}

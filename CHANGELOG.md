@@ -6,6 +6,27 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-07-18
+
+### Added
+
+- Authoritative hosted source freshness reporting with independent workflow
+  schedule, last-check, content-change, result-count, content-hash, and source
+  status fields through REST, MCP, the operations dashboard, and the CLI.
+- Privacy-bounded external test-round funnel counts for rounds started,
+  completed, reviewed, and feedback submitted.
+- An opt-in experimental Cloudflare Code Mode MCP endpoint for composed
+  read-only retrieval.
+
+### Changed
+
+- Direct MCP tools now advertise read/write and idempotency annotations,
+  return structured content alongside compatible JSON text, and negotiate the
+  current stable MCP protocol version.
+- The direct 28-tool MCP remains the default. Code Mode wraps only its 24
+  read-only tools; submission and feedback operations remain direct and
+  separately consented.
+
 ## [0.13.0] - 2026-07-17
 
 ### Added

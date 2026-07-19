@@ -15,6 +15,7 @@ def register(app: typer.Typer) -> None:
     app.command("service-retention")(service_retention_command)
     app.command("eval-service")(eval_service_command)
     app.command("record-hosted-eval", hidden=True)(record_hosted_eval_command)
+    app.command("record-source-freshness", hidden=True)(record_source_freshness_command)
     app.command("quality-gate")(quality_gate_command)
     app.command("hybrid-shadow")(hybrid_shadow_command)
     app.command("shadow-lifecycle")(shadow_lifecycle_command)
@@ -94,6 +95,35 @@ def record_hosted_eval_command(
     from ..hosted_evaluation import record_hosted_evaluation
 
     print_json(data=record_hosted_evaluation(report, database=database, env=env))
+
+
+def record_source_freshness_command(
+    report: Path = typer.Argument(..., exists=True, dir_okay=False),
+    workflow_id: str = typer.Option(..., "--workflow-id"),
+    workflow_max_age_hours: float = typer.Option(..., "--workflow-max-age-hours", min=1),
+    source_ids: list[str] | None = typer.Option(None, "--source"),
+    run_id: str = typer.Option("", "--run-id"),
+    run_url: str = typer.Option("", "--run-url"),
+    database: str = typer.Option("rock-agent-kb", "--database"),
+    env: str | None = typer.Option(None, "--env"),
+) -> None:
+    """Persist a trusted public-safe source freshness snapshot through Wrangler and D1."""
+    from rich import print_json
+
+    from ..source_operations import record_source_freshness
+
+    print_json(
+        data=record_source_freshness(
+            report,
+            workflow_id=workflow_id,
+            workflow_max_age_hours=workflow_max_age_hours,
+            source_ids=source_ids,
+            run_id=run_id,
+            run_url=run_url,
+            database=database,
+            env=env,
+        )
+    )
 
 
 def quality_gate_command(

@@ -23,15 +23,28 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    environment: production
     timeout-minutes: 45
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: service/package-lock.json
       - name: Install dependencies
         run: uv sync --extra dev
+      - name: Install service dependencies
+        working-directory: service
+        run: npm ci
       - name: Refresh issue catalog
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -41,6 +54,21 @@ jobs:
           else
             uv run kb issues sync --timeline-backfill-limit 0
           fi
+      - name: Build issue-source freshness snapshot
+        run: uv run kb sources freshness --output-dir data/review/rock-issue-freshness
+      - name: Publish authoritative issue freshness snapshot
+        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
+        run: >
+          uv run kb record-source-freshness
+          data/review/rock-issue-freshness/source-freshness-report.json
+          --workflow-id daily-issues
+          --workflow-max-age-hours 36
+          --source rock_core_issues
+          --source rock_mobile_issues
+          --run-id "${{ github.run_id }}"
+          --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --env production
       - name: Validate issue intelligence
         run: |
           uv run kb issues validate

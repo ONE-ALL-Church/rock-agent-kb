@@ -58,13 +58,54 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
+    assert.equal(toolNames.length, 28);
     assert.equal(toolNames.includes("kb_get_result"), true);
     assert.equal(toolNames.includes("kb_get_claim"), true);
     assert.equal(toolNames.includes("kb_report_issue"), true);
+    assert.equal(toolNames.includes("kb_get_freshness"), true);
+    assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_search").annotations.readOnlyHint, true);
+    assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_submit").annotations.readOnlyHint, false);
 
     const callResponse = await mcp(mf, "tools/call", { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } });
     const callResult = JSON.parse(callResponse.result.content[0].text);
     assert.equal(callResult.claim.claim_id, "claim:abc123");
+    assert.equal(callResponse.result.structuredContent.claim.claim_id, "claim:abc123");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("experimental Code Mode MCP advertises one read-only composition tool", async () => {
+  const mf = await buildWorker();
+  try {
+    const initialized = await streamableMcp(mf, "initialize", {
+      protocolVersion: "2025-11-25",
+      capabilities: {},
+      clientInfo: { name: "rock-kb-test", version: "1.0.0" },
+    });
+    assert.equal(initialized.status, 200);
+    assert.equal(initialized.payload.result.protocolVersion, "2025-11-25");
+
+    const listed = await streamableMcp(mf, "tools/list", {}, initialized.sessionId);
+    assert.equal(listed.status, 200);
+    assert.deepEqual(listed.payload.result.tools.map((tool) => tool.name), ["code"]);
+    assert.match(listed.payload.result.tools[0].description, /kb_search/);
+    assert.equal(listed.payload.result.tools[0].description.includes("kb_submit("), false);
+
+    const executed = await streamableMcp(
+      mf,
+      "tools/call",
+      {
+        name: "code",
+        arguments: {
+          code: "async () => { const claim = await codemode.kb_get_claim({ claim_id: 'claim:abc123' }); return { claim_id: claim.claim.claim_id }; }",
+        },
+      },
+      listed.sessionId,
+    );
+    assert.equal(executed.status, 200);
+    assert.notEqual(executed.payload.result.isError, true, JSON.stringify(executed.payload.result));
+    assert.equal(JSON.parse(executed.payload.result.content[0].text).claim_id, "claim:abc123");
   } finally {
     await mf.dispose();
   }
@@ -650,6 +691,14 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
         };
       }),
     };
+    for (const event of [{ stage: "started" }, { stage: "completed", automatic_status: "ok" }]) {
+      const eventResponse = await mf.dispatchFetch("https://kb.example.test/test-rounds/events", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-rock-kb-client": "cli", "x-rock-kb-cohort": "external-test" },
+        body: JSON.stringify(event),
+      });
+      assert.equal(eventResponse.status, 201);
+    }
     const unattributed = await mf.dispatchFetch("https://kb.example.test/test-rounds/review", {
       method: "POST",
       headers: { "content-type": "application/json", "x-rock-kb-client": "cli" },
@@ -674,6 +723,9 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
     assert.equal(dashboard.test_rounds.case_outcome_count, 10);
     assert.equal(dashboard.test_rounds.by_manual_outcome.useful, 9);
     assert.equal(dashboard.test_rounds.by_manual_outcome.unsure, 1);
+    assert.equal(dashboard.test_rounds.funnel.started_count, 1);
+    assert.equal(dashboard.test_rounds.funnel.completed_count, 1);
+    assert.equal(dashboard.test_rounds.funnel.submitted_count, 1);
     assert.equal(
       dashboard.test_rounds.cases.find((row) => row.case_id === "core-issue-trust").result_ids[
         "rock_issue:SparkDevNetwork/Rock#6919"
@@ -686,6 +738,8 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
     const definition = JSON.parse(mcpDefinition.result.content[0].text);
     assert.equal(definition.cases.length, 10);
     assert.deepEqual(definition.outcomes, ["useful", "incorrect", "incomplete", "unclear", "unsure"]);
+    const funnelAfterMcp = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(funnelAfterMcp.test_rounds.funnel.started_count, 2);
 
     const mcpTools = await mcp(mf, "tools/list", {});
     const submitTool = mcpTools.result.tools.find((tool) => tool.name === "kb_submit_test_round_review");
@@ -717,7 +771,7 @@ test("operations dashboard separates generated evaluation rows from the latest h
     ).run();
 
     const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
-    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v3");
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v4");
     assert.equal(dashboard.evaluation.generated_projection.row_count, dashboard.evaluation.row_count);
     assert.equal(dashboard.evaluation.hosted_service.status, "ok");
     assert.equal(dashboard.evaluation.hosted_service.case_count, 151);
@@ -729,6 +783,46 @@ test("operations dashboard separates generated evaluation rows from the latest h
       dashboard.rock_ideas.relationships.verification_queue.by_verification_state.candidate_review_pending,
       1,
     );
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("hosted source freshness keeps workflow schedule and source content state separate", async () => {
+  const mf = await buildWorker();
+  try {
+    const initial = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(initial.status, "not_recorded");
+    assert.deepEqual(initial.missing_workflow_ids, ["daily-sources", "daily-issues", "weekly-comprehensive"]);
+
+    const db = await mf.getD1Database("KB_DB");
+    const now = new Date().toISOString();
+    for (const [workflowId, maximumAge] of [["daily-sources", 52], ["daily-issues", 36], ["weekly-comprehensive", 216]]) {
+      await db.prepare(
+        `INSERT INTO source_workflow_runs_v1
+         (workflow_id, run_id, run_url, observed_at, status, maximum_age_hours, source_count, content_hash, counts_json, blocking_source_ids_json)
+         VALUES (?, ?, ?, ?, 'ok', ?, 1, ?, ?, '[]')`,
+      ).bind(workflowId, "123", "https://github.com/example/actions/runs/123", now, maximumAge, "a".repeat(64), '{"current":1}').run();
+    }
+    await db.prepare(
+      `INSERT INTO source_freshness_state_v1
+       (source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at, result_count, content_hash, check_status, status, observed_at, workflow_id)
+       VALUES (?, ?, 'daily', 48, ?, ?, 321, ?, 'success', 'current', ?, 'daily-issues')`,
+    ).bind("rock_core_issues", "Rock Core GitHub Issues", now, now, "b".repeat(64), now).run();
+
+    const current = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(current.status, "ok");
+    assert.equal(current.workflows.length, 3);
+    assert.equal(current.sources[0].last_checked_at, now);
+    assert.equal(current.sources[0].content_changed_at, now);
+    assert.equal(current.sources[0].result_count, 321);
+    assert.equal(current.sources[0].content_hash, "b".repeat(64));
+    assert.equal(current.sources[0].check_status, "success");
+    assert.equal(current.sources[0].status, "current");
+    assert.equal(current.rock_issues.result_count, 321);
+
+    const freshnessTool = await mcp(mf, "tools/call", { name: "kb_get_freshness", arguments: {} });
+    assert.equal(freshnessTool.result.structuredContent.status, "ok");
   } finally {
     await mf.dispose();
   }
@@ -786,7 +880,7 @@ test("structured issue reports capture context, deduplicate, and remain pending 
 
     const dashboardResponse = await mf.dispatchFetch("https://kb.example.test/operations/dashboard");
     const dashboard = await dashboardResponse.json();
-    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v3");
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v4");
     assert.equal(dashboard.issue_reports.schema, "rock-kb-issue-review-dashboard-v1");
     assert.equal(dashboard.issue_reports.unique_report_count, 1);
     assert.equal(dashboard.issue_reports.total_occurrences, 2);
@@ -973,8 +1067,11 @@ async function buildWorker(options = {}) {
   const mf = new Miniflare({
     modules: true,
     scriptPath: WORKER_BUNDLE,
+    compatibilityDate: "2026-07-18",
+    compatibilityFlags: ["nodejs_compat"],
     d1Databases: { KB_DB: `kb-retrieval-${suffix}` },
     r2Buckets: { KB_ARTIFACTS: `kb-artifacts-${suffix}` },
+    workerLoaders: { LOADER: {} },
     bindings: { PUBLIC_BASE_URL: "https://kb.example.test" },
     fetchMock: options.fetchMock,
   });
@@ -1451,4 +1548,23 @@ async function mcp(mf, method, params, headers = {}) {
     body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
   });
   return response.json();
+}
+
+async function streamableMcp(mf, method, params, sessionId = "") {
+  const headers = {
+    "content-type": "application/json",
+    accept: "application/json, text/event-stream",
+    "mcp-protocol-version": "2025-11-25",
+  };
+  if (sessionId) headers["mcp-session-id"] = sessionId;
+  const response = await mf.dispatchFetch("https://kb.example.test/mcp/code", {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+  });
+  const raw = await response.text();
+  const payload = response.headers.get("content-type")?.includes("text/event-stream")
+    ? JSON.parse(raw.split("\n").find((line) => line.startsWith("data: ")).slice(6))
+    : JSON.parse(raw);
+  return { status: response.status, payload, sessionId: response.headers.get("mcp-session-id") || sessionId };
 }

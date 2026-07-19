@@ -90,6 +90,7 @@ uvx rock-kb test-round
 uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
 uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
 uvx rock-kb dashboard
+uvx rock-kb freshness
 uvx rock-kb mcp-config
 uvx rock-kb skill status --format json
 ```
@@ -116,8 +117,12 @@ rock-kb search "check-in labels not printing"
 rock-kb mcp-config
 ```
 
-`rock-kb mcp-config` prints the hosted HTTP MCP config. It does not start a
-local server.
+`rock-kb mcp-config` prints the hosted direct HTTP MCP config. It does not start
+a local server. Direct tools are the default and are best for normal search and
+exact lookup. `rock-kb mcp-config --mode code` prints the opt-in experimental
+Cloudflare Code Mode endpoint for composed read-only calls. Code Mode excludes
+feedback, malfunction reports, test-review submission, and knowledge
+submission; it is not a more current knowledge source.
 
 Search output is compact by default. It returns stable IDs, snippets, trust
 tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or
@@ -152,7 +157,15 @@ retrieval, a reviewed recipe, semantic troubleshooting, core and mobile issue
 trust boundaries, version-aware issue assessment, and a deliberate no-answer
 case. The JSON report contains stable public result IDs plus a manual review
 question for each case. It sends only the built-in public test queries and
-profile; it never collects church identifiers or private instance data.
+profile; it never collects church identifiers or private instance data. The
+client also emits bounded `started` and `completed` funnel counts with its
+cohort and automatic pass/fail status. No identity, installation ID, query text,
+or private Rock data is retained.
+
+`freshness` reports the authoritative hosted daily/weekly workflow schedule
+state and each source's last check, last content change, result count, content
+hash, and status. A failed status means a scheduled workflow was missed or a
+required source is failed, missing, or genuinely overdue.
 
 ## Offline And Portable Access
 
