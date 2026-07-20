@@ -740,7 +740,27 @@ async function handleCodeMcp(request: Request, env: ServiceEnv, ctx: ExecutionCo
     executor,
     description: "Execute JavaScript to compose Rock KB operations, filter intermediate results, and return one focused value. Prefer the normal direct MCP endpoint for a single exact lookup. Available methods:\n\n{{types}}\n\nExample:\n{{example}}",
   });
+  annotateCodeModeTool(server);
   return createMcpHandler(server, { route: "/mcp/code" })(request, env, ctx);
+}
+
+function annotateCodeModeTool(server: McpServer): void {
+  // @cloudflare/codemode 0.4.3 does not expose annotations for its generated tool.
+  const registry = (server as unknown as {
+    _registeredTools?: Record<string, {
+      update: (updates: { annotations: JsonRecord }) => void;
+    }>;
+  })._registeredTools;
+  const codeTool = registry?.code;
+  if (!codeTool) throw new Error("Code Mode did not register its expected code tool.");
+  codeTool.update({
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
+  });
 }
 
 function mcpToolResult(value: unknown): CallToolResult {

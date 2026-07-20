@@ -91,6 +91,12 @@ test("experimental Code Mode MCP advertises one read-only composition tool", asy
     assert.deepEqual(listed.payload.result.tools.map((tool) => tool.name), ["code"]);
     assert.match(listed.payload.result.tools[0].description, /kb_search/);
     assert.equal(listed.payload.result.tools[0].description.includes("kb_submit("), false);
+    assert.deepEqual(listed.payload.result.tools[0].annotations, {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
+    });
 
     const executed = await streamableMcp(
       mf,
