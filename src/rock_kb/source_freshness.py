@@ -6,11 +6,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
-import yaml
-
 from .extract import generated_at_iso, sha256_text
 from .paths import AGENT_DIR, DATA_DIR, REPO_ROOT
 from .source_orchestration import build_source_snapshot
+from .source_workflows import load_source_freshness_policy
 from .sources import Source, load_sources
 
 
@@ -35,6 +34,7 @@ def build_source_freshness_report(
     issue_summary_path: Path = ROCK_ISSUE_SUMMARY_PATH,
     issue_checkpoint_path: Path = ROCK_ISSUE_CHECKPOINT_PATH,
     required_cadences: Iterable[str] | None = None,
+    required_source_ids: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     as_of = (as_of or datetime.now(timezone.utc)).astimezone(timezone.utc)
     policy = load_freshness_policy()
@@ -61,11 +61,20 @@ def build_source_freshness_report(
     rows = source_freshness_rows(sources, snapshot, policy, as_of, refresh_status, observations)
     counts = Counter(str(row["status"]) for row in rows)
     required_cadence_set = {str(value) for value in required_cadences or []}
+    required_source_id_set = {str(value) for value in required_source_ids or []}
     known_cadences = {source.refresh_cadence for source in sources}
+    known_source_ids = {source.id for source in sources}
     unknown_cadences = required_cadence_set - known_cadences
     if unknown_cadences:
         raise ValueError(f"Unknown required cadence(s): {', '.join(sorted(unknown_cadences))}")
-    blocking = blocking_source_ids(rows, required_cadence_set or None)
+    unknown_source_ids = required_source_id_set - known_source_ids
+    if unknown_source_ids:
+        raise ValueError(f"Unknown required source(s): {', '.join(sorted(unknown_source_ids))}")
+    blocking = blocking_source_ids(
+        rows,
+        required_cadence_set or None,
+        required_source_id_set or None,
+    )
     report = {
         "schema": "rock-kb-source-freshness-report-v1",
         "generated_at": generated_at_iso(),
@@ -74,6 +83,7 @@ def build_source_freshness_report(
         "status": "fail" if blocking else "ok",
         "counts": dict(sorted(counts.items())),
         "required_cadences": sorted(required_cadence_set),
+        "required_source_ids": sorted(required_source_id_set),
         "blocking_source_ids": sorted(blocking),
         "sources": rows,
     }
@@ -88,13 +98,16 @@ def build_source_freshness_report(
 
 
 def blocking_source_ids(
-    rows: Iterable[dict[str, Any]], required_cadences: set[str] | None = None
+    rows: Iterable[dict[str, Any]],
+    required_cadences: set[str] | None = None,
+    required_source_ids: set[str] | None = None,
 ) -> list[str]:
     return sorted(
         str(row["source_id"])
         for row in rows
         if row.get("status") in {"overdue", "missing", "failed"}
         and (not required_cadences or row.get("cadence") in required_cadences)
+        and (not required_source_ids or row.get("source_id") in required_source_ids)
     )
 
 
@@ -294,10 +307,7 @@ def source_freshness_rows(
 
 
 def load_freshness_policy(path: Path = POLICY_PATH) -> dict[str, Any]:
-    value = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    if value.get("schema") != "rock-kb-source-freshness-policy-v1":
-        raise ValueError("Unsupported source freshness policy schema.")
-    return value
+    return load_source_freshness_policy(path)
 
 
 def parse_datetime(value: Any) -> datetime | None:

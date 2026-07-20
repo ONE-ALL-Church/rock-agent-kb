@@ -8,6 +8,7 @@ from types import SimpleNamespace
 import yaml
 
 from rock_kb.source_freshness import blocking_source_ids, build_source_observations, source_freshness_rows
+from rock_kb.source_workflows import source_workflow_policy
 from rock_kb.sources import load_sources
 
 
@@ -246,11 +247,12 @@ def test_blocking_sources_can_be_scoped_to_daily_cadence():
 
     assert blocking_source_ids(rows) == ["daily-missing", "weekly-missing"]
     assert blocking_source_ids(rows, {"daily"}) == ["daily-missing"]
+    assert blocking_source_ids(rows, required_source_ids={"weekly-missing"}) == ["weekly-missing"]
 
 
 def test_daily_workflow_covers_refreshable_daily_sources_and_leaves_weekly_refresh():
     daily_workflow = yaml.safe_load(Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8"))
-    configured = set(daily_workflow["jobs"]["refresh"]["env"]["DAILY_SOURCE_IDS"].split())
+    configured = set(source_workflow_policy("daily-sources")["source_ids"])
     expected = {
         item.id
         for item in load_sources()
@@ -259,6 +261,11 @@ def test_daily_workflow_covers_refreshable_daily_sources_and_leaves_weekly_refre
 
     assert configured == expected
     assert 'cron: "17 10 * * 0,2-6"' in Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8")
-    assert "--required-cadence daily" in Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8")
-    assert 'cron: "17 10 * * 1"' in Path(".github/workflows/refresh.yml").read_text(encoding="utf-8")
+    assert "workflow-sources daily-sources" in Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8")
+    assert "--required-workflow daily-sources" in Path(".github/workflows/refresh-daily.yml").read_text(encoding="utf-8")
+    weekly_workflow = Path(".github/workflows/refresh.yml").read_text(encoding="utf-8")
+    assert 'cron: "17 10 * * 1"' in weekly_workflow
+    assert "--required-workflow weekly-comprehensive" in weekly_workflow
+    issue_workflow = Path(".github/workflows/refresh-rock-issues.yml").read_text(encoding="utf-8")
+    assert "--required-workflow daily-issues" in issue_workflow
     assert daily_workflow["concurrency"]["group"] == "source-refresh"

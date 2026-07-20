@@ -62,16 +62,17 @@ jobs:
             uv run kb issues sync --timeline-backfill-limit 0
           fi
       - name: Build issue-source freshness snapshot
-        run: uv run kb sources freshness --output-dir data/review/rock-issue-freshness
+        run: >
+          uv run kb sources freshness
+          --output-dir data/review/rock-issue-freshness
+          --required-workflow daily-issues
+          --strict
       - name: Publish authoritative issue freshness snapshot
         if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
         run: >
           uv run kb record-source-freshness
           data/review/rock-issue-freshness/source-freshness-report.json
           --workflow-id daily-issues
-          --workflow-max-age-hours 36
-          --source rock_core_issues
-          --source rock_mobile_issues
           --run-id "${{ github.run_id }}"
           --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"

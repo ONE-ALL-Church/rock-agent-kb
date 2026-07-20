@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from .paths import REPO_ROOT
+from .source_workflows import source_workflow_policy
 
 
 SERVICE_DIR = REPO_ROOT / "service"
@@ -30,7 +31,7 @@ def source_freshness_snapshot(
     report: dict[str, Any],
     *,
     workflow_id: str,
-    workflow_max_age_hours: float,
+    workflow_max_age_hours: float | None = None,
     run_id: str = "",
     run_url: str = "",
     source_ids: Iterable[str] | None = None,
@@ -39,10 +40,26 @@ def source_freshness_snapshot(
         raise ValueError("Source freshness report has an unsupported schema")
     if not workflow_id or not all(character.isalnum() or character in "_-" for character in workflow_id):
         raise ValueError("workflow_id must be a short structured identifier")
-    if workflow_max_age_hours <= 0:
-        raise ValueError("workflow_max_age_hours must be positive")
+    workflow_policy = source_workflow_policy(workflow_id)
+    configured_maximum_age = float(workflow_policy["maximum_age_hours"])
+    if workflow_max_age_hours is not None and float(workflow_max_age_hours) != configured_maximum_age:
+        raise ValueError(
+            f"{workflow_id} maximum age must match the configured value of {configured_maximum_age:g} hours"
+        )
+    workflow_max_age_hours = configured_maximum_age
 
-    requested = {str(value) for value in source_ids or []}
+    owned = {str(value) for value in workflow_policy["source_ids"]}
+    requested = {str(value) for value in source_ids} if source_ids else owned
+    foreign = requested - owned
+    omitted = owned - requested
+    if foreign:
+        raise ValueError(
+            f"{workflow_id} cannot publish sources owned by another workflow: {', '.join(sorted(foreign))}"
+        )
+    if omitted:
+        raise ValueError(
+            f"{workflow_id} snapshot omits owned sources: {', '.join(sorted(omitted))}"
+        )
     raw_sources = report.get("sources")
     if not isinstance(raw_sources, list):
         raise ValueError("Source freshness report is missing source rows")
@@ -69,10 +86,9 @@ def source_freshness_snapshot(
             raise ValueError("Source freshness row has an invalid identity or status")
         selected.append(row)
 
-    if requested:
-        missing = requested - {str(row["source_id"]) for row in selected}
-        if missing:
-            raise ValueError(f"Source freshness report is missing requested sources: {', '.join(sorted(missing))}")
+    missing = requested - {str(row["source_id"]) for row in selected}
+    if missing:
+        raise ValueError(f"Source freshness report is missing requested sources: {', '.join(sorted(missing))}")
     if not selected:
         raise ValueError("Source freshness snapshot must include at least one source")
 
@@ -135,6 +151,17 @@ def source_freshness_sql(snapshot: dict[str, Any]) -> str:
         f"VALUES ({', '.join(sql_value(value) for value in workflow_values)})",
         "ON CONFLICT(workflow_id) DO UPDATE SET run_id = excluded.run_id, run_url = excluded.run_url, observed_at = excluded.observed_at, status = excluded.status, maximum_age_hours = excluded.maximum_age_hours, source_count = excluded.source_count, content_hash = excluded.content_hash, counts_json = excluded.counts_json, blocking_source_ids_json = excluded.blocking_source_ids_json WHERE excluded.observed_at >= source_workflow_runs_v1.observed_at;",
     ]
+    source_update_guard = (
+        "(source_freshness_state_v1.observed_at = '' OR "
+        "(excluded.observed_at <> '' AND julianday(excluded.observed_at) >= julianday(source_freshness_state_v1.observed_at))) "
+        "AND (source_freshness_state_v1.last_checked_at = '' OR "
+        "(excluded.last_checked_at <> '' AND julianday(excluded.last_checked_at) >= julianday(source_freshness_state_v1.last_checked_at))) "
+        "AND (source_freshness_state_v1.content_changed_at = '' OR "
+        "(excluded.content_changed_at <> '' AND julianday(excluded.content_changed_at) >= julianday(source_freshness_state_v1.content_changed_at))) "
+        "AND (source_freshness_state_v1.workflow_id = excluded.workflow_id OR "
+        "source_freshness_state_v1.last_checked_at = '' OR "
+        "julianday(excluded.last_checked_at) > julianday(source_freshness_state_v1.last_checked_at))"
+    )
     for row in snapshot["sources"]:
         source_values = [
             row["source_id"],
@@ -154,7 +181,9 @@ def source_freshness_sql(snapshot: dict[str, Any]) -> str:
             [
                 "INSERT INTO source_freshness_state_v1 (source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at, result_count, content_hash, check_status, status, observed_at, workflow_id)",
                 f"VALUES ({', '.join(sql_value(value) for value in source_values)})",
-                "ON CONFLICT(source_id) DO UPDATE SET name = excluded.name, cadence = excluded.cadence, maximum_age_hours = excluded.maximum_age_hours, last_checked_at = excluded.last_checked_at, content_changed_at = excluded.content_changed_at, result_count = excluded.result_count, content_hash = excluded.content_hash, check_status = excluded.check_status, status = excluded.status, observed_at = excluded.observed_at, workflow_id = excluded.workflow_id WHERE excluded.observed_at >= source_freshness_state_v1.observed_at;",
+                "ON CONFLICT(source_id) DO UPDATE SET name = excluded.name, cadence = excluded.cadence, maximum_age_hours = excluded.maximum_age_hours, last_checked_at = excluded.last_checked_at, content_changed_at = excluded.content_changed_at, result_count = excluded.result_count, content_hash = excluded.content_hash, check_status = excluded.check_status, status = excluded.status, observed_at = excluded.observed_at, workflow_id = excluded.workflow_id WHERE "
+                + source_update_guard
+                + ";",
             ]
         )
     return "\n".join(statements) + "\n"
@@ -164,7 +193,7 @@ def record_source_freshness(
     report_path: Path,
     *,
     workflow_id: str,
-    workflow_max_age_hours: float,
+    workflow_max_age_hours: float | None = None,
     database: str,
     env: str | None = None,
     run_id: str = "",

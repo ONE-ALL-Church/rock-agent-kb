@@ -100,7 +100,7 @@ def record_hosted_eval_command(
 def record_source_freshness_command(
     report: Path = typer.Argument(..., exists=True, dir_okay=False),
     workflow_id: str = typer.Option(..., "--workflow-id"),
-    workflow_max_age_hours: float = typer.Option(..., "--workflow-max-age-hours", min=1),
+    workflow_max_age_hours: float | None = typer.Option(None, "--workflow-max-age-hours", min=1),
     source_ids: list[str] | None = typer.Option(None, "--source"),
     run_id: str = typer.Option("", "--run-id"),
     run_url: str = typer.Option("", "--run-url"),

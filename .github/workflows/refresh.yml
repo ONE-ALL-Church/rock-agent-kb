@@ -92,6 +92,7 @@ jobs:
           uv run kb sources freshness \
             --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
             --source-status data/review/source-scan/source-refresh-status.json \
+            --required-workflow weekly-comprehensive \
             --strict
       - name: Upload source freshness report
         if: always()
@@ -105,7 +106,6 @@ jobs:
           uv run kb record-source-freshness
           data/review/source-freshness/source-freshness-report.json
           --workflow-id weekly-comprehensive
-          --workflow-max-age-hours 216
           --run-id "${{ github.run_id }}"
           --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"

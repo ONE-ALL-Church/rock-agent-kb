@@ -158,6 +158,12 @@ def list_sources() -> None:
 def validate_sources() -> None:
     """Validate sources/registry.yaml."""
     errors = validate_registry()
+    try:
+        from ..source_workflows import source_workflow_policies
+
+        source_workflow_policies()
+    except ValueError as error:
+        errors.append(str(error))
     if errors:
         for error in errors:
             console.print(f"[red]ERROR[/red] {error}")

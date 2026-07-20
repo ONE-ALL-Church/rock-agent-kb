@@ -21,14 +21,6 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
-      DAILY_SOURCE_IDS: >-
-        rock_community_blog
-        rock_core_release_notes
-        rock_mobile_release_notes
-        rock_podcast_rss
-        rock_youtube
-        sparkdevnetwork_rock
-        triumph_resources
     steps:
       - uses: actions/checkout@v4
       - name: Restore source observations
@@ -61,8 +53,10 @@ jobs:
         id: refresh_sources
         continue-on-error: true
         run: |
+          SOURCE_IDS="$(uv run kb sources workflow-sources daily-sources)"
+          export SOURCE_IDS
           args=()
-          for source_id in $DAILY_SOURCE_IDS; do
+          for source_id in $SOURCE_IDS; do
             args+=(--source "$source_id")
           done
           set +e
@@ -79,7 +73,7 @@ jobs:
           from pathlib import Path
 
           exit_code = int(os.environ["REFRESH_EXIT"])
-          source_ids = os.environ["DAILY_SOURCE_IDS"].split()
+          source_ids = os.environ["SOURCE_IDS"].split()
           payload = {
               "schema": "rock-kb-source-refresh-status-v1",
               "checked": source_ids if exit_code == 0 else [],
@@ -108,24 +102,18 @@ jobs:
           uv run kb sources freshness \
             --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
             --source-status data/review/source-scan/source-refresh-status.json \
-            --required-cadence daily \
+            --required-workflow daily-sources \
             --strict
       - name: Publish authoritative daily freshness snapshot
         if: always() && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
-        run: |
-          args=()
-          for source_id in $DAILY_SOURCE_IDS; do
-            args+=(--source "$source_id")
-          done
-          uv run kb record-source-freshness \
-            data/review/source-freshness/source-freshness-report.json \
-            --workflow-id daily-sources \
-            --workflow-max-age-hours 52 \
-            --run-id "${{ github.run_id }}" \
-            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-            --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}" \
-            --env production \
-            "${args[@]}"
+        run: >
+          uv run kb record-source-freshness
+          data/review/source-freshness/source-freshness-report.json
+          --workflow-id daily-sources
+          --run-id "${{ github.run_id }}"
+          --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --env production
       - name: Run daily refresh regression tests
         if: steps.refresh_sources.outcome == 'success'
         run: uv run --extra dev pytest -q tests/test_source_freshness.py tests/test_source_orchestration.py
