@@ -2,7 +2,7 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-07-18T02:03:59+00:00
+last_built: 2026-07-20T05:22:04+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -81,6 +81,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
 | official | configuration | Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
 | official | operational_guidance | The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
@@ -98,8 +99,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | release_caveat | The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
-| More |  | 32 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 34 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -255,7 +255,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `138`
 - Lava capability source records: `53`
-- Approved claims: `50`
+- Approved claims: `52`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

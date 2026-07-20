@@ -2,7 +2,7 @@
 concept_id: workflows
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 1349
+approved_claim_count: 1351
 ---
 
 # Workflows Approved Claims
@@ -11,6 +11,8 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:4bf4025847cf0c78adf0` | official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
+| `claim:5d109547ddfc0fd7b9c2` | official | behavior | In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format. | [source](https://community.rockrms.com/lava/commands/workflow-activate-commands) |
 | `claim:9f3fc654783d47c63bb4` | official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | `claim:5eedd5acf0194a87c5ce` | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | `claim:c8435f854b9e7075ab76` | official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |

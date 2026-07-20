@@ -2,7 +2,7 @@
 id: concept-mobile
 title: Rock Mobile
 generated: true
-last_built: 2026-07-18T02:03:58+00:00
+last_built: 2026-07-20T05:22:02+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -118,10 +118,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
+| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
 | official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| official | release_caveat | Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both. | [source](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies) |
 | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| official | release_caveat | Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
 | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
@@ -132,11 +136,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The participant-facing flow can show fallback screens when a person is outside the configured geofence, outside the valid check-in time window, or has no eligible check-in option available. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | rocku-confirmed | source_summary | Mobile check-in configuration depends on creating virtual check-in kiosk devices, assigning geofenced campus boundaries, and pointing the Mobile Check-in Launcher block at the correct devices, check-in configuration, theme, and areas. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | source_summary | The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | source_summary | Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
-| rocku-confirmed | operational_guidance | The Phone Number Lookup Configuration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration) |
-| rocku-confirmed | operational_guidance | Before enabling mobile check-in, confirm the site is served over HTTPS, a Google API key is configured for geofencing, and the underlying check-in groups, locations, schedules, and check-in configuration already work through normal check-in. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
-| rocku-confirmed | operational_guidance | After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| More |  | 83 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 87 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -302,7 +302,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `145`
 - Lava capability source records: `53`
-- Approved claims: `101`
+- Approved claims: `105`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

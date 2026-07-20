@@ -341,6 +341,11 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
         },
         "community_derived": str(row.get("authority_tier") or "").startswith("community"),
     }
+    related_contribution_ids = sorted(
+        {str(value) for value in row.get("related_contribution_ids") or [] if value}
+    )
+    if related_contribution_ids:
+        claim["derived_from"]["related_contribution_ids"] = related_contribution_ids
     if row.get("generation_provenance"):
         claim["generation_provenance"] = row["generation_provenance"]
     for key in ["evidence_class", "temporal_status"]:

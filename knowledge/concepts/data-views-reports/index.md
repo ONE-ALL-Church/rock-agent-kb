@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-07-18T02:03:56+00:00
+last_built: 2026-07-20T05:22:01+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -250,7 +250,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
 | official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
@@ -265,10 +268,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | source_summary | Data Integrity adds operational guidance for cleanup and reporting quality: define correction rules, test known examples, and document ownership before data changes. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) |
 | rocku-confirmed | source_summary | Data Integrity adds guidance for people and reporting work: prove the source of truth, understand cleanup ownership, and verify downstream reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) |
-| rocku-confirmed | operational_guidance | The Extending Groups RockU lesson provides training context for ministry process design; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/extending-groups) |
-| rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Rock Media Analytics should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/rock-media-analytics) |
-| rocku-confirmed | operational_guidance | The Pledges RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/pledges) |
-| More |  | 545 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 548 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -456,7 +456,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `144`
 - Lava capability source records: `53`
-- Approved claims: `563`
+- Approved claims: `566`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

@@ -2,7 +2,7 @@
 concept_id: communications
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 152
+approved_claim_count: 153
 ---
 
 # Communications Approved Claims
@@ -11,6 +11,7 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:a774892d024b8bbe0560` | official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | `claim:147ee6dbc7db220dc7ba` | official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | `claim:5eedd5acf0194a87c5ce` | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | `claim:809519cf51bf3b32119f` | official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |

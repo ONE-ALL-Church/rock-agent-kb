@@ -2,7 +2,7 @@
 concept_id: mobile
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 101
+approved_claim_count: 105
 ---
 
 # Rock Mobile Approved Claims
@@ -11,10 +11,14 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:2d534c63c723204ad8c9` | official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
+| `claim:3b4b8ec335aa0a17968c` | official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
 | `claim:47b657cb5b577d54ad54` | official | release_caveat | At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | `claim:483a11b884e0e69ffd4d` | official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `claim:54aeb223a9029e9f7707` | official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| `claim:896d78fdcfa734dde54e` | official | release_caveat | Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both. | [source](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies) |
 | `claim:9c8ce297c9c4a4cda982` | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:dc73468ceef82ee62d45` | official | release_caveat | Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
 | `claim:e704f98991439e3e1576` | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `claim:35d327f4909c62921563` | official | source_summary | This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `claim:fce0fb74a46963faeb59` | official | source_summary | This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |

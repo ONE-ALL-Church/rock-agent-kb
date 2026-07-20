@@ -2,7 +2,7 @@
 id: concept-groups
 title: Groups
 generated: true
-last_built: 2026-07-18T02:03:32+00:00
+last_built: 2026-07-20T05:21:37+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -174,6 +174,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
@@ -191,8 +192,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Person Preferences and Auto Schedule RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule) |
 | rocku-confirmed | operational_guidance | The Data View Filter Groups RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/reporting/data-view-filter-groups) |
 | rocku-confirmed | operational_guidance | For ministry process design, Types and Groups should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/types-and-groups) |
-| rocku-confirmed | operational_guidance | The Group RSVP Occurrences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-rsvp-occurrences) |
-| More |  | 155 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 156 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -344,7 +344,7 @@ Keywords: `attendance, meeting, schedule`
 ## Rebuild Dependencies
 
 - Source records: `91`
-- Approved claims: `173`
+- Approved claims: `174`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

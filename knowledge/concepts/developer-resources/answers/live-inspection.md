@@ -14,13 +14,15 @@ For Rock Developer Resources, inspect these live surfaces before changing produc
 - `claim:855f7a33bcc8bb936067`
 - `claim:9398f3fb18e8a79c0e4d`
 - `claim:da56681f6277c12df324`
+- `claim:ee2f4e5a371c3b243567`
 - `claim:29f4e0bbc81c08861367`
-- `claim:d35ed98aadeaabd2cf1e`
+- `claim:2cb25390d2b5f4ffeb6f`
 
 ## Citations
 
 - [Creating Obsidian Blocks](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks)
 - [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands)
 - [Helix Security](https://community.rockrms.com/developer/helix/overview/security)
+- [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 - [Apple TV JavaScript Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript)
-- [Helix Lava Application Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
+- [The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api)

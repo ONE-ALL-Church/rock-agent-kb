@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-07-18T02:03:37+00:00
+last_built: 2026-07-20T05:21:42+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -123,6 +123,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
 | rocku-confirmed | operational_guidance | When auditing giving-related guidance, verify the full path from public giving action to Rock financial transaction, account detail, receipts, and reporting definitions. | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
 | rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) |
 | rocku-confirmed | operational_guidance | The Scheduled Transactions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/scheduled-transactions) |
@@ -140,8 +141,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | For Rock operations and administration, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) |
 | rocku-confirmed | operational_guidance | The Giving Journey RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-journey) |
 | rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, Giving Alerts should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-alerts) |
-| rocku-confirmed | operational_guidance | The Financial Basics RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/financial-basics) |
-| More |  | 90 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 91 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -287,7 +287,7 @@ Keywords: `batch, deposit, reconciliation`
 ## Rebuild Dependencies
 
 - Source records: `92`
-- Approved claims: `108`
+- Approved claims: `109`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

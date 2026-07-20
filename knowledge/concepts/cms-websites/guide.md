@@ -1471,24 +1471,24 @@ RockU identifies Required Watching as part of the CMS/media learning path ([Rock
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `167`
+- Approved claims routed to this concept: `171`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
+| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. | [source](https://community.rockrms.com/lava/filters/other-filters) |
+| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
 | official | implementation_pattern | An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
+| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
 | official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | risk | Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured. | [source](https://community.rockrms.com/lava/commands) |
 | rocku-confirmed | operational_guidance | Adding pages and blocks changes both navigation and authorization; agents should inspect site, page hierarchy, route, block type, zone, and inherited security before publishing. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
 | rocku-confirmed | operational_guidance | Content Channel View pages should be reviewed as both CMS presentation and data exposure surfaces because channel item lists can reveal titles, dates, attributes, or detail links. | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
 | rocku-confirmed | operational_guidance | Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
 | rocku-confirmed | operational_guidance | When diagnosing personalization, inspect the audience rule, person data used by the rule, fallback content, cache behavior, and the exact logged-in or anonymous state being tested. | [source](https://community.rockrms.com/rocku/cms/personalization) |
-| rocku-confirmed | operational_guidance | Content Components should be treated as reusable CMS building blocks; changes can affect every page or theme area where the component is used. | [source](https://community.rockrms.com/rocku/cms/content-component) |
-| rocku-confirmed | operational_guidance | Personalization should be reviewed as conditional content delivery, not as a security substitute; hidden or targeted content still needs proper page, block, and entity authorization. | [source](https://community.rockrms.com/rocku/cms/personalization) |
-| rocku-confirmed | operational_guidance | Before editing a content component, identify where it is rendered, what content it owns, and whether the component is part of a public, staff, or theme-managed surface. | [source](https://community.rockrms.com/rocku/cms/content-component) |
-| rocku-confirmed | risk | When diagnosing a missing or exposed page, compare the page route, parent-page security, block security, and the specific user context instead of assuming the route alone controls access. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
-| More |  | 155 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 159 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

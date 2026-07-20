@@ -15,6 +15,7 @@ Rock's planned MCP flow uses OAuth so the external harness holds and renews the 
 - `claim:2a7ef23854b5dd315c7d`
 - `claim:538f1a4e0ad7c90f7c5a`
 - `claim:410bf6750e90b7193262`
+- `claim:72d56e7ee7ef0be4b92e`
 
 ## Citations
 
@@ -22,3 +23,4 @@ Rock's planned MCP flow uses OAuth so the external harness holds and renews the 
 - [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s) (`01:53`)
 - [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s) (`15:09`)
 - [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
+- [Security](https://community.rockrms.com/developer/helix/overview/security)

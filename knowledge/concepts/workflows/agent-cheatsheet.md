@@ -26,6 +26,7 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -116,5 +117,5 @@ generated: true
 | `18-agent-task-recipes-recipe-diagnose-a-missing-submission` | structural | live verification |
 | `18-agent-task-recipes-recipe-build-a-workflow-health-dashboard` | community-supported | community-supported |
 | `18-agent-task-recipes-recipe-validate-person-entry-configuration` | normal | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `19-source-map-and-dependency-notes` | high | live verification |

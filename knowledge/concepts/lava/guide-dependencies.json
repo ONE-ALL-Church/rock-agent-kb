@@ -459,6 +459,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
+      "claim_hash": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
+      "claim_id": "claim:2d534c63c723204ad8c9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
+      "source_record_ids": [
+        "rock_mobile_docs:article:456"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Content",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Rock-native tools are a strong first option for simpler dashboards, operational reports, and person-actionable workflows because they keep users close to the ministry record and workflow context.",
       "claim_hash": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
@@ -560,6 +590,36 @@
           "timestamp_seconds": 451.0,
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`.",
+      "claim_hash": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
+      "claim_id": "claim:3b4b8ec335aa0a17968c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "lava",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e187026ceb1839351d74bdad01833d2159a9ebe533bc16a49cf0308e46ff0df0",
+      "source_record_ids": [
+        "rock_mobile_docs:article:422"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Lava",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
         }
       ]
     },
@@ -911,6 +971,36 @@
     },
     {
       "authority_tier": "official",
+      "claim": "In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`.",
+      "claim_hash": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
+      "claim_id": "claim:4bf4025847cf0c78adf0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e680d5207163a987cf992909c65af3ea8a469c48627ff6369a75216bb7bd86a2",
+      "source_record_ids": [
+        "rock_lava_docs:3d7f0942c946fafb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Entity",
+          "url": "https://community.rockrms.com/lava/commands/entity-commands"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
       "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
       "claim_id": "claim:4c4098a035a5ca256bfe",
@@ -1249,6 +1339,64 @@
           "source_id": "rock_developer",
           "title": "Apple TV Pages",
           "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format.",
+      "claim_hash": "df23346a27614375d42e05dcf899aae4eeb0975947cb55c2cb2c0d6effac9dec",
+      "claim_id": "claim:5d109547ddfc0fd7b9c2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "lava",
+        "workflows"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b98d79c97451af6fa6cbc710a11de267c27454b0c59855405cc3b00b40bafc51",
+      "source_record_ids": [
+        "rock_lava_docs:944d44ff4810c8f9"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Workflow Activate",
+          "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "`CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string.",
+      "claim_hash": "ea18508804f28f0bd570e9a58965b3051473e1bc1754b691868d4fdd6068a738",
+      "claim_id": "claim:5d8bddb267bffde3cfe7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0fa186449d8144e8b3379b1cddee07f6e1235328729b27430eb84b905a6c8f1b",
+      "source_record_ids": [
+        "rock_lava_docs:f7086ab6ff215e14"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Other",
+          "url": "https://community.rockrms.com/lava/filters/other-filters"
         }
       ]
     },
@@ -1676,6 +1824,36 @@
           "timestamp_seconds": 351.54,
           "title": "Registration Templates",
           "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
+      "claim_hash": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
+      "claim_id": "claim:7bca2f8db03f8f468586",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
+      "source_record_ids": [
+        "rock_lava_docs:30be60a23d3d0317"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Getting Started",
+          "url": "https://community.rockrms.com/lava/commands"
         }
       ]
     },
@@ -3117,6 +3295,37 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
+      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_id": "claim:ee2f4e5a371c3b243567",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "helix",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
+      "source_record_ids": [
+        "rock_developer:article:346"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Content Block",
+          "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For reporting, analytics, and measurement, Lava Shortcodes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "b6f640442a1eebe300562c1cda4d2506ef5f50502faa257f5167d80a638afd0c",
@@ -3415,9 +3624,11 @@
     "claim:1d09ab3e4da192196030": "768d4925a7aac90eb279841cf5c456c183760ed674e6e8af2aab44ac49a6f157",
     "claim:1e8a4c84ec5bc7717590": "20793f8458ac752b413e74f16e252bac80a1027171d701f356e3c929576a1334",
     "claim:247c7587ce58a8bf28b9": "d8003625c2fe80604b537a511b6ef5d235820e9f52fb0fc5358219b366f9718a",
+    "claim:2d534c63c723204ad8c9": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
     "claim:31a58d58dbab5739b4f5": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
     "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
     "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
+    "claim:3b4b8ec335aa0a17968c": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
     "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
     "claim:3c80fa4e2099bb5416de": "4b2441e58f703c12d6d407dc50a804db8c8a55c60c9c862c24d9d85a8dbb04f0",
     "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
@@ -3427,6 +3638,7 @@
     "claim:47b08e30f6cae81c8691": "ed84693cadcddd3331341bc4ff385390ecad320c6d7caef61e5fa7bb281e8257",
     "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
     "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
+    "claim:4bf4025847cf0c78adf0": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
     "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
     "claim:4c6c24811261384a0eb4": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
     "claim:5115289c5053e77e072a": "16da9da08f614c0e36d395816ba95fc25b68c71fea22a9472d0252efd3fab871",
@@ -3437,6 +3649,8 @@
     "claim:5998f57c6b527aee9750": "3dbdb3b081c97a817e591a417c856927f96595b583076e7edf49fbf6a8bbb76a",
     "claim:5b0a62c44ba0db579aed": "db16410f6d353ddb8b916b35cb7eadb2cb26d4d1b19427cff31d48076bc70ad3",
     "claim:5bd2b6b4cac279be5e13": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
+    "claim:5d109547ddfc0fd7b9c2": "df23346a27614375d42e05dcf899aae4eeb0975947cb55c2cb2c0d6effac9dec",
+    "claim:5d8bddb267bffde3cfe7": "ea18508804f28f0bd570e9a58965b3051473e1bc1754b691868d4fdd6068a738",
     "claim:60c2bcd25e1cce4efef4": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
     "claim:6579604cba2ab712b182": "19a3d8f95bbf9a066142d172f08cba3cfe1662dde1890914a9d721794931cd4b",
     "claim:66b59daa5dab8edd46ff": "2d4a46c1bdf7cf028db22fdc6c19056fa1ccee501d065484e3f4c6d2cf831a15",
@@ -3450,6 +3664,7 @@
     "claim:7a169605c60795748120": "3f8ee733ea8b9527c6febab7e8e3b467648d1420ee5bddaa196d34a3dbfc3fe9",
     "claim:7a2e62ecd35effb86f0a": "eef639b30373ff76e42df525181237f8bf88a29c631741a919e7880c49586ffd",
     "claim:7b89678f588fe3f79a50": "a64534afdad83b7344e0555ad5b700b60856c617cc75652d12b9c47aec0a59e6",
+    "claim:7bca2f8db03f8f468586": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
     "claim:7d612089a965482f7eed": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
     "claim:7e6e3979faad614f0b42": "e8c33478a8d9072ace0904fba38dbd0649eaad537463cfafc551e2a7696f0d8a",
     "claim:832d63507e071b02a6f5": "3e2192d125208272623c3573b5c297d9e1fb58df72f079888808a3a2404443d0",
@@ -3492,6 +3707,7 @@
     "claim:eb03c3644ee4b1ae217b": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
     "claim:ed0bfda39f5c0b664ef3": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
     "claim:ee1d87ec234641f9b461": "ac1d2ab7708ed6fae65e1caf458d24ed0ed6737364ff45d9f460c25896e38a0d",
+    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
     "claim:ef1789df53160e299317": "b6f640442a1eebe300562c1cda4d2506ef5f50502faa257f5167d80a638afd0c",
     "claim:effbedc1751d739bc4d9": "9ebb5ba62eaa2250489cf37643e4ed0593f82f97c56d2edd0e6137af06a9e604",
     "claim:f34b7d439fac6c9062f0": "1f22a5eafb8356f77a212cd0bc9e5b46938dc12d4dcfaf0bb5c356d9d011a371",
@@ -3500,7 +3716,7 @@
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "b639145483b26f598feb04cdc11bc818907a8569b59dab532594867187c9691c",
+  "approved_claims_hash": "82647d91ac8659e2bbad620db3d8ae4c89d003250b64f318f9f09ab9e34a87eb",
   "approved_claims_path": "knowledge/concepts/lava/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3911,12 +4127,12 @@
   },
   "approved_media_hash": "9c8278212f8defa3d3ee4edae7ce1933a921d342680724923364d46db88032b9",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-07-18T02:05:59+00:00",
+  "built_at": "2026-07-20T05:22:53+00:00",
   "concept_id": "lava",
-  "guide_hash": "6ebd87c41f84fbefe30b9d682725c21edff1daef2a8fe7dbc975646361ddeb70",
+  "guide_hash": "a0ca89915c42b085dd789702907b2c1fe1476ac3e8e43a0e910ba8bc08a7a3f7",
   "guide_line_count": 2027,
   "guide_path": "knowledge/concepts/lava/guide.md",
-  "guide_word_count": 15067,
+  "guide_word_count": 15011,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4324,6 +4540,24 @@
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
     },
     {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
+      "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
+      "source_id": "rock_developer",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:48cabcef2f22cabd",
+      "url": "https://community.rockrms.com/developer/helix"
+    },
+    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -4331,15 +4565,6 @@
       "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",
@@ -6063,14 +6288,14 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "044170dca04e8bbb",
         "6449dcd93497b4cd",
         "67f84804d07244b3",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "dcc9c3b1df657d9f",
+        "044170dca04e8bbb",
+        "044170dca04e8bbb",
+        "127269e4afa33de4",
+        "ae672f3d3d6f8730",
+        "48cabcef2f22cabd",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -7208,6 +7433,40 @@
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
     },
     {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
+      "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:48cabcef2f22cabd",
+      "title": "🧬 Helix",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/helix",
+      "version": null
+    },
+    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -7216,16 +7475,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
     },
     {
       "authority": "official-training",

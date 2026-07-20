@@ -40,6 +40,7 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 - `Attribute`: Rock concept/entity referenced by the workflows guide.
 - `Block`: Rock concept/entity referenced by the workflows guide.
 - `Campus`: Rock concept/entity referenced by the workflows guide.
+- `DataView`: Rock concept/entity referenced by the workflows guide.
 - `Family`: Rock concept/entity referenced by the workflows guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `GroupMember`: Rock concept/entity referenced by the workflows guide.
@@ -47,7 +48,6 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the workflows guide.
 - `Person`: Rock concept/entity referenced by the workflows guide.
-- `PersonAlias`: Rock concept/entity referenced by the workflows guide.
 
 ## Version Caveats
 

@@ -1476,6 +1476,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests.",
+      "claim_hash": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
+      "claim_id": "claim:2cb25390d2b5f4ffeb6f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6a5cca3508709b4cdfecf4117436569fdd986f7ae4cc194187444245b7562bcd",
+      "source_record_ids": [
+        "rock_developer:article:301"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "The Rock Rest API",
+          "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying reporting, analytics, and measurement ideas from Episode 45: Special Edition Robbin Dinbokowitz, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "37190c296057bea620cdcf8020c77b30b7de6396c81046982f5ca830fa504d46",
@@ -2004,6 +2034,36 @@
           "source_id": "rock_rocku",
           "title": "Page Builder",
           "url": "https://community.rockrms.com/rocku/cms/page-builder"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`.",
+      "claim_hash": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
+      "claim_id": "claim:3b4b8ec335aa0a17968c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "lava",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e187026ceb1839351d74bdad01833d2159a9ebe533bc16a49cf0308e46ff0df0",
+      "source_record_ids": [
+        "rock_mobile_docs:article:422"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Lava",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
         }
       ]
     },
@@ -4342,6 +4402,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Treat every Helix endpoint as directly callable outside its front end: validate all inputs, enforce the caller's view or edit rights, avoid GET for mutations, and sanitize query and body values before SQL use.",
+      "claim_hash": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
+      "claim_id": "claim:72d56e7ee7ef0be4b92e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "helix",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f088c9c25a1c8f3ca85814c476a1fae2a66fd310acaca25f587416c5afb694c6",
+      "source_record_ids": [
+        "rock_developer:article:336"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Security",
+          "url": "https://community.rockrms.com/developer/helix/overview/security"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page.",
       "claim_hash": "bdb59c6d039836b4819468c65d99161e5c2bfb4fd117e97e22ffca2cb848c30c",
@@ -4556,6 +4646,36 @@
           "source_id": "rock_rocku",
           "title": "Group Details",
           "url": "https://community.rockrms.com/rocku/groups/group-details"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
+      "claim_hash": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
+      "claim_id": "claim:7bca2f8db03f8f468586",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
+      "source_record_ids": [
+        "rock_lava_docs:30be60a23d3d0317"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Getting Started",
+          "url": "https://community.rockrms.com/lava/commands"
         }
       ]
     },
@@ -10453,6 +10573,7 @@
     "claim:2a7ef23854b5dd315c7d": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
     "claim:2a9844acce5ba6150dec": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
     "claim:2bf0abb68edd34bd41b5": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
+    "claim:2cb25390d2b5f4ffeb6f": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
     "claim:2d194ea4586dbf5d40fe": "37190c296057bea620cdcf8020c77b30b7de6396c81046982f5ca830fa504d46",
     "claim:2e384ac7e219b430ba6d": "6a468fb99571b6dd412c967a8eef980182a1c338a0b4c399f6b4c4ed879fb44e",
     "claim:2f7adbf4211f54f33b1b": "8ec2605d613bd67ff5ef56fda5282ecc7ccd13dc790a859ad67bdec266e70517",
@@ -10468,6 +10589,7 @@
     "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
     "claim:39735f6a8684f32d8191": "332a4b9786c6153ab8b80646b50d2df2eb6698b526136c33d1172c0bc8d3f4af",
     "claim:3abfdaf9b365315db422": "a249035f450c8932bea0de456cf6738ce601f0ff157fcf953ef2e0241c49ac67",
+    "claim:3b4b8ec335aa0a17968c": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
     "claim:3c3bad8c2ee8b5063b17": "7d339ceedba28ebe6a54349ca10ef4124ec6c9e46b1a36f963ebdd1f13d21d5f",
     "claim:3c60aec2fed735523b81": "8af467da0b289b5de8cfa865435f999b1aacc95c1f9af59528350f05be44fe39",
     "claim:3e398ac03167b9c52704": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
@@ -10537,12 +10659,14 @@
     "claim:6fcbf48a95f3a098e3ae": "e9d89ce05c4b1fdff38738f36eb84d19e214c96856cba705f5e82a0d243df604",
     "claim:71931331e432f75046d0": "ccd775db46faf5acc7be4bd27d037c83672b6360cb14d05a1eafbaf7a92c4ea1",
     "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
+    "claim:72d56e7ee7ef0be4b92e": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
     "claim:72dd1841cd10ed6d5a30": "bdb59c6d039836b4819468c65d99161e5c2bfb4fd117e97e22ffca2cb848c30c",
     "claim:73251d65ea7cb6ad60b6": "445f0787fdb8107b4a7a6acaa48616c2b612f35c9c113889ce8c6ccc47551921",
     "claim:76e9f9f5d841f006cbb5": "7efc094151583888c9db25936812c60919860950dfbf79016071cbe33f52056c",
     "claim:773fde661435d7a27648": "197e58ff529498ea5b492e9cd6c14fbdbac9119cdcc5e3e0ae90c7a774f45b34",
     "claim:77ed0bdd7e15b7fed449": "f5b2aff11aa9e5ce1f1a38f9d1f5b907b351393d569b3032cd2872d744dd37a2",
     "claim:7a2197fb2d428acec2e0": "26cc1652ec6331858a702dc46c172c5a62c83c8233d94a9a03ebcf06c921c170",
+    "claim:7bca2f8db03f8f468586": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
     "claim:7ddbde1cd7e23aec0e70": "600fb581e7e9dea077aaa62025cc8c0d8febdefb64439c186e53a889d3768175",
     "claim:7e53915d3ac900591d8d": "4d0656a3b859c1e595ba74913aefed076c2f88a975bd7c833c71438761c26cb3",
     "claim:7e6e3979faad614f0b42": "e8c33478a8d9072ace0904fba38dbd0649eaad537463cfafc551e2a7696f0d8a",
@@ -10715,7 +10839,7 @@
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "141129abd309261cfded5c6bc63d796353ebb7a45557673aac8bcda3b4d00521",
+  "approved_claims_hash": "b5a2fb84e44872fcd14617fd790f34cd14fdcef14974a1ef9bbdb2dcb788e07c",
   "approved_claims_path": "knowledge/concepts/security-permissions/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -12087,12 +12211,12 @@
   },
   "approved_media_hash": "d560910f05bf3a699e1c542f915e3b688411f2bb891ee516c81741517179e9fe",
   "approved_media_path": "knowledge/concepts/security-permissions/approved-media.md",
-  "built_at": "2026-07-18T02:06:27+00:00",
+  "built_at": "2026-07-20T05:23:21+00:00",
   "concept_id": "security-permissions",
-  "guide_hash": "9afff9106c70069fa8f97ae7058989fa711b23d5567b9dd81fc4a086443efc86",
+  "guide_hash": "a8592437c9b6c3223c0a487155676443c81fa3fe3b8912f604447cb1d1b540b7",
   "guide_line_count": 1863,
   "guide_path": "knowledge/concepts/security-permissions/guide.md",
-  "guide_word_count": 16014,
+  "guide_word_count": 15986,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -12516,6 +12640,15 @@
       "source_key": "7b2dd6a6b528a9f3",
       "source_record_id": "",
       "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "ae672f3d3d6f8730",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
     },
     {
       "authority": "unknown",
@@ -14287,12 +14420,14 @@
       "start_line": 1685
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1728,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "547b1337a6e19cf7",
+        "ae672f3d3d6f8730",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -14301,8 +14436,6 @@
         "dcc9c3b1df657d9f",
         "bd359c503b146774",
         "874c48c7aa36826b",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75"
       ],
@@ -15666,6 +15799,16 @@
       "source_record_id": "",
       "title": "https://www.triumph.tech/resources/ai-in-digital-ministry",
       "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "ae672f3d3d6f8730",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
     },
     {
       "authority": "unknown",

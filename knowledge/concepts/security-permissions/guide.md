@@ -1704,11 +1704,13 @@ Sources: [Release Notes](https://www.rockrms.com/releasenotes), [GitHub Spotligh
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `304`
+- Approved claims routed to this concept: `308`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
+| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
 | official | operational_guidance | The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
@@ -1719,9 +1721,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
 | official | operational_guidance | LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| More |  | 292 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 296 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

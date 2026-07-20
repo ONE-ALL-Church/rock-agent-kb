@@ -5460,6 +5460,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`.",
+      "claim_hash": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
+      "claim_id": "claim:4bf4025847cf0c78adf0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e680d5207163a987cf992909c65af3ea8a469c48627ff6369a75216bb7bd86a2",
+      "source_record_ids": [
+        "rock_lava_docs:3d7f0942c946fafb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Entity",
+          "url": "https://community.rockrms.com/lava/commands/entity-commands"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Custom Grid Actions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "0d29e84c14fd390c37830828a580c7a63f2296f2fbc4994e9484e5b4522e2a28",
@@ -9478,6 +9508,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly.",
+      "claim_hash": "54ad6b37fa90b7bf882d51118db977655cddbf38edb0d0ea20a26c7ad9592400",
+      "claim_id": "claim:8236f070927c9ba07547",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "giving-finance"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86afebcb8b2fd17eba4cbe5b3a79f0a30a2bc6120ca1b98b7953986b2c8eaab6",
+      "source_record_ids": [
+        "rock_documentation:article:1316"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Event Registrations",
+          "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Communication Wizard RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "bcd1c163e19768e3d80ae8cbf1348b995607366d3ea19748aea603a1b9a3468a",
@@ -11621,6 +11681,36 @@
           "source_id": "rock_rocku",
           "title": "HTML Block",
           "url": "https://community.rockrms.com/rocku/cms/html-block"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration.",
+      "claim_hash": "452f43e583b287168111c5cc4ca091a165fb8ae0f35582f6f735a85176abe069",
+      "claim_id": "claim:a774892d024b8bbe0560",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "data-views-reports",
+        "groups"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a99113b0f2aae4a4b21e634f099b3ee40796e44b8b49d05edf620044b9b1b3cd",
+      "source_record_ids": [
+        "rock_documentation:article:1929"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Communication Lists",
+          "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
         }
       ]
     },
@@ -18453,6 +18543,7 @@
     "claim:4af4ac9d87351166152c": "b11d580b148c789104fa184604e8c6bcb99db2735b6f17ebe7fcdf5bdf10d140",
     "claim:4bb8144925035005a128": "d42893ad3a0ff23a488b7be2a29a7d849b470a51f3875ad8bd8509ed61d0a36e",
     "claim:4bd06d952e9a889782a6": "a7917b37bc396b8092606ff89664a3086136769baaab36c241070f1ea82e702e",
+    "claim:4bf4025847cf0c78adf0": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
     "claim:4c04bf673d9a350ed122": "0d29e84c14fd390c37830828a580c7a63f2296f2fbc4994e9484e5b4522e2a28",
     "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
     "claim:4c7b906ef16dfc9b828a": "90ef0cf58d0f69ea6c2332bd4a396598a32722479363b4a28333ea8a69af8ae2",
@@ -18577,6 +18668,7 @@
     "claim:81c2313550d392abbda2": "0ca88d3dc40831360d061902d668a1bdb262ca80f54fc7d7936b3b8749987033",
     "claim:81e86dbc2b22145559e3": "5a2536effe54097c17f7fa5c130694c4742a50aa92e3803d672ee78b16782156",
     "claim:822e87a143f064347983": "45765c5af112878d145379dc967a09dcdcc93547782b042500b75d14436c9769",
+    "claim:8236f070927c9ba07547": "54ad6b37fa90b7bf882d51118db977655cddbf38edb0d0ea20a26c7ad9592400",
     "claim:83252b344c42d83d3e25": "bcd1c163e19768e3d80ae8cbf1348b995607366d3ea19748aea603a1b9a3468a",
     "claim:855171d565adea1956a8": "d66085d5ab749fba775c0e1c7e547dcf4858f40151dbd58a2c3a985d8610dfb5",
     "claim:85dc3850ad247529c6e2": "4105e0c54d6ed54a1c0216aa20d3903d6963e5aa9873e19434ab4584d12b9a63",
@@ -18643,6 +18735,7 @@
     "claim:a5820b2c9e1499ebe406": "3a832eb6c1df0a45f796562819a0e95480017ce9b721100d90b2293df4abd11a",
     "claim:a5f0a54f29d226cec5fc": "c18235cccdd432bc4ae1cb975a6b6083983a39f370bf785e8f84995f9dcdb982",
     "claim:a668e72301fb3630d0c0": "f73dba3c671dd19835cfb5b0854dc3ef0e1170d84f67cc4a60ffd3dc977f5e73",
+    "claim:a774892d024b8bbe0560": "452f43e583b287168111c5cc4ca091a165fb8ae0f35582f6f735a85176abe069",
     "claim:a779121b7423ee6be572": "6b9136c6fc56269ef28f649032036cd2a9f12662505882a3267217f2fb8e9912",
     "claim:a7835e2d9012c026e08b": "345bae77b353107f11209cf93e5e23dd406b5f0bcbde1e2460aac468743b743a",
     "claim:a8166288837b80356022": "b44490993238b278db98cca498e4d06aca55f0bc1f47ca37fce3bca724d0cdeb",
@@ -18848,7 +18941,7 @@
     "claim:ffa743908a261a4a6d6b": "3131d5e1d000790d3d36f2a8545561d7c02c4388f204f2c2a57a636bf9012949",
     "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
   },
-  "approved_claims_hash": "c7afb7cdcdeac2bedbb4f6391e1e0094a68c1d5cd788cbd1ee39ebfff5d9ec59",
+  "approved_claims_hash": "2a92982dbf93c8e24a7bcee6c46b75b92d2f82575d87a1da9f532ce918a39fcb",
   "approved_claims_path": "knowledge/concepts/data-views-reports/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -20217,12 +20310,12 @@
   },
   "approved_media_hash": "769cc094468363bd078ac0249d0b422ad321eb17fed862c76bf53b87eb652057",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-07-18T02:06:29+00:00",
+  "built_at": "2026-07-20T05:23:23+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "9bc33d3a4684247affbf39c17a091dcae3f3b1872603350a9d3ae7b5e56402dd",
+  "guide_hash": "86c9bfd8895cc23a8293318ee2d127a714c4fe7c97515ef8fe997ed31c8e51b6",
   "guide_line_count": 2005,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
-  "guide_word_count": 16122,
+  "guide_word_count": 16135,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -20625,9 +20718,36 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "3d7f0942c946fafb",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "7808ba03b95d07eb",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
     },
     {
       "authority": "unknown",
@@ -20664,15 +20784,6 @@
       "source_key": "8d8c28f726e09218",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "c680a16482a4af12",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
     },
     {
       "authority": "official-training",
@@ -22354,13 +22465,16 @@
       "start_line": 1886
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1925,
       "heading": "Approved Claim Coverage",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "3d7f0942c946fafb",
+        "a1e69804a411861b",
         "dcc9c3b1df657d9f",
+        "7808ba03b95d07eb",
         "58a92984acbd2344",
         "dcc9c3b1df657d9f",
         "5fa353d6f0648800",
@@ -22368,10 +22482,7 @@
         "a1bb90bc2fdee5ac",
         "fa937a53da06e8f9",
         "8d8c28f726e09218",
-        "8d8c28f726e09218",
-        "fa937a53da06e8f9",
-        "c680a16482a4af12",
-        "fa937a53da06e8f9"
+        "8d8c28f726e09218"
       ],
       "start_line": 1900
     },
@@ -23507,10 +23618,40 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "3d7f0942c946fafb",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/lava/commands/entity-commands",
+      "url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "7808ba03b95d07eb",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
     },
     {
       "authority": "unknown",
@@ -23551,16 +23692,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "c680a16482a4af12",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
     },
     {
       "authority": "official-training",

@@ -100,5 +100,5 @@ generated: true
 | `17-agent-task-recipes-recipe-build-a-registrant-packet-export` | community-supported | community-supported |
 | `17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail` | community-supported | live verification |
 | `17-agent-task-recipes-recipe-investigate-api-registration-url-issues` | community-supported | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `18-source-map-and-dependency-notes` | high | live verification |

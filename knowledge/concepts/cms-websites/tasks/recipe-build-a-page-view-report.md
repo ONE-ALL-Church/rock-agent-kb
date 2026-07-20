@@ -34,8 +34,8 @@ Follow the guide section for Recipe: “Build A Page View Report”.
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/cms
 - https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/rocku/cms
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/recipes/261

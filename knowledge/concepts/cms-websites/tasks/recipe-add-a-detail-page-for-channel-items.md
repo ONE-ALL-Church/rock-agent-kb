@@ -34,8 +34,8 @@ Follow the guide section for Recipe: “Add A Detail Page For Channel Items”.
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/cms
 - https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/rocku/cms
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/recipes/261

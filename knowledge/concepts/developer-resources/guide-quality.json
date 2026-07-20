@@ -5,13 +5,12 @@
     "official-developer",
     "official-model-map",
     "official-release",
-    "source-code",
-    "unknown"
+    "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 16581 words; expected at least 7000.",
+      "message": "Guide has 16606 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -58,13 +57,13 @@
   "concept_id": "developer-resources",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-07-18T02:06:36+00:00",
+  "generated_at": "2026-07-20T05:23:30+00:00",
   "guide_line_count": 1607,
-  "guide_word_count": 16581,
+  "guide_word_count": 16606,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 162,
-  "source_count": 11,
+  "source_count": 8,
   "status": "pass",
   "task_card_count": 5
 }

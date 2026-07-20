@@ -536,6 +536,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
+      "claim_hash": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
+      "claim_id": "claim:2d534c63c723204ad8c9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
+      "source_record_ids": [
+        "rock_mobile_docs:article:456"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Content",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying ministry process design ideas from Episode 102: Rock Mobile, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "056999e55a079053c65f94b2f663d58afd3ae43fee1b6a9d550e4ce42f0a0ea9",
@@ -692,6 +722,36 @@
           "timestamp_seconds": 45.96,
           "title": "Episode 102: Rock Mobile",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`.",
+      "claim_hash": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
+      "claim_id": "claim:3b4b8ec335aa0a17968c",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "lava",
+        "mobile",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e187026ceb1839351d74bdad01833d2159a9ebe533bc16a49cf0308e46ff0df0",
+      "source_record_ids": [
+        "rock_mobile_docs:article:422"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Lava",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
         }
       ]
     },
@@ -1642,6 +1702,35 @@
           "source_id": "rock_community_hubs",
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both.",
+      "claim_hash": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
+      "claim_id": "claim:896d78fdcfa734dde54e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a970009afa448b517a7e45fb136daa968f9e2ab7c5e3a95fd3d567145b9c652d",
+      "source_record_ids": [
+        "rock_mobile_docs:article:431"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Core & Shell Dependencies",
+          "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
         }
       ]
     },
@@ -2826,6 +2915,35 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted.",
+      "claim_hash": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
+      "claim_id": "claim:dc73468ceef82ee62d45",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8b4d302b5957182d43b53d0fbf8bf2bf414180b41af00ccee37cc302df13a944",
+      "source_record_ids": [
+        "rock_mobile_docs:article:654"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Migrating to .NET MAUI (V6)",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Digital ministry should be integrated into ministry culture and team workflows instead of living as a separate channel owned only by a few specialists.",
       "claim_hash": "76173e88a96f792f6f643ace1d0636509adaee0db7d0c3f8cc05ae183226ebe6",
@@ -3483,11 +3601,13 @@
     "claim:220205397e725863e32b": "e384667dcc094e551ad2123f8e779752d81017b3bd6a3a33b6cb77f2ae2cd154",
     "claim:269534d094015b5c51b4": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
     "claim:2bf0abb68edd34bd41b5": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
+    "claim:2d534c63c723204ad8c9": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
     "claim:2f63d6d7dbb4d8378696": "056999e55a079053c65f94b2f663d58afd3ae43fee1b6a9d550e4ce42f0a0ea9",
     "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
     "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
     "claim:35d327f4909c62921563": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
     "claim:3a149ac551e256b71820": "d20dda0dc3abc829614918aca0f6059419931a1c9d11c643a164b5d6438c645c",
+    "claim:3b4b8ec335aa0a17968c": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
     "claim:3c8760faa5fa7063cd79": "3cf790e851304220d708732e0225de2b5001c4ff149bf7e6b57e2b4755bfa0a3",
     "claim:3d32a2c3e36e71683eb0": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
     "claim:3f435889ccd4aaee353c": "16c372b01ebbb6f6efc60221a326d3344f66416702bcdfc2b5a8f8c0bfac2ba7",
@@ -3516,6 +3636,7 @@
     "claim:78c8c801fd4c70c1cae6": "de04115e032fb9dae1e9e6f45036874e77af39c777f20ce499d53eb533094234",
     "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
     "claim:8313b7143d1f2de7f9e0": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
+    "claim:896d78fdcfa734dde54e": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
     "claim:8a605c2aa9ae467efd8d": "4e12824cdc6ff6d504d68d76568b999337835cd0c96a15d1f2d162916aa5f2bf",
     "claim:8c58e84d80e30386bcd6": "a6687b45891aeecdd42cc5297df2d644ed7a87618787ae32cc16c98ddf097fc8",
     "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
@@ -3550,6 +3671,7 @@
     "claim:d0d6fcefd5dc5d320dac": "1da1aa174d5d4ad4d638ffe4a0adbb35a67cc9f6d392459a5971b05a50f1ae29",
     "claim:d12a6d1f402fe1f8d917": "69bfd8cd570076f7d83d6f7afb2211d61c9d99833969c0ad84a60185c8bee834",
     "claim:da3afc2639eeec0e7e07": "e5111e9f2ac9f611fc502a42b6a50d9375ecfa5a8ea27c56ab8b0480c5a305fa",
+    "claim:dc73468ceef82ee62d45": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
     "claim:dc9d6e7427276bf9d593": "76173e88a96f792f6f643ace1d0636509adaee0db7d0c3f8cc05ae183226ebe6",
     "claim:dcbc36bfd8810b21c907": "9cefc50f0fb30f71bf45f59af3a68467ffa33272ad99b302d0fba5a900de7b8e",
     "claim:dcf9dfb394262851a32b": "261a982bea6ab354fcd04c8ac8d486ebe52f807b59a4f01dbb3ad772a0e4bb4d",
@@ -3570,7 +3692,7 @@
     "claim:fea1198e8836e37c0e4a": "763b5e3585dc05f6b37bab91fc3d8f7b3167cdab755e716fab59fbb0b723ed91",
     "claim:ff136cde6aa716bfc87c": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381"
   },
-  "approved_claims_hash": "a5a07de2fe9313d7364dcbe5bcba25a151c7d9ee0ad69805a6aaecc9ba0442dd",
+  "approved_claims_hash": "4b060c23a8bd9c9faa332df5922db95f940edcad1e94ce4cdb4a382e553f23d4",
   "approved_claims_path": "knowledge/concepts/mobile/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -4069,12 +4191,12 @@
   },
   "approved_media_hash": "ba766c03874beab8dd851924e4f492cefcb5432af5d57b84225418735587d50c",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-07-18T02:06:31+00:00",
+  "built_at": "2026-07-20T05:23:25+00:00",
   "concept_id": "mobile",
-  "guide_hash": "ed8cd0b5c44c0e8b6ee659c534781322af7269eafa7a6d23769567ebf4293ae8",
+  "guide_hash": "aa94ba06410e3bafd76f39549d165535dbbd29741f28ebabf8a88c3f76e22062",
   "guide_line_count": 1511,
   "guide_path": "knowledge/concepts/mobile/guide.md",
-  "guide_word_count": 13056,
+  "guide_word_count": 13064,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4408,15 +4530,6 @@
       "source_key": "6c0184b4e7ec7558",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "d7a4121f91c3b42b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
     },
     {
       "authority": "unknown",
@@ -5805,24 +5918,24 @@
       "start_line": 1365
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1408,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "7151c6037ac8c7a3",
+        "7151c6037ac8c7a3",
         "dcc9c3b1df657d9f",
         "a56a73c5681795bd",
         "1c59cd336e8baae0",
+        "7151c6037ac8c7a3",
         "a56a73c5681795bd",
+        "9201fe8635986015",
         "a56a73c5681795bd",
         "a56a73c5681795bd",
         "1c59cd336e8baae0",
-        "6c0184b4e7ec7558",
-        "d7a4121f91c3b42b",
-        "6c0184b4e7ec7558",
-        "6c0184b4e7ec7558",
-        "d7a4121f91c3b42b"
+        "6c0184b4e7ec7558"
       ],
       "start_line": 1383
     },
@@ -6803,16 +6916,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
       "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "d7a4121f91c3b42b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
-      "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
     },
     {
       "authority": "unknown",

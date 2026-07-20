@@ -1515,24 +1515,24 @@ Reference: AI Agents docs ([AI Agents](https://community.rockrms.com/developer/a
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `26`
+- Approved claims routed to this concept: `30`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
+| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
 | official | configuration | Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
 | official | implementation_pattern | Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
 | official | implementation_pattern | An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
 | official | implementation_pattern | Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas. | [source](https://community.rockrms.com/developer/roku-docs/commands) |
+| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
 | official | operational_guidance | Rock plugin and theme packaging guidance frames the Rock Shop as the distribution path for community extensions, so plugin work should include packaging, review, and uninstall behavior rather than only local code changes. | [source](https://community.rockrms.com/developer/packaging-plugins-themes) |
+| official | release_caveat | Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both. | [source](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies) |
+| official | release_caveat | Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
 | official | risk | Helix applications require explicit security and data-integrity review because endpoint-backed application surfaces can expose data or perform work beyond static content rendering. | [source](https://community.rockrms.com/developer/helix/overview/security) |
 | official | source_summary | Rock's Obsidian documentation is primarily written for the core developer team, but some sections such as Grids are published for broader public reading and require judgment when translating them to plugin development. | [source](https://community.rockrms.com/developer/obsidian) |
-| official | source_summary | Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development. | [source](https://community.rockrms.com/developer/helix/overview) |
-| community-reviewed | implementation_pattern | A Rock Check-in implementation can involve process mapping and extended troubleshooting, not only enabling the check-in feature. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson) |
-| community-reviewed | operational_guidance | Rock Mobile development is part of the same product ecosystem as the core web platform, so mobile guidance should be routed alongside core profile, UX, and app-development context. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle) |
-| community-reviewed | operational_guidance | Contributor-authored KB material should aim for accessible explanations that church staff can use, not only developer-oriented technical detail. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy) |
-| More |  | 14 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 18 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

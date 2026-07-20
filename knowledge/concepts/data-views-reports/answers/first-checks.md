@@ -14,11 +14,11 @@ Start by identifying the reporting surface and the DataView, report, Lava, dynam
 - `claim:725a3342f3dc657cc546`
 - `claim:14b494b5978509441220`
 - `claim:4c4098a035a5ca256bfe`
+- `claim:8236f070927c9ba07547`
 - `claim:bf7a6f9ccaefc113cb5d`
 - `claim:d40bfdc2c3879d0290a3`
 - `claim:60d40983fd53c0173dd9`
 - `claim:ffba67d8847c47e68ea6`
-- `claim:8ffba8d5adf492765f21`
 
 ## Distilled Claims
 
@@ -32,7 +32,7 @@ Start by identifying the reporting surface and the DataView, report, Lava, dynam
 - [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s) (`24:50`)
 - [Data View Overview](https://community.rockrms.com/rocku/reporting/data-view-overview) (`00:00`)
 - [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s) (`06:26`)
+- [Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 - [Data Integrity](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) (`00:00`)
 - [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) (`49:32`)
 - [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) (`07:12`)
-- [Data Integrity](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) (`00:00`)

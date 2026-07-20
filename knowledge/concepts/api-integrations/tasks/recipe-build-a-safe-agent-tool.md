@@ -35,8 +35,8 @@ Follow the guide section for Recipe: Build A Safe Agent Tool.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/helix/lava-applications/endpoints
 - https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
+- https://community.rockrms.com/developer/helix/lava-applications/endpoints
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
 - https://community.rockrms.com/developer/helix/lava-applications/observability

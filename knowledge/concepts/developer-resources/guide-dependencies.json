@@ -207,6 +207,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests.",
+      "claim_hash": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
+      "claim_id": "claim:2cb25390d2b5f4ffeb6f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6a5cca3508709b4cdfecf4117436569fdd986f7ae4cc194187444245b7562bcd",
+      "source_record_ids": [
+        "rock_developer:article:301"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "The Rock Rest API",
+          "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Rock documentation and Rock U material should be treated as official training sources that explain both feature behavior and intended use.",
       "claim_hash": "cdcf9b7f6cf1288359789340d38544ad69dd22e3833b215b7b8576dcee7d0bc2",
@@ -419,6 +449,35 @@
           "source_id": "rock_developer",
           "title": "Creating Obsidian Blocks",
           "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both.",
+      "claim_hash": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
+      "claim_id": "claim:896d78fdcfa734dde54e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a970009afa448b517a7e45fb136daa968f9e2ab7c5e3a95fd3d567145b9c652d",
+      "source_record_ids": [
+        "rock_mobile_docs:article:431"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Core & Shell Dependencies",
+          "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
         }
       ]
     },
@@ -795,6 +854,35 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted.",
+      "claim_hash": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
+      "claim_id": "claim:dc73468ceef82ee62d45",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "developer-resources",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "8b4d302b5957182d43b53d0fbf8bf2bf414180b41af00ccee37cc302df13a944",
+      "source_record_ids": [
+        "rock_mobile_docs:article:654"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Migrating to .NET MAUI (V6)",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Profile-page redesign work is a core platform surface, so guidance about people records should consider both data-model behavior and the user experience that staff see every day.",
       "claim_hash": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
@@ -824,6 +912,37 @@
           "timestamp_seconds": 55.76,
           "title": "Episode 94: Special Edition with Jay Nestle",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
+      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_id": "claim:ee2f4e5a371c3b243567",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "helix",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
+      "source_record_ids": [
+        "rock_developer:article:346"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Content Block",
+          "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
         }
       ]
     },
@@ -900,6 +1019,7 @@
     "claim:1ed694954b3d4cbe0315": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
     "claim:29f4e0bbc81c08861367": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
     "claim:2a7f5e6781a2d2fa30a4": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
+    "claim:2cb25390d2b5f4ffeb6f": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
     "claim:37c56553b4e1f7e72932": "cdcf9b7f6cf1288359789340d38544ad69dd22e3833b215b7b8576dcee7d0bc2",
     "claim:5416735ea289965714bf": "2c09343f2bde6db430d9ef61572660f404a50c4a9dcc6419ac0dca58a7e6942d",
     "claim:696b196b4db5d683d857": "9f641a7bcbbd7862c6ebc3a08b26645c60af5a1b3c3efd9a06774830fb537106",
@@ -907,6 +1027,7 @@
     "claim:6e476b138ed3e7a5ffe3": "674f95c22211fea516a3c6adfb5f62c959ef996d266c036b1560915ca1814e6b",
     "claim:7a5ee6fc55082950d06a": "7175c7eca6b977af73fce9368fce44eaa0b3feed33a9f51c05182a72d1f2a97e",
     "claim:855f7a33bcc8bb936067": "9c412659cf07e5ec93c63c23916c79c0a75609d554efb84f20607cfbe1d712a5",
+    "claim:896d78fdcfa734dde54e": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
     "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
     "claim:937409de645bee7b0522": "bbe0e730fe4b07e9b757d35a6395b4552c82605550304ecf47d0605eb06f7bff",
     "claim:9398f3fb18e8a79c0e4d": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
@@ -917,22 +1038,24 @@
     "claim:c7ad8608083bb51c3061": "86b1e7ec6ce91254a01b8b4a8055d86ee592cabb092d15ce5d566a7a04679cf4",
     "claim:d35ed98aadeaabd2cf1e": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
     "claim:da56681f6277c12df324": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
+    "claim:dc73468ceef82ee62d45": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
     "claim:ea894b6fede30d2ad628": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
+    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
     "claim:f30e067d617b5791888d": "829d4694205cdf7d834b0e718d026cbfb3d6c3d9963d894a8e7df3f8a289f48f",
     "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad"
   },
-  "approved_claims_hash": "447a14ca95e024f4e729cd5ba008ce66aa66c4d9bbdd3ec6b462ce444104fdb8",
+  "approved_claims_hash": "7c0766cf9f54e44f8ecb392177a7754ae826466f0511ab8a508459f987ccf210",
   "approved_claims_path": "knowledge/concepts/developer-resources/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "a9d047fa2cc1f1ec2b193b8f93a9602994a8b2f5ec168017fdf335a649124de0",
   "approved_media_path": "knowledge/concepts/developer-resources/approved-media.md",
-  "built_at": "2026-07-18T02:06:36+00:00",
+  "built_at": "2026-07-20T05:23:30+00:00",
   "concept_id": "developer-resources",
-  "guide_hash": "cc0dd311c2f781360a38d03cfbf46d587f7b44784dbf8953f6d2d2ed14f0b412",
+  "guide_hash": "5d76a7bacaed6338185e94eae6d7fc0c69c492d775e35947d01a7b69d594db90",
   "guide_line_count": 1607,
   "guide_path": "knowledge/concepts/developer-resources/guide.md",
-  "guide_word_count": 16581,
+  "guide_word_count": 16606,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -996,33 +1119,6 @@
       "source_key": "16b69950a994d9e5",
       "source_record_id": "rock_lava_docs:16b69950a994d9e5",
       "url": "https://community.rockrms.com/lava/obsidian"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "29bb51bb903e4500",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "47290b8c4150f42f",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "abe67980f434af23",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy"
     },
     {
       "authority": "community-answer",
@@ -3025,9 +3121,9 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c",
-        "29bb51bb903e4500",
-        "47290b8c4150f42f",
-        "abe67980f434af23"
+        "ee6f9bf49caca37c",
+        "ee6f9bf49caca37c",
+        "ee6f9bf49caca37c"
       ],
       "start_line": 1514
     },
@@ -3047,9 +3143,9 @@
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c",
         "ee6f9bf49caca37c",
-        "29bb51bb903e4500",
-        "47290b8c4150f42f",
-        "abe67980f434af23"
+        "ee6f9bf49caca37c",
+        "ee6f9bf49caca37c",
+        "ee6f9bf49caca37c"
       ],
       "start_line": 1540
     },
@@ -3303,36 +3399,6 @@
       ],
       "url": "https://community.rockrms.com/lava/obsidian",
       "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "29bb51bb903e4500",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "47290b8c4150f42f",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "abe67980f434af23",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy"
     },
     {
       "authority": "community-answer",

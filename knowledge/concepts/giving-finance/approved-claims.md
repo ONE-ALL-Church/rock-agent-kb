@@ -2,7 +2,7 @@
 concept_id: giving-finance
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 108
+approved_claim_count: 109
 ---
 
 # Giving And Finance Approved Claims
@@ -11,6 +11,7 @@ This generated artifact contains the full approved public claim coverage for the
 
 | Claim ID | Authority | Type | Claim | Source |
 | --- | --- | --- | --- | --- |
+| `claim:8236f070927c9ba07547` | official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
 | `claim:43ded9f19d576e7c826d` | rocku-confirmed | operational_guidance | When auditing giving-related guidance, verify the full path from public giving action to Rock financial transaction, account detail, receipts, and reporting definitions. | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
 | `claim:04701053a1573a2d35fc` | rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) |
 | `claim:0772c6dac6606362f1fc` | rocku-confirmed | operational_guidance | The Scheduled Transactions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/scheduled-transactions) |

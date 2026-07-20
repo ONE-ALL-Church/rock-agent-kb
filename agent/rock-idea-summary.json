@@ -121,17 +121,17 @@
         "under_review": 1
       },
       "by_verification_state": {
-        "evidence_needed": 157,
-        "maintainer_reviewed_no_official_match": 14,
-        "maintainer_reviewed_references_only": 2,
+        "evidence_needed": 133,
+        "maintainer_reviewed_no_official_match": 38,
+        "maintainer_reviewed_references_only": 5,
         "officially_corroborated": 8,
-        "references_available": 4
+        "references_available": 1
       },
       "candidate_review_count": 9,
-      "high_priority_count": 27,
-      "maintainer_reviewed_count": 22,
+      "high_priority_count": 0,
+      "maintainer_reviewed_count": 49,
       "officially_corroborated_count": 8,
-      "queue_content_hash": "85bd1015877a2d19ed216deb5b86984c6a0984415d50e1310953d80287094cf3",
+      "queue_content_hash": "a30e598f81a81fb056d584b48a5ca782022b635afde030c82c36203ecc41220c",
       "queue_count": 185,
       "schema": "rock-kb-rock-idea-verification-queue-summary-v1",
       "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."

@@ -2,7 +2,7 @@
 id: concept-communications
 title: Communications
 generated: true
-last_built: 2026-07-18T02:03:54+00:00
+last_built: 2026-07-20T05:21:59+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -153,6 +153,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
@@ -170,8 +171,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Group Scheduling Roster and Communications should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications) |
 | rocku-confirmed | operational_guidance | The Sending Email (Simple Mode) RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/sending-email-legacy) |
 | rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, SMS Pipeline should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/sms-pipeline) |
-| rocku-confirmed | operational_guidance | The Communication Overview RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-overview) |
-| More |  | 134 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 135 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -327,7 +327,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `145`
 - Lava capability source records: `53`
-- Approved claims: `152`
+- Approved claims: `153`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

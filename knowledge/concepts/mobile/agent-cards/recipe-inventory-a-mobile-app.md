@@ -37,8 +37,8 @@ Follow the guide section for Recipe: Inventory A Mobile App.
 - https://community.rockrms.com/developer/mobile-docs
 - https://www.rockrms.com/mobilereleasenotes
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
-- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
+- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
 - https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app

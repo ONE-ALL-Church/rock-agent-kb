@@ -112,5 +112,5 @@ generated: true
 | `17-agent-task-recipes-recipe-review-a-communication-template` | structural | live verification |
 | `17-agent-task-recipes-recipe-investigate-sms-conversation-access` | normal | live verification |
 | `17-agent-task-recipes-recipe-determine-whether-a-workflow-email-supports-analytics` | community-supported | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `18-source-map-and-dependency-notes` | high | live verification |

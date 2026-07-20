@@ -144,6 +144,36 @@
     },
     {
       "authority_tier": "official",
+      "claim": "Treat every Helix endpoint as directly callable outside its front end: validate all inputs, enforce the caller's view or edit rights, avoid GET for mutations, and sanitize query and body values before SQL use.",
+      "claim_hash": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
+      "claim_id": "claim:72d56e7ee7ef0be4b92e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "helix",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f088c9c25a1c8f3ca85814c476a1fae2a66fd310acaca25f587416c5afb694c6",
+      "source_record_ids": [
+        "rock_developer:article:336"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Security",
+          "url": "https://community.rockrms.com/developer/helix/overview/security"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code, allowing linked front-end content blocks and back-end endpoints to be managed together during application development.",
       "claim_hash": "966e4595a896377af3794037bbff393eff6f1e92e974ddfbc5587c7afc65fae3",
       "claim_id": "claim:7714f93d21d6594b978d",
@@ -443,6 +473,37 @@
     },
     {
       "authority_tier": "official",
+      "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
+      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_id": "claim:ee2f4e5a371c3b243567",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "helix",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
+      "source_record_ids": [
+        "rock_developer:article:346"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Content Block",
+          "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
       "claim": "A Helix Lava Application groups server-side endpoints that return HTML fragments, and each endpoint is addressed by a route composed from the application slug and endpoint slug; endpoints may share that route when they use different HTTP methods.",
       "claim_hash": "826375821d32c2362582d205fdf5a0fe25afd306df2b2f54ab1cff6a3232c477",
       "claim_id": "claim:fa508a4851ef572dee65",
@@ -476,6 +537,7 @@
     "claim:399553446fce014cb4bf": "eac9eeb6006d868e760868cd5f29af068f0376d0e91976692cd453c4771e3ac9",
     "claim:3f3dca6b455e9c9ed915": "2b7796fa1c67a435cc6b8008d36ba40d6ab349cb8ee84c808c431bd939230388",
     "claim:6cccc1a4cde68921fa28": "23aaaec98100ab870b0872b5c85b6eed8ac9e1931c0d56bbd7b0ee8460f8d858",
+    "claim:72d56e7ee7ef0be4b92e": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
     "claim:7714f93d21d6594b978d": "966e4595a896377af3794037bbff393eff6f1e92e974ddfbc5587c7afc65fae3",
     "claim:940f299b268510da61d8": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
     "claim:9b7c0c788640e9ade1e9": "14aebe844f9f56a375c0f1484fd776207ba2ebfc205637c4a1abc769c400940b",
@@ -485,20 +547,21 @@
     "claim:d35ed98aadeaabd2cf1e": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
     "claim:da56681f6277c12df324": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
     "claim:ecb2447933839fcdfb1b": "d017cd076b4b53254a5eadeafa595004f4298b81fc846e8d79002776468896c9",
+    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
     "claim:fa508a4851ef572dee65": "826375821d32c2362582d205fdf5a0fe25afd306df2b2f54ab1cff6a3232c477"
   },
-  "approved_claims_hash": "d99f09b4c16a064cd9e9a1cc54b28cdbd0d43a0cc0bc9d470b2c0b9189a0955b",
+  "approved_claims_hash": "5194d3a8c2a642069ebe65244642a05baebabde0a6c5f5d565b5d7c776e28ab0",
   "approved_claims_path": "knowledge/concepts/helix/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "36f85f09122e6e7082f04e4c92a4be0e8bc778ff9dc072fac876e7e0fcdd4bb9",
   "approved_media_path": "knowledge/concepts/helix/approved-media.md",
-  "built_at": "2026-07-18T02:06:34+00:00",
+  "built_at": "2026-07-20T05:23:28+00:00",
   "concept_id": "helix",
-  "guide_hash": "be77fc28bc635c5cfa61960d8d7d84716bc92d00d76333d71ff8958751fcbbc7",
+  "guide_hash": "542e1f359d9a79ff5b03d7bf5a5db37a75798abaed44b576d17926645c2acfa7",
   "guide_line_count": 1126,
   "guide_path": "knowledge/concepts/helix/guide.md",
-  "guide_word_count": 9797,
+  "guide_word_count": 9793,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1580,11 +1643,11 @@
         "366c62c0274cf5af",
         "9d3715414e399928",
         "242a3ac9b87c1e0c",
+        "366c62c0274cf5af",
         "379b8b3e079b94e5",
         "379b8b3e079b94e5",
         "802567c280193bd0",
-        "b8af2a0e80b2efe7",
-        "366c62c0274cf5af"
+        "b8af2a0e80b2efe7"
       ],
       "start_line": 1019
     },
@@ -1602,11 +1665,11 @@
         "366c62c0274cf5af",
         "9d3715414e399928",
         "242a3ac9b87c1e0c",
+        "366c62c0274cf5af",
         "379b8b3e079b94e5",
         "379b8b3e079b94e5",
         "802567c280193bd0",
-        "b8af2a0e80b2efe7",
-        "366c62c0274cf5af"
+        "b8af2a0e80b2efe7"
       ],
       "start_line": 1045
     },

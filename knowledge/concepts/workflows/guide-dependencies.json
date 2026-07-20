@@ -12070,6 +12070,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`.",
+      "claim_hash": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
+      "claim_id": "claim:4bf4025847cf0c78adf0",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "lava",
+        "workflows"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "e680d5207163a987cf992909c65af3ea8a469c48627ff6369a75216bb7bd86a2",
+      "source_record_ids": [
+        "rock_lava_docs:3d7f0942c946fafb"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Entity",
+          "url": "https://community.rockrms.com/lava/commands/entity-commands"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "The Custom Grid Actions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
       "claim_hash": "0d29e84c14fd390c37830828a580c7a63f2296f2fbc4994e9484e5b4522e2a28",
@@ -14940,6 +14970,35 @@
           "timestamp_seconds": 116.52,
           "title": "Alternate Placements",
           "url": "https://community.rockrms.com/rocku/groups/alternate-placements"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format.",
+      "claim_hash": "df23346a27614375d42e05dcf899aae4eeb0975947cb55c2cb2c0d6effac9dec",
+      "claim_id": "claim:5d109547ddfc0fd7b9c2",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "lava",
+        "workflows"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "b98d79c97451af6fa6cbc710a11de267c27454b0c59855405cc3b00b40bafc51",
+      "source_record_ids": [
+        "rock_lava_docs:944d44ff4810c8f9"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Workflow Activate",
+          "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
         }
       ]
     },
@@ -42862,6 +42921,7 @@
     "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
     "claim:4bc48e3f174b8dfe593d": "dd9f4371260c7636482e9b47b432083a5c471338025b1a3275ccef8686dc7f60",
     "claim:4bd06d952e9a889782a6": "a7917b37bc396b8092606ff89664a3086136769baaab36c241070f1ea82e702e",
+    "claim:4bf4025847cf0c78adf0": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
     "claim:4c04bf673d9a350ed122": "0d29e84c14fd390c37830828a580c7a63f2296f2fbc4994e9484e5b4522e2a28",
     "claim:4c058fdbfd336d171f33": "77426f54465dc1ccbdb6e7d2b149fe4e547515536b0824e35398a8861001577b",
     "claim:4c145ad13e8cb6c8c189": "12b8fe213685c96b26a4c2b9a5744f1923b7ce45fb7b4a2322667aec39675797",
@@ -42954,6 +43014,7 @@
     "claim:5be78eecdf68d4e39a55": "13736fc7f9ec17acbe3e87ba9a5d1a74e7022c4a20d77fbbf817ec3d03a826a0",
     "claim:5c0c69c34357b31b8a53": "313f5fd3f0b81ca273cd1cfafd108cad7983ce6ac18c0933123934411be00541",
     "claim:5ce3aba271a8a25ec045": "1dce56a957d3108e4ed8a92ceedf76c17ea8fe8e2706e23e48df3f91f04d7d8f",
+    "claim:5d109547ddfc0fd7b9c2": "df23346a27614375d42e05dcf899aae4eeb0975947cb55c2cb2c0d6effac9dec",
     "claim:5d16f59c9edfa3250d76": "627a35618364c749f9545f752b1b05b4c14c1fed3d40ce7e75835b979f216b65",
     "claim:5d265f24e3052b3530cc": "0cafd2c2ae4cd88e5e61fc3e95fcbd3230c4c9789098db278ba3cd70929e24a3",
     "claim:5d27ac24ed85e6a929f9": "03d9f9269f1085c85fa2a9361fa8b4cddf4c15b9a0d7ddfcebffae85c24ca73e",
@@ -43827,7 +43888,7 @@
     "claim:ffa69d01f0fb1999048c": "545908aa56322e9d6ba18b20e9a4fac458e72a7c3227946035fbe82cfa14e195",
     "claim:ffac12157c4f33b2cadf": "1180deed823035dfbf989f4b2a73d8701a4af41194ae374797df82f603aad8b1"
   },
-  "approved_claims_hash": "1ad8460f89204bb85b56e467ddfe9b5e5794ba19d0d75b4d9ee4592f9fe5a55b",
+  "approved_claims_hash": "6e650515ff08da51c3df088f16d9aad8d364f39bef9307684c29a372c88e3f1a",
   "approved_claims_path": "knowledge/concepts/workflows/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -45187,12 +45248,12 @@
   },
   "approved_media_hash": "34facef638c10e2ea5f5cded427018fbaaa76e63569ce6cbcf5c327a1431bc02",
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
-  "built_at": "2026-07-18T02:05:55+00:00",
+  "built_at": "2026-07-20T05:22:50+00:00",
   "concept_id": "workflows",
-  "guide_hash": "80ad68f0747399fe0eaf3a5dee5f833f0775f604655c5c27e9c9db40442bf0c2",
+  "guide_hash": "9a8b49107e7e3e4ac0962b48ca9609757ecb5385775d1e0d831ab089919586f8",
   "guide_line_count": 1656,
   "guide_path": "knowledge/concepts/workflows/guide.md",
-  "guide_word_count": 14303,
+  "guide_word_count": 14317,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -45622,6 +45683,15 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "3d7f0942c946fafb",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "daff0d4b551e7c44",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
@@ -45679,15 +45749,6 @@
       "source_key": "a19faf4c8934cc5e",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/engagement/connections-list-1"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "a520db9e9adc1368",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/engagement/connections-board"
     },
     {
       "authority": "official-training",
@@ -47076,12 +47137,14 @@
       "start_line": 1543
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1590,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "3d7f0942c946fafb",
+        "944d44ff4810c8f9",
         "daff0d4b551e7c44",
         "a1bb90bc2fdee5ac",
         "58a92984acbd2344",
@@ -47091,9 +47154,7 @@
         "b0ff1ff79427421a",
         "78f1e8bbd9d351ff",
         "9ac0699e8486beee",
-        "a19faf4c8934cc5e",
-        "a520db9e9adc1368",
-        "b0ff1ff79427421a"
+        "a19faf4c8934cc5e"
       ],
       "start_line": 1565
     },
@@ -48200,6 +48261,16 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "3d7f0942c946fafb",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/lava/commands/entity-commands",
+      "url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "daff0d4b551e7c44",
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=pvgZLvcfmFQ",
@@ -48264,16 +48335,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/engagement/connections-list-1",
       "url": "https://community.rockrms.com/rocku/engagement/connections-list-1"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "a520db9e9adc1368",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/engagement/connections-board",
-      "url": "https://community.rockrms.com/rocku/engagement/connections-board"
     },
     {
       "authority": "official-training",

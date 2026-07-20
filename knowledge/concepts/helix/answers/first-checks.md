@@ -17,8 +17,8 @@ Lava javascript and stylesheet commands do not function in Helix endpoint templa
 - `claim:940f299b268510da61d8`
 - `claim:c5503c9cb23c6cca98d4`
 - `claim:d35ed98aadeaabd2cf1e`
+- `claim:ee2f4e5a371c3b243567`
 - `claim:fa508a4851ef572dee65`
-- `claim:1ab863013d2610a31c7d`
 
 ## Distilled Claims
 
@@ -31,4 +31,5 @@ Lava javascript and stylesheet commands do not function in Helix endpoint templa
 - [Helix Overview](https://community.rockrms.com/developer/helix/overview)
 - [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator)
 - [Helix Lava Application Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
+- [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 - [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications)

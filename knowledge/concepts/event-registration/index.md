@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-07-18T02:03:51+00:00
+last_built: 2026-07-20T05:21:56+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -87,6 +87,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
 | official | release_caveat | When multiple v19 registrant-eligibility rules are enabled, a registrant must satisfy all selected criteria. Test combined age, gender, grade and Data View rules with representative people before opening registration. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | The v19 Prevent Duplicate Registrants option blocks a matched person from being registered twice, but the warning can reveal that a person is already registered to someone who knows matching identity details. Evaluate that disclosure risk before enabling it for sensitive events. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | rocku-confirmed | operational_guidance | The Wait Lists RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/wait-lists) |
@@ -104,8 +105,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | operational_guidance | The Registration Discounts RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/registration-discounts) |
 | rocku-confirmed | operational_guidance | The Event Registration Attributes RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/event-registration-attributes) |
 | rocku-confirmed | operational_guidance | For Rock operations and administration, Registration Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/registration-templates) |
-| rocku-confirmed | operational_guidance | The Family Pre-Registration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/cms/family-pre-registration) |
-| More |  | 48 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 49 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -260,7 +260,7 @@ Keywords: `event calendar, calendar, event item, event occurrence, occurrence`
 ## Rebuild Dependencies
 
 - Source records: `92`
-- Approved claims: `66`
+- Approved claims: `67`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

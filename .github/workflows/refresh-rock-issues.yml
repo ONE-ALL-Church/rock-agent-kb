@@ -31,6 +31,13 @@ jobs:
       ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
     steps:
       - uses: actions/checkout@v4
+      - name: Restore issue source observations
+        uses: actions/cache@v4
+        with:
+          path: data/review/rock-issue-freshness/source-observations.json
+          key: rock-kb-issue-source-observations-${{ github.run_id }}
+          restore-keys: |
+            rock-kb-issue-source-observations-
       - uses: astral-sh/setup-uv@v5
       - uses: actions/setup-python@v5
         with:

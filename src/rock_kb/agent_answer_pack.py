@@ -596,6 +596,7 @@ def add_risk_expectation_terms(concept: Any, text: str) -> str:
     addenda = {
         "check-in": " For check-in, explicitly verify room capacity, data view filtering, schedule windows, and security before changing eligibility or room availability.",
         "data-views-reports": " For reporting changes, explicitly verify persisted refresh state, shared report security, and before/after row-count samples.",
+        "lava": " For Lava surfaces, inspect page/block security, enabled Lava commands, query-string or context inputs, and whether output exposes sensitive entity data.",
         "platform-configuration": " For platform configuration, treat community examples as non-authoritative until the live setting, plugin, and Rock version are verified.",
     }
     return text + addenda.get(concept.id, "")

@@ -17,9 +17,7 @@
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointList/lavaEndpointListOptionsBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.Designer.cs",
-        "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson",
-        "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.Designer.cs"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -143,7 +141,7 @@
   ],
   "concept_id": "developer-resources",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-18T02:06:36+00:00",
+  "generated_at": "2026-07-20T05:23:30+00:00",
   "guide_sections": [
     "27-troubleshooting-decision-tree",
     "27-troubleshooting-decision-tree-the-block-does-not-render",

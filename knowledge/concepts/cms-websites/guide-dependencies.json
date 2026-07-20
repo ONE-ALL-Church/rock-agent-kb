@@ -885,6 +885,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
+      "claim_hash": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
+      "claim_id": "claim:2d534c63c723204ad8c9",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava",
+        "mobile"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
+      "source_record_ids": [
+        "rock_mobile_docs:article:456"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_mobile_docs",
+          "title": "Content",
+          "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "For ministry process design, Family Pre-Registration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
       "claim_hash": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
@@ -1827,6 +1857,35 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "`CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string.",
+      "claim_hash": "ea18508804f28f0bd570e9a58965b3051473e1bc1754b691868d4fdd6068a738",
+      "claim_id": "claim:5d8bddb267bffde3cfe7",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "behavior",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "0fa186449d8144e8b3379b1cddee07f6e1235328729b27430eb84b905a6c8f1b",
+      "source_record_ids": [
+        "rock_lava_docs:f7086ab6ff215e14"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Other",
+          "url": "https://community.rockrms.com/lava/filters/other-filters"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "This Digital Strategy Hub session provides a strategy frame for using web, mobile, and communication channels to build digital connections that move people toward real ministry engagement. It is useful context for KB guidance where Rock CMS, Rock Mobile, content channels, and communications support the same connection path rather than isolated digital projects.",
       "claim_hash": "3aab508df7790fe2d2c418ebaea6128f6820474c5fc4080539dfdf502794b604",
@@ -2673,6 +2732,36 @@
           "source_id": "rock_rocku",
           "title": "Asset Manager",
           "url": "https://community.rockrms.com/rocku/cms/asset-manager"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
+      "claim_hash": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
+      "claim_id": "claim:7bca2f8db03f8f468586",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "lava",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
+      "source_record_ids": [
+        "rock_lava_docs:30be60a23d3d0317"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_lava_docs",
+          "title": "Getting Started",
+          "url": "https://community.rockrms.com/lava/commands"
         }
       ]
     },
@@ -5348,6 +5437,37 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
+      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_id": "claim:ee2f4e5a371c3b243567",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "implementation_pattern",
+      "community_derived": false,
+      "concept_ids": [
+        "cms-websites",
+        "developer-resources",
+        "helix",
+        "lava"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
+      "source_record_ids": [
+        "rock_developer:article:346"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Content Block",
+          "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "Content still matters, but Rock-backed web and mobile experiences should connect content to identity, forms, groups, communication, and follow-up when possible.",
       "claim_hash": "00be3d0caa39198dbd5f296cf83ecc7af5ee2ed37d448647e9270d433383a16b",
@@ -5769,6 +5889,7 @@
     "claim:2a7f5e6781a2d2fa30a4": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
     "claim:2a9844acce5ba6150dec": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
     "claim:2bf0abb68edd34bd41b5": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
+    "claim:2d534c63c723204ad8c9": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
     "claim:2fed0aac2c5693503a5d": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
     "claim:339cf8a1fe741cd4572d": "ff12369033de12242a21745313efe8ad58ffa04e597fcfb85d1009986100b604",
     "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
@@ -5796,6 +5917,7 @@
     "claim:59b88dd757cec22ab5ed": "885fea7495dfb0c7934f88e38b791215105357b6c023cd32b4a3f6d3f06d08f0",
     "claim:5b41ac5624ffd2e446f8": "ec112d9df5b475b4e5a204f2de52bd6134f62bd910aea62e135c55463f9a74cc",
     "claim:5d16f59c9edfa3250d76": "627a35618364c749f9545f752b1b05b4c14c1fed3d40ce7e75835b979f216b65",
+    "claim:5d8bddb267bffde3cfe7": "ea18508804f28f0bd570e9a58965b3051473e1bc1754b691868d4fdd6068a738",
     "claim:5fe4532717d20ddfd3a1": "3aab508df7790fe2d2c418ebaea6128f6820474c5fc4080539dfdf502794b604",
     "claim:62df48ca73e521ef7ea6": "dabc1d22734bab46c564ddacbafdf29653faa5a8cde5c02562ca674653649972",
     "claim:63c7f0a5c92e461f082d": "ffa86aeb48f933e9075e80c708f29c26ab527dbb496d4091b4da54fbf47e7dd2",
@@ -5822,6 +5944,7 @@
     "claim:794a1e10cee85f1c6b78": "d6cb5599fad8e64eab6f6cbdb3aab73321dd8b36b7c8a630515034631b736ef5",
     "claim:7a5ee6fc55082950d06a": "7175c7eca6b977af73fce9368fce44eaa0b3feed33a9f51c05182a72d1f2a97e",
     "claim:7a7d3f11355e178db694": "da6c7962e8d2ac5fcbe96b92b6c7d60063d2339a75771f1b590d5ee2c1f70c6e",
+    "claim:7bca2f8db03f8f468586": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
     "claim:7bf5408a09fa6a7691c9": "4297d008d6b62e33a52e63cd049dec27c3017a0406f76919fe80bd124d936ea6",
     "claim:7ddbde1cd7e23aec0e70": "600fb581e7e9dea077aaa62025cc8c0d8febdefb64439c186e53a889d3768175",
     "claim:7e326f74fc42b21394e7": "6fccb120c0c8f84a995f2da429e0e43207501617f9ed30c072d0bdc4b5cb7bf4",
@@ -5899,6 +6022,7 @@
     "claim:ec8ce0c338a959809a8c": "755a5af3e3a6b84a1ddc0d616c94166501900a4c1a524491db2646509dfd913e",
     "claim:ecdb3227487f735c9184": "8a2a3dde75913698c02ac646502c85c19c54e0cba7d944c6c7c018cf06e0c609",
     "claim:ecf885d770463d497b45": "2a2950a8741293c3a3d83fbd619c8bb27447c8c919c9d6359611094aac19905b",
+    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
     "claim:ef6e6da192c7155bf0bb": "00be3d0caa39198dbd5f296cf83ecc7af5ee2ed37d448647e9270d433383a16b",
     "claim:effbedc1751d739bc4d9": "9ebb5ba62eaa2250489cf37643e4ed0593f82f97c56d2edd0e6137af06a9e604",
     "claim:f2262e1cf03cd65effde": "d76d2045c072a60932a3d170f66f2526ed8290c03724b578e6f074eabf38e664",
@@ -5911,7 +6035,7 @@
     "claim:fae5af20e55b69944eed": "1dd4e1a7afa226397047f8e2cbb4bcec4530d8c4423cd3a12a0a7311cdca4d34",
     "claim:fcd7a50446d90c1e2206": "d01200bb97658af70e0e049d8e0e4dd1d06c9d5a1d848fe1567731fe3462d932"
   },
-  "approved_claims_hash": "feed2497dd73fb6612ef8ea47a0938fbb4d06d52e3c7ddddd0c8dfe2fcf9ccb9",
+  "approved_claims_hash": "190a93553030d86affdf37129669db60d706ccd7d67ad76b281291d15c3c3db8",
   "approved_claims_path": "knowledge/concepts/cms-websites/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -6799,12 +6923,12 @@
   },
   "approved_media_hash": "d6da57910a72706609eab86d6481e182b0937e64ce5accc3600af37e22fbc8e6",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-07-18T02:06:23+00:00",
+  "built_at": "2026-07-20T05:23:18+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "529968c3f7345334c256104700e42eae2ee0307ab0b872f7973c2995b291d2ea",
+  "guide_hash": "f8fec376b1033fea864a2219b8195925385026bfdbe0211bcf2765eaf9c640a8",
   "guide_line_count": 1583,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
-  "guide_word_count": 13682,
+  "guide_word_count": 13714,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -6949,6 +7073,33 @@
       "source_key": "c877aeede8d53f3d",
       "source_record_id": "",
       "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "f7086ab6ff215e14",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "fd3fd2bfe8a855c0",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
       "authority": "unknown",
@@ -8369,15 +8520,15 @@
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "c877aeede8d53f3d",
+        "f7086ab6ff215e14",
+        "127269e4afa33de4",
         "688f7051e9eaa0b1",
+        "fd3fd2bfe8a855c0",
         "5fa353d6f0648800",
         "58a92984acbd2344",
+        "30be60a23d3d0317",
         "35633587d4819f55",
         "b51b24ed7912d814",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
         "35633587d4819f55",
         "35633587d4819f55"
       ],
@@ -8798,6 +8949,36 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
       "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "f7086ab6ff215e14",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/lava/filters/other-filters",
+      "url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "fd3fd2bfe8a855c0",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/helix/lava-applications/content-block",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
       "authority": "unknown",
