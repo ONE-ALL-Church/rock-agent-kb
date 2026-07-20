@@ -18,8 +18,8 @@
         "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
         "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
         "https://community.rockrms.com/recipes/535",
-        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts"
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
+        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
       ],
       "start_with": [
         "Read the linked guide section.",
@@ -92,8 +92,8 @@
       "id": "recipe-add-a-detail-page-for-channel-items",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/rocku/cms",
         "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/rocku/cms",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/lava/commands",
         "https://community.rockrms.com/recipes/261",
@@ -148,8 +148,8 @@
       "id": "recipe-build-a-page-view-report",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/rocku/cms",
         "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/rocku/cms",
         "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/lava/commands",
         "https://community.rockrms.com/recipes/261",
@@ -193,7 +193,7 @@
   ],
   "concept_id": "cms-websites",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-18T02:06:23+00:00",
+  "generated_at": "2026-07-20T05:23:18+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-the-page-returns-not-found",

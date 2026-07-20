@@ -135,6 +135,7 @@ def test_build_approved_claims_from_source_claim_reviews(monkeypatch, tmp_path):
             }
         ],
         "source_record_ids": ["rock_developer:802567c280193bd0"],
+        "related_contribution_ids": ["oneall:helix-overview"],
         "authority_tier": "official",
         "confidence": "high",
         "review_status": "approved_for_public_distillation",
@@ -160,6 +161,7 @@ def test_build_approved_claims_from_source_claim_reviews(monkeypatch, tmp_path):
     assert rows[0]["source_record_ids"] == ["rock_developer:802567c280193bd0"]
     assert rows[0]["primary_concept_id"] == "helix"
     assert rows[0]["derived_from"]["type"] == "source_claim_review"
+    assert rows[0]["derived_from"]["related_contribution_ids"] == ["oneall:helix-overview"]
     assert rows[0]["generation_provenance"]["prompt_id"] == "rock-kb-source-claim-distillation"
 
 

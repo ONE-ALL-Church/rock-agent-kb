@@ -11,12 +11,12 @@ For Rock Mobile, inspect these live surfaces before changing production behavior
 
 ## Top Claims
 
+- `claim:3b4b8ec335aa0a17968c`
 - `claim:483a11b884e0e69ffd4d`
+- `claim:2d534c63c723204ad8c9`
 - `claim:54aeb223a9029e9f7707`
 - `claim:9c8ce297c9c4a4cda982`
 - `claim:72dd1841cd10ed6d5a30`
-- `claim:c78fd6f074218814ab14`
-- `claim:0b6f8c45033ed0228a3b`
 
 ## Distilled Claims
 
@@ -25,8 +25,9 @@ For Rock Mobile, inspect these live surfaces before changing production behavior
 
 ## Citations
 
+- [Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 - [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=0s) (`00:00`)
+- [Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 - [Your People are Ministers on the Ground with the Outreach Toolbox](https://www.youtube.com/shorts/c6T9Ha13jKE) (`00:00`)
 - [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s) (`01:04`)
 - [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) (`03:23`)
-- [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) (`00:44`)

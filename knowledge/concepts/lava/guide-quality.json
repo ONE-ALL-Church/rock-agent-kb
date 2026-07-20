@@ -12,7 +12,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 15067 words; expected at least 7000.",
+      "message": "Guide has 15011 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -59,13 +59,13 @@
   "concept_id": "lava",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-18T02:05:59+00:00",
+  "generated_at": "2026-07-20T05:22:53+00:00",
   "guide_line_count": 2027,
-  "guide_word_count": 15067,
+  "guide_word_count": 15011,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 140,
-  "source_count": 52,
+  "source_count": 53,
   "status": "pass",
   "task_card_count": 8
 }

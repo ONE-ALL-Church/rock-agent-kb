@@ -427,11 +427,17 @@ def claim_search_rows() -> list[dict[str, Any]]:
             continue
         concepts = normalize_concept_ids(claim.get("concept_ids") or [])
         row_id = f"claim:{claim_id}"
+        derived_from = claim.get("derived_from") if isinstance(claim.get("derived_from"), dict) else {}
+        corroborates_contribution = bool(derived_from.get("related_contribution_ids"))
         rows.append(
             {
                 "id": row_id,
                 "kind": "claim",
-                "title": claim.get("claim_type") or claim_id,
+                "title": (
+                    claim.get("claim")
+                    if corroborates_contribution
+                    else claim.get("claim_type") or claim_id
+                ),
                 "body": claim.get("claim") or "",
                 "path": "claims/approved-claims.jsonl",
                 "url": first_source_url(claim),

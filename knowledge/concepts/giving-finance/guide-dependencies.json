@@ -2152,6 +2152,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly.",
+      "claim_hash": "54ad6b37fa90b7bf882d51118db977655cddbf38edb0d0ea20a26c7ad9592400",
+      "claim_id": "claim:8236f070927c9ba07547",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "giving-finance"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86afebcb8b2fd17eba4cbe5b3a79f0a30a2bc6120ca1b98b7953986b2c8eaab6",
+      "source_record_ids": [
+        "rock_documentation:article:1316"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Event Registrations",
+          "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Accounts is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "c4f8764597749f25e108d1e8eef7c5a4b728c043600a51096bc90e8c28aa92f0",
@@ -3618,6 +3648,7 @@
     "claim:7bbac680dbd0b7ce765d": "47acfcca41209e82c8dd8400403a4c0b5cc090ceda32916837b14ec3fea25a0c",
     "claim:7e8d02ba2df37d1e08bd": "d3e96e1aee0349c8c790840818752cf7e8c09a565f99071ad835de5c1c6d87c7",
     "claim:80c80f9f2c704535dddf": "fbe287088138662ea219f9fb8e1d010326dfa645ef78f38fb8d81bb148e42c69",
+    "claim:8236f070927c9ba07547": "54ad6b37fa90b7bf882d51118db977655cddbf38edb0d0ea20a26c7ad9592400",
     "claim:82f7fc60f3c88c05c877": "c4f8764597749f25e108d1e8eef7c5a4b728c043600a51096bc90e8c28aa92f0",
     "claim:8907ecd6338068b9ef90": "cf8a3f5538b277f4df893ac2e54bb8569d967e35057e914b4d54bf139e457f2e",
     "claim:8ceeba9e7319dce2f238": "f8456b2ad04554877955044d1091d19b38956c64e1c5687a1e7ff6f6fb1ef0fe",
@@ -3662,7 +3693,7 @@
     "claim:fca0629337d8edfde967": "792b7dfa3727c97ae2443736b4faeb427757a3f76c7fae37c84833b723b7c617",
     "claim:fcd3a2a85b17f0142b35": "3c3b9ad362a40bf068d7709d94c10c135715a8423f273dde67d9db44deab1822"
   },
-  "approved_claims_hash": "62c04fdaaaf6eae3158e1600b203ea95408d9b614ddd207837a7063b550f5d93",
+  "approved_claims_hash": "8e8c607970390449dca3a091f3bb3069d0b705f2a2074c37faf83618dff6155e",
   "approved_claims_path": "knowledge/concepts/giving-finance/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -4241,12 +4272,12 @@
   },
   "approved_media_hash": "25c5f17af4a55ef866c088b7927418927a214e584cafa11f399e1b919cf98e38",
   "approved_media_path": "knowledge/concepts/giving-finance/approved-media.md",
-  "built_at": "2026-07-18T02:06:01+00:00",
+  "built_at": "2026-07-20T05:22:55+00:00",
   "concept_id": "giving-finance",
-  "guide_hash": "95c42c30219a14cf60d5bf718ca01ed2d249edf677a683df123873246f6a69c1",
+  "guide_hash": "f60e3bd00b83181695a64c92105912b2de0f2e4c5c4301bb0019b0482c5edbcb",
   "guide_line_count": 1474,
   "guide_path": "knowledge/concepts/giving-finance/guide.md",
-  "guide_word_count": 13232,
+  "guide_word_count": 13225,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4373,6 +4404,15 @@
       "source_key": "d26a070ba9bc8cae",
       "source_record_id": "rock_rocku:d26a070ba9bc8cae",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "7808ba03b95d07eb",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
     },
     {
       "authority": "official-triumph",
@@ -5513,15 +5553,15 @@
       "start_line": 1328
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1381,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "7808ba03b95d07eb",
         "5feb321c12dae9ff",
         "d26a070ba9bc8cae",
-        "5feb321c12dae9ff",
         "5feb321c12dae9ff",
         "5feb321c12dae9ff",
         "5feb321c12dae9ff",
@@ -5932,6 +5972,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report",
       "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "7808ba03b95d07eb",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
     },
     {
       "authority": "official-triumph",

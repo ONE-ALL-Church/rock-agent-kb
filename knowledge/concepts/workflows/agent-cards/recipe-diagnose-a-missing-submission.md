@@ -36,8 +36,8 @@ Follow the guide section for Recipe: Diagnose A Missing Submission.
 
 - https://community.rockrms.com/documentation/BookContent/12
 - https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs
 - https://community.rockrms.com/lava/commands/workflow-activate-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs
 - https://community.rockrms.com/recipes/257
 - https://community.rockrms.com/recipes/473
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs

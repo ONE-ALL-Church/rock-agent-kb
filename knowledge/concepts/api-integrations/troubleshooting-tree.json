@@ -93,8 +93,8 @@
       "inspect": [],
       "source_urls": [
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
         "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
         "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
         "https://community.rockrms.com/developer/helix/lava-applications/observability",
@@ -121,8 +121,8 @@
       "inspect": [],
       "source_urls": [
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
         "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
         "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
         "https://community.rockrms.com/developer/helix/lava-applications/observability",
@@ -143,7 +143,7 @@
   ],
   "concept_id": "api-integrations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-18T02:06:33+00:00",
+  "generated_at": "2026-07-20T05:23:27+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",

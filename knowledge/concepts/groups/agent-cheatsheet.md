@@ -107,5 +107,5 @@ generated: true
 | `18-agent-task-recipes-recipe-build-a-group-finder-qa-checklist` | structural | live verification |
 | `18-agent-task-recipes-recipe-move-members-between-groups-safely` | structural | live verification |
 | `18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page` | community-supported | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `19-source-map-and-dependency-notes-community-examples` | community-supported | community-supported |

@@ -63,9 +63,10 @@ normalized summary hash plus stable routing metadata when available, with the
 raw normalized content hash as a fallback; this prevents dynamic page chrome
 from appearing as a content change. A successful check with no source delta advances `last_checked_at` while preserving
 `content_changed_at`. Rock core and mobile issue observations use
-`agent/rock-issue-summary.json` for the dedicated issue catalog timestamp,
-repository counts, and catalog hash instead of expecting normalized source
-files. Scheduled workflows cache the previous observation file, upload the
+`data/review/rock-issues/checkpoint.json` for the successful sync check time and
+`agent/rock-issue-summary.json` for the upstream update time, repository counts,
+and catalog hash instead of expecting normalized source files. Scheduled
+workflows cache the previous observation file, upload the
 freshness and scan reports, and fail when a required source is failed, missing,
 or overdue.
 

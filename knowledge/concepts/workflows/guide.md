@@ -1566,11 +1566,13 @@ Official Lava docs and source both describe the command's parameters and exposed
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `1349`
+- Approved claims routed to this concept: `1351`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
+| official | behavior | In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format. | [source](https://community.rockrms.com/lava/commands/workflow-activate-commands) |
 | official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
@@ -1581,9 +1583,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | configuration | Connection Opportunities define the specific follow-up paths available inside a connection type; changing an opportunity can affect request routing, staff ownership, and reporting. | [source](https://community.rockrms.com/rocku/engagement/connections-opportunities) |
 | rocku-confirmed | implementation_pattern | For list discrepancies, compare the list filters, connection type/opportunity, status, assignee, campus, and current user security against the expected request set. | [source](https://community.rockrms.com/rocku/engagement/connections-list-1) |
-| rocku-confirmed | implementation_pattern | When a connection request appears missing from a board, inspect opportunity filters, status, campus or connector assignment, and security before changing the request itself. | [source](https://community.rockrms.com/rocku/engagement/connections-board) |
-| rocku-confirmed | implementation_pattern | Before restructuring connection types, review existing opportunities, request history, workflows, security, and staff ownership because type changes can alter process visibility and reporting. | [source](https://community.rockrms.com/rocku/engagement/connections-types) |
-| More |  | 1337 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 1339 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

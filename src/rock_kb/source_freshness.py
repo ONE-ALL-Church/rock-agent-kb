@@ -9,7 +9,7 @@ from typing import Any, Iterable
 import yaml
 
 from .extract import generated_at_iso, sha256_text
-from .paths import AGENT_DIR, REPO_ROOT
+from .paths import AGENT_DIR, DATA_DIR, REPO_ROOT
 from .source_orchestration import build_source_snapshot
 from .sources import Source, load_sources
 
@@ -18,6 +18,7 @@ POLICY_PATH = REPO_ROOT / "sources" / "freshness-policy.yaml"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "data" / "review" / "source-freshness"
 OBSERVATION_SCHEMA = "rock-kb-source-observations-v1"
 ROCK_ISSUE_SUMMARY_PATH = AGENT_DIR / "rock-issue-summary.json"
+ROCK_ISSUE_CHECKPOINT_PATH = DATA_DIR / "review" / "rock-issues" / "checkpoint.json"
 ISSUE_SOURCE_REPOSITORIES = {
     "rock_core_issues": "SparkDevNetwork/Rock",
     "rock_mobile_issues": "SparkDevNetwork/Rock.Mobile-Issues",
@@ -32,6 +33,7 @@ def build_source_freshness_report(
     baseline_snapshot_path: Path | None = None,
     previous_observations_path: Path | None = None,
     issue_summary_path: Path = ROCK_ISSUE_SUMMARY_PATH,
+    issue_checkpoint_path: Path = ROCK_ISSUE_CHECKPOINT_PATH,
     required_cadences: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     as_of = (as_of or datetime.now(timezone.utc)).astimezone(timezone.utc)
@@ -44,6 +46,7 @@ def build_source_freshness_report(
     previous_observations = read_json(previous_path) if previous_path.exists() else {}
     baseline_snapshot = read_json(baseline_snapshot_path) if baseline_snapshot_path and baseline_snapshot_path.exists() else {}
     issue_summary = read_json(issue_summary_path) if issue_summary_path.exists() else {}
+    issue_checkpoint = read_json(issue_checkpoint_path) if issue_checkpoint_path.exists() else {}
     sources = load_sources()
     observations = build_source_observations(
         sources,
@@ -53,6 +56,7 @@ def build_source_freshness_report(
         previous_observations=previous_observations,
         baseline_snapshot=baseline_snapshot,
         issue_summary=issue_summary,
+        issue_checkpoint=issue_checkpoint,
     )
     rows = source_freshness_rows(sources, snapshot, policy, as_of, refresh_status, observations)
     counts = Counter(str(row["status"]) for row in rows)
@@ -103,18 +107,22 @@ def build_source_observations(
     previous_observations: dict[str, Any] | None = None,
     baseline_snapshot: dict[str, Any] | None = None,
     issue_summary: dict[str, Any] | None = None,
+    issue_checkpoint: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     refresh_status = refresh_status or {}
     previous_sources = (previous_observations or {}).get("sources") or {}
     baseline_snapshot = baseline_snapshot or {}
     issue_summary = issue_summary or {}
+    issue_checkpoint = issue_checkpoint or {}
     snapshot_sources = snapshot.get("sources") or {}
     checked = {str(value) for value in refresh_status.get("checked") or []}
     failed = {str(value) for value in refresh_status.get("failed") or []}
     skipped = {str(value) for value in refresh_status.get("skipped") or []}
     explicit_checked = "checked" in refresh_status
     checked_at = parse_datetime(refresh_status.get("checked_at"))
-    issue_checked_at = parse_datetime(issue_summary.get("source_updated_through"))
+    issue_checked_at = parse_datetime(issue_checkpoint.get("checked_at")) or parse_datetime(
+        issue_summary.get("source_updated_through")
+    )
     rows: dict[str, dict[str, Any]] = {}
 
     for source in sorted(sources, key=lambda item: item.id):

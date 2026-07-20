@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "398dfc65caeec1e0fd1c93804b203480fd37ef9bed5498dc3f628f4678546347",
+  "catalog_content_hash": "d44ac64077de0108074630c5cacd857ffa30a11636b9a128e81659d565b4e165",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
@@ -7,9 +7,9 @@
   },
   "evidence_states": {
     "commit_linked": 15,
-    "fixed_release_recorded": 3189,
+    "fixed_release_recorded": 3190,
     "maintainer_triaged": 1227,
-    "report_only": 1372
+    "report_only": 1371
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
@@ -52,9 +52,9 @@
     "open": 7
   },
   "timeline_coverage": {
-    "complete": 298,
-    "not_fetched": 5505,
-    "percent_complete": 5.14
+    "complete": 309,
+    "not_fetched": 5494,
+    "percent_complete": 5.32
   },
   "top_concepts": {
     "api-integrations": 105,

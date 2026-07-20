@@ -1274,6 +1274,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly.",
+      "claim_hash": "54ad6b37fa90b7bf882d51118db977655cddbf38edb0d0ea20a26c7ad9592400",
+      "claim_id": "claim:8236f070927c9ba07547",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "data-views-reports",
+        "event-registration",
+        "giving-finance"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "86afebcb8b2fd17eba4cbe5b3a79f0a30a2bc6120ca1b98b7953986b2c8eaab6",
+      "source_record_ids": [
+        "rock_documentation:article:1316"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Manage Event Registrations",
+          "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
+        }
+      ]
+    },
+    {
       "authority_tier": "rocku-confirmed",
       "claim": "Group Placement is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
       "claim_hash": "4105e0c54d6ed54a1c0216aa20d3903d6963e5aa9873e19434ab4584d12b9a63",
@@ -2231,6 +2261,7 @@
     "claim:7df66fddf9d003aafb2c": "1cc9a39e19feb19cce67e302f07140df8a783a4c14f76754f4b5fb44d342355e",
     "claim:80c80f9f2c704535dddf": "fbe287088138662ea219f9fb8e1d010326dfa645ef78f38fb8d81bb148e42c69",
     "claim:822e87a143f064347983": "45765c5af112878d145379dc967a09dcdcc93547782b042500b75d14436c9769",
+    "claim:8236f070927c9ba07547": "54ad6b37fa90b7bf882d51118db977655cddbf38edb0d0ea20a26c7ad9592400",
     "claim:85dc3850ad247529c6e2": "4105e0c54d6ed54a1c0216aa20d3903d6963e5aa9873e19434ab4584d12b9a63",
     "claim:8eedca03d41077240c67": "ec9e1a6803c9eb8b91de4219e8a72139556626f22a54ec4a4355ed8dc7ab5fb8",
     "claim:8fcfe431e1f9aca49a3f": "3b8b23c945e4a3cce8fac585c367428066fc764ef0c77697d9f78e8b95bc7fdc",
@@ -2259,7 +2290,7 @@
     "claim:f46815f798db808e36ff": "a94026fcac828a168235e1e8083c7e6cbe5756fd0127915af7f17fc70966de2a",
     "claim:f9726f1e8453e453b3ba": "502d6d1ee557605166eaf0e49a2c42c1087590ea7bc403293e52010cf8ce4908"
   },
-  "approved_claims_hash": "30380539eb7b33135c592adf3a59f4c4e2294a779ea1834b8f0cb70d9488892e",
+  "approved_claims_hash": "111e395997e574a5f57d3fbea68e8cd688e092493d4f2386941a02f800cdcbe2",
   "approved_claims_path": "knowledge/concepts/event-registration/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2677,12 +2708,12 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-07-18T02:06:22+00:00",
+  "built_at": "2026-07-20T05:23:16+00:00",
   "concept_id": "event-registration",
-  "guide_hash": "feffaa67e681d9e4360755eedf8cfcb7c918fc964fddab676157b57526ff1981",
+  "guide_hash": "6191792fcfd1139eab33caea8ee7f92d906685a12129b453dc18ce6b90b5018a",
   "guide_line_count": 1396,
   "guide_path": "knowledge/concepts/event-registration/guide.md",
-  "guide_word_count": 11467,
+  "guide_word_count": 11466,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4104,12 +4135,13 @@
       "start_line": 1277
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1319,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "ad1b70c97442fd41",
         "58a92984acbd2344",
         "58a92984acbd2344",
         "f88b0748151b17a6",
@@ -4120,7 +4152,6 @@
         "e702311bcbacf6ba",
         "f100a7c66d47ef32",
         "f88b0748151b17a6",
-        "3ac2b7b2e39e37f3",
         "3ac2b7b2e39e37f3"
       ],
       "start_line": 1294

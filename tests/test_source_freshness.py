@@ -194,6 +194,49 @@ def test_rock_issue_summary_supplies_issue_source_freshness_metadata():
     assert by_id["rock_core_issues"]["content_hash"] != by_id["rock_mobile_issues"]["content_hash"]
 
 
+def test_rock_issue_checkpoint_advances_check_time_without_changing_content_time():
+    as_of = datetime(2026, 7, 18, 12, tzinfo=timezone.utc)
+    sources = [source("rock_core_issues", "daily"), source("rock_mobile_issues", "daily")]
+    issue_summary = {
+        "source_updated_through": "2026-07-16T11:30:00Z",
+        "catalog_content_hash": "c" * 64,
+        "repositories": {
+            "SparkDevNetwork/Rock": 5671,
+            "SparkDevNetwork/Rock.Mobile-Issues": 127,
+        },
+    }
+    previous = build_source_observations(
+        sources,
+        {"sources": {}, "source_records": {}},
+        as_of,
+        issue_summary=issue_summary,
+        issue_checkpoint={"checked_at": "2026-07-17T09:43:00Z"},
+    )
+    for row in previous["sources"].values():
+        row["content_changed_at"] = "2026-07-16T11:30:00+00:00"
+
+    observations = build_source_observations(
+        sources,
+        {"sources": {}, "source_records": {}},
+        as_of,
+        previous_observations=previous,
+        issue_summary=issue_summary,
+        issue_checkpoint={"checked_at": "2026-07-18T09:43:00Z"},
+    )
+
+    for row in observations["sources"].values():
+        assert row["last_checked_at"] == "2026-07-18T09:43:00+00:00"
+        assert row["content_changed_at"] == "2026-07-16T11:30:00+00:00"
+        assert row["status"] == "success"
+
+
+def test_issue_refresh_workflow_restores_dedicated_observation_cache():
+    workflow = Path(".github/workflows/refresh-rock-issues.yml").read_text(encoding="utf-8")
+
+    assert "data/review/rock-issue-freshness/source-observations.json" in workflow
+    assert "rock-kb-issue-source-observations-" in workflow
+
+
 def test_blocking_sources_can_be_scoped_to_daily_cadence():
     rows = [
         {"source_id": "daily-current", "cadence": "daily", "status": "current"},

@@ -286,6 +286,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests.",
+      "claim_hash": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
+      "claim_id": "claim:2cb25390d2b5f4ffeb6f",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "6a5cca3508709b4cdfecf4117436569fdd986f7ae4cc194187444245b7562bcd",
+      "source_record_ids": [
+        "rock_developer:article:301"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "The Rock Rest API",
+          "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "When applying risk, governance, permissions, and policy review ideas from Escaping the Complexity Trap, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
       "claim_hash": "bf49858dcb9e13211899221feae68aaae29fb451228c2a28b4f7023db5c58cc9",
@@ -753,6 +783,36 @@
           "source_id": "triumph_resources",
           "title": "Video: AI's Role in Digital Ministry with Jon Edmiston",
           "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
+        }
+      ]
+    },
+    {
+      "authority_tier": "official",
+      "claim": "Treat every Helix endpoint as directly callable outside its front end: validate all inputs, enforce the caller's view or edit rights, avoid GET for mutations, and sanitize query and body values before SQL use.",
+      "claim_hash": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
+      "claim_id": "claim:72d56e7ee7ef0be4b92e",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "risk",
+      "community_derived": false,
+      "concept_ids": [
+        "api-integrations",
+        "helix",
+        "security-permissions"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "f088c9c25a1c8f3ca85814c476a1fae2a66fd310acaca25f587416c5afb694c6",
+      "source_record_ids": [
+        "rock_developer:article:336"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_developer",
+          "title": "Security",
+          "url": "https://community.rockrms.com/developer/helix/overview/security"
         }
       ]
     },
@@ -1712,6 +1772,7 @@
     "claim:2327759c232854091458": "eb7ef8f01271676a23028dad2c565ba2116362714cdf840b52de655780ceb095",
     "claim:2a2a9fc94666d58b0e4f": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
     "claim:2a7ef23854b5dd315c7d": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
+    "claim:2cb25390d2b5f4ffeb6f": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
     "claim:2fb4567b271d2165a9d8": "bf49858dcb9e13211899221feae68aaae29fb451228c2a28b4f7023db5c58cc9",
     "claim:2fbcf285fa7d556d3410": "029ac7b7665e05e8d2ec07ac9422752b8a3d8a327cad732841f900e27dbc6b8d",
     "claim:35c076edbcb25d79946e": "b064f5a43147c6db8645f961ff68714c48675d7bc87394b7c6b61348cf05e6f6",
@@ -1726,6 +1787,7 @@
     "claim:6a4b4cabfc24d573fd86": "af3e05ba1cf83a032a1f32a7fd166eedb0e37796350d179e8eb856ba56b5748a",
     "claim:6bf761df7cecd90ce621": "829b3a7c2684367937e6f91799a03fdef54381488d45f5d883471c8edc43acdb",
     "claim:70e2d29e7a2dd7137818": "344784dd5733d7ec813b02fbb7a441d4c81cef7aa526a653207d62b06eb6385f",
+    "claim:72d56e7ee7ef0be4b92e": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
     "claim:902cf967093bf25638d8": "ea0cd317da53a9917fb566e53bd94b0e39e804be3231d5a91cf2a7266af251dd",
     "claim:9cd70d19320375c27cb3": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
     "claim:a181b9ddd5b0e689895b": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
@@ -1754,7 +1816,7 @@
     "claim:fb85d514f4ed765acad4": "468643df34d10c2da2dbbbe27bec321fc5327979e65dcbc9c768c8ce69591eae",
     "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6"
   },
-  "approved_claims_hash": "ad20fb5f559f70ece57703eccccd64309a99688924fce6c2e89b74446b70ce03",
+  "approved_claims_hash": "6600bacf20f7e0ac624ffbe9769e7b4870faa7e637edad42cd38f0aab6e7afbe",
   "approved_claims_path": "knowledge/concepts/api-integrations/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1941,12 +2003,12 @@
   },
   "approved_media_hash": "ec35b8de14526a2c289432c0f16466114551322d087df88c30bf64aab1c26c0f",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-07-18T02:06:32+00:00",
+  "built_at": "2026-07-20T05:23:27+00:00",
   "concept_id": "api-integrations",
-  "guide_hash": "4a6b114c8710b7d608575c05b6c1a0eeb8c0bf5ee39da5ac7b2706801cd1225e",
+  "guide_hash": "58195bc73ca6d376778d9be8b082358cf6fc58a07be7fb3bead54d09dad3d2eb",
   "guide_line_count": 1571,
   "guide_path": "knowledge/concepts/api-integrations/guide.md",
-  "guide_word_count": 14518,
+  "guide_word_count": 14501,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4117,6 +4179,7 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "547b1337a6e19cf7",
         "6a9eebe7a077d89a",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -4124,7 +4187,6 @@
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "874c48c7aa36826b",
-        "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",

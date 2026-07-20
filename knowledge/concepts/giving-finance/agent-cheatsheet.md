@@ -93,5 +93,5 @@ generated: true
 | `18-agent-task-recipes-recipe-safe-account-cleanup-assessment` | structural | live verification |
 | `18-agent-task-recipes-recipe-giving-automation-review` | community-supported | live verification |
 | `18-agent-task-recipes-recipe-pledge-progress-analysis` | community-supported | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `19-source-map-and-dependency-notes` | high | live verification |

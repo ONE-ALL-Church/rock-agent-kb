@@ -121,6 +121,6 @@ generated: true
 | `18-agent-task-recipes-recipe-determine-whether-a-feature-can-be-used` | structural | live verification |
 | `18-agent-task-recipes-recipe-add-analytics-to-a-tap` | normal | live verification |
 | `18-agent-task-recipes-recipe-modernize-legacy-platform-xaml` | normal | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
+| `approved-claim-coverage` | normal | live verification |
 | `19-source-map-and-dependency-notes-primary-official-mobile-docs` | normal | live verification |
 | `19-source-map-and-dependency-notes-community-examples` | community-supported | community-supported |

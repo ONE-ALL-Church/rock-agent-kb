@@ -3695,6 +3695,36 @@
       ]
     },
     {
+      "authority_tier": "official",
+      "claim": "Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration.",
+      "claim_hash": "452f43e583b287168111c5cc4ca091a165fb8ae0f35582f6f735a85176abe069",
+      "claim_id": "claim:a774892d024b8bbe0560",
+      "claim_tier": "answer_pack_approved",
+      "claim_type": "configuration",
+      "community_derived": false,
+      "concept_ids": [
+        "communications",
+        "data-views-reports",
+        "groups"
+      ],
+      "confidence": "high",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": false,
+      "review_status": "approved_for_public_distillation",
+      "safe_evidence_hash": "a99113b0f2aae4a4b21e634f099b3ee40796e44b8b49d05edf620044b9b1b3cd",
+      "source_record_ids": [
+        "rock_documentation:article:1929"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_documentation",
+          "title": "Communication Lists",
+          "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+        }
+      ]
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "A church mobile chat experience should define expected features such as threaded messages, reactions, notifications, moderation, and staff access before implementation.",
       "claim_hash": "29c57627f6d82fe4d3c21609c5711fc206f215bcc6d41b29dd70bdb1dcec202a",
@@ -5984,6 +6014,7 @@
     "claim:a69d0b49451cf59e5ef8": "301e03f370fc6c58f9532fb077b4fcff8df4f7bee0c4d1f5dcf91b4c22da3f66",
     "claim:a6c30f2cf33cfd48a85d": "9f3585688bb7b10d483e8b1d7474f1626d5fcbf9236093751d704a868a4be27c",
     "claim:a6fe41ec449004caa398": "54a675c68a2240c6cfe04d84b0748f28bf54838072aba39ce8f7354fec156731",
+    "claim:a774892d024b8bbe0560": "452f43e583b287168111c5cc4ca091a165fb8ae0f35582f6f735a85176abe069",
     "claim:aaf7c661e43acba39fe9": "29c57627f6d82fe4d3c21609c5711fc206f215bcc6d41b29dd70bdb1dcec202a",
     "claim:abaf88afe31698fb68c6": "17805f83ea9419b139a5ef0220fa0b7bd41b9e41134371fc51f07dc486e30c0e",
     "claim:ae296d539a8e0544899b": "fbe62fb0fce787fa8aa52cc826603e39a5a050a60d3e96ba06479c3a5879893c",
@@ -6050,7 +6081,7 @@
     "claim:fc9111eeb3195e57927a": "d70d718613d9dfc40582c9d4e8f1d9d7d97a517e6ccf015362a210f993186659",
     "claim:ff686b4e1e2c7046f684": "e1f54275945e47f78c72794ac1fc18fee04b896b8da5412d4061ea1f362ef77a"
   },
-  "approved_claims_hash": "2e2da51611bfbee2a599583702cc8be902bbb48337104a135f6d5168dadfb7a8",
+  "approved_claims_hash": "fafd1362a2646c960cb8d083bc1279e3c28b455c7ba4b2787f801d8d6d3ebbe2",
   "approved_claims_path": "knowledge/concepts/groups/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -6920,12 +6951,12 @@
   },
   "approved_media_hash": "08b27e17dc0baa4060b045fb123823b399a314388b61fb6a1980d9c68d286ad3",
   "approved_media_path": "knowledge/concepts/groups/approved-media.md",
-  "built_at": "2026-07-18T02:05:53+00:00",
+  "built_at": "2026-07-20T05:22:48+00:00",
   "concept_id": "groups",
-  "guide_hash": "5c9d0cb6b447b4322cf89592f08943dc8014a56bac20838db201292db582ce32",
+  "guide_hash": "920bc0f302c2dfdc8b79e38cd9f419bd4a08a1449abec031602db105775c94ea",
   "guide_line_count": 1276,
   "guide_path": "knowledge/concepts/groups/guide.md",
-  "guide_word_count": 12145,
+  "guide_word_count": 12129,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -7414,6 +7445,15 @@
       "url": "https://community.rockrms.com/recipes/185"
     },
     {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -7457,15 +7497,6 @@
       "source_key": "da09520593737d6c",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "6d24455021bddec4095e070937fdd0c4fd9f6d600d8fd6320a5dcf1c90895542",
-      "excerpt_hash": "45139ef92b1b214e80baaefb2ec7b513a4bffd4a7c4623fa7032365f19e1eb81",
-      "source_id": "rock_rocku",
-      "source_key": "301dbb16c5d47932",
-      "source_record_id": "rock_rocku:301dbb16c5d47932",
-      "url": "https://community.rockrms.com/rocku/groups/group-placement-options-legacy"
     },
     {
       "authority": "official-training",
@@ -8757,12 +8788,13 @@
       "start_line": 1160
     },
     {
-      "confidence": "citation-only",
+      "confidence": "normal",
       "end_line": 1203,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "a1e69804a411861b",
         "78f1e8bbd9d351ff",
         "78f1e8bbd9d351ff",
         "78f1e8bbd9d351ff",
@@ -8773,8 +8805,7 @@
         "47fb171546569376",
         "1cfd7942fe8e3344",
         "da09520593737d6c",
-        "08815cfa0fab37fd",
-        "301dbb16c5d47932"
+        "08815cfa0fab37fd"
       ],
       "start_line": 1178
     },
@@ -10184,6 +10215,16 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -10274,30 +10315,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration",
       "url": "https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "6d24455021bddec4095e070937fdd0c4fd9f6d600d8fd6320a5dcf1c90895542",
-      "excerpt_hash": "45139ef92b1b214e80baaefb2ec7b513a4bffd4a7c4623fa7032365f19e1eb81",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "301dbb16c5d47932",
-      "source_record_id": "rock_rocku:301dbb16c5d47932",
-      "title": "Group Placement Options [Legacy]",
-      "topics": [
-        "check-in",
-        "security",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/groups/group-placement-options-legacy",
-      "version": null
     },
     {
       "authority": "official-training",

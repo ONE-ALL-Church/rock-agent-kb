@@ -13,7 +13,7 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 16014 words; expected at least 7000.",
+      "message": "Guide has 15986 words; expected at least 7000.",
       "passed": true
     },
     {
@@ -60,13 +60,13 @@
   "concept_id": "security-permissions",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-18T02:06:27+00:00",
+  "generated_at": "2026-07-20T05:23:21+00:00",
   "guide_line_count": 1863,
-  "guide_word_count": 16014,
+  "guide_word_count": 15986,
   "private_draft_contribution_record_count": 0,
   "score": 100,
   "section_count": 140,
-  "source_count": 59,
+  "source_count": 60,
   "status": "pass",
   "task_card_count": 7
 }

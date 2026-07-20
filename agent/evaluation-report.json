@@ -4,7 +4,8 @@
       "pass": 4
     },
     "api-integrations": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 1
     },
     "apple-tv": {
       "pass": 4
@@ -18,7 +19,7 @@
     },
     "communications": {
       "pass": 4,
-      "pending_service": 1
+      "pending_service": 2
     },
     "connections": {
       "pass": 4
@@ -60,14 +61,15 @@
       "pending_service": 4
     },
     "lava": {
-      "pass": 4
+      "pass": 4,
+      "pending_service": 2
     },
     "learning-lms-engagement": {
       "pass": 4
     },
     "mobile": {
       "pass": 4,
-      "pending_service": 2
+      "pending_service": 3
     },
     "model-map": {
       "pending_service": 2
@@ -113,10 +115,10 @@
   },
   "evaluation_modes": {
     "answer_structure": 124,
-    "retrieval": 29
+    "retrieval": 34
   },
   "fail_count": 0,
-  "generated_at": "2026-07-18T18:10:30+00:00",
+  "generated_at": "2026-07-20T05:43:12+00:00",
   "near_misses": [
     {
       "answer_id": "answer:ai-agents-automation:risks-caveats",
@@ -211,10 +213,11 @@
   ],
   "pass_count": 124,
   "pass_rate": 1.0,
-  "pending_service_count": 29,
-  "question_count": 153,
+  "pending_service_count": 34,
+  "question_count": 158,
   "question_sources": {
     "curated_adversarial_question_set": 4,
+    "curated_contribution_corroboration": 5,
     "curated_contribution_promotion": 1,
     "curated_idea_exact_lookup": 1,
     "curated_idea_roadmap_lookup": 1,
@@ -226,7 +229,7 @@
     "curated_real_world_question_set": 16,
     "generated_realistic_question_set": 124
   },
-  "result_count": 153,
+  "result_count": 158,
   "schema": "rock-kb-evaluation-report-v1",
   "scored_count": 124,
   "term_miss_count": 9

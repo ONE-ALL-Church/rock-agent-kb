@@ -44,5 +44,3 @@ Follow the guide section for Recipe: Answer "Where is this configured?".
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointList/lavaEndpointListOptionsBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.Designer.cs
-- https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson
-- https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle

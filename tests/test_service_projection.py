@@ -25,6 +25,14 @@ def test_build_search_rows_includes_tiered_claims_and_concepts():
     assert any(row["kind"] == "concept" and row["concept"] == "check-in" for row in rows)
     assert any(row["kind"] == "claim" and row["claim_tier"] for row in rows)
     assert all("authority_tier" in row and "claim_tier" in row for row in rows)
+    corroborating_claims = [
+        row
+        for row in rows
+        if row["kind"] == "claim"
+        and (row.get("payload", {}).get("derived_from", {}).get("related_contribution_ids") or [])
+    ]
+    assert corroborating_claims
+    assert all(row["title"] == row["body"] for row in corroborating_claims)
 
 
 def test_build_search_rows_includes_public_community_contributions(monkeypatch):

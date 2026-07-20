@@ -22,17 +22,17 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 | `api-integrations` | 1 |
 | `apple-tv` | 2 |
 | `check-in` | 8 |
-| `cms-websites` | 4 |
+| `cms-websites` | 5 |
 | `connections` | 5 |
 | `content-personalization` | 13 |
-| `data-views-reports` | 5 |
+| `data-views-reports` | 6 |
 | `documents-signatures` | 6 |
 | `engagement-tracking` | 14 |
-| `helix` | 1 |
+| `helix` | 2 |
 | `hosting-infrastructure` | 4 |
-| `lava` | 5 |
+| `lava` | 6 |
 | `learning-lms-engagement` | 3 |
-| `mobile` | 3 |
+| `mobile` | 4 |
 | `obsidian-development` | 7 |
 | `people-families` | 7 |
 | `platform-configuration` | 7 |
@@ -48,7 +48,7 @@ No evaluation failures.
 
 ## Hosted Retrieval Evaluations
 
-29 curated retrieval evaluations are validated by `kb eval-service` after deployment.
+34 curated retrieval evaluations are validated by `kb eval-service` after deployment.
 
 ## Evaluation Term Misses
 
