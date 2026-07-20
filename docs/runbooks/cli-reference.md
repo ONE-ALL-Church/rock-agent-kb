@@ -179,7 +179,7 @@ uv run kb hybrid-shadow
 uv run kb hybrid-shadow --apply
 uv run kb shadow-lifecycle --strict
 uv run kb network-readiness --repo ONE-ALL-Church/rock-agent-kb --pr 2
-uv run kb record-source-freshness data/review/source-freshness/source-freshness-report.json --workflow-id weekly-comprehensive --workflow-max-age-hours 216 --database rock-agent-kb --env production
+uv run kb record-source-freshness data/review/source-freshness/source-freshness-report.json --workflow-id weekly-comprehensive --database rock-agent-kb --env production
 python3 scripts/bootstrap_service_infra.py
 uv run kb publish export
 uv run kb publish okf
@@ -196,7 +196,9 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 
 `kb record-source-freshness` is a hidden CI command. It validates a generated
 freshness report, selects the source rows owned by one workflow, and upserts a
-public-safe snapshot to D1 through Wrangler. Scheduled workflows should call it;
+public-safe snapshot to D1 through Wrangler. Ownership and workflow maximum age
+come from `sources/freshness-policy.yaml`; explicit source or maximum-age
+arguments must match that policy. Scheduled workflows should call it;
 maintainers should not hand-edit the hosted freshness tables. Consumers use
 `uvx rock-kb freshness` or MCP `kb_get_freshness` instead.
 

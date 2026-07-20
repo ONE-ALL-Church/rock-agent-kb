@@ -76,7 +76,10 @@ authoritative public snapshot used by `/operations/freshness`, the operations
 dashboard, CLI `freshness`, and MCP `kb_get_freshness`. The snapshot stores
 workflow schedule state independently from source state, so an unchanged
 source is still visibly checked and a missed workflow is not mistaken for a
-content change.
+content change. `sources/freshness-policy.yaml` is the single ownership policy:
+every registered source must resolve to exactly one workflow. Publishing rejects
+foreign or omitted owned sources, and the D1 upsert guard prevents later stale
+observations from decreasing `last_checked_at` or `content_changed_at`.
 
 4. Inspect the current build status and dry-run action plan.
 
@@ -212,10 +215,10 @@ weekly workflow covers the same cadence. It refreshes only registered
 daily-cadence sources handled by the general source pipeline, skips the broad
 endpoint probe, compares the result with a pre-refresh snapshot, writes source
 observations, runs focused regression tests, and uploads one
-`daily-source-refresh` artifact. Its strict gate uses `--required-cadence daily`
-so a clean CI checkout does not require weekly/monthly normalized inputs; those
-rows remain visible in the report, while the comprehensive Monday workflow
-continues to gate every automated cadence. Rock GitHub issues remain owned by the separate
+`daily-source-refresh` artifact. Its strict gate uses
+`--required-workflow daily-sources`, so a clean CI checkout does not require
+sources owned by another workflow; those rows remain visible in the report.
+Rock GitHub issues remain owned by the separate
 daily `.github/workflows/refresh-rock-issues.yml` pipeline; their summary feeds
 the shared freshness report.
 
@@ -224,7 +227,9 @@ and `weekly-comprehensive`. Their maximum schedule ages are 52, 36, and 216
 hours respectively. The issue workflow publishes `rock_core_issues` and
 `rock_mobile_issues` from `agent/rock-issue-summary.json`; the dashboard reports
 their catalog hash, count, last check, last content change, and status without
-republishing issue bodies.
+republishing issue bodies. The weekly workflow owns weekly, monthly, and manual
+sources. Selector validation guarantees that these ownership sets are complete
+and non-overlapping when sources are added or reclassified.
 
 `.github/workflows/refresh.yml` runs the safe path on schedule and on manual dispatch:
 

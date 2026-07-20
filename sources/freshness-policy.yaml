@@ -9,3 +9,15 @@ cadences:
     maximum_age_hours: 840
   manual:
     maximum_age_hours: null
+workflows:
+  daily-sources:
+    maximum_age_hours: 52
+    cadences: [daily]
+    exclude_kinds: [github_issues]
+  daily-issues:
+    maximum_age_hours: 36
+    cadences: [daily]
+    include_kinds: [github_issues]
+  weekly-comprehensive:
+    maximum_age_hours: 216
+    cadences: [weekly, monthly, manual]
