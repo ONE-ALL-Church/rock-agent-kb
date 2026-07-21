@@ -1,22 +1,22 @@
 {
-  "catalog_content_hash": "60e4170a1692a680c46c5f3093fba3e540ce5a39c2f46d001f4b01fac0e67ef8",
+  "catalog_content_hash": "5dbda422fc2241b3fbf42a3531033e66800b7d29a6eefc60ebd4dbd55c895ca4",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
-    "rock_core": 5675
+    "rock_core": 5676
   },
   "evidence_states": {
     "commit_linked": 15,
     "fixed_release_recorded": 3190,
     "maintainer_triaged": 1227,
-    "report_only": 1371
+    "report_only": 1372
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
-  "record_count": 5803,
+  "record_count": 5804,
   "release_note_linked_count": 889,
   "repositories": {
-    "SparkDevNetwork/Rock": 5675,
+    "SparkDevNetwork/Rock": 5676,
     "SparkDevNetwork/Rock.Mobile-Issues": 128
   },
   "reviewed_enrichment_count": 27,
@@ -42,19 +42,19 @@
       "body_keyword": 396,
       "github_topic_label": 1572,
       "repository_default": 1331,
-      "title_keyword": 3954
+      "title_keyword": 3955
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-20T17:36:21Z",
+  "source_updated_through": "2026-07-20T20:25:27Z",
   "states": {
     "closed": 5796,
-    "open": 7
+    "open": 8
   },
   "timeline_coverage": {
-    "complete": 309,
+    "complete": 310,
     "not_fetched": 5494,
-    "percent_complete": 5.32
+    "percent_complete": 5.34
   },
   "top_concepts": {
     "api-integrations": 105,
@@ -65,7 +65,7 @@
     "data-views-reports": 371,
     "developer-resources": 148,
     "documents-signatures": 91,
-    "event-registration": 541,
+    "event-registration": 542,
     "giving-finance": 396,
     "groups": 318,
     "lava": 386,
@@ -80,6 +80,6 @@
   },
   "validation_states": {
     "confirmed": 2535,
-    "reported": 3268
+    "reported": 3269
   }
 }
