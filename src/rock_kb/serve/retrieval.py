@@ -336,6 +336,7 @@ def get_rock_issue(issue_ref: str, root: Path | None = None) -> dict[str, Any]:
 
 def assess_rock_issues(
     profile: dict[str, Any],
+    scope: str = "open",
     limit: int = 100,
     offset: int = 0,
     root: Path | None = None,
@@ -343,7 +344,16 @@ def assess_rock_issues(
     root = root or REPO_ROOT
     enrichments = issue_enrichments_by_id(root)
     rows = (attach_issue_enrichments(issue, enrichments) for issue in read_jsonl(root / "agent" / "rock-issues.jsonl"))
-    return assess_catalog(rows, profile, limit=limit, offset=offset)
+    summary_path = root / "agent" / "rock-issue-summary.json"
+    catalog_metadata = json.loads(summary_path.read_text(encoding="utf-8")) if summary_path.exists() else None
+    return assess_catalog(
+        rows,
+        profile,
+        scope=scope,
+        limit=limit,
+        offset=offset,
+        catalog_metadata=catalog_metadata,
+    )
 
 
 def plan_rock_issue_investigation(

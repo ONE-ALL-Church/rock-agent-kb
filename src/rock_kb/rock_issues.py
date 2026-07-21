@@ -30,6 +30,10 @@ ROCK_ISSUE_REPOSITORIES = {
     "SparkDevNetwork/Rock": {"source_id": "rock_core_issues", "component": "rock_core", "default_concept": "system-admin-ops"},
     "SparkDevNetwork/Rock.Mobile-Issues": {"source_id": "rock_mobile_issues", "component": "mobile_shell", "default_concept": "mobile"},
 }
+ROCK_ISSUE_ASSESSMENT_SCOPES = ("open", "historical-unresolved", "all-relevant")
+ROCK_ISSUE_PROFILE_LIST_FIELDS = ("platforms", "concepts", "capabilities", "configurations")
+ROCK_ISSUE_PROFILE_VALUE_PATTERN = re.compile(r"^[A-Za-z0-9._ -]+$")
+ROCK_ISSUE_RISK_RANK = {"critical": 4, "high": 3, "medium": 2, "low": 1, "unrated": 0}
 
 FIXED_LABEL_RE = re.compile(r"^(?:x-)?Fixed in v(?P<version>\d+(?:\.\d+){0,3})$", re.IGNORECASE)
 VERSION_RE = re.compile(r"(?<!\d)(?P<version>\d{1,2}(?:\.(?:\d+|x)){0,3}(?:[-.]?(?:alpha|beta|rc)\d*)?)(?!\d)", re.IGNORECASE)
@@ -1191,6 +1195,19 @@ def issue_enrichment_search_values(enrichment: dict[str, Any]) -> list[str]:
         *(enrichment.get("workaround_summaries") or []),
     ]
     values.extend(
+        value
+        for requirement in enrichment.get("applicability_requirements") or []
+        if isinstance(requirement, dict)
+        for value in [
+            requirement.get("field"),
+            requirement.get("operator"),
+            *(requirement.get("values") or []),
+        ]
+    )
+    risk = enrichment.get("risk")
+    if isinstance(risk, dict):
+        values.extend([risk.get("level"), risk.get("rationale")])
+    values.extend(
         version
         for assertion in enrichment.get("applicability") or []
         if isinstance(assertion, dict)
@@ -1250,6 +1267,15 @@ def build_reviewed_enrichment_metrics(
         for row in values
         if not row.get("verification_playbook")
     )
+    requirements = [
+        requirement
+        for row in values
+        for requirement in row.get("applicability_requirements") or []
+        if isinstance(requirement, dict)
+    ]
+    requirement_fields = Counter(str(row.get("field") or "") for row in requirements)
+    risk_assessments = [row.get("risk") for row in values if isinstance(row.get("risk"), dict)]
+    risk_levels = Counter(str(row.get("level") or "") for row in risk_assessments)
     return {
         # Retain the scalar for existing clients while exposing review-health
         # details to the maintainer dashboard through the same summary artifact.
@@ -1264,6 +1290,10 @@ def build_reviewed_enrichment_metrics(
                 1,
             ),
             "missing_verification_playbook_enrichment_ids": missing_playbook_enrichment_ids,
+            "applicability_requirement_count": len(requirements),
+            "applicability_requirement_fields": dict(sorted(requirement_fields.items())),
+            "risk_assessment_count": len(risk_assessments),
+            "risk_levels": dict(sorted(risk_levels.items())),
             "revalidation_due_count": len(revalidation_due),
             "revalidation_due_enrichment_ids": sorted(revalidation_due),
         },
@@ -1338,6 +1368,10 @@ def write_rock_issue_guide(summary: dict[str, Any]) -> None:
         f"- Instance verification playbooks: "
         f"`{summary.get('reviewed_enrichment_metrics', {}).get('verification_playbook_count', 0)}` "
         f"(`{summary.get('reviewed_enrichment_metrics', {}).get('verification_playbook_coverage_percent', 0)}%` coverage)",
+        f"- Reviewed applicability prerequisites: "
+        f"`{summary.get('reviewed_enrichment_metrics', {}).get('applicability_requirement_count', 0)}`",
+        f"- Reviewed risk assessments: "
+        f"`{summary.get('reviewed_enrichment_metrics', {}).get('risk_assessment_count', 0)}`",
         f"- Enrichments due for revalidation after an upstream update: "
         f"`{summary.get('reviewed_enrichment_metrics', {}).get('revalidation_due_count', 0)}`",
         "- Public artifact: [`agent/rock-issues.jsonl`](../../agent/rock-issues.jsonl)",
@@ -1346,11 +1380,14 @@ def write_rock_issue_guide(summary: dict[str, Any]) -> None:
         "",
         "## Agent Order",
         "",
-        "1. Use the issue catalog to find reports, labels, version evidence, linked commits, concepts, and model-map routes.",
-        "2. Treat `reported_affected` as a reporter observation, not proof that every installation or release is affected.",
-        "3. Prefer an official `release_note` version row over issue labels alone, while still treating a release line as broader than an exact build.",
-        "4. Corroborate with official docs, release notes, public source, and read-only instance evidence before recommending action.",
-        "5. Keep private instance evidence in a permission-scoped overlay. Promote only reviewed, redacted, source-linked conclusions.",
+        "1. Assess `open` issues by default. Request `historical-unresolved` or `all-relevant` explicitly when preparing upgrades or investigating older behavior.",
+        "2. Use the issue catalog to find reports, labels, version evidence, linked commits, concepts, model-map routes, and reviewed prerequisites.",
+        "3. Treat `reported_affected` as a reporter observation, not proof that every installation or release is affected.",
+        "4. Prefer an official `release_note` version row over issue labels alone, while still treating a release line as broader than an exact build.",
+        "5. Keep risk `unrated` unless it comes from an upstream priority label or a current reviewed risk assessment.",
+        "6. Read `catalog.status` and `catalog.warning` before relying on a result, then use the linked read-only verification playbook where available.",
+        "7. Corroborate with official docs, release notes, public source, and read-only instance evidence before recommending action.",
+        "8. Keep private instance evidence in a permission-scoped overlay. Promote only reviewed, redacted, source-linked conclusions.",
         "",
         "Closed does not mean fixed. Missing version evidence means unknown, and `not_affected` requires positive reviewed evidence.",
     ]
@@ -1560,7 +1597,12 @@ def assemble_investigation_packet(
     return packet
 
 
-def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, Any]:
+def assess_issue(
+    issue: dict[str, Any],
+    profile: dict[str, Any],
+    *,
+    scope: str = "open",
+) -> dict[str, Any]:
     component_versions = {
         "rock_core": normalize_version(str(profile.get("core_version") or "")),
         "mobile_shell": normalize_version(str(profile.get("mobile_shell_version") or "")),
@@ -1572,6 +1614,11 @@ def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, An
         for enrichment in issue.get("reviewed_enrichments") or []
         if isinstance(enrichment, dict)
     ]
+    current_enrichments = [
+        enrichment
+        for enrichment in reviewed_enrichments
+        if not enrichment_needs_revalidation(issue, enrichment)
+    ]
     revalidation_due_enrichment_ids = sorted(
         str(enrichment.get("enrichment_id") or "")
         for enrichment in reviewed_enrichments
@@ -1579,8 +1626,7 @@ def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, An
     )
     reviewed_assertions = [
         assertion
-        for enrichment in reviewed_enrichments
-        if not enrichment_needs_revalidation(issue, enrichment)
+        for enrichment in current_enrichments
         for assertion in enrichment.get("applicability") or []
         if isinstance(assertion, dict)
         and assertion.get("component") == issue.get("component")
@@ -1588,29 +1634,126 @@ def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, An
         and applicability_assertion_matches(assertion, target_version)
     ]
     reviewed_statuses = {str(row.get("status") or "") for row in reviewed_assertions}
+    matched_on: list[dict[str, Any]] = []
+    excluded_by: list[dict[str, Any]] = []
+    unknowns: list[dict[str, Any]] = []
     if not target_version:
         status, reason = "insufficient_evidence", "The instance profile does not declare the issue component version."
+        unknowns.append({"signal": "version", "basis": "component_version_missing", "component": issue.get("component")})
     elif "not_affected" in reviewed_statuses or "fixed" in reviewed_statuses:
         status, reason = "not_applicable", "Reviewed public evidence explicitly marks this component version as fixed or not affected."
+        excluded_by.append(
+            {
+                "signal": "version",
+                "basis": "reviewed_fixed_or_not_affected",
+                "assertion_ids": sorted(str(row.get("assertion_id") or "") for row in reviewed_assertions if row.get("assertion_id")),
+            }
+        )
     elif "affected" in reviewed_statuses:
         status, reason = "confirmed", "Reviewed public evidence explicitly marks this component version as affected; instance-specific verification is still recommended."
+        matched_on.append(
+            {
+                "signal": "version",
+                "basis": "reviewed_affected",
+                "assertion_ids": sorted(str(row.get("assertion_id") or "") for row in reviewed_assertions if row.get("assertion_id")),
+            }
+        )
     elif "under_investigation" in reviewed_statuses:
         status, reason = "possible", "Reviewed public evidence still marks this component version as under investigation."
+        matched_on.append(
+            {
+                "signal": "version",
+                "basis": "reviewed_under_investigation",
+                "assertion_ids": sorted(str(row.get("assertion_id") or "") for row in reviewed_assertions if row.get("assertion_id")),
+            }
+        )
     else:
-        exact_report = any(row.get("relationship") in {"reported_affected", "known_affected"} and row.get("normalized_version") == target_version for row in evidence)
-        same_line_report = any(row.get("relationship") in {"reported_affected", "known_affected"} and row.get("version_line") == version_line(target_version) for row in evidence)
-        exact_not_affected = any(row.get("relationship") == "known_not_affected" and row.get("normalized_version") == target_version for row in evidence)
+        exact_reports = [
+            row
+            for row in evidence
+            if row.get("relationship") in {"reported_affected", "known_affected"}
+            and row.get("normalized_version") == target_version
+        ]
+        same_line_reports = [
+            row
+            for row in evidence
+            if row.get("relationship") in {"reported_affected", "known_affected"}
+            and row.get("version_line") == version_line(target_version)
+        ]
+        exact_not_affected = [
+            row
+            for row in evidence
+            if row.get("relationship") == "known_not_affected"
+            and row.get("normalized_version") == target_version
+        ]
         if exact_not_affected:
             status, reason = "not_applicable", "Reviewed evidence explicitly marks this component version as not affected."
-        elif exact_report:
+            excluded_by.append({"signal": "version", "basis": "known_not_affected", "target_version": target_version})
+        elif exact_reports:
             status, reason = "likely" if issue.get("validation_state") == "confirmed" else "possible", "The issue reports this exact component version; instance-specific verification is still required."
-        elif same_line_report:
+            matched_on.append(
+                {
+                    "signal": "version",
+                    "basis": "exact_report",
+                    "target_version": target_version,
+                    "authority_tiers": sorted({str(row.get("authority_tier") or "") for row in exact_reports if row.get("authority_tier")}),
+                }
+            )
+        elif same_line_reports:
             status, reason = "possible", "The issue reports the same release line, but patch-level applicability is not established."
+            matched_on.append(
+                {
+                    "signal": "version",
+                    "basis": "same_release_line_report",
+                    "target_version": target_version,
+                    "reported_versions": sorted({str(row.get("normalized_version") or "") for row in same_line_reports if row.get("normalized_version")}),
+                }
+            )
         else:
             status, reason = "insufficient_evidence", "No evidence establishes applicability to this component version."
+            unknowns.append({"signal": "version", "basis": "no_matching_version_evidence", "target_version": target_version})
     concepts = set(str(value) for value in profile.get("concepts") or [])
-    if concepts and not concepts.intersection(issue.get("concept_ids") or []):
-        status, reason = "not_applicable", "The structured profile excludes every concept routed to this issue."
+    issue_concepts = set(str(value) for value in issue.get("concept_ids") or [])
+    if concepts:
+        matched_concepts = sorted(concepts.intersection(issue_concepts))
+        if not matched_concepts:
+            status, reason = "not_applicable", "The structured profile excludes every concept routed to this issue."
+            excluded_by.append(
+                {
+                    "signal": "concept",
+                    "basis": "no_profile_concept_match",
+                    "issue_concepts": sorted(issue_concepts),
+                }
+            )
+        else:
+            matched_on.append({"signal": "concept", "basis": "profile_concept_match", "values": matched_concepts})
+
+    requirement_evaluation = evaluate_profile_requirements(current_enrichments, profile)
+    excluded_requirements = [row for row in requirement_evaluation if row["status"] == "excluded"]
+    unknown_requirements = [row for row in requirement_evaluation if row["status"] == "unknown"]
+    for row in requirement_evaluation:
+        signal = {
+            "signal": "profile_requirement",
+            "basis": row["operator"],
+            "field": row["field"],
+            "values": row["values"],
+            "enrichment_id": row["enrichment_id"],
+        }
+        if row["status"] == "matched":
+            matched_on.append(signal)
+        elif row["status"] == "excluded":
+            excluded_by.append(signal)
+        else:
+            unknowns.append(signal)
+    if status != "not_applicable" and excluded_requirements:
+        status = "not_applicable"
+        reason = "The structured profile explicitly contradicts a reviewed prerequisite for this issue."
+    elif status in {"confirmed", "likely"} and unknown_requirements:
+        status = "possible"
+        reason = "Version evidence matches, but the profile does not declare every reviewed prerequisite needed to confirm instance applicability."
+    elif status != "not_applicable" and unknown_requirements:
+        reason += " Some reviewed prerequisites are not declared in the profile."
+
     fixed = [row for row in evidence if row.get("relationship") in {"fixed", "first_fixed"}]
     if any(row.get("source_kind") == "release_note" for row in fixed):
         remediation = "official_fix_recorded"
@@ -1625,22 +1768,188 @@ def assess_issue(issue: dict[str, Any], profile: dict[str, Any]) -> dict[str, An
             if row.get("normalized_version")
         }
     )
+    risk = issue_risk_assessment(issue, current_enrichments)
+    playbooks = [
+        enrichment.get("verification_playbook")
+        for enrichment in current_enrichments
+        if isinstance(enrichment.get("verification_playbook"), dict)
+    ]
+    playbook_methods = sorted(
+        {
+            str(step.get("method") or "")
+            for playbook in playbooks
+            for step in playbook.get("steps") or []
+            if isinstance(step, dict) and step.get("method")
+        }
+    )
+    reviewed_enrichment_ids = sorted(
+        str(enrichment.get("enrichment_id") or "")
+        for enrichment in current_enrichments
+        if enrichment.get("enrichment_id")
+    )
+    reviewed_assertion_ids = sorted(
+        str(row.get("assertion_id") or "") for row in reviewed_assertions if row.get("assertion_id")
+    )
     return {
         "issue_id": issue.get("issue_id"),
         "title": issue.get("title"),
         "url": issue.get("url"),
         "state": issue.get("state"),
+        "assessment_scope": scope,
         "applicability": status,
         "reason": reason,
         "remediation": remediation,
         "target_version": target_version,
         "fixed_release_lines": sorted({row.get("version_line") for row in fixed if row.get("version_line")}),
         "fix_target_relations": fix_target_relations,
-        "reviewed_assertion_ids": sorted(
-            str(row.get("assertion_id") or "") for row in reviewed_assertions if row.get("assertion_id")
-        ),
+        "reviewed_assertion_ids": reviewed_assertion_ids,
         "revalidation_due_enrichment_ids": revalidation_due_enrichment_ids,
+        "decision": {
+            "matched_on": matched_on,
+            "excluded_by": excluded_by,
+            "unknowns": unknowns,
+        },
+        "requirement_evaluation": requirement_evaluation,
+        "evidence": {
+            "issue_authority_tier": issue.get("authority_tier"),
+            "version_evidence": [compact_assessment_version_evidence(row) for row in evidence[:20]],
+            "reviewed_enrichment_ids": reviewed_enrichment_ids,
+            "reviewed_assertion_ids": reviewed_assertion_ids,
+            "revalidation_due_enrichment_ids": revalidation_due_enrichment_ids,
+        },
+        "risk": risk,
+        "live_verification": {
+            "required": status != "not_applicable",
+            "playbook_available": bool(playbooks),
+            "playbook_step_count": sum(len(playbook.get("steps") or []) for playbook in playbooks),
+            "methods": playbook_methods,
+        },
         "needs_live_verification": status not in {"not_applicable"},
+    }
+
+
+def normalize_profile_identifier(value: Any) -> str:
+    return re.sub(r"[ _]+", "-", str(value or "").strip().lower())
+
+
+def evaluate_profile_requirements(
+    enrichments: Iterable[dict[str, Any]],
+    profile: dict[str, Any],
+) -> list[dict[str, Any]]:
+    evaluations: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, str, tuple[str, ...]]] = set()
+    for enrichment in enrichments:
+        enrichment_id = str(enrichment.get("enrichment_id") or "")
+        for raw_requirement in enrichment.get("applicability_requirements") or []:
+            if not isinstance(raw_requirement, dict):
+                continue
+            field = str(raw_requirement.get("field") or "")
+            operator = str(raw_requirement.get("operator") or "")
+            values = sorted({normalize_profile_identifier(value) for value in raw_requirement.get("values") or [] if str(value).strip()})
+            identity = (enrichment_id, field, operator, tuple(values))
+            if identity in seen:
+                continue
+            seen.add(identity)
+            profile_declared = field in profile
+            profile_values = {
+                normalize_profile_identifier(value)
+                for value in profile.get(field) or []
+                if str(value).strip()
+            } if profile_declared else set()
+            required_values = set(values)
+            matched_values = sorted(required_values.intersection(profile_values))
+            if not profile_declared:
+                status = "unknown"
+            elif operator == "contains_any":
+                status = "matched" if matched_values else "excluded"
+            elif operator == "contains_all":
+                status = "matched" if required_values.issubset(profile_values) else "excluded"
+            elif operator == "contains_none":
+                status = "matched" if not matched_values else "excluded"
+            else:
+                status = "unknown"
+            evaluations.append(
+                {
+                    "enrichment_id": enrichment_id,
+                    "field": field,
+                    "operator": operator,
+                    "values": values,
+                    "status": status,
+                    "matched_values": matched_values,
+                }
+            )
+    return sorted(
+        evaluations,
+        key=lambda row: (str(row["enrichment_id"]), str(row["field"]), str(row["operator"]), row["values"]),
+    )
+
+
+def issue_risk_assessment(
+    issue: dict[str, Any],
+    enrichments: Iterable[dict[str, Any]],
+) -> dict[str, Any]:
+    reviewed = [
+        (str(enrichment.get("reviewed_at") or ""), enrichment, enrichment.get("risk"))
+        for enrichment in enrichments
+        if isinstance(enrichment.get("risk"), dict)
+    ]
+    if reviewed:
+        _, enrichment, risk = sorted(reviewed, key=lambda row: row[0], reverse=True)[0]
+        return {
+            "level": str(risk.get("level") or "unrated"),
+            "source": "reviewed_enrichment",
+            "source_authority_tier": enrichment.get("authority_tier"),
+            "rationale": str(risk.get("rationale") or ""),
+            "evidence_refs": list(risk.get("evidence_refs") or []),
+            "assessed_at": risk.get("assessed_at"),
+            "enrichment_id": enrichment.get("enrichment_id"),
+        }
+    labels = [str(value) for value in issue.get("priority_labels") or []]
+    for level, aliases in [
+        ("critical", ("critical", "urgent", "p0")),
+        ("high", ("high", "p1")),
+        ("medium", ("medium", "p2")),
+        ("low", ("low", "p3", "p4")),
+    ]:
+        matched = [
+            label
+            for label in labels
+            if any(alias in re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-").split("-") for alias in aliases)
+        ]
+        if matched:
+            return {
+                "level": level,
+                "source": "upstream_priority_label",
+                "source_authority_tier": "official",
+                "rationale": "The upstream issue tracker applies a recognized priority label.",
+                "evidence_refs": matched,
+                "assessed_at": issue.get("updated_at"),
+                "enrichment_id": None,
+            }
+    return {
+        "level": "unrated",
+        "source": "none",
+        "source_authority_tier": None,
+        "rationale": "No recognized upstream priority label or current reviewed risk assessment is available.",
+        "evidence_refs": [],
+        "assessed_at": None,
+        "enrichment_id": None,
+    }
+
+
+def compact_assessment_version_evidence(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: row.get(key)
+        for key in [
+            "component",
+            "relationship",
+            "normalized_version",
+            "version_line",
+            "source_kind",
+            "source_ref",
+            "authority_tier",
+            "confidence",
+        ]
     }
 
 
@@ -1737,44 +2046,172 @@ def assess_catalog(
     rows: Iterable[dict[str, Any]],
     profile: dict[str, Any],
     *,
+    scope: str = "open",
     limit: int = 100,
     offset: int = 0,
+    catalog_metadata: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     validate_instance_profile(profile)
-    assessments = [assess_issue(row, profile) for row in rows]
+    validate_assessment_scope(scope)
+    catalog_rows = list(rows)
+    population = [row for row in catalog_rows if issue_in_assessment_scope(row, profile, scope)]
+    assessments = [assess_issue(row, profile, scope=scope) for row in population]
     priority = {"confirmed": 4, "likely": 3, "possible": 2, "insufficient_evidence": 1, "not_applicable": 0}
     selected = [row for row in assessments if row["applicability"] != "not_applicable"]
-    selected.sort(key=lambda row: (-priority.get(str(row["applicability"]), 0), str(row.get("issue_id") or "")))
+    excluded = [row for row in assessments if row["applicability"] == "not_applicable"]
+    selected.sort(
+        key=lambda row: (
+            -priority.get(str(row["applicability"]), 0),
+            -ROCK_ISSUE_RISK_RANK.get(str((row.get("risk") or {}).get("level") or "unrated"), 0),
+            0 if row.get("state") == "open" else 1,
+            str(row.get("issue_id") or ""),
+        )
+    )
     page_limit = max(1, min(limit, 500))
     page_offset = max(0, offset)
     page = selected[page_offset : page_offset + page_limit]
     next_offset = page_offset + len(page)
     has_more = next_offset < len(selected)
+    metadata = catalog_metadata or {}
+    source_record_count = metadata.get("record_count")
+    projection_matches_source = (
+        len(catalog_rows) == int(source_record_count)
+        if isinstance(source_record_count, int)
+        else None
+    )
+    if projection_matches_source is True:
+        local_catalog_status = "projection_consistent"
+        local_catalog_warning = "Local metadata confirms projection consistency only; use the hosted assessment for authoritative source-check freshness."
+    elif projection_matches_source is False:
+        local_catalog_status = "projection_mismatch"
+        local_catalog_warning = "The local issue projection count differs from its generated summary; rebuild before relying on it."
+    else:
+        local_catalog_status = "projection_only"
+        local_catalog_warning = "Local source-check metadata is unavailable; use the hosted assessment for authoritative freshness."
     return {
-        "schema": "rock-kb-rock-issue-assessment-v1",
+        "schema": "rock-kb-rock-issue-assessment-v2",
         "profile": profile,
+        "scope": scope,
         "count": len(page),
         "total_count": len(selected),
+        "evaluated_count": len(assessments),
+        "population_by_state": dict(Counter(str(row.get("state") or "unknown") for row in population)),
         "offset": page_offset,
         "limit": page_limit,
         "next_offset": next_offset if has_more else None,
         "has_more": has_more,
         "results": page,
         "counts": dict(Counter(str(row["applicability"]) for row in assessments)),
+        "exclusion_summary": build_assessment_exclusion_summary(excluded),
+        "catalog": {
+            "schema": "rock-kb-rock-issue-catalog-freshness-v1",
+            "status": local_catalog_status,
+            "freshness_authority": "local_projection_summary",
+            "projection_record_count": len(catalog_rows),
+            "source_result_count": source_record_count,
+            "projection_matches_source": projection_matches_source,
+            "source_updated_through": metadata.get("source_updated_through"),
+            "last_checked_at": None,
+            "content_changed_at": None,
+            "warning": local_catalog_warning,
+        },
         "caveat": "This is conservative routing, not proof of impact. Verify against official source, release notes, and the authorized instance.",
     }
 
 
+def build_assessment_exclusion_summary(rows: Iterable[dict[str, Any]], max_examples: int = 20) -> dict[str, Any]:
+    values = sorted(rows, key=lambda row: str(row.get("issue_id") or ""))
+    basis_counts = Counter(
+        f"{signal.get('signal') or 'unknown'}:{signal.get('basis') or 'unknown'}"
+        for row in values
+        for signal in (row.get("decision") or {}).get("excluded_by") or []
+        if isinstance(signal, dict)
+    )
+    examples = [
+        {
+            "issue_id": row.get("issue_id"),
+            "title": row.get("title"),
+            "url": row.get("url"),
+            "state": row.get("state"),
+            "reason": row.get("reason"),
+            "excluded_by": (row.get("decision") or {}).get("excluded_by") or [],
+        }
+        for row in values[:max_examples]
+    ]
+    return {
+        "count": len(values),
+        "by_basis": dict(sorted(basis_counts.items())),
+        "examples": examples,
+        "truncated": len(values) > len(examples),
+    }
+
+
 def validate_instance_profile(profile: dict[str, Any]) -> None:
-    allowed = {"core_version", "mobile_shell_version", "platforms", "concepts", "capabilities"}
+    allowed = {"core_version", "mobile_shell_version", *ROCK_ISSUE_PROFILE_LIST_FIELDS}
     unsupported = sorted(set(profile) - allowed)
     if unsupported:
         raise ValueError(f"Unsupported instance profile fields: {', '.join(unsupported)}")
     if not profile.get("core_version") and not profile.get("mobile_shell_version"):
         raise ValueError("Instance profile requires core_version or mobile_shell_version")
+    for key in ["core_version", "mobile_shell_version"]:
+        if profile.get(key) and not normalize_version(str(profile[key])):
+            raise ValueError(f"{key} must be a numeric Rock version")
+    for key in ROCK_ISSUE_PROFILE_LIST_FIELDS:
+        values = profile.get(key)
+        if values is None:
+            continue
+        if (
+            not isinstance(values, list)
+            or len(values) > 50
+            or any(
+                not isinstance(value, str)
+                or not value
+                or len(value) > 80
+                or not ROCK_ISSUE_PROFILE_VALUE_PATTERN.fullmatch(value)
+                for value in values
+            )
+        ):
+            raise ValueError(f"{key} must contain at most 50 bounded identifiers")
     serialized = json.dumps(profile, ensure_ascii=False)
     if len(serialized.encode("utf-8")) > 8192:
         raise ValueError("Instance profile exceeds 8192 bytes")
+
+
+def validate_assessment_scope(scope: str) -> None:
+    if scope not in ROCK_ISSUE_ASSESSMENT_SCOPES:
+        raise ValueError(f"Assessment scope must be one of: {', '.join(ROCK_ISSUE_ASSESSMENT_SCOPES)}")
+
+
+def issue_in_assessment_scope(issue: dict[str, Any], profile: dict[str, Any], scope: str) -> bool:
+    state = str(issue.get("state") or "")
+    if scope == "open":
+        return state == "open"
+    historical_candidate = state == "closed" and issue_has_profile_relevance(issue, profile)
+    if scope == "historical-unresolved":
+        return historical_candidate
+    return state == "open" or historical_candidate
+
+
+def issue_has_profile_relevance(issue: dict[str, Any], profile: dict[str, Any]) -> bool:
+    component = str(issue.get("component") or "")
+    profile_version = profile.get("mobile_shell_version") if component == "mobile_shell" else profile.get("core_version")
+    target_version = normalize_version(str(profile_version or ""))
+    if not target_version:
+        return False
+    for evidence in issue.get("version_evidence") or []:
+        if not isinstance(evidence, dict) or evidence.get("component") != component:
+            continue
+        if target_version in {
+            normalize_version(str(evidence.get("normalized_version") or "")),
+            normalize_version(str(evidence.get("version_line") or "")),
+        }:
+            return True
+        if version_line(target_version) == normalize_version(str(evidence.get("version_line") or "")):
+            return True
+    return any(
+        isinstance(enrichment, dict) and not enrichment_needs_revalidation(issue, enrichment)
+        for enrichment in issue.get("reviewed_enrichments") or []
+    )
 
 
 def sha256_text(value: str) -> str:

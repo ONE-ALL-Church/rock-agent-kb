@@ -30,6 +30,7 @@ ApplicabilityStatus = Literal[
     "under_investigation",
     "unknown",
 ]
+IssueRiskLevel = Literal["critical", "high", "medium", "low"]
 
 READ_ONLY_SQL_START_PATTERN = re.compile(r"^(?:SELECT|WITH)\b", re.IGNORECASE)
 SQL_WRITE_PATTERN = re.compile(
@@ -246,6 +247,45 @@ class RockIssueApplicabilityAssertion(KBRecord):
         return self
 
 
+class RockIssueProfileRequirement(KBRecord):
+    field: Literal["platforms", "capabilities", "configurations"]
+    operator: Literal["contains_any", "contains_all", "contains_none"]
+    values: list[str] = Field(min_length=1, max_length=20)
+
+    @model_validator(mode="after")
+    def validate_values(self) -> "RockIssueProfileRequirement":
+        normalized = []
+        for value in self.values:
+            value = value.strip()
+            if not value or len(value) > 80 or not re.fullmatch(r"[A-Za-z0-9._ -]+", value):
+                raise ValueError("profile requirement values must be bounded public identifiers")
+            normalized.append(value.lower())
+        if len(normalized) != len(set(normalized)):
+            raise ValueError("profile requirement values must be unique")
+        return self
+
+
+class RockIssueRiskAssessment(KBRecord):
+    level: IssueRiskLevel
+    rationale: str = Field(min_length=1, max_length=700)
+    evidence_refs: list[str] = Field(min_length=1, max_length=20)
+    assessed_at: str
+
+    @model_validator(mode="after")
+    def validate_assessed_at(self) -> "RockIssueRiskAssessment":
+        try:
+            parsed = datetime.fromisoformat(self.assessed_at.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError("risk assessed_at must be an RFC 3339 timestamp") from exc
+        if parsed.tzinfo is None:
+            raise ValueError("risk assessed_at must include a timezone")
+        if parsed.astimezone(timezone.utc) > datetime.now(timezone.utc) + timedelta(minutes=5):
+            raise ValueError("risk assessed_at cannot be in the future")
+        if any(len(value) > 500 for value in self.evidence_refs):
+            raise ValueError("risk evidence references must be at most 500 characters")
+        return self
+
+
 class RockIssueVerificationStep(KBRecord):
     step_id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]{0,79}$")
     title: str = Field(min_length=1, max_length=160)
@@ -313,6 +353,8 @@ class RockIssueReviewedEnrichment(KBRecord):
     workaround_summaries: list[str] = Field(default_factory=list, max_length=20)
     verification_playbook: RockIssueVerificationPlaybook | None = None
     applicability: list[RockIssueApplicabilityAssertion] = Field(default_factory=list)
+    applicability_requirements: list[RockIssueProfileRequirement] = Field(default_factory=list, max_length=20)
+    risk: RockIssueRiskAssessment | None = None
     source_refs: list[str] = Field(min_length=1, max_length=30)
     agent_run_ids: list[str] = Field(default_factory=list, max_length=20)
     authority_tier: AuthorityTier = "community-reviewed"
@@ -348,6 +390,22 @@ class RockIssueReviewedEnrichment(KBRecord):
             raise ValueError("source references must be at most 500 characters")
         if any(len(value) > 160 for value in self.agent_run_ids):
             raise ValueError("agent run IDs must be at most 160 characters")
+        requirement_identities = [
+            (
+                requirement.field,
+                requirement.operator,
+                tuple(sorted(value.strip().lower() for value in requirement.values)),
+            )
+            for requirement in self.applicability_requirements
+        ]
+        if len(requirement_identities) != len(set(requirement_identities)):
+            raise ValueError("applicability requirements must be unique")
+        if self.risk:
+            if any(reference not in self.source_refs for reference in self.risk.evidence_refs):
+                raise ValueError("risk evidence references must also appear in source_refs")
+            risk_assessed_at = datetime.fromisoformat(self.risk.assessed_at.replace("Z", "+00:00")).astimezone(timezone.utc)
+            if risk_assessed_at > timestamps["reviewed_at"]:
+                raise ValueError("risk assessed_at cannot be later than reviewed_at")
         if self.diagnosis_status == "hypothesis" and self.claim_tier != "routing_context_only":
             raise ValueError("hypothesis enrichments must remain routing_context_only")
         if self.diagnosis_status != "hypothesis" and self.claim_tier == "routing_context_only":

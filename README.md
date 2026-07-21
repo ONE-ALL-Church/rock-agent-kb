@@ -101,8 +101,11 @@ Agents can also search public Rock core and mobile product issues, compare their
 structured version evidence with a bounded instance profile, and generate a
 read-only multi-agent investigation plan. The published CLI can keep a private
 local issue-assessment baseline with `uvx rock-kb issues watch
-instance-profile.json` and report changes on later runs. This is a separate surface from KB
-malfunction reporting. See the [Rock Issue Intelligence Runbook](docs/runbooks/rock-issue-intelligence.md).
+instance-profile.json --scope open` and report applicability, routing, risk,
+remediation, and revalidation changes on later runs. Assessments expose source
+freshness and evidence-backed risk; no severity is inferred when evidence is
+absent. This is a separate surface from KB malfunction reporting. See the
+[Rock Issue Intelligence Runbook](docs/runbooks/rock-issue-intelligence.md).
 
 For explicit feature-gap and roadmap research, agents can search the bounded
 Rock Community Ideas metadata catalog with `uvx rock-kb ideas search "<feature

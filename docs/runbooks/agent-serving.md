@@ -24,7 +24,7 @@ Available tools:
 - `kb_get_concept`: quickstart, answers, task cards, and release caveats for one concept.
 - `kb_get_claims`: approved public claims for a concept, optionally filtered by claim tier.
 - `kb_search_rock_issues`, `kb_list_rock_issues`, and `kb_get_rock_issue`: public Rock product issue routing metadata; exact results join separately reviewed enrichments without duplicating the issue result.
-- `kb_assess_rock_issues`: conservative comparison with a bounded version/concept profile.
+- `kb_assess_rock_issues`: scoped conservative comparison with a bounded version, concept, platform, capability, and configuration profile. The V2 response separates matches, exclusions, unknowns, evidence, remediation, risk provenance, catalog freshness, and read-only verification.
 - `kb_plan_rock_issue_investigation`: typed read-only orchestrator-worker plan with no GitHub write path.
 - `kb_search_rock_ideas`, `kb_list_rock_ideas`, and `kb_get_rock_idea`: explicit feature-gap and roadmap routing; exact Idea and Issue lookups expose bounded typed relationships when evidence exists.
 - `kb_feedback`: fixed quality feedback for a public result.

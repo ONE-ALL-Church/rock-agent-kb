@@ -14,13 +14,14 @@ This surface is separate from `kb_report_issue`. Use `kb_report_issue` when the 
 - `Fixed in vX.Y` records a fix release line. It is not proof that every build in the line contains the fix.
 - `closed` is GitHub workflow state. It does not mean fixed.
 - `not_affected` requires positive reviewed evidence and a justification. Missing evidence remains unknown.
+- Risk remains `unrated` unless it comes from a recognized upstream priority label or a current reviewed, cited risk assessment.
 - All generated issue rows use `routing_context_only`; agent diagnosis is a hypothesis until reviewed and supported by source evidence.
 
 ## Three Layers
 
 1. **Public upstream catalog:** GitHub metadata, structured issue-form fields, labels, milestones, selected timeline relations, version evidence, concept routes, and explicit model-map links.
 2. **Private instance overlay:** permission-scoped, read-only church evidence. It never enters the public artifact or public vector index.
-3. **Reviewed enrichment:** public-safe diagnosis, applicability assertions, and workarounds with citations, reviewer approval, redaction, and licensing attestations.
+3. **Reviewed enrichment:** public-safe diagnosis, applicability assertions, structured platform/capability/configuration prerequisites, risk when evidence supports it, and workarounds with citations, reviewer approval, redaction, and licensing attestations.
 
 ## Maintainer Commands
 
@@ -33,8 +34,8 @@ uv run kb issues get 6917
 uv run kb issues get mobile:128
 uv run kb issues plan 6917 --include-private-instance
 uv run kb issues assemble 6917 data/review/rock-issues/workers/*.json
-uv run kb issues assess instance-profile.json
-uv run --project clients/python rock-kb issues watch instance-profile.json
+uv run kb issues assess instance-profile.json --scope open
+uv run --project clients/python rock-kb issues watch instance-profile.json --scope all-relevant
 ```
 
 Every refresh cursor-paginates and count-reconciles the complete metadata catalog. Timelines are fetched only for changed current issues plus a bounded historical backfill; `--full` expands that backfill. Supplying one or more `--timeline-issue` values switches timeline fetching to only those current or transferred issue locations, even when their cached timelines are already complete. Daily automation updates a rolling pull request only when tracked artifacts change.
@@ -52,21 +53,40 @@ An instance profile is deliberately narrow:
   "mobile_shell_version": "19.1",
   "platforms": ["ios", "android"],
   "concepts": ["mobile", "communications"],
-  "capabilities": ["chat"]
+  "capabilities": ["chat"],
+  "configurations": ["chat-enabled"]
 }
 ```
 
-Never put queries, logs, stack traces, URLs with credentials, person data, live identifiers, or private configuration in a profile.
+Never put queries, logs, stack traces, URLs with credentials, person data, live identifiers, or private configuration values in a profile. Use only bounded public identifiers that describe the presence of a reviewed capability or configuration condition.
+
+The assessment scopes are:
+
+- `open`: current upstream open issues; this is the default.
+- `historical-unresolved`: closed issues with profile-relevant version evidence or a current reviewed enrichment. Closed does not mean fixed.
+- `all-relevant`: the union, intended for upgrade preparation and older-behavior investigations.
+
+When an enrichment declares reviewed prerequisites, omitting the corresponding
+profile field leaves them unknown. Providing the field declares the complete
+bounded set for that dimension, so a missing required value is an explicit
+exclusion.
 
 `issues assess` is paginated after the complete bounded candidate set is ranked.
-The response includes `total_count`, `offset`, `limit`, `next_offset`, and
-`has_more`; callers that need every applicable issue must follow every page.
-The MCP tool accepts the same `limit` and `offset` fields.
+The V2 response includes `scope`, `evaluated_count`, `population_by_state`,
+`total_count`, `offset`, `limit`, `next_offset`, and `has_more`; callers that
+need every applicable issue must follow every page. Each result separates
+matches, unknowns, evidence, remediation, risk source, and live verification.
+`exclusion_summary` provides bounded reasons and examples for candidates ruled
+out. `catalog` reports source freshness and deployment lag. The MCP tool accepts
+the same `scope`, `limit`, and `offset` fields. See the
+[Issue Watch V2 specification](../specs/rock-issue-watch-v2.md).
 
 For repeat checks, `uvx rock-kb issues watch instance-profile.json` retrieves
 every assessment page, stores a private baseline locally, and reports newly
-relevant issues, applicability or remediation changes, issues no longer routed
-to the profile, and reviewed enrichments due for revalidation. The default
+relevant issues, applicability, routing, risk, remediation, catalog freshness,
+population, or exclusion changes, issues no longer routed to the profile, and
+reviewed enrichments due for revalidation.
+Scope is part of the baseline identity. The default
 snapshot is under `ROCK_KB_STATE_DIR`, `XDG_STATE_HOME/rock-kb`, or
 `~/.local/state/rock-kb`; use `--state <path>` to choose another private local
 location. Snapshot files are written atomically with owner-only permissions.
@@ -87,8 +107,9 @@ Use the dedicated issue commands or MCP tools so historical issue metadata does 
 uvx rock-kb issues search "Azure blob CPU issue"
 uvx rock-kb issues list --repository core --state open --version 19.2
 uvx rock-kb issue 6919
-uvx rock-kb issues assess instance-profile.json
-uvx rock-kb issues watch instance-profile.json
+uvx rock-kb issues assess instance-profile.json --scope open
+uvx rock-kb issues assess instance-profile.json --scope historical-unresolved
+uvx rock-kb issues watch instance-profile.json --scope all-relevant
 uvx rock-kb issues plan 6919
 ```
 
@@ -109,6 +130,8 @@ A public enrichment must:
 - cite public source, docs, releases, or reproducible public tests;
 - distinguish `hypothesis`, `source_supported`, and `maintainer_confirmed` diagnosis;
 - express applicability per component and version, not as one global issue status;
+- encode only reviewed platform, capability, or configuration prerequisites as `applicability_requirements`;
+- add `risk` only when public evidence supports a level and rationale; otherwise leave it absent;
 - keep fix evidence separate from GitHub closure;
 - contain no private church evidence or copied issue discussion;
 - pass schema, public export, secret, path, and license audits;
@@ -136,6 +159,13 @@ Required trust fields include `diagnosis_status`, `authority_tier`, `claim_tier`
   "diagnosis_summary": "A concise independently written diagnosis supported by the cited public source and release evidence.",
   "workaround_summaries": [
     "A bounded workaround with prerequisites, risk, and an explicit verification step."
+  ],
+  "applicability_requirements": [
+    {
+      "field": "capabilities",
+      "operator": "contains_all",
+      "values": ["classic-checkin"]
+    }
   ],
   "applicability": [],
   "source_refs": [

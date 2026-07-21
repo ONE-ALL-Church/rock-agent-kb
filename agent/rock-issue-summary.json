@@ -1,26 +1,31 @@
 {
-  "catalog_content_hash": "5dbda422fc2241b3fbf42a3531033e66800b7d29a6eefc60ebd4dbd55c895ca4",
+  "catalog_content_hash": "210b61931ad35d0ed53751fa9f1ee94e7a8ae663d4a3e130606110beacedc9a2",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
-    "rock_core": 5676
+    "rock_core": 5677
   },
   "evidence_states": {
     "commit_linked": 15,
     "fixed_release_recorded": 3190,
     "maintainer_triaged": 1227,
-    "report_only": 1372
+    "report_only": 1373
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
-  "record_count": 5804,
+  "record_count": 5805,
   "release_note_linked_count": 889,
   "repositories": {
-    "SparkDevNetwork/Rock": 5676,
+    "SparkDevNetwork/Rock": 5677,
     "SparkDevNetwork/Rock.Mobile-Issues": 128
   },
   "reviewed_enrichment_count": 27,
   "reviewed_enrichment_metrics": {
+    "applicability_requirement_count": 5,
+    "applicability_requirement_fields": {
+      "capabilities": 3,
+      "configurations": 2
+    },
     "confidences": {
       "high": 23,
       "medium": 4
@@ -33,6 +38,8 @@
     "missing_verification_playbook_enrichment_ids": [],
     "revalidation_due_count": 0,
     "revalidation_due_enrichment_ids": [],
+    "risk_assessment_count": 0,
+    "risk_levels": {},
     "verification_playbook_count": 27,
     "verification_playbook_coverage_percent": 100.0
   },
@@ -42,19 +49,19 @@
       "body_keyword": 396,
       "github_topic_label": 1572,
       "repository_default": 1331,
-      "title_keyword": 3955
+      "title_keyword": 3957
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-20T20:25:27Z",
+  "source_updated_through": "2026-07-21T20:08:27Z",
   "states": {
     "closed": 5796,
-    "open": 8
+    "open": 9
   },
   "timeline_coverage": {
-    "complete": 310,
+    "complete": 311,
     "not_fetched": 5494,
-    "percent_complete": 5.34
+    "percent_complete": 5.36
   },
   "top_concepts": {
     "api-integrations": 105,
@@ -64,14 +71,14 @@
     "connections": 172,
     "data-views-reports": 371,
     "developer-resources": 148,
-    "documents-signatures": 91,
+    "documents-signatures": 92,
     "event-registration": 542,
     "giving-finance": 396,
     "groups": 318,
     "lava": 386,
     "mobile": 141,
     "obsidian-development": 245,
-    "people-families": 689,
+    "people-families": 690,
     "platform-configuration": 192,
     "scheduling-locations": 225,
     "security-permissions": 273,
@@ -80,6 +87,6 @@
   },
   "validation_states": {
     "confirmed": 2535,
-    "reported": 3269
+    "reported": 3270
   }
 }

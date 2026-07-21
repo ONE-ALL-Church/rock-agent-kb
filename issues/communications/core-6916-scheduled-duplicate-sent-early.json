@@ -7,6 +7,16 @@
   "workaround_summaries": [
     "For a time-sensitive send on an affected or unverified release, create a new draft from the intended template instead of duplicating a previously sent communication. Before final approval, verify that FutureSendDateTime is the intended future value, SendDateTime is null, and recipients remain pending; stop the send if those invariants do not hold."
   ],
+  "applicability_requirements": [
+    {
+      "field": "capabilities",
+      "operator": "contains_all",
+      "values": [
+        "scheduled-communications",
+        "bulk-communication-duplication"
+      ]
+    }
+  ],
   "verification_playbook": {
     "goal": "Check whether future-scheduled communications show the state that preceded the reported early-send behavior without sending, approving, or changing a communication.",
     "prerequisites": [

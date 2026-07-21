@@ -134,11 +134,13 @@ def main(argv: list[str] | None = None) -> int:
     issues_search.add_argument("query")
     issues_search.add_argument("--limit", type=int, default=10)
     issues_assess = issues_subparsers.add_parser("assess")
-    issues_assess.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, and capabilities only.")
+    issues_assess.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, capabilities, and configurations only.")
+    issues_assess.add_argument("--scope", choices=["open", "historical-unresolved", "all-relevant"], default="open")
     issues_assess.add_argument("--limit", type=int, default=100)
     issues_assess.add_argument("--offset", type=int, default=0)
     issues_watch = issues_subparsers.add_parser("watch", help="Store a private local baseline and report changes in relevant public Rock issues.")
-    issues_watch.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, and capabilities only.")
+    issues_watch.add_argument("profile", type=Path, help="Bounded JSON profile with versions, platforms, concepts, capabilities, and configurations only.")
+    issues_watch.add_argument("--scope", choices=["open", "historical-unresolved", "all-relevant"], default="open")
     issues_watch.add_argument("--state", type=Path, help="Private local snapshot path. Defaults under the user state directory.")
     issues_watch.add_argument("--page-size", type=int, default=500)
     issues_watch.add_argument("--reset", action="store_true", help="Replace any existing baseline after a complete assessment succeeds.")
@@ -329,7 +331,7 @@ def main(argv: list[str] | None = None) -> int:
             profile = json.loads(args.profile.read_text(encoding="utf-8"))
             if not isinstance(profile, dict):
                 parser.error("issues assess profile must contain a JSON object")
-            payload = {"profile": profile, "limit": args.limit}
+            payload = {"profile": profile, "scope": args.scope, "limit": args.limit}
             if args.offset:
                 payload["offset"] = args.offset
             return print_json(post_json(f"{base_url}/rock-issues/assess", payload))
@@ -342,6 +344,7 @@ def main(argv: list[str] | None = None) -> int:
                     profile=profile,
                     service=base_url,
                     fetch_page=lambda payload: post_json(f"{base_url}/rock-issues/assess", payload),
+                    scope=args.scope,
                     state_path=args.state,
                     page_size=args.page_size,
                     reset=bool(args.reset),
