@@ -3593,15 +3593,48 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
 }
 
 async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
-  const [operations, projection] = await Promise.all([
+  const [operations, projection, metadata] = await Promise.all([
     sourceOperationsSnapshot(env, asOf),
     env.KB_DB.prepare("SELECT COUNT(*) AS count FROM rock_issues").first<{ count: number }>(),
+    env.KB_DB.prepare(
+      "SELECT key, value FROM kb_meta WHERE key IN ('rock_issue_catalog_content_hash', 'rock_issue_source_content_hashes')",
+    ).all<{ key: string; value: string }>(),
   ]);
   const issueFreshness = asRecord(operations.rock_issues);
   const sources = Array.isArray(issueFreshness.sources) ? issueFreshness.sources.map(asRecord) : [];
   const sourceResultCount = Number(issueFreshness.result_count || 0);
   const projectionRecordCount = Number(projection?.count || 0);
-  const projectionMatchesSource = sources.length > 0 ? sourceResultCount === projectionRecordCount : null;
+  const projectionMetadata = Object.fromEntries(
+    (metadata.results || []).map((row) => [String(row.key || ""), String(row.value || "")]),
+  );
+  const projectionCatalogContentHash = projectionMetadata.rock_issue_catalog_content_hash || null;
+  const projectionSourceContentHashes = asRecord(
+    parseStoredJson(projectionMetadata.rock_issue_source_content_hashes, {}),
+  );
+  const sourceContentHashes = Object.fromEntries(
+    sources.map((row) => [String(row.source_id || ""), String(row.content_hash || "")]),
+  );
+  const contentHashComparisons = sources.map((row) => {
+    const sourceId = String(row.source_id || "");
+    const sourceContentHash = String(row.content_hash || "");
+    const projectionContentHash = String(projectionSourceContentHashes[sourceId] || "");
+    return {
+      source_id: sourceId,
+      source_content_hash: sourceContentHash || null,
+      projection_content_hash: projectionContentHash || null,
+      matches: sourceContentHash && projectionContentHash ? sourceContentHash === projectionContentHash : null,
+    };
+  });
+  const projectionCountMatchesSource = sources.length > 0 ? sourceResultCount === projectionRecordCount : null;
+  const projectionContentMatchesSource = contentHashComparisons.length > 0
+    && contentHashComparisons.every((row) => row.matches !== null)
+    ? contentHashComparisons.every((row) => row.matches === true)
+    : null;
+  const projectionMatchesSource = projectionCountMatchesSource === false || projectionContentMatchesSource === false
+    ? false
+    : projectionCountMatchesSource === true && projectionContentMatchesSource === true
+      ? true
+      : null;
   const sourceStatuses = uniqueStrings(sources.map((row) => row.status));
   let status = "current";
   let warning: string | null = null;
@@ -3611,9 +3644,16 @@ async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Pr
   } else if (sourceStatuses.some((value) => ["failed", "missing", "overdue"].includes(value))) {
     status = "source_stale";
     warning = "One or more Rock issue sources are failed, missing, or overdue.";
-  } else if (!projectionMatchesSource) {
+  } else if (projectionMatchesSource === false) {
     status = "deployment_lag";
-    warning = "The source refresh result count does not match the deployed issue projection.";
+    warning = projectionCountMatchesSource === false && projectionContentMatchesSource === false
+      ? "The source refresh result count and content hash do not match the deployed issue projection."
+      : projectionCountMatchesSource === false
+        ? "The source refresh result count does not match the deployed issue projection."
+        : "The source refresh content hash does not match the deployed issue projection.";
+  } else if (projectionMatchesSource === null) {
+    status = "not_recorded";
+    warning = "The deployed Rock issue projection does not include comparable content-hash metadata.";
   }
   return {
     schema: "rock-kb-rock-issue-catalog-freshness-v1",
@@ -3623,8 +3663,14 @@ async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Pr
     last_checked_at: uniqueStrings(sources.map((row) => row.last_checked_at)).sort().at(-1) || null,
     content_changed_at: uniqueStrings(sources.map((row) => row.content_changed_at)).sort().at(-1) || null,
     source_result_count: sourceResultCount,
+    source_content_hashes: sourceContentHashes,
     projection_record_count: projectionRecordCount,
+    projection_catalog_content_hash: projectionCatalogContentHash,
+    projection_source_content_hashes: projectionSourceContentHashes,
+    projection_count_matches_source: projectionCountMatchesSource,
+    projection_content_matches_source: projectionContentMatchesSource,
     projection_matches_source: projectionMatchesSource,
+    content_hash_comparisons: contentHashComparisons,
     warning,
   };
 }

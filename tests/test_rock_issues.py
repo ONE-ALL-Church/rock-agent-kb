@@ -192,7 +192,11 @@ def test_issue_assessment_scopes_keep_open_and_historical_populations_explicit()
         [closed, opened],
         profile,
         scope="open",
-        catalog_metadata={"record_count": 2, "source_updated_through": "2026-07-14T22:33:30Z"},
+        catalog_metadata={
+            "record_count": 2,
+            "catalog_content_hash": rock_issues.stable_hash([closed, opened]),
+            "source_updated_through": "2026-07-14T22:33:30Z",
+        },
     )
     historical = assess_catalog([closed, opened], profile, scope="historical-unresolved")
     all_relevant = assess_catalog([closed, opened], profile, scope="all-relevant")
@@ -202,11 +206,41 @@ def test_issue_assessment_scopes_keep_open_and_historical_populations_explicit()
     assert open_result["population_by_state"] == {"open": 1}
     assert open_result["catalog"]["status"] == "projection_consistent"
     assert open_result["catalog"]["freshness_authority"] == "local_projection_summary"
+    assert open_result["catalog"]["projection_count_matches_source"] is True
+    assert open_result["catalog"]["projection_content_matches_source"] is True
     assert [row["issue_id"] for row in open_result["results"]] == [opened["issue_id"]]
     assert historical["population_by_state"] == {"closed": 1}
     assert [row["issue_id"] for row in historical["results"]] == [closed["issue_id"]]
     assert all_relevant["population_by_state"] == {"closed": 1, "open": 1}
     assert all_relevant["total_count"] == 2
+
+
+def test_local_issue_freshness_detects_same_count_content_change():
+    closed_raw, timeline = core_issue()
+    closed = normalize_issue("SparkDevNetwork/Rock", closed_raw, timeline=timeline)
+    metadata = {
+        "record_count": 1,
+        "catalog_content_hash": rock_issues.stable_hash([closed]),
+    }
+    consistent = assess_catalog(
+        [{**closed, "reviewed_enrichments": []}],
+        {"core_version": "19.3.1"},
+        scope="historical-unresolved",
+        catalog_metadata=metadata,
+    )
+    changed = {**closed, "title": "Changed after the generated summary"}
+    result = assess_catalog(
+        [{**changed, "reviewed_enrichments": []}],
+        {"core_version": "19.3.1"},
+        scope="historical-unresolved",
+        catalog_metadata=metadata,
+    )
+
+    assert consistent["catalog"]["projection_content_matches_source"] is True
+    assert result["catalog"]["status"] == "projection_mismatch"
+    assert result["catalog"]["projection_count_matches_source"] is True
+    assert result["catalog"]["projection_content_matches_source"] is False
+    assert result["catalog"]["projection_matches_source"] is False
 
 
 def test_issue_risk_requires_upstream_priority_or_current_reviewed_evidence():

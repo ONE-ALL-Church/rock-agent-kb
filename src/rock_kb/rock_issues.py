@@ -2074,20 +2074,38 @@ def assess_catalog(
     has_more = next_offset < len(selected)
     metadata = catalog_metadata or {}
     source_record_count = metadata.get("record_count")
-    projection_matches_source = (
+    source_catalog_content_hash = str(metadata.get("catalog_content_hash") or "") or None
+    projection_catalog_content_hash = stable_hash(
+        [
+            {key: value for key, value in row.items() if key != "reviewed_enrichments"}
+            for row in catalog_rows
+        ]
+    )
+    projection_count_matches_source = (
         len(catalog_rows) == int(source_record_count)
         if isinstance(source_record_count, int)
         else None
     )
+    projection_content_matches_source = (
+        projection_catalog_content_hash == source_catalog_content_hash
+        if source_catalog_content_hash
+        else None
+    )
+    if projection_count_matches_source is False or projection_content_matches_source is False:
+        projection_matches_source = False
+    elif projection_count_matches_source is True and projection_content_matches_source is True:
+        projection_matches_source = True
+    else:
+        projection_matches_source = None
     if projection_matches_source is True:
         local_catalog_status = "projection_consistent"
-        local_catalog_warning = "Local metadata confirms projection consistency only; use the hosted assessment for authoritative source-check freshness."
+        local_catalog_warning = "Local count and content-hash metadata confirm projection consistency only; use the hosted assessment for authoritative source-check freshness."
     elif projection_matches_source is False:
         local_catalog_status = "projection_mismatch"
-        local_catalog_warning = "The local issue projection count differs from its generated summary; rebuild before relying on it."
+        local_catalog_warning = "The local issue projection count or content hash differs from its generated summary; rebuild before relying on it."
     else:
         local_catalog_status = "projection_only"
-        local_catalog_warning = "Local source-check metadata is unavailable; use the hosted assessment for authoritative freshness."
+        local_catalog_warning = "Comparable local count and content-hash metadata are unavailable; use the hosted assessment for authoritative freshness."
     return {
         "schema": "rock-kb-rock-issue-assessment-v2",
         "profile": profile,
@@ -2109,6 +2127,10 @@ def assess_catalog(
             "freshness_authority": "local_projection_summary",
             "projection_record_count": len(catalog_rows),
             "source_result_count": source_record_count,
+            "source_catalog_content_hash": source_catalog_content_hash,
+            "projection_catalog_content_hash": projection_catalog_content_hash,
+            "projection_count_matches_source": projection_count_matches_source,
+            "projection_content_matches_source": projection_content_matches_source,
             "projection_matches_source": projection_matches_source,
             "source_updated_through": metadata.get("source_updated_through"),
             "last_checked_at": None,

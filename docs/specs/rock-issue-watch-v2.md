@@ -86,20 +86,27 @@ only; it never replaces applicability evidence.
 
 Hosted `catalog.status` is one of:
 
-- `current`: source checks are current and source/result counts match the
-  deployed projection;
+- `current`: source checks are current and both source/result counts and
+  per-source content hashes match the deployed projection;
 - `source_stale`: one or more Rock issue sources are failed, missing, or
   overdue;
 - `deployment_lag`: source checks succeeded but source and deployed projection
-  counts differ;
+  counts or content hashes differ;
 - `not_recorded`: authoritative source-check metadata is unavailable.
 
 Read `catalog.warning` before relying on the assessment. A stale source or
 deployment lag is a reason to refresh or wait for deployment, not a reason to
 silently treat old results as current.
 
-The local maintainer CLI cannot read hosted source-operation state. It reports
-`projection_consistent`, `projection_mismatch`, or `projection_only` and sets
+Hosted responses expose `projection_count_matches_source`,
+`projection_content_matches_source`, the overall `projection_matches_source`,
+the deployed catalog hash, and bounded per-source hash comparisons. Count-only
+agreement is insufficient because an issue can change state, labels, routing,
+or remediation without changing the number of catalog rows.
+
+The local maintainer CLI cannot read hosted source-operation state. It compares
+both the generated summary count and catalog hash, reports
+`projection_consistent`, `projection_mismatch`, or `projection_only`, and sets
 `freshness_authority: local_projection_summary`. Only a hosted assessment with
 `freshness_authority: hosted_source_operations` can report authoritative source
 check age and deployment lag.

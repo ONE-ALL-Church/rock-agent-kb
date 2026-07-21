@@ -456,6 +456,9 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert "CREATE TABLE search_row_concepts" in sql
     assert "CREATE TABLE search_row_aliases" in sql
     assert "'artifact_prefix'" in sql
+    assert "'rock_issue_catalog_content_hash'" in sql
+    assert "'rock_issue_record_count'" in sql
+    assert "'rock_issue_source_content_hashes'" in sql
     assert f"'versions/{projection.version}'" in sql
     assert projection.retrieval_document_count == projection.search_row_count
     assert (projection.dist / "retrieval-documents.jsonl").exists()
@@ -466,7 +469,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.2.0"
+    assert skill_manifest["skill_version"] == "1.2.1"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))
@@ -532,6 +535,31 @@ def test_build_d1_seed_sql_switches_artifact_prefix_after_projection_rows():
     assert "DROP TABLE IF EXISTS kb_meta" not in sql
     assert "('artifact_prefix', 'slots/b') ON CONFLICT(key)" in sql
     assert sql.rfind("'artifact_prefix'") > sql.rfind("CREATE TABLE rock_issue_enrichments")
+
+
+def test_build_d1_seed_sql_records_issue_projection_content_hashes():
+    catalog_hash = "a" * 64
+    core_hash = service_projection.sha256_text(f"rock_core_issues:{catalog_hash}:7")
+    mobile_hash = service_projection.sha256_text(f"rock_mobile_issues:{catalog_hash}:3")
+    sql = build_d1_seed_sql(
+        version="abc123",
+        generated_at="2026-07-21T00:00:00Z",
+        search_rows=[],
+        org_rows=[],
+        rock_issue_summary={
+            "record_count": 10,
+            "catalog_content_hash": catalog_hash,
+            "repositories": {
+                "SparkDevNetwork/Rock": 7,
+                "SparkDevNetwork/Rock.Mobile-Issues": 3,
+            },
+        },
+    )
+
+    assert f"'rock_issue_catalog_content_hash', '{catalog_hash}'" in sql
+    assert "'rock_issue_record_count', '10'" in sql
+    assert core_hash in sql
+    assert mobile_hash in sql
 
 
 def test_build_d1_seed_sql_projects_canonical_related_content_edges(monkeypatch, tmp_path):
