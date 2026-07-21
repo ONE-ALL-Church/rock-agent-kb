@@ -10,6 +10,7 @@ from ..jsonl import read_jsonl
 from ..paths import DATA_DIR
 from ..rock_issues import (
     ROCK_ISSUE_PATH,
+    ROCK_ISSUE_SUMMARY_PATH,
     assemble_investigation_packet,
     assess_catalog,
     attach_issue_enrichments,
@@ -133,6 +134,11 @@ def plan_command(
 @app.command("assess")
 def assess_command(
     profile: Path = typer.Argument(..., exists=True, dir_okay=False, help="Bounded JSON instance profile; never provide logs or private identifiers."),
+    scope: str = typer.Option(
+        "open",
+        "--scope",
+        help="Issue population: open, historical-unresolved, or all-relevant.",
+    ),
     limit: int = typer.Option(100, "--limit", min=1, max=500),
     offset: int = typer.Option(0, "--offset", min=0),
 ) -> None:
@@ -142,7 +148,23 @@ def assess_command(
         raise typer.BadParameter("Profile must be a JSON object")
     enrichments = issue_enrichments_by_id()
     rows = (attach_issue_enrichments(row, enrichments) for row in read_jsonl(ROCK_ISSUE_PATH))
-    print_json(data=assess_catalog(rows, payload, limit=limit, offset=offset))
+    catalog_metadata = (
+        json.loads(ROCK_ISSUE_SUMMARY_PATH.read_text(encoding="utf-8"))
+        if ROCK_ISSUE_SUMMARY_PATH.exists()
+        else None
+    )
+    try:
+        assessment = assess_catalog(
+            rows,
+            payload,
+            scope=scope,
+            limit=limit,
+            offset=offset,
+            catalog_metadata=catalog_metadata,
+        )
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    print_json(data=assessment)
 
 
 @app.command("assemble")

@@ -128,10 +128,15 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
 
     @mcp.tool(
         name="kb_assess_rock_issues",
-        description="Conservatively route issues against a bounded profile. Never provide logs, identifiers, or person data.",
+        description="Conservatively route an explicit open, historical-unresolved, or all-relevant issue population against a bounded profile. Never provide logs, identifiers, or person data.",
     )
-    def kb_assess_rock_issues(profile: dict[str, Any], limit: int = 100, offset: int = 0) -> dict[str, Any]:
-        return retrieval.assess_rock_issues(profile, limit=limit, offset=offset)
+    def kb_assess_rock_issues(
+        profile: dict[str, Any],
+        scope: str = "open",
+        limit: int = 100,
+        offset: int = 0,
+    ) -> dict[str, Any]:
+        return retrieval.assess_rock_issues(profile, scope=scope, limit=limit, offset=offset)
 
     @mcp.tool(
         name="kb_plan_rock_issue_investigation",

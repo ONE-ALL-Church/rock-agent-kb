@@ -5,6 +5,22 @@
   "diagnosis_status": "source_supported",
   "diagnosis_summary": "Current public Rock source gives queues a default 300-second time to live, leaves StartTaskQueue on that default, and registers every consumer for a queue on one receive endpoint. The in-memory transport adds no Rock-specific consume timeout or concurrency policy. This confirms a shared queue and expiration boundary, but source inspection alone does not prove that one blocked consumer stops all delivery or that every expired message is silent. The reported mechanism remains under investigation.",
   "workaround_summaries": [],
+  "applicability_requirements": [
+    {
+      "field": "capabilities",
+      "operator": "contains_all",
+      "values": [
+        "start-task-queue"
+      ]
+    },
+    {
+      "field": "configurations",
+      "operator": "contains_all",
+      "values": [
+        "bus-transport-in-memory"
+      ]
+    }
+  ],
   "verification_playbook": {
     "goal": "Determine whether the instance uses the reported in-memory StartTaskQueue configuration and has bounded evidence of delayed or expired work, without blocking a consumer.",
     "prerequisites": [

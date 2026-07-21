@@ -4,13 +4,15 @@ This directory routes agents to public Rock core and mobile issue metadata witho
 
 ## Current Catalog
 
-- Issues: `5804`
-- Source updated through: `2026-07-20T20:25:27Z`
-- Timelines captured: `310` (`5.34%`)
+- Issues: `5805`
+- Source updated through: `2026-07-21T20:08:27Z`
+- Timelines captured: `311` (`5.36%`)
 - Issues linked to official release notes: `889`
 - Reviewed public enrichments: `27`
 - Reviewed issues: `27`
 - Instance verification playbooks: `27` (`100.0%` coverage)
+- Reviewed applicability prerequisites: `5`
+- Reviewed risk assessments: `0`
 - Enrichments due for revalidation after an upstream update: `0`
 - Public artifact: [`agent/rock-issues.jsonl`](../../agent/rock-issues.jsonl)
 - Reviewed enrichments: [`agent/rock-issue-enrichments.jsonl`](../../agent/rock-issue-enrichments.jsonl)
@@ -18,10 +20,13 @@ This directory routes agents to public Rock core and mobile issue metadata witho
 
 ## Agent Order
 
-1. Use the issue catalog to find reports, labels, version evidence, linked commits, concepts, and model-map routes.
-2. Treat `reported_affected` as a reporter observation, not proof that every installation or release is affected.
-3. Prefer an official `release_note` version row over issue labels alone, while still treating a release line as broader than an exact build.
-4. Corroborate with official docs, release notes, public source, and read-only instance evidence before recommending action.
-5. Keep private instance evidence in a permission-scoped overlay. Promote only reviewed, redacted, source-linked conclusions.
+1. Assess `open` issues by default. Request `historical-unresolved` or `all-relevant` explicitly when preparing upgrades or investigating older behavior.
+2. Use the issue catalog to find reports, labels, version evidence, linked commits, concepts, model-map routes, and reviewed prerequisites.
+3. Treat `reported_affected` as a reporter observation, not proof that every installation or release is affected.
+4. Prefer an official `release_note` version row over issue labels alone, while still treating a release line as broader than an exact build.
+5. Keep risk `unrated` unless it comes from an upstream priority label or a current reviewed risk assessment.
+6. Read `catalog.status` and `catalog.warning` before relying on a result, then use the linked read-only verification playbook where available.
+7. Corroborate with official docs, release notes, public source, and read-only instance evidence before recommending action.
+8. Keep private instance evidence in a permission-scoped overlay. Promote only reviewed, redacted, source-linked conclusions.
 
 Closed does not mean fixed. Missing version evidence means unknown, and `not_affected` requires positive reviewed evidence.

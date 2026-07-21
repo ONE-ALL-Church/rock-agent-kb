@@ -142,11 +142,19 @@ issue automatically.
 Rock product issue commands are read-only and separate from `report-issue`,
 which reports a malfunction in the KB itself. Product issue reports are routing
 evidence, not proof of local impact or cause. `issues assess` accepts only a
-bounded JSON profile containing versions, platforms, concept IDs, and capability
-names; never include logs, queries, private identifiers, or person data.
-`issues watch` follows every assessment page and stores an owner-only local
-snapshot so later runs can report issue applicability, remediation, and
-revalidation changes. The snapshot defaults under the user state directory;
+bounded JSON profile containing versions, platforms, concept IDs, capability
+names, and public configuration identifiers; never include logs, queries,
+private identifiers, configuration values, or person data. Use `--scope open`
+by default, `--scope historical-unresolved` for relevant closed reports, or
+`--scope all-relevant` for upgrade preparation.
+
+The V2 assessment exposes matched, excluded, and unknown signals; compact
+evidence; remediation; evidence-backed risk; source freshness; and available
+read-only verification. Risk remains `unrated` without an upstream priority
+label or current reviewed risk evidence. `issues watch` follows every
+assessment page and stores an owner-only, scope-specific local snapshot so
+later runs can report applicability, routing, risk, remediation, freshness,
+population, exclusion, and revalidation changes. The snapshot defaults under the user state directory;
 override it with `--state`, preview with `--no-write`, or replace the baseline
 with `--reset`. Only the bounded profile is sent to the hosted service. The
 snapshot is never uploaded and does not retain the profile itself.

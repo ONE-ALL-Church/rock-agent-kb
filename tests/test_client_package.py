@@ -826,7 +826,11 @@ def test_client_rock_issue_commands_use_dedicated_read_only_endpoints(monkeypatc
     assert posts == [
         (
             "https://example.test/rock-issues/assess",
-            {"profile": {"core_version": "19.2.0", "concepts": ["hosting-infrastructure"]}, "limit": 25},
+            {
+                "profile": {"core_version": "19.2.0", "concepts": ["hosting-infrastructure"]},
+                "scope": "open",
+                "limit": 25,
+            },
         )
     ]
 
@@ -886,11 +890,20 @@ def test_client_issue_watch_collects_all_pages_and_detects_changes(tmp_path):
     assert [row["issue_id"] for row in first["results"]] == [row["issue_id"] for row in rows]
     assert stat.S_IMODE(state_path.stat().st_mode) == 0o600
     state = json.loads(state_path.read_text(encoding="utf-8"))
+    assert state["schema"] == "rock-kb-issue-watch-state-v2"
+    assert state["scope"] == "open"
+    assert state["catalog"]["status"] == "current"
     assert "profile" not in state
     assert state["profile_sha256"] == first["profile_sha256"]
 
     changed = [
-        issue_assessment_row("rock_issue:SparkDevNetwork/Rock#1", "confirmed", "candidate_fix", revalidation=["enrichment:1"]),
+        issue_assessment_row(
+            "rock_issue:SparkDevNetwork/Rock#1",
+            "confirmed",
+            "candidate_fix",
+            revalidation=["enrichment:1"],
+            risk_level="high",
+        ),
         issue_assessment_row("rock_issue:SparkDevNetwork/Rock#3", "confirmed", "official_fix_recorded"),
         issue_assessment_row("rock_issue:SparkDevNetwork/Rock#4", "possible", "none_recorded"),
     ]
@@ -907,7 +920,10 @@ def test_client_issue_watch_collects_all_pages_and_detects_changes(tmp_path):
     assert [row["issue_id"] for row in second["changes"]["no_longer_relevant"]] == ["rock_issue:SparkDevNetwork/Rock#2"]
     assert second["changes"]["applicability_changed"][0]["issue_id"].endswith("#1")
     assert second["changes"]["remediation_changed"][0]["issue_id"].endswith("#1")
+    assert second["changes"]["risk_changed"][0]["issue_id"].endswith("#1")
     assert second["changes"]["revalidation_due"][0]["issue_id"].endswith("#1")
+    assert second["changes"]["population_changed"] is None
+    assert second["changes"]["catalog_changed"] is None
 
 
 def test_client_issue_watch_does_not_replace_state_after_incomplete_page(tmp_path):
@@ -926,15 +942,20 @@ def test_client_issue_watch_does_not_replace_state_after_incomplete_page(tmp_pat
 
     def incomplete(_payload):
         return {
-            "schema": "rock-kb-rock-issue-assessment-v1",
+            "schema": "rock-kb-rock-issue-assessment-v2",
             "projection_version": "test-v1",
+            "scope": "open",
+            "catalog": {"status": "current"},
             "count": 1,
             "total_count": 2,
+            "evaluated_count": 2,
+            "population_by_state": {"open": 2},
             "offset": 0,
             "limit": 500,
             "next_offset": None,
             "has_more": False,
             "counts": {"possible": 2},
+            "exclusion_summary": {"count": 0, "by_basis": {}, "examples": [], "truncated": False},
             "results": baseline,
         }
 
@@ -950,12 +971,57 @@ def test_client_issue_watch_does_not_replace_state_after_incomplete_page(tmp_pat
     assert state_path.read_bytes() == before
 
 
-def issue_assessment_row(issue_id, applicability, remediation, *, revalidation=None):
+def test_client_issue_watch_state_isolated_by_assessment_scope(monkeypatch, tmp_path):
+    from rock_kb_client.issue_watch import default_state_path
+
+    monkeypatch.setenv("ROCK_KB_STATE_DIR", str(tmp_path))
+    profile = {"core_version": "19.2.0"}
+
+    assert default_state_path(profile, "https://example.test", "open") != default_state_path(
+        profile,
+        "https://example.test",
+        "historical-unresolved",
+    )
+
+
+def test_client_issue_watch_reports_catalog_population_and_exclusion_changes(tmp_path):
+    from rock_kb_client.issue_watch import run_issue_watch
+
+    state_path = tmp_path / "watch.json"
+    profile = {"core_version": "19.2.0"}
+    rows = [issue_assessment_row("rock_issue:SparkDevNetwork/Rock#1", "possible", "none_recorded")]
+    run_issue_watch(
+        profile=profile,
+        service="https://example.test",
+        fetch_page=assessment_page_fetcher(rows),
+        state_path=state_path,
+    )
+
+    changed = run_issue_watch(
+        profile=profile,
+        service="https://example.test",
+        fetch_page=assessment_page_fetcher(
+            rows,
+            catalog_status="source_stale",
+            exclusion_count=1,
+            evaluated_count=2,
+        ),
+        state_path=state_path,
+    )
+
+    assert changed["status"] == "updated"
+    assert changed["changes"]["catalog_changed"]["after"]["status"] == "source_stale"
+    assert changed["changes"]["exclusion_summary_changed"]["after"]["count"] == 1
+    assert changed["changes"]["population_changed"]["after"]["evaluated_count"] == 2
+
+
+def issue_assessment_row(issue_id, applicability, remediation, *, revalidation=None, risk_level="unrated"):
     return {
         "issue_id": issue_id,
         "title": issue_id,
         "url": f"https://github.com/{issue_id.split(':', 1)[1].replace('#', '/issues/')}",
         "state": "open",
+        "assessment_scope": "open",
         "applicability": applicability,
         "reason": "Fixture evidence.",
         "remediation": remediation,
@@ -964,11 +1030,20 @@ def issue_assessment_row(issue_id, applicability, remediation, *, revalidation=N
         "fix_target_relations": [],
         "reviewed_assertion_ids": [],
         "revalidation_due_enrichment_ids": revalidation or [],
+        "decision": {"matched_on": [], "excluded_by": [], "unknowns": []},
+        "requirement_evaluation": [],
+        "risk": {
+            "level": risk_level,
+            "source": "reviewed_enrichment" if risk_level != "unrated" else "none",
+            "rationale": "Fixture risk evidence." if risk_level != "unrated" else "No reviewed risk evidence.",
+            "evidence_refs": ["https://example.test/evidence"] if risk_level != "unrated" else [],
+        },
+        "live_verification": {"required": True, "playbook_available": False, "playbook_step_count": 0, "methods": []},
         "needs_live_verification": True,
     }
 
 
-def assessment_page_fetcher(rows):
+def assessment_page_fetcher(rows, *, catalog_status="current", exclusion_count=0, evaluated_count=None):
     def fetch(payload):
         offset = payload["offset"]
         limit = payload["limit"]
@@ -976,15 +1051,29 @@ def assessment_page_fetcher(rows):
         next_offset = offset + len(page)
         has_more = next_offset < len(rows)
         return {
-            "schema": "rock-kb-rock-issue-assessment-v1",
+            "schema": "rock-kb-rock-issue-assessment-v2",
             "projection_version": "test-v1",
+            "scope": payload["scope"],
+            "catalog": {
+                "schema": "rock-kb-rock-issue-catalog-freshness-v1",
+                "status": catalog_status,
+                "projection_matches_source": True,
+            },
             "count": len(page),
             "total_count": len(rows),
+            "evaluated_count": evaluated_count if evaluated_count is not None else len(rows),
+            "population_by_state": {"open": evaluated_count if evaluated_count is not None else len(rows)},
             "offset": offset,
             "limit": limit,
             "next_offset": next_offset if has_more else None,
             "has_more": has_more,
             "counts": {"possible": len(rows)},
+            "exclusion_summary": {
+                "count": exclusion_count,
+                "by_basis": {"concept:no_profile_concept_match": exclusion_count} if exclusion_count else {},
+                "examples": [],
+                "truncated": False,
+            },
             "results": page,
         }
 

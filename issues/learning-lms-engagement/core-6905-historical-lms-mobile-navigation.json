@@ -7,6 +7,22 @@
   "workaround_summaries": [
     "For completed courses that must remain browsable, direct learners to the desktop workspace until the mobile selector behavior is fixed, and verify historical access with a completed test learner on every supported viewport."
   ],
+  "applicability_requirements": [
+    {
+      "field": "capabilities",
+      "operator": "contains_all",
+      "values": [
+        "lms-historical-access"
+      ]
+    },
+    {
+      "field": "configurations",
+      "operator": "contains_all",
+      "values": [
+        "lms-historical-access-enabled"
+      ]
+    }
+  ],
   "verification_playbook": {
     "goal": "Determine whether completed learners lose historical activity navigation only on narrow viewports.",
     "prerequisites": [

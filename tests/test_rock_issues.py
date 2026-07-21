@@ -155,8 +155,14 @@ def test_issue_catalog_assessment_pages_after_ranking_complete_result_set():
     raw = {**raw, "number": 6918, "html_url": "https://github.com/SparkDevNetwork/Rock/issues/6918"}
     second = normalize_issue("SparkDevNetwork/Rock", raw, timeline=timeline)
 
-    first_page = assess_catalog([second, first], {"core_version": "19.3.1"}, limit=1)
-    second_page = assess_catalog([second, first], {"core_version": "19.3.1"}, limit=1, offset=1)
+    first_page = assess_catalog([second, first], {"core_version": "19.3.1"}, scope="all-relevant", limit=1)
+    second_page = assess_catalog(
+        [second, first],
+        {"core_version": "19.3.1"},
+        scope="all-relevant",
+        limit=1,
+        offset=1,
+    )
 
     assert first_page["total_count"] == 2
     assert first_page["has_more"] is True
@@ -166,6 +172,54 @@ def test_issue_catalog_assessment_pages_after_ranking_complete_result_set():
     assert second_page["has_more"] is False
     assert second_page["next_offset"] is None
     assert second_page["results"][0]["issue_id"].endswith("#6918")
+
+
+def test_issue_assessment_scopes_keep_open_and_historical_populations_explicit():
+    closed_raw, timeline = core_issue()
+    closed = normalize_issue("SparkDevNetwork/Rock", closed_raw, timeline=timeline)
+    open_raw = {
+        **closed_raw,
+        "number": 6918,
+        "html_url": "https://github.com/SparkDevNetwork/Rock/issues/6918",
+        "state": "open",
+        "state_reason": None,
+        "closed_at": None,
+    }
+    opened = normalize_issue("SparkDevNetwork/Rock", open_raw, timeline=[])
+    profile = {"core_version": "19.3.1"}
+
+    open_result = assess_catalog(
+        [closed, opened],
+        profile,
+        scope="open",
+        catalog_metadata={"record_count": 2, "source_updated_through": "2026-07-14T22:33:30Z"},
+    )
+    historical = assess_catalog([closed, opened], profile, scope="historical-unresolved")
+    all_relevant = assess_catalog([closed, opened], profile, scope="all-relevant")
+
+    assert open_result["schema"] == "rock-kb-rock-issue-assessment-v2"
+    assert open_result["scope"] == "open"
+    assert open_result["population_by_state"] == {"open": 1}
+    assert open_result["catalog"]["status"] == "projection_consistent"
+    assert open_result["catalog"]["freshness_authority"] == "local_projection_summary"
+    assert [row["issue_id"] for row in open_result["results"]] == [opened["issue_id"]]
+    assert historical["population_by_state"] == {"closed": 1}
+    assert [row["issue_id"] for row in historical["results"]] == [closed["issue_id"]]
+    assert all_relevant["population_by_state"] == {"closed": 1, "open": 1}
+    assert all_relevant["total_count"] == 2
+
+
+def test_issue_risk_requires_upstream_priority_or_current_reviewed_evidence():
+    raw, timeline = core_issue()
+    row = normalize_issue("SparkDevNetwork/Rock", raw, timeline=timeline)
+
+    unrated = assess_issue(row, {"core_version": "19.3.1"})
+    prioritized = assess_issue({**row, "priority_labels": ["Priority: Critical"]}, {"core_version": "19.3.1"})
+
+    assert unrated["risk"]["level"] == "unrated"
+    assert unrated["risk"]["source"] == "none"
+    assert prioritized["risk"]["level"] == "critical"
+    assert prioritized["risk"]["source"] == "upstream_priority_label"
 
 
 def test_issue_investigation_plan_separates_private_worker_and_disables_writes():
@@ -325,10 +379,20 @@ def test_parse_issue_refs(value, expected):
 
 
 def test_profile_rejects_free_form_or_unbounded_fields():
+    validate_instance_profile(
+        {
+            "core_version": "19.2",
+            "platforms": ["web"],
+            "capabilities": ["scheduled-communications"],
+            "configurations": ["bus-transport-in-memory"],
+        }
+    )
     with pytest.raises(ValueError, match="Unsupported instance profile fields"):
         validate_instance_profile({"core_version": "19.2", "logs": "raw private logs"})
     with pytest.raises(ValueError, match="requires core_version"):
         validate_instance_profile({"concepts": ["check-in"]})
+    with pytest.raises(ValueError, match="bounded identifiers"):
+        validate_instance_profile({"core_version": "19.2", "configurations": ["private/value"]})
 
 
 def test_markdown_section_parser_handles_mobile_heading_punctuation():
@@ -514,6 +578,17 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
         "diagnosis_status": "source_supported",
         "diagnosis_summary": "The public source identifies the parsing path that produced the exception.",
         "workaround_summaries": ["Use the corrected build and verify one representative check-in label before rollout."],
+        "applicability_requirements": [
+            {"field": "platforms", "operator": "contains_any", "values": ["web"]},
+            {"field": "capabilities", "operator": "contains_all", "values": ["classic-checkin"]},
+            {"field": "configurations", "operator": "contains_none", "values": ["legacy-query-css-workaround"]},
+        ],
+        "risk": {
+            "level": "high",
+            "rationale": "The reviewed failure prevents a core check-in workflow on the affected build.",
+            "evidence_refs": [issue["url"]],
+            "assessed_at": "2026-07-15T00:00:00Z",
+        },
         "verification_playbook": {
             "goal": "Determine whether the installed build still sends query-stamped CSS imports into file resolution.",
             "prerequisites": ["Know the exact installed Rock build."],
@@ -565,12 +640,38 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
 
     enrichments = build_reviewed_issue_enrichments([issue])
     joined = attach_issue_enrichments(issue, {issue["issue_id"]: enrichments})
-    assessment = assess_issue(joined, {"core_version": "19.3.1"})
+    assessment = assess_issue(
+        joined,
+        {
+            "core_version": "19.3.1",
+            "platforms": ["web"],
+            "capabilities": ["classic-checkin"],
+            "configurations": [],
+        },
+    )
+    incomplete_profile = assess_issue(joined, {"core_version": "19.3.1"})
+    excluded_profile = assess_issue(
+        joined,
+        {
+            "core_version": "19.3.1",
+            "platforms": ["web"],
+            "capabilities": ["obsidian-checkin"],
+            "configurations": [],
+        },
+    )
 
     assert len(enrichments) == 1
     assert list(read_jsonl(enrichment_path)) == enrichments
     assert assessment["applicability"] == "confirmed"
     assert assessment["reviewed_assertion_ids"] == ["core-6917-affected-19.3.1"]
+    assert {row["status"] for row in assessment["requirement_evaluation"]} == {"matched"}
+    assert assessment["risk"]["level"] == "high"
+    assert assessment["risk"]["source"] == "reviewed_enrichment"
+    assert assessment["live_verification"]["playbook_available"] is True
+    assert incomplete_profile["applicability"] == "possible"
+    assert {row["status"] for row in incomplete_profile["requirement_evaluation"]} == {"unknown"}
+    assert excluded_profile["applicability"] == "not_applicable"
+    assert any(row["signal"] == "profile_requirement" for row in excluded_profile["decision"]["excluded_by"])
 
     write_jsonl(tmp_path / "agent" / "rock-issues.jsonl", [issue])
     monkeypatch.setattr(service_projection, "REPO_ROOT", tmp_path)
@@ -589,6 +690,10 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
         "verification_playbook_count": 1,
         "verification_playbook_coverage_percent": 100.0,
         "missing_verification_playbook_enrichment_ids": [],
+        "applicability_requirement_count": 3,
+        "applicability_requirement_fields": {"capabilities": 1, "configurations": 1, "platforms": 1},
+        "risk_assessment_count": 1,
+        "risk_levels": {"high": 1},
         "revalidation_due_count": 0,
         "revalidation_due_enrichment_ids": [],
     }
@@ -606,6 +711,35 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
     assert stale_assessment["applicability"] == "likely"
     assert stale_assessment["reviewed_assertion_ids"] == []
     assert stale_assessment["revalidation_due_enrichment_ids"] == ["rock_issue_enrichment:core-6917-v1"]
+
+
+def test_public_safe_18_2_4_issue_watch_regression_does_not_invent_critical_risk():
+    enrichments = rock_issues.issue_enrichments_by_id()
+    rows = [
+        attach_issue_enrichments(row, enrichments)
+        for row in read_jsonl(rock_issues.ROCK_ISSUE_PATH)
+    ]
+    profile = {
+        "core_version": "18.2.4",
+        "platforms": ["web"],
+        "concepts": ["communications", "hosting-infrastructure", "learning-lms-engagement"],
+        "capabilities": [
+            "bulk-communication-duplication",
+            "lms-historical-access",
+            "scheduled-communications",
+            "start-task-queue",
+        ],
+        "configurations": ["bus-transport-in-memory", "lms-historical-access-enabled"],
+    }
+
+    assessment = assess_catalog(rows, profile, scope="open", limit=100)
+    by_id = {row["issue_id"]: row for row in assessment["results"]}
+
+    assert by_id["rock_issue:SparkDevNetwork/Rock#6905"]["applicability"] == "possible"
+    assert by_id["rock_issue:SparkDevNetwork/Rock#6916"]["applicability"] == "possible"
+    assert by_id["rock_issue:SparkDevNetwork/Rock#6912"]["applicability"] == "insufficient_evidence"
+    assert all(row["risk"]["level"] == "unrated" for row in assessment["results"])
+    assert all(row["assessment_scope"] == "open" for row in assessment["results"])
 
 
 def test_hypothesis_enrichment_cannot_be_promoted_as_source_backed(monkeypatch, tmp_path):
@@ -661,6 +795,45 @@ def test_reviewed_enrichment_requires_revision_bound_rfc3339_timestamps():
         RockIssueReviewedEnrichment.model_validate({**payload, "reviewed_at": "not-a-date"})
     with pytest.raises(ValueError, match="cannot be in the future"):
         RockIssueReviewedEnrichment.model_validate({**payload, "reviewed_at": "2099-01-01T00:00:00Z"})
+
+
+def test_reviewed_issue_risk_and_requirements_are_provenance_bound():
+    source = "https://github.com/SparkDevNetwork/Rock/issues/6917"
+    payload = {
+        "schema": "rock-kb-rock-issue-enrichment-v1",
+        "enrichment_id": "rock_issue_enrichment:fixture-risk-v1",
+        "issue_id": "rock_issue:SparkDevNetwork/Rock#6917",
+        "diagnosis_status": "source_supported",
+        "diagnosis_summary": "A bounded fixture diagnosis.",
+        "applicability_requirements": [
+            {"field": "capabilities", "operator": "contains_all", "values": ["classic-checkin"]}
+        ],
+        "risk": {
+            "level": "high",
+            "rationale": "The cited public evidence documents a blocked operational workflow.",
+            "evidence_refs": [source],
+            "assessed_at": "2026-07-15T00:00:00Z",
+        },
+        "source_refs": [source],
+        "claim_tier": "source_backed",
+        "confidence": "medium",
+        "review_status": "approved_for_public_distillation",
+        "reviewer": "fixture-reviewer",
+        "issue_updated_at": "2026-07-14T22:33:30Z",
+        "reviewed_at": "2026-07-15T00:00:00Z",
+        "redaction_attestation": True,
+        "license_attestation": True,
+    }
+
+    assert RockIssueReviewedEnrichment.model_validate(payload).risk.level == "high"
+    with pytest.raises(ValueError, match="also appear in source_refs"):
+        RockIssueReviewedEnrichment.model_validate(
+            {**payload, "risk": {**payload["risk"], "evidence_refs": ["https://example.test/unreviewed"]}}
+        )
+    with pytest.raises(ValueError, match="must be unique"):
+        RockIssueReviewedEnrichment.model_validate(
+            {**payload, "applicability_requirements": payload["applicability_requirements"] * 2}
+        )
 
 
 @pytest.mark.parametrize(

@@ -369,19 +369,120 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     assert.equal(assessment.offset, 0);
     assert.equal(assessment.has_more, false);
     assert.equal(assessment.next_offset, null);
+    assert.equal(assessment.schema, "rock-kb-rock-issue-assessment-v2");
+    assert.equal(assessment.scope, "open");
+    assert.deepEqual(assessment.population_by_state, { open: 1 });
     assert.equal(typeof assessment.projection_version, "string");
     assert.equal(assessment.results[0].applicability, "possible");
+    assert.equal(assessment.results[0].risk.level, "high");
+    assert.equal(assessment.results[0].risk.source, "reviewed_enrichment");
+    assert.equal(assessment.results[0].requirement_evaluation[0].status, "unknown");
+    assert.equal(assessment.results[0].live_verification.playbook_available, true);
+    assert.equal(assessment.catalog.status, "not_recorded");
+    assert.equal(assessment.catalog.freshness_authority, "hosted_source_operations");
     assert.equal(assessment.results[0].needs_live_verification, true);
     assert.deepEqual(assessment.results[0].revalidation_due_enrichment_ids, ["rock_issue_enrichment:fixture-6919-stale-v1"]);
 
     const reviewedAssessResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ profile: { core_version: "19.3.1", concepts: ["hosting-infrastructure"] }, limit: 10 }),
+      body: JSON.stringify({
+        profile: {
+          core_version: "19.3.1",
+          concepts: ["hosting-infrastructure"],
+          capabilities: ["azure-blob-storage"],
+        },
+        limit: 10,
+      }),
     });
     const reviewedAssessment = await reviewedAssessResponse.json();
     assert.equal(reviewedAssessment.results[0].applicability, "confirmed");
     assert.deepEqual(reviewedAssessment.results[0].reviewed_assertion_ids, ["fixture-affected-19.3.1"]);
+
+    const excludedAssessResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        profile: {
+          core_version: "19.3.1",
+          concepts: ["hosting-infrastructure"],
+          capabilities: ["local-file-storage"],
+        },
+        limit: 10,
+      }),
+    });
+    const excludedAssessment = await excludedAssessResponse.json();
+    assert.equal(excludedAssessment.total_count, 0);
+    assert.equal(excludedAssessment.exclusion_summary.count, 1);
+    assert.equal(excludedAssessment.exclusion_summary.by_basis["profile_requirement:contains_all"], 1);
+
+    const db = await mf.getD1Database("KB_DB");
+    const closedIssue = {
+      ...get.issue,
+      issue_id: "rock_issue:SparkDevNetwork/Rock#6929",
+      github_node_id: "I_fixture_6929",
+      number: 6929,
+      title: "Historical Azure Blob Storage fixture",
+      url: "https://github.com/SparkDevNetwork/Rock/issues/6929",
+      state: "closed",
+      reviewed_enrichments: [],
+    };
+    await db.prepare("INSERT INTO rock_issues VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(closedIssue.issue_id, closedIssue.github_node_id, closedIssue.repository, closedIssue.number, closedIssue.component,
+        closedIssue.state, closedIssue.validation_state, closedIssue.title, closedIssue.url, closedIssue.updated_at,
+        closedIssue.evidence_state, JSON.stringify(closedIssue)).run();
+    await db.prepare("INSERT INTO rock_issue_versions VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(closedIssue.issue_id, "rock_core", "reported_affected", "19.2.0", "19.2", "issue_form",
+        "community-unreviewed", "medium", "section:rock version", "").run();
+    const staleEnrichment = {
+      ...get.issue.reviewed_enrichments[1],
+      enrichment_id: "rock_issue_enrichment:fixture-6930-stale-v1",
+      issue_id: "rock_issue:SparkDevNetwork/Rock#6930",
+    };
+    const staleOnlyIssue = {
+      ...get.issue,
+      issue_id: staleEnrichment.issue_id,
+      github_node_id: "I_fixture_6930",
+      number: 6930,
+      title: "Stale enrichment only fixture",
+      url: "https://github.com/SparkDevNetwork/Rock/issues/6930",
+      state: "closed",
+      version_evidence: [],
+      reviewed_enrichments: [staleEnrichment],
+    };
+    await db.prepare("INSERT INTO rock_issues VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(staleOnlyIssue.issue_id, staleOnlyIssue.github_node_id, staleOnlyIssue.repository, staleOnlyIssue.number,
+        staleOnlyIssue.component, staleOnlyIssue.state, staleOnlyIssue.validation_state, staleOnlyIssue.title,
+        staleOnlyIssue.url, staleOnlyIssue.updated_at, staleOnlyIssue.evidence_state, JSON.stringify(staleOnlyIssue)).run();
+    await db.prepare("INSERT INTO rock_issue_enrichments VALUES (?, ?, ?, ?, ?)")
+      .bind(staleEnrichment.enrichment_id, staleOnlyIssue.issue_id, staleEnrichment.diagnosis_status,
+        staleEnrichment.reviewed_at, JSON.stringify(staleEnrichment)).run();
+    const historicalResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        profile: { core_version: "19.2.0", concepts: ["hosting-infrastructure"] },
+        scope: "historical-unresolved",
+        limit: 10,
+      }),
+    });
+    const historical = await historicalResponse.json();
+    assert.equal(historical.scope, "historical-unresolved");
+    assert.deepEqual(historical.population_by_state, { closed: 1 });
+    assert.deepEqual(historical.results.map((row) => row.issue_id), [closedIssue.issue_id]);
+
+    const allRelevantResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        profile: { core_version: "19.2.0", concepts: ["hosting-infrastructure"] },
+        scope: "all-relevant",
+        limit: 10,
+      }),
+    });
+    const allRelevant = await allRelevantResponse.json();
+    assert.deepEqual(allRelevant.population_by_state, { open: 1, closed: 1 });
+    assert.equal(allRelevant.total_count, 2);
 
     const tools = await mcp(mf, "tools/list", {});
     const names = tools.result.tools.map((tool) => tool.name);
@@ -390,6 +491,8 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     assert.equal(names.includes("kb_plan_rock_issue_investigation"), true);
     const assessTool = tools.result.tools.find((tool) => tool.name === "kb_assess_rock_issues");
     assert.equal(assessTool.inputSchema.properties.offset.minimum, 0);
+    assert.deepEqual(assessTool.inputSchema.properties.scope.enum, ["open", "historical-unresolved", "all-relevant"]);
+    assert.equal(assessTool.inputSchema.properties.profile.properties.configurations.type, "array");
 
     const emptyPageCall = await mcp(mf, "tools/call", {
       name: "kb_assess_rock_issues",
@@ -826,6 +929,24 @@ test("hosted source freshness keeps workflow schedule and source content state s
     assert.equal(current.sources[0].check_status, "success");
     assert.equal(current.sources[0].status, "current");
     assert.equal(current.rock_issues.result_count, 321);
+
+    const laggingAssessment = await (await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.2.0" }, limit: 1 }),
+    })).json();
+    assert.equal(laggingAssessment.catalog.status, "deployment_lag");
+    assert.equal(laggingAssessment.catalog.source_result_count, 321);
+    assert.equal(laggingAssessment.catalog.projection_record_count, 1);
+
+    await db.prepare("UPDATE source_freshness_state_v1 SET result_count = 1 WHERE source_id = 'rock_core_issues'").run();
+    const currentAssessment = await (await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.2.0" }, limit: 1 }),
+    })).json();
+    assert.equal(currentAssessment.catalog.status, "current");
+    assert.equal(currentAssessment.catalog.projection_matches_source, true);
 
     const freshnessTool = await mcp(mf, "tools/call", { name: "kb_get_freshness", arguments: {} });
     assert.equal(freshnessTool.result.structuredContent.status, "ok");
@@ -1382,6 +1503,29 @@ async function buildWorker(options = {}) {
         issue_id: "rock_issue:SparkDevNetwork/Rock#6919",
         diagnosis_status: "source_supported",
         diagnosis_summary: "A reviewed fixture diagnosis.",
+        applicability_requirements: [{
+          field: "capabilities",
+          operator: "contains_all",
+          values: ["azure-blob-storage"],
+        }],
+        risk: {
+          level: "high",
+          rationale: "The reviewed fixture can exhaust a shared host resource.",
+          evidence_refs: ["https://github.com/SparkDevNetwork/Rock/issues/6919"],
+          assessed_at: "2026-07-15T00:00:00Z",
+        },
+        verification_playbook: {
+          goal: "Check whether the affected storage capability is enabled.",
+          steps: [{
+            step_id: "check-storage",
+            title: "Check storage configuration",
+            method: "configuration_check",
+            instructions: "Inspect the configured storage provider without changing it.",
+            expected_if_affected: "Azure Blob Storage is configured.",
+            expected_if_unaffected: "Another storage provider is configured.",
+          }],
+          production_safe: true,
+        },
         applicability: [{
           assertion_id: "fixture-affected-19.3.1",
           component: "rock_core",

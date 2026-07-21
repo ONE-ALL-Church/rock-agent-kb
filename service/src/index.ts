@@ -925,6 +925,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       asRecord(args.profile),
       boundedInt(args.limit, 100, 1, 500),
       boundedInt(args.offset, 0, 0, 100000),
+      normalizeRockIssueAssessmentScope(String(args.scope || "open")),
     );
     ctx.waitUntil(recordAccessUsage(env, "rock_issue_assess", "rock_issue", Number(result.count || 0), request, "mcp"));
     return result;
@@ -1360,40 +1361,56 @@ function normalizeRockIssueId(value: string): string {
 async function assessRockIssues(request: Request, env: ServiceEnv): Promise<JsonRecord> {
   const body = await readBoundedJson(request, 8192);
   const profile = asRecord(body.profile);
+  const scope = normalizeRockIssueAssessmentScope(String(body.scope || "open"));
   const limit = boundedInt(body.limit, 100, 1, 500);
   const offset = boundedInt(body.offset, 0, 0, 100000);
   if (!Object.keys(profile).length) {
     throw new PublicRequestError(400, "invalid_profile", "Request requires a structured profile object.");
   }
-  return assessRockIssueProfile(env, profile, limit, offset);
+  return assessRockIssueProfile(env, profile, limit, offset, scope);
 }
 
-async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limit: number, offset = 0): Promise<JsonRecord> {
+async function assessRockIssueProfile(
+  env: ServiceEnv,
+  profile: JsonRecord,
+  limit: number,
+  offset = 0,
+  scope = "open",
+): Promise<JsonRecord> {
   validateRockIssueProfile(profile);
+  scope = normalizeRockIssueAssessmentScope(scope);
   const coreVersion = normalizeRockVersion(String(profile.core_version || ""));
   const mobileVersion = normalizeRockVersion(String(profile.mobile_shell_version || ""));
-  const clauses = ["i.state = 'open'"];
+  const relevanceClauses: string[] = [];
   const bindings: unknown[] = [];
   if (coreVersion) {
-    clauses.push("(EXISTS (SELECT 1 FROM rock_issue_versions v WHERE v.issue_id = i.issue_id AND v.component = 'rock_core' AND (v.version = ? OR v.version_line = ?)) OR EXISTS (SELECT 1 FROM rock_issue_enrichments e WHERE e.issue_id = i.issue_id))");
+    relevanceClauses.push("i.component = 'rock_core' AND EXISTS (SELECT 1 FROM rock_issue_versions v WHERE v.issue_id = i.issue_id AND v.component = 'rock_core' AND (v.version = ? OR v.version_line = ?))");
     bindings.push(coreVersion, rockVersionLine(coreVersion));
   }
   if (mobileVersion) {
-    clauses.push("(EXISTS (SELECT 1 FROM rock_issue_versions v WHERE v.issue_id = i.issue_id AND v.component = 'mobile_shell' AND (v.version = ? OR v.version_line = ?)) OR EXISTS (SELECT 1 FROM rock_issue_enrichments e WHERE e.issue_id = i.issue_id))");
+    relevanceClauses.push("i.component = 'mobile_shell' AND EXISTS (SELECT 1 FROM rock_issue_versions v WHERE v.issue_id = i.issue_id AND v.component = 'mobile_shell' AND (v.version = ? OR v.version_line = ?))");
     bindings.push(mobileVersion, rockVersionLine(mobileVersion));
   }
+  relevanceClauses.push("EXISTS (SELECT 1 FROM rock_issue_enrichments e WHERE e.issue_id = i.issue_id AND json_extract(e.payload_json, '$.issue_updated_at') = i.updated_at)");
+  const historicalRelevance = `(${relevanceClauses.map((clause) => `(${clause})`).join(" OR ")})`;
+  const populationClause = scope === "open"
+    ? "i.state = 'open'"
+    : scope === "historical-unresolved"
+      ? `i.state = 'closed' AND ${historicalRelevance}`
+      : `(i.state = 'open' OR (i.state = 'closed' AND ${historicalRelevance}))`;
   const sql = `SELECT DISTINCT i.payload_json
      FROM rock_issues i
-     WHERE ${clauses.map((clause) => `(${clause})`).join(" OR ")}
+     WHERE ${populationClause}
      ORDER BY CASE i.state WHEN 'open' THEN 0 ELSE 1 END, i.updated_at DESC, i.issue_id ASC
      LIMIT ? OFFSET ?`;
+  const queryBindings = scope === "open" ? [] : bindings;
   const candidateRows: Array<{ payload_json: string }> = [];
   const batchSize = 1000;
   const maximumCandidates = 10000;
   let candidateOffset = 0;
   while (true) {
     const result = await env.KB_DB.prepare(sql)
-      .bind(...bindings, batchSize, candidateOffset)
+      .bind(...queryBindings, batchSize, candidateOffset)
       .all<{ payload_json: string }>();
     const batch = result.results || [];
     candidateRows.push(...batch);
@@ -1408,12 +1425,16 @@ async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limi
     candidateOffset += batch.length;
   }
   const assessments = candidateRows
-    .map((row) => assessOneRockIssue(JSON.parse(row.payload_json) as JsonRecord, profile));
+    .map((row) => assessOneRockIssue(JSON.parse(row.payload_json) as JsonRecord, profile, scope));
   const rank: Record<string, number> = { confirmed: 4, likely: 3, possible: 2, insufficient_evidence: 1, not_applicable: 0 };
+  const riskRank: Record<string, number> = { critical: 4, high: 3, medium: 2, low: 1, unrated: 0 };
   const selected = assessments
     .filter((row) => row.applicability !== "not_applicable")
     .sort((left, right) => (rank[String(right.applicability)] || 0) - (rank[String(left.applicability)] || 0)
+      || (riskRank[String(asRecord(right.risk).level)] || 0) - (riskRank[String(asRecord(left.risk).level)] || 0)
+      || (left.state === "open" ? 0 : 1) - (right.state === "open" ? 0 : 1)
       || String(left.issue_id).localeCompare(String(right.issue_id)));
+  const excluded = assessments.filter((row) => row.applicability === "not_applicable");
   const page = selected.slice(offset, offset + limit);
   const nextOffset = offset + page.length;
   const hasMore = nextOffset < selected.length;
@@ -1422,24 +1443,67 @@ async function assessRockIssueProfile(env: ServiceEnv, profile: JsonRecord, limi
     const key = String(row.applicability || "unknown");
     counts[key] = Number(counts[key] || 0) + 1;
   }
+  const [projectionVersion, catalog] = await Promise.all([
+    currentVersion(env),
+    rockIssueCatalogFreshness(env),
+  ]);
   return {
-    schema: "rock-kb-rock-issue-assessment-v1",
-    projection_version: await currentVersion(env),
+    schema: "rock-kb-rock-issue-assessment-v2",
+    projection_version: projectionVersion,
     profile,
+    scope,
     count: page.length,
     total_count: selected.length,
+    evaluated_count: assessments.length,
+    population_by_state: countValues(assessments.map((row) => String(row.state || "unknown"))),
     offset,
     limit,
     next_offset: hasMore ? nextOffset : null,
     has_more: hasMore,
     counts,
+    exclusion_summary: rockIssueAssessmentExclusionSummary(excluded),
     results: page,
+    catalog,
     caveat: "This is conservative routing, not proof of impact. Verify against official source, release notes, and the authorized instance.",
   };
 }
 
+function rockIssueAssessmentExclusionSummary(rows: JsonRecord[], maximumExamples = 20): JsonRecord {
+  const values = [...rows].sort((left, right) => String(left.issue_id || "").localeCompare(String(right.issue_id || "")));
+  const bases: string[] = [];
+  for (const row of values) {
+    const decision = asRecord(row.decision);
+    if (!Array.isArray(decision.excluded_by)) continue;
+    for (const rawSignal of decision.excluded_by) {
+      const signal = asRecord(rawSignal);
+      bases.push(`${String(signal.signal || "unknown")}:${String(signal.basis || "unknown")}`);
+    }
+  }
+  return {
+    count: values.length,
+    by_basis: countValues(bases),
+    examples: values.slice(0, maximumExamples).map((row) => ({
+      issue_id: row.issue_id,
+      title: row.title,
+      url: row.url,
+      state: row.state,
+      reason: row.reason,
+      excluded_by: Array.isArray(asRecord(row.decision).excluded_by) ? asRecord(row.decision).excluded_by : [],
+    })),
+    truncated: values.length > maximumExamples,
+  };
+}
+
+function normalizeRockIssueAssessmentScope(value: string): string {
+  const scope = value.trim().toLowerCase() || "open";
+  if (!["open", "historical-unresolved", "all-relevant"].includes(scope)) {
+    throw new PublicRequestError(400, "invalid_assessment_scope", "Scope must be open, historical-unresolved, or all-relevant.");
+  }
+  return scope;
+}
+
 function validateRockIssueProfile(profile: JsonRecord): void {
-  const allowed = new Set(["core_version", "mobile_shell_version", "platforms", "concepts", "capabilities"]);
+  const allowed = new Set(["core_version", "mobile_shell_version", "platforms", "concepts", "capabilities", "configurations"]);
   const unsupported = Object.keys(profile).filter((key) => !allowed.has(key));
   if (unsupported.length) throw new PublicRequestError(400, "unsupported_profile_fields", `Unsupported profile fields: ${unsupported.sort().join(", ")}`);
   if (!profile.core_version && !profile.mobile_shell_version) {
@@ -1450,7 +1514,7 @@ function validateRockIssueProfile(profile: JsonRecord): void {
       throw new PublicRequestError(400, "invalid_version", `${key} must be a numeric Rock version.`);
     }
   }
-  for (const key of ["platforms", "concepts", "capabilities"]) {
+  for (const key of ["platforms", "concepts", "capabilities", "configurations"]) {
     const values = profile[key];
     if (values === undefined) continue;
     if (!Array.isArray(values) || values.length > 50 || values.some((value) => typeof value !== "string" || value.length > 80 || !/^[A-Za-z0-9._ -]+$/.test(value))) {
@@ -1459,13 +1523,14 @@ function validateRockIssueProfile(profile: JsonRecord): void {
   }
 }
 
-function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord): JsonRecord {
+function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord, scope = "open"): JsonRecord {
   const component = String(issue.component || "");
   const targetVersion = normalizeRockVersion(String(component === "mobile_shell" ? profile.mobile_shell_version || "" : profile.core_version || ""));
   const evidence = Array.isArray(issue.version_evidence)
     ? issue.version_evidence.map(asRecord).filter((row) => row.component === component)
     : [];
   const reviewedAssertions: JsonRecord[] = [];
+  const currentEnrichments: JsonRecord[] = [];
   const revalidationDueEnrichmentIds: string[] = [];
   if (Array.isArray(issue.reviewed_enrichments)) {
     for (const rawEnrichment of issue.reviewed_enrichments) {
@@ -1475,6 +1540,7 @@ function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord): JsonRecord 
         if (enrichmentId) revalidationDueEnrichmentIds.push(enrichmentId);
         continue;
       }
+      currentEnrichments.push(enrichment);
       if (!targetVersion) continue;
       if (!Array.isArray(enrichment.applicability)) continue;
       for (const rawAssertion of enrichment.applicability) {
@@ -1486,39 +1552,91 @@ function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord): JsonRecord 
     }
   }
   const reviewedStatuses = new Set(reviewedAssertions.map((row) => String(row.status || "")));
+  const matchedOn: JsonRecord[] = [];
+  const excludedBy: JsonRecord[] = [];
+  const unknowns: JsonRecord[] = [];
   let applicability = "insufficient_evidence";
   let reason = "The instance profile does not declare the issue component version.";
-  if (targetVersion) {
-    const exactReport = evidence.some((row) => ["reported_affected", "known_affected"].includes(String(row.relationship)) && row.normalized_version === targetVersion);
-    const sameLineReport = evidence.some((row) => ["reported_affected", "known_affected"].includes(String(row.relationship)) && row.version_line === rockVersionLine(targetVersion));
-    const exactNotAffected = evidence.some((row) => row.relationship === "known_not_affected" && row.normalized_version === targetVersion);
+  if (!targetVersion) {
+    unknowns.push({ signal: "version", basis: "component_version_missing", component });
+  } else {
+    const exactReports = evidence.filter((row) => ["reported_affected", "known_affected"].includes(String(row.relationship)) && row.normalized_version === targetVersion);
+    const sameLineReports = evidence.filter((row) => ["reported_affected", "known_affected"].includes(String(row.relationship)) && row.version_line === rockVersionLine(targetVersion));
+    const exactNotAffected = evidence.filter((row) => row.relationship === "known_not_affected" && row.normalized_version === targetVersion);
     if (reviewedStatuses.has("not_affected") || reviewedStatuses.has("fixed")) {
       applicability = "not_applicable";
       reason = "Reviewed public evidence explicitly marks this component version as fixed or not affected.";
+      excludedBy.push({ signal: "version", basis: "reviewed_fixed_or_not_affected", assertion_ids: reviewedAssertionIds(reviewedAssertions) });
     } else if (reviewedStatuses.has("affected")) {
       applicability = "confirmed";
       reason = "Reviewed public evidence explicitly marks this component version as affected; instance-specific verification is still recommended.";
+      matchedOn.push({ signal: "version", basis: "reviewed_affected", assertion_ids: reviewedAssertionIds(reviewedAssertions) });
     } else if (reviewedStatuses.has("under_investigation")) {
       applicability = "possible";
       reason = "Reviewed public evidence still marks this component version as under investigation.";
-    } else if (exactNotAffected) {
+      matchedOn.push({ signal: "version", basis: "reviewed_under_investigation", assertion_ids: reviewedAssertionIds(reviewedAssertions) });
+    } else if (exactNotAffected.length) {
       applicability = "not_applicable";
       reason = "Reviewed evidence explicitly marks this component version as not affected.";
-    } else if (exactReport) {
+      excludedBy.push({ signal: "version", basis: "known_not_affected", target_version: targetVersion });
+    } else if (exactReports.length) {
       applicability = issue.validation_state === "confirmed" ? "likely" : "possible";
       reason = "The issue reports this exact component version; instance-specific verification is still required.";
-    } else if (sameLineReport) {
+      matchedOn.push({
+        signal: "version",
+        basis: "exact_report",
+        target_version: targetVersion,
+        authority_tiers: uniqueStrings(exactReports.map((row) => row.authority_tier)),
+      });
+    } else if (sameLineReports.length) {
       applicability = "possible";
       reason = "The issue reports the same release line, but patch-level applicability is not established.";
+      matchedOn.push({
+        signal: "version",
+        basis: "same_release_line_report",
+        target_version: targetVersion,
+        reported_versions: uniqueStrings(sameLineReports.map((row) => row.normalized_version)),
+      });
     } else {
       reason = "No evidence establishes applicability to this component version.";
+      unknowns.push({ signal: "version", basis: "no_matching_version_evidence", target_version: targetVersion });
     }
   }
   const profileConcepts = Array.isArray(profile.concepts) ? new Set(profile.concepts.map(String)) : new Set<string>();
   const issueConcepts = Array.isArray(issue.concept_ids) ? issue.concept_ids.map(String) : [];
-  if (profileConcepts.size && !issueConcepts.some((concept) => profileConcepts.has(concept))) {
+  if (profileConcepts.size) {
+    const matchedConcepts = issueConcepts.filter((concept) => profileConcepts.has(concept)).sort();
+    if (!matchedConcepts.length) {
+      applicability = "not_applicable";
+      reason = "The structured profile excludes every concept routed to this issue.";
+      excludedBy.push({ signal: "concept", basis: "no_profile_concept_match", issue_concepts: [...issueConcepts].sort() });
+    } else {
+      matchedOn.push({ signal: "concept", basis: "profile_concept_match", values: matchedConcepts });
+    }
+  }
+  const requirementEvaluation = evaluateRockIssueProfileRequirements(currentEnrichments, profile);
+  const excludedRequirements = requirementEvaluation.filter((row) => row.status === "excluded");
+  const unknownRequirements = requirementEvaluation.filter((row) => row.status === "unknown");
+  for (const row of requirementEvaluation) {
+    const signal = {
+      signal: "profile_requirement",
+      basis: row.operator,
+      field: row.field,
+      values: row.values,
+      enrichment_id: row.enrichment_id,
+    };
+    if (row.status === "matched") matchedOn.push(signal);
+    else if (row.status === "excluded") excludedBy.push(signal);
+    else unknowns.push(signal);
+  }
+  if (applicability !== "not_applicable" && excludedRequirements.length) {
     applicability = "not_applicable";
-    reason = "The structured profile excludes every concept routed to this issue.";
+    reason = "The structured profile explicitly contradicts a reviewed prerequisite for this issue.";
+  } else if (["confirmed", "likely"].includes(applicability) && unknownRequirements.length) {
+    applicability = "possible";
+    reason = "Version evidence matches, but the profile does not declare every reviewed prerequisite needed to confirm instance applicability.";
+  } else if (applicability !== "not_applicable" && unknownRequirements.length) {
+    reason += " Some reviewed prerequisites are not declared in the profile.";
   }
   const fixed = evidence.filter((row) => ["fixed", "first_fixed"].includes(String(row.relationship)));
   const commits = Array.isArray(issue.linked_commit_shas) ? issue.linked_commit_shas : [];
@@ -1534,20 +1652,157 @@ function assessOneRockIssue(issue: JsonRecord, profile: JsonRecord): JsonRecord 
       .map((row) => fixTargetRelation(targetVersion, String(row.normalized_version || "")))
       .filter(Boolean),
   )).sort();
+  const risk = rockIssueRiskAssessment(issue, currentEnrichments);
+  const playbooks = currentEnrichments
+    .map((enrichment) => asRecord(enrichment.verification_playbook))
+    .filter((playbook) => Object.keys(playbook).length > 0);
+  const playbookMethods = uniqueStrings(playbooks.flatMap((playbook) => Array.isArray(playbook.steps)
+    ? playbook.steps.map(asRecord).map((step) => step.method)
+    : []));
+  const currentEnrichmentIds = uniqueStrings(currentEnrichments.map((enrichment) => enrichment.enrichment_id));
+  const assertionIds = reviewedAssertionIds(reviewedAssertions);
+  const revalidationIds = uniqueStrings(revalidationDueEnrichmentIds);
   return {
     issue_id: issue.issue_id,
     title: issue.title,
     url: issue.url,
     state: issue.state,
+    assessment_scope: scope,
     applicability,
     reason,
     remediation,
     target_version: targetVersion,
     fixed_release_lines: Array.from(new Set(fixed.map((row) => String(row.version_line || "")).filter(Boolean))).sort(),
     fix_target_relations: fixTargetRelations,
-    reviewed_assertion_ids: reviewedAssertions.map((row) => String(row.assertion_id || "")).filter(Boolean).sort(),
-    revalidation_due_enrichment_ids: Array.from(new Set(revalidationDueEnrichmentIds)).sort(),
+    reviewed_assertion_ids: assertionIds,
+    revalidation_due_enrichment_ids: revalidationIds,
+    decision: { matched_on: matchedOn, excluded_by: excludedBy, unknowns },
+    requirement_evaluation: requirementEvaluation,
+    evidence: {
+      issue_authority_tier: issue.authority_tier,
+      version_evidence: evidence.slice(0, 20).map(compactRockIssueAssessmentEvidence),
+      reviewed_enrichment_ids: currentEnrichmentIds,
+      reviewed_assertion_ids: assertionIds,
+      revalidation_due_enrichment_ids: revalidationIds,
+    },
+    risk,
+    live_verification: {
+      required: applicability !== "not_applicable",
+      playbook_available: playbooks.length > 0,
+      playbook_step_count: playbooks.reduce((total, playbook) => total + (Array.isArray(playbook.steps) ? playbook.steps.length : 0), 0),
+      methods: playbookMethods,
+    },
     needs_live_verification: applicability !== "not_applicable",
+  };
+}
+
+function reviewedAssertionIds(assertions: JsonRecord[]): string[] {
+  return uniqueStrings(assertions.map((row) => row.assertion_id));
+}
+
+function uniqueStrings(values: unknown[]): string[] {
+  return Array.from(new Set(values.map((value) => String(value || "")).filter(Boolean))).sort();
+}
+
+function normalizeRockIssueProfileIdentifier(value: unknown): string {
+  return String(value || "").trim().toLowerCase().replace(/[ _]+/g, "-");
+}
+
+function evaluateRockIssueProfileRequirements(enrichments: JsonRecord[], profile: JsonRecord): JsonRecord[] {
+  const evaluations: JsonRecord[] = [];
+  const seen = new Set<string>();
+  for (const enrichment of enrichments) {
+    const enrichmentId = String(enrichment.enrichment_id || "");
+    if (!Array.isArray(enrichment.applicability_requirements)) continue;
+    for (const rawRequirement of enrichment.applicability_requirements) {
+      const requirement = asRecord(rawRequirement);
+      const field = String(requirement.field || "");
+      const operator = String(requirement.operator || "");
+      const values = uniqueStrings(Array.isArray(requirement.values)
+        ? requirement.values.map(normalizeRockIssueProfileIdentifier)
+        : []);
+      const identity = JSON.stringify([enrichmentId, field, operator, values]);
+      if (seen.has(identity)) continue;
+      seen.add(identity);
+      const profileDeclared = Object.prototype.hasOwnProperty.call(profile, field);
+      const profileValues = new Set(Array.isArray(profile[field])
+        ? (profile[field] as unknown[]).map(normalizeRockIssueProfileIdentifier).filter(Boolean)
+        : []);
+      const matchedValues = values.filter((value) => profileValues.has(value));
+      let status = "unknown";
+      if (profileDeclared) {
+        if (operator === "contains_any") status = matchedValues.length ? "matched" : "excluded";
+        else if (operator === "contains_all") status = values.every((value) => profileValues.has(value)) ? "matched" : "excluded";
+        else if (operator === "contains_none") status = matchedValues.length ? "excluded" : "matched";
+      }
+      evaluations.push({ enrichment_id: enrichmentId, field, operator, values, status, matched_values: matchedValues });
+    }
+  }
+  return evaluations.sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
+}
+
+function rockIssueRiskAssessment(issue: JsonRecord, enrichments: JsonRecord[]): JsonRecord {
+  const reviewed = enrichments
+    .filter((enrichment) => Object.keys(asRecord(enrichment.risk)).length > 0)
+    .sort((left, right) => String(right.reviewed_at || "").localeCompare(String(left.reviewed_at || "")));
+  if (reviewed.length) {
+    const enrichment = reviewed[0];
+    const risk = asRecord(enrichment.risk);
+    return {
+      level: String(risk.level || "unrated"),
+      source: "reviewed_enrichment",
+      source_authority_tier: enrichment.authority_tier,
+      rationale: String(risk.rationale || ""),
+      evidence_refs: Array.isArray(risk.evidence_refs) ? risk.evidence_refs : [],
+      assessed_at: risk.assessed_at || null,
+      enrichment_id: enrichment.enrichment_id || null,
+    };
+  }
+  const labels = Array.isArray(issue.priority_labels) ? issue.priority_labels.map(String) : [];
+  const aliases: Array<[string, string[]]> = [
+    ["critical", ["critical", "urgent", "p0"]],
+    ["high", ["high", "p1"]],
+    ["medium", ["medium", "p2"]],
+    ["low", ["low", "p3", "p4"]],
+  ];
+  for (const [level, candidates] of aliases) {
+    const matched = labels.filter((label) => {
+      const tokens = label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").split("-");
+      return candidates.some((candidate) => tokens.includes(candidate));
+    });
+    if (matched.length) {
+      return {
+        level,
+        source: "upstream_priority_label",
+        source_authority_tier: "official",
+        rationale: "The upstream issue tracker applies a recognized priority label.",
+        evidence_refs: matched,
+        assessed_at: issue.updated_at || null,
+        enrichment_id: null,
+      };
+    }
+  }
+  return {
+    level: "unrated",
+    source: "none",
+    source_authority_tier: null,
+    rationale: "No recognized upstream priority label or current reviewed risk assessment is available.",
+    evidence_refs: [],
+    assessed_at: null,
+    enrichment_id: null,
+  };
+}
+
+function compactRockIssueAssessmentEvidence(row: JsonRecord): JsonRecord {
+  return {
+    component: row.component,
+    relationship: row.relationship,
+    normalized_version: row.normalized_version,
+    version_line: row.version_line,
+    source_kind: row.source_kind,
+    source_ref: row.source_ref,
+    authority_tier: row.authority_tier,
+    confidence: row.confidence,
   };
 }
 
@@ -3337,6 +3592,43 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
   };
 }
 
+async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
+  const [operations, projection] = await Promise.all([
+    sourceOperationsSnapshot(env, asOf),
+    env.KB_DB.prepare("SELECT COUNT(*) AS count FROM rock_issues").first<{ count: number }>(),
+  ]);
+  const issueFreshness = asRecord(operations.rock_issues);
+  const sources = Array.isArray(issueFreshness.sources) ? issueFreshness.sources.map(asRecord) : [];
+  const sourceResultCount = Number(issueFreshness.result_count || 0);
+  const projectionRecordCount = Number(projection?.count || 0);
+  const projectionMatchesSource = sources.length > 0 ? sourceResultCount === projectionRecordCount : null;
+  const sourceStatuses = uniqueStrings(sources.map((row) => row.status));
+  let status = "current";
+  let warning: string | null = null;
+  if (!sources.length) {
+    status = "not_recorded";
+    warning = "Authoritative Rock issue source-check metadata is not recorded.";
+  } else if (sourceStatuses.some((value) => ["failed", "missing", "overdue"].includes(value))) {
+    status = "source_stale";
+    warning = "One or more Rock issue sources are failed, missing, or overdue.";
+  } else if (!projectionMatchesSource) {
+    status = "deployment_lag";
+    warning = "The source refresh result count does not match the deployed issue projection.";
+  }
+  return {
+    schema: "rock-kb-rock-issue-catalog-freshness-v1",
+    status,
+    freshness_authority: "hosted_source_operations",
+    source_statuses: sourceStatuses,
+    last_checked_at: uniqueStrings(sources.map((row) => row.last_checked_at)).sort().at(-1) || null,
+    content_changed_at: uniqueStrings(sources.map((row) => row.content_changed_at)).sort().at(-1) || null,
+    source_result_count: sourceResultCount,
+    projection_record_count: projectionRecordCount,
+    projection_matches_source: projectionMatchesSource,
+    warning,
+  };
+}
+
 async function ensureSourceOperationsTables(env: ServiceEnv): Promise<void> {
   await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS source_workflow_runs_v1 (
@@ -4287,7 +4579,7 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_rock_idea", description: "Get one exact Rock Community idea metadata row plus bounded typed relationships by number, canonical ID, or public URL. A reference edge is not implementation proof; corroborate lifecycle labels before making product claims.", inputSchema: { type: "object", additionalProperties: false, properties: { idea: { type: "string" } }, required: ["idea"] } },
     { name: "kb_list_rock_issues", description: "List Rock issues by repository, state, concept, or reported/fix version evidence.", inputSchema: { type: "object", additionalProperties: false, properties: { repository: { type: "string", enum: ["core", "mobile", "SparkDevNetwork/Rock", "SparkDevNetwork/Rock.Mobile-Issues"] }, state: { type: "string", enum: ["open", "closed"] }, concept: { type: "string" }, version: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 100 }, offset: { type: "integer", minimum: 0 } } } },
     { name: "kb_get_rock_issue", description: "Get one exact Rock issue record plus bounded inbound Idea relationships by GitHub URL, canonical ID, core number, or mobile:number.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" } }, required: ["issue"] } },
-    { name: "kb_assess_rock_issues", description: "Conservatively route Rock issues against a bounded instance profile containing only versions, platforms, concepts, and capabilities. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } } } }, limit: { type: "integer", minimum: 1, maximum: 500 }, offset: { type: "integer", minimum: 0, maximum: 100000 } }, required: ["profile"] } },
+    { name: "kb_assess_rock_issues", description: "Conservatively assess an explicit open, historical-unresolved, or all-relevant Rock issue population against bounded versions, platforms, concepts, capabilities, and configurations. Returns evidence, prerequisite, risk, freshness, and live-verification explanations. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } }, configurations: { type: "array", maxItems: 50, items: { type: "string" } } } }, scope: { type: "string", enum: ["open", "historical-unresolved", "all-relevant"], default: "open" }, limit: { type: "integer", minimum: 1, maximum: 500 }, offset: { type: "integer", minimum: 0, maximum: 100000 } }, required: ["profile"] } },
     { name: "kb_plan_rock_issue_investigation", description: "Return a typed read-only orchestrator-worker plan for investigating one issue. It never posts to GitHub; private instance work remains a separate overlay.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" }, include_private_instance: { type: "boolean" } }, required: ["issue"] } },
     { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_skill_manifest", description: "Return the current Rock KB agent skill version, source URL, SHA-256, minimum client version, restart behavior, and update policy defaults.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },

@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.1.0"
+  rock-kb-skill-version: "1.2.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-19T02:00:00Z"
-  rock-kb-minimum-client-version: "0.14.0"
+  rock-kb-published-at: "2026-07-21T20:34:54Z"
+  rock-kb-minimum-client-version: "0.15.0"
 ---
 
 # Rock KB Agent
@@ -58,6 +58,10 @@ The KB can help agents do more than plain text search:
   merge fields exist.
 - Find reusable community recipes with pinned code, adaptation points,
   security boundaries, compatibility, validation steps, and learnings.
+- Assess open or historically relevant Rock product issues against bounded
+  versions, concepts, platforms, capabilities, and configuration identifiers,
+  with explicit evidence, exclusions, risk provenance, freshness, and
+  read-only verification guidance.
 - Use Rockumentation API metadata and branch paths as routing signals.
 - Run the bounded external-church test round and preserve its stable public
   result IDs for structured feedback.
@@ -133,6 +137,8 @@ uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe oneall:registration-to-connection-request
 uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
+uvx rock-kb issues assess instance-profile.json --scope open
+uvx rock-kb issues watch instance-profile.json --scope all-relevant
 uvx rock-kb test-round
 uvx rock-kb dashboard
 uvx rock-kb freshness
@@ -184,8 +190,8 @@ Use these commands for specific jobs:
 - `issues search <query>`: search public Rock core and mobile product issue metadata without mixing it with KB malfunction reports.
 - `issues list [--repository core|mobile] [--state open|closed] [--version <version>] [--concept <id>]`: filter issue routing metadata and version evidence.
 - `issue <url|id|number|mobile:number>`: fetch one exact issue record.
-- `issues assess <profile.json> [--limit N] [--offset N]`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, and capabilities. Follow `has_more` and `next_offset` when calling the REST or MCP surface directly.
-- `issues watch <profile.json>`: retrieve the complete assessment, keep an owner-only baseline on the local machine, and report newly relevant, changed, resolved-from-routing, or revalidation-due issues. Use this after upgrades and for periodic instance checks; never put logs, secrets, live IDs, person data, or private configuration in the profile.
+- `issues assess <profile.json> [--scope open|historical-unresolved|all-relevant] [--limit N] [--offset N]`: conservatively compare issues with a bounded profile containing only versions, platforms, concepts, capabilities, and public configuration identifiers. `open` is the default; use the historical scopes explicitly for upgrades or older behavior. Follow `has_more` and `next_offset` when calling REST or MCP directly.
+- `issues watch <profile.json> [--scope ...]`: retrieve the complete assessment, keep an owner-only scope-specific baseline on the local machine, and report newly relevant, applicability, routing, risk, remediation, catalog freshness, population, exclusion, no-longer-routed, or revalidation changes. Never put logs, secrets, live IDs, person data, or private configuration values in the profile.
 - `issues plan <issue>`: return a typed, read-only multi-agent investigation plan; `--include-private-instance` adds a private-only worker.
 - `ideas search <query>`: search explicit feature-request, known-gap, and roadmap metadata without mixing it into normal implementation guidance.
 - `ideas list [--status <status>] [--category <category>] [--concept <id>] [--planned-version <version>]`: filter the bounded Ideas catalog.
@@ -282,8 +288,15 @@ tools instead of shell commands:
   `revalidation_due_enrichment_ids`, do not rely on those enrichments for
   applicability until a replacement review is published.
 - `kb_assess_rock_issues`: compare issue version evidence with a bounded
-  structured profile. Never send logs, queries, identifiers, secrets, or person
-  data.
+  structured profile. Use `scope: open` by default; request
+  `historical-unresolved` or `all-relevant` explicitly. Read `catalog.status`
+  and `catalog.warning` first, then inspect `decision`, `evidence`,
+  `requirement_evaluation`, `risk`, `live_verification`, and the bounded
+  `exclusion_summary`. A missing prerequisite field is unknown; a provided
+  list is treated as the complete declaration for that profile dimension.
+  Treat `risk.level: unrated` as intentional, not missing analysis. Never send
+  logs, queries, identifiers, secrets, person data, or private configuration
+  values.
 - `kb_plan_rock_issue_investigation`: create a credentialless, read-only
   orchestrator-worker plan. It never posts to GitHub; private instance evidence
   stays in a separate permission-scoped overlay.
@@ -446,6 +459,13 @@ all instances on that version are affected, and a `Fixed in vX.Y` label does not
 prove every build in that release line contains the fix. Corroborate with
 official docs, release notes, public source, and authorized read-only instance
 evidence before recommending action.
+
+For an instance issue review, assess `open` first. Read catalog freshness and
+the risk source before describing urgency. Fetch exact records for the small
+set that may apply, then follow current reviewed read-only playbooks. Use
+`historical-unresolved` or `all-relevant` for upgrades and older symptoms.
+Never infer severity from an issue title or applicability result; risk is
+evidence-backed or explicitly `unrated`.
 
 Official Rock videos and Community Blog articles can establish product context,
 demonstrations, rollout experience, and stated direction. They are not by

@@ -6,6 +6,25 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-07-21
+
+### Added
+
+- Issue Watch V2 assessment scopes for current open issues, relevant closed
+  history, or their union.
+- Reviewed platform, capability, and configuration prerequisites; bounded
+  exclusion explanations; evidence-backed risk provenance; and Rock issue
+  catalog freshness in assessment results.
+
+### Changed
+
+- Issue watch baselines are scope-specific and now report routing, risk,
+  freshness, population, and exclusion changes in addition to applicability,
+  remediation, and revalidation changes.
+- The agent skill now directs agents to inspect freshness, evidence, risk
+  provenance, and read-only verification before claiming an issue affects an
+  instance.
+
 ## [0.14.0] - 2026-07-18
 
 ### Added
