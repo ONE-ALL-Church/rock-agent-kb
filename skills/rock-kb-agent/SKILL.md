@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.2.0"
+  rock-kb-skill-version: "1.2.1"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-21T20:34:54Z"
+  rock-kb-published-at: "2026-07-21T21:55:52Z"
   rock-kb-minimum-client-version: "0.15.0"
 ---
 
@@ -461,8 +461,11 @@ official docs, release notes, public source, and authorized read-only instance
 evidence before recommending action.
 
 For an instance issue review, assess `open` first. Read catalog freshness and
-the risk source before describing urgency. Fetch exact records for the small
-set that may apply, then follow current reviewed read-only playbooks. Use
+the risk source before describing urgency. Treat the issue projection as
+current only when both `projection_count_matches_source` and
+`projection_content_matches_source` are true; equal row counts alone do not
+detect state, label, routing, or remediation changes. Fetch exact records for
+the small set that may apply, then follow current reviewed read-only playbooks. Use
 `historical-unresolved` or `all-relevant` for upgrades and older symptoms.
 Never infer severity from an issue title or applicability result; risk is
 evidence-backed or explicitly `unrated`.

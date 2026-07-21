@@ -10,6 +10,15 @@ const RECIPE_FIXTURE_SHA = crypto.createHash("sha256").update(RECIPE_FIXTURE_CON
 const RECIPE_FIXTURE_COMMIT = "d8ea54fa67efe40692689fb009561ff96e88bf42";
 const SKILL_FIXTURE_CONTENT = "---\nname: rock-kb-agent\ndescription: Test skill.\n---\n\n# Rock KB Agent\n";
 const SKILL_FIXTURE_SHA = crypto.createHash("sha256").update(SKILL_FIXTURE_CONTENT).digest("hex");
+const ISSUE_FIXTURE_CATALOG_HASH = "c".repeat(64);
+const ISSUE_FIXTURE_SOURCE_HASHES = {
+  rock_core_issues: crypto.createHash("sha256")
+    .update(`rock_core_issues:${ISSUE_FIXTURE_CATALOG_HASH}:1`)
+    .digest("hex"),
+  rock_mobile_issues: crypto.createHash("sha256")
+    .update(`rock_mobile_issues:${ISSUE_FIXTURE_CATALOG_HASH}:0`)
+    .digest("hex"),
+};
 
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
@@ -938,15 +947,38 @@ test("hosted source freshness keeps workflow schedule and source content state s
     assert.equal(laggingAssessment.catalog.status, "deployment_lag");
     assert.equal(laggingAssessment.catalog.source_result_count, 321);
     assert.equal(laggingAssessment.catalog.projection_record_count, 1);
+    assert.equal(laggingAssessment.catalog.projection_count_matches_source, false);
+    assert.equal(laggingAssessment.catalog.projection_content_matches_source, false);
+    assert.equal(laggingAssessment.catalog.projection_matches_source, false);
 
     await db.prepare("UPDATE source_freshness_state_v1 SET result_count = 1 WHERE source_id = 'rock_core_issues'").run();
+    const sameCountChangedContent = await (await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.2.0" }, limit: 1 }),
+    })).json();
+    assert.equal(sameCountChangedContent.catalog.status, "deployment_lag");
+    assert.equal(sameCountChangedContent.catalog.projection_count_matches_source, true);
+    assert.equal(sameCountChangedContent.catalog.projection_content_matches_source, false);
+    assert.equal(sameCountChangedContent.catalog.projection_matches_source, false);
+    assert.match(sameCountChangedContent.catalog.warning, /content hash/);
+
+    await db.prepare("UPDATE source_freshness_state_v1 SET content_hash = ? WHERE source_id = 'rock_core_issues'")
+      .bind(ISSUE_FIXTURE_SOURCE_HASHES.rock_core_issues).run();
     const currentAssessment = await (await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ profile: { core_version: "19.2.0" }, limit: 1 }),
     })).json();
     assert.equal(currentAssessment.catalog.status, "current");
+    assert.equal(currentAssessment.catalog.projection_count_matches_source, true);
+    assert.equal(currentAssessment.catalog.projection_content_matches_source, true);
     assert.equal(currentAssessment.catalog.projection_matches_source, true);
+    assert.equal(currentAssessment.catalog.projection_catalog_content_hash, ISSUE_FIXTURE_CATALOG_HASH);
+    assert.equal(
+      currentAssessment.catalog.source_content_hashes.rock_core_issues,
+      ISSUE_FIXTURE_SOURCE_HASHES.rock_core_issues,
+    );
 
     const freshnessTool = await mcp(mf, "tools/call", { name: "kb_get_freshness", arguments: {} });
     assert.equal(freshnessTool.result.structuredContent.status, "ok");
@@ -1206,6 +1238,10 @@ async function buildWorker(options = {}) {
     const db = await mf.getD1Database("KB_DB");
     await db.prepare("CREATE TABLE kb_meta (key TEXT PRIMARY KEY, value TEXT)").run();
     await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('current_version', 'test-version')").run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_issue_catalog_content_hash', ?)")
+      .bind(ISSUE_FIXTURE_CATALOG_HASH).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_issue_source_content_hashes', ?)")
+      .bind(JSON.stringify(ISSUE_FIXTURE_SOURCE_HASHES)).run();
     if (options.artifactPrefix) {
       await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('artifact_prefix', ?)").bind(options.artifactPrefix).run();
     }
@@ -1437,6 +1473,12 @@ async function buildWorker(options = {}) {
             by_verification_state: { candidate_review_pending: 1 },
           },
         },
+      }),
+      "agent/rock-issue-summary.json": JSON.stringify({
+        schema: "rock-kb-rock-issue-summary-v1",
+        record_count: 1,
+        catalog_content_hash: ISSUE_FIXTURE_CATALOG_HASH,
+        repositories: { "SparkDevNetwork/Rock": 1, "SparkDevNetwork/Rock.Mobile-Issues": 0 },
       }),
     });
     const recipeSearchRow = {

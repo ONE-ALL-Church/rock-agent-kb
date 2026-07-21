@@ -28,6 +28,7 @@ from .rock_issues import (
     normalize_version,
     version_line,
 )
+from .source_freshness import ISSUE_SOURCE_REPOSITORIES
 
 
 SERVICE_DIR = REPO_ROOT / "service"
@@ -136,12 +137,15 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         json.dumps({"schema": "rock-kb-org-registry-v1", "orgs": org_rows}, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
+    issue_summary_path = artifacts_dir / "agent" / "rock-issue-summary.json"
+    issue_summary = json.loads(issue_summary_path.read_text(encoding="utf-8")) if issue_summary_path.exists() else {}
     sql_text = build_d1_seed_sql(
         version=version,
         generated_at=generated_at,
         search_rows=search_rows,
         org_rows=org_rows,
         artifact_prefix=resolved_artifact_prefix,
+        rock_issue_summary=issue_summary,
     )
     (dist / "d1-seed.sql").write_text(sql_text, encoding="utf-8")
     projection = ServiceProjection(
@@ -897,6 +901,7 @@ def build_d1_seed_sql(
     search_rows: list[dict[str, Any]],
     org_rows: list[dict[str, Any]],
     artifact_prefix: str | None = None,
+    rock_issue_summary: dict[str, Any] | None = None,
 ) -> str:
     resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
     relationship_rows = list(read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"))
@@ -1198,11 +1203,32 @@ def build_d1_seed_sql(
             )
             + ");"
         )
-    for key, value in [
+    metadata = [
         ("current_version", version),
         ("generated_at", generated_at),
         ("artifact_prefix", resolved_artifact_prefix),
-    ]:
+    ]
+    issue_summary = rock_issue_summary or {}
+    issue_catalog_hash = str(issue_summary.get("catalog_content_hash") or "")
+    issue_repositories = issue_summary.get("repositories") or {}
+    if issue_catalog_hash and isinstance(issue_repositories, dict):
+        issue_source_hashes = {
+            source_id: sha256_text(
+                f"{source_id}:{issue_catalog_hash}:{int(issue_repositories.get(repository) or 0)}"
+            )
+            for source_id, repository in sorted(ISSUE_SOURCE_REPOSITORIES.items())
+        }
+        metadata.extend(
+            [
+                ("rock_issue_catalog_content_hash", issue_catalog_hash),
+                ("rock_issue_record_count", str(int(issue_summary.get("record_count") or 0))),
+                (
+                    "rock_issue_source_content_hashes",
+                    json.dumps(issue_source_hashes, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+                ),
+            ]
+        )
+    for key, value in metadata:
         lines.append(
             "INSERT INTO kb_meta (key, value) VALUES ("
             + sql_string(key)

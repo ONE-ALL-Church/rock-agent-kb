@@ -6,6 +6,18 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+### Fixed
+
+- Rock issue catalog freshness now compares per-source content hashes as well
+  as row counts, so a state, label, routing, or remediation change cannot be
+  hidden by an unchanged catalog size.
+
+### Changed
+
+- The Rock KB agent skill is version `1.2.1` and tells agents to require both
+  count and content-hash agreement before treating an issue projection as
+  current.
+
 ## [0.15.0] - 2026-07-21
 
 ### Added
