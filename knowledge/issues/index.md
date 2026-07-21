@@ -5,7 +5,7 @@ This directory routes agents to public Rock core and mobile issue metadata witho
 ## Current Catalog
 
 - Issues: `5805`
-- Source updated through: `2026-07-21T20:08:27Z`
+- Source updated through: `2026-07-21T20:51:16Z`
 - Timelines captured: `311` (`5.36%`)
 - Issues linked to official release notes: `889`
 - Reviewed public enrichments: `27`
