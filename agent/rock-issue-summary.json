@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "210b61931ad35d0ed53751fa9f1ee94e7a8ae663d4a3e130606110beacedc9a2",
+  "catalog_content_hash": "834635eb7856dace5fdd09f3d7ab6864878af66be51bf3aa5e23815a27ad9ae1",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
@@ -7,9 +7,9 @@
   },
   "evidence_states": {
     "commit_linked": 15,
-    "fixed_release_recorded": 3190,
+    "fixed_release_recorded": 3191,
     "maintainer_triaged": 1227,
-    "report_only": 1373
+    "report_only": 1372
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
@@ -47,16 +47,16 @@
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
       "body_keyword": 396,
-      "github_topic_label": 1572,
+      "github_topic_label": 1573,
       "repository_default": 1331,
-      "title_keyword": 3957
+      "title_keyword": 3956
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-21T20:08:27Z",
+  "source_updated_through": "2026-07-21T20:51:16Z",
   "states": {
-    "closed": 5796,
-    "open": 9
+    "closed": 5797,
+    "open": 8
   },
   "timeline_coverage": {
     "complete": 311,
@@ -86,7 +86,7 @@
     "workflows": 377
   },
   "validation_states": {
-    "confirmed": 2535,
-    "reported": 3270
+    "confirmed": 2536,
+    "reported": 3269
   }
 }
