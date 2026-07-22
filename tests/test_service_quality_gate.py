@@ -35,4 +35,45 @@ def test_quality_failures_reports_every_regression():
     )
 
     assert len(failures) == 5
-    assert failures[0] == "2 evaluation questions failed"
+    assert failures[0] == "2 retrieval-quality questions failed"
+
+
+def test_quality_failures_reports_availability_separately():
+    failures = quality_failures(
+        {
+            "fail_count": 1,
+            "metrics": {
+                "unavailable_question_count": 1,
+                "retrieval_quality_failure_count": 0,
+                "mean_reciprocal_rank": 1.0,
+                "recall_at_target_rank": 1.0,
+                "duplicate_result_rate": 0.0,
+                "authority_pass_rate": 1.0,
+            },
+        },
+        QualityThresholds(),
+    )
+
+    assert failures == ["1 evaluation requests unavailable"]
+
+
+def test_quality_failures_does_not_invent_ranking_failures_when_every_request_is_unavailable():
+    failures = quality_failures(
+        {
+            "fail_count": 2,
+            "metrics": {
+                "available_question_count": 0,
+                "unavailable_question_count": 2,
+                "retrieval_quality_failure_count": 0,
+                "relevance_question_count": 0,
+                "authority_question_count": 0,
+                "mean_reciprocal_rank": 0.0,
+                "recall_at_target_rank": 0.0,
+                "duplicate_result_rate": 0.0,
+                "authority_pass_rate": 0.0,
+            },
+        },
+        QualityThresholds(),
+    )
+
+    assert failures == ["2 evaluation requests unavailable"]

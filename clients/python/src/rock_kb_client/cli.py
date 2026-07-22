@@ -23,10 +23,18 @@ from .installer import (
 from .issue_watch import run_issue_watch
 from .okf import conform_okf, download_okf, inspect_okf, verify_okf
 from .cohort_test import REVIEW_OUTCOMES, build_test_round_review, review_outcomes_from_payload, run_cohort_test
+from .telemetry import COHORT_VALUES, disable_telemetry, enable_telemetry, telemetry_headers, telemetry_status
 
 DEFAULT_BASE_URL = "https://rock-agent-kb.oneandall.church"
-COHORT_VALUES = ("external-test", "maintainer")
 REQUEST_COHORT = ""
+REQUEST_INSTALLATION_ID = ""
+OUTCOME_REASON_CODES = {
+    "useful": ("answered", "actionable", "well_sourced", "correct_route"),
+    "partially_useful": ("incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence"),
+    "not_useful": ("incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"),
+}
+OUTCOME_REASON_VALUES = tuple(reason for reasons in OUTCOME_REASON_CODES.values() for reason in reasons)
+TEST_ROUND_COHORT_VALUES = ("external-test", "maintainer")
 PASSIVE_SKILL_CHECK_COMMANDS = {
     "search",
     "result",
@@ -60,13 +68,13 @@ USER_AGENT = f"rock-kb-client/{package_version()} (+https://github.com/ONE-ALL-C
 
 
 def main(argv: list[str] | None = None) -> int:
-    global REQUEST_COHORT
+    global REQUEST_COHORT, REQUEST_INSTALLATION_ID
     parser = argparse.ArgumentParser(prog="rock-kb")
     parser.add_argument("--url", default=os.environ.get("ROCK_KB_URL", DEFAULT_BASE_URL), help="Rock KB service base URL")
     parser.add_argument(
         "--cohort",
         default=os.environ.get("ROCK_KB_COHORT", ""),
-        help="Optional aggregate telemetry cohort: external-test or maintainer. This is not authentication.",
+        help="Optional aggregate telemetry cohort: community, external-test, or maintainer. This is not authentication.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -178,6 +186,12 @@ def main(argv: list[str] | None = None) -> int:
     feedback.add_argument("--rating", type=int, choices=[-1, 1], required=True)
     feedback.add_argument("--reason", choices=["helpful", "outdated", "missing", "incorrect", "wrong_route"], required=True)
 
+    outcome = subparsers.add_parser("outcome", help="Submit a consent-attested usefulness outcome for one public result.")
+    outcome.add_argument("result_id")
+    outcome.add_argument("--outcome", choices=["useful", "partially_useful", "not_useful"], required=True)
+    outcome.add_argument("--reason", action="append", choices=OUTCOME_REASON_VALUES, required=True, help="Fixed reason code compatible with the selected outcome. Repeat for up to three reasons.")
+    outcome.add_argument("--consent-attested", action="store_true", required=True)
+
     report_issue = subparsers.add_parser("report-issue", help="Report a structured Rock KB malfunction for maintainer review.")
     report_issue.add_argument("--failure-type", choices=["service", "mcp", "cli", "schema", "authentication", "retrieval"], required=True)
     report_issue.add_argument("--operation", required=True, help="Short operation identifier, such as search or mcp_tool_call.")
@@ -207,6 +221,14 @@ def main(argv: list[str] | None = None) -> int:
         default="direct",
         help="Use direct tools by default, or the experimental read-only Cloudflare Code Mode endpoint.",
     )
+
+    telemetry = subparsers.add_parser("telemetry", help="Manage the private opt-in anonymous installation marker.")
+    telemetry_subparsers = telemetry.add_subparsers(dest="telemetry_command", required=True)
+    telemetry_enable = telemetry_subparsers.add_parser("enable")
+    telemetry_enable.add_argument("--cohort", choices=COHORT_VALUES, default="community")
+    telemetry_enable.add_argument("--consent-attested", action="store_true", required=True)
+    telemetry_subparsers.add_parser("status")
+    telemetry_subparsers.add_parser("disable")
 
     okf = subparsers.add_parser("okf")
     okf_subparsers = okf.add_subparsers(dest="okf_command", required=True)
@@ -253,8 +275,16 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.cohort and args.cohort not in COHORT_VALUES:
         parser.error(f"--cohort must be one of: {', '.join(COHORT_VALUES)}")
-    REQUEST_COHORT = str(args.cohort or "")
+    configured_headers = telemetry_headers()
+    REQUEST_COHORT = str(args.cohort or configured_headers.get("x-rock-kb-cohort") or "")
+    REQUEST_INSTALLATION_ID = str(configured_headers.get("x-rock-kb-installation-id") or "")
     base_url = str(args.url).rstrip("/")
+    if args.command == "telemetry":
+        if args.telemetry_command == "enable":
+            return print_json(enable_telemetry(args.cohort, consent_attested=bool(args.consent_attested)))
+        if args.telemetry_command == "disable":
+            return print_json(disable_telemetry())
+        return print_json(telemetry_status())
     if args.command in PASSIVE_SKILL_CHECK_COMMANDS:
         for notice in passive_skill_checks(
             base_url=base_url,
@@ -274,7 +304,7 @@ def main(argv: list[str] | None = None) -> int:
             parser.error("test-round --submit requires --review or --review-file")
         if args.review and args.review_file:
             parser.error("test-round accepts either --review or --review-file, not both")
-        if args.submit and REQUEST_COHORT not in COHORT_VALUES:
+        if args.submit and REQUEST_COHORT not in TEST_ROUND_COHORT_VALUES:
             parser.error("test-round --submit requires --cohort external-test or --cohort maintainer")
 
     if args.command == "search":
@@ -399,6 +429,20 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if report["status"] == "ok" else 1
     if args.command == "feedback":
         return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
+    if args.command == "outcome":
+        if len(args.reason) > 3:
+            parser.error("outcome accepts at most three --reason values")
+        if len(set(args.reason)) != len(args.reason):
+            parser.error("outcome reason values must be unique")
+        invalid_reasons = sorted(set(args.reason) - set(OUTCOME_REASON_CODES[args.outcome]))
+        if invalid_reasons:
+            parser.error(f"outcome reason values are incompatible with {args.outcome}: {', '.join(invalid_reasons)}")
+        return print_json(post_json(f"{base_url}/outcomes", {
+            "result_id": args.result_id,
+            "outcome": args.outcome,
+            "reason_codes": args.reason,
+            "consent_attested": bool(args.consent_attested),
+        }))
     if args.command == "report-issue":
         payload = {
             "failure_type": args.failure_type,
@@ -446,8 +490,9 @@ def main(argv: list[str] | None = None) -> int:
             "type": "http",
             "url": f"{base_url}/mcp/code" if args.mode == "code" else f"{base_url}/mcp",
         }
-        if REQUEST_COHORT:
-            server["headers"] = {"x-rock-kb-cohort": REQUEST_COHORT}
+        headers = request_identity_headers()
+        if headers:
+            server["headers"] = headers
         return print_json(
             {
                 "mcpServers": {
@@ -675,8 +720,16 @@ def client_headers() -> dict[str, str]:
         "x-rock-kb-client": "cli",
         "x-rock-kb-client-version": package_version(),
     }
+    headers.update(request_identity_headers())
+    return headers
+
+
+def request_identity_headers() -> dict[str, str]:
+    headers: dict[str, str] = {}
     if REQUEST_COHORT:
         headers["x-rock-kb-cohort"] = REQUEST_COHORT
+    if REQUEST_INSTALLATION_ID:
+        headers["x-rock-kb-installation-id"] = REQUEST_INSTALLATION_ID
     return headers
 
 

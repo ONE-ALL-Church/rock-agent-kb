@@ -74,12 +74,21 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
     row_max_rank = max(1, min(int(row.get("max_rank") or max_allowed_rank), limit))
     params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only", "detail": "full"})
     started_at = perf_counter()
+    request_attempt_count = 0
+    transport_timeout_count = 0
     try:
-        response = httpx.get(
-            f"{base_url}/search?{params}",
-            headers={"user-agent": "rock-kb-eval/1.0", "x-rock-kb-client": "eval"},
-            timeout=timeout,
-        )
+        for request_attempt_count in range(1, 3):
+            try:
+                response = httpx.get(
+                    f"{base_url}/search?{params}",
+                    headers={"user-agent": "rock-kb-eval/1.0", "x-rock-kb-client": "eval"},
+                    timeout=timeout,
+                )
+                break
+            except httpx.TimeoutException:
+                transport_timeout_count += 1
+                if request_attempt_count == 2:
+                    raise
         response.raise_for_status()
         payload = response.json()
         hits = payload.get("results") or []
@@ -101,6 +110,12 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
             "required_authority_tiers": row.get("required_authority_tiers") or [],
             "authority_passed": False,
             "latency_ms": round((perf_counter() - started_at) * 1000, 3),
+            "availability_status": "unavailable",
+            "failure_category": "availability",
+            "request_attempt_count": request_attempt_count,
+            "retry_count": max(0, request_attempt_count - 1),
+            "transport_timeout_count": transport_timeout_count,
+            "error_type": evaluation_error_type(exc),
             "status": "fail",
             "error": str(exc),
         }
@@ -171,6 +186,11 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         "source": row.get("source"),
         "evaluation_mode": row.get("evaluation_mode"),
         "latency_ms": round((perf_counter() - started_at) * 1000, 3),
+        "availability_status": "recovered_after_timeout" if transport_timeout_count else "available",
+        "failure_category": "" if passed else "retrieval_quality",
+        "request_attempt_count": request_attempt_count,
+        "retry_count": max(0, request_attempt_count - 1),
+        "transport_timeout_count": transport_timeout_count,
         "status": "pass" if passed else "fail",
     }
 
@@ -199,20 +219,43 @@ def hit_concepts(hit: dict[str, Any]) -> list[str]:
     return [concept] if concept else []
 
 
+def evaluation_error_type(exc: Exception) -> str:
+    if isinstance(exc, httpx.TimeoutException):
+        return "transport_timeout"
+    if isinstance(exc, httpx.TransportError):
+        return "transport_error"
+    if isinstance(exc, httpx.HTTPStatusError):
+        return "http_status_error"
+    if isinstance(exc, (json.JSONDecodeError, AttributeError, TypeError, ValueError)):
+        return "invalid_response"
+    return "request_error"
+
+
 def evaluation_metrics(results: list[dict[str, Any]]) -> dict[str, Any]:
-    relevance_rows = [row for row in results if row.get("has_relevance_expectation")]
-    authority_rows = [row for row in results if row.get("required_authority_tiers")]
-    duplicate_count = sum(int(row.get("duplicate_count") or 0) for row in results)
-    retrieved_count = sum(int(row.get("hit_count") or 0) for row in results)
+    available_rows = [row for row in results if row.get("availability_status", "available") != "unavailable"]
+    unavailable_rows = [row for row in results if row.get("availability_status") == "unavailable"]
+    relevance_rows = [row for row in available_rows if row.get("has_relevance_expectation")]
+    authority_rows = [row for row in available_rows if row.get("required_authority_tiers")]
+    duplicate_count = sum(int(row.get("duplicate_count") or 0) for row in available_rows)
+    retrieved_count = sum(int(row.get("hit_count") or 0) for row in available_rows)
     recall_count = sum(
         1
         for row in relevance_rows
         if row.get("relevant_rank") is not None and int(row["relevant_rank"]) <= int(row.get("max_allowed_rank") or 1)
     )
-    latencies = sorted(float(row.get("latency_ms") or 0) for row in results if row.get("latency_ms") is not None)
+    latencies = sorted(float(row.get("latency_ms") or 0) for row in available_rows if row.get("latency_ms") is not None)
     p95_index = max(0, min(len(latencies) - 1, math.ceil(len(latencies) * 0.95) - 1)) if latencies else 0
     return {
         "question_count": len(results),
+        "available_question_count": len(available_rows),
+        "unavailable_question_count": len(unavailable_rows),
+        "availability_rate": round(len(available_rows) / max(1, len(results)), 6),
+        "transport_timeout_count": sum(int(row.get("transport_timeout_count") or 0) for row in results),
+        "retry_count": sum(int(row.get("retry_count") or 0) for row in results),
+        "recovered_after_timeout_count": sum(1 for row in results if row.get("availability_status") == "recovered_after_timeout"),
+        "retrieval_quality_failure_count": sum(1 for row in available_rows if row.get("status") == "fail"),
+        "availability_passed": len(unavailable_rows) == 0,
+        "retrieval_quality_passed": all(row.get("status") != "fail" for row in available_rows) if available_rows else None,
         "relevance_question_count": len(relevance_rows),
         "mean_reciprocal_rank": round(sum(float(row.get("reciprocal_rank") or 0) for row in relevance_rows) / max(1, len(relevance_rows)), 6),
         "recall_at_target_rank": round(recall_count / max(1, len(relevance_rows)), 6),

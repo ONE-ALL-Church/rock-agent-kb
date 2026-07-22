@@ -6,17 +6,37 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-07-21
+
+### Added
+
+- Opt-in anonymous field validation with a private random installation marker,
+  fixed `community`, `external-test`, or `maintainer` cohorts, and one-way
+  server-side hashing. No organization, person, query, IP address, free text,
+  or Rock data is stored with the marker.
+- Consent-attested `useful`, `partially_useful`, and `not_useful` outcomes with
+  bounded compatible reason codes for canonical public result IDs.
+- A default field-validation dashboard funnel and bounded review queue for
+  searches, exact retrieval, outcomes, feedback, issue reports, negative
+  outcomes, repeated zero-result topics, and failed exact lookups. Evaluation
+  and maintainer traffic are excluded by default.
+- A source-supported review of Rock issue `#6928`, including a public-source
+  diagnosis of the workflow-backed signature-document parent-security path and
+  an aggregate read-only verification playbook.
+
 ### Fixed
 
 - Rock issue catalog freshness now compares per-source content hashes as well
   as row counts, so a state, label, routing, or remediation change cannot be
   hidden by an unchanged catalog size.
+- Service evaluation retries exactly once after a transport timeout and does
+  not retry HTTP, response, or ranking failures. Availability is reported
+  separately from retrieval quality while both remain release-blocking.
 
 ### Changed
 
-- The Rock KB agent skill is version `1.2.1` and tells agents to require both
-  count and content-hash agreement before treating an issue projection as
-  current.
+- The Rock KB agent skill is version `1.3.0`, requires client `0.16.0`, and
+  adds versioned consent, opt-in identity, outcome, and revocation guidance.
 
 ## [0.15.0] - 2026-07-21
 

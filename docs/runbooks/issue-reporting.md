@@ -6,6 +6,7 @@ knowledge-quality feedback and community contributions.
 | Situation | Use |
 |---|---|
 | A result is incorrect, outdated, missing, or routed poorly | `kb_feedback` or `rock-kb feedback` |
+| An exact result was useful, partially useful, or not useful in a completed task | `kb_outcome` or `rock-kb outcome` |
 | The service, MCP tool, CLI, schema, authentication, or retrieval path fails | `kb_report_issue` or `rock-kb report-issue` |
 | New reusable Rock knowledge should be added | `kb_submit` or the contribution workflow |
 
@@ -63,5 +64,6 @@ and deliberately create or link a GitHub issue in a later reviewed workflow.
   but not raw logs or queries.
 - The dashboard exposes only reports that passed the public-safety validator.
 
-`kb_feedback` remains deliberately free of prose. Do not expand it to carry
-malfunction reports.
+`kb_feedback` and `kb_outcome` remain deliberately free of prose. Feedback is
+about a result's quality; outcome is about its usefulness in a completed task.
+Do not expand either to carry malfunction reports.

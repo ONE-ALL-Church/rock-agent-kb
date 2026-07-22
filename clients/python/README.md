@@ -87,7 +87,10 @@ uvx rock-kb issues assess instance-profile.json
 uvx rock-kb issues watch instance-profile.json
 uvx rock-kb issues plan 6919
 uvx rock-kb test-round
+uvx rock-kb telemetry status
+uvx rock-kb telemetry enable --cohort community --consent-attested
 uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
+uvx rock-kb outcome '<result-id>' --outcome partially_useful --reason incomplete --consent-attested
 uvx rock-kb report-issue --failure-type retrieval --operation search --error-code search_unavailable --description "Search returned a temporary service failure." --redaction-attested
 uvx rock-kb dashboard
 uvx rock-kb freshness
@@ -95,19 +98,24 @@ uvx rock-kb mcp-config
 uvx rock-kb skill status --format json
 ```
 
-Churches participating in the public external test can opt into aggregate
-cohort reporting without identifying their church or users:
+After the human accepts consent notice version 2, a participating installation
+can opt into anonymous field validation without identifying its church or users:
 
 ```bash
-ROCK_KB_COHORT=external-test uvx rock-kb test-round
-uvx rock-kb --cohort external-test mcp-config
+uvx rock-kb telemetry enable --cohort community --consent-attested
+uvx rock-kb install-agent
 ```
 
-The second command includes the same bounded header in the generated MCP
-configuration. Maintainers can use `ROCK_KB_COHORT=maintainer`. The service
-accepts only `external-test` or `maintainer`; omitted or invalid values become
-`unattributed`. This self-declared marker is not authentication and never
-contains an organization name, installation ID, user ID, or query text.
+The client creates a private random `rkbi_...` marker; `telemetry status` does
+not print its value. The service stores only a one-way hash. `install-agent`
+adds the marker and fixed
+cohort to supported user-scoped MCP configurations; restart the host afterward.
+Use `external-test` for a formal public test round and `maintainer` only for
+maintainer work. These self-declared labels are not authentication and must
+never contain a church, organization, or person name. Disable participation
+with `uvx rock-kb telemetry disable`, rerun `install-agent`, and restart the
+host. Treat user-scoped agent configuration as private. Project-scoped MCP
+configuration never receives the marker.
 
 For repeated use on a server or agent host, install the CLI permanently:
 
@@ -121,7 +129,7 @@ rock-kb mcp-config
 a local server. Direct tools are the default and are best for normal search and
 exact lookup. `rock-kb mcp-config --mode code` prints the opt-in experimental
 Cloudflare Code Mode endpoint for composed read-only calls. Code Mode excludes
-feedback, malfunction reports, test-review submission, and knowledge
+feedback, usefulness outcomes, malfunction reports, test-review submission, and knowledge
 submission; it is not a more current knowledge source.
 
 Search output is compact by default. It returns stable IDs, snippets, trust
@@ -132,8 +140,10 @@ compatibility with workflows that still need full rows in one response.
 `recipe verify` checks immutable source hashes and declared compatibility. It
 uses the hosted service's immutable-byte cache and GitHub Contents API fallback
 when needed; it does not execute recipe code or change Rock. `feedback` accepts
-only a fixed rating and reason; it does not send free-text comments or query
-text. `report-issue` is for failures in the KB service, MCP, CLI, schema,
+only a fixed result-quality rating and reason. With anonymous telemetry enabled,
+`outcome` accepts `useful`, `partially_useful`, or `not_useful` plus one to three
+compatible fixed reason codes for a completed task. Neither sends free-text
+comments or query text. `report-issue` is for failures in the KB service, MCP, CLI, schema,
 authentication, or retrieval path. Its description is limited and must be
 redaction-attested; never include logs, queries, secrets, private paths, or
 private Rock data. It returns a stable report ID and does not create a GitHub
@@ -167,8 +177,8 @@ case. The JSON report contains stable public result IDs plus a manual review
 question for each case. It sends only the built-in public test queries and
 profile; it never collects church identifiers or private instance data. The
 client also emits bounded `started` and `completed` funnel counts with its
-cohort and automatic pass/fail status. No identity, installation ID, query text,
-or private Rock data is retained.
+cohort and automatic pass/fail status. This dedicated test-round path does not
+retain an installation marker, query text, or private Rock data.
 
 `freshness` reports the authoritative hosted daily/weekly workflow schedule
 state and each source's last check, last content change, result count, content

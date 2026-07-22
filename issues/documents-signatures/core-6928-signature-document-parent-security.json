@@ -1,0 +1,126 @@
+{
+  "schema": "rock-kb-rock-issue-enrichment-v1",
+  "enrichment_id": "rock_issue_enrichment:core-6928-signature-document-parent-security-v1",
+  "issue_id": "rock_issue:SparkDevNetwork/Rock#6928",
+  "diagnosis_status": "source_supported",
+  "diagnosis_summary": "Rock 18.3.5's Workflow Control > Electronic Signature action generates and saves the signed PDF BinaryFile without assigning ParentEntityId or ParentEntityTypeId, then links that file to the new SignatureDocument. GetFile.ashx treats a file without both parent fields as having no parent authorization context and can fall back to BinaryFile security, where a non-authorized staff user receives HTTP 403. An earlier v16.1 migration backfilled signature-document files with their SignatureDocumentTemplate parent, confirming the intended ownership shape. This identifies one affected creation path; it does not prove that every affected file or missing Signed By value has the same cause. The issue remains open with no upstream fix recorded.",
+  "workaround_summaries": [
+    "No supported public no-write workaround or upstream fix is currently recorded. Do not reproduce the reporter's direct production SQL update. If access is operationally urgent, use normal administrative access while a separately reviewed application-level remediation and data repair are tested in staging, backed up, and approved."
+  ],
+  "verification_playbook": {
+    "goal": "Determine whether an instance has signature-document files missing their intended template parent and whether the workflow-backed Electronic Signature creation path can produce them, without opening documents or changing data.",
+    "prerequisites": [
+      "Know the exact installed Rock version or build ancestry.",
+      "Have read-only access to aggregate SignatureDocument and BinaryFile metadata.",
+      "Know whether Workflow Control > Electronic Signature is used to create signed documents."
+    ],
+    "steps": [
+      {
+        "step_id": "check-workflow-file-parent-assignment",
+        "title": "Check the workflow creation path",
+        "method": "source_revision_check",
+        "instructions": "Inspect the installed Workflow Control Electronic Signature action. Confirm whether CreateSignedDocumentPdf assigns the generated BinaryFile's ParentEntityId to the SignatureDocumentTemplate ID and ParentEntityTypeId to the SignatureDocumentTemplate entity type before saving.",
+        "expected_if_affected": "The action saves the BinaryFile without assigning both parent fields, matching the affected Rock 18.3.5 source path.",
+        "expected_if_unaffected": "The installed path explicitly assigns both template-parent fields before the BinaryFile is saved, or the workflow action is not used to create these documents.",
+        "evidence_to_record": [
+          "Rock version or source revision",
+          "template-parent assignment present yes or no",
+          "workflow Electronic Signature action used yes or no"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "count-missing-signature-file-parents",
+        "title": "Count missing parent metadata",
+        "method": "read_only_sql",
+        "instructions": "Return aggregate counts only. Do not return file IDs, names, paths, people, registrations, templates, signatures, or document content.",
+        "probe": "SELECT COUNT(*) AS SignatureDocumentFileCount, SUM(CASE WHEN [bf].[ParentEntityId] IS NULL OR [bf].[ParentEntityTypeId] IS NULL THEN 1 ELSE 0 END) AS MissingParentCount, SUM(CASE WHEN ([bf].[ParentEntityId] IS NULL OR [bf].[ParentEntityTypeId] IS NULL) AND [sd].[SignedByPersonAliasId] IS NULL THEN 1 ELSE 0 END) AS MissingParentAndSignerCount FROM [BinaryFile] AS [bf] INNER JOIN [SignatureDocument] AS [sd] ON [sd].[BinaryFileId] = [bf].[Id]",
+        "expected_if_affected": "MissingParentCount is greater than zero. MissingParentAndSignerCount may measure the reporter's observed correlation but does not establish causation.",
+        "expected_if_unaffected": "MissingParentCount is zero for the current signature-document population.",
+        "evidence_to_record": [
+          "signature-document file count",
+          "missing-parent count",
+          "missing-parent-and-signer count"
+        ],
+        "requires_privileged_access": true,
+        "mutation_risk": "none"
+      },
+      {
+        "step_id": "check-download-security-path",
+        "title": "Check the download authorization path",
+        "method": "source_revision_check",
+        "instructions": "Confirm that the installed GetFile handler calls ParentEntityAllowsView and, when no parent is present, evaluates BinaryFile authorization or a security grant for file types requiring view security.",
+        "expected_if_affected": "Missing parent metadata sends the request through the BinaryFile authorization fallback that can deny the impersonated staff user.",
+        "expected_if_unaffected": "The installed handler has a separately documented authorization path that safely resolves SignatureDocumentTemplate ownership when the file parent fields are absent.",
+        "evidence_to_record": [
+          "download handler authorization behavior",
+          "fallback security path present yes or no"
+        ],
+        "requires_privileged_access": false,
+        "mutation_risk": "none"
+      }
+    ],
+    "limitations": [
+      "Aggregate counts do not identify which creation path produced a file and do not prove that a specific user receives HTTP 403.",
+      "Do not open signed documents, export file metadata, impersonate a production user, change security, or update BinaryFile rows solely to reproduce this issue.",
+      "A missing SignedByPersonAliasId may be valid for an anonymous signer and is not established as the cause of missing parent metadata."
+    ],
+    "production_safe": true
+  },
+  "applicability": [
+    {
+      "assertion_id": "core-6928-source-confirmed-workflow-path-18.3.5",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "18.3",
+      "context": {
+        "scope": "signed PDFs created by Workflow Control > Electronic Signature and downloaded by a user who depends on parent-template authorization"
+      },
+      "versions": [
+        "18.3.5"
+      ],
+      "ranges": [],
+      "status": "affected",
+      "fix_refs": [],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6928",
+        "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs#L348-L381",
+        "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs#L448-L486",
+        "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/RockWeb/App_Code/GetFile.ashx.cs#L101-L129"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-21T23:10:12Z"
+    }
+  ],
+  "applicability_requirements": [
+    {
+      "field": "capabilities",
+      "operator": "contains_all",
+      "values": [
+        "workflow electronic signature",
+        "signature document download"
+      ]
+    }
+  ],
+  "source_refs": [
+    "https://github.com/SparkDevNetwork/Rock/issues/6928",
+    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs#L348-L381",
+    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs#L448-L486",
+    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/RockWeb/App_Code/GetFile.ashx.cs#L101-L129",
+    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Model/Core/BinaryFile/BinaryFile.Logic.cs#L129-L151",
+    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.1/202311021741313_Rollup_20231101.cs#L287-L305"
+  ],
+  "agent_run_ids": [],
+  "authority_tier": "community-reviewed",
+  "claim_tier": "source_backed",
+  "confidence": "high",
+  "review_status": "approved_for_public_distillation",
+  "reviewer": "briand-delegated-codex-review",
+  "issue_updated_at": "2026-07-21T20:08:27Z",
+  "reviewed_at": "2026-07-21T23:10:12Z",
+  "redaction_attestation": true,
+  "license_attestation": true
+}

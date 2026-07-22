@@ -9,7 +9,14 @@ import warnings
 import zipfile
 from pathlib import Path
 
+import pytest
+
 VALID_FIXTURE = Path("tests/fixtures/contributions/valid-bundle.jsonl")
+
+
+@pytest.fixture(autouse=True)
+def isolate_rock_kb_client_state(monkeypatch, tmp_path):
+    monkeypatch.setenv("ROCK_KB_STATE_DIR", str(tmp_path / "rock-kb-state"))
 
 
 def skill_source(version: str = "1.0.0") -> str:
@@ -320,6 +327,24 @@ def test_client_test_round_returns_failure_when_submission_is_rejected(monkeypat
     assert exit_code == 1
     assert payload["submission"]["status"] == "rejected"
     assert payload["submission"]["error_code"] == "invalid_result_id"
+
+
+def test_client_test_round_rejects_ordinary_community_cohort(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(cli, "passive_skill_checks", lambda **_kwargs: [])
+    review_path = tmp_path / "review.json"
+    review_path.write_text('{"outcomes":{}}\n', encoding="utf-8")
+
+    with pytest.raises(SystemExit) as exc:
+        cli.main([
+            "--cohort", "community",
+            "test-round",
+            "--review-file", str(review_path),
+            "--submit",
+        ])
+
+    assert exc.value.code == 2
+    assert "requires --cohort external-test or --cohort maintainer" in capsys.readouterr().err
 
 
 def test_client_feedback_posts_structured_result_feedback(monkeypatch, capsys):
@@ -1149,6 +1174,81 @@ def test_client_mcp_config_includes_only_bounded_opt_in_cohort(capsys):
     assert payload["mcpServers"]["rock-kb"]["headers"] == {"x-rock-kb-cohort": "external-test"}
 
 
+def test_client_telemetry_opt_in_is_private_and_mcp_config_uses_anonymous_marker(capsys):
+    cli = load_client_cli()
+
+    assert cli.main(["telemetry", "enable", "--cohort", "community", "--consent-attested"]) == 0
+    enabled = json.loads(capsys.readouterr().out)
+    state_path = Path(enabled["state_path"])
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+
+    assert enabled["enabled"] is True
+    assert enabled["anonymous_installation_id_present"] is True
+    assert "installation_id" not in enabled
+    assert stat.S_IMODE(state_path.stat().st_mode) == 0o600
+    assert state["installation_id"].startswith("rkbi_")
+
+    assert cli.main(["mcp-config"]) == 0
+    config = json.loads(capsys.readouterr().out)
+    assert config["mcpServers"]["rock-kb"]["headers"] == {
+        "x-rock-kb-cohort": "community",
+        "x-rock-kb-installation-id": state["installation_id"],
+    }
+
+    assert cli.main(["telemetry", "disable"]) == 0
+    disabled = json.loads(capsys.readouterr().out)
+    assert disabled["enabled"] is False
+    assert not state_path.exists()
+
+
+def test_client_outcome_posts_only_fixed_structured_fields(monkeypatch, capsys):
+    cli = load_client_cli()
+    captured = {}
+
+    def fake_post_json(url: str, payload: dict, token: str = ""):
+        captured["url"] = url
+        captured["payload"] = payload
+        return {"status": "recorded"}
+
+    monkeypatch.setattr(cli, "post_json", fake_post_json)
+
+    assert cli.main([
+        "--url", "https://example.test",
+        "outcome", "claim:claim:abc123",
+        "--outcome", "partially_useful",
+        "--reason", "incomplete",
+        "--reason", "version_gap",
+        "--consent-attested",
+    ]) == 0
+
+    assert captured == {
+        "url": "https://example.test/outcomes",
+        "payload": {
+            "result_id": "claim:claim:abc123",
+            "outcome": "partially_useful",
+            "reason_codes": ["incomplete", "version_gap"],
+            "consent_attested": True,
+        },
+    }
+    assert "recorded" in capsys.readouterr().out
+
+
+def test_client_outcome_rejects_incompatible_reason_before_posting(monkeypatch, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(cli, "post_json", lambda *_args, **_kwargs: pytest.fail("outcome should not be posted"))
+
+    with pytest.raises(SystemExit) as exc:
+        cli.main([
+            "outcome", "claim:claim:abc123",
+            "--outcome", "useful",
+            "--reason", "incorrect",
+            "--consent-attested",
+        ])
+
+    assert exc.value.code == 2
+    assert "incompatible with useful" in capsys.readouterr().err
+
+
 def test_client_mcp_config_supports_opt_in_codemode(capsys):
     cli = load_client_cli()
 
@@ -1235,6 +1335,29 @@ def test_agent_installer_preserves_config_and_creates_backups(monkeypatch, tmp_p
     assert state_path.stat().st_mode & 0o777 == 0o600
     assert output["status"] == "ok"
     assert output["restart_required"] is True
+
+
+def test_agent_installer_applies_and_removes_private_telemetry_headers(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+
+    assert cli.main(["telemetry", "enable", "--cohort", "community", "--consent-attested"]) == 0
+    enabled = json.loads(capsys.readouterr().out)
+    state = json.loads(Path(enabled["state_path"]).read_text(encoding="utf-8"))
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+    config = tmp_path / ".codex" / "config.toml"
+    installed = config.read_text(encoding="utf-8")
+    assert '"x-rock-kb-cohort" = "community"' in installed
+    assert state["installation_id"] in installed
+
+    assert cli.main(["telemetry", "disable"]) == 0
+    capsys.readouterr()
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    capsys.readouterr()
+    updated = config.read_text(encoding="utf-8")
+    assert "x-rock-kb-cohort" not in updated
+    assert "x-rock-kb-installation-id" not in updated
 
 
 def test_agent_installer_dry_run_is_non_mutating(monkeypatch, tmp_path, capsys):

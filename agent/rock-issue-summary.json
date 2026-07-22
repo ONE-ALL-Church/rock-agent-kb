@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "834635eb7856dace5fdd09f3d7ab6864878af66be51bf3aa5e23815a27ad9ae1",
+  "catalog_content_hash": "55f070e994a4465ea7e5f97ac7fb638bfe63162767a0fd37a02782bcab0199af",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
@@ -7,9 +7,9 @@
   },
   "evidence_states": {
     "commit_linked": 15,
-    "fixed_release_recorded": 3191,
+    "fixed_release_recorded": 3192,
     "maintainer_triaged": 1227,
-    "report_only": 1372
+    "report_only": 1371
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
@@ -19,44 +19,46 @@
     "SparkDevNetwork/Rock": 5677,
     "SparkDevNetwork/Rock.Mobile-Issues": 128
   },
-  "reviewed_enrichment_count": 27,
+  "reviewed_enrichment_count": 28,
   "reviewed_enrichment_metrics": {
-    "applicability_requirement_count": 5,
+    "applicability_requirement_count": 6,
     "applicability_requirement_fields": {
-      "capabilities": 3,
+      "capabilities": 4,
       "configurations": 2
     },
     "confidences": {
-      "high": 23,
+      "high": 24,
       "medium": 4
     },
     "diagnosis_statuses": {
       "maintainer_confirmed": 15,
-      "source_supported": 12
+      "source_supported": 13
     },
-    "issue_count": 27,
+    "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 0,
-    "revalidation_due_enrichment_ids": [],
+    "revalidation_due_count": 1,
+    "revalidation_due_enrichment_ids": [
+      "rock_issue_enrichment:core-6922-form-notification-attributes-v1"
+    ],
     "risk_assessment_count": 0,
     "risk_levels": {},
-    "verification_playbook_count": 27,
+    "verification_playbook_count": 28,
     "verification_playbook_coverage_percent": 100.0
   },
   "routing": {
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
       "body_keyword": 396,
-      "github_topic_label": 1573,
+      "github_topic_label": 1574,
       "repository_default": 1331,
       "title_keyword": 3956
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-21T20:51:16Z",
+  "source_updated_through": "2026-07-21T22:46:49Z",
   "states": {
-    "closed": 5797,
-    "open": 8
+    "closed": 5798,
+    "open": 7
   },
   "timeline_coverage": {
     "complete": 311,
@@ -83,10 +85,10 @@
     "scheduling-locations": 225,
     "security-permissions": 273,
     "system-admin-ops": 1327,
-    "workflows": 377
+    "workflows": 378
   },
   "validation_states": {
-    "confirmed": 2536,
-    "reported": 3269
+    "confirmed": 2537,
+    "reported": 3268
   }
 }
