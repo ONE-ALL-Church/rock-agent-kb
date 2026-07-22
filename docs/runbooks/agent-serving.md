@@ -28,6 +28,7 @@ Available tools:
 - `kb_plan_rock_issue_investigation`: typed read-only orchestrator-worker plan with no GitHub write path.
 - `kb_search_rock_ideas`, `kb_list_rock_ideas`, and `kb_get_rock_idea`: explicit feature-gap and roadmap routing; exact Idea and Issue lookups expose bounded typed relationships when evidence exists.
 - `kb_feedback`: fixed quality feedback for a public result.
+- `kb_outcome`: consent-attested completed-task usefulness for an exact public result; requires the opted-in anonymous installation marker.
 - `kb_report_issue`: bounded, redaction-attested reports when the KB itself malfunctions.
 - `kb_review_dashboard`: public review, issue-report, evaluation, and telemetry counts.
 - `kb_submit`: hosted-only contribution intake for registered organizations.
@@ -170,25 +171,55 @@ at most eight lifecycle-prioritized highlights. Lifecycle Ideas also include a
 verification queue state and revalidation hash; neither is product evidence.
 - `GET /operations/dashboard`
 - `POST /feedback`
+- `POST /outcomes`
 - `POST /issues/report`
 - `POST /mcp`
 - `POST /submit`
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 
-`GET /operations/dashboard` and the `kb_review_dashboard` MCP tool expose public operational counts for the claim-review queue, source-conflict queue, community-unreviewed intake rows, structured issue reports, Rock product-issue catalog and timeline coverage, Rock Ideas lifecycle verification queue, section status, answer evaluation results, hosted evaluation, structured test-round outcomes, and aggregate telemetry. Telemetry separates evaluation, CLI, MCP, browser, and unknown clients; records aggregate event, primary/result-kind, and result-count data for searches and successful claim, concept, model-map, recipe, Rock issue, Rock idea, and exact-result retrievals; and reports zero-result public Rock topic categories rather than query text. Participating churches may opt into the aggregate `external-test` cohort and maintainers may use `maintainer`; invalid or omitted values are `unattributed`, while evaluation traffic is always `evaluation`. Cohorts are self-declared reporting labels, not authentication. Current telemetry stores neither raw nor hashed query text, exact lookup IDs, user identities, organizations, installation IDs, IP addresses, nor free-form client labels. PyPI package downloads and `uvx` cache/install activity occur outside the hosted service and are not usage events. Structured feedback stores only the public canonical result ID, result kind, projection version, rating, fixed reason, and bounded cohort so maintainers can identify the affected public artifact. Complete test-round reviews store only fixed outcomes and public result IDs for the ten canonical cases. Neither path accepts free text or private data.
+`GET /operations/dashboard` and `kb_review_dashboard` expose public operational
+counts for review queues, source conflicts, community intake, KB issue reports,
+Rock issues and Ideas, guide status, evaluations, test rounds, and telemetry.
+The `field_validation` section is the default real-use view. It excludes
+evaluation and maintainer traffic and reports a funnel for search, exact
+retrieval success/failure, usefulness outcome, quality feedback, and KB
+malfunction reports. Its bounded review queue contains negative outcomes,
+public topic categories with at least three zero-result searches, and failed
+exact-lookup operation types. Funnel stages use only the v5 event stream that
+starts with service v0.16.0; historical aggregate telemetry remains available
+outside this funnel.
 
-Use the opt-in marker only for a real external test or maintainer session:
+With version `2` human consent, the client keeps a private random installation
+marker and sends it only with one of three fixed cohorts: `community`,
+`external-test`, or `maintainer`. The Worker stores a SHA-256 hash scoped to
+Rock KB, never the raw marker. It does not store raw or hashed query text,
+attempted exact IDs for misses, organization or person identifiers, IP
+addresses, free-form cohort labels, logs, secrets, or Rock data. Search misses
+are categorized into bounded public topics before storage. PyPI downloads and
+`uvx` cache/install activity occur outside the hosted service and are not usage
+events.
+
+Structured quality feedback stores the canonical public result ID and kind,
+projection version, rating, fixed reason, and bounded client/cohort fields.
+Usefulness outcomes additionally require the opted-in anonymous marker and
+store `useful`, `partially_useful`, or `not_useful` with one to three compatible
+fixed reason codes. Complete test-round reviews remain a separate fixed public
+test path. None of these paths accepts a question or free text.
+
+Enable field validation only after current consent:
 
 ```bash
+uvx rock-kb telemetry enable --cohort community --consent-attested
+uvx rock-kb install-agent
 ROCK_KB_COHORT=external-test uvx rock-kb test-round
 ROCK_KB_COHORT=external-test uvx rock-kb test-round --review --submit
-uvx rock-kb --cohort external-test mcp-config
 ROCK_KB_COHORT=maintainer uvx rock-kb dashboard
 ```
 
-Never place a church name, user identifier, installation identifier, or custom
-label in the cohort header. The Worker accepts only the two documented values.
+Restart the host after `install-agent`. Never place a church name, user
+identifier, or custom label in the cohort header. Disable participation with
+`uvx rock-kb telemetry disable`, rerun the installer, and restart the host.
 
 Structured issue reports are a separate, rate-limited path for service, MCP, CLI, schema, authentication, and retrieval failures. They accept only bounded structured fields plus a short redaction-attested description; descriptions that look like logs, queries, secrets, private paths, or private Rock data are rejected. Reports deduplicate to a stable ID and occurrence count, remain `pending_review`, and never create a GitHub issue automatically. See [Structured Issue Reporting](issue-reporting.md).
 
@@ -205,9 +236,13 @@ local Worker and production-size D1 projection:
 uv run kb quality-gate
 ```
 
-The gate requires zero failed questions, MRR of at least `0.99`, recall at the
-target rank of `1.0`, duplicate rate of `0`, and authority correctness of
-`1.0`. It writes the ignored report to
+Each evaluation request receives one bounded retry only when the HTTP transport
+times out. Connection failures, HTTP errors, malformed responses, and ranking
+failures are never retried. The report separates availability from retrieval
+quality: unavailable cases fail the availability gate, while available cases
+must have zero failed questions, MRR of at least `0.99`, recall at the target
+rank of `1.0`, duplicate rate of `0`, and authority correctness of `1.0`.
+Ranking remains strict even when a timeout retry recovers. The gate writes its report to
 `service/dist/lexical-quality-gate.json`. Pull-request and production-deploy
 workflows run this gate before changes can reach the hosted Worker.
 

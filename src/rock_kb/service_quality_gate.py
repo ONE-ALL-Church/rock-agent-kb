@@ -91,6 +91,9 @@ def run_service_quality_gate(
                 terminate_process(process)
 
     failures = quality_failures(evaluation, thresholds)
+    metrics = evaluation["metrics"]
+    availability_fail_count = int(metrics.get("unavailable_question_count") or 0)
+    retrieval_fail_count = int(metrics.get("retrieval_quality_failure_count") or 0)
     report = {
         "schema": "rock-kb-service-quality-gate-v1",
         "status": "fail" if failures else "ok",
@@ -101,9 +104,11 @@ def run_service_quality_gate(
             "maximum_duplicate_rate": thresholds.maximum_duplicate_rate,
             "minimum_authority_pass_rate": thresholds.minimum_authority_pass_rate,
         },
-        "metrics": evaluation["metrics"],
+        "metrics": metrics,
         "pass_count": evaluation["pass_count"],
         "fail_count": evaluation["fail_count"],
+        "availability_fail_count": availability_fail_count,
+        "retrieval_quality_fail_count": retrieval_fail_count,
         "failures": failures,
         "failed_questions": [row for row in evaluation.get("results") or [] if row.get("status") == "fail"],
         "ranked_below_first": [
@@ -120,15 +125,26 @@ def run_service_quality_gate(
 def quality_failures(evaluation: dict[str, Any], thresholds: QualityThresholds) -> list[str]:
     metrics = evaluation.get("metrics") or {}
     failures: list[str] = []
-    if int(evaluation.get("fail_count") or 0):
-        failures.append(f"{evaluation['fail_count']} evaluation questions failed")
+    total_fail_count = int(evaluation.get("fail_count") or 0)
+    unavailable_count = int(metrics.get("unavailable_question_count") or 0)
+    retrieval_fail_count = int(metrics.get("retrieval_quality_failure_count") or max(0, total_fail_count - unavailable_count))
+    if unavailable_count:
+        failures.append(f"{unavailable_count} evaluation requests unavailable")
+    if retrieval_fail_count:
+        failures.append(f"{retrieval_fail_count} retrieval-quality questions failed")
+    availability_metrics_present = "available_question_count" in metrics
+    available_quality_rows = int(metrics.get("available_question_count") or 0) > 0 if availability_metrics_present else True
+    relevance_rows = int(metrics.get("relevance_question_count") or 0) > 0 if "relevance_question_count" in metrics else available_quality_rows
+    authority_rows = int(metrics.get("authority_question_count") or 0) > 0 if "authority_question_count" in metrics else available_quality_rows
     checks = [
-        ("mean_reciprocal_rank", thresholds.minimum_mrr, "minimum"),
-        ("recall_at_target_rank", thresholds.minimum_recall, "minimum"),
-        ("duplicate_result_rate", thresholds.maximum_duplicate_rate, "maximum"),
-        ("authority_pass_rate", thresholds.minimum_authority_pass_rate, "minimum"),
+        ("mean_reciprocal_rank", thresholds.minimum_mrr, "minimum", relevance_rows),
+        ("recall_at_target_rank", thresholds.minimum_recall, "minimum", relevance_rows),
+        ("duplicate_result_rate", thresholds.maximum_duplicate_rate, "maximum", available_quality_rows),
+        ("authority_pass_rate", thresholds.minimum_authority_pass_rate, "minimum", authority_rows),
     ]
-    for key, threshold, direction in checks:
+    for key, threshold, direction, applies in checks:
+        if not applies:
+            continue
         actual = float(metrics.get(key) or 0)
         failed = actual < threshold if direction == "minimum" else actual > threshold
         if failed:

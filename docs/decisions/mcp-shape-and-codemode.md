@@ -4,7 +4,7 @@ Status: adopted with Code Mode opt-in and experimental.
 
 ## Decision
 
-The hosted `/mcp` endpoint remains the default agent interface. It exposes 28
+The hosted `/mcp` endpoint remains the default agent interface. It exposes 29
 task-oriented tools for direct search, exact retrieval, operations, feedback,
 and reviewed intake. Tools return MCP structured content plus compatible JSON
 text and advertise read-only, idempotent, destructive, and open-world hints.
@@ -18,8 +18,9 @@ large intermediate results through model context. Configure it only with:
 uvx rock-kb mcp-config --mode code
 ```
 
-The four write-capable operations are deliberately omitted: feedback, KB issue
-reports, test-round review submission, and community knowledge submission.
+The five write-capable operations are deliberately omitted: feedback,
+completed-task usefulness outcomes, KB issue reports, test-round review
+submission, and community knowledge submission.
 Their consent, redaction, authentication, and review boundaries remain on the
 direct interface.
 
@@ -29,7 +30,7 @@ direct interface.
 |---|---|---|
 | Direct typed tools | Default | The catalog is bounded, tool intent is clear, and exact technical retrieval is the normal workload. |
 | One Code Mode tool | Opt-in | Useful for multi-step read-only composition without making every client execute code. |
-| Search plus execute | Not adopted | Intended for very large or changing API catalogs; 28 stable tools do not justify another discovery round trip. |
+| Search plus execute | Not adopted | Intended for very large or changing API catalogs; 29 stable tools do not justify another discovery round trip. |
 | Resources only | Not adopted | Rock questions need parameterized search and exact lookups, not only static file reads. |
 | OKF download | Secondary | Best for offline, pinned, bulk, archival, or local-index workloads rather than live questions. |
 

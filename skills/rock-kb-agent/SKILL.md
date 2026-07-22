@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.2.1"
+  rock-kb-skill-version: "1.3.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-21T21:55:52Z"
-  rock-kb-minimum-client-version: "0.15.0"
+  rock-kb-published-at: "2026-07-21T23:56:39Z"
+  rock-kb-minimum-client-version: "0.16.0"
 ---
 
 # Rock KB Agent
@@ -48,7 +48,8 @@ The KB can help agents do more than plain text search:
 - Use the manifest to discover agent entrypoints and generated artifacts.
 - Inspect the hosted skill manifest to detect a newer reviewed instruction
   package without trusting an unverified local copy.
-- Inspect public operations counts through the dashboard.
+- Inspect public operations counts, the anonymous field-validation funnel, and
+  bounded maintainer review queues through the dashboard.
 - Inspect authoritative daily/weekly workflow and source freshness, including
   separate last-check, content-change, count, hash, and status fields.
 - List stable Rock Model Map models and get exact model digests.
@@ -65,6 +66,8 @@ The KB can help agents do more than plain text search:
 - Use Rockumentation API metadata and branch paths as routing signals.
 - Run the bounded external-church test round and preserve its stable public
   result IDs for structured feedback.
+- With explicit consent, report whether an exact public result was useful,
+  partially useful, or not useful without sending the question or private data.
 - Validate and submit public-safe community contribution bundles.
 - Connect through hosted HTTP MCP when the current agent client supports tools.
 - Download, inspect, and verify full or compact core read-only OKF distributions for
@@ -140,6 +143,7 @@ uvx rock-kb recipe verify oneall:check-in-status-dashboard --rock-version 18
 uvx rock-kb issues assess instance-profile.json --scope open
 uvx rock-kb issues watch instance-profile.json --scope all-relevant
 uvx rock-kb test-round
+uvx rock-kb telemetry status
 uvx rock-kb dashboard
 uvx rock-kb freshness
 uvx rock-kb mcp-config
@@ -205,6 +209,8 @@ Use these commands for specific jobs:
   cohort, record one fixed outcome for all ten cases. Never submit free text,
   raw queries, logs, identities, or private Rock data.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
+- `telemetry enable --cohort <community|external-test|maintainer> --consent-attested`: create a private random installation marker and opt into anonymous field validation. The service stores only its one-way hash. Run `telemetry disable` to revoke the opt-in.
+- `outcome <result-id> --outcome <useful|partially_useful|not_useful> --reason <fixed-code> --consent-attested`: report the usefulness of an exact result after a completed task. Repeat `--reason` up to three times; never send prose or private data.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
 - `concepts`: list valid concept IDs and their guide paths.
@@ -312,6 +318,10 @@ tools instead of shell commands:
   `implemented_by_issue` requires official release-note corroboration.
 - `kb_feedback`: record a fixed rating and reason for an exact result. Never put
   private data into feedback.
+- `kb_outcome`: with current human consent and an opted-in anonymous
+  installation marker, record whether an exact public result was `useful`,
+  `partially_useful`, or `not_useful` plus one to three compatible fixed reason
+  codes. It is task-usefulness evidence, not a free-form comment.
 - `kb_report_issue`: report a service, MCP, CLI, schema, authentication, or
   retrieval malfunction. Send only structured fields and a short generic
   redaction-attested description. Never send a query, prompt, raw request or
@@ -343,70 +353,86 @@ automatically.
 
 ## Feedback Consent
 
-Do not submit feedback merely because the KB exposes a feedback tool. After the
-first completed KB-assisted task, and before sending any feedback, check whether
-the agent host's private user-level memory contains a current
-`rock_kb_feedback_consent` decision. If no decision exists, ask the human once:
+Do not enable telemetry or submit feedback merely because the KB exposes these
+tools. After the first completed KB-assisted task, check private user-level
+memory for a current `rock_kb_feedback_consent` decision. If none exists, ask:
 
-> Rock KB can receive privacy-bounded structured quality feedback. It retains
-> the public result ID, result kind, current KB projection, a positive or
-> negative rating, a fixed reason, bounded client/cohort labels, and an
-> aggregate count. It does not retain your question, prompt, identity, church
-> name, IP address, free text, logs, or private Rock data. May I submit this
-> feedback when I can confidently evaluate a result? Choose: Allow
-> automatically, Ask each time, or Do not send. May I remember that choice in
-> private user-level memory?
+> Rock KB can use privacy-bounded field-validation signals to improve retrieval.
+> It can retain a one-way hash of a random installation marker, a fixed cohort,
+> the public result ID and kind, the KB projection and client version, a fixed
+> quality rating or usefulness outcome, fixed reason codes, timestamps, and
+> aggregate counts. It does not retain your question, prompt, organization,
+> church or person identity, IP address, free text, logs, secrets, or private
+> Rock data. May I enable this anonymous marker and submit these signals when I
+> can confidently evaluate a completed task? Choose: Allow automatically, Ask
+> each time, or Do not send. May I remember that choice in private user-level
+> memory?
 
-This is consent notice version `1`. Apply the human's decision as follows:
+This is consent notice version `2`. A version `1` decision does not cover the
+anonymous marker or usefulness outcomes; ask again before enabling either.
 
-- `Allow automatically`: standing permission applies only to `kb_feedback` for
-  exact public results.
-- `Ask each time`: request confirmation before each `kb_feedback` submission.
-- `Do not send`: do not submit result feedback and do not ask again unless the
-  human reopens the decision.
+- `Allow automatically`: standing permission covers exact-result
+  `kb_feedback` and `kb_outcome` only under the rules below.
+- `Ask each time`: request confirmation before each feedback or outcome event.
+- `Do not send`: do not enable the marker or submit either signal; do not ask
+  again unless the human reopens the decision.
 
-Persist any of these choices only in private user-level memory when the human
-explicitly permits remembering it. Otherwise, treat the choice as
-session-scoped.
-
-A suitable private memory record is:
+Ask separately whether the preference may be remembered. Store it only in
+private user-level memory when the human explicitly permits persistence:
 
 ```yaml
 rock_kb_feedback_consent:
-  notice_version: 1
+  notice_version: 2
   quality_feedback: automatic  # automatic, ask, or disabled
+  usefulness_outcomes: automatic  # automatic, ask, or disabled
+  anonymous_installation: enabled  # enabled or disabled
+  cohort: community  # community, external-test, or maintainer
   malfunction_reports: ask
   test_rounds: ask
   contributions: explicit_review
 ```
 
-Never put this preference in a public or shared repository, KB payload, project
-artifact, contribution bundle, or church data store. If the host has no private
-persistent memory, keep the decision session-scoped and default to asking in a
-future session. Follow the host's own memory policy; do not claim to remember a
-decision when persistence is unavailable.
+Never put this preference or the private installation marker in a public or
+shared repository, KB payload, project artifact, contribution bundle, or church
+data store. If private persistent memory is unavailable or not permitted, keep
+the decision session-scoped and do not create a persistent marker.
 
-Standing quality-feedback permission is not permission to report every search:
+After consent to persistent anonymous field validation, configure it locally:
 
-- Submit feedback only after a completed task when an exact result was
-  materially used and its usefulness can be assessed confidently.
-- Submit at most one rating for an exact result in a completed task. Do not
-  repeat the same rating and reason to increase its count.
-- Use positive feedback only for a materially helpful result. Use negative
-  feedback only for the supported `outdated`, `missing`, `incorrect`, or
-  `wrong_route` reasons. If uncertain, submit nothing.
-- Never invent a result ID. A zero-result search is not automatically a KB
-  malfunction; use `kb_report_issue` only when the service or retrieval path
-  itself failed.
+```bash
+uvx rock-kb telemetry enable --cohort community --consent-attested
+uvx rock-kb install-agent
+```
 
-`kb_report_issue` still requires confirmation for each report because the agent
-must provide and attest a redacted description. `test-round --review --submit`
-requires explicit approval for each submitted round. Contributions and public
-PRs always require explicit human review. Result-feedback consent grants none
-of those permissions.
+The first command writes a random marker to the user's private state directory;
+its status output does not reveal the value and the service stores only its
+one-way hash. The second places the marker in supported user-scoped MCP
+configuration so that host can send it. Treat that local configuration as
+private and restart or reload the host afterward. Project-scoped MCP
+configuration does not receive the marker.
 
-The human may revoke or change the decision at any time. Ask again if the
-consent notice version changes or the retained feedback fields expand.
+Standing permission is not permission to report every search:
+
+- Submit `kb_feedback` only when an exact result's factual quality, freshness,
+  completeness, or routing can be assessed confidently.
+- Submit `kb_outcome` only after an exact result materially contributed to a
+  completed task. Choose `useful`, `partially_useful`, or `not_useful` and one
+  to three compatible fixed reason codes.
+- Submit at most one quality rating and one usefulness outcome per exact result
+  per completed task. Never repeat an event to increase its count.
+- Never invent a result ID. Submit nothing when usefulness is uncertain. A
+  zero-result search is not automatically a KB malfunction.
+
+`kb_report_issue` still requires confirmation for each report because it needs
+a short redaction-attested description. `test-round --review --submit` requires
+explicit approval for each round. Contributions and public PRs always require
+explicit human review. Field-validation consent grants none of those
+permissions.
+
+The human may revoke or change the decision at any time. To revoke persistent
+field validation, run `uvx rock-kb telemetry disable`, rerun
+`uvx rock-kb install-agent`, and restart the host. Ask again whenever the
+consent notice version changes or retained fields expand.
 
 ## Read Workflow
 
@@ -425,17 +451,20 @@ For an MCP-capable client, configure the same hosted projection instead:
 uvx rock-kb mcp-config
 ```
 
-When the church has explicitly joined the public testing cohort, opt into the
-single aggregate `external-test` marker:
+With current version `2` consent, ordinary participating installations use the
+fixed `community` cohort. A church running the formal public test round may use
+`external-test` instead:
 
 ```bash
+uvx rock-kb telemetry enable --cohort community --consent-attested
 ROCK_KB_COHORT=external-test uvx rock-kb test-round
-uvx rock-kb --cohort external-test mcp-config
+uvx rock-kb telemetry enable --cohort external-test --consent-attested
+uvx rock-kb mcp-config
 ```
 
-Do not replace `external-test` with a church name or identifier. The marker is
-self-declared telemetry, not authentication, and ordinary use should leave it
-unset.
+Never replace a cohort with a church name or custom identifier. Cohorts are
+self-declared telemetry labels, not authentication. Without consent, leave
+telemetry disabled and do not send an installation marker.
 
 2. Prefer this evidence order:
 

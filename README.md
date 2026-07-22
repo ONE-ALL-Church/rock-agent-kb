@@ -125,11 +125,15 @@ Anyone can inspect the authoritative scheduled-refresh and source state with
 each source's last check, last content change, result count, content hash, and
 check status. It does not expose private source content or maintainer paths.
 
-The reusable agent skill also asks the human once whether exact-result quality
-feedback may be submitted automatically and remembered privately. This standing
-permission never covers malfunction reports, test-round submissions, public
-contributions, or PRs. See [community onboarding](docs/community-onboarding.md#let-your-agent-provide-ongoing-feedback)
-for the consent and privacy boundaries.
+The reusable agent skill asks the human once whether anonymous field validation
+may be enabled and remembered privately. With consent, an agent can submit
+fixed-vocabulary result-quality feedback and completed-task usefulness outcomes
+against public result IDs. The service stores only a one-way hash of a random
+installation marker; it does not retain questions, organizations, people, IP
+addresses, free text, logs, or Rock data. This standing permission never covers
+malfunction reports, test-round submissions, public contributions, or PRs. See
+[community onboarding](docs/community-onboarding.md#let-your-agent-provide-ongoing-feedback)
+and the [field-validation runbook](docs/runbooks/field-validation.md).
 
 ## Contribute
 

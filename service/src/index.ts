@@ -10,6 +10,7 @@ type JsonRecord = Record<string, unknown>;
 type TelemetryIdentity = {
   clientClass: string;
   cohort: string;
+  installationId: string;
 };
 
 type SearchRow = {
@@ -154,6 +155,17 @@ const DIRECT_MEDIA_HINTS = [
 ];
 
 const FEEDBACK_REASONS = new Set(["helpful", "outdated", "missing", "incorrect", "wrong_route"]);
+const OUTCOME_VALUES = new Set(["useful", "partially_useful", "not_useful"]);
+const OUTCOME_REASON_CODES: Record<string, Set<string>> = {
+  useful: new Set(["answered", "actionable", "well_sourced", "correct_route"]),
+  partially_useful: new Set(["incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence"]),
+  not_useful: new Set(["incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"]),
+};
+const OUTCOME_FIELDS = new Set(["result_id", "outcome", "reason_codes", "consent_attested"]);
+const OUTCOME_REQUEST_MAX_BYTES = 2048;
+const OUTCOME_LIMIT_PER_INSTALLATION_DAY = 100;
+const FIELD_REVIEW_QUEUE_LIMIT = 50;
+const ZERO_RESULT_REVIEW_THRESHOLD = 3;
 const TEST_ROUND_REVIEW_OUTCOMES = new Set(["useful", "incorrect", "incomplete", "unclear", "unsure"]);
 const PUBLIC_RESULT_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9:._/#-]{0,199}$/;
 const TEST_ROUND_CASES = new Map<string, string>([
@@ -185,7 +197,17 @@ const ISSUE_DESCRIPTION_MAX_BYTES = 280;
 const ISSUE_REQUEST_MAX_BYTES = 4096;
 const ISSUE_FINGERPRINT_LIMIT_PER_MINUTE = 10;
 const ISSUE_GLOBAL_LIMIT_PER_MINUTE = 120;
-const DECLARED_TELEMETRY_COHORTS = new Set(["external-test", "maintainer"]);
+const DECLARED_TELEMETRY_COHORTS = new Set(["community", "external-test", "maintainer"]);
+const TEST_ROUND_REVIEW_COHORTS = new Set(["external-test", "maintainer"]);
+const EXACT_RETRIEVAL_EVENTS = new Set([
+  "result_get",
+  "claim_get",
+  "concept_get",
+  "model_get",
+  "recipe_get",
+  "rock_issue_get",
+  "rock_idea_get",
+]);
 const TEST_ROUND_FUNNEL_STAGES = new Set(["started", "completed"]);
 const SUPPORTED_MCP_PROTOCOL_VERSIONS = new Set(["2025-03-26", "2025-06-18", "2025-11-25"]);
 const LATEST_STABLE_MCP_PROTOCOL_VERSION = "2025-11-25";
@@ -248,9 +270,13 @@ export default {
       }
       if (url.pathname.startsWith("/concepts/") && url.pathname.endsWith(".md")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/concepts/".length, -".md".length));
-        const response = await artifactText(env, `knowledge/concepts/${conceptId}/index.md`, "text/markdown; charset=utf-8");
-        ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, request));
-        return response;
+        const conceptIndex = await artifactJsonlValue(env, "agent/concept-index.jsonl");
+        const exists = conceptIndex.some((row) => row.concept_id === conceptId);
+        ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", exists ? 1 : 0, request));
+        if (!exists) {
+          return json({ schema: "rock-kb-concept-result-v1", status: "not_found", concept_id: conceptId }, 404);
+        }
+        return artifactText(env, `knowledge/concepts/${conceptId}/index.md`, "text/markdown; charset=utf-8");
       }
       if (url.pathname === "/search") {
         const query = url.searchParams.get("q") || "";
@@ -265,9 +291,7 @@ export default {
       if (url.pathname.startsWith("/results/")) {
         const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
         const result = await getResult(env, resultId);
-        if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, request));
-        }
+        ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), result.status === "ok" ? 1 : 0, request));
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname === "/model-map/models") {
@@ -309,7 +333,7 @@ export default {
       if (url.pathname.startsWith("/rock-ideas/")) {
         const ideaRef = decodeURIComponent(url.pathname.slice("/rock-ideas/".length));
         const result = await getRockIdea(env, ideaRef);
-        if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_idea_get", "rock_idea", 1, request));
+        ctx.waitUntil(recordAccessUsage(env, "rock_idea_get", "rock_idea", result.status === "ok" ? 1 : 0, request));
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname === "/rock-issues/assess" && request.method === "POST") {
@@ -340,9 +364,7 @@ export default {
       if (url.pathname.startsWith("/rock-issues/")) {
         const issueRef = decodeURIComponent(url.pathname.slice("/rock-issues/".length));
         const result = await getRockIssue(env, issueRef);
-        if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", 1, request));
-        }
+        ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", result.status === "ok" ? 1 : 0, request));
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/recipes/") && url.pathname.endsWith("/verify")) {
@@ -356,9 +378,7 @@ export default {
       if (url.pathname.startsWith("/recipes/")) {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length));
         const result = await getRecipe(env, recipeId);
-        if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, request));
-        }
+        ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", result.status === "ok" ? 1 : 0, request));
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/model-map/models/")) {
@@ -368,6 +388,7 @@ export default {
           property: url.searchParams.get("property"),
         });
         if (!result) {
+          ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 0, request));
           return json({ schema: "rock-kb-model-map-model-result-v1", status: "not_found", model }, 404);
         }
         ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, request));
@@ -379,9 +400,7 @@ export default {
       if (url.pathname.startsWith("/claims/id/")) {
         const claimId = decodeURIComponent(url.pathname.slice("/claims/id/".length));
         const result = await getClaim(env, claimId);
-        if (result.status === "ok") {
-          ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, request));
-        }
+        ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", result.status === "ok" ? 1 : 0, request));
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname.startsWith("/claims/")) {
@@ -397,6 +416,16 @@ export default {
       }
       if (url.pathname === "/feedback" && request.method === "POST") {
         return json(await submitFeedback(request, env), 201);
+      }
+      if (url.pathname === "/outcomes" && request.method === "POST") {
+        try {
+          return json(await submitOutcome(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json({ schema: "rock-kb-outcome-result-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
+          }
+          throw error;
+        }
       }
       if (url.pathname === "/test-rounds/review" && request.method === "POST") {
         try {
@@ -830,14 +859,12 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_get_result") {
     const result = await getResult(env, String(args.id || args.result_id || ""));
-    if (result.status === "ok") {
-      ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), 1, request, "mcp"));
-    }
+    ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), result.status === "ok" ? 1 : 0, request, "mcp"));
     return result;
   }
   if (name === "kb_get_claim") {
     const result = await getClaim(env, String(args.claim_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", 1, request, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "claim_get", "claim", result.status === "ok" ? 1 : 0, request, "mcp"));
     return result;
   }
   if (name === "kb_list_models") {
@@ -851,6 +878,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       property: stringOrNull(args.property),
     });
     if (!result) {
+      ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 0, request, "mcp"));
       return { schema: "rock-kb-model-map-model-result-v1", status: "not_found", model: String(args.model || args.model_slug || "") };
     }
     ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, request, "mcp"));
@@ -863,7 +891,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_get_recipe") {
     const result = await getRecipe(env, String(args.recipe_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", 1, request, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", result.status === "ok" ? 1 : 0, request, "mcp"));
     return result;
   }
   if (name === "kb_verify_recipe") {
@@ -899,7 +927,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_get_rock_idea") {
     const result = await getRockIdea(env, String(args.idea || args.idea_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_idea_get", "rock_idea", 1, request, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "rock_idea_get", "rock_idea", result.status === "ok" ? 1 : 0, request, "mcp"));
     return result;
   }
   if (name === "kb_list_rock_issues") {
@@ -916,7 +944,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   }
   if (name === "kb_get_rock_issue") {
     const result = await getRockIssue(env, String(args.issue || args.issue_id || ""));
-    if (result.status === "ok") ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", 1, request, "mcp"));
+    ctx.waitUntil(recordAccessUsage(env, "rock_issue_get", "rock_issue", result.status === "ok" ? 1 : 0, request, "mcp"));
     return result;
   }
   if (name === "kb_assess_rock_issues") {
@@ -948,8 +976,8 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_get_concept") {
     const conceptId = String(args.concept_id || "");
     const result = await conceptPackage(env, conceptId);
-    ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", 1, request, "mcp"));
-    return result;
+    ctx.waitUntil(recordAccessUsage(env, "concept_get", "concept", result ? 1 : 0, request, "mcp"));
+    return result || { schema: "rock-kb-concept-result-v1", status: "not_found", concept_id: conceptId };
   }
   if (name === "kb_get_claims") {
     const result = await claims(env, String(args.concept_id || ""), String(args.min_tier || "routing_context_only"), stringOrNull(args.tier));
@@ -976,6 +1004,20 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_feedback") {
     return submitFeedback(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env, "mcp");
   }
+  if (name === "kb_outcome") {
+    try {
+      return await submitOutcome(
+        new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }),
+        env,
+        "mcp",
+      );
+    } catch (error) {
+      if (error instanceof PublicRequestError) {
+        return { schema: "rock-kb-outcome-result-v1", status: "rejected", error_code: error.code, message: error.message };
+      }
+      throw error;
+    }
+  }
   if (name === "kb_report_issue") {
     try {
       return await submitIssueReport(
@@ -994,9 +1036,11 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   throw new Error(`Unknown tool: ${name}`);
 }
 
-async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonRecord> {
-  const [index, quickstart, guide, answers, tasks, caveats, recipeRows, claimRows, rockIdeas] = await Promise.all([
-    artifactJsonlValue(env, "agent/concept-index.jsonl"),
+async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonRecord | null> {
+  const index = await artifactJsonlValue(env, "agent/concept-index.jsonl");
+  const concept = index.find((row) => row.concept_id === conceptId) || null;
+  if (!concept) return null;
+  const [quickstart, guide, answers, tasks, caveats, recipeRows, claimRows, rockIdeas] = await Promise.all([
     artifactTextValue(env, `knowledge/concepts/${conceptId}/quickstart.md`),
     artifactTextValue(env, `knowledge/concepts/${conceptId}/index.md`),
     artifactJsonlValue(env, "agent/answer-pack.jsonl"),
@@ -1008,7 +1052,7 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
   ]);
   return {
     concept_id: conceptId,
-    index: index.find((row) => row.concept_id === conceptId) || null,
+    index: concept,
     quickstart,
     guide,
     answers: answers.filter((row) => row.concept_id === conceptId),
@@ -1359,7 +1403,7 @@ function normalizeRockIssueId(value: string): string {
 }
 
 async function assessRockIssues(request: Request, env: ServiceEnv): Promise<JsonRecord> {
-  const body = await readBoundedJson(request, 8192);
+  const body = await readBoundedJson(request, 8192, { label: "Rock issue assessment", tooLargeCode: "assessment_too_large" });
   const profile = asRecord(body.profile);
   const scope = normalizeRockIssueAssessmentScope(String(body.scope || "open"));
   const limit = boundedInt(body.limit, 100, 1, 500);
@@ -2743,12 +2787,15 @@ async function recordUsageSummary(
 ): Promise<void> {
   await ensureTelemetryTables(env);
   const day = new Date().toISOString().slice(0, 10);
+  const installationHash = identity.installationId
+    ? await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`)
+    : "";
   await env.KB_DB.prepare(
-    `INSERT INTO usage_events_v4 (day, event, client_class, cohort, topic_hint, result_count, primary_result_kind, count)
-     VALUES (?, ?, ?, ?, ?, ?, ?, 1)
-     ON CONFLICT(day, event, client_class, cohort, topic_hint, result_count, primary_result_kind)
+    `INSERT INTO usage_events_v5 (day, event, client_class, cohort, installation_hash, topic_hint, result_count, primary_result_kind, count)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, event, client_class, cohort, installation_hash, topic_hint, result_count, primary_result_kind)
      DO UPDATE SET count = count + 1`
-  ).bind(day, event, identity.clientClass, identity.cohort, topicHint, resultCount, primaryResultKind).run();
+  ).bind(day, event, identity.clientClass, identity.cohort, installationHash, topicHint, resultCount, primaryResultKind).run();
   for (const [resultKind, count] of Object.entries(kindCounts)) {
     await env.KB_DB.prepare(
       `INSERT INTO usage_result_kinds_v2 (day, event, client_class, cohort, result_kind, count)
@@ -2761,7 +2808,12 @@ async function recordUsageSummary(
 
 async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
   await ensureTelemetryTables(env);
-  const [current, legacy, currentZeroResults, legacyZeroResults, currentResultKinds, legacyResultKinds, currentFeedback, legacyFeedback] = await Promise.all([
+  const [current, prior, legacy, currentZeroResults, priorZeroResults, legacyZeroResults, currentResultKinds, legacyResultKinds, currentFeedback, legacyFeedback, outcomes, installations] = await Promise.all([
+    env.KB_DB.prepare(
+    `SELECT day, event, client_class, cohort, result_count, primary_result_kind, SUM(count) AS count
+     FROM usage_events_v5
+     GROUP BY day, event, client_class, cohort, result_count, primary_result_kind`
+    ).all<JsonRecord>(),
     env.KB_DB.prepare(
     `SELECT day, event, client_class, cohort, result_count, primary_result_kind, SUM(count) AS count
      FROM usage_events_v4
@@ -2771,6 +2823,12 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     `SELECT day, event, client_class, 'unattributed' AS cohort, result_count, primary_result_kind, SUM(count) AS count
      FROM usage_events_v3
      GROUP BY day, event, client_class, result_count, primary_result_kind`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, cohort, topic_hint, SUM(count) AS count
+     FROM usage_events_v5
+     WHERE result_count = 0 AND client_class <> 'eval' AND topic_hint <> 'unclassified'
+     GROUP BY day, cohort, topic_hint`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
     `SELECT day, cohort, topic_hint, SUM(count) AS count
@@ -2804,15 +2862,25 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
      FROM feedback_events_v2
      GROUP BY day, client_class, result_id, result_kind, projection_version, rating, reason`
     ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes, SUM(count) AS count
+     FROM outcome_events_v1
+     GROUP BY day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+    `SELECT COUNT(DISTINCT installation_hash) AS count
+     FROM usage_events_v5
+     WHERE installation_hash <> '' AND client_class <> 'eval'`
+    ).first<JsonRecord>(),
   ]);
   const mergedUsageRows = mergeCountRows(
-    [...(current.results || []), ...(legacy.results || [])],
+    [...(current.results || []), ...(prior.results || []), ...(legacy.results || [])],
     ["day", "event", "client_class", "cohort", "result_count", "primary_result_kind"],
     Number.MAX_SAFE_INTEGER,
   );
   const rows = mergedUsageRows.slice(0, 100);
   const zeroResults = mergeCountRows(
-    [...(currentZeroResults.results || []), ...(legacyZeroResults.results || [])],
+    [...(currentZeroResults.results || []), ...(priorZeroResults.results || []), ...(legacyZeroResults.results || [])],
     ["day", "cohort", "topic_hint"],
     50,
   );
@@ -2827,7 +2895,7 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     100,
   );
   return {
-    schema: "rock-kb-telemetry-summary-v4",
+    schema: "rock-kb-telemetry-summary-v5",
     rows,
     adoption_rows: mergedUsageRows.filter((row) => row.client_class !== "eval").slice(0, 100),
     evaluation_rows: mergedUsageRows.filter((row) => row.client_class === "eval").slice(0, 100),
@@ -2836,11 +2904,27 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     zero_result_topics: zeroResults,
     result_kinds: resultKinds,
     feedback,
-    privacy: "No raw or hashed query text, user identity, organization identity, IP address, or free-text feedback is retained. Cohorts are optional self-declared aggregate labels restricted to external-test, maintainer, evaluation, or unattributed; they are not authentication.",
+    outcomes: outcomes.results || [],
+    opted_in_installation_count: Number(installations?.count || 0),
+    privacy: "No raw or hashed query text, user identity, organization identity, IP address, free text, or Rock data is retained. An opted-in random installation marker is stored only as a one-way hash and is never exposed. Cohorts are fixed aggregate labels restricted to community, external-test, maintainer, evaluation, or unattributed; they are not authentication.",
   };
 }
 
 async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS usage_events_v5 (
+      day TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      topic_hint TEXT NOT NULL,
+      result_count INTEGER NOT NULL,
+      primary_result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, event, client_class, cohort, installation_hash, topic_hint, result_count, primary_result_kind)
+    )`
+  ).run();
   await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS usage_events_v4 (
       day TEXT NOT NULL,
@@ -2987,6 +3071,29 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
       client_version TEXT NOT NULL
     )`
   ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS outcome_events_v1 (
+      day TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      result_id TEXT NOT NULL,
+      result_kind TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      outcome TEXT NOT NULL,
+      reason_codes TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, installation_hash, client_class, cohort, result_id, projection_version, outcome, reason_codes)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS outcome_rate_v1 (
+      day TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, installation_hash)
+    )`
+  ).run();
 }
 
 async function submitFeedback(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
@@ -3011,11 +3118,94 @@ async function submitFeedback(request: Request, env: ServiceEnv, forcedClientCla
      ON CONFLICT(day, client_class, cohort, result_id, projection_version, rating, reason)
      DO UPDATE SET count = count + 1`
   ).bind(day, identity.clientClass, identity.cohort, result.id, result.kind, projectionVersion, rating, reason).run();
+  await recordAccessUsage(env, "feedback", "feedback", 1, request, forcedClientClass);
   return { schema: "rock-kb-feedback-result-v2", status: "recorded", result_id: result.id, projection_version: projectionVersion, rating, reason };
 }
 
+async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const identity = telemetryIdentity(request, forcedClientClass);
+  if (!identity.installationId || identity.cohort === "unattributed") {
+    throw new PublicRequestError(400, "installation_opt_in_required", "Outcomes require an opted-in anonymous installation marker and a supported aggregate cohort");
+  }
+  const body = await readBoundedJson(request, OUTCOME_REQUEST_MAX_BYTES, { label: "Outcome", tooLargeCode: "outcome_too_large" });
+  if (Object.keys(body).some((field) => !OUTCOME_FIELDS.has(field))) {
+    throw new PublicRequestError(400, "unsupported_fields", "Outcomes may contain only result_id, outcome, reason_codes, and consent_attested");
+  }
+  const resultId = typeof body.result_id === "string" ? body.result_id.trim() : "";
+  const outcome = typeof body.outcome === "string" ? body.outcome.trim().toLowerCase() : "";
+  if (!PUBLIC_RESULT_ID_PATTERN.test(resultId)) {
+    throw new PublicRequestError(400, "invalid_result_id", "result_id must be a public Rock KB result identifier");
+  }
+  if (!OUTCOME_VALUES.has(outcome)) {
+    throw new PublicRequestError(400, "invalid_outcome", "outcome must be useful, partially_useful, or not_useful");
+  }
+  if (body.consent_attested !== true) {
+    throw new PublicRequestError(400, "consent_attestation_required", "consent_attested must be true");
+  }
+  if (!Array.isArray(body.reason_codes) || body.reason_codes.length < 1 || body.reason_codes.length > 3) {
+    throw new PublicRequestError(400, "invalid_reason_codes", "reason_codes must contain one to three fixed values");
+  }
+  const reasonCodes = body.reason_codes.map((value) => typeof value === "string" ? value.trim().toLowerCase() : "");
+  if (reasonCodes.some((value) => !OUTCOME_REASON_CODES[outcome].has(value)) || new Set(reasonCodes).size !== reasonCodes.length) {
+    throw new PublicRequestError(400, "invalid_reason_codes", "reason_codes must be unique and compatible with the selected outcome");
+  }
+  reasonCodes.sort();
+  const result = await resolveSearchRow(env, resultId);
+  if (!result) {
+    throw new PublicRequestError(400, "unknown_result_id", "The outcome result_id was not found in the public projection");
+  }
+
+  await ensureTelemetryTables(env);
+  const day = new Date().toISOString().slice(0, 10);
+  const installationHash = await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`);
+  await env.KB_DB.prepare(
+    `INSERT INTO outcome_rate_v1 (day, installation_hash, count) VALUES (?, ?, 1)
+     ON CONFLICT(day, installation_hash) DO UPDATE SET count = count + 1`
+  ).bind(day, installationHash).run();
+  const rate = await env.KB_DB.prepare(
+    "SELECT count FROM outcome_rate_v1 WHERE day = ? AND installation_hash = ?"
+  ).bind(day, installationHash).first<{ count: number }>();
+  if (Number(rate?.count || 0) > OUTCOME_LIMIT_PER_INSTALLATION_DAY) {
+    throw new PublicRequestError(429, "rate_limited", "Outcome rate limit exceeded; retry tomorrow");
+  }
+
+  const projectionVersion = await currentVersion(env);
+  const reasonCodeValue = reasonCodes.join(",");
+  await env.KB_DB.prepare(
+    `INSERT INTO outcome_events_v1 (
+       day, installation_hash, client_class, cohort, result_id, result_kind,
+       projection_version, outcome, reason_codes, count
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, installation_hash, client_class, cohort, result_id, projection_version, outcome, reason_codes)
+     DO UPDATE SET count = count + 1`
+  ).bind(
+    day,
+    installationHash,
+    identity.clientClass,
+    identity.cohort,
+    result.id,
+    result.kind,
+    projectionVersion,
+    outcome,
+    reasonCodeValue,
+  ).run();
+  await recordAccessUsage(env, "outcome", "outcome", 1, request, forcedClientClass);
+  const outcomeId = `kbo_${(await sha256Hex(JSON.stringify([day, installationHash, result.id, projectionVersion, outcome, reasonCodes]))).slice(0, 24)}`;
+  return {
+    schema: "rock-kb-outcome-result-v1",
+    status: "recorded",
+    outcome_id: outcomeId,
+    result_id: result.id,
+    result_kind: result.kind,
+    projection_version: projectionVersion,
+    outcome,
+    reason_codes: reasonCodes,
+    cohort: identity.cohort,
+  };
+}
+
 async function recordTestRoundEvent(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
-  const body = await readBoundedJson(request, 512);
+  const body = await readBoundedJson(request, 512, { label: "Test-round event", tooLargeCode: "test_round_event_too_large" });
   const allowedFields = new Set(["stage", "automatic_status"]);
   if (Object.keys(body).some((field) => !allowedFields.has(field))) {
     throw new PublicRequestError(400, "unsupported_fields", "Test-round events accept only stage and automatic_status");
@@ -3070,10 +3260,10 @@ function publicTestRoundDefinition(projectionVersion: string): JsonRecord {
 
 async function submitTestRoundReview(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
   const identity = telemetryIdentity(request, forcedClientClass);
-  if (!DECLARED_TELEMETRY_COHORTS.has(identity.cohort)) {
+  if (!TEST_ROUND_REVIEW_COHORTS.has(identity.cohort)) {
     throw new PublicRequestError(400, "cohort_required", "Test-round review submission requires the external-test or maintainer cohort");
   }
-  const body = await readBoundedJson(request, TEST_ROUND_REVIEW_MAX_BYTES);
+  const body = await readBoundedJson(request, TEST_ROUND_REVIEW_MAX_BYTES, { label: "Test-round review", tooLargeCode: "test_round_review_too_large" });
   const review = await validateTestRoundReview(body, env);
   await ensureTelemetryTables(env);
   const day = new Date().toISOString().slice(0, 10);
@@ -3176,7 +3366,7 @@ async function validateTestRoundReview(body: JsonRecord, env: ServiceEnv): Promi
 
 async function submitIssueReport(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
   await enforceNativeIssueRateLimit(request, env);
-  const body = await readBoundedJson(request, ISSUE_REQUEST_MAX_BYTES);
+  const body = await readBoundedJson(request, ISSUE_REQUEST_MAX_BYTES, { label: "Issue report", tooLargeCode: "report_too_large" });
   const report = validateIssueReport(body);
   const projectionVersion = await currentVersion(env);
   const fingerprint = await sha256Hex(JSON.stringify([
@@ -3230,6 +3420,7 @@ async function submitIssueReport(request: Request, env: ServiceEnv, forcedClient
      WHERE fingerprint = ?`
   ).bind(fingerprint).first<JsonRecord>();
   const occurrenceCount = Number(stored?.occurrence_count || 1);
+  await recordAccessUsage(env, "report_issue", "issue_report", 1, request, forcedClientClass);
   return {
     schema: "rock-kb-issue-report-result-v1",
     status: occurrenceCount === 1 ? "pending_review" : "deduplicated",
@@ -3323,24 +3514,30 @@ function validateIssueDescription(description: string): void {
   }
 }
 
-async function readBoundedJson(request: Request, maxBytes: number): Promise<JsonRecord> {
+async function readBoundedJson(
+  request: Request,
+  maxBytes: number,
+  options: { label?: string; tooLargeCode?: string } = {},
+): Promise<JsonRecord> {
+  const label = options.label || "Request";
+  const tooLargeCode = options.tooLargeCode || "request_too_large";
   const declaredLength = Number(request.headers.get("content-length") || 0);
   if (Number.isFinite(declaredLength) && declaredLength > maxBytes) {
-    throw new PublicRequestError(413, "report_too_large", `Issue reports are limited to ${maxBytes} bytes`);
+    throw new PublicRequestError(413, tooLargeCode, `${label} bodies are limited to ${maxBytes} bytes`);
   }
   const raw = await request.text();
   if (new TextEncoder().encode(raw).byteLength > maxBytes) {
-    throw new PublicRequestError(413, "report_too_large", `Issue reports are limited to ${maxBytes} bytes`);
+    throw new PublicRequestError(413, tooLargeCode, `${label} bodies are limited to ${maxBytes} bytes`);
   }
   try {
     const parsed = JSON.parse(raw) as unknown;
     if (!parsed || Array.isArray(parsed) || typeof parsed !== "object") {
-      throw new PublicRequestError(400, "invalid_json_object", "Issue report body must be a JSON object");
+      throw new PublicRequestError(400, "invalid_json_object", `${label} body must be a JSON object`);
     }
     return parsed as JsonRecord;
   } catch (error) {
     if (error instanceof PublicRequestError) throw error;
-    throw new PublicRequestError(400, "invalid_json", "Issue report body must be valid JSON");
+    throw new PublicRequestError(400, "invalid_json", `${label} body must be valid JSON`);
   }
 }
 
@@ -3436,13 +3633,19 @@ function telemetryIdentity(request: Request, forcedClientClass = ""): TelemetryI
   const detectedClientClass = classifyClient(request);
   const clientClass = detectedClientClass === "eval" ? "eval" : forcedClientClass || detectedClientClass;
   if (clientClass === "eval") {
-    return { clientClass, cohort: "evaluation" };
+    return { clientClass, cohort: "evaluation", installationId: "" };
   }
   const declared = String(request.headers.get("x-rock-kb-cohort") || "").trim().toLowerCase();
+  const installationId = String(request.headers.get("x-rock-kb-installation-id") || "").trim();
   return {
     clientClass,
     cohort: DECLARED_TELEMETRY_COHORTS.has(declared) ? declared : "unattributed",
+    installationId: validInstallationId(installationId) ? installationId : "",
   };
+}
+
+function validInstallationId(value: string): boolean {
+  return /^rkbi_[A-Za-z0-9_-]{35,75}$/.test(value);
 }
 
 function mergeCountRows(rows: JsonRecord[], fields: string[], limit: number): JsonRecord[] {
@@ -3723,7 +3926,7 @@ function parseStoredJson(value: unknown, fallback: unknown): unknown {
 }
 
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
-  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation, sourceFreshness] = await Promise.all([
+  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation, sourceFreshness, fieldValidation] = await Promise.all([
     artifactJsonlOptional(env, "agent/claim-review-queue.jsonl"),
     artifactJsonlOptional(env, "agent/source-conflicts.jsonl"),
     artifactJsonlOptional(env, "agent/section-status.jsonl"),
@@ -3736,10 +3939,11 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     testRoundDashboard(env),
     hostedEvaluationSummary(env),
     sourceOperationsSnapshot(env),
+    fieldValidationDashboard(env),
   ]);
   const generatedEvaluation = summarizeEvaluationResults(evaluationResults);
   return {
-    schema: "rock-kb-operations-dashboard-v4",
+    schema: "rock-kb-operations-dashboard-v5",
     version: await currentVersion(env),
     review_queue: summarizeReviewQueue(reviewQueue),
     community_contributions: summarizeCommunityContributions(communityRows),
@@ -3752,11 +3956,163 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     },
     test_rounds: testRounds,
     telemetry,
+    field_validation: fieldValidation,
     issue_reports: issueReports,
     rock_issues: rockIssues,
     rock_ideas: rockIdeas,
     source_freshness: sourceFreshness,
   };
+}
+
+async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
+  await ensureTelemetryTables(env);
+  const [currentUsage, outcomeResult, installations] = await Promise.all([
+    env.KB_DB.prepare(
+      `SELECT day, event, client_class, cohort, topic_hint, result_count, primary_result_kind, SUM(count) AS count
+       FROM usage_events_v5
+       WHERE client_class <> 'eval' AND cohort NOT IN ('evaluation', 'maintainer')
+       GROUP BY day, event, client_class, cohort, topic_hint, result_count, primary_result_kind`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes, SUM(count) AS count
+       FROM outcome_events_v1
+       WHERE client_class <> 'eval' AND cohort NOT IN ('evaluation', 'maintainer')
+       GROUP BY day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT COUNT(DISTINCT installation_hash) AS count
+       FROM usage_events_v5
+       WHERE installation_hash <> '' AND client_class <> 'eval' AND cohort NOT IN ('evaluation', 'maintainer')`
+    ).first<JsonRecord>(),
+  ]);
+  const usageRows = currentUsage.results || [];
+  const outcomeRows = outcomeResult.results || [];
+  const searchRows = usageRows.filter((row) => ["search", "rock_issue_search", "rock_idea_search"].includes(String(row.event || "")));
+  const exactRows = usageRows.filter((row) => EXACT_RETRIEVAL_EVENTS.has(String(row.event || "")));
+  const feedbackRows = usageRows.filter((row) => row.event === "feedback");
+  const reportRows = usageRows.filter((row) => row.event === "report_issue");
+  const reviewQueue = buildFieldReviewQueue(usageRows, outcomeRows);
+  return {
+    schema: "rock-kb-field-validation-dashboard-v1",
+    default_scope: {
+      evaluation_traffic_included: false,
+      maintainer_traffic_included: false,
+      cohorts_included: ["community", "external-test", "unattributed"],
+    },
+    coverage: {
+      event_schema: "usage_events_v5",
+      historical_event_schemas_included: false,
+      note: "Funnel counts begin when service v0.16.0 is deployed so every stage uses the same event coverage window.",
+    },
+    funnel: {
+      search_count: weightedCount(searchRows),
+      exact_retrieval_count: weightedCount(exactRows),
+      exact_retrieval_success_count: weightedCount(exactRows.filter((row) => Number(row.result_count || 0) > 0)),
+      exact_retrieval_failure_count: weightedCount(exactRows.filter((row) => Number(row.result_count || 0) === 0)),
+      outcome_count: weightedCount(outcomeRows),
+      feedback_count: weightedCount(feedbackRows),
+      report_issue_count: weightedCount(reportRows),
+    },
+    opted_in_installation_count: Number(installations?.count || 0),
+    outcomes: {
+      by_outcome: countWeightedValues(outcomeRows, "outcome"),
+      by_reason_code_set: countWeightedValues(outcomeRows, "reason_codes"),
+      by_result_kind: countWeightedValues(outcomeRows, "result_kind"),
+    },
+    review_queue: {
+      row_count: reviewQueue.length,
+      limit: FIELD_REVIEW_QUEUE_LIMIT,
+      zero_result_threshold: ZERO_RESULT_REVIEW_THRESHOLD,
+      by_signal: countValues(reviewQueue.map((row) => String(row.signal || "unknown"))),
+      items: reviewQueue,
+    },
+    privacy: "The funnel stores aggregate operation, fixed cohort, public result, result-kind, bounded topic, and fixed outcome/reason data. Opted-in installations are counted from one-way hashes that are never returned. Queries, IP addresses, organizations, people, free text, logs, and Rock data are excluded.",
+  };
+}
+
+function buildFieldReviewQueue(usageRows: JsonRecord[], outcomeRows: JsonRecord[]): JsonRecord[] {
+  const items: JsonRecord[] = [];
+  const negativeByResult = new Map<string, JsonRecord>();
+  for (const row of outcomeRows.filter((value) => value.outcome === "partially_useful" || value.outcome === "not_useful")) {
+    const resultId = String(row.result_id || "");
+    const count = Number(row.count || 0);
+    const current = negativeByResult.get(resultId);
+    const outcome = String(row.outcome || "");
+    const priority = outcome === "not_useful" ? "high" : "medium";
+    if (!current) {
+      negativeByResult.set(resultId, {
+        id: `field_review:outcome:${resultId}`,
+        signal: "negative_outcome",
+        priority,
+        result_id: resultId,
+        result_kind: row.result_kind || "unknown",
+        outcome,
+        reason_code_sets: [String(row.reason_codes || "")],
+        occurrence_count: count,
+        last_seen_day: row.day || "",
+        recommended_action: "review_public_result",
+      });
+      continue;
+    }
+    current.occurrence_count = Number(current.occurrence_count || 0) + count;
+    current.last_seen_day = String(current.last_seen_day || "") > String(row.day || "") ? current.last_seen_day : row.day;
+    const reasons = new Set(Array.isArray(current.reason_code_sets) ? current.reason_code_sets.map(String) : []);
+    reasons.add(String(row.reason_codes || ""));
+    current.reason_code_sets = [...reasons].filter(Boolean).sort();
+    if (outcome === "not_useful") {
+      current.outcome = outcome;
+      current.priority = "high";
+    }
+  }
+  items.push(...negativeByResult.values());
+
+  const zeroByTopic = new Map<string, JsonRecord>();
+  for (const row of usageRows.filter((value) => Number(value.result_count || 0) === 0 && value.event === "search" && value.topic_hint !== "unclassified")) {
+    const topic = String(row.topic_hint || "");
+    const current = zeroByTopic.get(topic) || {
+      id: `field_review:zero_result:${topic}`,
+      signal: "repeated_zero_result_topic",
+      priority: "medium",
+      topic_hint: topic,
+      occurrence_count: 0,
+      last_seen_day: "",
+      recommended_action: "review_topic_coverage",
+    };
+    current.occurrence_count = Number(current.occurrence_count || 0) + Number(row.count || 0);
+    current.last_seen_day = String(current.last_seen_day || "") > String(row.day || "") ? current.last_seen_day : row.day;
+    zeroByTopic.set(topic, current);
+  }
+  items.push(...[...zeroByTopic.values()].filter((row) => Number(row.occurrence_count || 0) >= ZERO_RESULT_REVIEW_THRESHOLD));
+
+  const failedExactByEvent = new Map<string, JsonRecord>();
+  for (const row of usageRows.filter((value) => Number(value.result_count || 0) === 0 && EXACT_RETRIEVAL_EVENTS.has(String(value.event || "")))) {
+    const event = String(row.event || "");
+    const current = failedExactByEvent.get(event) || {
+      id: `field_review:exact_lookup:${event}`,
+      signal: "failed_exact_lookup",
+      priority: "medium",
+      operation: event,
+      occurrence_count: 0,
+      last_seen_day: "",
+      recommended_action: "review_exact_lookup_contract",
+    };
+    current.occurrence_count = Number(current.occurrence_count || 0) + Number(row.count || 0);
+    current.last_seen_day = String(current.last_seen_day || "") > String(row.day || "") ? current.last_seen_day : row.day;
+    failedExactByEvent.set(event, current);
+  }
+  items.push(...failedExactByEvent.values());
+
+  const priorityRank: Record<string, number> = { high: 0, medium: 1, low: 2 };
+  return items
+    .sort((left, right) => (priorityRank[String(left.priority)] ?? 9) - (priorityRank[String(right.priority)] ?? 9)
+      || Number(right.occurrence_count || 0) - Number(left.occurrence_count || 0)
+      || String(right.last_seen_day || "").localeCompare(String(left.last_seen_day || ""))
+      || String(left.id || "").localeCompare(String(right.id || "")))
+    .slice(0, FIELD_REVIEW_QUEUE_LIMIT);
+}
+
+function weightedCount(rows: JsonRecord[]): number {
+  return rows.reduce((total, row) => total + Number(row.count || 0), 0);
 }
 
 async function testRoundDashboard(env: ServiceEnv): Promise<JsonRecord> {
@@ -4605,7 +4961,7 @@ function cors(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
   headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
-  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client,x-rock-kb-client-version,x-rock-kb-cohort");
+  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client,x-rock-kb-client-version,x-rock-kb-cohort,x-rock-kb-installation-id");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
 
@@ -4637,6 +4993,7 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 10, maxItems: 10, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
+    { name: "kb_outcome", description: "Submit a consent-attested usefulness outcome for one exact public result. Requires the opt-in anonymous installation header and accepts only fixed reason codes; never send a query, organization, person, IP address, logs, or Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { result_id: { type: "string", maxLength: 200 }, outcome: { type: "string", enum: ["useful", "partially_useful", "not_useful"] }, reason_codes: { type: "array", minItems: 1, maxItems: 3, items: { type: "string", enum: ["answered", "actionable", "well_sourced", "correct_route", "incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence", "incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"] } }, consent_attested: { type: "boolean", const: true } }, required: ["result_id", "outcome", "reason_codes", "consent_attested"] } },
     { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }
   ];
@@ -4647,7 +5004,7 @@ function toolDefinitions(): JsonRecord[] {
 }
 
 function mcpToolAnnotations(name: string): JsonRecord {
-  const writeTools = new Set(["kb_feedback", "kb_report_issue", "kb_submit_test_round_review", "kb_submit"]);
+  const writeTools = new Set(["kb_feedback", "kb_outcome", "kb_report_issue", "kb_submit_test_round_review", "kb_submit"]);
   const openWorldTools = new Set(["kb_verify_recipe", "kb_submit"]);
   const readOnly = !writeTools.has(name);
   return {

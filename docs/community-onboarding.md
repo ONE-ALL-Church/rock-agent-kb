@@ -166,39 +166,57 @@ Imported issues are routing evidence, not automatically trusted knowledge.
 The upstream report remains `community-unreviewed`; only separately reviewed
 enrichments can carry stronger claim and authority tiers. Closed does not mean
 fixed, and a reporter version does not prove that every instance is affected.
-Use the test's stable result IDs with `rock-kb feedback`; use
-`rock-kb report-issue` only when the KB itself malfunctions. Never add church
-names, private records, logs, internal URLs, or secrets to either path.
+Use the test's stable result IDs with `rock-kb feedback` for result quality or
+`rock-kb outcome` for completed-task usefulness; use `rock-kb report-issue`
+only when the KB itself malfunctions. Never add church names, private records,
+logs, internal URLs, or secrets to any path.
 
 ### Let Your Agent Provide Ongoing Feedback
 
-An agent should ask once before submitting quality feedback. The recommended
-consent prompt is:
+An agent should ask once before enabling anonymous field validation or
+submitting quality/usefulness signals. The recommended consent prompt is:
 
-> Rock KB can receive privacy-bounded structured quality feedback. It retains
-> the public result ID, result kind, current KB projection, a positive or
-> negative rating, a fixed reason, bounded client/cohort labels, and an
-> aggregate count. It does not retain your question, prompt, identity, church
-> name, IP address, free text, logs, or private Rock data. May I submit this
-> feedback when I can confidently evaluate a result? Choose: Allow
-> automatically, Ask each time, or Do not send. May I remember that choice in
-> private user-level memory?
+> Rock KB can use privacy-bounded field-validation signals to improve retrieval.
+> It can retain a one-way hash of a random installation marker, a fixed cohort,
+> the public result ID and kind, the KB projection and client version, a fixed
+> quality rating or usefulness outcome, fixed reason codes, timestamps, and
+> aggregate counts. It does not retain your question, prompt, organization,
+> church or person identity, IP address, free text, logs, secrets, or private
+> Rock data. May I enable this anonymous marker and submit these signals when I
+> can confidently evaluate a completed task? Choose: Allow automatically, Ask
+> each time, or Do not send. May I remember that choice in private user-level
+> memory?
 
-The agent may store consent notice version `1` in private user-level memory only
-when the human separately permits remembering the choice. It must not write the
-decision to a repository, project instructions shared with others, a
-contribution bundle, or the KB itself. Agents without private persistent memory
-or permission to use it should keep the choice session-scoped.
+The agent may store consent notice version `2` in private user-level memory only
+when the human separately permits remembering the choice. A version `1`
+decision does not cover installation markers or usefulness outcomes. The agent
+must not write the preference or marker to a repository, shared project
+instructions, contribution bundle, or the KB. Without private persistence and
+permission, keep the choice session-scoped and leave persistent telemetry off.
 
-Standing permission covers only fixed-vocabulary `kb_feedback` for an exact
-public result that materially helped or failed a completed task. It does not
-cover every search, and the agent should submit no more than one rating per
-result per task. Uncertain results should receive no feedback.
+After consent, enable ordinary community participation and refresh user-scoped
+agent configuration:
+
+```bash
+uvx rock-kb telemetry enable --cohort community --consent-attested
+uvx rock-kb install-agent
+```
+
+Restart or reload the agent host. The raw random marker remains in the user's
+private state directory; only its one-way hash reaches storage. Use
+`external-test` instead of `community` for the formal church test cohort.
+
+Standing permission covers only fixed-vocabulary `kb_feedback` for confidently
+assessed result quality and `kb_outcome` for an exact result materially used in
+a completed task. Submit no more than one of each per result per task. Uncertain
+results should receive no signal.
 
 Agents must still ask before each redaction-attested malfunction report, each
-reviewed test-round submission, and every public contribution or PR. Humans can
-revoke or change consent at any time, and agents must ask again if the consent
-notice or retained fields change.
+reviewed test-round submission, and every public contribution or PR. To revoke,
+run `uvx rock-kb telemetry disable`, rerun `uvx rock-kb install-agent`, and
+restart the host. Ask again if the consent notice or retained fields change.
+See [Anonymous Field Validation](runbooks/field-validation.md) for the complete
+event vocabulary and dashboard behavior.
 
 ## Understand Trust Tiers
 
@@ -301,8 +319,8 @@ Use this in your local agent instructions:
 Before answering a Rock RMS operational question, search the Rock KB first.
 Prefer official, release-note-confirmed, source-code-confirmed, and community-reviewed rows.
 Use community-unreviewed rows only as leads and label them as unreviewed.
-After the first completed KB-assisted task, ask whether I may submit privacy-bounded exact-result quality feedback. Offer Allow automatically, Ask each time, or Do not send. Separately ask whether I may remember the choice, and persist it only in private user-level memory with explicit permission.
-Standing feedback consent applies only to kb_feedback. Ask separately before malfunction reports, test-round submissions, contributions, or public PRs.
+After the first completed KB-assisted task, use consent notice version 2 to ask whether I may enable anonymous field validation and submit fixed exact-result quality feedback and completed-task usefulness outcomes. Offer Allow automatically, Ask each time, or Do not send. Separately ask whether I may remember the choice, and persist it only in private user-level memory with explicit permission.
+Standing consent applies only to kb_feedback and kb_outcome. Ask separately before malfunction reports, test-round submissions, contributions, or public PRs.
 When you discover a reusable public-safe Rock RMS insight, write a distilled contribution row with source URLs and submit it through rock-kb submit or the kb_submit MCP tool.
 Never submit private person data, internal URLs, raw transcripts, screenshots with private state, SQL exports, tokens, or copied proprietary source text.
 ```

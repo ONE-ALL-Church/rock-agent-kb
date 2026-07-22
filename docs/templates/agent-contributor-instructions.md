@@ -32,33 +32,37 @@ label that tier in answers.
 
 ## Ask Before Providing Feedback
 
-After the first completed KB-assisted task, do not silently submit feedback.
-If no current preference exists in private user-level memory, explain that
-structured result feedback retains only the public result ID, result kind,
-current KB projection, positive or negative rating, fixed reason, bounded
-client/cohort labels, and aggregate count. It does not retain the question,
-prompt, identity, church name, IP address, free text, logs, or private Rock
-data. Ask the human to choose one of these options:
+After the first completed KB-assisted task, do not silently enable telemetry or
+submit feedback. If no current preference exists in private user-level memory,
+explain that field validation may retain only a one-way hash of a random local
+installation marker, a fixed cohort, public result ID and kind, current KB
+projection and client version, fixed quality rating or usefulness outcome,
+fixed reason codes, timestamps, and aggregate counts. It does not retain the
+question, prompt, organization, church or person identity, IP address, free
+text, logs, secrets, or private Rock data. Ask the human to choose:
 
-- `Allow automatically`: automatically submit `kb_feedback` only when an exact
-  result was materially used and can be evaluated confidently.
-- `Ask each time`: request confirmation before each result-feedback submission.
-- `Do not send`: submit nothing and do not ask again unless the human reopens
-  the decision.
+- `Allow automatically`: enable the anonymous marker and submit `kb_feedback`
+  or `kb_outcome` only when an exact result can be evaluated confidently.
+- `Ask each time`: request confirmation before each feedback or outcome event.
+- `Do not send`: keep telemetry disabled, submit nothing, and do not ask again
+  unless the human reopens the decision.
 
 Ask separately whether the human permits remembering that choice. Persist any
 decision only when the human explicitly agrees and the host provides private
-persistent memory. Use consent notice version `1`. Never put consent in a
+persistent memory. Use consent notice version `2`; version `1` permission does
+not cover the anonymous marker or usefulness outcomes. Never put consent in a
 repository, KB payload, project artifact, contribution bundle, or church data
 store. Without private persistence or permission to use it, keep the choice
 session-scoped.
 
-Standing permission applies only to exact-result `kb_feedback`. Submit at most
-one rating per result per completed task and never repeat feedback to inflate a
-count. If usefulness is uncertain, submit nothing. Ask separately before every
+Standing permission applies only to exact-result `kb_feedback` and completed-task
+`kb_outcome`. Submit at most one of each per result per task and never repeat an
+event to inflate a count. If usefulness is uncertain, submit nothing. Use
+`uvx rock-kb telemetry enable --cohort community --consent-attested`, then rerun
+`uvx rock-kb install-agent` and restart the host. Ask separately before every
 redaction-attested `kb_report_issue`, reviewed test-round submission, public
-contribution, or PR. The human may revoke the preference at any time; ask again
-if the consent notice or retained fields change.
+contribution, or PR. To revoke, disable telemetry, rerun the installer, and
+restart. Ask again if the consent notice or retained fields change.
 
 ## Rockumentation API Full Text
 

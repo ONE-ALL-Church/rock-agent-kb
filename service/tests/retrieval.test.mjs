@@ -67,10 +67,11 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
-    assert.equal(toolNames.length, 28);
+    assert.equal(toolNames.length, 29);
     assert.equal(toolNames.includes("kb_get_result"), true);
     assert.equal(toolNames.includes("kb_get_claim"), true);
     assert.equal(toolNames.includes("kb_report_issue"), true);
+    assert.equal(toolNames.includes("kb_outcome"), true);
     assert.equal(toolNames.includes("kb_get_freshness"), true);
     assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_search").annotations.readOnlyHint, true);
     assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_submit").annotations.readOnlyHint, false);
@@ -747,7 +748,7 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     const telemetryResponse = await mf.dispatchFetch("https://kb.example.test/telemetry/summary");
     const telemetry = await telemetryResponse.json();
 
-    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v4");
+    assert.equal(telemetry.schema, "rock-kb-telemetry-summary-v5");
     assert.equal(telemetry.adoption_rows.some((row) => row.client_class === "cli"), true);
     assert.equal(telemetry.external_test_rows.some((row) => row.client_class === "cli" && row.cohort === "external-test"), true);
     assert.equal(telemetry.adoption_rows.some((row) => row.client_class === "browser" && row.cohort === "unattributed"), true);
@@ -765,6 +766,141 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     assert.match(telemetry.privacy, /No raw or hashed query text/);
     assert.equal(JSON.stringify(telemetry).includes("prayerzz"), false);
     assert.equal(JSON.stringify(telemetry).includes("one-all-church"), false);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("opted-in outcomes feed a privacy-bounded field-validation funnel and review queue", async () => {
+  const mf = await buildWorker();
+  const installationId = `rkbi_${"a".repeat(43)}`;
+  const maintainerInstallationId = `rkbi_${"b".repeat(43)}`;
+  const communityHeaders = {
+    "x-rock-kb-client": "cli",
+    "x-rock-kb-cohort": "community",
+    "x-rock-kb-installation-id": installationId,
+  };
+  try {
+    const missingOptIn = await mf.dispatchFetch("https://kb.example.test/outcomes", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        result_id: "claim:claim:abc123",
+        outcome: "useful",
+        reason_codes: ["answered"],
+        consent_attested: true,
+      }),
+    });
+    assert.equal(missingOptIn.status, 400);
+    assert.equal((await missingOptIn.json()).error_code, "installation_opt_in_required");
+
+    const incompatibleReason = await mf.dispatchFetch("https://kb.example.test/outcomes", {
+      method: "POST",
+      headers: { ...communityHeaders, "content-type": "application/json" },
+      body: JSON.stringify({
+        result_id: "claim:claim:abc123",
+        outcome: "useful",
+        reason_codes: ["incorrect"],
+        consent_attested: true,
+      }),
+    });
+    assert.equal(incompatibleReason.status, 400);
+    assert.equal((await incompatibleReason.json()).error_code, "invalid_reason_codes");
+
+    for (let index = 0; index < 3; index += 1) {
+      await mf.dispatchFetch(`https://kb.example.test/search?q=prayerzz${index}`, { headers: communityHeaders });
+    }
+    await mf.dispatchFetch("https://kb.example.test/search?q=labels", {
+      headers: {
+        "x-rock-kb-client": "cli",
+        "x-rock-kb-cohort": "maintainer",
+        "x-rock-kb-installation-id": maintainerInstallationId,
+      },
+    });
+    const missingResult = await mf.dispatchFetch("https://kb.example.test/results/not-a-real-result", { headers: communityHeaders });
+    assert.equal(missingResult.status, 404);
+    const missingConcept = await mf.dispatchFetch("https://kb.example.test/concepts/not-a-real-concept.md", { headers: communityHeaders });
+    assert.equal(missingConcept.status, 404);
+    const exactResult = await mf.dispatchFetch("https://kb.example.test/results/claim%3Aclaim%3Aabc123", { headers: communityHeaders });
+    assert.equal(exactResult.status, 200);
+
+    const outcomeResponse = await mf.dispatchFetch("https://kb.example.test/outcomes", {
+      method: "POST",
+      headers: { ...communityHeaders, "content-type": "application/json" },
+      body: JSON.stringify({
+        result_id: "claim:claim:abc123:check-in",
+        outcome: "not_useful",
+        reason_codes: ["wrong_route", "missing_detail"],
+        consent_attested: true,
+      }),
+    });
+    assert.equal(outcomeResponse.status, 201);
+    const outcome = await outcomeResponse.json();
+    assert.equal(outcome.status, "recorded");
+    assert.equal(outcome.result_id, "claim:claim:abc123");
+    assert.match(outcome.outcome_id, /^kbo_[0-9a-f]{24}$/);
+
+    const maintainerOutcome = await mf.dispatchFetch("https://kb.example.test/outcomes", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-rock-kb-client": "cli",
+        "x-rock-kb-cohort": "maintainer",
+        "x-rock-kb-installation-id": maintainerInstallationId,
+      },
+      body: JSON.stringify({
+        result_id: "claim:claim:abc123",
+        outcome: "useful",
+        reason_codes: ["answered"],
+        consent_attested: true,
+      }),
+    });
+    assert.equal(maintainerOutcome.status, 201);
+
+    await mf.dispatchFetch("https://kb.example.test/feedback", {
+      method: "POST",
+      headers: { ...communityHeaders, "content-type": "application/json" },
+      body: JSON.stringify({ result_id: "claim:claim:abc123", rating: -1, reason: "wrong_route" }),
+    });
+    const report = await mf.dispatchFetch("https://kb.example.test/issues/report", {
+      method: "POST",
+      headers: { ...communityHeaders, "content-type": "application/json" },
+      body: JSON.stringify({
+        failure_type: "retrieval",
+        operation: "search",
+        error_code: "service_unavailable",
+        description: "Hosted retrieval returned a temporary failure.",
+        redaction_attested: true,
+      }),
+    });
+    assert.equal(report.status, 201);
+
+    const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v5");
+    assert.equal(dashboard.field_validation.default_scope.evaluation_traffic_included, false);
+    assert.equal(dashboard.field_validation.default_scope.maintainer_traffic_included, false);
+    assert.equal(dashboard.field_validation.coverage.event_schema, "usage_events_v5");
+    assert.equal(dashboard.field_validation.coverage.historical_event_schemas_included, false);
+    assert.equal(dashboard.field_validation.funnel.search_count, 3);
+    assert.equal(dashboard.field_validation.funnel.exact_retrieval_count, 3);
+    assert.equal(dashboard.field_validation.funnel.exact_retrieval_success_count, 1);
+    assert.equal(dashboard.field_validation.funnel.exact_retrieval_failure_count, 2);
+    assert.equal(dashboard.field_validation.funnel.outcome_count, 1);
+    assert.equal(dashboard.field_validation.funnel.feedback_count, 1);
+    assert.equal(dashboard.field_validation.funnel.report_issue_count, 1);
+    assert.equal(dashboard.field_validation.opted_in_installation_count, 1);
+    assert.equal(dashboard.field_validation.outcomes.by_outcome.not_useful, 1);
+    assert.equal(dashboard.field_validation.review_queue.by_signal.negative_outcome, 1);
+    assert.equal(dashboard.field_validation.review_queue.by_signal.repeated_zero_result_topic, 1);
+    assert.equal(dashboard.field_validation.review_queue.by_signal.failed_exact_lookup, 2);
+    assert.equal(JSON.stringify(dashboard).includes(installationId), false);
+    assert.equal(JSON.stringify(dashboard).includes(maintainerInstallationId), false);
+    assert.equal(JSON.stringify(dashboard).includes("prayerzz"), false);
+
+    const db = await mf.getD1Database("KB_DB");
+    const stored = await db.prepare("SELECT installation_hash FROM outcome_events_v1 LIMIT 1").first();
+    assert.match(stored.installation_hash, /^[0-9a-f]{64}$/);
+    assert.notEqual(stored.installation_hash, installationId);
   } finally {
     await mf.dispose();
   }
@@ -824,6 +960,14 @@ test("community test rounds require a cohort and aggregate all fixed case outcom
     });
     assert.equal(unattributed.status, 400);
     assert.equal((await unattributed.json()).error_code, "cohort_required");
+
+    const ordinaryCommunity = await mf.dispatchFetch("https://kb.example.test/test-rounds/review", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-rock-kb-client": "cli", "x-rock-kb-cohort": "community" },
+      body: JSON.stringify(review),
+    });
+    assert.equal(ordinaryCommunity.status, 400);
+    assert.equal((await ordinaryCommunity.json()).error_code, "cohort_required");
 
     const recorded = await mf.dispatchFetch("https://kb.example.test/test-rounds/review", {
       method: "POST",
@@ -889,7 +1033,7 @@ test("operations dashboard separates generated evaluation rows from the latest h
     ).run();
 
     const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
-    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v4");
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v5");
     assert.equal(dashboard.evaluation.generated_projection.row_count, dashboard.evaluation.row_count);
     assert.equal(dashboard.evaluation.hosted_service.status, "ok");
     assert.equal(dashboard.evaluation.hosted_service.case_count, 151);
@@ -1039,7 +1183,7 @@ test("structured issue reports capture context, deduplicate, and remain pending 
 
     const dashboardResponse = await mf.dispatchFetch("https://kb.example.test/operations/dashboard");
     const dashboard = await dashboardResponse.json();
-    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v4");
+    assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v5");
     assert.equal(dashboard.issue_reports.schema, "rock-kb-issue-review-dashboard-v1");
     assert.equal(dashboard.issue_reports.unique_report_count, 1);
     assert.equal(dashboard.issue_reports.total_occurrences, 2);

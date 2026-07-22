@@ -14,6 +14,8 @@ from typing import Callable
 
 import yaml
 
+from .telemetry import telemetry_headers, telemetry_state_path
+
 
 SKILL_ARTIFACT = "skills/rock-kb-agent/SKILL.md"
 SKILL_MANIFEST_ENDPOINT = "skill/manifest.json"
@@ -288,10 +290,11 @@ def plan_agent_sync(
     skill_text: str,
 ) -> list[InstallPlan]:
     plans: list[InstallPlan] = []
+    request_headers = telemetry_headers(telemetry_state_path(home)) if scope == "user" else {}
     for agent in agents:
         paths = agent_paths(agent, scope, home, project_dir)
         config_text = paths.config.read_text(encoding="utf-8") if paths.config.exists() else ""
-        updated_config = update_config(config_text, paths.format, paths.server_key, f"{base_url}/mcp")
+        updated_config = update_config(config_text, paths.format, paths.server_key, f"{base_url}/mcp", request_headers)
         local_skill = paths.skill.read_text(encoding="utf-8") if paths.skill.exists() else ""
         plans.append(InstallPlan(agent, paths, updated_config, updated_config != config_text, local_skill != skill_text))
     return plans
@@ -667,7 +670,8 @@ def local_agent_status(base_url: str, agent: str, scope: str, home: Path, projec
         status = "unknown"
     try:
         config_text = paths.config.read_text(encoding="utf-8") if paths.config.exists() else ""
-        config_status = "current" if update_config(config_text, paths.format, paths.server_key, f"{base_url}/mcp") == config_text else "update_available"
+        request_headers = telemetry_headers(telemetry_state_path(home)) if scope == "user" else {}
+        config_status = "current" if update_config(config_text, paths.format, paths.server_key, f"{base_url}/mcp", request_headers) == config_text else "update_available"
     except (ValueError, json.JSONDecodeError, tomllib.TOMLDecodeError):
         config_status = "invalid"
     if status != "locally_modified" and config_status == "invalid":
@@ -817,17 +821,23 @@ def public_skill_manifest(manifest: dict) -> dict:
     return {key: manifest[key] for key in allowed if key in manifest}
 
 
-def update_config(text: str, format_name: str, server_key: str, mcp_url: str) -> str:
+def update_config(text: str, format_name: str, server_key: str, mcp_url: str, headers: dict[str, str] | None = None) -> str:
+    headers = headers or {}
     if format_name == "toml":
-        return update_toml_config(text, mcp_url)
+        return update_toml_config(text, mcp_url, headers)
     entry = {"type": "remote", "url": mcp_url, "enabled": True} if format_name == "opencode" else {"type": "http", "url": mcp_url}
+    if headers:
+        entry["headers"] = headers
     return update_json_config(text, server_key, "rock-kb", entry)
 
 
-def update_toml_config(text: str, mcp_url: str) -> str:
+def update_toml_config(text: str, mcp_url: str, headers: dict[str, str] | None = None) -> str:
     if text.strip():
         tomllib.loads(text)
     section = f'[mcp_servers.rock-kb]\nurl = {json.dumps(mcp_url)}\n'
+    if headers:
+        values = ", ".join(f"{json.dumps(key)} = {json.dumps(value)}" for key, value in sorted(headers.items()))
+        section += f"http_headers = {{ {values} }}\n"
     pattern = re.compile(r"(?ms)^\[mcp_servers\.(?:rock-kb|\"rock-kb\")\]\s*\n.*?(?=^\[|\Z)")
     if pattern.search(text):
         updated = pattern.sub(section + "\n", text, count=1).rstrip() + "\n"

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from rock_kb import service_eval
+import httpx
 
 
 class FakeResponse:
@@ -166,6 +167,88 @@ def test_evaluate_row_fails_when_expected_result_id_is_missing(monkeypatch):
 
     assert result["expected_result_id_rank"] is None
     assert result["status"] == "fail"
+    assert result["request_attempt_count"] == 1
+    assert result["failure_category"] == "retrieval_quality"
+
+
+def test_evaluate_row_retries_one_transport_timeout_and_keeps_ranking_strict(monkeypatch):
+    calls = 0
+
+    def get(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            raise httpx.ReadTimeout("first request timed out")
+        return FakeResponse([{"id": "wrong:result", "kind": "claim", "concept": "groups", "body": "unrelated"}])
+
+    monkeypatch.setattr(service_eval.httpx, "get", get)
+
+    result = service_eval.evaluate_row(
+        "https://example.test",
+        {
+            "id": "eval:strict-after-retry",
+            "question": "Show the Group model",
+            "concept_id": "model-map",
+            "expected_result_ids": ["model_map:stable:group"],
+        },
+        limit=5,
+        timeout=1,
+        max_allowed_rank=1,
+    )
+
+    assert calls == 2
+    assert result["status"] == "fail"
+    assert result["availability_status"] == "recovered_after_timeout"
+    assert result["failure_category"] == "retrieval_quality"
+    assert result["retry_count"] == 1
+
+
+def test_evaluate_row_does_not_retry_non_timeout_failures(monkeypatch):
+    calls = 0
+
+    def get(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        raise httpx.ConnectError("connection refused")
+
+    monkeypatch.setattr(service_eval.httpx, "get", get)
+
+    result = service_eval.evaluate_row(
+        "https://example.test",
+        {"id": "eval:no-retry", "question": "test", "concept_id": "groups"},
+        limit=5,
+        timeout=1,
+    )
+
+    assert calls == 1
+    assert result["status"] == "fail"
+    assert result["availability_status"] == "unavailable"
+    assert result["error_type"] == "transport_error"
+    assert result["retry_count"] == 0
+
+
+def test_evaluate_row_stops_after_second_transport_timeout(monkeypatch):
+    calls = 0
+
+    def get(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        raise httpx.ReadTimeout("still timed out")
+
+    monkeypatch.setattr(service_eval.httpx, "get", get)
+
+    result = service_eval.evaluate_row(
+        "https://example.test",
+        {"id": "eval:bounded-retry", "question": "test", "concept_id": "groups"},
+        limit=5,
+        timeout=1,
+    )
+
+    assert calls == 2
+    assert result["availability_status"] == "unavailable"
+    assert result["error_type"] == "transport_timeout"
+    assert result["retry_count"] == 1
+    assert result["transport_timeout_count"] == 2
 
 
 def test_evaluate_row_rejects_forbidden_result_and_wrong_authority(monkeypatch):
@@ -245,3 +328,38 @@ def test_evaluation_metrics_reports_mrr_recall_duplicates_and_authority():
     assert metrics["duplicate_result_count"] == 1
     assert metrics["duplicate_result_rate"] == 0.2
     assert metrics["authority_pass_rate"] == 0.5
+
+
+def test_evaluation_metrics_separates_availability_from_retrieval_quality():
+    metrics = service_eval.evaluation_metrics(
+        [
+            {
+                "availability_status": "available",
+                "status": "pass",
+                "has_relevance_expectation": True,
+                "relevant_rank": 1,
+                "max_allowed_rank": 1,
+                "reciprocal_rank": 1.0,
+                "hit_count": 1,
+                "duplicate_count": 0,
+            },
+            {
+                "availability_status": "unavailable",
+                "status": "fail",
+                "has_relevance_expectation": True,
+                "relevant_rank": None,
+                "reciprocal_rank": 0.0,
+                "hit_count": 0,
+                "transport_timeout_count": 2,
+                "retry_count": 1,
+            },
+        ]
+    )
+
+    assert metrics["availability_rate"] == 0.5
+    assert metrics["unavailable_question_count"] == 1
+    assert metrics["transport_timeout_count"] == 2
+    assert metrics["recall_at_target_rank"] == 1.0
+    assert metrics["mean_reciprocal_rank"] == 1.0
+    assert metrics["availability_passed"] is False
+    assert metrics["retrieval_quality_passed"] is True
