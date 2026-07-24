@@ -1,22 +1,22 @@
 {
-  "catalog_content_hash": "55f070e994a4465ea7e5f97ac7fb638bfe63162767a0fd37a02782bcab0199af",
+  "catalog_content_hash": "32c9c2062b7e9f6dc195ac8e1e236c324afe68a6ead5f42ba232befd481d9853",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 128,
-    "rock_core": 5677
+    "rock_core": 5685
   },
   "evidence_states": {
     "commit_linked": 15,
-    "fixed_release_recorded": 3192,
+    "fixed_release_recorded": 3195,
     "maintainer_triaged": 1227,
-    "report_only": 1371
+    "report_only": 1376
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
-  "record_count": 5805,
+  "record_count": 5813,
   "release_note_linked_count": 889,
   "repositories": {
-    "SparkDevNetwork/Rock": 5677,
+    "SparkDevNetwork/Rock": 5685,
     "SparkDevNetwork/Rock.Mobile-Issues": 128
   },
   "reviewed_enrichment_count": 28,
@@ -36,8 +36,9 @@
     },
     "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 1,
+    "revalidation_due_count": 2,
     "revalidation_due_enrichment_ids": [
+      "rock_issue_enrichment:core-6918-site-interaction-channel-uses-session-v1",
       "rock_issue_enrichment:core-6922-form-notification-attributes-v1"
     ],
     "risk_assessment_count": 0,
@@ -48,28 +49,28 @@
   "routing": {
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
-      "body_keyword": 396,
-      "github_topic_label": 1574,
-      "repository_default": 1331,
-      "title_keyword": 3956
+      "body_keyword": 397,
+      "github_topic_label": 1575,
+      "repository_default": 1333,
+      "title_keyword": 3959
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-21T22:46:49Z",
+  "source_updated_through": "2026-07-23T21:08:32Z",
   "states": {
-    "closed": 5798,
-    "open": 7
+    "closed": 5801,
+    "open": 12
   },
   "timeline_coverage": {
-    "complete": 311,
+    "complete": 319,
     "not_fetched": 5494,
-    "percent_complete": 5.36
+    "percent_complete": 5.49
   },
   "top_concepts": {
-    "api-integrations": 105,
+    "api-integrations": 106,
     "check-in": 361,
     "cms-websites": 146,
-    "communications": 530,
+    "communications": 529,
     "connections": 172,
     "data-views-reports": 371,
     "developer-resources": 148,
@@ -80,15 +81,15 @@
     "lava": 386,
     "mobile": 141,
     "obsidian-development": 245,
-    "people-families": 690,
+    "people-families": 691,
     "platform-configuration": 192,
-    "scheduling-locations": 225,
+    "scheduling-locations": 228,
     "security-permissions": 273,
-    "system-admin-ops": 1327,
-    "workflows": 378
+    "system-admin-ops": 1329,
+    "workflows": 379
   },
   "validation_states": {
-    "confirmed": 2537,
-    "reported": 3268
+    "confirmed": 2540,
+    "reported": 3273
   }
 }
