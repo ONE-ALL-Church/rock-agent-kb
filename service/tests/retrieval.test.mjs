@@ -67,11 +67,13 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
-    assert.equal(toolNames.length, 31);
+    assert.equal(toolNames.length, 33);
     assert.equal(toolNames.includes("kb_get_result"), true);
     assert.equal(toolNames.includes("kb_get_claim"), true);
     assert.equal(toolNames.includes("kb_report_issue"), true);
     assert.equal(toolNames.includes("kb_outcome"), true);
+    assert.equal(toolNames.includes("kb_diff_lava_context"), true);
+    assert.equal(toolNames.includes("kb_verify_lava_context"), true);
     assert.equal(toolNames.includes("kb_get_freshness"), true);
     assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_search").annotations.readOnlyHint, true);
     assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_submit").annotations.readOnlyHint, false);
@@ -273,6 +275,20 @@ test("Lava context REST and MCP tools return exact grouped surfaces", async () =
     assert.equal(exact.roots.some((root) => root.root_key === "Family"), false);
     assert.equal(exact.surface.source_version, "20.0.5");
 
+    const versionedResponse = await mf.dispatchFetch(
+      "https://kb.example.test/lava-contexts/check-in-label-checkout-dynamic-text?root=CheckoutDateTime&rock_version=19.0",
+    );
+    const versioned = await versionedResponse.json();
+    assert.equal(versioned.surface.selected_rock_version, "19.0.11");
+    assert.equal(versioned.roots[0].source_ref, "release-19.0");
+
+    const diffResponse = await mf.dispatchFetch(
+      "https://kb.example.test/lava-contexts/diff?from=19.0&to=20&context=check-in-label-family-dynamic-text",
+    );
+    const diff = await diffResponse.json();
+    assert.equal(diff.count, 1);
+    assert.equal(diff.changes[0].change_type, "added");
+
     const toolResponse = await mcp(mf, "tools/call", {
       name: "kb_get_lava_context",
       arguments: { context_id: "check-in-label-family-dynamic-text", root_key: "Family" },
@@ -281,6 +297,52 @@ test("Lava context REST and MCP tools return exact grouped surfaces", async () =
     assert.equal(toolResult.status, "ok");
     assert.equal(toolResult.roots[0].root_key, "Family");
     assert.equal(toolResult.roots.some((root) => root.root_key === "CheckoutDateTime"), false);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("Lava context verification stores only bounded availability outcomes", async () => {
+  const mf = await buildWorker();
+  try {
+    const headers = {
+      "content-type": "application/json",
+      "x-rock-kb-installation-id": `rkbi_${"l".repeat(40)}`,
+      "x-rock-kb-cohort": "external-test",
+    };
+    const response = await mf.dispatchFetch("https://kb.example.test/lava-contexts/verification", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        context_id: "check-in-label-checkout-dynamic-text",
+        root_key: "CheckoutDateTime",
+        rock_version: "19.0.11",
+        observation: "present",
+        consent_attested: true,
+      }),
+    });
+    const result = await response.json();
+    assert.equal(response.status, 201);
+    assert.equal(result.status, "recorded");
+    assert.match(result.verification_id, /^kblv_/);
+
+    const rejected = await mf.dispatchFetch("https://kb.example.test/lava-contexts/verification", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        context_id: "check-in-label-checkout-dynamic-text",
+        root_key: "CheckoutDateTime",
+        rock_version: "19.0.11",
+        observation: "present",
+        value: "private",
+        consent_attested: true,
+      }),
+    });
+    assert.equal(rejected.status, 400);
+    assert.equal((await rejected.json()).error_code, "unsupported_fields");
+
+    const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(dashboard.field_validation.lava_context_verifications.by_observation.present, 1);
   } finally {
     await mf.dispose();
   }
@@ -1662,7 +1724,7 @@ async function buildWorker(options = {}) {
       }),
       "agent/lava-contexts.jsonl": [
         {
-          schema: "rock-kb-lava-context-v2",
+          schema: "rock-kb-lava-context-v3",
           id: "lava_context:check-in-label-checkout-dynamic-text:checkoutdatetime:fixture",
           context_id: "check-in-label-checkout-dynamic-text",
           context_family: "check-in-label",
@@ -1690,12 +1752,47 @@ async function buildWorker(options = {}) {
           source_ref: "develop",
           source_commit: "a".repeat(40),
           source_version: "20.0.5",
+          available_in_versions: ["19.0.11", "20.0.5"],
+          version_observations: [
+            {
+              rock_version: "19.0.11",
+              source_version: "19.0.11",
+              source_ref: "release-19.0",
+              source_commit: "b".repeat(40),
+              source_url: "https://github.com/SparkDevNetwork/Rock/blob/def/CheckoutLabelData.cs#L68",
+              root_type: "DateTime",
+              model_slug: null,
+              value_kind: "scalar",
+              availability: "source-code-confirmed",
+              availability_condition: "The Checkout label data type is selected.",
+              may_be_null: false,
+              required_setting: "",
+              execution_phase: "label_render",
+              needs_live_verification: false,
+            },
+            {
+              rock_version: "20.0.5",
+              source_version: "20.0.5",
+              source_ref: "develop",
+              source_commit: "a".repeat(40),
+              source_url: "https://github.com/SparkDevNetwork/Rock/blob/abc/CheckoutLabelData.cs#L68",
+              root_type: "DateTime",
+              model_slug: null,
+              value_kind: "scalar",
+              availability: "source-code-confirmed",
+              availability_condition: "The Checkout label data type is selected.",
+              may_be_null: false,
+              required_setting: "",
+              execution_phase: "label_render",
+              needs_live_verification: false,
+            },
+          ],
           model_map_links: [],
           notes: "",
           needs_live_verification: false,
         },
         {
-          schema: "rock-kb-lava-context-v2",
+          schema: "rock-kb-lava-context-v3",
           id: "lava_context:check-in-label-family-dynamic-text:family:fixture",
           context_id: "check-in-label-family-dynamic-text",
           context_family: "check-in-label",
@@ -1728,6 +1825,16 @@ async function buildWorker(options = {}) {
           needs_live_verification: false,
         },
       ].map((row) => JSON.stringify(row)).join("\n") + "\n",
+      "agent/lava-context-version-diff.jsonl": `${JSON.stringify({
+        schema: "rock-kb-lava-context-version-diff-v1",
+        id: "lava_context_diff:19.0.11:20.0.5:added:fixture",
+        from_version: "19.0.11",
+        to_version: "20.0.5",
+        change_type: "added",
+        context_id: "check-in-label-family-dynamic-text",
+        root_key: "Family",
+        nested_path: "",
+      })}\n`,
     });
     const recipeSearchRow = {
       id: "recipe:oneall:check-in-status-dashboard",

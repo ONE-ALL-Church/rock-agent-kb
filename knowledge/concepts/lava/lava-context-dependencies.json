@@ -19,13 +19,494 @@
   "resource_paths": {
     "agent_contexts": "agent/lava-contexts.jsonl",
     "agent_summary": "agent/lava-context-summary.json",
+    "agent_version_diffs": "agent/lava-context-version-diff.jsonl",
     "contexts": "knowledge/concepts/lava/lava-contexts.jsonl",
     "directory": "knowledge/concepts/lava/lava-context-directory.md"
   },
-  "schema": "rock-kb-lava-context-dependencies-v2",
+  "schema": "rock-kb-lava-context-dependencies-v3",
   "source_commit": "3207dce85ab189fee70a865808ff6becf6bc069f",
   "source_commit_date": "2026-07-25T21:56:32Z",
   "source_dependencies": [
+    {
+      "content_hash": "50da80cbba6713854b6716db6a639f8050da2ba02f48ca83460fab1c6c4475f5",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "f0ff69ee01e10c2615929cc7273a8a39e7d7692e82c8dc80484f30e14bf258e6",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "RockWeb/Blocks/Event/CalendarLava.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Event/CalendarLava.ascx.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "d8e8443cb53d2134a736a79755085e53abe45398854166182d6e7a213413b80d",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/CheckoutLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/CheckoutLabelData.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "8741ed59dfd45127d61fe1e6b1e749274349a63d74e129d09de0d707258b224a",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "f4f9a3ba45abfb268cd917c9bc3b2f243f21147677b9d969906a9dd30271b595",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock.Blocks/Crm/Disc.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/Crm/Disc.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "ecd4efe1ec32584e381c5d24291e9183d75e609d1045b417c5e0c92ea8513fb4",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "4733adf11722d1a9491dffa9f303d3cc093fdf50020fc0de216ef0b0daec6cff",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/FamilyLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/FamilyLabelData.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "fd6657a4062407414fd5c646e6eebcb4a7491fd3297e86c33955ab1fbf66bae2",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/FieldSourceHelper.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/FieldSourceHelper.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "1b9f59a983cbcab9e5211f4692d05257ad4e85e103540d57f7de76e60652c453",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "4f420fcd02fd89a54d4a34a70e724e6d24d0af99db23b5ffff299d41bf719c24",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "RockWeb/Blocks/Groups/GroupFinder.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Groups/GroupFinder.ascx.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "c7cdc768fc9538a59e31c8b2ad28312a66a6062ea7db5577b2e5cb33dd0af2f0",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/LabelField.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/LabelField.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "cfe3e9482b08fff9dd23067d12cb91b422801f1242da9c8854f59994f5bc103d",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Lava/LavaHelper.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Lava/LavaHelper.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "82aa738e9a5c8fa38f50bc923c3800ef9af0975096e38dfe18857e78b4a73927",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Cms/Content.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Cms/Content.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "2a3186c156d35c448744370d97c5c7a3c71928232ee2f5f55010cdb7e3b2b90e",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "2424288eb7d7aef0da5b7cdb87f0cd6876f11da8ed7b6e8b487cdd471a2899e0",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Groups/GroupView.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Groups/GroupView.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "4e5244d3d26416990416ed219c68a9fb3711b1f0626ffa48e94e1a15aa6c527b",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "346a77ad6e7c85da2d5829944455135825a8dda4320d3e00b374bfeff4f9de05",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/PersonLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/PersonLabelData.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "9ed28ecce260a5f4d0ac9b0b8cf6a4a8380a8ce3d1d93e3e4527394bec2eecb8",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "626a318cb47cb4f9619d09b9d695861fdb520bda4b9ee9438bc35b84302580dd",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock.Blocks/Utility/RealTimeVisualizer.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/Utility/RealTimeVisualizer.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "f3d61f42476d3052562032110ea8a43db5428d68d4233d15859036a6b9fe41a6",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock.Blocks/Event/RegistrationEntry.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/Event/RegistrationEntry.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "ffb04d34c4352b5f3b3d4e60155437f6d01839227b75a56a4beaa0a659adacd1",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Net/RockRequestContext.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Net/RockRequestContext.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "ebf5a0ae720c9021fd9f139782c5108a08e1c250c1acac38cf75f14402b89926",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "bd21f8726d1259a0bad407fc1414173b6e4e77ff30c089baad20596b47a702c0",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock/Workflow/ActionComponent.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Workflow/ActionComponent.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "befaaa7bfd527ad563483a094e90481154ce61efdd4083806cb1fcd4d5944588",
+      "source_commit": "1e9327c66aca5e5d8222b3b7527ed08e6e9938e6",
+      "source_commit_date": "2026-05-19T17:58:13Z",
+      "source_file": "Rock.Blocks/WorkFlow/WorkflowEntry.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "release-19.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/WorkFlow/WorkflowEntry.cs",
+      "source_version": "19.0.11"
+    },
+    {
+      "content_hash": "50da80cbba6713854b6716db6a639f8050da2ba02f48ca83460fab1c6c4475f5",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "f0ff69ee01e10c2615929cc7273a8a39e7d7692e82c8dc80484f30e14bf258e6",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "RockWeb/Blocks/Event/CalendarLava.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Event/CalendarLava.ascx.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "d8e8443cb53d2134a736a79755085e53abe45398854166182d6e7a213413b80d",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/CheckoutLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/CheckoutLabelData.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "8741ed59dfd45127d61fe1e6b1e749274349a63d74e129d09de0d707258b224a",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "f4f9a3ba45abfb268cd917c9bc3b2f243f21147677b9d969906a9dd30271b595",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock.Blocks/Crm/Disc.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/Crm/Disc.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "ecd4efe1ec32584e381c5d24291e9183d75e609d1045b417c5e0c92ea8513fb4",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "4733adf11722d1a9491dffa9f303d3cc093fdf50020fc0de216ef0b0daec6cff",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/FamilyLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/FamilyLabelData.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "fd6657a4062407414fd5c646e6eebcb4a7491fd3297e86c33955ab1fbf66bae2",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/FieldSourceHelper.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/FieldSourceHelper.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "e46655bb67728d0870d12b34a66a83ba07fdefdd869b2c7246570c96db946f36",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "4f420fcd02fd89a54d4a34a70e724e6d24d0af99db23b5ffff299d41bf719c24",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "RockWeb/Blocks/Groups/GroupFinder.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Groups/GroupFinder.ascx.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "c7cdc768fc9538a59e31c8b2ad28312a66a6062ea7db5577b2e5cb33dd0af2f0",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/LabelField.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/LabelField.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "cfe3e9482b08fff9dd23067d12cb91b422801f1242da9c8854f59994f5bc103d",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Lava/LavaHelper.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Lava/LavaHelper.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "82aa738e9a5c8fa38f50bc923c3800ef9af0975096e38dfe18857e78b4a73927",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Cms/Content.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Cms/Content.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "2a3186c156d35c448744370d97c5c7a3c71928232ee2f5f55010cdb7e3b2b90e",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "2424288eb7d7aef0da5b7cdb87f0cd6876f11da8ed7b6e8b487cdd471a2899e0",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Groups/GroupView.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Groups/GroupView.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "4e5244d3d26416990416ed219c68a9fb3711b1f0626ffa48e94e1a15aa6c527b",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "346a77ad6e7c85da2d5829944455135825a8dda4320d3e00b374bfeff4f9de05",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/PersonLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/PersonLabelData.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "9ed28ecce260a5f4d0ac9b0b8cf6a4a8380a8ce3d1d93e3e4527394bec2eecb8",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "626a318cb47cb4f9619d09b9d695861fdb520bda4b9ee9438bc35b84302580dd",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock.Blocks/Utility/RealTimeVisualizer.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/Utility/RealTimeVisualizer.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "27a59a2b48eb52b2fe259fab837031bdd2e77d684e1275222cd1f15b38efd198",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock.Blocks/Event/RegistrationEntry.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/Event/RegistrationEntry.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "ffb04d34c4352b5f3b3d4e60155437f6d01839227b75a56a4beaa0a659adacd1",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Net/RockRequestContext.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Net/RockRequestContext.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "ebf5a0ae720c9021fd9f139782c5108a08e1c250c1acac38cf75f14402b89926",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "bd21f8726d1259a0bad407fc1414173b6e4e77ff30c089baad20596b47a702c0",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock/Workflow/ActionComponent.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Workflow/ActionComponent.cs",
+      "source_version": "19.2.0"
+    },
+    {
+      "content_hash": "befaaa7bfd527ad563483a094e90481154ce61efdd4083806cb1fcd4d5944588",
+      "source_commit": "b4aee4df15d2aacf18d7c151e5601704ead7411b",
+      "source_commit_date": "2026-06-25T18:42:15Z",
+      "source_file": "Rock.Blocks/WorkFlow/WorkflowEntry.cs",
+      "source_id": "sparkdevnetwork_rock",
+      "source_ref": "19.2.0",
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/WorkFlow/WorkflowEntry.cs",
+      "source_version": "19.2.0"
+    },
     {
       "content_hash": "50da80cbba6713854b6716db6a639f8050da2ba02f48ca83460fab1c6c4475f5",
       "source_commit": "3207dce85ab189fee70a865808ff6becf6bc069f",
@@ -349,5 +830,11 @@
   ],
   "source_id": "sparkdevnetwork_rock",
   "source_ref": "develop",
-  "source_version": "20.0.5"
+  "source_version": "20.0.5",
+  "source_versions": [
+    "19.0.11",
+    "19.2.0",
+    "20.0.5"
+  ],
+  "version_diff_count": 100
 }

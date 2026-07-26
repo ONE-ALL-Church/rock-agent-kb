@@ -1370,6 +1370,7 @@ def build_agent_manifest() -> dict[str, Any]:
             "lava_capabilities": "agent/lava-capabilities.jsonl",
             "lava_capability_summary": "agent/lava-capability-summary.json",
             "lava_contexts": "agent/lava-contexts.jsonl",
+            "lava_context_version_diff": "agent/lava-context-version-diff.jsonl",
             "lava_context_summary": "agent/lava-context-summary.json",
             "lava_context_directory": "knowledge/concepts/lava/lava-context-directory.md",
             "lava_reference_index": "knowledge/concepts/lava/lava-reference-index.md",

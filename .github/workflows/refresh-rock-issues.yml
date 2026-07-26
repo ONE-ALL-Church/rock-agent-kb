@@ -30,19 +30,19 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Restore issue source observations
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: data/review/rock-issue-freshness/source-observations.json
           key: rock-kb-issue-source-observations-${{ github.run_id }}
           restore-keys: |
             rock-kb-issue-source-observations-
-      - uses: astral-sh/setup-uv@v5
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v9
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: "npm"
@@ -116,7 +116,7 @@ jobs:
       - name: Create or update refresh pull request
         if: steps.changes.outputs.changed == 'true' && github.ref_name == github.event.repository.default_branch
         id: refresh_pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: automation/rock-issue-refresh
           title: "Refresh Rock issue intelligence"

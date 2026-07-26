@@ -23,7 +23,7 @@
 ## Decisions
 
 - [Agent Knowledge Network Goal](decisions/agent-knowledge-network-goal.md) - north-star networked KB, hosted service, and autonomous contribution goal.
-- [Incremental Architecture Refactor Goal](decisions/incremental-architecture-refactor-goal.md) - detailed Milestone 0 execution plan.
+- [Incremental Architecture Refactor Goal](decisions/incremental-architecture-refactor-goal.md) - retired historical Milestone 0 plan.
 - [Project Goal](decisions/project-goal.md) - durable project goal and readiness framing.
 - [Public Private Knowledge System Goal](decisions/public-private-knowledge-system-goal.md) - public/private boundary and system posture.
 - [Claim Graph Refactor Goal](decisions/claim-graph-refactor-goal.md) - claim graph architecture goal.

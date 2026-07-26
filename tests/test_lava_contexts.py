@@ -6,8 +6,11 @@ from pathlib import Path
 from rock_kb import lava_contexts
 from rock_kb.lava_contexts import (
     SourceSnapshot,
+    build_lava_context_version_diffs,
+    combine_versioned_context_rows,
     discover_lava_context_candidates,
     get_lava_context_surface,
+    get_lava_context_version_diff,
     lava_context_rows,
     list_lava_context_surfaces,
     normalize_context_rows,
@@ -49,7 +52,7 @@ public static Dictionary<string, object> GetCommonMergeFields()
     rows = lava_context_rows({"lava_helper": source})
     by_key = {row["root_key"]: row for row in rows}
 
-    assert by_key["CurrentPerson"]["schema"] == "rock-kb-lava-context-v2"
+    assert by_key["CurrentPerson"]["schema"] == "rock-kb-lava-context-v3"
     assert by_key["CurrentPerson"]["model_slug"] == "person"
     assert by_key["CurrentPerson"]["model_map_links"][0]["model_detail_path"] == "knowledge/model-map/models/person.md"
     assert by_key["PageParameter"]["needs_live_verification"] is True
@@ -85,6 +88,66 @@ internal class PersonLabelData : ILabelDataHasPerson
     assert ("PersonAttendance", "PersonAttendance.Location") in keys
     assert ("PersonAttendance", "PersonAttendance.Schedule") in keys
     assert next(row for row in rows if row["root_key"] == "Family")["model_slug"] == "group"
+
+
+def test_versioned_contexts_remain_canonical_and_emit_typed_diffs(monkeypatch):
+    monkeypatch.setattr(lava_contexts, "model_map_links_by_slug", lambda: {})
+    base = {
+        "context_id": "example-surface",
+        "context_family": "lava",
+        "surface_name": "Example",
+        "surface_type": "template",
+        "concept_ids": ["lava"],
+        "root_key": "Person",
+        "nested_path": "",
+        "source_symbol": "Example.Render",
+        "source_id": "sparkdevnetwork_rock",
+        "source_file": "Example.cs",
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "source_ref": "release-19.0",
+        "source_commit": "a",
+        "source_commit_date": "2026-01-01T00:00:00Z",
+        "source_url": "https://github.com/SparkDevNetwork/Rock/blob/a/Example.cs#L10",
+        "source_version": "19.0.11",
+        "root_type": "Rock.Model.Person",
+        "model_slug": "person",
+        "value_kind": "object",
+        "availability": "source-code-confirmed",
+        "availability_condition": "always",
+        "may_be_null": False,
+        "required_setting": "",
+        "execution_phase": "render",
+        "needs_live_verification": False,
+        "includes_context_ids": [],
+        "coverage_status": "complete_for_source_snapshot",
+        "model_map_links": [],
+        "notes": "Fixture.",
+    }
+    changed = {
+        **base,
+        "source_ref": "develop",
+        "source_commit": "b",
+        "source_version": "20.0.5",
+        "source_url": "https://github.com/SparkDevNetwork/Rock/blob/b/Example.cs#L12",
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "root_type": "Rock.Model.PersonAlias",
+        "model_slug": "person-alias",
+        "availability_condition": "feature_enabled",
+    }
+
+    rows = combine_versioned_context_rows({"19.0.11": [base], "20.0.5": [changed]})
+    result = get_lava_context_surface(rows, "example-surface", rock_version="19.0")
+    diff = get_lava_context_version_diff(rows, "19", "20")
+
+    assert len(rows) == 1
+    assert rows[0]["available_in_versions"] == ["19.0.11", "20.0.5"]
+    assert rows[0]["first_seen_version"] == "19.0.11"
+    assert result["roots"][0]["root_type"] == "Rock.Model.Person"
+    assert result["surface"]["selected_rock_version"] == "19.0.11"
+    assert {row["change_type"] for row in diff["changes"]} == {"type_changed", "condition_changed"}
+    assert len(build_lava_context_version_diffs(rows)) == 2
 
 
 def test_parse_all_check_in_label_surfaces_keeps_roots_separate():

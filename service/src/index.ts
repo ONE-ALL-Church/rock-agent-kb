@@ -164,6 +164,9 @@ const OUTCOME_REASON_CODES: Record<string, Set<string>> = {
 const OUTCOME_FIELDS = new Set(["result_id", "outcome", "reason_codes", "consent_attested"]);
 const OUTCOME_REQUEST_MAX_BYTES = 2048;
 const OUTCOME_LIMIT_PER_INSTALLATION_DAY = 100;
+const LAVA_CONTEXT_VERIFICATION_FIELDS = new Set(["context_id", "root_key", "rock_version", "observation", "consent_attested"]);
+const LAVA_CONTEXT_VERIFICATION_VALUES = new Set(["present", "unavailable", "uncertain"]);
+const LAVA_CONTEXT_VERIFICATION_REQUEST_MAX_BYTES = 1024;
 const FIELD_REVIEW_QUEUE_LIMIT = 50;
 const ZERO_RESULT_REVIEW_THRESHOLD = 3;
 const TEST_ROUND_REVIEW_OUTCOMES = new Set(["useful", "incorrect", "incomplete", "unclear", "unsure"]);
@@ -303,13 +306,34 @@ export default {
         const result = await listLavaContexts(env, {
           contextFamily: url.searchParams.get("family"),
           surfaceType: url.searchParams.get("surface_type"),
+          rockVersion: url.searchParams.get("rock_version"),
         });
         ctx.waitUntil(recordAccessUsage(env, "lava_context_list", "lava_context", Number(result.count || 0), request));
         return json(result);
       }
+      if (url.pathname === "/lava-contexts/diff") {
+        const result = await getLavaContextDiff(
+          env,
+          url.searchParams.get("from") || "",
+          url.searchParams.get("to") || "",
+          url.searchParams.get("context"),
+        );
+        ctx.waitUntil(recordAccessUsage(env, "lava_context_diff", "lava_context", Number(result.count || 0), request));
+        return json(result);
+      }
+      if (url.pathname === "/lava-contexts/verification" && request.method === "POST") {
+        try {
+          return json(await submitLavaContextVerification(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json({ schema: "rock-kb-lava-context-verification-result-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
+          }
+          throw error;
+        }
+      }
       if (url.pathname.startsWith("/lava-contexts/")) {
         const contextId = decodeURIComponent(url.pathname.slice("/lava-contexts/".length));
-        const result = await getLavaContext(env, contextId, url.searchParams.get("root"));
+        const result = await getLavaContext(env, contextId, url.searchParams.get("root"), url.searchParams.get("rock_version"));
         ctx.waitUntil(recordAccessUsage(env, "lava_context_get", "lava_context", result.status === "ok" ? 1 : 0, request));
         return json(result, result.status === "not_found" ? 404 : 200);
       }
@@ -902,6 +926,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     const result = await listLavaContexts(env, {
       contextFamily: stringOrNull(args.context_family),
       surfaceType: stringOrNull(args.surface_type),
+      rockVersion: stringOrNull(args.rock_version),
     });
     ctx.waitUntil(recordAccessUsage(env, "lava_context_list", "lava_context", Number(result.count || 0), request, "mcp"));
     return result;
@@ -911,9 +936,34 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       env,
       String(args.context_id || ""),
       stringOrNull(args.root_key),
+      stringOrNull(args.rock_version),
     );
     ctx.waitUntil(recordAccessUsage(env, "lava_context_get", "lava_context", result.status === "ok" ? 1 : 0, request, "mcp"));
     return result;
+  }
+  if (name === "kb_diff_lava_context") {
+    const result = await getLavaContextDiff(
+      env,
+      String(args.from_version || ""),
+      String(args.to_version || ""),
+      stringOrNull(args.context_id),
+    );
+    ctx.waitUntil(recordAccessUsage(env, "lava_context_diff", "lava_context", Number(result.count || 0), request, "mcp"));
+    return result;
+  }
+  if (name === "kb_verify_lava_context") {
+    try {
+      return await submitLavaContextVerification(
+        new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }),
+        env,
+        "mcp",
+      );
+    } catch (error) {
+      if (error instanceof PublicRequestError) {
+        return { schema: "rock-kb-lava-context-verification-result-v1", status: "rejected", error_code: error.code, message: error.message };
+      }
+      throw error;
+    }
   }
   if (name === "kb_list_recipes") {
     const result = await listRecipes(env, stringOrNull(args.concept_id));
@@ -1164,7 +1214,7 @@ async function listModelMapModels(env: ServiceEnv): Promise<JsonRecord> {
 
 async function listLavaContexts(
   env: ServiceEnv,
-  filters: { contextFamily?: string | null; surfaceType?: string | null } = {},
+  filters: { contextFamily?: string | null; surfaceType?: string | null; rockVersion?: string | null } = {},
 ): Promise<JsonRecord> {
   const rows = await artifactJsonlValue(env, "agent/lava-contexts.jsonl");
   const grouped = new Map<string, JsonRecord[]>();
@@ -1175,7 +1225,11 @@ async function listLavaContexts(
     if (filters.surfaceType && String(row.surface_type || "") !== filters.surfaceType) continue;
     grouped.set(contextId, [...(grouped.get(contextId) || []), row]);
   }
-  const surfaces = [...grouped.entries()].map(([contextId, contextRows]) => {
+  const surfaces = [...grouped.entries()].map(([contextId, rawContextRows]) => {
+    const contextRows = filters.rockVersion
+      ? rawContextRows.map((row) => lavaContextAtVersion(row, filters.rockVersion || "")).filter((row): row is JsonRecord => row !== null)
+      : rawContextRows;
+    if (contextRows.length === 0) return null;
     const first = contextRows[0] || {};
     const conceptIds = new Set<string>();
     const includedIds = new Set<string>();
@@ -1199,7 +1253,8 @@ async function listLavaContexts(
       source_commit: firstNonemptyField(contextRows, "source_commit"),
       needs_live_verification: contextRows.some((row) => row.needs_live_verification === true),
     };
-  }).sort((left, right) => (
+  }).filter((row) => row !== null) as JsonRecord[];
+  surfaces.sort((left, right) => (
     `${left.context_family}|${left.surface_name}`.localeCompare(`${right.context_family}|${right.surface_name}`)
   ));
   return {
@@ -1208,6 +1263,7 @@ async function listLavaContexts(
     filters: {
       context_family: filters.contextFamily || null,
       surface_type: filters.surfaceType || null,
+      rock_version: filters.rockVersion || null,
     },
     surfaces,
   };
@@ -1217,6 +1273,7 @@ async function getLavaContext(
   env: ServiceEnv,
   contextId: string,
   rootKey: string | null = null,
+  rockVersion: string | null = null,
 ): Promise<JsonRecord> {
   const rows = await artifactJsonlValue(env, "agent/lava-contexts.jsonl");
   const grouped = new Map<string, JsonRecord[]>();
@@ -1234,7 +1291,19 @@ async function getLavaContext(
     };
   }
 
-  const directRows = grouped.get(matchedId) || [];
+  const allDirectRows = grouped.get(matchedId) || [];
+  const directRows = rockVersion
+    ? allDirectRows.map((row) => lavaContextAtVersion(row, rockVersion)).filter((row): row is JsonRecord => row !== null)
+    : allDirectRows;
+  if (directRows.length === 0) {
+    return {
+      schema: "rock-kb-lava-context-surface-result-v2",
+      status: "version_not_observed",
+      context_id: matchedId,
+      rock_version: rockVersion,
+      available_versions: lavaAvailableVersions(allDirectRows),
+    };
+  }
   const includedIds = new Set<string>();
   for (const row of directRows) {
     for (const includedId of arrayOfStrings(row.includes_context_ids)) includedIds.add(includedId);
@@ -1245,8 +1314,11 @@ async function getLavaContext(
   const collectInherited = (includedId: string): void => {
     if (visited.has(includedId)) return;
     visited.add(includedId);
-    const includedRows = grouped.get(includedId);
-    if (!includedRows) {
+    const rawIncludedRows = grouped.get(includedId);
+    const includedRows = rockVersion && rawIncludedRows
+      ? rawIncludedRows.map((row) => lavaContextAtVersion(row, rockVersion)).filter((row): row is JsonRecord => row !== null)
+      : rawIncludedRows;
+    if (!includedRows || includedRows.length === 0) {
       missingIncludes.add(includedId);
       return;
     }
@@ -1283,9 +1355,9 @@ async function getLavaContext(
     if (row.execution_phase) executionPhases.add(String(row.execution_phase));
   }
   return {
-    schema: "rock-kb-lava-context-surface-result-v1",
+    schema: "rock-kb-lava-context-surface-result-v2",
     status: "ok",
-    query: { context_id: contextId, root_key: rootKey },
+    query: { context_id: contextId, root_key: rootKey, rock_version: rockVersion },
     surface: {
       context_id: matchedId,
       context_family: first.context_family || "",
@@ -1298,6 +1370,8 @@ async function getLavaContext(
       includes_context_ids: [...includedIds].sort(),
       source_version: firstNonemptyField(directRows, "source_version"),
       source_commit: firstNonemptyField(directRows, "source_commit"),
+      selected_rock_version: firstNonemptyField(directRows, "selected_rock_version") || firstNonemptyField(directRows, "source_version"),
+      available_versions: lavaAvailableVersions(allDirectRows),
     },
     root_filter: rootKey,
     root_count: roots.length,
@@ -1321,6 +1395,66 @@ function lavaSurfaceCoverage(rows: JsonRecord[]): string {
 function firstNonemptyField(rows: JsonRecord[], field: string): string {
   const row = rows.find((candidate) => candidate[field]);
   return row ? String(row[field]) : "";
+}
+
+function lavaVersionParts(value: string): number[] {
+  return (value.match(/\d+/g) || []).slice(0, 4).map(Number);
+}
+
+function lavaVersionMatches(requested: string, observed: string): boolean {
+  const requestedParts = lavaVersionParts(requested);
+  const observedParts = lavaVersionParts(observed);
+  return requestedParts.length > 0
+    && requestedParts.every((value, index) => observedParts[index] === value);
+}
+
+function lavaContextAtVersion(row: JsonRecord, rockVersion: string): JsonRecord | null {
+  const observations = Array.isArray(row.version_observations)
+    ? row.version_observations.map(asRecord)
+    : [];
+  const observation = observations.find((item) => lavaVersionMatches(rockVersion, String(item.rock_version || "")));
+  return observation ? { ...row, ...observation, selected_rock_version: observation.rock_version } : null;
+}
+
+function lavaAvailableVersions(rows: JsonRecord[]): string[] {
+  const versions = new Set<string>();
+  for (const row of rows) {
+    for (const value of arrayOfStrings(row.available_in_versions)) versions.add(value);
+  }
+  return [...versions].sort((left, right) => compareRockVersions(lavaVersionParts(left), lavaVersionParts(right)));
+}
+
+async function getLavaContextDiff(
+  env: ServiceEnv,
+  fromVersion: string,
+  toVersion: string,
+  contextId: string | null = null,
+): Promise<JsonRecord> {
+  if (lavaVersionParts(fromVersion).length === 0 || lavaVersionParts(toVersion).length === 0) {
+    return {
+      schema: "rock-kb-lava-context-version-diff-result-v1",
+      status: "invalid_version",
+      from_version: fromVersion,
+      to_version: toVersion,
+      count: 0,
+      changes: [],
+    };
+  }
+  const rows = await artifactJsonlValue(env, "agent/lava-context-version-diff.jsonl");
+  const changes = rows.filter((row) => (
+    lavaVersionMatches(fromVersion, String(row.from_version || ""))
+    && lavaVersionMatches(toVersion, String(row.to_version || ""))
+    && (!contextId || normalizeModelLookup(String(row.context_id || "")) === normalizeModelLookup(contextId))
+  ));
+  return {
+    schema: "rock-kb-lava-context-version-diff-result-v1",
+    status: "ok",
+    from_version: fromVersion,
+    to_version: toVersion,
+    context_id: contextId,
+    count: changes.length,
+    changes,
+  };
 }
 
 async function listRecipes(env: ServiceEnv, conceptId: string | null = null): Promise<JsonRecord> {
@@ -3290,6 +3424,29 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
       PRIMARY KEY(day, installation_hash)
     )`
   ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS lava_context_verifications_v1 (
+      day TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      context_id TEXT NOT NULL,
+      root_key TEXT NOT NULL,
+      rock_version TEXT NOT NULL,
+      observation TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, installation_hash, client_class, cohort, context_id, root_key, rock_version, observation, projection_version)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS lava_context_verification_rate_v1 (
+      day TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, installation_hash)
+    )`
+  ).run();
 }
 
 async function submitFeedback(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
@@ -3397,6 +3554,92 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
     outcome,
     reason_codes: reasonCodes,
     cohort: identity.cohort,
+  };
+}
+
+async function submitLavaContextVerification(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const identity = telemetryIdentity(request, forcedClientClass);
+  if (!identity.installationId || identity.cohort === "unattributed") {
+    throw new PublicRequestError(400, "installation_opt_in_required", "Lava context verification requires an opted-in anonymous installation marker and a supported aggregate cohort");
+  }
+  const body = await readBoundedJson(request, LAVA_CONTEXT_VERIFICATION_REQUEST_MAX_BYTES, {
+    label: "Lava context verification",
+    tooLargeCode: "lava_context_verification_too_large",
+  });
+  if (Object.keys(body).some((field) => !LAVA_CONTEXT_VERIFICATION_FIELDS.has(field))) {
+    throw new PublicRequestError(400, "unsupported_fields", "Verification accepts only context_id, root_key, rock_version, observation, and consent_attested");
+  }
+  const contextId = String(body.context_id || "").trim();
+  const rootKey = String(body.root_key || "").trim();
+  const rockVersion = String(body.rock_version || "").trim();
+  const observation = String(body.observation || "").trim().toLowerCase();
+  if (!PUBLIC_RESULT_ID_PATTERN.test(contextId) || !PUBLIC_RESULT_ID_PATTERN.test(rootKey)) {
+    throw new PublicRequestError(400, "invalid_context_root", "context_id and root_key must identify a public Lava context row");
+  }
+  if (!/^\d{1,3}(?:\.\d{1,3}){1,3}$/.test(rockVersion)) {
+    throw new PublicRequestError(400, "invalid_rock_version", "rock_version must be a numeric dotted Rock version");
+  }
+  if (!LAVA_CONTEXT_VERIFICATION_VALUES.has(observation)) {
+    throw new PublicRequestError(400, "invalid_observation", "observation must be present, unavailable, or uncertain");
+  }
+  if (body.consent_attested !== true) {
+    throw new PublicRequestError(400, "consent_attestation_required", "consent_attested must be true");
+  }
+  const rows = await artifactJsonlValue(env, "agent/lava-contexts.jsonl");
+  const known = rows.some((row) => (
+    normalizeModelLookup(String(row.context_id || "")) === normalizeModelLookup(contextId)
+    && [normalizeModelLookup(String(row.root_key || "")), normalizeModelLookup(String(row.nested_path || ""))]
+      .includes(normalizeModelLookup(rootKey))
+  ));
+  if (!known) {
+    throw new PublicRequestError(400, "unknown_context_root", "The context_id and root_key pair was not found in the public Lava context directory");
+  }
+
+  await ensureTelemetryTables(env);
+  const day = new Date().toISOString().slice(0, 10);
+  const installationHash = await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`);
+  const projectionVersion = await currentVersion(env);
+  await env.KB_DB.prepare(
+    `INSERT INTO lava_context_verification_rate_v1 (day, installation_hash, count) VALUES (?, ?, 1)
+     ON CONFLICT(day, installation_hash) DO UPDATE SET count = count + 1`
+  ).bind(day, installationHash).run();
+  const rate = await env.KB_DB.prepare(
+    "SELECT count FROM lava_context_verification_rate_v1 WHERE day = ? AND installation_hash = ?"
+  ).bind(day, installationHash).first<{ count: number }>();
+  if (Number(rate?.count || 0) > OUTCOME_LIMIT_PER_INSTALLATION_DAY) {
+    throw new PublicRequestError(429, "rate_limited", "Lava context verification rate limit exceeded; retry tomorrow");
+  }
+  await env.KB_DB.prepare(
+    `INSERT INTO lava_context_verifications_v1 (
+       day, installation_hash, client_class, cohort, context_id, root_key, rock_version,
+       observation, projection_version, count
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(day, installation_hash, client_class, cohort, context_id, root_key, rock_version, observation, projection_version)
+     DO UPDATE SET count = count + 1`
+  ).bind(
+    day,
+    installationHash,
+    identity.clientClass,
+    identity.cohort,
+    contextId,
+    rootKey,
+    rockVersion,
+    observation,
+    projectionVersion,
+  ).run();
+  await recordAccessUsage(env, "lava_context_verification", "lava_context", 1, request, forcedClientClass);
+  const verificationId = `kblv_${(await sha256Hex(JSON.stringify([day, installationHash, contextId, rootKey, rockVersion, observation, projectionVersion]))).slice(0, 24)}`;
+  return {
+    schema: "rock-kb-lava-context-verification-result-v1",
+    status: "recorded",
+    verification_id: verificationId,
+    context_id: contextId,
+    root_key: rootKey,
+    rock_version: rockVersion,
+    observation,
+    projection_version: projectionVersion,
+    cohort: identity.cohort,
+    privacy: "No Lava value, query, organization, person, IP address, log, or private Rock data was accepted or stored.",
   };
 }
 
@@ -4162,7 +4405,7 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
 
 async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
   await ensureTelemetryTables(env);
-  const [currentUsage, outcomeResult, installations] = await Promise.all([
+  const [currentUsage, outcomeResult, installations, lavaContextVerifications] = await Promise.all([
     env.KB_DB.prepare(
       `SELECT day, event, client_class, cohort, topic_hint, result_count, primary_result_kind, SUM(count) AS count
        FROM usage_events_v5
@@ -4180,9 +4423,16 @@ async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
        FROM usage_events_v5
        WHERE installation_hash <> '' AND client_class <> 'eval' AND cohort NOT IN ('evaluation', 'maintainer')`
     ).first<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT context_id, root_key, rock_version, observation, cohort, SUM(count) AS count
+       FROM lava_context_verifications_v1
+       WHERE client_class <> 'eval' AND cohort NOT IN ('evaluation', 'maintainer')
+       GROUP BY context_id, root_key, rock_version, observation, cohort`
+    ).all<JsonRecord>(),
   ]);
   const usageRows = currentUsage.results || [];
   const outcomeRows = outcomeResult.results || [];
+  const lavaVerificationRows = lavaContextVerifications.results || [];
   const searchRows = usageRows.filter((row) => ["search", "rock_issue_search", "rock_idea_search"].includes(String(row.event || "")));
   const exactRows = usageRows.filter((row) => EXACT_RETRIEVAL_EVENTS.has(String(row.event || "")));
   const feedbackRows = usageRows.filter((row) => row.event === "feedback");
@@ -4208,12 +4458,19 @@ async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
       outcome_count: weightedCount(outcomeRows),
       feedback_count: weightedCount(feedbackRows),
       report_issue_count: weightedCount(reportRows),
+      lava_context_verification_count: weightedCount(lavaVerificationRows),
     },
     opted_in_installation_count: Number(installations?.count || 0),
     outcomes: {
       by_outcome: countWeightedValues(outcomeRows, "outcome"),
       by_reason_code_set: countWeightedValues(outcomeRows, "reason_codes"),
       by_result_kind: countWeightedValues(outcomeRows, "result_kind"),
+    },
+    lava_context_verifications: {
+      by_observation: countWeightedValues(lavaVerificationRows, "observation"),
+      by_rock_version: countWeightedValues(lavaVerificationRows, "rock_version"),
+      by_cohort: countWeightedValues(lavaVerificationRows, "cohort"),
+      rows: lavaVerificationRows,
     },
     review_queue: {
       row_count: reviewQueue.length,
@@ -4222,7 +4479,7 @@ async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
       by_signal: countValues(reviewQueue.map((row) => String(row.signal || "unknown"))),
       items: reviewQueue,
     },
-    privacy: "The funnel stores aggregate operation, fixed cohort, public result, result-kind, bounded topic, and fixed outcome/reason data. Opted-in installations are counted from one-way hashes that are never returned. Queries, IP addresses, organizations, people, free text, logs, and Rock data are excluded.",
+    privacy: "The funnel stores aggregate operation, fixed cohort, public result, result-kind, bounded topic, fixed outcome/reason data, and Lava context/root/version availability outcomes. Opted-in installations are counted from one-way hashes that are never returned. Queries, values, IP addresses, organizations, people, free text, logs, and Rock data are excluded.",
   };
 }
 
@@ -5168,8 +5425,10 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
-    { name: "kb_list_lava_contexts", description: "List known Lava rendering surfaces with exact context IDs, coverage, source versions, and root counts. Use this before model lookup when the available merge-field roots are unknown.", inputSchema: { type: "object", additionalProperties: false, properties: { context_family: { type: "string" }, surface_type: { type: "string" } } } },
-    { name: "kb_get_lava_context", description: "Return one exact Lava rendering surface with all direct and inherited roots, conditions, model links, pinned source evidence, and completeness metadata.", inputSchema: { type: "object", additionalProperties: false, properties: { context_id: { type: "string" }, root_key: { type: "string" } }, required: ["context_id"] } },
+    { name: "kb_list_lava_contexts", description: "List known Lava rendering surfaces with exact context IDs, coverage, observed Rock versions, and root counts. Use this before model lookup when the available merge-field roots are unknown.", inputSchema: { type: "object", additionalProperties: false, properties: { context_family: { type: "string" }, surface_type: { type: "string" }, rock_version: { type: "string" } } } },
+    { name: "kb_get_lava_context", description: "Return one exact Lava rendering surface with direct and inherited roots, conditions, model links, pinned source evidence, and optional Rock-version selection.", inputSchema: { type: "object", additionalProperties: false, properties: { context_id: { type: "string" }, root_key: { type: "string" }, rock_version: { type: "string" } }, required: ["context_id"] } },
+    { name: "kb_diff_lava_context", description: "Return added, removed, type-changed, and condition-changed Lava roots between two observed Rock versions.", inputSchema: { type: "object", additionalProperties: false, properties: { from_version: { type: "string" }, to_version: { type: "string" }, context_id: { type: "string" } }, required: ["from_version", "to_version"] } },
+    { name: "kb_verify_lava_context", description: "Submit a consent-attested present, unavailable, or uncertain outcome for one public context root and Rock version. Never send the Lava value, query, organization, person, log, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { context_id: { type: "string", maxLength: 200 }, root_key: { type: "string", maxLength: 200 }, rock_version: { type: "string", pattern: "^\\d{1,3}(?:\\.\\d{1,3}){1,3}$" }, observation: { type: "string", enum: ["present", "unavailable", "uncertain"] }, consent_attested: { type: "boolean", const: true } }, required: ["context_id", "root_key", "rock_version", "observation", "consent_attested"] } },
     { name: "kb_list_recipes", description: "List reusable community Rock recipes, optionally filtered by concept.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } } } },
     { name: "kb_get_recipe", description: "Return one exact recipe with its pinned source, adaptation points, security, compatibility, validation, and reusable learnings.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" } }, required: ["recipe_id"] } },
     { name: "kb_verify_recipe", description: "Verify a recipe's immutable source hashes and optional target Rock version without executing its code.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" }, rock_version: { type: "string" } }, required: ["recipe_id"] } },
@@ -5202,7 +5461,7 @@ function toolDefinitions(): JsonRecord[] {
 }
 
 function mcpToolAnnotations(name: string): JsonRecord {
-  const writeTools = new Set(["kb_feedback", "kb_outcome", "kb_report_issue", "kb_submit_test_round_review", "kb_submit"]);
+  const writeTools = new Set(["kb_feedback", "kb_outcome", "kb_verify_lava_context", "kb_report_issue", "kb_submit_test_round_review", "kb_submit"]);
   const openWorldTools = new Set(["kb_verify_recipe", "kb_submit"]);
   const readOnly = !writeTools.has(name);
   return {

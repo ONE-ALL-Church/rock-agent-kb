@@ -162,9 +162,24 @@ def main(argv: list[str] | None = None) -> int:
     lava_context_list = lava_context_subparsers.add_parser("list")
     lava_context_list.add_argument("--family")
     lava_context_list.add_argument("--surface-type")
+    lava_context_list.add_argument("--rock-version")
     lava_context_get = lava_context_subparsers.add_parser("get")
     lava_context_get.add_argument("context_id")
     lava_context_get.add_argument("--root")
+    lava_context_get.add_argument("--rock-version")
+    lava_context_diff = lava_context_subparsers.add_parser("diff")
+    lava_context_diff.add_argument("--from", dest="from_version", required=True)
+    lava_context_diff.add_argument("--to", dest="to_version", required=True)
+    lava_context_diff.add_argument("--context")
+    lava_context_verify = lava_context_subparsers.add_parser(
+        "verify",
+        help="Submit a privacy-safe observed availability outcome without sending a value.",
+    )
+    lava_context_verify.add_argument("context_id")
+    lava_context_verify.add_argument("--root", required=True)
+    lava_context_verify.add_argument("--rock-version", required=True)
+    lava_context_verify.add_argument("--observation", choices=["present", "unavailable", "uncertain"], required=True)
+    lava_context_verify.add_argument("--consent-attested", action="store_true", required=True)
 
     recipe = subparsers.add_parser("recipe")
     recipe.add_argument("recipe_args", nargs="+")
@@ -389,11 +404,31 @@ def main(argv: list[str] | None = None) -> int:
                 params.append(f"family={quote(args.family)}")
             if args.surface_type:
                 params.append(f"surface_type={quote(args.surface_type)}")
+            if args.rock_version:
+                params.append(f"rock_version={quote(args.rock_version)}")
             suffix = f"?{'&'.join(params)}" if params else ""
             return print_json(get_json(f"{base_url}/lava-contexts{suffix}"))
         if args.lava_context_command == "get":
-            suffix = f"?root={quote(args.root)}" if args.root else ""
+            params = []
+            if args.root:
+                params.append(f"root={quote(args.root)}")
+            if args.rock_version:
+                params.append(f"rock_version={quote(args.rock_version)}")
+            suffix = f"?{'&'.join(params)}" if params else ""
             return print_json(get_json(f"{base_url}/lava-contexts/{quote(args.context_id)}{suffix}"))
+        if args.lava_context_command == "diff":
+            params = [f"from={quote(args.from_version)}", f"to={quote(args.to_version)}"]
+            if args.context:
+                params.append(f"context={quote(args.context)}")
+            return print_json(get_json(f"{base_url}/lava-contexts/diff?{'&'.join(params)}"))
+        if args.lava_context_command == "verify":
+            return print_json(post_json(f"{base_url}/lava-contexts/verification", {
+                "context_id": args.context_id,
+                "root_key": args.root,
+                "rock_version": args.rock_version,
+                "observation": args.observation,
+                "consent_attested": bool(args.consent_attested),
+            }))
     if args.command == "recipe":
         if args.recipe_args[0] == "verify":
             if len(args.recipe_args) != 2:

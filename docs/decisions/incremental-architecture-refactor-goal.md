@@ -1,5 +1,12 @@
 # Architecture Refactor Goal (Clean-Break, Test-Guarded)
 
+> **Status: retired 2026-07-26.** This checklist is preserved as historical
+> design context. Its architecture, pipeline, contribution validation, hosted
+> service, and public-audit outcomes are implemented; unchecked boxes no longer
+> represent active work. Use `docs/decisions/project-goal.md`, current readiness
+> audits, source freshness, evaluation results, and maintainer review queues to
+> select new work.
+
 > **For agentic workers (Codex):** Execute this plan phase by phase, task by task, in order. Steps use checkbox (`- [ ]`) syntax for tracking. Every task ends with the full test suite passing and a commit. Never leave the repo in a state where `uv run --extra dev pytest` fails at a commit boundary.
 
 > **Amendment (2026-06-11, single-public-repo decision):** `docs/decisions/agent-knowledge-network-goal.md` (Milestone 0.5) amends this plan. When executing: (1) in Phase 5 Task 5.4, create `.github/workflows/validate-contributions.yml`, `scripts/validate_bundle.py`, and `community-contributions/CONTRIBUTING.md` at those real paths — the `templates/public-repo/` indirection is retired; (2) do not extend `publish push` or `contributions import-public` beyond renaming — both retire in Milestone 0.5; (3) `data/public-export/` is legacy: keep its audit logic, which Milestone 0.5 repurposes to audit the public tree and deploy payload directly. Read that document's Milestone 0 amendments before starting Phase 5.

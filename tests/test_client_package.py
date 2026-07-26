@@ -511,12 +511,14 @@ def test_client_model_map_list_command_hits_model_list_endpoint(monkeypatch, cap
 def test_client_lava_context_commands_hit_exact_endpoints(monkeypatch, capsys):
     cli = load_client_cli()
     urls: list[str] = []
+    posts: list[tuple[str, dict]] = []
 
     def fake_get_json(url: str):
         urls.append(url)
         return {"schema": "rock-kb-lava-context-surface-result-v1", "status": "ok"}
 
     monkeypatch.setattr(cli, "get_json", fake_get_json)
+    monkeypatch.setattr(cli, "post_json", lambda url, payload: posts.append((url, payload)) or {"status": "recorded"})
 
     assert cli.main(
         [
@@ -528,6 +530,8 @@ def test_client_lava_context_commands_hit_exact_endpoints(monkeypatch, capsys):
             "check-in-label",
             "--surface-type",
             "label_dynamic_text",
+            "--rock-version",
+            "19.2",
         ]
     ) == 0
     assert cli.main(
@@ -539,12 +543,55 @@ def test_client_lava_context_commands_hit_exact_endpoints(monkeypatch, capsys):
             "check-in-label-checkout-dynamic-text",
             "--root",
             "CheckoutDateTime",
+            "--rock-version",
+            "19.0",
+        ]
+    ) == 0
+    assert cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "lava-context",
+            "diff",
+            "--from",
+            "19.0",
+            "--to",
+            "20.0",
+            "--context",
+            "check-in-label-checkout-dynamic-text",
+        ]
+    ) == 0
+    assert cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "lava-context",
+            "verify",
+            "check-in-label-checkout-dynamic-text",
+            "--root",
+            "CheckoutDateTime",
+            "--rock-version",
+            "19.0.11",
+            "--observation",
+            "present",
+            "--consent-attested",
         ]
     ) == 0
     assert urls == [
-        "https://example.test/lava-contexts?family=check-in-label&surface_type=label_dynamic_text",
-        "https://example.test/lava-contexts/check-in-label-checkout-dynamic-text?root=CheckoutDateTime",
+        "https://example.test/lava-contexts?family=check-in-label&surface_type=label_dynamic_text&rock_version=19.2",
+        "https://example.test/lava-contexts/check-in-label-checkout-dynamic-text?root=CheckoutDateTime&rock_version=19.0",
+        "https://example.test/lava-contexts/diff?from=19.0&to=20.0&context=check-in-label-checkout-dynamic-text",
     ]
+    assert posts == [(
+        "https://example.test/lava-contexts/verification",
+        {
+            "context_id": "check-in-label-checkout-dynamic-text",
+            "root_key": "CheckoutDateTime",
+            "rock_version": "19.0.11",
+            "observation": "present",
+            "consent_attested": True,
+        },
+    )]
     assert "rock-kb-lava-context-surface-result-v1" in capsys.readouterr().out
 
 

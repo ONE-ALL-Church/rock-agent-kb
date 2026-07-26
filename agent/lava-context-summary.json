@@ -29,17 +29,23 @@
   "needs_live_verification_count": 43,
   "paths": {
     "agent_contexts": "agent/lava-contexts.jsonl",
+    "agent_version_diffs": "agent/lava-context-version-diff.jsonl",
     "contexts": "knowledge/concepts/lava/lava-contexts.jsonl",
     "dependencies": "knowledge/concepts/lava/lava-context-dependencies.json",
     "directory": "knowledge/concepts/lava/lava-context-directory.md"
   },
-  "schema": "rock-kb-lava-context-summary-v2",
+  "schema": "rock-kb-lava-context-summary-v3",
   "source_commit": "3207dce85ab189fee70a865808ff6becf6bc069f",
   "source_commit_date": "2026-07-25T21:56:32Z",
-  "source_file_count": 32,
+  "source_file_count": 80,
   "source_id": "sparkdevnetwork_rock",
   "source_ref": "develop",
   "source_version": "20.0.5",
+  "source_versions": [
+    "19.0.11",
+    "19.2.0",
+    "20.0.5"
+  ],
   "surface_count": 40,
   "surface_types": {
     "assessment_lava_template": 7,

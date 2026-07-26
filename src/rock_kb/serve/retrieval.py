@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from ..jsonl import read_jsonl
-from ..lava_contexts import get_lava_context_surface, list_lava_context_surfaces
+from ..lava_contexts import get_lava_context_surface, get_lava_context_version_diff, list_lava_context_surfaces
 from ..paths import REPO_ROOT
 from ..rock_issues import (
     assess_catalog,
@@ -440,6 +440,7 @@ def get_model(model: str, fields: str | None = None, property: str | None = None
 def list_lava_contexts(
     context_family: str | None = None,
     surface_type: str | None = None,
+    rock_version: str | None = None,
     root: Path | None = None,
 ) -> dict[str, Any]:
     root = root or REPO_ROOT
@@ -448,17 +449,30 @@ def list_lava_contexts(
         rows,
         context_family=context_family,
         surface_type=surface_type,
+        rock_version=rock_version,
     )
 
 
 def get_lava_context(
     context_id: str,
     root_key: str | None = None,
+    rock_version: str | None = None,
     root: Path | None = None,
 ) -> dict[str, Any]:
     root = root or REPO_ROOT
     rows = list(read_jsonl(root / "agent" / "lava-contexts.jsonl"))
-    return get_lava_context_surface(rows, context_id, root_key=root_key)
+    return get_lava_context_surface(rows, context_id, root_key=root_key, rock_version=rock_version)
+
+
+def diff_lava_contexts(
+    from_version: str,
+    to_version: str,
+    context_id: str | None = None,
+    root: Path | None = None,
+) -> dict[str, Any]:
+    root = root or REPO_ROOT
+    rows = list(read_jsonl(root / "agent" / "lava-contexts.jsonl"))
+    return get_lava_context_version_diff(rows, from_version, to_version, context_id=context_id)
 
 
 def build_fts_query(query: str) -> str:

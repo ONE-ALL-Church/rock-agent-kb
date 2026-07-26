@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -15,13 +16,15 @@ from .jsonl import read_jsonl, write_jsonl
 from .paths import AGENT_DIR, KNOWLEDGE_DIR, REPO_ROOT, REVIEW_DIR
 from .schemas.lava_context import LavaContextExtensionManifest
 
-LAVA_CONTEXT_SCHEMA = "rock-kb-lava-context-v2"
-LAVA_CONTEXT_SUMMARY_SCHEMA = "rock-kb-lava-context-summary-v2"
-LAVA_CONTEXT_DEPENDENCIES_SCHEMA = "rock-kb-lava-context-dependencies-v2"
+LAVA_CONTEXT_SCHEMA = "rock-kb-lava-context-v3"
+LAVA_CONTEXT_SUMMARY_SCHEMA = "rock-kb-lava-context-summary-v3"
+LAVA_CONTEXT_DEPENDENCIES_SCHEMA = "rock-kb-lava-context-dependencies-v3"
+LAVA_CONTEXT_VERSION_DIFF_SCHEMA = "rock-kb-lava-context-version-diff-v1"
 LAVA_CONTEXT_EXTENSION_SCHEMA = "rock-kb-lava-context-extension-v1"
 LAVA_CONTEXT_DISCOVERY_SCHEMA = "rock-kb-lava-context-discovery-v1"
 LAVA_CONTEXT_SNAPSHOT_SCHEMA = "rock-kb-lava-context-source-snapshot-v1"
 SOURCE_REF = "develop"
+SOURCE_REFS = ("release-19.0", "19.2.0", "develop")
 SOURCE_ID = "sparkdevnetwork_rock"
 SOURCE_REPOSITORY = "SparkDevNetwork/Rock"
 
@@ -30,6 +33,7 @@ CONTEXT_JSONL = LAVA_CONCEPT_DIR / "lava-contexts.jsonl"
 CONTEXT_INDEX = LAVA_CONCEPT_DIR / "lava-context-directory.md"
 CONTEXT_DEPENDENCY_JSON = LAVA_CONCEPT_DIR / "lava-context-dependencies.json"
 AGENT_CONTEXT_JSONL = AGENT_DIR / "lava-contexts.jsonl"
+AGENT_CONTEXT_VERSION_DIFF_JSONL = AGENT_DIR / "lava-context-version-diff.jsonl"
 AGENT_CONTEXT_SUMMARY_JSON = AGENT_DIR / "lava-context-summary.json"
 SOURCE_CACHE_DIR = REVIEW_DIR / "lava-context-source" / SOURCE_REF
 SOURCE_SNAPSHOT_JSON = SOURCE_CACHE_DIR / "snapshot.json"
@@ -845,41 +849,64 @@ CURATED_CONTEXT_SPECS: tuple[CuratedContextSpec, ...] = (
 
 def build_lava_context_reference(fetch_missing: bool = True, source_dir: Path | None = None) -> dict[str, Any]:
     """Build generated Lava data-context artifacts from public Rock source files."""
-    base = source_dir or SOURCE_CACHE_DIR
-    snapshot = load_source_snapshot(base)
-    if not snapshot.source_commit and fetch_missing:
-        snapshot = resolve_source_snapshot()
-        write_source_snapshot(base, snapshot)
-    source_texts = load_source_texts(fetch_missing=fetch_missing, source_dir=base, snapshot=snapshot)
     previous_rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
-    rows = lava_context_rows(source_texts, snapshot=snapshot, previous_rows=previous_rows)
-    rows.extend(load_public_extension_rows(snapshot))
+    snapshots: list[SourceSnapshot] = []
+    rows_by_version: dict[str, list[dict[str, Any]]] = {}
+    source_dependencies: list[dict[str, Any]] = []
+    refs = (SOURCE_REF,) if source_dir else SOURCE_REFS
+    for source_ref in refs:
+        base = source_dir or source_cache_dir(source_ref)
+        snapshot = load_source_snapshot(base)
+        if (not snapshot.source_commit or snapshot.source_ref != source_ref) and fetch_missing:
+            snapshot = resolve_source_snapshot(source_ref)
+            write_source_snapshot(base, snapshot)
+        source_texts = load_source_texts(fetch_missing=fetch_missing, source_dir=base, snapshot=snapshot)
+        version_rows = lava_context_rows(source_texts, snapshot=snapshot)
+        rows_by_version[snapshot.source_version or snapshot.source_ref] = version_rows
+        source_dependencies.extend(lava_context_source_dependencies(source_texts, snapshot=snapshot))
+        snapshots.append(snapshot)
+
+    latest_snapshot = max(snapshots, key=lambda item: version_key(item.source_version)) if snapshots else SourceSnapshot()
+    rows = combine_versioned_context_rows(rows_by_version, previous_rows=previous_rows)
+    rows.extend(load_public_extension_rows(latest_snapshot))
     rows = normalize_context_rows(rows, previous_rows=previous_rows)
-    source_dependencies = lava_context_source_dependencies(source_texts, snapshot=snapshot)
-    write_lava_context_artifacts(rows, source_dependencies)
+    diffs = build_lava_context_version_diffs(rows)
+    write_lava_context_artifacts(rows, source_dependencies, diffs)
     return {
         "lava_contexts": len(rows),
         "lava_context_source_files": len(source_dependencies),
         "lava_context_families": len({row.get("context_family") for row in rows}),
-        "source_commit": snapshot.source_commit,
-        "source_version": snapshot.source_version,
+        "source_snapshots": [snapshot.as_dict() for snapshot in snapshots],
+        "source_versions": sorted(rows_by_version, key=version_key),
+        "version_diff_count": len(diffs),
     }
 
 
 def refresh_lava_context_source_cache(source_dir: Path | None = None) -> dict[str, Any]:
-    destination = source_dir or SOURCE_CACHE_DIR
-    destination.mkdir(parents=True, exist_ok=True)
-    snapshot = resolve_source_snapshot()
-    write_source_snapshot(destination, snapshot)
+    refs = (SOURCE_REF,) if source_dir else SOURCE_REFS
+    snapshots = []
     fetched = []
-    for source in SOURCE_FILES.values():
-        target = destination / source.source_file.replace("/", "__")
-        text = fetch_public_source(source.raw_url(snapshot.pinned_ref))
-        target.write_text(text, encoding="utf-8")
-        fetched.append({"source_file": source.source_file, "bytes": len(text.encode("utf-8")), "content_hash": sha256_text(text)})
+    for source_ref in refs:
+        destination = source_dir or source_cache_dir(source_ref)
+        destination.mkdir(parents=True, exist_ok=True)
+        snapshot = resolve_source_snapshot(source_ref)
+        write_source_snapshot(destination, snapshot)
+        snapshots.append(snapshot.as_dict())
+        for source in SOURCE_FILES.values():
+            target = destination / source.source_file.replace("/", "__")
+            try:
+                text = fetch_public_source(source.raw_url(snapshot.pinned_ref))
+            except urllib.error.HTTPError as exc:
+                if exc.code == 404:
+                    fetched.append({"source_ref": source_ref, "source_file": source.source_file, "status": "not_present"})
+                    target.unlink(missing_ok=True)
+                    continue
+                raise
+            target.write_text(text, encoding="utf-8")
+            fetched.append({"source_ref": source_ref, "source_file": source.source_file, "status": "fetched", "bytes": len(text.encode("utf-8")), "content_hash": sha256_text(text)})
     return {
-        **snapshot.as_dict(),
-        "schema": "rock-kb-lava-context-source-refresh-v2",
+        "schema": "rock-kb-lava-context-source-refresh-v3",
+        "source_snapshots": snapshots,
         "source_files": fetched,
     }
 
@@ -899,7 +926,12 @@ def load_source_texts(
             continue
         if not fetch_missing:
             continue
-        text = fetch_public_source(source.raw_url(snapshot.pinned_ref))
+        try:
+            text = fetch_public_source(source.raw_url(snapshot.pinned_ref))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                continue
+            raise
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
         texts[key] = text
@@ -947,6 +979,10 @@ def github_headers() -> dict[str, str]:
 
 def source_snapshot_path(source_dir: Path) -> Path:
     return source_dir / "snapshot.json"
+
+
+def source_cache_dir(source_ref: str) -> Path:
+    return REVIEW_DIR / "lava-context-source" / source_ref
 
 
 def load_source_snapshot(source_dir: Path) -> SourceSnapshot:
@@ -1041,9 +1077,9 @@ def normalize_context_rows(
             row.setdefault("source_commit", "")
             row.setdefault("source_commit_date", "")
             row.setdefault("source_version", "")
-        first_seen_version = previous_first_seen.get(key) or str(row.get("source_version") or "")
+        first_seen_version = str(row.get("first_seen_version") or "") or previous_first_seen.get(key) or str(row.get("source_version") or "")
         row["first_seen_version"] = first_seen_version
-        row["last_seen_version"] = str(row.get("source_version") or first_seen_version)
+        row["last_seen_version"] = str(row.get("last_seen_version") or row.get("source_version") or first_seen_version)
         model_slug = row.get("model_slug")
         row["model_map_links"] = model_links.get(str(model_slug), []) if model_slug else []
         old_id = legacy_lava_context_id(row)
@@ -1067,6 +1103,177 @@ def normalize_context_rows(
             str(row.get("source_symbol") or ""),
         ),
     )
+
+
+def version_key(value: str) -> tuple[int, ...]:
+    numbers = [int(part) for part in re.findall(r"\d+", str(value or ""))[:4]]
+    return tuple(numbers) if numbers else (0,)
+
+
+def version_matches(requested: str, observed: str) -> bool:
+    requested_parts = version_key(requested)
+    observed_parts = version_key(observed)
+    return bool(requested_parts and observed_parts[: len(requested_parts)] == requested_parts)
+
+
+def context_contract(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "root_type": str(row.get("root_type") or ""),
+        "model_slug": row.get("model_slug"),
+        "value_kind": str(row.get("value_kind") or ""),
+        "availability": str(row.get("availability") or ""),
+        "availability_condition": str(row.get("availability_condition") or ""),
+        "may_be_null": bool(row.get("may_be_null")),
+        "required_setting": str(row.get("required_setting") or ""),
+        "execution_phase": str(row.get("execution_phase") or ""),
+        "needs_live_verification": bool(row.get("needs_live_verification")),
+    }
+
+
+def version_observation(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "rock_version": str(row.get("source_version") or ""),
+        "source_version": str(row.get("source_version") or ""),
+        "source_ref": str(row.get("source_ref") or ""),
+        "source_commit": str(row.get("source_commit") or ""),
+        "source_commit_date": str(row.get("source_commit_date") or ""),
+        "source_url": str(row.get("source_url") or ""),
+        "source_line_start": row.get("source_line_start"),
+        "source_line_end": row.get("source_line_end"),
+        **context_contract(row),
+    }
+
+
+def combine_versioned_context_rows(
+    rows_by_version: dict[str, list[dict[str, Any]]],
+    *,
+    previous_rows: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Collapse version snapshots into canonical rows with explicit observations."""
+    all_versions = sorted(rows_by_version, key=version_key)
+    grouped: dict[tuple[str, str, str, str], list[dict[str, Any]]] = {}
+    for rows in rows_by_version.values():
+        for row in rows:
+            grouped.setdefault(context_identity(row), []).append(row)
+
+    combined = []
+    for identity, observations in grouped.items():
+        ordered = sorted(observations, key=lambda row: version_key(str(row.get("source_version") or "")))
+        canonical = dict(ordered[-1])
+        version_observations = [version_observation(row) for row in ordered]
+        available_versions = [item["rock_version"] for item in version_observations if item["rock_version"]]
+        canonical["version_observations"] = version_observations
+        canonical["available_in_versions"] = available_versions
+        canonical["not_observed_in_versions"] = [
+            version for version in all_versions if version not in set(available_versions)
+        ]
+        canonical["first_seen_version"] = available_versions[0] if available_versions else ""
+        canonical["last_seen_version"] = available_versions[-1] if available_versions else ""
+        combined.append(canonical)
+    return normalize_context_rows(combined, previous_rows=previous_rows)
+
+
+def observed_context_row(row: dict[str, Any], rock_version: str) -> dict[str, Any] | None:
+    observation = next(
+        (
+            item
+            for item in row.get("version_observations") or []
+            if version_matches(rock_version, str(item.get("rock_version") or ""))
+        ),
+        None,
+    )
+    if not observation:
+        return None
+    selected = dict(row)
+    selected.update(observation)
+    selected["selected_rock_version"] = observation.get("rock_version")
+    return selected
+
+
+def build_lava_context_version_diffs(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    versions = sorted(
+        {
+            str(observation.get("rock_version") or "")
+            for row in rows
+            for observation in row.get("version_observations") or []
+            if observation.get("rock_version")
+        },
+        key=version_key,
+    )
+    diffs: list[dict[str, Any]] = []
+    for from_index, from_version in enumerate(versions):
+        for to_version in versions[from_index + 1 :]:
+            for row in rows:
+                before = observed_context_row(row, from_version)
+                after = observed_context_row(row, to_version)
+                changes: list[str] = []
+                if before is None and after is not None:
+                    changes.append("added")
+                elif before is not None and after is None:
+                    changes.append("removed")
+                elif before is not None and after is not None:
+                    if any(before.get(field) != after.get(field) for field in ("root_type", "model_slug", "value_kind")):
+                        changes.append("type_changed")
+                    if any(
+                        before.get(field) != after.get(field)
+                        for field in ("availability", "availability_condition", "may_be_null", "required_setting", "execution_phase", "needs_live_verification")
+                    ):
+                        changes.append("condition_changed")
+                for change_type in changes:
+                    diffs.append(
+                        {
+                            "schema": LAVA_CONTEXT_VERSION_DIFF_SCHEMA,
+                            "id": f"lava_context_diff:{from_version}:{to_version}:{change_type}:{sha256_text('|'.join(context_identity(row)))[:12]}",
+                            "from_version": from_version,
+                            "to_version": to_version,
+                            "change_type": change_type,
+                            "context_id": row.get("context_id"),
+                            "context_family": row.get("context_family"),
+                            "surface_name": row.get("surface_name"),
+                            "root_key": row.get("root_key"),
+                            "nested_path": row.get("nested_path"),
+                            "source_symbol": row.get("source_symbol"),
+                            "before": context_contract(before) if before else None,
+                            "after": context_contract(after) if after else None,
+                            "source_url": (after or before or {}).get("source_url"),
+                        }
+                    )
+    return sorted(
+        diffs,
+        key=lambda row: (
+            version_key(str(row["from_version"])),
+            version_key(str(row["to_version"])),
+            str(row["change_type"]),
+            str(row["context_id"]),
+            str(row["root_key"]),
+            str(row["nested_path"]),
+        ),
+    )
+
+
+def get_lava_context_version_diff(
+    rows: list[dict[str, Any]],
+    from_version: str,
+    to_version: str,
+    *,
+    context_id: str | None = None,
+) -> dict[str, Any]:
+    diffs = [
+        row
+        for row in build_lava_context_version_diffs(rows)
+        if version_matches(from_version, str(row.get("from_version") or ""))
+        and version_matches(to_version, str(row.get("to_version") or ""))
+        and (not context_id or normalize_key(str(row.get("context_id") or "")) == normalize_key(context_id))
+    ]
+    return {
+        "schema": "rock-kb-lava-context-version-diff-result-v1",
+        "status": "ok",
+        "from_version": from_version,
+        "to_version": to_version,
+        "context_id": context_id,
+        "count": len(diffs),
+        "changes": diffs,
+    }
 
 
 def parse_common_merge_fields(source_key: str, text: str, context_id: str) -> list[dict[str, Any]]:
@@ -1810,6 +2017,7 @@ def list_lava_context_surfaces(
     *,
     context_family: str | None = None,
     surface_type: str | None = None,
+    rock_version: str | None = None,
 ) -> dict[str, Any]:
     """Return one compact, exact-retrieval row per Lava rendering surface."""
     grouped: dict[str, list[dict[str, Any]]] = {}
@@ -1825,6 +2033,14 @@ def list_lava_context_surfaces(
 
     surfaces = []
     for context_id, context_rows in grouped.items():
+        if rock_version:
+            context_rows = [
+                selected
+                for row in context_rows
+                if (selected := observed_context_row(row, rock_version)) is not None
+            ]
+            if not context_rows:
+                continue
         first = context_rows[0]
         surfaces.append(
             {
@@ -1862,6 +2078,7 @@ def list_lava_context_surfaces(
         "filters": {
             "context_family": context_family,
             "surface_type": surface_type,
+            "rock_version": rock_version,
         },
         "surfaces": sorted(surfaces, key=lambda row: (str(row["context_family"]), str(row["surface_name"]))),
     }
@@ -1872,6 +2089,7 @@ def get_lava_context_surface(
     context_id: str,
     *,
     root_key: str | None = None,
+    rock_version: str | None = None,
 ) -> dict[str, Any]:
     """Return one complete surface with explicitly inherited context rows."""
     grouped: dict[str, list[dict[str, Any]]] = {}
@@ -1895,7 +2113,30 @@ def get_lava_context_surface(
             "context_id": context_id,
         }
 
-    direct_rows = grouped[matched_id]
+    all_direct_rows = grouped[matched_id]
+    direct_rows = all_direct_rows
+    if rock_version:
+        direct_rows = [
+            selected
+            for row in direct_rows
+            if (selected := observed_context_row(row, rock_version)) is not None
+        ]
+        if not direct_rows:
+            return {
+                "schema": "rock-kb-lava-context-surface-result-v2",
+                "status": "version_not_observed",
+                "context_id": matched_id,
+                "rock_version": rock_version,
+                "available_versions": sorted(
+                    {
+                        str(version)
+                        for row in all_direct_rows
+                        for version in row.get("available_in_versions") or []
+                        if version
+                    },
+                    key=version_key,
+                ),
+            }
     included_ids = sorted(
         {
             str(included_id)
@@ -1916,6 +2157,15 @@ def get_lava_context_surface(
         if not parent_rows:
             missing_includes.append(parent_id)
             return
+        if rock_version:
+            parent_rows = [
+                selected
+                for row in parent_rows
+                if (selected := observed_context_row(row, rock_version)) is not None
+            ]
+            if not parent_rows:
+                missing_includes.append(parent_id)
+                return
         for row in parent_rows:
             inherited_rows.append({**row, "defined_in_context_id": parent_id, "inherited": True})
         for row in parent_rows:
@@ -1943,11 +2193,12 @@ def get_lava_context_surface(
 
     first = direct_rows[0]
     return {
-        "schema": "rock-kb-lava-context-surface-result-v1",
+        "schema": "rock-kb-lava-context-surface-result-v2",
         "status": "ok",
         "query": {
             "context_id": context_id,
             "root_key": root_key,
+            "rock_version": rock_version,
         },
         "surface": {
             "context_id": matched_id,
@@ -1980,6 +2231,16 @@ def get_lava_context_surface(
             "includes_context_ids": included_ids,
             "source_version": first_nonempty(direct_rows, "source_version"),
             "source_commit": first_nonempty(direct_rows, "source_commit"),
+            "selected_rock_version": first_nonempty(direct_rows, "selected_rock_version") or first_nonempty(direct_rows, "source_version"),
+            "available_versions": sorted(
+                {
+                    str(version)
+                    for row in all_direct_rows
+                    for version in row.get("available_in_versions") or []
+                    if version
+                },
+                key=version_key,
+            ),
         },
         "root_filter": root_key,
         "root_count": len(combined_rows),
@@ -2060,15 +2321,20 @@ def lava_context_source_dependencies(
     return rows
 
 
-def write_lava_context_artifacts(rows: list[dict[str, Any]], source_dependencies: list[dict[str, Any]]) -> None:
+def write_lava_context_artifacts(
+    rows: list[dict[str, Any]],
+    source_dependencies: list[dict[str, Any]],
+    version_diffs: list[dict[str, Any]],
+) -> None:
     LAVA_CONCEPT_DIR.mkdir(parents=True, exist_ok=True)
     AGENT_DIR.mkdir(parents=True, exist_ok=True)
     write_jsonl(CONTEXT_JSONL, rows)
     write_jsonl(AGENT_CONTEXT_JSONL, rows)
+    write_jsonl(AGENT_CONTEXT_VERSION_DIFF_JSONL, version_diffs)
     CONTEXT_INDEX.write_text(render_lava_context_directory(rows, source_dependencies), encoding="utf-8")
     summary = lava_context_summary(rows, source_dependencies)
     AGENT_CONTEXT_SUMMARY_JSON.write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    source_metadata = source_dependencies[0] if source_dependencies else {}
+    source_metadata = max(source_dependencies, key=lambda row: version_key(str(row.get("source_version") or ""))) if source_dependencies else {}
     CONTEXT_DEPENDENCY_JSON.write_text(
         json.dumps(
             {
@@ -2079,13 +2345,16 @@ def write_lava_context_artifacts(rows: list[dict[str, Any]], source_dependencies
                 "source_commit": source_metadata.get("source_commit") or "",
                 "source_commit_date": source_metadata.get("source_commit_date") or "",
                 "source_version": source_metadata.get("source_version") or "",
+                "source_versions": sorted({str(row.get("source_version") or "") for row in source_dependencies if row.get("source_version")}, key=version_key),
                 "source_dependencies": source_dependencies,
                 "context_count": len(rows),
+                "version_diff_count": len(version_diffs),
                 "context_families": dict(sorted(Counter(row["context_family"] for row in rows).items())),
                 "resource_paths": {
                     "contexts": relative_path(CONTEXT_JSONL),
                     "directory": relative_path(CONTEXT_INDEX),
                     "agent_contexts": relative_path(AGENT_CONTEXT_JSONL),
+                    "agent_version_diffs": relative_path(AGENT_CONTEXT_VERSION_DIFF_JSONL),
                     "agent_summary": relative_path(AGENT_CONTEXT_SUMMARY_JSON),
                 },
             },
@@ -2099,7 +2368,7 @@ def write_lava_context_artifacts(rows: list[dict[str, Any]], source_dependencies
 
 
 def lava_context_summary(rows: list[dict[str, Any]], source_dependencies: list[dict[str, Any]]) -> dict[str, Any]:
-    source_metadata = source_dependencies[0] if source_dependencies else {}
+    source_metadata = max(source_dependencies, key=lambda row: version_key(str(row.get("source_version") or ""))) if source_dependencies else {}
     return {
         "schema": LAVA_CONTEXT_SUMMARY_SCHEMA,
         "generated_at": generated_at_iso(),
@@ -2108,6 +2377,7 @@ def lava_context_summary(rows: list[dict[str, Any]], source_dependencies: list[d
         "source_commit": source_metadata.get("source_commit") or "",
         "source_commit_date": source_metadata.get("source_commit_date") or "",
         "source_version": source_metadata.get("source_version") or "",
+        "source_versions": sorted({str(row.get("source_version") or "") for row in source_dependencies if row.get("source_version")}, key=version_key),
         "source_file_count": len(source_dependencies),
         "context_count": len(rows),
         "surface_count": len({row.get("context_id") for row in rows}),
@@ -2123,6 +2393,7 @@ def lava_context_summary(rows: list[dict[str, Any]], source_dependencies: list[d
             "directory": relative_path(CONTEXT_INDEX),
             "dependencies": relative_path(CONTEXT_DEPENDENCY_JSON),
             "agent_contexts": relative_path(AGENT_CONTEXT_JSONL),
+            "agent_version_diffs": relative_path(AGENT_CONTEXT_VERSION_DIFF_JSONL),
         },
     }
 
@@ -2141,6 +2412,7 @@ def render_lava_context_directory(rows: list[dict[str, Any]], source_dependencie
         "3. Use `agent/model-map-digests.jsonl`, `uvx rock-kb model <slug>`, or `uvx rock-kb model-map get <slug>` to inspect properties for linked model roots.",
         "4. Use `agent/lava-capabilities.jsonl` for filters, commands, and Lava behavior.",
         "5. Treat rows marked for live verification as source-code leads that still depend on the page, block, communication, workflow, or label configuration.",
+        "6. For version-sensitive work, use `uvx rock-kb lava-context get <context-id> --rock-version <version>` and compare releases with `uvx rock-kb lava-context diff --from <version> --to <version>`.",
         "",
         "## Coverage",
         "",

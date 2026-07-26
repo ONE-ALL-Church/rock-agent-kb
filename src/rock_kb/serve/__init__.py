@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from .retrieval import (
     assess_rock_issues,
+    diff_lava_contexts,
     get_claim,
     get_claims,
     get_concept,
@@ -21,6 +22,7 @@ from .retrieval import (
 
 __all__ = [
     "assess_rock_issues",
+    "diff_lava_contexts",
     "get_claim",
     "get_claims",
     "get_concept",

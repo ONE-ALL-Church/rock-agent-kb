@@ -9,9 +9,12 @@ Use exact grouped retrieval before generic search:
 uvx rock-kb lava-context list --family check-in-label
 uvx rock-kb lava-context get check-in-label-family-dynamic-text
 uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime --rock-version 19.0
+uvx rock-kb lava-context diff --from 19.0 --to 20.0
 ```
 
-MCP clients use `kb_list_lava_contexts` and `kb_get_lava_context`. Generic
+MCP clients use `kb_list_lava_contexts`, `kb_get_lava_context`, and
+`kb_diff_lava_context`. Generic
 `kb_search` remains useful when the surface name or context ID is unknown.
 
 ## Reading A Result
@@ -27,6 +30,9 @@ MCP clients use `kb_list_lava_contexts` and `kb_get_lava_context`. Generic
   clear.
 - `source_commit`, `source_version`, and the pinned `source_url` make source
   changes and version drift reviewable.
+- `available_in_versions`, `not_observed_in_versions`, and
+  `version_observations` distinguish canonical identity from release-specific
+  source evidence and contracts.
 - `needs_live_verification` marks configuration-dependent behavior.
 
 `complete_for_source_snapshot` means all explicit roots recognized in that
@@ -57,10 +63,29 @@ uv run kb lava contexts-list
 uv run kb lava contexts-get check-in-label-checkout-dynamic-text
 ```
 
-The refresh resolves the configured upstream branch to one immutable commit,
-records the observed Rock version, and downloads every tracked source file from
-that commit. Generated row IDs exclude line numbers, so source movement does not
-break exact IDs; old line-based IDs remain aliases.
+The refresh resolves the production baseline, current stable tag, and
+`develop` to immutable commits, records each observed Rock version, and
+downloads every tracked source file present at each ref. Generated row IDs
+exclude line numbers, so source movement does not break exact IDs; old
+line-based IDs remain aliases. One canonical row carries its per-version
+observations, while `agent/lava-context-version-diff.jsonl` records added,
+removed, type-changed, and condition-changed contracts.
+
+## Privacy-Safe Live Verification
+
+With the human's prior telemetry consent, an agent may report only whether a
+known context root was `present`, `unavailable`, or `uncertain` for a numeric
+Rock version:
+
+```bash
+uvx rock-kb lava-context verify check-in-label-checkout-dynamic-text \
+  --root CheckoutDateTime --rock-version 19.0.11 \
+  --observation present --consent-attested
+```
+
+The service accepts no value, query, free text, organization, person, log,
+secret, URL, or other private Rock data. MCP clients use
+`kb_verify_lava_context`; this is an opt-in write tool.
 
 To find possible omissions in a public Rock source checkout:
 

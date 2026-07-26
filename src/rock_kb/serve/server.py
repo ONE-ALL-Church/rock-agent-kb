@@ -63,15 +63,23 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
     def kb_list_lava_contexts(
         context_family: str | None = None,
         surface_type: str | None = None,
+        rock_version: str | None = None,
     ) -> dict[str, Any]:
-        return retrieval.list_lava_contexts(context_family=context_family, surface_type=surface_type)
+        return retrieval.list_lava_contexts(context_family=context_family, surface_type=surface_type, rock_version=rock_version)
 
     @mcp.tool(
         name="kb_get_lava_context",
         description="Return one exact Lava rendering surface with all direct and inherited roots, conditions, model links, source pins, and completeness metadata.",
     )
-    def kb_get_lava_context(context_id: str, root_key: str | None = None) -> dict[str, Any]:
-        return retrieval.get_lava_context(context_id, root_key=root_key)
+    def kb_get_lava_context(context_id: str, root_key: str | None = None, rock_version: str | None = None) -> dict[str, Any]:
+        return retrieval.get_lava_context(context_id, root_key=root_key, rock_version=rock_version)
+
+    @mcp.tool(
+        name="kb_diff_lava_context",
+        description="Return typed Lava root changes between two observed Rock versions.",
+    )
+    def kb_diff_lava_context(from_version: str, to_version: str, context_id: str | None = None) -> dict[str, Any]:
+        return retrieval.diff_lava_contexts(from_version, to_version, context_id=context_id)
 
     @mcp.tool(
         name="kb_manifest",
