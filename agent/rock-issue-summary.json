@@ -27,22 +27,17 @@
       "configurations": 2
     },
     "confidences": {
-      "high": 24,
-      "medium": 4
+      "high": 26,
+      "medium": 2
     },
     "diagnosis_statuses": {
-      "maintainer_confirmed": 15,
-      "source_supported": 13
+      "maintainer_confirmed": 18,
+      "source_supported": 10
     },
     "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 4,
-    "revalidation_due_enrichment_ids": [
-      "rock_issue_enrichment:core-6912-start-task-queue-expiration-risk-v1",
-      "rock_issue_enrichment:core-6916-scheduled-duplicate-sent-early-v1",
-      "rock_issue_enrichment:core-6918-site-interaction-channel-uses-session-v1",
-      "rock_issue_enrichment:core-6922-form-notification-attributes-v1"
-    ],
+    "revalidation_due_count": 0,
+    "revalidation_due_enrichment_ids": [],
     "risk_assessment_count": 0,
     "risk_levels": {},
     "verification_playbook_count": 28,

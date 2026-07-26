@@ -13,7 +13,7 @@ This directory routes agents to public Rock core and mobile issue metadata witho
 - Instance verification playbooks: `28` (`100.0%` coverage)
 - Reviewed applicability prerequisites: `6`
 - Reviewed risk assessments: `0`
-- Enrichments due for revalidation after an upstream update: `4`
+- Enrichments due for revalidation after an upstream update: `0`
 - Public artifact: [`agent/rock-issues.jsonl`](../../agent/rock-issues.jsonl)
 - Reviewed enrichments: [`agent/rock-issue-enrichments.jsonl`](../../agent/rock-issue-enrichments.jsonl)
 - Summary: [`agent/rock-issue-summary.json`](../../agent/rock-issue-summary.json)

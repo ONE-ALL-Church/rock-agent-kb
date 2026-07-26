@@ -3,7 +3,7 @@
   "enrichment_id": "rock_issue_enrichment:core-6916-scheduled-duplicate-sent-early-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6916",
   "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Rock develop source clears the prior future-send date when duplicating an approved communication, saves the newly selected FutureSendDateTime from the entry bag, and queues an immediate ProcessSendCommunication message only when that date is absent or already due. The Send Communications job also calls GetQueued with includeFuture disabled, and that query excludes a future-dated communication until it is due. These paths implement the expected scheduling boundary on the reviewed source revision, but they do not explain or reproduce the reported Rock 18.2 event and do not establish that the same code shipped in every 18.2 package. The root cause and release scope remain under investigation.",
+  "diagnosis_summary": "Current public Rock develop source clears the prior future-send date when duplicating an approved communication, persists the newly selected FutureSendDateTime, queues immediate processing only when that date is absent or already due, and excludes future-dated rows from the Send Communications job until they are due. Rock maintainers closed the report after they could not reproduce it on current code and recommended upgrading from 18.2, but they did not identify a root cause, fixing commit, or fixed release. The reported 18.2 event therefore remains under investigation rather than confirmed fixed.",
   "workaround_summaries": [
     "For a time-sensitive send on an affected or unverified release, create a new draft from the intended template instead of duplicating a previously sent communication. Before final approval, verify that FutureSendDateTime is the intended future value, SendDateTime is null, and recipients remain pending; stop the send if those invariants do not hold."
   ],
@@ -28,9 +28,9 @@
         "step_id": "check-release-scope",
         "title": "Check release scope",
         "method": "version_check",
-        "instructions": "Compare the installed version with the reported 18.2 release and with a source revision whose scheduling guards have been reviewed.",
+        "instructions": "Compare the installed version with the reported 18.2 release and with current source whose scheduling guards have been reviewed. Treat the maintainer's inability to reproduce on newer code as triage evidence, not proof of a fix.",
         "expected_if_affected": "The instance runs the reported or another unverified release and uses duplicated future communications.",
-        "expected_if_unaffected": "The instance runs a build independently verified to contain the reviewed scheduling guards; this lowers risk but does not explain past sends.",
+        "expected_if_unaffected": "The instance runs a build independently verified to contain the reviewed scheduling guards; this lowers risk but does not prove the report was fixed or explain past sends.",
         "evidence_to_record": [
           "Rock version"
         ],
@@ -88,25 +88,29 @@
       "fix_refs": [],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6916",
-        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationDetail.cs#L1007-L1015",
-        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3198-L3246",
-        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3400-L3407",
-        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Jobs/SendCommunications.cs#L95-L108",
-        "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Model/Communication/Communication/CommunicationService.cs#L646-L716"
+        "https://github.com/SparkDevNetwork/Rock/issues/6916#issuecomment-5071666836",
+        "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock.Blocks/Communication/CommunicationDetail.cs#L965-L991",
+        "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/Model/Communication/Communication/CommunicationService.cs#L1227-L1251",
+        "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3190-L3246",
+        "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3388-L3407",
+        "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/Jobs/SendCommunications.cs#L95-L111",
+        "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/Model/Communication/Communication/CommunicationService.cs#L634-L719"
       ],
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
       "confidence": "medium",
-      "assessed_at": "2026-07-17T07:25:16Z"
+      "assessed_at": "2026-07-26T02:35:28Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6916",
-    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationDetail.cs#L1007-L1015",
-    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3198-L3246",
-    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3400-L3407",
-    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Jobs/SendCommunications.cs#L95-L108",
-    "https://github.com/SparkDevNetwork/Rock/blob/d5a46432d0c47119f6554623a3912a6b38e6d6a9/Rock/Model/Communication/Communication/CommunicationService.cs#L646-L716"
+    "https://github.com/SparkDevNetwork/Rock/issues/6916#issuecomment-5071666836",
+    "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock.Blocks/Communication/CommunicationDetail.cs#L965-L991",
+    "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/Model/Communication/Communication/CommunicationService.cs#L1227-L1251",
+    "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3190-L3246",
+    "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock.Blocks/Communication/CommunicationEntryWizard.cs#L3388-L3407",
+    "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/Jobs/SendCommunications.cs#L95-L111",
+    "https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/Model/Communication/Communication/CommunicationService.cs#L634-L719"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
@@ -114,8 +118,8 @@
   "confidence": "medium",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-09T20:01:43Z",
-  "reviewed_at": "2026-07-17T07:25:16Z",
+  "issue_updated_at": "2026-07-24T20:14:37Z",
+  "reviewed_at": "2026-07-26T02:35:28Z",
   "redaction_attestation": true,
   "license_attestation": true
 }
