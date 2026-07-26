@@ -38,7 +38,7 @@ jobs:
           key: rock-kb-issue-source-observations-${{ github.run_id }}
           restore-keys: |
             rock-kb-issue-source-observations-
-      - uses: astral-sh/setup-uv@v9
+      - uses: astral-sh/setup-uv@v9.0.0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.11"

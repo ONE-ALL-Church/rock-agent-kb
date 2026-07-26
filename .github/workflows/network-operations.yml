@@ -21,7 +21,7 @@ jobs:
       ROCK_KB_BASE_URL: ${{ inputs.base_url || vars.ROCK_KB_BASE_URL || 'https://rock-agent-kb.oneandall.church' }}
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v9
+      - uses: astral-sh/setup-uv@v9.0.0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
