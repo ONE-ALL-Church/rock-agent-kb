@@ -1,6 +1,9 @@
 # Agent Knowledge Network Goal
 
-> **For agentic workers (Codex):** This is the north-star goal for the whole project. It supersedes the framing of earlier goal docs but does not discard them: `docs/decisions/incremental-architecture-refactor-goal.md` is Milestone 0 of this goal and remains the detailed execution plan for the foundation work. Execute milestone by milestone. Within Milestone 0, follow that document; Milestones 1–4 are specified here.
+> **Historical status:** This goal records the architecture sequence used to
+> build the current network. The Milestone 0 refactor checklist is retired and
+> no longer an active task tracker. Use current audits, evaluations, freshness,
+> and review queues for ongoing prioritization.
 
 ## North Star
 

@@ -314,6 +314,7 @@ def test_build_server_registers_expected_tools():
         "kb_get_model",
         "kb_list_lava_contexts",
         "kb_get_lava_context",
+        "kb_diff_lava_context",
         "kb_manifest",
         "kb_list_concepts",
         "kb_get_concept",

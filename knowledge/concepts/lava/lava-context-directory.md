@@ -9,14 +9,15 @@ Generated from public SparkDevNetwork/Rock source files. This directory answers 
 3. Use `agent/model-map-digests.jsonl`, `uvx rock-kb model <slug>`, or `uvx rock-kb model-map get <slug>` to inspect properties for linked model roots.
 4. Use `agent/lava-capabilities.jsonl` for filters, commands, and Lava behavior.
 5. Treat rows marked for live verification as source-code leads that still depend on the page, block, communication, workflow, or label configuration.
+6. For version-sensitive work, use `uvx rock-kb lava-context get <context-id> --rock-version <version>` and compare releases with `uvx rock-kb lava-context diff --from <version> --to <version>`.
 
 ## Coverage
 
 - Lava context rows: `231`
 - Context surfaces: `40`
-- Public source files: `32`
-- Pinned source commit: `3207dce85ab189fee70a865808ff6becf6bc069f`
-- Observed Rock source version: `20.0.5`
+- Public source files: `80`
+- Pinned source commit: `1e9327c66aca5e5d8222b3b7527ed08e6e9938e6`
+- Observed Rock source version: `19.0.11`
 - Machine-readable rows: `lava-contexts.jsonl` and `../../../agent/lava-contexts.jsonl`
 - `assessment-lava`: 7
 - `check-in-label`: 84
@@ -270,6 +271,54 @@ Generated from public SparkDevNetwork/Rock source files. This directory answers 
 
 ## Public Source Files
 
+- [Rock/CheckIn/v2/Labels/AttendanceLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs)
+- [RockWeb/Blocks/Event/CalendarLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Event/CalendarLava.ascx.cs)
+- [Rock/CheckIn/v2/Labels/CheckoutLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/CheckoutLabelData.cs)
+- [Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs)
+- [Rock.Blocks/Crm/Disc.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/Crm/Disc.cs)
+- [RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs)
+- [Rock/CheckIn/v2/Labels/FamilyLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/FamilyLabelData.cs)
+- [Rock/CheckIn/v2/Labels/FieldSourceHelper.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/FieldSourceHelper.cs)
+- [RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs)
+- [RockWeb/Blocks/Groups/GroupFinder.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Groups/GroupFinder.ascx.cs)
+- [Rock/CheckIn/v2/Labels/LabelField.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/LabelField.cs)
+- [Rock/Lava/LavaHelper.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Lava/LavaHelper.cs)
+- [Rock/Blocks/Types/Mobile/Cms/Content.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Cms/Content.cs)
+- [Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs)
+- [Rock/Blocks/Types/Mobile/Groups/GroupView.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Groups/GroupView.cs)
+- [Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs)
+- [Rock/CheckIn/v2/Labels/PersonLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/PersonLabelData.cs)
+- [Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs)
+- [Rock.Blocks/Utility/RealTimeVisualizer.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/Utility/RealTimeVisualizer.cs)
+- [Rock.Blocks/Event/RegistrationEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/Event/RegistrationEntry.cs)
+- [Rock/Net/RockRequestContext.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Net/RockRequestContext.cs)
+- [RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs)
+- [Rock/Workflow/ActionComponent.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock/Workflow/ActionComponent.cs)
+- [Rock.Blocks/WorkFlow/WorkflowEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/1e9327c66aca5e5d8222b3b7527ed08e6e9938e6/Rock.Blocks/WorkFlow/WorkflowEntry.cs)
+- [Rock/CheckIn/v2/Labels/AttendanceLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs)
+- [RockWeb/Blocks/Event/CalendarLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Event/CalendarLava.ascx.cs)
+- [Rock/CheckIn/v2/Labels/CheckoutLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/CheckoutLabelData.cs)
+- [Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Model/Communication/CommunicationRecipient/CommunicationRecipient.Logic.cs)
+- [Rock.Blocks/Crm/Disc.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/Crm/Disc.cs)
+- [RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs)
+- [Rock/CheckIn/v2/Labels/FamilyLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/FamilyLabelData.cs)
+- [Rock/CheckIn/v2/Labels/FieldSourceHelper.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/FieldSourceHelper.cs)
+- [RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs)
+- [RockWeb/Blocks/Groups/GroupFinder.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Groups/GroupFinder.ascx.cs)
+- [Rock/CheckIn/v2/Labels/LabelField.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/LabelField.cs)
+- [Rock/Lava/LavaHelper.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Lava/LavaHelper.cs)
+- [Rock/Blocks/Types/Mobile/Cms/Content.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Cms/Content.cs)
+- [Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs)
+- [Rock/Blocks/Types/Mobile/Groups/GroupView.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Groups/GroupView.cs)
+- [Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs)
+- [Rock/CheckIn/v2/Labels/PersonLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/PersonLabelData.cs)
+- [Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs)
+- [Rock.Blocks/Utility/RealTimeVisualizer.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/Utility/RealTimeVisualizer.cs)
+- [Rock.Blocks/Event/RegistrationEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/Event/RegistrationEntry.cs)
+- [Rock/Net/RockRequestContext.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Net/RockRequestContext.cs)
+- [RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs)
+- [Rock/Workflow/ActionComponent.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Workflow/ActionComponent.cs)
+- [Rock.Blocks/WorkFlow/WorkflowEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock.Blocks/WorkFlow/WorkflowEntry.cs)
 - [Rock/CheckIn/v2/Labels/AttendanceLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs)
 - [RockWeb/Blocks/Event/CalendarLava.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/RockWeb/Blocks/Event/CalendarLava.ascx.cs)
 - [Rock/CheckIn/v2/Labels/CheckoutLabelData.cs](https://github.com/SparkDevNetwork/Rock/blob/3207dce85ab189fee70a865808ff6becf6bc069f/Rock/CheckIn/v2/Labels/CheckoutLabelData.cs)

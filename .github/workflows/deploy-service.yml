@@ -50,9 +50,9 @@ jobs:
       ROCK_KB_WORKER_GITHUB_TOKEN: ${{ secrets.ROCK_KB_WORKER_GITHUB_TOKEN }}
       ORG_TOKEN_SHA256_JSON: ${{ secrets.ORG_TOKEN_SHA256_JSON }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v9
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: "npm"

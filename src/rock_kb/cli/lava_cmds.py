@@ -11,6 +11,7 @@ from ..lava_contexts import (
     build_lava_context_reference,
     discover_lava_context_candidates,
     get_lava_context_surface,
+    get_lava_context_version_diff,
     list_lava_context_surfaces,
     refresh_lava_context_source_cache,
     validate_lava_context_extension,
@@ -41,12 +42,13 @@ def contexts_refresh_source(
 def contexts_list(
     context_family: str | None = typer.Option(None, "--family"),
     surface_type: str | None = typer.Option(None, "--surface-type"),
+    rock_version: str | None = typer.Option(None, "--rock-version"),
 ) -> None:
     """List generated Lava rendering surfaces."""
     rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
     typer.echo(
         json.dumps(
-            list_lava_context_surfaces(rows, context_family=context_family, surface_type=surface_type),
+            list_lava_context_surfaces(rows, context_family=context_family, surface_type=surface_type, rock_version=rock_version),
             indent=2,
             sort_keys=True,
         )
@@ -57,13 +59,25 @@ def contexts_list(
 def contexts_get(
     context_id: str = typer.Argument(...),
     root_key: str | None = typer.Option(None, "--root"),
+    rock_version: str | None = typer.Option(None, "--rock-version"),
 ) -> None:
     """Get one exact Lava surface with direct and inherited roots."""
     rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
-    result = get_lava_context_surface(rows, context_id, root_key=root_key)
+    result = get_lava_context_surface(rows, context_id, root_key=root_key, rock_version=rock_version)
     typer.echo(json.dumps(result, indent=2, sort_keys=True))
     if result["status"] != "ok":
         raise typer.Exit(1)
+
+
+@app.command("contexts-diff")
+def contexts_diff(
+    from_version: str = typer.Option(..., "--from"),
+    to_version: str = typer.Option(..., "--to"),
+    context_id: str | None = typer.Option(None, "--context"),
+) -> None:
+    """Compare exact Lava roots and contracts between observed Rock versions."""
+    rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
+    typer.echo(json.dumps(get_lava_context_version_diff(rows, from_version, to_version, context_id=context_id), indent=2, sort_keys=True))
 
 
 @app.command("contexts-discover")

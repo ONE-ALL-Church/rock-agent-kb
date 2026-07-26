@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.4.0"
+  rock-kb-skill-version: "1.5.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-26T14:51:30Z"
-  rock-kb-minimum-client-version: "0.17.0"
+  rock-kb-published-at: "2026-07-26T18:00:00Z"
+  rock-kb-minimum-client-version: "0.18.0"
 ---
 
 # Rock KB Agent
@@ -58,6 +58,11 @@ The KB can help agents do more than plain text search:
 - List exact Lava rendering surfaces and retrieve grouped roots, inheritance,
   conditions, source versions, completeness, and Model Map links before
   guessing which merge fields exist.
+- Select an observed Rock version for exact Lava context retrieval and compare
+  releases for added, removed, type-changed, or condition-changed roots.
+- With prior telemetry consent, submit only a fixed `present`, `unavailable`,
+  or `uncertain` Lava root outcome and numeric Rock version. Never submit the
+  value, query, organization, person, URL, log, secret, or private Rock data.
 - Find reusable community recipes with pinned code, adaptation points,
   security boundaries, compatibility, validation steps, and learnings.
 - Assess open or historically relevant Rock product issues against bounded
@@ -192,8 +197,10 @@ Use these commands for specific jobs:
 - `claims <concept-id>`: inspect structured claims and trust tiers before giving precise guidance.
 - `model-map list`: list stable Rock Model Map models when discovering the exact slug to inspect.
 - `model <slug-or-name>`: fetch an exact stable Model Map digest for a known model, such as `group` or `Group Member`.
-- `lava-context list [--family <family>] [--surface-type <type>]`: discover exact Lava rendering-surface IDs.
-- `lava-context get <context-id> [--root <root-key>]`: fetch one grouped context with direct and inherited roots, availability conditions, source pins, completeness, and model links.
+- `lava-context list [--family <family>] [--surface-type <type>] [--rock-version <version>]`: discover exact Lava rendering-surface IDs.
+- `lava-context get <context-id> [--root <root-key>] [--rock-version <version>]`: fetch one grouped context with direct and inherited roots, availability conditions, version observations, source pins, completeness, and model links.
+- `lava-context diff --from <version> --to <version> [--context <id>]`: compare added, removed, type-changed, and condition-changed roots.
+- `lava-context verify <context-id> --root <root> --rock-version <version> --observation present|unavailable|uncertain --consent-attested`: submit a bounded opt-in result without any Lava value or private data.
 - `recipes list [--concept <id>]`: discover reusable community implementation patterns.
 - `recipes search <query>`: search recipe use cases and learnings.
 - `recipe <recipe-id>`: fetch the full structured recipe before adapting code.
@@ -286,7 +293,12 @@ tools instead of shell commands:
 - `kb_list_lava_contexts`: list exact Lava rendering surfaces with coverage,
   versions, and root counts.
 - `kb_get_lava_context`: fetch one grouped Lava context with direct and
-  inherited roots, conditions, model links, source pins, and completeness.
+  inherited roots, conditions, model links, source pins, completeness, and an
+  optional Rock-version selection.
+- `kb_diff_lava_context`: compare typed context-root changes between observed
+  releases.
+- `kb_verify_lava_context`: with prior consent, submit only a fixed
+  availability outcome for a public context/root/version tuple.
 - `kb_list_recipes`: list community recipes, optionally filtered by concept.
 - `kb_get_recipe`: fetch one recipe with its immutable source pin, adaptation
   points, security, compatibility, validation, and reusable learnings.
@@ -680,6 +692,8 @@ identify the rendering surface, then use exact grouped context lookup:
 uvx rock-kb lava-context list --family check-in-label
 uvx rock-kb lava-context get check-in-label-family-dynamic-text
 uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime --rock-version 19.0
+uvx rock-kb lava-context diff --from 19.0 --to 20.0
 ```
 
 Use generic search only when the surface ID is not yet known:
@@ -701,6 +715,7 @@ Use this lookup order:
 Important generated artifacts:
 
 - Lava context rows: `agent/lava-contexts.jsonl`
+- Lava context version changes: `agent/lava-context-version-diff.jsonl`
 - Lava context directory: `knowledge/concepts/lava/lava-context-directory.md`
 - Lava context summary: `agent/lava-context-summary.json`
 

@@ -22,24 +22,24 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Restore source observations
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: data/review/source-freshness/source-observations.json
           key: rock-kb-source-observations-${{ github.run_id }}
           restore-keys: |
             rock-kb-source-observations-
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v9
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: "npm"
           cache-dependency-path: service/package-lock.json
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: Install dependencies
@@ -119,7 +119,7 @@ jobs:
         run: uv run --extra dev pytest -q tests/test_source_freshness.py tests/test_source_orchestration.py
       - name: Upload daily source reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: daily-source-refresh
           path: |

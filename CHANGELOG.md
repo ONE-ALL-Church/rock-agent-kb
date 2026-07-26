@@ -6,6 +6,24 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-07-26
+
+### Added
+
+- Canonical Lava context rows with source-backed observations for Rock
+  `19.0.11`, stable `19.2.0`, and develop `20.0.5`.
+- Exact `--rock-version` selection and typed Lava context diffs in the CLI,
+  REST service, hosted MCP, and local MCP server.
+- Consent-attested, privacy-safe Lava context verification outcomes restricted
+  to context ID, root key, numeric Rock version, and a fixed availability value.
+
+### Changed
+
+- The agent skill is version `1.5.0` and requires client `0.18.0`.
+- GitHub Actions use current Node 24 action runtimes.
+- The completed architecture-refactor checklist is retained as retired
+  historical context instead of an active execution plan.
+
 ## [0.17.0] - 2026-07-26
 
 ### Added

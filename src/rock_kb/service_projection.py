@@ -846,7 +846,7 @@ def spaced_search_alias(value: str) -> str:
 
 def compact_lava_context_search_payload(row: dict[str, Any]) -> dict[str, Any]:
     return {
-        "schema": row.get("schema", "rock-kb-lava-context-v2"),
+        "schema": row.get("schema", "rock-kb-lava-context-v3"),
         "id": row.get("id"),
         "legacy_ids": row.get("legacy_ids") or [],
         "context_id": row.get("context_id"),

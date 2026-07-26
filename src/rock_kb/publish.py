@@ -61,6 +61,7 @@ PUBLIC_PATHS = [
     "agent/lava-capabilities.jsonl",
     "agent/lava-capability-summary.json",
     "agent/lava-contexts.jsonl",
+    "agent/lava-context-version-diff.jsonl",
     "agent/lava-context-summary.json",
     "agent/recipes.jsonl",
     "agent/recipe-summary.json",

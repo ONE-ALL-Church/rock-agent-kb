@@ -238,6 +238,7 @@ STAGES: list[Stage] = [
             "agent/source-citations.jsonl",
             "agent/rock-kb-manifest.json",
             "agent/lava-contexts.jsonl",
+            "agent/lava-context-version-diff.jsonl",
             "agent/lava-context-summary.json",
             "agent/rock-idea-relationships.jsonl",
             "agent/rock-idea-verification-queue.jsonl",
