@@ -254,6 +254,7 @@ def test_lava_context_search_rows_include_source_backed_roots(monkeypatch):
                 {
                     "schema": "rock-kb-lava-context-v1",
                     "id": "lava_context:check-in-label-person-dynamic-text:personattendance:abc12345",
+                    "legacy_ids": ["lava_context:check-in-label-person-dynamic-text:personattendance:old12345"],
                     "context_id": "check-in-label-person-dynamic-text",
                     "context_family": "check-in-label",
                     "surface_name": "Check-In Label Designer Person Dynamic Text",
@@ -286,6 +287,7 @@ def test_lava_context_search_rows_include_source_backed_roots(monkeypatch):
     assert rows[0]["concept"] == "lava"
     assert set(rows[0]["concepts"]) == {"lava", "check-in"}
     assert set(rows[0]["legacy_ids"]) == {
+        "lava_context:check-in-label-person-dynamic-text:personattendance:old12345",
         "lava_context:check-in-label-person-dynamic-text:personattendance:abc12345:lava",
         "lava_context:check-in-label-person-dynamic-text:personattendance:abc12345:check-in",
     }
@@ -469,7 +471,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.3.0"
+    assert skill_manifest["skill_version"] == "1.4.0"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))

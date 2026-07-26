@@ -67,7 +67,7 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
-    assert.equal(toolNames.length, 29);
+    assert.equal(toolNames.length, 31);
     assert.equal(toolNames.includes("kb_get_result"), true);
     assert.equal(toolNames.includes("kb_get_claim"), true);
     assert.equal(toolNames.includes("kb_report_issue"), true);
@@ -245,6 +245,42 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
 
     const missingVerifyResponse = await mf.dispatchFetch("https://kb.example.test/recipes/missing%3Arecipe/verify?rock_version=18");
     assert.equal(missingVerifyResponse.status, 404);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("Lava context REST and MCP tools return exact grouped surfaces", async () => {
+  const mf = await buildWorker();
+  try {
+    const listResponse = await mf.dispatchFetch("https://kb.example.test/lava-contexts?family=check-in-label");
+    const listed = await listResponse.json();
+    assert.equal(listResponse.status, 200);
+    assert.equal(listed.count, 2);
+    assert.deepEqual(
+      listed.surfaces.map((surface) => surface.context_id),
+      ["check-in-label-checkout-dynamic-text", "check-in-label-family-dynamic-text"],
+    );
+
+    const getResponse = await mf.dispatchFetch(
+      "https://kb.example.test/lava-contexts/check-in-label-checkout-dynamic-text?root=CheckoutDateTime",
+    );
+    const exact = await getResponse.json();
+    assert.equal(getResponse.status, 200);
+    assert.equal(exact.status, "ok");
+    assert.equal(exact.root_count, 1);
+    assert.equal(exact.roots[0].root_key, "CheckoutDateTime");
+    assert.equal(exact.roots.some((root) => root.root_key === "Family"), false);
+    assert.equal(exact.surface.source_version, "20.0.5");
+
+    const toolResponse = await mcp(mf, "tools/call", {
+      name: "kb_get_lava_context",
+      arguments: { context_id: "check-in-label-family-dynamic-text", root_key: "Family" },
+    });
+    const toolResult = JSON.parse(toolResponse.result.content[0].text);
+    assert.equal(toolResult.status, "ok");
+    assert.equal(toolResult.roots[0].root_key, "Family");
+    assert.equal(toolResult.roots.some((root) => root.root_key === "CheckoutDateTime"), false);
   } finally {
     await mf.dispose();
   }
@@ -1624,6 +1660,74 @@ async function buildWorker(options = {}) {
         catalog_content_hash: ISSUE_FIXTURE_CATALOG_HASH,
         repositories: { "SparkDevNetwork/Rock": 1, "SparkDevNetwork/Rock.Mobile-Issues": 0 },
       }),
+      "agent/lava-contexts.jsonl": [
+        {
+          schema: "rock-kb-lava-context-v2",
+          id: "lava_context:check-in-label-checkout-dynamic-text:checkoutdatetime:fixture",
+          context_id: "check-in-label-checkout-dynamic-text",
+          context_family: "check-in-label",
+          surface_name: "Check-In Label Designer Checkout Dynamic Text",
+          surface_type: "label_dynamic_text",
+          concept_ids: ["lava", "check-in"],
+          root_key: "CheckoutDateTime",
+          root_type: "DateTime",
+          model_slug: null,
+          value_kind: "scalar",
+          nested_path: "",
+          availability: "source-code-confirmed",
+          availability_condition: "The Checkout label data type is selected.",
+          may_be_null: false,
+          required_setting: "",
+          execution_phase: "label_render",
+          coverage_status: "complete_for_source_snapshot",
+          includes_context_ids: [],
+          source_id: "sparkdevnetwork_rock",
+          source_url: "https://github.com/SparkDevNetwork/Rock/blob/abc/CheckoutLabelData.cs#L68",
+          source_file: "Rock/CheckIn/v2/Labels/CheckoutLabelData.cs",
+          source_symbol: "CheckoutLabelData",
+          source_line_start: 68,
+          source_line_end: 68,
+          source_ref: "develop",
+          source_commit: "a".repeat(40),
+          source_version: "20.0.5",
+          model_map_links: [],
+          notes: "",
+          needs_live_verification: false,
+        },
+        {
+          schema: "rock-kb-lava-context-v2",
+          id: "lava_context:check-in-label-family-dynamic-text:family:fixture",
+          context_id: "check-in-label-family-dynamic-text",
+          context_family: "check-in-label",
+          surface_name: "Check-In Label Designer Family Dynamic Text",
+          surface_type: "label_dynamic_text",
+          concept_ids: ["lava", "check-in"],
+          root_key: "Family",
+          root_type: "Rock.Model.Group",
+          model_slug: "group",
+          value_kind: "object",
+          nested_path: "",
+          availability: "source-code-confirmed",
+          availability_condition: "The Family label data type is selected.",
+          may_be_null: true,
+          required_setting: "",
+          execution_phase: "label_render",
+          coverage_status: "complete_for_source_snapshot",
+          includes_context_ids: [],
+          source_id: "sparkdevnetwork_rock",
+          source_url: "https://github.com/SparkDevNetwork/Rock/blob/abc/FamilyLabelData.cs#L52",
+          source_file: "Rock/CheckIn/v2/Labels/FamilyLabelData.cs",
+          source_symbol: "FamilyLabelData",
+          source_line_start: 52,
+          source_line_end: 52,
+          source_ref: "develop",
+          source_commit: "a".repeat(40),
+          source_version: "20.0.5",
+          model_map_links: [{ model_slug: "group", model_name: "Group" }],
+          notes: "",
+          needs_live_verification: false,
+        },
+      ].map((row) => JSON.stringify(row)).join("\n") + "\n",
     });
     const recipeSearchRow = {
       id: "recipe:oneall:check-in-status-dashboard",

@@ -41,6 +41,8 @@ Or query the same hosted knowledge from a terminal:
 ```bash
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb result '<result-id>'
+uvx rock-kb lava-context list --family check-in-label
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text
 uvx rock-kb freshness
 uvx rock-kb test-round
 ```
@@ -187,6 +189,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full public-safety rules.
 - `kb contributions ...` - contribution bundle creation, validation, promotion, and import; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb concepts ...` - concept listing, authored synthesis, and hydration; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb modelmap ...` - stable/latest Rock model-map API fetch, build, stamping, and diffs; see [CLI Reference](docs/runbooks/cli-reference.md).
+- `kb lava ...` - pinned Lava context source refresh, grouped exact retrieval, candidate discovery, and extension validation; see [Lava Context Directory](docs/runbooks/lava-context-directory.md).
 - `kb audit ...` - guide, license, source-policy, public-export, readiness, and all-in-one audits; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb publish ...` - public scratch export and the versioned read-only OKF distribution; see [CLI Reference](docs/runbooks/cli-reference.md).
 - `kb report ...` - refresh reports and maintainer dashboards; see [CLI Reference](docs/runbooks/cli-reference.md).

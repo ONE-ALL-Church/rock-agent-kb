@@ -5,7 +5,17 @@ from pathlib import Path
 
 import typer
 
-from ..lava_contexts import build_lava_context_reference, refresh_lava_context_source_cache
+from ..jsonl import read_jsonl
+from ..lava_contexts import (
+    AGENT_CONTEXT_JSONL,
+    build_lava_context_reference,
+    discover_lava_context_candidates,
+    get_lava_context_surface,
+    list_lava_context_surfaces,
+    refresh_lava_context_source_cache,
+    validate_lava_context_extension,
+    validate_private_lava_context_overlay,
+)
 
 app = typer.Typer(help="Lava capability and context directory utilities.")
 
@@ -25,3 +35,71 @@ def contexts_refresh_source(
 ) -> None:
     """Refresh ignored public Rock source cache used by the Lava context builder."""
     typer.echo(json.dumps(refresh_lava_context_source_cache(source_dir=source_dir), indent=2, sort_keys=True))
+
+
+@app.command("contexts-list")
+def contexts_list(
+    context_family: str | None = typer.Option(None, "--family"),
+    surface_type: str | None = typer.Option(None, "--surface-type"),
+) -> None:
+    """List generated Lava rendering surfaces."""
+    rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
+    typer.echo(
+        json.dumps(
+            list_lava_context_surfaces(rows, context_family=context_family, surface_type=surface_type),
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+@app.command("contexts-get")
+def contexts_get(
+    context_id: str = typer.Argument(...),
+    root_key: str | None = typer.Option(None, "--root"),
+) -> None:
+    """Get one exact Lava surface with direct and inherited roots."""
+    rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
+    result = get_lava_context_surface(rows, context_id, root_key=root_key)
+    typer.echo(json.dumps(result, indent=2, sort_keys=True))
+    if result["status"] != "ok":
+        raise typer.Exit(1)
+
+
+@app.command("contexts-discover")
+def contexts_discover(
+    source_tree: Path = typer.Argument(..., exists=True, file_okay=False, dir_okay=True),
+    output: Path | None = typer.Option(None, "--output", file_okay=True, dir_okay=False),
+    source_commit: str = typer.Option("", "--source-commit"),
+    source_version: str = typer.Option("", "--source-version"),
+) -> None:
+    """Scan a public Rock source checkout into the private maintainer review queue."""
+    kwargs = {
+        "source_commit": source_commit,
+        "source_version": source_version,
+    }
+    if output is not None:
+        kwargs["output_path"] = output
+    typer.echo(json.dumps(discover_lava_context_candidates(source_tree, **kwargs), indent=2, sort_keys=True))
+
+
+@app.command("contexts-validate-extension")
+def contexts_validate_extension(
+    path: Path = typer.Argument(..., exists=True, file_okay=True, dir_okay=False),
+) -> None:
+    """Validate one reviewed public Lava context extension manifest."""
+    result = validate_lava_context_extension(path)
+    typer.echo(json.dumps(result, indent=2, sort_keys=True))
+    if result["status"] != "valid":
+        raise typer.Exit(1)
+
+
+@app.command("contexts-validate-overlay")
+def contexts_validate_overlay(
+    path: Path = typer.Argument(..., exists=True, file_okay=True, dir_okay=False),
+) -> None:
+    """Validate a private, non-exportable Lava context overlay."""
+    result = validate_private_lava_context_overlay(path)
+    typer.echo(json.dumps(result, indent=2, sort_keys=True))
+    if result["status"] != "valid":
+        raise typer.Exit(1)

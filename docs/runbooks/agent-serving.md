@@ -153,6 +153,8 @@ The Worker exposes:
 - `GET /claims/id/<claim-id>`
 - `GET /search?q=<query>&min_tier=routing_context_only` (compact by default; add `detail=full` for compatibility)
 - `GET /results/<result-id>`
+- `GET /lava-contexts?family=<family>&surface_type=<type>`
+- `GET /lava-contexts/<context-id>?root=<root-key>`
 - `GET /rock-issues/search?q=<query>`
 - `GET /rock-issues?repository=core&state=open&version=19.2&concept=<concept-id>`
 - `GET /rock-issues/<issue-ref>`
@@ -161,6 +163,11 @@ The Worker exposes:
 - `GET /rock-ideas/search?q=<query>`
 - `GET /rock-ideas?status=<status>&concept=<concept-id>`
 - `GET /rock-ideas/<idea-ref>`
+
+MCP exposes the same exact Lava surface operations as
+`kb_list_lava_contexts` and `kb_get_lava_context`. Use them before Model Map
+lookup when an agent needs to determine which roots exist in a rendering
+surface. Search remains the discovery fallback when the surface ID is unknown.
 
 Exact Idea responses include outbound typed relationships. Exact issue
 responses include inbound Idea relationships. `references_issue` records an

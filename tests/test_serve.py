@@ -10,10 +10,12 @@ from rock_kb.serve import (
     get_claim,
     get_claims,
     get_concept,
+    get_lava_context,
     get_manifest,
     get_result,
     get_rock_issue,
     list_concepts,
+    list_lava_contexts,
     list_rock_issues,
     plan_rock_issue_investigation,
     search,
@@ -114,6 +116,44 @@ def seed_root(root: Path) -> None:
         ],
     )
     write_jsonl(
+        root / "agent" / "lava-contexts.jsonl",
+        [
+            {
+                "schema": "rock-kb-lava-context-v2",
+                "id": "lava_context:check-in-label-checkout-dynamic-text:checkoutdatetime:fixture",
+                "context_id": "check-in-label-checkout-dynamic-text",
+                "context_family": "check-in-label",
+                "surface_name": "Check-In Label Designer Checkout Dynamic Text",
+                "surface_type": "label_dynamic_text",
+                "concept_ids": ["lava", "check-in"],
+                "root_key": "CheckoutDateTime",
+                "root_type": "DateTime",
+                "model_slug": None,
+                "value_kind": "scalar",
+                "nested_path": "",
+                "availability": "source-code-confirmed",
+                "availability_condition": "The Checkout data type is selected.",
+                "may_be_null": False,
+                "required_setting": "",
+                "execution_phase": "label_render",
+                "coverage_status": "complete_for_source_snapshot",
+                "includes_context_ids": [],
+                "source_id": "sparkdevnetwork_rock",
+                "source_url": "https://github.com/SparkDevNetwork/Rock/blob/abc/Rock/CheckIn/CheckoutLabelData.cs#L68",
+                "source_file": "Rock/CheckIn/CheckoutLabelData.cs",
+                "source_symbol": "CheckoutLabelData",
+                "source_line_start": 68,
+                "source_line_end": 68,
+                "source_ref": "develop",
+                "source_commit": "a" * 40,
+                "source_version": "20.0.5",
+                "model_map_links": [],
+                "notes": "",
+                "needs_live_verification": False,
+            }
+        ],
+    )
+    write_jsonl(
         root / "claims" / "approved-claims.jsonl",
         [
             {"claim_id": "claim:workflow-source", "concept_ids": ["workflows"], "claim_tier": "source_backed", "claim": "Workflow claim."},
@@ -184,6 +224,19 @@ def test_manifest_and_concepts_load_from_public_agent_artifacts(tmp_path):
 
     assert get_manifest(root=tmp_path)["concept_count"] == 1
     assert list_concepts(root=tmp_path)[0]["concept_id"] == "workflows"
+
+
+def test_lava_context_list_and_exact_get_do_not_cross_surfaces(tmp_path):
+    seed_root(tmp_path)
+
+    listed = list_lava_contexts(context_family="check-in-label", root=tmp_path)
+    exact = get_lava_context("check-in-label-checkout-dynamic-text", root_key="CheckoutDateTime", root=tmp_path)
+    wrong = get_lava_context("check-in-label-person-dynamic-text", root=tmp_path)
+
+    assert listed["count"] == 1
+    assert exact["status"] == "ok"
+    assert exact["roots"][0]["root_key"] == "CheckoutDateTime"
+    assert wrong["status"] == "not_found"
 
 
 def test_get_concept_assembles_public_concept_payload(tmp_path):
@@ -259,6 +312,8 @@ def test_build_server_registers_expected_tools():
         "kb_get_claim",
         "kb_list_models",
         "kb_get_model",
+        "kb_list_lava_contexts",
+        "kb_get_lava_context",
         "kb_manifest",
         "kb_list_concepts",
         "kb_get_concept",

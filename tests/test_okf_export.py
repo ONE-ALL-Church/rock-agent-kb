@@ -97,7 +97,13 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert (destination / str(recipe_metadata["structured_record"]).lstrip("/")).exists()
     assert {row["type"] for row in recipe_metadata["relationships"]} >= {"about", "supersedes"}
 
-    lava = find_document(destination, "lava_context:conflict-profile-template:person:989c0c46")
+    lava_row = next(
+        row
+        for row in read_jsonl(Path("agent/lava-contexts.jsonl"))
+        if row["context_id"] == "conflict-profile-template" and row["root_key"] == "Person"
+    )
+    assert "lava_context:conflict-profile-template:person:989c0c46" in lava_row["legacy_ids"]
+    lava = find_document(destination, lava_row["id"])
     assert "uses_model" in {row["type"] for row in read_frontmatter(lava.read_text(encoding="utf-8"))["relationships"]}
     group = find_document(destination, "model_map:stable:group")
     group_metadata = read_frontmatter(group.read_text(encoding="utf-8"))

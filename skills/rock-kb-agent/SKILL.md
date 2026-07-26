@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.3.0"
+  rock-kb-skill-version: "1.4.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-21T23:56:39Z"
-  rock-kb-minimum-client-version: "0.16.0"
+  rock-kb-published-at: "2026-07-26T14:51:30Z"
+  rock-kb-minimum-client-version: "0.17.0"
 ---
 
 # Rock KB Agent
@@ -55,8 +55,9 @@ The KB can help agents do more than plain text search:
 - List stable Rock Model Map models and get exact model digests.
 - Inspect model fields, required fields, relationships, methods, version diffs,
   and one property at a time.
-- Find Lava context roots for specific rendering surfaces before guessing which
-  merge fields exist.
+- List exact Lava rendering surfaces and retrieve grouped roots, inheritance,
+  conditions, source versions, completeness, and Model Map links before
+  guessing which merge fields exist.
 - Find reusable community recipes with pinned code, adaptation points,
   security boundaries, compatibility, validation steps, and learnings.
 - Assess open or historically relevant Rock product issues against bounded
@@ -136,6 +137,8 @@ uvx rock-kb get check-in
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
+uvx rock-kb lava-context list --family check-in-label
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text
 uvx rock-kb recipes list
 uvx rock-kb recipe oneall:check-in-status-dashboard
 uvx rock-kb recipe oneall:registration-to-connection-request
@@ -172,6 +175,8 @@ uv run --project clients/python rock-kb get check-in
 uv run --project clients/python rock-kb claims workflows --min-tier source_backed
 uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group
+uv run --project clients/python rock-kb lava-context list --family check-in-label
+uv run --project clients/python rock-kb lava-context get check-in-label-checkout-dynamic-text
 uv run --project clients/python rock-kb test-round
 uv run --project clients/python rock-kb dashboard
 uv run --project clients/python rock-kb freshness
@@ -187,6 +192,8 @@ Use these commands for specific jobs:
 - `claims <concept-id>`: inspect structured claims and trust tiers before giving precise guidance.
 - `model-map list`: list stable Rock Model Map models when discovering the exact slug to inspect.
 - `model <slug-or-name>`: fetch an exact stable Model Map digest for a known model, such as `group` or `Group Member`.
+- `lava-context list [--family <family>] [--surface-type <type>]`: discover exact Lava rendering-surface IDs.
+- `lava-context get <context-id> [--root <root-key>]`: fetch one grouped context with direct and inherited roots, availability conditions, source pins, completeness, and model links.
 - `recipes list [--concept <id>]`: discover reusable community implementation patterns.
 - `recipes search <query>`: search recipe use cases and learnings.
 - `recipe <recipe-id>`: fetch the full structured recipe before adapting code.
@@ -276,6 +283,10 @@ tools instead of shell commands:
   versions, and property/method counts.
 - `kb_get_model`: fetch an exact stable Model Map digest by slug or model name,
   optionally filtered by fields or one property.
+- `kb_list_lava_contexts`: list exact Lava rendering surfaces with coverage,
+  versions, and root counts.
+- `kb_get_lava_context`: fetch one grouped Lava context with direct and
+  inherited roots, conditions, model links, source pins, and completeness.
 - `kb_list_recipes`: list community recipes, optionally filtered by concept.
 - `kb_get_recipe`: fetch one recipe with its immutable source pin, adaptation
   points, security, compatibility, validation, and reusable learnings.
@@ -663,8 +674,15 @@ Do not treat latest/pre-alpha model data as the default. Use it only as an upcom
 ## Lava Context Roots
 
 For Lava questions, do not start by guessing which objects are available. First
-identify the rendering surface, then use the generated Lava context directory to
-find available root keys:
+identify the rendering surface, then use exact grouped context lookup:
+
+```bash
+uvx rock-kb lava-context list --family check-in-label
+uvx rock-kb lava-context get check-in-label-family-dynamic-text
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime
+```
+
+Use generic search only when the surface ID is not yet known:
 
 ```bash
 uvx rock-kb search "PersonAttendance Check-In Label Designer Lava roots"
@@ -674,8 +692,8 @@ uvx rock-kb search "workflow action Lava merge fields"
 
 Use this lookup order:
 
-1. Lava context directory: find the available root key or nested path for the
-   specific surface.
+1. Lava context list/get: identify the exact surface and retrieve all direct
+   and inherited roots.
 2. Model Map: inspect properties and relationships for linked model roots.
 3. Lava capabilities: confirm filters, commands, syntax behavior, and risk.
 4. Official docs/source citations: final evidence for precise answers.
@@ -686,9 +704,22 @@ Important generated artifacts:
 - Lava context directory: `knowledge/concepts/lava/lava-context-directory.md`
 - Lava context summary: `agent/lava-context-summary.json`
 
-Rows marked `needs_live_verification: true` are source-code-backed leads whose
-exact availability still depends on page, block, communication, workflow, label,
-or instance configuration.
+Read context metadata conservatively:
+
+- `coverage_status: complete_for_source_snapshot` means the parser captured the
+  explicit roots in that pinned source snapshot. It does not guarantee that
+  every root is populated in every request.
+- `partial_curated` or `dynamic` means absence from the result is not proof that
+  a field can never exist.
+- `availability_condition`, `required_setting`, `execution_phase`, and
+  `may_be_null` explain when a root is present or populated.
+- `inherited: true` and `defined_in_context_id` identify composed common fields.
+- `source_version` and `source_commit` identify the Rock source snapshot. Check
+  the target instance version when behavior is version-sensitive.
+- `needs_live_verification: true` means the source-backed row still depends on
+  page, block, communication, workflow, label, or instance configuration.
+
+Never infer an arbitrary Lava root merely because its type exists in Model Map.
 
 ## Answer Rules
 

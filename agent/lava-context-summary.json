@@ -1,11 +1,11 @@
 {
   "availability": {
-    "source-code-confirmed": 176
+    "source-code-confirmed": 231
   },
-  "context_count": 176,
+  "context_count": 231,
   "context_families": {
     "assessment-lava": 7,
-    "check-in-label": 29,
+    "check-in-label": 84,
     "cms-block": 16,
     "communication": 3,
     "event-lava": 11,
@@ -18,8 +18,14 @@
     "utility-lava": 4,
     "workflow": 10
   },
-  "generated_at": "2026-07-26T03:03:11+00:00",
-  "model_link_count": 66,
+  "coverage_status": {
+    "complete_for_source_snapshot": 98,
+    "partial_curated": 13,
+    "reviewed_curated": 120
+  },
+  "extension_context_count": 0,
+  "generated_at": "2026-07-26T03:03:12+00:00",
+  "model_link_count": 75,
   "needs_live_verification_count": 43,
   "paths": {
     "agent_contexts": "agent/lava-contexts.jsonl",
@@ -27,10 +33,14 @@
     "dependencies": "knowledge/concepts/lava/lava-context-dependencies.json",
     "directory": "knowledge/concepts/lava/lava-context-directory.md"
   },
-  "schema": "rock-kb-lava-context-summary-v1",
-  "source_file_count": 28,
+  "schema": "rock-kb-lava-context-summary-v2",
+  "source_commit": "3207dce85ab189fee70a865808ff6becf6bc069f",
+  "source_commit_date": "2026-07-25T21:56:32Z",
+  "source_file_count": 32,
   "source_id": "sparkdevnetwork_rock",
   "source_ref": "develop",
+  "source_version": "20.0.5",
+  "surface_count": 40,
   "surface_types": {
     "assessment_lava_template": 7,
     "calendar_lava_template": 4,
@@ -47,7 +57,7 @@
     "fundraising_opportunity_lava_template": 18,
     "group_detail_lava_template": 5,
     "group_finder_lava_template": 7,
-    "label_dynamic_text": 19,
+    "label_dynamic_text": 74,
     "label_dynamic_text_nested_path": 6,
     "label_field_source": 2,
     "mobile_cms_command_template": 3,

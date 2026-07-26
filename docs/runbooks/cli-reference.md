@@ -85,6 +85,12 @@ uv run kb modelmap build
 uv run kb modelmap fetch
 uv run kb modelmap stamp
 uv run kb modelmap diff
+uv run kb lava contexts-refresh-source
+uv run kb lava contexts-build --skip-fetch
+uv run kb lava contexts-list --family check-in-label
+uv run kb lava contexts-get check-in-label-checkout-dynamic-text --root CheckoutDateTime
+uv run kb lava contexts-discover /path/to/public/Rock/source
+uv run kb lava contexts-validate-extension lava-contexts/extensions/<org-id>/<manifest>.json
 ```
 
 ## Corpus, Private, And Contribution Commands
