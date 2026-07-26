@@ -299,6 +299,20 @@ export default {
         ctx.waitUntil(recordAccessUsage(env, "model_list", "model_map", Number(result.count || 0), request));
         return json(result);
       }
+      if (url.pathname === "/lava-contexts") {
+        const result = await listLavaContexts(env, {
+          contextFamily: url.searchParams.get("family"),
+          surfaceType: url.searchParams.get("surface_type"),
+        });
+        ctx.waitUntil(recordAccessUsage(env, "lava_context_list", "lava_context", Number(result.count || 0), request));
+        return json(result);
+      }
+      if (url.pathname.startsWith("/lava-contexts/")) {
+        const contextId = decodeURIComponent(url.pathname.slice("/lava-contexts/".length));
+        const result = await getLavaContext(env, contextId, url.searchParams.get("root"));
+        ctx.waitUntil(recordAccessUsage(env, "lava_context_get", "lava_context", result.status === "ok" ? 1 : 0, request));
+        return json(result, result.status === "not_found" ? 404 : 200);
+      }
       if (url.pathname === "/recipes") {
         const result = await listRecipes(env, url.searchParams.get("concept"));
         ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), request));
@@ -884,6 +898,23 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     ctx.waitUntil(recordAccessUsage(env, "model_get", "model_map", 1, request, "mcp"));
     return result;
   }
+  if (name === "kb_list_lava_contexts") {
+    const result = await listLavaContexts(env, {
+      contextFamily: stringOrNull(args.context_family),
+      surfaceType: stringOrNull(args.surface_type),
+    });
+    ctx.waitUntil(recordAccessUsage(env, "lava_context_list", "lava_context", Number(result.count || 0), request, "mcp"));
+    return result;
+  }
+  if (name === "kb_get_lava_context") {
+    const result = await getLavaContext(
+      env,
+      String(args.context_id || ""),
+      stringOrNull(args.root_key),
+    );
+    ctx.waitUntil(recordAccessUsage(env, "lava_context_get", "lava_context", result.status === "ok" ? 1 : 0, request, "mcp"));
+    return result;
+  }
   if (name === "kb_list_recipes") {
     const result = await listRecipes(env, stringOrNull(args.concept_id));
     ctx.waitUntil(recordAccessUsage(env, "recipe_list", "recipe", Number(result.count || 0), request, "mcp"));
@@ -1129,6 +1160,167 @@ async function listModelMapModels(env: ServiceEnv): Promise<JsonRecord> {
       };
     }).sort((left, right) => String(left.model_name).localeCompare(String(right.model_name)))
   };
+}
+
+async function listLavaContexts(
+  env: ServiceEnv,
+  filters: { contextFamily?: string | null; surfaceType?: string | null } = {},
+): Promise<JsonRecord> {
+  const rows = await artifactJsonlValue(env, "agent/lava-contexts.jsonl");
+  const grouped = new Map<string, JsonRecord[]>();
+  for (const row of rows) {
+    const contextId = String(row.context_id || "");
+    if (!contextId) continue;
+    if (filters.contextFamily && String(row.context_family || "") !== filters.contextFamily) continue;
+    if (filters.surfaceType && String(row.surface_type || "") !== filters.surfaceType) continue;
+    grouped.set(contextId, [...(grouped.get(contextId) || []), row]);
+  }
+  const surfaces = [...grouped.entries()].map(([contextId, contextRows]) => {
+    const first = contextRows[0] || {};
+    const conceptIds = new Set<string>();
+    const includedIds = new Set<string>();
+    const rootKeys = new Set<string>();
+    for (const row of contextRows) {
+      for (const conceptId of arrayOfStrings(row.concept_ids)) conceptIds.add(conceptId);
+      for (const includedId of arrayOfStrings(row.includes_context_ids)) includedIds.add(includedId);
+      if (row.root_key) rootKeys.add(String(row.root_key));
+    }
+    return {
+      context_id: contextId,
+      context_family: first.context_family || "",
+      surface_name: first.surface_name || "",
+      surface_type: first.surface_type || "",
+      concept_ids: [...conceptIds].sort(),
+      coverage_status: lavaSurfaceCoverage(contextRows),
+      includes_context_ids: [...includedIds].sort(),
+      direct_root_count: contextRows.length,
+      root_keys: [...rootKeys].sort(),
+      source_version: firstNonemptyField(contextRows, "source_version"),
+      source_commit: firstNonemptyField(contextRows, "source_commit"),
+      needs_live_verification: contextRows.some((row) => row.needs_live_verification === true),
+    };
+  }).sort((left, right) => (
+    `${left.context_family}|${left.surface_name}`.localeCompare(`${right.context_family}|${right.surface_name}`)
+  ));
+  return {
+    schema: "rock-kb-lava-context-surface-list-v1",
+    count: surfaces.length,
+    filters: {
+      context_family: filters.contextFamily || null,
+      surface_type: filters.surfaceType || null,
+    },
+    surfaces,
+  };
+}
+
+async function getLavaContext(
+  env: ServiceEnv,
+  contextId: string,
+  rootKey: string | null = null,
+): Promise<JsonRecord> {
+  const rows = await artifactJsonlValue(env, "agent/lava-contexts.jsonl");
+  const grouped = new Map<string, JsonRecord[]>();
+  for (const row of rows) {
+    const rowContextId = String(row.context_id || "");
+    if (rowContextId) grouped.set(rowContextId, [...(grouped.get(rowContextId) || []), row]);
+  }
+  const normalizedContext = normalizeModelLookup(contextId);
+  const matchedId = [...grouped.keys()].find((candidate) => normalizeModelLookup(candidate) === normalizedContext);
+  if (!matchedId) {
+    return {
+      schema: "rock-kb-lava-context-surface-result-v1",
+      status: "not_found",
+      context_id: contextId,
+    };
+  }
+
+  const directRows = grouped.get(matchedId) || [];
+  const includedIds = new Set<string>();
+  for (const row of directRows) {
+    for (const includedId of arrayOfStrings(row.includes_context_ids)) includedIds.add(includedId);
+  }
+  const inheritedRows: JsonRecord[] = [];
+  const missingIncludes = new Set<string>();
+  const visited = new Set<string>([matchedId]);
+  const collectInherited = (includedId: string): void => {
+    if (visited.has(includedId)) return;
+    visited.add(includedId);
+    const includedRows = grouped.get(includedId);
+    if (!includedRows) {
+      missingIncludes.add(includedId);
+      return;
+    }
+    for (const row of includedRows) {
+      inheritedRows.push({ ...row, defined_in_context_id: includedId, inherited: true });
+      for (const nestedId of arrayOfStrings(row.includes_context_ids)) collectInherited(nestedId);
+    }
+  };
+  for (const includedId of includedIds) collectInherited(includedId);
+
+  let roots: JsonRecord[] = [
+    ...directRows.map((row) => ({ ...row, defined_in_context_id: matchedId, inherited: false })),
+    ...inheritedRows,
+  ];
+  if (rootKey) {
+    const normalizedRoot = normalizeModelLookup(rootKey);
+    roots = roots.filter((row) => [
+      normalizeModelLookup(String(row.root_key || "")),
+      normalizeModelLookup(String(row.nested_path || "")),
+    ].includes(normalizedRoot));
+  }
+  roots.sort((left, right) => (
+    `${left.inherited ? 1 : 0}|${left.defined_in_context_id}|${left.root_key}|${left.nested_path}`
+      .localeCompare(`${right.inherited ? 1 : 0}|${right.defined_in_context_id}|${right.root_key}|${right.nested_path}`)
+  ));
+
+  const first = directRows[0] || {};
+  const conceptIds = new Set<string>();
+  const availabilityConditions = new Set<string>();
+  const executionPhases = new Set<string>();
+  for (const row of directRows) {
+    for (const conceptId of arrayOfStrings(row.concept_ids)) conceptIds.add(conceptId);
+    if (row.availability_condition) availabilityConditions.add(String(row.availability_condition));
+    if (row.execution_phase) executionPhases.add(String(row.execution_phase));
+  }
+  return {
+    schema: "rock-kb-lava-context-surface-result-v1",
+    status: "ok",
+    query: { context_id: contextId, root_key: rootKey },
+    surface: {
+      context_id: matchedId,
+      context_family: first.context_family || "",
+      surface_name: first.surface_name || "",
+      surface_type: first.surface_type || "",
+      concept_ids: [...conceptIds].sort(),
+      coverage_status: lavaSurfaceCoverage(directRows),
+      availability_conditions: [...availabilityConditions].sort(),
+      execution_phases: [...executionPhases].sort(),
+      includes_context_ids: [...includedIds].sort(),
+      source_version: firstNonemptyField(directRows, "source_version"),
+      source_commit: firstNonemptyField(directRows, "source_commit"),
+    },
+    root_filter: rootKey,
+    root_count: roots.length,
+    direct_root_count: roots.filter((row) => row.inherited !== true).length,
+    inherited_root_count: roots.filter((row) => row.inherited === true).length,
+    roots,
+    composition_warnings: [...missingIncludes].sort().map(
+      (includedId) => `Included context \`${includedId}\` is missing from this artifact.`,
+    ),
+  };
+}
+
+function lavaSurfaceCoverage(rows: JsonRecord[]): string {
+  const statuses = new Set(rows.map((row) => String(row.coverage_status || "partial_curated")));
+  for (const status of ["dynamic", "partial_curated", "reviewed_curated", "complete_for_source_snapshot"]) {
+    if (statuses.has(status)) return status;
+  }
+  return [...statuses].sort()[0] || "partial_curated";
+}
+
+function firstNonemptyField(rows: JsonRecord[], field: string): string {
+  const row = rows.find((candidate) => candidate[field]);
+  return row ? String(row[field]) : "";
 }
 
 async function listRecipes(env: ServiceEnv, conceptId: string | null = null): Promise<JsonRecord> {
@@ -1746,6 +1938,10 @@ function reviewedAssertionIds(assertions: JsonRecord[]): string[] {
 
 function uniqueStrings(values: unknown[]): string[] {
   return Array.from(new Set(values.map((value) => String(value || "")).filter(Boolean))).sort();
+}
+
+function arrayOfStrings(value: unknown): string[] {
+  return Array.isArray(value) ? uniqueStrings(value) : [];
 }
 
 function normalizeRockIssueProfileIdentifier(value: unknown): string {
@@ -4972,6 +5168,8 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
+    { name: "kb_list_lava_contexts", description: "List known Lava rendering surfaces with exact context IDs, coverage, source versions, and root counts. Use this before model lookup when the available merge-field roots are unknown.", inputSchema: { type: "object", additionalProperties: false, properties: { context_family: { type: "string" }, surface_type: { type: "string" } } } },
+    { name: "kb_get_lava_context", description: "Return one exact Lava rendering surface with all direct and inherited roots, conditions, model links, pinned source evidence, and completeness metadata.", inputSchema: { type: "object", additionalProperties: false, properties: { context_id: { type: "string" }, root_key: { type: "string" } }, required: ["context_id"] } },
     { name: "kb_list_recipes", description: "List reusable community Rock recipes, optionally filtered by concept.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } } } },
     { name: "kb_get_recipe", description: "Return one exact recipe with its pinned source, adaptation points, security, compatibility, validation, and reusable learnings.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" } }, required: ["recipe_id"] } },
     { name: "kb_verify_recipe", description: "Verify a recipe's immutable source hashes and optional target Rock version without executing its code.", inputSchema: { type: "object", properties: { recipe_id: { type: "string" }, rock_version: { type: "string" } }, required: ["recipe_id"] } },

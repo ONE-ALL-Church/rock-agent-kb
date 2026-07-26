@@ -44,6 +44,7 @@ PASSIVE_SKILL_CHECK_COMMANDS = {
     "claims",
     "model",
     "model-map",
+    "lava-context",
     "recipe",
     "recipes",
     "issue",
@@ -152,6 +153,18 @@ def main(argv: list[str] | None = None) -> int:
     model_map_get.add_argument("--fields")
     model_map_get.add_argument("--property")
     model_map_get.add_argument("--format", choices=["json", "markdown"], default="json")
+
+    lava_context = subparsers.add_parser(
+        "lava-context",
+        help="List or get exact Lava rendering surfaces and their available roots.",
+    )
+    lava_context_subparsers = lava_context.add_subparsers(dest="lava_context_command", required=True)
+    lava_context_list = lava_context_subparsers.add_parser("list")
+    lava_context_list.add_argument("--family")
+    lava_context_list.add_argument("--surface-type")
+    lava_context_get = lava_context_subparsers.add_parser("get")
+    lava_context_get.add_argument("context_id")
+    lava_context_get.add_argument("--root")
 
     recipe = subparsers.add_parser("recipe")
     recipe.add_argument("recipe_args", nargs="+")
@@ -369,6 +382,18 @@ def main(argv: list[str] | None = None) -> int:
             return print_json(get_json(f"{base_url}/model-map/models"))
         if args.model_map_command == "get":
             return print_model(base_url, args.model, args.fields, args.property, args.format)
+    if args.command == "lava-context":
+        if args.lava_context_command == "list":
+            params = []
+            if args.family:
+                params.append(f"family={quote(args.family)}")
+            if args.surface_type:
+                params.append(f"surface_type={quote(args.surface_type)}")
+            suffix = f"?{'&'.join(params)}" if params else ""
+            return print_json(get_json(f"{base_url}/lava-contexts{suffix}"))
+        if args.lava_context_command == "get":
+            suffix = f"?root={quote(args.root)}" if args.root else ""
+            return print_json(get_json(f"{base_url}/lava-contexts/{quote(args.context_id)}{suffix}"))
     if args.command == "recipe":
         if args.recipe_args[0] == "verify":
             if len(args.recipe_args) != 2:

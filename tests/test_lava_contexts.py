@@ -1,13 +1,24 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from rock_kb import lava_contexts
 from rock_kb.lava_contexts import (
+    SourceSnapshot,
+    discover_lava_context_candidates,
+    get_lava_context_surface,
     lava_context_rows,
+    list_lava_context_surfaces,
+    normalize_context_rows,
     parse_common_merge_fields,
     parse_communication_merge_values,
     parse_curated_surface_contexts,
+    parse_label_data,
     parse_person_label_data,
     parse_workflow_merge_fields,
+    validate_lava_context_extension,
+    validate_private_lava_context_overlay,
 )
 
 
@@ -38,7 +49,7 @@ public static Dictionary<string, object> GetCommonMergeFields()
     rows = lava_context_rows({"lava_helper": source})
     by_key = {row["root_key"]: row for row in rows}
 
-    assert by_key["CurrentPerson"]["schema"] == "rock-kb-lava-context-v1"
+    assert by_key["CurrentPerson"]["schema"] == "rock-kb-lava-context-v2"
     assert by_key["CurrentPerson"]["model_slug"] == "person"
     assert by_key["CurrentPerson"]["model_map_links"][0]["model_detail_path"] == "knowledge/model-map/models/person.md"
     assert by_key["PageParameter"]["needs_live_verification"] is True
@@ -74,6 +85,52 @@ internal class PersonLabelData : ILabelDataHasPerson
     assert ("PersonAttendance", "PersonAttendance.Location") in keys
     assert ("PersonAttendance", "PersonAttendance.Schedule") in keys
     assert next(row for row in rows if row["root_key"] == "Family")["model_slug"] == "group"
+
+
+def test_parse_all_check_in_label_surfaces_keeps_roots_separate():
+    fixtures = {
+        "attendance_label_data": """
+public LabelAttendanceDetail Attendance { get; set; }
+public Person Person => Attendance.Person;
+public NamedLocationCache Location => Attendance.Location;
+public List<LabelAttendanceDetail> PersonAttendance { get; set; }
+""",
+        "family_label_data": """
+public List<LabelAttendanceDetail> AllAttendance { get; }
+public Group Family { get; }
+public List<string> NickNames { get; set; }
+""",
+        "checkout_label_data": """
+public LabelAttendanceDetail Attendance { get; set; }
+public Person Person => Attendance.Person;
+public DateTime CheckoutDateTime { get; }
+""",
+        "person_location_label_data": """
+public Person Person { get; }
+public NamedLocationCache Location { get; }
+public List<LabelAttendanceDetail> LocationAttendance { get; }
+""",
+    }
+    expected = {
+        "attendance_label_data": ("check-in-label-attendance-dynamic-text", "PersonAttendance"),
+        "family_label_data": ("check-in-label-family-dynamic-text", "NickNames"),
+        "checkout_label_data": ("check-in-label-checkout-dynamic-text", "CheckoutDateTime"),
+        "person_location_label_data": ("check-in-label-person-location-dynamic-text", "LocationAttendance"),
+    }
+
+    for source_key, text in fixtures.items():
+        context_id, required_root = expected[source_key]
+        rows = parse_label_data(source_key, text, context_id, context_id)
+        assert {row["context_id"] for row in rows} == {context_id}
+        assert required_root in {row["root_key"] for row in rows}
+
+    checkout_rows = parse_label_data(
+        "checkout_label_data",
+        fixtures["checkout_label_data"],
+        "check-in-label-checkout-dynamic-text",
+        "Checkout",
+    )
+    assert "Family" not in {row["root_key"] for row in checkout_rows}
 
 
 def test_parse_communication_merge_values_tracks_dynamic_additional_fields():
@@ -200,3 +257,194 @@ protected Dictionary<string, object> GetMergeFields( WorkflowAction action )
     assert all(row["id"].startswith("lava_context:") for row in rows)
     assert all(row["source_url"].startswith("https://github.com/SparkDevNetwork/Rock/blob/develop/") for row in rows)
     assert len({(row["context_id"], row["root_key"], row["nested_path"], row["source_symbol"]) for row in rows}) == len(rows)
+
+
+def test_context_ids_survive_line_moves_and_preserve_legacy_id(monkeypatch):
+    monkeypatch.setattr(lava_contexts, "model_map_links_by_slug", lambda: {})
+    source_a = 'mergeFields.Add( "CurrentPerson", currentPerson );'
+    source_b = '\n\nmergeFields.Add( "CurrentPerson", currentPerson );'
+    snapshot = SourceSnapshot(
+        source_ref="develop",
+        source_commit="a" * 40,
+        source_commit_date="2026-07-26T00:00:00Z",
+        source_version="20.0.5",
+    )
+
+    first = lava_context_rows({"lava_helper": source_a}, snapshot=snapshot)[0]
+    second = lava_context_rows({"lava_helper": source_b}, snapshot=snapshot, previous_rows=[first])[0]
+
+    assert first["id"] == second["id"]
+    assert first["source_line_start"] != second["source_line_start"]
+    assert first["id"] not in second["legacy_ids"]
+    assert set(first["legacy_ids"]) <= set(second["legacy_ids"])
+    assert second["source_url"].startswith(
+        "https://github.com/SparkDevNetwork/Rock/blob/" + "a" * 40
+    )
+    assert second["source_version"] == "20.0.5"
+    assert second["first_seen_version"] == "20.0.5"
+
+
+def test_grouped_surface_lookup_returns_direct_and_inherited_roots():
+    rows = normalize_context_rows(
+        [
+            {
+                "context_id": "global-common",
+                "context_family": "global",
+                "surface_name": "Global",
+                "surface_type": "common",
+                "concept_ids": ["lava"],
+                "root_key": "CurrentPerson",
+                "root_type": "Rock.Model.Person",
+                "model_slug": "person",
+                "value_kind": "object",
+                "nested_path": "",
+                "availability": "source-code-confirmed",
+                "source_id": "fixture",
+                "source_url": "https://example.test/global.cs#L1",
+                "source_file": "global.cs",
+                "source_symbol": "Global",
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "source_ref": "a" * 40,
+                "notes": "",
+                "needs_live_verification": True,
+                "coverage_status": "complete_for_source_snapshot",
+            },
+            {
+                "context_id": "checkout",
+                "context_family": "check-in-label",
+                "surface_name": "Checkout",
+                "surface_type": "label_dynamic_text",
+                "concept_ids": ["lava", "check-in"],
+                "root_key": "CheckoutDateTime",
+                "root_type": "DateTime",
+                "model_slug": None,
+                "value_kind": "scalar",
+                "nested_path": "",
+                "availability": "source-code-confirmed",
+                "source_id": "fixture",
+                "source_url": "https://example.test/checkout.cs#L1",
+                "source_file": "checkout.cs",
+                "source_symbol": "Checkout",
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "source_ref": "a" * 40,
+                "notes": "",
+                "needs_live_verification": False,
+                "includes_context_ids": ["global-common"],
+                "coverage_status": "complete_for_source_snapshot",
+            },
+        ]
+    )
+
+    listed = list_lava_context_surfaces(rows, context_family="check-in-label")
+    exact = get_lava_context_surface(rows, "checkout")
+    filtered = get_lava_context_surface(rows, "checkout", root_key="CheckoutDateTime")
+
+    assert listed["count"] == 1
+    assert listed["surfaces"][0]["root_keys"] == ["CheckoutDateTime"]
+    assert exact["root_count"] == 2
+    assert exact["direct_root_count"] == 1
+    assert exact["inherited_root_count"] == 1
+    assert filtered["root_count"] == 1
+    assert filtered["roots"][0]["defined_in_context_id"] == "checkout"
+
+
+def test_discovery_queue_contains_public_relative_paths_only(tmp_path):
+    source_tree = tmp_path / "rock"
+    source_tree.mkdir()
+    candidate = source_tree / "Rock.Blocks" / "CheckIn" / "Example.cs"
+    candidate.parent.mkdir(parents=True)
+    candidate.write_text(
+        """
+public Dictionary<string, object> GetMergeFields()
+{
+    mergeFields.Add( "Attendance", attendance );
+}
+""",
+        encoding="utf-8",
+    )
+    output = tmp_path / "queue.jsonl"
+
+    result = discover_lava_context_candidates(
+        source_tree,
+        output,
+        source_commit="b" * 40,
+        source_version="20.0.5",
+    )
+    row = json.loads(output.read_text(encoding="utf-8"))
+
+    assert result["pending_count"] == 1
+    assert row["source_file"] == "Rock.Blocks/CheckIn/Example.cs"
+    assert str(tmp_path) not in json.dumps(row)
+    assert row["root_keys"] == ["Attendance"]
+
+
+def test_reviewed_extension_and_private_overlay_boundaries(tmp_path):
+    extension = tmp_path / "extension.json"
+    extension.write_text(
+        json.dumps(
+            {
+                "schema": "rock-kb-lava-context-extension-v1",
+                "extension_id": "test-org-labels",
+                "org_id": "test-org",
+                "title": "Test Org public label context",
+                "repository_url": "https://github.com/test-org/public-rock",
+                "commit_sha": "c" * 40,
+                "source_version": "19.0",
+                "license": "MIT",
+                "license_url": "https://github.com/test-org/public-rock/blob/main/LICENSE",
+                "license_attestation": True,
+                "redaction_attestation": True,
+                "review_status": "community_reviewed",
+                "contexts": [
+                    {
+                        "context_id": "test-org:custom-label",
+                        "context_family": "check-in-label",
+                        "surface_name": "Custom Label",
+                        "surface_type": "label_dynamic_text",
+                        "concept_ids": ["lava", "check-in"],
+                        "availability_condition": "The custom label is selected.",
+                        "coverage_status": "reviewed_curated",
+                        "roots": [
+                            {
+                                "root_key": "Person",
+                                "root_type": "Rock.Model.Person",
+                                "value_kind": "object",
+                                "availability_condition": "A person is available.",
+                                "source_path": "src/CustomLabel.cs",
+                                "source_symbol": "CustomLabel.GetMergeFields",
+                                "source_line_start": 10,
+                                "source_line_end": 12,
+                            }
+                        ],
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    overlay = tmp_path / "overlay.jsonl"
+    overlay.write_text(
+        json.dumps(
+            {
+                "schema": "rock-kb-private-lava-context-overlay-v1",
+                "access_scope": "organization",
+                "context_id": "private:label",
+                "root_key": "Person",
+                "publish": False,
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    assert validate_lava_context_extension(extension)["status"] == "valid"
+    overlay_result = validate_private_lava_context_overlay(overlay)
+    assert overlay_result["status"] == "valid"
+    assert overlay_result["public_export_eligible"] is False
+
+    unsafe_extension = json.loads(extension.read_text(encoding="utf-8"))
+    unsafe_extension["contexts"][0]["roots"][0]["source_path"] = "/Users/private/CustomLabel.cs"
+    extension.write_text(json.dumps(unsafe_extension), encoding="utf-8")
+    assert validate_lava_context_extension(extension)["status"] == "invalid"

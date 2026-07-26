@@ -7,6 +7,7 @@
 - [Agent Serving Runbook](runbooks/agent-serving.md) - local MCP server, hosted Worker service, terminal client, and deployed evaluation gate.
 - [Structured Issue Reporting](runbooks/issue-reporting.md) - safe malfunction reports, deduplication, rate limits, and maintainer review.
 - [Model Map Rebuild Runbook](runbooks/model-map-rebuild-runbook.md) - stable/latest generic Rock Model Map API fetch, rebuild, validation, and review workflow.
+- [Lava Context Directory](runbooks/lava-context-directory.md) - exact grouped Lava surface retrieval, pinned source refresh, discovery review, and extension boundaries.
 - [Contributor Reviewer Workflow](runbooks/contributor-reviewer-workflow.md) - community contribution, media review, claim promotion, and rebuild workflow.
 - [Community Onboarding](community-onboarding.md) - how another church and its agents consume and contribute to the public KB.
 - [Community Content Priorities](community-content-priorities.md) - scoring rubric for reusable recipes, troubleshooting paths, failure modes, version caveats, and verified workflows.

@@ -90,7 +90,15 @@ private Rock instance content or secrets.
 ## Lava Context Roots
 
 For Lava questions, identify the rendering surface before recommending syntax or
-model properties. Search the KB for the context first:
+model properties. Use exact grouped context retrieval first:
+
+```bash
+uvx rock-kb lava-context list --family check-in-label
+uvx rock-kb lava-context get check-in-label-person-dynamic-text
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime
+```
+
+Use search when the exact surface ID is unknown:
 
 ```bash
 uvx rock-kb search "PersonAttendance Check-In Label Designer Lava roots"
@@ -98,11 +106,14 @@ uvx rock-kb search "communication recipient merge values"
 uvx rock-kb search "workflow action Lava merge fields"
 ```
 
-Use the generated Lava context directory to determine which root keys exist in
-that surface, then use the Model Map for properties and the Lava capability
-reference for filters, commands, and safety notes. Rows marked
-`needs_live_verification: true` still require checking the specific page, block,
-communication, workflow, label, or instance configuration.
+The grouped result identifies direct and inherited roots, conditions,
+nullability, source version, source commit, completeness, and Model Map links.
+Then use the Model Map for properties and the Lava capability reference for
+filters, commands, and safety notes. `complete_for_source_snapshot` means the
+explicit source contract was captured at the pinned commit, not that every value
+is populated in every request. Rows marked `needs_live_verification: true` still
+require checking the specific page, block, communication, workflow, label, or
+instance configuration.
 
 ## Submit Reusable Public Knowledge
 

@@ -6,6 +6,26 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-07-26
+
+### Added
+
+- Exact grouped Lava context retrieval through `lava-context list|get`,
+  `kb_list_lava_contexts`, `kb_get_lava_context`, and matching REST routes.
+- Source-backed Check-In Attendance, Family, Checkout, and Person Location
+  label contexts, including conditions, nullability, execution phases,
+  completeness, source versions, immutable commits, and Model Map links.
+- A private source-discovery review queue plus reviewed public extension and
+  non-exportable private-overlay validation paths.
+
+### Changed
+
+- Lava context row IDs no longer depend on source line numbers. Prior IDs remain
+  cumulative aliases for saved links and feedback.
+- The Rock KB agent skill is version `1.4.0`, requires client `0.17.0`, and
+  directs agents to exact grouped context retrieval before generic search or
+  Model Map inspection.
+
 ## [0.16.1] - 2026-07-25
 
 ### Fixed

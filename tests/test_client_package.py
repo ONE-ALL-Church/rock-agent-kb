@@ -508,6 +508,46 @@ def test_client_model_map_list_command_hits_model_list_endpoint(monkeypatch, cap
     assert "rock-kb-model-map-model-list-v1" in capsys.readouterr().out
 
 
+def test_client_lava_context_commands_hit_exact_endpoints(monkeypatch, capsys):
+    cli = load_client_cli()
+    urls: list[str] = []
+
+    def fake_get_json(url: str):
+        urls.append(url)
+        return {"schema": "rock-kb-lava-context-surface-result-v1", "status": "ok"}
+
+    monkeypatch.setattr(cli, "get_json", fake_get_json)
+
+    assert cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "lava-context",
+            "list",
+            "--family",
+            "check-in-label",
+            "--surface-type",
+            "label_dynamic_text",
+        ]
+    ) == 0
+    assert cli.main(
+        [
+            "--url",
+            "https://example.test",
+            "lava-context",
+            "get",
+            "check-in-label-checkout-dynamic-text",
+            "--root",
+            "CheckoutDateTime",
+        ]
+    ) == 0
+    assert urls == [
+        "https://example.test/lava-contexts?family=check-in-label&surface_type=label_dynamic_text",
+        "https://example.test/lava-contexts/check-in-label-checkout-dynamic-text?root=CheckoutDateTime",
+    ]
+    assert "rock-kb-lava-context-surface-result-v1" in capsys.readouterr().out
+
+
 def test_client_okf_commands_are_read_only(monkeypatch, tmp_path, capsys):
     cli = load_client_cli()
     archive = tmp_path / "bundle.zip"

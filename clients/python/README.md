@@ -76,6 +76,8 @@ uvx rock-kb claim '<claim-id>'
 uvx rock-kb claims workflows --min-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
+uvx rock-kb lava-context list --family check-in-label
+uvx rock-kb lava-context get check-in-label-checkout-dynamic-text --root CheckoutDateTime
 uvx rock-kb recipes list
 uvx rock-kb recipes search "registration attendance dashboard"
 uvx rock-kb recipe oneall:check-in-status-dashboard
@@ -136,6 +138,12 @@ Search output is compact by default. It returns stable IDs, snippets, trust
 tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or
 `rock-kb claim <claim-id>` for full detail. Use `search --full` only for
 compatibility with workflows that still need full rows in one response.
+
+For Lava merge-field questions, use `lava-context list` to discover an exact
+rendering-surface ID and `lava-context get` to retrieve its grouped roots,
+conditions, source version, completeness, and Model Map links. Use generic
+search only when the surface is unknown. A complete source snapshot does not
+guarantee that every conditional root is populated in every request.
 
 `recipe verify` checks immutable source hashes and declared compatibility. It
 uses the hosted service's immutable-byte cache and GitHub Contents API fallback
@@ -223,6 +231,8 @@ uv run --project clients/python rock-kb search "check-in labels not printing"
 uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group --fields identity,required,relationships,diffs
 uv run --project clients/python rock-kb model group --property Members
+uv run --project clients/python rock-kb lava-context list --family check-in-label
+uv run --project clients/python rock-kb lava-context get check-in-label-family-dynamic-text
 uv run --project clients/python rock-kb validate bundle.jsonl
 ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb auth-check --org <org-id>
 ROCK_KB_TOKEN=<issued-token> uv run --project clients/python rock-kb submit bundle.jsonl --dry-run

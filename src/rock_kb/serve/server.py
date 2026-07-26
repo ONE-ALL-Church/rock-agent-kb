@@ -57,6 +57,23 @@ def build_server(fastmcp_cls: type | None = None) -> Any:
         return retrieval.get_model(model, fields=fields, property=property)
 
     @mcp.tool(
+        name="kb_list_lava_contexts",
+        description="List known Lava rendering surfaces with exact context IDs, coverage, versions, and root counts.",
+    )
+    def kb_list_lava_contexts(
+        context_family: str | None = None,
+        surface_type: str | None = None,
+    ) -> dict[str, Any]:
+        return retrieval.list_lava_contexts(context_family=context_family, surface_type=surface_type)
+
+    @mcp.tool(
+        name="kb_get_lava_context",
+        description="Return one exact Lava rendering surface with all direct and inherited roots, conditions, model links, source pins, and completeness metadata.",
+    )
+    def kb_get_lava_context(context_id: str, root_key: str | None = None) -> dict[str, Any]:
+        return retrieval.get_lava_context(context_id, root_key=root_key)
+
+    @mcp.tool(
         name="kb_manifest",
         description="Return the public Rock KB manifest with available entrypoints and artifact metadata.",
     )

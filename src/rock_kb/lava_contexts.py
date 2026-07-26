@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import urllib.parse
 import urllib.request
 from collections import Counter
 from dataclasses import dataclass
@@ -11,12 +13,17 @@ from typing import Any
 from .extract import generated_at_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import AGENT_DIR, KNOWLEDGE_DIR, REPO_ROOT, REVIEW_DIR
+from .schemas.lava_context import LavaContextExtensionManifest
 
-LAVA_CONTEXT_SCHEMA = "rock-kb-lava-context-v1"
-LAVA_CONTEXT_SUMMARY_SCHEMA = "rock-kb-lava-context-summary-v1"
-LAVA_CONTEXT_DEPENDENCIES_SCHEMA = "rock-kb-lava-context-dependencies-v1"
+LAVA_CONTEXT_SCHEMA = "rock-kb-lava-context-v2"
+LAVA_CONTEXT_SUMMARY_SCHEMA = "rock-kb-lava-context-summary-v2"
+LAVA_CONTEXT_DEPENDENCIES_SCHEMA = "rock-kb-lava-context-dependencies-v2"
+LAVA_CONTEXT_EXTENSION_SCHEMA = "rock-kb-lava-context-extension-v1"
+LAVA_CONTEXT_DISCOVERY_SCHEMA = "rock-kb-lava-context-discovery-v1"
+LAVA_CONTEXT_SNAPSHOT_SCHEMA = "rock-kb-lava-context-source-snapshot-v1"
 SOURCE_REF = "develop"
 SOURCE_ID = "sparkdevnetwork_rock"
+SOURCE_REPOSITORY = "SparkDevNetwork/Rock"
 
 LAVA_CONCEPT_DIR = KNOWLEDGE_DIR / "concepts" / "lava"
 CONTEXT_JSONL = LAVA_CONCEPT_DIR / "lava-contexts.jsonl"
@@ -25,6 +32,10 @@ CONTEXT_DEPENDENCY_JSON = LAVA_CONCEPT_DIR / "lava-context-dependencies.json"
 AGENT_CONTEXT_JSONL = AGENT_DIR / "lava-contexts.jsonl"
 AGENT_CONTEXT_SUMMARY_JSON = AGENT_DIR / "lava-context-summary.json"
 SOURCE_CACHE_DIR = REVIEW_DIR / "lava-context-source" / SOURCE_REF
+SOURCE_SNAPSHOT_JSON = SOURCE_CACHE_DIR / "snapshot.json"
+DISCOVERY_QUEUE_JSONL = REVIEW_DIR / "lava-context-discovery.jsonl"
+PUBLIC_EXTENSION_DIR = REPO_ROOT / "lava-contexts" / "extensions"
+PRIVATE_OVERLAY_DIR = REVIEW_DIR / "lava-context-overlays"
 
 DEFAULT_CONCEPT_IDS = ["lava"]
 CHECK_IN_CONCEPT_IDS = ["lava", "check-in", "groups"]
@@ -50,13 +61,34 @@ class SourceFile:
     def cache_path(self) -> Path:
         return SOURCE_CACHE_DIR / self.source_file.replace("/", "__")
 
-    @property
-    def raw_url(self) -> str:
-        return f"https://raw.githubusercontent.com/SparkDevNetwork/Rock/{SOURCE_REF}/{self.source_file}"
+    def raw_url(self, source_ref: str = SOURCE_REF) -> str:
+        return f"https://raw.githubusercontent.com/SparkDevNetwork/Rock/{source_ref}/{self.source_file}"
+
+    def blob_url(self, source_ref: str = SOURCE_REF) -> str:
+        return f"https://github.com/SparkDevNetwork/Rock/blob/{source_ref}/{self.source_file}"
+
+
+@dataclass(frozen=True)
+class SourceSnapshot:
+    source_ref: str = SOURCE_REF
+    source_commit: str = ""
+    source_commit_date: str = ""
+    source_version: str = ""
 
     @property
-    def blob_url(self) -> str:
-        return f"https://github.com/SparkDevNetwork/Rock/blob/{SOURCE_REF}/{self.source_file}"
+    def pinned_ref(self) -> str:
+        return self.source_commit or self.source_ref
+
+    def as_dict(self) -> dict[str, str]:
+        return {
+            "schema": LAVA_CONTEXT_SNAPSHOT_SCHEMA,
+            "source_id": SOURCE_ID,
+            "source_repository": SOURCE_REPOSITORY,
+            "source_ref": self.source_ref,
+            "source_commit": self.source_commit,
+            "source_commit_date": self.source_commit_date,
+            "source_version": self.source_version,
+        }
 
 
 @dataclass(frozen=True)
@@ -71,6 +103,10 @@ class CuratedContextRoot:
     source_symbol: str | None = None
     notes: str = ""
     source_patterns: tuple[str, ...] = ()
+    availability_condition: str = "always"
+    may_be_null: bool = False
+    required_setting: str = ""
+    execution_phase: str = "render"
 
 
 @dataclass(frozen=True)
@@ -84,12 +120,31 @@ class CuratedContextSpec:
     source_symbol: str
     notes: str
     roots: tuple[CuratedContextRoot, ...]
+    includes_context_ids: tuple[str, ...] = ()
+    availability_condition: str = "surface_selected"
+    coverage_status: str = "reviewed_curated"
 
 
 SOURCE_FILES: dict[str, SourceFile] = {
     "lava_helper": SourceFile("lava_helper", "Rock/Lava/LavaHelper.cs", "LavaHelper.GetCommonMergeFields"),
     "request_context": SourceFile("request_context", "Rock/Net/RockRequestContext.cs", "RockRequestContext.GetCommonMergeFields"),
     "person_label_data": SourceFile("person_label_data", "Rock/CheckIn/v2/Labels/PersonLabelData.cs", "PersonLabelData"),
+    "attendance_label_data": SourceFile(
+        "attendance_label_data",
+        "Rock/CheckIn/v2/Labels/AttendanceLabelData.cs",
+        "AttendanceLabelData",
+    ),
+    "family_label_data": SourceFile("family_label_data", "Rock/CheckIn/v2/Labels/FamilyLabelData.cs", "FamilyLabelData"),
+    "checkout_label_data": SourceFile(
+        "checkout_label_data",
+        "Rock/CheckIn/v2/Labels/CheckoutLabelData.cs",
+        "CheckoutLabelData",
+    ),
+    "person_location_label_data": SourceFile(
+        "person_location_label_data",
+        "Rock/CheckIn/v2/Labels/PersonLocationLabelData.cs",
+        "PersonLocationLabelData",
+    ),
     "field_source_helper": SourceFile("field_source_helper", "Rock/CheckIn/v2/Labels/FieldSourceHelper.cs", "FieldSourceHelper"),
     "label_field": SourceFile("label_field", "Rock/CheckIn/v2/Labels/LabelField.cs", "LabelField"),
     "communication_recipient": SourceFile(
@@ -177,6 +232,7 @@ TYPE_MODEL_MAP = {
     "FinancialTransaction": ("Rock.Model.FinancialTransaction", "financial-transaction", "object"),
     "FinancialScheduledTransaction": ("Rock.Model.FinancialScheduledTransaction", "financial-scheduled-transaction", "object"),
     "FinancialPaymentDetail": ("Rock.Model.FinancialPaymentDetail", "financial-payment-detail", "object"),
+    "NamedLocationCache": ("Rock.Web.Cache.NamedLocationCache", "location", "object"),
     "Device": ("Rock.Common.Mobile.DeviceData", None, "object"),
 }
 
@@ -203,6 +259,65 @@ LABEL_NESTED_MODEL_MAP = {
     "Schedule": TYPE_MODEL_MAP["Schedule"],
 }
 
+LABEL_DATA_SPECS = (
+    (
+        "person_label_data",
+        "check-in-label-person-dynamic-text",
+        "Check-In Label Designer Person Dynamic Text",
+    ),
+    (
+        "attendance_label_data",
+        "check-in-label-attendance-dynamic-text",
+        "Check-In Label Designer Attendance Dynamic Text",
+    ),
+    (
+        "family_label_data",
+        "check-in-label-family-dynamic-text",
+        "Check-In Label Designer Family Dynamic Text",
+    ),
+    (
+        "checkout_label_data",
+        "check-in-label-checkout-dynamic-text",
+        "Check-In Label Designer Checkout Dynamic Text",
+    ),
+    (
+        "person_location_label_data",
+        "check-in-label-person-location-dynamic-text",
+        "Check-In Label Designer Person Location Dynamic Text",
+    ),
+)
+
+CONTEXT_METADATA: dict[str, dict[str, Any]] = {
+    "global-lava-helper-common": {
+        "coverage_status": "complete_for_source_snapshot",
+        "availability_condition": "Web Forms or legacy Lava rendering requests common merge fields.",
+        "execution_phase": "request",
+    },
+    "global-request-context-common": {
+        "coverage_status": "complete_for_source_snapshot",
+        "availability_condition": "A RockRequestContext is available and common merge fields are requested.",
+        "execution_phase": "request",
+    },
+    "workflow-action-component-merge-fields": {
+        "includes_context_ids": ["global-lava-helper-common", "global-request-context-common"],
+        "coverage_status": "complete_for_source_snapshot",
+        "availability_condition": "The workflow action overload and request context determine which common context is inherited.",
+        "execution_phase": "workflow_action",
+    },
+    "communication-recipient-merge-values": {
+        "coverage_status": "complete_for_source_snapshot",
+        "availability_condition": "The communication recipient is being rendered for its configured medium.",
+        "execution_phase": "communication_render",
+    },
+}
+
+for _source_key, _context_id, _surface_name in LABEL_DATA_SPECS:
+    CONTEXT_METADATA[_context_id] = {
+        "coverage_status": "complete_for_source_snapshot",
+        "availability_condition": f"The label is configured for the {_surface_name.removeprefix('Check-In Label Designer ').removesuffix(' Dynamic Text')} data type.",
+        "execution_phase": "label_render",
+    }
+
 
 def simple_context_root(
     root_key: str,
@@ -215,6 +330,10 @@ def simple_context_root(
     source_symbol: str | None = None,
     notes: str = "",
     source_patterns: tuple[str, ...] = (),
+    availability_condition: str = "always",
+    may_be_null: bool = False,
+    required_setting: str = "",
+    execution_phase: str = "render",
 ) -> CuratedContextRoot:
     return CuratedContextRoot(
         root_key=root_key,
@@ -226,6 +345,10 @@ def simple_context_root(
         source_symbol=source_symbol,
         notes=notes,
         source_patterns=source_patterns,
+        availability_condition=availability_condition,
+        may_be_null=may_be_null,
+        required_setting=required_setting,
+        execution_phase=execution_phase,
     )
 
 
@@ -239,6 +362,10 @@ def model_context_root(
     source_symbol: str | None = None,
     notes: str = "",
     source_patterns: tuple[str, ...] = (),
+    availability_condition: str = "always",
+    may_be_null: bool = False,
+    required_setting: str = "",
+    execution_phase: str = "render",
 ) -> CuratedContextRoot:
     default_type, model_slug, default_kind = TYPE_MODEL_MAP[type_key]
     return simple_context_root(
@@ -250,6 +377,10 @@ def model_context_root(
         source_symbol=source_symbol,
         notes=notes,
         source_patterns=source_patterns,
+        availability_condition=availability_condition,
+        may_be_null=may_be_null,
+        required_setting=required_setting,
+        execution_phase=execution_phase,
     )
 
 
@@ -714,31 +845,52 @@ CURATED_CONTEXT_SPECS: tuple[CuratedContextSpec, ...] = (
 
 def build_lava_context_reference(fetch_missing: bool = True, source_dir: Path | None = None) -> dict[str, Any]:
     """Build generated Lava data-context artifacts from public Rock source files."""
-    source_texts = load_source_texts(fetch_missing=fetch_missing, source_dir=source_dir)
-    rows = lava_context_rows(source_texts)
-    source_dependencies = lava_context_source_dependencies(source_texts)
+    base = source_dir or SOURCE_CACHE_DIR
+    snapshot = load_source_snapshot(base)
+    if not snapshot.source_commit and fetch_missing:
+        snapshot = resolve_source_snapshot()
+        write_source_snapshot(base, snapshot)
+    source_texts = load_source_texts(fetch_missing=fetch_missing, source_dir=base, snapshot=snapshot)
+    previous_rows = list(read_jsonl(AGENT_CONTEXT_JSONL))
+    rows = lava_context_rows(source_texts, snapshot=snapshot, previous_rows=previous_rows)
+    rows.extend(load_public_extension_rows(snapshot))
+    rows = normalize_context_rows(rows, previous_rows=previous_rows)
+    source_dependencies = lava_context_source_dependencies(source_texts, snapshot=snapshot)
     write_lava_context_artifacts(rows, source_dependencies)
     return {
         "lava_contexts": len(rows),
         "lava_context_source_files": len(source_dependencies),
         "lava_context_families": len({row.get("context_family") for row in rows}),
+        "source_commit": snapshot.source_commit,
+        "source_version": snapshot.source_version,
     }
 
 
 def refresh_lava_context_source_cache(source_dir: Path | None = None) -> dict[str, Any]:
     destination = source_dir or SOURCE_CACHE_DIR
     destination.mkdir(parents=True, exist_ok=True)
+    snapshot = resolve_source_snapshot()
+    write_source_snapshot(destination, snapshot)
     fetched = []
     for source in SOURCE_FILES.values():
         target = destination / source.source_file.replace("/", "__")
-        text = fetch_public_source(source.raw_url)
+        text = fetch_public_source(source.raw_url(snapshot.pinned_ref))
         target.write_text(text, encoding="utf-8")
-        fetched.append({"source_file": source.source_file, "path": str(target), "bytes": len(text.encode("utf-8"))})
-    return {"schema": "rock-kb-lava-context-source-refresh-v1", "source_ref": SOURCE_REF, "source_files": fetched}
+        fetched.append({"source_file": source.source_file, "bytes": len(text.encode("utf-8")), "content_hash": sha256_text(text)})
+    return {
+        **snapshot.as_dict(),
+        "schema": "rock-kb-lava-context-source-refresh-v2",
+        "source_files": fetched,
+    }
 
 
-def load_source_texts(fetch_missing: bool = True, source_dir: Path | None = None) -> dict[str, str]:
+def load_source_texts(
+    fetch_missing: bool = True,
+    source_dir: Path | None = None,
+    snapshot: SourceSnapshot | None = None,
+) -> dict[str, str]:
     base = source_dir or SOURCE_CACHE_DIR
+    snapshot = snapshot or load_source_snapshot(base)
     texts: dict[str, str] = {}
     for key, source in SOURCE_FILES.items():
         path = base / source.source_file.replace("/", "__")
@@ -747,7 +899,7 @@ def load_source_texts(fetch_missing: bool = True, source_dir: Path | None = None
             continue
         if not fetch_missing:
             continue
-        text = fetch_public_source(source.raw_url)
+        text = fetch_public_source(source.raw_url(snapshot.pinned_ref))
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
         texts[key] = text
@@ -755,38 +907,155 @@ def load_source_texts(fetch_missing: bool = True, source_dir: Path | None = None
 
 
 def fetch_public_source(url: str) -> str:
-    request = urllib.request.Request(url, headers={"User-Agent": "rock-kb-lava-context-builder"})
+    request = urllib.request.Request(url, headers=github_headers())
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read().decode("utf-8")
 
 
-def lava_context_rows(source_texts: dict[str, str]) -> list[dict[str, Any]]:
+def resolve_source_snapshot(source_ref: str = SOURCE_REF) -> SourceSnapshot:
+    commit_url = f"https://api.github.com/repos/{SOURCE_REPOSITORY}/commits/{urllib.parse.quote(source_ref, safe='')}"
+    request = urllib.request.Request(commit_url, headers=github_headers())
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+    source_commit = str(payload.get("sha") or "")
+    commit = payload.get("commit") or {}
+    committer = commit.get("committer") or {}
+    source_commit_date = str(committer.get("date") or "")
+    version_text = fetch_public_source(
+        f"https://raw.githubusercontent.com/{SOURCE_REPOSITORY}/{source_commit or source_ref}/Directory.Build.props"
+    )
+    version_match = re.search(r"<Version>\s*([^<]+?)\s*</Version>", version_text)
+    return SourceSnapshot(
+        source_ref=source_ref,
+        source_commit=source_commit,
+        source_commit_date=source_commit_date,
+        source_version=version_match.group(1).strip() if version_match else "",
+    )
+
+
+def github_headers() -> dict[str, str]:
+    headers = {
+        "User-Agent": "rock-kb-lava-context-builder",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return headers
+
+
+def source_snapshot_path(source_dir: Path) -> Path:
+    return source_dir / "snapshot.json"
+
+
+def load_source_snapshot(source_dir: Path) -> SourceSnapshot:
+    path = source_snapshot_path(source_dir)
+    if not path.exists():
+        return SourceSnapshot()
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return SourceSnapshot()
+    return SourceSnapshot(
+        source_ref=str(payload.get("source_ref") or SOURCE_REF),
+        source_commit=str(payload.get("source_commit") or ""),
+        source_commit_date=str(payload.get("source_commit_date") or ""),
+        source_version=str(payload.get("source_version") or ""),
+    )
+
+
+def write_source_snapshot(source_dir: Path, snapshot: SourceSnapshot) -> None:
+    source_dir.mkdir(parents=True, exist_ok=True)
+    source_snapshot_path(source_dir).write_text(
+        json.dumps(snapshot.as_dict(), indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+
+def lava_context_rows(
+    source_texts: dict[str, str],
+    *,
+    snapshot: SourceSnapshot | None = None,
+    previous_rows: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    model_links = model_map_links_by_slug()
     rows.extend(parse_common_merge_fields("lava_helper", source_texts.get("lava_helper", ""), "global-lava-helper-common"))
     rows.extend(parse_common_merge_fields("request_context", source_texts.get("request_context", ""), "global-request-context-common"))
-    rows.extend(parse_person_label_data(source_texts.get("person_label_data", "")))
+    for source_key, context_id, surface_name in LABEL_DATA_SPECS:
+        rows.extend(parse_label_data(source_key, source_texts.get(source_key, ""), context_id, surface_name))
     rows.extend(parse_field_source_helper_person_label_paths(source_texts.get("field_source_helper", "")))
     rows.extend(parse_communication_merge_values(source_texts.get("communication_recipient", "")))
     rows.extend(parse_workflow_merge_fields(source_texts.get("workflow_action", "")))
     rows.extend(parse_curated_surface_contexts(source_texts))
     rows.extend(static_surface_boundary_rows(source_texts))
+    return normalize_context_rows(rows, snapshot=snapshot, previous_rows=previous_rows)
 
+
+def normalize_context_rows(
+    rows: list[dict[str, Any]],
+    *,
+    snapshot: SourceSnapshot | None = None,
+    previous_rows: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    snapshot = snapshot or SourceSnapshot()
+    model_links = model_map_links_by_slug()
+    previous_first_seen = {
+        context_identity(row): str(row.get("first_seen_version") or row.get("source_version") or "")
+        for row in previous_rows or []
+    }
+    previous_aliases = {
+        context_identity(row): {
+            str(alias)
+            for alias in [row.get("id"), *(row.get("legacy_ids") or [])]
+            if alias
+        }
+        for row in previous_rows or []
+    }
     normalized = []
     seen: set[tuple[str, str, str, str]] = set()
     for row in rows:
-        key = (
-            str(row.get("context_id") or ""),
-            str(row.get("root_key") or ""),
-            str(row.get("nested_path") or ""),
-            str(row.get("source_symbol") or ""),
-        )
+        key = context_identity(row)
         if key in seen:
             continue
         seen.add(key)
+        metadata = CONTEXT_METADATA.get(str(row.get("context_id") or ""), {})
+        row["schema"] = LAVA_CONTEXT_SCHEMA
+        row["includes_context_ids"] = sorted(
+            set(row.get("includes_context_ids") or metadata.get("includes_context_ids") or [])
+        )
+        row["availability_condition"] = str(
+            row.get("availability_condition") or metadata.get("availability_condition") or "surface_selected"
+        )
+        row["coverage_status"] = str(row.get("coverage_status") or metadata.get("coverage_status") or "partial_curated")
+        row["execution_phase"] = str(row.get("execution_phase") or metadata.get("execution_phase") or "render")
+        row["may_be_null"] = bool(row.get("may_be_null", False))
+        row["required_setting"] = str(row.get("required_setting") or "")
+        if snapshot.source_commit and str(row.get("source_id") or "") == SOURCE_ID:
+            row["source_ref"] = snapshot.source_ref
+            row["source_commit"] = snapshot.source_commit
+            row["source_commit_date"] = snapshot.source_commit_date
+            row["source_version"] = snapshot.source_version
+            row["source_url"] = pinned_source_url(row, snapshot.source_commit)
+        else:
+            row.setdefault("source_commit", "")
+            row.setdefault("source_commit_date", "")
+            row.setdefault("source_version", "")
+        first_seen_version = previous_first_seen.get(key) or str(row.get("source_version") or "")
+        row["first_seen_version"] = first_seen_version
+        row["last_seen_version"] = str(row.get("source_version") or first_seen_version)
         model_slug = row.get("model_slug")
         row["model_map_links"] = model_links.get(str(model_slug), []) if model_slug else []
+        old_id = legacy_lava_context_id(row)
         row["id"] = lava_context_id(row)
+        row["legacy_ids"] = sorted(
+            (
+                set(row.get("legacy_ids") or [])
+                | previous_aliases.get(key, set())
+                | {old_id}
+            )
+            - {row["id"]}
+        )
         normalized.append(row)
     return sorted(
         normalized,
@@ -834,17 +1103,48 @@ def parse_common_merge_fields(source_key: str, text: str, context_id: str) -> li
                 availability="source-code-confirmed",
                 notes=notes,
                 needs_live_verification=root_key in {"Context", "PageParameter", "CurrentPerson", "CurrentVisitor", "Device", "Geolocation"},
+                availability_condition=common_root_condition(root_key),
+                may_be_null=root_key in {"CurrentPerson", "CurrentVisitor", "Device", "Geolocation"},
+                execution_phase="request",
+                coverage_status="complete_for_source_snapshot",
             )
         )
     return rows
 
 
+def common_root_condition(root_key: str) -> str:
+    return {
+        "CurrentPerson": "A person is authenticated or otherwise resolved for the current request.",
+        "CurrentVisitor": "A visitor person alias is available for the current request.",
+        "Device": "The request originated from a supported mobile/device context.",
+        "Geolocation": "The request includes resolvable geolocation data.",
+        "PageParameter": "The rendering surface has page or route parameters.",
+        "Context": "The rendering surface contributes context entities.",
+    }.get(root_key, "Common merge fields were requested for this rendering surface.")
+
+
 def parse_person_label_data(text: str) -> list[dict[str, Any]]:
+    return parse_label_data(
+        "person_label_data",
+        text,
+        "check-in-label-person-dynamic-text",
+        "Check-In Label Designer Person Dynamic Text",
+    )
+
+
+def parse_label_data(
+    source_key: str,
+    text: str,
+    context_id: str,
+    surface_name: str,
+) -> list[dict[str, Any]]:
     if not text:
         return []
-    source = SOURCE_FILES["person_label_data"]
+    source = SOURCE_FILES[source_key]
     rows = []
-    property_pattern = re.compile(r"public\s+([^;{}=]+?)\s+([A-Za-z][A-Za-z0-9_]*)\s*\{\s*get;\s*\}")
+    property_pattern = re.compile(
+        r"public\s+([^;{}=]+?)\s+([A-Za-z][A-Za-z0-9_]*)\s*(?:\{\s*get;\s*(?:set;\s*)?\}|=>)"
+    )
     for line_number, line in enumerate(text.splitlines(), start=1):
         match = property_pattern.search(line)
         if not match:
@@ -854,9 +1154,9 @@ def parse_person_label_data(text: str) -> list[dict[str, Any]]:
         root_type, model_slug, value_kind = classify_cs_type(raw_type)
         rows.append(
             context_row(
-                context_id="check-in-label-person-dynamic-text",
+                context_id=context_id,
                 context_family="check-in-label",
-                surface_name="Check-In Label Designer Person Dynamic Text",
+                surface_name=surface_name,
                 surface_type="label_dynamic_text",
                 concept_ids=CHECK_IN_CONCEPT_IDS,
                 root_key=root_key,
@@ -867,11 +1167,16 @@ def parse_person_label_data(text: str) -> list[dict[str, Any]]:
                 source_line_start=line_number,
                 source_line_end=line_number,
                 availability="source-code-confirmed",
-                notes="Person label data property exposed to Check-In label Dynamic Text Lava through the selected label data object.",
+                notes=f"{source.source_symbol} property exposed to Check-In label Dynamic Text through the selected label data object.",
                 needs_live_verification=False,
+                availability_condition=f"The label renderer selected the {source.source_symbol} data type.",
+                may_be_null=root_key in {"Attendance", "Family", "Location", "Person"},
+                execution_phase="label_render",
+                coverage_status="complete_for_source_snapshot",
             )
         )
-    rows.extend(parse_person_attendance_assignment_paths(text, source))
+    if source_key == "person_label_data":
+        rows.extend(parse_person_attendance_assignment_paths(text, source))
     return rows
 
 
@@ -907,6 +1212,9 @@ def parse_person_attendance_assignment_paths(text: str, source: SourceFile) -> l
                     availability="source-code-confirmed",
                     notes=f"Nested path used while deriving the `{match.group('label')}` label data property.",
                     needs_live_verification=False,
+                    availability_condition="The label renderer selected the PersonLabelData data type.",
+                    execution_phase="label_render",
+                    coverage_status="complete_for_source_snapshot",
                 )
             )
     return rows
@@ -1081,6 +1389,14 @@ def parse_curated_surface_contexts(source_texts: dict[str, str]) -> list[dict[st
                     availability=root.availability,
                     notes=root.notes or spec.notes,
                     needs_live_verification=root.needs_live_verification,
+                    includes_context_ids=list(spec.includes_context_ids),
+                    availability_condition=root.availability_condition
+                    if root.availability_condition != "always"
+                    else spec.availability_condition,
+                    may_be_null=root.may_be_null,
+                    required_setting=root.required_setting,
+                    execution_phase=root.execution_phase,
+                    coverage_status=spec.coverage_status,
                 )
             )
     return rows
@@ -1178,6 +1494,12 @@ def context_row(
     needs_live_verification: bool,
     nested_path: str = "",
     source_symbol: str | None = None,
+    includes_context_ids: list[str] | None = None,
+    availability_condition: str = "surface_selected",
+    may_be_null: bool = False,
+    required_setting: str = "",
+    execution_phase: str = "render",
+    coverage_status: str = "partial_curated",
 ) -> dict[str, Any]:
     return {
         "schema": LAVA_CONTEXT_SCHEMA,
@@ -1202,16 +1524,47 @@ def context_row(
         "model_map_links": [],
         "notes": notes,
         "needs_live_verification": needs_live_verification,
+        "includes_context_ids": includes_context_ids or [],
+        "availability_condition": availability_condition,
+        "may_be_null": may_be_null,
+        "required_setting": required_setting,
+        "execution_phase": execution_phase,
+        "coverage_status": coverage_status,
     }
 
 
-def source_url(source: SourceFile, start: int, end: int) -> str:
+def source_url(source: SourceFile, start: int, end: int, source_ref: str = SOURCE_REF) -> str:
     if start == end:
-        return f"{source.blob_url}#L{start}"
-    return f"{source.blob_url}#L{start}-L{end}"
+        return f"{source.blob_url(source_ref)}#L{start}"
+    return f"{source.blob_url(source_ref)}#L{start}-L{end}"
+
+
+def pinned_source_url(row: dict[str, Any], source_commit: str) -> str:
+    source_file = str(row.get("source_file") or "")
+    start = int(row.get("source_line_start") or 1)
+    end = int(row.get("source_line_end") or start)
+    source = SourceFile("row", source_file, str(row.get("source_symbol") or ""))
+    return source_url(source, start, end, source_commit)
+
+
+def context_identity(row: dict[str, Any]) -> tuple[str, str, str, str]:
+    return (
+        str(row.get("context_id") or ""),
+        str(row.get("root_key") or ""),
+        str(row.get("nested_path") or ""),
+        str(row.get("source_symbol") or ""),
+    )
 
 
 def lava_context_id(row: dict[str, Any]) -> str:
+    stable = "|".join(
+        str(row.get(key) or "")
+        for key in ["context_id", "root_key", "nested_path", "source_symbol"]
+    )
+    return f"lava_context:{row.get('context_id')}:{normalize_key(str(row.get('root_key') or 'root'))}:{sha256_text(stable)[:8]}"
+
+
+def legacy_lava_context_id(row: dict[str, Any]) -> str:
     stable = "|".join(
         str(row.get(key) or "")
         for key in ["context_id", "root_key", "nested_path", "source_symbol", "source_file", "source_line_start"]
@@ -1246,6 +1599,423 @@ def first_interesting_line(text: str, needle: str) -> int:
     return 1
 
 
+def validate_lava_context_extension(path: Path) -> dict[str, Any]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        manifest = LavaContextExtensionManifest.model_validate(payload)
+    except (OSError, json.JSONDecodeError, ValueError) as exc:
+        return {
+            "schema": "rock-kb-lava-context-extension-validation-v1",
+            "status": "invalid",
+            "path": path.name,
+            "errors": [str(exc)],
+        }
+    return {
+        "schema": "rock-kb-lava-context-extension-validation-v1",
+        "status": "valid",
+        "path": path.name,
+        "extension_id": manifest.extension_id,
+        "context_count": len(manifest.contexts),
+        "root_count": sum(len(context.roots) for context in manifest.contexts),
+    }
+
+
+def load_public_extension_rows(snapshot: SourceSnapshot | None = None) -> list[dict[str, Any]]:
+    del snapshot
+    rows: list[dict[str, Any]] = []
+    if not PUBLIC_EXTENSION_DIR.exists():
+        return rows
+    for path in sorted(PUBLIC_EXTENSION_DIR.glob("*/*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        manifest = LavaContextExtensionManifest.model_validate(payload)
+        source_id = f"community_lava_context:{manifest.org_id}"
+        for context in manifest.contexts:
+            for root in context.roots:
+                source_url = (
+                    f"{manifest.repository_url.rstrip('/')}/blob/{manifest.commit_sha}/{root.source_path}"
+                    f"#L{root.source_line_start}"
+                )
+                if root.source_line_end != root.source_line_start:
+                    source_url += f"-L{root.source_line_end}"
+                rows.append(
+                    {
+                        "schema": LAVA_CONTEXT_SCHEMA,
+                        "context_id": context.context_id,
+                        "context_family": context.context_family,
+                        "surface_name": context.surface_name,
+                        "surface_type": context.surface_type,
+                        "concept_ids": context.concept_ids,
+                        "root_key": root.root_key,
+                        "root_type": root.root_type,
+                        "model_slug": root.model_slug,
+                        "value_kind": root.value_kind,
+                        "nested_path": root.nested_path,
+                        "availability": "community-source-code-confirmed",
+                        "source_id": source_id,
+                        "source_url": source_url,
+                        "source_file": root.source_path,
+                        "source_symbol": root.source_symbol,
+                        "source_line_start": root.source_line_start,
+                        "source_line_end": root.source_line_end,
+                        "source_ref": manifest.commit_sha,
+                        "source_commit": manifest.commit_sha,
+                        "source_commit_date": "",
+                        "source_version": manifest.source_version,
+                        "model_map_links": [],
+                        "notes": root.notes,
+                        "needs_live_verification": root.needs_live_verification,
+                        "includes_context_ids": context.includes_context_ids,
+                        "availability_condition": root.availability_condition or context.availability_condition,
+                        "may_be_null": root.may_be_null,
+                        "required_setting": root.required_setting,
+                        "execution_phase": root.execution_phase,
+                        "coverage_status": context.coverage_status,
+                        "authority_tier": "community-reviewed",
+                        "claim_tier": "source_backed",
+                        "extension_id": manifest.extension_id,
+                        "license": manifest.license,
+                        "license_url": manifest.license_url,
+                    }
+                )
+    return rows
+
+
+DISCOVERY_ROOT_PATTERN = re.compile(
+    r"\b(?:mergeFields|mergeValues|itemMergeFields|introMessageMergeFields|feeCoverageMergeFields|amountSummaryMergeFields)"
+    r"(?:\.(?:Add|AddOrReplace|TryAdd)\(\s*|\[\s*)\"([A-Za-z][A-Za-z0-9_]*)\""
+)
+DISCOVERY_CONTEXT_PATTERN = re.compile(r"\b(?:GetMergeFields|ResolveMergeFields|ResolveMergeFieldsWithCurrentPerson)\b")
+METHOD_PATTERN = re.compile(
+    r"\b(?:public|private|protected|internal)\s+(?:static\s+)?(?:async\s+)?[\w<>,?.\[\]\s]+\s+([A-Za-z][A-Za-z0-9_]*)\s*\("
+)
+
+
+def discover_lava_context_candidates(
+    source_tree: Path,
+    output_path: Path = DISCOVERY_QUEUE_JSONL,
+    *,
+    source_commit: str = "",
+    source_version: str = "",
+) -> dict[str, Any]:
+    source_tree = source_tree.expanduser().resolve()
+    if not source_tree.is_dir():
+        raise ValueError("source_tree must be an existing Rock source checkout")
+    tracked_files = {source.source_file for source in SOURCE_FILES.values()}
+    candidates = []
+    for path in sorted(source_tree.rglob("*.cs")):
+        try:
+            relative = path.relative_to(source_tree).as_posix()
+            if path.stat().st_size > 2_000_000:
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        root_keys = sorted(set(DISCOVERY_ROOT_PATTERN.findall(text)))
+        has_context_method = bool(DISCOVERY_CONTEXT_PATTERN.search(text))
+        if not root_keys and not has_context_method:
+            continue
+        symbols = discovered_symbols(text)
+        identity = "|".join([relative, ",".join(root_keys), ",".join(symbols)])
+        candidates.append(
+            {
+                "schema": LAVA_CONTEXT_DISCOVERY_SCHEMA,
+                "candidate_id": f"lava_context_candidate:{sha256_text(identity)[:16]}",
+                "source_id": SOURCE_ID,
+                "source_file": relative,
+                "source_commit": source_commit,
+                "source_version": source_version,
+                "content_hash": sha256_text(text),
+                "context_family_hint": infer_context_family(relative),
+                "source_symbols": symbols,
+                "root_keys": root_keys,
+                "pattern_count": len(root_keys),
+                "already_tracked": relative in tracked_files,
+                "review_status": "tracked" if relative in tracked_files else "pending",
+                "notes": "Candidate only. Review the rendering call path and conditions before promotion.",
+            }
+        )
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    write_jsonl(output_path, candidates)
+    return {
+        "schema": "rock-kb-lava-context-discovery-result-v1",
+        "source_commit": source_commit,
+        "source_version": source_version,
+        "candidate_count": len(candidates),
+        "pending_count": sum(1 for row in candidates if row["review_status"] == "pending"),
+        "tracked_count": sum(1 for row in candidates if row["review_status"] == "tracked"),
+        "queue_path": output_path.relative_to(REPO_ROOT).as_posix()
+        if output_path.is_relative_to(REPO_ROOT)
+        else output_path.name,
+    }
+
+
+def discovered_symbols(text: str) -> list[str]:
+    symbols = []
+    current_symbol = ""
+    for line in text.splitlines():
+        match = METHOD_PATTERN.search(line)
+        if match:
+            current_symbol = match.group(1)
+        if (DISCOVERY_ROOT_PATTERN.search(line) or DISCOVERY_CONTEXT_PATTERN.search(line)) and current_symbol:
+            symbols.append(current_symbol)
+    return sorted(set(symbols))[:50]
+
+
+def infer_context_family(source_file: str) -> str:
+    lowered = source_file.lower()
+    hints = [
+        ("checkin", "check-in-label"),
+        ("communication", "communication"),
+        ("workflow", "workflow"),
+        ("prayer", "prayer"),
+        ("finance", "finance-lava"),
+        ("event", "event-lava"),
+        ("registration", "event-registration"),
+        ("group", "group-lava"),
+        ("mobile", "mobile-block"),
+        ("report", "reporting-lava"),
+        ("cms", "cms-block"),
+        ("lms", "lms-lava"),
+        ("connection", "connections-lava"),
+    ]
+    return next((family for token, family in hints if token in lowered), "other")
+
+
+def validate_private_lava_context_overlay(path: Path) -> dict[str, Any]:
+    errors = []
+    rows = list(read_jsonl(path))
+    for index, row in enumerate(rows, start=1):
+        label = f"row {index}"
+        if row.get("schema") != "rock-kb-private-lava-context-overlay-v1":
+            errors.append(f"{label}: invalid schema")
+        if row.get("access_scope") not in {"organization", "installation"}:
+            errors.append(f"{label}: access_scope must be organization or installation")
+        if not row.get("context_id") or not row.get("root_key"):
+            errors.append(f"{label}: context_id and root_key are required")
+        if row.get("publish") is not False:
+            errors.append(f"{label}: publish must be false")
+        if any(key in row for key in {"person_id", "entity_id", "query", "secret", "token"}):
+            errors.append(f"{label}: private identifiers, queries, and secrets are forbidden")
+    return {
+        "schema": "rock-kb-private-lava-context-overlay-validation-v1",
+        "status": "invalid" if errors else "valid",
+        "row_count": len(rows),
+        "errors": errors,
+        "public_export_eligible": False,
+    }
+
+
+def list_lava_context_surfaces(
+    rows: list[dict[str, Any]],
+    *,
+    context_family: str | None = None,
+    surface_type: str | None = None,
+) -> dict[str, Any]:
+    """Return one compact, exact-retrieval row per Lava rendering surface."""
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        context_id = str(row.get("context_id") or "")
+        if not context_id:
+            continue
+        if context_family and row.get("context_family") != context_family:
+            continue
+        if surface_type and row.get("surface_type") != surface_type:
+            continue
+        grouped.setdefault(context_id, []).append(row)
+
+    surfaces = []
+    for context_id, context_rows in grouped.items():
+        first = context_rows[0]
+        surfaces.append(
+            {
+                "context_id": context_id,
+                "context_family": first.get("context_family"),
+                "surface_name": first.get("surface_name"),
+                "surface_type": first.get("surface_type"),
+                "concept_ids": sorted(
+                    {
+                        str(concept_id)
+                        for row in context_rows
+                        for concept_id in row.get("concept_ids") or []
+                        if concept_id
+                    }
+                ),
+                "coverage_status": surface_coverage_status(context_rows),
+                "includes_context_ids": sorted(
+                    {
+                        str(included_id)
+                        for row in context_rows
+                        for included_id in row.get("includes_context_ids") or []
+                        if included_id
+                    }
+                ),
+                "direct_root_count": len(context_rows),
+                "root_keys": sorted({str(row.get("root_key") or "") for row in context_rows if row.get("root_key")}),
+                "source_version": first_nonempty(context_rows, "source_version"),
+                "source_commit": first_nonempty(context_rows, "source_commit"),
+                "needs_live_verification": any(row.get("needs_live_verification") for row in context_rows),
+            }
+        )
+    return {
+        "schema": "rock-kb-lava-context-surface-list-v1",
+        "count": len(surfaces),
+        "filters": {
+            "context_family": context_family,
+            "surface_type": surface_type,
+        },
+        "surfaces": sorted(surfaces, key=lambda row: (str(row["context_family"]), str(row["surface_name"]))),
+    }
+
+
+def get_lava_context_surface(
+    rows: list[dict[str, Any]],
+    context_id: str,
+    *,
+    root_key: str | None = None,
+) -> dict[str, Any]:
+    """Return one complete surface with explicitly inherited context rows."""
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        row_context_id = str(row.get("context_id") or "")
+        if row_context_id:
+            grouped.setdefault(row_context_id, []).append(row)
+
+    matched_id = next(
+        (
+            candidate
+            for candidate in grouped
+            if normalize_key(candidate) == normalize_key(context_id)
+        ),
+        None,
+    )
+    if not matched_id:
+        return {
+            "schema": "rock-kb-lava-context-surface-result-v1",
+            "status": "not_found",
+            "context_id": context_id,
+        }
+
+    direct_rows = grouped[matched_id]
+    included_ids = sorted(
+        {
+            str(included_id)
+            for row in direct_rows
+            for included_id in row.get("includes_context_ids") or []
+            if included_id
+        }
+    )
+    inherited_rows: list[dict[str, Any]] = []
+    missing_includes: list[str] = []
+    visited = {matched_id}
+
+    def collect_inherited(parent_id: str) -> None:
+        if parent_id in visited:
+            return
+        visited.add(parent_id)
+        parent_rows = grouped.get(parent_id)
+        if not parent_rows:
+            missing_includes.append(parent_id)
+            return
+        for row in parent_rows:
+            inherited_rows.append({**row, "defined_in_context_id": parent_id, "inherited": True})
+        for row in parent_rows:
+            for included_id in row.get("includes_context_ids") or []:
+                collect_inherited(str(included_id))
+
+    for included_id in included_ids:
+        collect_inherited(included_id)
+
+    combined_rows = [
+        {**row, "defined_in_context_id": matched_id, "inherited": False}
+        for row in direct_rows
+    ] + inherited_rows
+    if root_key:
+        normalized_root = normalize_key(root_key)
+        combined_rows = [
+            row
+            for row in combined_rows
+            if normalized_root
+            in {
+                normalize_key(str(row.get("root_key") or "")),
+                normalize_key(str(row.get("nested_path") or "")),
+            }
+        ]
+
+    first = direct_rows[0]
+    return {
+        "schema": "rock-kb-lava-context-surface-result-v1",
+        "status": "ok",
+        "query": {
+            "context_id": context_id,
+            "root_key": root_key,
+        },
+        "surface": {
+            "context_id": matched_id,
+            "context_family": first.get("context_family"),
+            "surface_name": first.get("surface_name"),
+            "surface_type": first.get("surface_type"),
+            "concept_ids": sorted(
+                {
+                    str(concept_id)
+                    for row in direct_rows
+                    for concept_id in row.get("concept_ids") or []
+                    if concept_id
+                }
+            ),
+            "coverage_status": surface_coverage_status(direct_rows),
+            "availability_conditions": sorted(
+                {
+                    str(row.get("availability_condition") or "")
+                    for row in direct_rows
+                    if row.get("availability_condition")
+                }
+            ),
+            "execution_phases": sorted(
+                {
+                    str(row.get("execution_phase") or "")
+                    for row in direct_rows
+                    if row.get("execution_phase")
+                }
+            ),
+            "includes_context_ids": included_ids,
+            "source_version": first_nonempty(direct_rows, "source_version"),
+            "source_commit": first_nonempty(direct_rows, "source_commit"),
+        },
+        "root_filter": root_key,
+        "root_count": len(combined_rows),
+        "direct_root_count": sum(1 for row in combined_rows if not row["inherited"]),
+        "inherited_root_count": sum(1 for row in combined_rows if row["inherited"]),
+        "roots": sorted(
+            combined_rows,
+            key=lambda row: (
+                bool(row.get("inherited")),
+                str(row.get("defined_in_context_id") or ""),
+                str(row.get("root_key") or ""),
+                str(row.get("nested_path") or ""),
+            ),
+        ),
+        "composition_warnings": [
+            f"Included context `{included_id}` is missing from this artifact."
+            for included_id in sorted(set(missing_includes))
+        ],
+    }
+
+
+def surface_coverage_status(rows: list[dict[str, Any]]) -> str:
+    statuses = {str(row.get("coverage_status") or "partial_curated") for row in rows}
+    priority = [
+        "dynamic",
+        "partial_curated",
+        "reviewed_curated",
+        "complete_for_source_snapshot",
+    ]
+    return next((status for status in priority if status in statuses), sorted(statuses)[0])
+
+
+def first_nonempty(rows: list[dict[str, Any]], field: str) -> str:
+    return next((str(row.get(field)) for row in rows if row.get(field)), "")
+
+
 def model_map_links_by_slug() -> dict[str, list[dict[str, Any]]]:
     links: dict[str, list[dict[str, Any]]] = {}
     for digest in read_jsonl(AGENT_DIR / "model-map-digests.jsonl"):
@@ -1265,7 +2035,11 @@ def model_map_links_by_slug() -> dict[str, list[dict[str, Any]]]:
     return links
 
 
-def lava_context_source_dependencies(source_texts: dict[str, str]) -> list[dict[str, Any]]:
+def lava_context_source_dependencies(
+    source_texts: dict[str, str],
+    snapshot: SourceSnapshot | None = None,
+) -> list[dict[str, Any]]:
+    snapshot = snapshot or SourceSnapshot()
     rows = []
     for key, text in sorted(source_texts.items()):
         source = SOURCE_FILES.get(key)
@@ -1274,9 +2048,12 @@ def lava_context_source_dependencies(source_texts: dict[str, str]) -> list[dict[
         rows.append(
             {
                 "source_id": SOURCE_ID,
-                "source_ref": SOURCE_REF,
+                "source_ref": snapshot.source_ref,
+                "source_commit": snapshot.source_commit,
+                "source_commit_date": snapshot.source_commit_date,
+                "source_version": snapshot.source_version,
                 "source_file": source.source_file,
-                "source_url": source.blob_url,
+                "source_url": source.blob_url(snapshot.pinned_ref),
                 "content_hash": sha256_text(text),
             }
         )
@@ -1291,13 +2068,17 @@ def write_lava_context_artifacts(rows: list[dict[str, Any]], source_dependencies
     CONTEXT_INDEX.write_text(render_lava_context_directory(rows, source_dependencies), encoding="utf-8")
     summary = lava_context_summary(rows, source_dependencies)
     AGENT_CONTEXT_SUMMARY_JSON.write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    source_metadata = source_dependencies[0] if source_dependencies else {}
     CONTEXT_DEPENDENCY_JSON.write_text(
         json.dumps(
             {
                 "schema": LAVA_CONTEXT_DEPENDENCIES_SCHEMA,
                 "generated_at": generated_at_iso(),
                 "source_id": SOURCE_ID,
-                "source_ref": SOURCE_REF,
+                "source_ref": source_metadata.get("source_ref") or SOURCE_REF,
+                "source_commit": source_metadata.get("source_commit") or "",
+                "source_commit_date": source_metadata.get("source_commit_date") or "",
+                "source_version": source_metadata.get("source_version") or "",
                 "source_dependencies": source_dependencies,
                 "context_count": len(rows),
                 "context_families": dict(sorted(Counter(row["context_family"] for row in rows).items())),
@@ -1318,18 +2099,25 @@ def write_lava_context_artifacts(rows: list[dict[str, Any]], source_dependencies
 
 
 def lava_context_summary(rows: list[dict[str, Any]], source_dependencies: list[dict[str, Any]]) -> dict[str, Any]:
+    source_metadata = source_dependencies[0] if source_dependencies else {}
     return {
         "schema": LAVA_CONTEXT_SUMMARY_SCHEMA,
         "generated_at": generated_at_iso(),
         "source_id": SOURCE_ID,
-        "source_ref": SOURCE_REF,
+        "source_ref": source_metadata.get("source_ref") or SOURCE_REF,
+        "source_commit": source_metadata.get("source_commit") or "",
+        "source_commit_date": source_metadata.get("source_commit_date") or "",
+        "source_version": source_metadata.get("source_version") or "",
         "source_file_count": len(source_dependencies),
         "context_count": len(rows),
+        "surface_count": len({row.get("context_id") for row in rows}),
         "context_families": dict(sorted(Counter(row["context_family"] for row in rows).items())),
         "surface_types": dict(sorted(Counter(row["surface_type"] for row in rows).items())),
         "availability": dict(sorted(Counter(row["availability"] for row in rows).items())),
+        "coverage_status": dict(sorted(Counter(row["coverage_status"] for row in rows).items())),
         "needs_live_verification_count": sum(1 for row in rows if row.get("needs_live_verification")),
         "model_link_count": sum(1 for row in rows if row.get("model_map_links")),
+        "extension_context_count": sum(1 for row in rows if row.get("source_id") != SOURCE_ID),
         "paths": {
             "contexts": relative_path(CONTEXT_JSONL),
             "directory": relative_path(CONTEXT_INDEX),
@@ -1357,12 +2145,15 @@ def render_lava_context_directory(rows: list[dict[str, Any]], source_dependencie
         "## Coverage",
         "",
         f"- Lava context rows: `{len(rows)}`",
+        f"- Context surfaces: `{len({row.get('context_id') for row in rows})}`",
         f"- Public source files: `{len(source_dependencies)}`",
+        f"- Pinned source commit: `{(source_dependencies[0].get('source_commit') if source_dependencies else '') or 'unavailable'}`",
+        f"- Observed Rock source version: `{(source_dependencies[0].get('source_version') if source_dependencies else '') or 'unavailable'}`",
         "- Machine-readable rows: `lava-contexts.jsonl` and `../../../agent/lava-contexts.jsonl`",
     ]
     for family, count in sorted(family_counts.items()):
         lines.append(f"- `{family}`: {count}")
-    lines.extend(["", "## Context Rows", "", "| Family | Surface | Root Key | Nested Path | Type | Model Map | Verification | Source |", "| --- | --- | --- | --- | --- | --- | --- | --- |"])
+    lines.extend(["", "## Context Rows", "", "| Family | Surface | Root Key | Nested Path | Type | Coverage | Model Map | Verification | Source |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"])
     for row in rows:
         model_links = row.get("model_map_links") or []
         if model_links:
@@ -1377,6 +2168,7 @@ def render_lava_context_directory(rows: list[dict[str, Any]], source_dependencie
             f"| `{escape_cell(row.get('root_key'))}` "
             f"| {escape_cell(row.get('nested_path') or '')} "
             f"| {escape_cell(row.get('root_type'))} "
+            f"| `{escape_cell(row.get('coverage_status'))}` "
             f"| {model_text} "
             f"| {verification} "
             f"| [source]({row['source_url']}) |"
