@@ -2,7 +2,7 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-07-20T05:21:43+00:00
+last_built: 2026-07-26T00:28:24+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

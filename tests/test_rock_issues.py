@@ -749,10 +749,24 @@ def test_reviewed_enrichment_is_projected_into_one_canonical_issue(monkeypatch, 
 
 def test_public_safe_18_2_4_issue_watch_regression_does_not_invent_critical_risk():
     enrichments = rock_issues.issue_enrichments_by_id()
-    rows = [
-        attach_issue_enrichments(row, enrichments)
-        for row in read_jsonl(rock_issues.ROCK_ISSUE_PATH)
-    ]
+    target_ids = {
+        "rock_issue:SparkDevNetwork/Rock#6905",
+        "rock_issue:SparkDevNetwork/Rock#6912",
+        "rock_issue:SparkDevNetwork/Rock#6916",
+    }
+    rows = []
+    for row in read_jsonl(rock_issues.ROCK_ISSUE_PATH):
+        issue_id = row["issue_id"]
+        if issue_id not in target_ids:
+            continue
+        reviewed_snapshot = {
+            **row,
+            "state": "open",
+            "updated_at": enrichments[issue_id][0]["issue_updated_at"],
+        }
+        rows.append(attach_issue_enrichments(reviewed_snapshot, enrichments))
+    assert {row["issue_id"] for row in rows} == target_ids
+
     profile = {
         "core_version": "18.2.4",
         "platforms": ["web"],

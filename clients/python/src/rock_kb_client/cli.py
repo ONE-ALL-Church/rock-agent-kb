@@ -67,6 +67,45 @@ def package_version() -> str:
 USER_AGENT = f"rock-kb-client/{package_version()} (+https://github.com/ONE-ALL-Church/rock-agent-kb)"
 
 
+def telemetry_status_with_agent_configuration(base_url: str) -> dict:
+    payload = telemetry_status()
+    home = Path.home().expanduser().resolve()
+    report = skill_status(
+        base_url=base_url,
+        agents=[],
+        scope="user",
+        home=home,
+        project_dir=Path.cwd().resolve(),
+    )
+    configurations = [
+        {
+            "agent": str(agent.get("agent") or ""),
+            "config_status": str(agent.get("config_status") or "unknown"),
+        }
+        for agent in report.get("agents") or []
+    ]
+    statuses = {configuration["config_status"] for configuration in configurations}
+    update_required = bool(configurations and statuses != {"current"})
+    if not configurations:
+        configuration_status = "not_managed"
+        next_step = "No managed user-level agent configuration was found. CLI telemetry is active; run rock-kb install-agent when configuring an MCP host."
+    elif update_required:
+        configuration_status = "update_required"
+        next_step = "Re-run rock-kb install-agent, then restart the agent host so MCP uses the current private headers."
+    else:
+        configuration_status = "current"
+        next_step = "MCP configuration is current. Restart the agent host only if it was running when the configuration last changed."
+    payload.update(
+        {
+            "mcp_configuration_status": configuration_status,
+            "mcp_configuration_update_required": update_required,
+            "managed_agent_configurations": configurations,
+            "next": next_step,
+        }
+    )
+    return payload
+
+
 def main(argv: list[str] | None = None) -> int:
     global REQUEST_COHORT, REQUEST_INSTALLATION_ID
     parser = argparse.ArgumentParser(prog="rock-kb")
@@ -284,7 +323,7 @@ def main(argv: list[str] | None = None) -> int:
             return print_json(enable_telemetry(args.cohort, consent_attested=bool(args.consent_attested)))
         if args.telemetry_command == "disable":
             return print_json(disable_telemetry())
-        return print_json(telemetry_status())
+        return print_json(telemetry_status_with_agent_configuration(base_url))
     if args.command in PASSIVE_SKILL_CHECK_COMMANDS:
         for notice in passive_skill_checks(
             base_url=base_url,
