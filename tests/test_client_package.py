@@ -1201,6 +1201,59 @@ def test_client_telemetry_opt_in_is_private_and_mcp_config_uses_anonymous_marker
     assert not state_path.exists()
 
 
+def test_client_telemetry_status_detects_current_managed_mcp_configuration(monkeypatch, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(
+        cli,
+        "skill_status",
+        lambda **_kwargs: {
+            "agents": [
+                {
+                    "agent": "codex",
+                    "config_status": "current",
+                }
+            ]
+        },
+    )
+
+    assert cli.main(["telemetry", "enable", "--cohort", "maintainer", "--consent-attested"]) == 0
+    capsys.readouterr()
+    assert cli.main(["telemetry", "status"]) == 0
+    status = json.loads(capsys.readouterr().out)
+
+    assert status["enabled"] is True
+    assert status["mcp_configuration_status"] == "current"
+    assert status["mcp_configuration_update_required"] is False
+    assert status["managed_agent_configurations"] == [
+        {
+            "agent": "codex",
+            "config_status": "current",
+        }
+    ]
+
+
+def test_client_telemetry_status_detects_stale_managed_mcp_configuration(monkeypatch, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(
+        cli,
+        "skill_status",
+        lambda **_kwargs: {
+            "agents": [
+                {
+                    "agent": "codex",
+                    "config_status": "update_available",
+                }
+            ]
+        },
+    )
+
+    assert cli.main(["telemetry", "status"]) == 0
+    status = json.loads(capsys.readouterr().out)
+
+    assert status["mcp_configuration_status"] == "update_required"
+    assert status["mcp_configuration_update_required"] is True
+
+
 def test_client_outcome_posts_only_fixed_structured_fields(monkeypatch, capsys):
     cli = load_client_cli()
     captured = {}

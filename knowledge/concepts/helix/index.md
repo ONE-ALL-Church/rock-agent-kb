@@ -2,7 +2,7 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-07-20T05:22:05+00:00
+last_built: 2026-07-26T00:28:42+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

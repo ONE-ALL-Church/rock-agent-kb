@@ -143,7 +143,7 @@ SOURCE_FILES: dict[str, SourceFile] = {
     "disc": SourceFile("disc", "Rock.Blocks/Crm/Disc.cs", "Disc"),
     "fundraising_opportunity_view": SourceFile(
         "fundraising_opportunity_view",
-        "RockWeb/Blocks/Fundraising/FundraisingOpportunityView.ascx.cs",
+        "Rock.Blocks/Fundraising/FundraisingOpportunityView.cs",
         "FundraisingOpportunityView",
     ),
     "transaction_entry_v2": SourceFile(
@@ -608,7 +608,7 @@ CURATED_CONTEXT_SPECS: tuple[CuratedContextSpec, ...] = (
         surface_name="Fundraising Opportunity View Lava template",
         surface_type="fundraising_opportunity_lava_template",
         concept_ids=tuple(FINANCE_CONCEPT_IDS + EVENT_CONCEPT_IDS[1:]),
-        source_symbol="FundraisingOpportunityView.ShowView",
+        source_symbol="FundraisingOpportunityView.GetFundraisingOpportunityBox",
         notes="Fundraising Opportunity View exposes group, registration, progress, and content-channel roots.",
         roots=(
             simple_context_root("Block", "BlockCache", "object", needs_live_verification=True),

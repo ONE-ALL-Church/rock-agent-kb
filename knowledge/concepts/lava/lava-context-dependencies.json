@@ -15,7 +15,7 @@
     "utility-lava": 4,
     "workflow": 10
   },
-  "generated_at": "2026-07-21T23:41:34+00:00",
+  "generated_at": "2026-07-26T00:31:55+00:00",
   "resource_paths": {
     "agent_contexts": "agent/lava-contexts.jsonl",
     "agent_summary": "agent/lava-context-summary.json",
@@ -46,14 +46,14 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Crm/ConflictProfile.cs"
     },
     {
-      "content_hash": "5a326b7fdcab199769acdb10754eea79c462bc59a3759e5d078011eaa0d734b7",
+      "content_hash": "993a89f72eb0b65c13030b8ef0e2c7e43dde8102135ae032c3579e2f9913ab88",
       "source_file": "Rock.Blocks/Cms/ContentChannelItemView.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/ContentChannelItemView.cs"
     },
     {
-      "content_hash": "e6046d89b7e73125719edaf00e8e69d449e724115c1e2f2add54b4937cec24a7",
+      "content_hash": "a6995ce71d361b64add80cd44d7d2ae37e51feab2f80f1e8b86ed4868b3909b9",
       "source_file": "Rock.Blocks/Cms/ContentChannelView.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
@@ -74,7 +74,7 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/EventItemOccurrenceLava.ascx.cs"
     },
     {
-      "content_hash": "fd6657a4062407414fd5c646e6eebcb4a7491fd3297e86c33955ab1fbf66bae2",
+      "content_hash": "a0f6845f2c0b263c98463d028b8b89ed67661a39245d5ec34e80cbc3a7e78328",
       "source_file": "Rock/CheckIn/v2/Labels/FieldSourceHelper.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
@@ -88,11 +88,11 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/FollowingByEntityLava.cs"
     },
     {
-      "content_hash": "cb6702bfdb70a8e10f51ac8f88100382d56fb3b24c343c1800d38547a267c0c4",
-      "source_file": "RockWeb/Blocks/Fundraising/FundraisingOpportunityView.ascx.cs",
+      "content_hash": "70f00ace1f11831f40b14b87f0837a2e79f22e623175fbadc905a5814493856a",
+      "source_file": "Rock.Blocks/Fundraising/FundraisingOpportunityView.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
-      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Fundraising/FundraisingOpportunityView.ascx.cs"
+      "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Fundraising/FundraisingOpportunityView.cs"
     },
     {
       "content_hash": "723a64e14e01d47d4aa27e7d706a05612af18723392658129b625387c6d8cbb6",
@@ -109,7 +109,7 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Groups/GroupDetailLava.ascx.cs"
     },
     {
-      "content_hash": "4f420fcd02fd89a54d4a34a70e724e6d24d0af99db23b5ffff299d41bf719c24",
+      "content_hash": "e31cee40ddbf53932286376cc43a1f024e565a97f4519b0a06e5355a6603ab1d",
       "source_file": "RockWeb/Blocks/Groups/GroupFinder.ascx.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
@@ -137,21 +137,21 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Cms/Content.cs"
     },
     {
-      "content_hash": "2a3186c156d35c448744370d97c5c7a3c71928232ee2f5f55010cdb7e3b2b90e",
+      "content_hash": "57ae6dd45d74838c354b1c91b11f3a17dbfc0c564c8d17e020d33ab2e04e0c81",
       "source_file": "Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Communication/CommunicationView.cs"
     },
     {
-      "content_hash": "2424288eb7d7aef0da5b7cdb87f0cd6876f11da8ed7b6e8b487cdd471a2899e0",
+      "content_hash": "917c8a41ba0fc1133c66512b5533ecb947fc1315b49e2b3920d652fa0cd8cc2e",
       "source_file": "Rock/Blocks/Types/Mobile/Groups/GroupView.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Groups/GroupView.cs"
     },
     {
-      "content_hash": "c0a0a0c3d8f5bfa8e833dd1ca8662ba099fe08427d7cf1aeb7a2de261634c2b7",
+      "content_hash": "cd6ac15c545a659de1683c18c7d392af3ec20bcc8aee2bb4c50adce8046344e8",
       "source_file": "Rock/Blocks/Types/Mobile/Prayer/PrayerSession.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
@@ -172,7 +172,7 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/PersonLabelData.cs"
     },
     {
-      "content_hash": "626a318cb47cb4f9619d09b9d695861fdb520bda4b9ee9438bc35b84302580dd",
+      "content_hash": "675a75cdb69dc300280704fe4bab2d6000818414c767ac7b759f2022de77377e",
       "source_file": "Rock.Blocks/Utility/RealTimeVisualizer.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
@@ -207,14 +207,14 @@
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Finance/TransactionEntryV2.ascx.cs"
     },
     {
-      "content_hash": "bd21f8726d1259a0bad407fc1414173b6e4e77ff30c089baad20596b47a702c0",
+      "content_hash": "874f80e6903bada750d5e3453c4fb70e5172db5fe2ca31ddfaa733946c9b1f6c",
       "source_file": "Rock/Workflow/ActionComponent.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",
       "source_url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/ActionComponent.cs"
     },
     {
-      "content_hash": "d980ccafa7f8f5b80bbf813c02f4f1ba3358978d62f7a5f5d19362fffa1ad48a",
+      "content_hash": "65e66ccfa6b276544aeff55af920c02bbaf920f40ccfbcabe194846f5f4c4ae0",
       "source_file": "Rock.Blocks/WorkFlow/WorkflowEntry.cs",
       "source_id": "sparkdevnetwork_rock",
       "source_ref": "develop",

@@ -171,6 +171,14 @@ mergeFields.Add( "TransactionAccountDetails", commentTransactionAccountDetails )
     assert ("finance-lava", "transaction-entry-payment-comment-template", "TransactionAccountDetails") in keys
     assert next(row for row in rows if row["root_key"] == "Request")["model_slug"] == "prayer-request"
     assert next(row for row in rows if row["root_key"] == "PaymentDetail")["model_slug"] == "financial-payment-detail"
+    fundraising_rows = [row for row in rows if row["context_id"] == "fundraising-opportunity-template"]
+    assert fundraising_rows
+    assert {row["source_file"] for row in fundraising_rows} == {
+        "Rock.Blocks/Fundraising/FundraisingOpportunityView.cs"
+    }
+    assert {row["source_symbol"] for row in fundraising_rows} == {
+        "FundraisingOpportunityView.GetFundraisingOpportunityBox"
+    }
 
 
 def test_lava_context_rows_have_stable_required_fields(monkeypatch):

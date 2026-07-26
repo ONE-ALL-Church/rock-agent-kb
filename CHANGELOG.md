@@ -6,6 +6,18 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.16.1] - 2026-07-25
+
+### Fixed
+
+- Telemetry status now inspects managed user-level agent configurations and
+  reports an MCP update only when their private headers are actually stale.
+- The Rock 18.2.4 issue-watch regression now evaluates deterministic reviewed
+  issue snapshots instead of assuming a live GitHub issue remains open.
+- Lava context generation now follows the public Obsidian
+  `FundraisingOpportunityView` source after its legacy WebForms file was
+  removed upstream.
+
 ## [0.16.0] - 2026-07-21
 
 ### Added
