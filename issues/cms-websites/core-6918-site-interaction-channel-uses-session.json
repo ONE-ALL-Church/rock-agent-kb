@@ -2,23 +2,25 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6918-site-interaction-channel-uses-session-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6918",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Site Detail source creates a website InteractionChannel and sets its medium, entity, name, retention, and component type, but never sets UsesSession. Because UsesSession is a non-nullable Boolean model property, a new channel retains the false default. This confirms the creation-path behavior on the reviewed source revision; the upstream issue does not yet record a fix or safe supported post-creation configuration path.",
-  "workaround_summaries": [],
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "The Obsidian and WebForms Site Detail creation paths created a website InteractionChannel without setting UsesSession, so the non-nullable Boolean retained its false default. Commit d479c05 explicitly sets UsesSession to true in both creation paths. The change affects newly created channels and does not include a migration for existing website interaction channels. The issue is labeled Fixed in v19.4; verify exact package inclusion because a release-line label is not an exact build attestation.",
+  "workaround_summaries": [
+    "Use a Rock build proven to contain commit d479c05fef99cc57121bd5786ca00f36c7a0b7de before creating new websites. Upgrading does not migrate existing channels, so inspect channels created on earlier builds separately. No source-reviewed supported bulk-repair path was identified; do not apply direct database updates as a substitute for a reviewed Rock administration path."
+  ],
   "verification_playbook": {
-    "goal": "Determine whether a website interaction channel created by Site Detail has Uses Session disabled.",
+    "goal": "Determine whether the installed creation path contains the fix and whether an existing website interaction channel still has Uses Session disabled.",
     "prerequisites": [
       "Know which site and website interaction channel are paired.",
       "Have read-only access to interaction-channel configuration."
     ],
     "steps": [
       {
-        "step_id": "check-site-detail-source",
-        "title": "Check the installed creation path",
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
         "method": "source_revision_check",
-        "instructions": "Verify whether the installed Site Detail source still creates a website InteractionChannel without assigning UsesSession.",
-        "expected_if_affected": "The creation path omits UsesSession and leaves the non-nullable Boolean at its false default.",
-        "expected_if_unaffected": "The installed path explicitly assigns the intended session setting or a later migration corrects existing channels.",
+        "instructions": "Confirm whether the installed package contains commit d479c05fef99cc57121bd5786ca00f36c7a0b7de, which sets UsesSession to true in both Site Detail creation paths.",
+        "expected_if_affected": "The installed build predates the creation-path fix or has not been independently verified to contain an equivalent change.",
+        "expected_if_unaffected": "The installed build contains the fixing commit or an independently verified equivalent implementation for newly created channels.",
         "evidence_to_record": ["Rock version", "package or commit identifier"],
         "mutation_risk": "none"
       },
@@ -28,14 +30,15 @@
         "method": "configuration_check",
         "instructions": "View the website Interaction Channel without saving and record only whether Uses Session is enabled. Do not record channel IDs, site domains, visitor data, or interaction records.",
         "expected_if_affected": "The paired website channel exists and Uses Session is disabled.",
-        "expected_if_unaffected": "Uses Session is enabled, or the site does not use a website interaction channel created by this path.",
+        "expected_if_unaffected": "Uses Session is enabled, or the site does not use a website interaction channel created by this path. A fixed build alone does not establish this for pre-upgrade channels.",
         "evidence_to_record": ["website channel present yes or no", "Uses Session enabled yes or no"],
         "requires_privileged_access": true,
         "mutation_risk": "none"
       }
     ],
     "limitations": [
-      "A disabled setting confirms local exposure to the reported configuration, but it does not by itself quantify analytics impact or establish a supported remediation path."
+      "A disabled setting confirms local exposure to the reported configuration, but it does not by itself quantify analytics impact or establish a supported remediation path.",
+      "The fixing commit changes creation behavior only; it does not migrate channels created before the fix."
     ],
     "production_safe": true
   },
@@ -50,22 +53,77 @@
       "versions": ["6e305568763043b3fb85c85142ce85b1ec566414"],
       "ranges": [],
       "status": "affected",
-      "fix_refs": [],
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6918",
         "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Cms/SiteDetail.cs#L780-L800",
-        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Core/InteractionChannel/InteractionChannel.cs#L254-L266"
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/RockWeb/Blocks/Cms/SiteDetail.ascx.cs#L565-L585",
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Core/InteractionChannel/InteractionChannel.cs#L254-L266",
+        "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de"
       ],
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
       "confidence": "high",
-      "assessed_at": "2026-07-16T00:00:06Z"
+      "assessed_at": "2026-07-26T02:35:28Z"
+    },
+    {
+      "assertion_id": "core-6918-fixed-by-commit-d479c05",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact Site Detail source revision for newly created website interaction channels; existing rows are not migrated"
+      },
+      "versions": ["d479c05fef99cc57121bd5786ca00f36c7a0b7de"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6918",
+        "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de",
+        "https://github.com/SparkDevNetwork/Rock/blob/d479c05fef99cc57121bd5786ca00f36c7a0b7de/Rock.Blocks/Cms/SiteDetail.cs#L775-L796",
+        "https://github.com/SparkDevNetwork/Rock/blob/d479c05fef99cc57121bd5786ca00f36c7a0b7de/RockWeb/Blocks/Cms/SiteDetail.ascx.cs#L565-L585"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
+    },
+    {
+      "assertion_id": "core-6918-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official fix release line for newly created channels; verify the exact installed package and inspect existing channels separately"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6918",
+        "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6918",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Cms/SiteDetail.cs#L780-L800",
-    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Core/InteractionChannel/InteractionChannel.cs#L254-L266"
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/RockWeb/Blocks/Cms/SiteDetail.ascx.cs#L565-L585",
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/Core/InteractionChannel/InteractionChannel.cs#L254-L266",
+    "https://github.com/SparkDevNetwork/Rock/commit/d479c05fef99cc57121bd5786ca00f36c7a0b7de",
+    "https://github.com/SparkDevNetwork/Rock/blob/d479c05fef99cc57121bd5786ca00f36c7a0b7de/Rock.Blocks/Cms/SiteDetail.cs#L775-L796",
+    "https://github.com/SparkDevNetwork/Rock/blob/d479c05fef99cc57121bd5786ca00f36c7a0b7de/RockWeb/Blocks/Cms/SiteDetail.ascx.cs#L565-L585"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
@@ -73,8 +131,8 @@
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-14T15:17:44Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "issue_updated_at": "2026-07-23T21:08:08Z",
+  "reviewed_at": "2026-07-26T02:35:28Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

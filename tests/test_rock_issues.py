@@ -790,6 +790,50 @@ def test_public_safe_18_2_4_issue_watch_regression_does_not_invent_critical_risk
     assert all(row["assessment_scope"] == "open" for row in assessment["results"])
 
 
+def test_revalidated_issue_enrichments_preserve_upstream_evidence_strength():
+    enrichments = rock_issues.issue_enrichments_by_id()
+    confirmed_fixes = {
+        "rock_issue:SparkDevNetwork/Rock#6912": (
+            "c45c361a5b4e487355da20e21b582e135e1b6465",
+            "core-6912-fixed-19.4",
+        ),
+        "rock_issue:SparkDevNetwork/Rock#6918": (
+            "d479c05fef99cc57121bd5786ca00f36c7a0b7de",
+            "core-6918-fixed-19.4",
+        ),
+        "rock_issue:SparkDevNetwork/Rock#6922": (
+            "2065cc91efd198f4d5f22f4d523a569c5600a6a7",
+            "core-6922-fixed-19.4",
+        ),
+    }
+
+    for issue_id, (fix_commit, release_assertion_id) in confirmed_fixes.items():
+        enrichment = enrichments[issue_id][0]
+        assertions = {row["assertion_id"]: row for row in enrichment["applicability"]}
+
+        assert enrichment["diagnosis_status"] == "maintainer_confirmed"
+        assert enrichment["confidence"] == "high"
+        assert any(
+            row["version_scheme"] == "git"
+            and row["status"] == "fixed"
+            and row["versions"] == [fix_commit]
+            for row in assertions.values()
+        )
+        assert assertions[release_assertion_id]["status"] == "fixed"
+        assert assertions[release_assertion_id]["versions"] == ["19.4"]
+
+    unresolved = enrichments["rock_issue:SparkDevNetwork/Rock#6916"][0]
+    assert unresolved["diagnosis_status"] == "source_supported"
+    assert unresolved["confidence"] == "medium"
+    assert {row["status"] for row in unresolved["applicability"]} == {"under_investigation"}
+    assert all(not row["fix_refs"] for row in unresolved["applicability"])
+    assert "could not reproduce" in unresolved["diagnosis_summary"]
+    assert (
+        "https://github.com/SparkDevNetwork/Rock/issues/6916#issuecomment-5071666836"
+        in unresolved["source_refs"]
+    )
+
+
 def test_hypothesis_enrichment_cannot_be_promoted_as_source_backed(monkeypatch, tmp_path):
     raw, timeline = core_issue()
     issue = normalize_issue("SparkDevNetwork/Rock", raw, timeline=timeline)

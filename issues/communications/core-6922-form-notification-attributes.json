@@ -2,25 +2,25 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6922-form-notification-attributes-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6922",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "The stock Form Submission Result communication created by the public migration assigns its list from Action.FormAttributes. Current Form Builder notification source supplies Action, Activity, and Workflow merge roots, and WorkflowAction.FormAttributes remains Lava-visible and formats the attributes declared on that action's workflow form. This confirms the intended merge contract but does not explain why the reported Rock 19.2 template produced an empty list. Iterating Workflow.AttributeValues can bypass the symptom, but that collection is broader than the form-only list and can expose internal or non-form workflow attributes unless the template explicitly limits what it renders.",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock maintainers confirmed that the Rock 19.2 WebForms Workflow Entry path hydrated the workflow before sending the final form notification, which cleared the Action and Activity objects needed by Action.FormAttributes. Commit 2065cc9 preserves those completed objects across hydration and restores them before rendering the notification and confirmation. Maintainers did not reproduce the defect in the Obsidian workflow entry path, and no stock communication-template change is required. The issue is labeled Fixed in v19.4; verify exact package inclusion because a release-line label is not an exact build attestation.",
   "workaround_summaries": [
-    "On an affected installation, clone the stock communication before changing it. Prefer an explicit allowlist of approved workflow attribute keys. If Workflow.AttributeValues is used, do not render the full collection without review; verify in isolated staging that hidden, internal, sensitive, and non-form values are excluded before using the template with real submissions."
+    "Use a Rock build proven to contain commit 2065cc91efd198f4d5f22f4d523a569c5600a6a7. If an interim template workaround is unavoidable, clone the stock communication and use an explicit allowlist of approved workflow attribute keys; never render the full Workflow.AttributeValues collection without review because it is broader than the submitted form."
   ],
   "verification_playbook": {
-    "goal": "Determine whether the instance has the reported Form Builder notification preconditions without submitting a form or sending an email.",
+    "goal": "Determine whether the instance uses the affected WebForms notification path and lacks the completed-object hydration fix, without submitting a form or sending an email.",
     "prerequisites": [
       "Know the exact installed Rock version.",
       "Have read-only access to the selected Form Builder notification communication."
     ],
     "steps": [
       {
-        "step_id": "check-release-scope",
-        "title": "Check the installed release",
-        "method": "version_check",
-        "instructions": "Record whether the instance runs Rock 19.2 or another build whose Form Builder notification path has not been independently verified.",
-        "expected_if_affected": "The instance runs the reported 19.2 release and uses Form Builder notification emails.",
-        "expected_if_unaffected": "The instance does not use this notification path, or its exact build and template have been independently verified; version alone cannot prove the absence of the defect.",
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry and entry path",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit 2065cc91efd198f4d5f22f4d523a569c5600a6a7 and whether the form uses the affected WebForms Workflow Entry path rather than the Obsidian path.",
+        "expected_if_affected": "The instance uses the WebForms path on Rock 19.2 or another build that lacks the completed-object hydration fix.",
+        "expected_if_unaffected": "The installed build contains the fixing commit or an independently verified equivalent, or the workflow uses the Obsidian path where maintainers did not reproduce the defect.",
         "evidence_to_record": [
           "Rock version"
         ],
@@ -33,8 +33,8 @@
         "method": "read_only_sql",
         "instructions": "Return only the two Boolean indicators. Do not return the communication body or any submitted workflow values.",
         "probe": "SELECT TOP (1) CASE WHEN [Body] LIKE '%Action.FormAttributes%' THEN 1 ELSE 0 END AS UsesActionFormAttributes, CASE WHEN [Body] LIKE '%Workflow.AttributeValues%' THEN 1 ELSE 0 END AS UsesWorkflowAttributeValues FROM [SystemCommunication] WHERE [Guid] = 'D5414D4F-538E-4578-8330-D6CA8FD5F664'",
-        "expected_if_affected": "UsesActionFormAttributes is 1 on the reported release, establishing the reported stock-template precondition but not proving that a particular notification renders empty.",
-        "expected_if_unaffected": "The stock communication is absent or customized. That changes applicability and requires reviewing the actual selected template rather than assuming the issue is absent.",
+        "expected_if_affected": "UsesActionFormAttributes is 1 while the affected WebForms source is installed, establishing the template and source preconditions without rendering submitted values.",
+        "expected_if_unaffected": "The stock communication is absent or customized. That changes applicability and requires reviewing the selected template; it does not establish that the source defect is absent.",
         "evidence_to_record": [
           "uses Action.FormAttributes yes or no",
           "uses Workflow.AttributeValues yes or no"
@@ -59,51 +59,106 @@
     ],
     "limitations": [
       "A definitive render test requires a form submission and email delivery, so it must use isolated staging and non-real recipients rather than this production-safe playbook.",
-      "Template inspection cannot prove whether a specific workflow action resolves FormAttributes at runtime."
+      "Template inspection cannot prove whether a specific workflow action resolves FormAttributes at runtime.",
+      "Maintainers reproduced this in WebForms only; do not generalize the affected assertion to Obsidian Workflow Entry."
     ],
     "production_safe": true
   },
   "applicability": [
     {
-      "assertion_id": "core-6922-under-investigation-19.2",
+      "assertion_id": "core-6922-affected-19.2",
       "component": "rock_core",
       "version_scheme": "rock_release",
       "release_track": "19.2",
       "context": {
-        "scope": "Form Builder Notification Email using the stock Form Submission Result communication"
+        "scope": "WebForms Workflow Entry Form Builder notification using Action.FormAttributes"
       },
       "versions": ["19.2"],
       "ranges": [],
-      "status": "under_investigation",
-      "fix_refs": [],
+      "status": "affected",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6922",
-        "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-4994609248",
+        "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-5039741110",
         "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202504281829314_UpdateWorkflowEntryFormSharingAndFormBuilderSupport.cs#L109-L145",
         "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Workflow/Action/WorkflowControl/UserForm.cs#L1560-L1574",
-        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs#L60-L105"
+        "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs#L60-L105",
+        "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
+    },
+    {
+      "assertion_id": "core-6922-fixed-by-commit-2065cc9",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact WebForms Workflow Entry source revision; release-package inclusion remains independently verifiable"
+      },
+      "versions": ["2065cc91efd198f4d5f22f4d523a569c5600a6a7"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6922",
+        "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-5039741110",
+        "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7",
+        "https://github.com/SparkDevNetwork/Rock/blob/2065cc91efd198f4d5f22f4d523a569c5600a6a7/RockWeb/Blocks/WorkFlow/WorkflowEntry.ascx.cs#L2453-L2517"
       ],
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
-      "confidence": "medium",
-      "assessed_at": "2026-07-17T07:57:36Z"
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
+    },
+    {
+      "assertion_id": "core-6922-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official fix release line for the WebForms Workflow Entry path; verify the exact installed package"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6922",
+        "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-5039741110",
+        "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6922",
     "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-4994609248",
+    "https://github.com/SparkDevNetwork/Rock/issues/6922#issuecomment-5039741110",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202504281829314_UpdateWorkflowEntryFormSharingAndFormBuilderSupport.cs#L109-L145",
     "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Workflow/Action/WorkflowControl/UserForm.cs#L1560-L1574",
-    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs#L60-L105"
+    "https://github.com/SparkDevNetwork/Rock/blob/f4e14ae9a1dd97096627429876d6e1bc1df07b30/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs#L60-L105",
+    "https://github.com/SparkDevNetwork/Rock/commit/2065cc91efd198f4d5f22f4d523a569c5600a6a7",
+    "https://github.com/SparkDevNetwork/Rock/blob/2065cc91efd198f4d5f22f4d523a569c5600a6a7/RockWeb/Blocks/WorkFlow/WorkflowEntry.ascx.cs#L2453-L2517"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
-  "confidence": "medium",
+  "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-16T17:10:25Z",
-  "reviewed_at": "2026-07-17T07:57:36Z",
+  "issue_updated_at": "2026-07-22T23:02:27Z",
+  "reviewed_at": "2026-07-26T02:35:28Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

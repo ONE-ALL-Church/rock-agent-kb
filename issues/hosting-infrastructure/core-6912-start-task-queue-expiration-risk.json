@@ -2,9 +2,11 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6912-start-task-queue-expiration-risk-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6912",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Rock source gives queues a default 300-second time to live, leaves StartTaskQueue on that default, and registers every consumer for a queue on one receive endpoint. The in-memory transport adds no Rock-specific consume timeout or concurrency policy. This confirms a shared queue and expiration boundary, but source inspection alone does not prove that one blocked consumer stops all delivery or that every expired message is silent. The reported mechanism remains under investigation.",
-  "workaround_summaries": [],
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "Rock maintainers confirmed that a misconfigured workflow with an endless activation loop could quietly stop other background tasks until Rock was restarted. Commit c45c361 bounds each workflow processing pass to 10,000 activity activations, logs the most frequently activated action type, and leaves the workflow in an error state instead of allowing it to monopolize processing. The issue is labeled Fixed in v19.4; verify exact package inclusion because a release-line label is not an exact build attestation.",
+  "workaround_summaries": [
+    "Use a Rock build proven to contain commit c45c361a5b4e487355da20e21b582e135e1b6465. Until upgraded, identify and correct workflows that repeatedly activate the same action; restarting Rock may restore background processing temporarily, but it does not remove the looping workflow."
+  ],
   "applicability_requirements": [
     {
       "field": "capabilities",
@@ -22,44 +24,44 @@
     }
   ],
   "verification_playbook": {
-    "goal": "Determine whether the instance uses the reported in-memory StartTaskQueue configuration and has bounded evidence of delayed or expired work, without blocking a consumer.",
+    "goal": "Determine whether the instance lacks the workflow activation guard and has bounded evidence of a looping workflow interrupting background processing.",
     "prerequisites": [
       "Know the exact installed Rock version.",
-      "Have read-only access to bus configuration and aggregate operational metrics."
+      "Have read-only access to workflow exception summaries and aggregate operational metrics."
     ],
     "steps": [
       {
-        "step_id": "inspect-bus-configuration",
-        "title": "Inspect bus and queue configuration",
-        "method": "configuration_check",
-        "instructions": "Record only whether the instance uses the in-memory transport and the default StartTaskQueue expiration behavior. Do not change transport, timeout, or concurrency settings.",
-        "expected_if_affected": "The instance uses the in-memory transport, StartTaskQueue, and an unmodified short expiration on an unverified build.",
-        "expected_if_unaffected": "The instance does not use the reported transport/queue combination or runs a build with an independently verified correction.",
-        "evidence_to_record": ["in-memory transport yes or no", "default queue expiration yes or no", "Rock version"],
-        "requires_privileged_access": true,
+        "step_id": "check-fixed-build",
+        "title": "Check build ancestry",
+        "method": "source_revision_check",
+        "instructions": "Confirm whether the installed package contains commit c45c361a5b4e487355da20e21b582e135e1b6465, which adds a per-pass workflow activation limit and error logging.",
+        "expected_if_affected": "The installed build predates the activation guard or has not been independently verified to contain an equivalent fix.",
+        "expected_if_unaffected": "The installed build contains the fixing commit or an independently verified equivalent implementation.",
+        "evidence_to_record": ["Rock version", "package or commit identifier"],
+        "requires_privileged_access": false,
         "mutation_risk": "none"
       },
       {
-        "step_id": "review-bounded-queue-signals",
-        "title": "Review bounded queue health signals",
+        "step_id": "review-bounded-workflow-signals",
+        "title": "Review bounded workflow and queue signals",
         "method": "log_review",
-        "instructions": "Review aggregate counts and durations for recent StartTaskQueue failures, expirations, or unusually long consumers. Do not export message payloads, stack traces, task arguments, users, or request data.",
-        "expected_if_affected": "The configuration preconditions are present and bounded operational evidence shows work exceeding the expiration window or not reaching consumers.",
-        "expected_if_unaffected": "No matching signals appear in the window, which is inconclusive if the source configuration remains vulnerable to the reported mechanism.",
-        "evidence_to_record": ["time window", "aggregate failure or expiration count", "maximum observed duration category"],
+        "instructions": "Review aggregate counts for repeated workflow action activations, workflow-processing errors, and delayed background tasks. Do not export workflow values, action arguments, stack traces, users, or request data.",
+        "expected_if_affected": "The vulnerable build is present and bounded evidence shows one workflow repeatedly activating an action while other background tasks stop progressing.",
+        "expected_if_unaffected": "No matching signals appear in the bounded window, although absence cannot disprove an intermittent loop on a vulnerable build.",
+        "evidence_to_record": ["time window", "aggregate matching workflow error count", "background task delay category"],
         "requires_privileged_access": true,
         "mutation_risk": "none"
       }
     ],
     "limitations": [
-      "Do not deliberately block a production consumer or enqueue synthetic production work to force reproduction.",
-      "Source inspection does not yet prove that one blocked consumer stops all delivery, so local signals must remain an observation rather than a confirmed cause."
+      "Do not deliberately create a looping workflow or enqueue synthetic production work to force reproduction.",
+      "A restart can clear the immediate processing stall but cannot prove that the responsible workflow was corrected."
     ],
     "production_safe": true
   },
   "applicability": [
     {
-      "assertion_id": "core-6912-under-investigation-18.3.5",
+      "assertion_id": "core-6912-affected-18.3.5",
       "component": "rock_core",
       "version_scheme": "rock_release",
       "release_track": "18.3",
@@ -68,19 +70,68 @@
       },
       "versions": ["18.3.5"],
       "ranges": [],
-      "status": "under_investigation",
-      "fix_refs": [],
+      "status": "affected",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6912",
         "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/RockQueue.cs#L70-L101",
         "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/StartTaskQueue.cs#L20-L32",
         "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Consumer/RockConsumer.cs#L165-L184",
-        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Transport/Component/InMemory.cs#L55-L88"
+        "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Transport/Component/InMemory.cs#L55-L88",
+        "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
+    },
+    {
+      "assertion_id": "core-6912-fixed-by-commit-c45c361",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "exact workflow processing source revision; release-package inclusion remains independently verifiable"
+      },
+      "versions": ["c45c361a5b4e487355da20e21b582e135e1b6465"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6912",
+        "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465",
+        "https://github.com/SparkDevNetwork/Rock/blob/c45c361a5b4e487355da20e21b582e135e1b6465/Rock/Model/Workflow/Workflow/Workflow.Logic.cs#L187-L267"
       ],
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
-      "confidence": "medium",
-      "assessed_at": "2026-07-16T00:00:06Z"
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
+    },
+    {
+      "assertion_id": "core-6912-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official fix release line; verify the exact installed package"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6912",
+        "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-26T02:35:28Z"
     }
   ],
   "source_refs": [
@@ -88,16 +139,18 @@
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/RockQueue.cs#L70-L101",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Queue/StartTaskQueue.cs#L20-L32",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Consumer/RockConsumer.cs#L165-L184",
-    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Transport/Component/InMemory.cs#L55-L88"
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Bus/Transport/Component/InMemory.cs#L55-L88",
+    "https://github.com/SparkDevNetwork/Rock/commit/c45c361a5b4e487355da20e21b582e135e1b6465",
+    "https://github.com/SparkDevNetwork/Rock/blob/c45c361a5b4e487355da20e21b582e135e1b6465/Rock/Model/Workflow/Workflow/Workflow.Logic.cs#L187-L267"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
-  "confidence": "medium",
+  "confidence": "high",
   "review_status": "approved_for_public_distillation",
   "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-12T18:49:38Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "issue_updated_at": "2026-07-24T20:02:52Z",
+  "reviewed_at": "2026-07-26T02:35:28Z",
   "redaction_attestation": true,
   "license_attestation": true
 }
