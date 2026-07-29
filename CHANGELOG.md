@@ -14,6 +14,10 @@ tags and follow semantic versioning for public client and service contracts.
 - Official MCP SDK v2 client coverage alongside explicit 2025 stateless
   compatibility, browser-Origin, unsupported-version, and Code Mode regression
   tests.
+- Privacy-bounded daily MCP transport aggregates for protocol generation,
+  operation category, endpoint, fixed cohort, status/error, latency,
+  response-size, projection, and count, exposed through the operations
+  dashboard and `GET /telemetry/mcp-transport`.
 
 ### Changed
 
@@ -22,7 +26,10 @@ tags and follow semantic versioning for public client and service contracts.
   2025 clients remain supported on the same URL without persistent sessions.
 - `/mcp/code` now uses Cloudflare's explicit legacy handler and remains an
   independent, read-only MCP SDK v1 composition endpoint.
-- The Rock KB agent skill is version `1.6.0` and requires client `0.18.0`.
+- The MCP transport table is emitted by the deployment projection. Runtime
+  writes use one aggregate upsert and create the table only as a missing-schema
+  fallback during a deployment transition.
+- The Rock KB agent skill is version `1.7.0` and requires client `0.18.0`.
 
 ## [0.18.0] - 2026-07-26
 

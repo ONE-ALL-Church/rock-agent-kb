@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.6.0"
+  rock-kb-skill-version: "1.7.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-29T20:43:58Z"
+  rock-kb-published-at: "2026-07-29T22:41:02Z"
   rock-kb-minimum-client-version: "0.18.0"
 ---
 
@@ -43,6 +43,14 @@ host negotiate the protocol; do not invent, persist, or require an MCP session
 ID. A modern protocol failure should be reported as an MCP malfunction, not
 worked around by switching to Code Mode. `uvx rock-kb mcp-config` remains the
 normal configuration command and needs no special stateless option.
+
+The service measures MCP transport health only through daily bounded
+aggregates. Use `kb_review_dashboard` to inspect protocol generation,
+operation category, endpoint, HTTP status/error, latency bucket, response-size
+bucket, projection, and fixed cohort. Do not interpret absent requests as
+proven cache hits. The transport table contains no installation hash, tool
+name, arguments, query, headers, Origin, user agent, IP, body, identity, log,
+or Rock data.
 
 ## Capability Map
 
@@ -359,7 +367,8 @@ tools instead of shell commands:
   identifier. Keep `kb_feedback` for incorrect, outdated, missing, or misrouted
   knowledge.
 - `kb_review_dashboard`: check public review queues, conflicts, community
-  intake, issue reports, hosted evaluation, and telemetry counts.
+  intake, issue reports, hosted evaluation, field-validation counts, and
+  privacy-bounded MCP transport adoption/failure aggregates.
 - `kb_get_freshness`: check daily/weekly schedule health and source
   `last_checked_at`, `content_changed_at`, result count, content hash, and
   status independently.

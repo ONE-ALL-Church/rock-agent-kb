@@ -177,6 +177,7 @@ packages returned by `kb_get_concept` include aggregate Idea status counts and
 at most eight lifecycle-prioritized highlights. Lifecycle Ideas also include a
 verification queue state and revalidation hash; neither is product evidence.
 - `GET /operations/dashboard`
+- `GET /telemetry/mcp-transport`
 - `POST /feedback`
 - `POST /outcomes`
 - `POST /issues/report`
@@ -205,6 +206,36 @@ Cloudflare Code Mode still produces a legacy server. It exposes only the
 read-only tools and must remain operationally independent from direct MCP.
 `uvx rock-kb mcp-config` continues to configure `/mcp`; use `--mode code` only
 for the opt-in composition endpoint.
+
+Every direct and Code Mode MCP request also updates one privacy-bounded daily
+aggregate through `ctx.waitUntil`, after the response is produced. The
+`mcp_transport` dashboard section and `GET /telemetry/mcp-transport` report:
+
+- projection version, direct or Code Mode endpoint, and 2026, 2025, other, or
+  unknown protocol generation;
+- discover, initialize, tool-list, tool-call, notification, ping, preflight,
+  session-operation, or other operation category;
+- fixed cohort, HTTP status, normalized protocol/HTTP error code, latency
+  bucket, response-size bucket and measurement basis, and aggregate count.
+
+The default summary excludes evaluation and maintainer cohorts. It reports
+tool-list and discovery counts relative to tool calls as a bounded cache-use
+signal, but never claims to observe a cache hit: requests avoided by a client
+cache do not reach the server. Latency is Worker handler time to response
+headers, not full network transfer time.
+
+Response-size coverage is explicit. The service uses `Content-Length` when
+present, buffers only small handler-generated error responses, and estimates
+direct tool-call and direct tool-list sizes from payloads the handler already
+produced. Other finite responses are marked `unmeasured`; successful response
+streams are never cloned or consumed for telemetry.
+
+The transport table has no installation hash or per-request row and stores no
+tool name, arguments, query, headers, Origin, user agent, IP address, body,
+identity, log, or Rock data. Identical daily dimensions update one row, so
+storage scales with the small set of observed bucket combinations rather than
+request volume. D1 still bills each upsert as row-write activity; monitor the
+shared D1 row metrics when traffic grows.
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 

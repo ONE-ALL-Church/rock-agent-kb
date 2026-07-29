@@ -73,15 +73,35 @@ free text, logs, secrets, or Rock data.
 The service rate-limits outcomes to 100 per opted-in installation per UTC day.
 Every accepted outcome returns a stable `kbo_...` identifier.
 
+## MCP Transport Aggregates
+
+MCP transport health is measured separately from opt-in result usefulness.
+Every direct or Code Mode request contributes only to a daily aggregate keyed
+by projection, endpoint, protocol generation, operation category, fixed
+cohort, HTTP status, normalized error, latency bucket, and response-size
+bucket plus its measurement basis. No installation marker or hash is retained
+in this transport table.
+
+The default transport summary excludes evaluation and maintainer cohorts. It
+can show adoption, negotiation failures, and tool-list frequency relative to
+tool calls. It cannot observe a cache hit because a request that a client
+avoids never reaches the service. Transport aggregates never contain tool
+names, arguments, prompts, queries, headers, Origins, user agents, IP
+addresses, bodies, logs, identities, or Rock data.
+
+Use `response_size_coverage_rate` and `by_response_size_basis` before comparing
+payload sizes. Unmeasured responses are explicit rather than treated as zero,
+and successful streams are never consumed just to collect telemetry.
+
 ## Dashboard And Review Queue
 
 `uvx rock-kb dashboard` and `kb_review_dashboard` expose a `field_validation`
-section. By default it excludes evaluation and maintainer traffic. The funnel
-counts search, exact retrieval success/failure, outcome, feedback, and
-report-issue events. Every stage uses the v5 event stream beginning with service
-v0.16.0; older telemetry is intentionally excluded from this funnel so its
-stages share one coverage window. The broader telemetry summary retains
-historical aggregate continuity.
+section plus an `mcp_transport` section. Both default views exclude evaluation
+and maintainer traffic. The field-validation funnel counts search, exact
+retrieval success/failure, outcome, feedback, and report-issue events. Every
+stage uses the v5 event stream beginning with service v0.16.0; older telemetry
+is intentionally excluded from this funnel so its stages share one coverage
+window. The broader telemetry summary retains historical aggregate continuity.
 
 The service builds a bounded queue of at most 50 aggregate review items from:
 
