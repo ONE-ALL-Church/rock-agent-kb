@@ -928,6 +928,21 @@ def build_d1_seed_sql(
     relationship_rows = list(read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"))
     lines = [
         "CREATE TABLE IF NOT EXISTS kb_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);",
+        """CREATE TABLE IF NOT EXISTS mcp_transport_events_v1 (
+  day TEXT NOT NULL,
+  projection_version TEXT NOT NULL,
+  endpoint TEXT NOT NULL,
+  protocol_generation TEXT NOT NULL,
+  operation_category TEXT NOT NULL,
+  cohort TEXT NOT NULL,
+  http_status INTEGER NOT NULL,
+  error_code TEXT NOT NULL,
+  latency_bucket TEXT NOT NULL,
+  response_size_bucket TEXT NOT NULL,
+  response_size_basis TEXT NOT NULL,
+  count INTEGER NOT NULL,
+  PRIMARY KEY(day, projection_version, endpoint, protocol_generation, operation_category, cohort, http_status, error_code, latency_bucket, response_size_bucket, response_size_basis)
+);""",
         "DROP TABLE IF EXISTS search_rows;",
         """CREATE TABLE search_rows (
   id TEXT PRIMARY KEY,

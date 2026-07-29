@@ -212,6 +212,141 @@ test("direct MCP enforces modern headers, browser origins, and legacy compatibil
   }
 });
 
+test("MCP transport telemetry is bounded, cohort-aware, and excludes request data", async () => {
+  const mf = await buildWorker();
+  const installationId = `rkbi_${"t".repeat(43)}`;
+  const externalHeaders = {
+    "x-rock-kb-client": "mcp",
+    "x-rock-kb-cohort": "external-test",
+    "x-rock-kb-installation-id": installationId,
+    "user-agent": "private-agent-name/1.0",
+  };
+  const privateArgument = "sensitive-example-query-7429";
+  try {
+    await modernMcp(mf, "server/discover", {}, externalHeaders);
+    await modernMcp(mf, "tools/list", {}, externalHeaders);
+    await modernMcp(
+      mf,
+      "tools/call",
+      { name: "kb_search", arguments: { query: privateArgument, limit: 2 } },
+      externalHeaders,
+    );
+
+    const mismatch = await mf.dispatchFetch("https://kb.example.test/mcp", {
+      method: "POST",
+      headers: {
+        ...modernMcpHeaders("tools/list"),
+        ...externalHeaders,
+      },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        id: 1,
+        method: "tools/list",
+        params: {
+          _meta: modernMcpMeta("2099-01-01"),
+        },
+      }),
+    });
+    assert.equal(mismatch.status, 400);
+
+    await legacyDirectMcp(mf, "initialize", {
+      protocolVersion: "2025-11-25",
+      capabilities: {},
+      clientInfo: { name: "private-legacy-agent", version: "1.0.0" },
+    }, externalHeaders);
+    await legacyDirectMcp(mf, "tools/list", {}, externalHeaders);
+
+    const codeInitialized = await streamableMcp(
+      mf,
+      "initialize",
+      {
+        protocolVersion: "2025-11-25",
+        capabilities: {},
+        clientInfo: { name: "private-code-agent", version: "1.0.0" },
+      },
+      "",
+      externalHeaders,
+    );
+    await streamableMcp(
+      mf,
+      "tools/list",
+      {},
+      codeInitialized.sessionId,
+      externalHeaders,
+    );
+
+    await modernMcp(mf, "tools/list", {}, {
+      "x-rock-kb-client": "mcp",
+      "x-rock-kb-cohort": "maintainer",
+    });
+
+    const response = await mf.dispatchFetch("https://kb.example.test/telemetry/mcp-transport");
+    assert.equal(response.status, 200);
+    const transport = await response.json();
+    assert.equal(transport.schema, "rock-kb-mcp-transport-summary-v1");
+    assert.equal(transport.default_scope.maintainer_traffic_included, false);
+    assert.equal(transport.summary.total_count, 8);
+    assert.equal(transport.summary.success_count, 7);
+    assert.equal(transport.summary.failure_count, 1);
+    assert.equal(transport.summary.by_protocol_generation["2026"], 4);
+    assert.equal(transport.summary.by_protocol_generation["2025"], 4);
+    assert.equal(transport.summary.by_endpoint.direct, 6);
+    assert.equal(transport.summary.by_endpoint.code, 2);
+    assert.equal(transport.summary.by_operation_category.discover, 1);
+    assert.equal(transport.summary.by_operation_category.initialize, 2);
+    assert.equal(transport.summary.by_operation_category.tools_list, 4);
+    assert.equal(transport.summary.by_operation_category.tool_call, 1);
+    assert.equal(transport.summary.by_http_status["200"], 7);
+    assert.equal(transport.summary.by_http_status["400"], 1);
+    assert.equal(transport.summary.by_error_code["mcp_-32020"], 1);
+    assert.equal(transport.summary.tools_list_per_tool_call, 4);
+    assert.equal(transport.summary.discover_per_tool_call, 1);
+    assert.equal(transport.summary.response_size_coverage_rate, 0.5);
+    assert.equal(transport.summary.by_response_size_basis.estimated_payload, 3);
+    assert.equal(transport.summary.by_response_size_basis.buffered_error, 1);
+    assert.equal(transport.summary.by_response_size_basis.unmeasured, 4);
+    assert.equal(transport.maintainer_summary.total_count, 1);
+    assert.equal(transport.all_traffic_summary.total_count, 9);
+    assert.deepEqual(transport.coverage.projection_versions, ["test-version"]);
+    assert.equal(transport.rows.every((row) => row.projection_version === "test-version"), true);
+    assert.equal(transport.interpretation.cache_hits_observable, false);
+    assert.match(transport.interpretation.response_size_measure, /Successful response streams are not read or cloned/);
+
+    const serialized = JSON.stringify(transport);
+    assert.equal(serialized.includes(privateArgument), false);
+    assert.equal(serialized.includes(installationId), false);
+    assert.equal(serialized.includes("private-agent-name"), false);
+    assert.equal(serialized.includes("private-legacy-agent"), false);
+    assert.equal(serialized.includes("private-code-agent"), false);
+    assert.equal(serialized.includes("kb_search"), false);
+
+    const telemetry = await (await mf.dispatchFetch("https://kb.example.test/telemetry/summary")).json();
+    assert.equal(telemetry.mcp_transport.schema, "rock-kb-mcp-transport-summary-v1");
+    const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
+    assert.equal(dashboard.mcp_transport.schema, "rock-kb-mcp-transport-summary-v1");
+
+    const db = await mf.getD1Database("KB_DB");
+    const columns = await db.prepare("PRAGMA table_info(mcp_transport_events_v1)").all();
+    const columnNames = columns.results.map((row) => row.name);
+    assert.deepEqual(columnNames, [
+      "day",
+      "projection_version",
+      "endpoint",
+      "protocol_generation",
+      "operation_category",
+      "cohort",
+      "http_status",
+      "error_code",
+      "latency_bucket",
+      "response_size_bucket",
+      "response_size_basis",
+      "count",
+    ]);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("experimental Code Mode MCP advertises one read-only composition tool", async () => {
   const mf = await buildWorker();
   try {
@@ -2254,13 +2389,14 @@ function modernMcpHeaders(method, params = {}, protocolVersion = "2026-07-28") {
   return headers;
 }
 
-async function legacyDirectMcp(mf, method, params) {
+async function legacyDirectMcp(mf, method, params, extraHeaders = {}) {
   const response = await mf.dispatchFetch("https://kb.example.test/mcp", {
     method: "POST",
     headers: {
       "content-type": "application/json",
       accept: "application/json, text/event-stream",
       "mcp-protocol-version": "2025-11-25",
+      ...extraHeaders,
     },
     body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
   });
@@ -2271,11 +2407,12 @@ async function legacyDirectMcp(mf, method, params) {
   return { status: response.status, headers: response.headers, payload };
 }
 
-async function streamableMcp(mf, method, params, sessionId = "") {
+async function streamableMcp(mf, method, params, sessionId = "", extraHeaders = {}) {
   const headers = {
     "content-type": "application/json",
     accept: "application/json, text/event-stream",
     "mcp-protocol-version": "2025-11-25",
+    ...extraHeaders,
   };
   if (sessionId) headers["mcp-session-id"] = sessionId;
   const response = await mf.dispatchFetch("https://kb.example.test/mcp/code", {

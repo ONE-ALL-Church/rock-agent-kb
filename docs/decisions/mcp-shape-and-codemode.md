@@ -55,6 +55,32 @@ direct interface.
 - Authentication, contribution tokens, telemetry consent, and write-tool
   validation are evaluated independently on every request.
 
+## Transport Measurement
+
+Direct and Code Mode requests update a separate
+`mcp_transport_events_v1` daily aggregate after the response is produced. The
+bounded dimensions are projection, endpoint, protocol generation, operation
+category, fixed cohort, HTTP status, normalized error code, latency bucket,
+response-size bucket, measurement basis, and count.
+
+The public transport summary excludes evaluation and maintainer traffic by
+default and keeps those scopes available separately. It can measure 2026 versus
+2025 adoption, negotiation failure rate, response-size distribution, handler
+latency distribution, and discovery/tool-list frequency relative to tool
+calls. It cannot directly observe cache hits.
+
+The table deliberately has no installation hash and no request-level record.
+It excludes tool names, arguments, queries, headers, Origins, user agents, IP
+addresses, bodies, logs, identities, and Rock data. Identical dimensions
+upsert one row per day. This keeps storage bounded by bucket combinations;
+row-write volume, not storage, is the relevant D1 cost signal.
+
+Response-size measurement cannot change transport behavior. `Content-Length`
+is exact when present, handler-generated errors are bounded and buffered,
+direct tool payloads and direct tool-list metadata are estimated from values
+already in memory, and all other responses are marked `unmeasured`. Successful
+response streams are never cloned or consumed for telemetry.
+
 ## Alternatives
 
 | Shape | Decision | Reason |

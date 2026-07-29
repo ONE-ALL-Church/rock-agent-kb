@@ -22,6 +22,27 @@ type DirectMcpToolDefinition = {
   annotations: StatelessToolAnnotations;
 };
 
+type McpTransportEndpoint = "direct" | "code";
+
+type McpTransportObservation = {
+  endpoint: McpTransportEndpoint;
+  protocolGeneration: "2026" | "2025" | "other" | "unknown";
+  operationCategory: "discover" | "initialize" | "tools_list" | "tool_call" | "notification" | "ping" | "preflight" | "session_operation" | "other";
+  cohort: string;
+  requestMethod: string;
+  errorCodeHint: string;
+};
+
+type McpTransportResponseDetails = {
+  errorCode: string;
+  responseSizeBucket: string;
+  responseSizeBasis: "content_length" | "buffered_error" | "estimated_payload" | "streaming" | "unmeasured";
+};
+
+type McpTransportMeasurement = {
+  responsePayloadBytes?: number;
+};
+
 type TelemetryIdentity = {
   clientClass: string;
   cohort: string;
@@ -228,6 +249,9 @@ const EXACT_RETRIEVAL_EVENTS = new Set([
 ]);
 const TEST_ROUND_FUNNEL_STAGES = new Set(["started", "completed"]);
 const MCP_LIST_CACHE_TTL_MS = 60 * 60 * 1000;
+const MCP_MODERN_PROTOCOL_VERSION = "2026-07-28";
+const MCP_RESPONSE_ENVELOPE_ESTIMATE_BYTES = 512;
+const MCP_ERROR_INSPECTION_LIMIT_BYTES = 64 * 1024;
 const MCP_INSTRUCTIONS = "Start with kb_search, then expand only the exact result you need. Use exact model, recipe, issue, and idea tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.";
 const MCP_CORS_HEADERS = [
   "Content-Type",
@@ -247,6 +271,10 @@ const MCP_CORS_HEADERS = [
 ].join(", ");
 let directMcpToolDefinitionsCache: DirectMcpToolDefinition[] | null = null;
 let directMcpVersionCache: { value: string; expiresAt: number } | null = null;
+let telemetryTablesReady = false;
+let telemetryTablesSetupPromise: Promise<void> | null = null;
+let mcpTransportTableReady = false;
+let mcpTransportTableSetupPromise: Promise<void> | null = null;
 const EXPECTED_SOURCE_WORKFLOWS = new Set(["daily-sources", "daily-issues", "weekly-comprehensive"]);
 const SKILL_ARTIFACT_PATH = "skills/rock-kb-agent/SKILL.md";
 const SKILL_MANIFEST_PATH = "skills/rock-kb-agent/manifest.json";
@@ -487,6 +515,9 @@ export default {
       }
       if (url.pathname === "/telemetry/summary") {
         return json(await telemetrySummary(env));
+      }
+      if (url.pathname === "/telemetry/mcp-transport") {
+        return json(await mcpTransportSummary(env));
       }
       if (url.pathname === "/feedback" && request.method === "POST") {
         return json(await submitFeedback(request, env), 201);
@@ -770,8 +801,9 @@ async function claims(env: ServiceEnv, conceptId: string, minTier: string, tier:
 }
 
 async function handleDirectMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
+  const measurement: McpTransportMeasurement = {};
   const handler = createStatelessMcpHandler(
-    ({ requestInfo }) => createDirectMcpServer(env, ctx, requestInfo ?? request),
+    ({ requestInfo }) => createDirectMcpServer(env, ctx, requestInfo ?? request, measurement),
     {
       route: "/mcp",
       legacy: "stateless",
@@ -791,13 +823,14 @@ async function handleDirectMcp(request: Request, env: ServiceEnv, ctx: Execution
       ],
     },
   );
-  return handler(request, env, ctx);
+  return observeMcpTransport(request, env, ctx, "direct", measurement, () => handler(request, env, ctx));
 }
 
 async function createDirectMcpServer(
   env: ServiceEnv,
   ctx: ExecutionContext,
   request: Request,
+  measurement: McpTransportMeasurement,
 ): Promise<StatelessMcpServer> {
   const server = new StatelessMcpServer(
     { name: "Rock KB", version: await directMcpServerVersion(env) },
@@ -819,9 +852,13 @@ async function createDirectMcpServer(
       },
       async (args: unknown) => {
         try {
-          return mcpToolResult(await callTool(definition.name, asRecord(args), env, request, ctx));
+          const result = mcpToolResult(await callTool(definition.name, asRecord(args), env, request, ctx));
+          measurement.responsePayloadBytes = jsonByteLength(result);
+          return result;
         } catch (error) {
-          return mcpToolError(error);
+          const result = mcpToolError(error);
+          measurement.responsePayloadBytes = jsonByteLength(result);
+          return result;
         }
       },
     );
@@ -851,7 +888,140 @@ async function directMcpServerVersion(env: ServiceEnv): Promise<string> {
   return value;
 }
 
+async function observeMcpTransport(
+  request: Request,
+  env: ServiceEnv,
+  ctx: ExecutionContext,
+  endpoint: McpTransportEndpoint,
+  measurement: McpTransportMeasurement,
+  invoke: () => Promise<Response>,
+): Promise<Response> {
+  const observation = classifyMcpTransportRequest(request, endpoint);
+  const startedAt = performance.now();
+  try {
+    let response = await invoke();
+    const latencyMs = Math.max(0, performance.now() - startedAt);
+    const observed = await observation;
+    let responseDetails = mcpTransportResponseDetails(response, observed, measurement);
+    if (response.status >= 400) {
+      const inspected = await inspectMcpErrorResponse(response);
+      response = inspected.response;
+      responseDetails = inspected.details;
+    }
+    ctx.waitUntil(
+      recordMcpTransportEvent(
+        env,
+        observed,
+        response.status,
+        {
+          ...responseDetails,
+          errorCode: observed.errorCodeHint || responseDetails.errorCode,
+        },
+        latencyMs,
+      ),
+    );
+    return response;
+  } catch (error) {
+    const latencyMs = Math.max(0, performance.now() - startedAt);
+    ctx.waitUntil(
+      observation.then((value) => recordMcpTransportEvent(
+        env,
+        value,
+        500,
+        {
+          errorCode: "handler_exception",
+          responseSizeBucket: "unmeasured",
+          responseSizeBasis: "unmeasured",
+        },
+        latencyMs,
+      )),
+    );
+    throw error;
+  }
+}
+
+function classifyMcpTransportRequest(
+  request: Request,
+  endpoint: McpTransportEndpoint,
+): Promise<McpTransportObservation> {
+  const requestMethod = request.method.toUpperCase();
+  const cohort = telemetryIdentity(request, "mcp").cohort;
+  const headerProtocol = String(request.headers.get("mcp-protocol-version") || "").trim();
+  const headerMethod = String(request.headers.get("mcp-method") || "").trim();
+  const base: McpTransportObservation = {
+    endpoint,
+    protocolGeneration: mcpProtocolGeneration(headerProtocol),
+    operationCategory: mcpOperationCategory(headerMethod, requestMethod),
+    cohort,
+    requestMethod,
+    errorCodeHint: mcpProtocolErrorCodeHint(headerProtocol, ""),
+  };
+  if (requestMethod !== "POST" || headerMethod) {
+    return Promise.resolve(base);
+  }
+  let clonedRequest: Request;
+  try {
+    clonedRequest = request.clone();
+  } catch {
+    return Promise.resolve(base);
+  }
+  return clonedRequest.json<JsonRecord>()
+    .then((body) => {
+      const params = asRecord(body.params);
+      const meta = asRecord(params._meta);
+      const bodyProtocol = String(
+        meta["io.modelcontextprotocol/protocolVersion"]
+        || params.protocolVersion
+        || "",
+      ).trim();
+      return {
+        ...base,
+        protocolGeneration: headerProtocol
+          ? base.protocolGeneration
+          : mcpProtocolGeneration(bodyProtocol),
+        operationCategory: mcpOperationCategory(String(body.method || ""), requestMethod),
+        errorCodeHint: mcpProtocolErrorCodeHint(headerProtocol, bodyProtocol),
+      };
+    })
+    .catch(() => base);
+}
+
+function mcpProtocolErrorCodeHint(headerProtocol: string, bodyProtocol: string): string {
+  if (headerProtocol && bodyProtocol && headerProtocol !== bodyProtocol) return "mcp_-32020";
+  const claimedProtocol = headerProtocol || bodyProtocol;
+  if (/^2026-/.test(claimedProtocol) && claimedProtocol !== MCP_MODERN_PROTOCOL_VERSION) {
+    return "mcp_-32022";
+  }
+  return "";
+}
+
+function mcpProtocolGeneration(value: string): McpTransportObservation["protocolGeneration"] {
+  if (!value) return "unknown";
+  if (/^2026-/.test(value)) return "2026";
+  if (/^2025-/.test(value)) return "2025";
+  return "other";
+}
+
+function mcpOperationCategory(
+  method: string,
+  requestMethod: string,
+): McpTransportObservation["operationCategory"] {
+  if (requestMethod === "OPTIONS") return "preflight";
+  if (requestMethod === "GET" || requestMethod === "DELETE") return "session_operation";
+  if (method === "server/discover") return "discover";
+  if (method === "initialize") return "initialize";
+  if (method === "tools/list") return "tools_list";
+  if (method === "tools/call") return "tool_call";
+  if (method === "ping") return "ping";
+  if (method.startsWith("notifications/")) return "notification";
+  return "other";
+}
+
 async function handleCodeMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
+  return observeMcpTransport(request, env, ctx, "code", {}, () => handleCodeMcpRequest(request, env, ctx));
+}
+
+async function handleCodeMcpRequest(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
   if (!env.LOADER) {
     return json({ error: "codemode_unavailable", message: "The Worker Loader binding is not configured." }, 503);
   }
@@ -3302,6 +3472,7 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     ["day", "client_class", "cohort", "result_id", "result_kind", "projection_version", "rating", "reason"],
     100,
   );
+  const mcpTransport = await mcpTransportSummary(env, false);
   return {
     schema: "rock-kb-telemetry-summary-v5",
     rows,
@@ -3314,11 +3485,367 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     feedback,
     outcomes: outcomes.results || [],
     opted_in_installation_count: Number(installations?.count || 0),
+    mcp_transport: mcpTransport,
     privacy: "No raw or hashed query text, user identity, organization identity, IP address, free text, or Rock data is retained. An opted-in random installation marker is stored only as a one-way hash and is never exposed. Cohorts are fixed aggregate labels restricted to community, external-test, maintainer, evaluation, or unattributed; they are not authentication.",
   };
 }
 
+async function recordMcpTransportEvent(
+  env: ServiceEnv,
+  observation: McpTransportObservation,
+  httpStatus: number,
+  responseDetails: McpTransportResponseDetails,
+  latencyMs: number,
+): Promise<void> {
+  const projectionVersion = await directMcpServerVersion(env);
+  const day = new Date().toISOString().slice(0, 10);
+  const write = () => env.KB_DB.prepare(
+      `INSERT INTO mcp_transport_events_v1
+       (day, projection_version, endpoint, protocol_generation, operation_category, cohort, http_status, error_code, latency_bucket, response_size_bucket, response_size_basis, count)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+       ON CONFLICT(day, projection_version, endpoint, protocol_generation, operation_category, cohort, http_status, error_code, latency_bucket, response_size_bucket, response_size_basis)
+       DO UPDATE SET count = count + 1`
+    ).bind(
+      day,
+      projectionVersion,
+      observation.endpoint,
+      observation.protocolGeneration,
+      observation.operationCategory,
+      observation.cohort,
+      httpStatus,
+      observation.errorCodeHint || responseDetails.errorCode,
+      mcpLatencyBucket(latencyMs),
+      responseDetails.responseSizeBucket,
+      responseDetails.responseSizeBasis,
+    ).run();
+  try {
+    await write();
+  } catch (error) {
+    if (!isMissingMcpTransportTable(error)) throw error;
+    await ensureMcpTransportTable(env);
+    await write();
+  }
+}
+
+function isMissingMcpTransportTable(error: unknown): boolean {
+  const message = String(error || "").toLowerCase();
+  return message.includes("no such table") && message.includes("mcp_transport_events_v1");
+}
+
+function mcpTransportResponseDetails(
+  response: Response,
+  observation: McpTransportObservation,
+  measurement: McpTransportMeasurement,
+): McpTransportResponseDetails {
+  const httpStatus = response.status;
+  const contentType = String(response.headers.get("content-type") || "").toLowerCase();
+  if (observation.requestMethod === "GET" && httpStatus < 400 && contentType.includes("text/event-stream")) {
+    return {
+      errorCode: "none",
+      responseSizeBucket: "streaming",
+      responseSizeBasis: "streaming",
+    };
+  }
+  const contentLength = Number(response.headers.get("content-length"));
+  if (Number.isFinite(contentLength) && contentLength >= 0 && response.headers.has("content-length")) {
+    return {
+      errorCode: mcpObservedErrorCode(observation, httpStatus),
+      responseSizeBucket: mcpResponseSizeBucket(contentLength),
+      responseSizeBasis: "content_length",
+    };
+  }
+  if (!response.body) {
+    return {
+      errorCode: mcpObservedErrorCode(observation, httpStatus),
+      responseSizeBucket: "zero",
+      responseSizeBasis: "content_length",
+    };
+  }
+  const measuredPayloadBytes = measurement.responsePayloadBytes
+    ?? estimatedMcpMetadataPayloadBytes(observation);
+  if (measuredPayloadBytes !== undefined) {
+    return {
+      errorCode: mcpObservedErrorCode(observation, httpStatus),
+      responseSizeBucket: mcpResponseSizeBucket(
+        measuredPayloadBytes + MCP_RESPONSE_ENVELOPE_ESTIMATE_BYTES,
+      ),
+      responseSizeBasis: "estimated_payload",
+    };
+  }
+  return {
+    errorCode: mcpObservedErrorCode(observation, httpStatus),
+    responseSizeBucket: "unmeasured",
+    responseSizeBasis: "unmeasured",
+  };
+}
+
+async function inspectMcpErrorResponse(
+  response: Response,
+): Promise<{ response: Response; details: McpTransportResponseDetails }> {
+  if (!response.body || response.bodyUsed) {
+    return {
+      response,
+      details: {
+        errorCode: mcpHttpErrorCode(response.status),
+        responseSizeBucket: response.body ? "unmeasured" : "zero",
+        responseSizeBasis: response.body ? "unmeasured" : "content_length",
+      },
+    };
+  }
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  const prefix = bytes.slice(0, MCP_ERROR_INSPECTION_LIMIT_BYTES);
+  const details: McpTransportResponseDetails = {
+    errorCode: mcpResponseErrorCode(response.status, new TextDecoder().decode(prefix)),
+    responseSizeBucket: mcpResponseSizeBucket(bytes.byteLength),
+    responseSizeBasis: "buffered_error",
+  };
+  return {
+    response: new Response(bytes, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+    }),
+    details,
+  };
+}
+
+function mcpResponseErrorCode(httpStatus: number, body: string): string {
+  if (httpStatus < 400) return "none";
+  let payload: JsonRecord = {};
+  try {
+    const dataLine = body.split("\n").find((line) => line.startsWith("data: "));
+    payload = JSON.parse(dataLine ? dataLine.slice(6) : body) as JsonRecord;
+  } catch {
+    return mcpHttpErrorCode(httpStatus);
+  }
+  const error = payload.error;
+  if (error && typeof error === "object" && !Array.isArray(error)) {
+    const code = Number((error as JsonRecord).code);
+    if (Number.isInteger(code) && code >= -99999 && code <= 99999) {
+      return `mcp_${code}`;
+    }
+  }
+  if (typeof error === "string" && error === "codemode_unavailable") {
+    return "codemode_unavailable";
+  }
+  return mcpHttpErrorCode(httpStatus);
+}
+
+function estimatedMcpMetadataPayloadBytes(observation: McpTransportObservation): number | undefined {
+  if (observation.endpoint === "direct" && observation.operationCategory === "tools_list") {
+    return jsonByteLength(toolDefinitions());
+  }
+  return undefined;
+}
+
+function mcpObservedErrorCode(observation: McpTransportObservation, httpStatus: number): string {
+  if (httpStatus < 400) return "none";
+  if (observation.errorCodeHint) return observation.errorCodeHint;
+  if (
+    httpStatus === 404
+    && observation.requestMethod === "POST"
+    && observation.operationCategory === "other"
+  ) {
+    return "mcp_-32601";
+  }
+  return mcpHttpErrorCode(httpStatus);
+}
+
+function jsonByteLength(value: unknown): number {
+  return new TextEncoder().encode(JSON.stringify(value)).byteLength;
+}
+
+function mcpHttpErrorCode(httpStatus: number): string {
+  if (httpStatus < 400) return "none";
+  if (httpStatus === 403) return "origin_rejected";
+  if (httpStatus === 404) return "not_found";
+  if (httpStatus === 405) return "method_not_allowed";
+  if (httpStatus === 429) return "rate_limited";
+  if (httpStatus >= 500) return "server_error";
+  return "http_error";
+}
+
+function mcpLatencyBucket(latencyMs: number): string {
+  if (latencyMs < 10) return "lt_10_ms";
+  if (latencyMs < 50) return "10_49_ms";
+  if (latencyMs < 100) return "50_99_ms";
+  if (latencyMs < 250) return "100_249_ms";
+  if (latencyMs < 500) return "250_499_ms";
+  if (latencyMs < 1000) return "500_999_ms";
+  if (latencyMs < 2500) return "1000_2499_ms";
+  return "gte_2500_ms";
+}
+
+function mcpResponseSizeBucket(byteCount: number): string {
+  if (byteCount <= 0) return "zero";
+  if (byteCount < 1024) return "lt_1_kib";
+  if (byteCount < 4 * 1024) return "1_3_kib";
+  if (byteCount < 16 * 1024) return "4_15_kib";
+  if (byteCount < 64 * 1024) return "16_63_kib";
+  if (byteCount < 256 * 1024) return "64_255_kib";
+  if (byteCount < 1024 * 1024) return "256_1023_kib";
+  return "gte_1_mib";
+}
+
+async function mcpTransportSummary(env: ServiceEnv, ensureTables = true): Promise<JsonRecord> {
+  if (ensureTables) await ensureMcpTransportTable(env);
+  const [aggregateResult, recentResult, coverage] = await Promise.all([
+    env.KB_DB.prepare(
+      `SELECT projection_version, endpoint, protocol_generation, operation_category, cohort,
+              http_status, error_code, latency_bucket, response_size_bucket, response_size_basis, SUM(count) AS count
+       FROM mcp_transport_events_v1
+       GROUP BY projection_version, endpoint, protocol_generation, operation_category, cohort,
+                http_status, error_code, latency_bucket, response_size_bucket, response_size_basis`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT day, projection_version, endpoint, protocol_generation, operation_category, cohort,
+              http_status, error_code, latency_bucket, response_size_bucket, response_size_basis, SUM(count) AS count
+       FROM mcp_transport_events_v1
+       GROUP BY day, projection_version, endpoint, protocol_generation, operation_category, cohort,
+                http_status, error_code, latency_bucket, response_size_bucket, response_size_basis
+       ORDER BY day DESC, count DESC
+       LIMIT 200`
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT MIN(day) AS first_day, MAX(day) AS last_day
+       FROM mcp_transport_events_v1`
+    ).first<JsonRecord>(),
+  ]);
+  const aggregateRows = (aggregateResult.results || []).map(normalizeMcpTransportRow);
+  const recentRows = (recentResult.results || []).map(normalizeMcpTransportRow);
+  const defaultRows = aggregateRows.filter((row) => !["evaluation", "maintainer"].includes(String(row.cohort || "")));
+  const maintainerRows = aggregateRows.filter((row) => row.cohort === "maintainer");
+  const evaluationRows = aggregateRows.filter((row) => row.cohort === "evaluation");
+  return {
+    schema: "rock-kb-mcp-transport-summary-v1",
+    default_scope: {
+      evaluation_traffic_included: false,
+      maintainer_traffic_included: false,
+      cohorts_included: ["community", "external-test", "unattributed"],
+    },
+    coverage: {
+      event_schema: "mcp_transport_events_v1",
+      first_day: String(coverage?.first_day || ""),
+      last_day: String(coverage?.last_day || ""),
+      projection_versions: [...new Set(aggregateRows.map((row) => String(row.projection_version || "")))].filter(Boolean).sort(),
+    },
+    summary: summarizeMcpTransportRows(defaultRows),
+    maintainer_summary: summarizeMcpTransportRows(maintainerRows),
+    evaluation_summary: summarizeMcpTransportRows(evaluationRows),
+    all_traffic_summary: summarizeMcpTransportRows(aggregateRows),
+    rows: recentRows,
+    interpretation: {
+      latency_measure: "Worker handler time to response headers, not full network transfer time.",
+      response_size_measure: "Uses Content-Length when present, buffers small handler-generated errors, and estimates direct tool payloads and tool-list metadata from values already in memory. Successful response streams are not read or cloned; all other responses are marked unmeasured.",
+      cache_hits_observable: false,
+      cache_signal: "Compare discover and tools_list counts with tool_call counts by projection and cohort. A request avoided by a client cache is not directly observable server-side.",
+    },
+    privacy: "Stores only daily aggregate projection, endpoint, protocol generation, operation category, fixed cohort, HTTP status, normalized error code, latency bucket, response-size bucket and basis, and count. It excludes installation hashes, tool names, arguments, queries, headers, origins, user agents, IP addresses, bodies, logs, identities, and Rock data.",
+  };
+}
+
+function normalizeMcpTransportRow(row: JsonRecord): JsonRecord {
+  return {
+    ...row,
+    http_status: Number(row.http_status || 0),
+    count: Number(row.count || 0),
+  };
+}
+
+function summarizeMcpTransportRows(rows: JsonRecord[]): JsonRecord {
+  const totalCount = rows.reduce((total, row) => total + Number(row.count || 0), 0);
+  const failureCount = rows
+    .filter((row) => Number(row.http_status || 0) >= 400 || String(row.error_code || "none") !== "none")
+    .reduce((total, row) => total + Number(row.count || 0), 0);
+  const operationCounts = mcpTransportDimensionCounts(rows, "operation_category");
+  const toolCallCount = Number(operationCounts.tool_call || 0);
+  const toolsListCount = Number(operationCounts.tools_list || 0);
+  const discoverCount = Number(operationCounts.discover || 0);
+  const responseSizeBasisCounts = mcpTransportDimensionCounts(rows, "response_size_basis");
+  const measuredResponseCount = totalCount - Number(responseSizeBasisCounts.unmeasured || 0);
+  return {
+    total_count: totalCount,
+    success_count: totalCount - failureCount,
+    failure_count: failureCount,
+    failure_rate: totalCount ? Math.round((failureCount / totalCount) * 1_000_000) / 1_000_000 : 0,
+    tools_list_per_tool_call: toolCallCount ? Math.round((toolsListCount / toolCallCount) * 10_000) / 10_000 : null,
+    discover_per_tool_call: toolCallCount ? Math.round((discoverCount / toolCallCount) * 10_000) / 10_000 : null,
+    response_size_coverage_rate: totalCount
+      ? Math.round((measuredResponseCount / totalCount) * 1_000_000) / 1_000_000
+      : 0,
+    by_projection_version: mcpTransportDimensionCounts(rows, "projection_version"),
+    by_endpoint: mcpTransportDimensionCounts(rows, "endpoint"),
+    by_protocol_generation: mcpTransportDimensionCounts(rows, "protocol_generation"),
+    by_operation_category: operationCounts,
+    by_cohort: mcpTransportDimensionCounts(rows, "cohort"),
+    by_http_status: mcpTransportDimensionCounts(rows, "http_status"),
+    by_error_code: mcpTransportDimensionCounts(rows, "error_code"),
+    by_latency_bucket: mcpTransportDimensionCounts(rows, "latency_bucket"),
+    by_response_size_bucket: mcpTransportDimensionCounts(rows, "response_size_bucket"),
+    by_response_size_basis: responseSizeBasisCounts,
+  };
+}
+
+function mcpTransportDimensionCounts(rows: JsonRecord[], field: string): JsonRecord {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    const key = String(row[field] ?? "");
+    counts.set(key, Number(counts.get(key) || 0) + Number(row.count || 0));
+  }
+  return Object.fromEntries(
+    [...counts.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])),
+  );
+}
+
 async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
+  if (telemetryTablesReady) return;
+  if (!telemetryTablesSetupPromise) {
+    telemetryTablesSetupPromise = createTelemetryTables(env);
+  }
+  try {
+    await telemetryTablesSetupPromise;
+    telemetryTablesReady = true;
+  } catch (error) {
+    telemetryTablesSetupPromise = null;
+    throw error;
+  }
+}
+
+async function ensureMcpTransportTable(env: ServiceEnv): Promise<void> {
+  if (mcpTransportTableReady) return;
+  if (!mcpTransportTableSetupPromise) {
+    mcpTransportTableSetupPromise = createMcpTransportTable(env);
+  }
+  try {
+    await mcpTransportTableSetupPromise;
+    mcpTransportTableReady = true;
+  } catch (error) {
+    mcpTransportTableSetupPromise = null;
+    throw error;
+  }
+}
+
+async function createMcpTransportTable(env: ServiceEnv): Promise<void> {
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS mcp_transport_events_v1 (
+      day TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      endpoint TEXT NOT NULL,
+      protocol_generation TEXT NOT NULL,
+      operation_category TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      http_status INTEGER NOT NULL,
+      error_code TEXT NOT NULL,
+      latency_bucket TEXT NOT NULL,
+      response_size_bucket TEXT NOT NULL,
+      response_size_basis TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, projection_version, endpoint, protocol_generation, operation_category, cohort, http_status, error_code, latency_bucket, response_size_bucket, response_size_basis)
+    )`
+  ).run();
+}
+
+async function createTelemetryTables(env: ServiceEnv): Promise<void> {
   await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS usage_events_v5 (
       day TEXT NOT NULL,
@@ -3525,6 +4052,7 @@ async function ensureTelemetryTables(env: ServiceEnv): Promise<void> {
       PRIMARY KEY(day, installation_hash)
     )`
   ).run();
+  await createMcpTransportTable(env);
 }
 
 async function submitFeedback(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
@@ -4473,6 +5001,7 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     },
     test_rounds: testRounds,
     telemetry,
+    mcp_transport: telemetry.mcp_transport,
     field_validation: fieldValidation,
     issue_reports: issueReports,
     rock_issues: rockIssues,
@@ -5524,7 +6053,7 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package, including bounded Rock Ideas lifecycle counts and highlights for roadmap context.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
     { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
-    { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, and telemetry.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, field validation, and privacy-bounded MCP transport telemetry.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_freshness", description: "Return authoritative public source and refresh-workflow health, with last check, content change, result count, content hash, and status stored separately.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 10, maxItems: 10, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
