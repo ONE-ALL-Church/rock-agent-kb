@@ -80,6 +80,10 @@ require Python or `uv` on the tester's machine:
 }
 ```
 
+The URL supports stateless MCP `2026-07-28` and ordinary 2025 MCP clients
+automatically. Let the agent host negotiate the protocol; testers do not need
+to create or save an MCP session ID.
+
 ### Option 2: Test From A Terminal
 
 Terminal agents can use the `rock-kb` CLI. The examples below use `uvx`, which

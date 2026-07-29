@@ -49,18 +49,25 @@ uvx rock-kb test-round
 
 MCP is not a higher-quality knowledge source than the CLI; it is a more native
 tool interface for compatible agents. The default `/mcp` endpoint exposes
-direct typed tools and is the right choice for normal use. An experimental
-read-only Cloudflare Code Mode endpoint is available for agents that need to
-compose several dependent KB calls, loops, or filters in one operation:
+direct typed tools and is the right choice for normal use. It implements the
+stateless MCP `2026-07-28` protocol with per-request discovery and capability
+metadata, while automatically retaining stateless compatibility for ordinary
+2025 MCP clients on the same URL. No MCP session ID or configuration change is
+required.
+
+An experimental read-only Cloudflare Code Mode endpoint remains on the legacy
+MCP SDK for agents that need to compose several dependent KB calls, loops, or
+filters in one operation:
 
 ```bash
 uvx rock-kb mcp-config --mode code
 ```
 
-Code Mode excludes feedback, issue-report, test-review, and contribution
-writes. It does not have better knowledge and should not replace direct MCP for
-single searches or exact lookups. Do not download an OKF bundle merely to
-answer an ordinary online question.
+Code Mode excludes all six write-capable tools: feedback, usefulness outcomes,
+Lava-context verification, issue reports, test-round reviews, and community
+contributions. It does not have better knowledge and should not replace direct
+MCP for single searches or exact lookups. Do not download an OKF bundle merely
+to answer an ordinary online question.
 
 ## Portable OKF Distribution
 

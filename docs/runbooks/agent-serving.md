@@ -181,7 +181,30 @@ verification queue state and revalidation hash; neither is product evidence.
 - `POST /outcomes`
 - `POST /issues/report`
 - `POST /mcp`
+- `POST /mcp/code`
 - `POST /submit`
+
+The default `/mcp` route uses the stateless MCP `2026-07-28` protocol through
+the official MCP SDK v2 and Cloudflare stateless handler. Modern clients use
+`server/discover` and send protocol version, client identity, and capabilities
+with every request. The same route automatically serves ordinary 2025
+`initialize`, `tools/list`, and `tools/call` clients through a sessionless
+compatibility path. Neither era receives a persistent `Mcp-Session-Id`; legacy
+`GET` and `DELETE` session operations return `405`.
+
+`server/discover` and `tools/list` advertise a one-hour public cache hint
+because tool definitions are identical for all callers and change only with a
+reviewed deployment. Tool results are not cached by this policy. Modern header
+and body metadata must match, unsupported protocol versions fail explicitly,
+and browser Origins are limited to the hosted service and local development
+hosts. Origin-less desktop, CLI, and server-to-server MCP clients remain
+supported.
+
+The `/mcp/code` route remains an explicit MCP SDK v1 legacy handler because
+Cloudflare Code Mode still produces a legacy server. It exposes only the
+read-only tools and must remain operationally independent from direct MCP.
+`uvx rock-kb mcp-config` continues to configure `/mcp`; use `--mode code` only
+for the opt-in composition endpoint.
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 

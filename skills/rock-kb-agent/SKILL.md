@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.5.0"
+  rock-kb-skill-version: "1.6.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-26T18:00:00Z"
+  rock-kb-published-at: "2026-07-29T20:43:58Z"
   rock-kb-minimum-client-version: "0.18.0"
 ---
 
@@ -36,6 +36,13 @@ interfaces to the same hosted public projection:
 
 MCP does not contain better or newer knowledge than the CLI. Do not download or
 load an OKF bundle merely to answer an ordinary online Rock question.
+
+The hosted direct `/mcp` endpoint uses stateless MCP `2026-07-28` and
+automatically supports ordinary 2025 clients on the same URL. Let the agent
+host negotiate the protocol; do not invent, persist, or require an MCP session
+ID. A modern protocol failure should be reported as an MCP malfunction, not
+worked around by switching to Code Mode. `uvx rock-kb mcp-config` remains the
+normal configuration command and needs no special stateless option.
 
 ## Capability Map
 

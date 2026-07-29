@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import test from "node:test";
+import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
 import { Miniflare } from "miniflare";
 import { MockAgent } from "undici";
 
@@ -82,6 +83,130 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
     const callResult = JSON.parse(callResponse.result.content[0].text);
     assert.equal(callResult.claim.claim_id, "claim:abc123");
     assert.equal(callResponse.result.structuredContent.claim.claim_id, "claim:abc123");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("direct MCP serves stateless 2026 clients through the official SDK", async () => {
+  const mf = await buildWorker();
+  const client = new Client(
+    { name: "rock-kb-sdk-test", version: "1.0.0" },
+    { versionNegotiation: { mode: { pin: "2026-07-28" } } },
+  );
+  try {
+    const discovered = await modernMcp(mf, "server/discover", {});
+    assert.equal(discovered.status, 200);
+    assert.equal(discovered.headers.get("mcp-session-id"), null);
+    assert.equal(discovered.payload.result.supportedVersions.includes("2026-07-28"), true);
+    assert.equal(discovered.payload.result.capabilities.tools !== undefined, true);
+    assert.equal(
+      discovered.payload.result._meta["io.modelcontextprotocol/serverInfo"].name,
+      "Rock KB",
+    );
+    assert.equal(discovered.payload.result.ttlMs, 3_600_000);
+    assert.equal(discovered.payload.result.cacheScope, "public");
+
+    const listed = await modernMcp(mf, "tools/list", {});
+    assert.equal(listed.status, 200);
+    assert.equal(listed.payload.result.tools.length, 33);
+    assert.equal(listed.payload.result.ttlMs, 3_600_000);
+    assert.equal(listed.payload.result.cacheScope, "public");
+
+    const transport = new StreamableHTTPClientTransport(
+      new URL("https://kb.example.test/mcp"),
+      { fetch: (input, init) => mf.dispatchFetch(input, init) },
+    );
+    await client.connect(transport);
+    const sdkTools = await client.listTools();
+    assert.equal(sdkTools.tools.length, 33);
+    const sdkResult = await client.callTool({
+      name: "kb_get_claim",
+      arguments: { claim_id: "claim:abc123" },
+    });
+    assert.equal(sdkResult.structuredContent.claim.claim_id, "claim:abc123");
+  } finally {
+    await client.close();
+    await mf.dispose();
+  }
+});
+
+test("direct MCP enforces modern headers, browser origins, and legacy compatibility", async () => {
+  const mf = await buildWorker();
+  try {
+    const mismatch = await mf.dispatchFetch("https://kb.example.test/mcp", {
+      method: "POST",
+      headers: modernMcpHeaders("tools/list"),
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        id: 1,
+        method: "tools/list",
+        params: {
+          _meta: modernMcpMeta("2099-01-01"),
+        },
+      }),
+    });
+    const mismatchPayload = await mismatch.json();
+    assert.equal(mismatch.status, 400);
+    assert.equal(mismatchPayload.error.code, -32020);
+
+    const unsupported = await modernMcp(mf, "tools/list", {}, {}, "2099-01-01");
+    assert.equal(unsupported.status, 400);
+    assert.equal(unsupported.payload.error.code, -32022);
+    assert.equal(unsupported.payload.error.data.requested, "2099-01-01");
+    assert.equal(unsupported.payload.error.data.supported.includes("2026-07-28"), true);
+
+    const unknown = await modernMcp(mf, "unknown/method", {});
+    assert.equal(unknown.status, 404);
+    assert.equal(unknown.payload.error.code, -32601);
+
+    const trustedPreflight = await mf.dispatchFetch("https://kb.example.test/mcp", {
+      method: "OPTIONS",
+      headers: {
+        origin: "https://kb.example.test",
+        "access-control-request-method": "POST",
+        "access-control-request-headers": "content-type,mcp-protocol-version,mcp-method,mcp-name",
+      },
+    });
+    assert.equal(trustedPreflight.status, 200);
+    assert.match(trustedPreflight.headers.get("access-control-allow-headers"), /MCP-Protocol-Version/i);
+    assert.match(trustedPreflight.headers.get("access-control-allow-headers"), /Mcp-Method/i);
+
+    const untrustedPreflight = await mf.dispatchFetch("https://kb.example.test/mcp", {
+      method: "OPTIONS",
+      headers: {
+        origin: "https://untrusted.example",
+        "access-control-request-method": "POST",
+      },
+    });
+    assert.equal(untrustedPreflight.status, 403);
+
+    const initialized = await legacyDirectMcp(mf, "initialize", {
+      protocolVersion: "2025-11-25",
+      capabilities: {},
+      clientInfo: { name: "rock-kb-legacy-test", version: "1.0.0" },
+    });
+    assert.equal(initialized.status, 200);
+    assert.equal(initialized.payload.result.protocolVersion, "2025-11-25");
+    assert.equal(initialized.headers.get("mcp-session-id"), null);
+
+    const legacyTools = await legacyDirectMcp(mf, "tools/list", {});
+    assert.equal(legacyTools.status, 200);
+    assert.equal(legacyTools.payload.result.tools.length, 33);
+    assert.equal("ttlMs" in legacyTools.payload.result, false);
+
+    const legacyCall = await legacyDirectMcp(mf, "tools/call", {
+      name: "kb_get_claim",
+      arguments: { claim_id: "claim:abc123" },
+    });
+    assert.equal(legacyCall.status, 200);
+    assert.equal(legacyCall.payload.result.structuredContent.claim.claim_id, "claim:abc123");
+
+    const legacyGet = await mf.dispatchFetch("https://kb.example.test/mcp", {
+      method: "GET",
+      headers: { "mcp-protocol-version": "2025-11-25" },
+    });
+    assert.equal(legacyGet.status, 405);
   } finally {
     await mf.dispose();
   }
@@ -2089,12 +2214,61 @@ async function putArtifactSet(bucket, artifactPrefix, artifacts) {
 }
 
 async function mcp(mf, method, params, headers = {}) {
+  return (await modernMcp(mf, method, params, headers)).payload;
+}
+
+async function modernMcp(mf, method, params, headers = {}, protocolVersion = "2026-07-28") {
+  const requestParams = {
+    ...params,
+    _meta: {
+      ...params?._meta,
+      ...modernMcpMeta(protocolVersion),
+    },
+  };
   const response = await mf.dispatchFetch("https://kb.example.test/mcp", {
     method: "POST",
-    headers: { "content-type": "application/json", ...headers },
+    headers: { ...modernMcpHeaders(method, params, protocolVersion), ...headers },
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params: requestParams }),
+  });
+  return { status: response.status, headers: response.headers, payload: await response.json() };
+}
+
+function modernMcpMeta(protocolVersion = "2026-07-28") {
+  return {
+    "io.modelcontextprotocol/protocolVersion": protocolVersion,
+    "io.modelcontextprotocol/clientInfo": { name: "rock-kb-test", version: "1.0.0" },
+    "io.modelcontextprotocol/clientCapabilities": {},
+  };
+}
+
+function modernMcpHeaders(method, params = {}, protocolVersion = "2026-07-28") {
+  const headers = {
+    "content-type": "application/json",
+    accept: "application/json, text/event-stream",
+    "mcp-protocol-version": protocolVersion,
+    "mcp-method": method,
+  };
+  if (method === "tools/call" && params.name) {
+    headers["mcp-name"] = params.name;
+  }
+  return headers;
+}
+
+async function legacyDirectMcp(mf, method, params) {
+  const response = await mf.dispatchFetch("https://kb.example.test/mcp", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      accept: "application/json, text/event-stream",
+      "mcp-protocol-version": "2025-11-25",
+    },
     body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
   });
-  return response.json();
+  const raw = await response.text();
+  const payload = response.headers.get("content-type")?.includes("text/event-stream")
+    ? JSON.parse(raw.split("\n").find((line) => line.startsWith("data: ")).slice(6))
+    : JSON.parse(raw);
+  return { status: response.status, headers: response.headers, payload };
 }
 
 async function streamableMcp(mf, method, params, sessionId = "") {
