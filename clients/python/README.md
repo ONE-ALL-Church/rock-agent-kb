@@ -129,10 +129,14 @@ rock-kb mcp-config
 
 `rock-kb mcp-config` prints the hosted direct HTTP MCP config. It does not start
 a local server. Direct tools are the default and are best for normal search and
-exact lookup. `rock-kb mcp-config --mode code` prints the opt-in experimental
-Cloudflare Code Mode endpoint for composed read-only calls. Code Mode excludes
-feedback, usefulness outcomes, malfunction reports, test-review submission, and knowledge
-submission; it is not a more current knowledge source.
+exact lookup. The same URL supports stateless MCP `2026-07-28` and ordinary
+2025 clients automatically; no session option is needed.
+
+`rock-kb mcp-config --mode code` prints the opt-in experimental Cloudflare Code
+Mode endpoint for composed read-only calls. Code Mode excludes feedback,
+usefulness outcomes, Lava-context verification, malfunction reports,
+test-review submission, and knowledge submission; it is not a more current
+knowledge source.
 
 Search output is compact by default. It returns stable IDs, snippets, trust
 tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or

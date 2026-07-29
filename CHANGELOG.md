@@ -6,6 +6,24 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+### Added
+
+- Stateless MCP `2026-07-28` discovery, per-request capability negotiation,
+  strict modern header validation, and one-hour public discovery/tool-list
+  cache hints on the hosted direct endpoint.
+- Official MCP SDK v2 client coverage alongside explicit 2025 stateless
+  compatibility, browser-Origin, unsupported-version, and Code Mode regression
+  tests.
+
+### Changed
+
+- The direct `/mcp` endpoint now uses the official MCP SDK v2 and Cloudflare
+  stateless handler instead of a hand-written 2025 protocol parser. Ordinary
+  2025 clients remain supported on the same URL without persistent sessions.
+- `/mcp/code` now uses Cloudflare's explicit legacy handler and remains an
+  independent, read-only MCP SDK v1 composition endpoint.
+- The Rock KB agent skill is version `1.6.0` and requires client `0.18.0`.
+
 ## [0.18.0] - 2026-07-26
 
 ### Added

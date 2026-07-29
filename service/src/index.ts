@@ -1,11 +1,26 @@
 import { DynamicWorkerExecutor } from "@cloudflare/codemode";
 import { codeMcpServer } from "@cloudflare/codemode/mcp";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { createMcpHandler } from "agents/mcp";
+import {
+  fromJsonSchema,
+  McpServer as StatelessMcpServer,
+  type CallToolResult as StatelessCallToolResult,
+  type JsonSchemaType,
+  type ToolAnnotations as StatelessToolAnnotations,
+} from "@modelcontextprotocol/server";
+import { McpServer as LegacyMcpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type { CallToolResult as LegacyCallToolResult } from "@modelcontextprotocol/sdk/types.js";
+import { createLegacyMcpHandler } from "agents/mcp";
+import { createMcpHandler as createStatelessMcpHandler } from "agents/mcp/server";
 import { z, type ZodType } from "zod";
 
 type JsonRecord = Record<string, unknown>;
+
+type DirectMcpToolDefinition = {
+  name: string;
+  description: string;
+  inputSchema: ReturnType<typeof fromJsonSchema>;
+  annotations: StatelessToolAnnotations;
+};
 
 type TelemetryIdentity = {
   clientClass: string;
@@ -212,8 +227,26 @@ const EXACT_RETRIEVAL_EVENTS = new Set([
   "rock_idea_get",
 ]);
 const TEST_ROUND_FUNNEL_STAGES = new Set(["started", "completed"]);
-const SUPPORTED_MCP_PROTOCOL_VERSIONS = new Set(["2025-03-26", "2025-06-18", "2025-11-25"]);
-const LATEST_STABLE_MCP_PROTOCOL_VERSION = "2025-11-25";
+const MCP_LIST_CACHE_TTL_MS = 60 * 60 * 1000;
+const MCP_INSTRUCTIONS = "Start with kb_search, then expand only the exact result you need. Use exact model, recipe, issue, and idea tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.";
+const MCP_CORS_HEADERS = [
+  "Content-Type",
+  "Accept",
+  "Authorization",
+  "mcp-session-id",
+  "MCP-Protocol-Version",
+  "Mcp-Method",
+  "Mcp-Name",
+  "Last-Event-ID",
+  "traceparent",
+  "tracestate",
+  "x-rock-kb-client",
+  "x-rock-kb-client-version",
+  "x-rock-kb-cohort",
+  "x-rock-kb-installation-id",
+].join(", ");
+let directMcpToolDefinitionsCache: DirectMcpToolDefinition[] | null = null;
+let directMcpVersionCache: { value: string; expiresAt: number } | null = null;
 const EXPECTED_SOURCE_WORKFLOWS = new Set(["daily-sources", "daily-issues", "weekly-comprehensive"]);
 const SKILL_ARTIFACT_PATH = "skills/rock-kb-agent/SKILL.md";
 const SKILL_MANIFEST_PATH = "skills/rock-kb-agent/manifest.json";
@@ -240,6 +273,9 @@ export default {
   async fetch(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     try {
+      if (url.pathname === "/mcp") {
+        return handleDirectMcp(request, env, ctx);
+      }
       if (request.method === "OPTIONS") {
         return cors(new Response(null, { status: 204 }));
       }
@@ -504,9 +540,6 @@ export default {
       if (url.pathname === "/mcp/code") {
         return handleCodeMcp(request, env, ctx);
       }
-      if (url.pathname === "/mcp" && request.method === "POST") {
-        return json(await handleMcp(request, env, ctx));
-      }
       if (url.pathname === "/submit" && request.method === "POST") {
         return json(await submitContribution(request, env));
       }
@@ -736,55 +769,93 @@ async function claims(env: ServiceEnv, conceptId: string, minTier: string, tier:
     .map((row: SearchRow) => parsePayload(row));
 }
 
-async function handleMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<JsonRecord> {
-  const body = await request.json<JsonRecord>();
-  const id = body.id ?? null;
-  const method = String(body.method || "");
-  if (method === "initialize") {
-    const requestedVersion = String(asRecord(body.params).protocolVersion || "");
-    const protocolVersion = SUPPORTED_MCP_PROTOCOL_VERSIONS.has(requestedVersion)
-      ? requestedVersion
-      : LATEST_STABLE_MCP_PROTOCOL_VERSION;
-    return {
-      jsonrpc: "2.0",
-      id,
-      result: {
-        protocolVersion,
-        serverInfo: { name: "Rock KB", version: await currentVersion(env) },
-        capabilities: { tools: {} },
-        instructions: "Start with kb_search, then expand only the exact result you need. Use exact model, recipe, issue, and idea tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.",
+async function handleDirectMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
+  const handler = createStatelessMcpHandler(
+    ({ requestInfo }) => createDirectMcpServer(env, ctx, requestInfo ?? request),
+    {
+      route: "/mcp",
+      legacy: "stateless",
+      responseMode: "auto",
+      corsOptions: {
+        origin: "*",
+        methods: "GET, POST, DELETE, OPTIONS",
+        headers: MCP_CORS_HEADERS,
+        exposeHeaders: "mcp-session-id, MCP-Protocol-Version, WWW-Authenticate",
+        maxAge: 86400,
       },
-    };
+      allowedOriginHostnames: [
+        new URL(env.PUBLIC_BASE_URL).hostname,
+        "localhost",
+        "127.0.0.1",
+        "[::1]",
+      ],
+    },
+  );
+  return handler(request, env, ctx);
+}
+
+async function createDirectMcpServer(
+  env: ServiceEnv,
+  ctx: ExecutionContext,
+  request: Request,
+): Promise<StatelessMcpServer> {
+  const server = new StatelessMcpServer(
+    { name: "Rock KB", version: await directMcpServerVersion(env) },
+    {
+      instructions: MCP_INSTRUCTIONS,
+      cacheHints: {
+        "server/discover": { ttlMs: MCP_LIST_CACHE_TTL_MS, cacheScope: "public" },
+        "tools/list": { ttlMs: MCP_LIST_CACHE_TTL_MS, cacheScope: "public" },
+      },
+    },
+  );
+  for (const definition of directMcpToolDefinitions()) {
+    server.registerTool(
+      definition.name,
+      {
+        description: definition.description,
+        inputSchema: definition.inputSchema,
+        annotations: definition.annotations,
+      },
+      async (args: unknown) => {
+        try {
+          return mcpToolResult(await callTool(definition.name, asRecord(args), env, request, ctx));
+        } catch (error) {
+          return mcpToolError(error);
+        }
+      },
+    );
   }
-  if (method === "tools/list") {
-    return { jsonrpc: "2.0", id, result: { tools: toolDefinitions() } };
+  return server;
+}
+
+function directMcpToolDefinitions(): DirectMcpToolDefinition[] {
+  if (!directMcpToolDefinitionsCache) {
+    directMcpToolDefinitionsCache = toolDefinitions().map((definition) => ({
+      name: String(definition.name),
+      description: String(definition.description || ""),
+      inputSchema: fromJsonSchema(asRecord(definition.inputSchema) as JsonSchemaType),
+      annotations: asRecord(definition.annotations) as StatelessToolAnnotations,
+    }));
   }
-  if (method === "tools/call") {
-    const params = asRecord(body.params);
-    const name = String(params.name || "");
-    const args = asRecord(params.arguments);
-    try {
-      const result = await callTool(name, args, env, request, ctx);
-      return { jsonrpc: "2.0", id, result: mcpToolResult(result) };
-    } catch (error) {
-      return {
-        jsonrpc: "2.0",
-        id,
-        result: {
-          content: [{ type: "text", text: JSON.stringify({ error: "tool_error", message: String(error) }) }],
-          isError: true,
-        },
-      };
-    }
+  return directMcpToolDefinitionsCache;
+}
+
+async function directMcpServerVersion(env: ServiceEnv): Promise<string> {
+  const now = Date.now();
+  if (directMcpVersionCache && directMcpVersionCache.expiresAt > now) {
+    return directMcpVersionCache.value;
   }
-  return { jsonrpc: "2.0", id, error: { code: -32601, message: "Method not found" } };
+  const value = await currentVersion(env);
+  directMcpVersionCache = { value, expiresAt: now + 60_000 };
+  return value;
 }
 
 async function handleCodeMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
   if (!env.LOADER) {
     return json({ error: "codemode_unavailable", message: "The Worker Loader binding is not configured." }, 503);
   }
-  const upstream = new McpServer(
+  const upstream = new LegacyMcpServer(
     { name: "Rock KB upstream tools", version: await currentVersion(env) },
     { capabilities: { tools: {} }, instructions: "Use compact search before exact expansion." },
   );
@@ -808,11 +879,11 @@ async function handleCodeMcp(request: Request, env: ServiceEnv, ctx: ExecutionCo
     description: "Execute JavaScript to compose Rock KB operations, filter intermediate results, and return one focused value. Prefer the normal direct MCP endpoint for a single exact lookup. Available methods:\n\n{{types}}\n\nExample:\n{{example}}",
   });
   annotateCodeModeTool(server);
-  return createMcpHandler(server, { route: "/mcp/code" })(request, env, ctx);
+  return createLegacyMcpHandler(server, { route: "/mcp/code" })(request, env, ctx);
 }
 
-function annotateCodeModeTool(server: McpServer): void {
-  // @cloudflare/codemode 0.4.3 does not expose annotations for its generated tool.
+function annotateCodeModeTool(server: LegacyMcpServer): void {
+  // @cloudflare/codemode does not expose annotations for its generated tool.
   const registry = (server as unknown as {
     _registeredTools?: Record<string, {
       update: (updates: { annotations: JsonRecord }) => void;
@@ -830,13 +901,20 @@ function annotateCodeModeTool(server: McpServer): void {
   });
 }
 
-function mcpToolResult(value: unknown): CallToolResult {
+function mcpToolResult(value: unknown): LegacyCallToolResult & StatelessCallToolResult {
   const structuredContent = value && typeof value === "object" && !Array.isArray(value)
     ? value as JsonRecord
     : { results: value };
   return {
     structuredContent,
     content: [{ type: "text", text: JSON.stringify(value) }],
+  };
+}
+
+function mcpToolError(error: unknown): LegacyCallToolResult & StatelessCallToolResult {
+  return {
+    content: [{ type: "text", text: JSON.stringify({ error: "tool_error", message: String(error) }) }],
+    isError: true,
   };
 }
 
@@ -5414,7 +5492,8 @@ function cors(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
   headers.set("access-control-allow-methods", "GET,POST,OPTIONS");
-  headers.set("access-control-allow-headers", "authorization,content-type,x-rock-kb-client,x-rock-kb-client-version,x-rock-kb-cohort,x-rock-kb-installation-id");
+  headers.set("access-control-allow-headers", MCP_CORS_HEADERS);
+  headers.set("access-control-expose-headers", "mcp-session-id,MCP-Protocol-Version,WWW-Authenticate");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
 
