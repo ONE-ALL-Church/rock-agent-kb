@@ -17,6 +17,7 @@ The commands write ignored review artifacts under
 
 - `source-snapshots.jsonl`
 - `source-units.jsonl`
+- `generation-activities.jsonl`
 - `knowledge-units.jsonl`
 - `identity-registry.jsonl`
 - `identity-migrations.jsonl`
@@ -34,17 +35,20 @@ The commands write ignored review artifacts under
 
 ## Architecture
 
-The projection separates six concerns:
+The projection separates seven concerns:
 
-1. A source snapshot identifies the observed public source or immutable release.
-2. A source unit identifies the exact section, timestamp, code span, issue,
+1. A source observation identifies the checked upstream revision, content
+   hashes, parser version, and separate checked/changed timestamps.
+2. A source unit identifies the exact paragraph, table, procedure, timestamp, code span, issue,
    idea, model, or recipe used as evidence.
-3. A persistent identity registry separates durable identity from mutable
+3. A generation activity records the model, prompt, input hash, and review
+   method that produced typed candidates.
+4. A persistent identity registry separates durable identity from mutable
    wording and content hashes.
-4. A knowledge unit carries one canonical retrieval identity, concept/topic
+5. A knowledge unit carries one canonical retrieval identity, concept/topic
    facets, review metadata, and the original source-specific payload.
-5. An evidence link connects primary source units to knowledge units.
-6. A typed relationship records an accepted, rejected, replaced, or
+6. An evidence link connects primary source units to knowledge units.
+7. A typed relationship records an accepted, rejected, replaced, or
    needs-review relationship decision.
 
 Source-specific payloads remain intact inside the common envelope. Issue
@@ -76,10 +80,72 @@ public serialization.
   share a `source_work_id`; they are mirrors, not independent corroboration.
 - Defined Value options in Model Map diffs are compared by portable option name
   and description, not instance-local numeric IDs.
-- The generated shadow is ignored and must not be copied into `agent/`,
-  `claims/`, `knowledge/`, service artifacts, or public exports.
+- The complete generated review shadow remains ignored. The deployment build
+  writes a public-safe inactive copy to dedicated service artifacts; active
+  readers do not use it.
 - Existing claims, answer packs, lexical retrieval, MCP behavior, CLI behavior,
   and OKF exports remain authoritative.
+
+## Source-Native Documentation Pilot
+
+The tracked `canonical/source-native/v1/` pilot tests source-native ingestion
+for `system-admin-ops` and `check-in`. It is not a public retrieval input.
+
+Build deterministic private review inputs from the Rockumentation API:
+
+```bash
+uv run kb tools source-native-candidates \
+  --concept system-admin-ops \
+  --concept check-in \
+  --limit-per-concept 6
+uv run kb tools source-native-schema
+uv run kb tools source-native-prompt --concept system-admin-ops
+```
+
+The parser assigns stable IDs before model review to sentences, tables, code
+blocks, and individual list items. Nested field catalogs are separate child
+units linked to their parent item. The snapshot also retains the API-derived
+documentation path and branch hierarchy, separate check/change timestamps, the
+upstream documentation revision, and parser version. Full article text and
+source-unit text remain under ignored `data/review/`. The v2.3 prompt can
+classify a supplied unit or request a deterministic split; it cannot invent
+evidence addresses.
+
+Merge every schema-constrained model batch and run the semantic gate before
+maintainer review:
+
+```bash
+uv run kb tools source-native-merge \
+  --input data/review/source-native-pilot/distillation-input.jsonl \
+  --batch data/review/source-native-pilot/output-a.json \
+  --batch data/review/source-native-pilot/output-b.json \
+  --destination data/review/source-native-pilot/reviewed-output.json
+```
+
+After maintainer review, promote only the public-safe paraphrases and provenance:
+
+```bash
+uv run kb tools source-native-promote \
+  --input data/review/source-native-pilot/distillation-input.jsonl \
+  --output data/review/source-native-pilot/reviewed-output.json \
+  --reviewer <reviewer-id> \
+  --model <exact-model-id> \
+  --reviewed-at <iso-8601>
+```
+
+Promotion fails unless every source unit has one decision, every useful unit
+has exactly one primary artifact type, claim and procedure/reference material
+are separated, mutable defaults carry verification status, and no split request
+remains. Compare refreshes with:
+
+```bash
+uv run kb tools source-native-impact \
+  --previous <prior-reviewed-bundle> \
+  --current canonical/source-native/v1
+```
+
+The impact report queues only knowledge units that depend on added, removed, or
+changed source units. Unrelated knowledge and projections remain untouched.
 
 ## Retrieval Comparison
 
@@ -136,8 +202,8 @@ unpublished pilot ID. The ignored migration file remains the audit trail.
 
 `uv run kb deploy-service` generates the legacy service projection and a
 complete canonical shadow in the same build. Canonical source snapshots, source
-units, knowledge units, evidence links, relationships, search rows, retrieval
-documents, and a content-addressed manifest are written under
+units, generation activities, knowledge units, evidence links, relationships,
+search rows, retrieval documents, and a content-addressed manifest are written under
 `service/dist/canonical-shadow/v1/`.
 
 An applied deploy stores those files as dedicated R2 shadow objects and records

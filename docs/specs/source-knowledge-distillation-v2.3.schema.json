@@ -1,0 +1,603 @@
+{
+  "$defs": {
+    "SourceNativeArtifactCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_key": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Artifact Key",
+          "type": "string"
+        },
+        "artifact_type": {
+          "enum": [
+            "claim",
+            "task_card",
+            "recipe",
+            "structured_reference",
+            "source_summary"
+          ],
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "claim_type": {
+          "anyOf": [
+            {
+              "enum": [
+                "behavior",
+                "configuration",
+                "implementation_pattern",
+                "release_caveat",
+                "risk",
+                "operational_guidance"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Claim Type"
+        },
+        "concept_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Concept Ids",
+          "type": "array"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        },
+        "evidence_class": {
+          "anyOf": [
+            {
+              "enum": [
+                "current_behavior",
+                "demonstration",
+                "partner_or_custom",
+                "historical",
+                "operational_recommendation",
+                "exploratory_roadmap"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Evidence Class"
+        },
+        "independent_question": {
+          "maxLength": 500,
+          "minLength": 8,
+          "title": "Independent Question",
+          "type": "string"
+        },
+        "needs_live_verification": {
+          "title": "Needs Live Verification",
+          "type": "boolean"
+        },
+        "payload": {
+          "$ref": "#/$defs/SourceNativeArtifactPayload"
+        },
+        "priority": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Priority",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 1500,
+          "minLength": 10,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "related_existing_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Related Existing Claim Ids",
+          "type": "array"
+        },
+        "relation_to_existing": {
+          "enum": [
+            "novel",
+            "adds_condition",
+            "conflicts",
+            "not_applicable"
+          ],
+          "title": "Relation To Existing",
+          "type": "string"
+        },
+        "retrieval_text": {
+          "maxLength": 20000,
+          "minLength": 20,
+          "title": "Retrieval Text",
+          "type": "string"
+        },
+        "rock_versions": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Rock Versions",
+          "type": "array"
+        },
+        "source_unit_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Source Unit Ids",
+          "type": "array"
+        },
+        "temporal_status": {
+          "enum": [
+            "current",
+            "release_sensitive",
+            "exploratory",
+            "unknown"
+          ],
+          "title": "Temporal Status",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 500,
+          "minLength": 5,
+          "title": "Title",
+          "type": "string"
+        },
+        "version_scope_status": {
+          "enum": [
+            "scoped",
+            "version_independent",
+            "unprocessed"
+          ],
+          "title": "Version Scope Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_key",
+        "artifact_type",
+        "source_unit_ids",
+        "title",
+        "retrieval_text",
+        "independent_question",
+        "rationale",
+        "concept_ids",
+        "priority",
+        "claim_type",
+        "evidence_class",
+        "temporal_status",
+        "rock_versions",
+        "version_scope_status",
+        "confidence",
+        "needs_live_verification",
+        "relation_to_existing",
+        "related_existing_claim_ids",
+        "payload"
+      ],
+      "title": "SourceNativeArtifactCandidate",
+      "type": "object"
+    },
+    "SourceNativeArtifactPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "cautions": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 30,
+          "title": "Cautions",
+          "type": "array"
+        },
+        "completion_or_use": {
+          "maxLength": 2000,
+          "title": "Completion Or Use",
+          "type": "string"
+        },
+        "implementation_elements": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "title": "Implementation Elements",
+          "type": "array"
+        },
+        "reference_items": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeReferenceItem"
+          },
+          "maxItems": 50,
+          "title": "Reference Items",
+          "type": "array"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeStep"
+          },
+          "maxItems": 50,
+          "title": "Steps",
+          "type": "array"
+        },
+        "summary": {
+          "maxLength": 5000,
+          "minLength": 20,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "reference_items",
+        "steps",
+        "implementation_elements",
+        "cautions",
+        "completion_or_use"
+      ],
+      "title": "SourceNativeArtifactPayload",
+      "type": "object"
+    },
+    "SourceNativeCoverageCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "captured_source_unit_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 200,
+          "title": "Captured Source Unit Ids",
+          "type": "array"
+        },
+        "material_unit_count": {
+          "maximum": 200,
+          "minimum": 0,
+          "title": "Material Unit Count",
+          "type": "integer"
+        },
+        "no_artifact_source_unit_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 200,
+          "title": "No Artifact Source Unit Ids",
+          "type": "array"
+        },
+        "omitted_source_units": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeOmittedUnit"
+          },
+          "maxItems": 200,
+          "title": "Omitted Source Units",
+          "type": "array"
+        }
+      },
+      "required": [
+        "material_unit_count",
+        "captured_source_unit_ids",
+        "no_artifact_source_unit_ids",
+        "omitted_source_units"
+      ],
+      "title": "SourceNativeCoverageCheck",
+      "type": "object"
+    },
+    "SourceNativeDistillationArticle": {
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeArtifactCandidate"
+          },
+          "maxItems": 50,
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "candidate_id": {
+          "maxLength": 240,
+          "minLength": 3,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "coverage_check": {
+          "$ref": "#/$defs/SourceNativeCoverageCheck"
+        },
+        "review_notes": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 30,
+          "minItems": 1,
+          "title": "Review Notes",
+          "type": "array"
+        },
+        "source_input_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Input Hash",
+          "type": "string"
+        },
+        "unit_decisions": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeUnitDecision"
+          },
+          "maxItems": 200,
+          "minItems": 1,
+          "title": "Unit Decisions",
+          "type": "array"
+        },
+        "unmatched_routing_terms": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Unmatched Routing Terms",
+          "type": "array"
+        },
+        "verification_requests": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeVerificationRequest"
+          },
+          "maxItems": 20,
+          "title": "Verification Requests",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "source_input_hash",
+        "unit_decisions",
+        "artifacts",
+        "verification_requests",
+        "unmatched_routing_terms",
+        "review_notes",
+        "coverage_check"
+      ],
+      "title": "SourceNativeDistillationArticle",
+      "type": "object"
+    },
+    "SourceNativeOmittedUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "maxLength": 1500,
+          "minLength": 10,
+          "title": "Reason",
+          "type": "string"
+        },
+        "source_unit_id": {
+          "maxLength": 240,
+          "minLength": 3,
+          "title": "Source Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_unit_id",
+        "reason"
+      ],
+      "title": "SourceNativeOmittedUnit",
+      "type": "object"
+    },
+    "SourceNativeReferenceItem": {
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "maxLength": 1500,
+          "minLength": 5,
+          "title": "Detail",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "needs_verification": {
+          "title": "Needs Verification",
+          "type": "boolean"
+        },
+        "value_status": {
+          "enum": [
+            "documented_behavior",
+            "documented_value",
+            "mutable_default",
+            "example",
+            "version_sensitive"
+          ],
+          "title": "Value Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "detail",
+        "value_status",
+        "needs_verification"
+      ],
+      "title": "SourceNativeReferenceItem",
+      "type": "object"
+    },
+    "SourceNativeStep": {
+      "additionalProperties": false,
+      "properties": {
+        "instruction": {
+          "maxLength": 2000,
+          "minLength": 5,
+          "title": "Instruction",
+          "type": "string"
+        },
+        "order": {
+          "maximum": 50,
+          "minimum": 1,
+          "title": "Order",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "order",
+        "instruction"
+      ],
+      "title": "SourceNativeStep",
+      "type": "object"
+    },
+    "SourceNativeUnitDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_reason": {
+          "maxLength": 1500,
+          "minLength": 10,
+          "title": "Decision Reason",
+          "type": "string"
+        },
+        "disposition": {
+          "enum": [
+            "claim",
+            "task_card",
+            "recipe",
+            "structured_reference",
+            "source_summary",
+            "no_artifact",
+            "split_required"
+          ],
+          "title": "Disposition",
+          "type": "string"
+        },
+        "evidence_summary": {
+          "maxLength": 1500,
+          "title": "Evidence Summary",
+          "type": "string"
+        },
+        "existing_relation": {
+          "enum": [
+            "novel",
+            "duplicate",
+            "corroborates",
+            "adds_condition",
+            "conflicts",
+            "not_applicable"
+          ],
+          "title": "Existing Relation",
+          "type": "string"
+        },
+        "mixed_material": {
+          "title": "Mixed Material",
+          "type": "boolean"
+        },
+        "related_existing_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Related Existing Claim Ids",
+          "type": "array"
+        },
+        "source_unit_id": {
+          "maxLength": 240,
+          "minLength": 3,
+          "title": "Source Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_unit_id",
+        "disposition",
+        "existing_relation",
+        "related_existing_claim_ids",
+        "evidence_summary",
+        "decision_reason",
+        "mixed_material"
+      ],
+      "title": "SourceNativeUnitDecision",
+      "type": "object"
+    },
+    "SourceNativeVerificationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "maxLength": 1000,
+          "minLength": 10,
+          "title": "Question",
+          "type": "string"
+        },
+        "source_unit_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "minItems": 1,
+          "title": "Source Unit Ids",
+          "type": "array"
+        },
+        "verification_surface": {
+          "enum": [
+            "public_source_code",
+            "official_api",
+            "read_only_instance",
+            "maintainer_review"
+          ],
+          "title": "Verification Surface",
+          "type": "string"
+        },
+        "why_material": {
+          "maxLength": 1500,
+          "minLength": 10,
+          "title": "Why Material",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_unit_ids",
+        "verification_surface",
+        "question",
+        "why_material"
+      ],
+      "title": "SourceNativeVerificationRequest",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "articles": {
+      "items": {
+        "$ref": "#/$defs/SourceNativeDistillationArticle"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Articles",
+      "type": "array"
+    },
+    "schema": {
+      "const": "rock-kb-source-knowledge-distillation-v2.3",
+      "title": "Schema",
+      "type": "string"
+    },
+    "variant_id": {
+      "const": "source_knowledge_distillation_v2_3",
+      "title": "Variant Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "variant_id",
+    "articles"
+  ],
+  "title": "SourceNativeDistillationOutput",
+  "type": "object"
+}

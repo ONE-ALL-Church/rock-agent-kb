@@ -17,6 +17,7 @@ from .schemas import (
     CanonicalKnowledgeBundle,
     Claim,
     EvidenceLink,
+    GenerationActivity,
     KnowledgeIdentity,
     KnowledgeIdentityMigration,
     KnowledgeRelationship,
@@ -27,6 +28,10 @@ from .schemas import (
     SourceUnit,
 )
 from .service_projection import build_search_rows
+from .source_native import (
+    canonical_records_for_source_native_artifacts,
+    load_source_native_pilot,
+)
 
 
 SHADOW_DIR = REVIEW_DIR / "canonical-knowledge-pilot"
@@ -84,10 +89,16 @@ def build_canonical_knowledge_bundle(
     identity_registry: Iterable[dict[str, Any]] | None = None,
     identity_migrations: Iterable[dict[str, Any]] | None = None,
     previous_knowledge_units: Iterable[dict[str, Any]] | None = None,
+    include_source_native_pilot: bool | None = None,
     repo_root: Path = REPO_ROOT,
 ) -> tuple[CanonicalKnowledgeBundle, dict[str, Any]]:
     """Project current public artifacts into the shared architecture without publishing it."""
 
+    use_source_native_pilot = (
+        search_rows is None and distilled_claims is None
+        if include_source_native_pilot is None
+        else include_source_native_pilot
+    )
     all_search_rows = list(search_rows) if search_rows is not None else build_search_rows()
     supported_rows = [row for row in all_search_rows if str(row.get("kind") or "") in SUPPORTED_SEARCH_KINDS]
     distilled_rows = (
@@ -111,6 +122,18 @@ def build_canonical_knowledge_bundle(
             continue
         builder.add_search_row(row)
 
+    source_native = (
+        load_source_native_pilot(repo_root)
+        if use_source_native_pilot
+        else {
+            "source_snapshots": [],
+            "source_units": [],
+            "generation_activities": [],
+            "reviewed_artifacts": [],
+            "relationships": [],
+        }
+    )
+    builder.add_source_native_pilot(source_native)
     builder.add_mirror_relationships()
     bundle = builder.bundle()
     summary = projection_summary(
@@ -119,6 +142,7 @@ def build_canonical_knowledge_bundle(
         supported_rows=supported_rows,
         claim_rows=claim_rows,
         distilled_rows=distilled_rows,
+        source_native_artifact_count=len(source_native["reviewed_artifacts"]),
     )
     return bundle, summary
 
@@ -166,6 +190,10 @@ def write_canonical_knowledge_shadow(
     write_jsonl(
         destination / "source-units.jsonl",
         [row.public_dump() for row in bundle.source_units],
+    )
+    write_jsonl(
+        destination / "generation-activities.jsonl",
+        [row.public_dump() for row in bundle.generation_activities],
     )
     write_jsonl(
         destination / "knowledge-units.jsonl",
@@ -747,10 +775,127 @@ class _ProjectionBuilder:
     def __init__(self, identity_resolver: _IdentityResolver) -> None:
         self.snapshots: dict[str, SourceSnapshot] = {}
         self.units: dict[str, SourceUnit] = {}
+        self.activities: dict[str, GenerationActivity] = {}
         self.knowledge: dict[str, KnowledgeUnit] = {}
         self.links: dict[str, EvidenceLink] = {}
         self.relationships: dict[str, KnowledgeRelationship] = {}
         self.identity_resolver = identity_resolver
+
+    def add_source_native_pilot(
+        self,
+        records: dict[str, list[Any]],
+    ) -> None:
+        for snapshot in records.get("source_snapshots") or []:
+            self.store_snapshot(snapshot)
+        for unit in records.get("source_units") or []:
+            existing = self.units.get(unit.source_unit_id)
+            if existing and existing != unit:
+                raise ValueError(
+                    "source-native unit conflicts with an existing source unit: "
+                    f"{unit.source_unit_id}"
+                )
+            self.units[unit.source_unit_id] = unit
+        for activity in records.get("generation_activities") or []:
+            existing = self.activities.get(activity.generation_activity_id)
+            if existing and existing != activity:
+                raise ValueError(
+                    "source-native generation activity conflicts with an existing "
+                    f"activity: {activity.generation_activity_id}"
+                )
+            self.activities[activity.generation_activity_id] = activity
+
+        knowledge_units, evidence_links = canonical_records_for_source_native_artifacts(
+            records.get("reviewed_artifacts") or []
+        )
+        canonical_ids: dict[str, str] = {}
+        for item in knowledge_units:
+            identity = self.identity_resolver.resolve(
+                knowledge_type=item.knowledge_type,
+                aliases=[item.knowledge_unit_id],
+                content_fingerprint=item.content_hash,
+                default_identity_key=(
+                    f"source_native_artifact:{item.knowledge_unit_id}"
+                ),
+                default_knowledge_unit_id=item.knowledge_unit_id,
+                default_basis="source_identity",
+            )
+            canonical_ids[item.knowledge_unit_id] = identity.knowledge_unit_id
+            source_work_ids = sorted(
+                {
+                    str(snapshot.source_work_id)
+                    for source_unit_id in item.source_unit_ids
+                    if (source_unit := self.units.get(source_unit_id))
+                    and (
+                        snapshot := self.snapshots.get(
+                            source_unit.source_snapshot_id
+                        )
+                    )
+                    and snapshot.source_work_id
+                }
+            )
+            updated = item.model_copy(
+                update={
+                    "knowledge_unit_id": identity.knowledge_unit_id,
+                    "source_work_ids": source_work_ids,
+                    "legacy_ids": identity.aliases,
+                }
+            )
+            self.knowledge[identity.knowledge_unit_id] = KnowledgeUnit.model_validate(
+                updated.model_dump(by_alias=True)
+            )
+        for link in evidence_links:
+            knowledge_unit_id = canonical_ids.get(
+                link.knowledge_unit_id,
+                link.knowledge_unit_id,
+            )
+            updated = link.model_copy(
+                update={
+                    "knowledge_unit_id": knowledge_unit_id,
+                    "evidence_link_id": "evidence:"
+                    + sha256_text(
+                        f"{knowledge_unit_id}:{link.source_unit_id}:"
+                        f"{link.relation}"
+                    )[:24],
+                }
+            )
+            self.links[updated.evidence_link_id] = EvidenceLink.model_validate(
+                updated.model_dump(by_alias=True)
+            )
+        alias_to_canonical = {
+            alias: identity.knowledge_unit_id
+            for identity in self.identity_resolver.identities.values()
+            for alias in identity.aliases
+        }
+        for relationship in records.get("relationships") or []:
+            from_id = canonical_ids.get(
+                relationship.from_id,
+                alias_to_canonical.get(
+                    relationship.from_id,
+                    relationship.from_id,
+                ),
+            )
+            to_id = canonical_ids.get(
+                relationship.to_id,
+                alias_to_canonical.get(
+                    relationship.to_id,
+                    relationship.to_id,
+                ),
+            )
+            updated = relationship.model_copy(
+                update={
+                    "relationship_id": "relationship:"
+                    + sha256_text(
+                        f"{from_id}:{relationship.relation}:{to_id}"
+                    )[:24],
+                    "from_id": from_id,
+                    "to_id": to_id,
+                }
+            )
+            self.relationships[updated.relationship_id] = (
+                KnowledgeRelationship.model_validate(
+                    updated.model_dump(by_alias=True)
+                )
+            )
 
     def add_claim_group(self, group: dict[str, Any]) -> None:
         statement = str(group["statement"])
@@ -1204,6 +1349,10 @@ class _ProjectionBuilder:
             schema="rock-kb-canonical-knowledge-bundle-v1",
             source_snapshots=sorted(self.snapshots.values(), key=lambda row: row.source_snapshot_id),
             source_units=sorted(self.units.values(), key=lambda row: row.source_unit_id),
+            generation_activities=sorted(
+                self.activities.values(),
+                key=lambda row: row.generation_activity_id,
+            ),
             knowledge_units=sorted(self.knowledge.values(), key=lambda row: row.knowledge_unit_id),
             identities=sorted(
                 self.identity_resolver.identities.values(),
@@ -1225,6 +1374,7 @@ def projection_summary(
     supported_rows: list[dict[str, Any]],
     claim_rows: list[dict[str, Any]],
     distilled_rows: list[dict[str, Any]],
+    source_native_artifact_count: int = 0,
 ) -> dict[str, Any]:
     distilled_groups = defaultdict(list)
     for row in distilled_rows:
@@ -1265,10 +1415,12 @@ def projection_summary(
             "distilled_claim_rows": len(distilled_rows),
             "distilled_claim_groups": len(distilled_groups),
             "distilled_duplicate_rows_removed": len(distilled_rows) - len(distilled_groups),
+            "source_native_reviewed_artifacts": source_native_artifact_count,
         },
         "output": {
             "source_snapshots": len(bundle.source_snapshots),
             "source_units": len(bundle.source_units),
+            "generation_activities": len(bundle.generation_activities),
             "knowledge_units": len(bundle.knowledge_units),
             "identity_registry_rows": len(bundle.identities),
             "identity_migrations": len(bundle.identity_migrations),

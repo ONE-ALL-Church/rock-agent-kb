@@ -492,7 +492,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert projection.canonical_shadow_hash
     assert projection.canonical_shadow_search_row_count > 100
     assert projection.canonical_shadow_knowledge_unit_count > 100
-    assert projection.canonical_shadow_artifact_count == 7
+    assert projection.canonical_shadow_artifact_count == 8
     assert "CREATE VIRTUAL TABLE search_rows_fts" in sql
     assert "CREATE TABLE search_row_concepts" in sql
     assert "CREATE TABLE search_row_aliases" in sql
@@ -518,15 +518,19 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert shadow_manifest["active_retrieval_projection"] == "legacy"
     assert shadow_manifest["unpublished_pilot_migrations_included"] is False
     assert shadow_manifest["search_row_count"] == projection.canonical_shadow_search_row_count
-    assert len(shadow_manifest["artifacts"]) == 7
+    assert len(shadow_manifest["artifacts"]) == 8
     assert all(
         row["content_encoding"] == "gzip"
         and row["r2_path"].endswith(".jsonl.gz")
-        and row["compressed_bytes"] < row["bytes"]
+        and (
+            row["bytes"] == 0
+            or row["compressed_bytes"] < row["bytes"]
+        )
         and (shadow_dir / row["r2_path"]).exists()
         for row in shadow_manifest["artifacts"]
     )
     assert (shadow_dir / "knowledge-units.jsonl").exists()
+    assert (shadow_dir / "generation-activities.jsonl").exists()
     assert (shadow_dir / "search-rows.jsonl").exists()
     assert (shadow_dir / "retrieval-documents.jsonl").exists()
     assert (projection.dist / "artifacts" / "agent" / "rock-kb-manifest.json").exists()

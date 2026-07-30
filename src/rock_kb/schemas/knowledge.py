@@ -18,6 +18,13 @@ PublicHandling = Literal[
 SourceUnitKind = Literal[
     "document",
     "document_section",
+    "paragraph",
+    "table",
+    "code_block",
+    "list_item",
+    "settings_matrix",
+    "procedure",
+    "procedure_step",
     "media_segment",
     "source_code_span",
     "issue_observation",
@@ -33,6 +40,7 @@ KnowledgeType = Literal[
     "concept",
     "answer",
     "task_card",
+    "structured_reference",
     "troubleshooting_node",
     "recipe",
     "lava_context",
@@ -53,6 +61,11 @@ RelationshipType = Literal[
     "supersedes",
     "implements",
     "affects",
+    "affects_model",
+    "affects_version",
+    "applies_to",
+    "requires",
+    "workaround_for",
     "references",
 ]
 RelationshipDecision = Literal["accept", "reject", "replace", "needs_review"]
@@ -79,6 +92,11 @@ class SourceLocator(KBRecord):
     kind: Literal[
         "record",
         "section",
+        "paragraph",
+        "table",
+        "code_block",
+        "list_item",
+        "procedure",
         "timestamp",
         "source_code_span",
         "issue",
@@ -123,15 +141,28 @@ class SourceLocator(KBRecord):
 
 
 class SourceSnapshot(KBRecord):
-    schema_: Literal["rock-kb-source-snapshot-v1"] = Field(alias="schema")
+    schema_: Literal[
+        "rock-kb-source-snapshot-v1",
+        "rock-kb-source-snapshot-v2",
+    ] = Field(alias="schema")
     source_snapshot_id: str = Field(min_length=3, max_length=240)
     source_id: str = Field(min_length=1, max_length=160)
     source_record_id: str | None = Field(default=None, max_length=240)
     source_work_id: str | None = Field(default=None, max_length=240)
     canonical_url: str | None = Field(default=None, max_length=2000)
     title: str | None = Field(default=None, max_length=500)
+    source_path: str | None = Field(default=None, max_length=500)
+    routing_paths: list[str] = Field(default_factory=list, max_length=100)
     observed_at: str | None = Field(default=None, max_length=80)
+    last_checked_at: str | None = Field(default=None, max_length=80)
+    content_changed_at: str | None = Field(default=None, max_length=80)
     content_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    raw_content_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    normalized_content_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    upstream_revision: str | None = Field(default=None, max_length=160)
+    parser_id: str | None = Field(default=None, max_length=160)
+    parser_version: str | None = Field(default=None, max_length=80)
+    observation_status: Literal["initial", "unchanged", "changed", "error"] | None = None
     immutable: bool = False
     authority_tier: str = Field(min_length=1, max_length=80)
     public_policy: PublicHandling
@@ -145,6 +176,30 @@ class SourceSnapshot(KBRecord):
             raise ValueError("source snapshot URLs must use https")
         return value
 
+    @field_validator("source_path")
+    @classmethod
+    def validate_source_path(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        raw = value.replace("\\", "/").strip()
+        normalized = raw.strip("/")
+        if raw.startswith("/") or not normalized or ".." in normalized.split("/"):
+            raise ValueError("source_path must be a public-safe relative path")
+        return normalized
+
+    @field_validator("routing_paths")
+    @classmethod
+    def validate_routing_paths(cls, values: list[str]) -> list[str]:
+        raw_values = [value.replace("\\", "/").strip() for value in values]
+        normalized = [value.strip("/") for value in raw_values]
+        if len(normalized) != len(set(normalized)):
+            raise ValueError("routing_paths values must be unique")
+        if any(value.startswith("/") for value in raw_values) or any(
+            not value or ".." in value.split("/") for value in normalized
+        ):
+            raise ValueError("routing_paths must be public-safe relative paths")
+        return normalized
+
     @model_validator(mode="after")
     def require_locator(self) -> "SourceSnapshot":
         if not self.source_record_id and not self.canonical_url:
@@ -153,16 +208,50 @@ class SourceSnapshot(KBRecord):
 
 
 class SourceUnit(KBRecord):
-    schema_: Literal["rock-kb-source-unit-v1"] = Field(alias="schema")
+    schema_: Literal[
+        "rock-kb-source-unit-v1",
+        "rock-kb-source-unit-v2",
+    ] = Field(alias="schema")
     source_unit_id: str = Field(min_length=3, max_length=240)
     source_snapshot_id: str = Field(min_length=3, max_length=240)
     unit_kind: SourceUnitKind
     locator: SourceLocator
+    parent_source_unit_id: str | None = Field(default=None, max_length=240)
+    ordinal: int | None = Field(default=None, ge=1)
+    heading_path: list[str] = Field(default_factory=list, max_length=20)
+    contextual_prefix: str | None = Field(default=None, max_length=1000)
     context: str = Field(default="", max_length=1000)
     text: str | None = Private(default=None)
     public_summary: str | None = Field(default=None, max_length=1500)
     normalized_content_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
     required_public_handling: PublicHandling
+
+
+class GenerationActivity(KBRecord):
+    schema_: Literal["rock-kb-generation-activity-v1"] = Field(alias="schema")
+    generation_activity_id: str = Field(min_length=3, max_length=240)
+    activity_type: Literal[
+        "source_distillation",
+        "maintainer_review",
+        "deterministic_projection",
+    ]
+    model: str | None = Field(default=None, max_length=160)
+    prompt_id: str | None = Field(default=None, max_length=160)
+    prompt_version: str | None = Field(default=None, max_length=80)
+    source_snapshot_ids: list[str] = Field(default_factory=list, max_length=100)
+    source_unit_ids: list[str] = Field(default_factory=list, max_length=500)
+    source_input_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    created_at: str | None = Field(default=None, max_length=80)
+    review_method: str | None = Field(default=None, max_length=160)
+    parameters: dict[str, str | int | float | bool | None] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def validate_unique_references(self) -> "GenerationActivity":
+        for field_name in ("source_snapshot_ids", "source_unit_ids"):
+            values = getattr(self, field_name)
+            if len(values) != len(set(values)):
+                raise ValueError(f"{field_name} values must be unique")
+        return self
 
 
 class EvidenceLink(KBRecord):
@@ -193,7 +282,12 @@ class KnowledgeUnit(KBRecord):
     version_scope_status: str | None = Field(default=None, max_length=80)
     source_unit_ids: list[str] = Field(default_factory=list, max_length=500)
     source_work_ids: list[str] = Field(default_factory=list, max_length=100)
+    generation_activity_ids: list[str] = Field(default_factory=list, max_length=100)
     legacy_ids: list[str] = Field(default_factory=list, max_length=500)
+    created_at: str | None = Field(default=None, max_length=80)
+    reviewed_at: str | None = Field(default=None, max_length=80)
+    content_changed_at: str | None = Field(default=None, max_length=80)
+    stale_at: str | None = Field(default=None, max_length=80)
     payload_schema: str | None = Field(default=None, max_length=160)
     payload: dict[str, Any]
     content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
@@ -207,6 +301,7 @@ class KnowledgeUnit(KBRecord):
             "rock_versions",
             "source_unit_ids",
             "source_work_ids",
+            "generation_activity_ids",
             "legacy_ids",
         ):
             values = getattr(self, field_name)
@@ -334,6 +429,7 @@ class CanonicalKnowledgeBundle(KBRecord):
     schema_: Literal["rock-kb-canonical-knowledge-bundle-v1"] = Field(alias="schema")
     source_snapshots: list[SourceSnapshot] = Field(default_factory=list)
     source_units: list[SourceUnit] = Field(default_factory=list)
+    generation_activities: list[GenerationActivity] = Field(default_factory=list)
     knowledge_units: list[KnowledgeUnit] = Field(default_factory=list)
     identities: list[KnowledgeIdentity] = Field(default_factory=list)
     identity_migrations: list[KnowledgeIdentityMigration] = Field(default_factory=list)
@@ -344,6 +440,10 @@ class CanonicalKnowledgeBundle(KBRecord):
     def validate_references(self) -> "CanonicalKnowledgeBundle":
         snapshots = _unique_by_id(self.source_snapshots, "source_snapshot_id")
         units = _unique_by_id(self.source_units, "source_unit_id")
+        activities = _unique_by_id(
+            self.generation_activities,
+            "generation_activity_id",
+        )
         knowledge = _unique_by_id(self.knowledge_units, "knowledge_unit_id")
         identities = _unique_by_id(self.identities, "knowledge_unit_id")
         _unique_by_id(self.identity_migrations, "migration_id")
@@ -419,6 +519,30 @@ class CanonicalKnowledgeBundle(KBRecord):
         for unit in self.source_units:
             if unit.source_snapshot_id not in snapshots:
                 raise ValueError(f"source unit references unknown snapshot: {unit.source_snapshot_id}")
+            if (
+                unit.parent_source_unit_id
+                and unit.parent_source_unit_id not in units
+            ):
+                raise ValueError(
+                    "source unit references unknown parent: "
+                    f"{unit.parent_source_unit_id}"
+                )
+
+        for activity in self.generation_activities:
+            missing_snapshots = sorted(
+                set(activity.source_snapshot_ids) - set(snapshots)
+            )
+            if missing_snapshots:
+                raise ValueError(
+                    "generation activity references unknown snapshots: "
+                    + ", ".join(missing_snapshots)
+                )
+            missing_units = sorted(set(activity.source_unit_ids) - set(units))
+            if missing_units:
+                raise ValueError(
+                    "generation activity references unknown source units: "
+                    + ", ".join(missing_units)
+                )
 
         for link in self.evidence_links:
             if link.knowledge_unit_id not in knowledge:
@@ -433,6 +557,14 @@ class CanonicalKnowledgeBundle(KBRecord):
             missing = sorted(set(item.source_unit_ids) - set(units))
             if missing:
                 raise ValueError(f"knowledge unit references unknown source units: {', '.join(missing)}")
+            missing_activities = sorted(
+                set(item.generation_activity_ids) - set(activities)
+            )
+            if missing_activities:
+                raise ValueError(
+                    "knowledge unit references unknown generation activities: "
+                    + ", ".join(missing_activities)
+                )
 
         valid_endpoints = set(snapshots) | set(units) | set(knowledge)
         for relationship in self.relationships:

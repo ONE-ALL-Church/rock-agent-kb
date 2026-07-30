@@ -28,6 +28,8 @@ on:
       - "src/rock_kb/canonical_knowledge.py"
       - "src/rock_kb/canonical_retrieval_shadow.py"
       - "src/rock_kb/schemas/knowledge.py"
+      - "src/rock_kb/schemas/source_native.py"
+      - "src/rock_kb/source_native.py"
       - "src/rock_kb/service_projection.py"
       - "src/rock_kb/service_eval.py"
       - "src/rock_kb/hosted_evaluation.py"

@@ -239,6 +239,7 @@ def build_canonical_service_shadow(
             row.public_dump()
             for row in identity_registry
         ],
+        include_source_native_pilot=True,
         repo_root=REPO_ROOT,
     )
     canonical_search_rows = build_canonical_search_rows(
@@ -259,6 +260,9 @@ def build_canonical_service_shadow(
         ),
         "source-units.jsonl": (
             row.public_dump() for row in bundle.source_units
+        ),
+        "generation-activities.jsonl": (
+            row.public_dump() for row in bundle.generation_activities
         ),
         "knowledge-units.jsonl": (
             row.public_dump() for row in bundle.knowledge_units
@@ -302,6 +306,7 @@ def build_canonical_service_shadow(
         "identity_count": int(identity_manifest.get("identity_count") or 0),
         "source_snapshot_count": len(bundle.source_snapshots),
         "source_unit_count": len(bundle.source_units),
+        "generation_activity_count": len(bundle.generation_activities),
         "knowledge_unit_count": len(bundle.knowledge_units),
         "evidence_link_count": len(bundle.evidence_links),
         "relationship_count": len(bundle.relationships),

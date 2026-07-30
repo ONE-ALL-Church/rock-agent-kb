@@ -20,6 +20,7 @@ from .paths import REPO_ROOT
 from .schemas import EvidenceLink, KnowledgeUnit, SourceSnapshot, SourceUnit
 from .service_eval import EVALUATION_SET_PATH, evaluation_metrics, hit_concepts
 from .service_projection import AUTHORITY_TIER_RANK, SERVICE_DIR, build_search_rows
+from .source_native import source_native_evaluation_rows
 
 
 RAW_RESULTS_PATH = SHADOW_DIR / "retrieval-raw.json"
@@ -83,7 +84,11 @@ def run_canonical_retrieval_shadow(
     endpoint_cases_path = destination / "endpoint-compatibility-cases.jsonl"
     raw_path = destination / "retrieval-raw.json"
     report_path = destination / "retrieval-report.json"
-    evaluations = [*read_jsonl(EVALUATION_SET_PATH), *SHADOW_NO_ANSWER_EVALUATIONS]
+    evaluations = [
+        *read_jsonl(EVALUATION_SET_PATH),
+        *SHADOW_NO_ANSWER_EVALUATIONS,
+        *source_native_evaluation_rows(REPO_ROOT),
+    ]
     endpoint_cases = build_endpoint_compatibility_cases(baseline_rows)
     claim_collapse_review = write_claim_collapse_review(
         destination,
@@ -709,11 +714,12 @@ def canonical_search_row(
             "version_scope_status": item.version_scope_status,
         }
     authority_tier = highest_authority(item.authority_tiers)
+    body = canonical_search_body(item)
     return {
         "id": item.knowledge_unit_id,
         "kind": item.knowledge_type,
         "title": title,
-        "body": item.retrieval_text,
+        "body": body,
         "path": f"shadow/canonical/{item.knowledge_type}.jsonl",
         "url": next(
             (
@@ -734,6 +740,51 @@ def canonical_search_row(
         ),
         "payload": payload,
     }
+
+
+def canonical_search_body(item: KnowledgeUnit) -> str:
+    values = [item.retrieval_text]
+    if item.payload_schema != "rock-kb-source-native-artifact-payload-v1":
+        return item.retrieval_text
+    artifact = item.payload.get("artifact") or {}
+    typed_payload = artifact.get("payload") or {}
+    values.extend(
+        [
+            str(artifact.get("independent_question") or ""),
+            str(typed_payload.get("summary") or ""),
+            *[
+                " ".join(
+                    [
+                        str(reference.get("label") or ""),
+                        str(reference.get("detail") or ""),
+                    ]
+                )
+                for reference in typed_payload.get("reference_items") or []
+                if isinstance(reference, dict)
+            ],
+            *[
+                str(step.get("instruction") or "")
+                for step in typed_payload.get("steps") or []
+                if isinstance(step, dict)
+            ],
+            *[
+                str(value)
+                for value in typed_payload.get("implementation_elements") or []
+            ],
+            *[str(value) for value in typed_payload.get("cautions") or []],
+            str(typed_payload.get("completion_or_use") or ""),
+        ]
+    )
+    normalized: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        text = " ".join(value.split())
+        key = text.casefold()
+        if not text or key in seen:
+            continue
+        seen.add(key)
+        normalized.append(text)
+    return " ".join(normalized)[:20_000]
 
 
 def highest_authority(values: Iterable[str]) -> str:
@@ -1175,7 +1226,13 @@ def score_evaluation_hits(
 ) -> dict[str, Any]:
     expected_concept = str(row.get("concept_id") or "")
     limit = max(1, len(hits))
-    max_rank = max(1, min(int(row.get("max_rank") or 2), limit))
+    max_rank = max(
+        1,
+        min(
+            int(row.get("max_rank") or row.get("max_allowed_rank") or 2),
+            limit,
+        ),
+    )
     original_expected_ids = [
         str(value) for value in row.get("expected_result_ids") or []
     ]
