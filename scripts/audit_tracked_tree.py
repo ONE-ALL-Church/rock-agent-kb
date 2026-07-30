@@ -19,6 +19,7 @@ PUBLIC_SCAN_PREFIXES = (
     "README.md",
     ".github/",
     "agent/",
+    "canonical/",
     "claims/",
     "community-contributions/",
     "concepts/",

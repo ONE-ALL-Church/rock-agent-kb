@@ -1012,7 +1012,7 @@ def evaluation_set_rows(concepts: list[Any]) -> list[dict[str, Any]]:
             raise ValueError(f"curated evaluation id must start with eval:curated:: {row_id!r}")
         if row_id in seen_ids:
             raise ValueError(f"duplicate evaluation id: {row_id}")
-        if concept_id not in known_concepts and concept_id != "model-map":
+        if concept_id not in known_concepts and concept_id not in {"", "model-map"}:
             raise ValueError(f"curated evaluation has unknown concept_id: {concept_id}")
         normalized = dict(row)
         normalized.setdefault("schema", "rock-kb-evaluation-question-v1")

@@ -198,11 +198,35 @@ uv run kb publish okf-validate data/okf-export
 uv run kb report refresh
 uv run kb report dashboard
 uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
+uv run kb tools canonical-shadow
+uv run kb tools canonical-retrieval-shadow
+uv run kb tools canonical-identity-baseline
 ```
 
 `kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates the complete read-only Open Knowledge Format v0.1 projection; `--profile full|core`, `--previous-bundle`, and `--archive-dir` control profile, release delta, and versioned assets. It does not replace canonical KB files. Use `kb publish okf-validate` for strict producer verification.
 
 `kb hybrid-shadow` builds the ignored, stratified contextual retrieval payload and reports its estimated embedding cost. Add `--apply` only from an authenticated maintainer environment to create or resume the isolated Cloudflare AI Search pilot, wait for indexing, and write the full evaluation to `service/dist/hybrid-shadow-results.json`. This command does not alter production Worker routing; promote hybrid retrieval only after its curated MRR, recall, authority, duplicate, latency, and cost results beat the corrected lexical baseline.
+
+`kb tools canonical-shadow` builds an ignored shared source/evidence/knowledge
+projection across the major artifact types. It preserves source-specific
+payloads, canonicalizes exact duplicate claim statements, and records source
+mirrors and typed relationships. It does not change the public agent pack,
+service projection, retrieval behavior, or OKF exports. See
+[Canonical Knowledge Shadow](canonical-knowledge-shadow.md).
+
+`kb tools canonical-retrieval-shadow` compares current and canonical search rows
+through the bundled production Worker in two temporary Miniflare D1 databases.
+It scores exact, semantic, authority, wrong-ranking, duplicate, no-answer,
+latency, storage, REST exact lookup, legacy result-ID, and stateless MCP
+compatibility. It writes only ignored review artifacts and does not call or
+modify the hosted service.
+
+`kb tools canonical-identity-baseline` writes the tracked
+`canonical/identity/v1/` baseline after rebuilding the ignored shadow. The
+registry locks durable canonical identities; the separate alias file contains
+only current or legacy result IDs already exposed by the public retrieval
+projection. Unpublished pilot migrations remain under ignored review data and
+are never copied into the baseline. This command does not switch retrieval.
 
 `kb record-source-freshness` is a hidden CI command. It validates a generated
 freshness report, selects the source rows owned by one workflow, and upserts a

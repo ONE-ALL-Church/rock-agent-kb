@@ -171,6 +171,38 @@ def test_evaluate_row_fails_when_expected_result_id_is_missing(monkeypatch):
     assert result["failure_category"] == "retrieval_quality"
 
 
+def test_evaluate_row_passes_expected_no_answer_and_fails_false_positive(monkeypatch):
+    responses = iter([FakeResponse([]), FakeResponse([{"id": "rock_issue:unrelated", "kind": "rock_issue"}])])
+    monkeypatch.setattr(service_eval.httpx, "get", lambda *args, **kwargs: next(responses))
+    row = {
+        "id": "eval:curated:unknown-rock-issue-no-answer",
+        "question": "Rock issue #999999999",
+        "concept_id": "",
+        "expect_no_results": True,
+    }
+
+    passed = service_eval.evaluate_row(
+        "https://example.test",
+        row,
+        limit=5,
+        timeout=1,
+        max_allowed_rank=1,
+    )
+    failed = service_eval.evaluate_row(
+        "https://example.test",
+        row,
+        limit=5,
+        timeout=1,
+        max_allowed_rank=1,
+    )
+
+    assert passed["status"] == "pass"
+    assert passed["expect_no_results"] is True
+    assert passed["has_relevance_expectation"] is False
+    assert failed["status"] == "fail"
+    assert failed["failure_category"] == "retrieval_quality"
+
+
 def test_evaluate_row_retries_one_transport_timeout_and_keeps_ranking_strict(monkeypatch):
     calls = 0
 

@@ -17,6 +17,7 @@ from rock_kb.media import (
     format_timestamp,
     extract_media_urls,
     infer_media_kind,
+    infer_source_work_id,
     media_public_candidate_records,
     media_global_index_path,
     media_insight_records,
@@ -55,6 +56,7 @@ from rock_kb.media import (
     transcription_command,
     transcript_queue_row,
     ytdlp_command_prefix,
+    annotate_media_mirrors,
 )
 from rock_kb.normalize import parse_rss
 from rock_kb.sources import get_source
@@ -116,6 +118,39 @@ def test_infer_media_kind():
     assert infer_media_kind("https://player.vimeo.com/external/123.m3u8") == "video"
     assert infer_media_kind("https://vimeo.com/123") == "video"
     assert should_use_ytdlp("https://player.vimeo.com/external/123.m3u8")
+
+
+def test_media_work_identity_collapses_rockcast_mirrors_only():
+    youtube = infer_source_work_id(
+        source_id="rock_youtube",
+        source_title="Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+        source_url="https://www.youtube.com/watch?v=mYTaGxYMyyQ",
+    )
+    podcast = infer_source_work_id(
+        source_id="rock_podcast_rss",
+        source_title="Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
+        source_url="https://shows.acast.com/rock-cast/episodes/rx26-keynote",
+    )
+    unrelated = infer_source_work_id(
+        source_id="rock_youtube",
+        source_title="AI Summit",
+        source_url="https://www.youtube.com/watch?v=UvW68dZBcJ8",
+    )
+
+    assert youtube == podcast == "media-work:rockcast:episode:216"
+    assert unrelated == "media-work:youtube:UvW68dZBcJ8"
+
+    rows = annotate_media_mirrors(
+        [
+            {"id": "media:youtube", "source_id": "rock_youtube", "source_title": "Rock Cast | Ep 216"},
+            {"id": "media:podcast", "source_id": "rock_podcast_rss", "source_title": "Rock Cast | Ep 216"},
+            {"id": "media:other", "source_id": "rock_youtube", "source_title": "AI Summit"},
+        ]
+    )
+    by_id = {row["id"]: row for row in rows}
+    assert by_id["media:youtube"]["mirror_media_ids"] == ["media:podcast"]
+    assert by_id["media:podcast"]["mirror_source_ids"] == ["rock_youtube"]
+    assert by_id["media:other"]["is_source_mirror"] is False
 
 
 def test_transcript_queue_row_is_private():
@@ -1062,6 +1097,7 @@ def test_build_media_sidecars_writes_private_sidecar_and_textless_index(monkeypa
     assert "private media sidecar" in sidecar_text
     assert transcript not in index_text
     assert '"has_private_transcript": true' in index_text
+    assert '"source_work_id": "media-work:rockcast:episode:214"' in index_text
     assert global_index.exists()
     manifest_rows = list(read_jsonl(media_dir / "rock_podcast_rss.media.jsonl"))
     assert manifest_rows[0]["transcript_status"] == "transcribed"

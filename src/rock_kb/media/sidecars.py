@@ -1,4 +1,5 @@
 from ._shared import *  # noqa: F401,F403
+from .identity import annotate_media_mirrors, infer_source_work_id
 
 
 def sync_media_manifest_transcript_status(source_id: str, transcript_rows: Iterable[dict[str, Any]]) -> int:
@@ -70,10 +71,20 @@ def media_sidecar_index_row(
     media_id = str(media_row.get("id") or "")
     status = str((transcript_row or {}).get("transcript_status") or media_row.get("transcript_status") or "pending")
     transcript_hash = sha256_text(transcript) if transcript else None
+    source_work_id = infer_source_work_id(
+        source_id=source.id,
+        source_title=str(media_row.get("source_title") or source.name),
+        source_record_id=str(media_row.get("source_record_id") or ""),
+        source_url=str(media_row.get("source_url") or source.root_url),
+        media_url=str(media_row.get("media_url") or ""),
+        episode_number=media_row.get("episode_number"),
+        existing=str(media_row.get("source_work_id") or "") or None,
+    )
     return {
         "schema": "rock-kb-media-index-v1",
         "id": f"{media_id}:sidecar",
         "media_id": media_id,
+        "source_work_id": source_work_id,
         "source_id": source.id,
         "source_kind": source.kind,
         "source_record_id": media_row.get("source_record_id"),
@@ -102,6 +113,15 @@ def media_sidecar_index_row(
 
 def public_media_index_hash_payload(media_row: dict[str, Any], transcript_hash: Optional[str]) -> dict[str, Any]:
     return {
+        "source_work_id": infer_source_work_id(
+            source_id=str(media_row.get("source_id") or "unknown"),
+            source_title=str(media_row.get("source_title") or ""),
+            source_record_id=str(media_row.get("source_record_id") or ""),
+            source_url=str(media_row.get("source_url") or ""),
+            media_url=str(media_row.get("media_url") or ""),
+            episode_number=media_row.get("episode_number"),
+            existing=str(media_row.get("source_work_id") or "") or None,
+        ),
         "source_record_id": media_row.get("source_record_id"),
         "source_url": media_row.get("source_url"),
         "media_url": media_row.get("media_url"),
@@ -119,6 +139,7 @@ def media_sidecar_markdown(
     frontmatter = {
         "schema": "rock-kb-media-sidecar-v1",
         "media_id": index_row["media_id"],
+        "source_work_id": index_row["source_work_id"],
         "source_id": source.id,
         "source_record_id": media_row.get("source_record_id"),
         "source_url": media_row.get("source_url") or source.root_url,
@@ -199,4 +220,4 @@ def refresh_global_media_index() -> int:
         if path.name == "media-index.jsonl":
             continue
         rows.extend(read_jsonl(path))
-    return write_jsonl(media_global_index_path(), rows)
+    return write_jsonl(media_global_index_path(), annotate_media_mirrors(rows))

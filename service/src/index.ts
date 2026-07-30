@@ -683,8 +683,18 @@ async function search(
     }
   }
   if (kind === "rock_issue" || includeRockIssues === 1) {
-    for (const row of await exactRockIssueRows(env, query, 0)) {
+    const requestedIssueId = extractRockIssueIdFromQuery(query);
+    const exactRows = await exactRockIssueRows(env, query, 0);
+    for (const row of exactRows) {
       rowsById.set(row.id, row);
+    }
+    if (requestedIssueId && exactRows.length === 0) {
+      for (const [rowId, row] of rowsById) {
+        if (row.kind === "rock_issue") rowsById.delete(rowId);
+      }
+      if (kind === "rock_issue" || isIdentifierOnlyRockIssueQuery(query)) {
+        return [];
+      }
     }
   }
   if (kind === "rock_idea" || includeRockIdeas === 1) {
@@ -6143,10 +6153,31 @@ function extractRockIssueIdFromQuery(query: string): string {
   if (mobile) return normalizeRockIssueId(`mobile:${mobile[1]}`);
   const core = query.match(/\bcore(?:\s+issue)?\s*[:#]?\s*(\d+)\b/i);
   if (core) return normalizeRockIssueId(`core:${core[1]}`);
-  const issue = query.match(/\bissue\s*#?\s*(\d+)\b/i) || query.match(/(?:^|\s)#(\d+)\b/);
+  const issue = query.match(/\bissue\s*#\s*(\d+)\b/i)
+    || query.match(/\bissue\s+(\d{3,})\b/i)
+    || query.match(/(?:^|\s)#(\d+)\b/);
   if (issue) return normalizeRockIssueId(issue[1]);
   const bare = query.trim().match(/^\d+$/);
   return bare ? normalizeRockIssueId(bare[0]) : "";
+}
+
+function isIdentifierOnlyRockIssueQuery(query: string): boolean {
+  if (!extractRockIssueIdFromQuery(query)) return false;
+  const genericTerms = new Set([
+    ...ROCK_ISSUE_QUERY_INTENT_TERMS,
+    "com",
+    "core",
+    "details",
+    "find",
+    "get",
+    "github",
+    "mobile",
+    "report",
+    "rock",
+    "show",
+    "sparkdevnetwork",
+  ]);
+  return searchTerms(query).every((term) => genericTerms.has(term) || /^\d+$/.test(term));
 }
 
 function rockIssueRetrievalBoost(row: SearchRow, queryTerms: string[], query: string): number {

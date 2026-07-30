@@ -14,6 +14,7 @@ from .paths import PUBLIC_EXPORT_DIR, REPO_ROOT
 from .sources import load_sources
 
 PUBLIC_PATHS = [
+    "canonical/identity/v1",
     "claims/approved-claims.jsonl",
     "community-contributions",
     "docs/runbooks/contributor-reviewer-workflow.md",
