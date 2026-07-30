@@ -7,6 +7,7 @@ from rock_kb.canonical_retrieval_shadow import (
     build_claim_collapse_review,
     build_endpoint_compatibility_cases,
     canonical_claim_search_title,
+    canonical_search_body,
     evaluate_endpoint_compatibility,
     evaluate_retrieval_shadow,
     score_evaluation_hits,
@@ -46,6 +47,44 @@ def claim_unit() -> KnowledgeUnit:
 
 def test_canonical_claim_title_preserves_production_ranking_semantics():
     assert canonical_claim_search_title(claim_unit()) == "operational_guidance"
+
+
+def test_source_native_search_body_includes_typed_reference_details():
+    item = KnowledgeUnit(
+        schema="rock-kb-knowledge-unit-v1",
+        knowledge_unit_id="source-native:structured_reference:test",
+        knowledge_type="structured_reference",
+        title="Kiosk Ad Fields",
+        retrieval_text="Kiosk ad item configuration.",
+        concept_facets=["check-in"],
+        authority_tiers=["official"],
+        payload_schema="rock-kb-source-native-artifact-payload-v1",
+        payload={
+            "artifact": {
+                "independent_question": "Which fields control kiosk ad targeting?",
+                "payload": {
+                    "summary": "Reference for kiosk ad controls.",
+                    "reference_items": [
+                        {
+                            "label": "Campuses",
+                            "detail": "Limits the ad to selected campuses.",
+                        }
+                    ],
+                    "steps": [],
+                    "implementation_elements": [],
+                    "cautions": ["Verify targeting before publishing."],
+                    "completion_or_use": "Use this to target an ad.",
+                }
+            }
+        },
+        content_hash="0" * 64,
+    )
+
+    body = canonical_search_body(item)
+
+    assert "Which fields control kiosk ad targeting?" in body
+    assert "Campuses Limits the ad to selected campuses." in body
+    assert "Verify targeting before publishing." in body
 
 
 def test_canonical_claim_title_uses_statement_for_contribution_corroboration():
@@ -92,6 +131,27 @@ def test_shadow_scoring_resolves_expected_legacy_id():
     )
 
     assert result["expected_result_id_rank"] == 1
+    assert result["status"] == "pass"
+
+
+def test_shadow_scoring_accepts_legacy_max_allowed_rank_alias():
+    result = score_evaluation_hits(
+        {
+            "id": "eval:legacy-rank",
+            "question": "Paraphrased lookup",
+            "expected_result_ids": ["expected"],
+            "max_allowed_rank": 3,
+        },
+        [
+            {"id": "first", "kind": "claim"},
+            {"id": "second", "kind": "claim"},
+            {"id": "expected", "kind": "claim"},
+        ],
+        alias_map={},
+        latency_ms=1,
+    )
+
+    assert result["max_allowed_rank"] == 3
     assert result["status"] == "pass"
 
 

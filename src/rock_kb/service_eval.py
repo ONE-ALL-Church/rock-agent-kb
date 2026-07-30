@@ -71,7 +71,17 @@ def evaluate_service(
 def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float, max_allowed_rank: int = 2) -> dict[str, Any]:
     question = str(row.get("question") or "")
     expected_concept = str(row.get("concept_id") or "")
-    row_max_rank = max(1, min(int(row.get("max_rank") or max_allowed_rank), limit))
+    row_max_rank = max(
+        1,
+        min(
+            int(
+                row.get("max_rank")
+                or row.get("max_allowed_rank")
+                or max_allowed_rank
+            ),
+            limit,
+        ),
+    )
     params = urlencode({"q": question, "limit": str(limit), "min_tier": "routing_context_only", "detail": "full"})
     started_at = perf_counter()
     request_attempt_count = 0

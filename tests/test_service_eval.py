@@ -75,6 +75,36 @@ def test_evaluate_row_passes_expected_concept_in_top_two(monkeypatch):
     assert result["status"] == "pass"
 
 
+def test_evaluate_row_accepts_legacy_max_allowed_rank_alias(monkeypatch):
+    monkeypatch.setattr(
+        service_eval.httpx,
+        "get",
+        lambda *args, **kwargs: FakeResponse(
+            [
+                {"id": "first", "kind": "claim"},
+                {"id": "second", "kind": "claim"},
+                {"id": "expected", "kind": "claim"},
+            ]
+        ),
+    )
+
+    result = service_eval.evaluate_row(
+        "https://example.test",
+        {
+            "id": "eval:legacy-rank",
+            "question": "Paraphrased lookup",
+            "expected_result_ids": ["expected"],
+            "max_allowed_rank": 3,
+        },
+        limit=5,
+        timeout=1,
+        max_allowed_rank=2,
+    )
+
+    assert result["max_allowed_rank"] == 3
+    assert result["status"] == "pass"
+
+
 def test_evaluate_row_matches_secondary_concept_and_reports_reciprocal_rank(monkeypatch):
     monkeypatch.setattr(
         service_eval.httpx,

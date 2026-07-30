@@ -201,6 +201,12 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 uv run kb tools canonical-shadow
 uv run kb tools canonical-retrieval-shadow
 uv run kb tools canonical-identity-baseline
+uv run kb tools source-native-candidates --concept system-admin-ops --concept check-in
+uv run kb tools source-native-schema
+uv run kb tools source-native-prompt --concept system-admin-ops
+uv run kb tools source-native-merge --batch <batch-a.json> --batch <batch-b.json>
+uv run kb tools source-native-promote --output <reviewed-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
+uv run kb tools source-native-impact --previous <prior-bundle>
 ```
 
 `kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates the complete read-only Open Knowledge Format v0.1 projection; `--profile full|core`, `--previous-bundle`, and `--archive-dir` control profile, release delta, and versioned assets. It does not replace canonical KB files. Use `kb publish okf-validate` for strict producer verification.
@@ -227,6 +233,20 @@ registry locks durable canonical identities; the separate alias file contains
 only current or legacy result IDs already exposed by the public retrieval
 projection. Unpublished pilot migrations remain under ignored review data and
 are never copied into the baseline. This command does not switch retrieval.
+
+`kb tools source-native-candidates` fetches selected Rockumentation articles
+through the official block-action API and writes deterministic sentence, table,
+code, and addressable list-item units to ignored review data. Nested catalogs
+retain parent links, while API documentation paths and branch hierarchies remain
+structured routing metadata. `source-native-schema` and `source-native-prompt`
+create a strict v2.3 structured-output contract and a bounded model packet.
+`source-native-merge` requires exact batch coverage and reruns the semantic
+gate. `source-native-promote` accepts only maintainer-reviewed, public-safe typed
+artifacts with complete source-unit coverage; raw article text is never tracked.
+Use `--reviewed-at` to reproduce the hashes of an existing approval.
+`source-native-impact` compares two reviewed bundles and reports only the
+dependent knowledge and projections that require revalidation. The tracked
+pilot remains an inactive canonical shadow input.
 
 `kb deploy-service` dual-writes the active legacy projection and an inactive
 canonical shadow under `service/dist/canonical-shadow/v1/`. Applied deploys put

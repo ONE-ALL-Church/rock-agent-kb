@@ -7,6 +7,7 @@ from .knowledge import (
     CanonicalIdentityBaselineManifest,
     CanonicalKnowledgeBundle,
     EvidenceLink,
+    GenerationActivity,
     KnowledgeIdentity,
     KnowledgeIdentityMigration,
     KnowledgeRelationship,
@@ -19,6 +20,12 @@ from .knowledge import (
 from .lava_context import LavaContextExtensionManifest
 from .recipe import RecipeRow
 from .rock_issue import RockIssue, RockIssueReleaseNoteRef, RockIssueReviewedEnrichment, RockIssueWorkerResult
+from .source_native import (
+    ReviewedSourceNativeArtifact,
+    SourceNativeArtifactCandidate,
+    SourceNativeDistillationOutput,
+    SourceNativePilotManifest,
+)
 
 __all__ = [
     "Claim",
@@ -26,6 +33,7 @@ __all__ = [
     "CanonicalKnowledgeBundle",
     "ContributionRow",
     "EvidenceLink",
+    "GenerationActivity",
     "KBRecord",
     "KnowledgeIdentity",
     "KnowledgeIdentityMigration",
@@ -39,6 +47,10 @@ __all__ = [
     "RockIssueReleaseNoteRef",
     "RockIssueReviewedEnrichment",
     "RockIssueWorkerResult",
+    "ReviewedSourceNativeArtifact",
+    "SourceNativeArtifactCandidate",
+    "SourceNativeDistillationOutput",
+    "SourceNativePilotManifest",
     "SourceLocator",
     "SourceSnapshot",
     "SourceUnit",
