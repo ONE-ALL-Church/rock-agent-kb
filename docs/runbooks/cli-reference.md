@@ -228,6 +228,13 @@ only current or legacy result IDs already exposed by the public retrieval
 projection. Unpublished pilot migrations remain under ignored review data and
 are never copied into the baseline. This command does not switch retrieval.
 
+`kb deploy-service` dual-writes the active legacy projection and an inactive
+canonical shadow under `service/dist/canonical-shadow/v1/`. Applied deploys put
+the canonical files in the target R2 slot before that slot is activated and
+record content hash, counts, and bounded projection history in D1. `/health`
+reports the state. Hosted search, MCP, CLI, and OKF remain on legacy retrieval
+until a separately reviewed canary or cutover.
+
 `kb record-source-freshness` is a hidden CI command. It validates a generated
 freshness report, selects the source rows owned by one workflow, and upserts a
 public-safe snapshot to D1 through Wrangler. Ownership and workflow maximum age

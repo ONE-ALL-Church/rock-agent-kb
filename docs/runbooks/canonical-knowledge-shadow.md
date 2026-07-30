@@ -132,6 +132,28 @@ The command writes `identity-registry.jsonl`,
 `canonical/identity/v1/`. It excludes every migration whose source was only an
 unpublished pilot ID. The ignored migration file remains the audit trail.
 
+## Service Dual Write
+
+`uv run kb deploy-service` generates the legacy service projection and a
+complete canonical shadow in the same build. Canonical source snapshots, source
+units, knowledge units, evidence links, relationships, search rows, retrieval
+documents, and a content-addressed manifest are written under
+`service/dist/canonical-shadow/v1/`.
+
+An applied deploy stores those files as dedicated R2 shadow objects and records
+the projection hash and bounded counts in `kb_meta` plus
+`canonical_projection_history_v1`. The Worker exposes that summary through
+`/health`. Search, exact retrieval, MCP, CLI, and OKF continue to read the
+legacy projection; `active_retrieval_projection` must remain `legacy` and the
+canonical manifest must report `active_reader: false`.
+
+Local files remain plain JSONL for review. R2 receives deterministic gzip
+objects plus the manifest; every manifest row records both uncompressed and
+compressed hashes and byte counts.
+
+The history record exists to compare identity and projection stability across
+source-refresh cycles. It does not authorize a canary or retrieval cutover.
+
 ## Promotion Gate
 
 Do not make this projection a public retrieval input until a reviewed shadow

@@ -319,11 +319,17 @@ export default {
         return cors(new Response(null, { status: 204 }));
       }
       if (url.pathname === "/health") {
+        const [version, artifactPrefix, canonicalShadow] = await Promise.all([
+          currentVersion(env),
+          currentArtifactPrefix(env),
+          canonicalShadowStatus(env),
+        ]);
         return json({
           status: "ok",
-          version: await currentVersion(env),
-          artifact_prefix: await currentArtifactPrefix(env),
+          version,
+          artifact_prefix: artifactPrefix,
           artifact_storage: "bounded_two_slot",
+          canonical_shadow: canonicalShadow,
           skill_manifest_url: `${env.PUBLIC_BASE_URL.replace(/\/$/, "")}/skill/manifest.json`,
         });
       }
@@ -3529,6 +3535,45 @@ async function currentVersion(env: ServiceEnv): Promise<string> {
 async function currentArtifactPrefix(env: ServiceEnv): Promise<string> {
   const result = await env.KB_DB.prepare("SELECT value FROM kb_meta WHERE key = 'artifact_prefix'").first<{ value: string }>();
   return result?.value || `versions/${await currentVersion(env)}`;
+}
+
+async function canonicalShadowStatus(env: ServiceEnv): Promise<JsonRecord> {
+  const keys = [
+    "active_retrieval_projection",
+    "canonical_shadow_status",
+    "canonical_shadow_content_hash",
+    "canonical_shadow_search_row_count",
+    "canonical_shadow_knowledge_unit_count",
+    "canonical_shadow_artifact_count",
+  ];
+  const result = await env.KB_DB.prepare(
+    `SELECT key, value FROM kb_meta WHERE key IN (${keys.map(() => "?").join(", ")})`,
+  ).bind(...keys).all<{ key: string; value: string }>();
+  const values = Object.fromEntries(
+    (result.results || []).map((row) => [row.key, row.value]),
+  );
+  const activeProjection = values.active_retrieval_projection || "legacy";
+  return {
+    status: values.canonical_shadow_status || "unavailable",
+    mode: "dual_write_shadow",
+    active_reader: activeProjection === "canonical",
+    active_retrieval_projection: activeProjection,
+    content_hash: values.canonical_shadow_content_hash || null,
+    search_row_count: numericMetadataValue(
+      values.canonical_shadow_search_row_count,
+    ),
+    knowledge_unit_count: numericMetadataValue(
+      values.canonical_shadow_knowledge_unit_count,
+    ),
+    artifact_count: numericMetadataValue(
+      values.canonical_shadow_artifact_count,
+    ),
+  };
+}
+
+function numericMetadataValue(value: string | undefined): number {
+  const parsed = Number(value || 0);
+  return Number.isFinite(parsed) && parsed >= 0 ? Math.floor(parsed) : 0;
 }
 
 async function skillManifest(env: ServiceEnv): Promise<JsonRecord> {

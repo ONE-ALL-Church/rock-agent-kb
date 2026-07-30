@@ -647,13 +647,32 @@ test("experimental Code Mode MCP advertises one read-only composition tool", asy
 });
 
 test("health reports the active bounded artifact slot and artifact reads use it", async () => {
-  const mf = await buildWorker({ artifactPrefix: "slots/b" });
+  const mf = await buildWorker({
+    artifactPrefix: "slots/b",
+    canonicalShadow: {
+      status: "ready",
+      contentHash: "a".repeat(64),
+      searchRowCount: 14268,
+      knowledgeUnitCount: 13704,
+      artifactCount: 7,
+    },
+  });
   try {
     const healthResponse = await mf.dispatchFetch("https://kb.example.test/health");
     const health = await healthResponse.json();
     assert.equal(health.status, "ok");
     assert.equal(health.artifact_prefix, "slots/b");
     assert.equal(health.artifact_storage, "bounded_two_slot");
+    assert.deepEqual(health.canonical_shadow, {
+      status: "ready",
+      mode: "dual_write_shadow",
+      active_reader: false,
+      active_retrieval_projection: "legacy",
+      content_hash: "a".repeat(64),
+      search_row_count: 14268,
+      knowledge_unit_count: 13704,
+      artifact_count: 7,
+    });
     assert.equal(health.skill_manifest_url, "https://kb.example.test/skill/manifest.json");
 
     const skillManifestResponse = await mf.dispatchFetch("https://kb.example.test/skill/manifest.json");
@@ -2021,6 +2040,22 @@ async function buildWorker(options = {}) {
       .bind(JSON.stringify(ISSUE_FIXTURE_SOURCE_HASHES)).run();
     if (options.artifactPrefix) {
       await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('artifact_prefix', ?)").bind(options.artifactPrefix).run();
+    }
+    if (options.canonicalShadow) {
+      const shadow = options.canonicalShadow;
+      const metadata = {
+        active_retrieval_projection: "legacy",
+        canonical_shadow_status: shadow.status,
+        canonical_shadow_content_hash: shadow.contentHash,
+        canonical_shadow_search_row_count: String(shadow.searchRowCount),
+        canonical_shadow_knowledge_unit_count: String(shadow.knowledgeUnitCount),
+        canonical_shadow_artifact_count: String(shadow.artifactCount),
+      };
+      for (const [key, value] of Object.entries(metadata)) {
+        await db.prepare("INSERT INTO kb_meta (key, value) VALUES (?, ?)")
+          .bind(key, value)
+          .run();
+      }
     }
     await db.prepare(`CREATE TABLE search_rows (
       id TEXT PRIMARY KEY,
