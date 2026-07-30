@@ -25,6 +25,9 @@ on:
       - "scripts/validate_bundle.py"
       - "scripts/validate_orgs.py"
       - "src/rock_kb/contribution_sources.py"
+      - "src/rock_kb/canonical_knowledge.py"
+      - "src/rock_kb/canonical_retrieval_shadow.py"
+      - "src/rock_kb/schemas/knowledge.py"
       - "src/rock_kb/service_projection.py"
       - "src/rock_kb/service_eval.py"
       - "src/rock_kb/hosted_evaluation.py"
@@ -117,7 +120,8 @@ jobs:
       - name: Smoke-test hosted service
         if: ${{ env.ROCK_KB_BASE_URL != '' }}
         run: |
-          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health"
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health" >/tmp/health.json
+          uv run python -c 'import json; payload=json.load(open("/tmp/health.json")); shadow=payload.get("canonical_shadow") or {}; assert shadow.get("status") == "ready"; assert shadow.get("active_reader") is False; assert shadow.get("active_retrieval_projection") == "legacy"'
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/skill/manifest.json" >/tmp/skill-manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import sqlite3
 from pathlib import Path
 
 import pytest
@@ -487,10 +488,18 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     sql = projection.sql_path.read_text(encoding="utf-8")
     assert projection.artifact_count > 100
     assert projection.search_row_count > 100
+    assert projection.active_retrieval_projection == "legacy"
+    assert projection.canonical_shadow_hash
+    assert projection.canonical_shadow_search_row_count > 100
+    assert projection.canonical_shadow_knowledge_unit_count > 100
+    assert projection.canonical_shadow_artifact_count == 7
     assert "CREATE VIRTUAL TABLE search_rows_fts" in sql
     assert "CREATE TABLE search_row_concepts" in sql
     assert "CREATE TABLE search_row_aliases" in sql
     assert "CREATE TABLE IF NOT EXISTS mcp_transport_events_v1" in sql
+    assert "CREATE TABLE IF NOT EXISTS canonical_projection_history_v1" in sql
+    assert "'active_retrieval_projection', 'legacy'" in sql
+    assert f"'canonical_shadow_content_hash', '{projection.canonical_shadow_hash}'" in sql
     assert "response_size_basis TEXT NOT NULL" in sql
     assert "'artifact_prefix'" in sql
     assert "'rock_issue_catalog_content_hash'" in sql
@@ -500,6 +509,26 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert projection.retrieval_document_count == projection.search_row_count
     assert (projection.dist / "retrieval-documents.jsonl").exists()
     assert (projection.dist / "retrieval-change-report.json").exists()
+    shadow_dir = projection.dist / "canonical-shadow" / "v1"
+    shadow_manifest = json.loads(
+        (shadow_dir / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert shadow_manifest["content_hash"] == projection.canonical_shadow_hash
+    assert shadow_manifest["active_reader"] is False
+    assert shadow_manifest["active_retrieval_projection"] == "legacy"
+    assert shadow_manifest["unpublished_pilot_migrations_included"] is False
+    assert shadow_manifest["search_row_count"] == projection.canonical_shadow_search_row_count
+    assert len(shadow_manifest["artifacts"]) == 7
+    assert all(
+        row["content_encoding"] == "gzip"
+        and row["r2_path"].endswith(".jsonl.gz")
+        and row["compressed_bytes"] < row["bytes"]
+        and (shadow_dir / row["r2_path"]).exists()
+        for row in shadow_manifest["artifacts"]
+    )
+    assert (shadow_dir / "knowledge-units.jsonl").exists()
+    assert (shadow_dir / "search-rows.jsonl").exists()
+    assert (shadow_dir / "retrieval-documents.jsonl").exists()
     assert (projection.dist / "artifacts" / "agent" / "rock-kb-manifest.json").exists()
     canonical_skill = projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "SKILL.md"
     legacy_skill = projection.dist / "artifacts" / "docs" / "templates" / "rock-kb-agent" / "SKILL.md"
@@ -527,6 +556,16 @@ def test_build_service_projection_version_ignores_generated_timestamp(monkeypatc
     monkeypatch.setattr(service_projection, "public_export_text_for_public_path", lambda path: "{}\n")
     monkeypatch.setattr(service_projection, "build_search_rows", lambda: [])
     monkeypatch.setattr(service_projection, "load_org_registry", lambda: [])
+    monkeypatch.setattr(
+        service_projection,
+        "build_canonical_service_shadow",
+        lambda **kwargs: {
+            "content_hash": "a" * 64,
+            "search_row_count": 0,
+            "knowledge_unit_count": 0,
+            "artifact_count": 0,
+        },
+    )
 
     first = build_service_projection(destination=tmp_path / "first")
     second = build_service_projection(destination=tmp_path / "second")
@@ -572,6 +611,83 @@ def test_build_d1_seed_sql_switches_artifact_prefix_after_projection_rows():
     assert "DROP TABLE IF EXISTS kb_meta" not in sql
     assert "('artifact_prefix', 'slots/b') ON CONFLICT(key)" in sql
     assert sql.rfind("'artifact_prefix'") > sql.rfind("CREATE TABLE rock_issue_enrichments")
+
+
+def test_build_d1_seed_sql_records_inactive_canonical_shadow_history():
+    shadow = {
+        "content_hash": "b" * 64,
+        "search_row_count": 14268,
+        "knowledge_unit_count": 13704,
+        "source_snapshot_count": 10409,
+        "source_unit_count": 13231,
+        "evidence_link_count": 13731,
+        "relationship_count": 6,
+        "artifact_count": 7,
+    }
+
+    sql = build_d1_seed_sql(
+        version="abc123",
+        generated_at="2026-07-30T00:00:00Z",
+        search_rows=[],
+        org_rows=[],
+        canonical_shadow=shadow,
+    )
+
+    assert "'active_retrieval_projection', 'legacy'" in sql
+    assert f"'canonical_shadow_content_hash', '{shadow['content_hash']}'" in sql
+    assert "'canonical_shadow_search_row_count', '14268'" in sql
+    assert "INSERT INTO canonical_projection_history_v1" in sql
+    assert "'abc123', '2026-07-30T00:00:00Z'" in sql
+    assert "PRIMARY KEY (projection_version, generated_at)" in sql
+    assert "ORDER BY generated_at DESC, projection_version DESC LIMIT 32" in sql
+    assert "'canonical_shadow_observation_count'" in sql
+
+
+def test_canonical_shadow_history_preserves_unchanged_refresh_cycles(
+    monkeypatch,
+    tmp_path,
+):
+    monkeypatch.setattr(service_projection, "REPO_ROOT", tmp_path)
+    shadow = {
+        "content_hash": "b" * 64,
+        "search_row_count": 10,
+        "knowledge_unit_count": 9,
+        "source_snapshot_count": 8,
+        "source_unit_count": 9,
+        "evidence_link_count": 9,
+        "relationship_count": 1,
+        "artifact_count": 7,
+    }
+    connection = sqlite3.connect(":memory:")
+
+    for generated_at in [
+        "2026-07-30T00:00:00Z",
+        "2026-07-31T00:00:00Z",
+    ]:
+        connection.executescript(
+            build_d1_seed_sql(
+                version="same-version",
+                generated_at=generated_at,
+                search_rows=[],
+                org_rows=[],
+                canonical_shadow=shadow,
+            )
+        )
+
+    observations = connection.execute(
+        "SELECT projection_version, generated_at, content_hash, active_reader "
+        "FROM canonical_projection_history_v1 ORDER BY generated_at"
+    ).fetchall()
+    observation_count = connection.execute(
+        "SELECT value FROM kb_meta "
+        "WHERE key = 'canonical_shadow_observation_count'"
+    ).fetchone()
+
+    assert observations == [
+        ("same-version", "2026-07-30T00:00:00Z", "b" * 64, 0),
+        ("same-version", "2026-07-31T00:00:00Z", "b" * 64, 0),
+    ]
+    assert observation_count == ("2",)
 
 
 def test_build_d1_seed_sql_records_issue_projection_content_hashes():
@@ -698,6 +814,85 @@ def test_apply_projection_uploads_artifacts_before_remote_d1_seed(monkeypatch, t
     assert commands[2][:5] == ["npx", "wrangler", "d1", "execute", "database"]
     assert "--remote" in commands[2]
     assert "--yes" in commands[2]
+
+
+def test_apply_projection_uploads_canonical_shadow_before_worker_and_d1(
+    monkeypatch,
+    tmp_path,
+):
+    dist = tmp_path / "dist"
+    shards = dist / "artifact-shards"
+    shards.mkdir(parents=True)
+    (shards / "ab.json").write_text("{}\n", encoding="utf-8")
+    shadow_dir = dist / "canonical-shadow" / "v1"
+    shadow_dir.mkdir(parents=True)
+    (shadow_dir / "manifest.json").write_text("{}\n", encoding="utf-8")
+    (shadow_dir / "search-rows.jsonl").write_text("{}\n", encoding="utf-8")
+    (shadow_dir / "search-rows.jsonl.gz").write_bytes(b"compressed")
+    projection = service_projection.ServiceProjection(
+        version="abc123",
+        generated_at="2026-06-12T00:00:00Z",
+        artifact_count=1,
+        search_row_count=1,
+        retrieval_document_count=1,
+        org_count=1,
+        dist=dist,
+        sql_path=dist / "d1-seed.sql",
+        artifact_prefix="slots/a",
+        canonical_shadow_hash="a" * 64,
+        canonical_shadow_artifact_count=1,
+        canonical_shadow_dir=shadow_dir,
+    )
+    projection.sql_path.write_text("SELECT 1;\n", encoding="utf-8")
+    commands: list[list[str]] = []
+    monkeypatch.setattr(
+        service_projection,
+        "run",
+        lambda command, cwd: commands.append(command),
+    )
+    monkeypatch.setattr(
+        service_projection,
+        "run_with_retries",
+        lambda command, cwd: commands.append(command),
+    )
+
+    service_projection.apply_projection_to_cloudflare(
+        projection,
+        env="production",
+        bucket="bucket",
+        database="database",
+    )
+
+    assert commands[0][5] == "bucket/slots/a/artifact-shards/ab.json"
+    canonical_targets = {
+        command[5]
+        for command in commands
+        if command[:5] == ["npx", "wrangler", "r2", "object", "put"]
+        and "/canonical-shadow/" in command[5]
+    }
+    assert canonical_targets == {
+        "bucket/slots/a/canonical-shadow/v1/manifest.json",
+        "bucket/slots/a/canonical-shadow/v1/search-rows.jsonl.gz",
+    }
+    assert all(
+        "search-rows.jsonl" != command[5].rsplit("/", 1)[-1]
+        for command in commands
+        if command[:5] == ["npx", "wrangler", "r2", "object", "put"]
+    )
+    assert commands[3] == [
+        "npx",
+        "wrangler",
+        "deploy",
+        "--env",
+        "production",
+    ]
+    assert commands[4][:5] == [
+        "npx",
+        "wrangler",
+        "d1",
+        "execute",
+        "database",
+    ]
 
 
 def test_select_deploy_artifact_prefix_uses_inactive_slot_and_legacy_migration(monkeypatch):

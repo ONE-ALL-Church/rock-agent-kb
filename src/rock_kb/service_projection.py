@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 import json
 import os
 import re
@@ -18,7 +19,7 @@ import yaml
 
 from .contribution_sources import public_contribution_records
 from .extract import generated_at_iso, sha256_text
-from .jsonl import read_jsonl
+from .jsonl import read_jsonl, write_jsonl
 from .paths import REPO_ROOT
 from .publish import public_export_manifest, public_export_text_for_public_path
 from .rock_issues import (
@@ -40,6 +41,7 @@ SERVICE_PROJECTION_PATH = SERVICE_DIST_DIR / "projection.json"
 SERVICE_SEARCH_ROWS_PATH = SERVICE_DIST_DIR / "search-rows.jsonl"
 SERVICE_RETRIEVAL_DOCUMENTS_PATH = SERVICE_DIST_DIR / "retrieval-documents.jsonl"
 SERVICE_RETRIEVAL_CHANGE_REPORT_PATH = SERVICE_DIST_DIR / "retrieval-change-report.json"
+SERVICE_CANONICAL_SHADOW_RELATIVE_DIR = Path("canonical-shadow/v1")
 ORG_REGISTRY_PATH = SERVICE_DIST_DIR / "org-registry.json"
 D1_SEARCH_BODY_CHAR_LIMIT = 75_000
 ARTIFACT_SHARD_PREFIX_LENGTH = 2
@@ -78,6 +80,12 @@ class ServiceProjection:
     dist: Path
     sql_path: Path
     artifact_prefix: str = ""
+    active_retrieval_projection: str = "legacy"
+    canonical_shadow_hash: str = ""
+    canonical_shadow_search_row_count: int = 0
+    canonical_shadow_knowledge_unit_count: int = 0
+    canonical_shadow_artifact_count: int = 0
+    canonical_shadow_dir: Path | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -91,6 +99,16 @@ class ServiceProjection:
             "dist": str(self.dist),
             "sql_path": str(self.sql_path),
             "artifact_prefix": self.artifact_prefix,
+            "active_retrieval_projection": self.active_retrieval_projection,
+            "canonical_shadow_hash": self.canonical_shadow_hash,
+            "canonical_shadow_search_row_count": self.canonical_shadow_search_row_count,
+            "canonical_shadow_knowledge_unit_count": self.canonical_shadow_knowledge_unit_count,
+            "canonical_shadow_artifact_count": self.canonical_shadow_artifact_count,
+            "canonical_shadow_dir": (
+                str(self.canonical_shadow_dir)
+                if self.canonical_shadow_dir is not None
+                else ""
+            ),
         }
 
 
@@ -106,10 +124,15 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
     manifest = public_export_manifest()
     search_rows = build_search_rows()
     retrieval_documents = build_retrieval_documents(search_rows)
+    canonical_shadow = build_canonical_service_shadow(
+        dist=dist,
+        legacy_search_rows=search_rows,
+    )
     version_manifest = dict(manifest)
     version_manifest.pop("generated_at", None)
     version_manifest["search_projection_hash"] = rows_content_hash(search_rows)
     version_manifest["retrieval_projection_hash"] = rows_content_hash(retrieval_documents)
+    version_manifest["canonical_shadow_hash"] = canonical_shadow["content_hash"]
     version = sha256_text(json.dumps(version_manifest, sort_keys=True, ensure_ascii=False))[:16]
     resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
     files = manifest.get("files") or []
@@ -146,6 +169,7 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         org_rows=org_rows,
         artifact_prefix=resolved_artifact_prefix,
         rock_issue_summary=issue_summary,
+        canonical_shadow=canonical_shadow,
     )
     (dist / "d1-seed.sql").write_text(sql_text, encoding="utf-8")
     projection = ServiceProjection(
@@ -158,9 +182,150 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         dist=dist,
         sql_path=dist / "d1-seed.sql",
         artifact_prefix=resolved_artifact_prefix,
+        active_retrieval_projection="legacy",
+        canonical_shadow_hash=str(canonical_shadow["content_hash"]),
+        canonical_shadow_search_row_count=int(
+            canonical_shadow["search_row_count"]
+        ),
+        canonical_shadow_knowledge_unit_count=int(
+            canonical_shadow["knowledge_unit_count"]
+        ),
+        canonical_shadow_artifact_count=int(
+            canonical_shadow["artifact_count"]
+        ),
+        canonical_shadow_dir=dist / SERVICE_CANONICAL_SHADOW_RELATIVE_DIR,
     )
     (dist / "projection.json").write_text(json.dumps(projection.as_dict(), ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return projection
+
+
+def build_canonical_service_shadow(
+    *,
+    dist: Path,
+    legacy_search_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Write the canonical projection beside legacy output without activating it."""
+
+    from .canonical_knowledge import (
+        CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR,
+        CANONICAL_IDENTITY_MANIFEST_NAME,
+        CANONICAL_IDENTITY_REGISTRY_NAME,
+        build_canonical_knowledge_bundle,
+        sha256_file,
+    )
+    from .canonical_retrieval_shadow import build_canonical_search_rows
+    from .schemas import KnowledgeIdentity
+
+    identity_dir = REPO_ROOT / CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR
+    identity_manifest_path = identity_dir / CANONICAL_IDENTITY_MANIFEST_NAME
+    identity_registry = [
+        KnowledgeIdentity.model_validate(row)
+        for row in read_jsonl(
+            identity_dir / CANONICAL_IDENTITY_REGISTRY_NAME
+        )
+    ]
+    if not identity_registry or not identity_manifest_path.exists():
+        raise RuntimeError(
+            "canonical dual-write requires the reviewed identity baseline; "
+            "run `uv run kb tools canonical-identity-baseline` first"
+        )
+
+    bundle, summary = build_canonical_knowledge_bundle(
+        search_rows=legacy_search_rows,
+        distilled_claims=list(
+            read_jsonl(REPO_ROOT / "agent" / "distilled-claims.jsonl")
+        ),
+        identity_registry=[
+            row.public_dump()
+            for row in identity_registry
+        ],
+        repo_root=REPO_ROOT,
+    )
+    canonical_search_rows = build_canonical_search_rows(
+        baseline_rows=legacy_search_rows,
+        knowledge_units=bundle.knowledge_units,
+        source_snapshots=bundle.source_snapshots,
+        source_units=bundle.source_units,
+    )
+    canonical_retrieval_documents = build_retrieval_documents(
+        canonical_search_rows
+    )
+
+    output_dir = dist / SERVICE_CANONICAL_SHADOW_RELATIVE_DIR
+    output_dir.mkdir(parents=True, exist_ok=True)
+    artifacts: dict[str, Iterable[dict[str, Any]]] = {
+        "source-snapshots.jsonl": (
+            row.public_dump() for row in bundle.source_snapshots
+        ),
+        "source-units.jsonl": (
+            row.public_dump() for row in bundle.source_units
+        ),
+        "knowledge-units.jsonl": (
+            row.public_dump() for row in bundle.knowledge_units
+        ),
+        "evidence-links.jsonl": (
+            row.public_dump() for row in bundle.evidence_links
+        ),
+        "relationships.jsonl": (
+            row.public_dump() for row in bundle.relationships
+        ),
+        "search-rows.jsonl": canonical_search_rows,
+        "retrieval-documents.jsonl": canonical_retrieval_documents,
+    }
+    artifact_manifest = []
+    for name, rows in artifacts.items():
+        path = output_dir / name
+        write_jsonl(path, rows)
+        compressed_path = write_deterministic_gzip(path)
+        artifact_manifest.append(
+            {
+                "path": name,
+                "sha256": sha256_file(path),
+                "bytes": path.stat().st_size,
+                "r2_path": compressed_path.name,
+                "content_encoding": "gzip",
+                "compressed_sha256": sha256_file(compressed_path),
+                "compressed_bytes": compressed_path.stat().st_size,
+            }
+        )
+
+    identity_manifest = json.loads(
+        identity_manifest_path.read_text(encoding="utf-8")
+    )
+    manifest_core = {
+        "schema": "rock-kb-canonical-service-shadow-v1",
+        "mode": "dual_write_shadow",
+        "active_reader": False,
+        "active_retrieval_projection": "legacy",
+        "unpublished_pilot_migrations_included": False,
+        "identity_baseline_sha256": sha256_file(identity_manifest_path),
+        "identity_count": int(identity_manifest.get("identity_count") or 0),
+        "source_snapshot_count": len(bundle.source_snapshots),
+        "source_unit_count": len(bundle.source_units),
+        "knowledge_unit_count": len(bundle.knowledge_units),
+        "evidence_link_count": len(bundle.evidence_links),
+        "relationship_count": len(bundle.relationships),
+        "search_row_count": len(canonical_search_rows),
+        "retrieval_document_count": len(canonical_retrieval_documents),
+        "artifact_count": len(artifact_manifest),
+        "artifacts": artifact_manifest,
+        "projection_summary": summary["output"],
+    }
+    content_hash = sha256_text(
+        json.dumps(
+            manifest_core,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+    )
+    manifest = {**manifest_core, "content_hash": content_hash}
+    (output_dir / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True)
+        + "\n",
+        encoding="utf-8",
+    )
+    return manifest
 
 
 def build_search_rows() -> list[dict[str, Any]]:
@@ -1033,6 +1198,7 @@ def build_d1_seed_sql(
     org_rows: list[dict[str, Any]],
     artifact_prefix: str | None = None,
     rock_issue_summary: dict[str, Any] | None = None,
+    canonical_shadow: dict[str, Any] | None = None,
 ) -> str:
     resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
     relationship_rows = list(read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"))
@@ -1052,6 +1218,19 @@ def build_d1_seed_sql(
   response_size_basis TEXT NOT NULL,
   count INTEGER NOT NULL,
   PRIMARY KEY(day, projection_version, endpoint, protocol_generation, operation_category, cohort, http_status, error_code, latency_bucket, response_size_bucket, response_size_basis)
+);""",
+        """CREATE TABLE IF NOT EXISTS canonical_projection_history_v1 (
+  projection_version TEXT NOT NULL,
+  generated_at TEXT NOT NULL,
+  content_hash TEXT NOT NULL,
+  search_row_count INTEGER NOT NULL,
+  knowledge_unit_count INTEGER NOT NULL,
+  source_snapshot_count INTEGER NOT NULL,
+  source_unit_count INTEGER NOT NULL,
+  evidence_link_count INTEGER NOT NULL,
+  relationship_count INTEGER NOT NULL,
+  active_reader INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (projection_version, generated_at)
 );""",
         "DROP TABLE IF EXISTS search_rows;",
         """CREATE TABLE search_rows (
@@ -1353,7 +1532,29 @@ def build_d1_seed_sql(
         ("current_version", version),
         ("generated_at", generated_at),
         ("artifact_prefix", resolved_artifact_prefix),
+        ("active_retrieval_projection", "legacy"),
     ]
+    shadow = canonical_shadow or {}
+    shadow_hash = str(shadow.get("content_hash") or "")
+    if shadow_hash:
+        metadata.extend(
+            [
+                ("canonical_shadow_status", "ready"),
+                ("canonical_shadow_content_hash", shadow_hash),
+                (
+                    "canonical_shadow_search_row_count",
+                    str(int(shadow.get("search_row_count") or 0)),
+                ),
+                (
+                    "canonical_shadow_knowledge_unit_count",
+                    str(int(shadow.get("knowledge_unit_count") or 0)),
+                ),
+                (
+                    "canonical_shadow_artifact_count",
+                    str(int(shadow.get("artifact_count") or 0)),
+                ),
+            ]
+        )
     issue_summary = rock_issue_summary or {}
     issue_catalog_hash = str(issue_summary.get("catalog_content_hash") or "")
     issue_repositories = issue_summary.get("repositories") or {}
@@ -1381,6 +1582,51 @@ def build_d1_seed_sql(
             + ", "
             + sql_string(value)
             + ") ON CONFLICT(key) DO UPDATE SET value = excluded.value;"
+        )
+    if shadow_hash:
+        lines.append(
+            "INSERT INTO canonical_projection_history_v1 "
+            "(projection_version, generated_at, content_hash, "
+            "search_row_count, knowledge_unit_count, source_snapshot_count, "
+            "source_unit_count, evidence_link_count, relationship_count, active_reader) "
+            "VALUES ("
+            + ", ".join(
+                [
+                    sql_string(version),
+                    sql_string(generated_at),
+                    sql_string(shadow_hash),
+                    str(int(shadow.get("search_row_count") or 0)),
+                    str(int(shadow.get("knowledge_unit_count") or 0)),
+                    str(int(shadow.get("source_snapshot_count") or 0)),
+                    str(int(shadow.get("source_unit_count") or 0)),
+                    str(int(shadow.get("evidence_link_count") or 0)),
+                    str(int(shadow.get("relationship_count") or 0)),
+                    "0",
+                ]
+            )
+            + ") ON CONFLICT(projection_version, generated_at) DO UPDATE SET "
+            "content_hash = excluded.content_hash, "
+            "search_row_count = excluded.search_row_count, "
+            "knowledge_unit_count = excluded.knowledge_unit_count, "
+            "source_snapshot_count = excluded.source_snapshot_count, "
+            "source_unit_count = excluded.source_unit_count, "
+            "evidence_link_count = excluded.evidence_link_count, "
+            "relationship_count = excluded.relationship_count, "
+            "active_reader = 0;"
+        )
+        lines.extend(
+            [
+                "DELETE FROM canonical_projection_history_v1 "
+                "WHERE rowid NOT IN ("
+                "SELECT rowid FROM canonical_projection_history_v1 "
+                "ORDER BY generated_at DESC, projection_version DESC LIMIT 32"
+                ");",
+                "INSERT OR REPLACE INTO kb_meta (key, value) VALUES ("
+                "'canonical_shadow_observation_count', "
+                "(SELECT CAST(COUNT(*) AS TEXT) "
+                "FROM canonical_projection_history_v1)"
+                ");",
+            ]
         )
     return "\n".join(lines) + "\n"
 
@@ -1424,6 +1670,11 @@ def apply_projection_to_cloudflare(
     env_args = ["--env", env] if env else []
     bucket_name = bucket or "rock-agent-kb-artifacts"
     upload_artifacts_to_r2(projection=projection, bucket_name=bucket_name, env_args=env_args)
+    upload_canonical_shadow_to_r2(
+        projection=projection,
+        bucket_name=bucket_name,
+        env_args=env_args,
+    )
     run(["npx", "wrangler", "deploy", *env_args], cwd=SERVICE_DIR)
     d1_target = database or "rock-agent-kb"
     run(["npx", "wrangler", "d1", "execute", d1_target, "--remote", "--file", str(projection.sql_path), "--yes", *env_args], cwd=SERVICE_DIR)
@@ -1506,6 +1757,66 @@ def upload_artifacts_to_r2(*, projection: ServiceProjection, bucket_name: str, e
         futures = [executor.submit(upload_with_progress, path) for path in paths]
         for future in as_completed(futures):
             future.result()
+
+
+def upload_canonical_shadow_to_r2(
+    *,
+    projection: ServiceProjection,
+    bucket_name: str,
+    env_args: list[str],
+) -> None:
+    shadow_dir = projection.canonical_shadow_dir
+    if shadow_dir is None or not shadow_dir.exists():
+        return
+    paths = sorted(
+        path
+        for path in shadow_dir.rglob("*")
+        if path.is_file()
+        and (
+            path.name == "manifest.json"
+            or path.name.endswith(".jsonl.gz")
+        )
+    )
+    print(
+        f"Uploading {len(paths)} canonical shadow artifacts.",
+        flush=True,
+    )
+    for path in paths:
+        rel = path.relative_to(projection.dist).as_posix()
+        run_with_retries(
+            [
+                "npx",
+                "wrangler",
+                "r2",
+                "object",
+                "put",
+                f"{bucket_name}/{projection.artifact_prefix}/{rel}",
+                "--remote",
+                "--file",
+                str(path),
+                *env_args,
+            ],
+            cwd=SERVICE_DIR,
+        )
+
+
+def write_deterministic_gzip(
+    source: Path,
+    *,
+    compresslevel: int = 1,
+) -> Path:
+    destination = source.with_name(f"{source.name}.gz")
+    with source.open("rb") as source_handle:
+        with destination.open("wb") as destination_handle:
+            with gzip.GzipFile(
+                filename="",
+                mode="wb",
+                compresslevel=compresslevel,
+                fileobj=destination_handle,
+                mtime=0,
+            ) as compressed:
+                shutil.copyfileobj(source_handle, compressed)
+    return destination
 
 
 def upload_artifact_shard_to_r2(projection: ServiceProjection, bucket_name: str, env_args: list[str], path: Path) -> None:
