@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import sqlite3
 from pathlib import Path
 
 import pytest
@@ -637,7 +638,56 @@ def test_build_d1_seed_sql_records_inactive_canonical_shadow_history():
     assert "'canonical_shadow_search_row_count', '14268'" in sql
     assert "INSERT INTO canonical_projection_history_v1" in sql
     assert "'abc123', '2026-07-30T00:00:00Z'" in sql
-    assert sql.rstrip().endswith("active_reader = 0;")
+    assert "PRIMARY KEY (projection_version, generated_at)" in sql
+    assert "ORDER BY generated_at DESC, projection_version DESC LIMIT 32" in sql
+    assert "'canonical_shadow_observation_count'" in sql
+
+
+def test_canonical_shadow_history_preserves_unchanged_refresh_cycles(
+    monkeypatch,
+    tmp_path,
+):
+    monkeypatch.setattr(service_projection, "REPO_ROOT", tmp_path)
+    shadow = {
+        "content_hash": "b" * 64,
+        "search_row_count": 10,
+        "knowledge_unit_count": 9,
+        "source_snapshot_count": 8,
+        "source_unit_count": 9,
+        "evidence_link_count": 9,
+        "relationship_count": 1,
+        "artifact_count": 7,
+    }
+    connection = sqlite3.connect(":memory:")
+
+    for generated_at in [
+        "2026-07-30T00:00:00Z",
+        "2026-07-31T00:00:00Z",
+    ]:
+        connection.executescript(
+            build_d1_seed_sql(
+                version="same-version",
+                generated_at=generated_at,
+                search_rows=[],
+                org_rows=[],
+                canonical_shadow=shadow,
+            )
+        )
+
+    observations = connection.execute(
+        "SELECT projection_version, generated_at, content_hash, active_reader "
+        "FROM canonical_projection_history_v1 ORDER BY generated_at"
+    ).fetchall()
+    observation_count = connection.execute(
+        "SELECT value FROM kb_meta "
+        "WHERE key = 'canonical_shadow_observation_count'"
+    ).fetchone()
+
+    assert observations == [
+        ("same-version", "2026-07-30T00:00:00Z", "b" * 64, 0),
+        ("same-version", "2026-07-31T00:00:00Z", "b" * 64, 0),
+    ]
+    assert observation_count == ("2",)
 
 
 def test_build_d1_seed_sql_records_issue_projection_content_hashes():

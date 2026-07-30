@@ -152,7 +152,10 @@ objects plus the manifest; every manifest row records both uncompressed and
 compressed hashes and byte counts.
 
 The history record exists to compare identity and projection stability across
-source-refresh cycles. It does not authorize a canary or retrieval cutover.
+source-refresh cycles. It retains the latest 32 timestamped observations, so an
+unchanged projection still records a distinct successful cycle. Health reports
+the bounded observation count. This does not authorize a canary or retrieval
+cutover.
 
 ## Promotion Gate
 

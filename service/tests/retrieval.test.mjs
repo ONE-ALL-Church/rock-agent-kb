@@ -655,6 +655,7 @@ test("health reports the active bounded artifact slot and artifact reads use it"
       searchRowCount: 14268,
       knowledgeUnitCount: 13704,
       artifactCount: 7,
+      observationCount: 2,
     },
   });
   try {
@@ -672,6 +673,7 @@ test("health reports the active bounded artifact slot and artifact reads use it"
       search_row_count: 14268,
       knowledge_unit_count: 13704,
       artifact_count: 7,
+      observation_count: 2,
     });
     assert.equal(health.skill_manifest_url, "https://kb.example.test/skill/manifest.json");
 
@@ -2050,6 +2052,7 @@ async function buildWorker(options = {}) {
         canonical_shadow_search_row_count: String(shadow.searchRowCount),
         canonical_shadow_knowledge_unit_count: String(shadow.knowledgeUnitCount),
         canonical_shadow_artifact_count: String(shadow.artifactCount),
+        canonical_shadow_observation_count: String(shadow.observationCount),
       };
       for (const [key, value] of Object.entries(metadata)) {
         await db.prepare("INSERT INTO kb_meta (key, value) VALUES (?, ?)")

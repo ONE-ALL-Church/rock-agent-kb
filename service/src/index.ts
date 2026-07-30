@@ -3545,6 +3545,7 @@ async function canonicalShadowStatus(env: ServiceEnv): Promise<JsonRecord> {
     "canonical_shadow_search_row_count",
     "canonical_shadow_knowledge_unit_count",
     "canonical_shadow_artifact_count",
+    "canonical_shadow_observation_count",
   ];
   const result = await env.KB_DB.prepare(
     `SELECT key, value FROM kb_meta WHERE key IN (${keys.map(() => "?").join(", ")})`,
@@ -3567,6 +3568,9 @@ async function canonicalShadowStatus(env: ServiceEnv): Promise<JsonRecord> {
     ),
     artifact_count: numericMetadataValue(
       values.canonical_shadow_artifact_count,
+    ),
+    observation_count: numericMetadataValue(
+      values.canonical_shadow_observation_count,
     ),
   };
 }

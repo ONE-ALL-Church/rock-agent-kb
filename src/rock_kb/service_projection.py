@@ -1220,7 +1220,7 @@ def build_d1_seed_sql(
   PRIMARY KEY(day, projection_version, endpoint, protocol_generation, operation_category, cohort, http_status, error_code, latency_bucket, response_size_bucket, response_size_basis)
 );""",
         """CREATE TABLE IF NOT EXISTS canonical_projection_history_v1 (
-  projection_version TEXT PRIMARY KEY,
+  projection_version TEXT NOT NULL,
   generated_at TEXT NOT NULL,
   content_hash TEXT NOT NULL,
   search_row_count INTEGER NOT NULL,
@@ -1229,7 +1229,8 @@ def build_d1_seed_sql(
   source_unit_count INTEGER NOT NULL,
   evidence_link_count INTEGER NOT NULL,
   relationship_count INTEGER NOT NULL,
-  active_reader INTEGER NOT NULL DEFAULT 0
+  active_reader INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (projection_version, generated_at)
 );""",
         "DROP TABLE IF EXISTS search_rows;",
         """CREATE TABLE search_rows (
@@ -1603,8 +1604,7 @@ def build_d1_seed_sql(
                     "0",
                 ]
             )
-            + ") ON CONFLICT(projection_version) DO UPDATE SET "
-            "generated_at = excluded.generated_at, "
+            + ") ON CONFLICT(projection_version, generated_at) DO UPDATE SET "
             "content_hash = excluded.content_hash, "
             "search_row_count = excluded.search_row_count, "
             "knowledge_unit_count = excluded.knowledge_unit_count, "
@@ -1613,6 +1613,20 @@ def build_d1_seed_sql(
             "evidence_link_count = excluded.evidence_link_count, "
             "relationship_count = excluded.relationship_count, "
             "active_reader = 0;"
+        )
+        lines.extend(
+            [
+                "DELETE FROM canonical_projection_history_v1 "
+                "WHERE rowid NOT IN ("
+                "SELECT rowid FROM canonical_projection_history_v1 "
+                "ORDER BY generated_at DESC, projection_version DESC LIMIT 32"
+                ");",
+                "INSERT OR REPLACE INTO kb_meta (key, value) VALUES ("
+                "'canonical_shadow_observation_count', "
+                "(SELECT CAST(COUNT(*) AS TEXT) "
+                "FROM canonical_projection_history_v1)"
+                ");",
+            ]
         )
     return "\n".join(lines) + "\n"
 
