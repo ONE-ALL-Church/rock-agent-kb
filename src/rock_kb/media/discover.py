@@ -1,4 +1,5 @@
 from ._shared import *  # noqa: F401,F403
+from .identity import infer_source_work_id
 
 
 def discover_media(source: Source, limit: Optional[int] = None, include_empty: bool = False) -> list[dict[str, Any]]:
@@ -116,6 +117,15 @@ def build_media_row(
     row_id = "media:" + sha256_text(f"{source.id}:{source_record_id}:{media_url}")[:16]
     return {
         "id": row_id,
+        "source_work_id": infer_source_work_id(
+            source_id=source.id,
+            source_title=str(source_record.get("source_title") or source.name),
+            source_record_id=source_record_id,
+            source_url=str(source_record.get("source_url") or source.root_url),
+            media_url=media_url,
+            episode_number=source_record.get("episode_number"),
+            existing=str(source_record.get("source_work_id") or "") or None,
+        ),
         "source_id": source.id,
         "source_record_id": source_record_id,
         "source_url": source_record.get("source_url") or source.root_url,

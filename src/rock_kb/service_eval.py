@@ -125,6 +125,7 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
     ordered_ids = [str(hit.get("id") or "") for hit in hits if isinstance(hit, dict)]
     ordered_kinds = [str(hit.get("kind") or "") for hit in hits if isinstance(hit, dict)]
     ordered_authorities = [str(hit.get("authority_tier") or "") for hit in hits if isinstance(hit, dict)]
+    expect_no_results = bool(row.get("expect_no_results"))
     expected_ids = [str(value) for value in row.get("expected_result_ids") or []]
     expected_kinds = [str(value) for value in row.get("expected_result_kinds") or []]
     forbidden_ids = [str(value) for value in row.get("forbidden_result_ids") or []]
@@ -152,11 +153,23 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         )
     ]
     authority_passed = not required_authorities or any(ordered_authorities[index] in required_authorities for index in relevant_indexes if index < row_max_rank)
-    min_hits_passed = len(hits) >= int(row.get("min_hits") or 1)
+    min_hits_passed = expect_no_results or len(hits) >= int(row.get("min_hits") or 1)
     relevant_rank = expected_id_rank if expected_ids else expected_kind_rank if expected_kinds else expected_rank
-    has_relevance_expectation = bool(expected_ids or expected_kinds or expected_concept)
+    has_relevance_expectation = not expect_no_results and bool(expected_ids or expected_kinds or expected_concept)
     reciprocal_rank = round(1 / relevant_rank, 6) if relevant_rank else 0.0
-    passed = bool(hits) and rank_passed and id_passed and kind_passed and forbidden_passed and authority_passed and min_hits_passed and not missing_terms and not duplicate_ids
+    passed = (
+        not hits
+        if expect_no_results
+        else bool(hits)
+        and rank_passed
+        and id_passed
+        and kind_passed
+        and forbidden_passed
+        and authority_passed
+        and min_hits_passed
+        and not missing_terms
+        and not duplicate_ids
+    )
     return {
         "id": row.get("id"),
         "question": question,
@@ -179,6 +192,7 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         "forbidden_max_rank": forbidden_max_rank,
         "required_authority_tiers": required_authorities,
         "authority_passed": authority_passed,
+        "expect_no_results": expect_no_results,
         "has_relevance_expectation": has_relevance_expectation,
         "relevant_rank": relevant_rank,
         "reciprocal_rank": reciprocal_rank,

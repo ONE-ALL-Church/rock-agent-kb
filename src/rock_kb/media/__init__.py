@@ -6,6 +6,7 @@ from types import ModuleType
 from typing import Any, Callable
 
 from ._shared import *  # noqa: F401,F403
+from .identity import *  # noqa: F401,F403
 from .discover import *  # noqa: F401,F403
 from .transcribe import *  # noqa: F401,F403
 from .queue import *  # noqa: F401,F403
@@ -14,10 +15,11 @@ from .review import *  # noqa: F401,F403
 from .promote import *  # noqa: F401,F403
 from .understanding import *  # noqa: F401,F403
 from .report import *  # noqa: F401,F403
-from . import _shared, discover, transcribe, queue, sidecars, review, promote, understanding, report
+from . import _shared, identity, discover, transcribe, queue, sidecars, review, promote, understanding, report
 
 _MODULES: tuple[ModuleType, ...] = (
     _shared,
+    identity,
     discover,
     transcribe,
     queue,

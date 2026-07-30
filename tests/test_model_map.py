@@ -605,6 +605,39 @@ def test_build_model_map_version_diff_tracks_added_and_changed_properties(tmp_pa
     assert summary["changed_field_counts"] == {"description": 1}
 
 
+def test_defined_value_diff_ignores_instance_local_ids_but_keeps_semantic_changes():
+    stable = {
+        "name": "DeclineReasonValueId",
+        "is_defined_value": True,
+        "enum_values": [
+            {"value": "728 = Family Emergency", "label": ""},
+            {"value": "729 = Have to Work", "label": ""},
+        ],
+    }
+    same_options_different_instance = {
+        **stable,
+        "enum_values": [
+            {"value": "738 = Family Emergency", "label": ""},
+            {"value": "739 = Have to Work", "label": ""},
+        ],
+    }
+    changed_options = {
+        **same_options_different_instance,
+        "enum_values": [
+            *same_options_different_instance["enum_values"],
+            {"value": "740 = On Vacation", "label": ""},
+        ],
+    }
+
+    assert model_map.changed_property_fields(stable, same_options_different_instance) == []
+    assert model_map.changed_property_fields(stable, changed_options) == ["enum_values"]
+    comparable = model_map.comparable_property_values(same_options_different_instance)
+    assert comparable["enum_values"] == [
+        {"name": "family-emergency", "description": ""},
+        {"name": "have-to-work", "description": ""},
+    ]
+
+
 def test_property_and_method_rows_ignore_volatile_release_and_obsidian_row_metadata(tmp_path):
     base = {
         "source_url": "https://example.test/model-map",

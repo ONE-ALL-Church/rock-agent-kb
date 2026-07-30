@@ -1423,6 +1423,10 @@ def changed_property_fields(old: dict[str, Any], new: dict[str, Any]) -> list[st
 
 
 def comparable_property_values(prop: dict[str, Any]) -> dict[str, Any]:
+    is_defined_value = bool(
+        prop.get("is_defined_value") if "is_defined_value" in prop else prop.get("isDefinedValue")
+    )
+    enum_values = normalize_enum_values(prop.get("enum_values") or prop.get("keyValues") or [])
     return {
         "description": normalize_description_for_compare(prop.get("description") or prop.get("comments") or ""),
         "is_database": bool(prop.get("is_database")),
@@ -1432,8 +1436,8 @@ def comparable_property_values(prop: dict[str, Any]) -> dict[str, Any]:
         "is_qualifier": bool(prop.get("is_qualifier") if "is_qualifier" in prop else prop.get("isAttributeQualifier")),
         "is_obsolete": bool(prop.get("is_obsolete") if "is_obsolete" in prop else prop.get("isObsolete")),
         "is_enum": bool(prop.get("is_enum") if "is_enum" in prop else prop.get("isEnum")),
-        "is_defined_value": bool(prop.get("is_defined_value") if "is_defined_value" in prop else prop.get("isDefinedValue")),
-        "enum_values": normalize_enum_values(prop.get("enum_values") or prop.get("keyValues") or []),
+        "is_defined_value": is_defined_value,
+        "enum_values": normalize_defined_value_options(enum_values) if is_defined_value else enum_values,
         "related_entity_links": normalize_related_links(prop.get("related_entity_links") or []),
     }
 
@@ -1459,6 +1463,32 @@ def normalize_enum_values(values: Any) -> list[dict[str, str]]:
         [{"value": str(key), "label": str(value)} for key, value in items if key is not None],
         key=lambda row: (row["value"], row["label"]),
     )
+
+
+def normalize_defined_value_options(values: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Compare Defined Values by portable names, not instance-local numeric IDs."""
+
+    rows = []
+    for row in values:
+        raw_value = str(row.get("value") or "").strip()
+        raw_label = str(row.get("label") or "").strip()
+        id_and_name = re.fullmatch(r"-?\d+\s*=\s*(.+)", raw_value)
+        if id_and_name:
+            name = id_and_name.group(1)
+            description = raw_label
+        elif re.fullmatch(r"-?\d+", raw_value) and raw_label:
+            name = raw_label
+            description = ""
+        else:
+            name = raw_value
+            description = raw_label
+        rows.append(
+            {
+                "name": slugify(normalize_description(name)),
+                "description": normalize_description_for_compare(description),
+            }
+        )
+    return sorted(rows, key=lambda row: (row["name"], row["description"]))
 
 
 def scraped_related_links(values: list[dict[str, Any]]) -> list[dict[str, str]]:

@@ -964,6 +964,24 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     const search = await searchResponse.json();
     assert.equal(search.results[0].id, "rock_issue:SparkDevNetwork/Rock#6919");
 
+    const missingExactResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/search?q=Rock%20issue%20%23999999999&limit=5");
+    const missingExact = await missingExactResponse.json();
+    assert.equal(missingExactResponse.status, 200);
+    assert.deepEqual(missingExact.results, []);
+
+    const missingGeneralResponse = await mf.dispatchFetch("https://kb.example.test/search?q=Rock%20issue%20%23999999999&limit=5&min_tier=routing_context_only");
+    const missingGeneral = await missingGeneralResponse.json();
+    assert.equal(missingGeneralResponse.status, 200);
+    assert.deepEqual(missingGeneral.results, []);
+
+    const missingDescriptiveResponse = await mf.dispatchFetch("https://kb.example.test/search?q=Does%20Rock%20issue%20%23999999999%20affect%20Azure%3F&limit=5&min_tier=routing_context_only");
+    const missingDescriptive = await missingDescriptiveResponse.json();
+    assert.equal(missingDescriptive.results.some((row) => row.kind === "rock_issue"), false);
+
+    const versionSearchResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/search?q=issue%2019.2%20Azure%20Blob%20CPU&limit=5");
+    const versionSearch = await versionSearchResponse.json();
+    assert.equal(versionSearch.results[0].id, "rock_issue:SparkDevNetwork/Rock#6919");
+
     const getResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/6919");
     const get = await getResponse.json();
     assert.equal(get.status, "ok");
